@@ -1,0 +1,2992 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='hu'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='nevető arc'>arc; nevetés</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='mosolygó szemmel nevető arc'>arc; szem; mosoly</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='arc örömkönnyekkel'>arc; nevetés; könnyek; öröm</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='nyitott szájjal mosolygó arc'>arc; nyitott száj; mosoly; vidámság</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='nyitott szájjal mosolygó arc mosolygó szemmel'>arc; nyitott száj; mosoly; vidám szem</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='nyitott szájjal mosolygó arc hideg verejtékkel'>arc; nyitott száj; mosoly; hideg verejték</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='nyitott szájjal és lehunyt szemmel mosolygó arc'>arc; nevetés; nyitott száj</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='kacsintó arc'>arc; kacsintás</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='mosolygó arc mosolygó szemmel'>elpirul; elvörösödik; mosoly; vidám szemek</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='finom ételt élvező arc'>arc; nyami; mosoly; finom</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='mosolygó arc napszemüveggel'>arc; napszemüveg; laza; mosoly</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='mosolygó arc szív alakú szemmel'>arc; szem; mosoly; szerelem; szívek</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='csókot dobó arc'>arc; szív; puszi; csók</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='csókoló arc'>arc; csók; puszi</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='csókoló arc mosolygó szemmel'>arc; szem; csók; puszi</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='csókoló arc lehunyt szemmel'>arc; lehunyt szem; csók; puszi</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='mosolygó arc'>arc; nyugodt; mosoly</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='finoman mosolygó arc'>arc; mosoly</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='ölelés'>arc</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='mosolygó arc glóriával'>arc; angyal; glória; mese; mosoly; ártatlanság</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='gondolkodó arc'>arc; elgondolkodó</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='semleges arc'>arc; pókerarc; semleges</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='kifejezéstelen arc'>arc; semleges; érzéketlen; kifejezéstelen</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='száj nélküli arc'>arc; csendes; néma; nincs szája</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='szemét forgató arc'>arc; forgó szemek</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='önelégült vigyor'>arc; önelégült; vigyor</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='állhatatos arc'>arc; állhatatosság</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='csalódott, de megkönnyebbült arc'>arc; csalódott; megkönnyebbült, huhh</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='arc nyitott szájjal'>arc; nyitott száj; csodálkozás</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='arc összecipzározott szájjal'>arc; száj; cipzár</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='meglepődött arc'>arc; meglepődött; döbbent; meglepett</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='álmos arc'>arc; álmos; ásít</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='fáradt arc'>arc; fáradtság</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='alvó arc'>arc; alvás; zzz</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='megkönnyebbült arc'>arc; megkönnyebbült</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='kocka arc'>arc; kocka; gépmániás</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='arc kinyújtott nyelvvel'>arc; nyelv</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='arc kinyújtott nyelvvel és kacsintó szemmel'>arc; szem; mosoly; nyelv; kacsintás; vicc</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='arc kilógó nyelvvel és erősen behunyt szemmel'>arc; szörnyű íz; kiöltött nyelv; lehunyt szem</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='rosszalló arc'>arc; rosszallás</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='kissé komor arc'>arc; rosszallás</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='szomorú arc'>arc; szomorú</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='arc hideg verejtékkel'>arc; hideg verejték</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='elgondolkodó arc'>arc; tűnődő; elgondolkodó</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='zavart arc'>arc; zavart</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='összezavarodott arc'>arc; összezavarodott</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='fejjel lefelé fordult arc'>arc; fejjel lefelé</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='arc egészségügyi maszkkal'>arc; orvos; egészségügyi maszk; gyógyszer; betegség</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='arc lázmérővel'>arc; beteg; lázmérő</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='arc bekötött fejjel'>arc; kötés; sérülés</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='arc dollárjelekkel'>arc; pénz; száj; dollár</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='lenyűgözött arc'>arc; lenyűgözött; csodálkozó</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='csalódott arc'>arc; csalódott</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='aggódó arc'>arc; aggodalmas</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='orrából gőzt fújtató arc'>arc; győzelem; siker</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='síró arc'>arc; sírás; könnycsepp; szomorúság</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='zokogó arc'>arc; sírás; könnyek; szomorúság; zokogás</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='rosszalló arc nyitott szájjal'>arc; rosszallás; nyitott száj</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='elkínzott arc'>arc; elgyötört; elkínzott</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='félelemmel teli arc'>arc; rémült; félelem</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='kimerült arc'>arc; fáradt; megviselt; kimerült</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='grimaszoló arc'>arc; grimasz</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='arc nyitott szájjal és hideg verejtékkel'>arc; hideg verejték; rohanás; nyitott száj</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='félelemtől sikoltó arc'>arc; félelem; rémület; sikoly; munch</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='elpirult arc'>arc; elvörösödik; elpirul</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='szédülő arc'>arc; szédülés</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='duzzogó arc'>arc; mérges; duzzog; vörös; dühös</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='mérges arc'>arc; mérges; dühös</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='mosolygó arc szarvakkal'>arc; mosoly; ördög; szarvak</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='ördög'>arc; démon; mese; fantasy</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='ogre'>arc; lény; óriás; szörny; mese; japán</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='kobold'>arc; lény; szörny; mese; japán; fantasy</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='koponya'>halál; csont; szörny</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='koponya csontokkal'>halál; csont; arc; koponya; csontok</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='szellem'>arc; lény; szörny; mese; kísértet</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='földönkívüli'>idegen; ufó; űrlény</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='földönkívüli szörny'>idegen; ufó; űrlény; szörny; földönkívüli</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='robotarc'>arc; szörny; robot</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='kakihalom'>képregény; kaki; kakiarc; kaka</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='mosolygó macskaarc nyitott szájjal'>arc; macska; nyitott száj; mosoly</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='nevető macskaarc mosolygó szemmel'>arc; macska; szem; mosoly; nevetés</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='macskaarc örömkönnyekkel'>arc; macska; örömkönny; mosoly</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='mosolygó macskaarc szív alakú szemmel'>arc; macska; mosoly; szív; szerelem</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='macskaarc fanyar mosollyal'>arc; macska; irónia; fanyar; mosoly</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='csókoló macskaarc lehunyt szemmel'>arc; macska; csukott szem; csók</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='kimerült macskaarc'>arc; macska; hűha; kimerült</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='síró macskaarc'>arc; macska; szomorú; sírás</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='duzzogó macskaarc'>arc; macska; duzzogás</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='nem láttam semmit'>majom; nem; tilos; nem lát semmit</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='nem hallottam semmit'>majom; nem; tilos; nem hall semmit</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='nem szólok semmit'>majom; nem; tilos; nem szól semmit</annotation>
+
+		<!-- boy -->
+		<annotation cp='[👦]' tts='fiú'>srác; kisfiú</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='lány'>lányka; kislány</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='idős férfi'>öregember</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='idős nő'>öreg néni</annotation>
+
+		<!-- baby -->
+		<annotation cp='[👶]' tts='baba'>kisbaba</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='szőke hajú ember'>szőke</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='rendőr'>zsaru; rendőrség</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='kínai sapkás ember'>sapka; ember</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='turbános ember'>turbán; ember</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='építőmunkás'>építkezés; sisak; védősisak</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='sisak vörös kereszttel'>sisak; elsősegély</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='hercegnő'>mese; fantasy; mesehős</annotation>
+
+		<!-- guardsman; guard -->
+		<annotation cp='[💂]' tts='őr'>őrség</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='nyomozó'>detektív; kopó</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='mikulás'>ünnep; ünneplés; télapó; arc; fej</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='babaangyal'>arc; angyal; baba; mese</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='arcmasszázs'>masszázs</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='hajvágás'>szépségápolás; fodrász; fodrászat</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='menyasszony fátyollal'>menyasszony; fátyol; esküvő; lakodalom</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='rosszalló ember'>rosszallás; rosszalló tekintet</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='duzzogó ember'>duzzogás</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='tiltás mutatása'>tilos; nem szabad; tiltott; kézjel</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='beleegyezés mutatása'>kézjel; oké; rendben</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='ember az információs pultnál'>kéz; segítség; információ</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='vidáman intő ember'>vidám; boldog; integet</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='meghajló ember'>sajnálat; meghajlás; bocsánatkérés</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='kezét felemelő ember'>test; kéz; ünneplés; vidámság</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='összetett kéz'>test; kérés; köszönet; ima</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='beszélő fej'>arc; sziluett; beszéd; fej</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='ember sziluettje melltől felfelé'>ember; sziluett</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='két ember sziluettje melltől felfelé'>ember; sziluett</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='gyalogos'>gyaloglás; séta</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='futó'>futás; maraton</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='bulizó nők'>nyuszi; buli; lányok; parti; nyuszifül; nő</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='öltönyös, lebegő ember'>üzletember; öltöny</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='csók'>pár; romantika</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='pár szívvel'>pár; romantika; szív; szerelem</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='család'>gyermek; apuka; anyuka; apa; anya</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='kézen fogva álló férfi és nő'>pár; kéz a kézben</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='kézen fogva álló férfiak'>pár; ikrek; kézen fogva; férfiak</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='kézen fogva álló nők'>pár; kézen fogva; nők</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='1-es és 2-es bőrtípus'>emoji módosító; bőr; bőrszín; bőrtónusok</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='3-as bőrtípus'>emoji módosító; bőr; bőrszín; bőrtónusok</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='4-es bőrtípus'>emoji módosító; bőr; bőrszín; bőrtónusok</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='5-ös bőrtípus'>emoji módosító; bőr; bőrszín; bőrtónusok</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='6-os bőrtípus'>emoji módosító; bőr; bőrszín; bőrtónusok</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='befeszített bicepsz'>karizom; bicepsz; képregény; izom</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='kéz balra mutató ujjal'>kéz; test; ujj; mutatóujj; tenyér</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='kéz jobbra mutató ujjal'>kéz; test; ujj; mutatóujj; tenyér</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='kéz felfelé mutató ujjal'>kéz; test; ujj; mutatóujj; felfelé</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='tenyér felfelé mutató ujjal'>kéz; test; ujj; mutatóujj; felfelé; tenyér</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='középső ujj'>kéz; test; ujj</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='tenyér lefelé mutató ujjal'>kéz; test; ujj; mutatóujj; lefelé; tenyér</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='győzelmi jelet mutató kéz'>kéz; test; kézjel; betű; jel</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='star trek-üdvözlet'>test; kéz; ujj; spock; vulcan; star trek</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='metálvilla'>test; kéz; ujj; szarvak; ördögvilla; metál; rock</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='felemelt kéz szétálló ujjakkal'>test; kéz; ujj; szétálló</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='felemelt kéz'>test; kéz; fel</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='ok jel'>test; kéz; rendben; oké</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='felfelé mutató hüvelykujj'>test; kéz; rendben; oké; hüvelykujj felfelé</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='lefelé mutató hüvelykujj'>test; kéz; hüvelykujj lefelé</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='felemelt ököl'>test; ököl; felemelt; ütés</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='ütésre emelt ököl'>test; ököl; felemelt; ütés</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='integető kéz'>test; kéz; integetés</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='tapsoló kéz'>test; kéz; taps</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='széttárt kéz'>test; kéz; kitárva</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='író kéz'>test; kéz; írás</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='körömlakk'>test; kéz; köröm; lakk; kifestés; körömápolás; manikűr</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='fül'>test; testrész; fej</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='orr'>test; testrész; fej</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='lábnyomok'>lábnyom; nyomok</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='szemek'>test; szem; arc</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='szem'>test</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='nyelv'>test</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='száj'>test; ajkak</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='csóknyom'>csók; ajkak; szenvedély; romantika</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='nyíllal átlőtt szív'>nyíl; szerelem; Cupido; romantika</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='vörös szív'>szív; piros</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='dobogó szív'>szív; szívdobogás</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='összetört szív'>szív; összetört</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='két szív'>szív; szívek; szerelmes szívek; szerelem</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='ragyogó szív'>szív; izgatott; ragyogás</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='növekvő szív'>szív; izgalom; idegesség; szívdobogás</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='kék szív'>kék; szív</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='zöld szív'>zöld; szív</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='sárga szív'>sárga; szív</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='lila szív'>lila; szív</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='szív szalaggal'>szalag; szív; ajándék; valentin-nap</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='forgó szívek'>szív; forgás</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='szív formájú dekoráció'>szív; dísz; dekoráció</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='nagy szív alakú felkiáltójel'>szív; központozás; írásjel</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='szerelmes levél'>szív; szerelem; levél; romantika</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='alvás'>képregény</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='a düh szimbóluma'>képregény; mérges; dühös</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='bomba'>képregény</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='ütközés'>képregény; bumm</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='izzadságcseppek'>képregény; izzadság</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='rohanás'>képregény; futás</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='szédülés'>képregény; csillagokat lát</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='szövegbuborék'>képregény; buborék; beszéd; párbeszéd</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='balra nyíló szövegbuborék'>képregény; buborék; beszéd; párbeszéd</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='jobbra nyíló dühös szövegbuborék'>képregény; buborék; mérges; dühös</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='gondolatbuborék'>képregény; buborék; gondolat</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='szemüveg'>szem</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='napszemüveg'>sötét; szem; szemüveg; kiegészítő</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='nyakkendő'>ruházat; elegancia</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='póló'>ruha; ruházat</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='farmer'>ruha; ruházat; nadrág; farmernadrág</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='ruha'>ruházat</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='kimonó'>ruha; ruházat</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='bikini'>ruha; ruházat; úszás; fürdő</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='női ruha'>ruha; ruházat; nők</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='pénztárca'>kiegészítő; pénz</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='női táska'>kiegészítő; táska</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='táska'>kiegészítő</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='bevásárlótáskák'>bevásárlótáska; táska; vásárlás</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='iskolatáska'>hátizsák; iskola; táska</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='férfi cipő'>ruha; ruházat; férfi; cipő</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='futócipő'>futás; atlétika; tornacipő; cipő; edzőcipő</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='magas sarkú cipő'>ruha; ruházat; nők; magassarkú</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='női szandál'>ruha; ruházat; nők; szandál</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='női csizma'>ruha; ruházat; nők; csizma; lábbeli</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='korona'>kiegészítő; király; királynő</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='női kalap'>ruha; ruházat; nők; kalap</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='cilinder'>ruha; ruházat; kalap</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='diplomaosztón használt kalap'>ruha; ruházat; kalap; ünneplés; diplomaosztó</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='imafüzér'>gyöngyök; nyaklánc; ima; vallás</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='ajakrúzs'>kozmetikum; szépségápolás; smink</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='gyűrű'>gyémánt; romantika; ékszer</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='ékkő'>gyémánt; romantika; ékszer</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='majomfej'>fej; majom; állat</annotation>
+
+		<!-- monkey -->
+		<annotation cp='[🐒]' tts='majom'>kismajom</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='kutyafej'>kutya; fej; kisállat; kedvenc</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='kutya'>kisállat</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='pudli'>kutya; kisállat; kedvenc</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='farkasfej'>fej; farkas</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='macskafej'>fej; kisállat; kedvenc; macska; cica</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='macska'>kisállat; kedvenc</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='oroszlánfej'>fej; oroszlán</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='tigrisfej'>fej; tigris</annotation>
+
+		<!-- tiger -->
+		<annotation cp='[🐅]' tts='tigris'>állat</annotation>
+
+		<!-- leopard -->
+		<annotation cp='[🐆]' tts='leopárd'>állat</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='lófej'>fej; ló</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='ló'>versenyló; lóverseny</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='unikornisfej'>fej; unikornis; egyszarvú</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='tehénfej'>fej; tehén</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='ökör'>bika</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='vízibölény'>víz; bölény</annotation>
+
+		<!-- cow -->
+		<annotation cp='[🐄]' tts='tehén'>állat</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='malacfej'>fej; disznó; malac</annotation>
+
+		<!-- pig; sow -->
+		<annotation cp='[🐖]' tts='disznó'>koca; malac; állat</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='vaddisznó'>disznó</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='malacorr'>disznó; orr</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='kos'>állat</annotation>
+
+		<!-- sheep; ewe -->
+		<annotation cp='[🐑]' tts='birka'>bárány; juh; anyajuh</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='kecske'>bak; bakkecske</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='teve'>dromedár; púposteve</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='kétpúpú teve'>teve; púposteve</annotation>
+
+		<!-- elephant -->
+		<annotation cp='[🐘]' tts='elefánt'>ormány</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='egérfej'>fej; egér</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='hörcsögfej'>fej; hörcsög; kisállat; kedvenc</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='nyúlfej'>nyúl; nyuszi; fej; kisállat; kedvenc</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='nyúl'>nyuszi; kisállat; kedvenc</annotation>
+
+		<!-- chipmunk -->
+		<annotation cp='[🐿]' tts='mókus'>mogyoró</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='medvefej'>medve; maci; fej</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='koala'>medve; maci; fej</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='pandafej'>panda; maci; fej</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='mancsnyomok'>lábak; lábnyomok</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='kikelő kiscsibe'>kiscsirke; kikelés</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='naposcsibe'>kiscsibe</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='előre néző kiscsibe'>kiscsibe</annotation>
+
+		<!-- bird -->
+		<annotation cp='[🐦]' tts='madár'>fej</annotation>
+
+		<!-- penguin -->
+		<annotation cp='[🐧]' tts='pingvin'>fej</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='galamb'>madár; békegalamb; olajág</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='békafej'>fej; béka</annotation>
+
+		<!-- turtle -->
+		<annotation cp='[🐢]' tts='teknős'>teknőc; teknősbéka</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='sárkányfej'>fej; sárkány; mese; fantasy</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='sárkány'>mese</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='fröcskölő bálna'>fej; bálna; fröcskölés</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='trópusi hal'>trópusi; hal; díszhal</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='gömbhal'>hal</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='tengeri csiga'>kagyló; spirális</annotation>
+
+		<!-- bug; insect -->
+		<annotation cp='[🐛]' tts='bogár'>rovar</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='hangya'>rovar</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='dongó'>méh; méhecske; rovar</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='katica'>bogár; katicabogár; rovar</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='pók'>rovar</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='pókháló'>pók; háló</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='csokor'>virág; virágcsokor; romantika</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='cseresznyevirág'>virág; cseresznye</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='fehér virág'>virág; növény</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='rozetta'>virág; növény</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='rózsa'>virág; növény</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='hibiszkusz'>virág; növény</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='napraforgó'>virág; növény; nap</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='virágzás'>virág; növény</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='tulipán'>virág; növény</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='palánta'>növény</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='örökzöld'>növény; fa</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='lombhullató fa'>lombhullató; növény; fa</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='pálmafa'>növény; fa; pálma</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='kaktusz'>növény</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='rizs'>növény</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='gyógynövény'>levél; növény</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='lóhere'>növény</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='négylevelű lóhere'>szerencse; négylevelű; lóhere</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='juharlevél'>növény; levél; juhar</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='lehullott levél'>lehullott; levél; növény</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='szélfútta levél'>lebegő; hulló; levél; szél; növény</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='szőlő'>gyümölcs; növény</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='sárgadinnye'>gyümölcs; növény</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='görögdinnye'>gyümölcs; növény</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='mandarin'>gyümölcs; növény; narancs</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='citrom'>gyümölcs; növény; citrusféle</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='banán'>gyümölcs; növény</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='ananász'>gyümölcs; növény</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='piros alma'>gyümölcs; növény; alma; piros</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='zöld alma'>gyümölcs; növény; alma; zöld</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='körte'>gyümölcs; növény</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='őszibarack'>gyümölcs; növény</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='cseresznye'>gyümölcs; növény</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='eper'>gyümölcs; növény; szamóca</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='paradicsom'>növény; zöldség</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='padlizsán'>növény; zöldség</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='kukoricacső'>növény; cső; kukorica</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='erőspaprika'>növény, erős; paprika</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='gomba'>növény</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='gesztenye'>növény</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='kenyér'>vekni</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='sajtdarab'>sajt; lyukas sajt</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='csontos hús'>csont; hús</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='csirkecomb'>csontos; csirke; comb; baromfi</annotation>
+
+		<!-- hamburger; burger -->
+		<annotation cp='[🍔]' tts='hamburger'>burger; hambi</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='sült krumpli'>krumpli; sültkrumpli</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='pizza'>szelet; sajtos</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='hot dog'>virsli; kolbász; hotdog; kifli; mustár</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='taco'>mexikói; étel</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='burrito'>mexikói; étel</annotation>
+
+		<!-- popcorn -->
+		<annotation cp='[🍿]' tts='pattogatott kukorica'>kukorica</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='egy tál étel'>tál; étel; ennivaló</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='japán ételdoboz'>bento; ételdoboz</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='rizskeksz'>keksz; rizs; japán</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='rizsgolyó'>golyó; rizs; japán</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='főtt rizs'>főzött; rizs</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='currys rizs'>curry; rizs</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='gőzölgő tál'>tál; tészta; gőzölög; forró</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='spagetti'>tészta</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='sült édesburgonya'>burgonya; édesburgonya; étel</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='oden'>japán kebab; étel</annotation>
+
+		<!-- sushi -->
+		<annotation cp='[🍣]' tts='szusi'>étel</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='sült garnélarák'>sült; rák; tenger gyümölcsei</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='csavart haltorta'>haltorta; csavart; étel</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='dango'>desszert; édesség; pálca; étel</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='lágyfagylalt'>desszert; fagyi; édesség; gépi fagylalt</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='fagylalt öntettel'>desszert; fagyi; öntet; édesség</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='fagylalt'>desszert; fagyi; édesség</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='fánk'>desszert; édesség</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='sütemény'>desszert; süti; keksz; édesség</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='születésnapi torta'>szülinap; desszert; süti; édesség; sütemény; torta</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='gyümölcstorta'>desszert; süti; édesség; sütemény; torta; tortaszelet</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='csokoládé'>csoki; táblás csokoládé; édesség; desszert</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='cukorka'>desszert; édesség</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='nyalóka'>desszert; édesség; cukorka</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='puding'>desszert; édesség</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='mézes csupor'>méz; mézes bödön; csupor; bödön</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='cumisüveg'>baba; cumi; tej</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='forró ital'>kávé; tea; gőzölgő; forró; ital</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='fül nélküli teáscsésze'>tea; ital; teáscsésze</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='szaké'>bár; ital; csésze; üveg</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='üveg kiugró dugóval'>bár; ital; kupak; kiugrik</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='borospohár'>bár; ital; pohár; bor</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='koktélos pohár'>bár; ital; pohár; koktél</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='trópusi ital'>bár; ital; trópusi; koktél</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='söröskorsó'>bár; ital; korsó; sör</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='összekoccanó söröskorsók'>bár; ital; korsó; sör; koccintás</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='kés és villa tányérral'>tálalás; kés; villa; tányér</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='kés és villa'>tálalás; kés; villa</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='sütés-főzés'>tojás; serpenyő</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='amfora'>váza; edény; vízöntő</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='európát és afrikát mutató földgömb'>világ; föld; földgömb; európa; afrika</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='amerikát mutató földgömb'>amerika; föld; földgömb; földrajz; világ</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='ázsiát és ausztráliát mutató földgömb'>ázsia; ausztrália; föld; földgömb; földrajz; világ</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='földgömb délkörökkel'>föld; földgömb; földrajz; világ; délkörök</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='világtérkép'>világ; föld; térkép</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='hegy hótakaróval'>hideg; hegy; hó</annotation>
+
+		<!-- mountain -->
+		<annotation cp='[⛰]' tts='hegy'>hegység</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='vulkán'>kitörés; tűzhányó</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='fudzsi hegy'>fudzsi; hegy</annotation>
+
+		<!-- camping -->
+		<annotation cp='[🏕]' tts='sátorozás'>kemping</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='strand napernyővel'>strand; napernyő; tengerpart</annotation>
+
+		<!-- desert -->
+		<annotation cp='[🏜]' tts='sivatag'>kaktusz</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='lakatlan sziget'>sivatag; sziget</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='nemzeti park'>park; védett terület</annotation>
+
+		<!-- stadium -->
+		<annotation cp='[🏟]' tts='stadion'>sportlétesítmény</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='klasszikus épület'>épület; régi; klasszikus</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='építkezés'>építés</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='lakóházak'>épület; ház</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='városkép'>épületek; város</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='elhagyatott ház'>épület; elhagyatott; ház</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='lakóház'>épület; otthon; ház</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='ház kerttel'>épület; kert; otthon; ház</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='templom'>épület; keresztény; kereszt; vallás</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='kába'>iszlám; mohamedán; vallás; muszlim</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='mecset'>iszlám; mohamedán; vallás; muszlim</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='zsinagóga'>zsidó; vallás; szentély; templom</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='sintó szentély'>vallás; sintó; szentély</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='irodaépület'>épület</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='japán postahivatal'>épület; japán; posta</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='postahivatal'>épület; európai; posta</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='kórház'>épület; orvos; doktor; gyógyítás</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='bank'>épület</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='hotel'>épület</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='szálló szerelmeseknek'>épület; szerelmi fészek; szálloda; love hotel</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='kisbolt'>épület; bolt; non-stop; éjjel-nappali</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='iskola'>épület</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='áruház'>épület; boltok</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='gyár'>épület</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='japán kastély'>épület; kastély; japán</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='vár'>épület; európai</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='esküvő'>kápolna; romantika; épület</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='tokiói torony'>tokió; torony</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='szabadság-szobor'>szabadság; szobor</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='japán térképe'>japán; térkép; földrajz</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='sátor'>kempingezés; szállás</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='ködös'>időjárás; köd</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='éjszaka csillagokkal'>éjszaka; csillag; derült idő</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='hegyek mögött felkelő nap'>napfelkelte; hegyek; nap</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='napfelkelte'>reggel; nap; felkelő nap</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='városkép alkonyatkor'>épület; este; alkonyat; város; városkép; nap; naplemente</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='naplemente'>alkonyat; épületek; nap; lemenő nap</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='híd éjszaka'>híd; éjszaka</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='hőforrás'>forró; forrás; gőz</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='tejút'>űr; világűr; csillagrendszer</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='ló a körhintáról'>körhinta; játék; vidámpark</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='óriáskerék'>játék; vidámpark</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='hullámvasút'>hullámnvasút; játék; vidámpark</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='fodrászcégér'>fodrász; borbély; hajvágás; cégér</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='cirkuszsátor'>cirkusz; sátor</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='előadóművészetek'>maszkok; színház; előadás</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='kép kerettel'>bekeretezett kép; múzeum; galéria; művészet</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='festőpaletta'>múzeum; galéria; művészet; paletta</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='nyerőgép'>játékgép; pénzbedobós</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='mozdony'>vasút; gőz; jármű</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='vasúti kocsi'>kocsi; vasút; vonat; elektromos; villamos</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='gyorsvasút'>vasút; gyorsvonat; jármű</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='golyóorrú gyorsvasút'>golyóorrú; nagysebességű; gyorsvonat; jármű</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='vonat'>vasút; jármű</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='metró'>földalatti; jármű</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='hév'>vasút; jármű</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='állomás'>vasút; jármű; vonat</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='villamos'>nagyvárosi közlekedés; jármű</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='egysínű vasút'>jármű</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='hegyi vasút'>kocsi; jármű</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='villamoskocsi'>kocsi; villamos; jármű</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='busz'>jármű</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='érkező busz'>busz; érkezés; jármű</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='trolibusz'>busz; troli; jármű</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='buszmegálló'>busz; megálló</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='mikrobusz'>busz; minibusz; jármű</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='mentő'>jármű</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='tűzoltó'>tűzoltóság; jármű</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='rendőrautó'>járőrautó; jármű; rendőrség; autó</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='érkező rendőrautó'>járőrautó; érkező; jármű; rendőrség; autó</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='taxi'>jármű; személyszállítás</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='érkező taxi'>érkező; taxi; jármű; személyszállítás</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='autó'>jármű</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='érkező autó'>kocsi; autó; érkező; jármű</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='lakóautó'>lakókocsi; jármű</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='teherautó'>teherfuvarozás; autó; jármű</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='billenős teherautó'>teherfuvarozás; autó; jármű</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='traktor'>jármű</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='kerékpár'>bicikli; jármű</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='benzinkút'>tank; benzin; dízel; kút; töltőállomás</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='autópálya'>út; pálya</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='vasúti sín'>vasút; vonat</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='rendőrautó villogója'>villogó; autó; lámpa; forgó; jármű</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='vízszintes közlekedési lámpa'>lámpa; közlekedési</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='függőleges közlekedési lámpa'>lámpa; közlekedési</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='útépítés'>sorompó</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='vasmacska'>hajózás; kikötés</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='vitorlás hajó'>hajó; vitorlás; tenger; jacht; vízi jármű</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='csónak'>vízi jármű</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='motoros siklócsónak'>csónak; vízi jármű</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='utasszállító hajó'>csónak; vízi jármű; utasszállítás</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='komp'>hajó; utasszállítás</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='motorcsónak'>csónak; utasszállítás</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='hajó'>vízi jármű</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='repülőgép'>légi jármű</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='kisrepülő'>légi jármű; repülőgép</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='repülőgép indulása'>légi jármű; repülőgép; utasfelvétel; indulás; felszállás</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='repülőgép érkezése'>légi jármű; repülőgép; érkezés; leszállás</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' tts='ülés'>szék</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='helikopter'>légi jármű</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='függővasút'>jármű; vasút; függő</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='hegyi felvonó'>jármű; hegyi</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='kötélpályás felvonó'>jármű; levegő; kötélpálya</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='rakéta'>jármű; űr</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='műhold'>jármű; űr; szatelit</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='londinerhívó csengő'>csengő; szálloda</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='ember az ágyban'>szálloda; alvás</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='ágy'>szálloda; alvás</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='kanapé és lámpa'>kanapé; szálloda; lámpa</annotation>
+
+		<!-- toilet -->
+		<annotation cp='[🚽]' tts='vécé'>toalett; mosdó</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='zuhanyzó'>víz; vízsugár</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='fürdő ember'>fürdőkád; fürdés</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' tts='fürdőkád'>fürdés</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='homokóra'>homok; idő; óra</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='homokóra csordogáló homokkal'>homokóra; homok; idő</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='óra'>karóra</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='ébresztőóra'>vekker; ébresztés; óra</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='stopperóra'>stopper; óra</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='visszaszámláló óra'>visszaszámlálás; időzítő; óra</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='régies óra'>óra</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='tizenkét óra'>00; 12; 12:00; óra; egész óra; tizenkettő</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='fél egy'>12; 12:30; 30; óra; harminc; tizenkettő</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='egy óra'>00; 1; 1:00; óra; egész óra; egy</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='fél kettő'>1; 1:30; 30; óra; egy; harminc</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='két óra'>00; 2; 2:00; óra; egész óra; kettő</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='fél három'>2; 2:30; 30; óra; harminc; kettő</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='három óra'>00; 3; 3:00; óra; egész óra; három</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='fél négy'>3; 3:30; 30; óra; harminc; három</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='négy óra'>00; 4; 4:00; óra; négy; egész óra</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='fél öt'>30; 4; 4:30; óra; négy; harminc</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='öt óra'>00; 5; 5:00; óra; öt; egész óra</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='fél hat'>30; 5; 5:30; óra; öt; harminc</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='hat óra'>00; 6; 6:00; óra; egész óra; hat</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='fél hét'>30; 6; 6:30; óra; hat; harminc</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='hét óra'>00; 7; 7:00; óra; egész óra; hét</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='fél nyolc'>30; 7; 7:30; óra; hét; harminc</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='nyolc óra'>00; 8; 8:00; óra; nyolc; egész óra</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='fél kilenc'>30; 8; 8:30; óra; nyolc; harminc</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='kilenc óra'>00; 9; 9:00; óra; kilenc; egész óra</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='fél tíz'>30; 9; 9:30; óra; kilenc; harminc</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='tíz óra'>00; 10; 10:00; óra; egész óra; tíz</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='fél tizenegy'>10; 10:30; 30; óra; tíz; harminc</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='tizenegy óra'>00; 11; 11:00; óra; tizenegy; egész óra</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='fél tizenkettő'>11; 11:30; 30; óra; tizenegy; harminc</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='újhold'>holdfázisok; sötétség; hold; ég</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='növő, kifli alakú hold'>holdfázisok; kifli; növő hold; ég</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='első negyedben lévő hold'>holdfázisok; negyed; hold; ég</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='növő domború hold'>holdfázisok; domború; hold; ég</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='telihold'>holdfázisok; hold; ég</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='fogyó domború hold'>holdfázisok; homorú; hold; ég</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='utolsó negyedben lévő hold'>holdfázisok; utolsó negyed; hold; ég</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='fogyó, kifli alakú hold'>holdfázisok; fogyó; hold; ég; kifli</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='kifli alakú hold'>holdfázisok; kifli; hold; ég</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='új hold arccal'>holdfázisok; arc; újhold; hold; ég</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='első negyedben lévő hold arccal'>holdfázisok; arc; első negyed; hold; ég</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='utolsó negyedben lévő hold arccal'>holdfázisok; arc; utolsó negyed; hold; ég</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='hőmérő'>időjárás</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='nap'>fényes sugarak; napsugarak; napos; időjárás</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='telihold arccal'>holdfázisok; arc; telihold; ég</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='nap arccal'>nap; arc; időjárás; égitest</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='közepes fehér csillag'>csillag</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='fénylő csillag'>fény; csillogás; csillag</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='hullócsillag'>csillaghullás; ég; csillag</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='felhő'>időjárás</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='nap egy felhő mögött'>felhő; nap; időjárás</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='felhő villámmal és esővel'>felhő; eső; mennydörgés; időjárás</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='nap egy kis felhő mögött'>felhő; nap; időjárás</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='nap egy nagy felhő mögött'>felhő; nap; időjárás</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='nap a felhő mögött esővel'>felhő; eső; nap; időjárás</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='felhő esővel'>felhő; eső; időjárás</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='felhő hóval'>felhő; hideg; hó; időjárás</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='felhő villámmal'>felhő; villám; időjárás</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='tornádó'>felhő; időjárás</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='köd'>felhő; időjárás</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='szélarc'>arc; szél; időjárás; szeles</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='ciklon'>hurrikán; tájfun; időjárás</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='szivárvány'>időjárás; eső</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='becsukott esernyő'>kiegészítő; eső; ernyő; időjárás</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='esernyő'>kiegészítő; eső; időjárás</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='esernyő esőcseppekkel'>kiegészítő; csepp; eső; ernyő; időjárás</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='ernyő a földön'>eső; nap; ernyő; időjárás</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='magasfeszültség'>villám; nagyfeszültség; veszély</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='hópehely'>hideg; hó; időjárás</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='hóember'>hideg; hó; időjárás</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='hóember hó nélkül'>hideg; hó; hóember; időjárás</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='üstökös'>űr</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='tűz'>láng</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='csepp'>hideg; képregény; izzadság; időjárás</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='hullám a vízen'>tenger; óceán; hullám; víz; időjárás</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='töklámpás'>ünneplés; ünnep; ünnepi hangulat; halloween; töklámpa</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='karácsonyfa'>ünneplés; ünnep; ünnepi hangulat; karácsony; fenyő; fa; fenyőfa</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='tűzijáték'>ünneplés; ünnep; ünnepi hangulat</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='csillagszóró'>ünneplés; ünnep; ünnepi hangulat; tűzijáték</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='szikrák'>szikra; csillag</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='léggömb'>ünneplés; ünnep; ünnepi hangulat</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='partikellékek'>ünneplés; ünnep; ünnepi hangulat; buli</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='konfetti'>ünneplés; ünnep; ünnepi hangulat</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='tanabata ünnepi fa'>ünneplés; ünnep; ünnepi hangulat; japán; fa</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='keresztbe tett zászlók'>ünneplés; ünnep; ünnepi hangulat; keresztbe tett; zászlók; japán</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='fenyődekoráció'>bambusz; ünneplés; ünnep; ünnepi hangulat; japán; növény; fenyő</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='japán babák'>baba; ünneplés; ünnep; ünnepi hangulat; japán</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='rizspapír pontyok'>ponty; ünneplés; ünnep; ünnepi hangulat; rizspapír</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='harangjáték'>harang; ünneplés; ünnep; ünnepi hangulat; </annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='holdünnep'>ünneplés; ünnep; hold; ünnepi hangulat; </annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='szalag'>masni; ünneplés; ünnep; ünnepi hangulat; </annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='becsomagolt ajándék'>doboz; ünneplés; ünnep; ünnepi hangulat; ajándék; becsomagolt</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='katonai kitüntetés'>megemlékezés; medál; kitüntetés; katonai</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='emlékező szalag'>megemlékezés; emlékezés; szalag</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='filmkockák'>mozi; film; kockák; kocka; filmtekercs</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='belépőjegyek'>belépő; jegy</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='jegy'>belépő</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='focilabda'>labda; foci; futball</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='baseball-labda'>labda; baseball</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='kosárlabda'>labda; kosár</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='amerikaifoci-labda'>amerikai futball; labda</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='rögbilabda'>labda; rögbi</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='tenisz'>labda</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='biliárd'>8-as; golyó; biliárdgolyó</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='bowling'>golyó; játék</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='zászló a lyuknál'>golf; lyuk</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='golfozó'>labda; golf; golfütő</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='jégkorcsolya'>jég; korcsolya</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='horgászbot'>hal; bot; pecabot</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='futómez'>futás; mez; trikó</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='sílécek'>síelés; hó; téli sportok</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='síelő'>síelés; hó; téli sportok</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='snowboardozó'>snowboard; hódeszka; hó; téli sportok</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='szörföző'>szörf</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='lóverseny'>ló; zsoké; versenyló</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='úszó'>úszás</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='ember labdával'>labda; sportoló</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='súlyemelő'>súly; sportoló</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='kerékpáros'>bicikli; kerékpár; sportoló; biciklista</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='hegyikerékpáros'>bicikli; kerékpár; sportoló; biciklista; hegy</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='versenyautó'>autó; verseny; versenyzés</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='motorkerékpár'>verseny; versenyzés</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='sportérem'>érem; medál</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='kupa'>díj</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='krikett'>labda; ütő; játék</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='röplabda'>labda; játék; sport</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='gyeplabda'>labda; sport; hoki; ütő</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='hokiütő és korong'>labda; jéghoki; korong; sport; hoki; ütő</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='pingpong'>sport; asztalitenisz; ütő; labda</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='tollaslabda'>tollas; játék; ütő; labda</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='telitalálat'>bullseye; játék; találat</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='videojáték'>kontroller; játék</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='joystick'>játék; videojáték</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='dobókocka'>kocka; játék</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='pikk szín'>francia kártya; játék; szín; pikk</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='kőr szín'>francia kártya; játék; szín; kőr</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='káró szín'>francia kártya; játék; szín; káró</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='treff szín'>francia kártya; játék; szín; treff</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='dzsóker'>francia kártya; játék</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='madzsong vörös sárkány'>madzsong; játék; vörös</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='virágos kártyajáték'>kártya; virág; játék; japán</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='elnémított hangszóró'>néma; némított; hangerő; csendes; hangszóró</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='hangszóró'>hangerő</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='bekapcsolt hangszóró'>alacsony hangerő; hangszóró</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='hangos hangszóró'>nagy hangerő; hangszóró; hangos</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='hangosbeszélő'>hangos; közlemények</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='megafon'>szurkolás</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='postakürt'>kürt; posta; postai</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='áthúzott harang'>harang; tilos; tiltott; némítás; néma; némított</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='zenei kotta'>zene; kotta</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='hangjegy'>zene</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='hangjegyek'>zene; hangjegy</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='stúdiómikrofon'>mikrofon; zene; stúdió</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='csúszka'>zene; hangerő</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='vezérlőgombok'>gombok; irányítás; zene</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='mikrofon'>karaoke; zene; hangjegyek</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' tts='fülhallgató'>zenehallgatás</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='szaxofon'>hangszer; zene; szaxi</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='gitár'>hangszer; zene</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='zenei billentyűzet'>hangszer; zene; billentyűzet; zongora</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='trombita'>hangszer; zene</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='hegedű'>hangszer; zene</annotation>
+
+		<!-- radio; video -->
+		<annotation cp='[📻]' tts='rádió'>rádiókészülék</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='mobiltelefon'>mobil; rádiótelefon; telefon</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='mobiltelefon nyíllal'>mobil; mobiltelefon; rádiótelefon; telefon; nyíl; hívás</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='telefonkagyló'>kagyló; telefon</annotation>
+
+		<!-- fax machine; fax -->
+		<annotation cp='[📠]' tts='faxkészülék'>fax</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='elektromos dugó'>elektronika; villamosság; dugó</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='laptop'>számítógép; notebook</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='asztali számítógép'>számítógép; asztali; pc</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='nyomtató'>számítógép</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='billentyűzet'>számítógép</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='számítógépes egér'>3 gombos; számítógép; egér; három</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='trackball'>számítógép</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='minidisk'>számítógép; lemez; optikai</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='floppylemez'>számítógép; lemez; floppy; hajlékonylemez</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='optikai lemez'>számítógép; lemez; dvd; blu-ray; optikai</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>számítógép; lemez; cd; blu-ray; optikai</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='kamera'>mozi; film; felvevő</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='csapó'>film</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='filmvetítő'>vetítő; mozi; film; videó</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='televízió'>tévé; tévékészülék</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='fényképezőgép'>kamera</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='fényképező vakuval'>fényképezőgép; vaku; videó</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='videokamera'>kamera; videók</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='videokazetta'>szalag; kazetta; videó</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='balra mutató nagyító'>nagyító; keresés; lencse</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='jobbra mutató nagyító'>nagyító; keresés; lencse</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='mikroszkóp'>eszköz; felszerelés</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='távcső'>eszköz; felszerelés</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='parabolaantenna'>antenna; tányér; műhold</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='gyertya'>világítás</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='villanykörte'>képregény; ötlet; világítás; fény</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='zseblámpa'>elektronikus; világítás; fény; elemlámpa</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='piros papírlámpa'>bár; japán; piros; lámpa</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='jegyzetfüzet díszkötésben'>füzet; borító; díszes; díszkötés; jegyzetfüzet</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='becsukott könyv'>könyv; csukott</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='nyitott könyv'>könyv; nyitott</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='zöld könyv'>könyv; zöld</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='kék könyv'>könyv; kék</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='narancssárga könyv'>könyv; narancssárga</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' tts='könyvek'>könyv</annotation>
+
+		<!-- notebook -->
+		<annotation cp='[📓]' tts='jegyzetfüzet'>füzet; jegyzetek</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='főkönyv'>könyv</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='kunkorodó lap'>kunkorodik; dokumentum; lap</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='tekercs'>papírtekercs; papír</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='felfelé néző oldal'>dokumentum; lap</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='újság'>újságos</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='feltekert újság'>újság; feltekert; papír</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='könyvjelzők'>könyvjelző; fülek; jelzés</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='pénzeszsák'>zsák; dollár; pénz</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='jen bankjegy'>bank; papírpénz; bankjegy; pénznem; pénz; bankó; jen</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='dollár bankjegy'>bank; papírpénz; bankjegy; pénznem; pénz; bankó; dollár</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='euró bankjegy'>bank; papírpénz; bankjegy; pénznem; pénz; bankó; euró</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='font bankjegy'>bank; papírpénz; bankjegy; pénznem; pénz; bankó; font</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='pénz szárnyakkal'>bank; papírpénz; bankjegy; dollár; pénz; bankó; szárnyak; repülés</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='hitelkártya'>bank; kártya; bankkártya</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='növekvő jendiagram'>bank; diagram; pénznem; növekedés; piac; pénz; emelkedés; trend; felfelé; jen</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='boríték'>levél; e-mail</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='e-mail'>levél</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='beérkező boríték'>levél; e-mail; boríték; beérkező; posta; fogadás</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='boríték nyíllal'>nyíl; levél; e-mail; boríték; kimenő; posta; elküldött</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='kimenő tálca'>levél; kimenő; posta; elküldött; tálca</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='beérkező tálca'>levél; beérkező; posta; fogadás; tálca</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='csomag'>doboz</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='csukott levelesláda felemelt zászlóval'>csukott; levél; postaláda; levelesláda</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='csukott levelesláda leengedett zászlóval'>csukott; levél; postaláda; levelesláda; leengedett</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='nyitott levelesláda felemelt zászlóval'>nyitott; levél; postaláda; levelesláda; felemelt</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='nyitott levelesláda leengedett zászlóval'>nyitott; levél; postaláda; levelesláda; leengedett</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='postaláda'>doboz; levelesláda</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='urna szavazólappal'>urna; doboz; szavazás</annotation>
+
+		<!-- pencil -->
+		<annotation cp='[✏]' tts='ceruza'>írószer</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='fekete tollhegy'>tollhegy; toll; írószer</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='töltőtoll'>toll; írószer</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='toll'>golyóstoll; írószer</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='ecset'>festés; írószer</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='zsírkréta'>rajz</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='feljegyzés'>ceruza; lap</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='fájlmappa'>fájl; mappa</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='nyitott fájlmappa'>fájl; mappa; nyitott</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='kartotékelválasztók'>kartoték; elválasztók; katalógus</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='naptár'>dátum</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='fali naptár'>naptár</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='spirálfüzet'>jegyzettömb; tömb; spirál</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='spirálos naptár'>naptár; tömb; spirál</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='forgó névjegykártyatartó'>kártya; tartó; forgó; rolodex</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='növekvő diagram'>növekedés; diagram; felfelé; trend</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='csökkenő diagram'>csökkenés; diagram; lefelé; trend</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='oszlopdiagram'>sáv; oszlop; diagram</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='kerek rajzszög'>rajzszög</annotation>
+
+		<!-- paperclip -->
+		<annotation cp='[📎]' tts='gemkapocs'>papírkapocs</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='összekapcsolt gemkapcsok'>kapcsolódás; gemkapcsok</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='egyenes vonalzó'>vonalzó; egyenes</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='háromszögvonalzó'>vonalzó; háromszög; derékszögű</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='olló'>eszköz</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='kartotékdoboz'>doboz; kartoték; akták</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='iratszekrény'>iratok; akták; szekrény</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='lakat'>zárva; zárt</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='nyitott lakat'>kinyitás; lakat; nyitva</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='lakat tollal'>tinta; zár; toll; adatvédelem</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='zárt lakat kulccsal'>zárva; zárt; kulcs; biztonságos</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='kulcs'>jelszó</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='régi kulcs'>öreg kulcs</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='kalapács'>szerszám</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='csákány'>szerszám; bányászat</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='kalapács és csákány'>kalapács; csákány; szerszám</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='kalapács és csavarkulcs'>kalapács; csavarkulcs; villáskulcs; szerszám</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='csavarkulcs'>villáskulcs; szerszám</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='csavar és anya'>csavar; anya; szerszám</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='fogaskerék'>szerszám</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='satu'>szerszám</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='lombik'>kémia; eszköz; felszerelés</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='kétkarú mérleg'>mérleg; tömeg; eszköz; felszerelés</annotation>
+
+		<!-- link -->
+		<annotation cp='[🔗]' tts='kapocs'>láncszem</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='lánc'>láncszemek</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='fecskendő'>orvos; injekciós tű; vérvétel; eszköz</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='tabletta'>orvos; gyógyszer; betegség; pirula; doktor</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='tőr'>szúrás; fegyver</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='konyhakés'>kés; felszerelés; eszköz; konyha</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='keresztezett kardok'>keresztbe tett; keresztezett; kardok; fegyver</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='pisztoly'>fegyver; revolver</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='pajzs'>fegyver</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='íj és nyíl'>nyilas; nyíl; íj; fegyver</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='kockás zászló'>kockás; versenyzés; autóverseny</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='lengő fehér zászló'>lengő</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='lengő fekete zászló'>lengő</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='háromszög alakú zászló'>posta</annotation>
+
+		<!-- smoking -->
+		<annotation cp='[🚬]' tts='dohányzás'>cigaretta</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='koporsó'>halál</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='halotti urna'>halál; temetés; urna</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='moai'>arc; szobor; japán</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='olajoshordó'>hordó; olaj</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='kristálygömb'>mese; jövendő; jövendőmondás</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='ATM-jel'>atm; bankautomata</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='szemét a kukában szimbólum'>szemét; szemetes; környezettudatosság</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='ivóvíz'>iható; fogyasztható víz</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='kerekesszék'>akadálymentesség</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='férfi mosdó'>vécé; mosdó; férfiak; wc</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='női mosdó'>vécé; mosdó; nők; wc</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='mosdó'>vécé; toalett</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='baba szimbólum'>pelenkázó; kisbaba</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='toalett'>vécé; mosdó; mellékhelyiség; wc</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='útlevél-ellenőrzés'>ellenőrzés; útlevél</annotation>
+
+		<!-- customs -->
+		<annotation cp='[🛃]' tts='vám'>ellenőrzés</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='poggyászfelvétel'>poggyász; felvétel</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='csomagmegőrző'>poggyász; megőrzés; csomag</annotation>
+
+		<!-- warning -->
+		<annotation cp='[⚠]' tts='figyelmeztetés'>figyelem</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='átkelő gyermekek'>gyermekek; gyalogosok</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='behajtani tilos'>behajtás; tilos; nincs behajtás; tiltott; közlekedési tábla</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='tilos'>behajtás; nincs behajtás; tiltott</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='kerékpározni tilos'>bicikli; kerékpár; tilos; tiltott</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='dohányozni tilos'>dohányzás; cigaretta; tilos; tiltott</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='szemetelni tilos'>szemét; szemetelés; tilos; tiltott</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='nem ivóvíz'>ivás; tilos; nem; ivóvíz; tiltott</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='nem gyalogos zóna'>gyalogos; gyalog; tilos; tiltott</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='radioaktív'>nukleáris veszély</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='felfelé mutató nyíl'>nyíl; felfelé; észak; irány</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='jobbra felfelé mutató nyíl'>nyíl; felfelé; északkelet; irány</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='jobbra mutató nyíl'>nyíl; jobbra; kelet; irány</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='jobbra lefelé mutató nyíl'>nyíl; délkelet; irány</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='lefelé mutató nyíl'>nyíl; lefelé; dél; irány</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='balra lefelé mutató nyíl'>nyíl; délnyugat; irány</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='balra mutató nyíl'>nyíl; balra; nyugat; irány</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='balra felfelé mutató nyíl'>nyíl; északnyugat; irány</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='fel-le mutató nyíl'>nyíl</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='balra-jobbra mutató nyíl'>nyíl</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='balra görbülő jobb nyíl'>nyíl</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='jobbra görbülő bal nyíl'>nyíl</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='felfelé görbülő jobb nyíl'>nyíl</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='lefelé görbülő jobb nyíl'>nyíl; lefelé</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='óramutató járásával megegyező irányú függőleges nyilak'>nyíl; óramutató járásával megegyező; újratöltés</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='óramutató járásával ellentétes irányú nyilak gombja'>nyíl; óramutató járásával ellentétes</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='vissza nyíl'>nyíl; visszafelé</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='vége nyíl'>nyíl; vége</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='bekapcsolva nyíl'>nyíl; jelzés; bekapcsolva</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='hamarosan nyíl'>nyíl; hamarosan; jön</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='felfelé nyíl'>nyíl; felfelé; top</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='imahely'>vallás; ima</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='atom szimbólum'>ateista; atom</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='om'>vallás; hindu</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='dávid-csillag'>zsidó; dávid; csillag; vallás</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='dharma-kerék'>buddha; buddhizmus; vallás; kerék</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='jin-jang'>vallás; tao; taoizmus; jin; jang</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='latin kereszt'>vallás; kereszt; kereszténység</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='ortodox kereszt'>vallás; kereszt; kereszténység</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='csillag és félhold'>vallás; iszlám; muszlim</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='békejel'>béke</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='menóra'>gyertyatartó; vallás</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='hatágú csillag ponttal'>szerencse; csillag</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='újrahasznosítás szimbólum'>újra; újrahasznosítás</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='névjegytábla'>jelvény; név</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='anjou-liliom'>liliom; anjou</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='a kezdő japán szimbóluma'>kezdő; japán; levél; sárga</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='háromágú szigony'>vasmacska; szigony; embléma; jel; hajó</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='nagy, vastag kör'>kör; o</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='vastag fehér pipa'>jel; pipa</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='jelölőnégyzet pipával'>pipa; szavazás; négyzet</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='vastag pipa'>pipa; jel</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='vastag szorzásjel'>mégse; szorzás; x; jel</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='áthúzásjel'>mégse; szorzás; x; jel</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='áthúzásjel gomb'>jel; bekeretezett</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='vastag pluszjel'>matematika; plusz</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='vastag mínuszjel'>matematika; mínusz</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='vastag osztásjel'>matematika; osztás</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='dupla hurok'>hurok; dupla</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='részelválasztó'>jel; választó</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='nyolcágú csillag'>csillag</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='nyolcas csillag'>csillag</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='pénzváltás'>pénzváltó; pénz; bank; átváltás; valuta</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='vastag dollárjel'>pénznem; pénz; dollár</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='dupla felkiáltójel'>központozás; felkiáltás; írásjel</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='felkiáltójel kérdőjellel'>központozás; felkiáltás; kérdés; írásjel</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='kérdőjel'>központozás; kérdés; írásjel</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='fehér kérdőjel'>írásjel; fehér; kérdés; központozás</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='fehér felkiáltójel'>írásjel; fehér; felkiáltás; központozás</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='felkiáltójel'>központozás; felkiáltás; írásjel</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='hullámos gondolatjel'>központozás; gondolatjel; hullámos</annotation>
+
+		<!-- copyright -->
+		<annotation cp='[©]' tts='copyright (szerzői jog által védett)'>védett; szerzői jog</annotation>
+
+		<!-- registered -->
+		<annotation cp='[®]' tts='registered (bejegyzett)'>bejegyzett; védjegy</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='védjegy'>tm; bejegyzett védjegy</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='kos csillagjegy'>horoszkóp; kos</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='bika csillagjegy'>bika; horoszkóp</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='ikrek csillagjegy'>ikrek; horoszkóp</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='rák csillagjegy'>rák; horoszkóp</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='oroszlán csillagjegy'>oroszlán; horoszkóp</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='szűz csillagjegy'>szűz; horoszkóp</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='mérleg csillagjegy'>mérleg; horoszkóp</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='skorpió csillagjegy'>skorpió; horoszkóp</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='nyilas csillagjegy'>nyilas; horoszkóp</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='bak csillagjegy'>bak; horoszkóp</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='vízöntő csillagjegy'>vízöntő; horoszkóp</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='halak csillagjegy'>halak; horoszkóp</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='kígyótartó'>csillagjegy; horoszkóp</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='véletlenszerű lejátszás gomb'>egymást keresztező nyilak</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='ismétlés gomb'>ismétlés; nyilak</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='egy szám ismétlése gomb'>ismétlés egyszer; nyilak</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='lejátszás gomb'>nyíl; lejátszás; jobbra nyíl</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='előretekerés gomb'>dupla nyíl; előre; gyors tekerés</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='következő szám gomb'>következő szám; következő jelenet</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='lejátszás vagy szünet gomb'>lejátszás; szüneteltetés</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='visszajátszás gomb'>balra nyíl; vissza</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='visszatekerés gomb'>dupla nyíl; vissza; gyors tekerés</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='legutóbbi szám gomb'>nyíl; előző szám; előző jelenet</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='felfelé gomb'>nyíl; gomb; piros</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='gyors felfelé gomb'>nyíl; dupla; gomb</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='lefelé gomb'>gomb; nyíl; piros; lefelé</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='gyors lefelé gomb'>gomb; nyíl; piros; lefelé</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='szüneteltetés gomb'>gomb; dupla vonal; függőleges; szünet</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='leállítás gomb'>gomb; négyzet; leállítás</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='felvétel gomb'>kör; gomb; felvétel</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='lemez kiadása gomb'>kiadás; gomb</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='mozi'>kamera; film</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='sötétítés gomb'>fényerő; sötétítés</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='világosítás gomb'>fényerő; világosítás</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='antennasávok'>antenna; mobil; mobiltelefon; térerő</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='mobiltelefon használata tilos'>mobil; tilos; telefon; mobiltelefon; tiltott</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='rezgő mód'>mobil; rezgés; rádiótelefon; telefon; mobiltelefon; tiltott</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='mobiltelefon kikapcsolva'>mobil; kikapcsolva; rádiótelefon; telefon; mobiltelefon; tiltott</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='sorszám billentyű'>sorszám; billentyű</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='csillag billentyű'>csillag; billentyű</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='nulla számbillentyű'>0; nulla; billentyű</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='egyes számbillentyű'>1; egy; billentyű</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='kettes számbillentyű'>2; kettő; billentyű</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='hármas számbillentyű'>3; három; billentyű</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='négyes számbillentyű'>4; négy; billentyű</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='ötös számbillentyű'>5; öt; billentyű</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='hatos számbillentyű'>6; hat; billentyű</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='hetes számbillentyű'>7; hét; billentyű</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='nyolcas számbillentyű'>8; nyolc; billentyű</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='kilences számbillentyű'>9; kilenc; billentyű</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='tízes számbillentyű'>10; tíz; billentyű</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='száz pont'>100; teljes pontszám; száz</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='18 év alatt tilos'>18-as karika; korhatár; tizennyolc; tiltás; tilos; tiltott</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='latin nagybetűs bevitel'>abcd; bevitel; betűk; latin; nagybetűs</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='latin kisbetűs bevitel'>abcd; bevitel; betűk; latin; kisbetűs</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='számbevitel'>1234; bevitel; számok</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='szimbólumok bevitele'>bevitel</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='latin betűk bevitele'>abc; bevitel; latin; betűk</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='a gomb'>a; vértípus</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='ab gomb'>ab; vértípus</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='b gomb'>b; vértípus</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='bekeretezett „cl” rövidítés'>cl</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='bekeretezett „cool” szó'>laza</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='bekeretezett „free” szó'>szabad</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='információforrás'>i; információ; tájékoztatás</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='bekeretezett „id” rövidítés'>id; azonosítás</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='bekarikázott m betű'>kör; m</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='bekeretezett „new” szó'>új; gomb</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='bekeretezett „ng” rövidítés'>ng; gomb</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='0 gomb'>0; vértípus</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='bekeretezett „ok” szó'>ok; rendben</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='p gomb'>parkolás</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='bekeretezett „sos” rövidítés'>segítség; sos; segélykérés</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='„up!” gomb'>jelölés; fel</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='bekeretezett „vs” rövidítés'>vs; ellenfél; versus</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='bekeretezett „koko” katakana'>japán</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='bekeretezett „sa” katakana'>japán</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='bekeretezett „hold” képírásjel'>japán</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='bekeretezett „létezik” képírásjel'>japán</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='bekeretezett „ujj” képírásjel'>japán</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='bekarikázott „előny” képírásjel'>japán</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='bekeretezett „osztás” képírásjel'>japán</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='bekeretezett „kivonás” képírásjel'>japán</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='bekeretezett „tiltás” képírásjel'>japán</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='bekarikázott „elfogadás” képírásjel'>kínai</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='bekeretezett „alkalmazás” képírásjel'>kínai</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='bekeretezett „együtt” képírásjel'>kínai</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='bekeretezett „üres” képírásjel'>kínai</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='bekarikázott „gratuláció” képírásjel'>kínai; képírásjel; gratulálok; gratuláció</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='bekarikázott „titok” képírásjel'>kínai; képírásjel; titok</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='bekeretezett „működik” képírásjel'>kínai</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='bekeretezett „teli” képírásjel'>kínai</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='kis fekete négyzet'>geometria; négyzet</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='kis fehér négyzet'>geometria; négyzet</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='közepes fehér négyzet'>geometria; négyzet</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='közepes fekete négyzet'>geometria; négyzet</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='kis-közepes fehér négyzet'>geometria; négyzet</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='kis-közepes fekete négyzet'>geometria; négyzet</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='nagy fekete négyzet'>geometria; négyzet</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='nagy fehér négyzet'>geometria; négyzet</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='nagy narancssárga rombusz'>rombusz; geometria; narancs</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='nagy kék rombusz'>kék; rombusz; geometria</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='kis narancssárga rombusz'>narancs; rombusz; geometria</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='kis kék rombusz'>kék; rombusz; geometria</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='fölfelé mutató piros háromszög'>alakzat; felfelé; piros</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='lefelé mutató piros háromszög'>lefelé; alakzat; piros</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='gyémánt ponttal'>rombusz; alakzat; képregény</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='választógomb'>rádiógomb; gomb; választó</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='fekete, négyzet alakú gomb'>gomb; négyzet</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='fehér, négyzet alakú gomb'>gomb; bekeretezett; négyzet</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='fehér kör'>kör; alakzat</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='fekete kör'>kör; alakzat</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='piros kör'>kör; alakzat; piros</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='kék kör'>kör; alakzat; kék</annotation>
+	</annotations>
+</ldml>

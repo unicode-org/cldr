@@ -1,0 +1,3028 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='ro'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='față încântată'>față; încântare</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='față încântată cu ochi zâmbitori'>ochi; zâmbet; încântare; față</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='față cu lacrimi de bucurie'>față; lacrimi; bucurie</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='față zâmbitoare cu gura deschisă'>zâmbet; față; gură deschisă</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='față zâmbitoare cu gura deschisă și ochi zâmbitori'>față; zâmbet; privire; gură; deschisă</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='față zâmbitoare cu gura deschisă și sudoare rece'>zâmbet; gură deschisă; sudoare rece</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='față zâmbitoare cu gura deschisă și ochi strâns închiși'>zâmbet; gură deschisă; ochi închiși</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='față care face cu ochiul'>față; semn cu ochiul</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='față zâmbitoare cu ochi zâmbitori'>zâmbet; privire; îmbujorare</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='față savurând mâncare delicioasă'>față; plăcere; mâncare</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='față zâmbitoare cu ochelari de soare'>față; ochelari de soare; zâmbet; relaxare</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='față zâmbitoare cu inimioare la ochi'>față; zâmbet; ochi; inimioare</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='față care trimite un pupic'>față; inimă; sărut</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='față pupăcioasă'>față; pupic; buze</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='față pupăcioasă cu ochi zâmbitori'>față; pupic; ochi; zâmbet</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='față pupăcioasă cu ochi închiși'>față; pupic; ochi închiși</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='față zâmbitoare'>față; zâmbet; îmbujorare</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='față ușor zâmbitoare'>față; zâmbet discret</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='față de îmbrățișare'>față; îmbrățișare; îmbujorare</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='față zâmbitoare cu aură'>față; zâmbet; aură</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='față de cugetare'>față; gândire; reflecție</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='față neutră'>față; expresie goală; neutru</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='față fără expresie'>expresie goală; indiferență</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='față fără gură'>față; fără gură</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='față cu ochii peste cap'>față; ochi peste cap; tăcere; plictiseală</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='față cu zâmbet superior'>față; zâmbet; afectare; superioritate</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='față de strădanie'>față; strădanie; perseverență</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='față dezamăgită, dar ușurată'>față; dezamăgire; ușurare; relaxare</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='față cu gura deschisă'>față; gură deschisă; uimire; surpriză</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='față cu fermoar la buze'>față; fermoar; buze; tăcere</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='față așteptând un răspuns'>față; tăcere; suspans; așteptare; gură deschisă</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='față somnoroasă'>față; somn; salivă</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='față obosită'>față; oboseală; extenuare</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='față adormită'>față; somn; sforăit</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='față ușurată'>față; ușurare; relaxare</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='față de tocilar'>față; ochelari; tocilar; zâmbet; nesiguranță</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='față cu limba scoasă'>față; limbă scoasă</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='față cu limba scoasă, făcând cu ochiul'>față; limbă scoasă; glumă; distracție; semn cu ochiul</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='față cu limba scoasă și ochi închiși strâns'>față; limbă scoasă; ochi strâns închiși; gust; neplăcere</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='față încruntată'>față; încruntare; dezamăgire</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='față ușor încruntată'>față; încruntare; nehotărâre</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='față tensionată'>față; neplăcere; nemulțumire</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='față cu sudoare rece'>față; sudoare rece</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='față gânditoare'>față; gândire; reflexie</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='față confuză'>față; confuzie; neînțelegere</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='față derutată'>față; derută; enervare</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='față cu susul în jos'>față; întoarsă; zâmbet</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='față cu mască medicală'>față; mască; doctor</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='față cu termometru'>față; boală; termometru; gură</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='cap bandajat'>cap; bandaj; rană; durere</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='față încântată de bani'>față; bani; gură; ochi; dolar</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='față uimită'>față; șoc; uimire</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='față dezamăgită'>față tristețe; dezamăgire</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='față îngrijorată'>față; îngrijorare</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='față care scoate fum pe nări'>față; fum; nări; enervare</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='față cu lacrimi'>față; lacrimi; tristețe</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='față cu șuvoi de lacrimi'>față; lacrimi; plâns; suspin</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='față încruntată cu gura deschisă'>față; încruntare; gură deschisă</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='față angoasată'>față; angoasă; stres</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='față înfricoșată'>față; frică; ochi mari</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='față ostenită'>față; oboseală; epuizată</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='față cu grimasă'>față; grimasă; stres</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='față cu gura deschisă și sudoare rece'>față; sudoare rece; stres; gură deschisă</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='față țipând de frică'>față; țipăt; disperare</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='față îmbujorată'>față; îmbujorare; ochi mari</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='față amețită'>față; amețeală; ochi; x</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='față bosumflată'>față; enervare; furie; roșu</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='față furioasă'>față; furie; enervare</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='față zâmbitoare încornorată'>față; zâmbet; coarne; malițios; răutăcios; mov</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='drăcușor'>coarne; demon</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='căpcăun'>monstru; poveste; înfricoșător</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='spiriduș'>omuleț; poveste; magie</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='craniu'>cap; mort</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='craniu cu oase încrucișate'>craniu; oase încrucișate; monstru; moarte</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='fantomă'>stafie</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='extraterestru'>creatură; neobișnuit; cap; spațiu</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='monstru extraterestru'>monstru; extraterestru; fantezie; spațiu</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='față de robot'>cap; robot; metal</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='răhățel'>ochi; gură; caca; amuzant</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='pisică zâmbind cu gura deschisă'>pisică; gură deschisă; zâmbet</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='pisică rânjind cu ochii deschiși'>pisică; încântare; zâmbet; ochi închiși</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='pisică cu lacrimi de bucurie'>pisică; lacrimi; bucurie</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='pisică zâmbind cu ochii inimioare'>pisică; zâmbet; ochi; inimioare</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='pisică cu zâmbet ironic'>pisică; zâmbet; șiretenie</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='pisică pupând cu ochii închiși'>pisică; lacrimă; tristețe</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='față de pisică obosită'>pisică; oboseală; uimire; disperare</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='față de pisică plângând'>față; pisică; lacrimă; plâns</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='față de pisică bosumflată'>față; pisică; bosumflare: enervare</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='nu văd nimic rău'>rău; maimuță; gest; ochi acoperiți; vedere; nu</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='nu aud nimic rău'>rău; maimuță; gest; ochi acoperiți; auz; nu</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='nu spun nimic rău'>rău; maimuță; gest; gură; vorbire; nu</annotation>
+
+		<!-- boy -->
+		<annotation cp='[👦]' tts='băiat'>copil</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='fată'>copil; tânără; fecioară</annotation>
+
+		<!-- man -->
+		<annotation cp='[👨]' tts='bărbat'>adult</annotation>
+
+		<!-- woman -->
+		<annotation cp='[👩]' tts='femeie'>adult</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='bătrân'>bărbat</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='bătrână'>femeie</annotation>
+
+		<!-- baby -->
+		<annotation cp='[👶]' tts='bebeluș'>copil; mic</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='persoană blondă'>om; blond</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='polițist'>om; justiție</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='bărbat cu pălărie chinezească'>bărbat; pălărie; china</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='bărbat cu turban'>bărbat; turban</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='constructor'>construcții; om; muncă</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='cască cu crucea roșie'>cască; cruce; roșu; alb</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='prințesă'>fată; poveste; fantezie</annotation>
+
+		<!-- guardsman; guard -->
+		<annotation cp='[💂]' tts='gardă regală'>pază; protecție; om; căciulă</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='detectiv'>investigație; lupă; pălărie</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='moș crăciun'>căciulă; barbă; poveste; sărbătoare</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='bebeluș îngeraș'>copil; aureolă; aripi; fantezie</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='masaj facial'>masaj; salon; relaxare</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='tunsoare'>păr; foarfecă; coafor</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='mireasă cu voal'>femeie; voal; nuntă</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='persoană încruntată'>încruntare; expresie facială; supărare; sprâncene</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='persoană bosumflată'>îmbufnare; expresie facială</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='gestul nu'>gest; nu; mâini; interzis</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='gestul ok'>gest; ok; acord</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='persoană de la informații'>informații; ajutor; asistență</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='persoană veselă, cu mâna sus'>gest; mână; veselie; ridicat</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='persoană care se înclină'>scuză; respect; înclinare</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='persoană cu mâinile sus'>mâini; sărbătoare; ridicat; exclamare</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='mâini unite'>mâini; rugăciune; mulțumiri; înclinare</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='vorbitor'>profil; vorbire</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='siluetă bust'>bust; siluetă</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='siluete busturi'>bust; siluetă</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='pieton'>mers; plimbare; deplasare</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='alergător'>alergare; fugă</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='fete petrecărețe'>femeie; dans; distracție; iepuraș</annotation>
+
+		<!-- dancer -->
+		<annotation cp='[💃]' tts='dansator'>dans</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='bărbat la costum, levitând'>bărbat; costum; afaceri; plutire</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='sărut'>cuplu; iubire</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='cuplu cu inimă'>cuplu; iubire; doi</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='familie'>mamă; tată; copil; </annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='bărbat și femeie ținându-se de mână'>piele; nuanță; modificator</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='doi bărbați ținându-se de mână'>bărbat; doi; mână; afecțiune</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='două femei ținându-se de mână'>femeie; două; mână; afecțiune</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='ten nuanțele 1 – 2'>piele; nuanță; modificator</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='ten nunața 3'>piele; nuanță; modificator</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='ten nuanța 4'>piele; nuanță; modificator</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='ten nuanța 5'>piele; nuanță; modificator</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='ten nuanța 6'>piele; nuanță; modificator</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='biceps flexat'>corp; mușchi; forță; amuzant</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='deget indicând spre stânga'>mână; deget; dosul palmei; stânga</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='deget indicând spre dreapta'>mână; deget; dosul palmei; dreapta</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='index indicând în sus'>deget; indicator; sus</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='dosul palmei cu index arătând în sus'>deget; arătător; sus; dosul palmei</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='degetul mijlociu'>deget; mijlociu; insultă; gest</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='dosul palmei cu index arătând în jos'>dosul palmei; deget; arătător; jos</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='semnul victoriei'>mână; deget; victorie</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='salut vulcanian'>spock; vulcan; salut; deget</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='semnul cu coarne'>mână; deget; coarne; rock</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='mână ridicată cu degetele depărtate'>mână; deget; deschis</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='mână ridicată'>mână; sus</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='semnul ok'>mână; ok; gest</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='așa da'>apreciere; mână; da; pozitiv</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='așa nu'>mână; nu; negativ</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='pumn ridicat'>pumn; strâns; lovitură; amenințare</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='lovitură de pumn'>pumn; lovitură; încleștare</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='la revedere'>mână; despărțire; semn</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='aplauze'>mâini</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='cu mâinile curate'>nevinovăție; mâini; deschis; curat</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='mână scriind'>mână; scris</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='ojă pe unghii'>unghie; ojă; manechiură</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='ureche'>cap; auz</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='nas'>miros</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='urme de pași'>talpă; urmă</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='doi ochi'>ochi; doi; față</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='un ochi'>ochi; vedere</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='limbă'>gust</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='gură'>buze; dinți</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='urme de buze'>buze; sărut; roșu</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='inimă săgetată'>inimă; săgeată; suferință</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='inimă roșie'>inimă; roșu</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='inimă palpitând'>inimă; viață; emoție</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='inimă zdrobită'>inimă; durere</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='două inimioare'>inimă; doi; iubire</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='inimă strălucitoare'>inimă; strălucire; fericire</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='inimă care crește'>inimă; entuziasm; emoție</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='inimă albastră'>inimă; albastru</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='inimă verde'>inimă; verde</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='inimă galbenă'>inimă; galben</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='inimă mov'>inimă; mov</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='inimă cu fundiță'>inimă; panglică; cadou</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='inimi învârtindu-se în cerc'>inimă; cerc; învârtire</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='decorațiune inimă'>inimă; decor</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='ornament semnul exclamării cu inimioară'>semnul exclamării; inimă; roșu</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='scrisoare de dragoste'>scrisoare; inimă; plic</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='sfoorrrrr'>sforăit; amuzant; desen</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='reprezentare mânie'>furie; amuzant; supărare; desen</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='bombă'>amuzant; desen</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='coliziune'>impact; amuzant; desen</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='picături de transpirație'>picături; sudoare; efort; amuzant; desen</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='nor de praf în urmă'>fugă; grabă; viteză; praf; amuzant; desen</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='amețit'>amețeală; stele; amuzant</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='balon de dialog'>balon; dialog; desen</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='balon de dialog la stânga'>balon; dialog; stânga; desen</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='balon de dialog furios la dreapta'>balon; furie; desen</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='balon de gânduri'>balon; gând; desen</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='ochelari'>vedere</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='ochelari de soare'>ochelari; soare; protecție</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='cravată'>îmbrăcăminte; seriozitate</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='tricou'>îmbrăcăminte; lejeritate</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='blugi'>îmbrăcăminte; pantalon; jeans</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='rochie'>îmbrăcăminte; feminin</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='kimono'>îmbrăcăminte; feminin; tradițional; japonia</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='costum de baie'>feminin; înot; plajă; soare</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='haine de damă'>haine; feminin</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='poșetă'>accesoriu; feminin</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='geantă'>accesoriu; feminin; transport</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='gentuță'>accesoriu; mic; transport</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='plase de cumpărături'>cumpărături; transport</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='ghiozdan'>școală; rechizite; transport</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='pantof bărbătesc'>încălțăminte; masculin</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='pantof sport'>încălțăminte; masculin; sport</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='pantof cu toc'>încălțăminte; feminin; eleganță</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='sanda de damă'>încălțăminte; feminin; căldură</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='cizmă de damă'>încălțăminte; feminin; frig</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='coroană'>regalitate; putere; cap</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='pălărie de damă'>cap; feminin</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='joben'>cap; masculin; eleganță</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='pălărie de absolvent'>cap; absolvire; festiv</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='mătănii'>rugăciune; mărgele; meditație</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='ruj'>machiaj; cosmetice</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='inel'>logodnă; valoare</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='piatră prețioasă'>valoare; natural; bijuterie</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='față de maimuță'>față; maimuță</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='cățel'>față; câine; domestic; companie</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='câine'>animal domestic; companie</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='pudel'>câine; rasă</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='față de lup'>față; lup; sălbatic</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='față de pisică'>față; pisică; domestic; companie</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='pisică'>animal domestic; companie</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='față de leu'>față; leu; rege; sălbatic</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='față de tigru'>față; tigru</annotation>
+
+		<!-- tiger -->
+		<annotation cp='[🐅]' tts='tigru'>sălbatic</annotation>
+
+		<!-- leopard -->
+		<annotation cp='[🐆]' tts='leopard'>sălbatic</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='față de cal'>față; cal; domestic</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='cal'>animal domestic; curse</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='cap de unicorn'>față; animal; fantezie; corn</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='cap de vacă'>față; vacă; animal domestic</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='bou'>animal domestic</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='bivol'>animal domestic</annotation>
+
+		<!-- cow -->
+		<annotation cp='[🐄]' tts='vacă'>animal domestic</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='cap de porc'>față; porc; animal domestic</annotation>
+
+		<!-- pig; sow -->
+		<annotation cp='[🐖]' tts='porc'>animal domestic</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='mistreț'>porc; sălbatic</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='rât'>porc; nas</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='berbec'>animal domestic; zodiac</annotation>
+
+		<!-- sheep; ewe -->
+		<annotation cp='[🐑]' tts='oaie'>animal domestic</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='capră'>animal domestic</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='dromader'>cocoașă; deșert</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='cămilă'>cocoașă; două; deșert</annotation>
+
+		<!-- elephant -->
+		<annotation cp='[🐘]' tts='elefant'>junglă; savană; animal sălbatic</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='cap de șoarece'>față; șoarece</annotation>
+
+		<!-- mouse -->
+		<annotation cp='[🐁]' tts='șoarece'>rozător</annotation>
+
+		<!-- rat -->
+		<annotation cp='[🐀]' tts='șobolan'>șoarece; rozător; mare; urât</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='cap de hamster'>față; hamster</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='cap de iepure'>față; iepure</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='iepure'>rozător</annotation>
+
+		<!-- chipmunk -->
+		<annotation cp='[🐿]' tts='veveriță'>rozător</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='cap de urs'>față; urs</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='koala'>urs; mic; austalia</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='cap de panda'>față; urs; alb; negru</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='urme de lăbuțe'>picioare; labe; urme</annotation>
+
+		<!-- turkey -->
+		<annotation cp='[🦃]' tts='curcan'>pasăre; domestică; recunoștință</annotation>
+
+		<!-- chicken -->
+		<annotation cp='[🐔]' tts='găină'>pasăre; feminin</annotation>
+
+		<!-- rooster -->
+		<annotation cp='[🐓]' tts='cocoș'>găină; pasăre; masculin</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='pui în găoace'>pui; ou; eclozare</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='pui de găină'>pui; pasăre</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='pui de găină din față'>pui; pasăre; vedere din față</annotation>
+
+		<!-- penguin -->
+		<annotation cp='[🐧]' tts='pinguin'>pasăre; frig; gheață</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='porumbiță'>porumbel; feminin; pace</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='față de broască'>față; broască</annotation>
+
+		<!-- crocodile -->
+		<annotation cp='[🐊]' tts='crocodil'>reptilă; pericol</annotation>
+
+		<!-- turtle -->
+		<annotation cp='[🐢]' tts='broască țestoasă'>broască; carapace</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='șarpe'>reptilă; ofiucus; zodiac</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='față de dragon'>cap; balaur; poveste; fantastic</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='dragon'>balaur; poveste</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='balenă scuipând apă'>balenă; jet; apă</annotation>
+
+		<!-- whale -->
+		<annotation cp='[🐋]' tts='balenă'>mamifer; acvatic; uriaș</annotation>
+
+		<!-- dolphin; flipper -->
+		<annotation cp='[🐬]' tts='delfin'>mamifer; inteligență; dresaj</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='pește'>pești; zodiac</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='pește tropical'>pești; exotic</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='pește țepos'>pește; țepi</annotation>
+
+		<!-- octopus -->
+		<annotation cp='[🐙]' tts='caracatiță'>tentacule</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='cochilie spiralată'>cochilie; spirală</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='rac'>cancer; zodie</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='furnică'>insectă; colonie; hărnicie</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='albină'>insectă; aripi; miere</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='buburuză'>insectă; roșu; buline</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='păianjen'>insectă; arahnidă; pânză</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='pânză de păianjen'>păianjen; pânză; capcană</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='scorpion'>insectă; venin; zodie</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='buchet de flori'>flori; cadou</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='floare de cireș'>pom; floare; parfum; cireș</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='floare albă'>floare; puritate</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='rozetă'>plantă; floare; parfum</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='trandafir'>floare; țepi</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='hibiscus'>floare; arbust</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='floarea soarelui'>floare; soare; plantă; galben</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='floricică'>plantă; inflorescență</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='lalea'>plantă, floare, primăvară</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='răsad'>plantă; tânără</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='brad'>copac; conifer; crăciun</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='copac foios'>copac; frunze căzătoare</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='palmier'>copac; exotic</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='cactus'>plantă; deșert; țepi</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='snop de orez'>cereală; apă; snop</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='plantă aromatică'>plantă; condiment</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='trifoi'>plantă; noroc</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='trifoi cu patru foi'>trifoi; noroc; patru; frunze</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='frunză de arțar'>frunză; arțar; roșu</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='frunză în cădere'>frunză; cădere</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='frunză plutind în aer'>frunză; plutire; vânt</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='struguri'>fruct; boabe; viță de vie</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='pepene galben'>pepene; galben; aromat</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='pepene'>fruct</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='mandarină'>fruct; citrice</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='lămâie'>fruct; citrice</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='banană'>fruct; exotic</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='ananas'>fruct; exotic</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='măr roșu'>fruct; măr; roșu</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='măr verde'>fruct; măr; verde</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='pară'>fruct</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='piersică'>fruct</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='cireșe'>fruct</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='căpșună'>fruct; parfum</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='roșie'>legumă; tomată</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='vânătă'>legumă</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='știulete de porumb'>cereală; știulete; porumb</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='ardei iute'>legumă; ardei; iute</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='ciupercă'>plantă</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='castană'>fruct</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='pâine'>aliment; franzelă</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='bucată de brânză'>aliment; brânză; bucată</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='os cu carne'>aliment; carne; os</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='pulpă de pasăre'>aliment; pulpă; pasăre</annotation>
+
+		<!-- hamburger; burger -->
+		<annotation cp='[🍔]' tts='hamburger'>sandviș; carne; fast food</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='cartofi prăjiți'>cartofi; prăjire; fast food</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='pizza'>felie; fast food</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='hot dog'>sandviș; cârnat; muștar; fast food</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='taco'>sandviș; mexican; fast food</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='burrito'>sandviș rulat; mexican; fast food</annotation>
+
+		<!-- popcorn -->
+		<annotation cp='[🍿]' tts='popcorn'>porumb; floricele</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='oală cu mâncare'>oală; tocană; aburi</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='mâncare japoneză la pachet'>mâncare; bento; pachet; japonia</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='biscuite de orez'>biscuite; orez</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='găluște de orez'>biluță; orez; japonia</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='orez gătit'>orez; preparare</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='orez cu curry'>orez; condiment; curry</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='castron aburind'>castron; fierbinte; tăiței</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='spaghete'>paste</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='cartof dulce copt'>cartof; dulce; copt</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='frigăruie japoneză'>fructe de mare; băț</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='crevete prăjit'>crevete; tempura; prăjire</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='ruladă japoneză cu pește'>paste; pește; ruladă</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='gălușcă japoneză dango'>desert; japonia; băț; </annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='înghețată cremă'>desert; înghețată; cornet</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='desert din fulgi de gheață'>înghețată; fulgi; sirop</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='înghețată'>desert; cremă</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='gogoașă americană'>desert; gogoașă; glazură</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='fursec'>desert</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='tort aniversar'>desert; tort; sărbătoare</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='tartă'>desert; felie</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='baton de ciocolată'>dulce; baton; ciocolată</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='bomboană'>dulce</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='acadea'>dulce; bomboană; băț</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='șarlotă'>desert; budincă</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='borcan cu miere'>borcan; miere</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='biberon'>bebeluș; sticlă; lapte; suzetă</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='băutură fierbinte'>băutură; fierbinte; ceașcă</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='ceașcă cu mâner'>ceașcă; ceai; băutură</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='sake'>alcool; japonia</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='sticlă cu dop care bubuie'>sticlă; dop; sărbătoare</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='pahar de vin'>pahar; vin; alcool</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='pahar de cocktail'>pahar; cocktail</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='băutură tropicală'>băutură; exotic</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='halbă de bere'>halbă; bere; alcool</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='ciocnit halbe de bere'>ciocnit; sărbătoare; bere</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='furculiță și cuțit cu farfurie'>farfurie; tacâmuri</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='furculiță și cuțit'>tacâmuri</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='gătit'>tigaie</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='amforă'>ulcior; zodie; vărsător</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='Europa și Africa pe glob'>glob; africa; europa</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='Americile pe glob'>glob; america</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='Asia și Australia pe glob'>glob; asia; australia</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='glob cu meridianele'>glob; meridiane</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='harta lumii'>hartă; lume</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='vârf de munte înzăpezit'>frig; munte; zăpadă; vârf</annotation>
+
+		<!-- mountain -->
+		<annotation cp='[⛰]' tts='munte'>masiv; stâncă</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='vulcan'>lavă</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='muntele fuji'>munte; fuji</annotation>
+
+		<!-- camping -->
+		<annotation cp='[🏕]' tts='camping'>cort</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='umbrelă pe plajă'>plajă; umbrelă; apă</annotation>
+
+		<!-- desert -->
+		<annotation cp='[🏜]' tts='deșert'>nisip</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='insulă pustie'>insulă; pustiu</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='parc național'>park; național</annotation>
+
+		<!-- stadium -->
+		<annotation cp='[🏟]' tts='stadion'>sport; public</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='clădire clasică'>clădire; stil; clasic</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='clădire în construcție'>construcție; clădire</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='case'>construcție</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='peisaj urban'>zgârie-nori; oraș; orizont</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='casă părăsită'>casă; abandon</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='casă'>locuință</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='casă cu grădină'>casă; locuință; grădină; verdeață</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='biserică'>clădire; rugăciune; cruce</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='lăcaș de cult islamic kaaba'>islam; kaaba; religie; cult</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='moschee'>cult; musulman; religie</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='sinagogă'>cult; evreiesc; religie; templu</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='altar shinto'>cult; shinto; altar</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='clădire de birouri'>clădire; birouri</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='poștă japoneză'>poștă; japonia</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='poștă'>europa</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='spital'>sănătate; doctor</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='bancă'>clădire</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='hotel'>clădire; cazare</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='hotel de dragoste'>clădire; iubire; cazare</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='mic magazin de cartier'>magazin; mixt</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='școală'>clădire; învățământ</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='magazin general'>magazin; mare; raioane</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='fabrică'>clădire; producție</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='castel japonez'>clădire; castel; japonia</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='castel'>clădire; europa</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='nuntă'>capelă; religie; inimă</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='turnul Tokio'>turn; tokio</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='statuia libertății'>statuie; libertate</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='harta japoniei'>hartă; japonia</annotation>
+
+		<!-- fountain -->
+		<annotation cp='[⛲]' tts='fântână arteziană'>fântână; apă; jocuri</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='cort'>lună; stele</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='încețoșat'>ceață; vreme</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='noapte înstelată'>noapte; stele</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='răsărit după munți'>răsărit; munți; soare</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='răsărit'>soare</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='panoramă urbană la apus'>zgârie-nori; apus; soare</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='apus'>soare</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='pod luminat noaptea'>pod; noapte; lumină</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='izvoare termale'>izvor; apă; căldură</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='calea lactee'>constelație; stele</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='căluț de carusel'>cal; carousel</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='roata mare de carnaval'>roată; distracție; parc de distracție</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='montagne russe'>parc de distracție; adrenalină</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='stâlp de bărbier'>bărbier; indicator; culoare</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='cort de circ'>cort; circ</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='artele spectacolului'>artă; măști; spectacol</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='tablou cu ramă'>pictură; artă; ramă</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='paletă de pictor'>pictor; paletă; culori</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='jocuri mecanice'>joc; manetă; noroc</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='locomotivă'>tren; transport</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='vagon de tramvai'>vagon; tramvai; șină</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='tren de mare viteză'>tren; viteză</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='tren de mare viteză cu vârf aerodinamic'>tren; viteză; aerodinamic</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='metrou'>tren; tunel</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='tren ușor'>cale ferată; ușor</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='gară'>stație; cale ferată</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='tramvai'>troleibuz; transport</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='șină montană'>cale ferată; munte</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='segment de tramvai'>vagon; troleibuz</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='autobuz'>vehicul; transport</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='autobuz care se apropie'>autobuz; sosire</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='troleibuz'>vehicul; transport</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='stație de autobuz'>autobuz; oprire</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='microbuz'>autobuz; vehicul; transport</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='ambulanță'>vehicul; asistență; medicală</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='mașină de pompieri'>vehicul; incendiu; salvare</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='mașină de poliție'>autovehicul; poliție</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='mașină de poliție care se apropie'>autovehicul; poliție; sosire</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='taxi'>autovehicul; taximetrie</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='taxi care se apropie'>autovehicul; taximetrie; apropiere</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='automobil'>mașină</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='automobil care se apropie'>mașină; sosire</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='vehicul recreațional'>vehicul; vacanță; călătorii</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='camion de marfă'>camion; livrare; marfă</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='camion articulat'>camion; articulat</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='tractor'>vehicul; agricultură</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='bicicletă'>vehicul; ciclism</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='pompă de alimentare la benzinărie'>pompă; benzină; benzinărie</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='autostradă'>drum; autovehicule; viteză</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='cale ferată'>șină; tren</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='girofar de poliție'>girofar; lumină; poliție</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='semafor orizontal'>semafor; trafic</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='semafor vertical'>semafor; trafic</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='șantier'>indicator; construcție</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='ancoră'>ancorare; vas</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='barcă cu pânze'>barcă; pânze; navigație</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='barcă cu vâsle'>barcă; vâsle</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='barcă cu motor'>barcă; motor; viteză</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='vas de pasageri'>navă; pasageri; croazieră</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='feribot'>navă; transport</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='șalupă'>barcă; motor; viteză</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='vapor'>vas; navigație</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='avion'>zbor</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='aeronavă mică'>avion; ușor</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='decolare avion'>decolare; avion</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='aterizare avion'>aterizare; avion</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' tts='loc în mijloc de transport'>scaun; transport; persoane</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='elicopter'>vehicul; zbor; elice</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='cale ferată suspendată'>cale ferată; cabluri</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='telecabină montană'>munte; cablu; gondolă; transport</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='tramvai aerian'>gondolă; transport; cablu</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='rachetă'>cosmos</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='satelit'>cosmos</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='sonerie de recepție'>sonerie; recepție; hotel</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='persoană în pat'>om; pat</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='pat'>cazare</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='canapea și lampă'>canapea; lampă; lumină</annotation>
+
+		<!-- toilet -->
+		<annotation cp='[🚽]' tts='toaletă'>baie</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='persoană care face baie'>om; cadă</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='clepsidră'>cronometru; timp; nisip</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='clepsidră în care curge nisipul'>clepsidră; curgere; nisip</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='ceas de mână'>ceas</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='ceas deșteptător'>ceas; alarmă</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='cronometru'>ceas</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='temporizator'>ceas</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='ceas pentru etajeră'>ceas</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='ora douăsprezece'>00; 12; 24; amiază; miezul nopții; oră</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='ora douăsprezece și jumătate'>12:30; doisprezece treizeci; oră</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='ora unu'>1:00; unu; oră</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='ora unu și jumătate'>1:30; unu treizeci; oră</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='ora două'>2:00; două; oră</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='ora două și jumătate'>2:30; două treizeci; oră</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='ora trei'>3:00; trei; oră</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='ora trei și jumătate'>3:30; trei treizeci; oră</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='ora patru'>4:00; patru; oră</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='ora patru și jumătate'>4:30; patru treizeci; oră</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='ora cinci'>5:00; cinci; oră</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='ora cinci și jumătate'>5:30; cinci treizeci; oră</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='ora șase'>6:00; șase; oră</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='ora șase și jumătate'>6:30; șase treizeci; oră</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='ora șapte'>7:00; șapte; oră</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='ora șapte și jumătate'>7:30; șapte treizeci; oră</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='ora opt'>8:00; opt; oră</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='ora opt și jumătate'>8:30; opt treizeci; oră</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='ora nouă'>9:00; nouă; oră</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='ora nouă și jumătate'>9:30; nouă treizeci; oră</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='ora zece'>10:00; zece; oră</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='ora zece și jumătate'>10:30; zece treizeci; oră</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='ora unsprezece'>11:00; unsprezece; oră</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='ora unsprezece și jumătate'>11:30; unsprezece treizeci; oră</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='lună nouă'>lună; întuneric</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='semilună în creștere'>semilună; creștere</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='lună în primul pătrar'>lună; pătrar; unu</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='lună în creștere'>semilună; scădere</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='lună plină'>lună; rotund; lumină</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='lună în scădere'>lună; scădere</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='lună în ultimul pătrar'>lună; pătrar; patru</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='semilună în scădere'>semilună; creștere</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='semilună'>islam</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='lună nouă cu față'>lună; rotundă; întuneric; față</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='lună cu față în primul pătrar'>lună; pătrar; unu; față</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='lună în ultimul pătrar cu față'>lună; pătrar; patru; față</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='termometru'>temperatură; mercur</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='soare'>lumină</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='lună plină cu față'>lună plină; față</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='soare cu față'>soare; față; raze</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='stea medie albă'>stea</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='stea strălucitoare'>stea; strălucire</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='stea căzătoare'>stea; cădere</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='nor'>cer</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='soare în nori'>soare; nor; vreme</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='nor cu fulger și ploaie'>soare; nor; vreme</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='soare după un nor mic'>soare; nor; vreme</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='soare după un nor mare'>soare; nor; vreme</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='soare după nor cu ploaie'>soare: nor: ploaie</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='nor cu ploaie'>nor; ploaie; vreme</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='nor de ninsoare'>nor; fulgi; ninsoare</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='nor cu fulger'>nor; fulger</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='tornadă'>vârtej; vreme; pericol</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='ceață'>vreme</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='față suflând vânt'>față; suflare; vânt</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='ciclon'>vreme; vârtej</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='curcubeu'>culori; cer</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='umbrelă închisă'>umbrelă; strâns</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='umbrelă'>deschis</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='umbrelă cu picături de ploaie'>umbrelă; ploaie; picături</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='umbrelă pe sol'>umbrelă; sol</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='voltaj mare'>electricitate; pericol</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='fulg de nea'>frig; zăpadă</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='om de zăpadă'>om; zăpadă; pălărie</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='om de zăpadă fără zăpadă'>om; uscat; pălărie</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='foc'>căldură; lumină</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='picătură'>lichid</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='val'>mare; ocean</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='lanternă din dovleac'>dovleac; lumânare; față</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='pom de crăciun'>brad; podoabe; crăciun</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='artificii'>pocnituri; lumină; cer</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='foc bengal'>sărbătoare; artificii</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='steluțe'>stea; strălucire</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='balon'>aer</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='tun cu confetti'>petrecere; confeti; con</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='minge cu confetti'>mine; confetti; petrecere</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='copac tanabata'>copac; japonia; steag</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='steaguri încrucișate'>steag; japonia</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='decorațiune japoneză de pin'>decor; pin; sărbătoare</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='păpuși japoneze'>păpușă; japonia; sărbătoare</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='crap decorativ în vânt'>crap; vânt</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='clopoței de vânt'>clopoțel; vânt</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='ceremonia lunii'>lună; sărbătoare</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='fundă'>panglică; festiv</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='cadou împachetat'>cutie; fundă; cadou</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='medalie militară'>medalie; onoare; militară</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='panglică „in memoriam”'>panglică; susținere; comemorare</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='negative de film'>film; negativ</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='bilete de intrare'>bilet; intrare; acces</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='bilet'>intrare</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='minge de fotbal'>minge; fotbal; sport</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='baseball'>minge; sport</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='baschet'>minge; coș; sport</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='fotbal american'>fotbal; america; sport</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='rugby'>sport</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='tenis'>minge; rachetă; sport</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='biliard'>bilă; gaură; opt; joc</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='popice'>bilă; joc</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='steag în gaură la golf'>golf; gaură; steag</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='jucător de golf'>om; jucător</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='patină de gheață'>gheață; patină</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='undiță'>pește</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='tricou de alegare'>tricou; atletism; sport</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='schiuri'>zăpadă; pârtie</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='schior'>schi; zăpadă</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='snow-boarder'>placă; zăpadă</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='surfer'>placă; valuri; ocean</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='curse de cai'>cursă; cai; concurs</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='înotător'>apă; înot</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='persoană cu minge'>om; minge</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='halterofil'>greutăți; ridicare; sport</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='biciclist'>ciclism; transport</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='ciclist montan'>ciclism; munte</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='mașină de curse'>mașină; curse</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='motocicletă'>motor; transport</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='medalie sportivă'>medalie; sport; performanță</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='trofeu'>premiu; cupă</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='crichet'>bâtă; minge; sport</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='volei'>minge; sport; mână</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='hochei de câmp'>crosă; câmp; gazon; sport</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='crosă și puc de hochei'>crosă; gheață; puc; sport</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='ping pong'>paletă; minge; sport</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='badminton'>rachetă; fluturaș; sport</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='fix la țintă'>țintă; centru; reușită</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='joc video'>joc; video; manetă</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='manetă'>joc; video</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='zar'>noroc</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='inimă neagră la cărți'>joc; cărți; inimă; negru</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='inimă roșie la cărți'>joc; cărți; inimă; roșu</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='romb la cărți'>joc; cărți; romb</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='treflă la cărți'>joc; cărți; treflă</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='joker'>păcălici; cărți; joc</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='dragon roșu la mahjong'>joc; mahjong; roșu</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='carte de joc japoneză pentru august'>carte; joc; japonia</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='difuzor dezactivat'>difuzor; oprit</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='difuzor activat'>difuzor pornit</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='difuzor cu sunet puternic'>difuzor; sunet; putere</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='portavoce'>mesaj public; difuzare</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='megafon'>sunet; difuzare</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='corn poștal'>corn; chemare</annotation>
+
+		<!-- bell -->
+		<annotation cp='[🔔]' tts='clopoțel'>limbă</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='partitură'>portativ; cheia sol</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='notă muzicală'>notă; muzică</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='note muzicale'>note; muzică</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='microfon de studio'>studio; microfon</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='glisor de nivel'>glisor; nivel</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='butoane de control'>butoane; reglare</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='microfon'>muzică; voce</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' tts='cască audio'>cască; ureche; sunet</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='saxofon'>instrument; muzică</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='chitară'>instrument; muzică</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='tastatură muzicală'>clape; muzică</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='trompetă'>instrument; muzică</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='vioară'>instrument; muzică</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='telefon mobil'>celular; dispozitiv; mobilitate</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='telefon mobil cu săgeată'>celular; dispozitiv; mobilitate; săgeată</annotation>
+
+		<!-- telephone; phone -->
+		<annotation cp='[☎]' tts='telefon'>cablu</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='receptor de telefon'>telefon; receptor</annotation>
+
+		<!-- pager -->
+		<annotation cp='[📟]' tts='pager'>dispozitiv; comunicare</annotation>
+
+		<!-- fax machine; fax -->
+		<annotation cp='[📠]' tts='fax'>dispozitiv; comunicare</annotation>
+
+		<!-- battery -->
+		<annotation cp='[🔋]' tts='baterie'>energie</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='fișă electrică'>fișă; priză</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='laptop'>personal</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='computer desktop'>computer; birou</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='imprimantă'>dispozitiv; imprimare</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='tastatură'>taste</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='mouse'>dispozitiv; computer; periferic</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='trackball'>dispozitiv; computer; periferic</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='minidisc'>disc; stocare; date</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='dischetă'>stocare; date</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='cd'>disc; compact; stocare; date</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>disc; optic; computer</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='cameră video profesională'>filmare; cinema</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='clachetă'>filmare</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='proiector de filme'>proiector; video; imagini</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='cameră foto'>fotografie; dispozitiv</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='cameră foto cu bliț'>fotografie; dispozitiv; bliț</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='cameră video'>cameră; filmare; amator</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='casetă video'>casetă; video</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='lupă orientată spre stânga'>lupă; mărire; căutare</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='lupă orientată spre dreapta'>lupă; mărire; căutare</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='microscop'>instrument; medical; observare</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='telescop'>instrument; spațiu; stele</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='antenă satelit'>antenă; satelit; comunicare</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='lumânare'>lumină; flacără</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='bec'>lumină; electricitate</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='lanternă'>lumină; baterie</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='lanternă roșie de hârtie'>lanternă; hârtie; lumină; japonia</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='caiet cu copertă decorativă'>caiet; decorațiune; copertă</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='carte închisă'>carte; închis</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='carte deschisă'>carte; deschis</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='carte verde'>carte; verde</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='carte albastră'>carte; albastră</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='carte portocalie'>carte; portocaliu</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' tts='cărți'>carte</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='registru'>date</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='pagină rulată'>pagină; buclă</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='pergament'>scriere</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='față de pagină'>pagină; orizontală</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='ziar'>publicație; hârtie</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='ziar rulat'>publicație; hârtie; răsucire</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='marcatoare de pagini'>marcaj; hârtie; lipici</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='semn de carte'>semn; carte; pagină</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='sac cu bani'>dolar; bani; sac</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='bancnotă yen'>bancnotă; yen</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='bancnotă dolar'>dolar; bancnotă</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='bancnotă euro'>euro; bancnotă</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='bancnotă liră sterlină'>liră; bancnotă</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='bani înaripați'>bani; bancnotă; zbor; aripi</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='card de credit'>card; credit; plată; bani</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='grafic ascendent cu yen'>yen; creștere; grafic</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='e-mail'>mesaj; electronic; plic</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='sosire plic'>plic; sosire; mesaj</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='plic cu săgeată'>plic; săgeată</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='tăviță de ieșire'>trimitere; mesaj</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='tăviță de intrare'>primire; mesaj</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='pachet'>cutie; colet</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='căsuță poștală închisă cu steagul sus'>cutie; poștă; închis</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='căsuță poștală închisă cu steagul jos'>cutie; poștă; închisă; gol</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='căsuță poștală deschisă cu steagul sus'>cutie; poștă; deschisă; corespondență</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='căsuță poștală'>cutie; poștă; deschisă; gol</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='cutie poștală'>cutie; poștă</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='urnă de votare cu vot'>cutie; vot</annotation>
+
+		<!-- pencil -->
+		<annotation cp='[✏]' tts='creion'>instrument; scris; mină</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='peniță neagră'>instrument; scris; vârf</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='stilou'>instrument; scris; cerneală</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='pix'>instrument; scris; mină; pastă</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='pensulă'>pictură; instrument</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='creion cu vârful în stânga jos'>creion; culoare</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='notă'>informații</annotation>
+
+		<!-- briefcase -->
+		<annotation cp='[💼]' tts='servietă'>documente</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='dosar cu fișiere'>dosar; fișiere</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='dosar cu fișiere deschis'>dosar; fișiere; deschis</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='separatoare'>index</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='calendar'>date</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='calendar cu file detașabile'>calendar; file</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='blocnotes cu spirală'>carnet; spirală</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='calendar cu spirală'>calendar; spirală</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='index de carduri'>index; cărți de vizită</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='grafic ascendent'>diagramă; creștere</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='grafic descendent'>diagramă; scădere</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='diagramă cu bare'>coloane; diagramă</annotation>
+
+		<!-- pushpin; pin -->
+		<annotation cp='[📌]' tts='piuneză'>fixare; ac</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='bold cu gămălie colorată'>bold; gămălie; culoare</annotation>
+
+		<!-- paperclip -->
+		<annotation cp='[📎]' tts='agrafă de birou'>agrafă; hârtie</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='agrafe de birou unite'>agrafe; unire</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='riglă'>linie; măsurare</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='echer'>linie; măsurare; triunghi</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='foarfece'>instrument; croitorie</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='cutie de îndosariere'>cutie; îndosariere</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='fișet'>dulap; metal; birou</annotation>
+
+		<!-- wastebasket -->
+		<annotation cp='[🗑]' tts='coș de gunoi'>coș; hârtie</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='lacăt'>siguranță</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='lacăt deschis'>lacăt; deschis</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='lacăt cu stilou'>lacăt; stilou; confidențialitate</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='lacăt închis cu cheie'>lacăt; cheie; siguranță</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='cheie'>parolă; siguranță</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='cheie veche'>cheie; vechime</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='ciocan'>instrument; cui</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='târnăcop'>instrument; pământ; minerit</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='ciocan și daltă'>ciocan; daltă</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='ciocan și cheie'>ciocan; cheie fixă</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='cheie fixă'>instrument; piuliță</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='șurub și piuliță'>instrument; șurub; piuliță</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='rotiță'>roată; zimți</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='strânsoare'>instrument; menghină</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='alambic'>chimie; instrument</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='balanță'>instrument; justiție; zodie; egalitate</annotation>
+
+		<!-- link -->
+		<annotation cp='[🔗]' tts='za'>conexiune; legătură</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='lanț'>zale</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='siringă'>ac; injecție</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='pastilă'>doctor; medicament</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='pumnal'>cuțit; armă</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='cuțit de bucătărie'>bucătărie; gătit; cuțit</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='săbii încrucișate'>spade; încrucișare; arme</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='pistol'>armă de foc; revolver</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='scut'>protecție; luptă</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='arc și săgeată'>arc; săgeată; armă; zodie</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='steag cu pătrățele'>steag; curse</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='steag alb fluturând'>steag; alb; pace</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='steag negru fluturând'>steag; negru</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='steag triunghiular'>steag; triunghi; roșu</annotation>
+
+		<!-- smoking -->
+		<annotation cp='[🚬]' tts='fumat'>țigară; scrum; fum</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='coșciug'>moarte; înmormântare</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='urnă funerară'>urnă; cenușă</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='statuie moai'>statuie; insula paștelui</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='butoi de combustibil'>butoi; tablă</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='glob de cristal'>glob; cristal; viitor; noroc; fantezie</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='indicator ATM'>bancă; automat; bani</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='folosiți coșul de gunoi'>deșeuri; gunoi</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='apă potabilă'>apă; hidratare</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='scaun cu rotile'>handicap; scaun; roți</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='toaletă bărbați'>toaletă; bărbați</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='toaletă femei'>toaletă; femei</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='toaletă mixtă'>baie; wc</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='simbol bebeluș'>bebeluș; scutece</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='wc'>toaletă; baie</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='verificare pașapoarte'>control; graniță</annotation>
+
+		<!-- customs -->
+		<annotation cp='[🛃]' tts='vamă'>graniță</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='revendicare bagaje'>recuperare; bagaje</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='bagaje uitate'>bagaje; uitate; păstrare</annotation>
+
+		<!-- warning -->
+		<annotation cp='[⚠]' tts='avertisment'>triunghi; exclamare; avertizare</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='trecere copii'>trecere; copii; trafic</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='acces interzis'>interdicție; nu; acces</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='interzis'>intrare; interdicție; nu</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='interzis accesul cu bicicleta'>bicicletă; interdicție</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='nu se fumează'>interdicție; fumat</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='nu aruncați gunoi pe jos'>interdicție; gunoi</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='apă nepotabilă'>apă; infestare; interdicție</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='interzis accesul pietonilor'>interdicție; pietoni; nu</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='radioactiv'>pericol; radiații</annotation>
+
+		<!-- biohazard -->
+		<annotation cp='[☣]' tts='pericol biologic'>risc; biologic</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='săgeată orientată în sus'>indicator; sus</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='săgeată orientată în dreapta-sus'>indicator; dreapta; sus</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='săgeată orientată în dreapta'>indicator; dreapta</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='săgeată orientată în dreapta-jos'>indicator; dreapta; jos</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='săgeată orientată în jos'>indicator; jos</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='săgeată orientată în stânga jos'>indicator; stânga; jos</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='săgeată orientată în stânga'>indicator; stânga</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='săgeată orientată în stânga-sus'>indicator; stânga; sus</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='săgeată sus-jos'>indicator; sus; jos</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='săgeată dreapta-stânga'>indicator; dreapta; stânga</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='săgeată întoarcere spre stânga'>indicator; curbă; stânga</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='săgeată întoarcere spre dreapta'>indicator; curbă; dreapta</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='săgeată întoarcere în sus'>indicator; curbă; sus</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='săgeată întoarcere în jos'>indicator; curbă; jos</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='săgeți verticale orientate în sensul acelor de ceasornic'>reîncărcare; săgeți; sens; ceasornic</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='buton cu săgeți în sens invers acelor de ceasornic'>invers; sens; ceasornic</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='săgeată înapoi'>indicator; negru; înapoi</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='săgeată final'>indicator; final</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='săgeată să pornim'>indicator; îndemn</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='săgeată în curând'>indicator; curând</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='săgeată în sus'>săgeată; sus</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='loc de rugăciune'>lăcaș; cult</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='simbol atom'>atom</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='simbol budist om'>religie; hindusă</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='steaua lui david'>stea; david; iudaism</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='roata dharma'>roată; dharma; budism</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='yin yang'>religie; taoism; yang; ying</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='cruce latină'>cruce; creștinism; religie</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='cruce ortodoxă'>cruce; creștinism; religie; ortodoxie</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='stea și semilună'>stea; semilună; religie; musulmană</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='semnul păcii'>simbol; pace</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='sfeșnic menorah'>sfeșnic; brațe; nouă; religie</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='stea cu șase colțuri și punct în centru'>stea; noroc</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='simbolul pentru reciclare'>reciclare</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='ecuson cu nume'>ecuson; nume</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='floare de crin stilizată'>crin; regalitate; franța</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='începător în japonia'>începător; japonia</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='emblemă trident'>maritim; furcă</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='cerc mare îngroșat'>cer; o</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='bifă albă îngroșată'>bifă; alb</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='casetă de votare bifată'>casetă; bifă; vot</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='bifă îngroșată'>bifă</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='semnul înmulțirii îngroșat'>înmulțire; x</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='semnul x'>anulare; închidere; înmulțire</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='buton x'>buton; x</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='semn plus îngroșat'>adunare; plus</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='semn minus îngroșat'>minus; liniuță</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='semnul împărțirii îngroșat'>împărțire</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='buclă dublă'>buclă; dublu</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='alternare cântăreț'>marcaj; schimbare; cântăreț</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='asterisc cu opt colțuri'>asterisc</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='stea albă cu patru colțuri'>stea</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='strălucire'>lumină</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='schimb valutar'>schimb; valută; bani</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='semnul dolar îngroșat'>bani; dolar</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='dublă exclamare'>exclamație; dublu</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='exclamare și întrebare'>exclamație; întrebare</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='semnul întrebării'>întrebare; punctuație</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='semnul întrebării alb'>întrebare; punctuație; contur; alb</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='semnul exclamării alb'>exclamație; punctuație; contur; alb</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='semnul exclamării'>exclamație; punctuație</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='liniuță ondulată'>liniuță; ondulat</annotation>
+
+		<!-- copyright -->
+		<annotation cp='[©]' tts='drepturi de autor'>drept; autor</annotation>
+
+		<!-- registered -->
+		<annotation cp='[®]' tts='înregistrat'>oficial</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='marcă comercială'>marcă; comercială</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='zodia berbec'>berbec; zodie</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='zodia taur'>taur; zodie</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='zodia gemeni'>gemeni; zodie</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='zodia rac'>rac; zodie</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='zodia leu'>leu; zodie</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='zodia fecioară'>fecioară; zodie</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='zodia balanță'>balanță; zodie</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='zodia scorpion'>scorpion; zodie</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='zodia săgetător'>săgetător; zodie</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='zodia capricorn'>capricorn; zodie</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='zodia vărsător'>vărsător; zodie</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='zodia pești'>pești; zodie</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='zodia ophicus'>ofiucus; zodie</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='butonul amestecare piese'>săgeți; încrucișare; amestecare</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='buton repetare'>săgeți; repetare</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='buton repetare unică'>repetare; unic</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='buton de redare'>redare; săgeată; triunghi</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='buton repede înainte'>săgeată; triunghi; dublu; înainte</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='buton melodia următoare'>săgeată; următorul; triunghi</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='buton redare sau întrerupere'>săgeată; triunghi; bare</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='buton inversare'>săgeată; triunghi; inversare</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='buton inversare rapidă'>săgeată; triunghi; dublu; înapoi</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='buton ultima melodie'>săgeată; piesă; ultima; înapoi</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='buton mai sus'>săgeată; triunghi; sus</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='buton repede mai sus'>săgeată; triunghi; dublu; sus; repede</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='buton mai jos'>săgeată; triunghi; jos</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='buton repede mai jos'>săgeată; triunghi; dublu; jos; repede</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='buton întrerupere'>bare; două; întrerupere</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='buton oprire'>pătrat; stop</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='buton înregistrare'>cerc; buton</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='buton ejectare'>buton; ejectare</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='cinema'>cameră; filmare; buton</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='diminuare lumină'>scădere; lumină</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='buton creștere lumină'>creștere; lumină</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='bare de rețea'>semnal; rețea; bare</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='telefoanele mobile sunt interzise'>telefon; mobil; interdicție; nu</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='modul vibrare'>vibrare; telefon; mobil</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='închidere telefoane mobile'>telefon; mobil; dezactivare</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='tastă număr'>diez; număr</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='tastă asterisc'>asterisc; steluță</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='tastă zero'>tastă; 0; zero</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='tastă unu'>tastă; 1; unu</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='tastă doi'>tastă; 2; doi</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='tastă trei'>tastă; 3; trei</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='tastă patru'>tastă; 4; patru</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='tastă cinci'>tastă; 5; cinci</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='tastă șase'>tastă; 6; șase</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='tastă șapte'>tastă; 7; șapte</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='tastă opt'>tastă; 8; opt</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='tastă nouă'>tastă; 9; nouă</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='tastă zece'>tastă; 10; zece</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='o sută de puncte'>100; scor; maxim</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='interzis sub 18 ani'>18; interdicție; nu</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='introducere caracter latin mare'>caracter; latin; mare</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='introducere caracter latin mic'>caracter; latin; mic</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='introducere numere'>cifre; introducere</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='introducere simboluri'>introducere; simboluri</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='introducere litere latine'>alfabet; latin</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='buton a'>a; buton</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='buton ab'>ab; buton</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='buton b'>b; buton</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='cl într-un pătrat'>cl; pătrat</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='tare într-un pătrat'>cool</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='gratis într-un pătrat'>gratis</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='sursă de informații'>informații</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='id într-un pătrat'>identitate</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='litera m într-un cerc'>m; cerc</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='nou într-un cerc'>nou; cerc</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='ng într-un cerc'>ng; pătrat</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='buton o'>o; buton</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='ok într-un pătrat'>ok; pătrat</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='buton p'>p; parcare; buton</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='sos într-un pătrat'>sos; ajutor; pătrat</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='buton sus'>sus; buton; exclamare</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='contra într-un pătrat'>vs.; pătrat</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='aici în katakana într-un pătrat'>japoneză</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='serviciu în katakana într-un pătrat'>japoneză</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='ideogramă lună într-un pătrat'>japoneză; ideogramă</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='ideogramă disponibil într-un pătrat'>japoneză; ideogramă</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='ideogramă deget într-un pătrat'>japoneză; ideogramă</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='ideogramă avantaj într-un cerc'>japoneză; ideogramă</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='ideogramă împărțire într-un pătrat'>japoneză; ideogramă</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='ideogramă negare într-un pătrat'>japoneză; ideogramă</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='ideogramă interzis într-un pătrat'>japoneză; ideogramă</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='ideogramă accept într-un cerc'>chineză; ideogramă</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='ideogramă aplicare într-un pătrat'>chineză; ideogramă</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='ideogramă împreună într-un pătrat'>chineză; ideogramă</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='ideogramă gol într-un pătrat'>chineză; ideogramă</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='ideogramă felicitări într-un cerc'>chineză; ideogramă</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='ideogramă secret într-un cerc'>chineză; ideogramă</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='ideogramă în activitate într-un pătrat'>chineză; ideogramă</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='ideogramă plin într-un pătrat'>chineză; ideogramă</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='pătrat negru mic'>pătrat; negru</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='pătrat alb mic'>pătrat; alb</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='pătrat alb mediu'>pătrat; alb</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='pătrat negru mediu'>pătrat; negru</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='pătrat alb mediu spre mic'>pătrat; alb</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='pătrat negru mediu spre mic'>pătrat; negru</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='pătrat negru mare'>pătrat; negru</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='pătrat alb mare'>pătrat; alb</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='romb portocaliu mare'>romb; portocaliu</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='romb albastru mare'>romb; albastru</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='romb portocaliu mic'>romb; portocaliu</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='romb albastru mic'>romb; albastru</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='triunghi roșu cu vârful în sus'>triunghi; vârf; sus; roșu</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='triunghi roșu cu vârful în jos'>triunghi; vârf; jos; roșu</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='romb cu punct în centru'>romb; punct</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='buton radio'>buton; rotund; radio</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='buton cadru negru'>pătrat; cadru; negru</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='buton cadru alb'>pătrat; cadru; alb</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='cerc alb'>cerc; alb</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='cerc negru'>cerc; negru</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='cerc roșu'>cerc; roșu</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='cerc albastru'>cerc; albastru</annotation>
+	</annotations>
+</ldml>

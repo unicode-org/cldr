@@ -1,0 +1,2929 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='lv'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='smiekli'>seja; smaids</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='sakosti zobi un smaidošas acis'>seja; smīns; smaids</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='seja ar prieka asarām'>seja; prieks; smiekli; asaras</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='smaidoša seja ar atvērtu muti'>seja; mute; atvērts; smaids</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='smaidoša seja ar atvērtu muti un smaidošām acīm'>seja; mute; atvērts; smaids</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='smaidoša seja ar atvērtu muti un aukstu sviedru lāsi'>auksts; seja; atvērts; smaids; sviedri</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='smaidoša seja ar atvērtu muti un aizmiegtām acīm'>seja; smiekli; mute; atvērts; laimīgs; smaids</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='seja ar piemiegtu aci'>seja; mirkšķināt; acs; miegt</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='smaidoša seja ar smaidošām acīm'>nosarkt; seja; smaids; prieks</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='ēdienu baudoša seja'>garšīgs; seja; smaids; ņamm</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='smaidoša seja ar saulesbrillēm'>gaišs; stilīgs; acs; brilles; seja; smaids; saule; saulesbrilles; laikapstākļi; laiks; saulains</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='smaidoša seja ar sirds formas acīm'>acs; seja; sirds; mīlestība; smaids</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='skūpstoša seja'>seja; sirds; skūpsts</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='seja sniedz skūpstu'>seja; skūpsts</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='seja ar smaidošām acīm sniedz skūpstu'>seja; skūpsts; smaids</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='seja ar aizvērtām acīm sniedz skūpstu'>aizvērts; acs; seja; smaids; skūpsts</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='smaidoša seja'>seja; mierīgs; smaids; prieks</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='seja ar vieglu smaidu'>seja; smaids</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='seja ar apskāvienu'>seja; apskāviens; apskaut</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='smaidoša seja ar nimbu'>eņģelis; seja; svētais; nimbs; nevainīgs; smaids</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='domīga seja'>seja; domāt</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='neitrāla seja'>neizteiksmīgs; seja; neitrāls; bez izteiksmes</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='seja bez izteiksmes'>bez izteiksmes; seja; neizteiksmīgs</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='seja bez mutes'>seja; mute; kluss</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='seja ar pārgrieztām acīm'>acis; seja; pārgriezt; neapmierināts</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='smīnoša seja'>seja; smīns; viltīgs</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='piepūlēta seja'>seja; neatlaidīgs; pacietīgs; piepūle</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='vīlusies un atvieglota seja'>vīlies; vilties; seja; atvieglojums; sviedri</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='seja ar atvērtu muti'>seja; mute; atvērts; pārsteigt</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='seja ar rāvējslēdzēju mutes vietā'>seja; mute; rāvējslēdzējs; ciet</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='pārsteigta seja'>seja; apklusināt; pārsteigt</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='miegaina seja'>seja; miegs; gulēt</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='nogurusi seja'>seja; nogurums</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='guļoša seja'>seja; gulēt; žāvāties</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='seja ar atvieglojuma izteiksmi'>seja; atvieglojums</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='nūģa seja'>seja; nūģis</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='seja ar izbāztu mēli'>seja; mēle</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='seja ar izbāztu mēli un piemiegtu aci'>acs; seja; mēle; mirkšķināt; miegt</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='seja ar izbāztu mēli un aizmiegtām acīm'>acs; seja; negaršīgs; garša; mēle</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='bēdīga seja'>seja; bēdīgs; bēdas</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='nedaudz bēdīga seja'>seja; bēdīgs; bēdas</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='saīgusi seja'>seja; saīdzis; dusmīgs; dusmas</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='seja ar aukstu sviedru lāsi'>auksts; seja; sviedri</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='domās iegrimusi seja'>seja; domīgs; pārdomas</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='apjukusi seja'>apjukums; seja; apjucis</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='apmulsināta seja'>apmulsums; seja; apmulsis</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='apgriezta seja'>seja; apgriezts; otrādi</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='seja ar medicīnas masku'>ārsts; seja; maska; medicīna; slims</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='seja ar termometru'>seja; slims; termometrs</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='seja ar galvas apsēju'>apsējs; seja; ievainojums</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='seja ar naudu mutē'>seja; nauda; mute</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='šokēta seja'>pārsteigts; seja; šokēts</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='vīlusies seja'>vīlies; seja</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='noraizējusies seja'>seja; noraizējies; rūpes</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='seja ar tvaiku no deguna'>seja; dusmas; tvaiks</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='raudoša seja'>raudāt; seja; skumjas; asaras; bēdīgs</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='aizgūtnēm raudoša seja'>raudāt; seja; skumjš; asaras; bēdas</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='bēdīga seja ar atvērtu muti'>seja; bēdas; mute; atvērts</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='sāpjpilna seja'>sāpes; seja; sāpināt; pārsteigt</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='nobijusies seja'>seja; bailes; bailīgs; nobijies</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='nogurdināta seja'>seja; noguris</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='saviebta seja'>seja; grimase</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='seja ar atvērtu muti un aukstiem sviedriem'>zils; auksts; seja; mute; atvērts; sviedri</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='bailēs kliedzoša seja'>seja; bailes; nobijies; Munks; kliedziens</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='nosarkusi seja'>apmulsis; seja; nosarkt</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='apreibusi seja'>apreibis; seja</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='sabozusies seja'>dusmīgs; seja; sabozies; dusmas</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='dusmīga seja'>dusmīgs; seja</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='smaidoša seja ar ragiem'>seja; ragi; smaids; velns</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='velniņš'>dēmons; velns; seja</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='briesmonis'>galva; cilvēkēdājs</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='goblins'>briesmonis; galva</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='galvaskauss'>nāve; galva</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='galvaskauss ar sakrustotiem kauliem'>kauli; nāve; galva; galvaskauss; jautrais Rodžers</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='spoks'>briesmonis; gars</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='citplanētietis'>briesmonis; visums; kosmoss; NLO</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='citplanētiešu briesmonis'>citplanētietis; briesmonis; visums; kosmoss; NLO</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='robota galva'>galva; briesmonis; robots</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='ekskrementi'>smieklīgs; mēsli; briesmonis</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='smaidoša kaķa galva ar atvērtu muti'>kaķis; galva; mute; atvērts; smaids</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='plati smaidoša kaķa galva ar smaidošām acīm'>kaķis; mute; smaids; galva; atvērts</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='kaķa galva ar prieka asarām'>kaķis; galva; prieks; asaras</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='smaidoša kaķa galva ar sirds formas acīm'>kaķis; galva; acs; sirds; mīlestība; smaids</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='kaķa galva ar viltīgu smaidu'>kaķis; galva; smaids; viltīgs</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='kaķa galva, kas sniedz skūpstu ar aizvērtām acīm'>kaķis; acs; galva; skūpsts; aizvērts</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='noraizējusies kaķa galva'>kaķis; galva; pārsteigts; nobijies; kliedziens; Munks</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='raudoša kaķa galva'>kaķis; raudāt; galva; skumjš; asaras</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='sabozusies kaķa galva'>kaķis; galva; sabozies</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='neko neredzu'>ļauns; galva; aizliegts; žests; pērtiķis; nē; nedrīkst; redzēt</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='neko nedzirdu'>ļauns; galva; aizliegts; žests; pērtiķis; nē; nedrīkst; dzirdēt</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='neko nesaku'>ļauns; galva; aizliegts; žests; pērtiķis; nē; nedrīkst; runāt</annotation>
+
+		<!-- boy -->
+		<annotation cp='[👦]' tts='zēns'>puika; seja</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='meitene'>seja</annotation>
+
+		<!-- man -->
+		<annotation cp='[👨]' tts='vīrietis'>vīrs; seja; kungs</annotation>
+
+		<!-- woman -->
+		<annotation cp='[👩]' tts='sieviete'>dāma; kundze; seja</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='vecs vīrietis'>vecs; vīrietis; vectēvs; seja</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='veca sieviete'>vecs; sieviete; vecmamma; seja</annotation>
+
+		<!-- baby -->
+		<annotation cp='[👶]' tts='zīdainis'>bērns; mazulis; seja</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='blonds cilvēks'>blonds; seja</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='policists'>seja</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='vīrietis ar ķīniešu cepuri'>vīrietis; cepure; seja</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='vīrietis ar turbānu'>vīrietis; turbāns; seja</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='celtnieks'>ķivere; seja</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='ķivere ar baltu krustu'>palīdzība; ķivere; krusts</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='princese'>pasaka; seja</annotation>
+
+		<!-- guardsman; guard -->
+		<annotation cp='[💂]' tts='sargs'>seja</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='detektīvs'>spiegs; seja</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='ziemassvētku vecītis'>ziemassvētki; santaklauss; vecītis</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='mazs eņģelītis'>eņģelis; nimbs</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='sejas masāža'>seja; masāža</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='frizūra'>frizētava; frizieris</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='līgava ar plīvuru'>līgava; plīvurs; kāzas</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='bēdīgs cilvēks'>bēdīgs; žests</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='sabozies cilvēks'>sabozies; žests</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='noraidījums'>aizliegts; žests; roka; nē; nedrīkst</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='apstiprinājums'>labi; žests; ok; roka</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='informācijas centra darbinieks'>roka; palīdzība; informācija</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='laimīgs cilvēks ar paceltu roku'>žests; roka; laimīgs; pacelts</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='cilvēks paklanās'>atvainošanās; paklanīties; žests</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='paceltas rokas'>svinēt; uzvara; rokas; pacelts</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='lūgšanā saliktas rokas'>lūgt; lūgties; rokas; žests</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='runājoša galva'>galva; siluets; runāt</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='krūšutēla siluets'>krūšutēls; siluets</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='divu krūšutēlu silueti'>krūšutēls; siluets</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='gājējs'>pārgājiens; kājāmgājējs; iešana</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='skrējējs'>maratons; skriešana</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='sievietes izklaidējas'>zaķis; dejotāja; ausis; meitene; sieviete</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='levitējošs cilvēks uzvalkā'>uzvalks; vīrietis</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='skūpsts'>pāris; romantika</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='pāris ar sirdi'>pāris; romantika; sirds; mīlestība</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='ģimene'>bērns; tēvs; māte; vīrietis; sieviete</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='vīrietis un sieviete sadevušies rokās'>pāris; rokas; sadot; vīrietis; sieviete</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='divi vīrieši sadevušies rokās'>pāris; rokas; sadot; dvīņi; zodiaks; vīrietis; sieviete</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='divas sievietes sadevušās rokās'>pāris; rokas; sadot; sieviete</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='ādas tips 1–2'>āda; tonis; Ficpatriks</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='ādas tips 3'>āda; tonis; Ficpatriks</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='ādas tips 4'>āda; tonis; Ficpatriks</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='ādas tips 5'>āda; tonis; Ficpatriks</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='ādas tips 6'>āda; tonis; Ficpatriks</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='bicepss'>ķermenis; muskulis; saliekt</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='pa kreisi vērsts rādītājpirksts'>delna; ķermenis; pirksts; roka; rādītājpirksts; rādīt</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='pa labi vērsts rādītājpirksts'>delna; ķermenis; pirksts; roka; rādītājpirksts; rādīt</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='augšup vērsts rādītājpirksts'>delna; ķermenis; pirksts; roka; rādītājpirksts; rādīt</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='augšup vērsts rādītājpirksts ar prom vērstu delnu'>delna; ķermenis; pirksts; roka; rādītājpirksts; rādīt</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='vidējais pirksts'>delna; ķermenis; pirksts; roka; rādīt</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='lejup vērsts rādītājpirksts'>delna; ķermenis; pirksts; roka; rādītājpirksts; rādīt</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='uzvaras simbols'>ķermenis; roka; uzvara</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='vulkāniešu sveiciens'>ķermenis; pirksts; roka; Spoks; Vulkāns</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='ragu simbols'>ķermenis; pirksts; roka; ragi; rokmūzika</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='pacelta roka ar izvērstiem pirkstiem'>ķermenis; pirksts; roka; izvērsts</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='pacelta roka'>ķermenis; roka</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='simbols OK'>ķermenis; roka; labi; ok</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='augšup vērsts īkšķis'>ķermenis; roka; īkšķis; augšup; patīk; +1</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='lejup vērsts īkšķis'>ķermenis; roka; īkšķis; lejup; nepatīk; -1</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='pacelta dūre'>ķermenis; dūre; sist; roka</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='pretim vērsta dūre'>ķermenis; dūre; sist; roka</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='mājoša roka'>ķermenis; roka; māt</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='aplausi'>ķermenis; roka; aplaudēt</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='atvērtas rokas'>ķermenis; roka</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='rakstoša roka'>ķermenis; roka; rakstīt</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='nagu laka'>ķermenis; skaistumkopšana; kosmētika; manikīrs; nagi; laka</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='auss'>ķermenis</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='deguns'>ķermenis</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='pēdu nospiedumi'>ķermenis; nospiedumi</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='acis'>ķermenis; acs</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='acs'>ķermenis</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='mēle'>ķermenis; mute</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='mute'>ķermenis; lūpas</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='skūpsta nospiedums'>skūpsts; nospiedums; lūpas; lūpukrāsa</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='sirds ar bultu'>sirds; bulta; romantika</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='sarkana sirds'>sirds; sarkans</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='pukstoša sirds'>sirds; pukstēt; sirdspuksti</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='salauzta sirds'>sirds; salauzt</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='divas sirdis'>sirds; mīlestība</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='mirdzoša sirds'>sirds; mirdzēt; spīdēt</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='augoša sirds'>sirds; sirdspuksti</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='zila sirds'>sirds; zils</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='zaļa sirds'>sirds; zaļš</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='dzeltena sirds'>sirds; dzeltens</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='violeta sirds'>sirds; violets</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='sirds ar lentīti'>sirds; lentīte</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='rotējošas sirdis'>sirds</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='sirds rotājums'>sirds</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='izsaukuma zīme sirds formā'>izsaukums; sirds; pieturzīme</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='mīlestības vēstule'>sirds; vēstule; mīlestība; pasts; romantika</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='zzz'>miegs; gulēt</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='dusmu simbols'>dusmīgs</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='spridzeklis'>bumba; spridzināt; sprāgt</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='sadursme'>troksnis; bums</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='sviedru lāses'>sviedri; lāses</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='bēgšana'>bēgt; skriešana</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='apdullis'>zvaigzne</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='runas burbulis'>burbulis; runa; dialogs</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='pa kreisi vērsts runas burbulis'>burbulis; dialogs; runa</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='pa labi vērsts dusmu burbulis'>dusmīgs; runa; dialogs; burbulis</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='domu burbulis'>domas; burbulis</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='brilles'>acis</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='saulesbrilles'>acis; brilles</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='kaklasaite'>apģērbs; drēbes</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='t krekls'>apģērbs; drēbes</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='džinsi'>apģērbs; drēbes; bikses</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='kleita'>apģērbs</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='kimono'>apģērbs</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='bikini'>apģērbs; peldēt</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='sieviešu drēbes'>apģērbs; sieviešu</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='naudasmaks'>nauda; monētas; maks</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='rokassoma'>soma</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='iepirkumu somas'>soma; maisiņš</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='skolas mugursoma'>soma; skola; mugursoma</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='vīriešu kurpe'>apavi; vīriešu</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='skriešanas kurpe'>apavi; sports</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='augstpapēžu kurpe'>apavi; papēdis; sieviešu</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='sieviešu sandale'>apavi; sandale; sieviešu</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='sieviešu zābaks'>apavi; zābaks; sieviešu</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='kronis'>karalis; karaliene</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='sieviešu cepure'>cepure; platmale</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='cilindrs'>cepure</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='izlaiduma cepure'>cepure; izlaidums; svinības</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='lūgšanu krelles'>krelles; lūgšana; kaklarota; reliģija</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='lūpukrāsa'>kosmētika; lūpas</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='gredzens'>dimants; romantika; dārgakmens</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='dārgakmens'>dimants; romantika</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='pērtiķa galva'>galva; pērtiķis</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='suņa galva'>galva; suns; mājdzīvnieks</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='suns'>mājdzīvnieks</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='pūdelis'>suns; mājdzīvnieks</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='vilka galva'>galva; vilks</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='kaķa galva'>kaķis; galva; mājdzīvnieks</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='kaķis'>mājdzīvnieks</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='lauvas galva'>lauva; galva</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='tīģera galva'>tīģeris; galva</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='zirga galva'>zirgs; galva</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='zirgs'>sacīkstes; skriešana</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='vienradža galva'>vienradzis; galva</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='govs galva'>govs; galva</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='vērsis'>bullis</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='bifelis'>ūdens</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='cūkas galva'>cūka; ruksis; sivēns; galva</annotation>
+
+		<!-- pig; sow -->
+		<annotation cp='[🐖]' tts='cūka'>ruksis; sivēns</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='mežacūka'>galva</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='šņukurs'>cūka; ruksis; sivēns</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='auns'>aita</annotation>
+
+		<!-- sheep; ewe -->
+		<annotation cp='[🐑]' tts='aita'>auns</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='kamielis'>kupris</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='divkupru kamielis'>kamielis; kupris</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='peles galva'>pele; galva</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='kāmja seja'>kāmis; galva; mājdzīvnieks</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='truša seja'>trusis; galva; mājdzīvnieks</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='trusis'>mājdzīvnieks</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='lāča galva'>lācis; galva</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='koala'>lācis</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='pandas galva'>panda; galva</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='ķepu nospiedumi'>ķepa; nospiedums</annotation>
+
+		<!-- turkey -->
+		<annotation cp='[🦃]' tts='tītars'>putns</annotation>
+
+		<!-- chicken -->
+		<annotation cp='[🐔]' tts='vista'>putns</annotation>
+
+		<!-- rooster -->
+		<annotation cp='[🐓]' tts='gailis'>putns</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='cālis šķiļas'>cālis; ola; šķilties; putns</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='cālis'>galva; putns</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='cālis no priekšpuses'>cālis; putns</annotation>
+
+		<!-- penguin -->
+		<annotation cp='[🐧]' tts='pingvīns'>putns</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='dūja'>balodis; lidot; miers; putns</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='vardes galva'>varde; galva</annotation>
+
+		<!-- crocodile -->
+		<annotation cp='[🐊]' tts='krokodils'>aligators</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='pūķa galva'>pūķis; galva</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='valis šļāc ūdeni'>valis; ūdens</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='tropu zivs'>zivs; tropi</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='balonzivs'>zivs</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='krabis'>vēzis</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='skudra'>kukainis</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='bite'>kukainis</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='mārīte'>kukainis; bizbizmārīte</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='zirneklis'>kukainis</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='zirnekļa tīkls'>zirneklis; tīkls</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='pušķis'>ziedi; romantika</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='ķiršu zieds'>zieds; ķirši; augs</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='balts zieds'>zieds; augs</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='rozete'>zieds; augs</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='roze'>zieds; augs</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='hibisks'>zieds; augs</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='saulespuķe'>zieds; augs</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='zieds'>augs</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='tulpe'>zieds; augs</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='asns'>augs</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='skujkoks'>koks; augs</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='lapu koks'>koks; augs; lapas</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='palma'>koks; augs</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='kaktuss'>augs</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='rīsa augs'>rīsi; augs</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='augs'>lapa</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='āboliņa lapa'>āboliņš; lapa</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='četrlapu āboliņš'>4; āboliņš; augs; lapa</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='kļavas lapa'>kļava; lapa; augs</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='nokritusi lapa'>lapa; krist; augs</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='vējā plīvojoša lapa'>lapa; plīvot; vējš; augs</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='vīnogas'>auglis; augs</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='melone'>auglis; augs</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='arbūzs'>auglis; augs</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='mandarīns'>auglis; augs; oranžs; citruss</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='citrons'>auglis; augs; citruss</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='banāns'>auglis; augs</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='ananass'>auglis; augs</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='sarkans ābols'>auglis; augs; sarkans; ābols</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='zaļš ābols'>auglis; augs; zaļš; ābols</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='bumbieris'>auglis; augs</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='persiks'>auglis; augs</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='ķirši'>oga; augs; ķirsis</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='zemene'>oga; augs</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='tomāts'>dārzenis</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='baklažāns'>dārzenis; augs</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='kukurūzas vālīte'>kukurūza; dārzenis; augs</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='asais pipars'>ass; pipars; augs</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='kastanis'>augs</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='siera šķēle'>siers</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='kauls ar gaļu'>kauls; gaļa</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='putna kāja'>kauls; gaļa; putns; kāja</annotation>
+
+		<!-- hamburger; burger -->
+		<annotation cp='[🍔]' tts='hamburgers'>burgers</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='frī kartupeļi'>kartupeļi; frī</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='pica'>šķēle</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='hotdogs'>desiņa</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='tako'>meksikāņu</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='burito'>meksikāņu</annotation>
+
+		<!-- popcorn -->
+		<annotation cp='[🍿]' tts='popkorns'>kukurūza</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='ēdiena bļodiņa'>bļoda; ēdiens</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='bento kastīte'>bento; kastīte</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='rīsu galete'>rīsi; galete</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='rīsu bumbiņa'>rīsi; bumbiņa; japāņu</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='vārīti rīsi'>rīsi; vārīts</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='rīsu karijs'>rīsi; karijs</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='kūpoša bļodiņa'>bļoda; ēdiens; karsts</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='spageti'>pasta</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='cepti saldie kartupeļi'>kartupeļi; cepts; salds</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='ēdiens uz irbulīšiem'>ēdiens; irbulīši</annotation>
+
+		<!-- sushi -->
+		<annotation cp='[🍣]' tts='suši'>ēdiens</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='cepta garnele'>garnele; ēdiens; cepts</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='zivju pīrāgs ar rotājumu'>zivs; pīrāgs; rotājums</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='dango'>deserts; japāņu; irbulīši; salds</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='saldējums vafeļu glāzītē'>krēms; deserts; saldējums; mīksts; salds</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='smalcināts ledus ar sīrupu'>deserts; ledus; salds</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='saldējums'>krēms; deserts; salds</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='virtulis'>deserts; salds</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='cepums'>deserts; salds</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='dzimšanas dienas kūka'>dzimšanas diena; jubileja; kūka; torte; svinības; deserts</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='kūka'>torte; deserts; salds</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='šokolādes tāfelīte'>šokolāde; deserts; salds</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='konfekte'>salds; saldumi</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='konfekte uz kociņa'>konfekte; salds; saldumi</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='olu krēms'>deserts; salds</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='medus pods'>medus; pods; salds</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='bērna pudelīte'>bērns; zīdainis; pudele; dzert; piens</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='karsts dzēriens'>dzēriens; kafija; tēja; dzert; karsts</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='tējas tase bez osiņas'>dzēriens; dzert; tēja</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='sakē'>bārs; dzēriens; pudele; dzert</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='pudele ar izšautu korķi'>bārs; dzēriens; pudele; dzert; korķis; šampanietis</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='vīna glāze'>bārs; dzēriens; dzert; glāze; vīns</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='kokteiļa glāze'>bārs; kokteilis; dzert; glāze; dzēriens</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='tropu kokteilis'>bārs; kokteilis; dzert; glāze; dzēriens</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='alus kauss'>bārs; dzēriens; dzert; kauss; alus</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='saskandināti alus kausi'>bārs; dzēriens; dzert; kauss; alus</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='nazis un dakša ar šķīvi'>nazis; dakša; šķīvis</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='nazis un dakša'>nazis; dakša</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='ēdiena gatavošana'>ola; cept; panna</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='amfora'>dzert</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='globuss ar Eiropu un Āfriku'>globuss; pasaule; zemeslode; Āfrika; Eiropa</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='globuss ar Ziemeļameriku un Dienvidameriku'>globuss; pasaule; zemeslode; Ziemeļamerika; Dienvidamerika</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='globuss ar Āziju un Austrāliju'>globuss; pasaule; zemeslode; Āzija; Austrālija</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='globuss ar meridiāniem'>globuss; meridiāni</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='pasaules karte'>karte; pasaule</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='sniegoti kalni'>auksts; kalni; sniegs</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='vulkāns'>izvirdums</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='Fudzi kalns'>Fudzi; kalns</annotation>
+
+		<!-- camping -->
+		<annotation cp='[🏕]' tts='kempings'>telts; nometne</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='pludmale ar saulessargu'>pludmale; saulessargs</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='vientuļa sala'>sala; vientuļš</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='nacionālais parks'>parks; daba</annotation>
+
+		<!-- stadium -->
+		<annotation cp='[🏟]' tts='stadions'>sacensības</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='klasicisma stila ēka'>ēka; klasicisms; māja</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='būvlaukums'>būvniecība; celtniecība</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='ēkas'>ēka; māja</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='pilsētas panorāma'>māja; pilsēta; panorāma</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='pamesta ēka'>māja; ēka; nolaists; pamests</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='ēka'>māja</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='ēka ar dārzu'>māja; ēka; dārzs</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='baznīca'>māja; ēka; reliģija; kristieši; krusts; lūgties</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='kaaba'>māja; ēka; islams; musulmaņi; reliģija; lūgties</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='mošeja'>māja; ēka; islams; musulmaņi; reliģija; lūgties</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='sinagoga'>māja; ēka; ebreji; reliģija; templis; lūgties</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='sintoistu svētnīca'>reliģija; svētnīca; lūgties; sintoisms</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='biroju ēka'>māja; ēka</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='japāņu pasta nodaļa'>māja; ēka; pasts; japāņu</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='pasta nodaļa'>māja; ēka; pasts</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='slimnīca'>māja; ēka; ārsts; medicīna</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='banka'>māja; ēka; nauda</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='viesnīca'>māja; ēka</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='mīlas viesnīca'>māja; ēka; viesnīca</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='veikals'>māja; ēka</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='skola'>māja; ēka</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='tirdzniecības centrs'>māja; ēka; veikals; tirdzniecība</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='rūpnīca'>māja; ēka; fabrika</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='japāņu pils'>māja; ēka; pils; japāņu</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='pils'>māja; ēka</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='kāzas'>māja; ēka</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='Tokijas tornis'>tornis; Tokija</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='Brīvības statuja'>statuja; Brīvība</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='Japānas karte'>karte; Japāna</annotation>
+
+		<!-- fountain -->
+		<annotation cp='[⛲]' tts='strūklaka'>ūdens</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='telts'>kempings</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='miglains'>migla; laiks; laikapstākļi</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='zvaigžņota debess'>nakts; zvaigzne</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='saullēkts pār kalniem'>rīts; kalns; saule; saullēkts</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='saullēkts'>rīts; saule</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='pilsētas panorāma krēslā'>māja; ēka; pilsēta; krēsla; vakars; ainava; panorāma; saule; saulriets</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='saulriets'>māja; ēka; saule</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='tilts naktī'>tilts; nakts</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='karstie avoti'>karsts; avots</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='piena ceļš'>kosmoss; visums; debesis</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='karuseļa zirdziņš'>karuselis; zirgs</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='panorāmas rats'>atrakciju parks; panorāma; rats</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='amerikāņu kalniņi'>atrakciju parks</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='bārddziņa simbols'>frizieris; bārddzinis</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='cirka telts'>cirks; telts</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='izpildītājmākslas'>māksla; maska; teātris</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='rāmis ar gleznu'>māksla; rāmis; muzejs; glezna</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='gleznotāja palete'>māksla; glezna; palete</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='spēļu automāts'>spēle; automāts</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='lokomotīve'>dzinējs; dzelzceļš; vilciens; transports</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='dzelzceļa vagons'>vagons; dzelzceļš; vilciens; tramvajs; transports</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='ātrvilciens'>dzelzceļš; ātrums; vilciens; transports</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='ātrvilciens ar noapaļotu priekšgalu'>dzelzceļš; ātrums; vilciens; transports</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='vilciens'>dzelzceļš; transports</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='metro'>transports</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='piepilsētas vilciens'>dzelzceļš; vilciens; transports</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='dzelzceļa stacija'>dzelzceļš; vilciens; transports; stacija</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='tramvajs'>transports</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='viensliedes dzelzceļš'>dzelzceļš; vilciens; transports</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='kalnu dzelzceļš'>vagons; dzelzceļš; vilciens; transports; kalni</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='tramvaja vagons'>vagons; tramvajs; transports</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='autobuss'>transports</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='šurp braucošs autobuss'>autobuss; transports</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='trolejbuss'>transports</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='autobusa pietura'>autobuss; pietura</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='mikroautobuss'>autobuss; transports</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='ātrās palīdzības mašīna'>transports; medicīna; ārsts</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='ugunsdzēsēju mašīna'>uguns; transports; ugunsdzēsēji</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='policijas mašīna'>mašīna; policija; transports; automašīna</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='šurp braucoša policijas mašīna'>mašīna; policija; transports; automašīna</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='taksometrs'>mašīna; transports; automašīna</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='šurp braucošs taksometrs'>mašīna; transports; automašīna</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='automašīna'>mašīna; transports</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='šurp braucoša automašīna'>mašīna; transports; automašīna</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='kemperis'>mašīna; transports; automašīna</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='kravas automašīna'>mašīna; transports; automašīna; krava</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='smagā automašīna'>mašīna; transports; automašīna; krava</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='traktors'>transports</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='velosipēds'>ritenis; transports</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='degvielas sūknis'>degviela; sūknis; DUS; benzīns</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='automaģistrāle'>ceļš; šoseja</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='dzelzceļa sliedes'>dzelzceļš; vilciens; sliedes</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='policijas mašīnas bākuguns'>bākuguns; mašīna; policija</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='horizontāls luksofors'>signāls; luksofors</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='vertikāls luksofors'>signāls; luksofors</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='enkurs'>kuģis</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='buru laiva'>laiva; jahta; ūdens; jūra; transports</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='airu laiva'>laiva; ūdens; transports</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='ātrlaiva'>laiva; ūdens; transports</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='pasažieru kuģis'>kuģis; ūdens; transports; pasažieri</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='prāmis'>kuģis; ūdens; transports; pasažieri</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='motorlaiva'>laiva; transports; ūdens</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='kuģis'>transports; ūdens</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='lidmašīna'>transports</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='maza lidmašīna'>lidmašīna; transports</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='lidmašīnas pacelšanās'>lidmašīna; transports; pacelties; aizlidot</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='lidmašīnas nosēšanās'>lidmašīna; transports; nosēsties; atlidot</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' tts='sēdeklis'>krēsls</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='helikopters'>transports</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='trošu vilciens'>vilciens; trose; vagons; transports</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='kalnu trošu vilciens'>trose; gondola; kalns; transports</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='gaisa tramvajs'>trose; gondola; kalns; transports</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='raķete'>kosmoss; visums</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='satelīts'>kosmoss; visums</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='galda zvans'>zvans; zvaniņš; viesnīca</annotation>
+
+		<!-- door -->
+		<annotation cp='[🚪]' tts='durvis'>ieeja; izeja</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='cilvēks gultā'>cilvēks; gulēt; gulta</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='dīvāns un lampa'>dīvāns; lampa</annotation>
+
+		<!-- toilet -->
+		<annotation cp='[🚽]' tts='tualetes pods'>tualete; pods</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='duša'>ūdens</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='cilvēks mazgājas'>vanna; ūdens; mazgāties</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' tts='vanna'>ūdens</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='smilšu pulkstenis'>smiltis; taimeris; pulkstenis</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='smilšu pulkstenis ar plūstošām smiltīm'>smiltis; taimeris; pulkstenis</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='rokaspulkstenis'>pulkstenis</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='modinātājpulkstenis'>pulkstenis; modināt</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='hronometrs'>pulkstenis</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='taimeris'>pulkstenis</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='kamīna pulkstenis'>pulkstenis</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='pulksten divpadsmit'>12; 00; 12:00; pulkstenis</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='pulksten pusviens'>00; 12; 30; 12:30; pulkstenis</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='pulksten viens'>1; 00; 1:00; pulkstenis</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='pulksten pusdivi'>1; 30; 1:30; pulkstenis</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='pulksten divi'>2; 00; 2:00; pulkstenis</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='pulksten pustrīs'>2; 30; 2:30; pulkstenis</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='pulksten trīs'>3; 00; 3:00; pulkstenis</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='pulksten pusčetri'>3; 30; 3:30; pulkstenis</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='pulksten četri'>4; 00; 4:00; pulkstenis</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='pulksten puspieci'>4; 30; 4:30; pulkstenis</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='pulksten pieci'>5; 00; 5:00; pulkstenis</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='pulksten pusseši'>5; 30; 5:30; pulkstenis</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='pulksten seši'>6; 00; 6:00; pulkstenis</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='pulksten pusseptiņi'>6; 30; 6:30; pulkstenis</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='pulksten septiņi'>7; 00; 7:00; pulkstenis</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='pulksten pusastoņi'>7; 30; 7:30; pulkstenis</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='pulksten astoņi'>8; 00; 8:00; pulkstenis</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='pulksten pusdeviņi'>8; 30; 8:30; pulkstenis</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='pulksten deviņi'>9; 00; 9:00; pulkstenis</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='pulksten pusdesmit'>9; 30; 9:30; pulkstenis</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='pulksten desmit'>10; 00; 10:00; pulkstenis</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='pulksten pusvienpadsmit'>10; 30; 10:30; pulkstenis</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='pulksten vienpadsmit'>11; 00; 11:00; pulkstenis</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='pulksten pusdivpadsmit'>11; 30; 11:30; pulkstenis</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='jauns mēness'>tumšs; mēness</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='augoša mēness sirpis'>sirpis; mēness; augošs</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='augošs pusmēness'>mēness; pusmēness; augošs</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='izliekts augošs mēness'>mēness; izliekts; augošs</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='pilnmēness'>mēness</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='izliekts dilstošs mēness'>mēness; izliekts; dilstošs</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='dilstošs pusmēness'>mēness; pusmēness; dilstošs</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='dilstoša mēness sirpis'>mēness; sirpis; dilstošs</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='mēness sirpis'>mēness; sirpis</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='jauna mēness seja'>mēness; seja</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='augoša mēness sirpja seja'>mēness; sirpis; seja; augošs</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='dilstoša mēness sirpja seja'>mēness; sirpis; seja; dilstošs</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='termometrs'>temperatūra</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='saule'>stari; laiks; laikapstākļi</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='pilnmēness seja'>pilnmēness; mēness; seja</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='saules seja'>saule; seja</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='spīdoša zvaigzne'>zvaigzne; spīdēt</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='krītoša zvaigzne'>zvaigzne; krist</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='mākonis'>laiks; laikapstākļi</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='saule aiz mākoņa'>mākonis; saule; laiks; laikapstākļi</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='mākonis ar zibeni un lietu'>mākonis; lietus; zibens; laiks; laikapstākļi</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='saule aiz maza mākoņa'>mākonis; saule; laiks; laikapstākļi</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='saule aiz liela mākoņa'>mākonis; saule; laiks; laikapstākļi</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='saule aiz lietus mākoņa'>mākonis; saule; laiks; laikapstākļi; lietus</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='lietus mākonis'>mākonis; lietus; laiks; laikapstākļi</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='sniega mākonis'>mākonis; sniegs; laiks; laikapstākļi</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='mākonis ar zibeni'>mākonis; zibens; laiks; laikapstākļi</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='tornado'>mākonis; laiks; laikapstākļi; virpulis; viesulis</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='migla'>mākonis; laiks; laikapstākļi</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='pūš vējš'>vējš; pūst; laiks; laikapstākļi</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='ciklons'>laiks; laikapstākļi</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='varavīksne'>lietus; laiks; laikapstākļi</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='aizvērts lietussargs'>lietus; lietussargs</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='lietussargs'>lietus</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='lietussargs ar lietus lāsēm'>lietus; lietussargs; lāses; laiks; laikapstākļi</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='saulessargs'>saule; pludmale</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='augsts spriegums'>bīstami; elektrība; zibens; spriegums</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='sniegpārsla'>auksts; sniegs; laiks; laikapstākļi</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='sniegavīrs'>auksts; sniegs; laiks; laikapstākļi</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='sniegavīrs bez sniega'>auksts; sniegs; laiks; laikapstākļi; sniegavīrs</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='komēta'>kosmoss; visums</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='uguns'>degt</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='lāse'>ūdens; sviedri</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='vilnis'>jūra; okeāns; ūdens</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='izgrebts ķirbis'>visu svēto dienas priekšvakars; Helovīns; ķirbis; svētki</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='ziemassvētku eglīte'>Ziemassvētki; koks; svētki</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='salūts'>raķete; svētki</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='brīnumsvecīte'>salūts; mirdzēt</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='balons'>svētki</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='konfeti plaukšķene'>svētki; ballīte; plaukšķene; konfeti</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='konfeti bumbiņa'>svētki; ballīte; plaukšķene; konfeti</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='vēlmju koks'>vēlēšanās; koks; japāņu</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='sakrustoti karogi'>svētki; sakrustot; japāņu; karogs</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='priedes dekorācija'>bambuss; priede; svētki; japāņu</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='japāņu lelles'>svētki; lelle; japāņu</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='zivju veida karodziņi'>karpa; zivs; svētki</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='vēja zvans'>zvans; svētki; vējš</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='mēness vērošanas ceremonija'>mēness; svētki; japāņu</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='pušķītis'>pušķis; lente</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='iesaiņota dāvana'>lente; dāvana; iesaiņot</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='militāra medaļa'>medaļa; ordenis; armija</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='atceres lentīte'>atcere; svētki; piemiņa; lente</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='filmas lente'>filma; kino; lente</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='ieejas biļetes'>ieeja; biļete</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='biļete'>ieeja</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='futbola bumba'>sports; bumba; futbols</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='beisbola bumba'>sports; bumba; beisbols</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='basketbola bumba'>sports; bumba; basketbols</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='amerikāņu futbola bumba'>sports; bumba; amerikāņu futbols</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='regbija bumba'>sports; bumba; regbijs</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='tenisa bumbiņa'>sports; bumba; teniss</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='biljarda bumbiņa'>sports; bumba; biljards; melns; 8</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='boulings'>sports; bumba; spēle</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='karodziņš bedrītē'>golfs; bedrīte</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='golfa spēlētājs'>bumbiņa; bedrīte</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='slida'>ledus</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='makšķere'>zivs</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='skriešanas krekls'>skriet; krekls</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='slēpes'>sniegs</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='slēpotājs'>slēpes; sniegs</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='snovbordists'>snovbords; sniegs</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='sērfotājs'>sērfot; ūdens; okeāns</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='zirgu skriešanās sacīkstes'>zirgs; sacīkstes; žokejs</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='peldētājs'>peldēt; ūdens</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='cilvēks ar bumbu'>bumba</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='svarcēlājs'>svars; celts; sportists</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='velosipēdists'>velosipēds; ritenis; braukt</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='kalnu velosipēdists'>velosipēds; ritenis; braukt; kalns</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='sacīkšu automašīna'>mašīna; sacīkstes</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='motocikls'>sacīkstes</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='sporta medaļa'>medaļa; sports</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='kauss'>balva</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='krikets'>nūja; bumba</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='volejbola bumba'>sports; bumba; volejbols</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='lauka hokejs'>sports; bumba; nūja; hokejs</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='hokeja ripa un nūja'>sports; ripa; nūja; hokejs</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='galda teniss'>bumbiņa; pingpongs; rakete</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='badmintons'>rakete; volāns</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='šautriņa mērķī'>šautriņa; mērķis</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='videospēle'>konsole</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='kursorsvira'>spēle; videospēle</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='metamais kauliņš'>kauliņš; galda spēle</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='pīķis'>kārtis</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='ercens'>kārtis</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='kāravs'>kārtis</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='kreicis'>kārtis</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='džokers'>kārtis</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='Mahjong kauliņš: sarkanais pūķis'>spēle; mahjong; sarkans</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='ziedu kārtis'>spēle; kārtis; japāņu</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='izslēgts skaļrunis'>bez skaņas; kluss; izslēgts; skaļrunis; skaļums; klusums</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='skaļrunis'>skaļums</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='ieslēgts skaļrunis'>skaļrunis; skaļums</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='skaļš skaļrunis'>skaļš; skaļrunis; skaļums</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='pastiprinātājs'>skaļš; skaļrunis</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='rupors'>skaļš</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='pastnieka taure'>pastnieks; taure</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='pārsvītrots zvaniņš'>zvaniņš; aizliegts; bez skaņas; klusums</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='nošu līnijas'>mūzika; notis</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='nots'>mūzika</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='notis'>mūzika</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='studijas mikrofons'>mikrofons; studija</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='skaļuma slīdnis'>skaļums; slēdzis</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='slēdži'>mūzika</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='mikrofons'>karaoke</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' tts='austiņas'>mūzika</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='saksofons'>instruments; mūzika</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='ģitāra'>instruments; mūzika</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='klavieru taustiņi'>instruments; mūzika; klaviatūra; klavieres</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='trompete'>instruments; mūzika; taure</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='vijole'>instruments; mūzika</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='mobilais tālrunis'>tālrunis; mobilais; telefons</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='mobilais tālrunis ar bultiņu'>tālrunis; mobilais; bultiņa; telefons</annotation>
+
+		<!-- telephone; phone -->
+		<annotation cp='[☎]' tts='tālrunis'>telefons</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='tālruņa klausule'>tālrunis; telefons; klausule</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='kontaktdakša'>spraudnis; elektrība</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='klēpjdators'>dators</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='galddators'>dators</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='datorpele'>pele; dators</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='kursorbumba'>dators</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='minidisks'>dators</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='diskete'>dators</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='optiskais disks'>dators; CD; DVD; kompaktdisks; blu-ray</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>dators; CD; DVD; kompaktdisks; blu-ray</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='kinokamera'>kamera; kino; filma</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='klapīte'>filma</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='filmu projektors'>filma; kino; projektors</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='televizors'>TV</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='fotokamera'>kamera; fotoaparāts</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='fotokamera ar zibspuldzi'>kamera; fotokamera; fotoaparāts; zibspuldze</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='videokamera'>kamera</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='videokasete'>kasete; VHS</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='pa kreisi vērsta lupa'>lupa; palielināt</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='pa labi vērsta lupa'>lupa; palielināt</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='mikroskops'>palielināt</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='teleskops'>palielināt</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='satelīta šķīvis'>satelīts; šķīvis; antena</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='svece'>uguns</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='spuldze'>elektrība; gaisma</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='kabatas lukturītis'>elektrība; gaisma</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='sarkana papīra laterna'>bārs; japāņu; laterna; papīrs; sarkans</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='bloknots ar dekoratīvu vāku'>grāmata; bloknots</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='aizvērta grāmata'>grāmata; aizvērta</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='atvērta grāmata'>grāmata; atvērta</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='zaļa grāmata'>grāmata; zaļa</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='zila grāmata'>grāmata; zila</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='oranža grāmata'>grāmata; oranža</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' tts='grāmatas'>grāmata</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='grāmata ar spirāli'>grāmata; spirāle</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='lapa ar atliektu malu'>dokuments; lapa</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='papīra tīstoklis'>papīrs</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='papīra lapa'>papīrs; dokuments</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='avīze'>laikraksts; ziņas</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='satīta avīze'>avīze; laikraksts; ziņas; satīts</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='līmkarodziņi'>grāmatzīme</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='naudas maiss'>nauda; maiss; dolārs</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='jenas banknote'>nauda; banknote; jena</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='dolāra banknote'>nauda; banknote; dolārs</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='eiro banknote'>nauda; banknote; eiro</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='sterliņu mārciņas banknote'>nauda; banknote; sterliņu mārciņa</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='banknote ar spārniem'>nauda; banknote; spārni; lidot</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='kredītkarte'>nauda</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='augšupejoša diagrammas līkne ar jenas simbolu'>diagramma; tirgus; jena; augšup; līkne</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='aploksne'>vēstule; e-pasts</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='e-pasts'>aploksne; vēstule</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='ienākoša aploksne'>aploksne; vēstule; e-pasts; saņemt</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='aploksne ar bultiņu'>aploksne; vēstule; e-pasts; sūtīt; bultiņa</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='izejošo dokumentu paliktnis'>kaste; dokuments; pasts; sūtīt</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='ienākošo dokumentu paliktnis'>kaste; dokuments; pasts; saņemt</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='paciņa'>kaste; paka</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='aizvērta pastkaste ar paceltu karodziņu'>pastkaste; aizvērta; pasts</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='aizvērta pastkaste ar nolaistu karodziņu'>pastkaste; aizvērta; pasts</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='atvērta pastkaste ar paceltu karodziņu'>pastkaste; atvērta; pasts</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='atvērta pastkaste ar nolaistu karodziņu'>pastkaste; atvērta; pasts</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='pastkaste'>pasts</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='vēlēšanu urna ar vēlēšanu zīmi'>vēlēšanas; urna</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='melna rakstāmspalva'>spalva; rakstāmspalva</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='tušas pildspalva'>tuša; pildspalva</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='ota'>gleznot</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='paziņojums'>zīmulis</annotation>
+
+		<!-- briefcase -->
+		<annotation cp='[💼]' tts='portfelis'>soma</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='dokumentu mape'>dokuments; mape</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='atvērta dokumentu mape'>dokuments; mape; atvērts</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='dokumentu sadalītājs'>kartīte; dokuments; sadalītājs</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='kalendārs'>datums</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='noplēšams kalendārs'>kalendārs; datums</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='bloknots ar spirāli'>bloknots; piezīmes; spirāle</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='kalendārs ar spirāli'>kalendārs; spirāle</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='kartīšu rādītājs'>kartīte; rādītājs</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='augšupejoša diagrammas līkne'>diagramma; augšup; līkne</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='lejupejoša diagrammas līkne'>diagramma; lejup; līkne</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='joslu diagramma'>diagramma; josla</annotation>
+
+		<!-- clipboard -->
+		<annotation cp='[📋]' tts='dokumentu paliktnis'>dokuments; paliktnis</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='apaļa spraudīte'>spraudīte; apaļš</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='savienotas saspraudes'>saspraude</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='taisns lineāls'>lineāls</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='trīsstūra lineāls'>lineāls</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='šķēres'>griezt</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='dokumentu kaste'>kaste; dokuments</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='dokumentu skapis'>skapis; dokuments</annotation>
+
+		<!-- wastebasket -->
+		<annotation cp='[🗑]' tts='atkritumu grozs'>atkritumi; grozs; miskaste</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='slēdzene'>aizslēgts</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='atvērta slēdzene'>slēdzene; atslēgta</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='slēdzene ar rakstāmspalvu'>slēdzene; rakstāmspalva; konfidencialitāte</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='aizvērta slēdzene ar atslēgu'>slēdzene; atslēga; drošs</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='atslēga'>parole</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='veca atslēga'>atslēga</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='cirtnis'>cirst</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='āmurs un cirtnis'>āmurs; cirtnis</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='āmurs un uzgriežņu atslēga'>āmurs; cirtnis; uzgriežņu atslēga</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='skrūve un uzgrieznis'>skrūve; tapa; uzgrieznis</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='skrūvspīles'>saspiest</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='mēģene'>ķīmija</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='svari'>svērt</annotation>
+
+		<!-- link -->
+		<annotation cp='[🔗]' tts='ķēdes posms'>ķēde</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='ķēdes'>ķēde</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='šļirce'>ārsts; medicīna; adata; slims</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='zāļu kapsula'>ārsts; medicīna; zāles; slims</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='duncis'>nazis; ierocis</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='virtuves nazis'>nazis; ēst; ierocis</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='sakrustoti zobeni'>zobens; sakrustots; ierocis</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='pistole'>šaujamierocis; ierocis; revolveris</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='vairogs'>ierocis</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='loks un bulta'>strēlnieks; loks; bulta; ierocis</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='finiša karogs'>rūtots; melnbalts; sacīkstes</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='plīvojošs balts karogs'>plīvot; karogs</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='plīvojošs melns karogs'>plīvot; karogs</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='trīsstūrveida karogs'>karogs</annotation>
+
+		<!-- smoking -->
+		<annotation cp='[🚬]' tts='aizdegta cigarete'>smēķēt; cigarete</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='zārks'>nāve; bēres</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='pelnu urna'>nāve; bēres; urna</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='Lieldienu salu statuja'>galva; statuja; moai</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='eļļas tvertne'>eļļa; tvertne</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='kristāla lode'>lode; kristāls; pareģot; zīlēt</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='bankomāta zīme'>bankomāts; ATM; nauda</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='atkritumu urnas zīme'>atkritumi; urna</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='dzeramais ūdens'>dzert; ūdens</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='ratiņkrēsls'>piekļūt</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='vīriešu tualete'>tualete; vīriešu; WC</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='sieviešu tualete'>tualete; sieviešu; WC</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='tualete'>WC</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='zīdaiņa simbols'>zīdainis; pārtīt</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='ateja'>tualete; WC</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='pasu kontrole'>kontrole; pase</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='bagāžas saņemšana'>bagāža</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='bagāžas glabātuve'>bagāža; glabāt</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='bērni šķērso ielu'>bērni; pāreja; satiksme; gājēji</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='iebraukt aizliegts'>aizliegts; nē; nedrīkst; ieeja; satiksme</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='aizliegts'>ieeja; nē; nedrīkst</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='velosipēdi aizliegti'>velosipēds; ritenis; nedrīkst; aizliegts; nē</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='smēķēt aizliegts'>smēķēt; aizliegts; nē; nedrīkst</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='atkritumus mest aizliegts'>atkritumi; aizliegts; nē; nedrīkst</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='nav dzeramais ūdens'>dzert; ūdens; nē; nedrīkst; aizliegts</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='gājējiem iet aizliegts'>gājēji; kājāmgājēji; nē; nedrīkst; aizliegts</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='radioaktīvs'>bīstami</annotation>
+
+		<!-- biohazard -->
+		<annotation cp='[☣]' tts='bioloģiskais apdraudējums'>bīstami</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='augšupvērsta bultiņa'>bultiņa; norāde; ziemeļi</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='uz augšējo labo stūri vērsta bultiņa'>bultiņa; norāde; ziemeļaustrumi</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='pa labi vērsta bultiņa'>bultiņa; norāde; austrumi</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='uz apakšējo labo stūri vērsta bultiņa'>bultiņa; norāde; dienvidaustrumi</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='lejupvērsta bultiņa'>bultiņa; norāde; dienvidi</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='uz apakšējo kreiso stūri vērsta bultiņa'>bultiņa; norāde; dienvidrietumi</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='pa kreisi vērsta bultiņa'>bultiņa; norāde; rietumi</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='uz augšējo kreiso stūri vērsta bultiņa'>bultiņa; norāde; ziemeļrietumi</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='augšup un lejup vērsta bultiņa'>bultiņa</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='pa kreisi un pa labi vērsta bultiņa'>bultiņa</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='pa kreisi vērsta izliekta bultiņa'>bultiņa</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='pa labi vērsta izliekta bultiņa'>bultiņa</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='augšup vērsta izliekta bultiņa'>bultiņa</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='lejup vērsta izliekta bultiņa'>bultiņa</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='pulksteņrādītāja virzienā vērstas vertikālas bultiņas'>bultiņa; pulksteņrādītāja virzienā</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='pretēji pulksteņrādītāja virzienam vērstas bultiņas'>bultiņa; pretēji pulksteņrādītāja virzienam</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='bultiņa ar uzrakstu Back'>bultiņa; atpakaļ</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='bultiņa ar uzrakstu End'>bultiņa; beigt; beigas</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='bultiņa ar uzrakstu On!'>bultiņa; ieslēgts</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='bultiņa ar uzrakstu Soon'>bultiņa; drīz</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='bultiņa ar uzrakstu Top'>bultiņa; augšup</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='lūgšanu vieta'>reliģija; lūgšanas</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='atoma simbols'>ateisms; atoms</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='om simbols'>hinduisms; reliģija</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='Dāvida zvaigzne'>ebreji; ebreju; jūdi; reliģija; zvaigzne; Dāvids</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='darmas rats'>budisms; darma; reliģija; rats</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='iņ un jaņ'>reliģija; daoisms; iņ; jaņ</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='kristiešu krusts'>kristietība; reliģija; krusts</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='pareizticīgo krusts'>kristietība; reliģija; krusts; pareizticība</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='zvaigzne un pusmēness'>islāms; musulmaņi; reliģija</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='miera simbols'>miers</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='menora'>svečturis; reliģija</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='sešstaru zvaigzne ar punktu vidū'>laime; zvaigzne</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='atkritumu pārstrādes simbols'>pārstrāde</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='vārda nozīmīte'>nozīmīte; vārds</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='lilijas simbols'>lilija</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='japāņu simbols, kas apzīmē iesācēju'>iesācējs; japāņu; simbols</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='trijzaris'>enkurs; kuģis</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='liels aplis'>aplis; o; riņķis</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='balta kontrolzīme'>ķeksītis; atzīme</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='atzīmēta izvēles rūtiņa'>ķeksītis; atzīme; rūtiņa</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='kontrolzīme'>ķeksītis; atzīme</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='reizināšanas zīme'>atcelt; reizināt; x; krustiņš; matemātika</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='krustiņš'>atcelt; reizināt; x</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='krustiņa poga'>atcelt; reizināt; x; krustiņš; rūtiņa</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='pluszīme'>matemātika; saskaitīt; plus; +</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='mīnuszīme'>matemātika; atņemt; mīnuss; -; –</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='dalīšanas zīme'>matemātika; dalīt; /</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='dubulta cilpa'>cilpa</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='partijas sākuma zīme'>mūzika; zīme</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='astoņstaru zvaigznīte'>zvaigznīte</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='četrstaru zvaigzne'>zvaigzne</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='dekoratīva zvaigznīte'>zvaigznīte</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='valūtas maiņa'>banka; nauda; valūta; maiņa</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='dolāra zīme'>nauda; dolārs</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='divas izsaukuma zīmes'>izsaukums; pieturzīme</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='izsaukuma un jautājuma zīme'>izsaukums; jautājums; pieturzīme</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='jautājuma zīme'>jautājums; pieturzīme</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='balta jautājuma zīme'>jautājums; pieturzīme</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='balta izsaukuma zīme'>izsaukums; pieturzīme</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='izsaukuma zīme'>izsaukums; pieturzīme</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='viļņota domuzīme'>domuzīme; viļņota</annotation>
+
+		<!-- copyright -->
+		<annotation cp='[©]' tts='autortiesības'>(C)</annotation>
+
+		<!-- registered -->
+		<annotation cp='[®]' tts='reģistrēta preču zīme'>reģistrēts; preču zīme; (R)</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='preču zīme'>TM</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='zodiaka zīme Auns'>auns; zodiaks</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='zodiaka zīme Vērsis'>vērsis; zodiaks</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='zodiaka zīme Dvīņi'>dvīņi; zodiaks</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='zodiaka zīme Vēzis'>vēzis; zodiaks</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='zodiaka zīme Lauva'>lauva; zodiaks</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='zodiaka zīme Jaunava'>jaunava; zodiaks</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='zodiaka zīme Svari'>svari; zodiaks</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='zodiaka zīme Skorpions'>skorpions; zodiaks</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='zodiaka zīme Strēlnieks'>strēlnieks; zodiaks</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='zodiaka zīme Mežāzis'>mežāzis; zodiaks</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='zodiaka zīme Ūdensvīrs'>ūdensvīrs; zodiaks</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='zodiaka zīme Zivis'>zivis; zodiaks</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='zodiaka zīme Čūsknesis'>čūsknesis; zodiaks</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='poga Jaukta secība'>bultiņa; sakrustota</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='poga Atkārtot'>bultiņa; atkārtot; pulksteņrādītāja virzienā</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='poga Atkārtot vienu dziesmu'>bultiņa; pulksteņrādītāja virzienā; vienreiz</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='poga Atskaņot'>atskaņot; pa labi; trīsstūris; trijstūris</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='poga Pārtīt uz priekšu'>uz priekšu; pārtīt; pa labi</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='poga Nākamā dziesma'>nākamais; tālāk; pa labi</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='poga Atskaņot vai apturēt'>atskaņot; apturēt; pārtraukt; pauze; pa labi</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='poga Atpakaļ'>atpakaļ; pa kreisi; trīsstūris; trijstūris</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='poga Attīt atpakaļ'>atpakaļ; attīt; pa kreisi</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='poga Iepriekšējā dziesma'>atpakaļ; iepriekšējais; trīsstūris; trijstūris; pa kreisi</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='poga Augšup'>augšup</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='poga Ātri augšup'>augšup</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='poga Lejup'>lejup</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='poga Ātri lejup'>lejup</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='poga Pauze'>pauze; apturēt; pārtraukt</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='poga Pārtraukt'>apturēt; pārtraukt; kvadrāts</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='poga Ierakstīt'>ierakstīt; aplis; riņķis</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='poga Izstumt'>izstumt</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='kino'>kamera; filma</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='samazināt spilgtumu'>spilgtums; samazināt</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='palielināt spilgtumu'>spilgtums; palielināt</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='signāla stipruma joslas'>antena; signāls; stiprums; tālrunis; mobilais; telefons</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='mobilie tālruņi aizliegti'>mobilais; telefons; tālrunis; aizliegts; nē; nedrīkst</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='vibrozvana režīms'>mobilais; telefons; tālrunis; vibrozvans</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='izslēgts mobilais tālrunis'>mobilais; tālrunis; telefons; izslēgt</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='numura zīme'>numurs; atsauce</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='nulle'>0</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='viens'>1</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='divi'>2</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='trīs'>3</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='četri'>4</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='pieci'>5</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='seši'>6</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='septiņi'>7</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='astoņi'>8</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='deviņi'>9</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='desmit'>10</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='simt punktu'>simt; simts; 100</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='tikai no 18 gadu vecuma'>18; vecuma ierobežojums; astoņpadsmit; aizliegts; nē; nedrīkst; nepilngadīgs</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='lielie latīņu burti'>ievade; burti; lielie; latīņu</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='mazie latīņu burti'>ievade; burti; mazie; latīņu</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='cipari'>ievade</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='simboli'>ievade</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='latīņu burti'>ievade; latīņu; burti</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='poga A'>A; asinsgrupa</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='poga AB'>AB; asinsgrupa</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='poga B'>B; asinsgrupa</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='poga CL'>CL; notīrīt</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='uzraksts Cool kvadrātveida ietvarā'>cool</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='uzraksts Free kvadrātveida ietvarā'>free; bezmaksas</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='informācijas simbols'>i; informācija</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='uzraksts ID kvadrātveida ietvarā'>ID; identitāte</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='burts M apļveida ietvarā'>aplis; M</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='uzraksts New kvadrātveida ietvarā'>new; jauns</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='uzraksts NG kvadrātveida ietvarā'>NG</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='poga O'>O; asinsgrupa</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='uzraksts OK kvadrātveida ietvarā'>ok; labi</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='poga P'>P; stāvvieta</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='uzraksts SOS kvadrātveida ietvarā'>palīdzība; SOS</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='poga Up!'>up; poga</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='uzraksts VS kvadrātveida ietvarā'>vs; poga</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='uzraksts Šeit katakanā kvadrātveida ietvarā'>japāņu</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='uzraksts Pakalpojums katakanā kvadrātveida ietvarā'>japāņu</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='ideogramma Mēness kvadrātveida ietvarā'>japāņu</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='ideogramma Būt kvadrātveida ietvarā'>japāņu</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='ideogramma Norāde kvadrātveida ietvarā'>japāņu</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='ideogramma Izdevīgi apļveida ietvarā'>japāņu</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='ideogramma Atlaide kvadrātveida ietvarā'>japāņu</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='ideogramma Nebūt kvadrātveida ietvarā'>japāņu</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='ideogramma Aizliegt kvadrātveida ietvarā'>japāņu</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='ideogramma Piekrist apļveida ietvarā'>ķīniešu</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='ideogramma Pieprasīt kvadrātveida ietvarā'>ķīniešu</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='ideogramma Kopā kvadrātveida ietvarā'>ķīniešu</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='ideogramma Brīvs kvadrātveida ietvarā'>ķīniešu</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='ideogramma Apsveikums kvadrātveida ietvarā'>ķīniešu</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='ideogramma Slepens kvadrātveida ietvarā'>ķīniešu</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='ideogramma Strādā kvadrātveida ietvarā'>ķīniešu</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='ideogramma Pilns kvadrātveida ietvarā'>ķīniešu</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='mazs melns kvadrāts'>ģeometrija; kvadrāts</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='mazs balts kvadrāts'>ģeometrija; kvadrāts</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='vidējs balts kvadrāts'>ģeometrija; kvadrāts</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='vidējs melns kvadrāts'>ģeometrija; kvadrāts</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='vidēji mazs balts kvadrāts'>ģeometrija; kvadrāts</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='vidēji mazs melns kvadrāts'>ģeometrija; kvadrāts</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='liels melns kvadrāts'>ģeometrija; kvadrāts</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='liels balts kvadrāts'>ģeometrija; kvadrāts</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='liels oranžs rombs'>ģeometrija; rombs</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='liels zils rombs'>ģeometrija; rombs</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='mazs oranžs rombs'>ģeometrija; rombs</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='mazs zils rombs'>ģeometrija; rombs</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='augšupvērsts sarkans trīsstūris'>ģeometrija; trīsstūris</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='lejupvērsts sarkans trīsstūris'>ģeometrija; trīsstūris</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='rombs ar punktu'>ģeometrija; rombs</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='opciju poga'>poga; opcijas; radiopoga</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='melna kvadrātveida poga'>ģeometrija; kvadrāts</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='balta kvadrātveida poga'>ģeometrija; kvadrāts</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='balts aplis'>ģeometrija; aplis</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='melns aplis'>ģeometrija; aplis</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='sarkans aplis'>ģeometrija; aplis</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='zils aplis'>ģeometrija; aplis</annotation>
+	</annotations>
+</ldml>

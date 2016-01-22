@@ -1,0 +1,2905 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='vi'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='mặt cười toét'>mặt; toe toét</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='mặt cười toét mắt cười'>mắt; mặt; toe toét; cười</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='mặt cười nước mắt'>mặt; vui; cười; nước mắt</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='mặt cười miệng há'>mặt; miệng; mở; cười</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='mặt cười miệng há mắt cười'>mắt; mặt; miệng; mở; cười</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='mặt cười miệng há mồ hôi'>lạnh; mặt; mở; cười; mồ hôi</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='mặt cười miệng há mắt nhắm chặt'>mặt; cười; miệng; mở; hài lòng; cười</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='nháy mắt'>mặt</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='mặt cười mắt cười'>đỏ mặt; mắt; mặt; cười</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='mặt thưởng thức món ngon'>ngon, mặt; thưởng thức; cười; nghi ngờ; ngon tuyệt</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='mặt cười đeo kính'>sáng; phong cách; mắt; đeo kính; mặt; kính; cười; mặt trời; kính; thời tiết</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='mặt cười mắt hình trái tim'>mắt; mặt; trái tim; yêu; cười</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='mặt gửi nụ hôn'>mặt; trái tim; nụ hôn</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='mặt hôn'>mặt; hôn</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='mặt hôn mắt cười'>mắt; mặt; hôn; cười</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='mặt hôn mắt nhắm'>đóng; mắt; mặt; hôn</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='mặt cười'>mặt; thoải mái; thư giãn; cười</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='mặt cười mỉm'>mặt; cười</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='mặt ôm'>mặt; ôm</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='mặt cười có hào quang'>thiên thần; mặt; chuyện cổ tích, tưởng tưởng; hào quang; ngây thơ; cười</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='mặt suy nghĩ'>mặt; đang suy nghĩ</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='mặt trung lập'>bộ mặt ngây ra bất động; mặt; trung lập</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='mặt vô cảm'>vô cảm; mặt; không có thần sắc; không có ý nghĩa</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='mặt không có miệng'>mặt; miệng; ít nói; yên lặng</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='mặt có mắt đu đưa'>mắt; mặt; đu đưa</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='mặt cười khẩy'>mặt; cười khẩy</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='mặt kiên nhẫn'>mặt; kiên nhẫn</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='mặt thất vọng nhưng nhẹ nhõm'>thất vọng; mặt; nhẹ nhõm; ngạc nhiên</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='mặt có miệng há'>mặt; miệng; mở; thông cảm</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='mặt có miệng bị kéo khóa'>mặt; miệng; khóa kéo</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='mặt làm thinh'>mặt, làm thinh, choáng váng, ngạc nhiên</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='mặt buồn ngủ'>mặt; buồn ngủ</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='mặt mệt mỏi'>mặt; mệt mỏi</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='mặt đang ngủ'>mặt; ngủ; zzz</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='mặt nhẹ nhõm'>mặt; nhẹ nhõm</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='mặt mọt sách'>mặt; đam mê; mọt sách</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='mặt lè lưỡi'>mặt; lưỡi</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='mặt lè lưỡi nháy mắt'>mắt; mặt; nói đùa; lưỡi; nháy mắt</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='mặt thè lưỡi mắt nhắm chặt'>mắt; mặt; kinh khủng; hương vị; lưỡi</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='mặt cau mày'>mặt; cau mày</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='mặt hơi cau mày'>mặt; cau mày</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='mặt buồn'>mặt; không vui; buồn</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='mặt có mồ hôi'>lạnh; mặt; mồ hôi</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='mặt trầm ngâm'>thất vọng; mặt; trầm ngâm</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='mặt bối rối'>bối rối; mặt</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='mặt xấu hổ'>xấu hổ; mặt</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='mặt lộn ngược'>mặt; lộn ngược</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='mặt đeo khẩu trang y tế'>lạnh; bác sĩ; mặt; mặt nạ; thuốc, ốm</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='mặt có miệng ngậm nhiệt kế'>mặt; mệt; ốm; nhiệt kế</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='mặt đeo băng đầu'>băng; mặt; đau. vết thương</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='mặt có miệng tiền'>mặt; tiền; miệng</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='mặt kinh ngạc'>kinh ngạc; mặt; sốc; hoàn toàn</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='mặt thất vọng'>thất vọng; mặt</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='mặt lo lắng'>mặt; lo lắng</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='mặt có nước mũi'>mặt; chiến thắng</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='mặt khóc'>khóc; mặt; buồn; nước mắt</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='mặt khóc to'>khóc; mặt; buồn; thổn thức; nước mắt</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='mặt cau miệng há'>mặt; nhăn mặt; miệng; mở</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='mặt đau khổ'>đau khổ; mặt</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='mặt sợ hãi'>mặt; sợ hãi; sợ; kinh hãi</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='mặt kiệt sức'>mặt; mệt mỏi; kiệt sức</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='mặt nhăn nhó'>mặt; nhăn nhó</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='mặt có miệng há và mồ hôi'>xanh xao; lạnh; mặt; miệng; mở; vội vã; mồ hôi</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='mặt la hét kinh hãi'>mặt; sợ hãi; sợ; kinh sợ; kinh hãi; la hét</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='mặt đỏ ửng'>choáng váng; mặt; đỏ mặt</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='mặt chóng mặt'>chóng mặt; mặt</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='mặt hờn dỗi'>tức giận; mặt; điên; hờn dỗi; cơn thịnh nộ; đỏ</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='mặt giận giữ'>tức giận; khuôn mặt; điên</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='mặt cười có sừng'>mặt; truyện cổ tích; tưởng tượng; sừng; cười</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='mặt giận giữ có sừng'>quỷ; quỷ sứ; mặt; truyện cổ tích; tưởng tượng</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='mặt quỷ'>sinh vật; mặt; truyện cổ tích; tưởng tượng; người Nhật Bản; quái vật</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='yêu tinh'>sinh vật; mặt; truyện cổ tích; tưởng tượng; người Nhật Bản; quái vật</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='đầu lâu'>cơ thể người; cái chết; khuôn mặt; truyện cổ tích; quái vật</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='đầu lâu và xương bắt chéo'>cơ thể người; xương bắt chéo; cái chết; khuôn mặt; con quái vật; sọ</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='ma'>sinh vật; khuôn mặt; truyện cổ tích; tưởng tượng; quái vật</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='người ngoài hành tinh'>sinh vật; ngoài trái đất; khuôn mặt; truyện cổ tích; tưởng tượng; quái vật; vũ trụ; đĩa bay</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='quái vật ngoài hành tinh'>người ngoài hành tinh; sinh vật; ngoài trái đất; khuôn mặt; truyện cổ tích; tưởng tượng; quái vật; vũ trụ; đĩa bay</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='mặt rô-bốt'>mặt; quỷ; rô-bốt</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='bãi phân'>hài hước; chất thải; khuôn mặt; quái vật; phân</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='mặt mèo cười miệng há'>con mèo; khuôn mặt; miệng; mở ra; nụ cười</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='mặt mèo cười toét mắt cười'>con mèo; mắt; khuôn mặt; nụ cười</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='mặt mèo có nước mắt'>con mèo; khuôn mặt; niềm vui; nước mắt</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='mặt mèo cười mắt hình trái tim'>con mèo; mắt; khuôn mặt; hình trái tim; thân ái; nụ cười</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='mặt mèo cười gượng'>con mèo; khuôn mặt; mỉa mai; nụ cười; châm biếm</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='mặt mèo hôn mắt nhắm'>con mèo; mắt; khuôn mặt; hôn</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='mặt mèo mệt lử'>con mèo; khuôn mặt; oh; ngạc nhiên; mệt mỏi</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='mặt mèo khóc'>con mèo; khóc; khuôn mặt; buồn; nước mắt</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='mặt mèo hờn dỗi'>con mèo; khuôn mặt; hờn dỗi</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='không thấy'>quỷ; khuôn mặt; cấm; cử chỉ; con khỉ; không có; không; không cho phép; nhìn thấy</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='không nghe'>quỷ; khuôn mặt; cấm; cử chỉ; nghe; con khỉ; không có; không; không cho phép</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='không nói'>quỷ; khuôn mặt; cấm; cử chỉ; con khỉ; không; không có; không cho phép; nói</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='cô bé'>thời con gái; gái trinh; xử nữ; hoàng đạo</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='ông già'>đàn ông; già</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='bà già'>già; phụ nữ</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='người tóc vàng hoe'>tóc vàng hoe</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='sĩ quan cảnh sát'>cảnh sát; nhân viên văn phòng; công an</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='người đàn ông đội mũ khang hy'>mũ Khang Hy; mũ; đàn ông</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='người đàn ông đội khăn xếp'>người đàn ông; khăn xếp</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='công nhân xây dựng'>xây dựng; cái mũ; công nhân</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='mũ bảo hiểm có chữ thập trắng'>cứu; chữ thập; khuôn mặt; cái mũ; nón bảo hộ</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='công chúa'>truyện cổ tích; tưởng tượng</annotation>
+
+		<!-- guardsman; guard -->
+		<annotation cp='[💂]' tts='sĩ quan canh phòng'>bảo vệ</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='thám tử'>gián điệp</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='ông già noel'>lễ kỷ niệm; giáng sinh; truyện cổ tích; tưởng tượng; cha; ông già noel</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='thiên thần đáng yêu'>thiên thần; bé con; khuôn mặt; truyện cổ tích; tưởng tượng</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='xoa bóp mặt'>xoa bóp; thẩm mĩ viện</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='cắt tóc'>thợ cắt tóc; làm đẹp; phòng</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='cô dâu có mạng che mặt'>cô dâu; mạng che mặt; cưới</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='người đang cau mày'>cau mày; cử chỉ</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='người đang bĩu môi'>cử chỉ; hờn dỗi</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='phản đối'>cấm; cử chỉ; tay; không có; không; không cho phép</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='đồng ý'>cử chỉ; tay; ok</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='người trợ giúp'>tay; giúp; thông tin; hỗn láo</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='người vui vẻ giơ cao tay'>cử chỉ; tay; vui vẻ; nâng lên</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='người đang cúi đầu'>lời xin lỗi; cúi người; cử chỉ; lấy làm tiếc</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='người đang giơ tay'>cơ thể người; lễ kỷ niệm; cử chỉ; tay; hoan hô; nâng lên</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='chắp tay'>hỏi; cơ thể người; cúi người; gập người; cử chỉ; tay; làm ơn; nguyện cầu; cảm ơn</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='đầu nói'>khuôn mặt; cái đầu; hình bóng; nói; đang nói</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='bóng tượng bán thân'>tượng bán thân; bóng</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='bóng và tượng bán thân'>tượng bán thân; bóng</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='người đi bộ'>đi lang thang; đi bộ; đang đi bộ</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='người chạy'>chạy đua maratông; chạy bộ</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='tiệc nữ'>điệu múa thỏ; diễn viên múa; tai; con gái; phụ nữ</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='người đàn ông mặc bộ com lê bay lên'>kinh doanh; đàn ông; bộ đồ</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='hôn'>cặp đôi; lãng mạn</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='cặp đôi và trái tim'>cặp đôi; hình trái tim; yêu; lãng mạn</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='gia đình'>trẻ em; cha; mẹ</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='người đàn ông và phụ nữ nắm tay'>cặp đôi; tay; cầm; đàn ông; phụ nữ</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='hai người đàn ông nắm tay'>cặp đôi; song tử; tay; cầm; đàn ông; cặp song sinh; hoàng đạo</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='hai người phụ nữ nắm tay'>cặp đôi; tay; cầm; phụ nữ</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='da loại 1-2'>trình sửa đổi biểu tượng cảm xúc; fitzpatrick; da; tông màu</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='da loại 3'>trình sửa đổi biểu tượng cảm xúc; fitzpatrick; da; tông màu</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='da loại 4'>trình sửa đổi biểu tượng cảm xúc; fitzpatrick; da; tông màu</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='da loại 5'>trình sửa đổi biểu tượng cảm xúc; fitzpatrick; da; tông màu</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='da loại 6'>trình sửa đổi biểu tượng cảm xúc; fitzpatrick; da; tông màu</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='bắp tay uốn cong'>bắp tay; cơ thể người; hài hước; dẻo; cơ bắp</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='tay trỏ sang trái'>tay sấp; cơ thể người; ngón tay; tay; ngón trỏ; trỏ</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='tay trỏ sang phải'>tay sấp; cơ thể người; ngón tay; tay; ngón trỏ; trỏ</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='tay trỏ lên'>cơ thể người; ngón tay; tay; ngón trỏ; trỏ; lên</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='tay úp trỏ lên'>tay sấp; cơ thể người; ngón tay; tay; ngón trỏ; trỏ; lên</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='ngón giữa'>cơ thể người; ngón tay; tay</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='tay úp trỏ xuống'>tay sấp; cơ thể người; ngón tay; tay; ngón trỏ; trỏ</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='tay chiến thắng'>cơ thể người; tay; v; chiến thắng</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='tay thần lửa'>cơ thể người; ngón tay; tay; người spock; thần lửa</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='dấu hiệu sừng'>cơ thể người; ngón tay; tay; sừng; chiến thắng</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='tay xòe ngón giơ lên'>cơ thể người; ngón tay; tay; xòe</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='giơ tay'>cơ thể người; tay</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='tay ok'>cơ thể người; tay; ok</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='dấu ra hiệu đồng ý'>+1; cơ thể người; tay; ngón tay cái; lên</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='dấu ra hiệu từ chối'>-1; cơ thể người; xuống; tay; ngón tay cái</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='vung tay'>cơ thể người; siết chặt; nắm tay; tay; cú đấm</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='nắm đấm'>cơ thể người; siết chặt; nắm tay; tay; cú đấm</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='vẫy tay'>cơ thể người; tay; vẫy tay; vẫy</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='vỗ tay'>cơ thể người; tay</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='xòe tay'>cơ thể người; tay; mở ra</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='tay viết'>cơ thể người; tay; viết</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='sơn móng tay'>cơ thể người; chăm sóc; mỹ phẩm; cắt móng tay; móng tay; đánh bóng</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='tai'>cơ thể</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='mũi'>cơ thể</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='dấu chân'>cơ thể người; quần áo; dấu</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='đôi mắt'>cơ thể người; mắt; khuôn mặt</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='mắt'>cơ thể</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='lưỡi'>cơ thể</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='miệng'>cơ thể người; môi</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='dấu hôn'>hình trái tim; hôn; môi; điểm; lãng mạn</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='trái tim có mũi tên'>mũi tên; thần tình yêu; hình trái tim; lãng mạn</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='trái tim đỏ'>trái tim</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='trái tim đang đập'>đập; hình trái tim; nhịp tim; dao động</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='trái tim tan vỡ'>vỡ; bị vỡ; hình trái tim</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='hai trái tim'>yêu</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='trái tim lấp lánh'>bị kích thích; hình trái tim; chói sáng</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='trái tim lớn dần'>bị kích thích; phát triển; hình trái tim; nhịp tim; lo lắng</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='trái tim màu lam'>màu lam; trái tim</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='trái tim màu lục'>màu lục; trái tim</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='trái tim vàng'>trái tim; vàng</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='trái tim tím'>trái tim; tím</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='trái tim có ruy băng'>trái tim; ruy băng; lễ tình yêu</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='trái tim đang quay'>trái tim; đang quay</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='trang trí trái tim'>trái tim</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='trái tim nặng trĩu có dấu chấm than'>cảm thán; hình trái tim; chấm; chấm câu</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='thư tình'>hình trái tim; lá thư; yêu; thư; lãng mạn</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='buồn ngủ'>hài hước; ngủ</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='biểu tượng giận giữ'>tức giận; hài hước; điên</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='bom'>hài hước</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='va chạm'>bùng nổ; hài hước</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='giọt mồ hôi'>hài hước; bắn tung tóe; mồ hôi</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='chớp nhoáng'>hài hước; va chạm; chạy</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='choáng váng'>hài hước; ngôi sao</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='bong bóng lời nói'>khí cầu; bong bóng; hài hước; thoại; bài diễn văn</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='bong bóng lời nói trái'>thoại; bài diễn văn</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='bong bóng lời nói phải'>tức giận; khí cầu; bong bóng; điên</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='bong bóng suy nghĩ'>khí cầu; bong bóng; hài hước; nghĩ</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='kính mắt'>quần áo; mắt; đeo kính</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='kính râm'>bóng tối; mắt; kính mắt; đeo kính</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='ca vát'>quần áo</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='áo phông'>quần áo; áo sơ mi; áo thun</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='quần bò'>quần áo; quần đùi; quần</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='váy'>quần áo</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='kimono'>quần áo</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='áo tắm hai mảnh'>quần áo; bơi</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='áo nữ'>quần áo; nữ</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='ví'>quần áo; đồng tiền</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='túi'>túi; quần áo</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='túi nhỏ'>túi; quần áo</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='túi mua đồ'>túi; khách sạn; mua sắm</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='ba lô đeo lưng'>túi; cặp; trường</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='giày nam'>quần áo; đàn ông; giày</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='giày chạy'>khỏe mạnh; quần áo; giày; giày đế mềm</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='giày cao gót'>quần áo; gót chân; giày; phụ nữ</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='xăng đan nữ'>quần áo; xăng đan; giày; phụ nữ</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='bốt nữ'>bốt; quần áo; giày; phụ nữ</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='vương miện'>quần áo; vua; nữ hoàng</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='mũ nữ'>quần áo; cái mũ; phụ nữ</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='mũ cao'>quần áo; cái mũ; đầu; mũ cao</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='mũ tốt nghiệp'>mũ lưỡi trai; lễ kỷ niệm; quần áo; tốt nghiệp; cái mũ</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='chuỗi hạt cầu nguyện'>hạt; quần áo; chuỗi hạt; cầu nguyện; tôn giáo</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='son môi'>mỹ phẩm; trang điểm</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='nhẫn'>kim cương; lãng mạn</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='đá quý'>kim cương; ngọc; lãng mạn</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='mặt khỉ'>mặt; khỉ</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='mặt cún'>cún; khuôn mặt; thú cưng</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='con chó'>thú cưng</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='chó xù'>cún</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='mặt chó sói'>mặt; chó sói</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='mặt mèo'>con mèo; khuôn mặt; thú cưng</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='con mèo'>thú cưng</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='mặt sư tử'>khuôn mặt; cung sư tử; con sư tử; cung hoàng đạo</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='mặt hổ'>mặt; hổ</annotation>
+
+		<!-- tiger -->
+		<annotation cp='[🐅]' tts='sư tử'>con hổ</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='mặt ngựa'>mặt; ngựa</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='con ngựa'>đua ngựa, đua</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='mặt kỳ lân'>mặt; kỳ lân</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='mặt bò cái'>bò cái; khuôn mặt</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='bò đực'>bò đực; cung kim ngưu; cung hoàng đạo</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='con trâu'>nước</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='mặt heo'>mặt; heo</annotation>
+
+		<!-- pig; sow -->
+		<annotation cp='[🐖]' tts='con heo'>heo nái</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='heo đực'>con heo</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='mũi heo'>khuôn mặt; mũi; con heo</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='cừu đực'>cung bạch dương; cừu; cung hoàng đạo</annotation>
+
+		<!-- sheep; ewe -->
+		<annotation cp='[🐑]' tts='con cừu'>cừu cái</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='con dê'>cung ma kết; cung hoàng đạo</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='lạc đà'>con lạc đà; cái bướu</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='lạc đà hai bướu'>lạc đà bactrian; con lạc đà; cái bướu</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='mặt chuột'>mặt; chuột</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='mặt chuột đồng'>khuôn mặt; chuột đồng; thú cưng</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='mặt thỏ'>điệu múa thỏ; khuôn mặt; thú cưng; con thỏ</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='con thỏ'>điệu múa thỏ, thú cưng</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='mặt gấu'>gấu; mặt</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='gấu túi'>con gấu</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='mặt gấu trúc'>mặt; gấu trúc</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='dấu chân chó'>bàn chân; chân; dấu</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='gà mới nở'>gà con; gà; ấp</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='gà con'>gà</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='mặt trước con gà'>gà con; gà</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='bồ câu'>chim; bay; hòa bình</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='mặt ếch'>mặt; ếch</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='con rắn'>vật mang; chòm sao xà phu; con rắn, cung hoàng đạo</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='mặt rồng'>rồng; khuôn mặt; truyện cổ tích</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='con rồng'>truyện cổ tích</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='cá voi phun nước'>khuôn mặt; phun; con cá voi</annotation>
+
+		<!-- dolphin; flipper -->
+		<annotation cp='[🐬]' tts='cá heo'>chân chèo</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='con cá'>cung song ngư; cung hoàng đạo</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='cá nhiệt đới'>cá; nhiệt đới</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='cá nóc'>cá</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='vỏ sò'>vỏ; xoắn ốc</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='con cua'>cung cự giải; cung hoàng đạo</annotation>
+
+		<!-- bug; insect -->
+		<annotation cp='[🐛]' tts='con rệp'>côn trùng</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='con kiến'>côn trùng</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='ong mật'>con ong; côn trùng</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='bọ rùa'>bọ cánh cứng; côn trùng; rùa; con bọ rùa</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='con nhện'>côn trùng</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='mạng nhện'>nhện</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='bọ cạp'>cung bọ cạp; cung hoàng đạo</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='bó hoa'>hoa; cây; lãng mạn</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='hoa anh đào'>hoa; thực vật</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='hoa trắng'>hoa</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='hình hoa hồng'>thực vật</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='hoa hồng'>hoa; thực vật</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='hoa dâm bụt'>hoa; thực vật</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='hoa hướng dương'>hoa; thực vật; mặt trời</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='bông hoa'>hoa; thực vật</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='hoa uất kim hương'>hoa; thực vật</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='cây con'>thực vật</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='cây thường xanh'>thực vật; cây</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='cây lá rộng'>phù du; cây; đổ</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='cây cọ'>thực vật; cây</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='cây xương rồng'>thực vật</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='bó lúa'>bông lúa; thực vật; gạo</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='cây cỏ'>lá cây; thực vật</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='cỏ ba lá'>thực vật</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='cỏ bốn lá'>4; cỏ ba lá; bốn; lá cây; thực vật</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='lá cây thích'>rụng; lá cây; cây thích; thực vật</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='lá rụng'>rụng, lá, thực vật</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='lá rung trong gió'>thổi; rung; lá cây; thực vật; gió</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='quả nho'>hoa quả; nho; thực vật</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='quả dưa'>hoa quả; thực vật</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='quả dưa hấu'>hoa quả; thực vật</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='quả quýt'>hoa quả; quả cam; thực vật</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='quả chanh'>hoa quả; thực vật</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='quả chuối'>hoa quả; thực vật</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='quả dứa'>hoa quả; thực vật</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='táo đỏ'>quả táo; hoa quả; thực vật; đỏ</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='táo xanh'>quả táo; hoa quả; xanh lục; thực vật</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='quả lê'>hoa quả; thực vật</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='quả đào'>hoa quả; thực vật</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='quả anh đào'>hoa quả; thực vật</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='quả dâu tây'>hoa quả; thực vật</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='quả cà chua'>thực vật, rau</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='quả cà tím'>thực vật, rau</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='bắp ngô'>ngô; bắp ngô; bắp&apos;; thực vật</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='quả ớt'>nóng; quả ớt; thực vật</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='nấm'>thực vật</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='hạt dẻ'>thực vật</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='bánh mì'>ổ bánh mì</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='miếng phô mai'>phô mai</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='thịt bám xương'>xương; thịt</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='đùi gia cầm'>xương; gà; chân; gia cầm</annotation>
+
+		<!-- hamburger; burger -->
+		<annotation cp='[🍔]' tts='thịt băm viên'>băm viên</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='khoai tây chiên'>kiểu pháp</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='pizza'>phô mai; lát</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='xúc xích'>dồi; lạp xưởng</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='bánh thịt chiên giòn'>bánh mexico</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='bánh ngô'>bánh mexico</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='bát thức ăn'>nồi; món thịt hầm</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='hộp cơm bento'>cơm bento; hộp</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='bánh quy gạo'>gạo</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='bánh gạo'>viên; bánh kiểu nhật bản; gạo</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='cơm'>nấu; gạo</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='cơm cà ri'>cà ri; cơm</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='bát mì'>bát; mì sợi; mì tôm; hấp</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='mì Ý'>mì ống</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='khoai lang nướng'>khoai tây; nướng; ngọt</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='kẹo oden'>kẹp; hải sản; xiên; que</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='tôm chiên'>chiên; tôm; tôm hùm; món sốt cá cua tôm</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='bánh cá có xoáy'>bánh; cá; bánh ngọt; xoáy</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='bánh trôi'>món tráng miệng; món kiểu nhật bản; xiên; que; ngọt</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='kem mềm'>kem; món tráng miệng; cái kem; mềm; ngọt</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='đá bào'>món tráng miệng; kem; bào; ngọt</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='kem'>món tráng miệng; ngọt</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='bánh rán'>món tráng miệng; ngọt</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='bánh quy'>món tráng miệng; ngọt</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='bánh sinh nhật'>sinh nhật; bánh ngọt; lễ kỷ niệm; món tráng miệng; bánh; ngọt</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='bánh bơ giòn'>bánh ngọt; món tráng miệng; bánh; lát; ngọt</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='thanh sô cô la'>thanh; sô cô la; món tráng miệng; ngọt</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='kẹo'>món tráng miệng; ngọt</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='kẹo que'>kẹo; món tráng miệng; ngọt</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='sữa trứng'>món tráng miệng; bánh; ngọt</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='hũ mật ong'>mật ong; hũ; ngọt</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='bình sữa'>bé con; chai; uống; sữa</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='thức uống nóng'>đồ uống; cà phê; uống; nóng; chưng; trà</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='rượu sake'>quán ba; đồ uống; chai; cốc; uống</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='chai có nút bật lên'>quán ba; chai; nút chai; uống; bật lên</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='ly rượu'>quán ba; đồ uống; uống; ly; rượu</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='ly nước hoa quả'>quán ba; uống; ly</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='thức uống nhiệt đới'>quán ba; đồ uống; nhiệt đới</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='cốc bia'>quán ba; bia; đồ uống; nước giải khát</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='cụm cốc bia'>quán ba; bia; chạm cốc; đồ uống; nước giải khát</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='nĩa và dao với đĩa'>nấu nướng; nĩa; dao; đĩa</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='nĩa và dao'>nấu nướng; nĩa; dao</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='nấu nướng'>trứng; chiên; cái chảo</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='vò hai quai'>cung bảo bình; nấu nướng; đồ uống; bình; dụng cụ; vũ khí; cung hoàng đạo</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='quả cầu châu Âu-châu Phi'>châu phi; trái đất; châu âu; quả địa cầu; thế giới</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='quả cầu châu Mỹ'>châu mỹ; trái đất; quả địa cầu; thế giới</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='quả cầu châu Á-châu Úc'>châu á; úc; trái đất; quả địa cầu; thế giới</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='quả cầu có kinh tuyến'>trái đất; quả địa cầu; kinh tuyến; thế giới</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='bản đồ thế giới'>bản đồ; thế giới</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='núi phủ tuyết trắng'>lạnh; núi; tuyết</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='núi lửa'>phun trào; núi; thời tiết</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='đỉnh núi Fuji'>núi fuji; núi</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='bãi biển và ô'>bãi biển; ô</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='đảo sa mạc'>sa mạc; đảo</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='công viên quốc gia'>công viên</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='tòa nhà cổ điển'>tòa nhà; cổ điển</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='công trình xây dựng'>tòa nhà; xây dựng</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='các tòa nhà'>tòa nhà; ngôi nhà</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='cảnh quan đô thị'>tòa nhà; thành phố</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='tòa nhà bỏ hoang'>tòa nhà; bỏ hoang; ngôi nhà</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='tòa nhà'>tòa nhà; ngôi nhà; nhà</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='nhà có vườn'>tòa nhà; vườn; ngôi nhà; nhà</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='nhà thờ'>tòa nhà, đạo cơ đốc, chữ thập; tôn giáo</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='hắc thạch'>hồi giáo; thuộc hồi giáo; tôn giáo</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='nhà thờ hồi giáo'>hồi giáo; thuộc hồi giáo; tôn giáo</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='giáo đường do thái'>người do thái; do thái; tôn giáo; chùa</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='đền thờ shinto'>tôn giáo; đền thờ</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='văn phòng'>tòa nhà</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='văn phòng kiểu Nhật'>tòa nhà; kiểu nhật; bưu điện</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='bưu điện'>tòa nhà; kiểu châu âu; bưu điện</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='bệnh viện'>tòa nhà; bác sĩ; thuốc</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='ngân hàng'>tòa nhà</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='khách sạn'>tòa nhà</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='khách sạn tình yêu'>tòa nhà; khách sạn; tình yêu</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='cửa hàng tiện dụng'>tòa nhà; cửa hàng</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='trường học'>tòa nhà</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='cửa hàng bách hóa'>tòa nhà; cửa hàng</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='nhà máy'>tòa nhà</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='lâu đài kiểu nhật'>tòa nhà; lâu đài; kiểu nhật</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='lâu đài'>tòa nhà, kiểu châu âu</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='đám cưới'>nhà thờ nhỏ; lãng mạn</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='tháp tokyo'>tokyo; tháp</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='tượng nữ thần tự do'>tự do; bức tượng</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='bản đồ nhật bản'>nhật bản; bản đồ</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='lều'>cắm trại</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='sương và khói'>thời tiết</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='đêm đầy sao'>đêm; sao; thời tiết</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='bình minh trên núi'>buổi sáng; núi; mặt trời; bình minh; thời tiết</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='bình minh'>buổi sáng; mặt trời; thời tiết</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='cảnh quan thành phố lúc hoàng hôn'>tòa nhà; thành phố; hoàng hôn; buổi tối; cảnh quan; mặt trời; thời tiết</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='hoàng hôn'>tòa nhà; mặt trời; thời tiết</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='cầu đêm'>cầu; đêm; thời tiết</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='suối nước nóng'>nóng; suối nước nóng; suối; hơi nước</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='giải ngân hà'>vũ trụ; thời tiết</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='đu quay ngựa'>đu quay ngựa; ngựa</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='vòng đu quay'>công viên giải trí; đu quay; bánh xe</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='tàu lượn siêu tốc'>công viên giải trí; tàu chạy ven bờ; con lăn</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='biểu tượng nghề thợ cạo'>thợ cạo; cắt tóc; cực</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='lều xiếc'>xiếc; lều</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='nghệ thuật biểu diễn'>nghệ thuật; mặt nạ; biểu diễn; nhà hát; rạp hát</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='tranh trong khung'>nghệ thuật; khung; bảo tàng; vẽ; ảnh</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='bảng màu'>nghệ thuật; bảo tàng; vẽ; bảng màu</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='máy giật xèng'>trò chơi; khe</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='đầu máy xe lửa'>động cơ; đường sắt; hơi nước; tàu hỏa; xe cộ</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='xe lửa'>xe hơi; điện; đường sắt; tàu hỏa; xe điện; xe điện chở khách; xe cộ</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='tàu cao tốc'>đường sắt; tàu siêu tốc; tốc độ; tàu hỏa; xe cộ</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='tàu cao tốc có đầu tròn'>tròn; đường sắt; tàu siêu tốc; tốc độ; tàu hỏa; xe cộ</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='tàu hỏa'>đường sắt; xe cộ</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='xe điện ngầm'>xe cộ</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='đường sắt loại nhẹ'>đường sắt; xe cộ</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='trạm'>đường sắt; tàu hỏa; xe cộ</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='xe điện'>xe điện chở khách; xe cộ</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='đường một ray'>xe cộ</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='đường sắt miền núi'>xe hơi; núi; đường sắt; xe cộ</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='tàu điện'>xe hơi; xe điện; xe điện chở hành khách; xe cộ</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='xe buýt'>xe cộ</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='xe buýt đang tới'>xe buýt; đang tới; xe cộ</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='ô tô điện'>xe buýt; xe điện; xe đẩy hàng; xe cộ</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='trạm xe buýt'>xe buýt; bến xe buýt; dừng lại</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='xe buýt nhỏ'>xe buýt; xe cộ</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='xe cứu thương'>xe cộ</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='xe chữa cháy'>động cơ; lửa; xe tải; xe cộ</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='xe cảnh sát'>xe hơi; tuần tra; cảnh sát; xe cộ</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='xe cảnh sát đang tới'>xe hơi; đang tới; cảnh sát; xe cộ</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='taxi'>xe cộ</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='taxi đang tới'>xe cộ</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='ô tô'>xe cộ</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='ô tô đang đến'>ô tô; xe hơi; xe đang tới</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='xe giải trí'>giải trí; xe giải trí; xe cộ</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='xe tải giao hàng'>giao hàng; xe tải; xe cộ</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='đầu kéo rờ-moọc'>xe tải; bán; xe cộ</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='máy kéo'>xe cộ</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='xe đạp'>xe cộ</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='bơm nhiên liệu'>nhiên liệu; khí; bơm; trạm</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='đường cao tốc'>đường</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='đường sắt'>tàu hỏa</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='đèn của xe cảnh sát'>đèn hiệu; xe hơi; sáng; cảnh sát; quay vòng; xe cộ</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='đèn giao thông ngang'>đèn; biển báo; giao thông</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='đèn giao thông dọc'>đèn; biển báo; giao thông</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='đang xây dựng'>rào chắn</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='mỏ neo'>tàu; dụng cụ</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='thuyền buồm'>thuyền; khu nghỉ mát; biển; xe cộ; du thuyền</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='thuyền chèo'>thuyền; xe cộ</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='xuồng máy'>thuyền; xe cộ</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='tàu chở khách'>hành khách; con tàu; xe cộ</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='phà'>thuyền</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='thuyền máy'>thuyền; thuyền máy; xe cộ</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='tàu'>xe cộ</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='máy bay'>xe cộ</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='máy bay nhỏ'>máy bay; xe cộ</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='máy bay khởi hành'>máy bay; đăng ký; khởi hành; điểm khởi hành; xe cộ</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='máy bay đến nơi'>máy bay; điểm đến; đến; hạ cánh; xe cộ</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='trực thăng'>xe cộ</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='đường xe lửa giá trên cao'>xe lửa; treo; xe cộ</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='cáp treo trên núi'>cáp; toa trần; núi; xe cộ</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='đường xe điện trên không'>trên không; cáp; xe hơi; toa trần; cáp treo; đường xe điện; xe cộ</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='tên lửa'>vũ trụ; phương tiện</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='vệ tinh'>vũ trụ; phương tiện</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='chuông lễ tân'>chuông; khách sạn</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='người trên giường'>khách sạn; ngủ</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='giường'>khách sạn; ngủ</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='đi văng và đèn'>đi văng; khách sạn; đèn</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='vòi hoa sen'>nước</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='người đang tắm bồn'>bồn tắm; tắm</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' tts='bồn tắm'>tắm</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='đồng hồ cát'>cát; bộ định thời</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='đồng hồ cát có cát chảy'>đồng hồ cát; cát; bộ định thời</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='đồng hồ báo thức'>báo thức; đồng hồ</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='đồng hồ bấm giờ'>đồng hồ</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='đồng hồ hẹn giờ'>đồng hồ; bộ định thời</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='đồng hồ có đế'>đồng hồ</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='mười hai giờ'>00; 12; 12:00; đồng hồ; giờ; mười hai</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='mười hai giờ ba mươi phút'>12; 12:30; 30; đồng hồ; ba mươi; mười hai</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='một giờ'>00; 1; 1:00; đồng hồ; giờ; một</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='một giờ ba mươi phút'>1; 1:30; 30; đồng hồ; một; ba mươi</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='hai giờ'>00; 2; 2:00; đồng hồ; giờ; hai</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='hai giờ ba mươi phút'>2; 2:30; 30; đồng hồ; ba mươi; hai</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='ba giờ'>00; 3; 3:00; đồng hồ; giờ; ba</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='ba giờ ba mươi phút'>3; 3:30; 30; đồng hồ; ba mươi; ba</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='bốn giờ'>00; 4; 4:00; đồng hồ; bốn; giờ</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='bốn giờ ba mươi phút'>30; 4; 4:30; đồng hồ; bốn; ba mươi</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='năm giờ'>00; 5; 5:00; đồng hồ; năm; giờ</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='năm giờ ba mươi phút'>30; 5; 5:30; đồng hồ; năm; ba mươi</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='sáu giờ'>00; 6; 6:00; đồng hồ; giờ; sáu</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='sáu giờ ba mươi phút'>30; 6; 6:30; đồng hồ; sáu; ba mươi</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='bảy giờ'>00; 7; 7:00; đồng hồ; giờ; bảy</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='bảy giờ ba mươi phút'>30; 7; 7:30; đồng hồ; bảy; ba mươi</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='tám giờ'>00; 8; 8:00; đồng hồ; tám; giờ</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='tám giờ ba mươi phút'>30; 8; 8:30; đồng hồ; tám; ba mươi</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='chín giờ'>00; 9; 9:00; đồng hồ; chín; giờ</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='chính giờ ba mươi phút'>30; 9; 9:30; đồng hồ; chín; ba mươi</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='mười giờ'>00; 10; 10:00; đồng hồ; giờ; ten</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='mười giờ ba mươi phút'>10; 10:30; 30; đồng hồ; mười; ba mươi</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='mười một giờ'>00; 11; 11:00; đồng hồ; mười một; giờ</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='mười một giờ ba mươi phút'>11; 11:30; 30; đồng hồ; mười một; ba mươi</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='trăng non'>bóng tối; mặt trăng; vũ trụ; thời tiết</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='trăng lưỡi liềm đầu tháng'>lưỡi liềm; mặt trăng; vũ trụ; đầu tháng; thời tiết</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='trăng thượng tuần'>mặt trăng; phần tư; vũ trụ; thời tiết</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='trăng khuyết đầu tháng'>trăng khuyết; mặt trăng; vũ trụ; đầu tháng; thời tiết</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='trăng rằm'>mặt trăng; vũ trụ; thời thiết</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='trăng khuyết cuối tháng'>trăng khuyết; mặt trăng; vũ trụ; cuối tháng; thời tiết</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='trăng hạ tuần'>mặt trăng; phần tư; vũ trụ; thời tiết</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='trăng lưỡi liềm cuối tháng'>lưỡi liềm; mặt trăng; vũ trụ; cuối tháng; thời tiết</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='trăng lưỡi liềm'>lưỡi liềm; mặt trăng; vũ trụ; thời tiết</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='mặt trăng non'>khuôn mặt; mặt trăng; vũ trụ; thời tiết</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='mặt trăng thượng tuần'>khuôn mặt; mặt trăng; phần tư; vũ trụ; thời tiết</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='mặt trăng hạ tuần'>khuôn mặt; mặt trăng; phần tư; vũ trụ; thời tiết</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='nhiệt kế'>thời tiết</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='mặt trời'>sáng; tia; vũ trụ; nắng; thời tiết</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='mặt trăng tròn'>sáng; khuôn mặt; tròn; mặt trăng; vũ trụ; thời tiết</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='ông mặt trời'>sáng; khuôn mặt; vũ trụ; mặt trời; thời tiết</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='ngôi sao trung bình màu trắng'>ngôi sao</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='ngôi sao phát sáng'>rực rỡ; phát sáng; sáng; lấp lánh; ngôi sao</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='sao băng'>rơi; bắn; vũ trụ; ngôi sao</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='mây'>thời tiết</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='mặt trời sau mây'>mây; mặt trời; thời tiết</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='mây sét và mưa'>mây; mưa; sấm; thời tiết</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='mặt trời sau mây nhỏ'>mây; mặt trời; thời tiết</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='mặt trời sau mây lớn'>mây; mặt trời; thời tiết</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='mặt trời sau mây và mưa'>mây; mưa; mặt trời; thời tiết</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='mây và mưa'>mây; mưa; thời tiết</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='mây và tuyết'>mây; lạnh; tuyết; thời tiết</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='mây và sét'>mây; sét; thời tiết</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='lốc xoáy'>mây; thời tiết; cơn lốc</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='sương mù'>mây; thời tiết</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='mặt gió'>thổi; mây; khuôn mặt; thời tiết; gió</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='hình lốc xoáy'>choáng váng; xoáy; bão; thời tiết</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='cầu vồng'>mưa; thời tiết</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='ô đóng'>quần áo; mưa; chiếc ô; thời tiết</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='cái ô'>quần áo; mưa; thời tiết</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='ô với hạt mưa'>quần áo; rơi vãi; mưa; chiếc ô; thời tiết</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='ô trên mặt đất'>mưa; mặt trời; chiếc ô; thời tiết</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='điện cao thế'>nguy hiểm; thuộc về điện; điện; sấm chớp; điện áp; cú đánh</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='bông tuyết'>lạnh; tuyết; thời tiết</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='người tuyết'>lạnh; tuyết; thời tiết</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='người tuyết không có tuyết'>lạnh; tuyết; người tuyết; thời tiết</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='sao chổi'>vũ trụ</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='lửa'>ngọn lửa; dụng cụ</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='giọt nước'>lạnh; hài hước; rơi vãi; mồ hôi; thời tiết</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='sóng nước'>đại dương; nước; sóng; thời tiết</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='lồng đèn bí ngô'>lễ kỷ niệm; halloween; lồng; đèn lồng</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='cây thông noel'>lễ kỷ niệm; giáng sinh; cây</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='pháo hoa'>lễ kỷ niệm</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='pháo bông'>lễ kỷ niệm; pháo hoa; chói sáng</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='ánh lấp lánh'>lấp lánh; ngôi sao</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='bóng bay'>lễ kỷ niệm</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='pháo bông sinh nhật'>lễ kỷ niệm; buổi tiệc; pháo bông sinh nhật; miễn phí</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='hoa giấy'>quả bóng; lễ kỷ niệm</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='cây tanabata'>biểu ngữ; lễ kỷ niệm; kiểu nhật bản; cây</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='cờ bắt chéo'>lễ kỷ niệm; bắt chéo; gạch chéo; kiểu nhật bản</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='trang trí cây thông'>cây tre; lễ kỷ niệm; kiểu nhật bản; cây thông; cây</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='búp bê nhật bản'>lễ kỷ niệm; búp bê; lễ hội; kiểu nhật bản</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='cờ cá chép'>cá chép; lễ kỷ niệm; cờ bay trước gió</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='chuông gió'>chuông; lễ kỷ niệm; kêu vang; gió</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='rằm thượng nguyên'>lễ kỷ niệm; kỷ niệm; mặt trăng</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='ruy băng'>lễ kỷ niệm</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='gói quà'>cái hộp; lễ kỷ niệm; quà tặng; quà; bọc</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='huy chương quân sự'>lễ kỷ niệm; huy chương; quân sự</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='ruy băng nhắc nhở'>lễ kỷ niệm; nhắc nhở; dây băng</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='khung hình'>rạp chiếu bóng; phim; khung</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='vé vào cửa'>vào cửa; vé</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='vé'>vào cửa</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='bóng đá'>quả bóng</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='bóng chày'>quả bóng</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='bóng rổ'>quả bóng; vòng</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='bóng bầu dục Mỹ'>người mỹ; quả bóng; bóng đá</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='bóng bầu dục'>quả bóng; bóng đá</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='quần vợt'>quả bóng; cái vợt</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='bia'>8; 8 quả bóng; quả bóng; bida; tám; trò chơi</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='trò lăn bóng gỗ'>quả bóng; trò chơi</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='cờ trong lỗ'>gôn; lỗ</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='người chơi gôn'>quả bóng; gôn</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='giày trượt băng'>băng</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='cần câu cá'>cá; cần câu</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='áo chạy'>chạy bộ; khăn quàng vai; áo sơ mi</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='ván trượt tuyết'>trượt tuyết; tuyết</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='người sử dụng ván trượt tuyết'>trượt tuyết; tuyết</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='người trượt tuyết'>trượt tuyết; tuyết; tấm chắn tuyết</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='người lướt sóng'>lướt sóng</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='đua ngựa'>con ngựa; người cưỡi ngựa đua; ngựa đua; cuộc đua</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='người bơi'>bơi</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='người chơi bóng'>quả bóng</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='người cử tạ'>trọng lượng</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='người đi xe đạp'>xe đạp; người đi xe đạp</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='người đi xe đạp leo núi'>xe đạp; người đi xe đạp; núi</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='xe đua'>xe; đua xe</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='xe gắn máy'>đua xe</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='huy chương thể thao'>huy chương</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='cúp'>giải thưởng</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='crikê'>quả bóng; con dơi; trò chơi</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='bóng chuyền'>quả bóng; trò chơi</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='khúc côn cầu'>quả bóng; sân; trò chơi; cây gậy</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='bóng và gậy chơi khúc côn cầu'>trò chơi; khúc côn cầu; băng; bóng khúc côn cầu trên băng; cây gậy</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='bóng bàn'>quả bóng; gậy; trò chơi; vợt đánh bóng</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='cầu lông'>kỹ thuật ghi; trò chơi; vợt; trái cầu lông</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='ném phi tiêu'>điểm đen; mắt điểm đen; phi tiêu; mắt; trò chơi; đánh; mục tiêu</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='trò chơi điện tử'>thiết bị điều khiển; trò chơi</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='cần điều khiển'>trò chơi; trò chơi điện tử</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='trò xúc xắc'>xúc xắc; con xúc xắc; trò chơi</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='bộ bích'>thẻ; trò chơi; bích; bộ</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='bộ cơ'>thẻ; trò chơi; cơ; quân cơ; bộ</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='bộ rô'>thẻ; trò chơi; rô; quân rô; bộ</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='bộ nhép'>thẻ; nhép; quân nhép; trò chơi; bộ</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='quân phăng teo'>thẻ; trò chơi; chơi</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='rồng đỏ mahjong'>trò chơi; mahjong; đỏ</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='thẻ chơi hoa'>thẻ; hoa; trò chơi; kiểu nhật bản; chơi</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='tắt loa'>tăt tiếng; không ồn ào; im lặng; cái loa; âm lượng</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='loa'>âm lượng</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='bật loa'>thấp; cái loa; âm lượng; sóng</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='loa lớn'>3; cao; lớn; cái loa; số ba; âm lượng</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='loa phóng thanh'>lớn; địa chỉ công cộng</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='máy phóng thanh'>tiếng cổ vũ</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='kèn cor'>bưu điện; bưu chính</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='chuông với dấu gạch chéo'>chuông; cấm; tắt tiếng; không có; không; không cho phép; không ồn ào; im lặng</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='bản nhạc'>nhạc; bản nhạc</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='nốt nhạc'>nhạc</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='các nốt nhạc'>nhạc; nốt nhạc</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='micrô studio'>mic; micrô; nhạc; phòng thu</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='thanh trượt cấp độ'>cấp độ; nhạc; thanh trượt</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='núm điều khiển'>điều khiển; núm; nhạc</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='micrô'>karaoke</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='kèn saxophon'>nhạc cụ; nhạc</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='đàn ghita'>nhạc cụ; nhạc</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='bàn phím nhạc'>nhạc cụ; bàn phím; nhạc; đàn piano</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='kèn trompet'>nhạc cụ; nhạc</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='đàn viôlông'>nhạc cụ; nhạc</annotation>
+
+		<!-- radio; video -->
+		<annotation cp='[📻]' tts='đài'>video</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='điện thoại di động'>di động; điện thoại</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='điện thoại di động có mũi tên'>mũi tên; gọi; di động; điện thoại; nhận</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='ống nghe điện thoại'>điện thoại; ống nghe</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='ổ cắm điện'>thuộc về điện; điện; ổ cắm</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='máy tính xách tay'>máy tính; pc; cá nhân</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='máy tính để bàn'>máy tính; máy để bàn</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='máy in'>máy tính</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='bàn phím'>máy tính</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='chuột máy tính'>3; nút; máy tính bàn; chuột; số ba</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='bi xoay'>máy tính</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='đĩa mini'>máy tính; đĩa; đĩa mini; quang học</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='đĩa mềm'>máy tính; đĩa; mềm</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='đĩa quang'>dvd; chuẩn đĩa quang; CD; máy tính; đĩa; quang học</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>chuẩn đĩa quang; cd; máy tính; đĩa; quang</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='máy quay phim'>máy quay; rạp chiếu phim; phim</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='bảng clapper'>phim</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='máy chiếu phim'>rạp chiếu phim; phim; bộ phim; máy chiếu; video</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='tivi'>tv; video</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='máy ảnh'>video</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='máy ảnh có đèn nháy'>máy ảnh; đèn nháy; video</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='máy quay video'>máy ảnh; video</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='băng hình'>băng; vhs; video</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='kính lúp trỏ sang trái'>kính; phóng đại; tìm kiếm; công cụ</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='kính lúp trỏ sang phải'>kính; phóng đại; tìm kiếm; công cụ</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='kính hiển vi'>dụng cụ</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='kính viễn vọng'>dụng cụ</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='ăng tên vệ tinh'>ăng tên; đĩa; vệ tinh</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='nến'>ánh sáng</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='đèn điện'>bóng đèn; hài hước; điện; ý tưởng; ánh sáng</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='đèn pin'>điện; ánh sáng; dụng cụ; đèn pin</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='đèn lồng đỏ'>quán ba; kiểu nhật bản; đèn lồng; ánh sáng; đỏ</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='sổ tay với bìa trang trí'>sách; bìa; trang trí; sổ tay</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='sách đóng'>sách; đóng</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='sách mở'>sách; mở</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='sách xanh lục'>sách; xanh lục</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='sách xanh lam'>sách; xanh lam</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='sách màu cam'>sách; màu cam</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='sổ cái'>sổ tay</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='trang bị cong'>cong; tài liệu; trang</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='giấy cuộn'>giấy</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='trang hướng lên'>tài liệu; trang</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='báo'>tạp chí; báo</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='báo cuộn'>báo; tạp chí; báo; cuộn</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='nhãn dấu trang'>dấu trang; điểm; đánh dấu; nhãn</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='dấu trang'>dấu</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='túi tiền'>túi; đồng đô la; tiền bạc</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='tiền yên'>ngân hàng; tiền giấy; hóa đơn; tiền tệ; giấy; yên</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='tiền đô la'>ngân hàng; tiền giấy; hóa đơn; tiền tệ; đô la; tiền bạc; giấy</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='tiền châu âu'>ngân hàng; tiền giấy; hóa đơn; tiền tệ; đồng tiền châu âu; tiền bạc</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='tiền bảng'>ngân hàng; tiền giấy; hóa đơn; tiền tệ; tiền bạc; giấy; đồng bảng</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='tiền có cánh'>ngân hàng; tiền giấy; hóa đơn; đô la; bay; tiền; giấy; cánh</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='thẻ tín dụng'>ngân hàng; thẻ; tính dụng; tiền</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='biểu đồ đồng yên tăng'>ngân hàng; sơ đồ; tiền tệ; biểu đồ; tăng; thị trường; tiền; tăng lên; xu hướng; tăng dần; yên</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='phong bì'>e-mail; email</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='thư điện tử'>email; thư</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='phong bì thư đến'>e-mail; email; phong bì; đến; lá thư; thư; nhận</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='phong bì có mũi tên'>mũi tên; xuống; e-mail; email; phong bì; lá thư; mail; đi; đã gửi</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='khay giấy ra'>cái hộp; lá thư; thư; hộp thư đi; đã gửi; cái khay</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='khay giấy vào'>cái hộp; hộp thư đến; lá thư; đi; nhận; cái khay</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='gói'>cái hộp; gói</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='hộp thư đóng với cờ cao'>đóng; thư; hộp thư; hòm thư</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='hộp thư đóng với cờ thấp'>đóng; hạ xuống; thư; hộp thư; hòm thư</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='hộp thư mở với cờ cao'>thư; hộp thư; mở; hòm thư</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='hộp thư mở với cờ thấp'>hạ xuống; thư; hộp thư; mở; thùng thư</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='hòm thư'>thư; hòm thư</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='thùng phiếu với lá phiếu'>lá phiếu; thùng phiếu</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='ngòi bút đen'>ngòi; bút</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='bút máy'>bút; máy</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='bút'>bút bi</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='giấy nhớ'>bút chì</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='thư mục tệp'>tệp; thư mục</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='thư mục tệp mở'>tệp; thư mục; mở</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='ngăn chỉ mục thẻ'>thẻ; ngăn; bảng liệt kê</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='lịch'>ngày</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='xé lịch'>lịch</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='giấy ghi chép xoắn ốc'>ghi chú; bảng; xoắn ốc</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='lịch xoắn ốc'>lịch; bảng; xoắn ốc</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='chỉ mục thẻ'>thẻ; mục lục; hộp đựng danh thiếp</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='biểu đồ tăng'>biểu đồ; đồ thị; tăng trưởng; xu hướng; tăng lên</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='biểu đồ giảm'>biểu đồ; xuống; đồ thị; xu hướng</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='biểu đồ cột'>cột; biểu đồ; đồ thị</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='đinh ghim tròn'>đinh ghim; đinh rệp</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='kẹp giấy nối liền'>nối liền; kẹp giấy</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='thước thẳng'>thước kẻ; cạnh thẳng</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='thước tam giác'>thước kẻ; bộ; tam giác</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='kéo'>dụng cụ</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='hộp tệp bìa'>hộp; bìa; tệp</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='tủ tập tin'>tủ; tệp</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='khóa'>đóng</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='khóa mở'>khóa; mở; mở khóa</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='khóa với bút'>mực; khóa; ngòi bút; bút; riêng tư</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='khóa đóng với chìa'>đóng; chìa khóa; khóa; bảo mật</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='chìa khóa'>khóa; mật khẩu</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='khóa cổ'>đầu mối; chìa khóa; khóa; cũ</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='búa'>dụng cụ</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='cuốc'>khai thác; dụng cụ</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='búa và cuốc'>búa; cuốc; dụng cụ</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='búa và cờ lê'>búa; dụng cụ; cờ lê</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='cờ lê'>dụng cụ</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='đai ốc và bu lông'>bulông; đai ốc; dụng cụ</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='bánh răng'>dụng cụ</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='máy ép'>dụng cụ</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='nồi chưng'>hóa học; dụng cụ</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='cân thăng bằng'>cân; công bằng; thiên bình; dụng cụ; cân nặng; cung hoàng đạo</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='ống tiêm'>bác sĩ; thuốc chữa bệnh; kim; bắn; bệnh; dụng cụ</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='viên thuốc'>bác sĩ; thuốc; bệnh</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='dao găm'>dao; vũ khí</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='dao làm bếp'>nấu nướng; hocho; dao; dụng cụ; vũ khí</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='kiếm bắt chéo'>gươm; vũ khí</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='súng lục'>súng; dụng cụ; vũ khí</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='cái khiên'>vũ khí</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='cung và tên'>người bắn cung; mũi tên; cây cung; nhân mã; dụng cụ; vũ khí; cung hoàng đạo</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='cờ ca rô'>ca rô; cuộc đua</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='vẫy cờ trắng'>vẫy</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='vẫy cờ đen'>vẫy</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='cờ tam giác'>đánh dấu</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='quan tài'>cái chết</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='cái lư'>cái chết; tang lễ; bình đựng di cốt</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='tượng moai'>khuôn mặt; tượng moyai; bức tượng</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='trống dầu'>trống; dầu</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='quả cầu pha lê'>quả bóng; pha lê; truyện cổ tích; tưởng tượng; vận may; dụng cụ</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='ký hiệu ATM'>atm; tự động; ngân hàng; người kể chuyện</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='ký hiệu đổ rác vào thùng'>rác; thùng rác</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='nước uống'>uống; uống được; nước</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='xe lăn'>lối vào</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='nhà vệ sinh nam'>hòng vệ sinh; nam; nhà vệ sinh; wc</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='nhà vệ sinh nữ'>phòng vệ sinh; nhà vệ sinh; wc; nữ</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='nhà vệ sinh'>phòng vệ sinh; wc</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='biểu tượng trẻ con'>bé con; thay đổi</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='WC'>vệ sinh; phòng vệ sinh; nhà vệ sinh; nước; wc</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='kiểm tra hộ chiếu'>kiểm tra; hộ chiếu</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='nhận hành lý'>hành lý; nhận</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='hành lý gửi'>hành lý gửi; tủ khóa; hành lý</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='qua đường cho trẻ em'>trẻ em; đi qua; cho người đi bộ; giao thông</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='miễn vào'>lối vào; cấm; không có; không; không cho phép; giao thông</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='cấm xâm phạm'>lối vào; cấm; không có; không</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='cấm xe đạp'>xe đạp; cấm; không có; không; không cho phép; xe cộ</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='cấm hút thuốc'>cấm; không có; không; không cho phép; hút thuốc</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='cấm đổ rác'>cấm; rác; không có; không; không cho phép</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='cấm uống nước'>uống; cấm; không có; không; uống được; không cho phép; nước</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='cấm đi bộ'>cấm; không có; không; người đi bộ; không cho phép</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='mũi tên lên'>mũi tên; chính; hướng; bắc</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='mũi tên lên sang phải'>mũi tên; hướng; nhiều hướng; đông bắc</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='mũi tên phải'>mũi tên; chính; hướng; đông</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='mũi tên xuống sang phải'>mũi tên; hướng; nhiều hướng; đông nam</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='mũi tên xuống'>mũi tên; chính; hướng; xuống; nam</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='mũi tên xuống sang trái'>mũi tên; hướng; nhiều hướng; tây nam</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='mũi tên trái'>mũi tên; chính; chiều hướng; tây</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='mũi tên lên sang trái'>mũi tên; hướng; nhiều hướng; tây bắc</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='mũi tên lên xuống'>mũi tên</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='mũi tên trái phải'>mũi tên</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='mũi tên phải cong sang trái'>mũi tên</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='mũi tên trái cong sang phải'>mũi tên</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='mũi tên phải cong lên'>mũi tên</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='mũi tên phải cong xuống'>mũi tên; xuống</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='mũi tên thẳng đứng theo chiều kim đồng hồ'>mũi tên; chiều kim đồng hồ; tải lại</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='nút mũi tên ngược chiều kim đồng hồ'>ngược chiều kim đồng; mũi tên</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='mũi tên back'>mũi tên; back</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='mũi tên end'>mũi tên; end</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='mũi tên on!'>mũi tên; dấu on</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='mũi tên soon'>mũi tên; soon</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='mũi tên top'>mũi tên; top; lên</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='nơi thờ phụng'>tôn giáo; tôn sùng</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='biểu tượng nguyên tử'>người vô thần; nguyên tử</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='huân chương chiến công'>hindu; tôn giáo</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='ngôi sao sáu cánh'>david; người do thái; do thái; tôn giáo; ngôi sao</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='pháp luân'>phật giáo; pháp; tôn giáo; bánh xe</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='âm dương'>tôn giáo; đạo; người theo đạo; dương; âm</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='chữ thập cánh dưới dài hơn'>cơ đốc; chữ thập; tôn giáo</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='chữ thập chính thống'>cơ đốc; chữ thập; tôn giáo</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='sao và trăng lưỡi liềm'>người theo đạo hồi; hồi giáo; tôn giáo</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='biểu tượng hòa bình'>hòa bình</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='cây đàn nhiều nhánh'>cây đèn nến; giá đỡ nến; tôn giáo</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='biểu tượng tái chế'>tái chế</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='huy hiệu tên'>huy hiệu; tên</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='hoa bách hợp'>hoa irit</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='biểu tượng của nhật cho người bắt đầu'>người mới bắt đầu; góc cạnh; màu lục; kiểu nhật bản; lá cây; dụng cụ; màu vàng</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='biểu tượng đinh ba'>mỏ neo; biểu tượng; con tàu; dụng cụ; đinh ba</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='vòng tròn lớn đậm'>vòng tròn; o</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='dầu kiểm đậm màu trắng'>chọn; dấu</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='hộp kiểm có dấu kiểm'>lá phiếu; cái hộp; kiểm tra</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='dấu kiểm đậm'>chọn; dấu</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='dấu nhân đậm'>hủy bỏ; phép nhân; nhân; x</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='dấu gạch chéo'>hủy bỏ; điểm; phép nhân; nhân; x</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='nút dấu gạch chéo'>dấu; hình vuông</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='dấu cộng đậm'>toán; dấu cộng</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='dấu trừ đậm'>toán; dấu trừ</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='dấu chia đậm'>dấu chia; toán</annotation>
+
+		<!-- curly loop; curl; loop -->
+		<annotation cp='[➰]' tts='vòng lặp'>cong</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='vòng lặp kép'>cong; kép</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='dấu thay đổi luân phiên riêng'>dấu; phần</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='hoa thị tám cánh'>hoa thị</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='sao tám cánh'>sao</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='trao đổi tiền tệ'>ngân hàng; tiền tệ; trao đổi; tiền bạc</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='dấu đô la đậm'>tiền tệ; đồng đô la; tiền bạc</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='dấu chấm than kép'>chấm than; cảm thán; chấm; chấm câu</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='dấu chấm than dáu hỏi'>cảm thán; chấm than; chấm; chấm câu; dấu hỏi</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='dấu hỏi'>chấm; chấm câu; dấu hỏi</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='dấu hỏi màu trắng'>chấm; mờ; chấm câu; dấu hỏi</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='dấu chấm than màu trắng'>cảm thán; chấm; mờ; dấu</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='dấu chấm than'>cảm thán; chấm; dấu</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='gạch ngang lượn sóng'>gạch ngang; dấu; gợn sóng</annotation>
+
+		<!-- copyright -->
+		<annotation cp='[©]' tts='dấu bản quyền'>bản quyền</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='nhãn hiệu'>dấu; tm; nhãn hiệu</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='bạch dương'>cừu; cung hoàng đạo</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='kim ngưu'>bò đực; bò cái; cung hoàng đạo</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='song tử'>cung hoàng đạo</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='cự giải'>con cua; cung hoàng đạo</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='cung sư tử'>sư tử; cung hoàng đạo</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='xử nữ'>thời con gái; gái trinh; cung hoàng đạo</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='thiên bình'>cân đối; công bằng; cân; cung hoàng đạo</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='cung bọ cạp'>bọ cạp; cung hoàng đạo</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='nhân mã'>người bắn cung; cung hoàng đạo</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='ma kết'>con dê; cung hoàng đạo</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='bảo bình'>vật mang, nước; cung hoàng đạo</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='song ngư'>con cá; cung hoàng đạo</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='người giữ rắn'>vật mang; rắn; con rắn; cung hoàng đạo</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='nút trộn bài'>mũi tên; bắt chéo</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='nút lặp bài'>mũi tên; chiều kim đồng hồ; lặp lại</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='nút lặp lại một lần'>mũi tên; chiều kim đồng hồ; một lần</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='nút phát'>mũi tên; phát; bên phải; tam giác</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='nút tua nhanh'>mũi tên; kép; nhanh; phía trước</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='nút bài tiếp theo'>mũi tên; cảnh tiếp theo; bài hát kế tiếp; tam giác</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='nút phát hoặc tạm dừng'>mũi tên; tạm dừng; phát; bên phải; tam giác</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='nút đảo'>mũi tên; thoát; đảo ngược; tam giác</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='nút đảo nhanh'>mũi tên; kép; tua lại</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='nút bài cuối'>mũi tên; cảnh trước; bản nhạc trước; tam giác</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='nút tiến'>mũi tên; nút; đỏ</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='nút tiến nhanh'>mũi tên; kép</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='nút lùi'>mũi tên; nút; xuống; đỏ</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='nút lùi nhanh'>mũi tên; kép; xuống</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='nút tạm dừng'>thanh; kép; tạm dừng; dọc</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='nút dừng'>hình vuông; dừng</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='nút ghi âm'>hình tròn; ghi lại</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='nút bỏ qua'>bỏ qua</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='phim'>máy ảnh; phim ảnh; bộ phim</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='nút mờ'>độ sáng; mờ; thấp</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='nút sáng'>sáng; độ sáng</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='thanh ăng-ten'>ăng-ten; thanh; điện thoại di động; di động; điện thoại; tín hiệu; điện thoại</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='cấm điện thoại di động'>điện thoại di động; cấm; di động; không có; không; điện thoại; không cho phép</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='chế độ rung'>điện thoại di động; di động; chế độ; điện thoại; rung</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='điện thoại di đọng tắt'>điện thoại di động; di động; tắt; điện thoại</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='số mũ phím'>băm; mũ phím; bảng</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='hoa thị mũ phím'>hoa thị; mũ phím; bảng</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='số không mũ phím'>0; mũ phím; không</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='số một mũ phím'>1; mũ phím; một</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='số hai mũ phím'>2; mũ phím; hai</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='số ba mũ phím'>3; mũ phím; ba</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='số bốn mũ phím'>4; bốn; mũ phím</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='số năm mũ phím'>5; năm; mũ phím</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='số sáu mũ phím'>6; mũ phím; sáu</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='số bảy mũ phím'>7; mũ phím; bảy</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='số tám mũ phím'>8; tám; mũ phím</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='số chín mũ phím'>9; mũ phím; chín</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='số mười mũ phím'>10; mũ phím; mười</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='100 điểm'>100; toàn bộ; một trăm; điểm</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='cấm người dưới 18 tuổi'>18; giới hạn độ tuổi; mười tám; cấm; không có; không; không cho phép; vị thành niên</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='viết hoa la tinh'>nhập vào; latin; ký tự; chữ hoa</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='viết thường la tinh'>abcd; nhập vào; latin; ký tự; chữ thường</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='số nhập'>1234; nhập vào; số</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='biểu tượng nhập'>nhập vào</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='chữ la tinh'>abc; bảng chữ cái; nhập vào; latin; ký tự</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='nút a'>a; máu</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='nút ab'>ab; máu</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='nút b'>b; máu</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='cl trong hình vuông'>cl</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='cool trong hình vuông'>cool</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='free trong hình vuông'>free</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='nguồn thông tin'>i; thông tin</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='id trong hình vuông'>id; danh tính</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='chữ m trong hình tròn'>hình tròn; m</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='new trong hình vuông'>new</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='ng trong hình vuông'>ng</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='nút o'>máu; o</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='ok trong hình vuông'>ok</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='nut p'>đoỗ xe</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='sos trong hình vuông'>trợ giúp; sos</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='nút up!'>dấu; up</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='vs trong hình vuông'>so với; vs</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='chữ kolo katakana trong hình vuông'>tiếng nhật</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='chữ sa katakana trong hình vuông'>tiếng nhật</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='chữ tượng hình trăng trong hình vuông'>tiếng nhật</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='chữ tượng hình tồn tại trong hình vuông'>tiếng nhật</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='chữ tượng hình ngón tay trong hình vuông'>tiếng nhật</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='chữ tượng hình lợi thế trong hình tròn'>tiếng nhật</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='chữ tượng hình chia trong hình vuông'>tiếng nhật</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='chữ tượng hình phủ định trong hình vuông'>tiếng nhật</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='chữ tượng hình cấm trong hình vuông'>tiếng nhật</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='chữ tượng hình chấp nhận trong hình tròn'>tiếng trung</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='chữ tượng hình áp dụng trong hình vuông'>tiếng trung</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='chữ tượng hình cùng nhau trong hình vuông'>tiếng trung</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='chữ tượng hình trống trong hình vuông'>tiếng trung</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='chữ tượng hình chúc mừng trong hình tròn'>tiếng trung; chúc mừng, chữ tượng hình</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='chữ tượng hình bí mật trong hình tròn'>tiếng trung; chữ tượng hình; bí mật</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='chữ tượng hình điều hành trông hình vuông'>tiếng trung</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='chữ tượng hình đầy đủ trong hình vuông'>tiếng trung</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='hình vuông nhỏ màu đen'>hình học; hình vuông</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='hình vuông nhỏ màu trắng'>hình học; hình vuông</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='hình vuông trung bình màu trắng'>hình học; hình vuông</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='hình vuông trung bình màu đen'>hình học; hình vuông</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='hình vuông vừa và nhỏ màu trắng'>hình học; hình vuông</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='hình vuông vừa và nhỏ màu đen'>hình học; hình vuông</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='hình vuông lớn màu đen'>hình học; hình vuông</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='hình vuông lớn màu trắng'>hình học; hình vuông</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='hình thoi màu cam lớn'>hình thoi; hình học; màu cam</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='hình thoi màu lam lớn'>màu lam; hình thoi; hình học</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='hình thoi màu cam nhỏ'>hình thoi; hình học; màu cam</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='hình thoi màu lam nhỏ'>màu lam; hình thoi; hình học</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='tam giác đỏ hướng lên'>hình học; màu đỏ</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='tam giác đỏ hướng xuống'>xuống; hình học; đỏ</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='hình thoi có chấm'>hài hước; hình thoi; hình học; bên trong</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='nút radio'>nút; hình học; radio</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='nút hình vuông màu đen'>nút; hình học; hình vuông</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='nút hình vuông màu trắng'>nút; hình học; mờ, hình vuông</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='hình tròn màu trắng'>hình tròn; hình học</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='hình tròn màu đen'>hình tròn; hình học</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='hình tròn màu đỏ'>hình tròn; hình học; đỏ</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='hình tròn màu lam'>màu lam; hình tròn; hình học</annotation>
+	</annotations>
+</ldml>

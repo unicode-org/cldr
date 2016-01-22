@@ -1,0 +1,2968 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='fi'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='leveä hymy'>naama; hymy</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='virnistys ja hymyilevät silmät'>silmä; naama; virnistys; hymy</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='naurunkyyneleet'>naama; ilo; nauru; kyynel</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='hymy suu auki'>naama; suu; auki; hymy</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='hymyilevät silmät ja suu'>silmä; naama; suu; auki; hymy</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='hymy ja kylmänhiki'>kylmä; naama; auki; hymy; hiki</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='hymy ja tiukasti suljetut silmät'>naama; nauru; suu; auki; tyytyväinen; hymy</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='silmänisku'>naama</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='punastunut hymy'>punastunut; silmä; naama; hymy</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='herkullista ruokaa nauttinut'>herkullinen; naama; nautiskeleva; hymy; nam; nami</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='aurinkolasihymy'>kirkas; cool; silmä; silmälasit; naama; lasit; hymy; aurinko; aurinkolasit; sää</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='hymy ja sydänsilmät'>silmä; naama; sydän; rakkaus; hymy</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='lentosuukko'>naama; sydän; pusu</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='pusunaama'>naama; pusu</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='pusunaama ja hymyilevät silmät'>silmä; naama; pusu; hymy</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='pusunaama ja suljetut silmät'>suljettu; silmä; naama; pusu</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='hymynaama'>naama; rento; hymy</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='pieni hymy'>naama; hymy</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='halaava naama'>naama; hali; halaus</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='hymy ja sädekehä'>enkeli; naama; satu; tarina; sädekehä; viaton; hymy</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='mietteliäs'>naama</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='naama peruslukemilla'>tunteeton; naama; neutraali</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='ilmeetön'>naama; </annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='naama ilman suuta'>naama; suu; hiljaa; hiljainen</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='silmienpyöritys'>silmät; naama; pyörivä</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='virnistys'>naama</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='kärsivä'>naama</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='pettynyt mutta helpottunut'>pettynyt; naama; helpottunut; huh</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='yllättynyt'>naama; suu; auki; empatia</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='vetoketjusuu'>naama; suu; vetoketju</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='järkyttynyt'>naama; yllättynyt</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='unelias'>naama; uni</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='väsynyt'>naama</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='nukkuva'>naama; uni; zzz</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='helpottunut'>naama</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='nörtti'>naama</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='kieli ulkona'>naama; kieli</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='kieli ulkona ja silmänisku'>silmä; naama; vitsi; kieli; silmänisku</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='kieli ulkona ja silmät tiukasti kiinni'>silmä; naama; kamala; maku; kieli</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='surullinen'>naama</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='hieman surullinen'>naama; surullinen</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='ei naurata'>naama; onneton</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='kylmänhiki'>kylmä; naama; hiki</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='pohdiskeleva'>lannistunut; naama</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='hämmentynyt'>naama</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='tyrmistynyt'>naama</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='ylösalainen naama'>naama; ylöslainen</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='naama ja hengityssuoja'>flunssa; lääkäri; naama; suoja; lääke; sairas</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='naama ja lämpömittari'>naama; sairas; kipeä; lämpömittari</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='naama ja pääside'>side; naama; vamma; kipeä</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='dollarisilmät ja rahasuu'>naama; raha; suu</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='ällistynyt'>naama; järkyttynyt; tosi</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='pettynyt'>naama</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='huolestunut'>naama</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='höyryä nenästä'>naama; voitto; voittaja</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='itkevä'>itku; naama; surullinen; kyynel</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='äänen itkevä'>itku; naama; surullinen; nyyhky; kyynel</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='surullinen ja suu auki'>naama; surullinen; suu; auki</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='ahdistunut'>naama</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='pelokas'>naama; pelko; pelästynyt</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='uupunut'>naama; väsynyt</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='irvistävä'>naama; irvistys</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='avoin suu ja kylmänhiki'>sininen; kylmä; naama; suu; auki; hiki</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='pelokas huuto'>naama; pelko; pelokas; munch; huuto</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='punastunut naama'>tyrmistynyt; naama; punastunut</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='pyörtyvä'>naama</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='mököttävä'>vihainen; naama; raivo; punainen</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='vihainen'>naama</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='pirullinen hymy ja sarvet'>naama; satu; fantasia; sarvet; hymy</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='pikkupaholainen'>piru; demoni; naama; satu; fantasia</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='peikko'>olio; naama; satu; fantasia; japanilainen; hirviö</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='menninkäinen'>olio; naama; satu; fantasia; japanilainen; hirviö</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='pääkallo'>ruumis; kuolema; naama; satu; hirviö</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='pääkallo ja reisiluut'>ruumis; reisiluut; kuolema; naama; hirviö; pääkallo</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='kummitus'>olio; naama; satu; fantasia; hirviö</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='avaruusolio'>olio; alien; naama; satu; fantasia; hirviö; avaruus; ufo</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='avaruushirviö'>avaruusolio; olio; alien; naama; satu; fantasia; hirviö; avaruus; ufo</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='robottinaama'>naama; hirviö; robotti</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='kakkakasa'>sarjakuva; kakka; naama; hirviö; lanta; sonta</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='leveästi hymyilevä kissa'>kissa; naama; suu; auki; hymy</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='virnistävä kissa ja hymyilevät silmät'>kissa; silmä; naama; virnistys; hymy</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='kissanaama ja naurunkyyneleet'>kissa; naama; ilo; nauru</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='kissanaama ja sydänsilmät'>kissa; silmä; naama; sydän; rakkaus; hymy</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='vinosti hymyilevä kissa'>kissa; naama; ironinen; hymy; vino</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='kissan pusunaama ja suljetut silmät'>kissa; silmä; naama; pusu</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='yllättynyt kissa'>kissa; naama; oho; yllättynyt; </annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='itkevä kissa'>kissa; itku; naama; surullinen; kyynel</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='mököttävä kissa'>kissa; naama; mököttävä</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='en näe pahaa'>paha; naama; kielletty; ele; apina; ei; näe</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='en kuule pahaa'>paha; naama; kielletty; ele; apina; ei; kuule</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='en puhu pahaa'>paha; naama; kielletty; ele; apina; ei; puhu</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='tyttö'>neito; neitsyt; neiti</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='vanha mies'>mies; vanha</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='vanha nainen'>vanha; nainen</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='poliisi'>kyttä</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='mies ja kiinalainen hattu'>gua pi mao; hattu; mies</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='mies ja turbaani'>mies; turbaani</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='rakennustyöläinen'>rakennus; työmies; hattu</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='kypärä, jossa valkoinen risti'>apu; risti; naama; hattu; kypärä</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='prinsessa'>satu; fantasia</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='etsivä'>salapoliisi</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='joulupukki'>juhla; joulu; satu; fantasia</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='enkelivauva'>enkeli; vauva; naama; satu; fantasia</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='kasvohieronta'>hieronta; hieroja</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='hiustenleikkaus'>parturi; kauneus; salonki</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='morsian ja huntu'>morsian; huntu; häät</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='surullinen henkilö'>surullinen; ele</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='mököttävä henkilö'>ele; mököttävä</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='ei-ele'>kielletty; ele; käsi; ei</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='ok-ele'>ele; käsi; ok</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='infotiskin henkilö'>käsi; apu; info; nenäkäs</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='iloinen henkilö viittaa'>ele; käsi; iloinen; nostettu</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='kumartava henkilö'>anteeksipyyntö; kumarrus; ele; anteeksi</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='nousevat kädet'>vartalo; juhla; ele; käsi; hurraa; nostettu</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='kämmenet yhdessä'>kysy; vartalo; kumarrus; ele; käsi; pliis; rukous; kiitos</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='puhuvä pää'>naama; pää; siluetti; puhu; puhuminen</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='rintasiluetti'>rintakuva; siluetti</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='kaksi rintasiluettia'>rintakuva; siluetti</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='jalankulkija'>patikointi; kävely; kävellä</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='juoksija'>maratoni; juokseminen</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='puputytöt'>pupu; tanssija; korva; tyttö; nainen</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='levitoiva bisnesmies'>bines; mies; puku</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='pusu'>pariskunta; romantiikka</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='pariskunta ja sydän'>pariskunta; sydän; rakkaus; romantiikka</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='perhe'>lapsi; isä; äiti</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='mies ja nainen käsi kädessä'>pariskunta; käsi; kädestä pitäminen; mies; nainen</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='kaksi miestä käsi kädessä'>pariskunta; kaksonen; käsi; kädestä pitäminen; mies; kaksoset; horoskooppi; horoskooppimerkki</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='kaksi naista käsi kädessä'>pariskunta; käsi; kädestä pitäminen; nainen</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='ihotyyppi-1-2'>emojin muokkaus; fitzpatrick; iho; sävy</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='ihotyyppi-3'>emojin muokkaus; fitzpatrick; iho; sävy</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='ihotyyppi-4'>emojin muokkaus; fitzpatrick; iho; sävy</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='ihotyyppi-5'>emojin muokkaus; fitzpatrick; iho; sävy</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='ihotyyppi-6'>emojin muokkaus; fitzpatrick; iho; sävy</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='pullistettu hauis'>hauis; vartalo; sarjakuva; pullistaa; lihas</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='vasemmalle osoittava etusormi kämmenselkä edellä'>kämmenselkä; vartalo; sormi; käsi; etusormi; osoittaa</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='oikealle osoittava etusormi kämmenselkä edellä'>kämmenselkä; vartalo; sormi; käsi; etusormi; osoittaa</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='ylös osoittava etusormi'>vartalo; sormi; käsi; etusormi; osoittaa; ylös</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='ylös osoittava etusormi kämmenselkä edellä'>kämmenselkä; vartalo; sormi; käsi; etusormi; osoittaa; ylös</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='keskisormi'>vartalo; sormi; käsi</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='alas osoittava etusormi kämmenselkä edellä'>kämmenselkä; vartalo; alas; sormi; käsi; etusormi; osoittaa</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='voitonmerkki'>vartalo; käsi; v; voitto</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='vulkanilaisten tervehdys'>vartalo; sormi; käsi; spock; vulkanilainen</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='sarviele'>vartalo; sormi; käsi; sarvet; rock</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='nostettu käsi ja sormet erillään'>vartalo; sormi; käsi; levitetty</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='nostettu käsi'>vartalo; käsi</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='ok-sormiele'>vartalo; käsi; ok</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='peukalo ylös'>+1; vartalo; käsi; peukalo; ylös</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='peukalo alas'>-1; vartalo; käsi; peukalo; alas</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='nostettu nyrkki'>vartalo; puristettu; nyrkki; käsi; isku</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='kohti tuleva nyrkki'>vartalo; puristettu; nyrkki; käsi; isku</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='käden heilautus'>vartalo; käsi; heilautus; vilkuttaa</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='käsien taputus'>vartalo; taputtaa; käsi</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='avoimet kädet'>vartalo; käsi; avoin</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='kirjoittava käsi'>vartalo; käsi; kirjoittaa</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='kynsilakka'>vartalo; kosmetiikka; manikyyri; kynsihuolto; kynsi</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='korva'>vartalo</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='nenä'>vartalo</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='jalanjäljet'>vartalo; vaatteet; jalanjäljki; jälki</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='silmät'>vartalo; silmä; naama</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='silmä'>vartalo</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='kieli'>vartalo</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='suu'>vartalo; huulet</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='pusuhuulijälki'>sydän; pusu; huulet; jälki; romantiikka</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='sydän ja nuoli'>nuoli; amor; sydän; romantiikka</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='punainen sydän'>sydän</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='sykkivä sydän'>sykkivä; sydän; syke; sykkiä</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='särkynyt sydän'>särkyä; särkynyt; sydän</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='kaksi sydäntä'>sydän; rakkaus</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='kimaltava sydän'>innostunut; sydän; kimalle</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='kasvava sydän'>innostunut; kasvava; sydän; sydämen syke; hermostunut</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='sininen sydän'>sininen; sydän</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='vihreä sydän'>vihreä; sydän</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='keltainen sydän'>sydän; keltainen</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='violetti sydän'>sydän; violetti</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='sydän ja lahjanauha'>sydän; nauha; ystävänpäivä</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='toisiaan kiertävät sydämet'>sydän; pyörivä</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='sydänkoriste'>sydän</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='sydänhuutomerkki'>huutomerkki; sydän; välimerkit</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='rakkauskirje'>sydän; kirje; posti; rakkaus; romantiikka</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='zzz'>sarjakuva; uni</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='viha'>vihainen; sarjakuva</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='pommi'>sarjakuva</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='törmäys'>pum; sarjakuva</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='hikipisarat'>sarjakuva; hiki; vesi</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='pikalähtö'>sarjakuva; juoksu</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='pyörryttävä'>sarjakuva; tähti</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='puhekupla'>ilmapallo; kupla; sarjakuva; puhe; keskustelu</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='vasen puhekupla'>keskustelu; puhe</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='oikea vihainen puhekupla'>vihainen; ilmapallo; kupla; puhekupla; </annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='ajatuskupla'>ilmapallo; kupla; sarjakuva; ajatus</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='silmälasit'>vaatteet; silmä</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='aurinkolasit'>tumma; silmä; silmälasit; lasit</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='kravatti'>vaatteet</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='t-paita'>vaatteet; paita</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='farkut'>vaatteet; housut</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='mekko'>vaatteet</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='kimono'>vaatteet</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='bikinit'>vaatteet; uida</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='naistenvaatteet'>vaatteet; nainen</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='rahakukkaro'>vaatteet; kolikko</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='käsilaukku'>laukku; vaatteet</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='kirjekuorilaukku'>laukku; vaatteet</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='ostoskassit'>laukku; hotelli; shoppailu</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='koulureppu'>laukku; koulu; koululaukku</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='miehen kenkä'>vaatteet; mies; kenkä</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='juoksukenkä'>urheilu; vaatteet; kenkä; lenkkarit</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='korkokenkä'>vaatteet; korko; kenkä; nainen</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='naisen sandaali'>vaatteet; sandaali; kenkä; nainen</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='naisen saapas'>saapas; vaatteet; kenkä; nainen</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='kruunu'>vaatteet; kuningas; kuningatar</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='naisen hattu'>vaatteet; hattu; nainen</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='silinteri'>vaatteet; hattu</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='valmistujaislakki'>lakki; juhla; vaatteet; valmistujaiset; hattu</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='rukoushelmet'>helmet; vaatteet; kaulakoru; rukous; uskonto</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='huulipuna'>kosmetiikkaa; meikit; meikki</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='sormus'>timantti; romantiikka</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='jalokivi'>timantti; romantiikka</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='apinan naama'>naama; apina</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='koiran naama'>koira; naama; lemmikki</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='koira'>lemmikki</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='villakoira'>koira</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='suden naama'>naama; susi</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='kissan naama'>kissa; naama; lemmikki</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='kissa'>lemmikki</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='leijonan naama'>naama; leijona; horoskooppimerkki; horoskooppi</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='tiikerin naama'>naama; tiikeri</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='hevosen naama'>naama; hevonen</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='hevonen'>kilpahevonen; ravit; ravihevonen</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='yksisarvisen naama'>naama; yksisarvinen</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='lehmän naama'>lehmä; naama</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='härkä'>horoskooppimerkki; horoskooppi</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='vesipuhveli'>puhveli; vesi</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='sian naama'>naama; sika</annotation>
+
+		<!-- pig; sow -->
+		<annotation cp='[🐖]' tts='sika'>emakko</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='villisika'>sika</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='sian kärsä'>naama; nenä; sika; kärsä</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='pässi'>oinas; lammas; horoskooppimerkki; horoskooppi</annotation>
+
+		<!-- sheep; ewe -->
+		<annotation cp='[🐑]' tts='lammas'>uuhi</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='vuohi'>kauris; horoskooppimerkki; horoskooppi</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='dromedaari'>kyttyrä</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='kaksikyttyräinen kameli'>kaksikyttyräinen; kameli; kyttyrä</annotation>
+
+		<!-- elephant -->
+		<annotation cp='[🐘]' tts='elefantti'>norsu</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='hiiren naama'>hiiri; naama</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='hamsterin naama'>naama; hamsteri; lemmikki</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='jäniksen naama'>pupu; jänis; kani; naama; lemmikki</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='jänis'>pupu; kani; lemmikki</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='karhun naama'>karhu; naama</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='koala'>karhu</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='pandan naama'>naama; panda</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='tassunjäljet'>jalka; tassu; jälki</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='kuoriutuva tipu'>tipu; kananpoika; kuoriutuva</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='tipu'>kananpoika</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='tipu edestäpäin'>tipu; kananpoika</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='kyyhky'>lintu; lentää; rauha</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='sammakon naama'>naama; sammakko</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='käärme'>viestintuoja; käärmeenkantaja; horoskooppimerkki; horoskooppi</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='lohikäärmeen naama'>lohikäärme; naama; satu</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='lohikäärme'>satu</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='suihkuttava valas'>naama; suihkuttaa; valas</annotation>
+
+		<!-- dolphin; flipper -->
+		<annotation cp='[🐬]' tts='delfiini'>flipper</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='kala'>kalat; horoskooppimerkki; horoskooppi</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='trooppinen kala'>kala; trooppinen</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='pallokala'>kala</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='kotilo'>kuori</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='rapu'>horoskooppimerkki; horoskooppi</annotation>
+
+		<!-- bug; insect -->
+		<annotation cp='[🐛]' tts='ötökkä'>hyönteinen</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='muurahainen'>hyönteinen</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='mehiläinen'>hyönteinen</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='leppäkerttu'>hyönteinen</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='hämähäkki'>hyönteinen</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='hämähäkin seitti'>hämähäkki; verkko; seitti</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='skorpioni'>horoskooppimerkki; horoskooppi</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='kukkakimppu'>kukka; kasvi; romantiikka</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='kirsikankukka'>kukka; kasvi; kirsikka</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='valkoinen kukka'>kukka</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='ruusuke'>kasvi</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='ruusu'>kukka; kasvi</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='kiinanruusu'>kukka; kasvi</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='auringonkukka'>kukka; kasvi; aurinko</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='kukinta'>kukka; kasvi</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='tulppaani'>kukka; kasvi</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='taimi'>kasvi; verso</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='ikivihreä'>kasvi; puu</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='lehtipuu'>palmu; kasvi; puu</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='palmu'>kasvi; puu</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='kaktus'>kasvi</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='riisikasvi'>korva; kasvi; riisi</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='yrtti'>lehti; kasvi</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='kolmiapila'>kasvi</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='neliapila'>nelilehtinen; neljä; lehti; kasvi</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='vaahteranlehti'>putoava; lehti; vaahtera; kasvi</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='pudonnut lehti'>putoava; lehti; kasvi</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='lehti tuulessa'>tuuli; lehti; kasvi; puhaltaa</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='viinirypäleet'>hedelmä; viinirypäle; rypäle; kasvi</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='meloni'>hedelmä; kasvi</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='vesimeloni'>hedelmä; kasvi</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='mandariini'>hedelmä; appelsiini; kasvi</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='sitruuna'>sitrus; hedelmä; kasvi</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='banaani'>hedelmä; kasvi</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='ananas'>hedelmä; kasvi</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='punainen omena'>omena; hedelmä; kasvi; punainen</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='vihreä omena'>omena; hedelmä; kasvi; vihreä</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='päärynä'>hedelmä; kasvi</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='persikka'>hedelmä; kasvi</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='kirsikat'>kirsikka; hedelmä; kasvi</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='mansikka'>marja; hedelmä; kasvi</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='tomaatti'>kasvi; kasvis; vihannes</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='munakoiso'>kasvi; kasvis; vihannes</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='maissintähkä'>maissi; tähkä; kasvi</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='jalapeno'>kuuma; paprika; tulinen; kasvi</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='sieni'>kasvi</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='kastanja'>kasvi</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='leipä'>pala</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='juustopala'>juusto</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='lihaa luussa'>luu; liha</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='kanankoipi'>luu; kana; koipi; siipikarja</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='ranskalaiset'>perunat</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='pizza'>juusto; siivu</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='hodari'>makkara; nakki</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='taco'>meksikolainen</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='burrito'>meksikolainen</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='pataruoka'>pata</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='bento-rasia'>bento; rasia</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='onnenkeksi'>keksi; riisi</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='riisipallo'>pallo; japanilainen; riisi</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='keitetty riisi'>keitetty; riisi</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='curry-riisi'>curry; riisi</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='höyryävä kulho'>kulho; nuudeli; ramen; kuuma; höyryävä</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='spagetti'>pasta</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='paistettu bataatti'>peruna; paistettu; bataatti</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='oden'>kebab; merenelävät; tikku</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='paistettu katkarapu'>paistettu; katkarapu; tempura</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='kalakakku'>kakku; kala; leivonnainen</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='dango'>jälkiruoka; japanilainen; tikku; makea</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='pehmis'>kerma; jälkiruoka; jää; jäätelö; pehmeä; makea</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='jäähileherkku'>jälkiruoka; jää; jäähile; makea; herkku</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='jäätelö'>kerma; jälkiruoka; makea</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='donitsi'>jälkiruoka; makea</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='keksi'>jälkiruoka; makea</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='syntymäpäiväkakku'>syntymäpäivä; kakku; juhla; jälkiruoka; leivonnainen; makea</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='kakkupala'>kakku; jälkiruoka; leivonnainen; pala; makea</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='suklaapatukka'>patukka; suklaa; jälkiruoka; makea</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='karkki'>jälkiruoka; makea</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='tikkari'>karkki; jälkiruoka; makea</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='rahkatorttu'>jälkiruoka; vanukas; makea</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='hunaja'>makea</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='tuttipullo'>vauva; pullo; juoda; maito</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='kuuma juoma'>juoma; kahvi; juoda; kuuma; höyryävä; tee</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='kahvaton teekuppi'>juoma; kuppi; juoda; tee; teekuppi</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='sake'>baari; juoma; pullo; kuppi; juoda</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='pullo ja korkin poksautus'>baari; pullo; korkki; juoda; poksauttaa</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='viinilasi'>baari; juoma; juoda; lasi; viini</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='cocktaillasi'>baari; cocktail; juoda; lasi</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='trooppinen drinkki'>baari; juoda; lasi</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='oluttuoppi'>baari; olut; juoda; tuoppi</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='kippistävät oluttuopit'>baari; olut; kippis; juoda; tuoppi</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='haarukka, veitsi ja lautanen'>ruoanlaitto; kokkaus; haarukka; veitsi; lautanen</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='haarukka ja veitsi'>ruoanlaitto; kokkaus; haarukka; veitsi</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='kokkaus'>kananmuna; paistinpannu</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='amfora'>vesimies; ruoanlaitto; kokkaus; juoda; kannu; työkalu; ase; horoskooppi; horoskooppimerkki</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='maapallo jossa näkyy eurooppa ja afrikka'>arfikka; maapallo; eurooppa; maailma</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='maapallo jossa näkyy amerikka'>amerikka; maapallo; maailma</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='maapallo jossa näkyy aasia ja australia'>aasia; australia; maapallo; maailma</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='maapallo jossa näkyy pituuspiirit'>maapallo; maailma; pituuspiirit</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='maailmankartta'>kartta; maailma</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='lumihuippuinen vuori'>kylmä; vuori; lumi</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='tulivuori'>tulivuorenpurkaus; vuori; sää</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='fujivuori'>fuji; vuori</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='ranta ja aurinkovarjo'>ranta; aurinkovarjo</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='autiosaari'>autio; saari</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='kansallispuisto'>puisto</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='klassinen rakennus'>rakennus; klassinen</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='rakennustyömaa'>rakennus</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='rakennuksia'>rakennus; talo</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='kaupunkimaisema'>rakennus; kaupunki</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='hylätty talo'>rakennus; talo</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='talo'>rakennus</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='talo ja puutarha'>rakennus; talo; puutarha</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='kirkko'>rakennus; uskonto; kristinusko</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='kaaba'>rakennus; uskonto; islam; muslimi</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='moskeija'>rakennus; uskonto; islam; muslimi</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='synagoga'>rakennus; uskonto; juutalaisuus; temppeli</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='shinto-temppeli'>rakennus; uskonto; shintolaisuus</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='toimistorakennus'>rakennus; toimisto</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='japanilainen postitoimisto'>rakennus; japanilainen; posti</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='postitoimisto'>rakennus; posti</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='sairaala'>rakennus; lääkäri</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='pankki'>rakennus</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='hotelli'>rakennus</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='tuntiperusteinen hotelli'>rakennus; hotelli; tunti</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='ruokakauppa'>rakennus; kauppa</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='koulu'>rakennus; kauppa</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='tavaratalo'>rakennus; kauppa</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='tehdas'>rakennus</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='japanilainen linna'>rakennus; japani; linna</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='linna'>rakennus; länsimainen</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='häät'>kappeli; romantiikka</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='tokyo tower'>japani; tokio</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='vapaudenpatsas'>usa; patsas; vapaus</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='japanin kartta'>japani; kartta</annotation>
+
+		<!-- fountain -->
+		<annotation cp='[⛲]' tts='vesilähde'>vesi</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='teltta'>telttailu</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='sumuinen'>sää; sumu</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='tähtitaivas'>sää; yö; tähti</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='auringonnousu vuorten takaa'>sää; aurinko; aamu</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='auringonnousu'>sää; aurinko; aamu</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='kaupunkimaisema illanhämärässä'>sää; aurinko; ilta; kaupunki</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='auringonlasku'>sää; aurinko; ilta</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='silta yöllä'>sää; yö; silta</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='kuumat lähteet'>vesi; lähde; kylpylä</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='linnunrata'>sää; avaruus; galaksi</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='karusellihevonen'>karuselli; hevonen</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='maailmanpyörä'>huvipuisto</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='vuoristorata'>huvipuisto</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='punasiniraitainen pylväs'>parturi; kampaaja; raidat</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='sirkusteltta'>sirkus; teltta</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='näyttämötaiteet'>taide; teatteri; näyttämö; näytelmä; naamio</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='kuva kehyksissä'>taide; kehys; maalaus; museo</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='taiteilijan paletti'>taide; maali; maalari</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='pelikone'>peli</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='veturi'>juna; rautatie; ajoneuvo</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='junavaunu'>juna; rautatie; ajoneuvo; raitiovaunu</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='pikajuna'>juna; rautatie; ajoneuvo; luotijuna; shinkansen</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='luotipikajuna'>juna; rautatie; ajoneuvo; luotijuna; shinkansen</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='juna'>rautatie; ajoneuvo</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='metro'>ajoneuvo; maanalainen</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='kevytraidejuna'>juna; rautatie; ajoneuvo</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='asema'>juna; rautatie; ajoneuvo</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='raitiovaunuasema'>ajoneuvo; raiteet</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='yksiraidejuna'>ajoneuvo; raiteet</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='vuoriraidejuna'>juna; rautatie; ajoneuvo</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='raitiovaunu'>ajoneuvo; raiteet</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='bussi'>ajoneuvo; auto</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='saapuva bussi'>ajoneuvo; auto; bussi</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='johdinauto'>ajoneuvo; auto; raitiovaunu</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='bussipysäkki'>pysäkki; asema</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='minibussi'>ajoneuvo; auto; bussi</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='ambulanssi'>ajoneuvo; auto</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='paloauto'>ajoneuvo; auto; tulipalo</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='poliisiauto'>ajoneuvo; auto; poliisi</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='saapuva poliisiauto'>ajoneuvo; auto; poliisi; vastaantuleva</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='taksi'>ajoneuvo; auto</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='saapuva taksi'>ajoneuvo; auto; taksi</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='auto'>ajoneuvo</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='saapuva auto'>ajoneuvo; auto</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='hupiauto'>ajoneuvo; auto</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='kuljetusauto'>ajoneuvo; auto; rekka</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='rekka-auto'>ajoneuvo; auto; rekka</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='traktori'>ajoneuvo; auto</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='polkupyörä'>ajoneuvo; pyörä</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='bensapumppu'>bensiini; polttoaine; asema</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='moottoritie'>tie</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='junaraide'>rautatie; juna</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='poliisiauton valo'>poliisi; valo; hälytys</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='vaakasuuntaiset liikennevalot'>valo; liikennevalo; liikenne</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='pystysuuntaiset liikennevalot'>valo; liikennevalo; liikenne</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='rakennustyömaan merkki'>este</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='ankkuri'>meri; laiva; alus; merenkulku</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='purjevene'>meri; vene; alus; jahti; ajoneuvo</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='soutuvene'>meri; vene; soutaa</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='pikavene'>meri, vene, moottorivene; ajoneuvo</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='matkustajalaiva'>meri; vene; alus; laiva; ajoneuvo</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='risteilylaiva'>meri; alus; laiva; lautta; ajoneuvo</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='moottorivene'>meri, vene, pikavene; ajoneuvo</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='laiva'>meri; alus; ajoneuvo</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='lentokone'>ajoneuvo</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='pieni lentokone'>ajoneuvo; lentokone</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='lähtevä lentokone'>ajoneuvo; lentokone; lähtevä; lähtö</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='saapuva lentokone'>ajoneuvo; lentokone; saapuva; laskeutuminen</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' tts='istuin'>tuoli</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='helikopteri'>ajoneuvo</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='riippurata'>ajoneuvo; juna; rautatie; rata; kisko</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='gondolihissi'>ajoneuvo; kaapeli; gondoli; vuori; hissi</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='köysirata'>ajoneuvo; raitiovaunu; kaapeli; gondoli; rata</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='raketti'>avaruus; ajoneuvo</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='satelliitti'>avaruus; ajoneuvo</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='soittokello'>kello; hotelli; hotellipoika</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='nukkuja'>hotelli; uni; nukkua</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='sänky'>hotelli; uni; nukkua</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='sohva ja lamppu'>sohva; hotelli; lamppu</annotation>
+
+		<!-- toilet -->
+		<annotation cp='[🚽]' tts='pönttö'>vessanpönttö; vessa</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='suihku'>vesi</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='kylpijä'>kylpyamme; kylpy</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' tts='kylpyamme'>kylpy</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='tiimalasi'>hiekka; ajanotto</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='hiekkaa tiimalasissa'>tiimalasi; hiekka; aika</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='kello'>rannekello</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='herätyskello'>kello; herätys</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='sekuntikello'>kello; ajanottokello</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='ajastin'>kello; ajastinkello</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='takanreunuskello'>kello; takanreunus</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='kello kaksitoista'>kello; aika; kellonaika; 12; 12.00</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='puoli yksi'>kello; aika; kellonaika; 30; 12.30; 00.30</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='kello yksi'>kello; aika; kellonaika; 1; 13; 1.00; 13.00</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='puoli kaksi'>kello; aika; kellonaika; 30; 1.30; 13.30</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='kello kaksi'>kello; aika; kellonaika; 2; 14; 2.00; 14.00</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='puoli kolme'>kello; aika; kellonaika; 30; 2.30; 14.30</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='kello kolme'>kello; aika; kellonaika; 3; 15; 3.00; 15.00</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='puoli neljä'>kello; aika; kellonaika; 30; 3.30; 15.30</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='kello neljä'>kello; aika; kellonaika; 4; 16; 4.00; 16.00</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='puoli viisi'>kello; aika; kellonaika; 30; 4.30; 16.30</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='kello viisi'>kello; aika; kellonaika; 5; 17; 5.00; 17.00</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='puoli kuusi'>kello; aika; kellonaika; 30; 5.30; 17.30</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='kello kuusi'>kello; aika; kellonaika; 6; 18; 6.00; 18.00</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='puoli seitsemän'>kello; aika; kellonaika; 30; 6.30; 18.30</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='kello seitsemän'>kello; aika; kellonaika; 7; 19; 7.00</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='puoli kahdeksan'>kello; aika; kellonaika; 30; 7.30; 19.30</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='kello kahdeksan'>kello; aika; kellonaika; 8; 20; 8.00; 20.00</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='puoli yhdeksän'>kello; aika; kellonaika; 30; 8.30; 20.30</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='kello yhdeksän'>kello; aika; kellonaika; 9; 21; 9.00; 21.00</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='puoli kymmenen'>kello; aika; kellonaika; 30; 9.30; 21.30</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='kello kymmenen'>kello; aika; kellonaika; 10; 22; 10.00; 22.00</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='puoli yksitoista'>kello; aika; kellonaika; 30; 10.30; 22.30</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='kello yksitoista'>kello; aika; kellonaika; 11; 23; 11.00; 23.00</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='puoli kaksitoista'>kello; aika; kellonaika; 30; 11.30; 23.30</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='uusikuu'>kuu; sää; taivaankappale; pimeä</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='kasvava kuunsirppi'>kuu; sää; taivaankappale; kasvava; sirppi</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='ensimmäinen neljänneskuu'>kuu; sää; taivaankappale; puolikuu</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='kasvava puolikuu'>kuu; sää; taivaankappale; kasvava</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='täysikuu'>kuu; sää; taivaankappale; täysi</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='vähenevä puolikuu'>kuu; sää; taivaankappale; vähenevä</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='viimeinen neljänneskuu'>kuu; sää; taivaankappale; puolikuu</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='vähenevä kuunsirppi'>kuu; sää; taivaankappale; sirppi; vähenevä</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='kuunsirppi'>kuu; sää; taivaankappale; sirppi</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='uuden kuun kasvot'>kuu; sää; taivaankappale; kasvot</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='kasvava puolikuu kasvoilla'>kuu; sää; taivaankappale; puolikuu; kasvot</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='vähenevä puolikuu kasvoilla'>kuu; sää; taivaankappale; puolikuu; kasvot</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='lämpömittari'>sää</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='aurinko'>sää; paiste; säteet; helle</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='täysikuu kasvoilla'>sää; kuu; valo; kasvot</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='aurinko kasvoilla'>sää; kuu; valo; kasvot; paiste</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='valkoinen tähti'>tähti</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='loistava tähti'>tähti; loiste; valo; säihke</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='tähdenlento'>avaruus; tähti; toive</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='pilvi'>sää</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='aurinko pilvessä'>sää; aurinko; pilvi</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='ukkospilvi ja sade'>sää; pilvi; sade; ukkonen; salama</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='aurinko ja pieni pilvi'>sää; aurinko; pilvi</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='aurinko ja suuri pilvi'>sää; aurinko; pilvi</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='aurinko sadepilvessä'>sää; pilvi; sade; aurinko</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='sadepilvi'>sää; sade; pilvi</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='lumisadepilvi'>sää; pilvi; lumi; lumisade; pyry</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='ukkospilvi'>sää; pilvi; ukkonen; salama</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='hurrikaani'>sää; hirmumyrsky; tornado</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='sumu'>sää; utu; usva</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='puhuri'>sää; pilvi; tuuli; puuska</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='pyörremyrsky'>sää; sykloni; hirmumyrsky; pyörre</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='sateenkaari'>sää; aurinko; sade</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='suljettu sateenvarjo'>sää; asuste; sade; sateenvarjo</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='sateenvarjo'>sää; asuste; sade</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='sateenvarjo ja pisarat'>sää; asuste; sade; pisara; sateenvarjo</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='aurinkovarjo'>sää; aurinko; varjo</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='korkeajännite'>vaara; sähkö; sähköisku; virta</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='lumihiutale'>sää; kylmä; lumi; hiutale</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='lumiukko'>sää; kylmä; lumi</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='lumiukko ilman lunta'>sää; kylmä; lumi; lumiukko</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='komeetta'>avaruus</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='tuli'>liekki; lieska; nuotio</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='pisara'>sää; vesi; tippa; hiki</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='aalto'>meri; valtameri; vesi; tyrsky</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='kurpitsalyhty'>halloween; kurpitsa; kaivertaa; juhla</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='joulukuusi'>joulu; kuusi; juhla</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='ilotulitus'>juhla</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='tähtisadetikku'>juhla; ilotulite; tähtisade</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='säihke'>tähti; loiste</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='ilmapallo'>juhla</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='paukkukarkki'>juhla; yllätys</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='konfettipallo'>juhla; koristepaperi; konfetti</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='tanabatapuu'>tanabata; puu; japani; juhla; bambu</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='liput ristissä'>juhla; japani</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='puukoriste'>juhla; koristekasvi; japani; bambu; havu</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='japanilaiset nuket'>juhla; japani; nukke</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='karppiviiri'>juhla; koinobori; viiri; karppi</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='tuulikello'>juhla; kello; tuuli</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='kuuseremonia'>juhla; kuu; juhlamenot</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='rusetti'>lahjanaru; juhla; ruusuke</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='lahjapaketti'>paketti; juhla; lahja; käärepaperi</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='kunniamerkki'>juhla; mitali; armeija</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='tietoisuusnauha'>merkkipäivä; tietoisuus; muistutus; nauha</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='filminauha'>elokuva; filmirulla</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='pääsylippu'>lippu; sisäänpääsylippu</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='lippu'>sisäänpääsylippu</annotation>
+
+		<!-- label -->
+		<annotation cp='[🏷]' tts='lappu'>kortti; lipuke; etiketti</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='jalkapallo'>pallo; urheilu</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='pesäpallo'>pallo; urheilu; baseball</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='koripallo'>pallo; urheilu</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='amerikkalainen jalkapallo'>pallo; urheilu; jalkapallo</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='rugby-pallo'>pallo; urheilu; rugby; jalkapallo</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='tennis'>pallo; urheilu; tennispallo</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='biljardi'>kasipallo; pallo; biljardipallo; peli</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='keilailu'>keila; pallo; keilapallo; peli</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='lippu reiän päällä'>golf; reikä; lippu</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='golfaaja'>golf; pallo</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='luistin'>luistelu; jää</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='onkivapa'>onki; kalastus; virveli</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='juoksupaita'>juokseminen; paita; nauha</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='sukset'>hiihto; sauvat; lumi</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='hiihtäjä'>hiihto; sukset; sauvat; lumi</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='lumilautailija'>laskettelu; lumi; lumilauta</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='surffaaja'>surffaus; lauta</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='ratsastus'>hevonen; kilparatsastus; ravit; jockey</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='uimari'>uinti</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='pallottelija'>pallo</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='painonnostaja'>painot; treeni; kehonrakennus</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='pyöräilijä'>polkupyörä; pyörä</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='maastopyöräilijä'>polkupyörä; pyörä; pyöräilijä; maasto</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='kilpa-auto'>auto; kilpa-ajot</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='moottoripyörä'>kilpa-ajot</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='urheilumitali'>mitali</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='pokaali'>palkinto</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='kriketti'>maila; pallo; ottelu</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='lentopallo'>ottelu</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='maahockey'>pallo; hockey; maila; ottelu</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='jääkiekko ja maila'>kiekko; maila; jää; ottelu</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='pingis'>maila; pallo; pöytätennis; pingispallo; ottelu</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='sulkapallo'>sulka; maila; sulkapallomaila; ottelu</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='napakymppi'>tikka; tikkataulu; kymmenen; häränsilmä; darts</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='videopeli'>peli; ohjain</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='joystick'>videopeli; ohjain</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='noppa'>peli</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='pata'>kortti; korttipeli; maa</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='hertta'>kortti; korttipeli; maa</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='ruutu'>kortti; korttipeli; maa</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='risti'>kortti; korttipeli; maa</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='jokeri'>kortti; korttipeli</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='mahjong'>peli; punainen; lohikäärme; keskusta</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='kukkapelikortit'>kortti; korttipeli; kukat; japani; hanafuda</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='kaiutin pois'>äänenvoimakkuus; mykistys; kaiutin; hiljaa; äänetön</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='kaiutin'>äänenvoimakkuus</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='kaiutin päälle'>äänenvoimakkuus; äänet; kaiutin</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='lisää ääntä'>äänenvoimakkuus; kaiutin; lisää; kovempaa</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='kovaääninen'>ääni; kova; huomio; puhe</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='megafoni'>kovaääninen; suosionosoitus</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='postitorvi'>torvi; posti</annotation>
+
+		<!-- bell -->
+		<annotation cp='[🔔]' tts='kirkonkello'>kello; ääni</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='yliviivattu kello'>kello; kielto; mykistys; hiljaisuus; äänetön</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='nuottiviivasto'>musiikki; nuotti; nuottiavain</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='nuotti'>musiikki</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='nuotteja'>musiikki; nuotti</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='studiomikrofoni'>mikrofoni; musiikki; äänitys; levytys</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='liukuvalitsin'>valitsin; liu&apos;utin; musiikki; voimakkuus</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='säätimet'>musiikki; nuppi; säädin</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='mikrofoni'>mikki; karaoke</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' tts='kuuloke'>nappikuuloke; nappi; korvanappi</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='saksofoni'>instrumentti; musiikki</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='kitara'>instrumentti; musiikki</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='koskettimet'>instrumentti; musiikki; piano; syntikka</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='trumpetti'>instrumentti; musiikki; torvi</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='viulu'>instrumentti; musiikki; jousi</annotation>
+
+		<!-- radio; video -->
+		<annotation cp='[📻]' tts='radio'>vastaanotin</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='kännykkä'>puhelin; matkapuhelin; käsipuhelin; mobiililaite</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='kännykkä ja nuoli'>puhelin; matkapuhelin; puhelu; saapuva; nuoli</annotation>
+
+		<!-- telephone; phone -->
+		<annotation cp='[☎]' tts='puhelin'>lankapuhelin</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='luuri'>puhelin; kuuloke</annotation>
+
+		<!-- battery -->
+		<annotation cp='[🔋]' tts='akku'>akkuvirta; paristo</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='pistoke'>sähkö; töpseli; sähkötöpseli; sähköpistoke</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='kannettava tietokone'>tietokone; kannetava; läppäri</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='pöytäkone'>tietokone</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='tulostin'>tietokone; printteri</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='näppäimistö'>tietokone; näppäimet; näppis</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='tietokoneen hiiri'>tietokone; hiiri</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='ohjauspallo'>tietokone; hiiri</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='minidisk'>tietokone; levy; minidisc</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='disketti'>tietokone; levyke; korppu</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='cd'>tietokone; levy; dvd; blu-ray</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>tietokone; levy; cd; blu-ray</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='elokuvakamera'>elokuva; kamera; kuvaukset</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='klaffitaulu'>klaffi; elokuva; kuvaukset</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='elokuvaprojektori'>elokuva; video; projektori; elokuvakone</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='televisio'>tv; video; telkkari</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='kamera'>video</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='kamera ja salama'>kamera; video; salama</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='videokamera'>video; kamera</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='videokasetti'>video; VHS; nauha; videonauha</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='suurennuslasi vasemmalle'>lasi; suurennuslasi; haku; etsi; työkalu</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='suurennuslasi oikeaan'>lasi; suurennuslasi; haku; etsi; työkalu</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='mikroskooppi'>työkalu</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='kaukoputki'>työkalu; teleskooppi</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='lautasantenni'>antenni; satelliittiantenni; lautanen</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='kynttilä'>valo</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='hehkulamppu'>lamppu; valo; sähkö; ajatus</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='taskulamppu'>lamppu; valo; sähkö</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='punainen paperilyhty'>baari; japani; lyhty; punainen; valo</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='koristeellinen muistikirja'>kirja; kansi; muistikirja; muistio; lehtiö</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='suljettu kirja'>kirja; suljettu</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='avoin kirja'>kirja; avoin</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='vihreä kirja'>kirja; vihreä</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='sininen kirja'>kirja; sininen</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='oranssi kirja'>kirja; oranssi</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' tts='kirjoja'>kirja</annotation>
+
+		<!-- notebook -->
+		<annotation cp='[📓]' tts='muistikirja'>kirja; muistio; lehtiö</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='tilikirja'>kirja; kirjanpito; lehtiö</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='käännetty sivu'>asiakirja; dokumentti; sivu</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='käärö'>paperi</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='sivu'>asiakirja; dokumentti</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='sanomalehti'>uutiset; lehti</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='sanomalehti rullalla'>uutiset; lehti; rulla</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='välilehdet kirjanmerkeiksi'>kirjanmerkki; välilehti; merkki</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='kirjanmerkki'>merkki</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='rahasäkki'>raha; rahapussi; säkki</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='yen-seteli'>pankki; raha; valuutta; seteli; yen</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='dollariseteli'>pankki; raha; valuutta; seteli; dollari</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='euroseteli'>pankki; raha; valuutta; seteli; euro</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='punnan seteli'>pankki; raha; valuutta; seteli; punta</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='rahalla on siivet'>pankki; raha; valuutta; seteli; siivet</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='luottokortti'>pankki; raha; kortti; luotto</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='yen ja nouseva käyrä'>pankki; valuutta; raha; käyrä; yen; nousu; kasvu; markkinat</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='kirjekuori'>sähköposti; e-mail; viesti</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='sähköposti'>sähköpostiviesti; e-mail; viesti</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='saapuva kirjekuori'>sähköposti; sähköpostiviesti; e-mail; viesti; saapuva</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='kirjekuori ja nuoli'>sähköposti; sähköpostiviesti; e-mail; viesti; lähtevä; lähetetty</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='lähtevät'>sähköposti; e-mail; postilaatikko; lähettää</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='saapuvat'>sähköposti; e-mail; postilaatikko; vastaanottaa</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='paketti'>laatikko; lähetys; pakkaus</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='suljettu postilaatikko, lippu ylhäällä'>postilaatikko; suljettu</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='suljettu postilaatikko, lippu alhaalla'>postilaatikko; suljettu; alhaalla</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='avoin postilaatikko, lippu ylhäällä'>postilaatikko; auki</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='avoin postilaatikko, lippu alhaalla'>postilaatikko; auki; alhaalla</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='postilaatikko'>posti</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='ääniuurna'>äänestyslippu; ääni; vaali; uurna</annotation>
+
+		<!-- pencil -->
+		<annotation cp='[✏]' tts='lyijykynä'>kynä</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='musta teräskynä'>kynä; mustekynä</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='täytekynä'>kynä; mustekynä</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='mustekynä'>kynä; kuulakärkikynä</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='suti'>maali; maalisuti; maalaaminen</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='väriliitu'>liitu; väri</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='muistio'>lyijykynä</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='tiedostokansio'>tiedosto; kansio</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='avoin tiedostokansio'>tiedosto; kansio; avoin</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='kortiston välilehdet'>kortti; kortisto; välilehti; arkisto</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='kalenteri'>päivämäärä</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='päiväkalenteri'>kalenteri</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='kierrelehtiö'>kierre; lehtiö; muistio</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='kierrekalenteri'>kierre; kalenteri; lehtiö</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='kortisto'>kortti; rolodex</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='nouseva käyrä'>kaavio; käyrä; nousu; kasvu; suuntaus</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='laskeva käyrä'>kaavio; käyrä; lasku; suuntaus</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='pylväskaavio'>kaavio; tilasto; pylväs</annotation>
+
+		<!-- clipboard -->
+		<annotation cp='[📋]' tts='leikepöytä'>paperinpidike; levy</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='pyöreä nasta'>nasta; karttanaula</annotation>
+
+		<!-- paperclip -->
+		<annotation cp='[📎]' tts='klemmari'>liitin; paperiliitin</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='klemmarit yhdessä'>liitin; paperiliitin; yhdessä</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='viivotin'>viivain; suora</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='kolmioviivotin'>viivotin; kolmio; viivain</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='sakset'>työkalu</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='arkistolaatikko'>laatikko; kortisto; mappi</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='arkistokaappi'>kaappi; kortisto; mappi</annotation>
+
+		<!-- wastebasket -->
+		<annotation cp='[🗑]' tts='roskakori'>roskis</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='lukko'>kiinni</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='lukko auki'>lukko; auki; avata</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='lukko ja kynä'>lukko; mustekynä; kirjoittaa; suojaus</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='avain ja lukko kiinni'>kiinni; avain; lukko; turva</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='avain'>lukittu; salasana</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='vanha avain'>lukko; avain; vihje; vanha</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='vasara'>työkalu</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='hakku'>työkalu; kaivos; kaivaa</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='hakku ja vasara'>työkalu; hakku; vasara</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='jakoavain ja vasara'>työkalu; jakoavain; vasara</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='jakoavain'>työkalu</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='ruuvi ja mutteri'>työkalu; ruuvi; mutteri</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='hammasratas'>työkalu</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='ruuvipuristin'>työkalu; puristin; ruuvipenkki</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='tislauskattila'>työkalu; kemia</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='vaaka'>työkalu; punnus; oikeus; horoskooppi; horoskooppimerkki</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='ketjut'>ketju</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='ruisku'>työkalu; lääkäri; tauti; lääke; piikki; rokote</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='pilleri'>lääkäri; lääketiede; lääke; tauti</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='tikari'>veitsi; teräase; ase</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='keittiöveitsi'>veitsi; teräase; ase; ruoanlaitto; työkalu</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='miekat ristissä'>ase; miekka</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='ase'>pistooli; revolveri; pyssy</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='kilpi'>ase</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='jousi ja nuoli'>jousimies; jousiammunta; ase; työkalu; horoskooppi; horoskooppimerkki; jousipyssy</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='ruutulippu'>kilpa-ajot; ruutukuvio</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='valkoinen lippu'>lippu</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='musta lippu'>lippu</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='kolmiolippu'>lippu</annotation>
+
+		<!-- smoking -->
+		<annotation cp='[🚬]' tts='tupakka'>tupakointi</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='arkku'>ruumisarkku; kuolema</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='tuhkauurna'>kuolema; hautajaiset; uurna</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='pääsiäissaaret'>patsas; kasvot; kivipatsas; moyai</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='öljytynnyri'>öljy; tynnyri</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='kristallipallo'>kristalli; ennustus; ennustaja; povaus; tulevaisuus; taika</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='pankkiautomaatti'>pankki; automaatti; otto</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='roskat-merkki'>roska; roskakori</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='juomakelpoista vettä'>vesi; juoma; juotava</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='pyörätuoli'>esteettömyys</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='miesten wc'>wc; vessa; miestenhuone</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='naisten wc'>wc; vessa; naistenhuone</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='wc'>vessa; saniteetti</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='vauva-merkki'>vauva; lapsenhoito</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='vessa'>wc; vesssa; käymälä</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='passintarkastus'>passi; tarkastus</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='matkatavarat'>luovutus; hihna</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='säilytyslokero'>matkatavarat; säilytys; tavarasäilytys</annotation>
+
+		<!-- warning -->
+		<annotation cp='[⚠]' tts='varoitus'>matkatavarat</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='lapsia liikenteessä'>lapsi; suojatie; jalankulkija; liikenne</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='kielletty ajosuunta'>kielletty; ajosuunta; ei; sallittu; liikenne</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='pääsy kielletty'>pääsy; kielletty; liikenne</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='ei sallittu polkupyörille'>liikenne; pyörä; polkupyörä; kielletty</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='tupakointi kielletty'>kielletty; tupakointi; tupakka</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='roskaaminen kielletty'>kielletty; roska</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='vesi ei juomakelpoista'>kielletty; juominen; vesi; juomakelpoinen</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='jalankulku kielletty'>kielletty; jalankulkija</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='säteilyvaara'>ydinsäteily; radioaktiivinen; säteily; vaara</annotation>
+
+		<!-- biohazard -->
+		<annotation cp='[☣]' tts='biologinen vaara'>vaara; biologinen; biovaara</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='ylös-nuoli'>nuoli; ilmansuunta; pääilmansuunta; pohjoinen</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='yläoikealle-nuoli'>nuoli; ilmansuunta; väli-ilmansuunta; koillinen</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='oikealle-nuoli'>nuoli; ilmansuunta; pääilmansuunta; itä</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='alaoikealle-nuoli'>nuoli; ilmansuunta; väli-ilmansuunta; kaakko</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='alas-nuoli'>nuoli; ilmansuunta; pääilmansuunta; etelä</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='alavasemmalle-nuoli'>nuoli; ilmansuunta; väli-ilmansuunta; lounas</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='vasemmalle-nuoli'>nuoli; ilmansuunta; pääilmansuunta; länsi</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='ylävasemmalle-nuoli'>nuoli; ilmansuunta; väli-ilmansuunta; luode</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='ylös-alas-nuoli'>nuoli; suunta</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='oikeaan-vasempaan-nuoli'>nuoli; suunta</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='kääntyvä nuoli oikealle'>nuoli</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='kääntyvä nuoli vasemmalle'>nuoli</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='kääntyvä nuoli ylös'>nuoli; ylös</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='kääntyvä nuoli alas'>nuoli; alas</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='pystynuolet myötäpäivään'>nuoli; myötäpäivään; päivitä</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='nuolet vastapäivään'>nuoli; vastapäivään</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='takaisin-nuoli'>nuoli; takaisin</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='lopeta-nuoli'>nuoli; lopeta</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='päällä-nuoli'>nuoli; päällä</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='tulossa-nuoli'>nuoli; tulossa</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='alkuun-nuoli'>nuoli; alkuun</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='pyhä rakennus'>uskonto; pyhäkkö; palvontapaikka; palvonta</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='om'>uskonto; hindulaisuus; hindu; symboli; tavu</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='daavidin tähti'>uskonto; tähti; juutalaisuus; daavid</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='dharman pyörä'>uskonto; buddhalaisuus; buddha; dharma; pyörä; ratas</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='jin ja jang'>uskonto; taolaisuus; tao; jin; jang</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='latinalainen risti'>uskonto; kristinusko; risti</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='ortodoksiristi'>uskonto; kristinusko; risti; ortodoksisuus</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='kuunsirppi ja tähti'>uskonto; islam; muslimi; kuu; tähti</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='rauhansymboli'>rauha</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='menora'>uskonto; juutalaisuus; kynttilä; seitsenhaarainen</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='kuusikärkinen tähti pisteillä'>uskonto; tähti; juutalaisuus; daavid</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='kierrätys'>kierrrätys</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='nimikyltti'>nimi; kyltti; lappu</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='lilja'>symboli; fleur-de-lis; ranskanlilja</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='japanilainen uusi kuljettaja'>japani; shoshinsha; auto; ajokortti; aloittelija</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='kolmikärki'>kolme; meri; ankkuri; atrain; laiva</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='suuri ympyrä'>ympyrä; O</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='valkoinen oikein-merkki'>merkki; oikein; V; rasti; laatikko</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='harmaa oikein-merkki'>merkki; oikein; V; vaalit; rasti; laatikko</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='paksu oikein-merkki'>merkki; oikein; V; rasti</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='paksu x-merkki'>merkki; X; kertolasku; peruuta</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='punainen x-merkki'>merkki; X; kertolasku; peruuta</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='peruuta-nappi'>merkki; X; kertolasku; peruuta; laatikko</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='plus-merkki'>matematiikka; plus; +</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='miinus-merkki'>matematiikka; miinus; vähennys; -</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='jakomerkki'>matematiikka; jako; jakoviiva; /</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='kaksoissilmukka'>silmukka; 2; vastaaja; nauhuri</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='japanilainen vuoronvaihtomerkki'>merkki; ioriten; japani</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='kahdeksanteräinen asteriski'>tähti; asteriski; 8; tähtimerkki</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='kahdeksanteräinen tähti'>tähti; asteriski; 8; tähtimerkki</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='kipinä'>säihke; tähti</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='valuutanvaihto'>pankki; raha; valuutta; vaihto</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='paksu dollarimerkki'>raha; valuutta; dollari</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='kaksoishuutomerkki'>merkki; huutomerkki; 2; välimerkki</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='huuto-kysymysmerkki'>merkki; huutomerkki; 2; välimerkki; kysymysmerkki</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='kysymysmerkki'>merkki; välimerkki</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='valkoinen kysymysmerkki'>merkki; välimerkki; kysymysmerkki</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='valkoinen huutomerkki'>merkki; välimerkki; huutomerkki</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='huutomerkki'>merkki; välimerkki</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='aaltoviiva'>viiva; välimerkki; aaltoileva</annotation>
+
+		<!-- copyright -->
+		<annotation cp='[©]' tts='tekijänoikeusmerkki'>tekijänoikeus; C</annotation>
+
+		<!-- registered -->
+		<annotation cp='[®]' tts='rekisteröity-merkki'>rekisteröity; R</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='tavaramerkki'>merkki; TM</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='oinas-merkki'>horoskooppi; horoskooppimerkki; oinas</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='härkä-merkki'>horoskooppi; horoskooppimerkki; härkä</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='kaksonen-merkki'>horoskooppi; horoskooppimerkki; kaksonen; kaksoset</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='rapu-merkki'>horoskooppi; horoskooppimerkki; rapu</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='leijona-merkki'>horoskooppi; horoskooppimerkki; leijona</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='neitsyt-merkki'>horoskooppi; horoskooppimerkki; neitsyt</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='vaaka-merkki'>horoskooppi; horoskooppimerkki; vaaka</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='skorpioni-merkki'>horoskooppi; horoskooppimerkki; skorpioni</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='jousimies-merkki'>horoskooppi; horoskooppimerkki; jousimies</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='kauris-merkki'>horoskooppi; horoskooppimerkki; kauris</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='vesimies-merkki'>horoskooppi; horoskooppimerkki; vesimies</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='kalat-merkki'>horoskooppi; horoskooppimerkki; kalat</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='käärmeenkantaja'>horoskooppi; horoskooppimerkki; tähtikuvio; käärme; ophiuchus</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='sekoitus'>nappi; nuoli; ristissä</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='toista lista'>nappi; nuoli; myötäpäivään; uudestaan</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='toista kerran'>nappi; nuoli; myötäpäivään; kerran</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='toista'>nappi; kolmio; oikealle; toisto; aloita</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='kelaa eteenpäin'>nappi; nuoli; 2; kelaus; eteen</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='seuraava kappale'>nappi; kolmiot; siirry; eteen; seuraava</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='toista/pysäytä'>nappi; kolmio; toisto; aloita; tauko; pysäytä</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='kelaa hitaasti taakse'>nappi; kolmio; kelaus; taakse</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='kelaa taaksepäin'>nappi; nuoli; 2; kelaus; taakse</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='edellinen kappale'>nappi; kolmiot; siirry; taakse; edellinen</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='ylös'>nappi; kolmio</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='nopeasti ylös'>nappi; kolmio; ylös; 2</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='alas'>nappi; kolmio</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='nopeasti alas'>nappi; kolmio; alas; 2</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='pysäytä'>nappi; tauko; palkki; 2</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='lopeta'>nappi; neliö; pysäytä</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='tallenna'>nappi; ympyrä; nauhoita; äänitä</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='poista'>nappi; avaus; anna</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='videokuva'>kamera; video; elokuva; kuvata</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='himmennä'>nappi; kirkkaus; vähennä</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='kirkasta'>nappi; kirkkaus; lisää</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='kuuluvuuspalkit'>puhelin; matkapuhelin; kenttä; signaali; kuuluvuus; palkki</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='matkapuhelimet kielletty'>puhelin; matkapuhelin; kielletty</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='värinätila'>puhelin; matkapuhelin; värinä; äänetön; hiljainen</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='matkapuhelin suljettava'>puhelin; matkapuhelin; kielletty; pois</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='risuaita'>näppäin; hash; numero</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='asteriski'>näppäin; tähti</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='nolla'>näppäin; numero; 0</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='yksi'>näppäin; numero; 1</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='kaksi'>näppäin; numero; 2</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='kolme'>näppäin; numero; 3</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='neljä'>näppäin; numero; 4</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='viisi'>näppäin; numero; 5</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='kuusi'>näppäin; numero; 6</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='seitsemän'>näppäin; numero; 7</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='kahdeksan'>näppäin; numero; 8</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='yhdeksän'>näppäin; numero; 9</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='kymmenen'>näppäin; numero; 10</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='sata pistettä'>100; pisteet; täydet</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='kielletty alaikäisiltä'>18; ikäraja; ikärajoitus; täysi-ikäinen; kielletty</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='syötä isoja kirjaimia'>syötä; kirjaimet; latinalaiset; aakkoset; isot; ABCD</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='syötä pieniä kirjaimia'>syötä; kirjaimet; latinalaiset; aakkoset; pienet; abcd</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='syötä numeroja'>syötä; numerot; 1234</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='syötä merkkejä'>syötä; merkit; symbolit</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='syötä kirjaimia'>syötä; kirjaimet; latinalaiset; aakkoset</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='a-näppäin'>a; veriryhmä</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='ab-näppäin'>ab; veriryhmä</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='b-näppäin'>b; veriryhmä</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='pyyhi-näppäin'>cl; pyyhi; kumita</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='cool'>teksti; siistiä; laatikko</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='free'>teksti; ilmainen; laatikko</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='info'>info-piste; tietoja; i</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='henkilöllisyys'>henkilöllisyystodistus; identiteetti; id</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='m ympyrässä'>m; ympyrä; metro</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='new'>teksti; uusi; uutta; laatikko</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='no good'>teksti; ng; no; good; moka</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='o-näppäin'>o; veriryhmä</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='ok'>okei; okay; selvä; laatikko</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='p-näppäin'>p; pysäköinti; parkkipaikka; merkki</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='sos'>merkki; apua; hätämerkki</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='up!-näppäin'>merkki; up; huutomerkki; päivitys; uutta</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='vastaan'>merkki; versus</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='katakana koko'>japani; kirjoitusmerkki; katakana</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='katakana sa'>japani; kirjoitusmerkki; katakana</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='kuu-kirjoitusmerkki'>japani; kirjoitusmerkki</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='olla-kirjoitusmerkki'>japani; kirjoitusmerkki</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='suunta-kirjoitusmerkki'>japani; kirjoitusmerkki</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='sopimus-kirjoitusmerkki'>japani; kirjoitusmerkki</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='alennus-kirjoitusmerkki'>japani; kirjoitusmerkki</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='ei saatavilla-kirjoitusmerkki'>japani; kirjoitusmerkki</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='kielto-kirjoitusmerkki'>japani; kirjoitusmerkki</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='hyväksyntä-kirjoitusmerkki'>kiina; kirjoitusmerkki</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='hakemus-kirjoitusmerkki'>kiina; kirjoitusmerkki</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='yhdessä-kirjoitusmerkki'>kiina; kirjoitusmerkki</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='tyhjä-kirjoitusmerkki'>kiina; kirjoitusmerkki</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='onnittelut-kirjoitusmerkki'>kiina; kirjoitusmerkki</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='salainen-kirjoitusmerkki'>kiina; kirjoitusmerkki</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='avoinna-kirjoitusmerkki'>kiina; kirjoitusmerkki</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='täynnä-kirjoitusmerkki'>kiina; kirjoitusmerkki</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='pieni musta neliö'>muoto; neliö</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='pieni valkoinen neliö'>muoto; neliö</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='keskikokoinen valkoinen neliö'>muoto; neliö</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='keskikokoinen musta neliö'>muoto; neliö</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='pienehkö valkoinen neliö'>muoto; neliö</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='pienehkö musta neliö'>muoto; neliö</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='iso musta neliö'>muoto; neliö</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='iso valkoinen neliö'>muoto; neliö</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='iso oranssi vinoneliö'>muoto; vinoneliö; oranssi</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='iso sininen vinoneliö'>muoto; vinoneliö; sininen</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='pieni oranssi vinoneliö'>muoto; vinoneliö; oranssi</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='pieni sininen vinoneliö'>muoto; vinoneliö; sininen</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='punainen kolmio kärki ylös'>muoto; kolmio; punainen</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='punainen kolmio kärki alas'>muoto; kolmio; punainen</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='vinoneliö/kukka'>muoto; vinoneliö; kukka</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='valintanappi'>muoto; valinta; valintaruutu; ympyrä</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='musta neliöruutu'>muoto; valinta; valintaruutu; neliö</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='valkoinen neliöruutu'>muoto; valinta; valintaruutu; neliö</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='valkoinen ympyrä'>muoto; ympyrä</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='musta ympyrä'>muoto; ympyrä</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='punainen ympyrä'>muoto; ympyrä; punainen</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='sininen ympyrä'>muoto; ympyrä; sininen</annotation>
+	</annotations>
+</ldml>

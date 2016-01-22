@@ -1,0 +1,2941 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='id'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='wajah gembira'>wajah; muka; gembira; bahagia; senang</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='wajah gembira dengan mata bahagia'>wajah; muka; mata; gembira; bahagia; senang; senyum</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='wajah gembira berurai air mata'>wajah; muka; gembira; bahagia; senang; senyum; tawa; tertawa; ketawa; air; mata</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='wajah tersenyum lebar'>wajah; muka; mulut; terbuka; senyum</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='wajah tersenyum lebar dan mata tertutup'>wajah; muka; mata; mulut; terbuka; senyum</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='wajah tersenyum lebar dan berkeringat'>keringat; dingin; wajah; muka; terbuka; senyum</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='wajah tersenyum lebar dan memejamkan mata'>wajah; muka; tawa; tertawa; ketawa; mulut; terbuka; puas; senyum</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='wajah berkedip'>wajah; muka; kedip</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='wajah tersenyum dengan mata bahagia'>tersipu; mata; wajah; muka; senyum</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='wajah menikmati'>sedap; lezat; enak; wajah; muka; nikmat; senyum; nyam</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='wajah berkacamata hitam'>cerah; terang; keren; mata; kacamata; kaca; wajah; muka; senyum; matahari; hitam; cuaca</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='wajah tersenyum lebar bermata hati'>mata; wajah; muka; hati; cinta; sayang; senyum</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='wajah memberikan ciuman jauh'>wajah; muka; hati; cium</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='wajah memberikan ciuman'>wajah; muka; cium</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='wajah memberikan ciuman dengan mata bahagia'>mata; wajah; muka; cium; senyum</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='wajah memberikan ciuman dengan mata tertutup'>tutup; tertutup; mata; wajah; muka; cium</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='wajah tersenyum'>wajah; muka; rileks; santai; tersipu; senyum</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='wajah agak tersenyum'>wajah; muka; senyum</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='wajah memeluk'>wajah; muka; peluk</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='wajah malaikat'>malaikat; wajah; muka; dongeng; fantasi; halo; polos; lugu; senyum</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='wajah berpikir'>wajah; muka; pikir; berpikir; mikir</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='wajah netral'>datar; wajah; muka; netral</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='wajah tanpa ekspresi'>lempeng; datar; tanpa; ekspresi; wajah; muka</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='wajah tanpa mulut'>wajah; muka; mulut; diam; tenang</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='wajah dengan mata ke atas'>mata; wajah; muka; atas; berputar</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='wajah tersenyum sombong'>wajah; muka; sombong; sinis; seringai; ejek; ngejek</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='wajah tidak setuju'>wajah; muka; ngotot</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='wajah kecewa namun lega'>wajah; muka; kecewa; lega; fiuh</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='wajah dengan mulut terbuka'>wajah; muka; mulut; terbuka; simpati</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='wajah dengan mulut tertutup rapat'>wajah; muka; mulut; tertutup; rapat</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='wajah hening'>wajah; muka; terdiam; terkejut; kaget</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='wajah mengantuk'>wajah; muka; ngantuk</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='wajah kelelahan'>wajah; muka; capek; lelah</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='wajah tidur'>wajah; muka; tidur; zzz</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='wajah lega'>wajah; muka; lega</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='wajah kutu buku'>wajah; muka; kutu; buku</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='wajah menjulurkan lidah'>wajah; muka; lidah</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='wajah menjulurkan lidah dan mengedipkan mara'>mata; wajah; muka; bercanda; becanda; lidah; kedip</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='wajah menjulurkan lidah dan memejamkan mata'>mata; wajah; muka; parah; rasa; lidah; huek</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='wajah cemberut'>wajah; muka; cemberut</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='wajah agak cemberut'>wajah; muka; cemberut</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='wajah bosan'>wajah; muka; bosan</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='wajah berkeringat'>dingin; keringat; wajah; muka; </annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='wajah merenung'>wajah; muka; sedih; murung; termenung</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='wajah bingung'>wajah; muka; bingung</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='wajah gelisah'>wajah; muka; gelisah; pusing</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='wajah terbalik'>wajah; muka; terbalik</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='wajah bermasker'>wajah; muka; flu; masker; dokter; obat; sakit</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='wajah bertermometer'>wajah; muka; sakit; termometer</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='wajah diperban di kepala'>wajah; muka; perban; luka; cedera</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='wajah materialistis'>wajah; muka; uang; mulut; matre</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='wajah terpukau'>wajah; muka; terpukau; takjub; kaget; terkejut</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='wajah kecewa'>wajah; kecewa</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='wajah khawatir'>wajah; muka; khawatir; kuatir; cemas</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='wajah bersungguh-sungguh'>wajah; muka; menang; niat</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='wajah menangis'>wajah; muka; nangis; sedih; air; mata</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='wajah menangis tersedu-sedu'>wajah; muka; nangis; sedih; tersedu-sedu; bombay</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='wajah; muka; mulut; terbuka; nganga; simpati'>wajah; muka; cemberut; mulut; terbuka; nganga</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='wajah menderita'>wajah; muka; menderita; merana; sengsara</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='wajah ketakutan'>wajah; muka; takut; seram; ngeri</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='wajah terlalu lelah'>wajah; muka; capek; lelah</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='wajah menyeringai'>wajah; muka; menyeringai; seringai</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='wajah ketakutan berkeringat'>wajah; muka; keringat; dingin; mulut; terbuka; berdebar; takut</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='wajah sangat ketakutan'>wajah; muka; takut; teriak; seram; ngeri; ketakutan</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='wajah tersipu'>wajah; muka; tersipu</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='wajah pusing'>wajah; muka; pusing</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='wajah sangat marah'>wajah; muka; marah; ngamuk; merah</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='wajah marah'>wajah; muka; marah</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='wajah tersenyum bertanduk'>wajah; muka; dongeng; fantasi; tanduk; senyum</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='wajah cemberut bertanduk'>wajah; muka; dongeng; fantasi; tanduk; cemberut; iblis; setan</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='wajah monster'>wajah; muka; fantasi; monster; mahkluk; makhluk; jepang</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='topeng hidung panjang'>wajah; muka; fantasi; monster; mahkluk; makhluk; jepang</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='tengkorak'>mayat; mati; wajah; muka; dongeng; monster</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='tengkorak dan tulang'>mayat; tengkorak; tulang; wajah; muka; mati; monster</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='hantu'>wajah; muka; monster; arwah; dongeng; fantasi</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='alien'>wajah; muka; et; monster; luar; angkasa; makhluk; mahkluk; dongeng; fantasi; ufo</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='monster alien'>wajah; muka; monster; luar; angkasa; makhluk; mahkluk; dongeng; fantasi; ufo; alien</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='wajah robot'>wajah; muka; monster; robot</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='kotoran'>wajah; muka; tinja; tahi</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='wajah kucing tersenyum lebar'>wajah; muka; kucing; mulut; terbuka; senyum</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='wajah kucing gembira dengan mata bahagia'>wajah; muka; kucing; mata; seringai; gembira; senyum</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='wajah kucing gembira berurai air mata'>wajah; muka; kucing; senang; bahagia; gembira; air; mata</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='wajah kucing gembira bermata hati'>wajah; muka; kucing; mata; hati; cinta; senyum</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='wajah kucing tersenyum sombong'>wajah; muka; kucing; senyum; sinis; sombong; ejek</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='wajah kucing memberikan ciuman dengan mata tertutup'>wajah; muka; kucing; mata; cium</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='wajah kucing ketakutan'>wajah; muka; kucing; oh; kaget; takut; lelah</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='wajah kucing menangis'>wajah; muka; kucing; nangis; sedih; air; mata</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='wajah kucing marah'>wajah; muka; kucing; marah</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='tidak melihat'>wajah; muka; terlarang; gerakan; monyet; tidak; nggak; dilarang; lihat</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='tidak mendengar'>wajah; muka; terlarang; gerakan; monyet; tidak; nggak; dilarang; dengar</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='tidak bicara'>wajah; muka; terlarang; gerakan; monyet; tidak; nggak; dilarang; bicara; ngomong</annotation>
+
+		<!-- boy -->
+		<annotation cp='[👦]' tts='laki-laki'>cowok; anak</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='perempuan'>cewek; anak; gadis; virgo; zodiak</annotation>
+
+		<!-- man -->
+		<annotation cp='[👨]' tts='pria'>laki-laki; bapak</annotation>
+
+		<!-- woman -->
+		<annotation cp='[👩]' tts='wanita'>perempuan; ibu</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='pria tua'>pria; laki-laki; tua; kakek</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='wanita tua'>wanita; perempuan; tua; nenek</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='orang berambut pirang'>pirang</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='orang bertopi china'>pria; laki-laki; topi; china; cina</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='orang bersurban'>pria; laki-laki; surban; serban</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='pekerja konstruksi'>konstruksi; topi; pekerja; kontraktor</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='helm dengan palang putih'>helm; palang; wajah; muka; topi; p3k</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='putri'>puteri; dongeng; fantasi</annotation>
+
+		<!-- guardsman; guard -->
+		<annotation cp='[💂]' tts='penjaga'>pengawal</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='detektif'>mata-mata</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='sinterklas'>perayaan; natal; dongeng; fantasi; santa</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='malaikat bayi'>malaikat; bayi; wajah; muka; dongeng; fantasi</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='pijat wajah'>pijat; pijit; salon</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='potong rambut'>potong; rambut; cantik; salon</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='pengantin berkerudung'>pengantin; kerudung; cadar; nikah; kawin</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='orang marah'>marah; gerakan</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='orang cemberut'>gerakan; cemberut</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='isyarat tidak'>dilarang; gerakan; tangan; tidak; nggak; terlarang</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='isyarat oke'>gerakan; tangan; oke</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='petugas informasi'>tangan; bantuan; informasi; resepsionis</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='orang gembira mengangkat tangan'>gerakan; angkat; tangan; senang</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='orang menunduk'>nunduk; tunduk; bungkuk; maaf; sori; gerakan</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='mengangkat tangan'>tubuh; badan; perayaan; gerakan; tangan; hore; angkat</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='melipat tangan'>mohon; tubuh; bungkuk; gerakan; lipat; tangan; tolong; berdoa; makasih</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='kepala berbicara'>wajah; muka; kepala; siluet; bayangan; bicara; ngomong</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='siluet'>bayangan</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='beberapa siluet'>siluet; bayangan</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='pejalan kaki'>jalan; kaki</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='pelari'>maraton; marathon; lari</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='gadis pesta'>kelinci; telinga; kuping; penari; cewek; perempuan; gadis</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='pebisnis melayang'>bisnis; pria; laki-laki; jas</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='berciuman'>pasangan; romantis; cium</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='pasangan dengan hati'>pasangan; romantis; hati; cinta</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='keluarga'>anak; ayah; ibu; bapak; papa; mama</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='pria dan wanita bergandengan'>pasangan; tangan; gandeng; pegangan; pria; wanita; cowok; cewek</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='dua pria bergandengan'>pasangan; gemini; tangan; gandeng; pegangan; pria; cowok; kembar; zodiak</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='dua wanita bergandengan'>pasangan; tangan; gandeng; pegangan; wanita; cewek</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='warna kulit jenis 1-2'>warna; rona; kulit</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='warna kulit jenis 3'>warna; rona; kulit</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='warna kulit jenis 4'>warna; rona; kulit</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='warna kulit jenis 5'>warna; rona; kulit</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='warna kulit jenis 6'>warna; rona; kulit</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='lengan berotot'>biseps; tubuh; badan; otot</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='menunjuk ke arah kiri'>tubuh; badan; jari; tangan; telunjuk; tunjuk; kiri</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='menunjuk ke arah kanan'>tubuh; badan; jari; tangan; telunjuk; tunjuk; kanan</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='menunjuk ke atas'>tubuh; badan; jari; tangan; telunjuk; tunjuk; atas</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='menunjuk ke atas (dibalik)'>tubuh; badan; jari; tangan; telunjuk; tunjuk; atas</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='jari tengah'>tubuh; badan; jari; tangan; tengah</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='menunjuk ke bawah'>tubuh; badan; jari; tangan; tengah; tunjuk; bawah</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='isyarat kemenangan'>tubuh; badan; tangan; jari; menang</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='salam vulcan'>tubuh; badan; tangan; jari; spock; vulcan</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='lambang tanduk'>tubuh; badan; tangan; jari; tanduk</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='telapak tangan terbuka'>tubuh; badan; tangan; jari; terbuka; tos</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='telapak tangan terbuka dengan jari rapat'>tubuh; badan; tangan; rapat</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='oke'>tubuh; badan; tangan</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='jempol ke atas'>tubuh; badan; tangan; jempol; atas; +1</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='jempol ke bawah'>tubuh; badan; tangan; jempol; bawah; +1</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='tangan terkepal ke atas'>tubuh; badan; tangan; kepal; tinju</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='tangan terkepal ke depan'>tubuh; badan; tangan; tinju; kepal; tonjok</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='tangan melambai'>tubuh; badan; tangan; lambai</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='tepuk tangan'>tubuh; badan; tangan; tepuk</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='tangan terbuka'>tubuh; badan; tangan; terbuka</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='tangan menulis'>tubuh; badan; tangan; tulis; nulis</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='cat kuku'>tubuh; badan; perawatan; kosmetik; manikur; kuku; kuteks</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='telinga'>tubuh; badan</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='hidung'>tubuh; badan</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='jejak kaki'>tubuh; badan; jejak; kaki</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='dua mata'>tubuh; badan; mata; wajah; muka</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='satu mata'>tubuh; badan</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='lidah'>tubuh; badan</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='mulut'>tubuh; badan; bibir</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='tanda ciuman'>hati; cium; bibir; romantis</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='hati terpanah'>panah; asmara; hati; romantis</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='hati merah'>hati</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='hati berdetak'>detak; hati; jantung; denyut</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='hati patah'>patah; hati; putus</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='dua hati'>hati; cinta</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='hati bersinar'>bersinar; hati; bahagia</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='hati membesar'>gembira; hati; detak; jantung; deg; gugup</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='hati biru'>biru; hati</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='hati hijau'>hijau; hati</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='hati kuning'>hati; kuning</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='hati ungu'>hati; ungu</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='hati berpita'>hati; pita; valentine</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='hati berputar'>hati; berputar</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='dekorasi hati'>hati</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='tanda seru berbentuk hati'>tanda; seru; hati</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='surat cinta'>hati; surat; cinta; romantis</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='zzz'>tidur; komik</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='marah'>komik</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='bom'>komik</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='tabrakan'>nabrak; komik</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='keringat'>komik; ciprat</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='berlari'>komik; kabur; lari</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='pusing'>komik; bintang</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='balon ucapan'>balon; gelembung; komik; ucapan; dialog</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='gelembung ucapan kiri'>dialog; ucapan</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='gelembung marah kanan'>marah; balon; gelembung</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='gelembung pikiran'>balon; gelembung; komik; mikir; pikir</annotation>
+
+		<!-- hole -->
+		<annotation cp='[🕳]' tts='lubang'>lobang</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='kacamata'>pakaian; mata; kaca</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='kacamata hitam'>hitam; kaca; mata</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='dasi'>pakaian</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='kaos'>pakaian; kaus; polo</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='celana jeans'>pakaian; celana; panjang</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='gaun'>pakaian</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='kimono'>pakaian</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='bikini'>pakaian; renang</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='pakaian wanita'>pakaian; wanita</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='dompet'>pakaian; koin</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='tas jinjing'>tas; pakaian</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='kantung'>tas; pakaian</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='tas belanja'>tas; hotel; belanja</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='tas sekolah'>tas; ransel; sekolah</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='sepatu pria'>pakaian; pria; sepatu</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='sepatu lari'>atletik; pakaian; sepatu; kets</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='sepatu hak tinggi'>pakaian; hak; sepatu; wanita</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='sanda wanita'>pakaian; sandal; sepatu; wanita</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='sepatu but wanita'>bot; pakaian; wanita</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='mahkota'>pakaian; raja; ratu</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='topi wanita'>pakaian; wanita; topi</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='topi tinggi'>pakaian; topi; sulap</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='topi sarjana'>pakaian; topi; toga; perayaan; wisuda</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='tasbih'>kalung; pakaian; doa; agama</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='lipstik'>kosmetik; dandan</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='cincin'>berlian; romantis</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='batu permata'>berlian; romantis; permata</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='wajah monyet'>wajah; muka; monyet</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='wajah anjing'>anjing; muka; wajah; hewan</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='anjing'>hewan</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='pudel'>anjing</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='wajah serigala'>muka; wajah; serigala</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='wajah kucing'>muka; wajah; kucing; hewan</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='kucing'>hewan</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='wajah singa'>muka; wajah; leo; singa; zodiak</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='wajah macan'>muka; wajah; macan</annotation>
+
+		<!-- leopard -->
+		<annotation cp='[🐆]' tts='macan tutul'>macan; tutul</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='wajah kuda'>muka; wajah; kuda</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='kuda'>balap; pacuan</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='wajah unicorn'>muka; wajah; unicorn</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='wajah sapi'>muka; wajah; sapi</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='banteng'>taurus; zodiak</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='kerbau'>air</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='wajah babi'>muka; wajah; babi</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='babi hutan'>babi</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='hidung babi'>muka; wajah; hidung; babi</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='domba jantan'>aries; domba; zodiak</annotation>
+
+		<!-- sheep; ewe -->
+		<annotation cp='[🐑]' tts='domba betina'>domba; betina</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='kambing'>capricorn; zodiak</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='unta'>dromedari; punuk</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='unta berpunuk dua'>unta; baktrian; punuk</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='wajah tikus'>wajah; muka; tikus</annotation>
+
+		<!-- mouse -->
+		<annotation cp='[🐁]' tts='tikus putih'>tikus</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='wajah hamster'>wajah; muka; hamster; hewan</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='wajah kelinci'>kelinci; wajah; muka; hewan</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='kelinci'>hewan</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='wajah beruang'>wajah; muka; beruang</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='wajah koala'>beruang</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='wajah panda'>wajah; muka; panda</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='jejak hewan'>kaki; cakar; jejak</annotation>
+
+		<!-- rooster -->
+		<annotation cp='[🐓]' tts='ayam jago'>ayam</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='bayi ayam menetas'>bayi; ayam; menetas</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='bayi ayam'>bayi; ayam</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='bayi ayam menghadap ke depan'>bayi; ayam</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='merpati'>burung; terbang; damai</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='wajah kodok'>wajah; muka; kodok</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='ular'>ofiukus; pembawa; zodiak</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='wajah naga'>naga; muka; wajah; dongeng</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='naga'>dongeng</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='paus menyemburkan air'>muka; wajah; sembur; paus</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='ikan'>pisces; zodiak</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='ikan tropis'>ikan; tropis</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='ikan gembung'>ikan</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='cangkang spiral'>cangkang; spiral</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='kepiting'>cancer; zodiak</annotation>
+
+		<!-- snail -->
+		<annotation cp='[🐌]' tts='siput'>keong</annotation>
+
+		<!-- bug; insect -->
+		<annotation cp='[🐛]' tts='ulat'>serangga</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='semut'>serangga</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='lebah madu'>lebah; serangga</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='kepik'>kumbang; serangga</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='laba-laba'>serangga</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='jaring laba-laba'>laba-laba; sarang</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='kalajengking'>scorpio; zodiak</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='buket'>bunga; tanaman; romantis</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='bunga sakura'>mekar; sakura; bunga; tanaman</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='bunga putih'>bunga</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='bros mawar'>tanaman</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='bunga mawar'>bunga; tanaman</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='kembang sepatu'>bunga; tanaman</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='bunga matahari'>bunga; tanaman; matahari</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='bunga sitrus'>bunga; tanaman</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='bunga tulip'>bunga; tanaman</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='tunas'>tanaman; muda</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='pohon pinus'>tanaman; pohon</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='pohon beringin'>gugur; tanaman; pohon</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='pohon palem'>palem; tanaman; pohon</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='kaktus'>tanaman</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='padi'>bulir; tanaman; nasi</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='tanaman herbal'>daun; tanaman</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='shamrock'>tanaman</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='daun semanggi'>4; empat; daun; tanaman; semanggi</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='daun maple'>gugur; daun; maple; tanaman</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='daun gugur'>gugur; daun; tanaman</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='daun tertiup angin'>tiup; terbang; daun; tanaman; angin</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='anggur'>buah; tanaman</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='melon'>buah; tanaman</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='semangka'>buah; tanaman</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='jeruk'>buah; tanaman</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='lemon'>buah; tanaman</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='pisang'>buah; tanaman</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='nanas'>buah; tanaman</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='apel merah'>apel; buah; tanaman; merah</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='apel hijau'>apel; buah; tanaman; hijau</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='pir'>buah; tanaman</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='persik'>buah; tanaman</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='ceri'>buah; tanaman</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='stroberi'>beri; buah; tanaman</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='tomat'>tanaman; sayur</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='terong'>tanaman; sayur</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='jagung'>bulir; tanaman</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='cabe'>pedas; lada; tanaman</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='jamur'>tanaman</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='chestnut'>tanaman</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='sepotong keju'>keju</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='daging bertulang'>tulang; daging</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='daging paha unggas'>tulang; ayam; paha; unggas</annotation>
+
+		<!-- hamburger; burger -->
+		<annotation cp='[🍔]' tts='hamburger'>burger</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='kentang goreng'>kentang; goreng</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='pizza'>keju; potongan</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='hot dog'>sosis; hotdog</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='taco'>meksiko</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='burrito'>meksiko</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='makanan rebus'>mangkuk; rebusan</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='kotak bento'>bento; kotak</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='keripik beras'>biskuit; beras</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='nasi kepal'>bola; jepang; nasi</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='nasi'>masak</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='nasi kari'>kari; nasi</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='semangkuk mi'>mangkuk; mie; ramen; rebusan</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='spaghetti'>pasta</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='ubi bakar'>kentang; panggang; manis</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='oden'>kebab; makanan; laut; udang; tempura</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='udang goreng'>goreng; udang; tempura</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='naruto'>kue; ikan; pastri; pusaran</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='dango'>makanan; penutup; jepang; sate; stik; manis</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='es krim kerucut'>krim; makanan; penutup; es; lembut; manis</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='es serut'>makanan; penutup; es; serut; manis</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='es krim mangkuk'>krim; makanan; penutup; es; manis</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='donat'>makanan; penutup; manis</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='biskuit'>makanan; penutup; manis</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='kue ulang tahun'>ulang; tahun; kue; perayaan; makanan; penutup; pastri; manis</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='shortcake'>kue; makanan; penutup; pastri; potongan; manis</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='coklat batang'>batangan; cokelat; makanan; penutup; manis</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='permen'>makanan; penutup; manis</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='permen loli'>permen; makanan; penutup; manis</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='puding'>makanan; penutup; manis</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='kendi madu'>madu; kendi; manis</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='botol bayi'>bayi; botol; minuman; susu</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='minuman panas'>minuman; kopi; panas; mengepul; teh</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='cawan teh'>minuman; cangkir; teh</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='sake'>bar; minuman; botol; cangkir</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='botol anggur dibuka'>bar; botol; gabus; minuman; menyembul</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='gelas anggur'>bar; minuman; gelas, anggur</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='gelas cocktail'>bar; koktail; minuman; gelas</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='minuman tropis'>bar; minuman; tropis</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='mug bir'>bar; bir; minuman; mug</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='mug bir berbenturan'>bar; bir; berbenturan; minuman; mug; tos</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='garpu dan pisau dengan piring'>masak; garpu; pisau; piring</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='garpu dan pisau'>masak; garpu; pisau</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='memasak'>telur; menggoreng; wajan</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='vas'>akuarius; masak; minum; kendi; alat; senjata; zodiak</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='bola dunia eropa-afrika'>afrika; bumi; eropa; globe; dunia</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='bola dunia amerika'>amerika; bumi; globe; dunia</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='bola dunia asia-australia'>asia; australia; bumi; globe; dunia</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='bola dunia dengan garis meridian'>asia; globe; meridien; dunia</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='peta dunia'>peta; dunia</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='gunung dengan puncak bersalju'>dingin; gunung; salju</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='gunung berapi'>erupsi; gunung; cuaca</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='gunung fuji'>fuji; gunung</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='pantai dan payung'>pantai; payung</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='pulau terpencil'>gurun; pulau</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='taman nasional'>taman</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='bangunan klasik'>bangunan; klasik</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='konstruksi bangunan'>bangunan; konstruksi</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='perumahan'>bangunan; rumah</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='panorama kota'>bangunan; kota</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='rumah terlantar'>bangunan; terlantar; rumah</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='rumah'>bangunan</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='rumah dan taman'>bangunan; kebun; rumah</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='gereja'>bangunan; kristen; salib; agama</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='ka&apos;bah'>islam; muslim; agama</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='masjid'>islam; muslim; agama</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='sinagog'>yahudi; agama; kuil</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='kuil shinto'>agama; shinto; kuil</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='gedung perkantoran'>gedung</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='kantor pos jepang'>gedung; jepang; pos</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='kantor pos'>gedung; eropa; pos</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='rumah sakit'>bangunan; dokter; obat</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='bank'>bangunan</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='hotel'>bangunan</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='hotel cinta'>bangunan; hotel; cinta</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='minimarket'>bangunan; toko</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='sekolah'>bangunan</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='toserba'>bangunan</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='pabrik'>bangunan</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='kastel jepang'>bangunan, kastel; jepang</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='kastel'>bangunan; eropa</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='pernikahan'>kapel; romantis</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='menara tokyo'>tokyo; menara</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='patung liberty'>liberty; patung</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='peta jepang'>jepang; peta</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='tenda'>berkemah</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='berkabut'>kabut; cuaca</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='malam berbintang'>malam; bintang; cuaca</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='matahari terbit di antara gunung'>pagi; gunung; matahari; terbit; cuaca</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='matahari terbit'>pagi; matahari; cuaca</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='panorama kota di sore hari'>bangunan; kota; senja; sore; lanskap; matahari; terbenam; cuaca</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='matahari terbenam'>bangunan; senja; matahari; cuaca</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='jembatan di malam hari'>jembatan; malam; cuaca</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='sumber air panas'>panas; sumber; mata; air; mengepul</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='bima sakti'>ruang; cuaca</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='komidi putar'>karosel; kuda</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='kincir ria'>taman; hiburan; kincir; roda</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='roller coaster'>taman; hiburan; coaster; roller</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='tanda salon'>potong; rambut; salon; tiang</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='tenda sirkus'>sirkus; tenda</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='seni drama'>seni; topeng; tampil; teater</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='bingkai bergambar'>seni; bingkai; museum; lukisan; gambar</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='palet pelukis'>seni; museum; lukisan; palet</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='mesin slot'>game; slot</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='lokomotif'>mesin; rel; uap; kereta; kendaraan</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='gerbong'>mobil; elektrik; rel; kereta; trem; listrik; kendaraan</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='kereta ekspres'>rel; shinkansen; cepat; kereta; kendaraan</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='kereta ekspres peluru'>peluru; rel; shinkansen; cepat; kereta; kendaraan</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='kereta'>rel; kendaraan</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='kereta bawah tanah'>bawah; tanah; kendaraan</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='light rail'>rel; kendaraan</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='stasiun'>rel; kereta; kendaraan</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='trem'>kereta; listrik; kendaraan</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='monorel'>kendaraan</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='jalur kereta pegunungan'>mobil; gunung; rel; kendaraan</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='gerbong trem'>mobil; trem; kereta; kendaraan</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='bus'>kendaraan</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='bus datang'>bus; datang; kendaraan; </annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='bus listrik'>bus; trem; listrik; kendaraan</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='halte bus'>bus; halte; perhentian</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='minibus'>bus; kendaraan</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='ambulan'>kendaraan</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='mobil pemadam kebakaran'>mesin; api; truk; kendaraan</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='mobil polisi'>mobil; patroli; polisi; kendaraan</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='mobil polisi datang'>mobil; datang; polisi; kendaraan</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='taksi'>kendaraan</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='taksi datang'>datang; taksi; kendaraan</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='mobil'>kendaraan</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='mobil datang'>mobil; datang; kendaraan</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='kendaraan rekreasi'>rekreasi; RV; kendaraan</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='truk pengiriman'>pengiriman; truk; kendaraan</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='lori gandeng'>lori; semi; truk; kendaraan</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='traktor'>kendaraan</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='sepeda'>kendaraan</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='pompa bahan bakar'>bensin; pompa; stasiun; bahan; bakar; SPBU</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='jalan raya'>jalan; raya; </annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='rel kereta'>jalan; kereta</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='lampu mobil polisi'>suar; mobil; lampu; polisi; berputar; kendaraan</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='lampu lalu lintas horizontal'>lampu; sinyal; lalu; lintas</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='lampu lalu lintas vertikal'>lampu; sinyal; lalu; lintas</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='konstruksi'>batasan</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='jangkar'>kapal; alat</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='perahu layar'>perahu; resor; laut; kendaraan; kapal; pesiar</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='perahu dayung'>perahu; kendaraan</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='perahu cepat'>perahu; kendaraan</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='kapal pesiar'>penumpang; kapal; kendaraan</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='kapal feri'>perahu</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='kapal bermotor'>perahu; kapal; bermotor; kendaraan</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='kapal'>kendaraan</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='pesawat'>kendaraan</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='pesawat kecil'>pesawat; kendaraan</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='pesawat lepas landas'>pesawat; check-in; keberangkatan; kedatangan; kendaraan</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='pesawat mendarat'>pesawat; kedatangan; datang; mendarat; kendaraan</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='helikopter'>kendaraan</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='kereta suspensi'>rel; suspensi; kendaraan</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='kereta gantung'>kabel; gondola; gunung; kendaraan</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='trem gantung'>udara; kabel; mobil; gondola; jalur; lintasan; trem; kendaraan</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='roket'>angkasa; kendaraan</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='satelit'>angkasa; kendaraan</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='bel hotel'>lonceng; pelayan; hotel</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='orang di tempat tidur'>hotel; tidur</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='tempat tidur'>hotel; tidur</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='sofa dan lampu'>sofa; hotel; lampu</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='shower'>air</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='orang sedang mandi'>bak mandi; mandi</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='jam pasir'>pasir; pewaktu</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='jam pasir yang bergerak'>jam; pasir; pewaktu</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='jam tangan'>jam</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='jam weker'>alarm; jam</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='stopwatch'>jam</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='penghitung waktu'>jam; pewaktu</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='jam perapian'>jam</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='jam dua belas tepat'>00; 12; 12.00; jam; tepat; dua belas</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='jam setengah satu'>12; 12.30; 30; jam; tiga puluh; dua belas</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='jam satu tepat'>00; 1; 1.00; jam; tepat; satu</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='jam setengah dua'>1; 1.30; 30; jam; satu; tiga puluh</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='jam dua tepat'>00; 2; 2.00; jam; tepat; dua</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='jam setengah tiga'>2; 2.30; 30; jam; tiga puluh; dua</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='jam tiga tepat'>00; 3; 3.00; jam; tepat; tiga</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='jam setengah empat'>3; 3.30; 30; jam; tiga puluh; tiga</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='jam empat tepat'>00; 4; 4.00; jam; empat; tepat</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='jam setengah lima'>30; 4; 4.30; jam; empat; tiga puluh</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='jam lima tepat'>00; 5; 5.00; jam; lima; tepat</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='jam setengah enam'>30; 5; 5.30; lima; tiga puluh</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='jam enam tepat'>00; 6; 6.00; jam; tepat; enam</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='jam setengah tujuh'>30; 6; 6.30; jam; enam; tiga puluh</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='jam tujuh tepat'>00; 7; 7.00; jam; tepat; tujuh</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='jam setengah delapan'>30; 7; 7.30; jam; tujuh; tiga puluh</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='jam delapan tepat'>00; 8; 8.00; jam; delapan; tepat</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='jam setengah sembilan'>30; 8; 8.30; jam; delapan; tiga puluh</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='jam sembilan tepat'>00; 9; 9.00; jam; sembilan; tepat</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='jam setengah sepuluh'>30; 9; 9.30; jam; sembilan; tiga puluh</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='jam sepuluh tepat'>00; 10; 10.00; jam; tepat; sepuluh</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='jam setengah sebelas'>10; 10.30; 30; jam; sepuluh; tiga puluh</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='jam sebelas tepat'>00; 11; 11.00; jam; sebelas; tepat</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='jam setengah dua belas'>11; 11.30; 30; jam; sebelas; tiga puluh</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='bulan baru'>gelap; bulan; angkasa; cuaca</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='bulan sabit awal'>sabit; bulan; angkasa; membesar; cuaca</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='bulan perbani awal'>bulan; seperempat; angkasa; cuaca</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='bulan cembung awal'>cembung; bulan; angkasa; membesar; cuaca</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='bulan purnama'>purnama; bulan; angkasa; cuaca</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='bulan cembung akhir'>cembung; bulan; angkasa; mengecil; cuaca</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='bulan perbani akhir'>bulan; seperempat; angkasa; cuaca</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='bulan sabit akhir'>sabit; bulan; angkasa; mengecil; cuaca</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='bulan sabit'>sabit; bulan; angkasa; cuaca</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='wajah bulan baru'>wajah; bulan; angkasa; cuaca</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='wajah bulan perbani awal'>wajah; bulan; seperempat; angkasa; cuaca</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='wajah bulan perbani akhir'>wajah; bulan; seperempat; angkasa; cuaca</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='termometer'>cuaca</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='matahari'>cerah; sinar; angkasa; terang; cuaca</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='wajah bulan purnama'>terang; wajah; purnama; bulan; angkasa; cuaca</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='wajah matahari'>terang; wajah; angkasa; matahari; cuaca</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='bintang medium putih'>bintang</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='bintang bersinar'>berkilau; bersinar; cemerlang; bintang</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='bintang jatuh'>jatuh; angkasa; bintang</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='awan'>cuaca</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='matahari di balik awan'>awan; matahari; cuaca</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='awan dengan petir dan hujan'>awan; hujan; petir; cuaca</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='matahari di balik awan kecil'>awan; matahari; cuaca</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='matahari di balik awan besar'>awan; matahari; cuaca</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='mahari di balik awan hujan'>awan; hujan; matahari; cuaca</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='awan hujan'>awan; hujan; cuaca</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='awan salju'>awan; dingin; salju; cuaca</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='awan petir'>awan; kilat; cuaca</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='tornado'>awan; cuaca; pusaran; angin</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='kabut'>awan; cuaca</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='angin berhembus'>hembusan; awan; wajah; cuaca; angin</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='topan'>berputar-putar; pusaran; cuaca</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='pelangi'>hujan; cuaca</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='payung tertutup'>pakaian; hujan; payung; cuaca</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='payung'>pakaian; hujan; cuaca</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='payung dengan tetesan hujan'>pakaian; hujan; payung; cuaca</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='payung di tanah'>hujan; matahari; payung; cuaca</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='tegangan tinggi'>bahaya; listrik; kilat; tegangan; sambaran</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='keping salju'>dingin; salju; cuaca</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='boneka salju dengan hujan salju'>dingin; salju; cuaca</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='boneka salju'>dingin; salju; boneka; cuaca</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='komet'>angkasa</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='api'>kobaran; alat</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='tetesan air'>dingin; komik; tetesan; keringat; cuaca</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='ombak'>lautan; air; cuaca</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='jack-o-lantern'>perayaan; halloween; jack; lentera</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='pohon natal'>perayaan; natal; pohon</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='kembang api'>perayaan</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='kembang api batang'>perayaan; kembang; api; berkilau</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='percikan'>berkilau; bintang</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='balon'>perayaan</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='pesta'>perayaan; popper; jreng</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='bola confetti'>bola; perayaan; confetti</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='pohon tanabata'>spanduk; perayaan; jepang; pohon</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='bendera menyilang'>perayaan; silang; jepang</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='dekorasi bambu'>bambu; perayaan; jepang; pinus; tanaman</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='boneka jepang'>perayaan; boneka; festival; jepang</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='bendera ikan koi'>koi; perayaan; panji</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='lonceng angin'>lonceng; perayaan; gemerincing; angin</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='perayaan bulan'>perayaan; upacara; bulan</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='pita'>perayaan</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='kado'>kotak; perayaan; hadiah; bungkusan</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='medali militer'>perayaan; medali; militer</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='pita pengingat'>perayaan; pengingat; pita</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='frame film'>sinema; film; frame</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='tiket masuk'>tiket; masuk</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='tiket'>masuk</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='bola sepak'>bola; sepak</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='bola bisbol'>bola</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='bola basket'>bola; loncat</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='bola sepak amerika'>amerika; bola; football</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='bola rugbi'>bola; football; rugby</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='tenis'>bola; raket</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='biliar'>8; 8 bola; bola; delapan; game</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='bowling'>bola; game</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='bendera di lubang golf'>golf; lubang</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='pegolf'>bola; golf</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='seluncur es'>es; seluncur</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='tongkat pancing'>ikan; tongkat</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='kaos lari'>lari; selempang; kaos</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='ski'>salju</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='pemain ski'>ski; salju</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='pemain papan seluncur salju'>ski; salju; papan; seluncur</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='peselancar'>seluncur</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='balap kuda'>kuda; joki; pacuan; balapan</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='perenang'>renang</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='orang membawa bola'>bola</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='atlit angkat beban'>angkat; beban</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='pesepeda'>sepeda</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='pesepeda gunung'>sepeda; pesepeda; gunung</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='mobil balap'>mobil; balapan</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='sepeda motor'>balapan</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='medali olahraga'>medali</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='piala'>hadiah</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='kriket'>bola; pemukul; permainan</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='bola voli'>bola; permainan</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='hoki lapangan'>bola; lapangan; permainan; hoki; stik</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='stik dan bola hoki es'>permainan; hoki; es; bola karet; stik</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='ping pong'>bola; bet; pemukul; permainan; tenis meja</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='bulu tangkis'>kok; game; raket</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='dart'>papan sasaran; anak panah; mata; permainan; lempar; target</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='video game'>pengontrol; game</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='joystick'>game; game video</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='dadu'>permainan</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='sekop'>kartu; permainan</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='hati'>kartu; permainan</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='wajik'>kartu; permainan</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='keriting'>kartu; klub; permainan</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='joker'>kartu; permainan</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='naga merah mahyong'>game; mahyong; merah</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='kartu bunga'>kartu; bunga; game; jepang; permainan</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='speaker mati'>diam; senyap; sunyi; speaker; volume</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='speaker'>volume</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='speaker nyala'>kecil; speaker; volume; gelombang</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='speaker keras'>3; tinggi; keras; speaker; tiga; volume</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='pengeras suara'>keras; pengumuman</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='megafon'>bersorak</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='trompet pos'>terompet; pos</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='lonceng dicoret'>lonceng; terlarang; diam; tidak; dilarang; sunyi; bungkam</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='naskah musik'>musik; skor</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='not musik'>musik; not</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='not-not musik'>musik; not</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='mikrofon studio'>mik; mikrofon; musik; studio</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='penggeser tingkat'>level; musik; penggeser</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='tombol kontrol'>kontrol; kenop; musik</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='mikrofon'>karaoke; mik</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' tts='headphone'>earbud</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='saksofon'>instrumen; musik</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='gitar'>instrumen; musik</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='keyboard musik'>instrumen; keyboard; musik; piano</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='trompet'>instrumen; musik</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='biola'>instrumen; musik</annotation>
+
+		<!-- radio; video -->
+		<annotation cp='[📻]' tts='radio'>video</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='ponsel'>seluler; telepon</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='telepon masuk'>panah; panggilan; seluler; ponsel; terima; telepon</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='gagang telepon'>telepon; penerima</annotation>
+
+		<!-- fax machine; fax -->
+		<annotation cp='[📠]' tts='mesin faks'>faksimili</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='steker'>listrik</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='komputer laptop'>komputer; PC; personal</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='komputer desktop'>komputer; desktop</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='printer'>komputer</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='keyboard'>komputer</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='mouse komputer'>3; tombol; komputer; mouse; tiga</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='trackball'>komputer</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='disk mini'>komputer; disk; minidisk; optik</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='disket'>komputer; disk; floppy</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='disk optik'>dvd; blu-ray; cd; komputer; disk; optik</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>blu-ray; cd; komputer; disk; optik</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='kamera film'>kamera; sinema; film</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='papan sutradara'>film</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='proyektor film'>sinema; film; proyektor; video</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='televisi'>tv; video</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='kamera'>video</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='kamera flash'>kamera; flash; video</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='kamera video'>kamera; video</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='kaset video'>pita; tape; vhs; video</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='kaca pembesar arah kiri'>kaca; pembesar; penelusuran; alat</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='kaca pembesar arah kanan'>kaca; pembesar; penelusuran; alat</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='mikroskop'>alat</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='teleskop'>alat</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='antena satelit'>antena; piring; satelit</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='lilin'>cahaya</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='bohlam'>bola lampu; komik; ide; cahaya</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='lampu senter'>listrik; cahaya; alat; senter</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='lentera kertas merah'>bar; jepang; lentera; cahaya; merah</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='buku catatan bersampul'>buku; sampul; dekorasi; buku catatan</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='buku tertutup'>buku; tertutup</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='buku terbuka'>buku; terbuka</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='buku hijau'>buku; hijau</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='buku biru'>biru; buku</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='buku oranye'>buku; oranye</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='buku besar'>buku catatan</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='halaman tergulung'>gulung; dokumen; halaman</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='gulungan'>kertas</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='halaman tampak depan'>dokumen; halaman</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='koran'>berita; kertas</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='gulungan koran'>berita; koran; kertas; tergulung</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='penanda halaman buku'>penanda halaman; penanda; tab</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='pembatas buku'>tanda</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='kantung uang'>kantong; dolar; uang; kantong uang</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='uang kertas yen'>bank; uang kertas; mata uang; uang; yen</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='uang kertas dollar'>bank; uang kertas; mata uang; dolar; uang</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='uang kertas euro'>bank; uang kertas; mata uang; euro; uang</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='uang kertas pound'>bank; uang kertas; mata uang; uang; pound</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='uang bersayap'>bank; uang kertas; terbang; uang; sayap</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='kartu kredit'>bank; kartu; kredit; uang</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='bagan peningkatan yen'>bank; bagan; mata uang; grafik; pertumbuhan; pasar; uang; meningkat; tren; naik; yen</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='amplop'>email</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='email'>surat</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='amplop datang'>email; amplop; masuk; surat; terima</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='amplop dengan tanda panah'>panah; bawah; email; amplop; surat; keluar; terkirim</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='baki kotak keluar'>kotak; surat; keluar; terkirim; baki</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='baki kotak masuk'>kotak; kotak masuk; surat; terima; baki</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='paket'>kotak; parsel</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='kotak surat tertutup dengan bendera terangkat'>tertutup; surat; kotak surat</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='kotak surat tertutup dengan bendera turun'>tertutup; turun; surat; kotak surat</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='kotak surat terbuka dengan bendera terangkat'>surat; kotak surat; terbuka</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='kotak surat terbuka dengan bendera turun'>turun; surat; kotak surat; terbuka</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='kotak pos'>surat; kotak surat</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='kotak dengan surat suara'>surat suara; kotak</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='ujung pena'>pena</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='pen tinta'>bolpoin; pena</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='kuas'>melukis</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='memo'>pensil</annotation>
+
+		<!-- briefcase -->
+		<annotation cp='[💼]' tts='tas kantor'>koper</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='folder file'>file; folder</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='folder file terbuka'>file; folder; terbuka</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='pembagi indeks kartu'>kartu; pembagi; indeks</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='kalender'>tanggal</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='kalender sobek'>kalender</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='catatan spiral'>catatan; kertas; spiral</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='kalender spiral'>kalender; kertas; spiral</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='indeks kartu'>kartu; indeks; rolodex</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='bagan meningkat'>bagan; grafik; pertumbuhan; tren; menurun</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='bagan menurun'>bagan; turun; grafik; tren</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='diagram batang'>batang; bagan; grafik</annotation>
+
+		<!-- clipboard -->
+		<annotation cp='[📋]' tts='alas tulis'>papan klip</annotation>
+
+		<!-- pushpin; pin -->
+		<annotation cp='[📌]' tts='paku penanda'>pin</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='paku penanda bulat'>pin; paku</annotation>
+
+		<!-- paperclip -->
+		<annotation cp='[📎]' tts='klip kertas'>penjepit kertas</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='klip kertas tertaut'>tautan; penjepit kertas</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='penggaris lurus'>penggaris; ujung lurus</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='penggaris segitiga'>penggaris; rangkaian; segitiga</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='gunting'>alat</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='kotak file kartu'>kotak; kartu, file</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='lemari kartu'>kabinet; file</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='gembok'>tutup</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='gembok terbuka'>kunci; buka; tidak terkunci</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='gembok dengan pena'>tinta; gembok; ujung pena; pena; privasi</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='gembok terkunci dengan kunci'>tutup; kunci; gembok; aman</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='kunci'>sandi</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='kunci antik'>petunjuk; kunci; gembok; lawas</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='palu'>alat</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='beliung'>tambang; alat</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='palu dan beliung'>palu; beliung; alat</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='palu dan kunci inggris'>palu; alat; kunci inggris</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='kunci inggris'>alat</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='mur dan baut'>mur; baut; alat</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='roda gigi'>alat</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='pengompres'>alat; penjepit</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='alembic'>kimia; alat</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='timbangan gantung'>seimbang; adil; libra; timbangan; alat; skala; zodiak</annotation>
+
+		<!-- link -->
+		<annotation cp='[🔗]' tts='rangkaian'>tautan</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='suntikan'>dokter; obat; jarum; sakit; alat</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='pil'>dokter; obat; sakit</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='belati'>pisau; senjata</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='pisau dapur'>masak; hocho; pisau; alat; senjata</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='pedang bersilang'>silang; pedang; senjata</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='pistol'>revolver; alat; senjata</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='perisai'>senjata</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='busur dan panah'>busur; panah; sagitarius; alat; senjata; zodiak</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='bendera kotak-kotak'>kotak-kotak; petak-petak; balapan</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='bendera putih berkibar'>berkibar</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='bendera hitam berkibar'>berkibar</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='bendera segitiga'>pos</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='peti mati'>kematian</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='guci abu'>kematian; penguburan; guci</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='moai'>wajah; moyai; patung</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='drum minyak'>drum; minyak</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='bola kristal'>bola; kristal; dongeng; fantasi; ramalan; alat</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='tanda ATM'>atm; otomatis; bank; teller</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='tanda membuang sampah'>sampah; keranjang sampah</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='air dapat diminum'>minum; dapat diminum; air</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='kursi roda'>akses</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='toilet pria'>kamar kecil; pria; toilet; wc</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='toilet wanita'>kamar kecil; toilet; wc; wanita</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='toilet'>kamar kecil; wc</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='simbol bayi'>bayi; ganti</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='kloset'>kamar kecil; toilet; air; wc</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='kontrol paspor'>kontrol; paspor</annotation>
+
+		<!-- customs -->
+		<annotation cp='[🛃]' tts='pemeriksaan'>bea cukai</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='pengambilan barang'>bagasi; klaim</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='barang tertinggal'>bagasi; loker; koper</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='anak-anak menyeberang'>anak; menyeberang; trotoar; lalu lintas</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='dilarang masuk'>masuk; terlarang; tidak; dilarang; lalu lintas</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='dilarang'>masuk; tidak</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='dilarang bersepeda'>sepeda; dilarang; tidak; terlarang; kendaraan</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='dilarang merokok'>dilarang; tidak; terlarang; merokok</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='dilarang membuang sampah sembarangan'>dilarang; sampah; tidak; terlarang</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='air tidak dapat diminum'>minum; dilarang; tidak; dapat diminum; terlarang; air</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='pejalan kaki dilarang masuk'>dilarang; tidak; pejalan; terlarang</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='tanda panah atas'>panah; kardinal; arah; utara</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='tanda panah kanan atas'>panah; arah; interkardinal; timur laut</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='tanda panah kanan'>panah; kardinal; arah; timur</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='tanda panah kanan bawah'>panah; arah; interkardinal; tenggara</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='tanda panah bawah'>panah; kardinal; arah; bawah; selatan</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='tanda panah kiri bawah'>panah; arah; interkardinal; barat daya</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='tanda panah kiri'>panah; kardinal; arah; barat</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='tanda panah kiri atas'>panah; arah; interkardinal; barat laut</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='tanda panah atas bawah'>panah</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='tanda panah kiri kanan'>panah</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='tanda panah kanan melengkung ke kiri'>panah</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='tanda panah kanan melengkung ke kanan'>panah</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='tanda panah kanan melengkung ke atas'>panah</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='tanda panah kanan melengkung ke bawah'>panah; bawah</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='tanda panah searah jarum jam'>panah; searah jarum jam; muat ulang</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='tanda panah berlawanan arah jarum jam'>kebalikan arah jarum jam; berlawanan jarum jam; panah; berlawan arah matahari</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='tanda panah back'>panah; kembali</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='tanda panah end'>panah; berakhir</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='tanda panah on!'>panah; tanda; aktif</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='tanda panah soon'>panah; segera</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='tanda panah top'>panah; ke atas</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='tempat ibadah'>agama; pemujaan</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='simbol atom'>ateis; atom</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='om'>hindu; agama</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='bintang david'>daud; yahudi; agama; bintang</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='roda darma'>budha; dharma; agama; roda</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='yin yang'>agama; tao; taoisme; yang; yin</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='salib latin'>kristen; salib; agama</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='salib ortodoks'>kristen; salib; agama</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='bintang dan bulan'>islam; muslim; agama</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='simbol damai'>damai</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='menorah'>candelabra; tempat lilin; agama</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='bintang sudut enam bertitik'>ramalan; bintang</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='simbol daur ulang'>daur ulang</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='lencana nama'>lencana; nama</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='simbol jepang untuk pemula'>pemula; murid; hijau; jepang; daun; alat; kuning</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='lencana trisula'>jangkar; emblem; kapal; alat; trisula</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='lingkaran besar tebal'>lingkaran; o</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='tanda centang putih tebal'>centang; tanda</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='kotak suara bercentang'>surat suara; kotak; centang</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='tanda centang tebal'>centang; tanda</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='tanda perkalian tebal'>batal; kali; perkalian; x</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='tanda silang'>batal; tanda; perkalian; kali; x</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='tombol tanda silang'>tanda; kotak</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='tanda penjumlahan tebal'>matematika; tambah</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='tanda pengurangan tebal'>matematika; kurang</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='tanda pembagian tebal'>pembagian; matematika</annotation>
+
+		<!-- curly loop; curl; loop -->
+		<annotation cp='[➰]' tts='untaian bergelombang'>keriting; putaran</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='untaian bergelombang ganda'>keriting; dobel; putaran</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='tanda alternasi bagian'>tanda; bagian</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='bintang berujung lancip delapan'>tanda bintang</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='bintang berujung delapan'>bintang</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='kilauan'>berkilau</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='kurs'>bank; mata uang; uang</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='tanda dollar tebal'>mata uang; dolar; uang</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='tanda seru ganda'>bangbang; tanda seru; tanda; tanda baca</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='tanda seru dan tanya'>tanda seru; tanda seru tanda tanya; tanda; tanda baca; pertanyaan</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='tanda tanya'>tanda; tanda baca; pertanyaan</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='tanda tanya putih'>tanda; garis luar; tanda baca; pertanyaan</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='tanda seru putih'>tanda seru; tanda; garis luar; tanda baca</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='tanda seru'>tanda; tanda baca</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='garis bergelombang'>tanda pisah; tanda baca; gelombang</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='merek dagang'>tanda; tm; tanda merek</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='aries'>domba; zodiak</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='taurus'>banteng; zodiak</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='gemini'>kembar; zodiak</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='cancer'>kepiting; zodiak</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='leo'>singa; zodiak</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='virgo'>gadis; perawan; zodiak</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='libra'>seimbang; adil; timbangan; zodiak</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='scorpio'>kalajengking; zodiak</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='sagittarius'>pemanah; zodiak</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='capricorn'>kambing; zodiak</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='aquarius'>pembawa; air; zodiak</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='pisces'>ikan; zodiak</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='ophiuchus'>pembawa; ular; zodiak</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='tombol acak lagu'>panah; bersilangan</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='tombol ulangi'>panah; searah jarum jam; ulangi</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='tombol ulangi satu lagu'>panah; searah jarum jam; sekali</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='tombol putar'>panah; putar; kanan; segitiga</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='tombol maju cepat'>panah; dobel; cepat; maju</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='tombol lagu berikutnya'>panah; adegan selanjutnya; trek berikutnya; segitiga</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='tombol putar atau jeda'>panah; jeda; putar; kanan; segitiga</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='tombol mundur'>panah; kiri; balik; segitiga</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='tombol mundur cepat'>panah; dobel; putar balik</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='tombol lagu terakhir'>panah; adegan sebelumnya; trek sebelumnya; segitiga</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='tombol naik'>panah; tombol; merah</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='tombol naik cepat'>panah; dobel</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='tombol turun'>panah; tombol; bawah; merah</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='tombol turun cepat'>panah; dobel; bawah</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='tombol jeda'>batang; dobel; jeda; vertikal</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='tombol berhenti'>kotak; berhenti</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='tombol rekam'>lingkaran; rekam</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='tombol keluarkan'>keluarkan</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='film'>kamera</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='tombol redupkan'>kecerahan; redup; rendah</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='tombol cerahkan'>cerah; kecerahan</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='batang antena'>antena; batang; seluler; ponsel; sinyal; telepon</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='dilarang menggunakan ponsel'>seluler; terlarang; tidak; jangan; ponsel; dilarang; telepon</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='mode getar'>seluler; mode; ponsel; telepon; getar</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='ponsel nonaktif'>seluler; mati; telepon; ponsel</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='tombol pagar'>tanda pagar; tombol; pound</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='tombol bintang'>tanda bintang; tombol; bintang</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='tombol angka nol'>0; tombol; nol</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='tombol angka satu'>1; tombol; satu</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='tombol angka dua'>2; tombol; dua</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='tombol angka tiga'>3; tombol; tiga</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='tombol angka empat'>4; tombol; empat</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='tombol angka lima'>5; tombol; lima</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='tombol angka enam'>6; tombol; enam</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='tombol angka tujuh'>7; tombol; tujuh</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='tombol angka delapan'>8; delapan; tombol</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='tombol angka sembilan'>9; tombol; sembilan</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='tombol angka sepuluh'>10; tombol; sepuluh</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='nilai seratus'>100; lengkap; seratus; skor</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='di bawah 18 tahun dilarang'>18; batasan usia; delapan belas; dilarang; tidak; jangan; terlarang; di bawah umur</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='masukan huruf kapital latin'>masukan; latin; huruf; kapital</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='masukan huruf kecil latin'>abcd; masukan; latin; huruf; huruf kecil</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='masukan angka'>1234; masukan; angka</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='masukan simbol'>masukan</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='masukan huruf latin'>abc; alfabet; masukan; latin; huruf</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='tombol a'>a; darah</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='tombol ab'>ab; darah</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='tombol b'>b; darah</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='tombol cl'>cl</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='cool dalam kotak'>keren</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='free dalam kotak'>bebas</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='sumber informasi'>i; informasi</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='id dalam kotak'>id; identitas</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='huruf m dalam lingkaran'>lingkaran; m</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='new dalam kotak'>baru</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='ng dalam kotak'>ng</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='tombol o'>darah; o</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='ok dalam kotak'>oke</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='tombol p'>parkir</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='sos dalam kotak'>bantuan; sos</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='tombol up!'>tanda; ke atas</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='vs dalam kotak'>versus; vs</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='katakana koko dalam kotak'>jepang</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='katakana sa dalam kotak'>jepang</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='karakter bulan dalam kotak'>jepang</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='karakter ada dalam kotak'>jepang</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='karakter jari dalam kotak'>jepang</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='karakter keunggulan dalam lingkaran'>jepang</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='karakter bagi dalam kotak'>jepang</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='karakter negasi dalam kotak'>jepang</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='karakter melarang dalam kotak'>jepang</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='karakter terima dalam lingkaran'>china; cina</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='karakter terapkan dalam kotak'>china; cina</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='karakter bersama dalam kotak'>china; cina</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='karakter kosong dalam kotak'>china; cina</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='karakter selamat dalam lingkaran'>china; cina; selamat; ideograf</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='karakter rahasia dalam lingkaran'>china; cina; ideograf; rahasia</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='karakter beoperasi dalam kotak'>china; cina</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='karakter keseluruhan dalam kotak'>china; cina</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='kotak kecil hitam'>geometri; kotak; persegi</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='kotak kecil putih'>geometri; kotak; persegi</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='kotak medium putih'>geometri; kotak; persegi</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='kotak medium hitam'>geometri; kotak; persegi</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='kotak kecil medium putih'>geometri; kotak; persegi</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='kotak kecil medium hitam'>geometri; kotak; persegi</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='kotak besar hitam'>geometri; kotak; persegi</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='kotak besar putih'>geometri; kotak; persegi</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='wajik oranye besar'>wajik; geometri; oranye</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='wajik biru besar'>biru; wajik; geometri</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='wajik oranye kecil'>wajik; geometri; oranye</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='wajik biru kecil'>biru; wajik; geometri</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='segitiga merah mengarah ke atas'>geometri; merah</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='segitiga merah mengarah ke bawah'>turun; geometri; merah</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='wajik bertitik'>komik; wajik; geometri; di dalam</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='tombol radio'>tombol; geometri; radio</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='tombol kotak hitam'>tombol; geometri; kotak; persegi</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='tombol kotak putih'>tombol; geometri; garis luar; kotak; persegi</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='lingkaran putih'>lingkaran; geometri</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='lingkaran hitam'>lingkaran; geometri</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='lingkaran merah'>lingkaran; geometri; merah</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='lingkaran biru'>biru; lingkaran; geometri</annotation>
+	</annotations>
+</ldml>

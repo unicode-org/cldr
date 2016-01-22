@@ -1,0 +1,2911 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='sl'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='režeči obraz'>obraz; režanje</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='režeči obraz s smejočimi očmi'>oči; obraz; režanje; nasmeh</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='obraz s solzami veselja'>obraz; veselje, smeh; solze</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='smejoči obraz z odprtimi usti'>obraz; usta; odprto; nasmeh</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='smejoči obraz z odprtimi usti in smejočimi očmi'>oči; obraz; usta; odprto; nasmeh</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='smejoči obraz z odprtimi usti in mrzlim potom'>mrzlo; obraz; odprto; nasmeh; pot</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='smejoči obraz z odprtimi usti in trdno zaprtimi očmi'>obraz; nasmeh; usta; odprto; zadovoljno</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='obraz s pomežikom'>obraz; pomežik</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='smejoči obraz s smejočimi očmi'>zardevanje; oči; obraz; nasmeh</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='obraz, ki z užitkom pomalica okusno hrano'>slastno; obraz; okušanje; nasmeh; njam; </annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='smejoči obraz s sončnimi očali'>svetlo; frajersko; oči; očala; obraz; nasmeh; sonce; sončna očala; vreme</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='smejoči obraz z očmi v obliki srčka'>oči; obraz; srce; ljubezen; nasmeh</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='obraz, ki pošlje ljubčka'>obraz; srce; poljub</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='obraz, ki poljublja'>obraz; poljub</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='obraz s smejočimi očmi, ki poljublja'>oči; obraz; poljub; nasmeh</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='obraz z zaprtimi očmi, ki poljublja'>zaprto; oči; obraz; poljub</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='smejoči obraz'>obraz; obris; sproščeno; nasmeh</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='rahlo smejoči obraz'>obraz; nasmeh</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='obraz, ki objema'>obraz; objem; objemanje</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='smejoči obraz s svetniškim sijem'>angel; obraz; pravljica; fantazija; avra; nedolžno; nasmeh</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='razmišljujoči obraz'>obraz; razmišljanje</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='nevtralni obraz'>mrtvo hladno; obraz; nevtralno</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='brezizrazni obraz'>brezizrazno; obraz; prazno; neprizadeto</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='obraz brez ust'>obraz; usta; tiho; molčeče</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='obraz z zavijajočimi očmi'>oči; obraz; zavijanje</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='obraz s privoščljivim nasmeškom'>obraz; privoščljiv nasmešek</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='vztrajen obraz'>obraz; vztrajanje</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='razočaran, a olajšan obraz'>razočarano; obraz; olajšano; fiju</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='obraz z odprtimi očmi'>obraz; usta; odprto; sočutje</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='obraz z usti v obliki zadrge'>obraz; usta; zadrga</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='osupljen obraz'>obraz; tiho; osuplo, presenečeno</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='zaspan obraz'>obraz; spanje</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='utrujen obraz'>obraz; utrujeno</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='speči obraz'>obraz; spanje; zzz</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='olajšan obraz'>obraz; olajšano</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='piflarski obraz'>obraz; piflar; znalec; frik</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='obraz z molečim jezikom'>obraz; jezik</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='obraz z molečim jezikom in pomežikom'>oči; obraz; šala; jezik; mežik</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='obraz z molečim jezikom in trdno zaprtimi očmi'>oči; obraz; grozno; okus; jezik</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='namrščen obraz'>obraz; mrščenje</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='nekoliko namrščen obraz'>obraz; mrščenje</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='obraz s hladnim nasmeškom'>obraz; nenaklonjeno; nezadovoljno</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='obraz z mrzlim potom'>mrzlo; obraz; pot</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='brezvoljen obraz'>pobito; obraz; brezvoljno</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='zmeden obraz'>zmedeno; obraz</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='zbegan obraz'>zbegano; obraz</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='narobe obrnjen obraz'>obraz; narobe obrnjeno</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='obraz z medicinsko masko'>prehlad; zdravnik; obraz; maska; zdravilo; bolno</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='obraz s termometrom'>obraz; slabotno; bolno; termometer</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='obraz, obvezan s povojem'>povoj; obraz; poškodovano; poškodba</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='obraz z denarjem v očeh'>obraz; denar; usta</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='frapiran obraz'>frapirano; obraz; začudeno; popolnoma</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='razočaran obraz'>razočarano; obraz</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='zaskrbljen obraz'>obraz; zaskrbljeno</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='obraz s paro skozi nos'>obraz; zmagoslavje; zmaga</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='jokajoči obraz'>jokanje; obraz; žalostno; solza</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='cmerajoči obraz'>jokanje; obraz; žalostno; ihtenje; solze</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='namrščen obraz z odprtimi usti'>obraz; namrščenost; usta; odprto</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='trpeč obraz'>trpeče; obraz</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='bojazljiv obraz'>obraz; strah; preplašeno; prestrašeno</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='izčrpan obraz'>obraz; utrujeno; izčrpano</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='spačen obraz'>obraz; grimasa</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='obraz z odprtimi usti in mrzlim potom'>modro; hladno; obraz; usta; odprto; naglo; pot</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='obraz, ki kriči od strahu'>obraz; strah; preplašeno; munch; prestrašeno; krik</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='zardeli obraz'>zmedeno; obraz; zardelo</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='omotičen obraz'>omotično; obraz</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='obraz, ki kuha mulo'>jezno; obraz; besno; kujanje; gnev; rdeče</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='jezen obraz'>jezno; obraz; besno</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='smejoči obraz z rogovi'>obraz; pravljica; fantazija; rogovi; nasmeh</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='vragec'>demon; hudič; obraz; pravljica; fantazija</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='pošastni velikan'>bitje; obraz; pravljica; fantazija; japonsko; pošast</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='škratelj'>bitje; obraz; pravljica; fantazija; japonsko; pošast</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='mrtvaška glava'>telo; smrt; obraz; pravljica; pošast</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='mrtvaška glava s prekrižanima kostema'>telo; prekrižane kosti; smrt; obraz; pošast; lobanja</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='duh'>bitje; obraz; pravljica; fantazija; pošast</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='vesoljec'>bitje; nezemeljan; obraz; pravljica; fantazija; pošast; vesolje; nlp</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='vesoljska pošast'>vesoljec; bitje; nezemljan; obraz; pravljica; fantazija; vesolje; nlp</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='obraz robota'>obraz; pošast; robot</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='kup kakca'>strip; iztrebki; obraz; pošast; kakec; drekec</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='smejoči mačji obraz z odprtimi usti'>mačka; obraz; usta; odprto; nasmeh</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='režeči mačji obraz s smejočimi očmi'>mačka; oči; obraz; režanje; nasmeh</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='mačji obraz s solzami sreče'>mačka; obraz; veselje; solze</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='smejoči mačji obraz z očmi v obliki srčka'>mačka; oči; obraz; srce; ljubezen; nasmeh</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='mačji obraz s prifrknjenim nasmeškom'>mačka; obraz; ironično; nasmeh; porogljivo</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='mačji obraz z zaprtimi očmi, ki poljublja'>mačka; oči; obraz; poljub</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='presenečen mačji obraz'>mačka; obraz; presenečeno; naveličano</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='jokajoči mačji obraz'>mačka; jokanje; obraz; žalostno; solza</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='mačji obraz, ki kuha mulo'>mačka; obraz; kujanje</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='ničesar slabega ne vidim'>zlobno; obraz; prepovedano; gesta; opica; ne; videti</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='ničesar slabega ne slišim'>zlobno; obraz; prepovedano; gesta; slišati; opica; ne; </annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='ničesar slabega ne govorim'>zlobno; obraz; prepovedano; gesta; opica; ne; govoriti</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='dekle'>dekle, devica, zodiak</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='starec'>moški; staro</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='starka'>staro; ženska</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='oseba s svetlimi lasmi'>svetlolaso</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='policist'>policaj; policija</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='moški s kitajsko čepico'>kitajska čepica; čepica; moški</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='moški s turbanom'>moški; turban</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='gradbeni delavec'>gradnja; čepica; delavec</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='čelada z belim križem'>pomoč; križ; obraz; čepica; čelada</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='princesa'>pravljica; fantazija</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='detektiv'>vohljač; vohun</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='Božiček'>slavje; božič; pravljica; fantazija; oče; božiček</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='angelček'>angel; dojenček; obraz; pravljica; fantazija</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='masaža obraza'>masaža; salon</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='striženje'>brivec; lepota; salon</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='nevesta s pajčolanom'>nevesta; pajčolan; poroka</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='oseba, ki se mršči'>mrščenje; gesta</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='oseba, ki kuha mulo'>gesta; kujanje</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='s kretnjo izražena prepoved'>ni dovoljeno; gesta; roka; ne; prepovedano</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='s kretnjo izraženo v redu'>gesta; roka; v redu</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='oseba, ki dela na informacijah'>roka; pomoč; informacije; živahno</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='vesela oseba, ki dvigne roko'>gesta; roka; veselo; dvignjeno</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='oseba, ki se prikloni'>opravičilo; priklon; gesta; oprosti</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='oseba, ki dvigne roke'>telo; slavje; gesta; roka; hura; dvignjeno</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='staknjeni dlani'>prositi; telo; predklon; sklenjeno; gesta; roka; prosim; moliti; hvala</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='govoreča glava'>obraz; glava; silhueta; govoriti; govorjenje</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='silhueta doprsja'>doprsje; silhueta</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='silhueti doprsja'>doprsje; silhueta</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='pešec'>pohod; hoja</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='tekač'>maraton; tek</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='žurerski ženski'>zajčica; plesalka; uho; dekle; ženska</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='moški v poslovni obleki, ki lebdi'>posli; moški; obleka</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='poljub'>par; romanca</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='par s srčkom'>par; srce; ljubezen; romanca</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='družina'>otrok; oče; mati</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='moški in ženska, ki se držita za roke'>par; roka; držati; moški; ženska</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='moška, ki se držita za roke'>par; dvojčka; roka; moški, zodiak</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='ženski, ki se držita za roke'>par; roka; držati; ženska</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='polt vrst 1 in 2'>modifikator znaka emoji, fitzpatrick; koža; ten</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='polt vrste 3'>modifikator znaka emoji, fitzpatrick; koža; ten</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='polt vrste 4'>modifikator znaka emoji, fitzpatrick; koža; ten</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='polt vrste 5'>modifikator znaka emoji, fitzpatrick; koža; ten</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='polt vrste 6'>modifikator znaka emoji, fitzpatrick; koža; ten</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='napeti bicepsi'>biceps; telo; strip; napenjati; mišica</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='hrbtna stran dlani s kazalcem, ki kaže levo'>hrbtna stran; telo; prst; dlan; kazalec; kazati</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='hrbtna stran dlani s kazalcem, ki kaže desno'>hrbtna stran; telo; prst; dlan; kazalec; kazati</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='kazalec, ki kaže gor'>telo; prst; dlan; kazalec; kazati</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='hrbtna stran dlani s kazalcem, ki kaže gor'>hrbtna stran; telo; prst; dlan; kazalec; kazati; gor</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='sredinec'>telo; prst; dlan; kazalec; kazati</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='hrbtna stran dlani s kazalcem, ki kaže dol'>hrbtna stran; telo; dol; prst; dlan; kazalec; kazati</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='dlan s prstoma, ki kažeta znak za zmago'>telo; dlan; v; zmaga</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='vulkanski pozdrav'>telo; prst; dlan; spock; vulkan</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='znak za rogove'>telo; prst; dlan; rogovi; rock za vedno</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='dvignjena dlan z razprtimi prsti'>telo; prst; dlan; razprto</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='dvignjena dlan'>telo; dlan</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='dlan z znakom za v redu'>telo; dlan; v redu</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='palec gor'>telo; dlan; palec; gor; +1; </annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='palec dol'>telo; dol; dlan; palec; +1; </annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='dvignjena pest'>telo; pokrčeno; pest; dlan; udarec</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='bližajoča pest'>telo; pokrčeno; pest; dlan; udarec</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='mahajoča dlan'>telo; dlan; mahati; mahanje</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='ploskajoči dlani'>telo; ploskati; dlan</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='odprti dlani'>telo; dlan; odprto</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='pišoča dlan'>telo; dlan; pisati</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='lak za nohte'>telo; nega; kozmetika; manikira; noht; lak</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='uho'>telo</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='nos'>telo</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='stopinji'>telo; oblačila; stopinja; odtis</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='oči'>telo; obraz</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='oko'>telo</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='jezik'>telo</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='usta'>telo; ustnice</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='sled šminke po poljubu'>srce; poljub; ustnice; odtis; romanca</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='srce s puščico'>puščica; kupid; srce; romanca</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='rdeče srce'>srce</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='utripajoče srce'>bitje; srce; srčni utrip; utripanje</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='strto srce'>zlomiti; počeno; srce</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='dve srci'>srce; ljubezen</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='lesketajoče srce'>vznemirjeno; srce; lesketati se</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='rastoče srce'>vznemirjeno; rastoče; srce; srčni utrip; živčno</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='modro srce'>modro; srce</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='zeleno srce'>zeleno; srce</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='rumeno srce'>srce; rumeno</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='vijolično srce'>srce; vijolično</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='srce s pentljo'>srce; pentlja; valentin</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='vrteči se srci'>srce; vrtenje</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='okrasje s srcem'>srce</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='klicaj v obliki srca'>klicaj; srce; znak; ločilo</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='ljubezensko pismo'>srce; pismo; ljubezen; pošta; romanca</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='spanec'>strip; spanje</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='simbol jeze'>jezno; strip; divje</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='bomba'>strip</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='bum'>strip</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='potne kapljice'>strip; pljuskanje; pot</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='švigniti'>strip; švigati; tek</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='omotica'>strip; zvezda</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='oblaček z govorom'>balon; oblaček; strip; dialog; govor</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='levi oblaček z govorom'>dialog; govor</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='desni oblaček z jeznim govorom'>jezno; balon; oblaček; divje</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='oblaček z mislimi'>balon; oblaček; strip; misel</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='očala'>oblačila; oči</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='sončna očala'>temno; oči; očala</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='kravata'>oblačila</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='majica'>oblačila; srajca</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='kavbojke'>oblačila; hlače</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='ženska obleka'>oblačila</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='kimono'>oblačila</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='bikini'>oblačila; plavati</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='žensko oblačilo'>oblačila; ženska</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='torbica'>oblačila; kovanec</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='ročna torbica'>torbica; oblačila</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='manjša torbica'>torbica; oblačila</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='nakupovalni vrečki'>torbica; hotel; nakupovanje</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='šolski nahrbtnik'>torba; nahrbtnik; šola</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='moški čevelj'>oblačila; moški; čevelj</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='tekaški čevelj'>športno; oblačila; čevelj; superga</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='čevelj z visoko peto'>oblačila; peta; čevelj; ženska</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='ženski sandal'>oblačila; sandal; čevelj; ženska</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='ženski škorenj'>škorenj; oblačila; čevelj; ženska</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='krona'>oblačila; kralj; kraljica</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='ženski klobuk'>oblačila; klobuk; ženska</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='cilinder'>oblačila; klobuk</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='maturantska kapa'>kapa; slavje; oblačila; matura; klobuk</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='rožni venec'>koralde, oblačila; ogrlica; molitev; vera</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='šminka'>kozmetika; ličila</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='prstan'>diamant; romanca</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='dragulj'>diamant; dragi kamen; romanca</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='opičin obraz'>obraz; opica</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='pasji obraz'>pes; obraz; domači ljubljenček</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='pes'>domači ljubljenček</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='pudelj'>pes</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='volčji obraz'>obraz; volk</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='mačji obraz'>mačka; obraz; domači ljubljenček</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='mačka'>domači ljubljenček</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='levov obraz'>obraz; lev; zodiak</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='tigrov obraz'>obraz; tiger</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='konjev obraz'>obraz; konj</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='konj'>konjske dirke; dirkanje</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='samorogov obraz'>obraz; samorog</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='kravji obraz'>krava; obraz</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='vol'>bik; zodiak</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='vodni bivol'>voda</annotation>
+
+		<!-- cow -->
+		<annotation cp='[🐄]' tts='krava'>obraz</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='prašičji obraz'>obraz; prašič</annotation>
+
+		<!-- pig; sow -->
+		<annotation cp='[🐖]' tts='prašič'>svinja</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='divja svinja'>prašič</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='prašičji rilec'>obraz; rilec; prašič</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='oven'>ovca; zodiak</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='koza'>kozorog; zodiak</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='kamela'>dromedar; grba</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='dvogrba kamela'>dvogrbo; kamela; grba</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='mišji obraz'>obraz; miš</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='hrčkov obraz'>obraz; hrček; domači ljubljenček</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='zajčji obraz'>zajček; obraz; domači ljubljenček; zajec</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='zajec'>zajček; domači ljubljenček</annotation>
+
+		<!-- chipmunk -->
+		<annotation cp='[🐿]' tts='progasta veverica'>veverica</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='medvedov obraz'>medved; obraz</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='koala'>medved</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='pandin obraz'>obraz; panda</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='odtisi tac'>tace; šapa; odtis</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='pišče, ki se izvali'>mladič; piščanček; valjenje</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='piščanček'>mladič; valjenje</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='naprej usmerjen piščanček'>mladič; piščanček</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='golobica'>ptič; leteti; mir</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='žabji obraz'>obraz; žaba</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='kača'>prinašalec; kačenosec; zodiak</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='zmajski obraz'>zmaj; obraz; pravljica</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='zmaj'>pravljica</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='kit, ki brizga vodo'>obraz; brizganje; kit</annotation>
+
+		<!-- dolphin; flipper -->
+		<annotation cp='[🐬]' tts='delfin'>fliper</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='riba'>ribi; zodiak</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='tropska riba'>riba; tropsko</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='riba napihovalka'>riba; tropsko</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='spiralna školjka'>školjka; spiralno</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='rakovica'>rak; zodiak</annotation>
+
+		<!-- bug; insect -->
+		<annotation cp='[🐛]' tts='žužek'>žuželka</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='mravlja'>žuželka</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='čebela'>žuželka</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='pikapolonica'>hrošč; žuželka</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='pajek'>žuželka</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='pajkova mreža'>pajek; mreža</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='škorpijon'>zodiak</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='šopek'>roža; rastlina; romanca</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='češnjev cvet'>cvet; češnja; roža; rastlina</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='bela cvetlica'>roža</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='rozeta'>rastlina</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='vrtnica'>roža; rastlina</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='hibiskus'>roža; rastlina</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='sončnica'>roža; rastlina; sonce</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='cvet'>roža; rastlina</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='tulipan'>roža; rastlina</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='sadika'>rastlina; mlado</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='zimzeleno drevo'>rastlina; drevo</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='listnato drevo'>listnato; rastlina; odpadanje; drevo</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='palma'>rastlina; drevo</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='kaktus'>rastlina</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='snop riža'>klas; rastlina; riž</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='zelišče'>list; rastlina</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='deteljica'>rastlina</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='štiriperesna deteljica'>4; detelja; štiri; list; rastlina</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='javorov list'>padanje; list; javor; rastlina</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='padlo listje'>padanje; list; rastlina</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='listje, ki se vrtinči v vetru'>pihati; vrtinčiti se; list; rastlina; veter</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='grozdje'>sadje; grozd; rastlina</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='melona'>sadje; rastlina</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='lubenica'>sadje; rastlina</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='mandarina'>sadje; pomaranča; rastlina</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='limona'>agrum; sadje; rastlina</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='banana'>sadje; rastlina</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='ananas'>sadje; rastlina</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='rdeče jabolko'>jabolko; sadje; rastlina; rdeče</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='zeleno jabolko'>jabolko; sadje; zeleno; rastlina</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='hruška'>sadje; rastlina</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='breskev'>sadje; rastlina</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='češnje'>češnja; sadje; rastlina</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='jagoda'>sadje; rastina</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='paradižnik'>rastlina; zelenjava</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='melancan'>rastlina; zelenjava</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='koruzni storž'>koruza; klas; rastlina</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='feferon'>vroče; rastlina</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='goba'>rastlina</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='kostanj'>rastlina</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='kruh'>štruca</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='kos sira'>sir</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='meso s kostjo'>kost; meso</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='piščančje bedro'>kost; piščanec; bedro; perutnina</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='krompirček'>pomfrit</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='pica'>sir; rezina</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='hot dog'>hrenovka</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='taco'>mehiški prigrizek</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='burrito'>mehiški prigrizek</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='skodelica hrane'>skodelica; obara</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='posoda za malico bento'>bento; posoda; malica; japonsko</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='rižev kreker'>kreker; riž</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='riževa kroglica'>kroglica; japonsko; riž</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='kuhan riž'>kuhano; riž</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='riž s karijem'>kari; riž</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='skleda rezancev'>skleda; rezanci; ramen; vrelo</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='špageti'>testenine</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='pečeni sladki krompir'>krompir; pečeno; sladko</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='oden'>kebab; morska hrana; špila; paličica</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='ocvrt rakec'>ocvrto; kozica; rakec; tempura</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='ribji kolač s spiralo'>kolač; riba; pecivo; spirala</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='dango'>posladek; japonsko; špila; paličica; sladko</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='rahel sladoled'>krema; posladek; led; sladoled; mehko; sladko</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='nastrgan led'>posladek; led; nastrgano; sladko</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='sladoled'>krema; posladek; led; sladko</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='krof'>posladek; sladko</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='piškot'>posladek; sladko</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='rojstnodnevna torta'>rojstni dan; torta; slavje; posladek; pecivo; sladko</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='krhek kolač'>torta; posladek; pecivo; rezina; sladko</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='tablica čokolade'>tablica; čokolada; posladek; sladko</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='sladkarija'>posladek; sladko</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='lizika'>sladkarija; posladek; sladko</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='vanilijev puding'>posladek; puding; sladko</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='vrč medu'>med; kozarec za med; lonček; sladko</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='steklenička'>dojenček; steklenica; piti; mleko</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='vroč napitek'>napitek; kava; piti; vroče; vrelo; čaj</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='čajna skodelica brez ročaja'>napitek; skodelica; piti; čaj; skodelica čaja</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='sake'>bar; napitek; steklenica; skodelica; pijača</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='odpiranje penine'>bar; steklenica; zamašek; pijača; odleteti; </annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='vinski kozarec'>bar; napitek; pijača; steklenica; vino</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='kozarec za koktajl'>bar; koktajl; pijača; kozarec</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='tropska pijača'>bar; pijača; tropsko</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='vrček za pivo'>bar; pivo; pijača; vrček</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='nazdravljanje z vrčkoma za pivo'>bar; pivo; trkanje; pijača; vrček</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='vilice, nož in krožnik'>kuhanje; vilice; nož; krožnik</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='vilice in nož'>kuhanje; vilice; nož</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='kuhanje'>jajce; cvrtje; ponev</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='amfora'>vodnar; kuhanje; pijača; vrč; orodje; orožje; zodiak</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='globus z evropo in afriko'>afrika; zemlja; evropa; globus; svet; </annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='globus s severno in južno ameriko'>ameriki; zemlja; globus; svet</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='globus z azijo in avstralijo'>azija; avstralija; zemlja; globus; svet</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='globus s poldnevniki'>zemlja; globus; poldnevniki; svet</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='zemljevid sveta'>zemljevid; svet</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='zasnežena gora'>hladno; gora; sneg</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='vulkan'>izbruh; gora; vreme</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='gora fuji'>fuji; gora</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='plaža s senčnikom'>plaža; senčnik</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='samotni otok'>puščava, otok</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='nacionalni park'>park</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='klasična zgradba'>zgradba; klasično</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='gradbišče'>zgradba; gradnja</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='hiše'>zgradba; hiša</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='mestna pokrajina'>zgradba; mesto</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='zapuščena hiša'>zgradba; zapuščeno; hiša</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='hiša'>zgradba; dom</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='hiša z vrtom'>zgradba; vrt; dom; hiša</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='cerkev'>zgradba; krščansko; križ; vera</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='kaaba'>islam; muslimansko; vera</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='mošeja'>islam; muslimansko; vera</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='sinagoga'>jud; judovsko; vera; tempelj</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='šintoistično svetišče'>vera; šinto; svetišče</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='poslovna stavba'>zgradba</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='japonska pošta'>zgradba; japonsko; pošta</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='pošta'>zgradba; evropsko</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='bolnišnica'>zgradba; zdravnik; zdravilo</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='banka'>zgradba</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='hotel'>zgradba</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='ljubezenski hotel'>zgradba; hotel; ljubezen</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='trgovina z mešanim blagom'>hotel; komfort; trgovina</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='šola'>zgradba</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='veleblagovnica'>zgradba; blago; trgovina</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='tovarna'>zgradba</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='japonski grad'>zgradba; grad; japonsko</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='grad'>zgradba; evropsko</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='poročna kapela'>kapela; romanca</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='tokijski stolp'>tokio; stolp</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='kip svobode'>svoboda; kip</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='zemljevid japonske'>japonska; zemljevid</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='šotor'>taborjenje</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='megleno'>megla; vreme</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='zvezdnata noč'>noč; zvezda; vreme</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='sončni vzhod v gorah'>jutro; gora; sonce; sončni vzhod; vreme</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='sončni vzhod'>jutro; sonce; vreme</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='mestna pokrajina v mraku'>zgradba; mesto; mrak; večer; pokrajina; sonce; sončni zahod; vreme</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='sončni zahod'>zgradba; mrak; sonce; vreme</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='most ponoči'>most; noč; vreme</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='termalni vrelec'>vroče; vrelec; izvir; vrelo</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='rimska cesta'>vesolje; vreme</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='konj na vrtiljaku'>vrtiljak; konj</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='panoramsko kolo'>lunapark</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='vlakec smrti'>lunapark; vlak smrti</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='brivski izvesek'>brivec; striženje; izvesek</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='cirkuški šotor'>cirkus; šotor</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='scenske umetnosti'>umetnost; maska; nastopanje; gledališče</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='uokvirjena slika'>umetnost; okvir; muzej; slika; risba</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='slikarska paleta'>umetnost; muzej; slika; paleta</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='igralni avtomat'>igra; avtomat</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='lokomotiva'>stroj; železnica; para; vlak; vozilo</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='železniški vagon'>avtomobil; električno; železnica; vlak; tramvaj; trolejbus; vozilo</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='hitri vlak'>železnica; shinkansen; hitrost; vlak; vozilo</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='hitri vlak s koničastim nosom'>koničast nos; železnica; shinkansen; hitrost; vlak; vozilo</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='vlak'>železnica; vozilo</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='podzemni vlak'>podzemna železnica; vozilo</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='ozkotirna železnica'>železnica; vozilo</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='postaja'>železnica; vlak; vozilo</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='tramvaj'>trolejbus; vozilo</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='enotirna železnica'>vozilo</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='gorska železnica'>avto; gora; železnica; vozilo</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='vagon tramvaja'>avto; tramvaj; trolejbus; vozilo</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='avtobus'>vozilo</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='prihajajoči avtobus'>avtobus; prihajajoče; vozilo</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='trolejbus'>avtobus; tramvaj; vozilo</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='avtobusna postaja'>avtobus; avtobusno postajališče; postajališče</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='minibus'>avtobus; vozilo</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='reševalno vozilo'>vozilo</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='gasilsko vozilo'>gasilsko; avto; požar; vozilo</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='policijsko vozilo'>avto; patruljno; policija; vozilo</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='prihajajoče policijsko vozilo'>avto; prihajajoče; policija; vozilo</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='taksi'>vozilo</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='prihajajoči taksi'>prihajajoče; taksi; vozilo</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='avtomobil'>avto; vozilo</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='prihajajoči avtomobil'>avtomobil; avto; prihajajoče; vozilo</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='avtodom'>prostočasno; vozilo</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='dostavno vozilo'>dostavno; poltovornjak; vozilo</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='tovornjak s prikolico'>kamion; polpriklopnik; tovornjak; vozilo</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='traktor'>vozilo</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='kolo'>vozilo</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='črpalka za gorivo'>gorivo; bencin; črpalka; servis</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='avtocesta'>cesta</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='železniška proga'>železnica; vlak</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='policijska luč'>rotacijska luč; avto; luč; policija; vrteče; vozilo</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='vodoravni semafor'>luč; semafor; promet</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='navpični semafor'>luč; semafor; promet</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='zaprto zaradi gradnje'>prepreka</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='sidro'>ladja; orodje</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='jadrnica'>čoln; letovišče; morje; vozilo; jahta</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='čoln na vesla'>čoln; vozilo</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='gliser'>čoln; vozilo</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='potniška ladja'>potnik; ladja; vozilo</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='trajekt'>ladja</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='motorni čoln'>ladja; vozilo</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='ladja'>vozilo</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='letalo'>vozilo</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='manjše letalo'>letalo; vozilo</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='odhod letala'>letalo; prijava; odhod; odhodi; vozilo</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='prihod letala'>letalo; prihodi; prihod; pristanek; vozilo</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' tts='sedež'>stol</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='helikopter'>vozilo</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='viseča železnica'>železnica; viseče; vozilo</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='nihalka'>jeklena vrv; gondola; gora; vozilo</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='žičnica'>zračno; jeklena vrv; vagon; gondola; tramvaj; vozilo</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='raketa'>vesolje; vozilo</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='satelit'>vesolje; vozilo</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='hotelski zvonec'>zvonec; portir; hotel</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='oseba v postelji'>hotel; spanje</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='postelja'>hotel; spanje</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='kavč in svetilka'>kavč; hotel; svetilka</annotation>
+
+		<!-- toilet -->
+		<annotation cp='[🚽]' tts='straniščna školjka'>stranišče</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='tuš'>voda</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='oseba, ki se kopa'>kad; kopel</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='peščena ura'>pesek; časovnik</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='peščena ura, ki teče'>peščena ura; pesek; časovnik</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='ročna ura'>ura</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='budilka'>alarm; ura</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='štoparica'>ura</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='časovnik'>ura</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='ura za na okvir kamina'>ura</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='ura je dvanajst'>00; 12; ura; dvanajst</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='ura je pol enih'>12, dvanajst; 12.30; 30; ura; pol; ena</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='ura je ena'>00; 1; 1.00; ura; ena</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='ura je pol dveh'>1; ena; 1.30; 30; ura; pol; dve</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='ura je dve'>00; 2; 2.00; ura; dve</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='ura je pol treh'>2; dve; 2.30; 30; ura; pol; tri</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='ura je tri'>00; 3; 3.00; ura; tri</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='ura je pol štirih'>3; tri; 3.30; 30; ura; pol; štiri</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='ura je štiri'>00; 4; 4.00; ura; štiri</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='ura je pol petih'>30; 4; štiri; 4.30; ura; pol; pet</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='ura je pet'>00; 5; 5.00; ura; pet</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='ura je pol šestih'>30; 5; pet; 5.30; ura; pol; šest</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='ura je šest'>00; 6; 6.00; ura; šest</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='ura je pol sedmih'>30; 6; šest; 6.30; ura; pol; sedem</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='ura je sedem'>00; 7; 7.00; ura; sedem</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='ura je pol osmih'>30; 7; sedem; 7.30; ura; pol; osem</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='ura je osem'>00; 8; 8.00; ura; osem</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='ura je pol devetih'>30; 8; osem; 8.30; ura; pol; devet</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='ura je devet'>00; 9; 9.00; ura; devet</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='ura je pol desetih'>30; 9; devet; 9.30; ura; pol; deset</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='ura je deset'>00; 10; 10.00; ura; deset</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='ura je pol enajstih'>10; deset; 10.30; 30; ura; pol; enajst</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='ura je enajst'>00; 11; 11.00; ura; enajst</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='ura je pol dvanajstih'>11; enajst; 11.30; 30; ura; pol; dvanajst</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='mlada luna'>tema; luna; vesolje; vreme</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='prvi krajec'>prvi; krajec; luna; vesolje; vreme</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='polovično osvetljena luna v prvem krajcu'>luna; četrt; vesolje; vreme</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='več kot polovično osvetljen prvi krajec'>polovično; luna; vesolje; prvi; vreme</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='polna luna'>polno; luna; vesolje; vreme</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='več kot polovično osvetljen zadnji krajec'>polovično; luna; vesolje; zadnji; vreme</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='polovično osvetljena luna v zadnjem krajcu'>luna; četrt; vesolje; vreme</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='zadnji krajec'>krajec; luna; vesolje; zadnji; vreme</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='lunin srp'>krajec; luna; vesolje; vreme</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='mlada luna z obrazom'>obraz; luna; vesolje; vreme</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='polovično osvetljena luna v prvem krajcu z obrazom'>obraz; luna; četrt; vesolje; vreme</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='polovično osvetljena luna v zadnjem krajcu z obrazom'>obraz; luna; četrt; vesolje; vreme</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='termometer'>vreme</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='sonce'>svetlo; žarki; vesolje; sončno; vreme</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='polna luna z obrazom'>svetlo; obraz; polno; luna; vesolje; vreme</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='sonce z obrazom'>svetlo; obraz; vesolje; sonce; vreme</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='bela srednja zvezda'>zvezda</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='žareča zvezda'>bleščeče; žar; sijanje; lesketanje; zvezda</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='utrinek'>padanje; repatica; vesolje; zvezda</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='oblak'>vreme</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='sonce za oblakom'>oblak; sonce; vreme</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='oblak s strelo in dežjem'>oblak; dež; strela; vreme</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='sonce za oblačkom'>oblak; sonce; vreme</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='sonce za velikim oblakom'>oblak; sonce; vreme</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='sonce za oblakom z dežjem'>oblak; dež; sonce; vreme</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='oblak z dežjem'>oblak; dež; vreme</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='oblak s snegom'>oblak; mrzlo; sneg; vreme</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='oblak s strelo'>oblak; strela; vreme</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='tornado'>oblak; vreme; vrtinec</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='megla'>oblak; vreme</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='obraz, ki piha veter'>pihati; oblak; obraz; vreme; veter</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='ciklon'>vrtoglavica; tornado; tajfun; vreme</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='mavrica'>dež; vreme</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='zaprt dežnik'>oblačila; dež; dežnik; vreme</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='dežnik'>oblačila; dež; vreme</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='dežnik z dežnimi kapljami'>oblačila; kaplja; dež; dežnik; vreme</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='dežnik na tleh'>dež; sonce; dežnik; vreme</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='visoka napetost'>nevarnost; električno; elektrika; strela; napetost; sunek</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='snežinka'>mrzlo; sneg; vreme</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='snežak'>mrzlo; sneg; vreme</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='snežak brez snega'>mrzlo; sneg; snežak; vreme</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='komet'>vesolje</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='ogenj'>plamen; orodje</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='kapljica'>mrzlo; strip; kaplja; pot; vreme</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='vodni val'>morje; voda; val; vreme</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='izrezljana buča'>slavje; noč čarovnic; buča; laterna</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='jelka'>slavje; božič; drevešček</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='ognjemet'>slavje</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='prskalica'>slavje; ognjemet; iskrenje</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='iskrice'>iskrenje; zvezda</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='balon'>slavje</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='pokalica za zabave'>slavje; zabava; pokalica</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='konfeti'>krogla; slavje</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='drevo za tanabato'>pasica; slavje; japonsko; drevo</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='prekrižani zastavi'>slavje; križ; prekrižano; japonsko</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='okrasitev bora'>bambus; slavje; japonsko; bor; rastlina</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='japonski lutki'>slavje; lutka; festival; japonsko</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='zastavni trak z ribama'>riba; slavje; barvno; trak</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='vetrni zvončki'>zvonec; slavje; zvonček; veter</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='lunino slavje'>slavje; obred; luna</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='pentlja'>slavje</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='zavito darilo'>škatla; slavje; darilo; dar; zavito</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='vojaško odlikovanje'>slavje; odlikovanje; vojaško</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='simbolna pentlja'>slavje; simbol; pentlja</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='filmski trak'>kino; sličice; film</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='vstopnice'>vstopnina; vstopnica</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='vstopnica'>vstopnina</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='nogometna žoga'>žoga; nogomet</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='žogica za baseball'>žoga</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='košarkarska žoga'>žoga; obroč</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='žoga za ameriški nogomet'>ameriško; žoga; nogomet</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='žoga za ragbi'>žoga; nogomet; ragbi</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='tenis'>žoga; lopar</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='biljard'>8; osmica; krogla; igra</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='kegljanje'>krogla; igra</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='zastavica v luknji'>golf; luknja</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='igralec golfa'>žogica; golf</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='drsalka'>led; drsati</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='ribiška palica'>riba, palica</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='tekaška majica'>tek; lenta; majica</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='smučke'>smučati; sneg</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='smučar'>smučati; sneg</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='deskar na snegu'>smučati; sneg; snežna deska</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='deskar'>deskanje</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='konjske dirke'>konj; džokej; dirkalni konj; dirkanje</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='plavalec'>plavati</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='oseba z žogo'>žoga</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='dvigovalec uteži'>dvigalec; utež</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='kolesar'>kolo</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='gorski kolesar'>kolo; kolesar; gora</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='dirkalnik'>avto; dirkanje</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='motor'>dirkanje</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='športna medalja'>medalja</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='kriket'>žogica; kij; igra</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='žoga za odbojko'>žoga; igra</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='hokej na travi'>žogica; polje; igra; hokej; palica</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='hokejska palica in plošček'>igra; hokej; led; plošček; palica</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='namizni tenis'>žogica; kij; igra; lopar</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='badminton'>perjanica; igra; lopar; žogica</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='zadetek v polno'>središče, zadetek v polno; pikado; igra; polno; zadetek; tarča</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='videoigra'>krmilnik; igra</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='igralna palica'>igra; videoigra</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='igralna kocka'>kocka; igra</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='pik'>karta; igra; barva</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='srce'>karta; igra; srca; barva</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='karo'>karta; kari igra; barva</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='križ'>karta; križi; igra; barva</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='joker'>karta; igra; igranje</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='rdeči zmaj v mahjongu'>igra; mahjong; rdeče</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='rožne igralne karte'>karta; roža; igra; japonsko; igranje</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='ugasnjen zvočnik'>tiho; brez zvoka; zvočnik; glasnost</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='zvočnik'>glasnost</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='vklopljen zvočnik'>nizko; zvočnik; glasnost; val</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='zvočnik na glas'>3; visoko; glasno, zvočnik; tri; glasnost</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='javni zvočnik'>glasnost; javna objava</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='megafon'>skandiranje</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='poštni rog'>rog; poštno</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='prečrtan zvonec'>zvonec; prepovedano; tiho; ne; ni dovoljeno; brez zvoka; molčeče</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='partitura'>glasba, partitura</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='glasbena nota'>glasba; nota</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='glasbene note'>glasba; nota; note</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='studijski mikrofon'>mikrofon; glasba; studio</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='drsnik za raven'>raven; glasba; drsnik</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='kontrolni gumbi'>kontrolnik; gumbi; glasba</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='mikrofon'>karaoke</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' tts='slušalka'>ušesna slušalka</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='saksofon'>instrument; glasba</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='kitara'>glasbilo; glasba</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='klaviatura'>glasbilo; glasba; klavir</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='trobenta'>glasbilo; glasba</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='violina'>glasbilo; glasba</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='mobilni telefon'>mobilnik; mobilno; telefon</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='mobilni telefon s puščico'>puščica; klic; mobilnik; mobilno; telefon; sprejeti</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='telefonska slušalka'>telefon; sprejemnik</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='električni vtikač'>električno; elektrika; vtikač</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='prenosnik'>računalnik; sistem; windows; osebno</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='namizni računalnik'>računalnik; namizno</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='tiskalnik'>računalnik</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='tipkovnica'>računalnik</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='računalniška miška'>3; gumb; računalnik; miška; tri</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='sledilna kroglica'>računalnik</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='minidisk'>računalnik; disk; optično</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='disketa'>računalnik; disk</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='optični disk'>dvd; blu-ray; cd; računalnik; disk; optično</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>blu-ray; cd; računalnik; disk; optično</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='filmska kamera'>kamera; kino; film</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='klapa'>film</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='filmski projektor'>kino; film; projektor; video</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='televizija'>tv; video</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='fotoaparat'>video</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='fotoaparat z bliskavico'>fotoaparat; bliskavica; video</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='kamera'>video</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='videokaseta'>kaseta; vhs; video</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='povečevalno steklo, usmerjeno v levo'>steklo; povečevalno; iskanje; orodje</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='povečevalno steklo, usmerjeno v desno'>steklo; povečevalno; iskanje; orodje</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='mikroskop'>orodje</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='teleskop'>orodje</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='satelitska antena'>antena; krožnik; satelitsko</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='sveča'>luč</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='žarnica'>strip; električno; zamisel; luč</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='svetilka'>električno; luč; orodje</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='rdeči lampijon'>bar; japonsko; lampijon; luč; rdeče</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='zvezek z okrasno platnico'>knjiga; platnica; okrašeno; zvezek</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='zaprta knjiga'>knjiga, zaprto</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='odprta knjiga'>knjiga; odprto</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='zelena knjiga'>knjiga; zeleno</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='modra knjiga'>knjiga; modro</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='oranžna knjiga'>knjiga; oranžno</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' tts='knjige'>knjiga</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='zvezek s spiralno vezavo'>zvezek</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='zvita stran'>nagrbančiti se; dokument; stran</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='zvitek'>papir</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='list s prikazano popisano stranjo'>dokument; stran</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='časopis'>novice</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='zvit časopis'>novice; časopis; zvito</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='zaznamki na straneh'>zaznamek; oznaka; marker; zavihki</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='zaznamek'>oznaka</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='vreča denarja'>vreča; dolar; denar</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='bankovec za jen'>banka; bankovec; valuta; denar; jen; apoen</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='dolarski bankovec'>banka; bankovec; valuta; dolar; denar; apoen</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='evrski bankovec'>banka; bankovec; valuta; evro; denar; apoen</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='bankovec za funt'>banka; bankovec; valuta; funt; denar; apoen</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='denar s krili'>banka; bankovec; valuta; dolar; leteti; denar; apoen; krila</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='kreditna kartica'>banka; kartica; kreditno; denar</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='grafikon rasti za jen'>banka; grafikon; valuta; graf; rast; trg; denar; rasti; trend; navzgor; jen</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='ovojnica'>e-pošta</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='e-pošta'>elektronska pošta; pismo; pošta</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='dohodna ovojnica'>e-pošta; elektronska pošta; dohodno; pismo; pošta; prejeti</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='ovojnica s puščico'>puščica; navzdol; e-pošta; elektronska pošta; kuverta; pismo; pošta; odhodno; poslano</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='pladenj za odhodno pošto'>nabiralnik; pismo; pošta; odhodna pošta; poslano; pladenj</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='pladenj za dohodno pošto'>nabiralnik; dohodna pošta; pismo; pošta; prejeti; pladenj</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='paket'>nabiralnik</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='zaprt poštni nabiralnik z dvignjeno zastavico'>zaprto; pošta; poštni nabiralnik</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='zaprt poštni nabiralnik s spuščeno zastavico'>zaprto; spuščeno; pošta; poštni nabiralnik</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='odprt poštni nabiralnik z dvignjeno zastavico'>pošta; poštni nabiralnik; odprto</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='odprt poštni nabiralnik s spuščeno zastavico'>spuščeno; pošta; poštni nabiralnik; odprto</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='poštni nabiralnik'>pošta</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='škatla za glasovanje z glasovnico'>glasovnica; škatla</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='črna konica peresa'>konica, pero</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='nalivnik'>pero</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='čopič'>barvanje</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='voščenka'>barvica</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='zabeležka'>svinčnik</annotation>
+
+		<!-- briefcase -->
+		<annotation cp='[💼]' tts='kovček'>aktovka</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='mapa za spise'>spis; mapa</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='odprta mapa za spise'>spis; mapa; odprto</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='kartoteke z vmesnimi listi'>kartica; vmesni listi; kartoteka</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='koledar'>datum</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='koledar s perforacijo'>koledar</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='spiralna beležnica'>beležka; beležnica; spirala</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='spiralni koledar'>koledar; beležka; spirala</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='organizator vizitk'>kartica; kartoteka</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='grafikon rasti'>grafikon; graf; rast; trend; navzgor</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='grafikon padca'>grafikon; navzdol; graf; trend</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='črtni grafikon'>črtno; grafikon, graf</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='povezani sponki'>sponka, povezano</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='ravnilo'>merilo</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='trikotno ravnilo'>merilo; nastaviti, trikotnik</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='škarje'>orodje</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='škatla z dokumenti'>škatla; dokumenti; spis</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='predalnik za dokumente'>predalnik; spis</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='ključavnica'>zaprto</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='odprta ključavnica'>ključavnica; odprto; odkleniti</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='ključavnica s peresom'>črnilo; ključavnica; konica; pero; zasebnost</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='zaprta ključavnica s ključem'>zaprto; ključ; ključavnica; varno</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='ključ'>ključavnica; geslo</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='star ključ'>namig; ključ; ključavnica; staro</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='kladivo'>orodje</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='kramp'>rudarjenje; orodje</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='kladivo in kramp'>kladivo; kramp; orodje</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='kladivo in ključ'>kladivo; orodje; ključ</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='ključ za matice'>orodje</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='matica in vijak'>vijak; matica; orodje</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='zobnik'>orodje</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='stiskanje'>orodje; primež</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='destilator'>kemija; orodje</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='tehtnica'>ravnovesje; pravičnost; orodje; teža; zodiak</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='injekcija'>zdravnik; medicina; igla; bolno; orodje</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='tableta'>zdravnik; zdravilo; bolno</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='bodalo'>nož; orožje</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='kuhinjski nož'>kuhanje; hocho; nož; orodje; orožje</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='prekrižana meča'>prekrižano; meči; orožje</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='pištola'>revolver; orodje; orožje</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='ščit'>orožje</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='lok in puščica'>lokostrelec; puščica; lok; strelec; orodje; orožje; zodiak</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='kockasta zastava'>kockasto; zastava; dirkanje</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='plapolajoča bela zastava'>plapolanje</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='plapolajoča črna zastava'>plapolanje</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='trikotna zastavica'>zastavica</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='krsta'>smrt</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='žara'>smrt; pogreb</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='moai'>obraz; kip</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='naftni sod'>sod; nafta</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='kristalna krogla'>krogla; kristalno; pravljica; fantazija; prerokba; orodje</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='znak za bankomat'>bankomat; avtomat; denar</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='znak za smeti v košu'>smeti; koš</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='pitna voda'>piti; pitno; voda</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='invalidski voziček'>dostop</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='moško stranišče'>stranišče; moški; wc</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='žensko stranišče'>stranišče; ženska; wc</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='stranišče'>wc</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='simbol dojenčka'>dojenček; previjanje</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='wc'>stranišče; voda</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='pregled dokumentov'>nadzor; potni list</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='prevzem prtljage'>prtljaga; prevzem</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='prtljaga v garderobi'>prtljaga; omarica; kovčki</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='otroci prečkajo cesto'>otrok; prehod; pešec; promet</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='ni prehoda'>vstop; prepovedano; ne; ni dovoljeno; promet</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='prepovedano'>vstop; ne</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='prepovedano za kolesa'>kolo; prepovedano; ne; ni dovoljeno; vozilo</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='prepovedano kajenje'>prepovedano; ne; ni dovoljeno; kajenje</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='prepovedano odlaganje smeti'>prepovedano; odlagati; smeti; ne; ni dovoljeno; </annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='voda ni pitna'>piti; prepovedati; ne; pitno; ni dovoljeno; voda</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='prepovedano za pešce'>prepovedano; ne; pešec; ni dovoljeno</annotation>
+
+		<!-- biohazard -->
+		<annotation cp='[☣]' tts='nevarno zaradi bioloških poskusov'>tvegano; biološki poskusi</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='puščica gor'>puščica; glavno; smer; sever</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='puščica desno gor'>puščica; smer; stransko; severovzhod</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='puščica desno'>puščica; glavno; smer; vzhod</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='puščica desno dol'>puščica; smer; stransko; jugovzhod</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='puščica dol'>puščica; glavno; smer; navzdol; jug</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='puščica levo dol'>puščica; smer; stransko; jugozahod</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='puščica levo'>puščica; glavno; smer; zahod</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='puščica levo gor'>puščica; smer; stransko; severozahodno</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='puščica gor dol'>puščica</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='puščica levo desno'>puščica</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='puščica desno, ki se ukrivlja v levo'>puščica</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='puščica levo, ki se ukrivlja v desno'>puščica</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='puščica desno, ki se ukrivlja gor'>puščica</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='puščica desno, ki se ukrivlja dol'>puščica; navzdol</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='navpični puščici, ki se ukrivljata v smeri urinega kazalca'>puščica; smer urinega kazalca; vnovično nalaganje</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='gumb s puščicama, ki se ukrivljata v obratni smeri urinega kazalca'>nasprotna smer urinega kazalca; puščica; nazaj</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='puščica nazaj'>puščica; nazaj</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='puščica konec'>puščica; konec</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='puščica vklopljeno'>puščica; znak; vklop</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='puščica kmalu'>puščica; kmalu</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='puščica na vrh'>puščica; zgoraj; navzgor</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='božji hram'>vera, čaščenje</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='simbol za atom'>ateist; atom</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='om'>hinduistično; vera</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='davidova zvezda'>david; jud; judovsko; vera; zvezda</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='kolo darme'>budistično; darma; vera; kolo</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='jin jang'>vera; tao; taoistično; jang; jin</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='krščanski križ'>krščansko; križ; vera</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='pravoslavni križ'>krščansko; križ; vera</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='zvezda in polmesec'>islam; muslimansko; vera</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='simbol za mir'>mir</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='menora'>namizni svečnik; svečnik; vera</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='šestkraka zvezda s piko'>sreča; zvezda</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='simbol za recikliranje'>reciklirati</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='značka za ime'>značka; ime</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='japonski simbol za začetnika'>začetnik; puščica; cik-cak; zeleno; japonsko; list; orodje; rumeno</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='trizobo znamenje'>sidro; znamenje; ladja; orodje; trizob</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='velik krog'>krog; o</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='bela kljukica'>kljukica; znak</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='škatla za glasovanje s kljukico'>glasovnica; škatla; kljukica</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='kljukica'>znak</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='znak x za množenje'>preklic; množenje; množiti; x</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='križec'>preklic; znak; množenje; množiti; x</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='gumb s križcem'>znak; kvadratno</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='znak za plus'>matematika; plus</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='znak za minus'>matematika; minus</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='znak za deljenje'>deljenje; matematika</annotation>
+
+		<!-- curly loop; curl; loop -->
+		<annotation cp='[➰]' tts='zavita pentlja'>spirala; zanka; pentlja</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='dvojna zavita pentlja'>spirala; dvojno; zanka; pentlja</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='znak za part'>znak; part</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='zvezdica z osmimi špicami'>zvezdica</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='osemkraka zvezda'>zvezda</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='menjava valut'>banka; valuta; menjava; denar</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='znak za dolar'>valuta; dolar; denar</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='dvojni klicaj'>klicaj; dva klicaja; znak; ločilo</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='klicaj in vprašaj'>klicaj; znak; ločilo; vprašanje</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='vprašaj'>znak; ločilo; vprašanje</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='bel vprašaj'>znak; obrobljeno; ločilo; vprašanje</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='bel klicaj'>klicaj; znak; obrobljeno; ločilo</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='klicaj'>znak; ločilo</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='valovit pomišljaj'>pomišljaj; ločilo; valovito</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='blagovna znamka'>znak; TM</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='astrološki znak ovna'>oven; zodiak</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='bik'>vol; zodiak</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='dvojčka'>zodiak</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='rak'>zodiak</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='lev'>zodiak</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='devica'>deva; zodiak</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='tehnica'>ravnovesje; pravičnost; tehtnica; zodiak</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='astrološki znak škorpijona'>škorpijon; zodiak</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='lokostrelec'>zodiak</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='kozorog'>koza, zodiak</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='vodnar'>nosec; voda; zodiak</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='ribi'>riba; zodiak</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='kačenosec'>nosec; kača; zodiak</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='gumb za naključno predvajanje'>puščica; prekrižano</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='gumb za vnovično predvajanje'>puščica; smer urnega kazalca; ponavljanje</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='gumb za vnovično posamezno predvajanje'>puščica; smer urnega kazalca; enkratno</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='gumb za predvajanje'>puščica; predvajanje; desno; trikotnik</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='gumb za hitro previjanje naprej'>puščica; dvojno; hitro; naprej</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='gumb za naslednjo skladbo'>puščica; naslednji prizor; naslednja skladba; trikotnik</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='gumb za predvajanje ali zaustavitev'>puščica; zaustavitev; predvajanje; desno; trikotnik</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='gumb za predvajanje nazaj'>puščica; levo; nazaj; trikotnik</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='gumb za hitro previjanje nazaj'>puščica; dvojno; previjanje nazaj</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='gumb za zadnjo skladbo'>puščica; prejšnji prizor; prejšnja skladba; trikotnik</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='gumb za gor'>puščica; gumb; rdeče</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='gumb za hitro gor'>puščica; dvojno</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='gumb za dol'>puščica; gumb; navzdol; rdeče</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='gumb za hitro dol'>puščica; dvojno; navzdol</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='gumb za zaustavitev'>stolpec; dvojno; zaustavitev; navpično</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='gumb za ustavitev'>kvadrat; ustavitev</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='gumb za snemanje'>krog; snemanje</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='gumb za izvrženje'>izvrženje</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='kino'>kamera; film</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='gumb za zatemnitev'>svetlost; zatemnitev; nizko</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='gumb za svetlost'>svetlo; svetlost</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='signal'>antena; stolpec; mobilnik; mobilno; telefon</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='mobilni telefoni prepovedani'>mobilnik; prepovedano; mobilno; ne; telefon; ni dovoljeno</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='način vibriranja'>mobilnik; mobilno; način; telefon; vibriranje</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='mobilni telefon izklopljen'>mobilnik; mobilno; izklopljeno; telefon</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='lojtra na številčnici'>lojtra; številčnica</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='zvezdica na številčnici'>zvezdica; številčnica</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='številka nič na številčnici'>0; številčnica; nič</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='številka ena na številčnici'>1; številčnica; ena</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='številka dve na številčnici'>2; številčnica; dve</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='številka tri na številčnici'>3; številčnica; tri</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='številka štiri na številčnici'>4; številčnica; štiri</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='številka pet na številčnici'>5; številčnica; šet</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='številka šest na številčnici'>6; številčnica; šest</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='številka sedem na številčnici'>7; številčnica; sedem</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='številka osem na številčnici'>8; številčnica; osem</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='številka devet na številčnici'>9; številčnica; devet</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='številka deset na številčnici'>10; številčnica; deset</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='sto točk'>100; sto</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='prepovedano za mlajše od 18 let'>18; omejitev starosti; osemnajst; prepovedano; ne; ni dovoljeno; mladoletno</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='vnos velikih črk latinice'>vnos; latinica; črke; velike črke</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='vnos malih črk latinice'>abcd; vnos; latinica; črke; male črke</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='vnos številk'>1234; vnos; številke</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='vnos simbolov'>vnos</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='vnos črk latinice'>abc; abeceda; vnos; latinica; črke</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='gumb s črko a'>a; kri</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='gumb s črkama ab'>ab; kri</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='gumb s črko b'>b; kri</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='črki cl v kvadratu'>cl</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='beseda cool v kvadratu'>frajersko</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='beseda free v kvadratu'>prosto</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='vir informacij'>i; informacije</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='črki id v kvadratu'>id; identiteta</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='črka m v krogu'>krog; m</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='beseda new v kvadratu'>novo</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='črki ng v kvadratu'>ng</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='gumb s črko o'>kri; o</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='beseda ok v kvadratu'>v redu</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='gumb s črko p'>parkiranje</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='beseda sos v kvadratu'>na pomoč; sos</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='gumb z besedo up in klicajem'>znak; navzgor</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='črki vs v kvadratu'>proti</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='znak za katakana koto v kvadratu'>japonsko</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='znak za katakana sa v kvadratu'>japonsko</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='pojmovni znak za luno v kvadratu'>japonsko</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='pojmovni znak za obstoj v kvadratu'>japonsko</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='pojmovni znak za prst v kvadratu'>japonsko</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='pojmovni znak za prednost v krogu'>japonsko</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='pojmovni znak za delitev v kvadratu'>japonsko</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='pojmovni znak za zanikanje v kvadratu'>japonsko</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='pojmovni znak za prepoved v kvadratu'>japonsko</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='pojmovni znak za sprejem v krogu'>kitajsko</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='pojmovni znak za uporabo v kvadratu'>kitajsko</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='pojmovni znak za skupaj v kvadratu'>kitajsko</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='pojmovni znak za prazno v kvadratu'>kitajsko</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='pojmovni znak za čestitanje v krogu'>kitajsko; čestitka; čestitke; ideogram</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='pojmovni znak za skrivnost v krogu'>kitajsko; ideogram; skrivnost</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='pojmovni znak za delovanje v kvadratu'>kitajsko</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='pojmovni znak za polnost v kvadratu'>kitajsko</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='črn majhen kvadrat'>geometrično; kvadrat</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='bel majhen kvadrat'>geometrično; kvadrat</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='bel srednji kvadrat'>geometrično; kvadrat</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='črn srednji kvadrat'>geometrično; kvadrat</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='bel srednje majhen kvadrat'>geometrično; kvadrat</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='črne srednje majhen kvadrat'>geometrično; kvadrat</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='črn velik kvadrat'>geometrično; kvadrat</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='bel velik kvadrat'>geometrično; kvadrat</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='velik oranžni karo'>karo; geometrično; oranžno</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='velik moder karo'>modro; karo; geometrično</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='majhen oranžen karo'>karo; geometrično; oranžno</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='majhen moder karo'>modro; karo; geometrično</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='rdeči trikotnik gor'>geometrično; rdeče</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='rdeči trikotnik dol'>navzdol; geometrično; rdečež</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='karo s piko'>strip; karo; geometrično; znotraj</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='izbirni gumb'>gumb; geometrično; izbirni</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='gumb s črnim kvadratom'>gumb; geometrično; kvadrat</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='gumb z belim kvadratom'>gumb; geometrično; obrobljeno; kvadrat</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='bel krog'>krog; geometrično</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='črn krog'>krog; geometrično</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='rdeč krog'>krog; geometrično; rdeče</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='moder krog'>modro; krog; geometrično</annotation>
+	</annotations>
+</ldml>

@@ -1,0 +1,2926 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='fa'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='خنده'>صورت؛ خنده</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='خنده دندونی'>چشم؛ صورت؛ لبخند؛ خنده</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='روده‌بر'>صورت؛ خوشحالی؛ خنده بلند؛ اشک</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='صورت خندان'>صورت؛ دهان؛ باز؛ لبخند؛ خنده</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='لب و چشم خندان'>چشم؛ صورت؛ دهان؛ باز؛ خنده؛ لبخند</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='خنده و عرق خوشحالی'>صورت؛ دهان؛ باز؛ خنده؛ عرق؛ شادی، لبخند</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='قاه‌قاه'>صورت؛ خنده؛ دهان؛ باز؛ خوشحالی؛ شادی؛ لبخند</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='چشمک'>صورت؛ چشمک</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='لبخند خجالتی'>صورت؛ سرخ شدن؛ چشم؛ لبخند؛ خجالت</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='صورت با زبان آب افتاده'>صورت؛ خوشمزه؛ به‌به؛ لبخند؛ لذیذ</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='باحال'>صورت؛ جالب؛ عینک آفتابی؛ لبخند؛ خورشید؛ روشن؛ عینک؛ آب‌وهوا؛ چشم</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='چشم‌های عاشق'>چشم؛ صورت؛ قلب؛ عشق؛ عاشق؛ لبخند</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='بوسه فرستادن'>صورت؛ قلب؛ بوسیدن؛ بوسه</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='بوسیدن'>صورت؛ بوسه؛ بوسیدن</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='لبخند و بوسه'>صورت؛ چشم؛ بوسیدن؛ لبخند؛ بوسه</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='بوسه خجالتی'>صورت؛ چشم بسته؛ چشم؛ بسته؛ بوسیدن؛ بوسه</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='لبخند'>صورت؛ آرام؛ چشم بسته؛ لبخند؛ چشم؛ بسته</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='لبخند ملایم'>صورت؛ لبخند</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='بغل کردن'>صورت؛ آغوش؛ در آغوش گرفتن؛ بغل کردن؛ لبخند</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='فرشته'>فرشته؛ صورت؛ پری؛ فانتزی؛ معصوم؛ لبخند؛ ملیح؛ مقدس</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='درحال تفکر'>صورت؛ فکر کردن؛ متفکر؛ تفکر</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='خنثی'>بی‌روح؛ صورت؛ خنثی؛ بی‌طرف</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='صورت بی‌حالت'>بی‌حالت؛ صورت؛ بدون حالت؛ بدون احساس</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='صورت بدون لب'>صورت؛ دهان؛ ساکت؛ آرام؛ بی‌صدا</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='نگاه کلافه'>چشم؛ صورت؛ نگاه عاقل اندر سفیه؛ کلافه</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='پوزخند'>صورت؛ پوزخند؛ تمسخر</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='پافشاری'>صورت؛ پافشاری؛ تلاش؛ استقامت</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='صورت ناامید اما با خیال راحت'>ناراحت؛ صورت؛ غمگین؛ ناامید؛ آسوده خاطر؛ راحت شدن؛ آخیش</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='دهان باز از تعجب'>صورت؛ دهان؛ باز؛ همدردی؛ غافلگیری؛ تعجب</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='دهان چفت'>صورت؛ دهان؛ قفل؛ زیپ؛ قابل اعتماد؛ دهان چفت</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='مات و مبهوت'>صورت؛ متعجب؛ حیرت‌زده؛ غافلگیر؛ مات؛ مبهوت</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='خواب‌آلود'>صورت؛ خواب</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='صورت خسته'>صورت؛ خسته؛ خستگی</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='خوابیده'>صورت؛ خواب؛ خروپف؛ خوابیدن</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='آسوده خاطر'>صورت؛ خیال راحت؛ آسوده خاطر</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='خوره'>صورت؛ متفاوت؛ حرفه‌ای؛ خوره</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='زبونک'>صورت؛ زبان</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='زبونک و چشمک'>صورت؛ چشم؛ شوخی؛ جوک؛ زبان؛ چشمک</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='زبونک با چشم بسته'>چشم؛ صورت؛ زشت؛ زبان؛ بدمزه؛ بد؛ چشم بسته</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='اخمو'>صورت؛ اخم</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='دلخور'>صورت؛ اخم؛ دلخور</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='کسل'>صورت؛ بی‌حوصله؛ کسل؛ کسل‌کننده</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='عرق سرد'>سرما؛ سرد؛ صورت؛ عرق</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='افسرده'>افسرده؛ ناراحت؛ پژمرده؛ صورت؛ غمگین</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='گیج شده'>گیج؛ گیج شده؛ صورت؛ مغشوش</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='سردرگم'>گیج؛ سردرگم؛ به‌هم‌ریخته؛ صورت</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='صورت وارونه'>صورت؛ وارونه؛ لبخند؛ معکوس</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='سرماخورده'>سرما؛ سرد؛ دکتر؛ صورت؛ ماسک؛ دارو؛ تب؛ بیمار؛ مریض</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='تب‌دار'>صورت؛ بیمار؛ مریض؛ دماسنج؛ تب</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='با سر باندپیچی'>باندپیچی؛ صورت؛ آسیب؛ صدمه؛ زخم؛ حادثه؛ تصادف؛ درد؛ سر</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='صورت پول‌دوست'>صورت؛ پول؛ دهان</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='بهت‌زده'>بهت‌زده؛ صورت؛ شوکه شده؛ کاملاً؛ مات؛ متعجب</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='ناامید'>ناامید؛ صورت؛ ناراحت؛ غمگین</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='نگران'>صورت؛ نگران؛ آشوب</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='ژست برندگی'>صورت؛ برنده؛ پیروزی؛ فتح؛ غرور</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='گریان'>گریه؛ اشک؛ گریه کردن؛ ناراحت؛ صورت</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='هق‌هق گریه'>گریه کردن؛ صورت؛ ناراحت؛ هق‌هق؛ اشک</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='نا باور'>صورت؛ اخم؛ دهان؛ باز؛ باورنکردنی؛ توقع نداشتن</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='دردمند'>مضطرب؛ صورت؛ دردمند؛ نگران</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='ترسیده'>ترس؛ صورت؛ ترسناک؛ ترسیده</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='از پا افتاده'>صورت؛ خسته؛ بی‌حوصله؛ کسل‌کننده؛ از پا افتاده</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='دهن‌کجی'>صورت؛ شکلک؛ ادا و اصول؛ دهن‌کجی؛ منزجر</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='عرق ترس'>آبی؛ سرد؛ صورت؛ دهان؛ باز؛ عرق؛ ترس</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='جیغ ترس'>صورت؛ ترس؛ ترسناک؛ ترسیده؛ وحشتناک؛ جویدن ناخن از ترس؛ جیغ</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='گیج و منگ'>گیج؛ منگ؛ سرخ شده؛ خجالت</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='گیج'>گیج؛ صورت</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='خشمگین'>عصبانی؛ صورت؛ دیوانه؛ لبو؛ سرخ؛ خشم؛ قرمز؛ خشمگین</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='عصبانی'>عصبانی؛ صورت؛ دیوانه</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='خنده شرورانه'>صورت؛ جن؛ فانتزی؛ شاخ؛ لبخند؛ مکار؛ شرور</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='شرور'>دیو؛ شیطان؛ صورت؛ فانتزی</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='دیو'>جانور؛ صورت؛ جن و پری؛ فانتزی؛ ژاپنی؛ هیولا</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='جن کوتوله'>جانور؛ صورت؛ جن و پری؛ فانتزی؛ ژاپنی؛ هیولا</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='جمجمه'>بدن؛ مرگ؛ صورت؛ جن و پری؛ هیولا؛ اسکلت؛ جمجمه</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='خطر مرگ'>بدن؛ علامت؛ خطر؛ مرگ؛ استخوان؛ صورت؛ هیولا؛ جمجمه</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='روح'>جانور؛ صورت؛ جن و پری؛ فانتزی؛ هیولا</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='آدم فضایی'>جانور؛ فرازمینی؛ صورت؛ جن و پری؛ فانتزی؛ هیولا؛ فضا؛ فضایی؛ آدم فضایی</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='هیولای فضایی'>آدم فضایی؛ بیگانه؛ جانور؛ فرازمینی؛ صورت؛ جن و پری؛ فانتزی؛ هیولا؛ فضا؛ فضایی</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='روبات'>صورت؛ هیولا؛ ربات</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='یه تپه گه'>مصور؛ مدفوع؛ صورت؛ هیولا؛ پی‌پی؛ گه؛ ان؛ پشکل</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='گربه خندان'>گربه؛ صورت؛ دهان؛ باز؛ خنده</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='گربه با چشم‌های خندان'>گربه؛ چشم؛ صورت؛ لبخند؛ خنده</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='گربه و قاه قاه خنده'>گربه؛ صورت؛ شادی؛ اشک</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='گربه عاشق'>گربه؛ چشم؛ صورت؛ قلب؛ عشق؛ لبخند</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='گربه با پوزخند'>گربه؛ صورت؛ طعنه؛ لبخند؛ پوزخند</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='گربه و بوسه خجالتی'>گربه؛ چشم؛ صورت؛ بوسه</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='گربه بهت‌زده'>گربه؛ صورت؛ وای؛ متعجب؛ غافلگیر؛ بهت‌زده</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='گربه گریان'>گربه؛ گریه؛ صورت؛ ناراحت؛ اشک</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='گربه اخم کرده'>گربه؛ صورت؛ اخم</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='میمون شر نبین'>شر؛ صورت؛ ممنوع؛ اشاره؛ میمون؛ نه؛ نبین؛ دیدن</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='میمون شر نشنو'>شر؛ صورت؛ ممنوع؛ اشاره؛ میمون؛ نه؛ شنیدن</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='میمون شر نگو'>شر؛ صورت؛ ممنوع؛ اشاره؛ میمون؛ نه؛ نگفتن؛ صحبت</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='دختر'>دختر؛ دوشیزه؛ باکره</annotation>
+
+		<!-- man -->
+		<annotation cp='[👨]' tts='مرد'>مرد؛ آقا</annotation>
+
+		<!-- woman -->
+		<annotation cp='[👩]' tts='زن'>زن؛ خانم</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='پیرمرد'>مرد؛ پیر</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='پیرزن'>پیر؛ زن</annotation>
+
+		<!-- baby -->
+		<annotation cp='[👶]' tts='بچه'>کودک؛ بچه</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='آدم بلوند'>بور؛ بلوند؛ طلایی</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='پلیس'>پلیس؛ افسر</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='مرد با کلاه چینی'>کلاه؛ مرد؛ کلاه ژاپنی</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='مرد عمامه‌دار'>مرد؛ عمامه</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='کارگر'>ساخت‌وساز؛ کلاه؛ کارگر</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='کلاه صلیب سرخ'>ایمنی؛ صلیب؛ صورت؛ کلاه؛ کلاه ایمنی</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='شاهزاده'>افسانه؛ جن و پری؛ فانتزی؛ شاهدخت</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='کارآگاه'>کارآگاه؛ جاسوس</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='بابا نوئل'>جشن؛ کریسمس؛ جن و پری؛ فانتزی؛ پدر؛ سانتا</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='فرشته کوچولو'>فرشته؛ کودک؛ بچه؛ صورت؛ پری؛ فانتزی</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='ماساژ صورت'>ماساژ؛ سالن</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='آرایشگاه'>آرایشگر؛ زیبایی؛ آرایشگاه</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='عروس'>عروس؛ تور؛ تاج عروس؛ عروسی</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='آدم اخمو'>اخم؛ اشاره</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='آدم ناراضی'>ژست؛ اخم؛ جمع کردن لب؛ ناراضی</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='ابداً نه'>ممنوع؛ ژست؛ دست؛ نه؛ خیر</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='باشه'>ژست؛ دست؛ اوکی؛ باشه؛ تأیید</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='آماده کمک'>دست؛ کمک؛ اطلاعات؛ سرزنده</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='ای ول'>ژست؛ دست؛ شاد؛ بالا</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='عذرخواهی'>عذرخواهی؛ تعظیم؛ ژست؛ متأسف؛ شرمنده</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='تمجید'>بدن؛ جشن؛ ژست؛ دست؛ هورا؛ بالا برده؛ تحسین</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='دعا کردن'>درخواست؛ بدن؛ تعظیم؛ ژست؛ دست؛ لطفاً؛ دعا؛ تشکر؛ سپاس</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='در حال صحبت'>صورت؛ سر؛ سایه؛ صحبت کردن؛ صحبت</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='بالاتنه سایه نما'>ضد نور؛ سایه نما؛ سیلوئت؛ نیم‌تنه؛ نمایه؛ عکس؛ سایه</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='دو بالاتنه سایه نما'>تمام‌رخ جوجه</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='عابر پیاده'>پیاده؛ پیاده‌گردی؛ راه رفتن؛ پیاده‌روی</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='دونده'>ماراتن؛ استقامت؛ دو؛ دویدن</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='رقص'>خرگوش؛ بانی؛ گوش؛ رقاص؛ دختر؛ زن</annotation>
+
+		<!-- dancer -->
+		<annotation cp='[💃]' tts='رقاص'>رقاص؛ رقصیدن</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='پرواز مرد با لباس رسمی'>کسب‌وکار؛ شغل آزاد؛ مرد؛ کت و شلوار؛ لباس رسمی</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='بوسه'>زوج؛ عشق؛ داستان عاشقانه</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='زوج عاشق'>زوج؛ عشق؛ قلب؛ داستان عاشقانه</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='خانواده'>کودک؛ فرزند؛ پدر؛ مادر</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='زوج'>زوج؛ دست؛ دست در دست؛ مرد؛ زن</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='دو مرد دست در دست'>زوج؛ همجنس‌گرا؛ دست؛ مرد؛ دست در دست؛ دو پیکر؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='دو زن دست در دست'>زوج؛ دست؛ دست در دست؛ همجنس‌گرا؛ زن</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='پوست سفید'>اصلاح‌گر شکلک؛ پوست؛ تن رنگ</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='پوست روشن'>اصلاح‌گر شکلک؛ پوست؛ تن رنگ</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='پوست طلایی'>اصلاح‌گر شکلک؛ پوست؛ تن رنگ</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='پوست گندمی'>اصلاح‌گر شکلک؛ پوست؛ تن رنگ</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='پوست آبنوسی'>اصلاح‌گر شکلک؛ پوست؛ تن رنگ</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='عضله بازو'>عضله بازو؛ بدن؛ مصور؛ ماهیچه؛ ورزیده</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='اشاره به چپ'>پشت دست؛ بدن؛ انگشت؛ دست؛ اشاره؛ انگشت اشاره</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='اشاره به راست'>پشت دست؛ بدن؛ انگشت؛ دست؛ اشاره؛ انگشت اشاره</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='اشاره به بالا'>بدن؛ انگشت؛ دست؛ اشاره؛ بالا</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='اشاره به بالا با پشت دست'>پشت دست؛ بدن؛ انگشت؛ دست؛ اشاره؛ بالا</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='انگشت میانه'>بدن؛ انگشت؛ دست؛ ناسزا</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='اشاره به پایین'>پشت دست؛ بدن؛ پایین؛ انگشت؛ دست؛ اشاره؛ انگشت اشاره</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='علامت پیروزی'>بدن؛ دست؛ پیروزی؛ v</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='سلام ولکان'>بدن؛ انگشت؛ دست؛ ولکان؛ سلام؛ جنگ ستارگان</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='شاخ شیطان'>بدن؛ انگشت؛ دست؛ شاخ؛ راک؛ شیطان</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='بزن قدش'>بدن؛ انگشت؛ دست؛ بزن قدش</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='دست بالا برده'>بدن؛ دست</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='علامت اوکی'>بدن؛ دست؛ باشه؛ اوکی؛ تأیید</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='پسندیدن'>پسندیدن؛ 1+؛ دست؛ شست؛ بالا</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='نپسندیدن'>نپسندیدن؛ 1-؛ دست؛ شست؛ پایین</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='مشت کردن'>بدن؛ مشت کردن؛ گره؛ مشت؛ کوبیدن</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='با مشت کوبیدن'>بدن؛ مشت کردن؛ گره؛ مشت؛ کوبیدن</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='تکان دادن دست'>بدن؛ دست؛ تکان دادن؛ موج</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='دست زدن'>بدن؛ دست زدن؛ دست</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='دست‌های باز'>بدن؛ دست؛ باز</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='نوشتن با دست'>بدن؛ دست؛ نوشتن</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='لاک زدن'>بدن؛ توجه؛ رسیدگی؛ زیبایی؛ آرایش؛ مانیکور؛ ناخن؛ لاک</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='گوش'>بدن</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='بینی'>بدن</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='رد پا'>بدن؛ پوشاک؛ جای پا؛ اثر</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='دو چشم'>بدن؛ چشم؛ صورت</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='چشم'>بدن</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='زبان'>بدن</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='لب'>بدن؛ لب؛ دهان</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='بوسه ماتیکی'>قلب؛ بوسه؛ لب؛ علامت؛ عاشقانه</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='قلب تیرخورده'>تیر؛ الهه عشق؛ کوپید؛ قلب؛ عاشقانه</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='قلب قرمز'>قلب</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='قلب تپنده'>تپش؛ قلب؛ تپش قلب؛ تپیدن</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='قلب شکسته'>شکستن؛ شکسته؛ قلب</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='دو قلب'>قلب؛ عشق</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='قلب درخشان'>هیجان‌زده؛ قلب؛ درخشش</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='قلب هیجان‌زده'>هیجان‌زده؛ قلب؛ تپش؛ عصبی</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='قلب آبی'>آبی؛ قلب</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='قلب سبز'>سبز؛ قلب</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='قلب زرد'>زرد؛ قلب</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='قلب بنفش'>بنفش؛ قلب</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='قلب با روبان'>قلب؛ روبان؛ ولنتاین</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='قلب چرخان'>قلب؛ چرخان</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='علامت تعجب قلبی'>علامت تعجب؛ قلب؛ علامت؛ نشانه‌گذاری</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='نامه عاشقانه'>قلب؛ نامه؛ عشق؛ ایمیل؛ عاشقانه</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='خروپف'>مصور؛ خواب؛ کمیک</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='نماد عصبانیت'>عصبانی؛ مصور؛ دیوانه؛ کمیک</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='بمب'>کمیک؛ مصور؛ بمب</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='برخورد'>بوم؛ صدای انفجار؛ مصور؛ کمیک</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='قطره‌های عرق'>مصور؛ کمیک؛ تراوش؛ عرق</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='به سرعت باد'>مصور؛ کمیک؛ دوان؛ سریع؛ گرد پا</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='سرگیجه'>مصور؛ کمیک؛ ستاره</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='بالن گفتار'>بالن؛ حباب؛ مصور؛ کمیک؛ دیالوگ؛ گفتگو</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='حباب گفتار چپ'>دیالوگ؛ گفتگو</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='حباب خشم راست'>عصبانی؛ بالن؛ حباب؛ دیوانه؛ جنون</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='بالن تفکر'>بالن؛ حباب؛ مصور؛ کمیک؛ فکر</annotation>
+
+		<!-- hole -->
+		<annotation cp='[🕳]' tts='چاله'>چاله؛ سوراخ</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='عینک طبی'>پوشاک؛ چشم؛ عینک؛ عینک طبی</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='عینک آفتابی'>تیره؛ چشم؛ عینک آفتابی</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='کراوات'>پوشاک</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='تی‌شرت'>پوشاک؛ بلوز؛ تی‌شرت</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='شلوار جین'>پوشاک؛ شلوار؛ جین</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='پیراهن زنانه'>پوشاک؛ زنانه؛ مجلسی</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='کیمونو'>پوشاک؛ ژاپنی</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='بیکینی'>پوشاک؛ شنا؛ مایو</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='لباس زنانه'>پوشاک؛ زنانه</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='کیف دستی'>پوشاک؛ کیف؛ سکه</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='کیف دوشی'>کیف؛ پوشاک</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='کیف پول'>کیف؛ پوشاک</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='کیف خرید'>کیف؛ هتل؛ خرید</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='کوله‌پشتی'>کیف؛ کولی؛ مدرسه</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='کفش مردانه'>پوشاک؛ مردانه؛ کفش</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='کفش ورزشی'>ورزشی؛ پوشاک؛ کفش؛ اسنیکر</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='کفش پاشنه بلند'>پوشاک؛ پاشنه؛ کفش؛ زن</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='صندل زنانه'>پوشاک؛ صندل؛ کفش؛ زن</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='پوتین زنانه'>پوتین؛ بوت؛ پوشاک؛ کفش؛ زن</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='تاج'>پوشاک؛ شاه؛ ملکه</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='کلاه زنانه'>پوشاک؛ کلاه؛ زن</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='کلاه مردانه استوانه‌ای'>پوشاک؛ کلاه؛ بالا؛ تاپ‌هت</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='کلاه فارغ‌التحصیلی'>کلاه؛ جشن؛ پوشاک؛ فارغ‌التحصیلی</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='تسبیح'>مهره؛ پوشاک؛ گردن‌بند؛ دعا؛ مذهب؛ تسبیح</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='رژلب'>لوازم آرایش؛ آرایش</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='حلقه'>الماس؛ عاشقانه</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='جواهر'>الماس؛ جواهر؛ جواهرآلات؛ عاشقانه</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='صورت میمون'>صورت؛ میمون</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='صورت سگ'>سگ؛ صورت؛ حیوان خانگی</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='سگ'>حیوان خانگی</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='پودل'>سگ</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='صورت گرگ'>صورت؛ گرگ</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='صورت گربه'>گربه؛ صورت؛ حیوان خانگی</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='گربه'>حیوان خانگی</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='صورت شیر'>صورت؛ شیر؛ شیر جنگل؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='صورت ببر'>صورت؛ ببر</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='صورت اسب'>صورت؛ اسب</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='اسب'>اسب‌سواری؛ مسابقه</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='صورت تک‌شاخ'>صورت؛ تک‌شاخ</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='صورت گاو'>صورت؛ گاو</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='گاو نر'>گاو نر؛ برج ثور؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='بوفالوی آبی'>بوفالو؛ آب</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='صورت خوک'>صورت؛ خوک</annotation>
+
+		<!-- pig; sow -->
+		<annotation cp='[🐖]' tts='خوک'>ماده خوک</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='گراز نر'>خوک نر</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='دماغ خوک'>صورت؛ دماغ؛ خوک</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='قوچ'>قوچ؛ برج حمل؛ گوسفند؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- sheep; ewe -->
+		<annotation cp='[🐑]' tts='گوسفند'>میش؛ گوسفند</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='بز'>بزغاله؛ برج جدی؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='شتر'>شتر؛ کوهان؛ قوز</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='شتر دو کوهان'>باختری؛ شتر؛ کوهان</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='صورت موش'>صورت؛ موش</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='صورت همستر'>صورت؛ همستر؛ حیوان خانگی</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='صورت خرگوش'>خرگوش؛ بانی؛ صورت؛ حیوان خانگی</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='خرگوش'>خرگوش؛ بانی؛ حیوان خانگی</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='صورت خرس'>خرس؛ صورت</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='کوآلا'>کوالا</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='صورت پاندا'>صورت؛ پاندا</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='رد پنجه'>پا؛ پنجه؛ اثر؛ رد</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='جوجه از تخم بیرون آمده'>نوزاد؛ جوجه؛ تولد؛ از تخم بیرون آمدن</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='نیم‌رخ جوجه'>نوزاد؛ جوجه</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='تمام رخ جوجه'>نوزاد؛ جوجه</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='کبوتر'>پرنده؛ پریدن؛ صلح</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='صورت قورباغه'>صورت؛ قورباغه</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='مار'>ماراتن؛ استقامت؛ دو؛ دویدن</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='صورت اژدها'>اژدها؛ صورت؛ جن و پری؛ افسانه</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='اژدها'>اژدها؛ جن و پری؛ افسانه</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='نهنگ در حال آب‌فشانی'>صورت؛ آب‌فشانی، وال؛ نهنگ</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='ماهی'>حوت؛ ماهی؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='ماهی استوایی'>ماهی؛ استوایی</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='ماهی بادکنکی'>ماهی</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='صدف مارپیچی'>صدف؛ مارپیچ</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='خرچنگ'>خرچنگ؛ سرطان؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='مورچه'>حشره؛ ماهی</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='زنبور عسل'>حشره؛ زنبور عسل</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='کفشدوزک'>کفشدوزک؛ حشره؛ سوسک</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='عنکبوت'>حشره؛ عنکبوت</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='تار عنکبوت'>عنکبوت؛ تار</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='عقرب'>عقرب؛ کژدم؛ برج عقرب؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='دسته گل'>گل؛ گیاه؛ عاشقانه</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='شکوفه گیلاس'>شکوفه؛ گیلاس؛ گل؛ گیاه</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='گل سفید'>گل</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='گل رزت'>گیاه؛ گل</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='رز'>گیاه؛ گل</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='گل بامیه'>گیاه؛ گل</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='گل آفتابگردان'>گیاه؛ گل؛ خورشید</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='شکوفه'>گل؛ گیاه</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='لاله'>گل؛ گیاه</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='جوانه'>گیاه؛ جوان؛ جوانه</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='همیشه‌سبز'>گیاه؛ درخت</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='برگ‌ریز'>برگ‌ریز؛ گیاه؛ درخت</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='نخل'>نخل؛ گیاه؛ درخت</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='کاکتوس'>گیاه</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='خوشه برنج'>دسته؛ خوشه؛ گیاه؛ برنج</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='گیاه دارویی'>برگ؛ گیاه</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='برگ شبدر'>گیاه</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='شبدر چهاربرگ'>چهار؛ ۴؛ شبدر؛ برگ؛ گیاه</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='برگ افرا'>افتادن؛ برگ‌ریز؛ برگ؛ پاییز؛ افرا؛ گیاه</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='برگ‌ریزان'>افتادن؛ برگ؛ پاییز؛ گیاه</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='رقص برگ در باد'>وزیدن؛ حرکت در باد؛ برگ؛ گیاه؛ باد</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='انگور'>میوه؛ انگور؛ گیاه</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='طالبی'>میوه؛ گیاه</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='هندوانه'>میوه؛ گیاه</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='نارنگی'>میوه؛ گیاه؛ نارنجی</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='لیمو ترش'>مرکبات؛ میوه؛ گیاه</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='موز'>میوه؛ گیاه</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='آناناس'>میوه؛ گیاه</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='سیب سرخ'>سیب؛ میوه؛ گیاه؛ قرمز</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='سیب سبز'>سیب؛ میوه؛ گیاه؛ سبز</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='گلابی'>میوه؛ گیاه</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='هلو'>میوه؛ گیاه</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='گیلاس'>گیلاس؛ میوه؛ گیاه</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='توت‌فرنگی'>توت؛ میوه؛ گیاه</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='گوجه‌فرنگی'>گیاه؛ سبزیجات</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='بادمجان'>بادمجان؛ گیاه؛ سبزیجات</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='بلال ذرت'>ذرت؛ بلال؛ دانه ذرت؛ گیاه</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='فلفل سرخ'>داغ؛ تند؛ فلفل؛ گیاه</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='قارچ'>گیاه</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='فندق'>گیاه</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='نان'>لقمه؛ قرص؛ تکه؛ نان</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='قاچ پنیر'>پنیر</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='گوشت با استخوان'>استخوان؛ گوشت</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='ران مرغ'>استخوان؛ مرغ؛ ران؛ پا؛ ماکیان</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='سیب‌زمینی سرخ‌کرده'>سیب‌زمینی؛ سرخ‌کرده</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='پیتزا'>پنیر؛ پیتزا؛ قاچ</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='هات داگ'>هات داگ؛ ساندویچ؛ سوسیس</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='تاکو'>مکزیکی؛ غذا</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='بوریتو'>مکزیکی؛ غذا</annotation>
+
+		<!-- popcorn -->
+		<annotation cp='[🍿]' tts='ذرت بوداده'>پاپ کرن؛ ذرت؛ بوداده</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='ظرف غذا'>ظرف غذا؛ خورش</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='جعبه بنتو'>بنتو؛ غذا؛ ژاپنی؛ جعبه</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='تردک برنجی'>تردک؛ کراکر؛ برنج</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='کوفته برنجی'>توپ؛ کوفته؛ ژاپنی؛ برنج</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='برنج پخته'>پخته؛ برنج</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='برنج با کاری'>کاری؛ برنج</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='کاسه نودل'>کاسه؛ نودل؛ رشته؛ رامن؛ بخار؛ داغ</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='اسپاگتی'>پاستا</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='سیب‌زمینی شیرین کباب‌شده'>سیب‌زمینی؛ کبابی؛ سیب‌زمینی شیرین؛ سیب زمینی شیرین</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='اودن'>کباب؛ غذای دریایی؛ سیخ؛ اودن</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='میگو سوخاری'>سرخ‌شده؛ میگو؛ شاه میگو؛ تمپورا</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='کیک ماهی'>کیک؛ ماهی؛ شیرینی؛ پیچ</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='دانگو'>دسر؛ ژاپنی؛ سیخ؛ چوب؛ شیرین</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='بستنی قیفی'>کرم؛ خامه؛ دسر؛ بستنی؛ یخ؛ نرم؛ قیف؛ شیرین</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='یخ در بهشت'>دسر؛ یخ؛ شیرین</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='بستنی'>بستنی؛ دسر؛ یخ؛ شیرین</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='دونات'>دسر؛ دونات؛ شیرین</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='کوکی'>دسر؛ شیرین؛ کلوچه</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='کیک تولد'>تولد؛ کیک؛ جشن؛ دسر؛ شیرینی؛ شیرین</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='شُرت‌کیک'>کیک؛ دسر؛ شیرینی؛ قاچ؛ شیرین</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='شکلات کاکائوی'>تکه؛ شکلات؛ دسر؛ کاکائو؛ شیرین</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='شکلات'>دسر؛ شیرین</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='آب‌نبات'>شکلات؛ دسر؛ شیرین</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='کاستارد'>دسر؛ پودینگ؛ شیرین</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='ظرف عسل'>عسل؛ ظرف عسل؛ ظرف؛ شیرین</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='شیشه شیر'>بچه؛ نوزاد؛ بطری؛ شیر؛ نوشیدن</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='نوشیدنی گرم'>نوشیدنی؛ قهوه؛ نوشیدن؛ داغ؛ بخار؛ چای</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='فنجان و نعلبکی'>نوشیدنی؛ لیوان؛ نوشیدن؛ چای؛ فنجان چای</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='ساکی'>میخانه؛ بار؛ نوشیدنی الکلی؛ بطری؛ لیوان؛ نوشیدن</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='شامپاین جوشان'>میخانه؛ بار؛ نوشیدنی الکلی؛ بطری؛ لیوان؛ نوشیدن؛ جوشان</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='جام شراب'>میخانه؛ بار؛ نوشیدنی الکلی؛ نوشیدن؛ شراب</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='جام کوکتل'>میخانه؛ بار؛ کوکتل؛ نوشیدن؛ جام</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='نوشیدنی استوایی'>میخانه؛ بار؛ نوشیدن؛ استوایی</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='لیوان آب‌جو'>میخانه؛ بار؛ آبجو؛ نوشیدن؛ ماگ؛ لیوان</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='به سلامتی'>میخانه؛ بار؛ آبجو؛ به سلامتی؛ به هم زدن؛ نوشیدن؛ ماگ</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='بشقاب و کارد و چنگال'>آشپزی؛ چنگال؛ کارد؛ بشقاب</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='کارد و چنگال'>آشپزی؛ چنگال؛ کارد</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='آشپزی'>تخم‌مرغ؛ سرخ کردن؛ تابه؛ نیمرو</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='آمفورا'>آمفورا؛ آشپزی؛ نوشیدنی؛ کوزه؛ ابزار؛ اسلحه؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='نقشه اروپا-آفریقا'>آفریقا؛ زمین؛ اروپا؛ جهان؛ دنیا</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='نقشه آمریکا'>آمریکا؛ زمین؛ جهان؛ دنیا</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='نقشه آسیا-اقیانوسیه'>آسیا؛ استرالیا؛ زمین؛ جهان؛ دنیا</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='کره با نصف‌النهارها'>زمین؛ جهان؛ نصف‌النهار؛ دنیا</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='نقشه جهان'>نقشه؛ دنیا</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='قله برفی'>سرد؛ کوه؛ برف</annotation>
+
+		<!-- mountain -->
+		<annotation cp='[⛰]' tts='کوه'>کوهستان؛ کوه</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='آتشفشان'>فوران؛ کوهستان؛ آب‌وهوا</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='کوه فوجی'>فوجی؛ کوه</annotation>
+
+		<!-- camping -->
+		<annotation cp='[🏕]' tts='کمپینگ'>اردو؛ چادرزنی؛ کمپینگ</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='ساحل و سایبان'>ساحل؛ سایه‌بان؛ چتر</annotation>
+
+		<!-- desert -->
+		<annotation cp='[🏜]' tts='بیابان'>بیابان؛ کویر</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='جزیره'>جزیره؛ خشکی؛ صحرا</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='پارک ملی'>پارک</annotation>
+
+		<!-- stadium -->
+		<annotation cp='[🏟]' tts='ورزشگاه'>استادیوم</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='ساختمان باستانی'>ساختمان؛ قدیمی؛ کلاسیک</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='محل ساخت‌وساز'>ساختمان؛ ساخت‌وساز</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='چند خانه'>ساختمان؛ خانه</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='برج'>ساختمان؛ شهر؛ آسمانخراش</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='خانه متروک'>ساختمان؛ متروک؛ خانه</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='خانه'>ساختمان؛ خانه؛ منزل</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='خانه حیاط‌دار'>ساختمان؛ باغ؛ حیاط؛ خانه؛ منزل</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='کلیسا'>ساختمان؛ مسیحیت؛ صلیب؛ مذهب؛ دین</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='کعبه'>اسلام؛ مسلمان؛ دین</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='مسجد'>اسلام؛ مسلمان؛ دین</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='کنیسه'>یهود؛ یهودی؛ دین؛ مذهب؛ معبد</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='معبد شینتو'>مذهب؛ شینتو؛ معبد</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='ساختمان اداری'>ساختمان</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='اداره پست ژاپنی'>ساختمان؛ ژاپنی؛ پست</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='اداره پست'>ساختمان؛ اروپایی؛ پست</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='بیمارستان'>ساختمان؛ دکتر؛ دارو؛ پزشک</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='بانک'>ساختمان</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='هتل'>ساختمان</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='هتل عشق‌ورزی'>ساختمان؛ هتل؛ عشق؛ عشق‌بازی</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='بقالی'>ساختمان؛ بقالی؛ فروشگاه</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='مدرسه'>ساختمان</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='فروشگاه بزرگ'>ساختمان؛ فروشگاه؛ بزرگ</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='کارخانه'>ساختمان</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='قلعه ژاپنی'>ساختمان؛ قلعه؛ ژاپنی</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='قلعه'>ساختمان؛ قلعه؛ اروپایی</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='عروسی'>عروسی؛ کلیسا؛ عاشقانه</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='برج توکیو'>توکیو؛ برج</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='مجسمه آزادی'>آزادی؛ مجسمه</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='نقشه ژاپن'>ژاپن؛ نقشه</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='چادرزنی'>چادرزنی؛ چادرزنی</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='مه‌آلود'>مه؛ آب‌وهوا</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='شب پرستاره'>شب؛ ستاره؛ آب‌وهوا</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='طلوع در کوهستان'>صبح؛ کوهستان؛ خورشید؛ طلوع؛ آب‌وهوا</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='طلوع'>صبح؛ خورشید؛ طلوع؛ آب‌وهوا</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='شهر در غروب'>ساختمان؛ شهر؛ غروب؛ عصر؛ منظره؛ خورشید؛ آب‌وهوا</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='غروب'>ساختمان؛ گرگ و میش؛ غروب؛ خورشید؛ آب‌وهوا</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='پل در شب'>پل؛ شب؛ آب‌وهوا</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='چشمه آب گرم'>داغ؛ گرم؛ چشمه؛ چشمه آب گرم؛ بخار</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='راه شیری'>فضا؛ آب‌وهوا</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='اسب چرخ و فلک'>چرخ و فلک؛ اسب</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='چرخ و فلک'>شهر بازی؛ چرخ و فلک؛ چرخ</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='ترن هوایی'>شهر بازی؛ ترن هوایی؛ رولر</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='چراغ سلمانی'>آرایشگر؛ سلمانی؛ کوتاه کردن مو؛ نماد؛ چراغ</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='چادر سیرک'>سیرک؛ چادر</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='تئاتر'>هنر؛ ماسک؛ تئاتر؛ نمایش؛ سالن تئاتر</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='قاب عکس'>هنر؛ قاب؛ موزه؛ نقاشی؛ تصویر</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='پالت نقاشی'>هنر؛ موزه؛ نقاشی؛ پالت</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='ماشین اسلات'>بازی؛ اسلات؛ کازینو؛ قمار</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='لوکوموتیو'>موتور؛ ریل؛ بخار؛ قطار؛ وسیله نقلیه</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='واگن'>خودرو؛ الکتریکی؛ ریل؛ قطار؛ تراموا؛ واگن؛ وسیله نقلیه</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='قطار سریع‌السیر'>ریل؛ سریع‌السیر؛ سرعت؛ قطار؛ وسیله نقلیه</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='قطار سریع‌السیر گلوله‌ای'>گلوله؛ ریل؛ سریع‌السیر؛ سرعت؛ قطار؛ وسیله نقلیه</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='قطار'>ریل؛ وسیله نقلیه</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='مترو'>مترو؛ وسیله نقلیه؛ قطار شهری</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='قطار سبک شهری'>ریل؛ وسیله نقلیه</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='ایستگاه قطار'>ریل؛ قطار؛ وسیله نقلیه</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='تراموا'>تراموا؛ وسیله نقلیه</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='مونوریل'>وسیله نقلیه</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='ریل کوهستانی'>خودرو؛ کوهستان؛ ریل؛ وسیله نقلیه</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='واگن تراموا'>خودرو؛ تراموا؛ واگن؛ وسیله نقلیه</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='اتوبوس'>وسیله نقلیه</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='اتوبوس روبه‌جلو'>اتوبوس؛ در حال آمدن؛ وسیله نقلیه</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='اتوبوس برقی'>اتوبوس؛ تراموا؛ برقی؛ وسیله نقلیه</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='ایستگاه اتوبوس'>اتوبوس؛ ایستگاه؛ توقف</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='مینی‌بوس'>اتوبوس؛ وسیله نقلیه</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='آمبولانس'>وسیله نقلیه</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='ماشین آتش‌نشانی'>موتور؛ آتش؛ کامیون؛ وسیله نقلیه</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='ماشین پلیس'>خودرو؛ پاترول؛ پلیس؛ وسیله نقلیه</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='ماشین پلیس روبه‌جلو'>خودرو؛ در حال آمدن؛ پلیس؛ وسیله نقلیه</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='تاکسی'>وسیله نقلیه</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='تاکسی روبه‌جلو'>در حال آمدن؛ تاکسی؛ وسیله نقلیه</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='اتومبیل'>خودرو؛ وسیله نقلیه</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='اتومبیل روبه‌جلو'>اتومبیل؛ خودرو؛ در حال آمدن؛ وسیله نقلیه</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='ماشین کاروان'>کاروان؛ آروی؛ وسیله نقلیه</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='ماشین حمل‌ونقل'>تحویل؛ کامیون؛ حمل‌ونقل؛ وسیله نقلیه</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='کامیون مفصلی'>مفصلی؛ کامیون؛ ماشین سنگین؛ وسیله نقلیه</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='تراکتور'>وسیله نقلیه</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='دوچرخه'>دوچرخه؛ وسیله نقلیه</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='پمپ بنزین'>سوخت؛ بنزین؛ گاز؛ گازوئیل؛ پمپ؛ ایستگاه</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='شاهراه'>شاهراه؛ جاده</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='ریل قطار'>ریل؛ قطار</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='چراغ ماشین پلیس'>آژیر؛ خودرو؛ چراغ؛ پلیس؛ وسیله نقلیه</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='چراغ راهنمایی افقی'>چراغ؛ علامت؛ ترافیک</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='چراغ راهنمایی عمودی'>چراغ؛ علامت؛ ترافیک</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='ساخت‌وساز'>مانع؛ سد</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='لنگر'>کشتی؛ ابزار</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='قایق بادبانی'>قایق؛ تفریح؛ دریا؛ وسیله نقلیه؛ کرجی</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='قایق پارویی'>قایق؛ وسیله نقلیه</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='قایق سرعتی'>قایق؛ وسیله نقلیه</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='کشتی مسافربری'>مسافر؛ کشتی؛ وسیله نقلیه</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='فرابر'>قایق</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='قایق موتوری'>قایق؛ قایق موتوری؛ وسیله نقلیه</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='کشتی'>وسیله نقلیه</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='هواپیما'>وسیله نقلیه</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='هواپیمای کوچک'>هواپیما؛ وسیله نقلیه</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='صعود هواپیما'>هواپیما؛ ورود؛ حرکت؛ خروج؛ وسیله نقلیه</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='فرود هواپیما'>هواپیما؛ ورود؛ فرود؛ به زمین نشستن؛ وسیله نقلیه</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='هلیکوپتر'>وسیله نقلیه</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='قطار معلق'>ریل؛ معلق؛ وسیله نقلیه</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='ماشین کابلی کوهستانی'>کابل؛ کوهستان؛ کابین؛ وسیله نقلیه</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='تله‌کابین'>هوایی؛ کابل؛ خودرو؛ طناب نقاله؛ تراموا؛ وسیله نقلیه</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='موشک'>فضا؛ وسیله نقلیه</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='ماهواره'>فضا؛ وسیله نقلیه</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='زنگ میز پذیرش'>زنگ؛ پذیرش؛ هتل؛ لابی</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='فرد در تختخواب'>هتل؛ خوابیدن</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='تختخواب'>هتل؛ خوابیدن</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='مبل راحتی و چراغ'>مبل؛ هتل؛ چراغ</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='دوش'>آب</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='فرد در وان'>وان حمام؛ حمام</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' tts='وان حمام'>حمام</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='ساعت شنی'>شن؛ تایمر</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='ساعت شنی با شن روان'>ساعت شنی؛ شن؛ تایمر</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='ساعت مچی'>ساعت</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='ساعت رومیزی'>زنگ ساعت؛ ساعت</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='کرنومتر'>ساعت</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='تایمر'>ساعت؛ تایمر</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='ساعت طاقچه‌ای'>ساعت</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='ساعت دوازده'>۰۰؛ ۱۲؛ ۱۲:۰۰؛ ساعت؛ دوازده</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='ساعت دوازده و نیم'>۳۰؛ ۱۲؛ ۱۲:۳۰؛ ساعت؛ دوازده؛ نیم</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='ساعت یک'>۰۰؛ ۱؛ ۱:۰۰؛ ساعت؛ یک</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='ساعت یک و نیم'>۳۰؛ ۱؛ ۱:۳۰؛ ساعت؛ یک؛ نیم</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='ساعت دو'>۰۰؛ ۲؛ ۲:۰۰؛ ساعت؛ دو</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='ساعت دو و نیم'>۳۰؛ ۲؛ ۲:۳۰؛ ساعت؛ دو؛ نیم</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='ساعت سه'>۰۰؛ ۳؛ ۳:۰۰؛ ساعت؛ سه</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='ساعت سه و نیم'>۳۰؛ ۳؛ ۳:۳۰؛ ساعت؛ سه؛ نیم</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='ساعت چهار'>۰۰؛ ۴؛ ۴:۰۰؛ ساعت؛ چهار</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='ساعت چهار و نیم'>۳۰؛ ۴؛ ۴:۳۰؛ ساعت؛ چهار؛ نیم</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='ساعت پنج'>۰۰؛ ۵؛ ۵:۰۰؛ ساعت؛ پنج</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='ساعت پنج و نیم'>۳۰؛ ۵؛ ۵:۳۰؛ ساعت؛ پنج؛ نیم</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='ساعت شش'>۰۰؛ ۶؛ ۶:۰۰؛ ساعت؛ شش</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='ساعت شش و نیم'>۳۰؛ ۶؛ ۶:۳۰؛ ساعت؛ شش؛ نیم</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='ساعت هفت'>۰۰؛ ۷؛ ۷:۰۰؛ ساعت؛ هفت</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='ساعت هفت و نیم'>۳۰؛ ۷؛ ۷:۳۰؛ ساعت؛ هفت؛ نیم</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='ساعت هشت'>۰۰؛ ۸؛ ۸:۰۰؛ ساعت؛ هشت</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='ساعت هشت و نیم'>۳۰؛ ۸؛ ۸:۰۰؛ ساعت؛ هشت؛ نیم</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='ساعت نه'>۰۰؛ ۹؛ ۹:۰۰؛ ساعت؛ نه</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='ساعت نه و نیم'>۳۰؛ ۹؛ ۹:۳۰؛ ساعت؛ نه؛ نیم</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='ساعت ده'>۰۰؛ ۱۰؛ ۱۰:۰۰؛ ساعت؛ ده</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='ساعت ده و نیم'>۳۰؛ ۱۰؛ ۱۰:۳۰؛ ساعت؛ ده؛ نیم</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='ساعت یازده'>۰۰؛ ۱۱؛ ۱۱:۰۰؛ ساعت؛ یازده</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='ساعت یازده و نیم'>۳۰؛ ۱۱؛ ۱۱:۳۰؛ ساعت؛ یازده؛ نیم</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='ماه نو'>تاریک؛ ماه؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='هلال سوی ماه تمام'>هلال؛ ماه؛ فضا؛ سوی ماه تمام؛ آب‌وهوا</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='یک‌چهارم اول'>ماه؛ یک‌چهارم؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='برآمدگی سوی ماه تمام'>برآمدگی؛ ماه؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='ماه تمام'>کامل؛ تمام؛ ماه؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='برآمدگی سوی کمرنگی'>برآمدگی؛ ماه؛ فضا؛ به سوی تاریکی؛ آب‌وهوا</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='یک‌چهارم آخر'>ماه؛ یک‌چهارم؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='هلال سوی کمرنگی'>هلال؛ ماه؛ فضا؛ سوی کمرنگی؛ آب‌وهوا</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='هلال ماه'>هلال؛ ماه؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='صورت ماه نو'>صورت؛ ماه؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='صورت هلال اول'>صورت؛ ماه؛ یک‌چهارم؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='صورت هلال آخر'>صورت؛ ماه؛ یک‌چهارم؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='دماسنج'>آب‌وهوا</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='خورشید'>روشن؛ اشعه؛ فضا؛ خورشیدی؛ آب‌وهوا</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='صورت ماه کامل'>روشن؛ صورت؛ تمام؛ ماه؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='صورت خورشید'>روشن؛ صورت؛ خورشید؛ فضا؛ آب‌وهوا</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='ستاره سفید'>ستاره</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='ستاره درخشان'>درخشان؛ فروزان؛ جرقه؛ ستاره</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='ستاره ثاقب'>افتادن؛ دنباله‌دار؛ فضا؛ سریع؛ ستاره</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='ابر'>آب‌وهوا</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='خورشید پشت ابر'>ابر؛ خورشید؛ آب‌وهوا</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='ابر با رعدوبرق'>ابر؛ باران؛ رعدوبرق؛ آب‌وهوا</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='خورشید پشت ابر کوچک'>ابر؛ خورشید؛ آب‌وهوا</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='خورشید پشت ابر بزرگ'>ابر؛ خورشید؛ آب‌وهوا</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='خورشید پشت ابر بارانی'>ابر؛ باران؛ خورشید؛ آب‌وهوا</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='ابر بارانی'>ابر؛ باران؛ آب‌وهوا</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='ابر برفی'>ابر؛ سرما؛ برف؛ آب‌وهوا</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='ابر با برق'>ابر؛ رعدوبرق؛ آب‌وهوا</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='گردباد'>ابر؛ آب‌وهوا؛ گردباد</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='مه'>ابر؛ آب‌وهوا</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='صورت باد'>وزیدن؛ ابر؛ صورت؛ آب‌وهوا؛ باد</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='طوفان موسمی'>پیچند؛ طوفان موسمی؛ آب‌وهوا</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='رنگین کمان'>باران؛ آب‌وهوا</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='چتر بسته'>پوشاک؛ باران؛ چتر؛ آب‌وهوا</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='چتر'>پوشاک؛ باران؛ چتر؛ آب‌وهوا</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='تر با قطرات باران'>پوشاک؛ باران؛ چتر؛ قطره باران؛ آب‌وهوا</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='چتر روی زمین'>باران؛ خورشید؛ چتر؛ آب‌وهوا</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='ولتاژ بالا'>خطر؛ الکتریسیته؛ برق؛ ولتاژ</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='بلور برف'>سرما؛ برف؛ آب‌وهوا</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='آدم برفی با برف'>سرما؛ برف؛ آب‌وهوا</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='آدم برفی'>سرما؛ برف؛ آدم برفی؛ آب‌وهوا</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='ستاره دنباله‌دار'>فضا</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='آتش'>آتش؛ ابزار</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='قطره'>سرما؛ مصور؛ کمیک؛ قطره؛ عرق؛ آب‌وهوا</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='موج آب'>اقیانوس؛ آب؛ موج؛ آب‌وهوا</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='فانوس کدو تنبل'>جشن؛ هالووین؛ فانوس</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='درخت کریسمس'>جشن؛ کریسمس؛ درخت</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='آتش‌بازی'>جشن</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='فشفشه'>جشن؛ آتش‌بازی؛ فشفشه</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='درخشش'>درخشش؛ ستاره</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='بادکنک'>جشن</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='بمب کاغذ رنگی'>جشن؛ مهمانی؛ کاغذ رنگی</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='توپ پولکی'>توپ؛ جشن؛ پولک</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='درخت تاناباتا'>بنر؛ جشن؛ ژاپنی؛ درخت</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='پرچم‌های ضرب‌دری'>جشن؛ صلیب؛ ژاپنی</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='تزئین کاج'>بامبو؛ جشن؛ ژاپنی؛ کاج؛ گیاه</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='عروسک‌های ژاپنی'>جشن؛ عروسک؛ فستیوال؛ ژاپنی</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='پرچم‌های ماهی در باد'>پرچم؛ ماهی؛ جشن</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='بادسنج'>توپ؛ جشن؛ بادسنج؛ باد</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='جشن ماه'>شن؛ مراسم؛ ماه</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='روبان'>جشن</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='جعبه کادو'>جعبه؛ جشن؛ کادو؛ هدیه؛ پیچیده</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='مدال ارتشی'>جشن؛ مدال؛ نظامی</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='روبان یادآوری'>جشن؛ یادآوری؛ روبان</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='حلقه فیلم'>سینما؛ فیلم؛ فریم</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='بلیت چسبی'>چسب؛ بلیت</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='توپ فوتبال'>توپ؛ فوتبال</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='بیسبال'>توپ</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='بسکتبال'>توپ</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='فوتبال آمریکایی'>توپ؛ آمریکایی؛ فوتبال</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='راگبی'>توپ؛ فوتبال؛ راگبی</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='تنیس'>توپ؛ راکت</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='بیلیارد'>۸؛ ۸ توپ؛ بال؛ بیلیارد؛ هشت؛ بازی</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='بولینگ'>توپ؛ بازی</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='پرچم در سوراخ'>گلف؛ سوراخ</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='گلف‌باز'>توپ؛ گلف</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='اسکی روی یخ'>یخ؛ اسکی</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='چوب ماهیگیری'>ماهی؛ چوب</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='بلوز دویدن'>دویدن؛ بلوز</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='اسکی'>اسکی؛ برف</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='اسکی‌سوار'>اسکی؛ برف</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='اسنوبرد'>اسکی؛ برف؛ اسنوبرد</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='موج‌سوار'>موج‌سواری</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='مسابقه اسب‌سواری'>اسب؛ مسابقه؛ اسب‌سواری</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='شناگر'>شنا</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='شخص با توپ'>توپ</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='وزنه‌بردار'>وزنه؛ بلند کردن</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='دوچرخه‌سوار'>دوچرخه؛ دوچرخه‌سوار</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='دوچرخه کوهستان'>دوچرخه؛ دوچرخه‌سوار؛ کوهستان</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='ماشین مسابقه'>خودرو؛ مسابقه</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='موتورسیکلت'>مسابقه</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='مدال ورزشی'>مدال</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='جام ورزشی'>جایزه</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='کریکت'>توپ؛ دسته؛ بازی</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='والیبال'>توپ؛ بازی</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='هاکی روی چمن'>توپ؛ چمن؛ بازی؛ هاکی؛ دسته</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='هاکی روی یخ'>بازی؛ هاکی؛ یخ؛ دسته</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='پینگ پونگ'>توپ؛ دسته؛ راکت؛ میز؛ تنیس</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='بدمینتون'>بازی؛ راکت</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='دارت'>دارت؛ بازی؛ پرتاب؛ چشم؛ برخورد؛ هدف</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='بازی ویدیویی'>کنترل‌کننده؛ دسته؛ بازی</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='دسته بازی'>بازی؛ بازی ویدیویی</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='تاس بازی'>تاس؛ بازی</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='خال پیک'>کارت؛ بازی؛ خال؛ پیک</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='خال دل'>کارت؛ بازی؛ خال؛ دل</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='خال خشت'>کارت؛ بازی؛ خال؛ خشت</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='خال گشنیز'>کارت؛ بازی؛ خال؛ گشنیز</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='جوکر'>کارت؛ بازی؛ جوکر؛ شیطان</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='ماژونگ'>بازی؛ ماژونگ؛ قرمز</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='کارت بازی'>کارت؛ گل؛ بازی؛ ژاپنی</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='بلندگو خاموش'>بی‌صدا؛ ساکت؛ آرام؛ بلندگو؛ میزان صدا</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='بلندگو'>صدا</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='بلندگو روشن'>پایین؛ بلندگو؛ صدا؛ موج</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='بلندگو با صدای زیاد'>۳؛ زیاد؛ بلند؛ بلندگو؛ سه؛ صدا</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='بلندگوی بزرگ'>بلند؛ عمومی؛ آدرس</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='بلندگوی دستی'>تشویق؛ بلند؛ بلندگو؛ هلهله</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='شیپور'>شیپور؛ پست</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='زنگوله با خط قرمز'>زنگوله؛ ممنوع؛ بی‌صدا؛ نه؛ خیر؛ ساکت؛ آرام</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='نواختن موسیقی'>موسیقی؛ نت</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='نت موسیقی'>موسیقی؛ نت</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='نت‌های موسیقی'>موسیقی؛ نت</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='میکروفون استودیویی'>میکروفون؛ موسیقی؛ استودیو</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='درجه تنظیم‌کننده'>میزان؛ موسیقی؛ لغزنده</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='دسته‌های کنترل'>کنترل؛ دسته؛ موسیقی</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='میکروفون'>کارائوکه؛ میکروفون</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='ساکسیفون'>ساز؛ موسیقی؛ ساکسیفون</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='گیتار'>ساز؛ موسیقی</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='کیبورد موسیقی'>ساز؛ موسیقی؛ کیبورد؛ پیانو</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='ترومپت'>ساز؛ موسیقی</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='ویولن'>ساز؛ موسیقی</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='تلفن همراه'>تلفن؛ همراه؛ گوشی؛ موبایل</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='تلفن همراه با پیکان'>پیکان؛ تلفن همراه؛ گوشی؛ دریافت</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='گوشی تلفن'>تلفن؛ گوشی؛ گیرنده</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='دوشاخه'>الکتریسیته؛ الکتریکی؛ دوشاخه</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='رایانه کیفی'>رایانه؛ پی‌سی؛ شخصی</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='رایانه میزی'>رایانه؛ رومیزی</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='چاپگر'>رایانه؛ چاپگر</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='صفحه‌کلید'>رایانه</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='موشواره'>۳؛ دکمه؛ رایانه؛ موشواره؛ سه</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='توپک'>رایانه</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='مینی دیسک'>رایانه؛ دیسک؛ مینی دیسک؛ نوری</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='فلاپی دیسک'>رایانه؛ دیسک؛ فلاپی</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='سی‌دی'>دی‌وی‌دی؛ بلوری؛ سی‌دی؛ رایانه؛ دیسک؛ نوری؛ لوح فشرده</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='دی‌وی‌دی'>بلوری؛ سی‌دی؛ رایانه؛ دیسک؛ نوری</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='دوربین سینمایی'>سینما؛ دوربین؛ فیلم</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='کلاکت'>کلاکت؛ تخته‌نشان؛ فیلم</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='پروژکتور'>سینما؛ فیلم؛ پروژکتور؛ ویدیو</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='تلویزیون'>تلویزیون؛ ویدیو</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='دوربین'>ویدیو</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='دوربین با فلاش'>دوربین؛ فلاش؛ ویدیو</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='دوربین فیلم‌برداری'>دوربین؛ ویدیو</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='کاست ویدیویی'>نوار؛ وی‌اچ‌اس؛ ویدیو</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='ذره‌بین روبه‌چپ'>شیشه؛ ذره‌بین؛ جستجو؛ ابزار</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='ذره‌بین روبه‌راست'>شیشه؛ ذره‌بین؛ جستجو؛ ابزار</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='میکروسکوپ'>ابزار</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='تلسکوپ'>ابزار</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='آنتن ماهواره'>آنتن؛ دیش؛ بشقاب؛ ماهواره</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='شمع'>نور</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='لامپ'>حباب؛ لامپ؛ الکتریسیته؛ نور؛ ایده؛ برق</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='چراغ‌قوه'>الکتریسیته؛ نور؛ ابزار؛ مشعل</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='فانوس کاغذی قرمز'>نوار؛ ژاپنی؛ فانوس؛ نور؛ قرمز</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='دفتر با جلد سخت'>کتاب؛ جلد؛ یادداشت؛ دفتر؛ تزئینی؛ سخت؛ وزیری</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='کتاب بسته'>کتاب؛ بسته</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='کتاب باز'>کتاب؛ باز</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='کتاب سبز'>کتاب؛ سبز</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='کتاب آبی'>کتاب؛ آبی</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='کتاب نارنجی'>کتاب؛ نارنجی</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' tts='چند کتاب'>کتاب</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='دفتر سیمی'>دفتر</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='صفحه تاشده'>تا؛ جمع‌شده؛ سند؛ صفحه</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='طومار'>کاغذ</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='صفحه روبه‌بالا'>سند؛ صفحه</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='روزنامه'>اخبار؛ صفحه</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='رول روزنامه'>اخبار؛ روزنامه؛ کاغذ؛ رل</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='برچسب‌های نشانه‌گذاری'>نشانه؛ علامت؛ علامت‌گذار؛ زبانه</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='نشان‌گذار کتاب'>علامت</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='کیسه پول'>کیف؛ دلار؛ پول</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='ین'>بانک؛ اسکناس؛ ارز؛ پول؛ ین</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='دلار'>بانک؛ اسکناس؛ ارز؛ پول؛ دلار</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='یورو'>بانک؛ اسکناس؛ ارز؛ پول؛ یورو</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='پوند'>بانک؛ اسکناس؛ ارز؛ پول؛ پوند</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='اسکناس بال‌دار'>بانک؛ اسکناس؛ ارز؛ پول؛ بال</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='کارت اعتباری'>بانک؛ کارت؛ اعتبار؛ پول</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='نمودار صعودی با ین'>بانک؛ نمودار؛ ارز؛ گراف؛ رشد؛ بازار؛ پول؛ صعود؛ گرایش؛ روند؛ صعودی؛ ین</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='پاکت نامه'>ایمیل</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='ایمیل'>ایمیل؛ نامه؛ میل</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='پاکت نامه ورودی'>ایمیل؛ پاکت نامه؛ ورودی؛ نامه؛ پست؛ دریافت</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='پاکت نامه با پیکان'>پیکان؛ پایین؛ ایمیل؛ پاکت نامه؛ نامه؛ پست؛ خروجی؛ ارسال</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='صندوق خروجی'>صندوق؛ نامه؛ پست؛ ایمیل؛ صندوق خروجی؛ ارسال؛ سینی</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='صندوق ورودی'>صندوق؛ ورودی؛ نامه؛ پست؛ دریافت؛ سینی</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='بسته'>صندوق؛ بسته پستی</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='صندوق پستی بسته با پرچم بالا'>بسته؛ پست؛ صندوق پست؛ صندوق پستی</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='صندوق پستی بسته با پرچم پایین'>بسته؛ پایین آمده؛ پست؛ صندوق پستی؛ صندوق پست</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='صندوق پستی باز با پرچم بالا'>پست؛ صندوق پستی؛ باز؛ صندوق پست</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='صندوق پستی باز با پرچم پایین'>پست؛ صندوق پستی؛ باز؛ صندوق پست؛ پایین آمده</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='صندوق پست'>پست؛ صندوق پستی</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='صندوق رأی'>رأی؛ صندوق</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='قلم مشکی'>قلم؛ نوک</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='یادداشت‌برداری'>مداد</annotation>
+
+		<!-- briefcase -->
+		<annotation cp='[💼]' tts='کیف اسناد'>کیف اسناد؛ سامسونت</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='پوشه'>پوشه؛ فایل؛ پرونده</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='پوشه باز'>فایل؛ پوشه؛ باز</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='جداکننده'>کارت؛ جداکننده؛ راهنما</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='تقویم'>تاریخ</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='تقویم رومیزی'>تقویم</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='دفترچه یادداشت سیمی'>یادداشت؛ سیمی؛ صفحه</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='تقویم سیمی'>تقویم؛ سیمی؛ صفحه</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='کارت‌های راهنما'>کارت؛ راهنما</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='نمودار صعودی'>نمودار؛ گراف؛ رشد؛ گرایش؛ صعودی</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='نمودار نزولی'>نمودار؛ پایین؛ گراف؛ گرایش</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='نمودار ستونی'>ستون؛ نمودار؛ گراف</annotation>
+
+		<!-- pushpin; pin -->
+		<annotation cp='[📌]' tts='سنجاق'>سنجاق؛ پین</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='سنجاق ته‌گرد'>پین؛ سنجاق ته‌گرد</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='دو گیره کاغذ'>اتصال؛ گیره کاغذ</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='خط‌کش'>خط‌کش؛ صاف</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='گونیا'>خط‌کش؛ گونیا</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='قیچی'>ابزار</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='جعبه نگه‌داری کارت'>جعبه؛ کارت؛ فایل؛ پرونده</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='کشوی پرونده'>کابینت؛ کشو؛ پرونده؛ فایل</annotation>
+
+		<!-- wastebasket -->
+		<annotation cp='[🗑]' tts='سطل کاغذ باطله'>سطل زباله</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='قفل'>بسته</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='قفل باز'>قفل؛ باز؛ قفل باز</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='قفل با قلم'>جوهر؛ قفل؛ قلم؛ حریم خصوصی</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='قفل و کلید'>بسته؛ کلید؛ قفل؛ امن</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='کلید'>قفل؛ گذرواژه</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='کلید قدیمی'>سرنخ؛ کلید؛ قدیمی؛ قفل</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='چکش'>ابزار</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='کلنگ'>ابزار</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='چکش و کلنگ'>چکش؛ کلنگ؛ ابزار</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='چکش و آچار'>چکش؛ ابزار؛ آچار</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='آچار'>ابزار</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='پیچ و مهره'>پیچ؛ مهره؛ ابزار</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='چرخ‌دنده'>ابزار</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='پرس'>ابزار؛ پرس؛ صحافی</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='انبیق'>شیمی؛ ابزار؛ کیمیاگری</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='ترازو'>ترازو؛ عدالت؛ آزادی؛ معیار؛ ابزار: وزن؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='سرنگ'>پزشک؛ دکتر؛ دارو؛ سوزن؛ آمپول؛ شات؛ بیمار؛ مریض؛ ابزار</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='قرص'>پزشک؛ دارو؛ بیمار</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='خنجر'>چاقو؛ اسلحه</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='چاقوی آشپزخانه'>آشپزی؛ ساطور؛ چاقو؛ ابزار؛ اسلحه</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='شمشیرهای ضرب‌دری'>صلیب؛ متقاطع؛ شمشیر؛ اسلحه</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='تفنگ'>تفنگ؛ ابزار؛ اسلحه؛ رولور</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='سپر'>اسلحه</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='تیر و کمان'>تیر؛ پیکان؛ کمان؛ ابزار؛ اسلحه؛ زودیاک؛ برج فلکی</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='پرچم شطرنجی'>شطرنجی؛ مسابقه</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='پرچم در اهتزاز'>اهتزاز</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='پرچم مشکی در اهتزاز'>اهتزاز</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='پرچم مثلثی'>پست</annotation>
+
+		<!-- smoking -->
+		<annotation cp='[🚬]' tts='سیگار'>سیگار کشیدن</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='تابوت'>مرگ</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='خاکستردان'>مرگ؛ سوزاندن؛ خاکستردان</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='پیکره موأی'>صورت؛ موأی؛ پیکره</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='بشکه نفت'>نفت؛ بشکه</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='گوی'>توپ؛ کریستال؛ جن و پری؛ فانتزی؛ طالع‌بینی؛ بخت؛ ابزار</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='علامت خودپرداز'>خودپرداز؛ دستگاه</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='ریختن زباله در زباله‌دان'>زباله؛ زباله‌دان</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='آب آشامیدنی'>آشامیدنی؛ نوشیدن؛ آب شرب</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='صندلی چرخ‌دار'>دسترسی؛ معلول</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='توالت مردان'>سرویس بهداشتی؛ توالت؛ مردان</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='توالت زنان'>سرویس بهداشتی؛ توالت؛ زنان</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='توالت عمومی'>سرویس بهداشتی؛ توالت</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='علامت کودک'>تعویض؛ پوشک؛ بچه؛ اتاق مادر و کودک</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='سرویس بهداشتی'>سرویس بهداشتی؛ توالت</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='کنترل گذرنامه'>کنترل؛ گذرنامه</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='دریافت بار'>بار؛ دریافت</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='امانت بار'>بار؛ امانت؛ چمدان</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='عبور کودکان'>کودک؛ عبور؛ عابر پیاده؛ ترافیک</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='ورود ممنوع'>ورود؛ ممنوع؛ نه؛ خیر؛ ترافیک</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='ممنوع'>ورود؛ ممنوع؛ نه</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='دوچرخه ممنوع'>دوچرخه؛ ممنوع؛ نه؛ وسیله نقلیه</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='سیگار کشیدن ممنوع'>ممنوع؛ نه؛ سیگار کشیدن</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='زباله نریزید'>ممنوع؛ زباله؛ نه</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='آب غیرآشامیدنی'>نوشیدن؛ ممنوع؛ نه؛ آشامیدنی؛ آب</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='عابر پیاده ممنوع'>ممنوع؛ نه؛ عابر پیاده</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='رادیواکتیو'>رادیواکتیو؛ اشعه</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='پیکان بالا'>پیکان؛ جهت اصلی؛ مسیر؛ شمال</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='پیکان بالا راست'>پیکان؛ جهت فرعی؛ مسیر؛ شمال شرقی</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='پیکان راست'>پیکان؛ جهت اصلی؛ مسیر؛ شرق</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='پیکان پایین راست'>پیکان؛ جهت فرعی؛ مسیر؛ جنوب شرقی</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='پیکان پایین'>پیکان؛ جهت اصلی؛ مسیر؛ پایین؛ جنوب</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='پیکان پایین چپ'>پیکان؛ جهت فرعی؛ مسیر؛ جنوب غربی</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='پیکان چپ'>پیکان؛ جهت اصلی؛ مسیر؛ غرب</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='پیکان بالا چپ'>پیکان؛ جهت فرعی؛ مسیر؛ شمال غربی</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='پیکان بالا و پایین'>پیکان</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='پیکان دوطرفه'>پیکان</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='پیکان خمیده راست'>پیکان</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='پیکان خمیده چپ'>پیکان</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='پیکان خمیده بالا راست'>پیکان</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='پیکان خمیده پایین راست'>پیکان؛ پایین</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='جهت عقربه‌های ساعت'>پیکان؛ جهت حرکت عقربه‌های ساعت؛ تازه‌سازی</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='خلاف جهت عقربه‌های ساعت'>خلاف حرکت عقربه‌های ساعت؛ پیکان</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='پیکان عقب'>پیکان؛ برگشت</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='پیکان پایان'>پیکان؛ پایان</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='پیکان روشن'>پیکان؛ علامت؛ روشن</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='پیکان به زودی'>پیکان؛ به‌زودی</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='پیکان رو'>پیکان؛ بالا؛ برتر</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='محل عبادت'>مذهب؛ عبادت</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='نماد اتم'>بی‌دین؛ اتم</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='اُم'>مذهب؛ هندو</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='ستاره داود'>داود؛ یهود؛ یهودی؛ مذهب؛ ستاره</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='چرخ دارما'>بودائی؛ دارما؛ مذهب؛ چرخ</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='یین و ینگ'>مذهب؛ تائو؛ یین؛ یانگ</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='صلیب'>مسیحیت؛ صلیب؛ مذهب</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='صلیب ارتدوکسی'>مسیحیت؛ صلیب؛ مذهب</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='هلال و ستاره'>اسلام؛ مسلمان؛ مذهب</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='نماد صلح'>صلح</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='منورا'>منورا؛ جای شمع؛ مذهب</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='ستاره شش پر'>بخت؛ اقبال؛ ستاره</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='نماد بازیافت'>بازیافت</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='برچسب نام'>برچسب؛ نام</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='نماد ژاپنی سطح مبتدی'>مبتدی؛ ابتدایی؛ سبز؛ ژاپنی؛ برگ؛ ابزار؛ زرد؛ درجه نظامی</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='نیزه سه‌شاخه'>لنگر؛ نیزه؛ کشتی؛ ابزار؛ سه‌شاخه</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='دایره قرمز بزرگ'>حلقه؛ دایره؛ o</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='علامت تیک سبز'>علامت تأیید</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='علامت تیک خاکستری'>علامت تأیید</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='علامت تیک مشکی'>علامت تأیید</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='ایکس مشکی'>لغو؛ ضرب؛ ضرب‌در؛ x</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='ایکس قرمز'>لغو؛ ضرب؛ ضرب‌در؛ x</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='دکمه ایکس سبز'>علامت؛ مربع</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='به‌علاوه'>ریاضی؛ به‌علاوه</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='منها'>ریاضی؛ منها</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='تقسیم'>ریاضی؛ تقسیم</annotation>
+
+		<!-- curly loop; curl; loop -->
+		<annotation cp='[➰]' tts='حلقه مجعد'>مجعد؛ حلقه</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='حلقه مجعد دوبل'>حلقه؛ مجعد؛ دوبل؛ دوگانه</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='نقطه‌گذاری ژاپنی'>علامت؛ بخش</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='نشان ستاره هشت‌پر'>ستاره</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='ستاره هشت‌پر'>ستاره</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='تبدیل ارز'>بانک؛ ارز؛ تبدیل ارز؛ پول</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='نماد دلار'>ارز؛ پول؛ دلار</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='دو علامت تعجب'>علامت تعجب؛ علامت‌گذاری</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='علامت تعجب و سؤال'>علامت تعجب؛ علامت سؤال؛ علامت‌گذاری</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='علامت سؤال قرمز'>علامت؛ علامت‌گذاری؛ سؤال</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='علامت سؤال سفید'>علامت؛ علامت‌گذاری؛ سؤال</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='علامت تعجب سفید'>علامت؛ علامت‌گذاری؛ تعجب</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='علامت تعجب قرمز'>علامت؛ علامت‌گذاری؛ تعجب</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='خط موج‌دار'>خط؛ علامت‌گذاری؛ موج‌دار</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='علامت تجاری'>علامت؛ تی‌ام؛ tm؛ علامت تجاری</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='برج حمل'>حمل؛ برج؛ فروردین</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='برج ثور'>ثور؛ برج؛ اردیبهشت</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='برج جوزا'>جوزا؛ برج؛ خرداد</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='برج سرطان'>سرطان؛ برج؛ تیر</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='برج اسد'>اسد؛ برج؛ مرداد</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='برج سنبله'>سنبله؛ برج؛ شهریور</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='برج میزان'>میزان؛ برج؛ مهر</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='برج عقرب'>عقرب؛ برج؛ آبان</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='برج قوس'>قوس؛ برج؛ آذر</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='برج جدی'>جدی؛ برج؛ دی</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='برج دلو'>دلو؛ برج؛ بهمن</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='برج حوت'>حوت؛ برج؛ اسفند</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='برج حوا'>حامل؛ مار؛ حوا، زودیاک؛ برج فلکی</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='پخش تصادفی'>پیکان؛ متقاطع</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='دکمه تکرار'>پیکان؛ تکرار</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='دکمه یک‌بار تکرار'>پیکان؛ تکرار؛ یک‌بار</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='دکمه پخش'>پیکان؛ پخش؛ راست؛ مثلث</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='حرکت سریع به جلو'>پیکان؛ دوگانه؛ سریع؛ جلو</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='آهنگ بعدی'>پیکان؛ بعدی؛ صحنه بعدی؛ آهنگ بعدی؛ مثلث</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='پخش یا مکث'>پیکان؛ مکث؛ پخش؛ راست؛ مثلث</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='دکمه برگرداندن'>پیکان؛ چپ؛ برگرداندن؛ قبل؛ مثلث</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='حرکت سریع به عقب'>پیکان؛ دوتایی؛ حرکت به عقب</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='آهنگ قبلی'>پیکان؛ آهنگ قبلی؛ صحنه قبلی؛ مثلث</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='دکمه بالا'>پیکان؛ دکمه؛ قرمز</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='دکمه سریع به بالا'>پیکان؛ دوبل؛ دوتایی</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='دکمه پایین'>پیکان؛ دکمه؛ قرمز؛ پایین</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='دکمه سریع به پایین'>پیکان؛ دوبل؛ پایین</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='دکمه مکث'>نوار؛ دوتایی؛ مکث؛ عمودی</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='دکمه توقف'>مربع؛ توقف</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='دکمه ضبط'>دایره؛ ضبط</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='دکمه خروج'>خروج</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='سینما'>دوربین؛ فیلم؛ سینما</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='تار کردن صفحه'>روشنایی؛ تار کردن؛ پایین</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='روشن کردن صفحه'>روشنایی؛ روشن</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='نوار سیگنال'>آنتن؛ نوار؛ تلفن همراه؛ سیگنال؛ تلفن؛ موبایل؛ گوشی</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='تلفن همراه ممنوع'>تلفن همراه؛ گوشی؛ موبایل؛ ممنوع؛ نه؛ تلفن</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='حالت لرزش'>تلفن همراه؛ گوشی؛ موبایل؛ لرزش؛ ویبره</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='تلفن همراه خاموش'>تلفن همراه؛ گوشی؛ موبایل؛ خاموش؛ تلفن</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='کلید هشتگ'>هشتگ؛ عدد؛ پوند؛ کلید</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='کلید ستاره'>ستاره؛ کلید</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='کلید رقم صفر'>صفر؛ ۰؛ کلید</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='کلید رقم یک'>یک؛ ۱؛ کلید</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='کلید رقم دو'>دو؛ ۲؛ کلید</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='کلید رقم سه'>سه؛ ۳؛ کلید</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='کلید رقم چهار'>چهار؛ ۴؛ کلید</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='کلید رقم پنج'>پنج؛ ۵؛ کلید</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='کلید رقم شش'>شش؛ ۶؛ کلید</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='کلید رقم هفت'>هفت؛ ۷؛ کلید</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='کلید رقم هشت'>هشت؛ ۸؛ کلید</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='کلید رقم نه'>نه؛ ۹؛ کلید</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='کلید عدد ده'>ده؛ ۱۰؛ کلید</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='نمره صد'>۱۰۰؛ کامل؛ تمام؛ صد؛ امتیاز؛ نمره</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='زیر ۱۸ سال ممنوع'>۱۸؛ محدودیت سن؛ هجده؛ هجده سال؛ ممنوع؛ نه؛ خیر؛ کمتر از سن قانونی</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='حروف بزرگ'>ورودی؛ لاتین؛ حروف؛ بزرگ</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='حروف کوچک'>ورودی؛ لاتین؛ حروف؛ الفبا؛ کوچک</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='اعداد'>اعداد؛ ۱۲۳۴؛ اعداد</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='نمادها'>ورودی</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='حروف لاتین'>الفبا؛ ورودی؛ لاتین؛ حروف</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='دکمه A'>a؛ گروه خونی</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='دکمه AB'>ab؛ گروه خونی</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='دکمه B'>b؛ گروه خونی</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='دکمه CL'>cl؛ پاک کردن</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='کلمه COOL'>باحال؛ کول؛ سرد؛ ای ول</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='کلمه FREE'>رایگان؛ فیری؛ آزاد</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='اطلاعات'>اطلاعات؛ i</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='کارت شناسایی'>id؛ شناسه؛ کارت شناسایی</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='حرف M در دایره'>حلقه؛ m</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='کلمه NEW'>جدید؛ نو</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='دکمه NG'>ng؛ خوب نیست</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='دکمه O'>o؛ گروه خونی</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='کلمه OK'>ok؛ باشه؛ تأیید</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='دکمه P'>p؛ پارکینگ</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='دکمه SOS'>کمک؛ sos</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='دکمه !UP'>علامت؛ up؛ بالا</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='دکمه VS'>در برابر؛ vs</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='اینجا به ژاپنی'>ژاپنی؛ اینجا؛ اشاره</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='رایگان به ژاپنی'>ژاپنی؛ رایگان</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='ماه به ژاپنی'>ژاپنی؛ ماه</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='موجود به ژاپنی'>ژاپنی؛ موجود</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='اشاره به ژاپنی'>ژاپنی؛ اشاره</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='قیمت مناسب به ژاپنی'>ژاپنی؛ مقرون‌به‌صرفه</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='حراج به ژاپنی'>ژاپنی؛ تخفیف؛ حراج</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='تمام شده به ژاپنی'>ژاپنی؛ تمام شده؛ در انبار نیست</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='ممنوع به ژاپنی'>ژاپنی؛ ممنوع</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='پذیرفتن به ژاپنی'>ژاپنی؛ قبول؛ پذیرش؛ پذیرفتن</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='درخواست به ژاپنی'>ژاپنی؛ درخواست؛ پرسیدن</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='توافق به ژاپنی'>ژاپنی؛ توافق؛ توافقنامه</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='خالی به ژاپنی'>ژاپنی؛ خالی؛ در دسترس</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='تبریک به ژاپنی'>ژاپنی؛ تبریک؛ شادباش</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='راز به ژاپنی'>ژاپنی؛ راز</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='کار به ژاپنی'>ژاپنی؛ کار؛ اقدام</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='پر به ژاپنی'>ژاپنی؛ پر؛ غیرقابل دسترسی؛ ناموجود</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='مربع مشکی کوچک'>شکل هندسی؛ مربع</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='مربع سفید کوچک'>شکل هندسی؛ مربع</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='مربع سفید متوسط'>شکل هندسی؛ مربع</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='مربع مشکی متوسط'>شکل هندسی؛ مربع</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='مربع سفید'>شکل هندسی؛ مربع</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='مربع مشکی'>شکل هندسی؛ مربع</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='مربع مشکی بزرگ'>شکل هندسی؛ مربع</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='مربع سفید بزرگ'>شکل هندسی؛ مربع</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='لوزی نارنجی بزرگ'>شکل هندسی؛ لوزی؛ نارنجی</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='لوزی آبی بزرگ'>شکل هندسی؛ لوزی؛ آبی</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='لوزی نارنجی کوچک'>شکل هندسی؛ لوزی؛ نارنجی</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='لوزی آبی کوچک'>شکل هندسی؛ لوزی؛ آبی</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='مثلث با رأس بالا'>شکل هندسی؛ مثلث؛ قرمز؛ بالا</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='مثلث با رأس پایین'>شکل هندسی؛ مثلث؛ قرمز؛ پایین</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='لوزی نقطه‌دار'>مصور؛ کمیک؛ لوزی؛ شکل هندسی؛ درون؛ نقطه</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='دکمه رادیو'>دکمه؛ شکل هندسی؛ رادیو</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='دکمه مربع مشکی'>دکمه؛ شکل هندسی؛ مربع</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='دکمه مربع سفید'>دکمه؛ شکل هندسی؛ مربع؛ توپُر</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='دایره سفید'>دایره؛ شکل هندسی</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='دایره مشکی'>دایره؛ شکل هندسی</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='دایره قرمز'>دایره؛ شکل هندسی؛ قرمز</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='دایره آبی'>دایره؛ شکل هندسی؛ آبی</annotation>
+	</annotations>
+</ldml>

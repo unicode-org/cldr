@@ -1,0 +1,2932 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='he'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='פרצוף מחייך'>פרצוף; מחייך; חיוך; שמח</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='פרצוף כועס עם שיניים'>פרצוף; כועס; שיניים; כעס</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='פרצוף עם דמעות שמחה'>פרצוף; שמח; שמחה; צחוק; דמעות</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='פרצוף מחייך עם פה פתוח'>פרצוף; מחייך; חיוך; פה; פתוח; עיניים; שמח</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='פרצוף מחייך עם פה פתוח ועיניים מחייכות'>פרצוף; מחייך; חיוך; פה; פתוח; עיניים; שמח</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='פרצוף מחייך עם פה פתוח וטיפת זיעה קרה'>פרצוף; מחייך; חיוך; פה; פתוח; זיעה; טיפה; שמח</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='פרצוף מחייך עם פה פתוח ועיניים עצומות בחוזקה'>פרצוף; מחייך; חיוך; פה; פתוח; עיניים; עצומות; שמח</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='פרצוף קורץ'>פרצוף; קורץ; קריצה</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='פרצוף מחייך עם עיניים מחייכות'>פרצוף; מחייך; חיוך; עיניים; מסמיק; שמח</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='פרצוף של הנאה מאוכל טעים'>פרצוף; טעים; לשון; יאמי; מחייך</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='פרצוף מחייך עם משקפי שמש'>פרצוף; מחייך; חיוך; משקפיים; שמש; שמח</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='פרצוף מחייך עם עיני לבבות'>פרצוף; מחייך; חיוך; אהבה; לבבות; עיניים</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='פרצוף מפריח נשיקה'>פרצוף; מנשק; אהבה; לב</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='פרצוף מנשק'>פרצוף; מנשק</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='פרצוף מנשק עם עיניים מחייכות'>פרצוף; מנשק; עיניים; חיוך</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='פרצוף מנשק עם עיניים סגורות'>פרצוף; מנשק; עיניים; סגורות</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='פרצוף מחייך'>פרצוף; מחייך; רגוע</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='פרצוף עם חיוך קטן'>פרצוף; מחייך</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='פרצוף מחבק'>פרצוף; מחייך; חיבוק; ידיים</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='פרצוף מחייך עם הילת מלאך'>פרצוף; מחייך; מלאך; תמים</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='פרצוף חושב'>פרצוף; חושב; תוהה; מהרהר</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='פרצוף חסר הבעה'>פרצוף; חסר הבעה</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='פרצוף חסר הבעה ועיניים סגורות'>פרצוף; חסר הבעה</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='פרצוף ללא פה'>פרצוף; בלי פה</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='פרצוף מגלגל עיניים'>פרצוף; עיניים; למעלה; מגלגל</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='פרצוף זחוח'>פרצוף; זחוח</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='פרצוף סובל'>פרצוף; סובל; כאב</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='פרצוף מאוכזב עם דמעה'>פרצוף; מאוכזב; דמעה</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='פרצוף עם פה פתוח'>פרצוף; פה; פתוח</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='פרצוף עם פה סגור ברוכסן'>פרצוף; פה; סגור; רוכסן; ריצ&apos;רץ&apos;</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='פרצוף מופתע'>פרצוף; מופתע; המום</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='פרצוף ישנוני'>פרצוף; ישנוני</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='פרצוף עייף'>פרצוף; עייף; מפהק</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='פרצוף ישן'>פרצוף; ישן; נוחר</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='פרצוף רגוע'>פרצוף; עיניים; רגוע; עצומות; מחייך; הקלה</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='פרצוף של חנון'>פרצוף; מחייך; חנון; משקפיים</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='פרצוף מוציא לשון'>פרצוף; מחייך; לשון</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='פרצוף מוציא לשון וקורץ'>פרצוף; מחייך; קורץ; לשון</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='פרצוף מוציא לשון ועוצם עיניים בחוזקה'>פרצוף; מחייך; לשון; עיניים עצומות</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='פרצוף עצוב'>פרצוף; עצוב</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='פרצוף עם מבט עצוב'>פרצוף; עצוב</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='פרצוף לא משועשע'>פרצוף; עצבני; לא משועשע</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='פרצוף עם זיעה קרה'>פרצוף; זיעה קרה; טיפה</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='פרצוף מהורהר'>פרצוף; מהורהר; עיניים עצומות</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='פרצוף מבולבל'>פרצוף; מבולבל</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='פרצוף מתוסכל'>פרצוף; מתוסכל</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='פרצוף הפוך'>פרצוף; הפוך</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='פרצוף עם מסיכת מנתח'>פרצוף; מסיכה; מנתח; עשן; חולה; זיהום אוויר</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='פרצוף עם מדחום'>פרצוף; חולה; חום; מדחום</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='פרצוף עם תחבושת ראש'>פרצוף; תחבושת ראש; כואב</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='פרצוף עם סימני דולר בעיניים ובלשון'>פרצוף; תאב בצע; כסף; לשון; דולר</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='פרצוף נדהם'>פרצוף; המום; נדהם; פה; פתוח</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='פרצוף מאוכזב'>פרצוף; מאוכזב; עצוב</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='פרצוף מודאג'>פרצוף; מודאג</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='פרצוף עם קיטור יוצא מהאף'>פרצוף; זועם; כועס; קיטור; אף</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='פרצוף בוכה'>פרצוף; בוכה; עצוב; דמעה</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='פרצוף בוכה בקול'>פרצוף; בוכה; דמעות; בקול</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='פרצוף עצוב עם פה פתוח'>פרצוף; עצוב; פה; פתוח</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='פרצוף עצוב עם גבות מורמות'>פרצוף; עצוב; גבות; מורמות; מאוכזב</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='פרצוף מפחד'>פרצוף; מפחד; מפוחד</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='פרצוף מותש'>פרצוף; מותש; עייף</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='פרצוף עם חיוך מלא שיניים'>פרצוף; מחייך; חיוך; שיניים</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='פרצוף מפחד עם זיעה קרה'>פרצוף; מפחד; מפוחד; זיעה קרה</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='פרצוף צורח בפחד'>פרצוף; צורח; צועק; פחד; בהלה; אימה; מונק</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='פרצוף נדהם וסמוק'>פרצוף; נדהם; תדהמה; הלם; שוק; מסמיק; עיניים</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='פרצוף עם סחרחורת'>פרצוף; עיניים; איקס; נדהם</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='פרצוף זועף'>פרצוף; זועף; כועס; זועם</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='פרצוף כועס'>פרצוף; זועף; כועס; זועם</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='פרצוף מחייך עם קרניים'>פרצוף; קרניים; שדון; שטן; מחייך; זדוני</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='שדון'>פרצוף; קרניים; שטן; כועס; זועף; זדוני</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='מפלצת'>יצור; פרצוף; מפחיד; אדום; קרניים; עוג</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='גובלין'>יצור; פרצוף; מפחיד; אדום; קרניים; מפלצת</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='גולגולת'>שלד; מפחיד; מוות; פרצוף</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='סמל פיראטים'>גולגולת; שלד; עצמות; מפחיד; מוות; מסוכן; פיראטים; פרצוף</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='רוח רפאים'>יצור; פרצוף; מחייך; לשון; מוות</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='חייזר'>פרצוף; עב״מ; יצור; חלל; חוצן</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='מפלצת חייזרית'>יצור; מפלצת; פרצוף; חייזר; עב״מ; חלל; חוצן</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='פרצוף של רובוט'>פרצוף; רובוט</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='גוש קקי'>פרצוף; מחייך; קקי; צואה; מגעיל; מסריח; מצחיק</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='פרצוף של חתול מחייך עם פה פתוח'>פרצוף; חתול; מחייך; פה; פתוח</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='פרצוף של חתול מחייך עם עיניים מחייכות'>פרצוף; חתול; מחייך; פה; פתוח; עיניים</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='פרצוף של חתול עם דמעות שמחה'>פרצוף; חתול; מחייך; דמעות; שמחה</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='פרצוף של חתול מחייך עם עיני לב'>פרצוף; חתול; מחייך; אהבה; לבבות; עיניים</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='פרצוף של חתול עם חיוך עקום'>פרצוף; חתול; חיוך עקום</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='פרצוף של חתול מנשק עם עיניים סגורות'>פרצוף; חתול; מנשק; עיניים סגורות</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='פרצוף של חתול פוחד'>פרצוף; חתול; מפחד; פחד</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='פרצוף של חתול בוכה'>פרצוף; חתול; בוכה; דמעה</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='פרצוף של חתול זועף'>פרצוף; חתול; זועף; כועס</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='לא ראיתי'>פרצוף; קוף; מכסה עיניים; אסור</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='לא שמעתי'>פרצוף; קוף; מכסה אוזניים; אסור</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='לא דיברתי'>פרצוף; קוף; מכסה פה; אסור</annotation>
+
+		<!-- boy -->
+		<annotation cp='[👦]' tts='בן'>ילד; נער</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='בת'>ילדה; נערה</annotation>
+
+		<!-- man -->
+		<annotation cp='[👨]' tts='איש'>שפם</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='אדם עם שיער בלונדיני'>בלונד; בלונדיני</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='שוטר'>משטרה</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='אדם עם כובע סיני'>סיני; כובע</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='אדם עם טורבן'>הודי; טורבן</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='פועל בניין'>קסדה; בטיחות</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='קסדה עם צלב לבן'>קסדה; בטיחות</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='נסיכה'>כתר; אגדה; מלכה</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='בלש'>מרגל</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='סנטה קלאוס'>סנטה; חג המולד; מתנות</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='מלאך תינוק'>מלאך; תינוק</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='עיסוי פנים'>עיסוי; פנים</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='תספורת'>מספרה; יופי</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='כלה עם הינומה'>כלה; חתונה; הינומה</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='אישה כועסת'>כועסת; זועפת; זועמת</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='אישה זועפת'>כועסת; זועפת</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='אישה מסמנת ״לא״ עם הידיים'>אסור; סימן ידיים; לא</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='אישה מסמנת OK עם הידיים'>סימן ידיים; אוקיי; ok</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='פקידה בדלפק מידע'>יד; עזרה; מידע</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='אישה שמחה מרימה יד'>סימן ידיים; תשובה; שמחה; יד מורמת</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='אדם משתחווה'>התנצלות; משתחווה; סליחה; קידה</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='כפות ידיים מורמות'>סימן; כפות ידיים; שמחה</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='כפות ידיים מוצמדות'>סימן ידיים; תפילה; כפות ידיים; תודה</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='צללית ראש מדבר'>פרצוף; ראש; צללית; מדבר</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='צללית ראש וחזה'>צללית; ראש; חזה</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='שתי צלליות ראש וחזה'>צללית; ראש; חזה</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='הולך רגל'>הליכה; הולך</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='רץ'>ריצה; מרתון</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='נשים רוקדות'>ארנבות; שפנפנות; רוקדות; אוזני ארנב; אישה; נשים</annotation>
+
+		<!-- dancer -->
+		<annotation cp='[💃]' tts='רקדנית'>רוקדת; פלמנקו</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='אדם בחליפת עסקים מרחף'>איש עסקים; חליפה</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='נשיקה'>זוג; רומנטי; רומנטיקה; אהבה; לב</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='זוג עם לב'>זוג; רומנטי; רומנטיקה; אהבה; לב</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='משפחה'>אמא; אבא; ילד</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='גבר ואישה מחזיקים ידיים'>זוג; גבר; אישה; מחזיקים ידיים; ידיים</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='שני גברים מחזיקים ידיים'>זוג; גברים; מחזיקים ידיים; ידיים</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='שתי נשים מחזיקות ידיים'>זוג; נשים; מחזיקות ידיים; ידיים</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='סוג עור 1-2'>סוג; גוון; עור; משנה אמוג&apos;י</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='סוג עור 3'>סוג; גוון; עור; משנה אמוג&apos;י</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='סוג עור 4'>סוג; גוון; עור; משנה אמוג&apos;י</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='סוג עור 5'>סוג; גוון; עור; משנה אמוג&apos;י</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='סוג עור 6'>סוג; גוון; עור; משנה אמוג&apos;י</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='יד עושה שריר'>יד; זרוע; שריר; חזק</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='גב יד מצביעה שמאלה'>יד; מצביעה; אצבע; להצביע; שמאלה</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='גב יד מצביעה ימינה'>יד; מצביעה; אצבע; להצביע; ימינה</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='יד מצביעה למעלה'>יד; מצביעה; אצבע; להצביע; למעלה</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='גב יד מצביעה למעלה'>יד; מצביעה; אצבע; להצביע; למעלה</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='אצבע משולשת'>תנועה מזרחית</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='גב יד מצביעה למטה'>יד; מצביעה; אצבע; להצביע; למטה</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='אצבעות מסמנות ניצחון'>יד; אצבעות; ניצחון; וי</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='ברכת וולקנים'>יד; וולקן; וולקנים; ספוק; אצבעות</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='יד מסמנת קרניים באצבע מורה ובזרת'>יד; קרניים; אצבע מורה; זרת</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='כף יד פתוחה מורמת'>יד; חמסה; פתוחה; מורמת; כיף</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='כף יד מורמת'>יד; מורמת; עצור</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='יד מסמנת OK'>אוקיי; ok; אישור; בסדר; יד</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='אגודל למעלה'>אהבתי; לייק; אגודל; למעלה; סבבה; אישור; טוב</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='אגודל למטה'>לא אהבתי; לא טוב; למטה</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='אגרוף מורם'>אגרוף; כוח; אלימות; מכה</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='מכת אגרוף'>אגרוף; מכה; כוח; אלימות</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='יד מנופפת'>יד; מנופפת; ביי; להתראות</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='מחיאות כפיים'>ידיים; הדרן; כל הכבוד</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='כפות ידיים פתוחות'>ידיים פתוחות; קבלה</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='יד כותבת'>יד; כותבת; כתיבה; כתב יד</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='מריחת לק על ציפורניים'>ציפורניים; לק; טיפוח; מניקור; קוסמטיקה</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='אוזן'>לשמוע; צליל</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='אף'>להריח; ריח</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='טביעות רגל'>עקבות</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='עיניים'>להסתכל; לראות; לצפות</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='עין'>להסתכל; לראות; לצפות</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='לשון'>ללקק; ליקוק; לק</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='פה'>שפתיים; נשיקה</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='סימן נשיקה'>נשיקה; שפתיים</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='לב עם חץ'>אהבה; חץ; לב</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='לב אדום'>לב; אדום</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='לב פועם'>לב; פועם; פעימות</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='לב שבור'>לב; שבור; אכזבה</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='שני לבבות'>לבבות; אהבה</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='לב מנצנץ'>לב; מנצנץ; אהבה</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='לב גדל'>לב; גדל; מתרחב; מתרגש</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='לב כחול'>לב; כחול</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='לב ירוק'>לב; ירוק</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='לב צהוב'>לב; צהוב</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='לב סגול'>לב; סגול</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='לב עם סרט מתנה'>לב; סרט; מתנה; חג האהבה; ט״ו באב; ולנטיין</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='לבבות נעים במעגל'>לבבות; מעגל; אהבה</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='לב בריבוע ורוד'>לב</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='סימן קריאה בצורת לב'>לב; סימן קריאה; אהבה</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='מכתב חתום בלב'>לב; מכתב; אהבה; רומנטיקה; דואר</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='סימן נחירה'>נחירה; שינה; נחירות; נוחר</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='סימן כעס'>פיצוץ; כעס</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='פצצה'>רימון</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='פיצוץ'>פצצה</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='טיפות זיעה'>טיפות; מים; זיעה</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='ענן תנועה מהירה'>ענן; ריצה; מהר</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='כוכב נע במעגל'>כוכב; סחרחורת</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='בועת דיבור'>בועה; ענן; דיבור; דיאלוג; דו-שיח</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='בועת דיבור משמאל'>בועה; ענן; דיבור; דיאלוג; דו-שיח</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='בועת דיבור כועס מימין'>בועה; ענן; דיבור; דיאלוג; דו-שיח; כועס</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='בועת מחשבה'>בועה; מחשבה; רעיון</annotation>
+
+		<!-- hole -->
+		<annotation cp='[🕳]' tts='חור'>בור</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='משקפיים'>עיניים</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='משקפי שמש'>משקפיים; שמש</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='חולצה עם עניבה'>חולצה; עניבה; מחויט; בגד</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='חולצת T'>חולצה; T; טי; בגד</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='מכנסי ג&apos;ינס'>מכנסיים; ג&apos;ינס; בגד</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='שמלה'>בגד</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='קימונו'>בגד; יפני; יפן</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='ביקיני'>בגד; ים; קיץ</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='חולצת אישה'>בגד; חולצה; אישה</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='ארנק'>כסף; מטבעות</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='תיק יד'>ארנק</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='פאוץ&apos;'>ארנק</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='שקיות קניות'>שקיות; קניות; שופינג</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='ילקוט'>תיק; בית ספר; לימודים</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='נעל של גבר'>נעל; גבר</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='נעל ריצה'>נעל; ריצה; ספורט</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='נעל עקב גבוה'>נעל; עקב; אישה</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='סנדל של אישה'>סנדל; קיץ; אישה</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='מגף של אישה'>מגף; חורף; אישה</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='כתר'>מלך; מלכה</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='כובע של אישה'>כובע; אישה; קיץ</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='מגבעת צילינדר'>כובע; מהודר; גבר</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='כובע אקדמאי'>כובע; אקדמיה; אוניברסיטה; דיפלומה; תעודה</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='מחרוזת תפילה'>מחרוזת; תפילה; דת</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='שפתון'>קוסמטיקה; טיפוח; יופי; אישה; איפור</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='טבעת'>אירוסין; יהלום; תכשיט; רומנטיקה</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='יהלום'>תכשיט; רומנטיקה</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='פני קוף'>פנים; קוף</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='פני כלב'>פנים; כלב; חיית מחמד</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='כלב'>חיית מחמד</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='פודל'>כלב; חיית מחמד</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='פני זאב'>זאב; פנים</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='פני חתול'>פנים; חתול; חיית מחמד</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='חתול'>חיית מחמד</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='פני אריה'>פנים; אריה</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='פני טיגריס'>פנים; טיגריס</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='פני סוס'>פנים; סוס</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='סוס'>דוהר</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='פני חד-קרן'>פנים; חד-קרן; אגדה</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='פני פרה'>פנים; פרה</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='שור'>פר</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='פני חזיר'>פנים; חזיר</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='חזיר בר'>פנים</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='אף חזיר'>אף; חזיר</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='תיש'>גדי</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='גמל'>מדבר; דבשת</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='גמל דו-דבשתי'>גמל; דבשת; דו-דבשתי; מדבר</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='פני עכבר'>פנים; עכבר</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='פני אוגר'>פנים; אוגר; חיית מחמד</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='פני ארנב'>פנים; ארנב; חיית מחמד</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='ארנב'>חיית מחמד</annotation>
+
+		<!-- chipmunk -->
+		<annotation cp='[🐿]' tts='סנאי'>חיית מחמד</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='פני דוב'>פנים; דוב</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='קואלה'>פנים</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='פני פנדה'>פנים; פנדה</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='טביעות רגל של חיה'>טביעות רגל; עקבות; כפות רגל</annotation>
+
+		<!-- chicken -->
+		<annotation cp='[🐔]' tts='תרנגולת'>פנים</annotation>
+
+		<!-- rooster -->
+		<annotation cp='[🐓]' tts='תרנגול'>תרנגולת</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='אפרוח בוקע'>אפרוח; בוקע; ביצה</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='אפרוח'>פנים</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='אפרוח מלפנים'>אפרוח</annotation>
+
+		<!-- bird -->
+		<annotation cp='[🐦]' tts='ציפור'>פנים</annotation>
+
+		<!-- penguin -->
+		<annotation cp='[🐧]' tts='פינגווין'>פנים</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='יונה'>שלום; עלה זית</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='פני צפרדע'>פנים; צפרדע</annotation>
+
+		<!-- crocodile -->
+		<annotation cp='[🐊]' tts='תנין'>קרוקודיל; אליגטור; תמסח</annotation>
+
+		<!-- turtle -->
+		<annotation cp='[🐢]' tts='צב'>שלחופה</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='נחש'>ארסי</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='פני דרקון'>פנים; דרקון; סיני; אגדי; אגדה</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='דרקון'>סיני; אגדי; אגדה</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='לווייתן מתיז סילון מים'>לווייתן; מתיז; סילון; מים</annotation>
+
+		<!-- dolphin; flipper -->
+		<annotation cp='[🐬]' tts='דולפין'>קופץ; פליפר</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='דג טרופי'>דג; טרופי</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='אבו נפחא'>דג; קוצים</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='צדף מסולסל'>צדף; מסולסל</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='דבורה'>דבש</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='פרת משה רבנו'>חיפושית; משה רבנו</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='קורי עכביש'>קורים; עכביש</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='עקרב'>ארסי</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='זר פרחים'>זר; פרחים; רומנטי; רומנטיקה</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='פריחת דובדבן'>פרח; פריחה; דובדבן</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='פרח לבן'>פרח; עיטור</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='פרח צהוב'>פרח; צהוב</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='ורד'>פרח; רומנטי; רומנטיקה</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='היביסקוס'>פרח</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='חמניה'>פרח</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='פריחה'>פרח</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='צבעוני'>פרח</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='נבט'>צמח</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='עץ ירוק-עד'>צמח; עץ; ירוק-עד</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='עץ נשיר'>צמח; עץ; משיר</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='דקל'>צמח; עץ; טרופי</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='קקטוס'>צמח; מדבר</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='שיבולי אורז'>צמח; שיבולים; אורז</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='צמח תבלין'>צמח; עלה; גבעול; ענף</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='תלתן'>צמח; עלה</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='תלתן ארבע עלים'>צמח; תלתן; עלה; מזל</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='עלה מייפל'>צמח; עלה; מייפל; קנדה</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='עלי שלכת'>צמח; עלים; שלכת; סתיו</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='עלים עפים ברוח'>צמח; עלים; רוח; סתיו; שלכת</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='ענבים'>פרי; קיץ</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='מלון'>פרי; קיץ</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='אבטיח'>פרי; קיץ</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='קלמנטינה'>פרי; פרי הדר; חורף</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='לימון'>פרי; פרי הדר</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='בננה'>פרי</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='אננס'>פרי; טרופי</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='תפוח אדום'>פרי; תפוח; אדום</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='תפוח ירוק'>פרי; תפוח; ירוק</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='אגס'>פרי</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='אפרסק'>פרי</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='דובדבנים'>פרי; דובדבן</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='תות שדה'>פרי; תות</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='עגבנייה'>ירק</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='חציל'>ירק</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='קלח תירס'>ירק; תירס</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='פלפל חריף'>ירק; פלפל; חריף</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='פטריה'>ירק</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='ערמון'>ערמונים</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='לחם'>כיכר</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='חריץ גבינה'>גבינה</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='בשר על עצם'>בשר; עצם</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='כרע'>עוף; כרעיים; פולקע</annotation>
+
+		<!-- hamburger; burger -->
+		<annotation cp='[🍔]' tts='המבורגר'>בשר; לחמניה</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='צ&apos;יפס'>ציפס; טוגנים</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='פיצה'>משולש</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='נקניקייה בלחמניה'>נקניקייה; לחמניה</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='טאקו'>מקסיקני</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='בוריטו'>מקסיקני</annotation>
+
+		<!-- popcorn -->
+		<annotation cp='[🍿]' tts='פופקורן'>סרט; קולנוע</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='סיר אוכל'>אוכל; סיר; אדים; נזיד</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='חמגשית עם אוכל'>חמגשית; אוכל</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='פריכית אורז'>פריכית; אורז</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='כדור אורז'>כדור; אורז; יפני</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='אורז מבושל'>אורז; מבושל</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='אורז קארי'>אורז; קארי</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='קערה מהבילה'>נודלס; אטריות; סיני; תאילנדי; אוכל</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='ספגטי'>מקרוני</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='בטטה צלויה'>בטטה; צלויה</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='שיפוד'>קבב; מנגל</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='שרימפ מטוגן'>שרימפס; מטוגן</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='עוגיית אורז עם עיטור'>עוגייה; עיטור; מאפה; קישוט</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='שיפוד כופתאות'>קינוח; יפני; שיפוד; מתוק</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='גלידה בגביע'>גלידה אמריקאית; גלידה; גביע; מתוק</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='קערית ברד'>קרח; ממותק; ברד</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='גלידה'>מתוק</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='סופגניה'>מאפה; מתוק</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='עוגיה'>שוקולד צ&apos;יפס; מאפה; מתוק</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='עוגת יום הולדת'>יום הולדת; מזל טוב; מאפה; מתוק; עוגה; קינוח; מסיבה</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='פרוסת עוגה'>עוגה; קינוח; מאפה; פרוסה; מתוק</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='חפיסת שוקולד'>שוקולד; חפיסה; מתוק</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='סוכריה'>ממתק; מתוק</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='סוכריה על מקל'>סוכריה; מקל; ממתק; מתוק</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='פודינג'>קינוח; מתוק</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='צנצנת דבש'>דבש; מתוק; כד דבש</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='בקבוק של תינוק'>בקבוק; תינוק; חלב</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='משקה חם'>משקה; חם; קפה; תה; ספל</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='ספל תה בלי ידית'>משקה; חם; תה; ספל</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='סאקה'>בר; משקה; אלכוהול; יפן</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='בקבוק שמפניה עם פקק עף'>בקבוק; שמפניה; פקק; מסיבה; אלכוהול; בר</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='כוס יין'>כוס; יין; אלכוהול; בר</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='כוס קוקטייל'>בר; משקה; אלכוהול; קוקטייל</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='קוקטייל טרופי'>בר; משקה; אלכוהול; קוקטייל; טרופי</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='כוס בירה'>בר; משקה; אלכוהול; בירה; כוס</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='כוסות בירה נוקשות'>בר; משקה; אלכוהול; בירה; כוס; לחיים</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='סכין ומזלג עם צלחת'>סכין; מזלג; צלחת; אוכל</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='סכין ומזלג'>סכין; מזלג; סכו״ם; אוכל</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='בישול'>מחבת; ביצה עין; חביתה</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='כד עתיק'>כד; עתיק; משקה; יין</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='גלובוס עם אירופה ואפריקה'>גלובוס; אירופה; אפריקה; עולם; כדור הארץ</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='גלובוס עם אמריקה'>גלובוס; אמריקה; עולם; כדור הארץ</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='גלובוס עם אסיה ואוסטרליה'>גלובוס; אוסטרליה; אסיה; כדור הארץ</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='גלובוס עם קווי אורך ורוחב'>גלובוס; כדור הארץ; קווי אורך; קווי רוחב</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='מפת העולם'>מפה; עולם</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='הר עם פסגה מושלגת'>הר; שלג; גבוה; קר</annotation>
+
+		<!-- mountain -->
+		<annotation cp='[⛰]' tts='הר'>גבוה</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='הר געש'>לבה; התפרצות</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='הר פוג&apos;י'>הר געש; יפן</annotation>
+
+		<!-- camping -->
+		<annotation cp='[🏕]' tts='מחנאות'>אוהל; קמפינג; מחנה; טיול</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='חוף עם שמשיה'>חוף; שמשיה; ים; קיץ</annotation>
+
+		<!-- desert -->
+		<annotation cp='[🏜]' tts='מדבר'>קקטוס; חם; יבש</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='אי בודד'>ים</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='שמורת טבע'>טיול; טבע; פארק</annotation>
+
+		<!-- stadium -->
+		<annotation cp='[🏟]' tts='איצטדיון'>אצטדיון; ספורט</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='מבנה קלאסי'>ארכיאולוגיה; מבנה; בניין; קלאסי</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='עבודות בניין'>מנוף; בניין; בנייה; עבודות</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='בתים'>מבנים; שכונה</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='נוף עירוני עם מגדלים בקו השמים'>בניינים; מגדלים; גורדי שחקים; מבנים; עיר</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='בית מוזנח'>בית; מוזנח; ישן</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='בית עם גינה'>בית; גינה</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='כנסייה'>נוצרי; נצרות; דת</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='כעבה'>מוסלמי; איסלם; דת</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='מסגד'>מוסלמי; איסלם; דת</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='בית כנסת'>יהדות; יהודי; דת</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='מקדש שינטו'>מקדש; שינטו; יפן; דת</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='בניין משרדים'>בניין; משרדים</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='בית דואר ביפן'>בניין; דואר יפן</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='בית דואר'>בניין; דואר</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='בית חולים'>רפואה; רופא</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='בית מלון'>מלון</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='מלון אהבה'>מלון; בית מלון; אהבה</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='חנות נוחות'>חנות; 24 שעות</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='בית ספר'>לימודים</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='כלבו'>חנות; קניות</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='מפעל'>עבודה; ייצור</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='טירה יפנית'>טירה; ארמון; יפן</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='טירה'>ארמון</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='חתונה'>כנסייה; אהבה; רומנטיקה</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='מגדל טוקיו'>מגדל; טוקיו</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='פסל החירות'>ניו-יורק; אמריקה</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='מפת יפן'>יפן; מפה</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='אוהל'>קמפינג; מחנה</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='מזג אוויר מעורפל'>מזג אוויר; ערפל</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='לילה עם כוכבים'>עיר; לילה; כוכבים; ירח; מגדלים; בניינים; גורדי שחקים</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='זריחה בהרים'>זריחה; הרים; בוקר</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='זריחה'>ים; בוקר</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='נוף עירוני בשעת בין-ערביים'>שקיעה; בין-ערביים; עיר; מגדלים; בניינים; גורדי שחקים</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='שקיעה'>עיר; בניינים; גורדי שחקים; מגדלים</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='גשר בלילה'>גשר; לילה; עיר</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='מעיינות חמים'>חם; מעיינות; אדים; קיטור</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='שביל החלב'>חלל; כוכבים</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='סוס בקרוסלה'>סוס; קרוסלה; לונה פארק</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='גלגל ענק'>לונה פארק</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='רכבת הרים'>לונה פארק</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='עמוד מספרה'>מספרה; תספורת</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='אוהל קרקס'>קרקס; אוהל</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='אמנויות הבמה'>מסיכות; במה; משחק; דרמה; תיאטרון</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='מסגרת עם תמונה'>מסגרת; תמונה; אמנות; ציור; מוזיאון</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='פלטת צבעים'>צבעים; אמן; ציור; אמנות; מוזיאון</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='מכונת מזל'>משחק; מזל; קזינו</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='קטר'>מנוע; רכבת; קיטור; תחבורה</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='קרון'>רכבת; חשמלית; תחבורה</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='רכבת מהירה'>רכבת; מהירה; מהירות; תחבורה</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='רכבת מהירה עם חרטום בצורת קליע'>רכבת; מהירה; מהירות; תחבורה</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='רכבת'>תחבורה</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='רכבת תחתית'>סאבוויי; תחבורה</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='רכבת קלה'>רכבת; קלה; תחבורה</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='תחנה'>רכבת; תחבורה</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='חשמלית'>רכבת; תחבורה</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='רכבת עילית'>רכבת; עילית; תחבורה</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='רכבת בהרים'>רכבת; הרים; תחבורה</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='קרון חשמלית'>קרון; רכבת; חשמלית; תחבורה</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='אוטובוס'>תחבורה</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='אוטובוס מלפנים'>אוטובוס; תחבורה</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='חשמלית'>אוטובוס; חשמלי; תחבורה</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='תחנת אוטובוס'>תחנה; תמרור; אוטובוס; תחבורה</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='מיניבוס'>תחבורה</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='אמבולנס'>חירום</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='כבאית'>מכבי אש; שריפה; חירום</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='ניידת משטרה'>משטרה; ניידת; חירום; פשע</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='ניידת משטרה מלפנים'>משטרה; ניידת; חירום; פשע</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='מונית'>תחבורה</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='מונית מלפנים'>מונית; תחבורה</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='מכונית'>תחבורה</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='מכונית מלפנים'>מכונית; תחבורה</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='ג&apos;יפ'>תחבורה</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='משאית'>תחבורה</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='משאית קטנה'>משאית; קטנה; תחבורה</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='משאבת דלק'>דלק; תדלוק; תחנת דלק</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='כביש מהיר'>כביש; מהיר; בינעירוני</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='מסילת רכבת'>רכבת; מסילה</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='פנס של ניידת משטרה'>צ&apos;קלקה; קוג&apos;אק; אורות משטרה; פנס משטרה; חירום</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='רמזור אופקי'>רמזור</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='רמזור אנכי'>רמזור</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='מחסום עבודות'>מחסום; עבודות</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='עוגן'>ספינה</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='סירת מפרש'>סירה; מפרש; ים; יאכטה</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='סירת משוטים'>סירה; משוטים; ים</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='סירת מירוץ'>סירה; מירוץ; ים</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='ספינת נוסעים'>ספינה; נוסעים; שיט; קרוז</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='מעבורת'>ספינה</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='סירת מנוע'>סירה; מנוע; יאכטה</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='מטוס'>טיסה; ג&apos;מבו</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='מטוס קטן'>מטוס קל; טיסה</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='מטוס ממריא'>מטוס; ממריא; המראה</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='מטוס נוחת'>מטוס; נוחת; נחיתה</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' tts='מושב'>כיסא</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='קרון רכבל'>רכבל</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='קרון רכבל קטן'>רכבל</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='טיל'>רקטה; חלל</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='לוויין'>חלל</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='פעמון קבלה'>פעמון; קבלה; מלון</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='אדם במיטה'>מיטה; שינה; לישון; מלון</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='מיטה'>מלון</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='ספה ומנורה'>ספה; מלון; מנורה; סלון</annotation>
+
+		<!-- toilet -->
+		<annotation cp='[🚽]' tts='אסלה'>שירותים</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='מקלחת'>מים</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='אדם באמבטיה'>אמבטיה; מקלחת</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' tts='אמבטיה'>מקלחת</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='שעון חול'>שעוון חול; זמן</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='חול זורם בשעון חול'>שעון; חול; זורם</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='שעון יד'>שעון; יד</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='שעון מעורר'>שעון; מעורר</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='שעון עצר'>שעון; עצר</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='טיימר'>שעון</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='שעון דקורטיבי'>שעון; דקורטיבי</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='שתיים-עשרה'>12:00; 24:00; צהריים; חצות</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='שתיים-עשרה וחצי'>12:30; 00:30</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='אחת'>13:00; 01:00</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='אחת וחצי'>13:30; 01:30</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='שתיים'>14:00; 02:00 שתיים</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='שתיים וחצי'>14:30; 02:30</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='שלוש'>15:00; 03:00</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='שלוש וחצי'>15:30; 03:30</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='ארבע'>16:00; 04:00</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='ארבע וחצי'>16:30; 04:30</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='חמש'>17:00; 05:00</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='חמש וחצי'>17:30; 05:30</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='שש'>18:00; 06:00</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='שש וחצי'>18:30; 06:30</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='שבע'>19:00; 07:00</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='שבע וחצי'>19:30; 07:30</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='שמונה'>20:00; 08:00</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='שמונה וחצי'>20:30; 08:30</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='תשע'>21:00; 09:00</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='תשע וחצי'>21:30; 09:30</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='עשר'>22:00; 10:00</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='עשר וחצי'>22:30; 10:30</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='אחת-עשרה'>23:00; 11:00</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='אחת-עשרה וחצי'>23:30; 11:30</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='ירח חדש'>ירח; חשוך; חלל</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='סהר ירח מתמלא'>ירח; סהר; חלל</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='חצי ירח מתמלא'>חצי ירח; חלל</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='ירח כמעט מלא'>ירח; חלל</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='ירח מלא'>ירח; חלל</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='ירח מתחיל להתרוקן'>ירח; חלל</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='חצי ירח מתרוקן'>חצי ירח; חלל</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='סהר ירח מתרוקן'>סהר; ירח; חלל</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='סהר'>ירח</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='פני ירח חדש'>פנים; ירח</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='פני סהר מתמלא'>פנים; ירח; סהר</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='פני סהר מתרוקן'>פנים; ירח; סהר</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='מדחום'>מזג אוויר</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='שמש'>אור; קיץ; חם</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='פני ירח מלא'>ירח; פנים; מלא</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='פני שמש'>שמש; פנים</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='כוכב לבן בינוני'>כוכב</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='כוכב זוהר'>כוכב; זוהר; מנצנץ</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='כוכב שביט'>כוכב; שביט; חלל</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='שמש מאחורי ענן'>ענן; מעונן; שמש</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='ענן עם ברק וגשם'>ענן; ברק; גשם; חורף</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='שמש מאחורי ענן קטן'>ענן; שמש; מעונן</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='שמש מאחורי ענן גדול'>ענן; שמש; מעונן</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='שמש מאחורי ענן עם גשם'>ענן; שמש; גשם; חורף</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='ענן עם גשם'>ענן; גשם; חורף</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='ענן עם שלג'>ענן; שלג; חורף</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='ענן עם ברק'>ענן; ברק; חורף</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='טורנדו'>סערה; רוח</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='פני רוח נושבת'>רוח; פנים; נושבת</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='קו ספירלה'>מסתלסל; ציקלון; מסתובב; ספירלה</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='קשת בענן'>גשם</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='מטריה סגורה'>מטריה; גשם; חורף</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='מטריה'>גשם; חורף</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='מטריה עם טיפות גשם'>מטריה; גשם; חורף</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='שמשיה'>חוף; ים; קיץ</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='ברק'>חשמל; סכנה</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='פתית שלג'>פתית; שלג; חורף</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='איש שלג'>חורף</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='איש שלג בלי שלג'>איש שלג; חורף</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='שביט'>חלל</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='אש'>שריפה; להבה</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='טיפה'>מים</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='גל'>ים; סערה</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='מנורת דלעת'>דלעת; אור; מנורה</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='עץ אשוח מקושט'>אשוח; חג המולד; מקושט; כריסמס</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='זיקוקים'>חגיגה</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='זיקוק על מקל'>זיקוקים; חגיגה; זיקוק</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='נצנוץ'>כוכבים</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='בלון'>מסיבה</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='פצצת קונפטי'>קונפטי; מסיבה; חגיגה</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='כדור קונפטי'>קונפטי; מסיבה; חגיגה</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='קישוט חג יפני'>קישוט; יפני; חג; חגיגה</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='דגלים מוצלבים'>דגלים; יפן; מוצלבים</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='קישוט אצטרובלים'>קישוט; אצטרובלים; יפני</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='בובות יפניות'>בובות; יפני; חגיגה; חג; פסטיבל</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='דגלים בצורת דגי קוי'>קוי; חג; חגיגה; יפני; דגל</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='פעמון רוח'>פעמון; רוח; חגיגה; חג; יפני</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='טקס ירח'>חגיגה; טקס; חג; ירח; יפני</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='סרט מתנה'>סרט; מתנה; חגיגה; מסיבה</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='קופסת מתנה'>מתנה; יום הולדת; מסיבה; חגיגה</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='מדליה צבאית'>מדליה; צבא</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='סרט הזדהות'>תזכורת</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='פילם'>סרט; צילום; קולנוע</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='כרטיס כניסה'>כרטיס; כניסה</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='כרטיס'>כניסה</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='כדורגל'>ספורט; כדור</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='כדור בסיס'>כדור; בייסבול; ספורט</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='כדור סל'>כדור; כדורסל; ספורט</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='כדור פוטבול'>כדור; פוטבול; ספורט</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='כדור רוגבי'>כדור; רוגבי; ספורט</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='כדור טניס'>כדור; טניס; ספורט</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='כדור ביליארד'>כדור; ביליארד; סנוקר; משחק</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='כדור באולינג'>כדור; באולינג; משחק; כדורת</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='דגל גולף'>גולף; דגל; משחק; גומה</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='שחקן גולף'>גולף; משחק; שחקן</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='נעל החלקה על קרח'>החלקה; קרח; נעל</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='חכת דיג'>חכה; דיג; דג</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='חולצת ריצה'>חולצה; ריצה; ספורט</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='מגלשי סקי'>מגלשיים; סקי; שלג</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='גולש סקי'>גולש; סקי; שלג</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='גולש סנובורד'>גולש; סנובורד; שלג</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='גולש גלים'>גולש; גלים; ים</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='מירוצי סוסים'>רוכב; סוס; מירוץ</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='שחיין'>שוחה; בריכה; ים</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='אדם עם כדור'>כדור; משחק; ספורט</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='מרים משקולות'>משקולות; כושר; מרים</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='רוכב אופניים'>אופניים; רכיבה; ספורט</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='רוכב אופני הרים'>אופני הרים; אופניים; רכיבה; ספורט</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='מכונית מירוץ'>מכונית; מירוץ</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='מדליית ספורט'>מדליה; ספורט; ניצחון</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='גביע ספורט'>גביע; ספורט; ניצחון</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='קריקט'>משחק; כדור; מחבט</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='כדורעף'>כדור; משחק; ספורט</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='הוקי שדה'>הוקי; שדה; מחבט; ספורט</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='מקל ודיסקית של הוקי קרח'>הוקי; קרח; מחבט; ספורט</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='פינג פונג'>מחבט; כדור; משחק; טניס שולחן</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='בדמינטון'>מחבט; רקטה; כדור נוצה</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='פגיעה בול'>חצים; קליעה; מטרה; בול; חץ; משחק</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='משחק וידאו'>משחק; וידאו; מחשב</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='ג&apos;ויסטיק'>משחק; מחשב</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='קוביית משחק'>קובייה; מזל; משחק</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='קלף עלה'>קלף; משחק, עלה; שחור</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='קלף לב'>קלף; משחק; לב; אדום</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='קלף יהלום'>קלף; משחק; יהלום; אדום</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='קלף תלתן'>קלף; משחק; תלתן; שחור</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='קלף ג&apos;וקר'>קלף; משחק; ג&apos;וקר</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='דרקון אדום במה-ג&apos;ונג'>משחק; מה-ג&apos;ונג; דרקון; אדום</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='קלף משחק יפני'>קלף; משחק; יפני</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='רמקול מושתק'>רמקול; שקט; מושתק; ווליום</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='רמקול'>ווליום</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='רמקול פועל'>רמקול; ווליום; נמוך; חלש</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='רמקול חזק'>רמקול; ווליום; חזק</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='מגפון'>הודעה; חזק</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='מגפון בלי ידית'>מגפון; עידוד</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='קרן דואר'>קרן; חצוצרה; דואר</annotation>
+
+		<!-- bell -->
+		<annotation cp='[🔔]' tts='פעמון'>צלצול</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='פעמון מושתק'>פעמון; שקט; מושתק</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='מפתח סול'>מוזיקה; תווים</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='תו מוזיקלי'>תו; מוזיקה; תווים</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='תווים מוזיקליים'>מוזיקה; תווים</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='מיקרופון אולפן'>מיקרופון; אולפן; הקלטה; מוזיקה; שירה</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='מחוון עוצמת קול'>רמה; צליל; סאונד; מחוון; עוצמה; קול</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='כפתורי עוצמת קול'>שליטה; כפתורים; מוזיקה; עוצמה; קול</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='מיקרופון'>שירה; מוזיקה; הקלטה; קריוקי</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' tts='אוזניה'>מוזיקה</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='סקסופון'>מוזיקה; כלי נגינה</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='גיטרה'>מוזיקה; כלי נגינה</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='קלידים'>פסנתר; אורגן; מוזיקה; כלי נגינה</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='חצוצרה'>מוזיקה; כלי נגינה</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='כינור'>מוזיקה; כלי נגינה</annotation>
+
+		<!-- radio; video -->
+		<annotation cp='[📻]' tts='רדיו'>מוזיקה</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='טלפון נייד'>טלפון; נייד</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='טלפון נייד עם חץ'>טלפון; נייד; חץ; שיחה נכנסת</annotation>
+
+		<!-- telephone; phone -->
+		<annotation cp='[☎]' tts='טלפון רגיל'>טלפון</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='שפופרת טלפון'>שפופרת; טלפון</annotation>
+
+		<!-- pager -->
+		<annotation cp='[📟]' tts='איתורית'>זימונית; ביפר</annotation>
+
+		<!-- battery -->
+		<annotation cp='[🔋]' tts='סוללה'>מצבר; בטריה</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='תקע חשמלי'>תקע; חשמל; מתח</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='מחשב נייד'>מחשב; נייד</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='מחשב שולחני'>מחשב; אישי; שולחני</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='מקלדת'>מחשב</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='עכבר למחשב'>עכבר; מחשב</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='גלגלת עכבר'>גלגלת; עכבר; מחשב</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='מינידיסק'>דיסק; מחשב; אופטי</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='דיסקט'>פלופי; מחשב</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='תקליטור'>דיסק; מחשב; אופטי</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>תקליטור; דיסק; מחשב; אופטי</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='מצלמת קולנוע'>מצלמה; קולנוע; סרט; צילום</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='קלאפר'>צילום; קולנוע; סרט</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='מקרן קולנוע'>מקרן; קולנוע; סרט; וידאו</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='מצלמה'>צילום</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='מצלמה עם פלאש'>מצלמה; צילום; פלאש; מבזק; הבזק</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='מצלמת וידאו'>מצלמה; צילום; וידאו</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='קלטת וידאו'>קלטת; וידאו</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='זכוכית מגדלת נוטה שמאלה'>זכוכית; מגדלת; חיפוש</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='זכוכית מגדלת נוטה ימינה'>זכוכית; מגדלת; חיפוש</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='מיקרוסקופ'>מדע; מחקר</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='טלסקופ'>צפייה; מחקר; מדע</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='צלחת לוויין'>צלחת; לוויין; תקשורת; אנטנה</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='נר'>להבה; אור</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='נורה'>אור; חשמל; רעיון</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='פנס'>אור</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='פנס נייר אדום'>פנס; נייר; יפני; סיני; אדום</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='מחברת עם כריכה מעוטרת'>מחברת; כריכה; ספר</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='ספר סגור'>ספר; סגור</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='ספר פתוח'>ספר; פתוח</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='ספר ירוק'>ספר; ירוק</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='ספר כחול'>ספר; כחול</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='ספר כתום'>ספר; כתום</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='דף עם קצה מגולגל'>דף; מסמך; מגולגל; נייר</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='דף פונה מעלה'>דף; מסמך</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='עיתון'>חדשות</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='עיתון מגולגל'>עיתון; מגולגל; חדשות</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='תוויות סימניה'>מסמכים; סימניות; סימניה; תוויות; סימון</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='שק כסף'>שק; כסף; דולר</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='שטר ין'>שטר; מטבע; ין; כסף</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='שטר דולר'>שטר; מטבע; דולר; כסף</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='שטר אירו'>שטר; מטבע; אירו; כסף</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='שטר לירה שטרלינג'>שטר; מטבע; לירה שטרלינג; כסף</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='כסף עם כנפיים'>כסף; כנפיים; עף; דולר</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='כרטיס אשראי'>כרטיס; אשראי; כסף</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='גרף עולה עם סימן ין'>בנק; כלכלה; תרשים; מטבע; כסף; עלייה; עולה; מגמה; ין; שוק; גידול; צמיחה; גרף</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='מעטפה'>דואר; אימייל; מכתב</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='אימייל'>מעטפה; דואר; מכתב</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='מעטפה נכנסת'>מעטפה; דואר; אימייל; נכנס; קבלה; מכתב</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='מעטפה עם חץ'>חץ; למטה; אימייל; דואר; מעטפה; מכתב; יוצא; נשלח</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='מגש דואר יוצא'>תיבה; דואר; יוצא; נשלח; מגש; מכתב</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='מגש דואר נכנס'>תיבה; דואר; קבלה; נכנס; מגש; מכתב</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='חבילה'>אריזה; קופסה</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='תיבת דואר סגורה עם דגלון למעלה'>תיבת דואר; סגורה; דואר</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='תיבת דואר סגורה עם דגלון למטה'>תיבת דואר; סגורה; דואר</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='תיבת דואר פתוחה עם דגלון למעלה'>פתוחה; תיבת דואר; דואר</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='תיבת דואר פתוחה עם דגלון למטה'>פתוחה; תיבת דואר; דואר</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='תיבת דואר'>דואר; מכתב</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='קלפי עם פתק הצבעה'>קלפי; פתק; הצבעה; בחירות</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='עט ציפורן שחור'>עט; ציפורן; דיו</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='עט נובע'>עט; נובע</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='עט'>כדורי</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='מכחול'>ציור</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='צבע פנדה'>ציור; פנדה; צבע</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='תזכורת'>עיפרון</annotation>
+
+		<!-- briefcase -->
+		<annotation cp='[💼]' tts='תיק מסמכים'>תיק; מסמכים; מזוודה</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='תיקיית מסמכים'>תיקייה; מסמכים</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='תיקיית מסמכים פתוחה'>תיקייה; מסמכים; פתוחה</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='תיקייה עם חוצצים'>תיקייה; חוצצים; מסמכים</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='לוח שנה'>תאריך</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='לוח שנה לתלישת דפים'>לוח שנה; תאריך</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='פנקס עם ספירלה'>פנקס; ספירלה</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='לוח שנה עם ספירלה'>לוח שנה; ספירלה</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='אינדקס כרטיסיות'>אינדקס; כרטיסיות</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='גרף עולה'>גרף; עולה; תרשים; מגמה; גידול; למעלה</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='גרף יורד'>גרף; יורד; תרשים; מגמה; ירידה</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='תרשים עמודות'>תרשים; עמודות; גרף</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='סיכה'>נעץ</annotation>
+
+		<!-- paperclip -->
+		<annotation cp='[📎]' tts='אטב נייר'>מהדק</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='אטבי נייר מחוברים'>אטבי נייר; מחוברים; מהדקים</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='סרגל'>ישר</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='סרגל משולש'>סרגל; משולש</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='מספריים'>לגזור; גזירה</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='קופסת תיוק כרטיסיות'>קופסה, תיוק; כרטיסיות</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='מגירות מסמכים'>מגירות; ארון; מסמכים; תיוק</annotation>
+
+		<!-- wastebasket -->
+		<annotation cp='[🗑]' tts='סל ניירות'>סל; אשפה; פח</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='מנעול'>סגור; לסגור</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='מנעול פתוח'>מנעול; פתוח; לסגור</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='מנעול עם עט'>מנעול; סגור; עט; פרטיות</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='מנעול סגור עם מפתח'>מנעול; סגור; מפתח; מאובטח; בטוח; מוגן</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='מפתח'>סיסמה; רמז; לנעול</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='מפתח ישן'>מפתח; ישן; סיסמה; רמז; לנעול</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='פטיש'>בנייה; כלי עבודה</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='מכוש'>חפירה; לחפור; חופר; כלי עבודה</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='פטיש ומכוש'>פטיש; מכוש; עבודה; בנייה; חפירה; כלי עבודה</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='פטיש ומפתח ברגים'>פטיש; מפתח ברגים; כלים; עבודה; כלי עבודה</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='מפתח ברגים'>כלי עבודה</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='בורג ואום'>בורג; אום</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='גלגל שיניים'>מנגנון</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='מלחציים'>כלי עבודה</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='מבחנת כימיה'>מבחנה; כימיה; ניסוי</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='מאזניים'>צדק; משפט; משקל</annotation>
+
+		<!-- link -->
+		<annotation cp='[🔗]' tts='חוליות משולבות'>קישור; חוליות; שילוב</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='שרשראות'>שרשרת</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='מזרק'>תרופה; רופא; חולה; מחלה; חיסון; מחט; זריקה</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='גלולה'>רופא; חולה; מחלה; תרופה</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='פגיון'>כלי נשק; סכין</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='סכין מטבח'>סכין; כלי נשק; בישול</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='חרבות מוצלבות'>חרבות; מוצלבות; כלי נשק</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='אקדח'>ירי; ירייה; יריות; כלי נשק</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='מגן'>כלי נשק</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='חץ וקשת'>חץ; קשת; כלי נשק</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='דגל מירוצים'>דגל; מירוץ; מירוצים; סיום; התחלה</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='דגל לבן'>דגל; לבן; מתנפנף</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='דגל שחור'>דגל; שחור; מתנפנף</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='דגל משולש אדום'>דגל; משולש; אדום</annotation>
+
+		<!-- smoking -->
+		<annotation cp='[🚬]' tts='סיגריה דולקת'>סיגריה; דולקת; עישון</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='ארון קבורה'>מוות; לוויה</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='כד אפר'>מוות; לוויה</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='פסל מאיי הפסחא'>פסל; פנים; פרצוף; איי הפסחא</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='חבית נפט'>חבית; נפט</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='כדור בדולח'>עתידות; חיזוי; ניבוי; נבואה; מזל</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='שלט כספומט'>כספומט; בנק; כסף</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='שלט פסולת לפח'>פסולת; פח; זבל</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='שלט מי שתייה'>מים; שתייה; ברז</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='שלט לנכים בלבד'>נכים; נכה; לנכים בלבד; נגיש; גישה</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='שלט שירותי גברים'>שירותים; גברים; ציבוריים</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='שלט שירותי נשים'>שירותים; נשים; ציבוריים</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='שלט שירותים'>שירותים; ציבוריים</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='סמל תינוק'>תינוק; החתלה</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='שלט WC'>שירותים; ציבוריים</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='שלט עמדת דרכונים'>דרכונים; דרכון</annotation>
+
+		<!-- customs -->
+		<annotation cp='[🛃]' tts='שלט עמדת מכס'>מכס; בדיקה</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='שלט איסוף כבודה'>מזוודות; כבודה; תיקים; איסוף</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='שלט אחסון כבודה'>אחסון; מזוודות; כבודה; תיקים</annotation>
+
+		<!-- warning -->
+		<annotation cp='[⚠]' tts='שלט אזהרה'>אזהרה; זהירות; סכנה</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='שלט ילדים חוצים'>ילדים; חוצים; מעבר חצייה; כביש; הולכי רגל</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='אין כניסה'>תמרור; אסור; לא</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='שלט איסור'>אסור; איסור; לא</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='איסור אופניים'>אופניים; אסור; איסור; אין כניסה</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='אסור לעשן'>עישון; אסור; איסור</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='אין להשליך פסולת'>פסולת; אסור; איסור</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='אין לשתות את המים'>מים; לא לשתות; אסור לשתות; זיהום; ברז</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='אין כניסה להולכי רגל'>אין כניסה; אסור; איסור; הולכי רגל; הולך רגל</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='רדיואקטיבי'>גרעיני; מסוכן; אזהרה; זיהום</annotation>
+
+		<!-- biohazard -->
+		<annotation cp='[☣]' tts='סכנה ביולוגית'>סכנה; ביולוגי; אזהרה; מסוכן; זיהום</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='חץ למעלה'>חץ; למעלה; כיוון; צפון</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='חץ מעלה וימינה'>חץ; למעלה; ימינה; כיוון; צפון-מזרח</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='חץ ימינה'>חץ; ימינה; כיוון; מזרח</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='חץ מטה וימינה'>חץ; למטה; ימינה; כיוון; דרום-מזרח</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='חץ מטה'>חץ; למטה; כיוון; דרום</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='חץ מטה ושמאלה'>חץ; למטה; כיוון; שמאלה; דרום-מערב</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='חץ שמאלה'>חץ; שמאלה; כיוון; מערב</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='חץ מעלה ושמאלה'>חץ; למעלה; שמאלה; כיוון; צפון-מערב</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='חץ מעלה ומטה'>חץ; למעלה; למטה</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='חץ שמאלה וימינה'>חץ; שמאלה; ימינה</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='חץ ימינה מתעקל שמאלה'>חץ; מתעקל; שמאלה; פרסה</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='חץ שמאלה מתעקל ימינה'>חץ; מתעקל; ימינה; פרסה</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='חץ ימינה מתעקל מעלה'>חץ; מתעקל; למעלה</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='חץ ימינה מתעקל מטה'>חץ; מתעקל; למטה</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='חצים אנכיים מתעקלים בכיוון השעון'>חצים; מעגל</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='עיגול חצים נגד כיוון השעון'>חצים; מעגל; סנכרון</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='חץ חזרה'>חץ; חזרה; אחורה</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='חץ לסוף'>חץ; סוף</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='חץ פועל!'>חץ; פועל</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='חץ בקרוב'>חץ; בקרוב</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='חץ מעלה'>חץ; למעלה</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='בית תפילה'>תפילה; דת</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='סמל האטום'>אטום; אתאיסט; אתאיזם</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='אום'>הינדו; דת; הינדי</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='מגן דוד'>יהדות; דת; יהודי</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='גלגל הדהרמה'>גלגל; דהרמה; דת; בודהיזם; בודהיסט</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='יין-יאנג'>דת; דאו; דאואיזם; דאואיסט</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='צלב'>נוצרי; נצרות; דת</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='צלב אורתודוכסי'>צלב; אורתודוכסי; נוצרי; נצרות; דת</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='כוכב וסהר'>כוכב; סהר; איסלם; מוסלמי; דת</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='סמל השלום'>שלום</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='חנוכיה'>חנוכה; דת</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='מגן דוד עם נקודה באמצע'>מגן דוד; יהדות; דת; יהודי</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='סמל מיחזור'>מיחזור; סביבה; אקולוגיה</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='תג שם'>תג; שם</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='סמל חבצלת'>חבצלת; מלוכה</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='סמל יפני לרמת מתחיל'>מתחיל; יפני; חץ; צהוב; ירוק</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='סמל קילשון'>קילשון; עוגן; סמל; ספינה</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='עיגול עבה אדום'>עיגול; אפס; 0; o</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='סימן ביקורת על רקע ירוק'>אישור; סימן; כן</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='סימן ביקורת על רקע אפור'>אישור; סימן; כן</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='סימן ביקורת'>אישור; סימן; כן</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='איקס שחור'>איקס; אסור; נפסל; פסול; לא; ביטול; כפל; סימון</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='איקס אדום'>איקס; אסור; נפסל; פסול; לא; ביטול; כפל; סימון</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='איקס על רקע ירוק'>איקס; אסור; נפסל; פסול; לא; ביטול; כפל; סימון</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='פלוס'>מתמטיקה; חשבון; חיבור</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='מינוס'>מתמטיקה; חשבון; חיסור</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='חילוק'>חלקי; מתמטיקה; חשבון</annotation>
+
+		<!-- curly loop; curl; loop -->
+		<annotation cp='[➰]' tts='לולאה'>תלתל</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='לולאה כפולה'>לולאה; כפולה; תלתל</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='סימן דקדוק יפני'>סימן; דקדוק; יפני</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='כוכבית על רקע ירוק'>כוכבית</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='איקס על רקע כתום'>איקס</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='נצנוץ על רקע ירוק'>כוכבית; נצנוץ</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='המרת מטבעות'>המרה; מטבעות; כסף; בנק</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='סימן דולר'>דולר; כסף; מטבע</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='סימן קריאה כפול'>סימן קריאה; כפול; פיסוק; הדגשה</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='סימן שאלה וסימן קריאה'>סימן קריאה; סימן שאלה; פיסוק; הדגשה; שאלה</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='סימן שאלה'>שאלה</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='סימן שאלה לבן'>סימן שאלה; שאלה</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='סימן קריאה לבן'>סימן קריאה; הדגשה</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='סימן קריאה אדום'>סימן קריאה; הדגשה</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='קו גלי'>קו; גלי</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='מזל טלה'>מזל; גלגל המזלות; טלה</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='מזל שור'>מזל; גלגל המזלות; שור</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='מזל תאומים'>מזל; גלגל המזלות; תאומים</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='מזל סרטן'>מזל; גלגל המזלות; סרטן</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='מזל אריה'>מזל; גלגל המזלות; אריה</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='מזל בתולה'>מזל; גלגל המזלות; בתולה</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='מזל מאזניים'>מזל; גלגל המזלות; מאזניים</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='מזל עקרב'>מזל; גלגל המזלות; עקרב</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='מזל קשת'>מזל; גלגל המזלות; קשת</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='מזל גדי'>מזל; גלגל המזלות; גדי</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='מזל דלי'>מזל; גלגל המזלות; דלי</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='מזל דגים'>מזל; גלגל המזלות; דגים</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='נושא הנחש'>מזל; גלגל המזלות</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='סמל השמעה אקראית'>חצים; ערבוב</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='סמל השמעה חוזרת'>חצים; חזרה</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='סמל חזרה על שיר אחד'>חצים; חזרה; פעם אחת</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='לחצן השמעה'>חץ; הפעלה; השמעה</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='לחצן הרצה קדימה'>חץ; מהר; קדימה; הרצה</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='לחצן מעבר לשיר הבא'>חץ; דילוג; מעבר; השיר הבא</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='לחצן הפעלה/השהייה'>חץ; השהה; השהייה</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='לחצן השמעה לאחור'>חץ; השמעה; לאחור</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='לחצן הרצה לאחור'>חץ; מהר; אחורה; הרצה</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='לחצן מעבר לשיר הקודם'>חץ; דילוג; מעבר; השיר הקודם</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='לחצן מעלה'>חץ; למעלה</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='לחצן מעלה מהר'>חץ; למעלה; מהר</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='לחצן מטה'>חץ; למטה</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='לחצן מטה מהר'>חץ; למטה; מהר</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='לחצן השהייה'>השהייה; השהה</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='לחצן עצירה'>לעצור; עצירה; הפסקה</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='לחצן הקלטה'>הקלטה; הקלט</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='לחצן הוצאה'>הוצאה; חץ; להוציא</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='קולנוע'>צילום; סרט</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='לחצן עמעום תאורה'>בהירות; עמעום תאורה</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='לחצן הגברת עצמת תאורה'>בהירות; עצמת תאורה</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='סמל עצמת קליטה'>אנטנה; קליטה; סלולרי; טלפון; אות; נייד</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='איסור על ניידים'>סלולרי; אסור; איסור; טלפון; לא; נייד</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='מצב רטט'>סלולרי; רטט; נייד; מושתק</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='נייד כבוי'>סלולרי; נייד; כבוי</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='לחצן סולמית'>סולמית; מספר</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='לחצן כוכבית'>כוכבית</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='לחצן אפס'>אפס; 0</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='לחצן אחת'>אחת; 1; אחד</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='לחצן שתיים'>שתיים; שניים; 2</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='לחצן שלוש'>שלוש; שלושה; 3</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='לחצן ארבע'>ארבע; ארבעה; 4</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='לחצן חמש'>חמש; חמישה; 5</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='לחצן שש'>שש; שישה; 6</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='לחצן שבע'>שבע; שבעה; 7</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='לחצן שמונה'>שמונה; 8</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='לחצן תשע'>תשע; תשעה; 9</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='לחצן עשר'>עשר; עשרה; 10</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='ציון 100'>100; ציון; ניקוד; מבחן</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='מגיל שמונה-עשרה בלבד'>18; שמונה עשרה; הגבלת גיל; אסור; לא; איסור</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='לחצן אותיות גדולות'>הזנה; קלט; לטינית; אותיות; גדולות</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='לחצן אותיות קטנות'>הזנה; קלט; לטינית; אותיות; קטנות</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='לחצן מספרים'>הזנה; קלט; מספרים; ספרות</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='לחצן סמלים'>הזנה; קלט; סמלים; סימנים</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='לחצן אותיות לטיניות'>הזנה; קלט; לטינית</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='לחצן a'>איי; a; דם</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='לחצן ab'>איי בי; ab; דם</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='לחצן b'>בי; b; דם</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='לחצן cl'>cl; מחיקה; מחק</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='cool במסגרת'>קול; cool; מגניב</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='free במסגרת'>חינם; חופשי</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='סמל מידע'>מידע; מודיעין</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='id במסגרת'>זיהוי; תעודת זהות; זהות; מזהה</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='m בעיגול'>אם</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='new במסגרת'>חדש</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='ng במסגרת'>ng</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='o במסגרת'>o; דם</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='ok במסגרת'>אוקיי; ok; טוב; בסדר; אישור</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='לחצן p'>חנייה</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='sos במסגרת'>הצילו; sos; אס או אס; עזרה</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='לחצן up!'>למעלה; מעלה</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='vs במסגרת'>לעומת; נגד; מול</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='סמל דקדוק יפני'>יפנית</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='סמל כתב יפני'>יפנית</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='סימנית ירח'>יפנית</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='סימנית קיים'>יפנית</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='סימנית אצבע'>יפנית</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='סימנית יתרון'>יפנית</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='סימנית חלוקה'>יפנית</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='סימנית שלילה'>יפנית</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='סימנית איסור'>יפנית</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='סימנית קבלה'>סינית</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='סימנית בקשה'>סינית</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='סימנית יחד'>סינית</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='סימנית ריק'>סינית</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='סימנית ברכה'>סינית; מזל טוב</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='סימנית סוד'>סינית; סוד</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='סימנית הפעלה'>סינית</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='סימנית מלא'>סינית</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='ריבוע שחור קטן'>צורה; ריבוע; שחור</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='ריבוע לבן קטן'>צורה; ריבוע; לבן</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='ריבוע לבן בינוני'>צורה; ריבוע; לבן</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='ריבוע שחור בינוני'>צורה; ריבוע; שחור</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='ריבוע בינוני-קטן לבן'>צורה; ריבוע; לבן</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='ריבוע בינוני-קטן שחור'>צורה; ריבוע; שחור</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='ריבוע גדול שחור'>צורה; ריבוע; שחור</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='ריבוע גדול לבן'>צורה; ריבוע; לבן</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='מעוין כתום גדול'>צורה; מעוין; כתום</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='מעוין כחול גדול'>צורה; מעוין; כחול</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='מעוין כתום קטן'>צורה; מעוין; כתום</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='מעוין כחול קטן'>צורה; מעוין; כחול</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='משולש אדום כלפי מעלה'>צורה; משולש; אדום; למעלה</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='משולש אדום כלפי מטה'>צורה; משולש; אדום; למטה</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='מעוין כחול עם נקודה'>צורה; מעוין; כחול; בפנים</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='לחצן רדיו'>צורה; לחצן; רדיו; עיגול</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='ריבוע שחור'>לחצן; ריבוע; מסגרת; צורה</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='ריבוע לבן'>לחצן; ריבוע; מסגרת; צורה</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='עיגול לבן'>צורה; עיגול; לבן</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='עיגול שחור'>צורה; עיגול; שחור</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='עיגול אדום'>צורה; עיגול; אדום</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='עיגול כחול'>צורה; עיגול; כחול</annotation>
+	</annotations>
+</ldml>

@@ -1,0 +1,3016 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='fil'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='nakangiti nang malaki'>mukha; malaking ngiti; ngiti; nakangiti</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='nakangiti nang malaki kasama ang mga mata'>mukha; malaking ngiti; ngiti; mata; nakangiti</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='naiiyak sa kakatawa'>mukha; masaya; tawa; luha; iyak; tumatawa</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='nakatawa'>mukha; ngiti; nakangiti; masaya</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='nakatawa kasama ang mga mata'>mukha; ngiti; nakatawa; mata; nakangiti; masaya</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='nakatawa at pinagpapawisan nang malamig'>mukha; ngiti; nakatawa; pawis; malamig; nakangiti</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='nakatawa nang nakapikit'>mukha; ngiti; nakatawa; mata; nakapikit; nakangiti; masaya; XD</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='kumikindat'>mukha; kindat</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='nakangiti kasama ang mga mata'>mukha; ngiti; mata; blush; nakangiti; masaya</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='lumalasap ng masarap na pagkain'>mukha; masarap; ngiti; yummy; lumalasap; nakangiti; lasa</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='nakangiti nang may suot na shades'>mukha; ngiti; nakangiti; shades; sunglasses; cool; salamin; araw; maaraw; tirik ang araw; mataas ang araw</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='nakangiti nang may hugis-pusong mga mata'>mukha; ngiti; puso; pag-ibig; mata; nakangiti</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='flying kiss'>mukha; puso; halik; kindat</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='humahalik'>mukha; halik; nguso</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='humahalik nang nakangiti ang mga mata'>mukha; halik; nguso; ngiti; mata</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='humahalik nang nakapikit'>mukha; halik; nguso; ngiti; mata; blush; nakapikit</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='nakangiti'>mukha; ngiti; blush</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='medyo nakangiti'>mukha; ngiti; nakangiti</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='nangyayakap'>mukha; yakap; gesture</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='nakangiti nang may halo'>mukha; anghel; ngiti; nakangiti; inosente; banal; halo; mabait</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='nag-iisip'>mukha; isip</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='walang reaksyon'>mukha; neutral; walang emosyon</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='walang expression'>mukha; walang ekspresyon; walang emosyon; walang reaksyon</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='mukhang walang bibig'>mukha; walang bibig; tahimik; hindi nagsasalita</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='umiirap'>mukha; irap; mata; umiikot</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='nakangisi'>mukha; ngisi</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='nagsisikap'>mukha; nagtitiyaga</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='dismayado pero nakahinga nang maluwag'>mukha; dismayado; nakahinga nang maluwag; whew; buntung-hininga; nabigo; nalulumbay</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='nakanganga'>mukha; bibig; nagulat; namamangha; nabigla</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='naka-zipper ang bibig'>mukha; zipper; bibig; tahimik; hindi magsasalita</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='tahimik na naghihintay'>mukha; nakanganga; tahimik; naghihintay</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='inaantok'>mukha; natutulog; humihilik; tulog</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='pagod'>mukha</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='natutulog'>mukha; tulog; humihilik; inaantok</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='nakahinga nang maluwag'>mukha; whew; buntung-hininga</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='nerd'>mukha; geek; salamin; hippie</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='nakadila'>mukha; dila; nakabelat; belat</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='nakadila nang nakakindat'>mukha; dila; nakadila; nakabelat; nakakindat; mata; kindat; biro</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='nakadila nang nakapikit'>mukha; dila; nakadila; nakabelat; nakapikit; mata; lasa; hindi masarap</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='nakasimangot'>mukha; simangot; malungkot</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='medyo nakasimangot'>mukha; simangot; malungkot</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='hindi natutuwa'>mukha; hindi masaya</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='pinagpapawisan nang malamig'>mukha; pawis; malamig</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='malungkot na nag-iisip'>mukha; nag-iisip; malungkot; nalulumbay</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='nalilito'>mukha; lito</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='natataranta'>mukha; taranta</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='baligtad na mukha'>mukha; baligtad</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='may suot na medical mask'>mukha; doktor; nurse; surgeon; sakit; sipon; ubo; mask; gamot</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='may thermometer sa bibig'>mukha; sakit; lagnat; trangkaso; thermometer</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='may benda sa ulo'>mukha; injury; sugat; benda; aksidente; nasaktan</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='mukhang pera'>mukha; pera</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='gulat na gulat'>mukha; nagulat; nabigla</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='dismayado'>mukha; nabigo; nalulumbay</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='nag-aalala'>mukha; balisa</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='umuusok ang ilong'>mukha; ilong; usok; toro; nanalo; nagwagi; nagyayabang; arogante; mayabang</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='umiiyak'>mukha; iyak; luha; malungkot; nalulumbay</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='umiiyak nang malakas'>mukha; iyak; luha; malungkot; humahagulgol; nalulumbay</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='nakasimangot nang nakanganga'>mukha; nakasimangot; nakanganga; bibig; nalulumbay</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='nagdurusa'>mukha</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='natatakot'>mukha; takot; duwag; kinakabahan; kabado</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='pagod na pagod'>mukha; pagod; nalulumbay</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='nakangiwi'>mukha; ngiwi; nandidiri; nasasaktan; nagtitiis; nagngingitngit</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='nakanganga at pinagpapawisan nang malamig'>mukha; malamig; pawis; nakanganga; bibig; pinagpapawisan nang malamig; kinakabahan; kabado; natatakot</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='sumisigaw sa takot'>mukha; takot; duwag; kinakabahan; kabado; sumisigaw; tumitili; natatakot; naiihi sa takot</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='namumula'>mukha; blush; nahihiya</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='naghihikab'>mukha; inaantok; hikab</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='nakasimangot at nakakunot ang noo'>mukha; galit; nakasimangot; simangot; nakakunot ang noo; namumula; nagngingitngit; poot</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='galit'>mukha; nakasimangot; simangot</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='nakangiti nang may mga sungay'>mukha; nakangiti; demonyo; sungay; kasamaan; masama; fantasy</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='demonyo'>mukha; nakangiti; sungay; kasamaan; masama; fantasy</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='kapre'>mukha; halimaw; nilalang; alamat; japanese; maskara; fairy tale; fantasy</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='goblin'>mukha; halimaw; nilalang; alamat; japanese; maskara; fairy tale; fantasy</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='bungo'>mukha; halimaw; kamatayan; alamat; katawan; lason; fairy tale; fantasy</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='bungo at crossbones'>mukha; kamatayan; alamat; katawan; bungo; buto; pirata; lason; fairy tale; fantasy</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='multo'>mukha; kaluluwa; kamatayan; fantasy; nilalang; fairy tale</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='alien'>mukha; extraterrestrial; nilalang; kalawakan; ufo; ibang planeta; fantasy</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='halimaw na alien'>mukha; halimaw; alien; extraterrestrial; kalawakan; nilalang; kalaban; ufo; ibang planeta; fantasy; laro; pixel</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='mukha ng robot'>mukha; robot</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='tumpok ng tae'>mukha; tae; dumi; poop</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='pusang nakatawa'>pusa; mukha; ngiti; nakatawa; nakangiti; masaya</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='pusang nakatawa kasama ang mga mata'>pusa; mukha; ngiti; nakatawa; nakangiti; masaya; mata</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='pusang naiiyak sa kakatawa'>pusa; mukha; masaya; iyak; tawa; tumatawa; naiiyak</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='pusang nakangiti nang may hugis-pusong mga mata'>pusa; mukha; ngiti; puso; pag-ibig; mata; nakangiti</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='pusang nakangisi'>pusa; nakangisi; ngisi</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='pusang humahalik nang nakapikit'>pusa; halik; mata; humahalik; nakapikit</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='pusang pagod na pagod'>pusa; mukha; pagod; gulat; takot; natatakot; nagulat; nabigla</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='pusang umiiyak'>pusa; mukha; umiiyak; malungkot; luha; nalulumbay</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='pusang nakasimangot'>pusa; mukha; galit; nakasimangot</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='huwag tumingin sa masama'>unggoy; mukha; gesture; bawal; ipinagbabawal; masama; tumingin; huwag; hindi pwede; hindi</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='huwag makinig sa masama'>unggoy; mukha; gesture; bawal; ipinagbabawal; masama; makinig; huwag; hindi pwede; hindi</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='huwag magsalita nang masama'>unggoy; mukha; gesture; bawal; ipinagbabawal; masama; magsalita; huwag; hindi pwede; hindi</annotation>
+
+		<!-- boy -->
+		<annotation cp='[👦]' tts='batang lalaki'>lalaki; bata; binatilyo</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='batang babae'>babae; bata; dalagita</annotation>
+
+		<!-- man -->
+		<annotation cp='[👨]' tts='lalaki'>bigote</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='matandang lalaki'>matanda; lalaki</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='matandang babae'>matanda; babae</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='taong may blond na buhok'>tao; lalaki; blond; buhok</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='pulis'>pulisya</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='lalaking may suot na sombrerong chinese'>gua pi mao; chinese; sombrero; lalaki</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='lalaking may suot na turban'>turban; lalaki</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='construction worker'>manggagawa; sombrero; hard hat; construction; helmet</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='helmet na may puting krus'>sombrero; krus; aid; tulong; helmet; hard hat</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='prinsesa'>alamat; dugong-bughaw; fairy tale; korona; fantasy; babae</annotation>
+
+		<!-- guardsman; guard -->
+		<annotation cp='[💂]' tts='gwardya'>bodyguard; kabalyero; king&apos;s guard; queen&apos;s guard; british; fairy tale</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='imbestigador'>espiya; detective</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='santa claus'>pasko; holiday; christmas; santa; saint nicholas; fantasy; fairy tale</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='sanggol na anghel'>sanggol; baby; angel; anghel; mukha; fantasy</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='pagpapamasahe ng mukha'>mukha; masahe; salon; parlor</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='pagpapagupit ng buhok'>barbero; parlor; buhok; gupit; salon</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='babaeng ikakasal na may suot na belo'>bride; babae; ikakasal; belo; kasal</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='taong nakasimangot'>ekspresyon; expression; nakasimangot; simangot</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='taong naka-pout'>ekspresyon; expression; pout; naka-pout</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='nagpapahiwatig na hindi pwede'>gesture; kamay; bawal; ipinagbabawal; hindi pwede; huwag</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='nagpapahiwatig na ok'>gesture; kamay; ok; pwede</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='tao sa information desk'>kamay; tulong; impormasyon</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='masayang tao na nakataas ang kamay'>gesture; kamay; masaya; nakataas ang kamay</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='yumuyukong tao'>gesture; tao; yumuyuko; yuko; paggalang; paghingi ng paumanhin; sorry; humihiling</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='nakataas na mga kamay'>gesture; kamay; wagayway; hooray; nagdiriwang; nakataas ang mga kamay</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='magkalapat na mga palad'>gesture; kamay; humihiling; yumuyuko; yuko; nagdarasal; nagpapasalamat; nakikisuyo</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='ulong nagsasalita'>ulo; silhouette; nagsasalita</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='silhouette ng bust'>bust; silhouette</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='silhouette ng mga bust'>bust; silhouette</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='taong naglalakad'>pedestrian; naglalakad; tao</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='tumatakbo'>marathon; tao; takbo</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='mga babaeng nagpa-party'>party; playboy; kuneho; dancer; mananayaw; babae; bunny; tainga</annotation>
+
+		<!-- dancer -->
+		<annotation cp='[💃]' tts='mananayaw'>dancer; sayaw; sumasayaw; salsa; babae</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='lumulutang na lalaking nakapormal'>lumulutang; nakapormal; levitation; lalaki</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='maghahalikan'>magkapareha; couple; magkasintahan; romansa; halik; puso; romance; pag-ibig</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='magkapareha na may puso'>magkapareha; couple; magkasintahan; romansa; puso; romance; pag-ibig</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='pamilya'>ama; ina; anak</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='lalaki at babaeng magkahawak-kamay'>magkapareha; magkasintahan; magkahawak-kamay; hawak-kamay; kamay; holding hands; pda; public display of affection; babae; lalaki</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='dalawang lalaking magkahawak-kamay'>magkapareha; magkasintahan; magkahawak-kamay; hawak-kamay; kamay; holding hands; pda; public display of affection; lalaki; gemini; zodiac; kambal; lgbt</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='dalawang babaeng magkahawak-kamay'>magkapareha; magkasintahan; magkahawak-kamay; hawak-kamay; kamay; holding hands; pda; public display of affection; babae; gemini; zodiac; kambal; lgbt</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='type 1 at 2 ng balat'>emoji modifier; fitzpatrick; kulay; balat</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='type 3 ng balat'>emoji modifier; fitzpatrick; kulay; balat</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='type 4 ng balat'>emoji modifier; fitzpatrick; kulay; balat</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='type 5 ng balat'>emoji modifier; fitzpatrick; kulay; balat</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='type 6 ng balat'>emoji modifier; fitzpatrick; kulay; balat</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='pinalaking biceps'>biceps; muscle; macho; sexy; katawan; braso</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='backhand ng hintuturo na nakaturo sa kaliwa'>backhand; hintuturo; index finger; gesture; nakaturo; daliri; kamay</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='backhand ng hintuturo na nakaturo sa kanan'>backhand; hintuturo; index finger; gesture; nakaturo; daliri; kamay</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='hintuturo na nakaturo sa itaas'>hintuturo; index finger; gesture; nakaturo; daliri; kamay</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='backhand ng hintuturo na nakaturo sa itaas'>backhand; hintuturo; index finger; gesture; nakaturo; daliri; kamay</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='hinlalato'>middle finger; daliri; kamay; gesture</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='backhand ng hintuturo na nakaturo sa ibaba'>backhand; hintuturo; index finger; gesture; nakaturo; daliri; kamay</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='peace sign'>v sign; peace; kamay; gesture; tagumpay; kapayapaan; victory hand; daliri; v</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='vulcan salute'>gesture; daliri; kamay; saludo; vulcan; spock; star trek</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='rock &apos;n&apos; roll'>gesture; daliri; kamay; sungay; demonyo; rock on; heavy metal; metal; rock; rakenrol; rakista; rocker; pamahiin</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='nakataas na nakabukas na kamay'>gesture; kamay; nakabukas; daliri; kumpleto; apir; high five; tumigil; hinto; nakataas; jan-ken-pon; jak-en-poy; jack-en-poy; bato-bato-pick; papel; rock-paper-scissors; palad</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='nakataas na kamay'>gesture; kamay; daliri; apir; high five; tumigil; hinto; nakataas; jan-ken-pon; jak-en-poy; jack-en-poy; bato-bato-pick; papel; rock-paper-scissors; palad</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='kamay na nagpapahiwatig ng ok'>gesture; kamay; ok; pera; marijuana; sigarilyo</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='thumbs up'>gesture; kamay; daliri; ok; hinlalaki; +1</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='thumbs down'>gesture; kamay; daliri; hindi ok; hinlalaki; -1; boo</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='nakataas na kamao'>gesture; kamao; nakasara; suntok; aktibista; welga; aktibismo; rebolusyon; taas-kamao; komunismo; komunista; nakataas; kamay</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='pasuntok na kamao'>gesture; kamay; kamao; nakasara; suntok; sapak; palaban</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='kumakaway na kamay'>gesture; kamay; kumakaway; kaway; bumabati; nagpapaalam</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='pumapalakpak'>gesture; palakpak; kamay</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='bukas-palad'>gesture; kamay; palad</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='nagsusulat na kamay'>kamay; nagsusulat</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='nail polish'>cosmetics; kamay; daliri; kuko; manicure; polish</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='tainga'>katawan; tenga</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='ilong'>katawan</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='mga bakas ng paa'>bakas; paa; disenyo; yapak</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='mga mata'>katawan; mata</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='mata'>katawan</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='dila'>panlasa; belat</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='bibig'>labi</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='marka ng halik'>kiss mark; labi; bibig; romansa; romance; pag-ibig; sexy; babae; halik; lipstick</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='pusong may palaso'>palaso; kupido; cupid; romance; romansa; pag-ibig; puso</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='pulang puso'>puso; pag-ibig</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='tumitibok na puso'>tumitibok; puso; tibok ng puso</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='durog na puso'>durog; puso; broken heart; bigo; masakit; pag-ibig</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='dalawang puso'>pag-ibig; puso</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='kumikinang na puso'>nasasabik; puso; kumikinang</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='lumalaking puso'>nasasabik; puso; lumalaki; tumitibok; kinakabahan</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='asul na puso'>asul; puso</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='berdeng puso'>berde; puso</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='dilaw na puso'>dilaw; puso</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='purple na puso'>purple; puso</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='pusong may ribbon'>puso; ribbon; laso; valentine; pag-ibig</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='umiikot na mga puso'>umiikot; puso</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='dekorasyong puso'>puso</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='malaking tandang padamdam na hugis-puso'>pananda; bantas; tandang padamdam; puso</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='liham ng pag-ibig'>love letter; pag-ibig; puso; sulat; liham; romansa; romance</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='zzz'>inaantok; tulog; natutulog; komiks</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='simbolo ng galit'>galit; ugat; yamot; inis; komiks</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='bomba'>komiks; armas; sandata; pampasabog</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='banggaan'>boom; komiks; kislap</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='mga patak ng pawis'>komiks; tumatalsik; pawis; laway</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='nagmamadali'>komiks; bilis; tumatakbo; humaharurot</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='nahihilo'>komiks; bituin; hilo; umpog; ulo</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='speech balloon'>komiks; usapan; dialog; balloon</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='kaliwang speech bubble'>komiks; usapan; dialog; balloon</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='kanang anger bubble'>komiks; usapan; dialog; balloon; galit</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='thought balloon'>komiks; balloon; bubble; isip; nag-iisip</annotation>
+
+		<!-- hole -->
+		<annotation cp='[🕳]' tts='butas'>manhole</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='salamin'>mata; malabong mata; four eyes; eyewear; eyeglasses</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='shades'>salamin; mata; sunglasses; eyewear; araw; tirik ang araw; mataas ang araw; maaraw; cool</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='kurbata'>damit; necktie; pormal; kausotan</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='kamiseta'>damit; t-shirt; shirt; kasuotan</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='pantalon'>damit; jeans; maong; kasuotan</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='bestida'>damit; dress; daster; pambabae; kasuotan</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='kimono'>damit; japanese; tradisyonal; kasuotan</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='bikini'>damit; panlangoy; pandagat; swimsuit; kasuotan</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='pambabaeng damit'>damit; pambabae; kasuotan</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='pitaka'>purse; coin purse</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='handbag'>bag; pambabae</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='pouch'>bag</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='mga shopping bag'>bag; paper bag; shopping</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='pampasok na backpack'>bag; backpack; estudyante; mag-aaral</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='panlalaking sapatos'>sapatos; panlalaki; kasuotan</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='running shoes'>sapatos; pang-sports; sneakers; rubber shoes; pang-atleta; kasuotan</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='high heels'>sapatos; pambabae; heels; kasuotan</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='pambabaeng sandals'>sandals; sandalyas; pambabae; sapatos; kasuotan</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='pambabaeng boots'>sapatos; pambabae; boots; bota; kasuotan</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='korona'>dugong-bughaw; hari; reyna; fairy tale; fantasy; kasuotan</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='pambabaeng sombrero'>sombrero; pambabae; kasuotan</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='top hat'>sombrero; kasuotan</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='mortarboard'>graduation cap; graduation hat; graduation; pagtatapos; academic cap; kasuotan</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='prayer beads'>relihiyon; kuwintas; pagdarasal; kasuotan; beads</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='lipstick'>cosmetics; makeup; kolorete</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='singsing'>diamante; diamond; romansa; romance; engagement; pag-ibig</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='gem stone'>diamante; diamond; hiyas; alahas; bato; romansa; romance; pag-ibig</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='mukha ng unggoy'>hayop; unggoy; mukha</annotation>
+
+		<!-- monkey -->
+		<annotation cp='[🐒]' tts='unggoy'>hayop</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='mukha ng aso'>hayop; alaga; pet; aso; mukha</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='aso'>hayop; alaga; pet</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='poodle'>hayop; alaga; pet; aso</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='mukha ng lobo'>hayop; lobo; mukha</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='mukha ng pusa'>hayop; alaga; pet; pusa; mukha</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='pusa'>hayop; alaga; pet</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='leon'>hayop; zodiac; mukha; leo</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='mukha ng tigre'>hayop; mukha; tigre</annotation>
+
+		<!-- tiger -->
+		<annotation cp='[🐅]' tts='tigre'>hayop</annotation>
+
+		<!-- leopard -->
+		<annotation cp='[🐆]' tts='leopard'>hayop</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='mukha ng kabayo'>hayop; mukha; kabayo</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='kabayo'>hayop; karera</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='unicorn'>hayop; mukha; fantasy; alamat; fairy tale</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='mukha ng baka'>hayop; baka; mukha; dairy</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='toro'>hayop; ox; zodiac; taurus</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='kalabaw'>hayop; masipag; pagsasaka; pambansang hayop; agrikultura</annotation>
+
+		<!-- cow -->
+		<annotation cp='[🐄]' tts='baka'>hayop; dairy</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='mukha ng baboy'>hayop; baboy; mukha; agrikultura</annotation>
+
+		<!-- pig; sow -->
+		<annotation cp='[🐖]' tts='baboy'>hayop; agrikultura</annotation>
+
+		<!-- boar; pig -->
+		<annotation cp='[🐗]' tts='baboy-ramo'>hayop; baboy</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='ilong ng baboy'>hayop; baboy; ilong; oink</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='lalaking tupa'>hayop; lalaki; zodiac; aries; tupa</annotation>
+
+		<!-- sheep; ewe -->
+		<annotation cp='[🐑]' tts='tupa'>hayop</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='kambing'>hayop; zodiac; capricorn</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='camel'>hayop; disyerto; dromedary</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='camel na may dalawang umbok sa likod'>hayop; disyerto; bactrian</annotation>
+
+		<!-- elephant -->
+		<annotation cp='[🐘]' tts='elepante'>hayop</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='mukha ng daga'>hayop; daga; bubuwit; mukha; peste</annotation>
+
+		<!-- mouse -->
+		<annotation cp='[🐁]' tts='bubuwit'>hayop; peste; daga</annotation>
+
+		<!-- rat -->
+		<annotation cp='[🐀]' tts='daga'>hayop; peste</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='hamster'>hayop; alaga; pet; mukha</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='mukha ng kuneho'>hayop; alaga; pet; kuneho; mukha</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='kuneho'>hayop; alaga; pet</annotation>
+
+		<!-- chipmunk -->
+		<annotation cp='[🐿]' tts='chipmunk'>hayop</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='oso'>hayop; mukha</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='koala'>hayop; mukha; australia</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='panda'>hayop; mukha</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='mga bakas ng paa ng hayop'>hayop; paa; bakas; paw</annotation>
+
+		<!-- turkey -->
+		<annotation cp='[🦃]' tts='pabo'>hayop; turkey</annotation>
+
+		<!-- chicken -->
+		<annotation cp='[🐔]' tts='manok'>hayop; poultry</annotation>
+
+		<!-- rooster -->
+		<annotation cp='[🐓]' tts='tandang'>hayop; manok; lalaki; sabong</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='bagong-pisang sisiw'>hayop; sisiw; manok; bagong-pisa; itlog</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='sisiw'>hayop; manok</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='nakaharap na sisiw'>hayop; manok; sisiw</annotation>
+
+		<!-- bird -->
+		<annotation cp='[🐦]' tts='ibon'>hayop</annotation>
+
+		<!-- penguin -->
+		<annotation cp='[🐧]' tts='penguin'>hayop; ibon; antartica</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='kalapati'>hayop; ibon; lumilipad; kapayapaan</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='palaka'>hayop; mukha</annotation>
+
+		<!-- crocodile -->
+		<annotation cp='[🐊]' tts='buwaya'>hayop</annotation>
+
+		<!-- turtle -->
+		<annotation cp='[🐢]' tts='pagong'>hayop</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='ahas'>hayop; ophiuchus; zodiac; serpiyente</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='mukha ng dragon'>dragon; mukha; fantasy; fairy tale</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='dragon'>fantasy; fairy tale</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='balyenang bumubuga ng tubig'>hayop; isda; balyena; bumubuga; willy</annotation>
+
+		<!-- whale -->
+		<annotation cp='[🐋]' tts='balyena'>hayop; isda; willy</annotation>
+
+		<!-- dolphin; flipper -->
+		<annotation cp='[🐬]' tts='dolphin'>hayop; flipper; isda</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='isda'>hayop; zodiac; pisces</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='tropical fish'>hayop; isda; tropical</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='blowfish'>hayop; isda</annotation>
+
+		<!-- octopus -->
+		<annotation cp='[🐙]' tts='pugita'>hayop; lamang-dagat; octopus</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='pilipit na kabibe'>hayop; lamang-dagat; kabibe</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='alimango'>hayop; lamang-dagat; alimasag; talangka; zodiac; cancer</annotation>
+
+		<!-- snail -->
+		<annotation cp='[🐌]' tts='kuhol'>hayop; lamang-dagat; snail; suso</annotation>
+
+		<!-- bug; insect -->
+		<annotation cp='[🐛]' tts='insekto'>bug; uod</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='langgam'>insekto</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='bubuyog'>insekto; honeybee</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='ladybug'>insekto; salagubang; ladybird; lady beetle</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='gagamba'>insekto</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='sapot'>insekto; gagamba</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='alakdan'>insekto; scorpion; zodiac; scorpio; scorpius</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='bungkos ng mga bulaklak'>halaman; bulaklak; bouquet; pag-ibig; romansa; romance; ligaw</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='cherry blossom'>halaman; bulaklak; sakura</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='white flower'>bulaklak; puti</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='rosette'>halaman; bulaklak; disenyo</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='rosas'>halaman; bulaklak; pag-ibig; romansa; romance</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='gumamela'>halaman; bulaklak; hibiscus</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='mirasol'>halaman; bulaklak; sunflower; araw</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='bulaklak'>halaman</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='tulip'>halaman; bulaklak</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='seedling'>halaman; punla; binhi; tibtib</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='evergreen'>halaman; puno</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='lagas-dahon'>halaman; puno; deciduous; naglalagas ng dahon</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='palmera'>halaman; puno; palm</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='cactus'>halaman; disyerto</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='bigkis ng palay'>halaman; pagkain; bigas; palay; bigkis; kanin; ani; pagsasaka; agrikultura</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='halamang-gamot'>halaman; gamot; herb; alternatibong medisina; dahon; tradisyunal na medisina</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='shamrock'>halaman; dahon</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='four-leaf clover'>halaman; dahon; 4; apat; clover; good luck; suwerte</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='dahon ng maple'>halaman; dahon; maple; taglagas</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='nalagas na dahon'>halaman; dahon; taglagas</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='dahong nililipad ng hangin'>halaman; dahon; hangin; nililipad</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='ubas'>halaman; prutas; grapes</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='melon'>halaman; prutas</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='pakwan'>halaman; prutas; watermelon</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='dalanghita'>halaman; prutas; orange</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='lemon'>halaman; prutas; citrus</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='saging'>halaman; prutas; plantain; saba; gulay; banana</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='pinya'>halaman; prutas; pineapple</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='pulang mansanas'>halaman; prutas; apple; pula</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='berdeng mansanas'>halaman; prutas; apple; berde</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='peras'>halaman; prutas; pear</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='peach'>halaman; prutas</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='cherry'>halaman; prutas</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='strawberry'>halaman; prutas; berry</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='kamatis'>halaman; gulay; prutas; bunga</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='talong'>halaman; gulay; bunga; eggplant</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='busal ng mais'>halaman; mais; busal; corn</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='sili'>halaman; bunga; maanghang</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='kabute'>halaman; mushroom</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='kastanyas'>halaman; bunga; chestnut</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='tinapay'>pagkain</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='piraso ng keso'>pagkain; dairy; keso</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='karneng may buto'>pagkain; karne; buto</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='binti ng manok'>pagkain; karne; buto; manok; binti</annotation>
+
+		<!-- hamburger; burger -->
+		<annotation cp='[🍔]' tts='hamburger'>pagkain; burger</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='french fries'>pagkain; fries</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='pizza'>pagkain; slice; keso; italian</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='hot dog'>pagkain; frankfurter; hotdog; sausage; tinapay</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='taco'>pagkain; mexican</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='burrito'>pagkain; mexican</annotation>
+
+		<!-- popcorn -->
+		<annotation cp='[🍿]' tts='popcorn'>pagkain; chichirya</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='kaserola ng pagkain'>pagkain; sabaw; nilaga; kaserola</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='bento box'>pagkain; bento; baon</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='rice cracker'>pagkain; ampaw; ampao; kanin</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='rice ball'>pagkain; kanin; japanese; onigiri; o-nigiri</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='kanin'>pagkain; sinaing</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='curry rice'>pagkain; kanin; curry</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='mainit na noodles'>pagkain; mangkok; mainit; ramen; noodles</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='spaghetti'>pagkain; pasta; italian</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='inihaw na kamote'>pagkain; inihaw; kamote</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='oden'>pagkain; nakatuhog; tuhog</annotation>
+
+		<!-- sushi -->
+		<annotation cp='[🍣]' tts='sushi'>pagkain; japanese; seafood; kanin</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='pinritong hipon'>pagkain; pinrito; prito; hipon; japanese; tempura</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='fish cake na may swirl'>pagkain; fish cake; swirl; japanese; narutomaki; naruto</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='dango'>pagkain; nakatuhog; tuhog; panghimagas; dessert; matamis</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='swirl ice cream'>pagkain; ice cream; swirl; panghimagas; dessert; matamis</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='shaved ice'>pagkain; yelo; kinaskas na yelo; panghimagas; dessert; matamis</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='ice cream'>pagkain; panghimagas; dessert; matamis</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='doughnut'>pagkain; donut; matamis; panghimagas; dessert; meryenda; tinapay</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='cookie'>pagkain; matamis; panghimagas; dessert; meryenda; tinapay; biskwit</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='birthday cake'>pagkain; cake; pastry; matamis; panghimagas; dessert; kaarawan</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='shortcake'>pagkain; cake; pastry; matamis; panghimagas; dessert; kaarawan; slice</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='tsokolate'>pagkain; chocolate; panghimagas; dessert; matamis; bar</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='kendi'>pagkain; matamis; candy</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='lollipop'>pagkain; matamis; candy</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='pudding'>pagkain; dessert; panghimagas; matamis; custard</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='pulot-pukyutan'>pagkain; honey; matamis</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='dede'>bote; gatas; inumin; sanggol</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='mainit na inumin'>inumin; kape; tsaa; mainit; umuusok; tasa</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='tasa ng tsaa na walang hawakan'>inumin; tsaa; teacup; tasa; mainit; umuusok</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='sake'>inumin; alak; rice wine; japanese; bar; bote; tasa</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='boteng naalis ang takip'>inumin; alak; wine; cork; bote; pop; bar; champagne</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='wine glass'>inumin; alak; bar; glass; wine</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='cocktail glass'>inumin; alak; cocktail; glass; bar</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='tropical drink'>inumin; bar; tropical</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='beer mug'>inumin; alak; mug; beer; bar</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='pagtagay sa mga beer mug'>inumin; alak; mug; beer; bar; tagay</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='tinidor, kutsilyo at pinggan'>hapag-kainan; kutsilyo; tinidor; plato; pinggan</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='tinidor at kutsilyo'>hapag-kainan; kutsilyo; tinidor</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='nagluluto'>prito; itlog; kawali; sunny side up; pritong itlog</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='amphora'>zodiac; aquarius; inumin; lalagyan; sisidlan; kagamitan; alak; langis; tubig; banga; garapon</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='globong nagpapakita sa europe at africa'>mundo; globe; globo; africa; europe</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='globong nagpapakita sa hilaga at timog amerika'>mundo; globe; globo; amerika; america</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='globong nagpapakita sa asia at australia'>mundo; globe; globo; asia; australia; oceania</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='globong may mga meridian'>mundo; globe; globo; meridian</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='mapa ng mundo'>mapa; mundo</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='bundok na may niyebe sa tuktok'>taglamig; niyebe; snow; bundok; tuktok; malamig</annotation>
+
+		<!-- mountain -->
+		<annotation cp='[⛰]' tts='bundok'>tuktok</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='bulkan'>bundok; pagsabog; aktibidad ng bulkan</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='bundok fuji'>mount fuji; fuji; bundok; japan; mt fuji</annotation>
+
+		<!-- camping -->
+		<annotation cp='[🏕]' tts='camping'>tent; scout</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='beach na may payong'>beach; payong; summer; tag-init; dagat</annotation>
+
+		<!-- desert -->
+		<annotation cp='[🏜]' tts='disyerto'>mainit; cactus</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='islang walang nakatira'>isla; walang nakatira; desert island</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='national park'>parke</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='klasikong gusali'>gusali; classical</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='construction ng gusali'>gusali; construction</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='mga bahay'>gusali; bahay</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='cityscape'>gusali; lungsod</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='napabayaang bahay'>gusali; bahay; guguho; napabayaan</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='bahay'>gusali; tahanan</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='bahay na may hardin'>gusali; bahay; tahanan; hardin</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='simbahan'>relihiyon; gusali; sambahan; krus; kristiyanismo; katoliko</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='kaaba'>relihiyon; muslim; islam; cube</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='mosque'>relihiyon; muslim; islam; sambahan</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='sinagoga'>relihiyon; templo; sambahan; synagogue; jew; jewish; hudyo; judaismo; judaism</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='shinto shrine'>relihiyon; shinto; templo; shrine; japanese</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='office building'>gusali; opisina</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='japanese post office'>gusali; post office; japanese</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='post office'>gusali</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='ospital'>gusali; medisina; doktor; pagamutan</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='bangko'>gusali</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='hotel'>gusali</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='motel'>gusali; love hotel; hotel</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='convenience store'>gusali; tindahan</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='paaralan'>gusali; eskwelahan; school</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='department store'>gusali; mall; tindahan</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='pagawaan'>gusali; factory</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='japanese castle'>gusali; japanese; feudal; shogun; fortress</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='kastilyo'>gusali; palasyo; fairy tale; european</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='kasalan'>simbahan; kasal; pag-ibig; romance; romansa; kapilya</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='tokyo tower'>tokyo; tore; japan</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='statue of liberty'>rebulto; kalayaan; kasarinlan; liberty; usa; new york</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='mapa ng japan'>mapa; japan</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='tent'>camping; scout</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='mahamog'>lagay ng panahon; panahon; hamog; bundok</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='gabing maraming bituin'>gabi; bituin; buwan; cityscape; gusali; lungsod</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='pagsikat ng araw sa mga bundok'>umaga; araw; bundok; pagsikat ng araw</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='pagsikat ng araw'>umaga; araw; dagat</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='cityscape sa takipsilim'>gusali; cityscape; lungsod; takipsilim; agaw-dilim; dapit-hapon; paglubog ng araw; gabi</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='paglubog ng araw'>gusali; cityscape; lungsod; takipsilim; agaw-dilim; dapit-hapon; araw</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='tulay sa gabi'>tulay; gabi; bituin</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='hot springs'>mainit; umuusok; relax; japanese; onsen</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='milky way'>kalawakan; bituin; galaxy</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='kabayo sa carousel'>merry-go-round; carousel; kabayo; amusement park</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='ferris wheel'>amusement park; ferris; gulong</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='roller coaster'>amusement park; coaster; roller</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='barber pole'>barbero; buhok; gupit; pagpapagupit ng buhok; pole</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='circus tent'>circus; tent</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='sining pantanghalan'>sining; maskara; teatro; performing arts; tanghalan</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='frame na may larawan'>sining; museo; frame; larawan; litrato; painting</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='paleta ng pintor'>sining; museo; painting; pagpipinta; pintor; paleta</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='slot machine'>laro; sugal; japanese; pachinko</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='makina ng tren'>makina; engine; tren; sasakyan</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='railway car'>trambiya; tren; trolley; sasakyan</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='high-speed train'>tren; bullet train; shinkansen; sasakyan</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='bullet train'>tren; high-speed train; shinkansen; sasakyan; bullet nose</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='tren'>sasakyan</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='subway'>metro; sasakyan; underground</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='light rail'>tren; sasakyan</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='istasyon'>tren; sasakyan; platform</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='tram'>trambiya; tren; trolley; sasakyan</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='monorail'>sasakyan; tren</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='mountain railway'>sasakyan; tren; bundok</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='tram car'>trambiya; tren; trolley; sasakyan</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='bus'>sasakyan</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='paparating na bus'>bus; sasakyan; paparating</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='trolleybus'>sasakyan; trambiya; bus; trolley</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='bus stop'>babaan; sakayan</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='minibus'>sasakyan; bus</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='ambulansya'>sasakyan; emergency</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='fire truck'>sasakyan; truck; sunog; emergency</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='police car'>sasakyan; patrol; pulis; pulisya</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='paparating na police car'>sasakyan; patrol; pulis; pulisya; paparating</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='taxi'>sasakyan</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='paparating na taxi'>sasakyan; taxi; paparating</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='kotse'>sasakyan; auto; automobile</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='paparating na kotse'>sasakyan; auto; automobile; paparating</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='recreational vehicle'>rv; sasakyan</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='delivery truck'>sasakyan; truck; delivery</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='semi-trailer truck'>sasakyan; truck; trailer</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='traktora'>sasakyan; tractor</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='bisikleta'>sasakyan; bike; bicycle</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='fuel pump'>gas; diesel; gasolinahan; pump</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='expressway'>highway; kalsada</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='riles ng tren'>riles; tren</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='ilaw ng police car'>pulis; pulisya; ilaw; sasakyan; emergency</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='pahalang na traffic light'>traffic light; signal</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='patayong traffic light'>traffic light; signal</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='construction'>barrier; harang</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='angkla'>anchor; kagamitan; barko; bangka</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='bangkang may layag'>sailboat; layag; bangka; sasakyan; sasakyang pandagat</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='bangkang de-sagwan'>rowboat; sagwan; bangka; sasakyan; sasakyang pandagat</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='speedboat'>sasakyan; sasakyang pandagat; bangka; de-motor</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='pampasaherong barko'>sasakyan; sasakyang pandagat; pampasahero; barko</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='ferry'>sasakyan; sasakyang pandagat; pampasahero; barko; bangka</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='bangkang de-motor'>motorboat; sasakyan; sasakyang pandagat; bangka; de-motor</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='barko'>sasakyan; sasakyang pandagat; pampasahero</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='eroplano'>sasakyan; sasakyang panghimpapawid</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='maliit na eroplano'>sasakyan; sasakyang panghimpapawid; eroplano</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='pag-alis ng eroplano'>sasakyan; sasakyang panghimpapawid; eroplano; pag-alis; pag-check in; check-in; departure; paglipad</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='pagdating ng eroplano'>sasakyan; sasakyang panghimpapawid; eroplano; pagdating; paglapag; pagbaba; arrival</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='helicopter'>sasakyan; sasakyang panghimpapawid</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='suspension railway'>suspension; tren; sasakyan</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='mountain cable car'>gondola lift; bundok; cable car; sasakyan</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='cable car'>gondola lift; sasakyan</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='rocket'>kalawakan; sasakyan</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='satellite'>kalawakan; sasakyan</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='bellhop bell'>bell; bellhop; hotel</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='taong nakahiga'>hotel; natutulog</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='higaan'>hotel; natutulog</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='sofa at ilaw'>hotel; upuan; sofa; couch; lamp</annotation>
+
+		<!-- toilet -->
+		<annotation cp='[🚽]' tts='inodoro'>banyo; palikuran; cr; comfort room</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='shower'>tubig; ligo</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='taong naliligo'>bathtub; ligo; tubig</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' tts='bathtub'>ligo; tubig</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='hourglass'>timer; orasan; buhangin</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='hourglass na may bumabagsak na buhangin'>hourglass; timer; orasan; buhangin</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='relo'>orasan; relos; wristwatch</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='alarm clock'>alarm; orasan</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='stopwatch'>orasan; timer</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='timer'>orasan</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='mantel clock'>orasan</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='a las dose'>00; 12; 12:00; oras; orasan; twelve</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='a las dose y medya'>12; 12:30; 30; oras; orasan; twelve-thirty</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='a la una'>00; 1; 1:00; oras; orasan; one</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='a la una y medya'>1; 1:30; 30; oras; orasan; one-thirty</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='a las dos'>00; 2; 2:00; oras; orasan; two</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='a las dos y medya'>2; 2:30; 30; oras; orasan; two-thirty</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='a las tres'>00; 3; 3:00; oras; orasan; three</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='a las tres y medya'>3; 3:30; 30; oras; orasan; three-thirty</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='a las quatro'>00; 4; 4:00; oras; orasan; four</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='a las quatro y medya'>30; 4; 4:30; oras; orasan; four-thirty</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='a las singko'>00; 5; 5:00; oras; orasan; five</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='a las singko y medya'>30; 5; 5:30; oras; orasan; five-thirty</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='a las sais'>00; 6; 6:00; oras; orasan; six</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='a las sais y medya'>30; 6; 6:30; oras; orasan; six-thirty</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='a las siyete'>00; 7; 7:00; oras; orasan; seven</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='a las siyete y medya'>30; 7; 7:30; oras; orasan; seven-thirty</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='a las otso'>00; 8; 8:00; oras; orasan; eight</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='a las otso y medya'>30; 8; 8:30; oras; orasan; eight-thirty</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='a las nuwebe'>00; 9; 9:00; oras; orasan; nine</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='a las nuwebe y medya'>30; 9; 9:30; oras; orasan; nine-thirty</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='a las dies'>00; 10; 10:00; oras; orasan; ten</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='a las dies y medya'>10; 10:30; 30; oras; orasan; ten-thirty</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='a las onse'>00; 11; 11:00; oras; orasan; eleven</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='a las onse y medya'>11; 11:30; 30; oras; orasan; eleven-thirty</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='new moon'>buwan; kalawakan; madilim</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='waxing crescent moon'>buwan; kalawakan; crescent; waxing</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='first quarter moon'>buwan; kalawakan; quarter; first quarter</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='waxing gibbous moon'>buwan; kalawakan; waxing; gibbous</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='full moon'>buwan; kalawakan; bilog na buwan</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='waning gibbous moon'>buwan; kalawakan; waning; gibbous</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='last quarter moon'>buwan; kalawakan; quarter; last quarter</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='waning crescent moon'>buwan; kalawakan; waning; crescent</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='crescent moon'>buwan; kalawakan; crescent</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='new moon na may mukha'>buwan; kalawakan; mukha; new moon</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='first quarter moon na may mukha'>buwan; kalawakan; mukha; first quarter; quarter</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='last quarter moon na may mukha'>buwan; kalawakan; mukha; last quarter; quarter</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='thermometer'>lagay ng panahon; panahon</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='araw'>kalawakan; panahon; sinag; maliwanag</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='full moon na may mukha'>buwan; kalawakan; mukha; bilog na buwan; full moon</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='araw na may mukha'>kalawakan; araw; mukha; sinag; maliwanag</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='puting bituin na katamtamang-laki'>bituin; puti</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='kumikinang na bituin'>kumikinang; kumikislap; bituin</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='bulalakaw'>shooting star; bituin; kalawakan</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='ulap'>panahon; lagay ng panahon</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='araw sa likod ng ulap'>panahon; ulap; araw; lagay ng panahon</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='ulap na may kidlat at ulan'>panahon; ulap; ulan; kidlat; bagyo; lagay ng panahon</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='araw sa likod ng maliit na ulap'>panahon; ulap; araw; lagay ng panahon</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='araw sa likod ng malaking ulap'>panahon; ulap; araw; lagay ng panahon</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='araw sa likod ng ulap na may ulan'>panahon; ulap; araw; lagay ng panahon; ulan</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='ulap na may ulan'>panahon; lagay ng panahon; ulap; ulan</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='ulap na may niyebe'>panahon; lagay ng panahon; ulap; niyebe; snow; taglamig</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='ulap na may kidlat'>panahon; lagay ng panahon; kidlat; ulap</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='ipu-ipo'>panahon; lagay ng panahon; buhawi; unos</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='hamog'>panahon; lagay ng panahon; ulap; fog</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='mukha ng hangin'>panahon; lagay ng panahon; umiihip; hangin; mukha</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='buhawi'>panahon; lagay ng panahon; ipu-ipo; unos; bagyo; nahihilo</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='bahaghari'>ulan; panahon; lagay ng panahon; rainbow</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='nakasarang payong'>kagamitan; payong; panahon; lagay ng panahon; ulan; mainit</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='payong'>kagamitan; panahon; lagay ng panahon; ulan; mainit</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='payong na nauulanan'>kagamitan; payong; panahon; lagay ng panahon; ulan; patak; ambon</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='payong na nakabaon'>kagamitan; payong; beach; araw; ulan; mainit</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='may mataas na boltahe'>panganib; kuryente; high voltage; kidlat</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='snowflake'>malamig; taglamig; niyebe; panahon; lagay ng panahon; snow</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='snowman'>malamig; taglamig; niyebe; panahon; lagay ng panahon; snow</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='snowman na walang niyebe'>malamig; taglamig; niyebe; panahon; lagay ng panahon; snow; snowman</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='comet'>kalawakan; bulalakaw</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='maliit na patak'>patak; pawis; tubig; panahon; lagay ng panahon</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='alon'>tubig; dagat; karagatan; tsunami; lagay ng panahon; panahon</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='jack-o-lantern'>halloween; lantern; jack; dekorasyon</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='christmas tree'>pasko; christmas; holiday</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='fireworks'>paputok; firecrackers; new year; holiday; bagong taon</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='sparkler'>paputok; firecrackers; new year; holiday; bagong taon; kuwitis</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='kumikinang'>bituin; kislap; kumikislap</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='lobo'>pagdiriwang; kaarawan</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='party popper'>party; confetti; pagdiriwang</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='confetti ball'>party; confetti; pagdiriwang</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='tanabata tree'>japanese; banner; puno; pagdiriwang</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='magkakrus na bandila'>japanese; flag; pagdiriwang; bandila; krus; magkakrus</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='pine decoration'>bamboo; kawayan; pine; halaman; dekorasyon; japanese; pagdiriwang</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='japanese na manika'>japanese; manika; festival; pagdiriwang</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='carp streamer'>japanese; pagdiriwang; carp; streamer</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='wind chime'>chime; bell; hangin</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='moon ceremony'>buwan; seremonya; pagdiriwang</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='ribbon'>laso; pagdiriwang</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='nakabalot na regalo'>regalo; kahon; nakabalot; ribbon; pagdiriwang</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='medalyang pangmilitar'>medalya; militar; karangalan</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='nagpapaalalang ribbon'>ribbon; laso; paalala; reminder ribbon</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='frame ng film'>pelikula; cinema; film; movie; frame</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='mga admission ticket'>ticket</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='bola ng soccer'>bola; soccer; football</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='baseball'>bola</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='basketball'>bola</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='american football'>bola; football; american</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='rugby football'>bola; football; rugby</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='tennis'>bola</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='billiards'>8; 8 ball; bola; billiard; eight; pool</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='bowling'>bola; pin</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='flag sa butas'>golf; butas; flag</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='golfer'>golf; bola</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='ice skate'>skating; ice; snow; yelo</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='pamingwit'>pangingisda; fishing rod; pole</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='running shirt'>pantakbo; shirt; sash</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='mga ski'>ski; snow; niyebe</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='skier'>ski; snow; niyebe</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='snowboarder'>ski; snow; niyebe; snowboard</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='surfer'>surf; dagat; surfing</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='karerahan ng kabayo'>kabayo; karera; horse racing; jockey</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='swimmer'>langoy; pool</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='taong naglalaro ng bola'>bola; bata; laro; basketball</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='weight lifter'>lifter; weights</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='nagbibisikleta'>bicycle; bike; cyclist; bisikleta; bicyclist</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='mountain biker'>bicycle; bicyclist; bike; cyclist; bisikleta; bundok</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='racing car'>karera; kotse</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='motorsiklo'>karera; motor; motorcycle</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='medalyang pang-sports'>medalya; sports</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='trophy'>premyo; tropeo</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='cricket'>bola; bat</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='volleyball'>bola</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='field hockey'>bola; stick; hockey</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='stick at puck sa ice hockey'>bola; stick; hockey; ice; puck</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='ping pong'>bola; table tennis; bat; paddle</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='badminton'>racquet; shuttlecock; racket; raketa</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='bullseye'>dart; target</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='video game'>controller; laro</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='joystick'>controller; laro; video game</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='dice'>laro; sugal; die</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='spade'>baraha; sugal</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='heart'>baraha; sugal</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='diamond'>baraha; sugal</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='club'>baraha; sugal</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='joker'>baraha; sugal</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='mahjong red dragon'>sugal; mahjong; pula</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='flower playing card'>baraha; japanese; laro; flower card; hanafuda</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='naka-off ang speaker'>mute; tahimik; silent; speaker; off; volume</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='speaker'>volume</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='naka-on ang speaker'>mahina; speaker; volume</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='malakas ang speaker'>malakas; speaker; volume</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='loudspeaker'>malakas; speaker; announcement</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='megaphone'>announcement</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='post horn'>horn; post; postal</annotation>
+
+		<!-- bell -->
+		<annotation cp='[🔔]' tts='bell'>kampana</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='bell na may slash'>bell; bawal; mute; ipinagbabawal; huwag; hindi pwede; silent</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='musical score'>musika; score</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='notang pangmusika'>musika; nota</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='mga notang pangmusika'>musika; nota</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='mikroponong pang-studio'>mikropono; studio; mic; musika; awitin; radyo; announcer</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='level slider'>level; slider; musika</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='mga control knob'>control; knob; musika</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='mikropono'>karaoke; mic</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' tts='headphone'>earbud; earphone</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='saxophone'>instrumento; musika; sax</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='gitara'>instrumento; musika</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='keyboard na pangmusika'>instrumento; musika; piano; keyboard</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='trumpeta'>instrumento; musika; trumpet</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='biyulin'>instrumento; musika; violin</annotation>
+
+		<!-- radio; video -->
+		<annotation cp='[📻]' tts='radyo'>radio</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='mobile phone'>cell; cell phone; mobile; telepono; device</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='mobile phone na may arrow'>arrow; tawag; cell; cell phone; mobile; mobile phone; telepono; receiver; device</annotation>
+
+		<!-- telephone; phone -->
+		<annotation cp='[☎]' tts='telepono'>telephone</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='receiver ng telepono'>telepono; receiver</annotation>
+
+		<!-- pager -->
+		<annotation cp='[📟]' tts='pager'>device</annotation>
+
+		<!-- fax machine; fax -->
+		<annotation cp='[📠]' tts='fax machine'>fax</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='electric plug'>plug; kuryente; de-kuryente</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='laptop computer'>laptop; pc; personal; computer</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='desktop computer'>desktop; pc; personal; computer; monitor</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='printer'>device; computer; hardware</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='keyboard'>computer; hardware</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='computer mouse'>computer; hardware; mouse</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='trackball'>computer; hardware</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='minidisc'>computer; disk; minidisk; optical</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='floppy disk'>computer; disk; floppy</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='optical disc'>dvd; blu-ray; cd; computer; disk; optical</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>blu-ray; cd; computer; disk; optical</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='movie camera'>camera; cinema; movie; pelikula; palabas</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='clapper board'>clapper; movie; pelikula; shooting; taping</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='film projector'>cinema; film; movie; projector; video; pelikula</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='telebisyon'>tv; video; palabas</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='camera'>larawan; litrato; video</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='camera na may flash'>camera; flash; video; litrato; larawan</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='video camera'>camera; video</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='videotape'>tape; vhs; videocassette; video</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='magnifying glass na nakahilig sa kaliwa'>magnifying glass; paghahanap; kagamitan</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='magnifying glass na nakahilig sa kanan'>magnifying glass; paghahanap; kagamitan</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='microscope'>kagamitan</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='telescope'>kagamitan</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='satellite antenna'>antenna; dish; satellite</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='kandila'>ilaw; apoy</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='bumbilya ng ilaw'>bumbilya; ilaw; kuryente; ideya; komiks</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='flashlight'>ilaw; lente; kagamitan</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='pulang paper lantern'>bar; lantern; japanese; paper lantern; pula; izakaya; ilaw</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='notebook na may disenyo ang pabalat'>kuwaderno; pabalat; disenyo</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='nakasarang aklat'>aklat; nakasara</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='nakabukas na aklat'>aklat; nakabukas</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='berdeng aklat'>aklat; berde</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='asul na aklat'>aklat; asul</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='orange na aklat'>aklat; orange</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' tts='mga aklat'>aklat</annotation>
+
+		<!-- notebook -->
+		<annotation cp='[📓]' tts='notebook'>kuwaderno</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='ledger'>kuwaderno; notebook</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='pahinang bahagyang nakarolyo'>rolyo; tupi; dokumento; papel; pahina</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='kalatas'>papel; scroll; dokumento; kasulatan</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='pahinang nakaharap'>dokumento; papel; pahina</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='dyaryo'>balita</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='nakarolyong dyaryo'>dyaryo; balita; nakarolyo</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='mga bookmark tab'>bookmark; tab; palatandaan</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='bookmark'>palatandaan</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='supot ng pera'>supot; bag; pera</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='yen bill'>bill; banknote; currency; pera; yen</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='dollar bill'>bill; banknote; currency; pera; dolyar; dollar</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='euro bill'>bill; banknote; currency; pera; euro</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='pound bill'>bill; banknote; currency; pera; pound</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='perang may pakpak'>bill; banknote; currency; pera; pakpak; lumilipad; dollar; dolyar</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='credit card'>bangko; pera; credit; card</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='pataas na chart na may yen'>bangko; chart; currency; graph; growth; merkado; pera; trend; yen; pataas</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='sobre'>email; e-mail; liham; sulat; mail</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='e-mail'>email; mail</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='papasok na sobre'>email; e-mail; liham; sulat; mail; sobre; papasok</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='sobreng may arrow'>arrow; e-mail; email; sobre; liham; sulat; mail; papalabas; ipinadala</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='outbox tray'>tray; outbox; mail; liham; sulat; ipinadala; email; e-mail</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='inbox tray'>tray; inbox; mail; liham; sulat; natanggap; email; e-mail</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='package'>kahon; parcel</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='nakasarang mailbox na may nakataas na flag'>nakasara; mail; mailbox; postbox; liham; sulat; email; e-mail</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='nakasarang mailbox na may nakababang flag'>nakasara; mail; mailbox; postbox; liham; sulat; email; e-mail</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='nakabukas na mailbox na may nakataas na flag'>nakabukas; mail; mailbox; postbox; liham; sulat; email; e-mail</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='nakabukas na mailbox na may nakababang flag'>nakabukas; mail; mailbox; postbox; liham; sulat; email; e-mail</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='hulugan ng sulat'>mail; mailbox; postbox; sulat; liham</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='ballot box na may balota'>balota; ballot box</annotation>
+
+		<!-- pencil -->
+		<annotation cp='[✏]' tts='lapis'>panulat; pencil</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='itim na nib'>nib; pen; panulat</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='fountain pen'>pen; panulat</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='ball pen'>ballpoint pen; ballpoint; panulat</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='paintbrush'>brush; pangpinta</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='krayola'>crayon; pangkulay</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='memo'>lapis; panulat; papel; tala</annotation>
+
+		<!-- briefcase -->
+		<annotation cp='[💼]' tts='briefcase'>attache case</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='file folder'>file; folder</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='nakabukas na file folder'>file; folder; nakabukas</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='mga divider ng card index'>card; index; divider</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='kalendaryo'>petsa</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='pinipilas na kalendaryo'>kalendaryo; petsa</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='spiral notepad'>notepad; sulatan; spiral; pad</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='spiral na kalendaryo'>spiral; kalendaryo</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='card index'>card; index</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='tumataas na chart'>chart; graph; growth; trend; pataas</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='bumababang chart'>chart; pababa; graph; trend</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='bar chart'>bar; chart; graph</annotation>
+
+		<!-- pushpin; pin -->
+		<annotation cp='[📌]' tts='pushpin'>pin</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='bilog na pushpin'>pin; pushpin</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='magkakawing na paperclip'>paperclip; kawing</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='tuwid na ruler'>ruler; diretso; tuwid</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='tatsulok na ruler'>ruler; tatsulok; anggulo</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='gunting'>kagamitan; panggupit</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='kahon ng cardfile'>kahon; card; file</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='file cabinet'>file; cabinet</annotation>
+
+		<!-- wastebasket -->
+		<annotation cp='[🗑]' tts='basurahan'>basura</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='kandado'>sarado; naka-lock</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='nakabukas na kandado'>nakabukas; hindi naka-lock</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='kandado na may panulat'>sarado; naka-lock; privacy; panulat; pen; ball pen</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='nakasarang kandado na may susi'>sarado; naka-lock; secure; susi</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='susi'>naka-lock; password</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='lumang susi'>naka-encrypt; susi; naka-lock; password</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='martilyo'>kagamitan</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='piko'>kagamitan; pagmimina</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='martilyo at piko'>kagamitan; martilyo; piko; pagmimina</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='martilyo at liyabe'>kagamitan; martilyo; liyabe</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='liyabe'>kagamitan</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='nut at bolt'>kagamitan; nut; bolt</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='gear'>kagamitan; makinarya</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='compression'>kagamitan; gato</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='alembic'>kemikal; chemistry; kagamitan</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='timbangan'>libra; hustisya; zodiac; balanse; timbang</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='hiringgilya'>gamot; doktor; panturok; karayom; syringe; sakit; bakuna; donasyon ng dugo</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='pill'>gamot; reseta; sakit</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='patalim'>sandata; armas</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='kutsilyo'>sandata; armas; pagluluto</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='magkakrus na espada'>sandata; armas; espada</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='baril'>revolver; armas; sandata</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='kalasag'>sandata; pananggalang</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='pana'>archer; palaso; sagittarius; zodiac; sandata; armas</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='checkered na bandila'>checkered; karera; flag</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='puting bandila'>iwinawagayway; karera; flag</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='itim na bandila'>iwinawagayway; karera; flag</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='tatsulok na bandila'>kampo; himpilan; flag</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='kabaong'>kamatayan; himlayan</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='sisidlan ng abo'>kamatayan; abo; sisidlan</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='moai'>mukha; rebulto; bantayog</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='drum ng langis'>drum; langis</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='bolang kristal'>bola; kristal; kapalaran; hula; manghuhula</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='ATM'>atm; automated; bangko; teller</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='magtapon sa basurahan'>basurahan; basura; magtapon</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='naiinom na tubig'>inumin; tubig; naiinom</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='wheelchair'>may kapansanan; access</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='banyong panlalaki'>banyo; lalaki; panlalaki; cr; comfort room</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='banyong pambabae'>banyo; babae; pambabae; cr; comfort room</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='banyo'>cr; comfort room</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='pansanggol'>sanggol; palitan</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='comfort room'>flush toilet; banyo; palikuran; flush; tubig; water closet; cr</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='passport control'>control; passport; pasaporte</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='kuhanan ng bagahe'>bagahe; kuhanan; maleta; claim</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='naiwang bagahe'>bagahe; locker; maleta</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='may mga batang tumatawid'>bata; tumatawid; pedestrian; trapiko; babala</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='hindi pwedeng pumasok'>bawal; hindi pwede; ipinagbabawal; pagpasok; trapiko; huwag</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='bawal'>hindi pwede; ipinagbabawal; huwag</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='bawal ang mga bisikleta'>bike; bisikleta; bawal; hindi pwede; ipinagbabawal; huwag; bicycle</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='bawal manigarilyo'>bawal; ipinagbabawal; huwag; hindi pwede; sigarilyo; manigarilyo</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='bawal magkalat'>bawal; ipinagbabawal; magkalat; huwag; hindi pwede; basura; kalat</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='hindi pwedeng inumin'>inumin; tubig; huwag; hindi pwede; bawal; ipinagbabawal</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='bawal tumawid'>bawal; ipinagbabawal; pedestrian; tumawid; huwag</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='pataas na arrow'>arrow; direksyon; hilaga; cardinal</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='pataas na pakanan na arrow'>arrow; direksyon; hilagang-silangan; intercardinal</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='pakanang arrow'>arrow; direksyon; silangan; cardinal</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='pababang pakanan na arrow'>arrow; direksyon; timog-silangan; intercardinal</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='pababang arrow'>arrow; direksyon; timog; cardinal</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='pababang pakaliwang arrow'>arrow; direksyon; timog-kanluran; intercardinal</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='pakaliwang arrow'>arrow; direksyon; kanluran; cardinal</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='pataas na pakaliwang arrow'>arrow; direksyon; hilagang-kanluran; intercardinal</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='pataas-pababang arrow'>arrow</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='pakaliwa-pakanang arrow'>arrow</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='pakanang arrow na kumurba pakaliwa'>arrow; direksyon</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='pakaliwang arrow na kumurba pakanan'>arrow; direksyon</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='pakanang arrow na kumurba pataas'>arrow; direksyon</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='pakanang arrow na kumurba pababa'>arrow; direksyon</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='mga clockwise na patayong arrow'>arrow; clockwise</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='mga counterclockwise na arrow'>arrow; counterclockwise</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='back arrow'>arrow; bumalik</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='end arrow'>arrow; dulo; katapusan</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='on! arrow'>arrow; naka-on</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='soon arrow'>arrow; malapit na; soon</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='top arrow'>arrow; tuktok; itaas</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='sambahan'>relihiyon; simbahan; pagsamba</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='atom'>siyensya; agham</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='om'>relihiyon; india; sanskrit</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='star of david'>bituin; david; jewish; jew; hudyo; judaism; judaismo; relihiyon</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='gulong ng dharma'>relihiyon; dharma; gulong; india</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='yin yang'>relihiyon; yin; yang; pilosopiya; china</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='latin na krus'>kristiyanismo; krus; relihiyon; latin</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='orthodox na krus'>kristiyanismo; krus; relihiyon; orthodox</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='star and crescent'>islam; muslim; relihiyon; buwan; bituin; crescent</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='menorah'>relihiyon; jew; jewish; hudyo; judaism; judaismo; kandelabra</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='six-pointed star na may tuldok'>bituin; david; jewish; jew; hudyo; judaism; judaismo; relihiyon</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='badge ng pangalan'>badge; pangalan</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='japanese na simbolo para sa baguhan'>baguhan; japanese; dahon; dilaw; berde</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='trident emblem'>trident; angkla; sibat; emblem; anchor</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='malaking bilog'>bilog; o</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='puting tsek'>tsek</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='balotang may tsek'>balota; tsek</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='malaking tsek'>tsek</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='malaking multiplication x'>multiplication; x; i-multiply; kanselahin; ekis</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='ekis'>multiplication; x; i-multiply; kanselahin</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='button na ekis'>ekis; x; button; exit; kanselahin</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='malaking plus sign'>matematika; math; plus</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='malaking minus sign'>matematika; math; minus</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='malaking division sign'>matematika; math; division</annotation>
+
+		<!-- curly loop; curl; loop -->
+		<annotation cp='[➰]' tts='curly loop'>loop; curl</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='dobleng curly loop'>loop; curl; doble</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='part alternation mark'>marka; bahagi; simula</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='asterisk na may walong sulok'>asterisk</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='bituin na may walong sulok'>bituin</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='kinang'>kislap</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='palitan ng pera'>pera; currency; palitan; bangko</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='malaking dollar sign'>currency; pera; dolyar; dollar</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='dobleng tandang padamdam'>padamdam; pananda; doble; bangbang; bantas</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='tandang padamdam at pananong'>interrobang; pananda; padamdam; pananong; tanong; bantas</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='tandang pananong'>pananda; pananong; tanong; bantas</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='puting tandang pananong'>pananda; pananong; tanong; bantas; tandang pananong</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='puting tandang padamdam'>pananda; padamdam; bantas; tandang padamdam</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='tandang padamdam'>pananda; padamdam; bantas</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='maalon na gitling'>gitling; maalon; bantas</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='aries'>zodiac; tupa</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='taurus'>zodiac; toro</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='gemini'>zodiac; kambal</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='cancer'>zodiac; alimango</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='leo'>zodiac; leon</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='virgo'>zodiac; dalaga; birhen</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='libra'>zodiac; hustisya; timbangan; balanse</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='scorpius'>zodiac; scorpio; alakdan; scorpion</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='sagittarius'>zodiac; archer; pana</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='capricorn'>zodiac; kambing</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='aquarius'>zodiac; tubig</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='pisces'>zodiac; isda</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='ophiuchus'>zodiac; ahas; serpiyente</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='button na i-shuffle ang mga track'>arrow; nagkrus</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='button na ulitin'>arrow; clockwise; ulitin</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='button na ulitin ang track'>arrow; clockwise; isang track; ulitin</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='button na i-play'>arrow; i-play; kanan; tatsulok</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='button na i-fast forward'>arrow; doble; i-fast forward; i-forward</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='button na susunod na track'>arrow; susunod na eksena; susunod na track; tatsulok</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='button na i-play o i-pause'>arrow; i-pause; i-play; kanan; tatsulok</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='button na i-reverse'>arrow; kaliwa; tatsulok; i-reverse; i-rewind</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='button na i-fast reverse'>arrow; doble; i-rewind; i-fast reverse</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='button na huling track'>arrow; nakaraang eksena; nakaraang track; tatsulok</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='button na itaas'>arrow; pataas; tatsulok</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='button na i-fast up'>arrow; doble; pataas</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='button na ibaba'>arrow; pababa; tatsulok</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='button na i-fast down'>arrow; doble; pababa</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='button na i-pause'>bar; doble; i-pause; patayo</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='button na itigil'>parisukat; itigil</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='button na i-record'>bilog; i-record</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='button na i-eject'>i-eject</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='cinema'>camera; pelikula; palabas; movie; film</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='button na diliman'>liwanag; diliman; brightness</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='button na liwanagan'>liwanag; paliwanagin; brightness</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='mga antenna bar'>antenna; bar; cell; mobile; telepono; signal</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='bawal ang mga mobile phone'>cell; mobile; telepono; bawal; huwag; hindi pwede; ipinagbabawal</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='vibration mode'>cell; mobile; telepono; mode; vibration</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='i-off ang mobile phone'>cell; mobile; telepono; naka-off; i-off</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='keycap na numero'>hash; keycap; number sign; hashtag</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='keycap na asterisk'>asterisk; star; keycap</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='keycap na digit na zero'>0; zero; keycap</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='keycap na digit na isa'>1; isa; one; keycap</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='keycap na digit na dalawa'>2; dalawa; two; keycap</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='keycap na digit na tatlo'>3; tatlo; three; keycap</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='keycap na digit na apat'>4; apat; four; keycap</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='keycap na digit na lima'>5; lima; five; keycap</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='keycap na digit na anim'>6; anim; six; keycap</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='keycap na digit na pito'>7; pito; seven; keycap</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='keycap na digit na walo'>8; walo; eight; keycap</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='keycap na digit na siyam'>9; siyam; nine; keycap</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='keycap na sampu'>10; sampu; ten; keycap</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='sandaang puntos'>100; sandaan; siyento; isang daan; score; marka; puntos</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='bawal ang hindi pa disiotso'>18; disiotso; labingwalo; huwag; hindi pwede; menor de edad; pinagbabawalan; paghihigpit sa edad; bawal</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='input na latin na uppercase'>input; latin; titik; uppercase; malaking titik</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='input na latin na lowercase'>input; latin; titik; lowercase; maliit na titik</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='input na mga numero'>input; numero; 1234</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='input na mga simbolo'>input</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='input na mga latin na titik'>input; latin; titik; abakada; alpabeto; abc</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='button na a'>a; dugo; blood type</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='button na ab'>ab; dugo; blood type</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='button na b'>b; dugo; blood type</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='nakaparisukat na cl'>cl</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='nakaparisukat na cool'>cool</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='nakaparisukat na free'>free; libre</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='pinagmulan ng impormasyon'>i; impormasyon</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='nakaparisukat na id'>id; pagkakakilanlan</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='nakabilog na titik m'>bilog; m</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='nakaparisukat na new'>new; bago</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='nakaparisukat na ng'>ng</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='button na o'>o; dugo; blood type</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='nakaparisukat na ok'>ok</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='button na p'>parking; paradahan</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='nakaparisukat na sos'>tulong; sos</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='button na up!'>marka; up</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='nakaparisukat na vs'>versus; vs</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='nakaparisukat na katakana na koko'>japanese; katakana</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='nakaparisukat na katakana na sa'>japanese; katakana</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='nakaparisukat na ideograph ng buwan'>japanese; ideograph</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='nakaparisukat na ideograph ng pag-iral'>japanese; ideograph</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='nakaparisukat na ideograph ng daliri'>japanese; ideograph</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='nakabilog na ideograph ng kalamangan'>japanese; ideograph</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='nakaparisukat na ideograph ng paghati'>japanese; ideograph</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='nakaparisukat na ideograph ng hindi pagsang-ayon'>japanese; ideograph</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='nakaparisukat na ideograph ng pagbabawal'>japanese; ideograph</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='nakabilog na ideograph ng pagtanggap'>chinese; ideograph</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='nakaparisukat na ideograph ng pag-apply'>chinese; ideograph</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='nakaparisukat na ideograph ng magkasama'>chinese; ideograph</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='nakaparisukat na ideograph ng bakante'>chinese; ideograph</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='nakabilog na ideograph ng pagbati'>chinese; ideograph</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='nakabilog na ideograph ng lihim'>chinese; ideograph</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='nakaparisukat na ideograph ng pagpapatakbo'>chinese; ideograph</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='nakaparisukat na ideograph ng kasapatan'>chinese; ideograph</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='maliit na itim na parisukat'>itim; parisukat; hugis</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='maliit na puting parisukat'>puti; parisukat; hugis</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='katamtamang puting parisukat'>puti; parisukat; hugis</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='katamtamang itim na parisukat'>itim; parisukat; hugis</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='medyo maliit na puting parisukat'>puti; parisukat; hugis</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='medyo maliit na itim na parisukat'>itim; parisukat; hugis</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='malaking itim na parisukat'>itim; parisukat; hugis</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='malaking puting parisukat'>puti; parisukat; hugis</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='malaking orange na diamond'>orange; diamond; hugis</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='malaking asul na diamond'>asul; diamond; hugis</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='maliit na orange na diamond'>orange; diamond; hugis</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='maliit na asul na diamond'>asul; diamond; hugis</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='pulang tatsulok na nakatutok pataas'>pula; tatsulok; hugis; pataas</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='pulang tatsulok na nakatutok pababa'>pula; tatsulok; hugis; pababa</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='diamond na may tuldok'>diamond; hugis; cute; japanese</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='button ng radyo'>button; radyo; hugis; bilog</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='itim na parisukat na button'>button; parisukat; hugis; may outline</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='puting parisukat na button'>button; parisukat; hugis; may outline</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='puting bilog'>puti; bilog; hugis</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='itim na bilog'>itim; bilog; hugis</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='pulang bilog'>pula; bilog; hugis</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='asul na bilog'>asul; bilog; hugis</annotation>
+	</annotations>
+</ldml>

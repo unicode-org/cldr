@@ -1,0 +1,2896 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='uk'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='усміхнене обличчя'>обличчя; усмішка</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='обличчя з широкою усмішкою та примруженими очима'>очі; обличчя; усмішка</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='обличчя зі сльозами радості'>обличчя; радість; сміх; сльози</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='усміхнене обличчя з відкритим ротом'>обличчя; рот; відкритий; посмішка</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='усміхнене обличчя з відкритим ротом і примруженими очима'>очі; обличчя; рот; відкритий; посмішка</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='усміхнене обличчя з відкритим ротом і холодним потом'>холодний; обличчя; відкритий; посмішка; піт</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='усміхнене обличчя з відкритим ротом і міцно заплющеними очима'>обличчя; сміх; рот; відкритий; задоволений; посмішка</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='обличчя, яке підморгує'>обличчя; підморгування</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='усміхнене обличчя з примруженими очима'>рум’янець; очі; обличчя; посмішка</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='обличчя, яке насолоджується смачною їжею'>смачно; обличчя; смакує; посмішка; ммм; ням-ням; облизується</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='усміхнене обличчя в темних окулярах'>яскраво; крутий; очі; окуляри; обличчя; посмішка; сонце; сонцезахисні; темні окуляри; погода</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='усміхнене обличчя з очима у формі сердець'>очі; обличчя; серце; кохання; посмішка</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='повітряний поцілунок'>обличчя; серце; поцілунок</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='поцілунок'>обличчя</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='поцілунок із примруженими очима'>очі; обличчя; поцілунок; посмішка</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='поцілунок із заплющеними очима'>закриті; очі; обличчя; поцілунок</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='усміхнене обличчя'>обличчя; спокійний; посмішка</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='легко усміхнене обличчя'>обличчя; посмішка</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='обійми'>обличчя; обійматися</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='усміхнене обличчя з німбом'>ангел; обличчя; казка; фантазія; німб; безневинність; посмішка</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='роздуми'>обличчя</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='нейтральне обличчя'>незворушний; обличчя; нейтральний</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='обличчя без емоцій'>без емоцій; обличчя; невиразний</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='обличчя без рота'>обличчя; рот; тихо; беззвучно</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='обличчя із закоченими очима'>очі; обличчя; закочувати</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='самовдоволена посмішка'>обличчя</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='упертість'>обличчя</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='розчарування з полегшенням'>розчарування; обличчя; полегшення; фух</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='обличчя з відкритим ротом'>обличчя; рот; відкритий; співчуття</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='обличчя з ротом-блискавкою'>обличчя; рот; блискавка</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='здивування'>обличчя; вражений; приголомшений; здивований</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='сонне обличчя'>обличчя; сон</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='стомлене обличчя'>обличчя; стомлений</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='сон'>обличчя; </annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='полегшення'>обличчя</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='заучка'>обличчя; ботан</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='висунутий язик'>обличчя; язик</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='висунутий язик і підморгування'>очі; обличчя; жарт; язик; підморгування</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='висунутий язик і заплющені очі'>очі; обличчя; жахливий; смак; язик</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='сумне обличчя'>обличчя; сумний</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='трохи сумне обличчя'>обличчя; сумний; нахмурений</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='незадоволене обличчя'>обличчя; незадоволений; нещасливий</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='холодний піт'>холодний; обличчя; піт</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='задумливе обличчя'>задумливий; обличчя; роздуми</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='спантеличене обличчя'>спантеличений; обличчя</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='збентежене обличчя'>збентежений; обличчя</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='обличчя догори ногами'>обличчя; догори ногами</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='обличчя з медичною маскою'>холодний; лікар; маска; медицина; хворий</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='обличчя з термометром'>обличчя; хворий; термометр</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='обличчя з пов’язкою'>пов’язка; обличчя; рана; поранений</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='грошолюб'>обличчя; рот</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='здивоване обличчя'>здивований; обличчя; шокований</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='розчароване обличчя'>розчарований; обличчя</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='стурбоване обличчя'>стурбований; обличчя</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='дим із носа'>обличчя; тріумф; виграш</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='плач'>обличчя; сумний; сльоза</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='гірке ридання'>плач; обличчя; сумний; ридання; сльоза</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='насуплене обличчя з відкритим ротом'>обличчя; нахмурений; рот; відкритий</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='страждальне обличчя'>страждання; обличчя</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='налякане обличчя'>обличчя; страх; боязкий; наляканий</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='зморене обличчя'>обличчя; стомлений; зморений</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='обличчя, яке кривляється'>обличчя; кривляння</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='відкритий рот і холодний піт'>синій; холодно; обличчя; рот; відкритий; піт</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='крик від страху'>обличчя; страх; боязкий; наляканий; крик</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='рум’янець'>присоромлений; обличчя</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='запаморочене обличчя'>запаморочений; обличчя</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='насуплене обличчя'>сердитий; обличчя; злий; невдоволений; гнів; червоний</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='сердите обличчя'>сердитий; обличчя; злий</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='усміхнене обличчя з ріжками'>обличчя; казка; фантазія; ріжки; посмішка</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='чортеня'>демон; диявол; обличчя; казка; фантазія</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='людожер'>створіння; обличчя; казка; фантазія; японський; монстр</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='гоблін'>створіння; обличчя; казка; фантазія; японський; монстр</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='череп'>тіло; смерть; обличчя; казка; монстр</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='череп із перехрещеними кістками'>тіло; перехрещені кістки; смерть; обличчя; монстр; череп</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='привид'>створіння; обличчя; казка; фантазія; монстр</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='прибулець'>створіння; позаземний; обличчя; казка; фантазія; монстр; космос; нло</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='прибулець-монстр'>прибулець; створіння; позаземний; обличчя; казка; фантазія; монстр; космос; нло</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='робот'>обличчя; монстр</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='купка екскрементів'>жарт; кака; екскременти</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='усміхнений кіт із відкритим ротом'>кіт; обличчя; рот; відкритий; посмішка</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='усміхнений кіт із примруженими очима'>кіт; очі; обличчя; усмішка</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='кіт зі сльозами радості'>кіт; обличчя; радість; сльоза</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='усміхнений кіт з очима у формі сердець'>кіт; очі; обличчя; серце; кохання; посмішка</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='кіт із кривою усмішкою'>кіт; обличчя; іронічний; посмішка; кривий</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='кіт, який цілує, із заплющеними очима'>кіт; закриті; очі; обличчя; поцілунок</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='стомлений кіт'>кіт; обличчя; оу; здивування; виснажений</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='кіт, який плаче'>кіт; плач; обличчя; сумний; сльоза</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='насуплений кіт'>кіт; насуплений; обличчя</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='мавпа, яка закриває лапами очі'>зло; обличчя; заборонено; жест; мавпа; ні; не; бачити; бачу</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='мавпа, яка закриває лапами вуха'>зло; обличчя; заборонено; жест; мавпа; ні; не; чути; чую</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='мавпа, яка закриває лапами рот'>зло; обличчя; заборонено; жест; мавпа; ні; не; говорити; говорю</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='дівчина'>дівчинка; діва; зодіак</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='старий чоловік'>чоловік; старий</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='стара жінка'>жінка; старий</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='офіцер поліції'>поліцейський; офіцер; поліція</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='чоловік у китайській шапці'>чоловік; кругла; шапочка; гуа пі мао</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='чоловік у тюрбані'>чоловік; тюрбан</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='будівельник'>каска; працівник</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='шолом із білим хрестом'>допомога; хрест; лице; шапка; шолом</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='принцеса'>казка; фантазія</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='детектив'>шпигун</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='дід Мороз'>святкування; різдво; казка; фантазія; дід; Мороз</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='янголятко'>ангел; немовля; обличчя; казка; фантазія</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='масаж обличчя'>масаж; салон</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='стрижка'>перукар; краса; салон</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='наречена з фатою'>наречена; фата; весілля</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='нахмурена жінка'>нахмурений; жест</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='зла жінка'>злий; жест</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='жест «Ні»'>заборонено; жест; рука; ні; не</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='жест «O’кей»'>жест; рука; O’кей</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='працівник довідкового бюро'>рука; допомога; інформація</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='щаслива жінка з піднятою рукою'>жест; рука; щасливий; піднята</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='людина, яка низько кланяється'>вибачення; уклін; жест; вибач</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='підняті руки'>тіло; святкування; жест; рука; ура; піднята</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='складені руки'>просити; тіло; уклін; складені; жест; рука; будь ласка; благання; дякую</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='голова, що говорить'>обличчя; голова; силует; говорити</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='силует бюсту'>бюст; силует</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='силуети бюстів'>бюст; силует</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='пішохід'>іти</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='бігун'>марафон; біг</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='жінки, що танцюють'>кролик; танцівниця; вуха; дівчина; жінка</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='чоловік у костюмі левітує'>бізнес; чоловік; костюм</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='поцілунок'>пара; закоханість</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='пара із серцем'>пара; серце; кохання; закоханість</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='родина'>дитина; батько; матір; тато; мама</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='чоловік та жінка тримаються за руки'>пара; рука; тримати; чоловік; жінка</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='двоє чоловіків тримаються за руки'>пара; близнюки; рука; триматися; чоловік; знак зодіаку</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='двоє жінок тримаються за руки'>пара; рука; тримати; жінка</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='шкіра типу 1–2'>фіцпатрік; шкіра; тон</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='шкіра типу 3'>фіцпатрік; шкіра; тон</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='шкіра типу 4'>фіцпатрік; шкіра; тон</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='шкіра типу 5'>фіцпатрік; шкіра; тон</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='шкіра типу 6'>фіцпатрік; шкіра; тон</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='зігнутий біцепс'>біцепси; тіло; зігнутий; м’яз</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='рука, що показує вліво'>тіло; палець; рука; показувати; указувати</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='рука, що показує вправо'>тіло; палець; рука; показувати; указувати</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='палець, що показує вгору'>тіло; палець; рука; показувати; указувати; угору</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='рука, що показує вгору'>тіло; палець; рука; показувати; указувати; угору</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='середній палець'>тіло; палець; рука</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='рука, що показує вниз'>тіло; палець; рука; показувати; указувати; униз</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='жест «Перемога»'>тіло; рука; V; перемога</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='вулканський салют'>тіло; палець; рука; вулкан; спок; зоряний шлях</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='жест «Коза»'>тіло; палець; рука; коза; рок</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='рука з розчепіреними пальцями'>тіло; палець; рука; розчепірений</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='піднята рука'>тіло; рука</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='жест «O’кей»'>тіло; рука; «о’кей»</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='жест «Подобається»'>тіло; рука; +1; подобається</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='жест «Не подобається»'>тіло; рука; -1; не подобається</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='піднятий кулак'>тіло; стиснутий; кулак; рука</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='кулак, що наближається'>тіло; стиснутий; кулак; рука</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='рука, що махає'>тіло; рука; махати; помах</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='оплески'>тіло; рука; плескати</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='відкриті руки'>тіло; рука; відкритий</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='рука, що пише'>тіло; рука; писати</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='лак для нігтів'>тіло; догляд; косметика; манікюр; ніготь; лак</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='вухо'>тіло</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='ніс'>тіло</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='сліди ніг'>тіло; одяг; відбиток; нога; слід</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='очі'>тіло; око; обличчя</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='око'>тіло</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='язик'>тіло</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='рот'>тіло; губи</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='відбиток губ'>серце; поцілунок; губи; відбиток; закоханість</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='серце зі стрілою'>стріла; купідон; серце; закоханість</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='червоне серце'>серце</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='пульсуюче серце'>биття; серце; серцебиття; пульсувати</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='розбите серце'>розбивати; розбите; серце</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='два серця'>серце; кохання</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='блискуче серце'>захоплення; серце; сяйво</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='серце, що збільшується'>захоплення; збільшується; серце; серцебиття; нервувати</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='синє серце'>синій; серце</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='зелене серце'>зелений; серце</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='жовте серце'>жовтий; серце</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='фіолетове серце'>фіолетовий; серце</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='серце зі стрічкою'>серце; стрічка; валентин</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='серця, що обертаються'>серце; обертатися</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='стилізоване серце'>серце</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='стилізований знак оклику'>знак оклику; серце; пунктуація</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='любовний лист'>серце; лист; кохання; пошта; закохансіть</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='сон'>комікси</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='символ гніву'>злий; комікси; розлючений</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='бомба'>комікси</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='зіткнення'>бум; комікси</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='краплі поту'>комікси; піт; бризки</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='стрімкість'>комікси; мчати; біг</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='запаморочення'>комікси; зірка</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='хмаринка з текстом'>хмаринка; комікси; діалог; розмова</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='хмаринка з текстом зліва'>діалог; розмова</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='хмаринка зі злим текстом справа'>злий; хмаринка; розлючений</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='хмаринка роздумів'>хмаринка; комікси; думка</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='окуляри'>одяг; око</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='сонцезахисні окуляри'>темний; око; окуляри</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='краватка'>одяг</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='майка'>одяг; топ; футболка</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='джинси'>одяг; штани</annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='сукня'>одяг</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='кімоно'>одяг</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='бікіні'>одяг; плавати</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='жіночий одяг'>одяг; жінка</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='гаманець'>одяг; аксесуар; монета; гроші</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='сумка'>одяг</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='чохол'>одяг; сумка</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='сумки для покупок'>сумка; покупки</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='шкільний портфель'>сумка; ранець; школа; навчання</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='чоловіче взуття'>одяг; чоловік; взуття</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='взуття для бігу'>спортивний; одяг; взуття; кросівок</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='черевичок на високому підборі'>одяг; каблук; взуття; жінка</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='жіноча сандаля'>одяг; сандалі; взуття; жінка</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='жіночий чобіт'>чобіт; одяг; взуття; жінка</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='корона'>одяг; король; королева</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='жіночий капелюх'>одяг; капелюх; жінка</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='циліндр'>одяг; капелюх; чоловік</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='академічна шапочка'>одяг; капелюх; шапка; випуск</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='чотки'>вервиця; одяг; молитися; релігія</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='помада'>косметика</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='перстень'>діамант; кохання</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='дорогоцінний камінь'>діамант; дорогоцінний; камінь; кохання</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='мавпяча морда'>морда; мавпа</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='собача морда'>собака; пес; морда</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='собака'>пес</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='пудель'>собака; пес</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='вовча морда'>морда; вовк</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='котяча морда'>кіт; морда</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='лев’яча морда'>морда; лев; знак; зодіак</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='тигряча морда'>морда; тигр</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='кінська морда'>морда; кінь</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='кінь'>скачки</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='морда єдинорога'>морда; єдиноріг</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='коров’яча морда'>морда; корова</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='бик'>телець; зодіак</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='свиняча морда'>морда; свиня</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='свиняче рильце'>морда; рило; свиня</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='баран'>овен; вівця; зодіак</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='козел'>козеріг; зодіак</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='верблюд'>дромадер; одногорбий; горб</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='двогорбий верблюд'>бактріан; верблюд; двогорбий; горб</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='мишача морда'>морда; миша</annotation>
+
+		<!-- rat -->
+		<annotation cp='[🐀]' tts='щур'>пацюк</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='морда хом’яка'>морда; хом’як</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='кроляча морда'>кролик; морда</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='ведмежача морда'>ведмідь; морда</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='коала'>ведмідь</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='морда панди'>морда; панда</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='сліди лап'>лапа; слід</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='курча, яке прокльовується з яйця'>курча; прокльовуватися</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='курча анфас'>курча</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='голуб'>птах; літати; мир</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='жаба'>морда</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='змія'>змієносець; зодіак</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='голова дракона'>дракон; голова; казка</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='дракон'>казка</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='кит із фонтаном'>кит; фонтан</annotation>
+
+		<!-- dolphin; flipper -->
+		<annotation cp='[🐬]' tts='дельфін'>плавець</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='риба'>риби; зодіак</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='тропічна риба'>риба; тропічний</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='риба-собака'>риба</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='спіральна мушля'>мушля; спіральний</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='краб'>рак; зодіак</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='мураха'>комаха</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='бджола'>комаха</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='сонечко'>комаха</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='павук'>комаха</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='павутина'>павук</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='скорпіон'>зодіак</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='букет'>квітка; рослина; кохання</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='цвіт вишні'>квітка; рослина; цвіт; вишня</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='біла квітка'>квітка</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='бутон'>рослина</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='троянда'>квітка; рослина</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='гібіскус'>квітка; рослина</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='сонях'>квітка; рослина; сонце</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='цвіт'>квітка; рослина</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='тюльпан'>квітка; рослина</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='саджанець'>рослина; паросток</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='вічнозелена рослина'>рослина; дерево</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='листяне дерево'>рослина; листяний; дерево; опадає</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='пальма'>рослина; дерево</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='кактус'>рослина</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='колосся рису'>рослина; колос; рис</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='трава'>рослина; листок</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='конюшина'>рослина</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='чотирилиста конюшина'>конюшина; 4; чотири; листок; рослина</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='кленовий листок'>рослина; опадати; листок; клен</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='опалий листок'>рослина; листок; опадати</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='листя, що кружляє за вітром'>рослина; листок; дути; вітер; кружляти</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='виноград'>рослина; фрукт</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='диня'>рослина; фрукт</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='кавун'>рослина; фрукт</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='мандарин'>рослина; фрукт; помаранч</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='лимон'>рослина; фрукт; цитрус</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='банан'>рослина; фрукт</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='ананас'>рослина; фрукт</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='червоне яблуко'>рослина; фрукт; яблуко; червоний</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='зелене яблуко'>рослина; фрукт; яблуко; зелений</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='груша'>рослина; фрукт</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='персик'>рослина; фрукт</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='вишня'>рослина; фрукт</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='полуниця'>рослина; фрукт; ягода</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='помідор'>рослина; овоч</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='баклажан'>рослина; овоч</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='качан кукурудзи'>рослина; кукурудза; качан</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='гострий перець'>рослина; гострий; перець</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='гриб'>рослина</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='каштан'>рослина</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='хліб'>буханець</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='шматок сиру'>сир</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='м’ясо на кістці'>кістка; м’ясо</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='ніжка птиці'>кістка; птиця; ніжка; курка</annotation>
+
+		<!-- hamburger; burger -->
+		<annotation cp='[🍔]' tts='гамбургер'>бургер</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='картопля фрі'>картопля; фрі</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='піца'>сир; шматок</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='хот-дог'>сосиска</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='тако'>мексика; їжа</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='буріто'>мексика; їжа</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='горщик з їжею'>горщик; рагу</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='упаковка бенто'>упаковка; бенто</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='рисовий крекер'>рис; крекер</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='рисова кулька'>рис; кулька; японський</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='варений рис'>варений; рис</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='рис із карі'>рис; карі</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='миска з локшиною'>миска; локшина; рамен; парувати</annotation>
+
+		<!-- spaghetti; pasta -->
+		<annotation cp='[🍝]' tts='спагеті'>паста</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='смажений батат'>батат; смажити</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='оден'>кебаб; морський; їжа; шампур</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='смажені креветки'>смажений; креветка; темпура</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='рибний рулет'>рибний; рулет; випічка</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='данго'>десерт; японський; солодкий; шампур</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='м’яке морозиво'>морозиво; десерт; м’який; солодкий</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='льодова стружка'>десерт; лід; стружка; солодкий</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='морозиво'>десерт; солодкий</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='пончик'>десерт; солодкий</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='печиво'>десерт; солодкий</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='торт на день народження'>день; народження; торт; святкування; десерт; випічка; солодкий</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='тістечко'>десерт; випічка; шматок; солодкий</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='плитка шоколаду'>плитка; шоколад; десерт; солодкий</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='цукерка'>десерт; солодкий</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='льодяник'>цукерка; десерт; солодкий</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='заварний крем'>десерт; пудинг; солодкий</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='горщик із медом'>мед; горщик; солодкий</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='пляшечка для немовляти'>немовля; пляшечка; пити; молоко</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='гарячий напій'>напій; кава; пити; гарячий; паруючий; чай</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='чайна чашка без вушка'>напій; чашка; чай</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='саке'>напій; бар; пляшка; чашка; пити</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='пляшка з корком під тиском'>пляшка; бар; корок; пити; стріляти</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='келих для вина'>напій; бар; пити; келих; вино</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='бокал для коктейлю'>бар; коктейль; пити; бокал</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='тропічний напій'>бар; пити; тропічний</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='кухоль із пивом'>бар; пиво; пити; кухоль</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='кухлі з пивом, що цокаються'>бар; пиво; цокати; пити; кухоль</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='виделка, ніж і тарілка'>кулінарія; виделка; ніж; тарілка</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='виделка та ніж'>кулінарія; виделка; ніж</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='кулінарія'>яйце; пательня</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='амфора'>водолій; кулінарія; пити; глек; зброя; зодіак</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='глобус із зображенням Європи та Африки'>африка; земля; європа; глобус; світ</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='глобус із зображенням Америки'>америка; земля; глобус; світ</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='глобус із зображенням Азії та Австралії'>азія; австралія; земля; глобус; світ</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='глобус із меридіанами'>земля; глобус; меридіани; світ</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='карта світу'>карта; світ</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='гора із засніженою верхівкою'>холодний; гора; сніг</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='вулкан'>виверження; гора; погода</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='гора Фудзі'>фудзі; гора</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='пляж із парасолькою'>пляж; парасоля</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='безлюдний острів'>безлюдний; острів</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='національний парк'>парк</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='класична будівля'>класичний; будівля</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='спорудження будівлі'>спорудження; будівля</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='будинки'>будівля; будинок</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='місто'>будівля</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='покинутий будинок'>будівля; покинутий; будинок</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='будинок'>будівля; дім</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='будинок із садом'>будівля; сад; дім; будинок</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='церква'>будівля; християнський; хрест; релігія</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='кааба'>іслам; мусульманський; релігія</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='мечеть'>іслам; мусульманський; релігія</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='синагога'>єврей; єврейський; релігія; храм</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='синтоїстський храм'>релігія; синтоїстський; святиня</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='офісна будівля'>будівля</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='японська пошта'>будівля; японський; пошта</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='пошта'>будівля; європейський</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='лікарня'>будівля; лікар; медицина</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='банк'>будівля</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='готель'>будівля</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='готель для закоханих'>будівля; готель; кохання</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='цілодобовий магазин'>будівля; цілодобовий; магазин</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='школа'>будівля</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='універмаг'>будівля</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='завод'>будівля</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='японський замок'>будівля</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='замок'>будівля; європейська</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='весілля'>каплиця; кохання</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='токійська вежа'>токіо; вежа</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='статуя свободи'>статуя; свобода</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='карта японії'>японія; карта</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='мряка'>туман; погода</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='зоряна ніч'>ніч; зірка; погода</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='схід сонця над горами'>ранок; гора; сонце; схід; погода</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='схід сонця'>ранок; сонце; погода</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='місто в сутінках'>будівля; місто; сутінки; вечір; ландшафт; сонце; захід; погода</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='захід сонця'>будівля; сутінки; сонце; погода</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='міст уночі'>міст; ніч; погода</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='гарячі джерела'>гарячий; джерело; паруючі</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='чумацький шлях'>космос; погода</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='коник із каруселі'>карусель; кінь</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='колесо огляду'>парк розваг; колесо; огляд</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='американські гірки'>парк розваг; американський; гірки</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='вивіска перукаря'>перукар; зачіска; вивіска</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='цирковий намет'>цирк; намет</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='театральне мистецтво'>мистецтво; маска; театр; вистава</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='рама з картиною'>мистецтво; рама; музей; картина</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='палітра художника'>мистецтво; музей; картина; палітра</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='ігровий автомат'>ігровий; автомат</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='паротяг'>двигун; залізниця; паровий; потяг; транспорт</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='вагон'>електричний; залізниця; потяг; трамвай; тролейбус; транспорт</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='швидкісний потяг'>залізниця; інтерсіті; швидкісний; потяг; транспорт</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='швидкісний потяг із кулеподібним носом'>кулеподібний; залізниця; інтерсіті; швидкісний; потяг; транспорт</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='потяг'>залізниця; транспорт</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='метро'>транспорт</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='електропоїзд'>залізниця; транспорт</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='зупинка'>залізниця; потяг; транспорт</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='трамвай'>тролейбус; транспорт</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='монорейкова залізниця'>транспорт</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='гірська залізниця'>вагон; гора; залізниця; транспорт</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='вагон трамвая'>вагон; трамвай; тролейбус; транспорт</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='автобус'>транспорт</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='автобус, який наближається'>автобус; наближатися; транспорт</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='тролейбус'>автобус; трамвай; транспорт</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='автобусна зупинка'>автобус; зупинка</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='мікроавтобус'>автобус; транспорт</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='автомобіль швидкої допомоги'>транспорт</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='пожежний автомобіль'>двигун; пожежний; вантажівка</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='патрульний автомобіль'>автомобіль; патруль; поліція</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='патрульний автомобіль, що наближається'>автомобіль; наближається; поліція</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='таксі'>транспорт</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='таксі, що наближається'>наближатися; таксі; транспорт</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='автомобіль'>транспорт</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='автомобіль, що наближається'>автомобіль; машина; наближається; транспорт</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='житловий трейлер'>житловий; трейлер; фургон; транспорт</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='автофургон'>доставка; фургон; транспорт</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='тягач'>вантажівка; фургон; транспорт</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='трактор'>транспорт</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='велосипед'>транспорт</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='паливний насос'>пальне; насос; заправка</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='шосе'>дорога</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='залізнична колія'>залізниця; потяг</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='маяк патрульного автомобіля'>маяк; мигати; автомобіль; поліція; обертатися</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='горизонтальний світлофор'>світлофор; транспорт</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='вертикальний світлофор'>світлофор; транспорт</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='будівництво'>паркан</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='якір'>корабель; знаряддя</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='вітрильник'>човен; відпочинок; море; яхта; транспорт</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='весловий човен'>човен; транспорт</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='швидкохідний катер'>човен; транспорт</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='пасажирський корабель'>пасажир; корабель; транспорт</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='пором'>човен</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='моторний човен'>човен; моторний; транспорт</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='корабель'>транспорт</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='літак'>транспорт</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='легкий літак'>літак; транспорт</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='відправлення літака'>літак; реєстрація; відправлення; транспорт</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='прибуття літака'>літак; прибуття; приземлення; транспорт</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' tts='місце'>крісло</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='вертоліт'>транспорт</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='підвісна залізниця'>залізниця; підвісний; транспорт</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='гірський фунікулер'>кабель; гондола; гора; транспорт</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='підвісна канатна дорога'>повітряний; кабель; автомобіль; гондола; підвісна дорога; канатна дорога; транспорт</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='ракета'>космос; транспорт</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='супутник'>космос; транспорт</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='дзвоник для виклику'>дзвоник; готель</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='людина в ліжку'>готель; сон</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='ліжко'>готель; сон</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='диван і лампа'>диван; готель; лампа</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='душ'>вода</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='людина приймає ванну'>ванна; купатися</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' tts='ванна'>купатися</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='пісочний годинник'>пісок; таймер</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='пісочний годинник із піском, який сиплеться'>пісочний годинник; пісок; таймер</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='будильник'>годинник</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='секундомір'>годинник</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='таймер'>годинник</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='годинник для коминової полиці'>годинник</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='дванадцята година'>00; 12; 12:00; годинник; година; дванадцять</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='пів на першу'>12; 12:30; 30; годинник; тридцять; дванадцять</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='перша година'>00; 1; 1:00; годинник; година; один</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='пів на другу'>1; 1:30; 30; годинник; один; тридцять</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='друга година'>00; 2; 2:00; годинник; година; два</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='пів на третю'>2; 2:30; 30; годинник; тридцять; два</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='третя година'>00; 3; 3:00; годинник; година; три</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='пів на четверту'>3; 3:30; 30; годинник; тридцять; три</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='четверта година'>00; 4; 4:00; годинник; чотири; година</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='пів на п’яту'>30; 4; 4:30; годинник; чотири; тридцять</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='п’ята година'>00; 5; 5:00; годинник; п’ять; година</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='пів на шосту'>30; 5; 5:30; годинник; п’ять; тридцять</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='шоста година'>00; 6; 6:00; годинник; година; шість</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='пів на сьому'>30; 6; 6:30; годинник; шість; тридцять</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='сьома година'>00; 7; 7:00; годинник; година; сім</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='пів на восьму'>30; 7; 7:30; годинник; сім; тридцять</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='восьма година'>00; 8; 8:00; годинник; вісім; година</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='пів на дев’яту'>30; 8; 8:30; годинник; вісім; тридцять</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='дев’ята година'>00; 9; 9:00; годинник; дев’ять; година</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='пів на десяту'>30; 9; 9:30; годинник; дев’ять; тридцять</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='десята година'>00; 10; 10:00; годинник; година; десять</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='пів на одинадцяту'>10; 10:30; 30; годинник; десять; тридцять</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='одинадцята година'>00; 11; 11:00; годинник; одинадцять; година</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='пів на дванадцяту'>11; 11:30; 30; годинник; одинадцять; тридцять</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='новий місяць'>темний; місяць; космос; погода</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='молодий півмісяць'>півмісяць; місяць; космос; зростаючий; погода</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='місяць у першій чверті'>місяць; чверть; космос; погода</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='зростаючий місяць'>серпоподібний; місяць; космос; зростаючий; погода</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='повний місяць'>повний; місяць; космос; погода</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='спадаючий місяць'>серпоподібний; місяць; космос; спадаючий; погода</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='місяць в останній чверті'>місяць; чверть; космос; погода</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='старий місяць'>півмісяць; місяць; космос; спадаючий; погода</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='півмісяць'>місяць; космос; погода</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='новий місяць з обличчям'>обличчя; місяць; космос; погода</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='місяць у першій чверті з обличчям'>обличчя; місяць; чверть; космос; погода</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='місяць в останній чверті з обличчям'>обличчя; місяць; чверть; космос; погода</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='термометр'>погода</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='сонце'>яскравий; промені; космос; сонячний; погода</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='повний місяць з обличчям'>яскравий; обличчя; повний; місяць; космос; погода</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='сонце з обличчям'>яскравий; обличчя; космос; сонце; погода</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='середня біла зірка'>зірка</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='зірка, що сяє'>блискучий; світло; світиться; іскра; зірка; сяє</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='метеор'>падає; космос; зірка; небо</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='хмара'>погода</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='сонце за хмарою'>хмара; сонце; погода</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='хмара з блискавкою та дощем'>хмара; дощ; грім; погода</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='сонце за невеликою хмарою'>хмара; сонце; погода</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='сонце за великою хмарою'>хмара; сонце; погода</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='сонце за хмарою з дощем'>хмара; дощ; сонце; погода</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='хмара з дощем'>хмара; дощ; погода</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='хмара зі снігом'>хмара; холодний; сніг; погода</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='хмара з блискавкою'>хмара; блискавка; погода</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='торнадо'>хмара; погода; ураган</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='туман'>хмара; погода</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='вітер з обличчям'>віяти; хмара; обличчя; погода; вітер</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='циклон'>запаморочення; смерч; тайфун; погода</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='веселка'>дощ; погода</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='закрита парасолька'>одяг; дощ; парасолька; погода</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='парасолька'>одяг; дощ; погода</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='парасолька з краплями дощу'>одяг; крапля; дощ; парасолька; погода</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='наземна парасолька'>дощ; сонце; парасолька; погода</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='висока напруга'>небезпека; електричний; електрика; блискавка; напруга; постріл</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='сніжинка'>холодний; сніг; погода</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='сніговик'>холодний; сніг; погода</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='сніговик без снігу'>холодний; сніг; сніговик; погода</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='комета'>космос</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='вогонь'>полум’я; інструмент</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='крапля'>холодний; комічний; піт; погода</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='хвиля'>океан; вода; погода</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='ліхтар-гарбуз'>святкування; хелловін; ліхтар; гарбуз</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='ялинка'>святкування; різдво; дерево</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='феєрверки'>святкування</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='бенгальський вогонь'>святкування; феєрверки; іскра</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='іскри'>іскра; зірка</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='повітряна кулька'>святкування</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='хлопавка'>святкування; вечірка; готово</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='кулька з конфеті'>бал; святкування; конфеті</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='танабата, гілка тандзаку'>банер; святкування; японський; дерево</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='схрещені прапорці'>святкування; хрест; схрещений; японський</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='прикраси на ялинку'>бамбук; святкування; японський; сосна; рослина</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='японські ляльки'>святкування; лялька; фестиваль; японський</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='транспарант із карпами'>карп; святкування; транспарант</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='китайські дзвіночки'>дзвоник; святкування; дзвіночки; вітер</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='церемонія вшанування місяця'>святкування; церемонія; місяць</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='стрічка'>святкування</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='запакований подарунок'>коробка; святкування; подарунок; дарунок; запакований</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='військова медаль'>святкування; медаль; військовий</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='пам’ятна стрічка'>святкування; пам’ятний; стрічка</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='кадр на плівці'>кіно; плівка; кадри; фільм</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='вхідний квиток'>вхідний; квиток</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='квиток'>вхідний</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='футбольний м’яч'>м’яч; футбол</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='бейсбольний м’яч'>м’яч</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='баскетбольний м’яч'>м’яч; кільце</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='м’яч для гри в американський футбол'>американський; м’яч; футбол</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='м’яч для гри в регбі'>м’яч; футбол; регбі</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='тенісний м’яч'>м’яч; ракетка</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='більярдна куля'>8; куля 8; куля; більярд; вісім; гра</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='боулінг'>м’яч; гра</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='прапорець на полі для гольфу'>гольф; лунка</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='гольфіст'>м’яч; гольф</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='ковзан'>лід</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='вудка'>риба</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='футболка'>біг; стрічка; сорочка</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='лижі'>сніг</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='лижвяр'>лижі; сніг</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='сноубордист'>лижі; сніг; сноуборд</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='серфінгіст'>серфінг</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='кінні перегони'>кінь; жокей; біговий кінь; перегони</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='плавець'>плавати</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='людина з м’ячем'>м’яч</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='важкоатлет'>тягар</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='велосипедист'>велосипед</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='людина на гірському велосипеді'>велосипед; велосипедист; гора</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='автомобіль для перегонів'>автомобіль; перегони</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='мотоцикл'>перегони</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='спортивна медаль'>медаль</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='кубок'>приз</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='крикет'>м’яч; бита; гра</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='волейбол'>м’яч; гра</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='хокей на траві'>м’яч; поле; гра; хокей; ключка</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='хокейні ключка та шайба'>гра; хокей; лід; шайба; ключка</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='пінг-понг'>м’яч; бита; гра; ракетка; стіл; теніс</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='бадмінтон'>волан; гра; ракетка; воланчик</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='пряме попадання'>центральне коло; «яблучко»; дротик; центр; гра; влучити; ціль</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='відеогра'>контролер; гра</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='джойстик'>гра; відеогра</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='гральний кубик'>кубик; гра</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='піка'>карта; гра; масть</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='чирва'>карта; гра; чирви; масть</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='бубна'>карта; бубни; гра; масть</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='трефа'>карта; трефи; гра; масть</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='джокер'>карта; гра; грати</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='червоний дракон у грі в маджонг'>гра; маджонг; червоний</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='гральні карти ханафуда'>карта; ханафуда; гра; японський; грати</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='вимкнений динамік'>вимкнений звук; тихий; беззвучний; динамік; гучність</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='динамік'>гучність</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='увімкнений динамік'>низький; динамік; гучність; хвиля</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='динамік, з якого лунають гучні звуки'>3; високий; гучний; динамік; три; гучність</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='гучномовець'>гучний; звукове оповіщення</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='рупор'>підбадьорення</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='поштовий ріжок'>ріжок; пошта; поштовий</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='перекреслений дзвоник'>дзвоник; заборонений; вимкнений звук; ні; не; тихий; беззвучний</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='партитура'>музичний</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='музична нота'>музичний; нота</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='музичні ноти'>музичний; нота; ноти</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='студійний мікрофон'>мікрофон; музичний; студія</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='рівень'>музичний; повзунок</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='кнопки керування'>елемент керування; музичний</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='мікрофон'>караоке</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='саксофон'>інструмент; музичний</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='гітара'>інструмент; музичний</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='музична клавіатура'>інструмент; клавіатура; музичний; піаніно</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='труба'>інструмент; музичний</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='скрипка'>інструмент; музичний</annotation>
+
+		<!-- radio; video -->
+		<annotation cp='[📻]' tts='радіо'>відео</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='мобільний телефон'>стільниковий; мобільний; телефон</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='мобільний телефон зі стрілкою'>стрілка; телефонувати; стільниковий; мобільний; телефон; отримувати</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='телефонна слухавка'>телефон; слухавка</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='вилка електроприладу'>електричний; електрика; вилка</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='ноутбук'>комп’ютер; пк; персональний</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='комп’ютер'>настільний</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='принтер'>комп’ютер</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='клавіатура'>комп’ютер</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='комп’ютерна миша'>3; кнопка; комп’ютер; миша; три</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='трекбол'>комп’ютер</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='міні-диск'>комп’ютер; диск; оптичний</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='дискета'>комп’ютер; диск</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='оптичний диск'>dvd; blu-ray; cd; комп’ютер; диск; оптичний</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='DVD-диск'>blu-ray; cd; комп’ютер; диск; оптичний</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='кінокамера'>камера; кіно; фільм</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='нумератор із хлопавкою'>хлопавка; фільм</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='кінопроектор'>кіно; фільм; проектор; відео</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='телевізор'>тб; відео</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='фотоапарат'>відео</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='фотоапарат зі спалахом'>камера; спалах; відео</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='відеокамера'>камера; відео</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='відеокасета'>стрічка; відео; касета</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='лупа, повернута ліворуч'>лупа; пошук; інструмент</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='лупа, повернута праворуч'>лупа; пошук; інструмент</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='мікроскоп'>інструмент</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='телескоп'>інструмент</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='супутникова антена'>антена; тарілка; супутникова</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='свічка'>світло</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='лампочка'>малюнок; електричний; ідея; світло</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='ліхтарик'>електричний; світло; інструмент</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='червоний ліхтар'>бар; японський; ліхтар; світло; червоний</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='записник із декоративною обкладинкою'>книжка; обкладинка; декоративна; записник</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='закрита книга'>книжка; закрита</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='відкрита книга'>книжка; відкрита</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='зелена книга'>книжка; зелений</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='синя книга'>синій; книжка</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='оранжева книга'>книжка; оранжевий</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' tts='книги'>книжка</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='реєстр'>записник</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='сторінка із завитком'>завиток; документ; сторінка</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='сувій'>папір</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='сторінка лицевою стороною'>документ; сторінка</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='газета'>новини; папір</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='згорнута газета'>новини; газета; папір; згорнута</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='закладки'>закладка; значок; мітка; вкладка</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='закладка'>значок</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='мішок із грошима'>мішок; долар; гроші</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='банкнота із символом єни'>банк; банкнота; купюра; валюта; гроші; єна</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='банкнота із символом долара'>банк; банкнота; купюра; валюта; долар; гроші</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='банкнота із символом євро'>банк; банкнота; купюра; валюта; євро; гроші</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='банкнота із символом фунта'>банк; банкнота; купюра; валюта; гроші; фунт</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='гроші з крилами'>банк; банкнота; купюра; долар; літати; гроші; крила</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='кредитна картка'>банк; картка; кредитна; гроші</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='висхідна діаграма із символом єни'>банк; діаграма; валюта; графіка; ріст; ринок; гроші; збільшення; тенденція; вгору; єна</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='конверт'>емейл; електронний; пошта; лист</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='електронний лист'>емейл; лист; пошта</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='вхідний конверт'>емейл; пошта; конверт; вхідний; лист; отримати</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='конверт зі стрілкою'>стрілка; вниз; емейл; пошта; конверт; лист; вихідний; надісланий</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='лоток для вихідної пошти'>коробка; лист; пошта; надісланий; лоток</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='лоток для вхідної пошти'>коробка; вхідна пошта; лист; пошта; отримувати; лоток</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='пакунок'>посилка</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='закрита поштова скринька з піднятим прапорцем'>закритий; пошта; поштова скринька</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='закрита поштова скринька з опущеним прапорцем'>закритий; опущений; пошта; поштова скринька</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='відкрита поштова скринька з піднятим прапорцем'>пошта; поштова скринька; відкритий</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='відкрита поштова скринька з опущеним прапорцем'>опущений; пошта; поштова скринька; відкритий</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='поштова скринька'>пошта; скринька</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='урна для голосування з бюлетенем'>урна; голосування; бюлетень</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='чорне перо'>перо; ручка</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='чорнильна ручка'>чорнильна; ручка</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='ручка'>кулькова</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='пензлик'>малювання</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='кольорова крейда'>фломастер</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='нотатка'>олівець</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='папка з файлами'>папка</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='відкрита папка'>папка; відкритий</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='розділювачі для картотеки'>розділювачі; картотека</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='календар'>дата</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='відривний календар'>календар</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='блокнот на спіралі'>блокнот; на спіралі</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='календар на спіралі'>календар; блокнот; на спіралі</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='висхідна діаграма'>діаграма; графік; ріст; тенденція; вгору</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='низхідна діаграма'>діаграма; вниз; графік; тенденція</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='гістограма'>графік</annotation>
+
+		<!-- clipboard -->
+		<annotation cp='[📋]' tts='папка-планшет'>папка; планшет</annotation>
+
+		<!-- pushpin; pin -->
+		<annotation cp='[📌]' tts='канцелярська кнопка'>кнопка</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='кругла канцелярська кнопка'>кнопка; канцелярський</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='зчеплені скріпки'>зчеплений; скріпка</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='пряма лінійка'>лінійка; прямий кут</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='трикутна лінійка'>лінійка; трикутник</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='ножиці'>інструмент</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='коробка з файлами'>коробка; файли</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='шафа-реєстратор'>шафа; реєстратор</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='замок'>закрито</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='відкритий замок'>замок; відрити; відімкнути</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='замок із пером'>чорнило; замок; перо; ручка; приватність</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='закритий замок із ключем'>замкнено; ключ; замок; безпечно</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='ключ'>пароль</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='старий ключ'>ключ; підказка; замок; старий</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='молоток'>інструмент</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='кирка'>шахта; інструмент</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='молоток і кирка'>молоток; інструмент; кирка</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='молоток і гайковий ключ'>молоток; інструмент; гайковий ключ</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='гайковий ключ'>інструмент</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='гайка та болт'>болт; гайка; інструмент</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='шестірня'>інструмент</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='стискання'>знаряддя; кліщі</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='дистилятор'>хімія; знаряддя</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='важільні терези'>рівновага; справедливість; терези; знаряддя; вага; зодіак</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='ланцюги'>ланцюг</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='шприц'>лікар; ліки; голка; укол; хворий; інструмент</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='таблетка'>лікар; ліки; хворий</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='кинджал'>ніж; зброя</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='кухонний ніж'>кухня; ніж; знаряддя; зброя</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='схрещені мечі'>перехрещений; мечі; зброя</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='пістолет'>револьвер; знаряддя; зброя</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='щит'>зброя</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='лук і стріла'>лучник; стріла; лук; стрілець; знаряддя; зброя; зодіак</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='картатий прапорець'>картатий; у клітинку; перегони</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='білий прапорець, що майорить'>майоріти</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='чорний прапорець, що майорить'>майоріти</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='трикутний прапорець'>прапорець</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='труна'>Replaced with a more common term</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='поховальна урна'>смерть; похорон; урна</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='моай'>лице; статуя</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='бочка з паливом'>бочка; паливо</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='кришталева куля'>куля; кришталевий; казка; фантазія; передбачення; інструмент</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='значок банкомата'>банкомат</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='значок сміття в смітнику'>сміття; смітник</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='питна вода'>пиття; питний; вода</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='інвалідне крісло'>доступність</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='чоловічий туалет'>туалет; вбиральня; ванна; кімната; чоловік</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='жіночий туалет'>туалет; вбиральня; ванна; кімната; жінка</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='вбиральня'>туалет</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='символ «немовля»'>немовля; пеленання</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='туалет'>вбиральня; ванна; кімната</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='паспортний контроль'>контроль; паспортний</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='пункт отримання багажу'>отримання; багаж</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='камера зберігання'>багаж; камера; зберігання</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='діти на дорозі'>діти; на дорозі; пішоходи; рух</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='в’їзд заборонено'>в’їзд; заборонено; не; в’їжджати; рух</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='заборонено'>в’їзд; не; в’їжджати</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='рух на велосипеді заборонено'>велосипед; заборонено; транспортний засіб</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='куріння заборонено'>заборонено; не; курити; палити</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='смітити заборонено'>заборонено; не; смітити</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='непридатна для пиття вода'>пиття; пити; заборонено; не; непридатно; вода</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='рух пішоходів заборонено'>заборонено; не; пішохід</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='радіоактивні матеріали'>радіоактивний</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='стрілка вгору'>стрілка; сторона; напрям; південний</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='стрілка вгору та праворуч'>стрілка; напрям; проміжний; північно-східний</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='стрілка праворуч'>стрілка; сторона; напрям; східний</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='стрілка вниз і праворуч'>стрілка; напрям; проміжний; південно-східний</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='стрілка вниз'>стрілка; сторона; напрям; південний</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='стрілка вниз і ліворуч'>стрілка; напрям; проміжний; південно-західний</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='стрілка ліворуч'>стрілка; сторона; напрям; західний</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='стрілка вгору та ліворуч'>стрілка; напрям; проміжний; північно-західний</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='стрілка вгору та вниз'>стрілка</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='стрілка праворуч і ліворуч'>стрілка</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='стрілка праворуч із поворотом ліворуч'>стрілка</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='стрілка ліворуч із поворотом праворуч'>стрілка</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='стрілка праворуч із поворотом угору'>стрілка</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='стрілка праворуч із поворотом униз'>стрілка; вниз</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='вертикальні стрілки, напрямлені за годинниковою стрілкою'>стрілка; за годинниковою стрілкою; перезавантажити</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='кнопка зі стрілками, напрямленими проти годинникової стрілки'>проти годинникової стрілки; стрілка</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='стрілка назад'>стрілка; назад</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='слово «кінець» зі стрілкою'>стрілка; кінець</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='стрілка «увімкнено!»'>стрілка; значок; ввімкнено</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='слово «незабаром» зі стрілкою'>стрілка; незабаром</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='слово «вгору» зі стрілкою'>стрілка; вгору; вверх</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='молитовний дім'>релігія; поклоніння</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='символ атома'>атеїст; атом</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='ом'>індуїзм; релігія</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='зірка давида'>давид; єврей; єврейський; релігія; зірка</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='колесо дхарми'>буддист; дхарма; релігія; колесо</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='інь-ян'>релігія; дао; даосизм; інь; янь</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='католицький хрест'>християнин; хрест; релігія</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='православний хрест'>християнин; хрест; релігія</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='зірка і півмісяць'>іслам; мусульманин; релігія</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='символ миру'>мир</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='менора'>канделябр; підсвічник; релігія</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='шестикутна зірка з крапкою'>удача; зірка</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='символ утилізації'>утилізація; переробка</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='бейдж з іменем'>бейдж; ім’я</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='японський символ «початківець»'>початківець; шеврон; зелений; японський; листок; інструмент; жовтий</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='тризуб'>якір; емблема; корабель; інструмент</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='велике жирне коло'>коло; о</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='жирний білий прапорець'>прапорець; значок</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='поле виборчого бюлетеня з позначкою'>поле виборчого бюлетеня; прапорець</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='жирний прапорець'>прапорець; значок</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='жирний знак множення «x»'>скасувати; множення; помножити; x</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='хрестик'>скасувати; значок; множення; помножити; x</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='кнопка з хрестиком'>значок; квадрат</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='жирний знак плюса'>математика; плюс</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='жирний знак мінуса'>математика; мінус</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='жирний знак ділення'>ділення; математика</annotation>
+
+		<!-- curly loop; curl; loop -->
+		<annotation cp='[➰]' tts='закручена петля'>закручений; петля</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='подвійна закручена петля'>закручений; подвійний; петля</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='японський знак початку частини пісні'>значок; частина</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='восьмикутна зірка'>зірочка</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='восьмикінечна зірка'>зірка</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='обмін валют'>банк; валюта; обмін; гроші</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='жирний символ долара'>валюта; долар; гроші</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='подвійний знак оклику'>два; оклику; знак; пунктуація</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='знаки питання та оклику'>оклику; лігатура; знак; пунктуація; питання</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='знак питання'>знак; пунктуація; питання</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='білий знак питання'>знак; контур; пунктуація; питання</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='білий знак оклику'>оклику; знак; контур; пунктуація</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='знак оклику'>оклику; знак; пунктуація</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='хвилясте тире'>тире; пунктуація; хвилястий</annotation>
+
+		<!-- registered -->
+		<annotation cp='[®]' tts='зареєстрована торговельна марка'>зареєстровано</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='торговельна марка'>марка; tm</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='овен'>баран; зодіак</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='телець'>бик; віл; зодіак</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='близнюки'>зодіак</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='рак'>краб; зодіак</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='лев'>зодіак</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='діва'>зодіак</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='терези'>рівновага; справедливість; зодіак</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='знак зодіаку скорпіон'>скорпіон; зодіак</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='стрілець'>зодіак</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='козеріг'>коза; зодіак</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='водолій'>носій; вода; зодіак</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='риби'>риба; зодіак</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='змієносець'>носій; змія; зодіак</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='кнопка «Змішати композиції»'>стрілка; перехрещені</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='кнопка «Повторити»'>стрілка; за годинниковою стрілкою; повторити</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='кнопка «Повторити одну композицію»'>стрілка; за годинниковою стрілкою; один раз</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='кнопка «Відтворити»'>стрілка; відтворити; вправо; трикутник</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='кнопка «Перемотати вперед»'>стрілка; дві; перемотати; вперед</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='кнопка «Наступна композиція»'>стрілка; наступна сцена; наступна композиція; трикутник</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='кнопка «Відтворити або призупинити»'>стрілка; пауза; призупинити; відтворити; правий; трикутник</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='кнопка «Назад»'>стрілка; вліво; назад; трикутник</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='кнопка «Швидко назад»'>стрілка; дві; перемотати</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='кнопка «Остання композиція»'>стрілка; попередня сцена; попередня композиція; трикутник</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='кнопка «Угору»'>стрілка; кнопка; червоний</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='кнопка «Швидко вгору»'>стрілка; дві</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='кнопка «Униз»'>стрілка; кнопка; вниз; червоний</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='кнопка «Швидко вниз»'>стрілка; дві; вниз</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='кнопка «Призупинити»'>лінія; дві; пауза; вертикальна</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='кнопка «Припинити»'>квадрат; припинити; зупинити</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='кнопка «Запис»'>коло; запис</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='кнопка «Вийняти»'>вийняти</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='кіно'>камера; фільм</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='кнопка зменшення яскравості'>яскравість; зменшити</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='кнопка збільшення яскравості'>яскравий; яскравість</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='рівень сигналу'>сигнал; рівень; стільниковий; мобільний; телефон</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='мобільні телефони заборонені'>стільниковий; заборонено; мобільний; не; користуватися; телефон</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='режим вібрації'>стільниковий; мобільний; режим; телефон; вібрація</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='мобільний телефон вимкнено'>стільниковий; мобільний; вимкнено; телефон</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='клавіша «номер»'>хеш; клавіша; фунт</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='клавіша «зірочка»'>зірочка; клавіша; зірка</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='клавіша «нуль»'>0; клавіша; нуль</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='клавіша «один»'>1; клавіша; один</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='клавіша «два»'>2; клавіша; два</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='клавіша «три»'>3; клавіша; три</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='клавіша «чотири»'>4; клавіша; чотири</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='клавіша «п’ять»'>5; клавіша; п’ять</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='клавіша «шість»'>6; клавіша; шість</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='клавіша «сім»'>7; клавіша; сім</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='клавіша «вісім»'>8; клавіша; вісім</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='клавіша «дев’ять»'>9; клавіша; дев’ять</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='клавіша «десять»'>10; клавіша; десять</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='сто очок'>100; максимум; сто; рахунок</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='лише для повнолітніх'>18; вікове обмеження; вісімнадцять; заборонено; лише; для; повнолітній</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='введення великими латинськими літерами'>введення; латинські; літери; великі</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='введення малими латинськими літерами'>abcd; алфавіт; введення; латинські; літери; малі</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='введення цифрами'>1234; введення; цифри</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='введення символів'>введення</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='введення латинськими літерами'>abc; алфавіт; введення; латинські; літери</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='кнопка «група крові а»'>кров; a; 1; i</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='кнопка «група крові ab»'>кров; ab; 3; iii</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='кнопка «група крові b»'>кров; b; 2; ii</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='квадрат «очистити текст»'>очистити текст</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='квадрат «круто»'>круто</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='квадрат «безкоштовно»'>безкоштовно</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='джерело інформації'>i; інформація</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='квадрат «ідентифікатор»'>ідентифікатор; особистість</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='коло з літерою «м»'>коло; м</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='квадрат «новий»'>новий</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='квадрат «негативно»'>негативно</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='кнопка «група крові o»'>кров; o; 4; iv</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='квадрат «ok»'>ok</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='кнопка «паркування»'>паркування</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='квадрат «sos»'>допомога; sos</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='кнопка «вгору!»'>значок; вгору</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='квадрат «проти»'>проти</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='квадрат з ідеограмою «тут»'>японський</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='квадрат з ідеограмою «сервіс»'>японський</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='квадрат з ідеограмою «місяць»'>японський</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='квадрат з ідеограмою «існує»'>японський</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='квадрат з ідеограмою «палець»'>японський</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='коло з ідеограмою «перевага»'>японський</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='квадрат з ідеограмою «поділити»'>японський</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='квадрат з ідеограмою «заперечення»'>японський</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='квадрат з ідеограмою «заборонено»'>японський</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='коло з ідеограмою «прийняти»'>китайський</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='квадрат з ідеограмою «подати заявку»'>китайський</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='квадрат з ідеограмою «разом»'>китайський</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='квадрат з ідеограмою «пустота»'>китайський</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='коло з ідеограмою «вітання»'>китайський; вітання; привітання; ідеограма; ієрогліф</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='коло з ідеограмою «секрет»'>китайський; ідеограма; ієрогліф; секрет</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='квадрат з ідеограмою «робота»'>китайський</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='квадрат з ідеограмою «заповненість»'>китайський</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='малий чорний квадрат'>геометричний; квадрат</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='малий білий квадрат'>геометричний; квадрат</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='середній білий квадрат'>геометричний; квадрат</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='середній чорний квадрат'>геометричний; квадрат</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='менший середнього білий квадрат'>геометричний; квадрат</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='менший середнього чорний квадрат'>геометричний; квадрат</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='великий чорний квадрат'>геометричний; квадрат</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='великий білий квадрат'>геометричний; квадрат</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='великий помаранчевий ромб'>діамант; геометричний; оранжевий; великий</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='великий синій ромб'>синій; діамант; геометричний</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='малий помаранчевий ромб'>діамант; геометричний; оранжевий; малий</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='малий синій ромб'>синій; діамант; геометричний</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='червоний трикутник, направлений угору'>геометричний; червоний</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='червоний трикутник, направлений униз'>вниз; геометричний; червоний</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='ромб із крапкою'>малюнок; діамант; геометричний; крапка</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='перемикач'>кнопка; геометричний</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='чорна квадратна кнопка'>кнопка; геометричний; квадрат</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='біла квадратна кнопка'>кнопка; геометричний; контур; квадрат</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='біле коло'>біле; коло; геометричний</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='чорне коло'>чорне; коло; геометричний</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='червоне коло'>коло; геометричний; червоне</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='синє коло'>синє; коло; геометричний</annotation>
+	</annotations>
+</ldml>

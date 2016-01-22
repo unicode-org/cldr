@@ -1,0 +1,2899 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='el'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='σαρκαστικό χαμόγελο'>πρόσωπο; σαρκασμός</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='σαρκαστικό χαμόγελο με γελαστά μάτια'>μάτι; πρόσωπο; σαρκασμός; χαμόγελο</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='κλαίω από χαρά'>πρόσωπο; χαρά; γέλιο; δάκρυ</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='πλατύ χαμόγελο'>πρόσωπο; στόμα; ανοιχτό; χαμόγελο</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='πλατύ χαμόγελο με γελαστά μάτια'>μάτι; πρόσωπο; στόμα; ανοιχτό; χαμόγελο</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='πλατύ χαμόγελο και κρύος ιδρώτας'>κρύος; πρόσωπο; ανοιχτό; χαμόγελο; ιδρώτας</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='πλατύ χαμόγελο με κλειστά μάτια'>πρόσωπο; γέλιο; στόμα; ανοιχτό; ικανοποίηση; χαμόγελο</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='κλείσιμο ματιού'>πρόσωπο; κλείνω το μάτι</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='χαμογελαστό πρόσωπο με γελαστά μάτια'>κοκκινίζω; μάτι; πρόσωπο; χαμόγελο</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='απολαμβάνω πεντανόστιμο φαγητό'>νόστιμο; πρόσωπο; απόλαυση; χαμόγελο; μιαμ; γιαμ</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='χαμογελαστό πρόσωπο με γυαλιά ηλίου'>φωτεινός; στυλάτος; μάτι; οπτικά; πρόσωπο; γυαλιά; χαμόγελο; ήλιος; γυαλιά ηλίου; καιρός</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='χαμογελαστό πρόσωπο με μάτια καρδούλες'>μάτι; πρόσωπο; καρδιά; αγάπη; χαμόγελο</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='στέλνω φιλί'>πρόσωπο; καρδιά; φιλί</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='φιλώ'>πρόσωπο; φιλί</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='φιλώ με γελαστά μάτια'>μάτι; πρόσωπο; φιλί; χαμόγελο</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='φιλώ με κλειστά μάτια'>κλειστό; μάτι; πρόσωπο; φιλί</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='χαμογελαστό πρόσωπο'>πρόσωπο; σκιαγράφημα; χαλαρό; χαμόγελο</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='ελαφρώς χαμογελαστό πρόσωπο'>πρόσωπο; χαμόγελο</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='αγκαλιά'>πρόσωπο; αγκαλιάζω</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='χαμογελαστό πρόσωπο με φωτοστέφανο'>άγγελος; πρόσωπο; παραμύθι; φαντασία; φωτοστέφανο; αθώος; χαμόγελο</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='σκέφτομαι'>πρόσωπο; σκεπτόμενος</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='ουδέτερο πρόσωπο'>ανέκφραστο; πρόσωπο; ουδέτερο</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='ανέκφραστο πρόσωπο'>ανέκφραστο; πρόσωπο; χωρίς έκφραση; </annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='πρόσωπο χωρίς στόμα'>πρόσωπο; στόμα; ήσυχος; σιωπηλός</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='βλέμμα αποδοκιμασίας'>μάτια; πρόσωπο; αναποδογυριστά</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='μειδίαμα'>πρόσωπο</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='βλέμμα απόγνωσης'>πρόσωπο; επιμένω</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='απογοητευμένο αλλά  ανακουφισμένο πρόσωπο'>απογοητευμένος; πρόσωπο; ανακουφισμένος; φιου</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='ανοικτό στόμα'>πρόσωπο; στόμα; ανοιχτό; συμπόνια</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='ερμητικά κλειστό στόμα'>πρόσωπο; στόμα; φερμουάρ</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='έκπληκτο βλέμμα'>πρόσωπο; χαμηλόφωνος; έκπληκτος; συγκλονισμένος</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='νυσταγμένο πρόσωπο'>πρόσωπο; ύπνος</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='κουρασμένο πρόσωπο'>πρόσωπο; κουρασμένος</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='ύπνος'>πρόσωπο; zzz</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='ανακούφιση'>πρόσωπο; ανακουφισμένος</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='σπασίκλας'>πρόσωπο; φυτό</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='γλώσσα έξω'>πρόσωπο; γλώσσα</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='γλώσσα έξω με κλειστό μάτι'>μάτι; πρόσωπο; αστειεύομαι; γλώσσα; κλείνω το μάτι</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='γλώσσα έξω με κλειστά μάτια'>μάτι; πρόσωπο; απαίσιος; γεύση; γλώσσα</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='κατσούφιασμα'>πρόσωπο; κατσουφιασμένος</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='ελαφρύ κατσούφιασμα'>πρόσωπο; κατσουφιασμένος</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='δυσαρέσκεια'>πρόσωπο; δυσαρεστημένος</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='κρύος ιδρώτας'>κρύος; πρόσωπο; ιδρώτας</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='περισυλλογή'>αποκαρδιωμένος; πρόσωπο; στοχαστικός</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='σύγχυση'>στοχαστικός; πρόσωπο</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='σάστισμα'>σαστισμένος; πρόσωπο</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='αναποδογυρισμένο πρόσωπο'>πρόσωπο; ανάποδο</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='ιατρική μάσκα'>κρύο; γιατρός; πρόσωπο; μάσκα; φάρμακο; άρρωστος</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='πρόσωπο με θερμόμετρο'>πρόσωπο; άρρωστος; ασθενής; θερμόμετρο</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='επίδεσμος στο κεφάλι'>επίδεσμος; πρόσωπο; χτυπημένος; τραύμα</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='γλώσσα με λεφτά'>πρόσωπο; χρήματα; στόμα</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='ξάφνιασμα'>έκπληκτος; πρόσωπο; ξαφνιασμένος; εντελώς</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='απογοήτευση'>απογοητευμένος; πρόσωπο</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='ανησυχία'>πρόσωπο; ανήσυχος</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='καπνοί από τη μύτη'>πρόσωπο; θρίαμβος; ηττημένος</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='κλάμα'>πρόσωπο; στεναχωρημένος; δάκρυ</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='γοερό κλάμα'>κλάμα; πρόσωπο; στεναχωρημένος; λυγμός; δάκρυ</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='κατσούφιασμα με ανοικτό στόμα'>πρόσωπο; κατσούφιασμα; στόμα; ανοιχτό</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='αγωνία'>αγωνιώδης; πρόσωπο</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='φόβος'>πρόσωπο; φοβισμένος; τρομαγμένος</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='εξάντληση'>πρόσωπο; κουρασμένος; εξαντλημένος</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='γκριμάτσα'>πρόσωπο</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='ανοικτό στόμα και κρύος ιδρώτας'>μπλε; κρύος; πρόσωπο; στόμα; ανοιχτό; ξαφνικός; ιδρώτας</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='ουρλιαχτό φόβου'>πρόσωπο; φόβος; φοβισμένος; ανοιχτό στόμα; τρομαγμένος; ουρλιαχτό</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='κοκκινισμένο πρόσωπο'>σαστισμένος; πρόσωπο; κοκκινισμένος</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='ζαλάδα'>ζαλισμένος; πρόσωπο</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='οργή'>θυμωμένος; πρόσωπο; οργισμένος; μορφασμός; κόκκινος</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='θυμός'>θυμωμένος; πρόσωπο; οργισμένος</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='χαμόγελο με κέρατα'>πρόσωπο; παραμύθι; φαντασία; κέρατα; χαμόγελο</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='δαίμονας'>διάβολος; πρόσωπο; παραμύθι; φαντασία</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👹]' tts='τέρας'>πλάσμα; πρόσωπο; παραμύθι; φαντασία; ιαπωνικό</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
+		<annotation cp='[👺]' tts='καλικάντζαρος'>πλάσμα; πρόσωπο; παραμύθι; φαντασία; ιαπωνικό; τέρας</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='κρανίο'>σώμα; θάνατος; πρόσωπο; παραμύθι; τέρας</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='κρανίο με κόκκαλα'>σώμα; οστά χιαστί; θάνατος; πρόσωπο; τέρας; νεκροκεφαλή</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
+		<annotation cp='[👻]' tts='φάντασμα'>πλάσμα; πρόσωπο; παραμύθι; φαντασία; τέρας</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👽]' tts='εξωγήινος'>πλάσμα; πρόσωπο; παραμύθι; φαντασία; τέρας; διάστημα; ούφο</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='εξωγήινο τέρας'>εξωγήινος; πλάσμα; πρόσωπο; παραμύθι; φαντασία; τέρας; διάστημα; ούφο</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='ρομπότ'>πρόσωπο; τέρας</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='περιττώματα'>κόμικ; κοπριά; πρόσωπο; τέρας; κόπρανα; κακά</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='γάτα που χαμογελάει με ανοικτό στόμα'>γάτα; πρόσωπο; στόμα; ανοιχτό; χαμόγελο</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='γάτα που χαμογελάει σαρκαστικά με γελαστά μάτια'>γάτα; μάτι; πρόσωπο; πλατύ χαμόγελο; χαμόγελο</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='γάτα που κλαίει από χαρά'>γάτα; πρόσωπο; χαρά; δάκρυ</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='γάτα που χαμογελάει με μάτια καρδούλες'>γάτα; μάτι; πρόσωπο; καρδιά; αγάπη; χαμόγελο</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='γάτα που χαμογελάει ειρωνικά'>γάτα; πρόσωπο; ειρωνικός; χαμόγελο; καυστικός</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='γάτα που φιλάει με κλειστά μάτια'>γάτα; μάτι; πρόσωπο; φιλί</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='έκπληκτη γάτα'>γάτα; πρόσωπο; έκπληκτος; κουρασμένος</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='γάτα που κλαίει'>γάτα; κλαίω; πρόσωπο; θλιμμένος; δάκρυ</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='θυμωμένη γάτα'>γάτα; πρόσωπο; μομφασμός</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='κάνω πως δεν βλέπω'>διαβολικός; πρόσωπο; απαγορευμένος; κίνηση; μαϊμού; όχι; δεν; απαγορεύεται; βλέπω; </annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='κάνω πως δεν ακούω'>διαβολικός; πρόσωπο; απαγορευμένος; κίνηση; ακούω; μαϊμού; όχι; δεν; απαγορεύεται</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='κάνω πως δεν μιλώ'>διαβολικός; πρόσωπο; απαγορευμένος; κίνηση; μαϊμού; όχι; δεν; απαγορεύεται; μιλάω</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
+		<annotation cp='[👧]' tts='κορίτσι'>κόρη; παρθένα; παρθένος; ζώδιο</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='γέρος'>άνδρας</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='γριά'>γυναίκα</annotation>
+
+		<!-- police officer; cop; officer; police -->
+		<annotation cp='[👮]' tts='αστυνομικός'>αστυνόμος</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='άνδρας με κινέζικο καπέλο'>κινέζικο καπέλο; καπέλο; άνδρας</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='άνδρας με τουρμπάν'>άνδρας; τουρμπάνι</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='οικοδόμος'>κατασκευή; καπέλο; εργάτης</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='κράνος με λευκό σταυρό'>βοήθεια; σταυρός; πρόσωπο; καπέλο; κράνος</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
+		<annotation cp='[👸]' tts='πριγκίπισσα'>παραμύθι; φαντασία</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='ντετέκτιβ'>πράκτορας; κατάσκοπος</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='άη βασίλης'>γιορτή; χριστούγεννα; παραμύθι; φαντασία; πατέρας</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
+		<annotation cp='[👼]' tts='μωρό άγγελος'>άγγελος; μωρό; πρόσωπο; παραμύθι; φαντασία</annotation>
+
+		<!-- face massage; massage; salon -->
+		<annotation cp='[💆]' tts='μασάζ στο πρόσωπο'>μασάζ; κομμωτήριο</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='κούρεμα'>κομμωτής; ομορφιά; ινστιτούτο αισθητικής</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='νύφη με πέπλο'>νύφη; πέπλο; γάμος</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='συνοφρυωμένη γυναίκα'>συνοφρύωμα; κίνηση</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='γυναίκα που κάνει μούτρα'>κίνηση; μορφασμός</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='όχι με χειρονομίες'>απαγορευμένο; κίνηση; χέρι; όχι; δεν; απαγορεύεται</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='ναι με χειρονομίες'>κίνηση; χέρι; εντάξει</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
+		<annotation cp='[💁]' tts='άτομο γραφείου πληροφοριών'>χέρι; βοήθεια; πληροφορίες; πρόσχαρος</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='χαρούμενη γυναίκα που σηκώνει το χέρι'>κίνηση; χέρι; χαρούμενος; σηκωμένο</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='συγγνώμη με υπόκλιση'>συγνώμη; υπόκλιση; κίνηση; λυπάμαι</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='χέρια ψηλά'>σώμα; γιορτή; κίνηση; χέρι; ζήτω; σηκωμένο</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='χέρια ενωμένα'>ζητώ; σώμα; υπόκλιση; ενωμένα; κίνηση; χέρι; παρακαλώ; προσευχή; ευχαριστώ</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='κεφάλι που μιλάει'>πρόσωπο; κεφάλι; φιγούρα; μιλώ; ομιλία</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='περίγραμμα προτομής'>προτομή; φιγούρα</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='περίγραμμα προτομών'>προτομή; φιγούρα</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
+		<annotation cp='[🚶]' tts='πεζός'>πεζοπορία; περπάτημα; περπατώ</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='δρομέας'>μαραθώνιος; τρέξιμο</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='χορεύτριες'>κουνελάκι; χορεύτρια; αυτί; κορίτσι; γυναίκα</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='κοστουμαρισμένος άνδρας που αιωρείται'>επιχειρηματίας; κουστούμι</annotation>
+
+		<!-- kiss; couple; romance -->
+		<annotation cp='[💏]' tts='φιλί'>ζευγάρι; έρωτας</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='ζευγάρι με καρδιά'>ζευγάρι; καρδιά; αγάπη; έρωτας</annotation>
+
+		<!-- family; child; father; mother -->
+		<annotation cp='[👪]' tts='οικογένεια'>παιδί; πατέρας; μητέρα</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='άνδρας και γυναίκα πιασμένοι χέρι χέρι'>ζευγάρι; χέρι; κρατώ; άνδρας; γυναίκα</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='δύο άνδρες πιασμένοι χέρι χέρι'>ζευγάρι; δίδυμος, χέρι; κρατώ; άνδρας; δίδυμοι; ζώδιο</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='δύο γυναίκες πιασμένες χέρι χέρι'>ζευγάρι; χέρι; κρατώ; γυναίκα</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='δέρμα τύπος-1-2'>τροποποίηση emoji; fitzpatrick; δέρμα; τόνος</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='δέρμα τύπος-3'>τροποποίηση emoji; fitzpatrick; δέρμα; τόνος</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='δέρμα τύπος-4'>τροποποίηση emoji; fitzpatrick; δέρμα; τόνος</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='δέρμα τύπος-5'>τροποποίηση emoji; fitzpatrick; δέρμα; τόνος</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='δέρμα τύπος-6'>τροποποίηση emoji; fitzpatrick; δέρμα; τόνος</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='σφιχτός δικέφαλος'>δικέφαλος; σώμα; κόμικ; επίδειξη; μυς</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='δείκτης χεριού προς τα αριστερά'>χτύπημα; σώμα; δάχτυλο; χέρι; δείκτης; δείχνω</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='δείκτης χεριού προς τα δεξιά'>χτύπημα; σώμα; δάχτυλο; χέρι; δείκτης; δείχνω</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='δείκτης χεριού προς τα επάνω'>σώμα; δάχτυλο; χέρι; δείκτης; δείχνω, επάνω</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='δείκτης χεριού προς τα επάνω ανάποδα'>χτύπημα; σώμα; δάχτυλο; χέρι; δείκτης; δείχνω, επάνω</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='μεσαίο δάχτυλο'>σώμα; δάχτυλο; χέρι</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='δείκτης χεριού προς τα κάτω ανάποδα'>χτύπημα; σώμα; κάτω; δάχτυλο; χέρι; δείκτης; δείχνω</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='σήμα της νίκης'>σώμα; χέρι; v; νίκη</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='χαιρετισμός σποκ'>σώμα; δάχτυλο; χέρι; σποκ; vulcan</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='χειρονομία ροκ'>σώμα; δάχτυλο; χέρι; κέρατα; ροκάρω</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='μούντζα'>σώμα; δάχτυλο; χέρι; ανοιχτά δάχτυλα</annotation>
+
+		<!-- raised hand; body; hand -->
+		<annotation cp='[✋]' tts='σηκωμένο χέρι'>σώμα; χέρι</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='χειρονομία οκ'>σώμα; χέρι; OK</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='σηκωμένος αντίχειρας'>σώμα; χέρι; αντίχειρας; επάνω; +1</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='κατεβασμένος αντίχειρας'>σώμα; χέρι; αντίχειρας; κάτω; -1</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='σηκωμένη γροθιά'>χέρι; σφιγμένο; γροθιά; μπουνιά</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='γροθιά'>χέρι; σφιγμένο; μπουνιά</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='χέρι που χαιρετά'>σώμα; χέρι; χαιρετώ; νεύμα</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='παλαμάκια'>σώμα; χειροκροτώ; χέρι</annotation>
+
+		<!-- open hands; body; hand; open -->
+		<annotation cp='[👐]' tts='ανοικτά χέρια'>σώμα; χέρι; ανοιχτό</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='χέρι που γράφει'>σώμα; χέρι; γράφω</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='βάψιμο νυχιών'>σώμα; φροντίδα; καλλυντικά; μανικιούρ; νύχι; βερνίκι</annotation>
+
+		<!-- ear; body -->
+		<annotation cp='[👂]' tts='αυτί'>σώμα</annotation>
+
+		<!-- nose; body -->
+		<annotation cp='[👃]' tts='μύτη'>σώμα</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
+		<annotation cp='[👣]' tts='πατημασιές'>σώμα; ρουχισμός; πατημασιά; ίχνος</annotation>
+
+		<!-- eyes; body; eye; face -->
+		<annotation cp='[👀]' tts='μάτια'>σώμα; μάτι; πρόσωπο</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='μάτι'>σώμα</annotation>
+
+		<!-- tongue; body -->
+		<annotation cp='[👅]' tts='γλώσσα'>σώμα</annotation>
+
+		<!-- mouth; body; lips -->
+		<annotation cp='[👄]' tts='στόμα'>σώμα; χείλη</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='σημάδι από φιλί'>καρδιά; φιλί; χείλη; σημάδι; έρωτας</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='καρδιά με βέλος'>βέλος; έρωτας; καρδιά; ρομάντζο</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='κόκκινη καρδιά'>καρδιά</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='καρδιά που χτυπά'>χτυπά; καρδιά; καρδιοχτύπι; πάλλεται</annotation>
+
+		<!-- broken heart; break; broken; heart -->
+		<annotation cp='[💔]' tts='ραγισμένη καρδιά'>σπάω; σπασμένος; καρδιά</annotation>
+
+		<!-- two hearts; heart; love -->
+		<annotation cp='[💕]' tts='δύο καρδιές'>καρδιά; αγάπη</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='καρδιά που αστράφτει'>ενθουσιασμένος; καρδιά; αστράφτω</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
+		<annotation cp='[💗]' tts='καρδιά που μεγαλώνει'>ενθουσιασμένος; αυξανόμενος; καρδιά; παλμός καρδιάς; νευρικός</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='μπλε καρδιά'>μπλε; καρδιά</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='πράσινη καρδιά'>πράσινη; καρδιά</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='κίτρινη καρδιά'>καρδιά; κίτρινη</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='μoβ καρδιά'>καρδιά; μωβ</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='καρδιά με κορδέλα'>καρδιά; κορδέλα; βαλεντίνος</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='καρδιές που γυρίζουν'>καρδιά; περιστρεφόμενη</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='καρδιά σε πλαίσιο'>καρδιά</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='καρδιά θαυμαστικό'>θαυμαστικό; καρδιά; σημείο; στίξη</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='ερωτικό γράμμα'>καρδιά; γράμμα; αγάπη; έρωτας</annotation>
+
+		<!-- zzz; comic; sleep -->
+		<annotation cp='[💤]' tts='ζζζ'>κόμικ; ύπνος</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
+		<annotation cp='[💢]' tts='σύμβολο θυμού'>θυμωμένος; κόμικ; οργισμένος</annotation>
+
+		<!-- bomb; comic -->
+		<annotation cp='[💣]' tts='βόμβα'>κόμικ</annotation>
+
+		<!-- collision; boom; comic -->
+		<annotation cp='[💥]' tts='σύγκρουση'>κόμικ</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='σταγόνες ιδρώτα'>κόμικ; πιτσιλιές; ιδρώτας</annotation>
+
+		<!-- dashing; comic; dash; running -->
+		<annotation cp='[💨]' tts='τρέξιμο'>κόμικ; ορμή</annotation>
+
+		<!-- dizzy; comic; star -->
+		<annotation cp='[💫]' tts='γρήγορο σαν αστέρι'>κόμικ; αστέρι</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='συννεφάκι ομιλίας'>μπαλόνι; συννεφάκι; κόμικ; διάλογος; ομιλία</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='αριστερό συννεφάκι ομιλίας'>διάλογος; συνομιλία</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='δεξί συννεφάκι θυμού'>θυμωμένος; μπαλόνι; συννεφάκι; θυμός</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='συννεφάκι σκέψης'>μπαλόνι; συννεφάκι; κόμικ; σκέψη</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
+		<annotation cp='[👓]' tts='γυαλιά'>ένδυμα; μάτι; </annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='γυαλιά ηλίου'>σκοτεινός; μάτι; οπτικά; γυαλιά</annotation>
+
+		<!-- necktie; clothing -->
+		<annotation cp='[👔]' tts='γραβάτα'>ρούχο</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
+		<annotation cp='[👕]' tts='κοντομάνικο'>ρούχο; μπλούζα; πουκάμισο</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
+		<annotation cp='[👖]' tts='τζιν παντελόνι'>ρούχο; παντελόνι; </annotation>
+
+		<!-- dress; clothing -->
+		<annotation cp='[👗]' tts='φόρεμα'>ρούχο</annotation>
+
+		<!-- kimono; clothing -->
+		<annotation cp='[👘]' tts='κιμονό'>ρούχο</annotation>
+
+		<!-- bikini; clothing; swim -->
+		<annotation cp='[👙]' tts='μπικίνι'>ρούχο; κολύμβηση</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='γυναικεία ρούχα'>ρούχο; γυναίκα</annotation>
+
+		<!-- purse; clothing; coin -->
+		<annotation cp='[👛]' tts='πορτοφόλι'>ένδυμα; κέρμα</annotation>
+
+		<!-- handbag; bag; clothing -->
+		<annotation cp='[👜]' tts='τσάντα χειρός'>τσάντα; ένδυμα</annotation>
+
+		<!-- pouch; bag; clothing -->
+		<annotation cp='[👝]' tts='κασετίνα'>τσάντα; ένδυμα</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='τσάντες για ψώνια'>τσάντα; ξενοδοχείο; ψώνια</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='σχολική σάκα'>τσάντα; σχολική τσάντα; σχολείο</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='ανδρικό παπούτσι'>ρουχισμός; άνδρας; παπούτσι</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='αθλητικό παπούτσι'>αθλητικά; ρουχισμός; παπούτσι; </annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='ψηλοτάκουνο παπούτσι'>ρουχισμός; τακούνι; παπούτσι; γυναίκα</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='γυναικείο σανδάλι'>ρουχισμός; σανδάλι; παπούτσι; γυναίκα</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='γυναικεία μπότα'>μπότα; ρουχισμός; παπούτσι; γυναίκα</annotation>
+
+		<!-- crown; clothing; king; queen -->
+		<annotation cp='[👑]' tts='στέμμα'>ρουχισμός; βασιλιάς; βασίλισσα</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='γυναικείο καπέλο'>ρουχισμός; καπέλο; γυναίκα</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='ημίψηλο καπέλο'>ρουχισμός; καπέλο; ψηλό καπέλο</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='καπέλο αποφοίτησης'>καπέλο; γιορτή; αποφοίτηση; ρουχισμός; </annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='κομπολόι'>χάντρες; ρουχισμός; κολιέ; προσευχή; θρησκεία</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
+		<annotation cp='[💄]' tts='κραγιόν'>καλλυντικά; μακιγιάζ</annotation>
+
+		<!-- ring; diamond; romance -->
+		<annotation cp='[💍]' tts='δαχτυλίδι'>διαμάντι; έρωτας</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='διαμάντι'>πετράδι; κόσμημα; έρωτας</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='πρόσωπο μαϊμούς'>πρόσωπο; μαϊμού</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='πρόσωπο σκύλου'>σκύλος; πρόσωπο; κατοικίδιο</annotation>
+
+		<!-- dog; pet -->
+		<annotation cp='[🐕]' tts='σκύλος'>κατοικίδιο</annotation>
+
+		<!-- poodle; dog -->
+		<annotation cp='[🐩]' tts='κανίς'>σκύλος</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='πρόσωπο λύκου'>πρόσωπο; λύκος</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='πρόσωπο γάτας'>γάτα; πρόσωπο; κατοικίδιο</annotation>
+
+		<!-- cat; pet -->
+		<annotation cp='[🐈]' tts='γάτα'>κατοικίδιο</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='πρόσωπο λιονταριού'>πρόσωπο; λιοντάρι; λέων; ζώδιο</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='πρόσωπο τίγρης'>πρόσωπο; τίγρης</annotation>
+
+		<!-- tiger -->
+		<annotation cp='[🐅]' tts='τίγρη'>τίγρης</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='πρόσωπο αλόγου'>πρόσωπο; άλογο</annotation>
+
+		<!-- horse; racehorse; racing -->
+		<annotation cp='[🐎]' tts='άλογο'>άλογο κούρσας; αγώνας</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='πρόσωπο μονόκερου'>πρόσωπο; μονόκερος</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='πρόσωπο αγελάδας'>αγελάδα; πρόσωπο</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
+		<annotation cp='[🐂]' tts='βόδι'>ταύρος; ζώδιο</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='νεροβούβαλος'>νερό</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='πρόσωπο γουρουνιού'>πρόσωπο; γουρούνι</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='μύτη γουρουνιού'>πρόσωπο; μύτη; γουρούνι</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
+		<annotation cp='[🐏]' tts='κριάρι'>κριός; ζώδιο</annotation>
+
+		<!-- goat; capricorn; zodiac -->
+		<annotation cp='[🐐]' tts='κατσίκα'>αιγόκερως; ζώδιο</annotation>
+
+		<!-- camel; dromedary; hump -->
+		<annotation cp='[🐪]' tts='καμήλα'>καμπούρα</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='βακτριανή καμήλα'>βακτριανή; καμήλα; καμπούρα</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='πρόσωπο ποντικιού'>πρόσωπο; ποντίκι</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='πρόσωπο χάμστερ'>πρόσωπο; χάμστερ; κατοικίδιο</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='πρόσωπο κουνελιού'>κουνέλι; πρόσωπο; κατοικίδιο; λαγός</annotation>
+
+		<!-- rabbit; bunny; pet -->
+		<annotation cp='[🐇]' tts='κουνέλι'>κατοικίδιο</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='πρόσωπο αρκούδας'>αρκούδα; πρόσωπο</annotation>
+
+		<!-- koala; bear -->
+		<annotation cp='[🐨]' tts='κοάλα'>αρκούδα</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='πρόσωπο πάντα'>πρόσωπο; πάντα</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='ίχνη ζώου'>πατούσες; πατημασιές; ίχνη</annotation>
+
+		<!-- chicken -->
+		<annotation cp='[🐔]' tts='κότα'>κοτόπουλο</annotation>
+
+		<!-- rooster -->
+		<annotation cp='[🐓]' tts='κόκκορας'>κόκορας</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='εκκολαπτόμενο πουλάκι'>μωρό; πουλάκι; εκκολαπτόμενο</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='πουλάκι'>μωρό</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
+		<annotation cp='[🐥]' tts='πουλάκι που κοιτά μπροστά'>μωρό; πουλάκι</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='περιστέρι'>πουλί; πετώ; ειρήνη</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='πρόσωπο βάτραχου'>πρόσωπο; βάτραχος</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
+		<annotation cp='[🐍]' tts='φίδι'>κομιστής; οφιούχος; ζώδιο</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='πρόσωπο δράκου'>δράκος; πρόσωπο; παραμύθι</annotation>
+
+		<!-- dragon; fairy tale -->
+		<annotation cp='[🐉]' tts='δράκος'>παραμύθι</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='φάλαινα που πετά νερό'>πρόσωπο; πετάω νερό; φάλαινα</annotation>
+
+		<!-- fish; pisces; zodiac -->
+		<annotation cp='[🐟]' tts='ψάρι'>ιχθείς; ζώδιο</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='τροπικό ψάρι'>ψάρι; τροπικό</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='γουρουνόψαρο'>ψάρι</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='σπειροειδές κοχύλι'>κοχύλι; σπειροειδές</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='κάβουρας'>καρκίνος; ζώδιο</annotation>
+
+		<!-- bug; insect -->
+		<annotation cp='[🐛]' tts='σκουλήκι'>έντομο</annotation>
+
+		<!-- ant; insect -->
+		<annotation cp='[🐜]' tts='μυρμήγκι'>έντομο</annotation>
+
+		<!-- honeybee; bee; insect -->
+		<annotation cp='[🐝]' tts='μέλισσα'>έντομο</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
+		<annotation cp='[🐞]' tts='πασχαλίτσα'>σκαθάρι; έντομο; </annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='αράχνη'>έντομο</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='ιστός αράχνης'>αράχνη; ιστός</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='σκορπιός'>ζώδιο</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
+		<annotation cp='[💐]' tts='μπουκέτο λουλούδια'>λουλούδι; φυτό; ρομαντισμός</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='άνθος κερασιάς'>άνθος; κερασιά; λουλούδι; φυτό</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='λευκό λουλούδι'>λουλούδι</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='ροζέτα'>φυτό</annotation>
+
+		<!-- rose; flower; plant -->
+		<annotation cp='[🌹]' tts='τριαντάφυλλο'>λουλούδι; φυτό</annotation>
+
+		<!-- hibiscus; flower; plant -->
+		<annotation cp='[🌺]' tts='ιβίσκος'>λουλούδι; φυτό</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
+		<annotation cp='[🌻]' tts='ηλιοτρόπιο'>λουλούδι; φυτό</annotation>
+
+		<!-- blossom; flower; plant -->
+		<annotation cp='[🌼]' tts='ανθός'>λουλούδι; φυτό</annotation>
+
+		<!-- tulip; flower; plant -->
+		<annotation cp='[🌷]' tts='τουλίπα'>λουλούδι; φυτό</annotation>
+
+		<!-- seedling; plant; young -->
+		<annotation cp='[🌱]' tts='φιντάνι'>φυτό; νέο</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='αειθαλές δέντρο'>φυτό; δέντρο</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='φυλλοβόλο δέντρο'>φυλλοβόλο; φυτό; ρίχνει τα φύλλα του; δέντρο</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
+		<annotation cp='[🌴]' tts='φοίνικας'>φυτό; δέντρο</annotation>
+
+		<!-- cactus; plant -->
+		<annotation cp='[🌵]' tts='κάκτος'>φυτό</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='όρυζα'>φυτό; ρύζι</annotation>
+
+		<!-- herb; leaf; plant -->
+		<annotation cp='[🌿]' tts='βότανο'>φύλλο; φυτό</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='τριφύλλι'>φυτό</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='τετράφυλλο τριφύλλι'>4; τριφύλλι; τέσσερα; φύλλο; φυτό</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='φύλλο σφενδάμου'>φύλλο; πέφτει; σφένδαμος; φυτό</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='πεσμένα φύλλα'>πεσμένο; φύλλο; φυτό</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='φύλλο στον άνεμο'>άνεμος; ανεμίζω; φύλλο; φυτό; αέρας</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
+		<annotation cp='[🍇]' tts='σταφύλια'>φρούτο; σταφύλι; φυτό</annotation>
+
+		<!-- melon; fruit; plant -->
+		<annotation cp='[🍈]' tts='πεπόνι'>φρούτο; φυτό</annotation>
+
+		<!-- watermelon; fruit; plant -->
+		<annotation cp='[🍉]' tts='καρπούζι'>φρούτο; φυτό</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
+		<annotation cp='[🍊]' tts='μανταρίνι'>φρούτο; πορτοκάλι; φυτό</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
+		<annotation cp='[🍋]' tts='λεμόνι'>κίτρο; φρούτο; φυτό</annotation>
+
+		<!-- banana; fruit; plant -->
+		<annotation cp='[🍌]' tts='μπανάνα'>φρούτο; φυτό</annotation>
+
+		<!-- pineapple; fruit; plant -->
+		<annotation cp='[🍍]' tts='ανανάς'>φρούτο; φυτό</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='κόκκινο μήλο'>μήλο; φρούτο; φυτό; κόκκινο</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='πράσινο μήλο'>μήλο; φρούτο; πράσινο; φυτό</annotation>
+
+		<!-- pear; fruit; plant -->
+		<annotation cp='[🍐]' tts='αχλάδι'>φρούτο; φυτό</annotation>
+
+		<!-- peach; fruit; plant -->
+		<annotation cp='[🍑]' tts='ροδάκινο'>φρούτο; φυτό</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
+		<annotation cp='[🍒]' tts='κεράσια'>κεράσι; φρούτο; φυτό</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
+		<annotation cp='[🍓]' tts='φράουλα'>φρούτο; φυτό</annotation>
+
+		<!-- tomato; plant; vegetable -->
+		<annotation cp='[🍅]' tts='ντομάτα'>φυτό; λαχανικό</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='μελιτζάνα'>φυτό; λαχανικό</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
+		<annotation cp='[🌽]' tts='καλαμπόκι'>αραβόσιτος; φυτό</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='καυτερή πιπεριά'>καυτερή; πιπεριά; φυτό</annotation>
+
+		<!-- mushroom; plant -->
+		<annotation cp='[🍄]' tts='μανιτάρι'>φυτό</annotation>
+
+		<!-- chestnut; plant -->
+		<annotation cp='[🌰]' tts='κάστανο'>φυτό</annotation>
+
+		<!-- bread; loaf -->
+		<annotation cp='[🍞]' tts='ψωμί'>φρατζόλα</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='κότσι'>κόκκαλο; κρέας</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='πόδι πουλερικού'>κόκκαλο; κοτόπουλο; πόδι; πουλερικό</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='τηγανιτές πατάτες'>τηγανιτές; πατάτες</annotation>
+
+		<!-- pizza; cheese; slice -->
+		<annotation cp='[🍕]' tts='πίτσα'>τυρί; κομμάτι</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='χοτ ντογκ'>λουκάνικο; φρανκφούρτης</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='τάκο'>μεξικάνικο</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='μπουρίτο'>μεξικάνικο</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='πιάτο με φαγητό'>κατσαρόλα; μαγειρευτό</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='κουτί με φαγητό'>κουτί φαγητού; κουτί</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='μπισκότο ρυζιού'>μπισκότο; ρύζι</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='μπάλα ρυζιού'>μπάλα; ιαπωνικό; ρύζι</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='μαγειρεμένο ρύζι'>μαγειρεμένο; ρύζι</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='ρύζι με κάρυ'>κάρυ; ρύζι</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='ζεστό πιάτο με φαγητό'>μπολ; νουντλ; σούπα; αχνιστό</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='ψητή γλυκοπατάτα'>πατάτα; ψητή; γλυκιά</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
+		<annotation cp='[🍢]' tts='σουβλιστό'>κεμπάπ; θαλασσινά; σουβλάκι; καλαμάκι; </annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='τηγανιτές γαρίδες'>τηγανιτό; γαρίδα; τεμπούρα</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='καμαμπόκο'>κέικ; ψάρι; ζύμη; στρόβιλος</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
+		<annotation cp='[🍡]' tts='ντάνγκο'>επιδόρπιο; ιαπωνικό, σουβλάκι; καλαμάκι; γλυκό</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='παγωτό χωνάκι'>κρέμα; επιδόρπιο; παγωτό; παγωμένο; μαλακό; γλυκό</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
+		<annotation cp='[🍧]' tts='γρανίτα'>επιδόρπιο; παγωτό; με επικάλυψη; γλυκό</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
+		<annotation cp='[🍨]' tts='παγωτό'>κρέμα; γλυκό; επιδόρπιο</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
+		<annotation cp='[🍩]' tts='ντόνατ'>επιδόρπιο; γλυκό</annotation>
+
+		<!-- cookie; dessert; sweet -->
+		<annotation cp='[🍪]' tts='μπισκότο'>επιδόρπιο; γλυκό</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='τούρτα γενεθλίων'>τούρτα; γενεθλίων; γιορτή; επιδόρπιο; ζύμη; γλυκό</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='κομμάτι τούρτας'>τούρτα; επιδόρπιο; ζύμη; κομμάτι; γλυκό</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='σοκολάτα'>μπάρα; σοκολάτα επιδόρπιο; γλυκό</annotation>
+
+		<!-- candy; dessert; sweet -->
+		<annotation cp='[🍬]' tts='καραμέλα'>επιδόρπιο; γλυκό</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
+		<annotation cp='[🍭]' tts='γλειφιτζούρι'>γλύκισμα; επιδόρπιο; γλυκό</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
+		<annotation cp='[🍮]' tts='κρέμα καραμελέ'>επιδόρπιο; πουτίγκα; γλυκό</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='βάζο με μέλι'>μέλι; βάζο; γλυκό</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
+		<annotation cp='[🍼]' tts='μπιμπερό'>μωρό; μπουκάλι; πίνω; γάλα</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='ζεστό ρόφημα'>ρόφημα; καφές; πίνω; ζεστό; αχνιστό; τσάι</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='κούπα τσαγιού χωρίς χερούλι'>ρόφημα; κούπα; πίνω; τσάι; κούπα τσαγιού</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
+		<annotation cp='[🍶]' tts='σάκε'>μπαρ; ρόφημα; μπουκάλι; κούπα; ποτό</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='μπουκάλι με τιρμπουσόν'>μπαρ; μπουκάλι; φελλός; ποτό; πετάγεται</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='ποτήρι κρασί'>μπαρ; ρόφημα; ποτό; ποτήρι; κρασί</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='κοκτέιλ'>μπαρ; ποτό; ποτήρι</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='τροπικό ποτό'>μπαρ; ποτό; τροπικό</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='ποτήρι μπίρας'>μπαρ; μπύρα; ποτό; ποτήρι μπύρας</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='ποτήρια μπίρας που τσουγκρίζουν'>μπαρ; μπύρα; τσουγκρίζω; ποτό; ποτήρι μπύρας</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='μαχαιροπήρουνα με πιάτο'>μαγείρεμα; πιρούρι; μαχαίρι; πιάτο; </annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='μαχαιροπήρουνα'>μαγείρεμα; πιρούνι; μαχαίρι</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='μαγείρεμα'>αυγό; τηγανίζω; τηγάνι</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='αμφορέας'>υδροχόος; μαγειρική; ποτό; κανάτα; εργαλείο; όπλο; ζώδιο</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='υδρόγειος με ευρώπη και αφρική'>αφρική; γη; ευρώπη; υδρόγειος; κόσμος</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='υδρόγειος με βόρεια και νότια αμερική'>αμερική; γη; υδρόγειος; κόσμος</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='υδρόγειος με ασία και αυστραλία'>ασία; αυστραλία; γη; υδρόγειος; κόσμος</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='υδρόγειος με μεσημβρινούς'>γη; υδρόγειος; μεσημβρινοί; κόσμος</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='παγκόσμιος χάρτης'>χάρτης; κόσμος</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='χιονισμένο βουνό'>κρύο; βουνό; χιόνι</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
+		<annotation cp='[🌋]' tts='ηφαίστειο'>έκρηξη; βουνό</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='ηφαίστειο φούτζι'>φούτζι; βουνό</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='παραλία με ομπρέλα'>παραλία; ομπρέλα</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='ερημονήσι'>έρημο; νησί</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='εθνικό πάρκο'>πάρκο</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='κλασική αρχιτεκτονική'>κτίριο; κλασικό</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='κατασκευή κτηρίου'>κτίριο; κατασκευή</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='σπίτια'>κτίριο; σπίτι</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='αστικό τοπίο'>κτίριο; πόλη</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='εγκαταλελειμμένο σπίτι'>κτίριο; εγκαταλελειμμένο; σπίτι</annotation>
+
+		<!-- house building; building; home; house -->
+		<annotation cp='[🏠]' tts='σπίτι'>κτίριο</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='σπίτι με κήπο'>κτίριο; κήπος; σπίτι</annotation>
+
+		<!-- church; building; christian; cross; religion -->
+		<annotation cp='[⛪]' tts='εκκλησία'>κτίριο; χριστιανικό; σταυρός</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='καάμπα'>ισλάμ; μουσουλμανικός; θρησκεία</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='τέμενος'>ισλάμ; μουσουλμανικός; θρησκεία</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='συναγωγή'>εβραίος; εβραϊκός; θρησκεία; ναός</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='σιντοϊστικός ναός'>θρησκεία; σιντοϊστικός; ναός</annotation>
+
+		<!-- office building; building -->
+		<annotation cp='[🏢]' tts='κτήριο με γραφεία'>κτίριο</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='ιαπωνικό ταχυδρομείο'>κτίριο; ιαπωνικό; ταχυδρομείο</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='ταχυδρομείο'>κτίριο; ευρωπαϊκό</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
+		<annotation cp='[🏥]' tts='νοσοκομείο'>κτίριο; γιατρός; φάρμακα</annotation>
+
+		<!-- bank; building -->
+		<annotation cp='[🏦]' tts='τράπεζα'>κτίριο</annotation>
+
+		<!-- hotel; building -->
+		<annotation cp='[🏨]' tts='ξενοδοχείο'>κτίριο</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='ξενοδοχείο ημιδιαμονής'>κτίριο; ξενοδοχείο; αγάπη</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='παντοπωλείο'>κτίριο; εξυπηρέτηση; κατάστημα</annotation>
+
+		<!-- school; building -->
+		<annotation cp='[🏫]' tts='σχολείο'>κτίριο</annotation>
+
+		<!-- department store; building; department; store -->
+		<annotation cp='[🏬]' tts='πολυκατάστημα'>κτίριο; τομέας; κατάστημα</annotation>
+
+		<!-- factory; building -->
+		<annotation cp='[🏭]' tts='εργοστάσιο'>κτίριο</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='ιαπωνικό κάστρο'>κτίριο; κάστρο; ιαπωνικό</annotation>
+
+		<!-- castle; building; european -->
+		<annotation cp='[🏰]' tts='κάστρο'>κτίριο; ευρωπαϊκό</annotation>
+
+		<!-- wedding; chapel; romance -->
+		<annotation cp='[💒]' tts='γάμος'>παρεκκλήσι; ρομάντζο</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='πύργος του τόκιο'>τόκιο; πύργος</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='άγαλμα της ελευθερίας'>ελευθερία; άγαλμα</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='χάρτης της ιαπωνίας'>ιαπωνία; χάρτης</annotation>
+
+		<!-- fountain -->
+		<annotation cp='[⛲]' tts='σιντριβάνι'>βουνό</annotation>
+
+		<!-- tent; camping -->
+		<annotation cp='[⛺]' tts='σκηνή'>κατασκήνωση</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='ομιχλώδες τοπίο'>ομίχλη; καιρός</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='έναστρη νύχτα'>νύχτα; αστέρι; καιρός</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='αυγή πάνω από βουνά'>πρωί; βουνό; ήλιος; αυγή; καιρός</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
+		<annotation cp='[🌅]' tts='αυγή'>πρωί; ήλιος; καιρός</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='αστικό τοπίο το σούρουπο'>κτίριο; πόλη; σούρουπο; βράδυ; τοπίο; ήλιος; ηλιοβασίλεμα; καιρός</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='ηλιοβασίλεμα'>κτίριο; σούρουπο; ήλιος; καιρός</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='γέφυρα τη νύχτα'>γέφυρα; νύχτα; καιρός</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='θερμές πηγές'>ζέστη; πηγές; βγάζει καπνούς</annotation>
+
+		<!-- milky way; space; weather -->
+		<annotation cp='[🌌]' tts='γαλαξίας'>διάστημα; καιρός</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='καρουζέλ'>άλογο</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='ρόδα λούνα παρκ'>λούνα παρκ; ρόδα</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
+		<annotation cp='[🎢]' tts='τρενάκι'>λούνα παρκ</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
+		<annotation cp='[💈]' tts='σύμβολο κουρείου'>κουρέας; κούρεμα; κοντάρι</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='σκηνή τσίρκου'>τσίρκο; σκηνή</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='θέατρο'>τέχνη; μάσκα; ηθοποιία; </annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='εικόνα με κάδρο'>τέχνη; κάδρο; μουσείο; πίνακας; εικόνα</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='παλέτα ζωγράφου'>τέχνη; μουσείο; πίνακας; παλέτα</annotation>
+
+		<!-- slot machine; game; slot -->
+		<annotation cp='[🎰]' tts='κουλοχέρης'>παιχνίδι</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
+		<annotation cp='[🚂]' tts='καρβουνιάρης'>μηχανή; σιδηρόδρομος; ατμός; τρένο; όχημα</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='βαγόνι τραίνου'>βαγόνι; ηλεκτρικός; σιδηρόδρομος; τρένο; τραμ; τρόλεϊ; όχημα</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='υπερταχεία'>σιδηρόδρομος; σινκανσέν; ταχύτητα; τρένο; όχημα</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='υπερταχεία με αεροδυναμική πρόσοψη'>αεροδυναμικός; σιδηρόδρομος; σινκανσέν; ταχύτητα; τρένο; όχημα</annotation>
+
+		<!-- train; railway; vehicle -->
+		<annotation cp='[🚆]' tts='τρένο'>σιδηρόδρομος; όχημα</annotation>
+
+		<!-- metro; subway; vehicle -->
+		<annotation cp='[🚇]' tts='μετρό'>όχημα</annotation>
+
+		<!-- light rail; railway; vehicle -->
+		<annotation cp='[🚈]' tts='προαστιακός'>σιδηρόδρομος; όχημα</annotation>
+
+		<!-- station; railway; train; vehicle -->
+		<annotation cp='[🚉]' tts='σταθμός'>σιδηρόδρομος; τρένο; όχημα</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
+		<annotation cp='[🚊]' tts='τραμ'>τρόλεϊ; όχημα</annotation>
+
+		<!-- monorail; vehicle -->
+		<annotation cp='[🚝]' tts='τρένο μονής τροχιάς'>όχημα</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='ορεινός σιδηρόδρομος'>βαγόνι; βουνό; σιδηρόδρομος; όχημα</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='βαγόνι τραμ'>βαγόνι; τραμ; τρόλεϊ; όχημα</annotation>
+
+		<!-- bus; vehicle -->
+		<annotation cp='[🚌]' tts='λεωφορείο'>όχημα</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='διερχόμενο λεωφορείο'>λεωφορείο; διερχόμενο; όχημα</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
+		<annotation cp='[🚎]' tts='τρόλεϊ'>λεωφορείο; τραμ; όχημα</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='στάση λεωφορείου'>λεωφορείο, στάση λεωφορείου; στάση</annotation>
+
+		<!-- minibus; bus; vehicle -->
+		<annotation cp='[🚐]' tts='μίνιμπας'>λεωφορείο; όχημα</annotation>
+
+		<!-- ambulance; vehicle -->
+		<annotation cp='[🚑]' tts='ασθενοφόρο'>όχημα</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='πυροσβεστικό'>φορτηγό; όχημα</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='περιπολικό'>αυτοκίνητο; περιπολία; αστυνομία; όχημα</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='διερχόμενο περιπολικό'>αυτοκίνητο; διερχόμενο; αστυνομία; όχημα</annotation>
+
+		<!-- taxi; vehicle -->
+		<annotation cp='[🚕]' tts='ταξί'>όχημα</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='διερχόμενο ταξί'>διερχόμενο; ταξί; όχημα</annotation>
+
+		<!-- automobile; car; vehicle -->
+		<annotation cp='[🚗]' tts='αυτοκίνητο'>όχημα</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='διερχόμενο αυτοκίνητο'>αυτοκινούμενο; αυτοκίνητο; διερχόμενο; όχημα</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='όχημα αναψυχής'>αναψυχής; όχημα</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='φορτηγό'>διανομή; όχημα</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='τριαξονικό'>φορτηγό; όχημα</annotation>
+
+		<!-- tractor; vehicle -->
+		<annotation cp='[🚜]' tts='τρακτέρ'>όχημα</annotation>
+
+		<!-- bicycle; bike; vehicle -->
+		<annotation cp='[🚲]' tts='ποδήλατο'>όχημα</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='αντλία βενζίνης'>καύσιμο; βενζίνη; αντλία; σταθμός</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='αυτοκινητόδρομος'>δρόμος</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='σιδηρόδρομος'>τρένο</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='σειρήνα περιπολικού'>σειρήνα; αυτοκίνητο; λυχνία; αστυνομία; περιστρεφόμενος; όχημα</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='οριζόντιο φανάρι'>φανάρι; λυχνία; κίνηση</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='κάθετο φανάρι'>φανάρι; λυχνία; κίνηση</annotation>
+
+		<!-- construction; barrier -->
+		<annotation cp='[🚧]' tts='κατασκευές'>φράγμα</annotation>
+
+		<!-- anchor; ship; tool -->
+		<annotation cp='[⚓]' tts='άγκυρα'>πλοίο; εργαλείο</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='ιστιοφόρο'>βάρκα; όχημα; θάλασσα; θέρετρο</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='κωπήλατο'>βάρκα; όχημα</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='ταχύπλοο'>όχημα</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='επιβατηγό πλοίο'>επιβάτης; πλοίο; όχημα</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='φέρι μποτ'>βάρκα</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='μηχανοκίνητο σκάφος'>βάρκα; όχημα</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='πλοίο'>όχημα</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='αεροπλάνο'>όχημα</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='μικρό αεροπλάνο'>αεροπλάνο; όχημα</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='αναχώρηση αεροπλάνου'>αεροπλάνο; check-in; αναχώρηση; αναχωρήσεις; όχημα</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='άφιξη αεροπλάνου'>αεροπλάνο; αφίξεις; φτάνει; προσγείωση; όχημα</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' tts='κάθισμα'>καρέκλα</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='ελικόπτερο'>όχημα</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='κρεμαστός σιδηρόδρομος'>σιδηρόδρομος; κρεμαστός; όχημα</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='τελεφερίκ'>γόνδολα; βουνό; όχημα</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='σχοινοκίνητος σιδηρόδρομος'>εναέριος; τελεφερίκ; βαγόνι; γόνδολα; σχοινοκίνητος; γραμμές του τραμ όχημα</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='πύραυλος'>διάστημα; όχημα</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='δορυφόρος'>διάστημα; όχημα</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='κουδούνι υποδοχής'>κουδούνι; ξενοδοχείο</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='άνθρωπος σε κρεβάτι'>ξενοδοχείο; ύπνος</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='κρεβάτι'>ξενοδοχείο; ύπνος</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='καναπές και φωτιστικό'>καναπές; ξενοδοχείο; φωτιστικό</annotation>
+
+		<!-- shower; water -->
+		<annotation cp='[🚿]' tts='ντους'>νερό</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='άνθρωπος που κάνει μπάνιο'>μπανιέρα; μπάνιο</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='κλεψύδρα'>άμμος</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='κλεψύδρα με άμμο που ρέει'>κλεψύδρα; άμμος; χρονομετρητής</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='ξυπνητήρι'>ρολόι</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='χρονόμετρο'>ρολόι</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='χρονομετρητής'>ρολόι; χρονόμετρο</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='ρολόι με βάση'>ρολόι</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='δώδεκα ακριβώς'>00; 12; 12:00; ακριβώς; η ώρα; δώδεκα</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='δώδεκα και μισή'>12; 12:30; 30; ακριβώς; και μισή; δώδεκα</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='μία ακριβώς'>00; 1; 1:00; ακριβώς; η ώρα; μία</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='μία και μισή'>1; 1:30; 30; ακριβώς; μία; και μισή</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='δύο ακριβώς'>00; 2; 2:00; ακριβώς; η ώρα; δύο</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='δύο και μισή'>2; 2:30; 30; ακριβώς; και μισή; δύο</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='τρεις ακριβώς'>00; 3; 3:00; ακριβώς; η ώρα; τρεις</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='τρεις και μισή'>3; 3:30; 30; ακριβώς; και μισή; τρεις</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='τέσσερις ακριβώς'>00; 4; 4:00; ακριβώς; τέσσερις; η ώρα</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='τέσσερις και μισή'>30; 4; 4:30; ακριβώς; τέσσερις; και μισή</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='πέντε ακριβώς'>00; 5; 5:00; ακριβώς; η ώρα</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='πέντε και μισή'>30; 5; 5:30; ακριβώς; πέντε; και μισή</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='έξι ακριβώς'>00; 6; 6:00; ακριβώς; η ώρα; έξι</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='έξι και μισή'>30; 6; 6:30; ακριβώς; έξι; και μισή</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='εφτά ακριβώς'>00; 7; 7:00; ακριβώς; η ώρα; επτά</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='εφτά και μισή'>30; 7; 7:30; ακριβώς; επτά; και μισή</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='οκτώ ακριβώς'>00; 8; 8:00; ακριβώς; οκτώ; η ώρα</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='οκτώ και μισή'>30; 8; 8:30; ακριβώς; οκτώ; και μισή</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='εννιά ακριβώς'>00; 9; 9:00; ακριβώς; εννιά; η ώρα</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='εννιά και μισή'>30; 9; 9:30; ακριβώς; εννιά; και μισή</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='δέκα ακριβώς'>00; 10; 10:00; ακριβώς; η ώρα; δέκα</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='δέκα και μισή'>10; 10:30; 30; ακριβώς; δέκα; και μισή</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='έντεκα ακριβώς'>00; 11; 11:00; ακριβώς; έντεκα; η ώρα</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='έντεκα και μισή'>11; 11:30; 30; ακριβώς; έντεκα; και μισή</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='νέα σελήνη'>σκοτάδι; φεγγάρι; διάστημα; καιρός</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='αύξων μηνίσκος'>μηνίσκος; φεγγάρι; διάστημα; αύξων; καιρός</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='πρώτο τέταρτο'>φεγγάρι; τέταρτο; διάστημα; καιρός</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='αύξων αμφίκυρτος'>αμφίκυρτος; φεγγάρι; διάστημα; αύξων; καιρός</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='πανσέληνος'>γεμάτο; φεγγάρι; διάστημα; καιρός</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='φθίνων αμφίκυρτος'>αμφίκυρτος; φεγγάρι; διάστημα; φθίνων; καιρός</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='τρίτο τέταρτο'>φεγγάρι; τέταρτο; διάστημα; καιρός</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='φθίνων μηνίσκος'>μηνίσκος; φεγγάρι; διάστημα; φθίνων; καιρός</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='ημισέληνος'>μηνίσκος; φεγγάρι; πανσέληνος; διάστημα; καιρός</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='νέα σελήνη με πρόσωπο'>πρόσωπο; φεγγάρι; διάστημα; καιρός</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='πρώτο τέταρτο σελήνης με πρόσωπο'>πρόσωπο; φεγγάρι; τέταρτο; διάστημα; καιρός</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='τελευταίο τέταρτο σελήνης με πρόσωπο'>πρόσωπο; φεγγάρι; τέταρτο; διάστημα; καιρός</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='θερμόμετρο'>καιρός</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='ήλιος'>ηλιόλουστος; ακτίνες; διάστημα; φωτεινός; καιρός</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='πανσέληνος με πρόσωπο'>φωτεινό; πρόσωπο; γεμάτο; φεγγάρι; πανσέληνος; διάστημα; καιρός</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='ήλιος με πρόσωπο'>φωτεινός; πρόσωπο; διάστημα; ήλιος; καιρός</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='λευκό μεσαίο αστέρι'>αστέρι</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='λαμπερό αστέρι'>λαμπερό; λάμψη; αστραφτερό; γυαλιστερό; αστέρι; </annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='αστέρι που πέφτει'>αστέρι; που πέφτει; διάστημα</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='σύννεφο'>καιρός</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='ήλιος πίσω από σύννεφο'>σύννεφο; ήλιος; καιρός</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='σύννεφο με αστραπές και βροχή'>σύννεφο; βροχή; αστραπή; καιρός</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='ήλιος πίσω από μικρό σύννεφο'>σύννεφο; ήλιος; καιρός</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='ήλιος πίσω από μεγάλο σύννεφο'>σύννεφο; ήλιος; καιρός</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='ήλιος πίσω από σύννεφο με βροχή'>σύννεφο; βροχή; ήλιος; καιρός</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='σύννεφο με βροχή'>σύννεφο; βροχή; καιρός</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='σύννεφο με χιόνι'>σύννεφο; κρύο; χιόνι; καιρός</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='σύννεφο με αστραπή'>σύννεφο; αστραπή; καιρός</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='ανεμοστρόβιλος'>σύννεφο; καιρός</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='ομίχλη'>σύννεφο; καιρός</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='πρόσωπο ανέμου'>αέρας; σύννεφο; πρόσωπο; καιρός; άνεμος</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='κυκλώνας'>ζαλισμένος; τυφώνας; καιρός</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='ουράνιο τόξο'>βροχή; καιρός</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='κλειστή ομπρέλα'>ενδυμασία; βροχή; ομπρέλα; καιρός</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='ομπρέλα'>ενδυμασία; βροχή; καιρός</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='ομπρέλα με σταγόνες βροχής'>ενδυμασία; σταγόνα; βροχή; ομπρέλα; καιρός</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='ομπρέλα θαλάσσης'>βροχή; ήλιος; ομπρέλα; καιρός</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='υψηλή τάση'>κίνδυνος; ηλεκτρικό; ηλεκτρισμός; αστραπή; τάση; χτύπημα</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='χιονονιφάδα'>κρύο; χιόνι; καιρός</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='χιονάνθρωπος'>κρύο; χιόνι; καιρός</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='χιονάνθρωπος χωρίς χιόνι'>κρύο; χιόνι; χιονάνθρωπος; καιρός</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='κομήτης'>διάστημα</annotation>
+
+		<!-- fire; flame; tool -->
+		<annotation cp='[🔥]' tts='φωτιά'>φλόγα; εργαλείο</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='σταγόνα'>κρύο; κόμικ; ιδρώτας; καιρός</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='θαλάσσιο κύμα'>ωκεανός; καιρός; κύμα</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='φανάρι από κολοκύθα'>γιορτή; απόκριες; κολοκύθα; φανάρι</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='χριστουγεννιάτικο δέντρο'>γιορτή; χριστούγεννα; δέντρο</annotation>
+
+		<!-- fireworks; celebration -->
+		<annotation cp='[🎆]' tts='βεγγαλικά'>γιορτή</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
+		<annotation cp='[🎇]' tts='αστράκι'>γιορτή; πυροτεχνήματα; λάμψη</annotation>
+
+		<!-- sparkles; sparkle; star -->
+		<annotation cp='[✨]' tts='αστράκια'>λάμψη; αστέρι</annotation>
+
+		<!-- balloon; celebration -->
+		<annotation cp='[🎈]' tts='μπαλόνι'>γιορτή</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='χαρτοπόλεμος'>γιορτή; πάρτι; popper</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='κομφετί'>μπάλα; γιορτή</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='δέντρο ταναμπάτα'>μπάνερ; γιορτής ιαπωνικό; δέντρο</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='σταυρωτές σημαίες'>γιορτή; σταυρός; σταυρωτές; ιαπωνικό</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='διακοσμητικό πεύκο'>μπαμπού; γιορτή; ιαπωνικό; πεύκο; φυτό</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='ιαπωνικές κούκλες'>γιορτή; κούκλα; φεστιβάλ; ιαπωνικό</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='διακοσμητικοί κυπρίνοι'>κυπρίνος; γιορτή; διακοσμητικός</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='μελωδός'>κουδούνι; γιορτή; άνεμος</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='γιορτή της σελήνης'>γιορτή; τελετή; φεγγάρι</annotation>
+
+		<!-- ribbon; celebration -->
+		<annotation cp='[🎀]' tts='κορδέλα'>γιορτή</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='τυλιχτό δώρο'>κουτί; γιορτή; δώρο; τυλιγμένο</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='στρατιωτικό παράσημο'>γιορτή; παράσημο; στρατιωτικό</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='κορδέλα τιμής'>γιορτή; υπενθύμιση; κορδέλα</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='καρέ φιλμ'>κινηματογράφος; φιλμ; ταινία; καρέ; </annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='κάρτες εισόδου'>είσοδος; εισιτήριο</annotation>
+
+		<!-- ticket; admission -->
+		<annotation cp='[🎫]' tts='εισιτήριο'>είσοδος</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='μπάλα ποδοσφαίρου'>μπάλα; ποδόσφαιρο</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='μπάλα μπέιζμπολ'>μπάλα</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='μπάλα μπάσκετ'>μπάλα; στεφάνη</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='μπάλα αμερικάνικου ποδοσφαίρου'>αμερικανικό; μπάλα; ποδόσφαιρο</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='μπάλα ράγκμπι'>μπάλα; ποδόσφαιρο; ράγκμπι</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='μπάλα τένις'>μπάλα; ρακέτα</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='μπάλα μπιλιάρδου'>8; μπάλα με το 8; μπάλα; μπιλιάρδο; οκτώ; παιχνίδι</annotation>
+
+		<!-- bowling; ball; game -->
+		<annotation cp='[🎳]' tts='μπόουλινγκ'>μπάλα; παιχνίδι</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='σημαία και τρύπα'>γκολφ; τρύπα</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='γκόλφερ'>μπάλα; γκολφ</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='πατινάζ στον πάγο'>πάγος; πατινάζ</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='καλάμι ψαρέματος'>ψάρι; καλάμι</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='φανέλα δρομέα'>τρέξιμο; δρομέας; φανέλα</annotation>
+
+		<!-- skis; ski; snow -->
+		<annotation cp='[🎿]' tts='σκι'>χιόνι</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='σκιέρ'>σκι; χιόνι</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='σνόουμπορντ'>σκι; χιόνι</annotation>
+
+		<!-- surfer; surfing -->
+		<annotation cp='[🏄]' tts='σέρφερ'>σέρφινγκ</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='ιππόδρομος'>άλογο; καπέλο τζόκεϊ; άλογο αγώνων; αγώνες</annotation>
+
+		<!-- swimmer; swim -->
+		<annotation cp='[🏊]' tts='κολυμβητής'>κολύμπι</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='άνθρωπος με μπάλα'>μπάλα</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='αρσιβαρίστας'>βάρος</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
+		<annotation cp='[🚴]' tts='ποδηλάτης'>ποδήλατο</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='ποδηλάτης στο βουνό'>ποδήλατο; ποδηλάτης; βουνό</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='αγωνιστικό όχημα'>αυτοκίνητο; αγωνιστικό</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='μοτοσικλέτα'>αγωνιστικό</annotation>
+
+		<!-- trophy; prize -->
+		<annotation cp='[🏆]' tts='τρόπαιο'>βραβείο</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='κρίκετ'>μπάλα; ρόπαλο; αγώνας</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='μπάλα βόλεϊ'>μπάλα; αγώνας</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='χόκεϊ επί χόρτου'>μπάλα; γήπεδο; αγώνας; χόκεϊ; μπαστούνι</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='χόκεϊ επί πάγου'>αγώνας; χόκεϊ; πάγος; δίσκος; μπαστούνι</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='πινγκ πονγκ'>μπάλα; μπαστούνι; παιχνίδι; ρακέτα</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='μπάντμιντον'>birdie; αγώνας; ρακέτα; μπαλάκι του μπάντμιντον</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
+		<annotation cp='[🎯]' tts='βελάκια'>ταμπλό; διάνα; βελάκι; κέντρο; παιχνίδι; χτύπημα; στόχος</annotation>
+
+		<!-- video game; controller; game -->
+		<annotation cp='[🎮]' tts='βιντεοπαιχνίδι'>χειριστήριο; παιχνίδι</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='χειριστήριο'>παιχνίδι; βιντεοπαιχνίδι</annotation>
+
+		<!-- game die; dice; die; game -->
+		<annotation cp='[🎲]' tts='ζάρι'>παιχνίδι</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='μπαστούνι'>χαρτιά; παιχνίδι; χρώμα</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='κούπα'>χαρτιά; καρδιά; καρδιές; παιχνίδι; χρώμα</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='καρό'>χαρτιά; παιχνίδι; χρώμα</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='σπαθί'>χαρτιά; σπαθιά; παιχνίδι; χρώμα</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='τζόκερ'>χαρτιά; παιχνίδι; παίζω</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='κόκκινος δράκος μαγιόνγκ'>παιχνίδι; δράκος μαγιόνγκ; κόκκινος</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='παιχνίδι λουλουδιών'>κάρτα; λουλούδι; παιχνίδι; ιαπωνικό; παίζω</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='σίγαση ηχείου'>σίγαση; ησυχία; σιωπή; ηχείο; ένταση</annotation>
+
+		<!-- speaker; volume -->
+		<annotation cp='[🔈]' tts='ηχείο'>ένταση ήχου</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='ηχείο ενεργό'>χαμηλή; ηχείο; ένταση; κύμα</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='ηχείο δυνατά'>3; υψηλή; δυνατά; ηχείο; τρία; ένταση</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='ντουντούκα'>δυνατός; απευθύνομαι στο κοινό</annotation>
+
+		<!-- megaphone; cheering -->
+		<annotation cp='[📣]' tts='μεγάφωνο'>ζητωκραυγές</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='ταχυδρομική κόρνα'>κόρνα; ταχυδρομικός; ταχυδρομείο</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='κουδούνι με κόκκινη γραμμή'>κουδούνι; απαγορευμένο; σίγαση; όχι; δεν; επιτρέπεται; ήσυχος; ησυχία</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='μουσικό θέμα'>μουσική; πεντάγραμμο</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='νότα μουσικής'>μουσική; νότα</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='νότες μουσικής'>μουσική; νότα; νότες</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='μικρόφωνο στούντιο'>μικρόφωνο; μουσική; στούντιο</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='ρυθμιστικό έντασης'>επίπεδο; μουσική; ρυθμιστικό</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='κουμπιά ελέγχου'>ελέγχου; κουμπιά; μουσική</annotation>
+
+		<!-- microphone; karaoke; mic -->
+		<annotation cp='[🎤]' tts='μικρόφωνο'>καραόκε</annotation>
+
+		<!-- headphone; earbud -->
+		<annotation cp='[🎧]' tts='ακουστικά'>ακουστικό</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
+		<annotation cp='[🎷]' tts='σαξόφωνο'>όργανο; μουσική</annotation>
+
+		<!-- guitar; instrument; music -->
+		<annotation cp='[🎸]' tts='κιθάρα'>όργανο; μουσική</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='μουσικό πληκτρολόγιο'>όργανο; πλήκτρα; μουσική; πιάνο</annotation>
+
+		<!-- trumpet; instrument; music -->
+		<annotation cp='[🎺]' tts='τρομπέτα'>όργανο; μουσική</annotation>
+
+		<!-- violin; instrument; music -->
+		<annotation cp='[🎻]' tts='βιολί'>όργανο; μουσική</annotation>
+
+		<!-- radio; video -->
+		<annotation cp='[📻]' tts='ραδιόφωνο'>βίντεο</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
+		<annotation cp='[📱]' tts='κινητό τηλέφωνο'>κινητό; τηλέφωνο; </annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='κινητό τηλέφωνο με βέλος'>βέλος; κλήση; κινητό; τηλέφωνο; λήψη</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='τηλεφωνικός δέκτης'>τηλέφωνο; δέκτης; </annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
+		<annotation cp='[🔌]' tts='ηλεκτρικό βύσμα'>ηλεκτρικό; ρεύμα; βύσμα</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
+		<annotation cp='[💻]' tts='φορητός υπολογιστής'>υπολογιστής; pc; προσωπικός</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='επιτραπέζιος υπολογιστής'>υπολογιστής; επιτραπέζιος</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='εκτυπωτής'>υπολογιστής</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='πληκτρολόγιο'>υπολογιστής</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='ποντίκι υπολογιστή'>3; κουμπί; υπολογιστής; ποντίκι; τρία</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='ιχνόσφαιρα'>υπολογιστής</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='minidisc'>υπολογιστής; δίσκος; minidisk; οπτικός</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
+		<annotation cp='[💾]' tts='δισκέτα'>υπολογιστής; δίσκος</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[💿]' tts='οπτικός δίσκος'>dvd; blu-ray; cd; υπολογιστής; δίσκος; οπτικός</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
+		<annotation cp='[📀]' tts='dvd'>blu-ray; cd; υπολογιστής; δίσκος; οπτικός</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='κινηματογραφική κάμερα'>βιντεοκάμερα; κινηματογράφος; ταινία</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='κλακέτα φιλμ'>κλακέτα; ταινία</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='προβολέας ταινιών'>κινηματογράφος; ταινία; φιλμ; προβολέας; βίντεο</annotation>
+
+		<!-- television; tv; video -->
+		<annotation cp='[📺]' tts='τηλεόραση'>βίντεο</annotation>
+
+		<!-- camera; video -->
+		<annotation cp='[📷]' tts='φωτογραφική μηχανή'>βίντεο</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='φωτογραφική μηχανή με φλας'>βιντεοκάμερα; φλας; βίντεο</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='βιντεοκάμερα'>βίντεο</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
+		<annotation cp='[📼]' tts='βιντεοκασέτα'>κασέτα; vhs; βίντεο</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='αριστερός μεγεθυντικός φακός'>φακός; μεγεθυντικός; αναζήτηση; εργαλείο</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='δεξιός μεγεθυντικός φακός'>φακός; μεγεθυντικός; αναζήτηση; εργαλείο</annotation>
+
+		<!-- microscope; tool -->
+		<annotation cp='[🔬]' tts='μικροσκόπιο'>εργαλείο</annotation>
+
+		<!-- telescope; tool -->
+		<annotation cp='[🔭]' tts='τηλεσκόπιο'>εργαλείο</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='δορυφορική κεραία'>κεραία; πιάτο; δορυφορικό</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='κερί'>φως</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
+		<annotation cp='[💡]' tts='λάμπα'>κόμικ; ηλεκτρικό; ιδέα; φως</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
+		<annotation cp='[🔦]' tts='φακός'>ηλεκτρικό; φως; εργαλείο</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='κόκκινο χάρτινο φανάρι'>μπάρα; ιαπωνικό; φανάρι; φως; κόκκινο</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='σημειωματάριο με έγχρωμο εξώφυλλο'>βιβλίο; εξώφυλλο; διακοσμημένο; σημειωματάριο</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='κλειστό βιβλίο'>βιβλίο; κλειστό</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='ανοικτό βιβλίο'>βιβλίο; ανοιχτό</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='πράσινο βιβλίο'>βιβλίο; πράσινο</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='μπλε βιβλίο'>μπλε; βιβλίο</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='πορτοκαλί βιβλίο'>βιβλίο; πορτοκαλί</annotation>
+
+		<!-- books; book -->
+		<annotation cp='[📚]' tts='βιβλία'>βιβλίο</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='λογιστικό βιβλίο'>σημειωματάριο</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='κυρτωμένη σελίδα'>κυρτός; έγγραφο; σελίδα</annotation>
+
+		<!-- scroll; paper -->
+		<annotation cp='[📜]' tts='περγαμηνή'>χαρτί</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='όρθια σελίδα'>έγγραφο; σελίδα</annotation>
+
+		<!-- newspaper; news; paper -->
+		<annotation cp='[📰]' tts='εφημερίδα'>ειδήσεις; σελίδα</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='τυλιγμένη εφημερίδα'>ειδήσεις; εφημερίδα; χαρτί; τυλιγμένο</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
+		<annotation cp='[📑]' tts='καρτέλες σελιδοδεικτών'>σελιδοδείκτης; ένδειξη; δείκτης; καρτέλες</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='σελιδοδείκτης'>δείκτης</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='σάκος με λεφτά'>σάκος; δολάριο; χρήματα</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='χαρτονόμισμα γιέν'>τράπεζα; χαρτονόμισμα; λογαριασμός; νόμισμα; χρήματα; γιεν</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='χαρτονόμισμα δολαρίου'>τράπεζα; χαρτονόμισμα; λογαριασμός; νόμισμα; δολάριο; χρήματα</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='χαρτονόμισμα ευρώ'>τράπεζα; χαρτονόμισμα; λογαριασμός; νόμισμα; ευρώ; χρήματα</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='χαρτονόμισμα αγγλικής λίρας'>τράπεζα; χαρτονόμισμα; λογαριασμός; νόμισμα; χρήματα; αγγλική λίρα</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='λεφτά με φτερά'>τράπεζα; χαρτονόμισμα; λογαριασμός; δολάριο; πετώ; χρήματα; φτερά</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='πιστωτική κάρτα'>τράπεζα; κάρτα; πιστωτική; χρήματα</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='ανοδικό γράφημα με γιέν'>τράπεζα; γράφημα; νόμισμα; διάγραμμα; αύξηση; αγορά; χρήματα; άνοδος; τάση; ανοδική; γιεν</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='φάκελος'>e-mail; email</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='email'>γράμμα; επιστολή</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='εισερχόμενος φάκελος'>e-mail; email; φάκελος; εισερχόμενο; γράμμα; επιστολή; λαμβάνω</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='φάκελος με βέλος'>βέλος; κάτω; e-mail; email, φάκελος; γράμμα; επιστολή; εξερχόμενο; απεσταλμένο</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='δίσκος εξερχομένων'>κουτί; εξερχόμενο; γράμμα; επιστολή; λαμβάνω; δίσκος</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='δίσκος εισερχομένων'>κουτί; εισερχόμενο; γράμμα; επιστολή; λαμβάνω; δίσκος</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='πακέτο'>κουτί</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='κλειστό γραμματοκιβώτιο με ανασηκωμένη σημαία'>κλειστό; επιστολή; γραμματοκιβώτιο</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='κλειστό γραμματοκιβώτιο με χαμηλωμένη σημαία'>κλειστό; χαμηλωμένη σημαία; επιστολή; γραμματοκιβώτιο</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='ανοικτό γραμματοκιβώτιο με ανασηκωμένη σημαία'>ανοιχτό; επιστολή; γραμματοκιβώτιο</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='ανοικτό γραμματοκιβώτιο με χαμηλωμένη σημαία'>ανοιχτό; χαμηλωμένη σημαία; επιστολή; γραμματοκιβώτιο</annotation>
+
+		<!-- postbox; mail; mailbox -->
+		<annotation cp='[📮]' tts='γραμματοκιβώτιο ταχυδρομείου'>επιστολή; γραμματοκιβώτιο</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='κάλπη με ψηφοδέλτιο'>ψηφοδέλτιο; κάλπη</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='μαύρη πένα'>πένα</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='μελανοφόρος'>πένα</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='πινέλο'>ζωγραφική</annotation>
+
+		<!-- memo; pencil -->
+		<annotation cp='[📝]' tts='σημείωμα'>μολύβι</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='φάκελος αρχείων'>αρχείο; φάκελος</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='ανοικτός φάκελος αρχείων'>αρχείο; φάκελος; ανοιχτός</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='διαχωριστικά ευρετηρίου καρτών'>κάρτα; διαχωριστικά; ευρετήριο</annotation>
+
+		<!-- calendar; date -->
+		<annotation cp='[📅]' tts='ημερολόγιο'>ημερομηνία</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='αποσπώμενο ημερολόγιο'>ημερολόγιο</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='σημειωματάριο σπιράλ'>σημείωμα; σημειωματάριο; σπιράλ</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='ημερολόγιο σπιράλ'>ημερολόγιο; σημειωματάριο; σπιράλ</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='ευρετήριο καρτών'>κάρτα; ευρετήριο</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='ανοδικό γράφημα'>γράφημα; διάγραμμα; αύξηση; τάση; ανοδική</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='καθοδικό γράφημα'>γράφημα; κάτω; διάγραμμα; τάση</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='γράφημα γραμμών'>γραμμή; γράφημα; διάγραμμα</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='στρογγυλοκέφαλη πινέζα'>πινέζα</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='ενωμένοι συνδετήρες'>ενωμένος; συνδετήρας</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
+		<annotation cp='[📏]' tts='ίσιος χάρακας'>χάρακας; ίσια άκρη</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
+		<annotation cp='[📐]' tts='τριγωνικός χάρακας'>χάρακας; σετ; τριγωνικός</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='ψαλίδι'>εργαλείο</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='καρτελοθήκη'>κουτί; κάρτα; αρχείο</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='αρχειοθήκη'>συρτάρι; αρχείο</annotation>
+
+		<!-- lock; closed -->
+		<annotation cp='[🔒]' tts='κλειδαριά'>κλειστό</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='ανοικτή κλειδαριά'>κλειδαριά; ανοιχτή; ξεκλειδώνω</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='κλειδαριά με πένα'>μελάνι; κλειδαριά; πένα; στυλό; απόρρητο</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
+		<annotation cp='[🔐]' tts='κλειστή κλειδαριά με κλειδί'>κλειστό; κλειδί; κλειδαριά; ασφαλίζω</annotation>
+
+		<!-- key; lock; password -->
+		<annotation cp='[🔑]' tts='κλειδί'>κλειδώνω; κωδικός πρόσβασης</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='παλιό κλειδί'>στοιχείο; κλειδί; κλειδώνω; παλιό</annotation>
+
+		<!-- hammer; tool -->
+		<annotation cp='[🔨]' tts='σφυρί'>εργαλείο</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='αξίνα'>εξόρυξη; εργαλείο</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='σφυρί και αξίνα'>σφυρί; αξίνα; εργαλείο</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='σφυρί και κλειδί'>σφυρί; εργαλείο; κλειδί</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='γαλλικό κλειδί'>εργαλείο</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='βίδα και παξιμάδι'>βίδα; παξιμάδι; εργαλείο</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='γρανάζι'>εργαλείο</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='πρέσα'>εργαλείο; σφίγγω</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='αποστακτήριο'>χημεία; εργαλείο</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='ζυγαριά'>ισορροπία; δικαιοσύνη; ζυγός; εργαλείο; ζυγίζω; ζώδιο</annotation>
+
+		<!-- link -->
+		<annotation cp='[🔗]' tts='κρίκος'>σύνδεσμος</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='αλυσίδες'>αλυσίδα</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
+		<annotation cp='[💉]' tts='σύριγγα'>γιατρός; φάρμακο; βελόνα; ένεση; άρρωστος; εργαλείο</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
+		<annotation cp='[💊]' tts='χάπι'>γιατρός; φάρμακο; άρρωστος</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='μαχαίρι'>όπλο</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='κουζινομάχαιρο'>μαγειρική; μαχαίρι; εργαλείο; όπλο</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='σταυρωτά σπαθιά'>σταυρωτά; σπαθιά; όπλο</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='πιστόλι'>περίστροφο; εργαλείο; όπλο</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='ασπίδα'>όπλο</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='τόξο και βέλος'>τοξοβόλος; τόξο; βέλος; τοξότης; εργαλείο; όπλο; ζώδιο</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='καρό σημαία'>καρό; σημαία; αγώνας</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='λευκή σημαία'>κυματίζει</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='μαύρη σημαία'>κυματίζει</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='τριγωνική σημαία'>αλληλογραφία</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='φέρετρο'>θάνατος</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='τεφροδόχος'>θάνατος; κηδεία</annotation>
+
+		<!-- moai; face; moyai; statue -->
+		<annotation cp='[🗿]' tts='μοάι'>πρόσωπο; άγαλμα</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='βαρέλι πετρελαίου'>βαρέλι; πετρέλαιο</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='κρυστάλλινη σφαίρα'>σφαίρα; κρυστάλλινη; παραμύθι; φαντασία; τύχη; εργαλείο</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='σήμα ATM'>atm; αυτόματο; τράπεζα; σήμα</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='σήμα σκουπιδοτενεκέ'>σκουπίδια; σκουπιδοτενεκές</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='πόσιμο νερό'>πίνω; πόσιμο; νερό</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='αναπηρικό καροτσάκι'>πρόσβαση</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='τουαλέτα ανδρών'>τουαλέτα; άνδρας; wc</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='τουαλέτα γυναικών'>τουαλέτα; γυναίκα; wc</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='δημόσια τουαλέτα'>τουαλέτα; wc</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='σύμβολο μωρού'>μωρό; αλλάζω</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
+		<annotation cp='[🚾]' tts='WC'>δωμάτιο; τουαλέτα; νερό; wc</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='έλεγχος διαβατηρίων'>έλεγχος; διαβατήριο</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='παραλαβή αποσκευών'>αποσκευές; παραλαβή</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
+		<annotation cp='[🛅]' tts='φύλαξη αποσκευών'>αποσκευές; ντουλάπι; βαλίτσες</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='διάβαση παιδιών'>παιδί; διάβαση; πεζός; κίνηση</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='απαγορεύεται η είσοδος'>είσοδος; απαγορεύεται; όχι; δεν; απαγορευμένο; κίνηση</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='απαγορεύεται'>είσοδος; όχι; δεν</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='απαγορεύονται τα ποδήλατα'>ποδήλατο; απαγορεύεται; όχι; δεν; απαγορευμένο; όχημα</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='απαγορεύεται το κάπνισμα'>απαγορεύεται; όχι; δεν; απαγορευμένο; κάπνισμα</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='απαγορεύεται η ρίψη σκουπιδιών'>απαγορεύεται; σκουπίδια; όχι; δεν; απαγορευμένο</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='μη πόσιμο νερό'>πίνω; απαγορεύεται; όχι; δεν; απαγορευμένο; πόσιμο; νερό</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='απαγορεύεται η διάβαση πεζών'>απαγορευμένο; όχι; δεν; πεζός; απαγορεύεται</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='πάνω βέλος'>βέλος; απόλυτη; κατεύθυνση; βόρεια</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='πάνω δεξί βέλος'>βέλος; κατεύθυνση; ενδιάμεση; βορειοανατολικά</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='δεξί βέλος'>βέλος; απόλυτη; κατεύθυνση; ανατολικά</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='δεξί κάτω βέλος'>βέλος; κατεύθυνση; ενδιάμεση; νοτιοανατολικά</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='κάτω βέλος'>βέλος; απόλυτη; κατεύθυνση; κάτω; νότια</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='κάτω αριστερό βέλος'>βέλος; κατεύθυνση; ενδιάμεση; νοτιοδυτικά</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='αριστερό βέλος'>βέλος; απόλυτη; κατεύθυνση; δυτικά</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='πάνω αριστερό βέλος'>βέλος; κατεύθυνση; ενδιάμεση; βορειοδυτικά</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='πάνω κάτω βέλος'>βέλος</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='αριστερό δεξί βέλος'>βέλος</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='δεξί βέλος που στρίβει αριστερά'>βέλος</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='αριστερό βέλος που στρίβει δεξιά'>βέλος</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='δεξί βέλος που στρίβει πάνω'>βέλος</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='δεξί βέλος που στρίβει κάτω'>βέλος; κάτω</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='δεξιόστροφα κάθετα βέλη'>βέλος; δεξιόστροφο; επαναφόρτωση</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='κουμπί αριστερόστροφων βελών'>αριστερόστροφο; βέλος; αντίστροφα</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='πίσω βέλος'>βέλος; πίσω</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='βέλος τέλους'>βέλος; τέλος</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='βέλος ενεργοποίησης'>βέλος; σήμα; ενεργοποίηση</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='βέλος σύντομα'>βέλος; σύντομα</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='βέλος πάνω'>βέλος; κορυφή; επάνω; </annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='τόπος λατρείας'>θρησκεία; λατρεία</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='σύμβολο ατόμου'>άθεος; άτομο</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='σύμβολο ομ'>ινδουιστικός; θρησκεία</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='αστέρι του δαβίδ'>δαβίδ; εβραϊκό; εβραίος; θρησκεία; αστέρι</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='τροχός ντάρμα'>βουδιστικός; ντάρμα; θρησκεία; τροχός</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='γιν γιανγκ'>θρησκεία; τάο; ταοϊστικός; γιανγκ; γιν</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='λατινικός σταυρός'>χριστιανικός; σταυρός; θρησκεία</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='ορθόδοξος σταυρός'>χριστιανικός; σταυρός; θρησκεία</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='αστέρι και ημισέληνος'>ισλάμ; μουσουλμανικός; θρησκεία</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='σύμβολο ειρήνης'>ειρήνη</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='επτάφωτη λυχνία'>επτάφωτο; λυχνία; θρησκεία</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='εξάλφα με σημάδι'>τύχη; αστέρι</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='σύμβολο ανακύκλωσης'>ανακυκλώνω</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='κάρτα με όνομα'>σήμα; όνομα</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='ιαπωνικό σύμβολο για αρχάριους'>αρχάριος; σύμβολο v; πράσινο; ιαπωνικό; φύλλο; εργαλείο; κίτρινο</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='έμβλημα τρίαινας'>άγκυρα; έμβλημα; πλοίο; εργαλείο; τρίαινα</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='έντονος μεγάλος κύκλος'>κύκλος; ο</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='λευκό τικ σε πλαίσιο'>επιλογή; σημάδι</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='κάλπη με τικ'>κάλπη; κουτί; επιλογή</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='έντονο τικ'>επιλογή; σημάδι</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='έντονο σύμβολο πολλαπλασιασμού'>ακύρωση; πολλαπλασιασμός; πολλαπλασιάζω; x</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
+		<annotation cp='[❌]' tts='σημάδι χ'>ακύρωση; σημάδι; πολλαπλασιασμός; πολλαπλασιάζω; x</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='κουμπί σημαδιού χ'>σημάδι; τετράγωνο</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='έντονο σύμβολο πρόσθεσης'>μαθηματικά; συν</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='έντονο σύμβολο αφαίρεσης'>μαθηματικά; πλην</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='έντονο σύμβολο διαίρεσης'>διαίρεση; μαθηματικά</annotation>
+
+		<!-- curly loop; curl; loop -->
+		<annotation cp='[➰]' tts='βρόχος'>βρόγχος; μπούκλα</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='διπλός βρόχος'>βρόγχος; διπλός; μπούκλα</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='σύμβολο έναρξης τραγουδιού'>σημάδι; τμήμα</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='οκτάκτινος αστερίσκος'>αστερίσκος</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='τετράκτινο αστέρι'>αστέρι</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='σπινθήρας'>λάμψη</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='συνάλλαγμα'>τράπεζα; νόμισμα; χρήματα</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='έντονο σύμβολο δολαρίου'>νόμισμα; δολάριο; χρήματα</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='διπλό θαυμαστικό'>θόρυβος; θαυμαστικό; σημείο; στίξη</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='θαυμαστικό με ερωτηματικό'>θαυμαστικό; ερωτηματικό; σημείο; στίξη; ερώτηση</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='ερωτηματικό'>σημείο; στίξη; ερώτηση</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='λευκό ερωτηματικό'>σημείο; αχνό; στίξη; ερώτηση</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='λευκό θαυμαστικό'>θαυμαστικό; σημείο; αχνό; στίξη</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='θαυμαστικό'>σημείο; στίξη</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='κυματιστή παύλα'>παύλα; στίξη; κυματιστό</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='εμπορικό σήμα'>σήμα</annotation>
+
+		<!-- aries; ram; zodiac -->
+		<annotation cp='[♈]' tts='κριός'>ζώδιο</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
+		<annotation cp='[♉]' tts='ταύρος'>βόδι; ζώδιο</annotation>
+
+		<!-- gemini; twins; zodiac -->
+		<annotation cp='[♊]' tts='δίδυμοι'>ζώδιο</annotation>
+
+		<!-- cancer; crab; zodiac -->
+		<annotation cp='[♋]' tts='καρκίνος'>ζώδιο</annotation>
+
+		<!-- leo; lion; zodiac -->
+		<annotation cp='[♌]' tts='λέων'>ζώδιο</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
+		<annotation cp='[♍]' tts='παρθένος'>ζώδιο</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
+		<annotation cp='[♎]' tts='ζυγός'>ζώδιο</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
+		<annotation cp='[♏]' tts='σκορπιός ζώδιο'>σκορπιός; ζώδιο</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
+		<annotation cp='[♐]' tts='τοξότης'>ζώδιο</annotation>
+
+		<!-- capricorn; goat; zodiac -->
+		<annotation cp='[♑]' tts='αιγόκερως'>ζώδιο</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
+		<annotation cp='[♒]' tts='υδροχόος'>ζώδιο; νερό</annotation>
+
+		<!-- pisces; fish; zodiac -->
+		<annotation cp='[♓]' tts='ιχθύς'>ζώδιο</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='οφιούχος'>φίδι; ζώδιο</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='κουμπί τυχαίας αναπαραγωγής'>βέλος; σταυρωτό</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='κουμπί επανάληψης'>βέλος; δεξιόστροφο; επανάληψη</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='κουμπί επανάληψης ενός'>βέλος; δεξιόστροφο; μία φορά</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='κουμπί αναπαραγωγής'>βέλος; αναπαραγωγή; δεξιά; τρίγωνο</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='κουμπί μεταφοράς προς τα εμπρός'>βέλος; διπλό; γρήγορα; μεταφορά προς τα εμπρός</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='κουμπί επόμενου κομματιού'>βέλος; επόμενη σκηνή; επόμενο κομμάτι; τρίγωνο</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='κουμπί αναπαραγωγής ή παύσης'>βέλος; παύση; αναπαραγωγή; δεξιά; τρίγωνο</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='κουμπί αναπαραγωγής ανάποδα'>βέλος; αριστερά; ανάποδα; τρίγωνο</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='κουμπί μεταφοράς προς τα πίσω'>βέλος; διπλό; μεταφορά προς τα πίσω</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='κουμπί τελευταίου κομματιού'>βέλος; προηγούμενη σκηνή; προηγούμενο κομμάτι τρίγωνο</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='κουμπί πάνω'>βέλος; κουμπί; κόκκινο</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='κουμπί πάνω γρήγορα'>βέλος; διπλό</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='κουμπί κάτω'>βέλος; κουμπί; κάτω; κόκκινο</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='κουμπί κάτω γρήγορα'>βέλος; διπλό; κάτω</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='κουμπί παύσης'>γραμμή; διπλή; παύση; κάθετη</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='κουμπί διακοπής'>τετράγωνο; διακοπή</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='κουμπί εγγραφής'>κύκλος; εγγραφή</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='κουμπί εξαγωγής'>εξαγωγή</annotation>
+
+		<!-- cinema; camera; film; movie -->
+		<annotation cp='[🎦]' tts='κινηματογράφος'>κάμερα; φιλμ; ταινία</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='κουμπί μείωσης φωτισμού'>φωτεινότητα; φωτισμός; χαμηλός</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='κουμπί αύξησης φωτισμού'>φωτεινός; φωτεινότητα</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='γραμμές έντασης σήματος'>κεραία; γραμμή; κινητό; τηλέφωνο; σήμα</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='απαγορεύονται τα κινητά'>κινητό; απαγορεύεται; όχι; δεν; τηλέφωνο; απαγορευμένο; </annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='λειτουργία δόνησης'>κινητό; λειτουργία; τηλέφωνο; δόνηση</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='κινητό απενεργοποιημένο'>κινητό; απενεργοποιημένο; τηλέφωνο</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='πλήκτρο αριθμού'>δίεση; πλήκτρο; </annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='πλήκτρο αστερίσκου'>αστερίσκος; πλήκτρο; αστέρι</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='πλήκτρο 0'>0; πλήκτρο; μηδέν</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='πλήκτρο 1'>1; πλήκτρο; ένα</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='πλήκτρο 2'>2; πλήκτρο; δύο</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='πλήκτρο 3'>3; πλήκτρο; τρία</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='πλήκτρο 4'>4; τέσσερα; πλήκτρο</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='πλήκτρο 5'>5; πέντε; πλήκτρο</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='πλήκτρο 6'>6; πλήκτρο; έξι</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='πλήκτρο 7'>7; πλήκτρο; επτά</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='πλήκτρο 8'>8; οκτώ; πλήκτρο</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='πλήκτρο 9'>9; πλήκτρο; εννιά</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='πλήκτρο 10'>10; πλήκτρο; δέκα</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='εκατό πόντοι'>100; πλήρες; εκατό; βαθμολογία</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='μόνο άνω των 18'>18; ηλικιακός περιορισμός; δεκαοκτώ; απαγορεύεται; όχι; δεν; κάτω από το όριο ηλικίας</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='κεφαλαία λατινικά'>εισαγωγή; λατινικά; γράμματα; κεφαλαία</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='πεζά λατινικά'>abcd; εισαγωγή; λατινικά; γράμματα; πεζά</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
+		<annotation cp='[🔢]' tts='αριθμοί'>1234; εισαγωγή</annotation>
+
+		<!-- input symbols; input -->
+		<annotation cp='[🔣]' tts='σύμβολα'>εισαγωγή</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='λατινικά γράμματα'>abc; αλφάβητος; εισαγωγή; λατινικά; γράμματα</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='κουμπί α'>a; αίμα</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='κουμπί αβ'>ab; αίμα</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='κουμπί β'>b; αίμα</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='cl σε τετράγωνο'>cl</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='cool σε τετράγωνο'>cool; τέλεια</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='free σε τετράγωνο'>free; δωρεάν</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='πηγή πληροφοριών'>i; πληροφορίες</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='id σε τετράγωνο'>id; ταυτότητα</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='μ σε κύκλο'>κύκλος; m</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='new σε τετράγωνο'>new; νέος</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='ng σε τετράγωνο'>ng</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='κουμπί ο'>αίμα; o</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='οκ σε τετράγωνο'>ok</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='κουμπί p'>πάρκινγκ</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='sos σε τετράγωνο'>βοήθεια; sos</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='κουμπί up!'>σήμανση; up; επάνω</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='vs σε τετράγωνο'>εναντίον; vs</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='κατακάνα koko σε τετράγωνο'>ιαπωνικό</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='κατακάνα sa σε τετράγωνο'>ιαπωνικό</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='ιδεόγραμμα σελήνης σε τετράγωνο'>ιαπωνικό</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='ιδεόγραμμα ύπαρξης σε τετράγωνο'>ιαπωνικό</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='ιδεόγραμμα δαχτύλου σε τετράγωνο'>ιαπωνικό</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='ιδεόγραμμα πλεονεκτήματος σε κύκλο'>ιαπωνικό</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='ιδεόγραμμα διαίρεσης σε τετράγωνο'>ιαπωνικό</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='ιδεόγραμμα άρνησης σε τετράγωνο'>ιαπωνικό</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='ιδεόγραμμα απαγόρευσης σε τετράγωνο'>ιαπωνικό</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='ιδεόγραμμα αποδοχής σε κύκλο'>κινέζικο</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='ιδεόγραμμα εφαρμογής σε τετράγωνο'>κινέζικο</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='ιδεόγραμμα μαζί σε τετράγωνο'>κινέζικο</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='ιδεόγραμμα κενού σε τετράγωνο'>κινέζικο</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='ιδεόγραμμα συγχαρητηρίων σε κύκλο'>κινέζικο; συγχαρητήρια; ιδεόγραμμα</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='ιδεόγραμμα μυστικού σε κύκλο'>κινέζικο; ιδεόγραμμα; μυστικό</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='ιδεόγραμμα λειτουργίας σε τετράγωνο'>κινέζικο</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='ιδεόγραμμα πληρότητας σε τετράγωνο'>κινέζικο</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='μικρό μαύρο τετράγωνο'>γεωμετρικό; τετράγωνο</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='μικρό λευκό τετράγωνο'>γεωμετρικό; τετράγωνο</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='μεσαίο λευκό τετράγωνο'>γεωμετρικό; τετράγωνο</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='μεσαίο μαύρο τετράγωνο'>γεωμετρικό; τετράγωνο</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='μικρομεσαίο λευκό τετράγωνο'>γεωμετρικό; τετράγωνο</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='μικρομεσαίο μαύρο τετράγωνο'>γεωμετρικό; τετράγωνο</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='μεγάλο μαύρο τετράγωνο'>γεωμετρικό; τετράγωνο</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='μεγάλο λευκό τετράγωνο'>γεωμετρικό; τετράγωνο</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='μεγάλος πορτοκαλί ρόμβος'>διαμάντι; γεωμετρικό; πορτοκαλί</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='μεγάλος μπλε ρόμβος'>μπλε; διαμάντι; γεωμετρικό</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='μικρός πορτοκαλί ρόμβος'>διαμάντι; γεωμετρικό; πορτοκαλί</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='μικρός μπλε ρόμβος'>μπλε; διαμάντι; γεωμετρικό</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='κόκκινο τρίγωνο πάνω'>γεωμετρικό; κόκκινο</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='κόκκινο τρίγωνο κάτω'>κάτω; γεωμετρικό; κόκκινο</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='ρόμβος με τελεία'>κόμικ; διαμάντι; γεωμετρικό; μέσα</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='στρογγυλό κουμπί'>κουμπί; γεωμετρικό; ραδιόφωνο</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='μαύρο τετράγωνο κουμπί'>κουμπί; γεωμετρικό; τετράγωνο</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='λευκό τετράγωνο κουμπί'>κουμπί; γεωμετρικό; με περίγραμμα; τετράγωνο</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='λευκός κύκλος'>κύκλος; γεωμετρικό</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='μαύρος κύκλος'>κύκλος; γεωμετρικό</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='κόκκινος κύκλος'>κύκλος; γεωμετρικό; κόκκινο</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='μπλε κύκλος'>μπλε; κύκλος; γεωμετρικό</annotation>
+	</annotations>
+</ldml>

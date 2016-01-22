@@ -1,0 +1,2128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+ -->
+<ldml>
+	<identity>
+		<version number='$Revision: 10585 $' />
+		<language type='ca'/>
+	</identity>
+	<annotations>
+
+		<!-- grinning face; face; grin -->
+		<annotation cp='[😀]' tts='cara molt somrient'>cara; ulls; somriure</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
+		<annotation cp='[😁]' tts='cara molt somrient amb els ulls alegres'>cara; ulls; gran somriure</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
+		<annotation cp='[😂]' tts='cara amb llàgrimes d&apos;alegria'>cara; llàgrimes; alegria</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
+		<annotation cp='[😃]' tts='cara somrient amb la boca oberta'>cara; boca oberta</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
+		<annotation cp='[😄]' tts='cara somrient amb la boca oberta i els ulls alegres'>cara; boca oberta; somriure</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
+		<annotation cp='[😅]' tts='cara somrient amb la boca oberta i suor freda'>cara; suor freda; somriure</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
+		<annotation cp='[😆]' tts='cara somrient amb la boca oberta i els ulls tancats fortament'>cara; somriure; boca oberta; ulls tancats</annotation>
+
+		<!-- winking face; face; wink -->
+		<annotation cp='[😉]' tts='cara picant l&apos;ullet'>cara; ullet</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
+		<annotation cp='[😊]' tts='cara somrient amb els ulls alegres'>cara; somriure; galtes vermelles</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
+		<annotation cp='[😋]' tts='cara d&apos;assaborir un menjar deliciós'>cara; deliciós; somriure; nyam</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
+		<annotation cp='[😎]' tts='cara somrient amb ulleres de sol'>cara; ulleres; sol</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
+		<annotation cp='[😍]' tts='cara somrient amb ulls en forma de cor'>cara; ulls; cor; amor</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
+		<annotation cp='[😘]' tts='cara llançant un petó'>cara; petó; cor; amor</annotation>
+
+		<!-- kissing face; face; kiss -->
+		<annotation cp='[😗]' tts='cara que fa un petó'>cara; petó</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
+		<annotation cp='[😙]' tts='cara que fa un petó amb els ulls alegres'>cara; petó; ulls alegres</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
+		<annotation cp='[😚]' tts='cara que fa un petó amb els ulls tancats'>cara; petó; ulls tancats</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
+		<annotation cp='[☺]' tts='cara somrient'>cara; somriure</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='cara que somriu una mica'>cara; somriure tímid</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='cara amb abraçada'>cara; abraçada</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
+		<annotation cp='[😇]' tts='cara somrient amb aurèola'>cara; aurèola, halo; sant; santa</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='cara pensant'>cara; pensant; pensatiu; pensativa</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
+		<annotation cp='[😐]' tts='cara neutral'>cara; neutral</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
+		<annotation cp='[😑]' tts='cara inexpressiva'>cara; inexpressió; inexpressiu; inexpressiva</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
+		<annotation cp='[😶]' tts='cara sense boca'>cara; sense boca; callat; callada; silenci</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='cara amb ulls en blanc'>cara; ulls en blanc</annotation>
+
+		<!-- smirking face; face; smirk -->
+		<annotation cp='[😏]' tts='cara somrient amb superioritat'>cara; superioritat</annotation>
+
+		<!-- persevering face; face; persevere -->
+		<annotation cp='[😣]' tts='cara de perseverança'>cara; perseverança</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
+		<annotation cp='[😥]' tts='cara de decepció, però alleujada'>cara; decepció; alleujament; uf</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
+		<annotation cp='[😮]' tts='cara amb la boca oberta'>cara; boca oberta</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='cara amb la boca tancada amb cremallera'>cara; boca; cremallera</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
+		<annotation cp='[😯]' tts='cara de sorpresa'>cara; sorpresa</annotation>
+
+		<!-- sleepy face; face; sleep -->
+		<annotation cp='[😪]' tts='cara de son'>cara; son</annotation>
+
+		<!-- tired face; face; tired -->
+		<annotation cp='[😫]' tts='cara de cansament'>cara; cansament</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
+		<annotation cp='[😴]' tts='cara dormint'>cara; zzz; dormint; son</annotation>
+
+		<!-- relieved face; face; relieved -->
+		<annotation cp='[😌]' tts='cara d&apos;alleujament'>cara; alleujament</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='cara d&apos;estudiós'>cara; expert; aplicat; estudiós; estudiar</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
+		<annotation cp='[😛]' tts='cara que fa llengotes'>cara; llengua; llengota</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
+		<annotation cp='[😜]' tts='cara que fa llengotes i pica l&apos;ullet'>cara; llengua; llengota; ullet</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
+		<annotation cp='[😝]' tts='cara que fa llengotes i amb els ulls tancats'>cara; llengua; llengota; ulls tancats; ecs</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='cara empipada'>cara; empipat; emmurriat; enfadat</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='cara una mica empipada'>cara; empipat; emmurriat; enfadat</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
+		<annotation cp='[😒]' tts='cara de desaprovació'>cara; desaprovació</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
+		<annotation cp='[😓]' tts='cara amb suor freda'>cara; suor freda</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
+		<annotation cp='[😔]' tts='cara entristida'>cara; pensativa</annotation>
+
+		<!-- confused face; confused; face -->
+		<annotation cp='[😕]' tts='cara de confusió'>cara; confusió</annotation>
+
+		<!-- confounded face; confounded; face -->
+		<annotation cp='[😖]' tts='cara de frustració'>cara; frustració</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='cara al revés'>cara; revés</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
+		<annotation cp='[😷]' tts='cara amb màscara'>cara; màscara; malaltia</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='cara amb termòmetre'>cara; termòmetre; malaltia</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='cara amb el cap embenat'>cara; cap embenat</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='cara amb diners a la llengua'>cara; diners; llengua</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
+		<annotation cp='[😲]' tts='cara estupefacta'>cara; estupefacta</annotation>
+
+		<!-- disappointed face; disappointed; face -->
+		<annotation cp='[😞]' tts='cara de decepció'>cara; decepció</annotation>
+
+		<!-- worried face; face; worried -->
+		<annotation cp='[😟]' tts='cara de preocupació'>cara; preocupació</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
+		<annotation cp='[😤]' tts='cara que treu fum del nas'>cara; fum; nas</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
+		<annotation cp='[😢]' tts='cara que plora'>cara; llàgrimes</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
+		<annotation cp='[😭]' tts='cara que plora desconsoladament'>cara; llàgrimes de desconsol</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
+		<annotation cp='[😦]' tts='cara emmurriada amb la boca oberta'>cara; emmurriada; boca oberta</annotation>
+
+		<!-- anguished face; anguished; face -->
+		<annotation cp='[😧]' tts='cara d&apos;angoixa'>cara; angoixa</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
+		<annotation cp='[😨]' tts='cara de por'>cara; por</annotation>
+
+		<!-- weary face; face; tired; weary -->
+		<annotation cp='[😩]' tts='cara d&apos;esgotament'>cara; esgotament</annotation>
+
+		<!-- grimacing face; face; grimace -->
+		<annotation cp='[😬]' tts='cara que fa una ganyota amb les dents'>cara; ganyota; dents</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
+		<annotation cp='[😰]' tts='cara amb la boca oberta i suor freda'>cara; boca oberta, suor freda</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
+		<annotation cp='[😱]' tts='cara que crida de por'>cara; crit de por; por</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
+		<annotation cp='[😳]' tts='cara enrogida'>cara; enrogida; vergonya</annotation>
+
+		<!-- dizzy face; dizzy; face -->
+		<annotation cp='[😵]' tts='cara marejada'>cara; marejada</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
+		<annotation cp='[😡]' tts='cara enutjada'>cara; enutjada</annotation>
+
+		<!-- angry face; angry; face; mad -->
+		<annotation cp='[😠]' tts='cara enfadada'>cara; enfadada</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
+		<annotation cp='[😈]' tts='cara somrient amb banyes'>cara; somriure; banyes; dimoni</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
+		<annotation cp='[👿]' tts='dimoniet'>dimoni</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
+		<annotation cp='[💀]' tts='crani'>calavera</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='crani amb ossos'>crani; ossos; calavera</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
+		<annotation cp='[👾]' tts='monstre alienígena'>monstre; alienígena</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='cara de robot'>cara; robot</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
+		<annotation cp='[💩]' tts='caca'>merda</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
+		<annotation cp='[😺]' tts='cara de gat somrient amb la boca oberta'>cara; gat; somrient; boca oberta</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
+		<annotation cp='[😸]' tts='cara de gat somrient amb els ulls alegres'>cara; gat; somrient; ulls alegres</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
+		<annotation cp='[😹]' tts='cara de gat amb llàgrimes d&apos;alegria'>cara; gat; llàgrimes; alegria</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
+		<annotation cp='[😻]' tts='cara de gat somrient amb ulls en forma de cor'>cara; gat; somriure, ulls; cor</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
+		<annotation cp='[😼]' tts='cara de gat amb somriure irònic'>cara; gat; somriure; ironia</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
+		<annotation cp='[😽]' tts='cara de gat que fa un petó amb els ulls tancats'>cara; gat; petó; ulls tancats</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
+		<annotation cp='[🙀]' tts='cara de gat esgotada'>cara; gat; esgotament</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
+		<annotation cp='[😿]' tts='cara de gat que plora'>cara; gat; llàgrimes</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
+		<annotation cp='[😾]' tts='cara de gat enutjada'>cara; gat; enuig</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
+		<annotation cp='[🙈]' tts='mona que no mira'>mona; ulls tapats</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
+		<annotation cp='[🙉]' tts='mona que no escolta'>mona; orelles tapades</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
+		<annotation cp='[🙊]' tts='mona que no parla'>mona; boca tapada</annotation>
+
+		<!-- old man; man; old -->
+		<annotation cp='[👴]' tts='home gran'>home; gran</annotation>
+
+		<!-- old woman; old; woman -->
+		<annotation cp='[👵]' tts='dona gran'>dona; gran</annotation>
+
+		<!-- person with blond hair; blond -->
+		<annotation cp='[👱]' tts='persona amb els cabells rossos'>persona; cabells rossos</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
+		<annotation cp='[👲]' tts='home amb gorra de xinès'>home; gorra; xinès</annotation>
+
+		<!-- man with turban; man; turban -->
+		<annotation cp='[👳]' tts='home amb turbant'>home; turbant</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
+		<annotation cp='[👷]' tts='treballador de la construcció'>treballador; construcció</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='casc amb creu blanca'>casc; creu blanca</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
+		<annotation cp='[🎅]' tts='pare Noel'>pare; Noel; Nadal</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
+		<annotation cp='[💇]' tts='tallat de cabells'>tallat; cabells</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
+		<annotation cp='[👰]' tts='núvia amb vel'>núvia; vel</annotation>
+
+		<!-- person frowning; frown; gesture -->
+		<annotation cp='[🙍]' tts='persona emmurriada'>persona; emmurriament</annotation>
+
+		<!-- person pouting; gesture; pouting -->
+		<annotation cp='[🙎]' tts='persona enutjada'>persona; enuig</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
+		<annotation cp='[🙅]' tts='gest de negació'>gest; negació</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
+		<annotation cp='[🙆]' tts='gest d&apos;aprovació'>gest; aprovació</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
+		<annotation cp='[🙋]' tts='persona contenta que aixeca la mà'>persona; somriure; mà aixecada</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
+		<annotation cp='[🙇]' tts='persona que mostra agraïment'>persona; agraïment</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
+		<annotation cp='[🙌]' tts='persona que aixeca les mans'>mans aixecades</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
+		<annotation cp='[🙏]' tts='mans en oració'>mans; oració</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='persona que parla'>persona; parlar</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
+		<annotation cp='[👤]' tts='silueta d&apos;un bust'>bust; silueta</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
+		<annotation cp='[👥]' tts='silueta de bustos'>bustos; siluetes</annotation>
+
+		<!-- runner; marathon; running -->
+		<annotation cp='[🏃]' tts='persona que corre'>corredor</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
+		<annotation cp='[👯]' tts='dones que ballen'>balladores</annotation>
+
+		<!-- dancer -->
+		<annotation cp='[💃]' tts='dansaire'>flamenca</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='home de negocis que levita'>negocis; home; levitar</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
+		<annotation cp='[💑]' tts='parella amb un cor'>parella; cor</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
+		<annotation cp='[👫]' tts='home i dona que s&apos;agafen de la mà'>home; dona; mans agafades</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
+		<annotation cp='[👬]' tts='homes que s&apos;agafen de la mà'>homes; mans agafades</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
+		<annotation cp='[👭]' tts='dones que s&apos;agafen de la mà'>dones; mans agafades</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='tipus de pell 1-2'>pell; 1-2</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='tipus de pell 3'>pell; 3</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='tipus de pell 4'>pell; 4</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='tipus de pell 5'>pell; 5</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='tipus de pell 6'>pell; 6</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
+		<annotation cp='[💪]' tts='bíceps flexionat'>bíceps; flexió</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='dit índex que apunta cap a l&apos;esquerra'>índex; esquerra</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='dit índex que apunta cap a la dreta'>índex; dreta</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='índex que apunta cap amunt'>índex; amunt</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
+		<annotation cp='[👆]' tts='dit índex que apunta cap amunt'>dit índex; amunt</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
+		<annotation cp='[👇]' tts='dit índex que apunta cap avall'>índex; avall</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
+		<annotation cp='[✌]' tts='senyal de la victòria'>senyal; victòria</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='salutació vulcaniana'>spock</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='dits en forma de banyes'>dits; banyes; rock</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='mà alçada que ensenya els dits'>mà alçada; dits</annotation>
+
+		<!-- ok hand; body; hand; ok -->
+		<annotation cp='[👌]' tts='mà d&apos;acceptació'>mà; acceptació; ok</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
+		<annotation cp='[👍]' tts='polze cap amunt'>polze; amunt</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
+		<annotation cp='[👎]' tts='polze cap avall'>polze; avall</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[✊]' tts='puny alçat'>puny</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
+		<annotation cp='[👊]' tts='puny'>a prop</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
+		<annotation cp='[👋]' tts='mà que saluda'>mà; salutació</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
+		<annotation cp='[👏]' tts='mans que aplaudeixen'>mans; aplaudiment</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='mà que escriu'>mà; escriure</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
+		<annotation cp='[💅]' tts='esmalt d&apos;ungles'>mà; esmalt</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
+		<annotation cp='[💋]' tts='marca de petó'>marca; petó</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
+		<annotation cp='[💘]' tts='cor amb fletxa'>cor; fletxa</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='cor vermell'>cor</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
+		<annotation cp='[💓]' tts='cor que batega'>cor; batec</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
+		<annotation cp='[💖]' tts='cor espurnejant'>cor; espurneig</annotation>
+
+		<!-- blue heart; blue; heart -->
+		<annotation cp='[💙]' tts='cor blau'>cor; blau</annotation>
+
+		<!-- green heart; green; heart -->
+		<annotation cp='[💚]' tts='cor verd'>cor; verd</annotation>
+
+		<!-- yellow heart; heart; yellow -->
+		<annotation cp='[💛]' tts='cor groc'>cor; groc</annotation>
+
+		<!-- purple heart; heart; purple -->
+		<annotation cp='[💜]' tts='cor lila'>cor; lila</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
+		<annotation cp='[💝]' tts='cor amb un llaç'>cor; llaç</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
+		<annotation cp='[💞]' tts='cors que giren'>cors; gir</annotation>
+
+		<!-- heart decoration; heart -->
+		<annotation cp='[💟]' tts='cor decoratiu'>cor; decoratiu</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='exclamació en forma de cor'>exclamació; cor; decoratiu</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
+		<annotation cp='[💌]' tts='carta d&apos;amor'>carta; amor</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
+		<annotation cp='[💦]' tts='gotes de suor'>gotes; suor</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
+		<annotation cp='[💬]' tts='bafarada de parlar'>bafarada; parlar</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='bafarada de parlar cap a l&apos;esquerra'>bafarada; parlar; esquerra</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='bafarada de parlar cap a la dreta'>bafarada; parlar; dreta</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
+		<annotation cp='[💭]' tts='bafarada de pensar'>bafarada; pensar</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
+		<annotation cp='[👚]' tts='roba de dona'>roba; dona</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='bosses de la compra'>bosses; compra</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
+		<annotation cp='[🎒]' tts='motxilla d&apos;escola'>motxilla; escola</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
+		<annotation cp='[👞]' tts='sabata d&apos;home'>sabata; home</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
+		<annotation cp='[👟]' tts='sabatilla de córrer'>sabatilla; córrer</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
+		<annotation cp='[👠]' tts='sabata de taló'>sabata; taló</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
+		<annotation cp='[👡]' tts='sandàlia de dona'>sandàlia; dona</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
+		<annotation cp='[👢]' tts='bota de dona'>bota; dona</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
+		<annotation cp='[👒]' tts='barret de dona'>barret; dona</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
+		<annotation cp='[🎩]' tts='barret de copa'>barret; copa</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
+		<annotation cp='[🎓]' tts='barret de graduació'>barret; graduació</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
+		<annotation cp='[💎]' tts='gemma'>diamant</annotation>
+
+		<!-- monkey face; face; monkey -->
+		<annotation cp='[🐵]' tts='cara de mona'>cara; mona</annotation>
+
+		<!-- dog face; dog; face; pet -->
+		<annotation cp='[🐶]' tts='cara de gos'>cara; gos</annotation>
+
+		<!-- wolf face; face; wolf -->
+		<annotation cp='[🐺]' tts='cara de llop'>cara; llop</annotation>
+
+		<!-- cat face; cat; face; pet -->
+		<annotation cp='[🐱]' tts='cara de gat'>cara; gat</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='cara de lleó'>cara; lleó</annotation>
+
+		<!-- tiger face; face; tiger -->
+		<annotation cp='[🐯]' tts='cara de tigre'>cara; tigre</annotation>
+
+		<!-- horse face; face; horse -->
+		<annotation cp='[🐴]' tts='cara de cavall'>cara; cavall</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='cara d&apos;unicorn'>cara; unicorn</annotation>
+
+		<!-- cow face; cow; face -->
+		<annotation cp='[🐮]' tts='cara de vaca'>cara; vaca</annotation>
+
+		<!-- water buffalo; buffalo; water -->
+		<annotation cp='[🐃]' tts='búfal aquàtic'>búfal</annotation>
+
+		<!-- pig face; face; pig -->
+		<annotation cp='[🐷]' tts='cara de porc'>cara; porc</annotation>
+
+		<!-- pig nose; face; nose; pig -->
+		<annotation cp='[🐽]' tts='nas de porc'>nas; porc</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
+		<annotation cp='[🐫]' tts='camell'>gepes</annotation>
+
+		<!-- mouse face; face; mouse -->
+		<annotation cp='[🐭]' tts='cara de ratolí'>cara; ratolí</annotation>
+
+		<!-- mouse -->
+		<annotation cp='[🐁]' tts='ratolí'>animal</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
+		<annotation cp='[🐹]' tts='cara d&apos;hàmster'>cara; hàmster</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
+		<annotation cp='[🐰]' tts='cara de conill'>cara; conill</annotation>
+
+		<!-- bear face; bear; face -->
+		<annotation cp='[🐻]' tts='cara d&apos;ós'>cara; ós</annotation>
+
+		<!-- panda face; face; panda -->
+		<annotation cp='[🐼]' tts='cara de panda'>cara; panda</annotation>
+
+		<!-- paw prints; feet; paw; print -->
+		<annotation cp='[🐾]' tts='petjades d&apos;animal'>petjades; animal</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
+		<annotation cp='[🐣]' tts='pollet sortint de l&apos;ou'>pollet; ou</annotation>
+
+		<!-- baby chick; baby; chick -->
+		<annotation cp='[🐤]' tts='cara de pollet'>pollet; cara</annotation>
+
+		<!-- frog face; face; frog -->
+		<annotation cp='[🐸]' tts='cara de granota'>cara; granota</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
+		<annotation cp='[🐲]' tts='cara de drac'>cara; drac</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
+		<annotation cp='[🐳]' tts='balena que treu aigua'>balena; aigua</annotation>
+
+		<!-- tropical fish; fish; tropical -->
+		<annotation cp='[🐠]' tts='peix tropical'>peix; tropical</annotation>
+
+		<!-- blowfish; fish -->
+		<annotation cp='[🐡]' tts='peix globus'>peix; globus</annotation>
+
+		<!-- spiral shell; shell; spiral -->
+		<annotation cp='[🐚]' tts='cargol de mar'>cargol; mar</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='escorpí (animal)'>escorpí; animal</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
+		<annotation cp='[🌸]' tts='flor de cirerer'>flor; cirerer</annotation>
+
+		<!-- white flower; flower -->
+		<annotation cp='[💮]' tts='flor blanca'>flor; blanca</annotation>
+
+		<!-- evergreen; plant; tree -->
+		<annotation cp='[🌲]' tts='arbre de fulla perenne'>arbre; perenne</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
+		<annotation cp='[🌳]' tts='arbre de fulla caduca'>arbre; caduc</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
+		<annotation cp='[🌾]' tts='manat d&apos;arròs'>manat; &apos;arròs</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
+		<annotation cp='[🍀]' tts='trèvol de quatre fulles'>trèvol; quatre; fulles</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
+		<annotation cp='[🍁]' tts='fulla d&apos;auró'>fulla; auró</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
+		<annotation cp='[🍂]' tts='fulla seca'>fulla; seca</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
+		<annotation cp='[🍃]' tts='fulla que vola amb el vent'>fulla; vent</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
+		<annotation cp='[🍎]' tts='poma vermella'>poma; vermella</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
+		<annotation cp='[🍏]' tts='poma verda'>poma; verda</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='tall de formatge'>tall; formatge</annotation>
+
+		<!-- meat on bone; bone; meat -->
+		<annotation cp='[🍖]' tts='carn amb os'>carn; os</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
+		<annotation cp='[🍗]' tts='cuixa de pollastre'>cuixa; pollastre</annotation>
+
+		<!-- french fries; french; fries -->
+		<annotation cp='[🍟]' tts='patates fregides'>patates; fregides</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='frankfurt'>hot dog</annotation>
+
+		<!-- pot of food; pot; stew -->
+		<annotation cp='[🍲]' tts='bol de menjar'>bol; menjar</annotation>
+
+		<!-- bento box; bento; box -->
+		<annotation cp='[🍱]' tts='caixa de bento'>caixa; bento</annotation>
+
+		<!-- rice cracker; cracker; rice -->
+		<annotation cp='[🍘]' tts='galeta d&apos;arròs'>galeta; arròs</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
+		<annotation cp='[🍙]' tts='bola d&apos;arròs'>bola; arròs</annotation>
+
+		<!-- cooked rice; cooked; rice -->
+		<annotation cp='[🍚]' tts='arròs bullit'>arròs; bullit</annotation>
+
+		<!-- curry rice; curry; rice -->
+		<annotation cp='[🍛]' tts='arròs al curri'>arròs; curri</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
+		<annotation cp='[🍜]' tts='plat fumejant'>plat; fum</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
+		<annotation cp='[🍠]' tts='moniato rostit'>moniato; rostit</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
+		<annotation cp='[🍤]' tts='gamba fregida'>gamba; fregida</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
+		<annotation cp='[🍥]' tts='pastís de peix amb remolí'>pastís; peix; remolí</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
+		<annotation cp='[🍦]' tts='gelat de màquina'>gelat; màquina</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
+		<annotation cp='[🎂]' tts='pastís d&apos;aniversari'>pastís; aniversari</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
+		<annotation cp='[🍰]' tts='porció de pastís'>pastís; porció</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
+		<annotation cp='[🍫]' tts='rajola de xocolata'>rajola; xocolata</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
+		<annotation cp='[🍯]' tts='pot de mel'>pot; mel</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='beguda calenta'>beguda; calenta</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
+		<annotation cp='[🍵]' tts='tassa de te'>tassa; te</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='ampolla de cava'>ampolla; tap; cava</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
+		<annotation cp='[🍷]' tts='copa de vi'>copa; vi</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
+		<annotation cp='[🍸]' tts='copa de còctel'>copa; còctel</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
+		<annotation cp='[🍹]' tts='beguda tropical'>beguda; tropical</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
+		<annotation cp='[🍺]' tts='gerra de cervesa'>gerra; cervesa</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
+		<annotation cp='[🍻]' tts='brindis amb gerra de cervesa'>brindis; gerra; cervesa</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='forquilla, ganivet i plat'>forquilla, ganivet; plat</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
+		<annotation cp='[🍴]' tts='forquilla i ganivet'>forquilla; ganivet</annotation>
+
+		<!-- cooking; egg; frying; pan -->
+		<annotation cp='[🍳]' tts='ou ferrat'>cuina; ou</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
+		<annotation cp='[🌍]' tts='globus terraqüi amb Europa i Àfrica'>món; Europa; Àfrica</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
+		<annotation cp='[🌎]' tts='globus terraqüi amb Amèrica'>món; Amèrica</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
+		<annotation cp='[🌏]' tts='globus terraqüi amb Àsia i Austràlia'>món; Àsia; Austràlia</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
+		<annotation cp='[🌐]' tts='globus terraqüi amb meridians'>món; meridians</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='mapa del món'>mapa; món</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='muntanya amb neu al cim'>muntanya; neu</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
+		<annotation cp='[🗻]' tts='mont Fuji'>mont; Fuji</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='platja amb para-sol'>platja; para-sol</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='illa deserta'>illa; deserta</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='parc nacional'>parc; nacional</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='edifici clàssic'>edifici; clàssic</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='construcció d&apos;edificis'>construcció; edificis</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='paisatge urbà'>paisatge; urbà</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='casa abandonada'>casa; abandonada</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
+		<annotation cp='[🏡]' tts='casa amb jardí'>casa; jardí</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='santuari xintoista'>santuari; xintoista</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
+		<annotation cp='[🏣]' tts='oficina de correus japonesa'>oficina; correus; japonesa</annotation>
+
+		<!-- post office; building; european; post -->
+		<annotation cp='[🏤]' tts='oficina de correus'>oficina; correus</annotation>
+
+		<!-- love hotel; building; hotel; love -->
+		<annotation cp='[🏩]' tts='hotel de cites'>hotel; cites</annotation>
+
+		<!-- convenience store; building; convenience; store -->
+		<annotation cp='[🏪]' tts='botiga local'>botiga</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
+		<annotation cp='[🏯]' tts='castell japonès'>castell; japonès</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
+		<annotation cp='[🗼]' tts='torre de Tòquio'>torre; Tòquio</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
+		<annotation cp='[🗽]' tts='estàtua de la Llibertat'>estàtua; Llibertat</annotation>
+
+		<!-- map of japan; japan; map -->
+		<annotation cp='[🗾]' tts='mapa del Japó'>mapa; Japó</annotation>
+
+		<!-- foggy; fog; weather -->
+		<annotation cp='[🌁]' tts='paisatge emboirat'>paisatge; boira</annotation>
+
+		<!-- night with stars; night; star; weather -->
+		<annotation cp='[🌃]' tts='nit estrellada'>nit; estrelles</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
+		<annotation cp='[🌄]' tts='posta de sol sobre les muntanyes'>posta de sol; muntanyes</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
+		<annotation cp='[🌆]' tts='paisatge urbà al vespre'>paisatge urbà; vespre</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
+		<annotation cp='[🌇]' tts='posta de sol'>ciutat</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
+		<annotation cp='[🌉]' tts='pont de nit'>pont; nit</annotation>
+
+		<!-- carousel horse; carousel; horse -->
+		<annotation cp='[🎠]' tts='cavallets'>atraccions</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
+		<annotation cp='[🎡]' tts='roda de fira'>roda; fira</annotation>
+
+		<!-- circus tent; circus; tent -->
+		<annotation cp='[🎪]' tts='vela de circ'>vela; circ</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
+		<annotation cp='[🎭]' tts='arts interpretatives'>arts; interpretació</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
+		<annotation cp='[🎨]' tts='paleta d&apos;artista'>paleta; artista</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
+		<annotation cp='[🚃]' tts='vagó de tren elèctric'>vagó; tren elèctric</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚄]' tts='tren d&apos;alta velocitat'>tren; alta velocitat</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
+		<annotation cp='[🚅]' tts='tren bala'>tren; alta velocitat; bala</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
+		<annotation cp='[🚞]' tts='ferrocarril de muntanya'>ferrocarril; muntanya</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
+		<annotation cp='[🚋]' tts='vagó de tramvia'>vagó; tramvia</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
+		<annotation cp='[🚍]' tts='autobús que arriba'>autobús; proper</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
+		<annotation cp='[🚏]' tts='parada d&apos;autobús'>parada; autobús</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
+		<annotation cp='[🚒]' tts='cotxe de bombers'>cotxe; bombers</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
+		<annotation cp='[🚓]' tts='cotxe de policia'>cotxe; policia</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
+		<annotation cp='[🚔]' tts='cotxe de policia que arriba'>cotxe; policia; proper</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
+		<annotation cp='[🚖]' tts='taxi que arriba'>taxi; proper</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
+		<annotation cp='[🚘]' tts='automòbil que arriba'>automòbil; proper</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
+		<annotation cp='[🚙]' tts='vehicle recreatiu'>vehicle; recreatiu</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
+		<annotation cp='[🚚]' tts='camió de repartiment'>camió; repartiment</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
+		<annotation cp='[🚛]' tts='camió articulat'>camió; articulat</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
+		<annotation cp='[⛽]' tts='assortidor de gasolina'>assortidor; gasolina</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='via de tren'>via; tren</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
+		<annotation cp='[🚨]' tts='llum de cotxe de policia'>llum; cotxe; policia</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
+		<annotation cp='[🚥]' tts='semàfor horitzontal'>semàfor; horitzontal</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
+		<annotation cp='[🚦]' tts='semàfor vertical'>semàfor; vertical</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='bot de rems'>bot; rems</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='llanxa ràpida'>llanxa; ràpida</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='vaixell de passatgers'>vaixell; passatgers</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='ferri'>vaixell</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='llanxa de motor'>llanxa; motor; vaixell</annotation>
+
+		<!-- ship; vehicle -->
+		<annotation cp='[🚢]' tts='vaixell'>vehicle</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='avió'>vehicle</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='avioneta'>vehicle</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='enlairament d&apos;avió'>avió; enlairament; vehicle; sortida</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='aterratge d&apos;avió'>avió; aterratge; arribada; vehicle</annotation>
+
+		<!-- seat; chair -->
+		<annotation cp='[💺]' tts='seient'>cadira</annotation>
+
+		<!-- helicopter; vehicle -->
+		<annotation cp='[🚁]' tts='helicòpter'>vehicle</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
+		<annotation cp='[🚟]' tts='ferrocarril de suspensió'>ferrocarril; suspensió; vehicle</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='telefèric de muntanya'>telefèric; muntanya; vehicle</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='tramvia aeri'>tramvia; aeri; vehicle</annotation>
+
+		<!-- rocket; space; vehicle -->
+		<annotation cp='[🚀]' tts='coet'>espai; vehicle; espacial</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='satèl·lit'>espai; vehicle; espacial</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='timbre del grum'>timbre; grum; hotel; recepció</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='persona al llit'>persona; llit; hotel; dormir</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='llit'>hotel; dormir</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='sofà i làmpada'>sofà; làmpada</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
+		<annotation cp='[🛀]' tts='persona a la banyera'>persona; banyera; bany</annotation>
+
+		<!-- bathtub; bath -->
+		<annotation cp='[🛁]' tts='banyera'>bany</annotation>
+
+		<!-- hourglass; sand; timer -->
+		<annotation cp='[⌛]' tts='rellotge de sorra'>rellotge; sorra</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
+		<annotation cp='[⏳]' tts='rellotge amb sorra que cau'>rellotge; sorra</annotation>
+
+		<!-- watch; clock -->
+		<annotation cp='[⌚]' tts='rellotge'>hora</annotation>
+
+		<!-- alarm clock; alarm; clock -->
+		<annotation cp='[⏰]' tts='alarma'>rellotge</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='cronòmetre'>rellotge</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='temporitzador'>rellotge</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='rellotge de taula'>rellotge; taula</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
+		<annotation cp='[🕛]' tts='les dotze en punt'>00; 12; 12:00, 00:00, rellotge; dotze; en punt; migdia; mitjanit</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
+		<annotation cp='[🕧]' tts='dos quarts d&apos;una'>12; 00; 12:30; 00:30; 30; rellotge; dos quarts; una; dotze; trenta</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
+		<annotation cp='[🕐]' tts='la una en punt'>13; 1; 1:00; 13:00; rellotge; una; en punt</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
+		<annotation cp='[🕜]' tts='dos quarts de dues'>13; 1; 13:30; 1:30; 30; rellotge; dos quarts; dues; una; trenta</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
+		<annotation cp='[🕑]' tts='les dues en punt'>14; 2; 2:00; 14:00; rellotge; dues; en punt</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
+		<annotation cp='[🕝]' tts='dos quarts de tres'>14; 2; 14:30; 2:30; 30; rellotge; dos quarts; tres; dues; trenta</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
+		<annotation cp='[🕒]' tts='les tres en punt'>15; 3; 3:00; 15:00; rellotge; tres; en punt</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
+		<annotation cp='[🕞]' tts='dos quarts de quatre'>15; 3; 15:30; 3:30; 30; rellotge; dos quarts; quatre; tres; trenta</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
+		<annotation cp='[🕓]' tts='les quatre en punt'>16; 4; 4:00; 16:00; rellotge; quatre; en punt</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
+		<annotation cp='[🕟]' tts='dos quarts de cinc'>16; 4; 16:30; 4:30; 30; rellotge; dos quarts; cinc; quatre; trenta</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
+		<annotation cp='[🕔]' tts='les cinc en punt'>17; 5; 5:00; 17:00; rellotge; cinc; en punt</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
+		<annotation cp='[🕠]' tts='dos quarts de sis'>17; 5; 17:30; 5:30; 30; rellotge; dos quarts; sis; cinc; trenta</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
+		<annotation cp='[🕕]' tts='les sis en punt'>18; 6; 6:00; 18:00; rellotge; sis; en punt</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
+		<annotation cp='[🕡]' tts='dos quarts de set'>18; 6; 18:30; 6:30; 30; rellotge; dos quarts; set; sis; trenta</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='les set en punt'>19; 7; 7:00; 19:00; rellotge; set; en punt</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
+		<annotation cp='[🕢]' tts='dos quarts de vuit'>19; 7; 19:30; 7:30; 30; rellotge; dos quarts; vuit; set; trenta</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
+		<annotation cp='[🕗]' tts='les vuit en punt'>20; 8; 8:00; 20:00; rellotge; vuit; en punt</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
+		<annotation cp='[🕣]' tts='dos quarts de nou'>20; 8; 20:30; 8:30; 30; rellotge; dos quarts; nou; vuit; trenta</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
+		<annotation cp='[🕘]' tts='les nou en punt'>21; 9; 9:00; 21:00; rellotge; nou; en punt</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
+		<annotation cp='[🕤]' tts='dos quarts de deu'>21; 9; 21:30; 9:30; 30; rellotge; dos quarts; deu; nou; trenta</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
+		<annotation cp='[🕙]' tts='les deu en punt'>22; 10; 10:00; 22:00; rellotge; deu; en punt</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
+		<annotation cp='[🕥]' tts='dos quarts d&apos;onze'>22; 10; 22:30; 10:30; 30; rellotge; dos quarts; onze; deu; trenta</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
+		<annotation cp='[🕚]' tts='les onze en punt'>23; 11; 11:00; 23:00; rellotge; onze; en punt</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
+		<annotation cp='[🕦]' tts='dos quarts de dotze'>23; 11; 23:30; 11:30; 30; rellotge; dos quarts; dotze; onze; trenta</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
+		<annotation cp='[🌑]' tts='lluna nova'>lluna; nova</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
+		<annotation cp='[🌒]' tts='lluna en quart creixent'>lluna; quart; creixent</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌓]' tts='lluna en el primer quart creixent'>lluna; quart; creixent</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
+		<annotation cp='[🌔]' tts='lluna gibosa creixent'>lluna; gibosa; creixent</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
+		<annotation cp='[🌕]' tts='lluna plena'>lluna; plena</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
+		<annotation cp='[🌖]' tts='lluna gibosa minvant'>lluna; gibosa; minvant</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
+		<annotation cp='[🌗]' tts='lluna en l&apos;últim quart minvant'>lluna; quart; minvant</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
+		<annotation cp='[🌘]' tts='lluna minvant'>lluna; minvant</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
+		<annotation cp='[🌙]' tts='lluna creixent'>lluna; creixent</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
+		<annotation cp='[🌚]' tts='cara de lluna nova'>cara; lluna nova</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌛]' tts='lluna en el primer quart amb cara'>lluna; quart; creixent; cara</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
+		<annotation cp='[🌜]' tts='lluna en l&apos;últim quart amb cara'>lluna; quart; minvant; cara</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='termòmetre'>temperatura</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='sol'>solejat; temps</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
+		<annotation cp='[🌝]' tts='lluna plena amb cara'>lluna; plena; cara</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
+		<annotation cp='[🌞]' tts='sol amb cara'>sol; cara</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='estrella blanca mitjana'>estrella</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
+		<annotation cp='[🌟]' tts='estrella brillant'>estrella; brillant</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
+		<annotation cp='[🌠]' tts='estrella fugaç'>estrella; fugaç; cel; espai</annotation>
+
+		<!-- cloud; weather -->
+		<annotation cp='[☁]' tts='núvol'>temps</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
+		<annotation cp='[⛅]' tts='sol darrere un núvol'>sol; núvol; temps</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='núvol amb llamp i pluja'>núvol; llamp; pluja; temps</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='sol darrere d&apos;un núvol petit'>sol; núvol petit; temps</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='sol darrere d&apos;un núvol gran'>sol; núvol gran; temps</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='sol darrere un núvol amb pluja'>sol; núvol; pluja; temps</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='núvol amb pluja'>núvol; pluja; temps</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='núvol amb neu'>núvol; neu; temps</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='núvol amb llamp'>núvol; llamp; temps</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='tornado'>temps</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='boira'>temps</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='vent'>temps</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
+		<annotation cp='[🌀]' tts='cicló'>temps</annotation>
+
+		<!-- rainbow; rain; weather -->
+		<annotation cp='[🌈]' tts='arc de Sant Martí'>arc; Sant Martí; temps</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
+		<annotation cp='[🌂]' tts='paraigua tancat'>paraigua; tancat; pluja</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='paraigua'>pluja</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='paraigua amb gotes de pluja'>paraigua; pluja; gotes</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='para-sol a la sorra'>para-sol; sorra; sol</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
+		<annotation cp='[⚡]' tts='alt voltatge'>voltatge; perill; elèctric; electricitat; temps; llampec; llamp</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='volva de neu'>neu; volva; temps</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='ninot de neu'>neu; ninot; nevada; temps</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
+		<annotation cp='[⛄]' tts='ninot de neu sense neu'>neu; ninot; temps</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
+		<annotation cp='[💧]' tts='gota'>suor; fred</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
+		<annotation cp='[🌊]' tts='onada'>mar; aigua</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
+		<annotation cp='[🎃]' tts='carabassa de Halloween'>carabassa; Halloween</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
+		<annotation cp='[🎄]' tts='arbre de Nadal'>arbre; Nadal</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
+		<annotation cp='[🎉]' tts='tub de confeti'>tub; confeti</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
+		<annotation cp='[🎊]' tts='bola de confeti'>bola; confeti</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
+		<annotation cp='[🎋]' tts='arbre dels desitjos de Tanabata'>arbre; desitjos; Tanabata</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
+		<annotation cp='[🎌]' tts='banderes creuades'>banderes; creuades</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
+		<annotation cp='[🎍]' tts='decoració de bambú'>decoració; bambú</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
+		<annotation cp='[🎎]' tts='nines japoneses'>nines; japoneses</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
+		<annotation cp='[🎏]' tts='banderins de carpes'>banderins; carpes</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
+		<annotation cp='[🎐]' tts='mòbil sonor'>mòbil; sonor</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
+		<annotation cp='[🎑]' tts='cerimònia de la lluna'>cerimònia; lluna</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
+		<annotation cp='[🎁]' tts='regal embolicat'>regal; embolicat</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='medalla militar'>medalla; militar</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='bitllet d&apos;entrada'>bitllet; entrada</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='pilota de futbol'>pilota; futbol</annotation>
+
+		<!-- baseball; ball -->
+		<annotation cp='[⚾]' tts='pilota de beisbol'>pilota; beisbol</annotation>
+
+		<!-- basketball; ball; hoop -->
+		<annotation cp='[🏀]' tts='pilota de bàsquet'>pilota; bàsquet</annotation>
+
+		<!-- american football; american; ball; football -->
+		<annotation cp='[🏈]' tts='pilota de futbol americà'>pilota; futbol americà</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='pilota de rugbi'>pilota; rugbi</annotation>
+
+		<!-- tennis; ball; racquet -->
+		<annotation cp='[🎾]' tts='pilota de tennis'>pilota; tennis</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='bola de billar'>bola; billar</annotation>
+
+		<!-- flag in hole; golf; hole -->
+		<annotation cp='[⛳]' tts='banderí al forat'>banderí, forat</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='patinatge sobre gel'>patinatge; gel</annotation>
+
+		<!-- fishing pole; fish; pole -->
+		<annotation cp='[🎣]' tts='canya de pescar'>canya; pescar</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
+		<annotation cp='[🎽]' tts='samarreta per córrer'>samarreta; córrer</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
+		<annotation cp='[🏂]' tts='surfista de neu'>surfista; neu</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
+		<annotation cp='[🏇]' tts='curses de cavalls'>curses; cavalls</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='persona amb una pilota'>persona; pilota</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
+		<annotation cp='[🚵]' tts='ciclista de muntanya'>ciclista; muntanya</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='cotxe de carreres'>cotxe; carreres; formula 1</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='medalla esportiva'>medalla; esportiva</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='hoquei sobre herba'>hoquei; herba</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='estic i disc d&apos;hoquei sobre gel'>estic; disc; hoquei; gel</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='tennis de taula'>ping pong</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='palanca de control'>palanca; control; joystick</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='pal de piques'>pal; piques</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='pal de cors'>pal; cors</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='pal de diamants'>pal; diamants</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='pal de trèvols'>pal; trèvols</annotation>
+
+		<!-- joker; card; game; playing -->
+		<annotation cp='[🃏]' tts='comodí'>carta</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
+		<annotation cp='[🀄]' tts='mahjong del drac vermell'>mahjong; drac vermell</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
+		<annotation cp='[🎴]' tts='cartes de les flors'>joc; cartes; flors</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
+		<annotation cp='[🔇]' tts='altaveu desactivat'>altaveu; desactivat</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
+		<annotation cp='[🔉]' tts='altaveu activat'>altaveu; activat</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
+		<annotation cp='[🔊]' tts='altaveu alt'>altaveu; alt</annotation>
+
+		<!-- loudspeaker; loud; public address -->
+		<annotation cp='[📢]' tts='altaveu de megafonia'>altaveu; megafonia</annotation>
+
+		<!-- postal horn; horn; post; postal -->
+		<annotation cp='[📯]' tts='símbol de correus'>símbol; correus</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
+		<annotation cp='[🔕]' tts='campana tatxada'>campana; tatxada; silenci</annotation>
+
+		<!-- musical score; music; score -->
+		<annotation cp='[🎼]' tts='pentagrama'>música</annotation>
+
+		<!-- musical note; music; note -->
+		<annotation cp='[🎵]' tts='nota musical'>nota; música</annotation>
+
+		<!-- musical notes; music; note; notes -->
+		<annotation cp='[🎶]' tts='notes musicals'>notes; música</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='micròfon d&apos;estudi'>micròfon; estudi</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='control lliscant de nivell'>control lliscant; nivell</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='botons de control'>botons; control; música</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
+		<annotation cp='[🎹]' tts='teclat musical'>teclat; música</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
+		<annotation cp='[📲]' tts='telèfon mòbil amb fletxa'>telèfon mòbil; fletxa</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
+		<annotation cp='[📞]' tts='auricular de telèfon'>auricular; telèfon</annotation>
+
+		<!-- battery -->
+		<annotation cp='[🔋]' tts='bateria'>càrrega</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='ratolí d&apos;ordinador'>ratolí; ordinador</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='ratolí de bola'>ordinador</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
+		<annotation cp='[🎥]' tts='càmera cinematogràfica'>càmera; cinema</annotation>
+
+		<!-- clapper board; clapper; movie -->
+		<annotation cp='[🎬]' tts='claqueta'>cinema</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='projector cinematogràfic'>projector; cinema</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='càmera amb flaix'>càmera; flaix</annotation>
+
+		<!-- video camera; camera; video -->
+		<annotation cp='[📹]' tts='càmera de vídeo'>càmera; vídeo</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔍]' tts='lupa cap a l&apos;esquerra'>lupa; esquerra</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
+		<annotation cp='[🔎]' tts='lupa cap a la dreta'>lupa; dreta</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
+		<annotation cp='[📡]' tts='antena de satèl·lit'>antena; satèl·lit</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
+		<annotation cp='[🏮]' tts='fanal de paper vermell'>fanal; paper; vermell</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
+		<annotation cp='[📔]' tts='quadern amb coberta decorativa'>quadern; coberta decorativa</annotation>
+
+		<!-- closed book; book; closed -->
+		<annotation cp='[📕]' tts='llibre tancat'>llibre; tancat</annotation>
+
+		<!-- open book; book; open -->
+		<annotation cp='[📖]' tts='llibre obert'>llibre; obert</annotation>
+
+		<!-- green book; book; green -->
+		<annotation cp='[📗]' tts='llibre verd'>llibre; verd</annotation>
+
+		<!-- blue book; blue; book -->
+		<annotation cp='[📘]' tts='llibre blau'>llibre; blau</annotation>
+
+		<!-- orange book; book; orange -->
+		<annotation cp='[📙]' tts='llibre taronja'>llibre; taronja</annotation>
+
+		<!-- notebook -->
+		<annotation cp='[📓]' tts='bloc de notes'>bloc; notes</annotation>
+
+		<!-- ledger; notebook -->
+		<annotation cp='[📒]' tts='llibre de comptabilitat'>llibre; major; comptabilitat</annotation>
+
+		<!-- page with curl; curl; document; page -->
+		<annotation cp='[📃]' tts='pàgina que es cargola'>pàgina; cargolada</annotation>
+
+		<!-- page facing up; document; page -->
+		<annotation cp='[📄]' tts='pàgina'>amunt</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='diari cargolat'>diari; cargolat</annotation>
+
+		<!-- bookmark; mark -->
+		<annotation cp='[🔖]' tts='punt de llibre'>marcador; punt</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
+		<annotation cp='[💰]' tts='bossa dels diners'>bossa; diners</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
+		<annotation cp='[💴]' tts='bitllets de ien'>bitllets; signe; ien</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
+		<annotation cp='[💵]' tts='bitllets de dòlar'>bitllets; signe; dòlar</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
+		<annotation cp='[💶]' tts='bitllets d&apos;euro'>bitllets; signe; euro</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
+		<annotation cp='[💷]' tts='bitllets de lliura'>bitllets; signe; lliura</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
+		<annotation cp='[💸]' tts='diners amb ales'>diners; ales</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
+		<annotation cp='[💳]' tts='targeta de crèdit'>targeta; crèdit</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
+		<annotation cp='[💹]' tts='gràfic d&apos;augment amb el signe del ien'>gràfic; augment; signe; ien</annotation>
+
+		<!-- e-mail; email; letter; mail -->
+		<annotation cp='[📧]' tts='correu electrònic'>correu; electrònic</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
+		<annotation cp='[📨]' tts='sobre que arriba'>sobre; recepció</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
+		<annotation cp='[📩]' tts='sobre amb fletxa'>sobre; fletxa</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
+		<annotation cp='[📤]' tts='safata de sortida'>safata; sortida</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
+		<annotation cp='[📥]' tts='safata d&apos;entrada'>safata; entrada</annotation>
+
+		<!-- package; box; parcel -->
+		<annotation cp='[📦]' tts='paquet'>caixa</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
+		<annotation cp='[📫]' tts='bústia tancada amb la bandera aixecada'>bústia; tancada; bandera aixecada</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
+		<annotation cp='[📪]' tts='bústia tancada amb la bandera abaixada'>bústia; tancada; bandera abaixada</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
+		<annotation cp='[📬]' tts='bústia oberta amb la bandera aixecada'>bústia; oberta; bandera aixecada</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
+		<annotation cp='[📭]' tts='bústia oberta amb la bandera abaixada'>bústia; oberta; bandera abaixada</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='urna amb vot'>urna; vot; votació</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='ploma negra'>ploma; negra</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='ploma estilogràfica'>ploma; estilogràfica</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='llapis de color'>llapis; color</annotation>
+
+		<!-- file folder; file; folder -->
+		<annotation cp='[📁]' tts='carpeta de fitxers'>carpeta; fitxers</annotation>
+
+		<!-- open file folder; file; folder; open -->
+		<annotation cp='[📂]' tts='carpeta de fitxers oberta'>carpeta; fitxers; oberta</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='separadors per a organitzador de targetes'>separadors; organitzador; targetes</annotation>
+
+		<!-- tear-off calendar; calendar -->
+		<annotation cp='[📆]' tts='calendari de tall'>calendari; tall</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='bloc de notes d&apos;espirals'>bloc; notes; espirals</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='calendari d&apos;espirals'>calendari; espirals</annotation>
+
+		<!-- card index; card; index; rolodex -->
+		<annotation cp='[📇]' tts='organitzador de targetes'>organitzador; targetes</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
+		<annotation cp='[📈]' tts='gràfic d&apos;augment'>gràfic; augment</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
+		<annotation cp='[📉]' tts='gràfic de disminució'>gràfic; disminució</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
+		<annotation cp='[📊]' tts='gràfic de barres'>gràfic; barres</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
+		<annotation cp='[📍]' tts='xinxeta rodona'>xinxeta; rodona</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='clips enganxats'>clips; enganxats</annotation>
+
+		<!-- open lock; lock; open; unlock -->
+		<annotation cp='[🔓]' tts='cadenat obert'>cadenat; obert</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
+		<annotation cp='[🔏]' tts='cadenat amb ploma'>cadenat; ploma</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='clau antiga'>clau; antiga</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='martell i pic'>martell; pic</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='martell i clau anglesa'>martell; clau; anglesa</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='clau anglesa'>clau; anglesa</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
+		<annotation cp='[🔩]' tts='cargol i femella'>cargol; femella</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='balança (aparell)'>balança; aparell</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
+		<annotation cp='[🔪]' tts='ganivet de cuina'>ganivet; cuina</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='espases creuades'>espases; creuades</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='arc i fletxa'>arc; fletxa</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
+		<annotation cp='[🏁]' tts='bandera de quadres'>bandera; quadres</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='bandera blanca que oneja'>bandera; blanca; oneig</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='bandera negra que oneja'>bandera; negra; oneig</annotation>
+
+		<!-- triangular flag; post -->
+		<annotation cp='[🚩]' tts='bandera triangular'>bandera; triangular</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='bidó de petroli'>bidó; petroli</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
+		<annotation cp='[🔮]' tts='bola de vidre'>bola; vidre</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
+		<annotation cp='[🏧]' tts='signe de caixer automàtic'>signe; caixer automàtic</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
+		<annotation cp='[🚮]' tts='signe de paperera'>signe; brossa; paperera</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='aigua potable'>aigua; potable</annotation>
+
+		<!-- wheelchair; access -->
+		<annotation cp='[♿]' tts='cadira de rodes'>cadira; rodes</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
+		<annotation cp='[🚹]' tts='lavabo d&apos;homes'>homes; lavabo</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
+		<annotation cp='[🚺]' tts='lavabo de dones'>dones; lavabo</annotation>
+
+		<!-- baby symbol; baby; changing -->
+		<annotation cp='[🚼]' tts='símbol de nadó'>símbol; nadó</annotation>
+
+		<!-- passport control; control; passport -->
+		<annotation cp='[🛂]' tts='control de passaport'>control; passaport</annotation>
+
+		<!-- baggage claim; baggage; claim -->
+		<annotation cp='[🛄]' tts='recollida d&apos;equipatges'>recollida; equipatges</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
+		<annotation cp='[🚸]' tts='nens que creuen'>nens; caminant</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
+		<annotation cp='[⛔]' tts='prohibit entrar'>prohibició; entrada</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
+		<annotation cp='[🚫]' tts='prohibit'>prohibició; accés</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
+		<annotation cp='[🚳]' tts='bicicletes prohibides'>prohibició; bicicletes</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
+		<annotation cp='[🚭]' tts='prohibit fumar'>prohibició; fumar</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
+		<annotation cp='[🚯]' tts='prohibit llençar brossa'>prohibició; llençar; brossa</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='aigua no potable'>aigua; no potable</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
+		<annotation cp='[🚷]' tts='prohibits els vianants'>prohibició; vianants</annotation>
+
+		<!-- biohazard -->
+		<annotation cp='[☣]' tts='risc biològic'>risc; biològic</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='fletxa cap amunt'>fletxa; amunt</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='fletxa cap amunt a la dreta'>fletxa; amunt; dreta</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='fletxa cap a la dreta'>fletxa; dreta</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='fletxa cap avall a la dreta'>fletxa; avall; dreta</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='fletxa cap avall'>fletxa; avall</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='fletxa cap avall a l&apos;esquerra'>fletxa; avall; esquerra</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='fletxa cap a l&apos;esquerra'>fletxa; esquerra</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='fletxa cap amunt a l&apos;esquerra'>fletxa; amunt; esquerra</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='fletxa cap amunt i cap avall'>fletxa; amunt; avall</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='fletxa cap a l&apos;esquerra i cap a la dreta'>fletxa; esquerra; dreta</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='fletxa dreta que gira cap a l&apos;esquerra'>fletxa; dreta; gir; esquerre</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='fletxa esquerra que gira cap a la dreta'>fletxa; esquerra; gir; dreta</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='fletxa dreta que gira cap amunt'>fletxa; dreta; gir; amunt</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='fletxa dreta que gira cap avall'>fletxa; dreta; gir; avall</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
+		<annotation cp='[🔃]' tts='fletxes que giren cap a la dreta'>fletxes; gir; dreta</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
+		<annotation cp='[🔄]' tts='botó de fletxes que giren cap a l&apos;esquerra'>botó; fletxes; gir; esquerre</annotation>
+
+		<!-- back arrow; arrow; back -->
+		<annotation cp='[🔙]' tts='fletxa amb la paraula Back'>fletxa; paraula; Back</annotation>
+
+		<!-- end arrow; arrow; end -->
+		<annotation cp='[🔚]' tts='fletxa amb la paraula End'>fletxa; paraula; End</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
+		<annotation cp='[🔛]' tts='fletxa amb la paraula On'>fletxa; paraula; On</annotation>
+
+		<!-- soon arrow; arrow; soon -->
+		<annotation cp='[🔜]' tts='fletxa amb la paraula Soon'>fletxa; paraula; Soon</annotation>
+
+		<!-- top arrow; arrow; top; up -->
+		<annotation cp='[🔝]' tts='fletxa amb la paraula Top'>fletxa; paraula; Top</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='lloc de culte'>lloc; culte; religió</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='símbol d&apos;àtom'>símbol; àtom</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='símbol d&apos;om'>símbol; om</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='estrella de David'>estrella; David; religió</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='roda del dharma'>roda; dharma; religió</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='yin-yang'>religió</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='creu llatina'>creu; llatina; religió</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='creu ortodoxa'>creu; ortodoxa; religió</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='creixent lunar i estel'>creixent; lunar; estel; religió</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='símbol de la pau'>símbol; pau</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='canelobre de set braços'>canelobre; set braços</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
+		<annotation cp='[🔯]' tts='estrella de sis puntes amb punt'>estrella; sis puntes; punt</annotation>
+
+		<!-- recycling symbol; recycle -->
+		<annotation cp='[♻]' tts='símbol de reciclatge'>símbol; reciclatge</annotation>
+
+		<!-- name badge; badge; name -->
+		<annotation cp='[📛]' tts='etiqueta identificadora'>etiqueta; identificació</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='flor de lis'>flor; lis</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
+		<annotation cp='[🔰]' tts='símbol japonès de principiant'>símbol; japonès; principiant</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
+		<annotation cp='[🔱]' tts='marca de trident'>marca; trident</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='cercle gran'>cercle; gran</annotation>
+
+		<!-- white heavy check mark; check; mark -->
+		<annotation cp='[✅]' tts='marca de verificació verda gran'>marca; verificació; verda; gran</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='casella amb marca de verificació'>casella; marca; verificació</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='marca de verificació gran'>marca; verificació; gran</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='signe de multiplicar gran'>signe; multiplicar; gran</annotation>
+
+		<!-- cross mark button; mark; square -->
+		<annotation cp='[❎]' tts='botó de creu'>botó; creu</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='signe de sumar gran'>signe; suma; gran</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='signe de restar gran'>signe; resta; gran</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='signe de dividir gran'>signe; divisió; gran</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
+		<annotation cp='[➿]' tts='bucle doble'>bucle; doble</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='signe d&apos;alternança'>signe; alternança</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='asterisc de vuit radis'>asterisc; vuit radis</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='estrella de vuit puntes'>estrella; vuit puntes</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
+		<annotation cp='[💱]' tts='canvi de divisa'>canvi; divisa</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
+		<annotation cp='[💲]' tts='signe de dòlar gran'>signe; dòlar; gran</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='signe d&apos;exclamació doble'>signe; exclamació; doble</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='signe d&apos;exclamació i d&apos;interrogació'>signe; exclamació; interrogació</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
+		<annotation cp='[❓]' tts='signe d&apos;interrogació'>signe; interrogació</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
+		<annotation cp='[❔]' tts='signe d&apos;interrogació blanc'>signe; interrogació; blanc</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
+		<annotation cp='[❕]' tts='signe d&apos;exclamació blanc'>signe; exclamació; blanc</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='signe d&apos;exclamació'>signe; exclamació</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
+		<annotation cp='[〰]' tts='guió ondulat'>guió; ondulat</annotation>
+
+		<!-- registered -->
+		<annotation cp='[®]' tts='marca registrada'>marca; registrada</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
+		<annotation cp='[™]' tts='marca comercial'>marca; comercial</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
+		<annotation cp='[🔀]' tts='botó de reproducció aleatòria'>botó; reproducció; aleatòria</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
+		<annotation cp='[🔁]' tts='botó de repetició'>botó; repetició</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
+		<annotation cp='[🔂]' tts='botó de repetició única'>botó; repetició; única</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='botó de reproducció'>botó; reproducció</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
+		<annotation cp='[⏩]' tts='botó d&apos;avançar ràpidament'>botó; avançar; ràpidament</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='botó de cançó següent'>botó; cançó; següent</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='botó de pausa o de reproducció'>botó; pausa; reproducció</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='botó de retrocedir'>botó; retrocedir</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
+		<annotation cp='[⏪]' tts='botó de retrocedir ràpidament'>botó; retrocedir; ràpidament</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='botó de cançó anterior'>botó; cançó; anterior</annotation>
+
+		<!-- up button; arrow; button; red -->
+		<annotation cp='[🔼]' tts='botó d&apos;anar amunt'>botó; amunt</annotation>
+
+		<!-- fast up button; arrow; double -->
+		<annotation cp='[⏫]' tts='botó d&apos;anar amunt ràpidament'>botó; amunt; ràpidament</annotation>
+
+		<!-- down button; arrow; button; down; red -->
+		<annotation cp='[🔽]' tts='botó d&apos;anar avall'>botó; avall</annotation>
+
+		<!-- fast down button; arrow; double; down -->
+		<annotation cp='[⏬]' tts='botó d&apos;anar avall ràpidament'>botó; avall; ràpidament</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='botó de pausa'>botó; pausa</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='botó d&apos;aturada'>botó; aturada</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='botó d&apos;enregistrar'>botó; enregistrar</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='botó d&apos;expulsar'>botó; expulsar</annotation>
+
+		<!-- dim button; brightness; dim; low -->
+		<annotation cp='[🔅]' tts='botó d&apos;atenuar la brillantor'>botó; brillantor; atenuar</annotation>
+
+		<!-- bright button; bright; brightness -->
+		<annotation cp='[🔆]' tts='botó d&apos;augmentar la brillantor'>botó; brillantor; augmentar</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
+		<annotation cp='[📶]' tts='barres de cobertura'>barres; cobertura</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
+		<annotation cp='[📵]' tts='prohibits els telèfons mòbils'>prohibició; telèfons mòbils</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
+		<annotation cp='[📳]' tts='mode de vibració'>mode; vibració; telèfon</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
+		<annotation cp='[📴]' tts='telèfon mòbil desactivat'>telèfon; mòbil; desactivat</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='tecla de coixinet'>tecla; coixinet</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='tecla d&apos;asterisc'>tecla; asterisc</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='tecla 0'>tecla; 0</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='tecla 1'>tecla; 1</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='tecla 2'>tecla; 2</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='tecla 3'>tecla; 3</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='tecla 4'>tecla; 4</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='tecla 5'>tecla; 5</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='tecla 6'>tecla; 6</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='tecla 7'>tecla; 7</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='tecla 8'>tecla; 8</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='tecla 9'>tecla; 9</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
+		<annotation cp='[🔟]' tts='tecla 10'>tecla; 10</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
+		<annotation cp='[💯]' tts='100 punts'>100; punts; puntuació</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
+		<annotation cp='[🔞]' tts='prohibit a menors d&apos;edat'>prohibició; menors d&apos;edat</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
+		<annotation cp='[🔠]' tts='lletres llatines en majúscules'>lletres; llatines; majúscules</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
+		<annotation cp='[🔡]' tts='lletres llatines en minúscules'>lletres; llatines; minúscules</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
+		<annotation cp='[🔤]' tts='lletres llatines'>lletres; llatines</annotation>
+
+		<!-- a button; a; blood -->
+		<annotation cp='[🅰]' tts='botó A'>botó; A</annotation>
+
+		<!-- ab button; ab; blood -->
+		<annotation cp='[🆎]' tts='botó AB'>botó; AB</annotation>
+
+		<!-- b button; b; blood -->
+		<annotation cp='[🅱]' tts='botó B'>botó; B</annotation>
+
+		<!-- squared cl; cl -->
+		<annotation cp='[🆑]' tts='quadre amb CL'>quadre; CL</annotation>
+
+		<!-- squared cool; cool -->
+		<annotation cp='[🆒]' tts='quadre amb la paraula Cool'>quadre; paraula; Cool</annotation>
+
+		<!-- squared free; free -->
+		<annotation cp='[🆓]' tts='quadre amb la paraula Free'>quadre; paraula; Free</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='punt d&apos;informació'>punt; informació</annotation>
+
+		<!-- squared id; id; identity -->
+		<annotation cp='[🆔]' tts='quadre amb ID'>quadre; ID</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='lletra M en cercle'>lletra; M; cercle</annotation>
+
+		<!-- squared new; new -->
+		<annotation cp='[🆕]' tts='quadre amb la paraula New'>quadre; paraula; New</annotation>
+
+		<!-- squared ng; ng -->
+		<annotation cp='[🆖]' tts='quadre amb NG'>quadre; paraula; NG</annotation>
+
+		<!-- o button; blood; o -->
+		<annotation cp='[🅾]' tts='botó O'>botó; lletra; O</annotation>
+
+		<!-- squared ok; ok -->
+		<annotation cp='[🆗]' tts='botó amb la paraula OK'>botó; paraula; OK</annotation>
+
+		<!-- p button; parking -->
+		<annotation cp='[🅿]' tts='botó P'>botó; lletra; P</annotation>
+
+		<!-- squared sos; help; sos -->
+		<annotation cp='[🆘]' tts='quadre amb SOS'>quadre; SOS</annotation>
+
+		<!-- up! button; mark; up -->
+		<annotation cp='[🆙]' tts='botó amb la paraula Up'>botó; paraula; Up!</annotation>
+
+		<!-- squared vs; versus; vs -->
+		<annotation cp='[🆚]' tts='quadre amb VS'>quadre; VS</annotation>
+
+		<!-- squared katakana koko; japanese -->
+		<annotation cp='[🈁]' tts='quadre amb katakana koko'>quadre; katakana; koko</annotation>
+
+		<!-- squared katakana sa; japanese -->
+		<annotation cp='[🈂]' tts='quadre amb katakana sa'>quadre; katakana; sa</annotation>
+
+		<!-- squared moon ideograph; japanese -->
+		<annotation cp='[🈷]' tts='quadre amb ideograma de lluna'>quadre; ideograma; lluna</annotation>
+
+		<!-- squared exist ideograph; japanese -->
+		<annotation cp='[🈶]' tts='quadre amb ideograma d&apos;existir'>quadre; ideograma; existir</annotation>
+
+		<!-- squared finger ideograph; japanese -->
+		<annotation cp='[🈯]' tts='quadre amb ideograma de dit'>quadre; ideograma; dit</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
+		<annotation cp='[🉐]' tts='cercle amb ideograma d&apos;avantatge'>cercle; ideograma; avantatge</annotation>
+
+		<!-- squared divide ideograph; japanese -->
+		<annotation cp='[🈹]' tts='quadre amb ideograma de dividir'>quadre; ideograma; dividir</annotation>
+
+		<!-- squared negation ideograph; japanese -->
+		<annotation cp='[🈚]' tts='quadre amb ideograma de negació'>quadre; ideograma; negació</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
+		<annotation cp='[🈲]' tts='quadre amb ideograma de prohibició'>quadre; ideograma; prohibició</annotation>
+
+		<!-- circled accept ideograph; chinese -->
+		<annotation cp='[🉑]' tts='cercle amb ideograma d&apos;acceptació'>cercle; ideograma; acceptació</annotation>
+
+		<!-- squared apply ideograph; chinese -->
+		<annotation cp='[🈸]' tts='quadre amb ideograma d&apos;aplicar'>quadre; ideograma; aplicar</annotation>
+
+		<!-- squared together ideograph; chinese -->
+		<annotation cp='[🈴]' tts='quadre amb ideograma de junts'>quadre; ideograma; junts</annotation>
+
+		<!-- squared empty ideograph; chinese -->
+		<annotation cp='[🈳]' tts='quadre amb ideograma de buit'>quadre; ideograma; buit</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='cercle amb ideograma d&apos;enhorabona'>cercle; ideograma; enhorabona</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='cercle amb ideograma de secret'>cercle; ideograma; secret</annotation>
+
+		<!-- squared operating ideograph; chinese -->
+		<annotation cp='[🈺]' tts='quadre amb ideograma d&apos;operar'>quadre; ideograma; operar</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
+		<annotation cp='[🈵]' tts='quadre amb ideograma de plenitud'>quadre; ideograma; plenitud</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='quadrat negre petit'>quadrat; negre; petit</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='quadrat blanc petit'>quadrat; blanc; petit</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='quadrat mitjà blanc'>quadrat; mitjà; blanc</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='quadrat mitjà negre'>quadrat; mitjà; negre</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='quadrat blanc petit-mitjà'>quadrat; blanc; petit-mitjà</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='quadrat negre petit-mitjà'>quadrat; negre; petit-mitjà</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='quadrat gran negre'>quadrat; gran; negre</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='quadrat gran blanc'>quadrat; gran; blanc</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔶]' tts='diamant gran taronja'>diamant; gran; taronja</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔷]' tts='diamant gran blau'>diamant; gran; blau</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
+		<annotation cp='[🔸]' tts='diamant petit taronja'>diamant; petit; taronja</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
+		<annotation cp='[🔹]' tts='diamant petit blau'>diamant; petit; blau</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
+		<annotation cp='[🔺]' tts='triangle vermell cap amunt'>triangle; vermell; amunt</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
+		<annotation cp='[🔻]' tts='triangle vermell cap avall'>triangle; vermell; avall</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
+		<annotation cp='[💠]' tts='diamant amb punt'>diamant; punt</annotation>
+
+		<!-- radio button; button; geometric; radio -->
+		<annotation cp='[🔘]' tts='botó d&apos;opció'>botó; opció</annotation>
+
+		<!-- black square button; button; geometric; square -->
+		<annotation cp='[🔲]' tts='botó de quadrat negre'>botó; quadrat; negre</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
+		<annotation cp='[🔳]' tts='botó de quadrat blanc'>botó; quadrat; blanc</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='cercle blanc'>cercle; blanc</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='cercle negre'>cercle; negre</annotation>
+
+		<!-- red circle; circle; geometric; red -->
+		<annotation cp='[🔴]' tts='cercle vermell'>cercle; vermell</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
+		<annotation cp='[🔵]' tts='cercle blau'>cercle; blau</annotation>
+	</annotations>
+</ldml>

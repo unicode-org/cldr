@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
-<!-- Copyright © 1991-2015 Unicode®, Inc. emoji-annotations.txt For 
- details about the format and other information, see /../../../reports/tr51/index.html#Data_Files. 
- http://unicode.org/cldr/trac/ticket/8019 CLDR data files are interpreted 
- according to the LDML specification (http://unicode.org/reports/tr35/) For 
- terms of use, see http://www.unicode.org/copyright.html 
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
  -->
 <ldml>
 	<identity>
@@ -14,2298 +14,3078 @@
 	<annotations>
 
 		<!-- grinning face; face; grin -->
-		<annotation cp='[😀]' tts='웃는 얼굴' draft='provisional'>웃는 얼굴; 웃음; 미소; 스마일; 얼굴</annotation>
+		<annotation cp='[😀]' tts='활짝 얼굴'>웃음; 미소; 스마일; 얼굴</annotation>
 
 		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
-		<annotation cp='[😁]' tts='눈웃음 얼굴' draft='provisional'>눈웃음 얼굴; 눈웃음; 미소; 스마일; 얼굴</annotation>
+		<annotation cp='[😁]' tts='히죽히죽 웃는 얼굴'>눈웃음; 미소; 스마일; 얼굴</annotation>
 
 		<!-- face with tears of joy; face; joy; laugh; tear -->
-		<annotation cp='[😂]' tts='기쁨의 눈물' draft='provisional'>기쁨의 눈물; 기쁨의 눈물을 흘리는 얼굴; 기쁨; 눈물; 스마일; 얼굴</annotation>
+		<annotation cp='[😂]' tts='기쁨의 눈물'>기쁨의 눈물을 흘리는 얼굴; 기쁨; 눈물; 스마일; 얼굴</annotation>
 
 		<!-- smiling face with open mouth; face; mouth; open; smile -->
-		<annotation cp='[😃]' tts='크게 웃는 얼굴' draft='provisional'>크게 웃는 얼굴; 입 벌리고 웃는 얼굴; 미소; 스마일; 얼굴</annotation>
+		<annotation cp='[😃]' tts='크게 웃는 얼굴'>입 벌리고 웃는 얼굴; 미소; 스마일; 얼굴</annotation>
 
 		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
-		<annotation cp='[😄]' tts='크게 웃는 눈웃음 얼굴' draft='provisional'>크게 웃는 눈웃음 얼굴; 입 벌리고 웃는 눈웃음 얼굴; 미소; 스마일; 얼굴</annotation>
+		<annotation cp='[😄]' tts='크게 웃는 눈웃음 얼굴'>입 벌리고 웃는 눈웃음 얼굴; 미소; 스마일; 얼굴</annotation>
 
 		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
-		<annotation cp='[😅]' tts='식은땀 흘리는 웃는 얼굴' draft='provisional'>식은땀 흘리는 웃는 얼굴; 웃고 있지만 당황한 얼굴; 웃는 얼굴; 스마일; 식은땀; 미소; 얼굴</annotation>
+		<annotation cp='[😅]' tts='식은땀 흘리는 웃는 얼굴'>웃고 있지만 당황한 얼굴; 웃는 얼굴; 스마일; 식은땀; 미소; 얼굴</annotation>
 
 		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
-		<annotation cp='[😆]' tts='환하게 웃는 얼굴' draft='provisional'>환하게 웃는 얼굴; 눈 감고 웃는 얼굴; 입 벌리고 미소; 눈 감고 미소; 얼굴</annotation>
+		<annotation cp='[😆]' tts='환하게 웃는 얼굴'>눈 감고 웃는 얼굴; 입 벌리고 미소; 눈 감고 미소; 얼굴</annotation>
 
 		<!-- winking face; face; wink -->
-		<annotation cp='[😉]' tts='윙크' draft='provisional'>윙크; 윙크하는 얼굴; 얼굴</annotation>
+		<annotation cp='[😉]' tts='윙크'>윙크하는 얼굴; 얼굴</annotation>
 
 		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
-		<annotation cp='[😊]' tts='눈웃음 얼굴' draft='provisional'>눈웃음 얼굴; 눈웃음; 웃는 얼굴; 스마일; 얼굴; 미소</annotation>
+		<annotation cp='[😊]' tts='눈웃음 얼굴'>눈웃음; 웃는 얼굴; 스마일; 얼굴; 미소</annotation>
 
 		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
-		<annotation cp='[😋]' tts='맛있는 음식' draft='provisional'>맛있는 음식; 맛있어하는 얼굴; 얼굴; 맛있어</annotation>
+		<annotation cp='[😋]' tts='맛있는 음식을 음미하는 얼굴'>맛있어하는 얼굴; 얼굴; 맛있어</annotation>
 
 		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
-		<annotation cp='[😎]' tts='선글라스 낀 얼굴' draft='provisional'>선글라스 낀 얼굴; 멋짐; 선글라스; 얼굴</annotation>
+		<annotation cp='[😎]' tts='선글라스 낀 얼굴'>멋짐; 선글라스; 얼굴</annotation>
 
 		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
-		<annotation cp='[😍]' tts='하트 눈 얼굴' draft='provisional'>하트 눈 얼굴; 하트 뿅뿅 얼굴; 얼굴; 하트; 사랑</annotation>
+		<annotation cp='[😍]' tts='하트 눈 얼굴'>하트 뿅뿅 얼굴; 얼굴; 하트; 사랑</annotation>
 
 		<!-- face throwing a kiss; face; heart; kiss -->
-		<annotation cp='[😘]' tts='뽀뽀를 날리는 얼굴' draft='provisional'>뽀뽀를 날리는 얼굴; 키스를 날리는 얼굴; 얼굴; 뽀뽀; 키스</annotation>
+		<annotation cp='[😘]' tts='뽀뽀를 날리는 얼굴'>키스를 날리는 얼굴; 얼굴; 뽀뽀; 키스</annotation>
 
 		<!-- kissing face; face; kiss -->
-		<annotation cp='[😗]' tts='뽀뽀하는 얼굴' draft='provisional'>뽀뽀하는 얼굴; 입술을 내민 얼굴; 키스하는 얼굴; 얼굴; 뽀뽀; 키스</annotation>
+		<annotation cp='[😗]' tts='뽀뽀하는 얼굴'>입술을 내민 얼굴; 키스하는 얼굴; 얼굴; 뽀뽀; 키스</annotation>
 
 		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
-		<annotation cp='[😙]' tts='뽀뽀하는 얼굴' draft='provisional'>뽀뽀하는 얼굴; 웃으면서 뽀뽀하는 얼굴; 웃으면서 입술을 내민 얼굴; 얼굴; 뽀뽀; 키스</annotation>
+		<annotation cp='[😙]' tts='웃으며 입술을 내민 얼굴'>웃으면서 뽀뽀하는 얼굴; 웃으면서 입술을 내민 얼굴; 얼굴; 뽀뽀; 키스</annotation>
 
 		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
-		<annotation cp='[😚]' tts='뽀뽀하는 얼굴' draft='provisional'>뽀뽀하는 얼굴; 눈감고 입술을 내민 얼굴; 얼굴; 뽀뽀; 키스</annotation>
+		<annotation cp='[😚]' tts='눈감고 입술을 내민 얼굴'>눈감고 입술을 내민 얼굴; 얼굴; 뽀뽀; 키스</annotation>
 
 		<!-- smiling face; face; outlined; relaxed; smile -->
-		<annotation cp='[☺]' tts='웃는 얼굴' draft='provisional'>웃는 얼굴; 웃음 짓는 얼굴; 웃음; 미소; 스마일</annotation>
+		<annotation cp='[☺]' tts='웃는 얼굴'>웃음 짓는 얼굴; 웃음; 미소; 스마일</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='살짝 미소 짓는 얼굴'>미소; 얼굴</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='반가워하는 얼굴'>반가워하는 얼굴; 환영; 얼굴</annotation>
 
 		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
-		<annotation cp='[😇]' tts='후광이 비치는 웃는 얼굴' draft='provisional'>후광이 비치는 웃는 얼굴; 웃는 얼굴; 미소; 스마일; 얼굴</annotation>
+		<annotation cp='[😇]' tts='후광이 비치는 웃는 얼굴'>웃는 얼굴; 미소; 스마일; 얼굴</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='생각하는 얼굴'>생각에 잠긴 얼굴; 생각 중; 얼굴</annotation>
 
 		<!-- neutral face; deadpan; face; neutral -->
-		<annotation cp='[😐]' tts='덤덤한 얼굴' draft='provisional'>덤덤한 얼굴; 얼굴</annotation>
+		<annotation cp='[😐]' tts='덤덤한 얼굴'>얼굴</annotation>
 
 		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
-		<annotation cp='[😑]' tts='무표정한 얼굴' draft='provisional'>무표정한 얼굴; 표정 없는 얼굴; 얼굴; 포커페이스</annotation>
+		<annotation cp='[😑]' tts='무표정한 얼굴'>표정 없는 얼굴; 얼굴; 포커페이스</annotation>
 
 		<!-- face without mouth; face; mouth; quiet; silent -->
-		<annotation cp='[😶]' tts='입이 없는 얼굴' draft='provisional'>입이 없는 얼굴; 입 없음; 얼굴</annotation>
+		<annotation cp='[😶]' tts='입이 없는 얼굴'>입 없음; 얼굴</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='눈을 굴리고 있는 얼굴'>눈 굴리기; 얼굴</annotation>
 
 		<!-- smirking face; face; smirk -->
-		<annotation cp='[😏]' tts='실실 웃는 얼굴' draft='provisional'>실실 웃는 얼굴; 웃는 얼굴; 히죽히죽</annotation>
+		<annotation cp='[😏]' tts='실실 웃는 얼굴'>웃는 얼굴; 히죽히죽</annotation>
 
 		<!-- persevering face; face; persevere -->
-		<annotation cp='[😣]' tts='얼빠진 얼굴' draft='provisional'>얼빠진 얼굴; 실수한 후 얼굴; 얼빠짐; 얼굴</annotation>
+		<annotation cp='[😣]' tts='얼빠진 얼굴'>실수한 후 얼굴; 얼빠짐; 얼굴</annotation>
 
 		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
-		<annotation cp='[😥]' tts='안도하는 얼굴' draft='provisional'>안도하는 얼굴; 휴; 실망하는 얼굴; 안도감; 실망감; 얼굴</annotation>
+		<annotation cp='[😥]' tts='실망했지만 안도하는 얼굴'>휴; 실망하는 얼굴; 안도감; 실망감; 얼굴</annotation>
 
 		<!-- face with open mouth; face; mouth; open; sympathy -->
-		<annotation cp='[😮]' tts='입벌린 얼굴' draft='provisional'>입벌린 얼굴; 입벌림; 얼굴</annotation>
+		<annotation cp='[😮]' tts='입벌린 얼굴'>입벌림; 얼굴</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='입이 닫힌 얼굴'>비밀; 입; 지퍼; 얼굴</annotation>
 
 		<!-- hushed face; face; hushed; stunned; surprised -->
-		<annotation cp='[😯]' tts='숨죽인 얼굴' draft='provisional'>숨죽인 얼굴; 숨죽임; 얼굴</annotation>
+		<annotation cp='[😯]' tts='숨죽인 얼굴'>숨죽임; 얼굴</annotation>
 
 		<!-- sleepy face; face; sleep -->
-		<annotation cp='[😪]' tts='졸린 얼굴' draft='provisional'>졸린 얼굴; 졸림; 얼굴</annotation>
+		<annotation cp='[😪]' tts='졸린 얼굴'>졸림; 얼굴</annotation>
 
 		<!-- tired face; face; tired -->
-		<annotation cp='[😫]' tts='피곤한 얼굴' draft='provisional'>피곤한 얼굴; 피곤함; 얼굴</annotation>
+		<annotation cp='[😫]' tts='피곤한 얼굴'>피곤함; 얼굴</annotation>
 
 		<!-- sleeping face; face; sleep; zzz -->
-		<annotation cp='[😴]' tts='졸고 있는 얼굴' draft='provisional'>졸고 있는 얼굴; 자고 있는 얼굴; 얼굴</annotation>
+		<annotation cp='[😴]' tts='졸고 있는 얼굴'>자고 있는 얼굴; 얼굴</annotation>
 
 		<!-- relieved face; face; relieved -->
-		<annotation cp='[😌]' tts='안심한 얼굴' draft='provisional'>안심한 얼굴; 안심; 얼굴</annotation>
+		<annotation cp='[😌]' tts='안심한 얼굴'>얼굴; 안도; 표정</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='괴짜 얼굴'>범생이; 괴짜; 얼굴</annotation>
 
 		<!-- face with stuck-out tongue; face; tongue -->
-		<annotation cp='[😛]' tts='메롱' draft='provisional'>메롱; 혀를 내민 얼굴; 메롱하는 얼굴; 얼굴</annotation>
+		<annotation cp='[😛]' tts='혀를 내민 얼굴'>혀를 내민 얼굴; 메롱하는 얼굴; 얼굴</annotation>
 
 		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
-		<annotation cp='[😜]' tts='메롱' draft='provisional'>메롱; 윙크하면서 혀를 내민 얼굴; 윙크하면서 메롱하는 얼굴; 얼굴</annotation>
+		<annotation cp='[😜]' tts='윙크하면서 혀를 내민 얼굴'>윙크하면서 혀를 내민 얼굴; 윙크하면서 메롱하는 얼굴; 얼굴</annotation>
 
 		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
-		<annotation cp='[😝]' tts='메롱' draft='provisional'>메롱; 눈을 감고 혀를 내민 얼굴; 눈을 감고 메롱하는 얼굴; 얼굴</annotation>
+		<annotation cp='[😝]' tts='눈을 감고 메롱하는 얼굴'>눈을 감고 혀를 내민 얼굴; 눈을 감고 메롱하는 얼굴; 얼굴</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='찡그린 얼굴'>찡그림; 얼굴</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='살짝 찡그린 얼굴'>찡그림; 얼굴</annotation>
 
 		<!-- unamused face; face; unamused; unhappy -->
-		<annotation cp='[😒]' tts='지루해하는 얼굴' draft='provisional'>지루해하는 얼굴; 재미 없어 하는 얼굴; 얼굴; 지루함</annotation>
+		<annotation cp='[😒]' tts='지루해하는 얼굴'>재미 없어 하는 얼굴; 얼굴; 지루함</annotation>
 
 		<!-- face with cold sweat; cold; face; sweat -->
-		<annotation cp='[😓]' tts='식은땀' draft='provisional'>식은땀; 식은땀 흘리는 얼굴; 얼굴</annotation>
+		<annotation cp='[😓]' tts='식은땀'>식은땀 흘리는 얼굴; 얼굴</annotation>
 
 		<!-- pensive face; dejected; face; pensive -->
-		<annotation cp='[😔]' tts='낙담한 얼굴' draft='provisional'>낙담한 얼굴; 수심에 찬 얼굴; 낙담; 얼굴</annotation>
+		<annotation cp='[😔]' tts='낙담한 얼굴'>수심에 찬 얼굴; 낙담; 얼굴</annotation>
 
 		<!-- confused face; confused; face -->
-		<annotation cp='[😕]' tts='헷갈려하는 얼굴' draft='provisional'>헷갈려하는 얼굴; 헷갈림; 얼굴</annotation>
+		<annotation cp='[😕]' tts='헷갈려하는 얼굴'>헷갈림; 얼굴</annotation>
 
 		<!-- confounded face; confounded; face -->
-		<annotation cp='[😖]' tts='당혹한 얼굴' draft='provisional'>당혹한 얼굴; 당혹함; 얼굴</annotation>
+		<annotation cp='[😖]' tts='당혹한 얼굴'>당혹함; 얼굴</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='거꾸로 된 얼굴'>거꾸로 된 얼굴</annotation>
 
 		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
-		<annotation cp='[😷]' tts='마스크 낀 얼굴' draft='provisional'>마스크 낀 얼굴; 마스크; 감기; 황사; 얼굴</annotation>
+		<annotation cp='[😷]' tts='마스크 낀 얼굴'>마스크; 감기; 황사; 얼굴</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='체온계를 물고 있는 얼굴'>아픔; 병; 체온계; 얼굴</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='머리에 붕대를 감은 얼굴'>붕대; 상처; 부상; 얼굴</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='돈을 밝히는 얼굴'>돈; 입; 얼굴; 탐욕; 욕심</annotation>
 
 		<!-- astonished face; astonished; face; shocked; totally -->
-		<annotation cp='[😲]' tts='깜짝 놀란 얼굴' draft='provisional'>깜짝 놀란 얼굴; 놀란 얼굴; 놀라움; 얼굴; 충격</annotation>
+		<annotation cp='[😲]' tts='깜짝 놀란 얼굴'>놀란 얼굴; 놀라움; 얼굴; 충격</annotation>
 
 		<!-- disappointed face; disappointed; face -->
-		<annotation cp='[😞]' tts='실망한 얼굴' draft='provisional'>실망한 얼굴; 실망; 얼굴</annotation>
+		<annotation cp='[😞]' tts='실망한 얼굴'>실망; 얼굴</annotation>
 
 		<!-- worried face; face; worried -->
-		<annotation cp='[😟]' tts='걱정스러운 얼굴' draft='provisional'>걱정스러운 얼굴; 걱정; 얼굴</annotation>
+		<annotation cp='[😟]' tts='걱정스러운 얼굴'>걱정; 얼굴</annotation>
 
 		<!-- face with steam from nose; face; triumph; won -->
-		<annotation cp='[😤]' tts='승리감에 찬 얼굴' draft='provisional'>승리감에 찬 얼굴; 승리감; 이겼다; 얼굴</annotation>
+		<annotation cp='[😤]' tts='승리감에 찬 얼굴'>승리감; 이겼다; 얼굴</annotation>
 
 		<!-- crying face; cry; face; sad; tear -->
-		<annotation cp='[😢]' tts='우는 얼굴' draft='provisional'>우는 얼굴; 울음; 눈물; 얼굴</annotation>
+		<annotation cp='[😢]' tts='우는 얼굴'>울음; 눈물; 얼굴</annotation>
 
 		<!-- loudly crying face; cry; face; sad; sob; tear -->
-		<annotation cp='[😭]' tts='엉엉 우는 얼굴' draft='provisional'>엉엉 우는 얼굴; 대성통곡; 눈물; 얼굴</annotation>
+		<annotation cp='[😭]' tts='엉엉 우는 얼굴'>대성통곡; 눈물; 얼굴</annotation>
 
 		<!-- frowning face with open mouth; face; frown; mouth; open -->
-		<annotation cp='[😦]' tts='찡그린 얼굴' draft='provisional'>찡그린 얼굴; 찌푸린 얼굴; 입 벌리고 찌푸린 얼굴; 얼굴</annotation>
+		<annotation cp='[😦]' tts='입 벌리고 찌푸린 얼굴'>찌푸린 얼굴; 입 벌리고 찌푸린 얼굴; 얼굴</annotation>
 
 		<!-- anguished face; anguished; face -->
-		<annotation cp='[😧]' tts='괴로워하는 얼굴' draft='provisional'>괴로워하는 얼굴; 괴로움; 얼굴</annotation>
+		<annotation cp='[😧]' tts='괴로워하는 얼굴'>괴로움; 얼굴</annotation>
 
 		<!-- fearful face; face; fear; fearful; scared -->
-		<annotation cp='[😨]' tts='두려워하는 얼굴' draft='provisional'>두려워하는 얼굴; 공포에 가득찬 얼굴; 공포; 두려움; 얼굴</annotation>
+		<annotation cp='[😨]' tts='두려워하는 얼굴'>공포에 가득찬 얼굴; 공포; 두려움; 얼굴</annotation>
 
 		<!-- weary face; face; tired; weary -->
-		<annotation cp='[😩]' tts='지친 얼굴' draft='provisional'>지친 얼굴; 지침; 얼굴</annotation>
+		<annotation cp='[😩]' tts='지친 얼굴'>지침; 얼굴</annotation>
 
 		<!-- grimacing face; face; grimace -->
-		<annotation cp='[😬]' tts='찡그린 얼굴' draft='provisional'>찡그린 얼굴; 찡그림; 얼굴</annotation>
+		<annotation cp='[😬]' tts='찌푸린 얼굴'>찡그림; 얼굴</annotation>
 
 		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
-		<annotation cp='[😰]' tts='식은땀 흘리는 얼굴' draft='provisional'>식은땀 흘리는 얼굴; 식은땀; 얼굴</annotation>
+		<annotation cp='[😰]' tts='식은땀 흘리는 얼굴'>식은땀; 얼굴</annotation>
 
 		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
-		<annotation cp='[😱]' tts='비명 지르는 얼굴' draft='provisional'>비명 지르는 얼굴; 소리 지르는 얼굴; 비명; 공포; 얼굴</annotation>
+		<annotation cp='[😱]' tts='비명 지르는 얼굴'>소리 지르는 얼굴; 비명; 공포; 얼굴</annotation>
 
 		<!-- flushed face; dazed; face; flushed -->
-		<annotation cp='[😳]' tts='상기된 얼굴' draft='provisional'>상기된 얼굴; 붉힌 얼굴; 얼굴 붉힘; 달아오른 얼굴; 얼굴</annotation>
+		<annotation cp='[😳]' tts='상기된 얼굴'>붉힌 얼굴; 얼굴 붉힘; 달아오른 얼굴; 얼굴</annotation>
 
 		<!-- dizzy face; dizzy; face -->
-		<annotation cp='[😵]' tts='어지러운 얼굴' draft='provisional'>어지러운 얼굴; 어지러움; 얼굴</annotation>
+		<annotation cp='[😵]' tts='어지러운 얼굴'>어지러움; 얼굴</annotation>
 
 		<!-- pouting face; angry; face; mad; pouting; rage; red -->
-		<annotation cp='[😡]' tts='뾰로통한 얼굴' draft='provisional'>뾰로통한 얼굴; 뾰로통함; 얼굴</annotation>
+		<annotation cp='[😡]' tts='뾰로통한 얼굴'>뾰로통함; 얼굴</annotation>
 
 		<!-- angry face; angry; face; mad -->
-		<annotation cp='[😠]' tts='화난 얼굴' draft='provisional'>화난 얼굴; 화; 분노; 얼굴</annotation>
+		<annotation cp='[😠]' tts='화난 얼굴'>화; 분노; 얼굴</annotation>
 
 		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
-		<annotation cp='[😈]' tts='뿔난 웃는 얼굴' draft='provisional'>뿔난 웃는 얼굴; 웃는 얼굴; 미소; 스마일; 얼굴</annotation>
+		<annotation cp='[😈]' tts='뿔난 웃는 얼굴'>웃는 얼굴; 미소; 스마일; 얼굴</annotation>
 
 		<!-- imp; demon; devil; face; fairy tale; fantasy -->
-		<annotation cp='[👿]' tts='아기 도깨비' draft='provisional'>아기 도깨비; 꼬마 악마</annotation>
+		<annotation cp='[👿]' tts='아기 도깨비'>꼬마 악마</annotation>
 
 		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
-		<annotation cp='[👹]' tts='도깨비 가면' draft='provisional'>도깨비 가면; 도깨비; 가면</annotation>
+		<annotation cp='[👹]' tts='도깨비 가면'>도깨비; 가면</annotation>
 
 		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
-		<annotation cp='[👺]' tts='코주부 도깨비 가면' draft='provisional'>코주부 도깨비 가면; 코주부 도깨비; 가면</annotation>
+		<annotation cp='[👺]' tts='코주부 도깨비 가면'>코주부 도깨비; 가면</annotation>
 
 		<!-- skull; body; death; face; fairy tale; monster -->
-		<annotation cp='[💀]' tts='해골' draft='provisional'>해골; 해골 바가지</annotation>
+		<annotation cp='[💀]' tts='해골'>해골 바가지</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='해골과 뼈다귀'>해골; 뼈다귀</annotation>
 
 		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
-		<annotation cp='[👻]' tts='유령' draft='provisional'>유령; 귀신; 고스트</annotation>
+		<annotation cp='[👻]' tts='유령'>귀신; 고스트</annotation>
 
 		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
-		<annotation cp='[👽]' tts='외계인' draft='provisional'>외계인; 에일리언; UFO; 왕눈이</annotation>
+		<annotation cp='[👽]' tts='외계인'>에일리언; UFO; 왕눈이</annotation>
 
 		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
-		<annotation cp='[👾]' tts='괴물' draft='provisional'>괴물; UFO</annotation>
+		<annotation cp='[👾]' tts='괴물'>UFO; 외계인; 우주생명체; 몬스터</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='로봇 얼굴'>로봇; 얼굴</annotation>
 
 		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
-		<annotation cp='[💩]' tts='똥' draft='provisional'>똥; 똥무더기</annotation>
+		<annotation cp='[💩]' tts='똥'>똥무더기</annotation>
 
 		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
-		<annotation cp='[😺]' tts='활짝 웃는 고양이' draft='provisional'>활짝 웃는 고양이; 입벌리고 활짝 웃는 고양이; 고양이</annotation>
+		<annotation cp='[😺]' tts='활짝 웃는 고양이'>입벌리고 활짝 웃는 고양이; 고양이</annotation>
 
 		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
-		<annotation cp='[😸]' tts='웃는 고양이 얼굴' draft='provisional'>웃는 고양이 얼굴; 고양이</annotation>
+		<annotation cp='[😸]' tts='웃는 고양이 얼굴'>고양이</annotation>
 
 		<!-- cat face with tears of joy; cat; face; joy; tear -->
-		<annotation cp='[😹]' tts='기쁨의 눈물 흘리는 고양이' draft='provisional'>기쁨의 눈물 흘리는 고양이; 기뻐하면서 우는 고양이; 기쁨의 눈물; 고양이</annotation>
+		<annotation cp='[😹]' tts='기쁨의 눈물 흘리는 고양이'>기뻐하면서 우는 고양이; 기쁨의 눈물; 고양이</annotation>
 
 		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
-		<annotation cp='[😻]' tts='하트 눈 고양이' draft='provisional'>하트 눈 고양이; 사랑에 빠진 고양이; 고양이</annotation>
+		<annotation cp='[😻]' tts='하트 눈 고양이'>사랑에 빠진 고양이; 고양이</annotation>
 
 		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
-		<annotation cp='[😼]' tts='썩소 짓는 고양이' draft='provisional'>썩소 짓는 고양이; 고소하다는 웃음 짓는 고양이; 쌤통; 고양이</annotation>
+		<annotation cp='[😼]' tts='썩소 짓는 고양이'>고소하다는 웃음 짓는 고양이; 쌤통; 고양이</annotation>
 
 		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
-		<annotation cp='[😽]' tts='뽀뽀하는 고양이' draft='provisional'>뽀뽀하는 고양이; 눈 감고 뽀뽀하는 고양이; 뽀뽀; 키스; 고양이</annotation>
+		<annotation cp='[😽]' tts='뽀뽀하는 고양이'>눈 감고 뽀뽀하는 고양이; 뽀뽀; 키스; 고양이</annotation>
 
 		<!-- weary cat face; cat; face; oh; surprised; weary -->
-		<annotation cp='[🙀]' tts='깜짝 놀란 고양이 얼굴' draft='provisional'>깜짝 놀란 고양이 얼굴; 맙소사; 고양이</annotation>
+		<annotation cp='[🙀]' tts='깜짝 놀란 고양이 얼굴'>맙소사; 고양이</annotation>
 
 		<!-- crying cat face; cat; cry; face; sad; tear -->
-		<annotation cp='[😿]' tts='우는 고양이' draft='provisional'>우는 고양이; 울고 있는 고양이; 눈물 흘리는 고양이; 훌쩍; 고양이</annotation>
+		<annotation cp='[😿]' tts='우는 고양이'>울고 있는 고양이; 눈물 흘리는 고양이; 훌쩍; 고양이</annotation>
 
 		<!-- pouting cat face; cat; face; pouting -->
-		<annotation cp='[😾]' tts='뿌루퉁한 고양이' draft='provisional'>뿌루퉁한 고양이; 토라짐; 고양이</annotation>
+		<annotation cp='[😾]' tts='뿌루퉁한 고양이'>토라짐; 고양이</annotation>
 
 		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
-		<annotation cp='[🙈]' tts='안볼래 원숭이' draft='provisional'>안볼래 원숭이; 손으로 눈을 가린 원숭이; 아무것도 안 보이는 원숭이</annotation>
+		<annotation cp='[🙈]' tts='안볼래 원숭이'>손으로 눈을 가린 원숭이; 아무것도 안 보려는 원숭이</annotation>
 
 		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
-		<annotation cp='[🙉]' tts='안들을래 원숭이' draft='provisional'>안들을래 원숭이; 손으로 귀를 가린 원숭이; 아무것도 안 들리는 원숭이</annotation>
+		<annotation cp='[🙉]' tts='안들을래 원숭이'>손으로 귀를 가린 원숭이; 아무것도 안 들리는 원숭이</annotation>
 
 		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
-		<annotation cp='[🙊]' tts='말못해 원숭이' draft='provisional'>말못해 원숭이; 손으로 입을 가린 원숭이; 아무것도 말할 수 없는 원숭이</annotation>
+		<annotation cp='[🙊]' tts='말못해 원숭이'>손으로 입을 가린 원숭이; 아무것도 말할 수 없는 원숭이</annotation>
 
 		<!-- boy -->
-		<annotation cp='[👦]' tts='남자 아이' draft='provisional'>남자 아이; 소년</annotation>
+		<annotation cp='[👦]' tts='남자 아이'>소년</annotation>
 
 		<!-- girl; maiden; virgin; virgo; zodiac -->
-		<annotation cp='[👧]' tts='여자 아이' draft='provisional'>여자 아이; 소녀</annotation>
+		<annotation cp='[👧]' tts='여자 아이'>소녀</annotation>
 
 		<!-- man -->
-		<annotation cp='[👨]' tts='남자' draft='provisional'>남자; 남성; 아저씨</annotation>
+		<annotation cp='[👨]' tts='남자'>남성; 아저씨</annotation>
 
 		<!-- woman -->
-		<annotation cp='[👩]' tts='여자' draft='provisional'>여자; 여성; 아가씨</annotation>
+		<annotation cp='[👩]' tts='여자'>여성; 아가씨</annotation>
 
 		<!-- old man; man; old -->
-		<annotation cp='[👴]' tts='할아버지' draft='provisional'>할아버지; 노인</annotation>
+		<annotation cp='[👴]' tts='할아버지'>노인</annotation>
 
 		<!-- old woman; old; woman -->
-		<annotation cp='[👵]' tts='할머니' draft='provisional'>할머니; 노인</annotation>
+		<annotation cp='[👵]' tts='할머니'>노인</annotation>
 
 		<!-- baby -->
-		<annotation cp='[👶]' tts='아기' draft='provisional'>아기; 유아</annotation>
+		<annotation cp='[👶]' tts='아기'>유아</annotation>
 
 		<!-- person with blond hair; blond -->
-		<annotation cp='[👱]' tts='금발 남자' draft='provisional'>금발 남자; 금발 남성; 서양 남자; 서양 남성</annotation>
+		<annotation cp='[👱]' tts='금발 남자'>금발 남성; 서양 남자; 서양 남성</annotation>
 
 		<!-- police officer; cop; officer; police -->
-		<annotation cp='[👮]' tts='경찰관' draft='provisional'>경찰관; 경찰</annotation>
+		<annotation cp='[👮]' tts='경찰관'>경찰</annotation>
 
 		<!-- man with chinese cap; gua pi mao; hat; man -->
-		<annotation cp='[👲]' tts='중국인' draft='provisional'>중국인; 중국 사람</annotation>
+		<annotation cp='[👲]' tts='중국인'>중국 사람</annotation>
 
 		<!-- man with turban; man; turban -->
-		<annotation cp='[👳]' tts='아랍인' draft='provisional'>아랍인; 아랍 사람; 터번을 쓴 사람</annotation>
+		<annotation cp='[👳]' tts='아랍인'>아랍 사람; 터번을 쓴 사람</annotation>
 
 		<!-- construction worker; construction; hat; worker -->
-		<annotation cp='[👷]' tts='건설 노동자' draft='provisional'>건설 노동자; 안전모</annotation>
+		<annotation cp='[👷]' tts='건설 노동자'>안전모</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='흰 십자가가 있는 헬멧'>안전요원; 도움; 모자; 헬멧</annotation>
 
 		<!-- princess; fairy tale; fantasy -->
-		<annotation cp='[👸]' tts='공주' draft='provisional'>공주; 공주님; 왕관을 쓴 여성</annotation>
+		<annotation cp='[👸]' tts='공주'>공주님; 왕관을 쓴 여성; 프린세스</annotation>
 
 		<!-- guardsman; guard -->
-		<annotation cp='[💂]' tts='근위병' draft='provisional'>근위병; 경비대원; 경비대</annotation>
+		<annotation cp='[💂]' tts='근위병'>경비대원; 경비대</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='탐정'>탐정; 스파이</annotation>
 
 		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
-		<annotation cp='[🎅]' tts='산타클로스' draft='provisional'>산타클로스; 산타; 산타 할아버지; 크리스마스</annotation>
+		<annotation cp='[🎅]' tts='산타클로스'>산타; 산타 할아버지; 크리스마스</annotation>
 
 		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
-		<annotation cp='[👼]' tts='아기 천사' draft='provisional'>아기 천사; 천사</annotation>
+		<annotation cp='[👼]' tts='아기 천사'>천사</annotation>
 
 		<!-- face massage; massage; salon -->
-		<annotation cp='[💆]' tts='얼굴 마사지' draft='provisional'>얼굴 마사지; 마사지; 경락</annotation>
+		<annotation cp='[💆]' tts='얼굴 마사지'>마사지; 경락</annotation>
 
 		<!-- haircut; barber; beauty; parlor -->
-		<annotation cp='[💇]' tts='미용실' draft='provisional'>미용실; 미용; 가위와 빗</annotation>
+		<annotation cp='[💇]' tts='헤어컷'>미용; 가위와 빗</annotation>
 
 		<!-- bride with veil; bride; veil; wedding -->
-		<annotation cp='[👰]' tts='신부' draft='provisional'>신부; 면사포; 새색시</annotation>
+		<annotation cp='[👰]' tts='신부'>면사포; 새색시</annotation>
 
 		<!-- person frowning; frown; gesture -->
-		<annotation cp='[🙍]' tts='찌푸린 얼굴' draft='provisional'>찌푸린 얼굴; 짜증</annotation>
+		<annotation cp='[🙍]' tts='찌푸린 얼굴'>짜증</annotation>
 
 		<!-- person pouting; gesture; pouting -->
-		<annotation cp='[🙎]' tts='뿌루퉁한 얼굴' draft='provisional'>뿌루퉁한 얼굴; 뿌루퉁한 사람</annotation>
+		<annotation cp='[🙎]' tts='뿌루퉁한 얼굴'>뿌루퉁한 사람</annotation>
 
 		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
-		<annotation cp='[🙅]' tts='엑스' draft='provisional'>엑스; 엑스자 그리는 사람; 엑스자 제스처; 엔쥐; NG</annotation>
+		<annotation cp='[🙅]' tts='엑스'>엑스자 그리는 사람; 엑스자 제스처; 엔쥐; NG</annotation>
 
 		<!-- gesturing ok; gesture; hand; ok -->
-		<annotation cp='[🙆]' tts='두손 오케이' draft='provisional'>두손 오케이; 오케이 제스처; OK; 오케이</annotation>
+		<annotation cp='[🙆]' tts='두손 오케이'>오케이 제스처; OK; 오케이</annotation>
 
 		<!-- information desk person; hand; help; information; sassy -->
-		<annotation cp='[💁]' tts='안내원' draft='provisional'>안내원; 데스크 안내원; 안내 데스크</annotation>
+		<annotation cp='[💁]' tts='안내원'>데스크 안내원; 안내 데스크</annotation>
 
 		<!-- happy person raising hand; gesture; hand; happy; raised -->
-		<annotation cp='[🙋]' tts='저요' draft='provisional'>저요; 한 손을 들고 즐거워하는 사람; 즐거워하는 사람; 한 손을 든 사람</annotation>
+		<annotation cp='[🙋]' tts='저요'>한 손을 들고 즐거워하는 사람; 즐거워하는 사람; 한 손을 든 사람</annotation>
 
 		<!-- person bowing; apology; bow; gesture; sorry -->
-		<annotation cp='[🙇]' tts='큰절' draft='provisional'>큰절; 사과하는 사람; 사과하며 절하는 사람</annotation>
+		<annotation cp='[🙇]' tts='큰절'>사과하는 사람; 사과하며 절하는 사람</annotation>
 
 		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
-		<annotation cp='[🙌]' tts='만세' draft='provisional'>만세; 만세 하고 있는 사람; 두 손을 든 사람</annotation>
+		<annotation cp='[🙌]' tts='만세'>만세 하고 있는 사람; 두 손을 든 사람; 제스처; 하이파이브</annotation>
 
 		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
-		<annotation cp='[🙏]' tts='기도' draft='provisional'>기도; 두 손 모아 기도하는 사람; 기도하는 사람; 합장</annotation>
+		<annotation cp='[🙏]' tts='기도'>두 손 모아 기도하는 사람; 기도하는 사람; 합장</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='말하고 있는 옆얼굴'>얼굴; 실루엣; 말함</annotation>
 
 		<!-- bust in silhouette; bust; silhouette -->
-		<annotation cp='[👤]' tts='사람 그림자' draft='provisional'>사람 그림자; 상체; 사람; 상반신</annotation>
+		<annotation cp='[👤]' tts='사람 그림자'>상체; 사람; 상반신</annotation>
 
 		<!-- busts in silhouette; bust; silhouette -->
-		<annotation cp='[👥]' tts='사람들 그림자' draft='provisional'>사람들 그림자; 상체; 사람들; 상반신</annotation>
+		<annotation cp='[👥]' tts='사람들 그림자'>상체; 사람들; 상반신</annotation>
 
 		<!-- pedestrian; hike; walk; walking -->
-		<annotation cp='[🚶]' tts='보행자' draft='provisional'>보행자; 보행자용</annotation>
+		<annotation cp='[🚶]' tts='보행자'>보행자용</annotation>
 
 		<!-- runner; marathon; running -->
-		<annotation cp='[🏃]' tts='달리기' draft='provisional'>달리기; 달리는 사람; 달리기 경주; 마라톤; 러너; 운동</annotation>
+		<annotation cp='[🏃]' tts='달리기'>달리는 사람; 달리기 경주; 마라톤; 러너; 운동</annotation>
 
 		<!-- women partying; bunny; dancer; ear; girl; woman -->
-		<annotation cp='[👯]' tts='바니걸' draft='provisional'>바니걸; 토끼 귀를 쓴 여자</annotation>
+		<annotation cp='[👯]' tts='바니걸'>토끼 귀를 쓴 여자</annotation>
 
 		<!-- dancer -->
-		<annotation cp='[💃]' tts='댄서' draft='provisional'>댄서; 댄스; 댄싱</annotation>
+		<annotation cp='[💃]' tts='댄서'>댄스; 댄싱</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='공중에 떠 있는 정장 입은 남자'>정장; 남자; 공중부양</annotation>
 
 		<!-- kiss; couple; romance -->
-		<annotation cp='[💏]' tts='키스' draft='provisional'>키스; 연애; 사랑</annotation>
+		<annotation cp='[💏]' tts='키스'>연애; 사랑</annotation>
 
 		<!-- couple with heart; couple; heart; love; romance -->
-		<annotation cp='[💑]' tts='연인' draft='provisional'>연인; 연애; 연애 중; 사랑</annotation>
+		<annotation cp='[💑]' tts='연인'>연애; 연애 중; 사랑</annotation>
 
 		<!-- family; child; father; mother -->
-		<annotation cp='[👪]' tts='가족' draft='provisional'>가족; 엄마; 아빠; 아이; 사람들</annotation>
+		<annotation cp='[👪]' tts='가족'>엄마; 아빠; 아이; 사람들</annotation>
 
 		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
-		<annotation cp='[👫]' tts='남자와 여자' draft='provisional'>남자와 여자; 커플; 남녀 커플; 연인</annotation>
+		<annotation cp='[👫]' tts='손잡고 있는 남자와 여자'>커플; 남녀 커플; 연인</annotation>
 
 		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
-		<annotation cp='[👬]' tts='친구' draft='provisional'>친구; 친구들; 남성 커플; 동성 커플; 동성 연인</annotation>
+		<annotation cp='[👬]' tts='손잡고 있는 남자 동성 친구'>친구들; 남성 커플; 동성 커플; 동성 연인</annotation>
 
 		<!-- two women holding hands; couple; hand; hold; woman -->
-		<annotation cp='[👭]' tts='친구' draft='provisional'>친구; 친구들; 여성 커플; 동성 커플; 동성 연인</annotation>
+		<annotation cp='[👭]' tts='손잡고 있는 여자 동성 친구'>친구들; 여성 커플; 동성 커플; 동성 연인</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='피부 타입 일 다시 이'>피부톤; 피부색; 하얀 피부</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='피부 타입 삼'>피부톤; 피부색; 연한 갈색 피부</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='피부 타입 사'>피부톤; 피부색; 갈색 피부</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='파부 타입 오'>피부톤; 피부색; 진한 갈색 피부</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='피부 타입 육'>피부톤; 피부색; 검은색 피부</annotation>
 
 		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
-		<annotation cp='[💪]' tts='알통' draft='provisional'>알통; 근육; 힘; 강함; 이두박근</annotation>
+		<annotation cp='[💪]' tts='알통'>근육; 힘; 강함; 이두박근</annotation>
 
 		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
-		<annotation cp='[👈]' tts='검지손가락 왼쪽으로' draft='provisional'>검지손가락 왼쪽으로; 손가락 왼쪽으로; 검지손가락; 왼쪽; 왼쪽을 가리키는 검지손가락; 손가락으로 왼쪽 가리키기</annotation>
+		<annotation cp='[👈]' tts='검지손가락 왼쪽으로'>손가락 왼쪽으로; 검지손가락; 왼쪽; 왼쪽을 가리키는 검지손가락; 손가락으로 왼쪽 가리키기</annotation>
 
 		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
-		<annotation cp='[👉]' tts='검지손가락 오른쪽으로' draft='provisional'>검지손가락 오른쪽으로; 손가락 오른쪽으로; 검지손가락; 오른쪽; 오른쪽을 가리키는 검지손가락; 손가락으로 오른쪽 가리키기</annotation>
+		<annotation cp='[👉]' tts='검지손가락 오른쪽으로'>손가락 오른쪽으로; 검지손가락; 오른쪽; 오른쪽을 가리키는 검지손가락; 손가락으로 오른쪽 가리키기</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='위를 가리키는 검지'>검지; 가리키기</annotation>
 
 		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
-		<annotation cp='[👆]' tts='검지손가락 위로' draft='provisional'>검지손가락 위로; 손가락 위로; 검지손가락; 위; 위쪽; 위를 가리키는 검지손가락; 손가락으로 위를 가리키기</annotation>
+		<annotation cp='[👆]' tts='검지손가락 위로'>손가락 위로; 검지손가락; 위; 위쪽; 위를 가리키는 검지손가락; 손가락으로 위를 가리키기</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='중지'>중지; 욕설; 가운데 손가락</annotation>
 
 		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
-		<annotation cp='[👇]' tts='검지손가락 아래로' draft='provisional'>검지손가락 아래로; 손가락 아래로; 검지손가락; 아래; 아래쪽; 아래를 가리키는 검지손가락; 손가락으로 아래를 가리키기</annotation>
+		<annotation cp='[👇]' tts='검지손가락 아래로'>손가락 아래로; 검지손가락; 아래; 아래쪽; 아래를 가리키는 검지손가락; 손가락으로 아래를 가리키기</annotation>
 
 		<!-- victory hand; body; hand; v; victory -->
-		<annotation cp='[✌]' tts='브이 표시' draft='provisional'>브이 표시; 가위; 찌</annotation>
+		<annotation cp='[✌]' tts='브이 표시'>가위; 찌</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='불칸 경례'>손 모양; 경례</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='악마의 뿔'>손 모양; 힙합; 락 음악</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='쫙 편 손바닥'>손바닥; 안녕; 인사</annotation>
 
 		<!-- raised hand; body; hand -->
-		<annotation cp='[✋]' tts='손바닥' draft='provisional'>손바닥; 보자기; 보</annotation>
+		<annotation cp='[✋]' tts='손바닥'>보자기; 보</annotation>
 
 		<!-- ok hand; body; hand; ok -->
-		<annotation cp='[👌]' tts='오케이' draft='provisional'>오케이; 오케이 신호; 돈</annotation>
+		<annotation cp='[👌]' tts='좋아요'>오케이 신호; 돈</annotation>
 
 		<!-- thumbs up; +1; body; hand; thumb; up -->
-		<annotation cp='[👍]' tts='엄지손가락 올리기' draft='provisional'>엄지손가락 올리기; 최고; 따봉; 좋아요</annotation>
+		<annotation cp='[👍]' tts='엄지손가락 올리기'>최고; 따봉; 좋아요</annotation>
 
 		<!-- thumbs down; -1; body; down; hand; thumb -->
-		<annotation cp='[👎]' tts='엄지손가락 내리기' draft='provisional'>엄지손가락 내리기; 최악; 야유; 싫어요</annotation>
+		<annotation cp='[👎]' tts='엄지손가락 내리기'>최악; 야유; 싫어요</annotation>
 
 		<!-- raised fist; body; clenched; fist; hand; punch -->
-		<annotation cp='[✊]' tts='주먹' draft='provisional'>주먹; 바위; 묵</annotation>
+		<annotation cp='[✊]' tts='주먹'>바위; 묵</annotation>
 
 		<!-- oncoming fist; body; clenched; fist; hand; punch -->
-		<annotation cp='[👊]' tts='주먹' draft='provisional'>주먹; 펀치</annotation>
+		<annotation cp='[👊]' tts='펀치'>펀치</annotation>
 
 		<!-- waving hand; body; hand; wave; waving -->
-		<annotation cp='[👋]' tts='손바닥' draft='provisional'>손바닥; 펼친 손; 손 흔들기</annotation>
+		<annotation cp='[👋]' tts='손 흔들기'>펼친 손; 손 흔들기</annotation>
 
 		<!-- clapping hands; body; clap; hand -->
-		<annotation cp='[👏]' tts='손뼉' draft='provisional'>손뼉; 박수; 손뼉 치기; 박수 치기</annotation>
+		<annotation cp='[👏]' tts='손뼉'>박수; 손뼉 치기; 박수 치기</annotation>
 
 		<!-- open hands; body; hand; open -->
-		<annotation cp='[👐]' tts='손사래' draft='provisional'>손사래; 두 손 펼치기; 펼친 두 손</annotation>
+		<annotation cp='[👐]' tts='손사래'>두 손 펼치기; 펼친 두 손</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='글을 쓰고 있는 손'>손; 연필 쥔 손</annotation>
 
 		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
-		<annotation cp='[💅]' tts='매니큐어' draft='provisional'>매니큐어; 네일 아트; 네일 케어</annotation>
+		<annotation cp='[💅]' tts='매니큐어'>네일 아트; 네일 케어</annotation>
 
 		<!-- ear; body -->
-		<annotation cp='[👂]' tts='귀' draft='provisional'>귀; 몸</annotation>
+		<annotation cp='[👂]' tts='귀'>몸</annotation>
 
 		<!-- nose; body -->
-		<annotation cp='[👃]' tts='코' draft='provisional'>코; 몸</annotation>
+		<annotation cp='[👃]' tts='코'>몸</annotation>
 
 		<!-- footprints; body; clothing; footprint; print -->
-		<annotation cp='[👣]' tts='발자국' draft='provisional'>발자국; 발바닥; 발; 족적</annotation>
+		<annotation cp='[👣]' tts='발자국'>발바닥; 발; 족적</annotation>
 
 		<!-- eyes; body; eye; face -->
-		<annotation cp='[👀]' tts='눈' draft='provisional'>눈; 얼굴</annotation>
+		<annotation cp='[👀]' tts='왕눈이 눈알'>신체; 얼굴</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='눈'>신체; 얼굴; 시력</annotation>
 
 		<!-- tongue; body -->
-		<annotation cp='[👅]' tts='혀' draft='provisional'>혀; 메롱; 몸</annotation>
+		<annotation cp='[👅]' tts='혀'>메롱; 몸</annotation>
 
 		<!-- mouth; body; lips -->
-		<annotation cp='[👄]' tts='입' draft='provisional'>입; 몸</annotation>
+		<annotation cp='[👄]' tts='입'>몸</annotation>
 
 		<!-- kiss mark; heart; kiss; lips; mark; romance -->
-		<annotation cp='[💋]' tts='입술' draft='provisional'>입술; 쪽; 키스; 쪼옥; 뽀뽀</annotation>
+		<annotation cp='[💋]' tts='입술'>쪽; 키스; 쪼옥; 뽀뽀</annotation>
 
 		<!-- heart with arrow; arrow; cupid; heart; romance -->
-		<annotation cp='[💘]' tts='사랑의 화살' draft='provisional'>사랑의 화살; 큐피드; 사랑</annotation>
+		<annotation cp='[💘]' tts='사랑의 화살'>큐피드; 사랑</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='빨간색 하트'>하트; 마음</annotation>
 
 		<!-- beating heart; beating; heart; heartbeat; pulsating -->
-		<annotation cp='[💓]' tts='두근거리는 하트' draft='provisional'>두근거리는 하트; 두근거리는 마음; 두근두근; 떨리는 마음; 사랑</annotation>
+		<annotation cp='[💓]' tts='두근거리는 하트'>두근거리는 마음; 두근두근; 떨리는 마음; 사랑</annotation>
 
 		<!-- broken heart; break; broken; heart -->
-		<annotation cp='[💔]' tts='갈라진 하트' draft='provisional'>갈라진 하트; 이별; 이별의 아픔; 이별의 고통</annotation>
+		<annotation cp='[💔]' tts='갈라진 하트'>이별; 이별의 아픔; 이별의 고통; 헤어짐; 결별</annotation>
 
 		<!-- two hearts; heart; love -->
-		<annotation cp='[💕]' tts='하트 두 개' draft='provisional'>하트 두 개; 연인; 사랑</annotation>
+		<annotation cp='[💕]' tts='하트 두 개'>연인; 사랑</annotation>
 
 		<!-- sparkling heart; excited; heart; sparkle -->
-		<annotation cp='[💖]' tts='빛나는 하트' draft='provisional'>빛나는 하트; 설렘; 두근거림; 사랑의 기쁨; 기쁨으로 가득찬 마음; 사랑</annotation>
+		<annotation cp='[💖]' tts='빛나는 하트'>설렘; 두근거림; 사랑의 기쁨; 기쁨으로 가득찬 마음; 사랑</annotation>
 
 		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
-		<annotation cp='[💗]' tts='커지는 하트' draft='provisional'>커지는 하트; 커지는 마음; 깊어지는 사랑; 깊어지는 마음; 사랑</annotation>
+		<annotation cp='[💗]' tts='커지는 하트'>커지는 마음; 깊어지는 사랑; 깊어지는 마음; 사랑</annotation>
 
 		<!-- blue heart; blue; heart -->
-		<annotation cp='[💙]' tts='파란색 하트' draft='provisional'>파란색 하트; 파란 하트; 하트; 사랑</annotation>
+		<annotation cp='[💙]' tts='파란색 하트'>파란 하트; 하트; 사랑</annotation>
 
 		<!-- green heart; green; heart -->
-		<annotation cp='[💚]' tts='초록색 하트' draft='provisional'>초록색 하트; 녹색 하트; 하트; 사랑</annotation>
+		<annotation cp='[💚]' tts='초록색 하트'>녹색 하트; 하트; 사랑</annotation>
 
 		<!-- yellow heart; heart; yellow -->
-		<annotation cp='[💛]' tts='노란색 하트' draft='provisional'>노란색 하트; 노란 하트; 하트; 사랑</annotation>
+		<annotation cp='[💛]' tts='노란색 하트'>노란 하트; 하트; 사랑</annotation>
 
 		<!-- purple heart; heart; purple -->
-		<annotation cp='[💜]' tts='보라색 하트' draft='provisional'>보라색 하트; 하트; 사랑</annotation>
+		<annotation cp='[💜]' tts='보라색 하트'>하트; 사랑</annotation>
 
 		<!-- heart with ribbon; heart; ribbon; valentine -->
-		<annotation cp='[💝]' tts='리본 달린 하트' draft='provisional'>리본 달린 하트; 선물 상자; 리본; 하트; 발렌타인 초콜렛 상자; 사랑</annotation>
+		<annotation cp='[💝]' tts='리본 달린 하트'>선물 상자; 리본; 하트; 발렌타인 초콜렛 상자; 사랑</annotation>
 
 		<!-- revolving hearts; heart; revolving -->
-		<annotation cp='[💞]' tts='빙글빙글 도는 하트' draft='provisional'>빙글빙글 도는 하트; 하트; 빙글빙글 하트; 귀여움; 사랑스러움; 사랑</annotation>
+		<annotation cp='[💞]' tts='빙글빙글 도는 하트'>하트; 빙글빙글 하트; 귀여움; 사랑스러움; 사랑</annotation>
 
 		<!-- heart decoration; heart -->
-		<annotation cp='[💟]' tts='하트 장식' draft='provisional'>하트 장식; 하트</annotation>
+		<annotation cp='[💟]' tts='하트 장식'>하트</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='하트 모양 느낌표'>하트; 느낌표</annotation>
 
 		<!-- love letter; heart; letter; love; mail; romance -->
-		<annotation cp='[💌]' tts='러브레터' draft='provisional'>러브레터; 연애 편지; 사랑 고백</annotation>
+		<annotation cp='[💌]' tts='러브레터'>연애 편지; 사랑 고백</annotation>
 
 		<!-- zzz; comic; sleep -->
-		<annotation cp='[💤]' tts='졸림' draft='provisional'>졸림; 자고 있음; 수면; 쿨쿨</annotation>
+		<annotation cp='[💤]' tts='졸림'>자고 있음; 수면; 쿨쿨</annotation>
 
 		<!-- anger symbol; angry; comic; mad -->
-		<annotation cp='[💢]' tts='화남' draft='provisional'>화남; 화; 울컥</annotation>
+		<annotation cp='[💢]' tts='화남'>화; 울컥</annotation>
 
 		<!-- bomb; comic -->
-		<annotation cp='[💣]' tts='폭탄' draft='provisional'>폭탄; 폭발</annotation>
+		<annotation cp='[💣]' tts='폭탄'>폭발</annotation>
 
 		<!-- collision; boom; comic -->
-		<annotation cp='[💥]' tts='충돌' draft='provisional'>충돌; 꽝; 쾅</annotation>
+		<annotation cp='[💥]' tts='충돌'>꽝; 쾅</annotation>
 
 		<!-- sweat droplets; comic; splashing; sweat -->
-		<annotation cp='[💦]' tts='땀' draft='provisional'>땀; 삐질삐질; 곤란; 당황</annotation>
+		<annotation cp='[💦]' tts='땀'>삐질삐질; 곤란; 당황</annotation>
 
 		<!-- dashing; comic; dash; running -->
-		<annotation cp='[💨]' tts='달려나감' draft='provisional'>달려나감; 후다닥; 슝</annotation>
+		<annotation cp='[💨]' tts='달려나감'>후다닥; 슝</annotation>
 
 		<!-- dizzy; comic; star -->
-		<annotation cp='[💫]' tts='어지러움' draft='provisional'>어지러움; 어질어질; 띠용; 별</annotation>
+		<annotation cp='[💫]' tts='어지러움'>어질어질; 띠용; 별</annotation>
 
 		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
-		<annotation cp='[💬]' tts='말풍선' draft='provisional'>말풍선; 대화창; 대화</annotation>
+		<annotation cp='[💬]' tts='말풍선'>대화창; 대화</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='왼쪽 말풍선'>왼쪽 말풍선</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='오른쪽 말풍선'>뾰족한 말풍성; 오른쪽 말풍선</annotation>
 
 		<!-- thought balloon; balloon; bubble; comic; thought -->
-		<annotation cp='[💭]' tts='생각풍선' draft='provisional'>생각풍선; 생각</annotation>
+		<annotation cp='[💭]' tts='생각풍선'>생각</annotation>
+
+		<!-- hole -->
+		<annotation cp='[🕳]' tts='구멍'>구멍</annotation>
 
 		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
-		<annotation cp='[👓]' tts='안경' draft='provisional'>안경</annotation>
+		<annotation cp='[👓]' tts='안경'>안경; 눈</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='선글라스'>안경; 선글라스</annotation>
 
 		<!-- necktie; clothing -->
-		<annotation cp='[👔]' tts='넥타이' draft='provisional'>넥타이; 샐러리맨</annotation>
+		<annotation cp='[👔]' tts='넥타이'>샐러리맨</annotation>
 
 		<!-- t-shirt; clothing; shirt; tshirt -->
-		<annotation cp='[👕]' tts='티셔츠' draft='provisional'>티셔츠; 티</annotation>
+		<annotation cp='[👕]' tts='티셔츠'>티</annotation>
 
 		<!-- jeans; clothing; pants; trousers -->
-		<annotation cp='[👖]' tts='바지' draft='provisional'>바지; 청바지; 면바지</annotation>
+		<annotation cp='[👖]' tts='바지'>청바지; 면바지</annotation>
 
 		<!-- dress; clothing -->
-		<annotation cp='[👗]' tts='원피스' draft='provisional'>원피스; 드레스</annotation>
+		<annotation cp='[👗]' tts='원피스'>드레스</annotation>
 
 		<!-- kimono; clothing -->
-		<annotation cp='[👘]' tts='기모노' draft='provisional'>기모노; 일본 기모노</annotation>
+		<annotation cp='[👘]' tts='기모노'>일본 기모노</annotation>
 
 		<!-- bikini; clothing; swim -->
-		<annotation cp='[👙]' tts='비키니' draft='provisional'>비키니; 비키니 수영복; 수영복</annotation>
+		<annotation cp='[👙]' tts='비키니'>비키니 수영복; 수영복</annotation>
 
 		<!-- woman’s clothes; clothing; woman -->
-		<annotation cp='[👚]' tts='여성복' draft='provisional'>여성복; 블라우스</annotation>
+		<annotation cp='[👚]' tts='여성복'>블라우스</annotation>
 
 		<!-- purse; clothing; coin -->
-		<annotation cp='[👛]' tts='지갑' draft='provisional'>지갑; 동전 지갑; 동전</annotation>
+		<annotation cp='[👛]' tts='지갑'>동전 지갑; 동전</annotation>
 
 		<!-- handbag; bag; clothing -->
-		<annotation cp='[👜]' tts='핸드백' draft='provisional'>핸드백; 백; 가방</annotation>
+		<annotation cp='[👜]' tts='핸드백'>백; 가방</annotation>
 
 		<!-- pouch; bag; clothing -->
-		<annotation cp='[👝]' tts='파우치' draft='provisional'>파우치; 가방</annotation>
+		<annotation cp='[👝]' tts='파우치'>가방</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='쇼핑백'>쇼핑백; 쇼핑가방</annotation>
 
 		<!-- school backpack; bag; satchel; school -->
-		<annotation cp='[🎒]' tts='학교 가방' draft='provisional'>학교 가방; 가방; 학생 가방</annotation>
+		<annotation cp='[🎒]' tts='학교 가방'>가방; 학생 가방</annotation>
 
 		<!-- man’s shoe; clothing; man; shoe -->
-		<annotation cp='[👞]' tts='남성용 구두' draft='provisional'>남성용 구두; 구두; 남성용 신발; 신발</annotation>
+		<annotation cp='[👞]' tts='남성용 구두'>구두; 남성용 신발; 신발</annotation>
 
 		<!-- running shoe; athletic; clothing; shoe; sneaker -->
-		<annotation cp='[👟]' tts='운동화' draft='provisional'>운동화; 스니커즈; 신발</annotation>
+		<annotation cp='[👟]' tts='운동화'>스니커즈; 신발</annotation>
 
 		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
-		<annotation cp='[👠]' tts='하이힐' draft='provisional'>하이힐; 여성용 구두; 구두; 여성용 신발; 신발</annotation>
+		<annotation cp='[👠]' tts='하이힐'>여성용 구두; 구두; 여성용 신발; 신발</annotation>
 
 		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
-		<annotation cp='[👡]' tts='샌들' draft='provisional'>샌들; 여성용 샌들; 여성용 신발; 신발</annotation>
+		<annotation cp='[👡]' tts='샌들'>여성용 샌들; 여성용 신발; 신발</annotation>
 
 		<!-- woman’s boot; boot; clothing; shoe; woman -->
-		<annotation cp='[👢]' tts='부츠' draft='provisional'>부츠; 여성용 부츠; 여성용 신발; 신발</annotation>
+		<annotation cp='[👢]' tts='부츠'>여성용 부츠; 여성용 신발; 신발</annotation>
 
 		<!-- crown; clothing; king; queen -->
-		<annotation cp='[👑]' tts='왕관' draft='provisional'>왕관; 왕; 왕족</annotation>
+		<annotation cp='[👑]' tts='왕관'>왕; 왕족</annotation>
 
 		<!-- woman’s hat; clothing; hat; woman -->
-		<annotation cp='[👒]' tts='여성용 모자' draft='provisional'>여성용 모자; 모자; 챙 넓은 모자</annotation>
+		<annotation cp='[👒]' tts='여성용 모자'>모자; 챙 넓은 모자</annotation>
 
 		<!-- top hat; clothing; hat; top; tophat -->
-		<annotation cp='[🎩]' tts='마술사 모자' draft='provisional'>마술사 모자; 마술사</annotation>
+		<annotation cp='[🎩]' tts='마술사 모자'>마술사</annotation>
 
 		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
-		<annotation cp='[🎓]' tts='졸업 모자' draft='provisional'>졸업 모자; 졸업; 졸업식; 졸업생</annotation>
+		<annotation cp='[🎓]' tts='졸업 모자'>졸업; 졸업식; 졸업생</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='묵주'>묵주; 기도; 예배</annotation>
 
 		<!-- lipstick; cosmetics; makeup -->
-		<annotation cp='[💄]' tts='립스틱' draft='provisional'>립스틱; 화장품; 화장</annotation>
+		<annotation cp='[💄]' tts='립스틱'>화장품; 화장</annotation>
 
 		<!-- ring; diamond; romance -->
-		<annotation cp='[💍]' tts='반지' draft='provisional'>반지; 링; 다이아몬드 반지</annotation>
+		<annotation cp='[💍]' tts='반지'>링; 다이아몬드 반지</annotation>
 
 		<!-- gem stone; diamond; gem; jewel; romance -->
-		<annotation cp='[💎]' tts='다이아몬드' draft='provisional'>다이아몬드; 보석</annotation>
+		<annotation cp='[💎]' tts='원석'>보석</annotation>
 
 		<!-- monkey face; face; monkey -->
-		<annotation cp='[🐵]' tts='원숭이 얼굴' draft='provisional'>원숭이 얼굴; 원숭이; 원숭이띠; 동물</annotation>
+		<annotation cp='[🐵]' tts='원숭이 얼굴'>원숭이; 원숭이띠; 동물</annotation>
 
 		<!-- monkey -->
-		<annotation cp='[🐒]' tts='원숭이' draft='provisional'>원숭이; 동물</annotation>
+		<annotation cp='[🐒]' tts='원숭이'>동물</annotation>
 
 		<!-- dog face; dog; face; pet -->
-		<annotation cp='[🐶]' tts='개 얼굴' draft='provisional'>개 얼굴; 개; 강아지; 개띠; 동물</annotation>
+		<annotation cp='[🐶]' tts='강아지 얼굴'>개; 강아지; 개띠; 동물</annotation>
 
 		<!-- dog; pet -->
-		<annotation cp='[🐕]' tts='개' draft='provisional'>개; 강아지; 개새끼; 멍멍이; 동물</annotation>
+		<annotation cp='[🐕]' tts='개'>강아지; 개새끼; 멍멍이; 동물</annotation>
 
 		<!-- poodle; dog -->
-		<annotation cp='[🐩]' tts='푸들' draft='provisional'>푸들; 개; 개새끼; 멍멍이; 동물</annotation>
+		<annotation cp='[🐩]' tts='푸들'>개; 개새끼; 멍멍이; 동물</annotation>
 
 		<!-- wolf face; face; wolf -->
-		<annotation cp='[🐺]' tts='늑대 얼굴' draft='provisional'>늑대 얼굴; 늑대; 동물</annotation>
+		<annotation cp='[🐺]' tts='늑대 얼굴'>늑대; 동물</annotation>
 
 		<!-- cat face; cat; face; pet -->
-		<annotation cp='[🐱]' tts='고양이 얼굴' draft='provisional'>고양이 얼굴; 고양이; 동물</annotation>
+		<annotation cp='[🐱]' tts='고양이 얼굴'>고양이; 동물</annotation>
 
 		<!-- cat; pet -->
-		<annotation cp='[🐈]' tts='고양이' draft='provisional'>고양이; 괭이; 집사; 야옹이; 냐옹이 동물</annotation>
+		<annotation cp='[🐈]' tts='고양이'>괭이; 집사; 야옹이; 냐옹이 동물</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='사자 얼굴'>사자; 얼굴</annotation>
 
 		<!-- tiger face; face; tiger -->
-		<annotation cp='[🐯]' tts='호랑이 얼굴' draft='provisional'>호랑이 얼굴; 호랑이; 호랑이띠; 동물</annotation>
+		<annotation cp='[🐯]' tts='호랑이 얼굴'>호랑이; 호랑이띠; 동물</annotation>
 
 		<!-- tiger -->
-		<annotation cp='[🐅]' tts='호랑이' draft='provisional'>호랑이; 타이거; 동물</annotation>
+		<annotation cp='[🐅]' tts='호랑이'>타이거; 동물</annotation>
 
 		<!-- leopard -->
-		<annotation cp='[🐆]' tts='표범' draft='provisional'>표범; 레오파드; 동물</annotation>
+		<annotation cp='[🐆]' tts='표범'>레오파드; 동물</annotation>
 
 		<!-- horse face; face; horse -->
-		<annotation cp='[🐴]' tts='말 얼굴' draft='provisional'>말 얼굴; 말; 말띠; 동물</annotation>
+		<annotation cp='[🐴]' tts='말 얼굴'>말; 말띠; 동물</annotation>
 
 		<!-- horse; racehorse; racing -->
-		<annotation cp='[🐎]' tts='말' draft='provisional'>말; 동물</annotation>
+		<annotation cp='[🐎]' tts='경마'>동물; 레이스; 말</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='유니콘 얼굴'>유니콘; 얼굴</annotation>
 
 		<!-- cow face; cow; face -->
-		<annotation cp='[🐮]' tts='소 얼굴' draft='provisional'>소 얼굴; 소; 소띠; 동물</annotation>
+		<annotation cp='[🐮]' tts='소 얼굴'>소; 소띠; 동물</annotation>
 
 		<!-- ox; bull; taurus; zodiac -->
-		<annotation cp='[🐂]' tts='소' draft='provisional'>소; 황소; 동물</annotation>
+		<annotation cp='[🐂]' tts='소'>황소; 동물</annotation>
 
 		<!-- water buffalo; buffalo; water -->
-		<annotation cp='[🐃]' tts='물소' draft='provisional'>물소; 버팔로; 소; 동물</annotation>
+		<annotation cp='[🐃]' tts='물소'>버팔로; 소; 동물</annotation>
 
 		<!-- cow -->
-		<annotation cp='[🐄]' tts='젖소' draft='provisional'>젖소; 소; 동물</annotation>
+		<annotation cp='[🐄]' tts='젖소'>소; 동물</annotation>
 
 		<!-- pig face; face; pig -->
-		<annotation cp='[🐷]' tts='돼지 얼굴' draft='provisional'>돼지 얼굴; 돼지; 돼지띠; 동물</annotation>
+		<annotation cp='[🐷]' tts='돼지 얼굴'>돼지; 돼지띠; 동물</annotation>
 
 		<!-- pig; sow -->
-		<annotation cp='[🐖]' tts='돼지' draft='provisional'>돼지; 꿀꿀이; 동물</annotation>
+		<annotation cp='[🐖]' tts='돼지'>꿀꿀이; 동물</annotation>
 
 		<!-- boar; pig -->
-		<annotation cp='[🐗]' tts='멧돼지' draft='provisional'>멧돼지; 동물</annotation>
+		<annotation cp='[🐗]' tts='멧돼지'>동물; 돼지; 피그</annotation>
 
 		<!-- pig nose; face; nose; pig -->
-		<annotation cp='[🐽]' tts='돼지코' draft='provisional'>돼지코; 코; 동물</annotation>
+		<annotation cp='[🐽]' tts='돼지코'>코; 동물</annotation>
 
 		<!-- ram; aries; sheep; zodiac -->
-		<annotation cp='[🐏]' tts='양' draft='provisional'>양; 동물</annotation>
+		<annotation cp='[🐏]' tts='숫양'>동물</annotation>
 
 		<!-- sheep; ewe -->
-		<annotation cp='[🐑]' tts='양' draft='provisional'>양; 동물</annotation>
+		<annotation cp='[🐑]' tts='양'>동물</annotation>
 
 		<!-- goat; capricorn; zodiac -->
-		<annotation cp='[🐐]' tts='염소' draft='provisional'>염소; 동물</annotation>
+		<annotation cp='[🐐]' tts='염소'>동물</annotation>
 
 		<!-- camel; dromedary; hump -->
-		<annotation cp='[🐪]' tts='낙타' draft='provisional'>낙타; 단봉 낙타; 동물</annotation>
+		<annotation cp='[🐪]' tts='낙타'>단봉 낙타; 동물</annotation>
 
 		<!-- two-hump camel; bactrian; camel; hump -->
-		<annotation cp='[🐫]' tts='낙타' draft='provisional'>낙타; 쌍봉 낙타; 동물</annotation>
+		<annotation cp='[🐫]' tts='쌍봉 낙타'>쌍봉 낙타; 동물</annotation>
 
 		<!-- elephant -->
-		<annotation cp='[🐘]' tts='코끼리' draft='provisional'>코끼리; 동물</annotation>
+		<annotation cp='[🐘]' tts='코끼리'>동물</annotation>
 
 		<!-- mouse face; face; mouse -->
-		<annotation cp='[🐭]' tts='쥐 얼굴' draft='provisional'>쥐 얼굴; 쥐; 쥐띠; 동물</annotation>
+		<annotation cp='[🐭]' tts='쥐 얼굴'>쥐; 쥐띠; 동물</annotation>
 
 		<!-- mouse -->
-		<annotation cp='[🐁]' tts='쥐' draft='provisional'>쥐; 흰쥐; 동물</annotation>
+		<annotation cp='[🐁]' tts='생쥐'>흰쥐; 동물</annotation>
 
 		<!-- rat -->
-		<annotation cp='[🐀]' tts='쥐' draft='provisional'>쥐; 생쥐; 동물</annotation>
+		<annotation cp='[🐀]' tts='쥐'>생쥐; 동물</annotation>
 
 		<!-- hamster face; face; hamster; pet -->
-		<annotation cp='[🐹]' tts='햄스터 얼굴' draft='provisional'>햄스터 얼굴; 햄스터; 동물</annotation>
+		<annotation cp='[🐹]' tts='햄스터 얼굴'>햄스터; 동물</annotation>
 
 		<!-- rabbit face; bunny; face; pet; rabbit -->
-		<annotation cp='[🐰]' tts='토끼 얼굴' draft='provisional'>토끼 얼굴; 토끼; 토끼띠; 동물</annotation>
+		<annotation cp='[🐰]' tts='토끼 얼굴'>토끼; 토끼띠; 동물</annotation>
 
 		<!-- rabbit; bunny; pet -->
-		<annotation cp='[🐇]' tts='토끼' draft='provisional'>토끼; 토깽이; 동물</annotation>
+		<annotation cp='[🐇]' tts='토끼'>토깽이; 동물</annotation>
+
+		<!-- chipmunk -->
+		<annotation cp='[🐿]' tts='얼룩다람쥐'>다람쥐</annotation>
 
 		<!-- bear face; bear; face -->
-		<annotation cp='[🐻]' tts='곰 얼굴' draft='provisional'>곰 얼굴; 곰; 곰돌이; 동물</annotation>
+		<annotation cp='[🐻]' tts='곰 얼굴'>곰; 곰돌이; 동물</annotation>
 
 		<!-- koala; bear -->
-		<annotation cp='[🐨]' tts='코알라' draft='provisional'>코알라; 동물</annotation>
+		<annotation cp='[🐨]' tts='코알라'>동물</annotation>
 
 		<!-- panda face; face; panda -->
-		<annotation cp='[🐼]' tts='판다 얼굴' draft='provisional'>판다 얼굴; 판다; 판다곰; 동물</annotation>
+		<annotation cp='[🐼]' tts='판다 얼굴'>판다; 판다곰; 동물</annotation>
 
 		<!-- paw prints; feet; paw; print -->
-		<annotation cp='[🐾]' tts='곰발바닥' draft='provisional'>곰발바닥; 곰발자국; 동물</annotation>
+		<annotation cp='[🐾]' tts='곰발바닥'>곰발자국; 동물</annotation>
+
+		<!-- turkey -->
+		<annotation cp='[🦃]' tts='칠면조'>칠면조</annotation>
 
 		<!-- chicken -->
-		<annotation cp='[🐔]' tts='닭' draft='provisional'>닭; 암탉; 동물</annotation>
+		<annotation cp='[🐔]' tts='닭'>치킨; 암탉; 동물</annotation>
 
 		<!-- rooster -->
-		<annotation cp='[🐓]' tts='닭' draft='provisional'>닭; 수탉; 동물</annotation>
+		<annotation cp='[🐓]' tts='수탉'>수탉; 동물</annotation>
 
 		<!-- hatching chick; baby; chick; hatching -->
-		<annotation cp='[🐣]' tts='병아리' draft='provisional'>병아리; 갓 태어난 병아리; 알에서 깬 병아리; 동물</annotation>
+		<annotation cp='[🐣]' tts='알에서 깬 병아리'>갓 태어난 병아리; 알에서 깬 병아리; 동물</annotation>
 
 		<!-- baby chick; baby; chick -->
-		<annotation cp='[🐤]' tts='병아리' draft='provisional'>병아리; 아기 병아리; 동물</annotation>
+		<annotation cp='[🐤]' tts='병아리'>아기 병아리; 동물</annotation>
 
 		<!-- front-facing baby chick; baby; chick -->
-		<annotation cp='[🐥]' tts='병아리' draft='provisional'>병아리; 아기 병아리; 동물</annotation>
+		<annotation cp='[🐥]' tts='정면을 향해 날개를 편 병아리'>아기 병아리; 동물</annotation>
 
 		<!-- bird -->
-		<annotation cp='[🐦]' tts='새' draft='provisional'>새; 동물</annotation>
+		<annotation cp='[🐦]' tts='새'>동물</annotation>
 
 		<!-- penguin -->
-		<annotation cp='[🐧]' tts='펭귄' draft='provisional'>펭귄; 동물</annotation>
+		<annotation cp='[🐧]' tts='펭귄'>동물</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='비둘기'>비둘기; 평화; 새</annotation>
 
 		<!-- frog face; face; frog -->
-		<annotation cp='[🐸]' tts='개구리 얼굴' draft='provisional'>개구리 얼굴; 개구리; 동물</annotation>
+		<annotation cp='[🐸]' tts='개구리 얼굴'>개구리; 동물</annotation>
 
 		<!-- crocodile -->
-		<annotation cp='[🐊]' tts='악어' draft='provisional'>악어; 동물</annotation>
+		<annotation cp='[🐊]' tts='악어'>동물</annotation>
 
 		<!-- turtle -->
-		<annotation cp='[🐢]' tts='거북이' draft='provisional'>거북이; 동물</annotation>
+		<annotation cp='[🐢]' tts='거북이'>동물</annotation>
 
 		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
-		<annotation cp='[🐍]' tts='뱀' draft='provisional'>뱀; 비암; 동물</annotation>
+		<annotation cp='[🐍]' tts='뱀'>비암; 동물</annotation>
 
 		<!-- dragon face; dragon; face; fairy tale -->
-		<annotation cp='[🐲]' tts='용 얼굴' draft='provisional'>용 얼굴; 용; 드래곤; 용띠; 동물</annotation>
+		<annotation cp='[🐲]' tts='용 얼굴'>용; 드래곤; 용띠; 동물</annotation>
 
 		<!-- dragon; fairy tale -->
-		<annotation cp='[🐉]' tts='용' draft='provisional'>용; 드래곤; 동물</annotation>
+		<annotation cp='[🐉]' tts='용'>드래곤; 동물</annotation>
 
 		<!-- spouting whale; face; spouting; whale -->
-		<annotation cp='[🐳]' tts='고래' draft='provisional'>고래; 물뿜는 고래; 동물</annotation>
+		<annotation cp='[🐳]' tts='물뿜는 고래'>물뿜는 고래; 동물</annotation>
 
 		<!-- whale -->
-		<annotation cp='[🐋]' tts='고래' draft='provisional'>고래; 동물</annotation>
+		<annotation cp='[🐋]' tts='고래'>동물</annotation>
 
 		<!-- dolphin; flipper -->
-		<annotation cp='[🐬]' tts='돌고래' draft='provisional'>돌고래; 동물</annotation>
+		<annotation cp='[🐬]' tts='돌고래'>동물</annotation>
 
 		<!-- fish; pisces; zodiac -->
-		<annotation cp='[🐟]' tts='물고기' draft='provisional'>물고기; 생선; 동물</annotation>
+		<annotation cp='[🐟]' tts='물고기'>생선; 동물</annotation>
 
 		<!-- tropical fish; fish; tropical -->
-		<annotation cp='[🐠]' tts='열대어' draft='provisional'>열대어; 물고기; 동물</annotation>
+		<annotation cp='[🐠]' tts='열대어'>물고기; 동물</annotation>
 
 		<!-- blowfish; fish -->
-		<annotation cp='[🐡]' tts='복어' draft='provisional'>복어; 물고기; 동물</annotation>
+		<annotation cp='[🐡]' tts='복어'>물고기; 동물</annotation>
 
 		<!-- octopus -->
-		<annotation cp='[🐙]' tts='문어' draft='provisional'>문어; 페드로; 점쟁이; 동물</annotation>
+		<annotation cp='[🐙]' tts='문어'>페드로; 점쟁이; 동물</annotation>
 
 		<!-- spiral shell; shell; spiral -->
-		<annotation cp='[🐚]' tts='달팽이집' draft='provisional'>달팽이집; 달팽이 껍질; 동물</annotation>
+		<annotation cp='[🐚]' tts='달팽이집'>달팽이 껍질; 동물</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='꽃게'>게; 크랩</annotation>
 
 		<!-- snail -->
-		<annotation cp='[🐌]' tts='달팽이' draft='provisional'>달팽이; 동물</annotation>
+		<annotation cp='[🐌]' tts='달팽이'>동물; 곤충; 벌레</annotation>
 
 		<!-- bug; insect -->
-		<annotation cp='[🐛]' tts='지네' draft='provisional'>지네; 벌레; 동물</annotation>
+		<annotation cp='[🐛]' tts='송충이'>벌레; 동물</annotation>
 
 		<!-- ant; insect -->
-		<annotation cp='[🐜]' tts='개미' draft='provisional'>개미; 동물</annotation>
+		<annotation cp='[🐜]' tts='개미'>벌레; 곤충</annotation>
 
 		<!-- honeybee; bee; insect -->
-		<annotation cp='[🐝]' tts='꿀벌' draft='provisional'>꿀벌; 벌; 동물</annotation>
+		<annotation cp='[🐝]' tts='꿀벌'>벌; 동물</annotation>
 
 		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
-		<annotation cp='[🐞]' tts='무당벌레' draft='provisional'>무당벌레; 벌레; 동물</annotation>
+		<annotation cp='[🐞]' tts='무당벌레'>벌레; 동물</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='거미'>곤충; 벌레; 스파이더</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='거미줄'>거미</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='전갈'>전갈</annotation>
 
 		<!-- bouquet; flower; plant; romance -->
-		<annotation cp='[💐]' tts='꽃다발' draft='provisional'>꽃다발; 부케; 꽃</annotation>
+		<annotation cp='[💐]' tts='꽃다발'>부케; 꽃</annotation>
 
 		<!-- cherry blossom; blossom; cherry; flower; plant -->
-		<annotation cp='[🌸]' tts='벚꽃' draft='provisional'>벚꽃; 꽃; 꽃송이</annotation>
+		<annotation cp='[🌸]' tts='벚꽃'>꽃; 꽃송이</annotation>
 
 		<!-- white flower; flower -->
-		<annotation cp='[💮]' tts='흰 꽃' draft='provisional'>흰 꽃; 꽃 도장; 꽃 표시; 꽃</annotation>
+		<annotation cp='[💮]' tts='흰 꽃'>꽃 도장; 꽃 표시; 꽃</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='로제트'>로제트</annotation>
 
 		<!-- rose; flower; plant -->
-		<annotation cp='[🌹]' tts='장미' draft='provisional'>장미; 꽃</annotation>
+		<annotation cp='[🌹]' tts='장미'>꽃</annotation>
 
 		<!-- hibiscus; flower; plant -->
-		<annotation cp='[🌺]' tts='무궁화' draft='provisional'>무궁화; 꽃</annotation>
+		<annotation cp='[🌺]' tts='무궁화'>꽃</annotation>
 
 		<!-- sunflower; flower; plant; sun -->
-		<annotation cp='[🌻]' tts='해바라기' draft='provisional'>해바라기; 꽃</annotation>
+		<annotation cp='[🌻]' tts='해바라기'>꽃</annotation>
 
 		<!-- blossom; flower; plant -->
-		<annotation cp='[🌼]' tts='꽃송이' draft='provisional'>꽃송이; 꽃</annotation>
+		<annotation cp='[🌼]' tts='꽃송이'>꽃</annotation>
 
 		<!-- tulip; flower; plant -->
-		<annotation cp='[🌷]' tts='튤립' draft='provisional'>튤립; 꽃</annotation>
+		<annotation cp='[🌷]' tts='튤립'>꽃</annotation>
 
 		<!-- seedling; plant; young -->
-		<annotation cp='[🌱]' tts='새싹' draft='provisional'>새싹; 싹이 돋다</annotation>
+		<annotation cp='[🌱]' tts='새싹'>싹이 돋다</annotation>
 
 		<!-- evergreen; plant; tree -->
-		<annotation cp='[🌲]' tts='소나무' draft='provisional'>소나무; 상록수; 나무</annotation>
+		<annotation cp='[🌲]' tts='소나무'>상록수; 나무</annotation>
 
 		<!-- deciduous tree; deciduous; plant; shedding; tree -->
-		<annotation cp='[🌳]' tts='나무' draft='provisional'>나무; 낙엽수</annotation>
+		<annotation cp='[🌳]' tts='나무'>낙엽수</annotation>
 
 		<!-- palm tree; palm; plant; tree -->
-		<annotation cp='[🌴]' tts='야자수' draft='provisional'>야자수; 나무; 열대 나무</annotation>
+		<annotation cp='[🌴]' tts='야자수'>나무; 열대 나무</annotation>
 
 		<!-- cactus; plant -->
-		<annotation cp='[🌵]' tts='선인장' draft='provisional'>선인장</annotation>
+		<annotation cp='[🌵]' tts='선인장'>식물; 나무</annotation>
 
 		<!-- sheaf of rice; ear; plant; rice -->
-		<annotation cp='[🌾]' tts='벼' draft='provisional'>벼; 벼이삭; 이삭</annotation>
+		<annotation cp='[🌾]' tts='벼'>벼이삭; 이삭</annotation>
 
 		<!-- herb; leaf; plant -->
-		<annotation cp='[🌿]' tts='풀' draft='provisional'>풀; 잎; 잎사귀</annotation>
+		<annotation cp='[🌿]' tts='풀'>잎; 잎사귀</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='토끼풀'>토끼풀</annotation>
 
 		<!-- four leaf clover; 4; clover; four; leaf; plant -->
-		<annotation cp='[🍀]' tts='네잎클로버' draft='provisional'>네잎클로버; 클로버; 행운</annotation>
+		<annotation cp='[🍀]' tts='네잎클로버'>클로버; 행운</annotation>
 
 		<!-- maple leaf; falling; leaf; maple; plant -->
-		<annotation cp='[🍁]' tts='단풍잎' draft='provisional'>단풍잎; 잎사귀; 잎; 이파리</annotation>
+		<annotation cp='[🍁]' tts='단풍잎'>잎사귀; 잎; 이파리</annotation>
 
 		<!-- fallen leaf; falling; leaf; plant -->
-		<annotation cp='[🍂]' tts='낙엽' draft='provisional'>낙엽; 단풍잎; 잎; 잎사귀; 이파리</annotation>
+		<annotation cp='[🍂]' tts='낙엽'>단풍잎; 잎; 잎사귀; 이파리</annotation>
 
 		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
-		<annotation cp='[🍃]' tts='낙엽' draft='provisional'>낙엽; 가을 낙엽; 바람에 떨어지는 잎</annotation>
+		<annotation cp='[🍃]' tts='바람에 흔들리는 나뭇잎'>가을 낙엽; 바람에 떨어지는 잎</annotation>
 
 		<!-- grapes; fruit; grape; plant -->
-		<annotation cp='[🍇]' tts='포도' draft='provisional'>포도; 과일</annotation>
+		<annotation cp='[🍇]' tts='포도'>과일</annotation>
 
 		<!-- melon; fruit; plant -->
-		<annotation cp='[🍈]' tts='멜론' draft='provisional'>멜론; 과일</annotation>
+		<annotation cp='[🍈]' tts='멜론'>과일; 야채; 채소</annotation>
 
 		<!-- watermelon; fruit; plant -->
-		<annotation cp='[🍉]' tts='수박' draft='provisional'>수박; 과일</annotation>
+		<annotation cp='[🍉]' tts='수박'>과일</annotation>
 
 		<!-- tangerine; fruit; orange; plant -->
-		<annotation cp='[🍊]' tts='귤' draft='provisional'>귤; 오렌지; 과일</annotation>
+		<annotation cp='[🍊]' tts='귤'>오렌지; 과일; 밀감</annotation>
 
 		<!-- lemon; citrus; fruit; plant -->
-		<annotation cp='[🍋]' tts='레몬' draft='provisional'>레몬; 과일</annotation>
+		<annotation cp='[🍋]' tts='레몬'>과일</annotation>
 
 		<!-- banana; fruit; plant -->
-		<annotation cp='[🍌]' tts='바나나' draft='provisional'>바나나; 과일</annotation>
+		<annotation cp='[🍌]' tts='바나나'>과일</annotation>
 
 		<!-- pineapple; fruit; plant -->
-		<annotation cp='[🍍]' tts='파인애플' draft='provisional'>파인애플; 과일</annotation>
+		<annotation cp='[🍍]' tts='파인애플'>과일</annotation>
 
 		<!-- red apple; apple; fruit; plant; red -->
-		<annotation cp='[🍎]' tts='사과' draft='provisional'>사과; 빨간 사과; 과일</annotation>
+		<annotation cp='[🍎]' tts='빨간 사과'>빨간 사과; 과일</annotation>
 
 		<!-- green apple; apple; fruit; green; plant -->
-		<annotation cp='[🍏]' tts='사과' draft='provisional'>사과; 파란 사과; 과일</annotation>
+		<annotation cp='[🍏]' tts='초록 사과'>파란 사과; 과일</annotation>
 
 		<!-- pear; fruit; plant -->
-		<annotation cp='[🍐]' tts='배' draft='provisional'>배; 과일</annotation>
+		<annotation cp='[🍐]' tts='과일 배'>과일</annotation>
 
 		<!-- peach; fruit; plant -->
-		<annotation cp='[🍑]' tts='복숭아' draft='provisional'>복숭아; 과일</annotation>
+		<annotation cp='[🍑]' tts='복숭아'>과일</annotation>
 
 		<!-- cherries; cherry; fruit; plant -->
-		<annotation cp='[🍒]' tts='체리' draft='provisional'>체리; 과일</annotation>
+		<annotation cp='[🍒]' tts='체리'>과일</annotation>
 
 		<!-- strawberry; berry; fruit; plant -->
-		<annotation cp='[🍓]' tts='딸기' draft='provisional'>딸기; 과일</annotation>
+		<annotation cp='[🍓]' tts='딸기'>과일</annotation>
 
 		<!-- tomato; plant; vegetable -->
-		<annotation cp='[🍅]' tts='토마토' draft='provisional'>토마토; 채소</annotation>
+		<annotation cp='[🍅]' tts='토마토'>채소</annotation>
 
 		<!-- eggplant; aubergine; plant; vegetable -->
-		<annotation cp='[🍆]' tts='가지' draft='provisional'>가지; 채소</annotation>
+		<annotation cp='[🍆]' tts='가지'>채소; 야채</annotation>
 
 		<!-- ear of corn; corn; ear; maize; maze; plant -->
-		<annotation cp='[🌽]' tts='옥수수' draft='provisional'>옥수수</annotation>
+		<annotation cp='[🌽]' tts='옥수수'>콘; 식물; 농작물</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='홍고추'>고추; 빨간 고추</annotation>
 
 		<!-- mushroom; plant -->
-		<annotation cp='[🍄]' tts='버섯' draft='provisional'>버섯</annotation>
+		<annotation cp='[🍄]' tts='버섯'>식물; 나무</annotation>
 
 		<!-- chestnut; plant -->
-		<annotation cp='[🌰]' tts='밤' draft='provisional'>밤</annotation>
+		<annotation cp='[🌰]' tts='밤'>식물; 견과류; 나무</annotation>
 
 		<!-- bread; loaf -->
-		<annotation cp='[🍞]' tts='빵' draft='provisional'>빵; 식빵</annotation>
+		<annotation cp='[🍞]' tts='빵'>식빵</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='치즈 조각'>치즈; 치즈 덩어리</annotation>
 
 		<!-- meat on bone; bone; meat -->
-		<annotation cp='[🍖]' tts='고기' draft='provisional'>고기; 고기 덩어리</annotation>
+		<annotation cp='[🍖]' tts='고기'>고기 덩어리</annotation>
 
 		<!-- poultry leg; bone; chicken; leg; poultry -->
-		<annotation cp='[🍗]' tts='닭다리' draft='provisional'>닭다리; 닭고기; 고기</annotation>
+		<annotation cp='[🍗]' tts='닭다리'>닭고기; 고기</annotation>
 
 		<!-- hamburger; burger -->
-		<annotation cp='[🍔]' tts='햄버거' draft='provisional'>햄버거; 버거; 패스트푸드</annotation>
+		<annotation cp='[🍔]' tts='햄버거'>버거; 패스트푸드</annotation>
 
 		<!-- french fries; french; fries -->
-		<annotation cp='[🍟]' tts='감자튀김' draft='provisional'>감자튀김; 프렌치 프라이; 패스트푸드</annotation>
+		<annotation cp='[🍟]' tts='감자튀김'>프렌치 프라이; 패스트푸드</annotation>
 
 		<!-- pizza; cheese; slice -->
-		<annotation cp='[🍕]' tts='피자' draft='provisional'>피자; 피자 한 조각; 조각 피자</annotation>
+		<annotation cp='[🍕]' tts='피자'>피자 한 조각; 조각 피자</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='핫도그'>핫도그; 소세지</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='타코'>타코; 멕시코 요리</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='부리또'>버리토; 멕시코 요리; 타코</annotation>
+
+		<!-- popcorn -->
+		<annotation cp='[🍿]' tts='팝콘'>팝콘; 영화</annotation>
 
 		<!-- pot of food; pot; stew -->
-		<annotation cp='[🍲]' tts='국' draft='provisional'>국; 탕; 찌개</annotation>
+		<annotation cp='[🍲]' tts='국'>탕; 찌개</annotation>
 
 		<!-- bento box; bento; box -->
-		<annotation cp='[🍱]' tts='도시락' draft='provisional'>도시락</annotation>
+		<annotation cp='[🍱]' tts='도시락'>벤또; 밥</annotation>
 
 		<!-- rice cracker; cracker; rice -->
-		<annotation cp='[🍘]' tts='주먹밥' draft='provisional'>주먹밥; 밥</annotation>
+		<annotation cp='[🍘]' tts='주먹밥'>밥</annotation>
 
 		<!-- rice ball; ball; japanese; rice -->
-		<annotation cp='[🍙]' tts='삼각 김밥' draft='provisional'>삼각 김밥; 밥</annotation>
+		<annotation cp='[🍙]' tts='삼각 김밥'>밥</annotation>
 
 		<!-- cooked rice; cooked; rice -->
-		<annotation cp='[🍚]' tts='밥' draft='provisional'>밥; 밥공기</annotation>
+		<annotation cp='[🍚]' tts='밥'>밥공기</annotation>
 
 		<!-- curry rice; curry; rice -->
-		<annotation cp='[🍛]' tts='카레라이스' draft='provisional'>카레라이스; 카레; 카레밥</annotation>
+		<annotation cp='[🍛]' tts='카레라이스'>카레; 카레밥</annotation>
 
 		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
-		<annotation cp='[🍜]' tts='국수' draft='provisional'>국수; 면; 라면</annotation>
+		<annotation cp='[🍜]' tts='국수'>면; 라면</annotation>
 
 		<!-- spaghetti; pasta -->
-		<annotation cp='[🍝]' tts='스파게티' draft='provisional'>스파게티; 면; 파스타</annotation>
+		<annotation cp='[🍝]' tts='스파게티'>면; 파스타</annotation>
 
 		<!-- roasted sweet potato; potato; roasted; sweet -->
-		<annotation cp='[🍠]' tts='고구마' draft='provisional'>고구마; 삶은 고구마; 찐 고구마</annotation>
+		<annotation cp='[🍠]' tts='고구마'>삶은 고구마; 찐 고구마</annotation>
 
 		<!-- oden; kebab; seafood; skewer; stick -->
-		<annotation cp='[🍢]' tts='오뎅' draft='provisional'>오뎅; 어묵; 오뎅꼬치; 어묵꼬치</annotation>
+		<annotation cp='[🍢]' tts='오뎅'>어묵; 오뎅꼬치; 어묵꼬치</annotation>
 
 		<!-- sushi -->
-		<annotation cp='[🍣]' tts='초밥' draft='provisional'>초밥; 스시; 일식</annotation>
+		<annotation cp='[🍣]' tts='초밥'>스시; 일식</annotation>
 
 		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
-		<annotation cp='[🍤]' tts='새우튀김' draft='provisional'>새우튀김; 새우; 튀김</annotation>
+		<annotation cp='[🍤]' tts='새우튀김'>새우; 튀김</annotation>
 
 		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
-		<annotation cp='[🍥]' tts='어묵' draft='provisional'>어묵; 오뎅; 꽃모양 어묵; 꽃모양 오뎅</annotation>
+		<annotation cp='[🍥]' tts='어묵'>오뎅; 꽃모양 어묵; 꽃모양 오뎅</annotation>
 
 		<!-- dango; dessert; japanese; skewer; stick; sweet -->
-		<annotation cp='[🍡]' tts='떡꼬치' draft='provisional'>떡꼬치; 떡</annotation>
+		<annotation cp='[🍡]' tts='떡꼬치'>떡</annotation>
 
 		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
-		<annotation cp='[🍦]' tts='아이스크림' draft='provisional'>아이스크림; 콘 아이스크림; 아이스크림 콘</annotation>
+		<annotation cp='[🍦]' tts='소프트 아이스크림'>콘 아이스크림; 아이스크림 콘</annotation>
 
 		<!-- shaved ice; dessert; ice; shaved; sweet -->
-		<annotation cp='[🍧]' tts='아이스크림' draft='provisional'>아이스크림; 샤베트; 샤베트 아이스크림</annotation>
+		<annotation cp='[🍧]' tts='샤베트 아이스크림'>샤베트; 샤베트 아이스크림</annotation>
 
 		<!-- ice cream; cream; dessert; ice; sweet -->
-		<annotation cp='[🍨]' tts='아이스크림' draft='provisional'>아이스크림; 떠먹는 아이스크림</annotation>
+		<annotation cp='[🍨]' tts='아이스크림'>떠먹는 아이스크림</annotation>
 
 		<!-- doughnut; dessert; donut; sweet -->
-		<annotation cp='[🍩]' tts='도넛' draft='provisional'>도넛; 초코 도넛</annotation>
+		<annotation cp='[🍩]' tts='도넛'>초코 도넛</annotation>
 
 		<!-- cookie; dessert; sweet -->
-		<annotation cp='[🍪]' tts='쿠키' draft='provisional'>쿠키; 초코칩 쿠키; 초코 쿠키</annotation>
+		<annotation cp='[🍪]' tts='쿠키'>초코칩 쿠키; 초코 쿠키</annotation>
 
 		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
-		<annotation cp='[🎂]' tts='케이크' draft='provisional'>케이크; 생일케이크</annotation>
+		<annotation cp='[🎂]' tts='생일 케이크'>생일케이크</annotation>
 
 		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
-		<annotation cp='[🍰]' tts='케이크' draft='provisional'>케이크; 조각 케이크</annotation>
+		<annotation cp='[🍰]' tts='조각 케이크'>조각 케이크</annotation>
 
 		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
-		<annotation cp='[🍫]' tts='초콜렛' draft='provisional'>초콜렛</annotation>
+		<annotation cp='[🍫]' tts='초콜렛'>초코; 초코바</annotation>
 
 		<!-- candy; dessert; sweet -->
-		<annotation cp='[🍬]' tts='사탕' draft='provisional'>사탕; 캔디</annotation>
+		<annotation cp='[🍬]' tts='사탕'>캔디</annotation>
 
 		<!-- lollipop; candy; dessert; sweet -->
-		<annotation cp='[🍭]' tts='롤리팝' draft='provisional'>롤리팝; 막대 사탕; 사탕</annotation>
+		<annotation cp='[🍭]' tts='롤리팝'>막대 사탕; 사탕</annotation>
 
 		<!-- custard; dessert; pudding; sweet -->
-		<annotation cp='[🍮]' tts='푸딩' draft='provisional'>푸딩</annotation>
+		<annotation cp='[🍮]' tts='커스타드 푸딩'>디저트; 커스타드; 푸딩</annotation>
 
 		<!-- honey pot; honey; honeypot; pot; sweet -->
-		<annotation cp='[🍯]' tts='꿀' draft='provisional'>꿀; 꿀단지</annotation>
+		<annotation cp='[🍯]' tts='꿀'>꿀단지</annotation>
 
 		<!-- baby bottle; baby; bottle; drink; milk -->
-		<annotation cp='[🍼]' tts='젖병' draft='provisional'>젖병; 아기 젖병; 우유</annotation>
+		<annotation cp='[🍼]' tts='젖병'>아기 젖병; 우유</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='뜨거운 음료'>뜨거운 음료; 커피; 음료; 차</annotation>
 
 		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
-		<annotation cp='[🍵]' tts='차' draft='provisional'>차; 찻잔; 찻집</annotation>
+		<annotation cp='[🍵]' tts='차'>찻잔; 찻집</annotation>
 
 		<!-- sake; bar; beverage; bottle; cup; drink -->
-		<annotation cp='[🍶]' tts='사케' draft='provisional'>사케; 술; 일본술; 일본 사케; 병과 술잔; 술집</annotation>
+		<annotation cp='[🍶]' tts='사케'>술; 일본술; 일본 사케; 병과 술잔; 술집</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='코르크가 튀어나오고 있는 병'>와인; 와인병; 코르크</annotation>
 
 		<!-- wine glass; bar; beverage; drink; glass; wine -->
-		<annotation cp='[🍷]' tts='와인' draft='provisional'>와인; 와인잔; 와인글라스; 와인바</annotation>
+		<annotation cp='[🍷]' tts='와인'>와인잔; 와인글라스; 와인바</annotation>
 
 		<!-- cocktail glass; bar; cocktail; drink; glass -->
-		<annotation cp='[🍸]' tts='칵테일' draft='provisional'>칵테일; 칵테일잔; 칵테일글라스; 칵테일바</annotation>
+		<annotation cp='[🍸]' tts='칵테일'>칵테일잔; 칵테일글라스; 칵테일바</annotation>
 
 		<!-- tropical drink; bar; drink; tropical -->
-		<annotation cp='[🍹]' tts='음료수' draft='provisional'>음료수; 바</annotation>
+		<annotation cp='[🍹]' tts='음료수'>바</annotation>
 
 		<!-- beer mug; bar; beer; drink; mug -->
-		<annotation cp='[🍺]' tts='맥주' draft='provisional'>맥주; 맥주잔; 맥주컵; 호프; 술집</annotation>
+		<annotation cp='[🍺]' tts='맥주잔'>맥주잔; 맥주컵; 호프; 술집</annotation>
 
 		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
-		<annotation cp='[🍻]' tts='맥주' draft='provisional'>맥주; 맥주잔; 맥주컵; 호프; 술자리; 술집; 건배</annotation>
+		<annotation cp='[🍻]' tts='맥주'>맥주잔; 맥주컵; 호프; 술자리; 술집; 건배</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='포크와 나이프가 있는 접시'>포크; 나이프; 접시</annotation>
 
 		<!-- fork and knife; cooking; fork; knife -->
-		<annotation cp='[🍴]' tts='식당' draft='provisional'>식당; 포크와 나이프; 포크; 나이프</annotation>
+		<annotation cp='[🍴]' tts='식당'>포크와 나이프; 포크; 나이프</annotation>
 
 		<!-- cooking; egg; frying; pan -->
-		<annotation cp='[🍳]' tts='프라이팬' draft='provisional'>프라이팬; 계란 프라이; 요리</annotation>
+		<annotation cp='[🍳]' tts='프라이팬'>계란 프라이; 요리</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='암포라'>암포라; 단지</annotation>
 
 		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
-		<annotation cp='[🌍]' tts='지구' draft='provisional'>지구; 지구본; 유럽; 아프리카</annotation>
+		<annotation cp='[🌍]' tts='유럽 아프리카 대륙 표시 지구본'>지구본; 유럽; 아프리카</annotation>
 
 		<!-- globe showing americas; americas; earth; globe; world -->
-		<annotation cp='[🌎]' tts='지구' draft='provisional'>지구; 지구본; 미국; 미주; 캐나다; 남아메리카; 중남미</annotation>
+		<annotation cp='[🌎]' tts='아메리카 표시 지구본'>지구본; 미국; 미주; 캐나다; 남아메리카; 중남미</annotation>
 
 		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
-		<annotation cp='[🌏]' tts='지구' draft='provisional'>지구; 지구본; 아시아; 호주</annotation>
+		<annotation cp='[🌏]' tts='아시아 대륙 표시 지구본'>지구본; 아시아; 호주</annotation>
 
 		<!-- globe with meridians; earth; globe; meridians; world -->
-		<annotation cp='[🌐]' tts='지구' draft='provisional'>지구; 경도; 위도</annotation>
+		<annotation cp='[🌐]' tts='지구'>경도; 위도</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='세계 지도'>세계; 지도</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='눈덮힌 산'>눈; 산; 설산</annotation>
+
+		<!-- mountain -->
+		<annotation cp='[⛰]' tts='산'>산; 산 정상</annotation>
 
 		<!-- volcano; eruption; mountain; weather -->
-		<annotation cp='[🌋]' tts='화산' draft='provisional'>화산; 화산 폭발</annotation>
+		<annotation cp='[🌋]' tts='화산'>화산 폭발</annotation>
 
 		<!-- mount fuji; fuji; mountain -->
-		<annotation cp='[🗻]' tts='후지산' draft='provisional'>후지산; 산</annotation>
+		<annotation cp='[🗻]' tts='후지산'>산</annotation>
+
+		<!-- camping -->
+		<annotation cp='[🏕]' tts='캠핑'>캠핑; 텐트</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='파라솔이 있는 해변'>해변; 파라솔</annotation>
+
+		<!-- desert -->
+		<annotation cp='[🏜]' tts='사막'>사막</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='사막 섬'>사막; 섬</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='국립공원'>국립; 공원</annotation>
+
+		<!-- stadium -->
+		<annotation cp='[🏟]' tts='경기장'>스타디움</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='고전적인 건물'>건물; 고전</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='건물 공사'>건물; 공사</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='주택 건물'>건물; 주택</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='도시 전경'>건물; 도시</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='낡은 주택 건물'>건물; 노후; 주택</annotation>
 
 		<!-- house building; building; home; house -->
-		<annotation cp='[🏠]' tts='집' draft='provisional'>집; 건물; 주택</annotation>
+		<annotation cp='[🏠]' tts='집'>건물; 주택</annotation>
 
 		<!-- house with garden; building; garden; home; house -->
-		<annotation cp='[🏡]' tts='집' draft='provisional'>집; 정원이 있는 집; 정원이 있는 주택</annotation>
+		<annotation cp='[🏡]' tts='가든이 있는 집'>정원이 있는 집; 정원이 있는 주택</annotation>
 
 		<!-- church; building; christian; cross; religion -->
-		<annotation cp='[⛪]' tts='교회' draft='provisional'>교회; 건물</annotation>
+		<annotation cp='[⛪]' tts='교회'>빌딩; 건물; 크리스찬</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='카바'>카바; 이슬람; 종교</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='모스크'>모스크; 이슬람; 종교; 사원</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='시나고그'>유대교; 종교; 사원</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='신토 신사'>신사; 종교; 일본 신사</annotation>
 
 		<!-- office building; building -->
-		<annotation cp='[🏢]' tts='사무실' draft='provisional'>사무실; 사무실 건물; 건물</annotation>
+		<annotation cp='[🏢]' tts='사무실'>사무실 건물; 건물</annotation>
 
 		<!-- japanese post office; building; japanese; post -->
-		<annotation cp='[🏣]' tts='우체국' draft='provisional'>우체국; 일본 우체국</annotation>
+		<annotation cp='[🏣]' tts='일본 우체국'>일본 우체국</annotation>
 
 		<!-- post office; building; european; post -->
-		<annotation cp='[🏤]' tts='우체국' draft='provisional'>우체국; 유럽 우체국</annotation>
+		<annotation cp='[🏤]' tts='우체국'>유럽 우체국</annotation>
 
 		<!-- hospital; building; doctor; medicine -->
-		<annotation cp='[🏥]' tts='병원' draft='provisional'>병원</annotation>
+		<annotation cp='[🏥]' tts='병원'>건물; 빌딩; 의사; 메디컬</annotation>
 
 		<!-- bank; building -->
-		<annotation cp='[🏦]' tts='은행' draft='provisional'>은행</annotation>
+		<annotation cp='[🏦]' tts='은행'>건물; 뱅크; 빌딩</annotation>
 
 		<!-- hotel; building -->
-		<annotation cp='[🏨]' tts='호텔' draft='provisional'>호텔; 숙박</annotation>
+		<annotation cp='[🏨]' tts='호텔'>건물; 숙박; 잠</annotation>
 
 		<!-- love hotel; building; hotel; love -->
-		<annotation cp='[🏩]' tts='모텔' draft='provisional'>모텔; 러브 호텔</annotation>
+		<annotation cp='[🏩]' tts='모텔'>러브 호텔</annotation>
 
 		<!-- convenience store; building; convenience; store -->
-		<annotation cp='[🏪]' tts='편의점' draft='provisional'>편의점; 가게</annotation>
+		<annotation cp='[🏪]' tts='편의점'>가게</annotation>
 
 		<!-- school; building -->
-		<annotation cp='[🏫]' tts='학교' draft='provisional'>학교</annotation>
+		<annotation cp='[🏫]' tts='학교'>스쿨; 건물; 빌딩; 공부</annotation>
 
 		<!-- department store; building; department; store -->
-		<annotation cp='[🏬]' tts='백화점' draft='provisional'>백화점; 가게</annotation>
+		<annotation cp='[🏬]' tts='백화점'>가게</annotation>
 
 		<!-- factory; building -->
-		<annotation cp='[🏭]' tts='공장' draft='provisional'>공장</annotation>
+		<annotation cp='[🏭]' tts='공장'>빌딩; 건물</annotation>
 
 		<!-- japanese castle; building; castle; japanese -->
-		<annotation cp='[🏯]' tts='일본 성' draft='provisional'>일본 성; 일본 궁전; 성; 궁전; 히메지성</annotation>
+		<annotation cp='[🏯]' tts='일본 성'>일본 궁전; 성; 궁전; 히메지성</annotation>
 
 		<!-- castle; building; european -->
-		<annotation cp='[🏰]' tts='유럽 성' draft='provisional'>유럽 성; 유럽 궁전; 성; 궁전</annotation>
+		<annotation cp='[🏰]' tts='유럽 성'>유럽 궁전; 성; 궁전</annotation>
 
 		<!-- wedding; chapel; romance -->
-		<annotation cp='[💒]' tts='결혼식' draft='provisional'>결혼식; 성당 결혼식; 교회 결혼식; 결혼</annotation>
+		<annotation cp='[💒]' tts='결혼식'>성당 결혼식; 교회 결혼식; 결혼</annotation>
 
 		<!-- tokyo tower; tokyo; tower -->
-		<annotation cp='[🗼]' tts='도쿄 타워' draft='provisional'>도쿄 타워; 도쿄; 탑</annotation>
+		<annotation cp='[🗼]' tts='도쿄 타워'>도쿄; 탑</annotation>
 
 		<!-- statue of liberty; liberty; statue -->
-		<annotation cp='[🗽]' tts='자유의 여신상' draft='provisional'>자유의 여신상; 여신상; 자유</annotation>
+		<annotation cp='[🗽]' tts='자유의 여신상'>여신상; 자유</annotation>
 
 		<!-- map of japan; japan; map -->
-		<annotation cp='[🗾]' tts='일본 지도' draft='provisional'>일본 지도; 일본; 지도</annotation>
+		<annotation cp='[🗾]' tts='일본 지도'>일본; 지도</annotation>
 
 		<!-- fountain -->
-		<annotation cp='[⛲]' tts='분수' draft='provisional'>분수</annotation>
+		<annotation cp='[⛲]' tts='분수'>분수; 분수대</annotation>
 
 		<!-- tent; camping -->
-		<annotation cp='[⛺]' tts='텐트' draft='provisional'>텐트; 캠핑; 캠프</annotation>
+		<annotation cp='[⛺]' tts='텐트'>캠핑; 캠프</annotation>
 
 		<!-- foggy; fog; weather -->
-		<annotation cp='[🌁]' tts='안개' draft='provisional'>안개</annotation>
+		<annotation cp='[🌁]' tts='자욱한 안개'>날씨; 스모그</annotation>
 
 		<!-- night with stars; night; star; weather -->
-		<annotation cp='[🌃]' tts='밤하늘 별' draft='provisional'>밤하늘 별; 야경</annotation>
+		<annotation cp='[🌃]' tts='밤하늘 별'>야경</annotation>
 
 		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
-		<annotation cp='[🌄]' tts='일출' draft='provisional'>일출; 아침 해; 해가 뜸; 산에 해가 뜸; 산; 해</annotation>
+		<annotation cp='[🌄]' tts='산에서 떠오르는 해'>아침 해; 해가 뜸; 산에 해가 뜸; 산; 해</annotation>
 
 		<!-- sunrise; morning; sun; weather -->
-		<annotation cp='[🌅]' tts='일출' draft='provisional'>일출; 아침 해; 해가 뜸; 해</annotation>
+		<annotation cp='[🌅]' tts='일출'>아침 해; 해가 뜸; 해</annotation>
 
 		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
-		<annotation cp='[🌆]' tts='해질녘' draft='provisional'>해질녘; 해질녘 도시; 저녁; 일몰; 도시; 건물; 야경</annotation>
+		<annotation cp='[🌆]' tts='해질녘'>해질녘 도시; 저녁; 일몰; 도시; 건물; 야경</annotation>
 
 		<!-- sunset; building; dusk; sun; weather -->
-		<annotation cp='[🌇]' tts='일몰' draft='provisional'>일몰; 해질녘; 해가 짐; 도시에 해가 짐</annotation>
+		<annotation cp='[🌇]' tts='일몰'>해질녘; 해가 짐; 도시에 해가 짐</annotation>
 
 		<!-- bridge at night; bridge; night; weather -->
-		<annotation cp='[🌉]' tts='다리' draft='provisional'>다리; 밤의 다리; 달과 다리; 별과 다리; 밤</annotation>
+		<annotation cp='[🌉]' tts='다리'>밤의 다리; 달과 다리; 별과 다리; 밤</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='온천'>뜨거움; 온천; 목욕탕</annotation>
 
 		<!-- milky way; space; weather -->
-		<annotation cp='[🌌]' tts='은하수' draft='provisional'>은하수</annotation>
+		<annotation cp='[🌌]' tts='은하수'>행성; 우주; 은하</annotation>
 
 		<!-- carousel horse; carousel; horse -->
-		<annotation cp='[🎠]' tts='회전 목마' draft='provisional'>회전 목마; 목마; 유원지; 놀이공원</annotation>
+		<annotation cp='[🎠]' tts='회전 목마'>목마; 유원지; 놀이공원</annotation>
 
 		<!-- ferris wheel; amusement park; ferris; wheel -->
-		<annotation cp='[🎡]' tts='관람차' draft='provisional'>관람차; 유원지; 놀이공원</annotation>
+		<annotation cp='[🎡]' tts='관람차'>유원지; 놀이공원</annotation>
 
 		<!-- roller coaster; amusement park; coaster; roller -->
-		<annotation cp='[🎢]' tts='롤러코스터' draft='provisional'>롤러코스터; 유원지; 놀이공원</annotation>
+		<annotation cp='[🎢]' tts='롤러코스터'>유원지; 놀이공원</annotation>
 
 		<!-- barber pole; barber; haircut; pole -->
-		<annotation cp='[💈]' tts='이발소' draft='provisional'>이발소; 이발사; 이발소 표시</annotation>
+		<annotation cp='[💈]' tts='이발소'>이발사; 이발소 표시</annotation>
 
 		<!-- circus tent; circus; tent -->
-		<annotation cp='[🎪]' tts='서커스' draft='provisional'>서커스; 서커스 텐트; 텐트</annotation>
+		<annotation cp='[🎪]' tts='서커스'>서커스 텐트; 텐트</annotation>
 
 		<!-- performing arts; art; mask; performing; theater; theatre -->
-		<annotation cp='[🎭]' tts='가면' draft='provisional'>가면; 예술</annotation>
+		<annotation cp='[🎭]' tts='가면'>예술; 마스크; 가면; 공연; 영화관</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='그림 액자'>그림; 액자; 박물관; 작품</annotation>
 
 		<!-- artist palette; art; museum; painting; palette -->
-		<annotation cp='[🎨]' tts='팔레트' draft='provisional'>팔레트; 그림 그리기; 그림; 미술</annotation>
+		<annotation cp='[🎨]' tts='팔레트'>그림 그리기; 그림; 미술</annotation>
 
 		<!-- slot machine; game; slot -->
-		<annotation cp='[🎰]' tts='슬롯 머신' draft='provisional'>슬롯 머신; 파칭코; 게임</annotation>
+		<annotation cp='[🎰]' tts='슬롯 머신'>파칭코; 게임</annotation>
 
 		<!-- locomotive; engine; railway; steam; train; vehicle -->
-		<annotation cp='[🚂]' tts='기관차' draft='provisional'>기관차</annotation>
+		<annotation cp='[🚂]' tts='기관차'>엔진; 기차; 트레인; 교통수단</annotation>
 
 		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
-		<annotation cp='[🚃]' tts='기차' draft='provisional'>기차</annotation>
+		<annotation cp='[🚃]' tts='기차'>철도; 트레인; 엔진; 교통수단</annotation>
 
 		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
-		<annotation cp='[🚄]' tts='고속열차' draft='provisional'>고속열차; 케이티엑스; KTX</annotation>
+		<annotation cp='[🚄]' tts='고속열차'>케이티엑스; KTX</annotation>
 
 		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
-		<annotation cp='[🚅]' tts='고속열차' draft='provisional'>고속열차; 케이티엑스; KTX</annotation>
+		<annotation cp='[🚅]' tts='고속철'>케이티엑스; KTX</annotation>
 
 		<!-- train; railway; vehicle -->
-		<annotation cp='[🚆]' tts='기차' draft='provisional'>기차; 철도</annotation>
+		<annotation cp='[🚆]' tts='트레인'>철도</annotation>
 
 		<!-- metro; subway; vehicle -->
-		<annotation cp='[🚇]' tts='지하철' draft='provisional'>지하철; 전철</annotation>
+		<annotation cp='[🚇]' tts='지하철'>전철; 메트로</annotation>
 
 		<!-- light rail; railway; vehicle -->
-		<annotation cp='[🚈]' tts='경전철' draft='provisional'>경전철</annotation>
+		<annotation cp='[🚈]' tts='경전철'>경전철; 기차; 교통수단</annotation>
 
 		<!-- station; railway; train; vehicle -->
-		<annotation cp='[🚉]' tts='기차역' draft='provisional'>기차역; 전철역; 지하철역; 역</annotation>
+		<annotation cp='[🚉]' tts='기차역'>전철역; 지하철역; 역</annotation>
 
 		<!-- tram; trolleybus; vehicle -->
-		<annotation cp='[🚊]' tts='트램' draft='provisional'>트램; 전차</annotation>
+		<annotation cp='[🚊]' tts='트램'>전차</annotation>
 
 		<!-- monorail; vehicle -->
-		<annotation cp='[🚝]' tts='모노레일' draft='provisional'>모노레일</annotation>
+		<annotation cp='[🚝]' tts='모노레일'>기차; 교통수단</annotation>
 
 		<!-- mountain railway; car; mountain; railway; vehicle -->
-		<annotation cp='[🚞]' tts='모노레일' draft='provisional'>모노레일; 등산 모노레일</annotation>
+		<annotation cp='[🚞]' tts='등산 모노레일'>등산 모노레일</annotation>
 
 		<!-- tram car; car; tram; trolleybus; vehicle -->
-		<annotation cp='[🚋]' tts='트램 차량' draft='provisional'>트램 차량; 전차 차량</annotation>
+		<annotation cp='[🚋]' tts='트램 차량'>전차 차량</annotation>
 
 		<!-- bus; vehicle -->
-		<annotation cp='[🚌]' tts='버스' draft='provisional'>버스</annotation>
+		<annotation cp='[🚌]' tts='버스'>차; 교통수단</annotation>
 
 		<!-- oncoming bus; bus; oncoming; vehicle -->
-		<annotation cp='[🚍]' tts='오고 있는 버스' draft='provisional'>오고 있는 버스; 버스</annotation>
+		<annotation cp='[🚍]' tts='오고 있는 버스'>버스</annotation>
 
 		<!-- trolleybus; bus; tram; trolley; vehicle -->
-		<annotation cp='[🚎]' tts='트롤리 버스' draft='provisional'>트롤리 버스; 트롤리; 버스</annotation>
+		<annotation cp='[🚎]' tts='트롤리 버스'>트롤리; 버스</annotation>
 
 		<!-- bus stop; bus; busstop; stop -->
-		<annotation cp='[🚏]' tts='버스 정류장' draft='provisional'>버스 정류장; 정류장</annotation>
+		<annotation cp='[🚏]' tts='버스 정류장'>정류장</annotation>
 
 		<!-- minibus; bus; vehicle -->
-		<annotation cp='[🚐]' tts='미니버스' draft='provisional'>미니버스; 소형 버스</annotation>
+		<annotation cp='[🚐]' tts='미니버스'>소형 버스</annotation>
 
 		<!-- ambulance; vehicle -->
-		<annotation cp='[🚑]' tts='구급차' draft='provisional'>구급차; 앰뷸런스</annotation>
+		<annotation cp='[🚑]' tts='구급차'>앰뷸런스</annotation>
 
 		<!-- fire engine; engine; fire; truck; vehicle -->
-		<annotation cp='[🚒]' tts='소방차' draft='provisional'>소방차</annotation>
+		<annotation cp='[🚒]' tts='소방차'>엔진; 화재; 트럭; 소방차</annotation>
 
 		<!-- police car; car; patrol; police; vehicle -->
-		<annotation cp='[🚓]' tts='경찰차' draft='provisional'>경찰차; 경찰</annotation>
+		<annotation cp='[🚓]' tts='경찰차'>경찰</annotation>
 
 		<!-- oncoming police car; car; oncoming; police; vehicle -->
-		<annotation cp='[🚔]' tts='오고 있는 경찰차' draft='provisional'>오고 있는 경찰차; 경찰차; 경찰</annotation>
+		<annotation cp='[🚔]' tts='오고 있는 경찰차'>경찰차; 경찰</annotation>
 
 		<!-- taxi; vehicle -->
-		<annotation cp='[🚕]' tts='택시' draft='provisional'>택시</annotation>
+		<annotation cp='[🚕]' tts='택시'>택시; 자동차</annotation>
 
 		<!-- oncoming taxi; oncoming; taxi; vehicle -->
-		<annotation cp='[🚖]' tts='오고 있는 택시' draft='provisional'>오고 있는 택시; 택시</annotation>
+		<annotation cp='[🚖]' tts='오고 있는 택시'>택시</annotation>
 
 		<!-- automobile; car; vehicle -->
-		<annotation cp='[🚗]' tts='자동차' draft='provisional'>자동차; 승용차; 차량</annotation>
+		<annotation cp='[🚗]' tts='자동차'>승용차; 차량</annotation>
 
 		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
-		<annotation cp='[🚘]' tts='오고 있는 자동차' draft='provisional'>오고 있는 자동차; 오고 있는 승용차</annotation>
+		<annotation cp='[🚘]' tts='오고 있는 자동차'>오고 있는 승용차</annotation>
 
 		<!-- recreational vehicle; recreational; rv; vehicle -->
-		<annotation cp='[🚙]' tts='지프' draft='provisional'>지프; 지프차; SUV</annotation>
+		<annotation cp='[🚙]' tts='지프'>지프차; SUV</annotation>
 
 		<!-- delivery truck; delivery; truck; vehicle -->
-		<annotation cp='[🚚]' tts='트럭' draft='provisional'>트럭; 운송 트럭; 운송 차량; 운송</annotation>
+		<annotation cp='[🚚]' tts='운송 트럭'>운송 트럭; 운송 차량; 운송</annotation>
 
 		<!-- articulated lorry; lorry; semi; truck; vehicle -->
-		<annotation cp='[🚛]' tts='트럭' draft='provisional'>트럭; 트레일러</annotation>
+		<annotation cp='[🚛]' tts='트레일러 트럭'>트레일러</annotation>
 
 		<!-- tractor; vehicle -->
-		<annotation cp='[🚜]' tts='트랙터' draft='provisional'>트랙터</annotation>
+		<annotation cp='[🚜]' tts='트랙터'>차량; 교통수단</annotation>
 
 		<!-- bicycle; bike; vehicle -->
-		<annotation cp='[🚲]' tts='자전거' draft='provisional'>자전거</annotation>
+		<annotation cp='[🚲]' tts='자전거'>교통수단; 바이크</annotation>
 
 		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
-		<annotation cp='[⛽]' tts='주유소' draft='provisional'>주유소</annotation>
+		<annotation cp='[⛽]' tts='주유소'>연료; 경유; 휘발유; 가스</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='고속도로'>고속도로; 도로</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='철도 선로'>철도; 선로</annotation>
 
 		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
-		<annotation cp='[🚨]' tts='사이렌' draft='provisional'>사이렌; 경찰차 사이렌; 삐용삐용</annotation>
+		<annotation cp='[🚨]' tts='사이렌'>경찰차 사이렌; 삐용삐용</annotation>
 
 		<!-- horizontal traffic light; light; signal; traffic -->
-		<annotation cp='[🚥]' tts='신호등' draft='provisional'>신호등; 가로 신호등</annotation>
+		<annotation cp='[🚥]' tts='가로 신호등'>가로 신호등</annotation>
 
 		<!-- vertical traffic light; light; signal; traffic -->
-		<annotation cp='[🚦]' tts='신호등' draft='provisional'>신호등; 세로 신호등</annotation>
+		<annotation cp='[🚦]' tts='세로 신호등'>세로 신호등</annotation>
 
 		<!-- construction; barrier -->
-		<annotation cp='[🚧]' tts='공사 중' draft='provisional'>공사 중; 공사 중 표시; 공사</annotation>
+		<annotation cp='[🚧]' tts='공사 중'>공사 중 표시; 공사</annotation>
 
 		<!-- anchor; ship; tool -->
-		<annotation cp='[⚓]' tts='닻' draft='provisional'>닻</annotation>
+		<annotation cp='[⚓]' tts='닻'>닻</annotation>
 
 		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
-		<annotation cp='[⛵]' tts='돛단배' draft='provisional'>돛단배; 범선; 요트</annotation>
+		<annotation cp='[⛵]' tts='돛단배'>범선; 요트</annotation>
 
 		<!-- rowboat; boat; vehicle -->
-		<annotation cp='[🚣]' tts='노 젓는 배' draft='provisional'>노 젓는 배; 노 젓는 보트; 보트</annotation>
+		<annotation cp='[🚣]' tts='노 젓는 배'>노 젓는 보트; 보트</annotation>
 
 		<!-- speedboat; boat; vehicle -->
-		<annotation cp='[🚤]' tts='쾌속정' draft='provisional'>쾌속정; 선박; 보트</annotation>
+		<annotation cp='[🚤]' tts='쾌속정'>선박; 보트</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='여객선'>배; 여객선; 선박</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='연락선'>보트; 페리</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='모터보트'>모터보트; 보트</annotation>
 
 		<!-- ship; vehicle -->
-		<annotation cp='[🚢]' tts='배' draft='provisional'>배; 선박</annotation>
+		<annotation cp='[🚢]' tts='선박'>배; 바다; 선박</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='비행기'>비행기</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='소형비행기'>비행기; 소형비행기; 경비행기</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='비행기 이륙'>비행기 이륙; 출발</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='비행기 착륙'>비행기 착륙; 도착</annotation>
 
 		<!-- seat; chair -->
-		<annotation cp='[💺]' tts='의자' draft='provisional'>의자; 좌석; 자리</annotation>
+		<annotation cp='[💺]' tts='의자'>좌석; 자리</annotation>
 
 		<!-- helicopter; vehicle -->
-		<annotation cp='[🚁]' tts='헬리콥터' draft='provisional'>헬리콥터; 헬기</annotation>
+		<annotation cp='[🚁]' tts='헬리콥터'>헬기</annotation>
 
 		<!-- suspension railway; railway; suspension; vehicle -->
-		<annotation cp='[🚟]' tts='케이블카' draft='provisional'>케이블카</annotation>
+		<annotation cp='[🚟]' tts='매달린 케이블카'>케이블카</annotation>
 
 		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
-		<annotation cp='[🚠]' tts='케이블카' draft='provisional'>케이블카; 등산 케이블카</annotation>
+		<annotation cp='[🚠]' tts='등산 케이블카'>등산 케이블카</annotation>
 
 		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
-		<annotation cp='[🚡]' tts='케이블카' draft='provisional'>케이블카; 공중 케이블카</annotation>
+		<annotation cp='[🚡]' tts='케이블카'>공중 케이블카</annotation>
 
 		<!-- rocket; space; vehicle -->
-		<annotation cp='[🚀]' tts='로켓' draft='provisional'>로켓</annotation>
+		<annotation cp='[🚀]' tts='로켓'>우주; 발사; 로케트</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='인공위성'>우주; 인공위성</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='벨'>벨</annotation>
 
 		<!-- door -->
-		<annotation cp='[🚪]' tts='문' draft='provisional'>문</annotation>
+		<annotation cp='[🚪]' tts='문'>도어; 문</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='침대에 누운 사람'>호텔; 침대</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='침대'>호텔; 침대</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='소파와 전등'>소파; 전등</annotation>
 
 		<!-- toilet -->
-		<annotation cp='[🚽]' tts='화장실' draft='provisional'>화장실; 변기; 변소</annotation>
+		<annotation cp='[🚽]' tts='변소'>변기; 변소</annotation>
 
 		<!-- shower; water -->
-		<annotation cp='[🚿]' tts='샤워' draft='provisional'>샤워</annotation>
+		<annotation cp='[🚿]' tts='샤워'>물; 샤워</annotation>
 
 		<!-- person taking bath; bathtub; bath -->
-		<annotation cp='[🛀]' tts='목욕' draft='provisional'>목욕</annotation>
+		<annotation cp='[🛀]' tts='목욕'>욕조</annotation>
 
 		<!-- bathtub; bath -->
-		<annotation cp='[🛁]' tts='욕조' draft='provisional'>욕조</annotation>
+		<annotation cp='[🛁]' tts='욕조'>샤워; 목욕</annotation>
 
 		<!-- hourglass; sand; timer -->
-		<annotation cp='[⌛]' tts='모래 시계' draft='provisional'>모래 시계</annotation>
+		<annotation cp='[⌛]' tts='모래 시계'>모래; 타이머</annotation>
 
 		<!-- hourglass with flowing sand; hourglass; sand; timer -->
-		<annotation cp='[⏳]' tts='모래 시계' draft='provisional'>모래 시계; 타이머</annotation>
+		<annotation cp='[⏳]' tts='모래시계'>타이머</annotation>
 
 		<!-- watch; clock -->
-		<annotation cp='[⌚]' tts='시계' draft='provisional'>시계; 손목 시계</annotation>
+		<annotation cp='[⌚]' tts='시계'>손목 시계</annotation>
 
 		<!-- alarm clock; alarm; clock -->
-		<annotation cp='[⏰]' tts='알람 시계' draft='provisional'>알람 시계; 알람; 시계</annotation>
+		<annotation cp='[⏰]' tts='알람 시계'>알람; 시계</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='스톱워치'>스톱워치; 시계</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='타이머 시계'>타이머; 시계</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='벽난로 선반 시계'>벽난로; 시계</annotation>
 
 		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
-		<annotation cp='[🕛]' tts='열 두 시' draft='provisional'>열 두 시; 12시; 시계; 12; 12:00</annotation>
+		<annotation cp='[🕛]' tts='열 두 시'>12시; 시계; 12; 12:00</annotation>
 
 		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
-		<annotation cp='[🕧]' tts='열 두 시 반' draft='provisional'>열 두 시 반; 12시 30분; 시계; 12: 30</annotation>
+		<annotation cp='[🕧]' tts='열 두 시 반'>12시 30분; 시계; 12: 30</annotation>
 
 		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
-		<annotation cp='[🕐]' tts='한 시' draft='provisional'>한 시; 1시; 시계; 1; 1:00</annotation>
+		<annotation cp='[🕐]' tts='한 시'>1시; 시계; 1; 1:00</annotation>
 
 		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
-		<annotation cp='[🕜]' tts='한 시 반' draft='provisional'>한 시 반; 1시 30분; 시계; 1:30</annotation>
+		<annotation cp='[🕜]' tts='한 시 반'>1시 30분; 시계; 1:30</annotation>
 
 		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
-		<annotation cp='[🕑]' tts='두 시' draft='provisional'>두 시; 2시; 시계; 2; 2:00</annotation>
+		<annotation cp='[🕑]' tts='두 시'>2시; 시계; 2; 2:00</annotation>
 
 		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
-		<annotation cp='[🕝]' tts='두 시 반' draft='provisional'>두 시 반; 2시 30분; 시계; 2:30</annotation>
+		<annotation cp='[🕝]' tts='두 시 반'>2시 30분; 시계; 2:30</annotation>
 
 		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
-		<annotation cp='[🕒]' tts='세 시' draft='provisional'>세 시; 3시; 시계; 3; 3:00</annotation>
+		<annotation cp='[🕒]' tts='세 시'>3시; 시계; 3; 3:00</annotation>
 
 		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
-		<annotation cp='[🕞]' tts='세 시 반' draft='provisional'>세 시 반; 3시 30분; 시계; 3:30</annotation>
+		<annotation cp='[🕞]' tts='세 시 반'>3시 30분; 시계; 3:30</annotation>
 
 		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
-		<annotation cp='[🕓]' tts='네 시' draft='provisional'>네 시; 4시; 시계; 4; 4:00</annotation>
+		<annotation cp='[🕓]' tts='네 시'>4시; 시계; 4; 4:00</annotation>
 
 		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
-		<annotation cp='[🕟]' tts='네 시 반' draft='provisional'>네 시 반; 4시 30분; 시계; 4:30</annotation>
+		<annotation cp='[🕟]' tts='네 시 반'>4시 30분; 시계; 4:30</annotation>
 
 		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
-		<annotation cp='[🕔]' tts='다섯 시' draft='provisional'>다섯 시; 5시; 시계; 5; 5:00</annotation>
+		<annotation cp='[🕔]' tts='다섯 시'>5시; 시계; 5; 5:00</annotation>
 
 		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
-		<annotation cp='[🕠]' tts='다섯 시 반' draft='provisional'>다섯 시 반; 5시 30분; 시계; 5:30</annotation>
+		<annotation cp='[🕠]' tts='다섯 시 반'>5시 30분; 시계; 5:30</annotation>
 
 		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
-		<annotation cp='[🕕]' tts='여섯 시' draft='provisional'>여섯 시; 6시; 시계; 6; 6:00</annotation>
+		<annotation cp='[🕕]' tts='여섯 시'>6시; 시계; 6; 6:00</annotation>
 
 		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
-		<annotation cp='[🕡]' tts='여섯 시 반' draft='provisional'>여섯 시 반; 6시 30분; 시계; 6:30</annotation>
+		<annotation cp='[🕡]' tts='여섯 시 반'>6시 30분; 시계; 6:30</annotation>
 
 		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
-		<annotation cp='[🕖]' tts='일곱 시' draft='provisional'>일곱 시; 7시; 시계; 7; 7:00</annotation>
+		<annotation cp='[🕖]' tts='일곱 시'>7시; 시계; 7; 7:00</annotation>
 
 		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
-		<annotation cp='[🕢]' tts='일곱 시 반' draft='provisional'>일곱 시 반; 7시 30분; 시계; 7:30</annotation>
+		<annotation cp='[🕢]' tts='일곱 시 반'>7시 30분; 시계; 7:30</annotation>
 
 		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
-		<annotation cp='[🕗]' tts='여덟 시' draft='provisional'>여덟 시; 8시; 시계; 7; 8:00</annotation>
+		<annotation cp='[🕗]' tts='여덟 시'>8시; 시계; 7; 8:00</annotation>
 
 		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
-		<annotation cp='[🕣]' tts='여덟 시 반' draft='provisional'>여덟 시 반; 8시 30분; 시계; 8:30</annotation>
+		<annotation cp='[🕣]' tts='여덟 시 반'>8시 30분; 시계; 8:30</annotation>
 
 		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
-		<annotation cp='[🕘]' tts='아홉 시' draft='provisional'>아홉 시; 9시; 시계; 9; 9:00</annotation>
+		<annotation cp='[🕘]' tts='아홉 시'>9시; 시계; 9; 9:00</annotation>
 
 		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
-		<annotation cp='[🕤]' tts='아홉 시 반' draft='provisional'>아홉 시 반; 9시 30분; 시계; 9:30</annotation>
+		<annotation cp='[🕤]' tts='아홉 시 반'>9시 30분; 시계; 9:30</annotation>
 
 		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
-		<annotation cp='[🕙]' tts='열 시' draft='provisional'>열 시; 10시; 시계; 10; 10:00</annotation>
+		<annotation cp='[🕙]' tts='열 시'>10시; 시계; 10; 10:00</annotation>
 
 		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
-		<annotation cp='[🕥]' tts='열 시 반' draft='provisional'>열 시 반; 10시 30분; 시계; 10:30</annotation>
+		<annotation cp='[🕥]' tts='열 시 반'>10시 30분; 시계; 10:30</annotation>
 
 		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
-		<annotation cp='[🕚]' tts='열 한 시' draft='provisional'>열 한 시; 11시; 시계; 11; 11:00</annotation>
+		<annotation cp='[🕚]' tts='열 한 시'>11시; 시계; 11; 11:00</annotation>
 
 		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
-		<annotation cp='[🕦]' tts='열 한 시 반' draft='provisional'>열 한 시 반; 11시 30분; 시계; 11:30</annotation>
+		<annotation cp='[🕦]' tts='열 한 시 반'>11시 30분; 시계; 11:30</annotation>
 
 		<!-- new moon; dark; moon; space; weather -->
-		<annotation cp='[🌑]' tts='초승달' draft='provisional'>초승달; 그믐달; 그믐; 달</annotation>
+		<annotation cp='[🌑]' tts='초생달'>그믐달; 그믐; 달</annotation>
 
 		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
-		<annotation cp='[🌒]' tts='초승달' draft='provisional'>초승달; 상현달; 상현; 달</annotation>
+		<annotation cp='[🌒]' tts='초승달 상현'>상현달; 상현; 달</annotation>
 
 		<!-- first quarter moon; moon; quarter; space; weather -->
-		<annotation cp='[🌓]' tts='반달' draft='provisional'>반달; 오른쪽 반달; 달</annotation>
+		<annotation cp='[🌓]' tts='오른쪽 반달'>오른쪽 반달; 달</annotation>
 
 		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
-		<annotation cp='[🌔]' tts='상현달' draft='provisional'>상현달; 달</annotation>
+		<annotation cp='[🌔]' tts='상현달'>달</annotation>
 
 		<!-- full moon; full; moon; space; weather -->
-		<annotation cp='[🌕]' tts='보름달' draft='provisional'>보름달; 달</annotation>
+		<annotation cp='[🌕]' tts='보름달'>달</annotation>
 
 		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
-		<annotation cp='[🌖]' tts='하현달' draft='provisional'>하현달; 달</annotation>
+		<annotation cp='[🌖]' tts='하현달'>달</annotation>
 
 		<!-- last quarter moon; moon; quarter; space; weather -->
-		<annotation cp='[🌗]' tts='반달' draft='provisional'>반달; 왼쪽 반달; 달</annotation>
+		<annotation cp='[🌗]' tts='왼쪽 반달'>왼쪽 반달; 달</annotation>
 
 		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
-		<annotation cp='[🌘]' tts='초승달' draft='provisional'>초승달; 그믐달; 달</annotation>
+		<annotation cp='[🌘]' tts='초승달 하현'>그믐달; 달</annotation>
 
 		<!-- crescent moon; crescent; moon; space; weather -->
-		<annotation cp='[🌙]' tts='초승달' draft='provisional'>초승달; 달</annotation>
+		<annotation cp='[🌙]' tts='초승달'>달</annotation>
 
 		<!-- new moon face; face; moon; space; weather -->
-		<annotation cp='[🌚]' tts='달' draft='provisional'>달; 달님</annotation>
+		<annotation cp='[🌚]' tts='달'>달님</annotation>
 
 		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
-		<annotation cp='[🌛]' tts='초승달' draft='provisional'>초승달; 달님; 달</annotation>
+		<annotation cp='[🌛]' tts='얼굴이 있는 초승달'>달님; 달</annotation>
 
 		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
-		<annotation cp='[🌜]' tts='그믐달' draft='provisional'>그믐달; 달님; 달</annotation>
+		<annotation cp='[🌜]' tts='그믐달'>달님; 달</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='온도계'>온도계; 온도</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='태양'>태양; 해; 맑음; 더움</annotation>
 
 		<!-- full moon with face; bright; face; full; moon; space; weather -->
-		<annotation cp='[🌝]' tts='보름달' draft='provisional'>보름달; 달님; 달</annotation>
+		<annotation cp='[🌝]' tts='얼굴이 있는 보름달'>달님; 달</annotation>
 
 		<!-- sun with face; bright; face; space; sun; weather -->
-		<annotation cp='[🌞]' tts='해' draft='provisional'>해; 해 방긋; 해님</annotation>
+		<annotation cp='[🌞]' tts='얼굴이 있는 해'>해 방긋; 해님</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='중간 크기의 흰색 별'>별</annotation>
 
 		<!-- glowing star; glittery; glow; shining; sparkle; star -->
-		<annotation cp='[🌟]' tts='별' draft='provisional'>별; 반짝이는 별; 반짝이다; 반짝임</annotation>
+		<annotation cp='[🌟]' tts='별'>반짝이는 별; 반짝이다; 반짝임</annotation>
 
 		<!-- shooting star; falling; shooting; space; star -->
-		<annotation cp='[🌠]' tts='별똥별' draft='provisional'>별똥별; 떨어지는 별; 낙성; 유성; 별</annotation>
+		<annotation cp='[🌠]' tts='별똥별'>떨어지는 별; 낙성; 유성; 별</annotation>
 
 		<!-- cloud; weather -->
-		<annotation cp='[☁]' tts='구름' draft='provisional'>구름; 흐림</annotation>
+		<annotation cp='[☁]' tts='구름'>흐림</annotation>
 
 		<!-- sun behind cloud; cloud; sun; weather -->
-		<annotation cp='[⛅]' tts='구름 뒤의 해' draft='provisional'>구름 뒤의 해; 구름에 가린 해; 해; 구름</annotation>
+		<annotation cp='[⛅]' tts='구름 뒤의 해'>구름에 가린 해; 해; 구름</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='번개가 치는 비구름'>구름; 번개; 비</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='작은 구름 뒤의 태양'>구름; 해; 흐림</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='큰 구름 뒤의 태양'>구름; 해; 흐림</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='비구름 뒤의 태양'>비; 구름; 해</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='비구름'>비; 구름</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='눈구름'>눈; 구름; 날씨</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='번개구름'>번개; 구름</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='토네이도'>토네이도; 소용돌이; 태풍</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='안개'>안개</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='바람 얼굴'>바람</annotation>
 
 		<!-- cyclone; dizzy; twister; typhoon; weather -->
-		<annotation cp='[🌀]' tts='태풍' draft='provisional'>태풍; 태풍의 눈; 소용돌이</annotation>
+		<annotation cp='[🌀]' tts='태풍'>태풍의 눈; 소용돌이</annotation>
 
 		<!-- rainbow; rain; weather -->
-		<annotation cp='[🌈]' tts='무지개' draft='provisional'>무지개</annotation>
+		<annotation cp='[🌈]' tts='무지개'>레인보우</annotation>
 
 		<!-- closed umbrella; clothing; rain; umbrella; weather -->
-		<annotation cp='[🌂]' tts='우산' draft='provisional'>우산; 비</annotation>
+		<annotation cp='[🌂]' tts='접힌 우산'>비</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='우산'>우산; 비</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='빗방울이 있는 우산'>우산; 비; 강한 비; 강우</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='땅에 꽂힌 파라솔'>파라솔; 우산; 해변가</annotation>
 
 		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
-		<annotation cp='[⚡]' tts='고압 주의' draft='provisional'>고압 주의; 고압 경고; 고압</annotation>
+		<annotation cp='[⚡]' tts='고압 주의'>고압 경고; 고압</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='눈송이'>눈; 추위</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='눈사람'>눈; 추위; 눈사람; 겨울</annotation>
 
 		<!-- snowman without snow; cold; snow; snowman; weather -->
-		<annotation cp='[⛄]' tts='눈사람' draft='provisional'>눈사람; 겨울; 눈</annotation>
+		<annotation cp='[⛄]' tts='스노우맨'>겨울; 눈</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='혜성'>혜성; 우주</annotation>
 
 		<!-- fire; flame; tool -->
-		<annotation cp='[🔥]' tts='불' draft='provisional'>불; 화재; 불꽃</annotation>
+		<annotation cp='[🔥]' tts='불'>화재; 불꽃</annotation>
 
 		<!-- droplet; cold; comic; drop; sweat; weather -->
-		<annotation cp='[💧]' tts='물방울' draft='provisional'>물방울; 땀</annotation>
+		<annotation cp='[💧]' tts='물방울'>땀</annotation>
 
 		<!-- water wave; ocean; water; wave; weather -->
-		<annotation cp='[🌊]' tts='파도' draft='provisional'>파도; 물결; 풍랑</annotation>
+		<annotation cp='[🌊]' tts='파도'>물결; 풍랑</annotation>
 
 		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
-		<annotation cp='[🎃]' tts='할로윈' draft='provisional'>할로윈; 할로윈 호박; 할로윈 장식; 핼러윈</annotation>
+		<annotation cp='[🎃]' tts='할로윈'>할로윈 호박; 할로윈 장식; 핼러윈</annotation>
 
 		<!-- christmas tree; celebration; christmas; tree -->
-		<annotation cp='[🎄]' tts='크리스마스 트리' draft='provisional'>크리스마스 트리; 크리스마스</annotation>
+		<annotation cp='[🎄]' tts='크리스마스 트리'>크리스마스</annotation>
 
 		<!-- fireworks; celebration -->
-		<annotation cp='[🎆]' tts='불꽃놀이' draft='provisional'>불꽃놀이; 불꽃 축제; 축하</annotation>
+		<annotation cp='[🎆]' tts='불꽃놀이'>불꽃 축제; 축하</annotation>
 
 		<!-- sparkler; celebration; fireworks; sparkle -->
-		<annotation cp='[🎇]' tts='불꽃놀이' draft='provisional'>불꽃놀이; 불꽃 축제; 축하</annotation>
+		<annotation cp='[🎇]' tts='폭죽'>불꽃 축제; 축하</annotation>
 
 		<!-- sparkles; sparkle; star -->
-		<annotation cp='[✨]' tts='반짝임' draft='provisional'>반짝임; 반짝거림; 반짝반짝; 블링블링</annotation>
+		<annotation cp='[✨]' tts='블링블링'>반짝거림; 반짝반짝; 블링블링</annotation>
 
 		<!-- balloon; celebration -->
-		<annotation cp='[🎈]' tts='풍선' draft='provisional'>풍선</annotation>
+		<annotation cp='[🎈]' tts='풍선'>축하; 파티</annotation>
 
 		<!-- party popper; celebration; party; popper; tada -->
-		<annotation cp='[🎉]' tts='파티' draft='provisional'>파티; 축하 파티</annotation>
+		<annotation cp='[🎉]' tts='파티'>축하 파티</annotation>
 
 		<!-- confetti ball; ball; celebration; confetti -->
-		<annotation cp='[🎊]' tts='박 터트리기' draft='provisional'>박 터트리기; 축하; 기념</annotation>
+		<annotation cp='[🎊]' tts='박 터트리기'>축하; 기념</annotation>
 
 		<!-- tanabata tree; banner; celebration; japanese; tree -->
-		<annotation cp='[🎋]' tts='소원 쪽지' draft='provisional'>소원 쪽지; 기원 쪽지; 소원 쪽지 매달기; 소원 빌기</annotation>
+		<annotation cp='[🎋]' tts='소원 쪽지'>기원 쪽지; 소원 쪽지 매달기; 소원 빌기</annotation>
 
 		<!-- crossed flags; celebration; cross; crossed; japanese -->
-		<annotation cp='[🎌]' tts='엇갈린 국기' draft='provisional'>엇갈린 국기; 엇갈린 일본 국기; 국기; 국가 행사</annotation>
+		<annotation cp='[🎌]' tts='엇갈린 일본 국기'>엇갈린 일본 국기; 국기; 국가 행사</annotation>
 
 		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
-		<annotation cp='[🎍]' tts='일본 장식' draft='provisional'>일본 장식; 장식; 축하</annotation>
+		<annotation cp='[🎍]' tts='일본 장식'>장식; 축하</annotation>
 
 		<!-- japanese dolls; celebration; doll; festival; japanese -->
-		<annotation cp='[🎎]' tts='일본 인형' draft='provisional'>일본 인형; 남녀 인형; 인형</annotation>
+		<annotation cp='[🎎]' tts='일본 인형'>남녀 인형; 인형</annotation>
 
 		<!-- carp streamer; carp; celebration; streamer -->
-		<annotation cp='[🎏]' tts='물고기 깃발' draft='provisional'>물고기 깃발; 물고기 모양 깃발; 물고기 장식</annotation>
+		<annotation cp='[🎏]' tts='물고기 깃발'>물고기 모양 깃발; 물고기 장식</annotation>
 
 		<!-- wind chime; bell; celebration; chime; wind -->
-		<annotation cp='[🎐]' tts='풍경' draft='provisional'>풍경; 종</annotation>
+		<annotation cp='[🎐]' tts='풍경'>종</annotation>
 
 		<!-- moon ceremony; celebration; ceremony; moon -->
-		<annotation cp='[🎑]' tts='달맞이' draft='provisional'>달맞이; 달맞이 행사; 달; 벼이삭</annotation>
+		<annotation cp='[🎑]' tts='달맞이'>달맞이 행사; 달; 벼이삭</annotation>
 
 		<!-- ribbon; celebration -->
-		<annotation cp='[🎀]' tts='리본' draft='provisional'>리본; 축하</annotation>
+		<annotation cp='[🎀]' tts='리본'>축하</annotation>
 
 		<!-- wrapped present; box; celebration; gift; present; wrapped -->
-		<annotation cp='[🎁]' tts='선물' draft='provisional'>선물; 선물 포장; 축하 선물; 축하</annotation>
+		<annotation cp='[🎁]' tts='선물'>선물 포장; 축하 선물; 축하</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='무공 훈장'>훈장; 메달</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='추모 리본'>기념; 리본; 추모</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='영화 프레임'>영화; 필름</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='입장 티켓'>입장; 티켓</annotation>
 
 		<!-- ticket; admission -->
-		<annotation cp='[🎫]' tts='티켓' draft='provisional'>티켓; 표; 엔터테인먼트; 공연</annotation>
+		<annotation cp='[🎫]' tts='티켓'>표; 엔터테인먼트; 공연</annotation>
+
+		<!-- label -->
+		<annotation cp='[🏷]' tts='라벨'>라벨</annotation>
 
 		<!-- soccer ball; ball; soccer -->
-		<annotation cp='[⚽]' tts='축구공' draft='provisional'>축구공; 축구; 공</annotation>
+		<annotation cp='[⚽]' tts='축구공'>축구; 공</annotation>
 
 		<!-- baseball; ball -->
-		<annotation cp='[⚾]' tts='야구공' draft='provisional'>야구공; 야구; 공</annotation>
+		<annotation cp='[⚾]' tts='야구공'>야구; 공</annotation>
 
 		<!-- basketball; ball; hoop -->
-		<annotation cp='[🏀]' tts='농구' draft='provisional'>농구; 농구공; 운동; 스포츠</annotation>
+		<annotation cp='[🏀]' tts='농구'>농구공; 운동; 스포츠</annotation>
 
 		<!-- american football; american; ball; football -->
-		<annotation cp='[🏈]' tts='미식축구공' draft='provisional'>미식축구공; 미식축구; 운동; 스포츠</annotation>
+		<annotation cp='[🏈]' tts='미식축구공'>미식축구; 운동; 스포츠</annotation>
 
 		<!-- rugby football; ball; football; rugby -->
-		<annotation cp='[🏉]' tts='럭비공' draft='provisional'>럭비공; 럭비; 운동; 스포츠</annotation>
+		<annotation cp='[🏉]' tts='럭비공'>럭비; 운동; 스포츠</annotation>
 
 		<!-- tennis; ball; racquet -->
-		<annotation cp='[🎾]' tts='테니스' draft='provisional'>테니스; 테니스 공; 운동; 스포츠</annotation>
+		<annotation cp='[🎾]' tts='테니스'>테니스 공; 운동; 스포츠</annotation>
 
 		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
-		<annotation cp='[🎱]' tts='당구' draft='provisional'>당구; 당구공; 당구 게임</annotation>
+		<annotation cp='[🎱]' tts='당구'>당구공; 당구 게임</annotation>
 
 		<!-- bowling; ball; game -->
-		<annotation cp='[🎳]' tts='볼링' draft='provisional'>볼링; 볼링핀; 볼링공; 볼링 게임</annotation>
+		<annotation cp='[🎳]' tts='볼링'>볼링핀; 볼링공; 볼링 게임</annotation>
 
 		<!-- flag in hole; golf; hole -->
-		<annotation cp='[⛳]' tts='골프' draft='provisional'>골프; 골프장</annotation>
+		<annotation cp='[⛳]' tts='골프'>골프; 구멍</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='골프선수'>골프; 필드; 공</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='아이스 스케이트'>아이스; 스케이트</annotation>
 
 		<!-- fishing pole; fish; pole -->
-		<annotation cp='[🎣]' tts='낚시' draft='provisional'>낚시; 낚싯대</annotation>
+		<annotation cp='[🎣]' tts='낚싯대'>낚싯대</annotation>
 
 		<!-- running shirt; running; sash; shirt -->
-		<annotation cp='[🎽]' tts='러닝 셔츠' draft='provisional'>러닝 셔츠; 운동복 상의; 운동복; 민소매 상의</annotation>
+		<annotation cp='[🎽]' tts='러닝 셔츠'>운동복 상의; 운동복; 민소매 상의</annotation>
 
 		<!-- skis; ski; snow -->
-		<annotation cp='[🎿]' tts='스키' draft='provisional'>스키; 스키 부츠; 운동; 스포츠</annotation>
+		<annotation cp='[🎿]' tts='스키'>스키 부츠; 운동; 스포츠</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='스키 타는 사람'>스키; 스키타는 사람</annotation>
 
 		<!-- snowboarder; ski; snow; snowboard -->
-		<annotation cp='[🏂]' tts='스노보드' draft='provisional'>스노보드; 스노보더; 운동; 스포츠</annotation>
+		<annotation cp='[🏂]' tts='스노보드'>스노보더; 운동; 스포츠</annotation>
 
 		<!-- surfer; surfing -->
-		<annotation cp='[🏄]' tts='서핑' draft='provisional'>서핑; 서퍼; 스포츠</annotation>
+		<annotation cp='[🏄]' tts='서핑'>서퍼; 스포츠</annotation>
 
 		<!-- horse racing; horse; jockey; racehorse; racing -->
-		<annotation cp='[🏇]' tts='경마' draft='provisional'>경마; 승마; 말; 말과 기수; 스포츠</annotation>
+		<annotation cp='[🏇]' tts='승마'>승마; 말; 말과 기수; 스포츠</annotation>
 
 		<!-- swimmer; swim -->
-		<annotation cp='[🏊]' tts='수영' draft='provisional'>수영; 수영 선수; 수영장; 운동; 스포츠</annotation>
+		<annotation cp='[🏊]' tts='수영'>수영 선수; 수영장; 운동; 스포츠</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='공을 갖고 있는 사람'>농구; 농구공; 농구선수</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='역도 선수'>역도; 역도선수</annotation>
 
 		<!-- bicyclist; bicycle; bike; cyclist -->
-		<annotation cp='[🚴]' tts='자전거 타는 사람' draft='provisional'>자전거 타는 사람; 자전거 주행</annotation>
+		<annotation cp='[🚴]' tts='자전거 타는 사람'>자전거 주행</annotation>
 
 		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
-		<annotation cp='[🚵]' tts='산악 자전거 타는 사람' draft='provisional'>산악 자전거 타는 사람; 산악 자전거 주행</annotation>
+		<annotation cp='[🚵]' tts='산악 자전거 타는 사람'>산악 자전거 주행</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='경주용 자동차'>레이싱카; 경주용 자동차</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='오토바이'>오토바이; 경주; 모터사이클</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='스포츠 메달'>스포츠; 메달; 경기</annotation>
 
 		<!-- trophy; prize -->
-		<annotation cp='[🏆]' tts='트로피' draft='provisional'>트로피; 우승 트로피; 우승</annotation>
+		<annotation cp='[🏆]' tts='트로피'>우승 트로피; 우승</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='크리켓'>크리켓</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='배구공'>배구; 배구공</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='필드 하키'>필드 하키; 하키 스틱</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='아이스 하키와 퍽'>아이스 하키; 하키 스틱; 퍽</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='탁구'>탁구; 탁구공; 탁구채</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='배드민턴'>배드민턴; 셔틀콕; 배드민턴채</annotation>
 
 		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
-		<annotation cp='[🎯]' tts='과녁 명중' draft='provisional'>과녁 명중; 명중; 과녁; 양궁; 화살</annotation>
+		<annotation cp='[🎯]' tts='과녁 명중'>명중; 과녁; 양궁; 화살</annotation>
 
 		<!-- video game; controller; game -->
-		<annotation cp='[🎮]' tts='게임' draft='provisional'>게임; 게임패드; 게임 컨트롤러</annotation>
+		<annotation cp='[🎮]' tts='비디오 게임'>게임패드; 게임 컨트롤러</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='조이스틱'>게임; 비디오 게임; 조종대</annotation>
 
 		<!-- game die; dice; die; game -->
-		<annotation cp='[🎲]' tts='주사위' draft='provisional'>주사위</annotation>
+		<annotation cp='[🎲]' tts='주사위'>게임; 주사위</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='스페이드'>카드 게임; 스페이드</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='하트'>카드 게임; 하트</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='다이아몬드'>카드 게임; 다이아몬드</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='클럽'>카드 게임; 클럽</annotation>
 
 		<!-- joker; card; game; playing -->
-		<annotation cp='[🃏]' tts='조커' draft='provisional'>조커; 조커 카드; 카드</annotation>
+		<annotation cp='[🃏]' tts='조커'>조커 카드; 카드</annotation>
 
 		<!-- mahjong red dragon; game; mahjong; red -->
-		<annotation cp='[🀄]' tts='마작' draft='provisional'>마작; 마작 기호</annotation>
+		<annotation cp='[🀄]' tts='마작'>마작 기호</annotation>
 
 		<!-- flower playing cards; card; flower; game; japanese; playing -->
-		<annotation cp='[🎴]' tts='화투' draft='provisional'>화투; 고스톱; 화투패; 도박</annotation>
+		<annotation cp='[🎴]' tts='화투'>고스톱; 화투패; 도박</annotation>
 
 		<!-- speaker off; mute; quiet; silent; speaker; volume -->
-		<annotation cp='[🔇]' tts='음소거' draft='provisional'>음소거; 소리 없음; 소리 취소</annotation>
+		<annotation cp='[🔇]' tts='무음'>소리 없음; 소리 취소</annotation>
 
 		<!-- speaker; volume -->
-		<annotation cp='[🔈]' tts='스피커' draft='provisional'>스피커; 소리; 소리 있음</annotation>
+		<annotation cp='[🔈]' tts='스피커'>소리; 소리 있음</annotation>
 
 		<!-- speaker on; low; speaker; volume; wave -->
-		<annotation cp='[🔉]' tts='스피커' draft='provisional'>스피커; 소리 남</annotation>
+		<annotation cp='[🔉]' tts='스피커 켬'>소리 남</annotation>
 
 		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
-		<annotation cp='[🔊]' tts='스피커' draft='provisional'>스피커; 소리 큼; 소리 크게; 스피커 소리 크게</annotation>
+		<annotation cp='[🔊]' tts='스피커 소리 크게'>소리 큼; 소리 크게; 스피커 소리 크게</annotation>
 
 		<!-- loudspeaker; loud; public address -->
-		<annotation cp='[📢]' tts='스피커' draft='provisional'>스피커; 확성 스피커</annotation>
+		<annotation cp='[📢]' tts='확성 스피커'>확성 스피커</annotation>
 
 		<!-- megaphone; cheering -->
-		<annotation cp='[📣]' tts='확성기' draft='provisional'>확성기; 메가폰; 응원</annotation>
+		<annotation cp='[📣]' tts='확성기'>메가폰; 응원</annotation>
 
 		<!-- postal horn; horn; post; postal -->
-		<annotation cp='[📯]' tts='호른' draft='provisional'>호른</annotation>
+		<annotation cp='[📯]' tts='호른'>호른; 악기</annotation>
 
 		<!-- bell -->
-		<annotation cp='[🔔]' tts='종' draft='provisional'>종; 벨</annotation>
+		<annotation cp='[🔔]' tts='종'>벨</annotation>
 
 		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
-		<annotation cp='[🔕]' tts='음소거' draft='provisional'>음소거; 소리 없음; 소리 금지</annotation>
+		<annotation cp='[🔕]' tts='음소거'>소리 없음; 소리 금지</annotation>
 
 		<!-- musical score; music; score -->
-		<annotation cp='[🎼]' tts='높은음자리표' draft='provisional'>높은음자리표; 높은음자리; 악보; 음악</annotation>
+		<annotation cp='[🎼]' tts='높은음자리표'>높은음자리; 악보; 음악</annotation>
 
 		<!-- musical note; music; note -->
-		<annotation cp='[🎵]' tts='음표' draft='provisional'>음표; 음악</annotation>
+		<annotation cp='[🎵]' tts='음표'>음악</annotation>
 
 		<!-- musical notes; music; note; notes -->
-		<annotation cp='[🎶]' tts='음표' draft='provisional'>음표; 음악</annotation>
+		<annotation cp='[🎶]' tts='노래 음표'>음악</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='스튜디오 마이크'>마이크; 스튜디오 마이크; 사회자 마이크</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='레벨 슬라이더'>레벨 슬라이더</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='컨트롤 레버'>조작 레버</annotation>
 
 		<!-- microphone; karaoke; mic -->
-		<annotation cp='[🎤]' tts='마이크' draft='provisional'>마이크; 노래방; 행사; 가라오케</annotation>
+		<annotation cp='[🎤]' tts='마이크'>노래방; 행사; 가라오케</annotation>
 
 		<!-- headphone; earbud -->
-		<annotation cp='[🎧]' tts='헤드폰' draft='provisional'>헤드폰; 이어폰; 음악 감상</annotation>
+		<annotation cp='[🎧]' tts='헤드폰'>이어폰; 음악 감상</annotation>
 
 		<!-- saxophone; instrument; music; sax -->
-		<annotation cp='[🎷]' tts='색소폰' draft='provisional'>색소폰; 악기; 음악; 연주</annotation>
+		<annotation cp='[🎷]' tts='색소폰'>악기; 음악; 연주</annotation>
 
 		<!-- guitar; instrument; music -->
-		<annotation cp='[🎸]' tts='기타' draft='provisional'>기타; 통기타; 악기; 음악; 연주</annotation>
+		<annotation cp='[🎸]' tts='기타'>통기타; 악기; 음악; 연주</annotation>
 
 		<!-- musical keyboard; instrument; keyboard; music; piano -->
-		<annotation cp='[🎹]' tts='피아노' draft='provisional'>피아노; 건반; 피아노 건반; 악기; 음악; 연주</annotation>
+		<annotation cp='[🎹]' tts='피아노'>건반; 피아노 건반; 악기; 음악; 연주</annotation>
 
 		<!-- trumpet; instrument; music -->
-		<annotation cp='[🎺]' tts='트럼펫' draft='provisional'>트럼펫; 악기; 음악; 연주</annotation>
+		<annotation cp='[🎺]' tts='트럼펫'>악기; 음악; 연주</annotation>
 
 		<!-- violin; instrument; music -->
-		<annotation cp='[🎻]' tts='바이올린' draft='provisional'>바이올린; 악기; 음악; 연주</annotation>
+		<annotation cp='[🎻]' tts='바이올린'>악기; 음악; 연주</annotation>
 
 		<!-- radio; video -->
-		<annotation cp='[📻]' tts='라디오' draft='provisional'>라디오</annotation>
+		<annotation cp='[📻]' tts='라디오'>라디오</annotation>
 
 		<!-- mobile phone; cell; mobile; phone; telephone -->
-		<annotation cp='[📱]' tts='휴대전화' draft='provisional'>휴대전화; 휴대폰; 모바일폰</annotation>
+		<annotation cp='[📱]' tts='휴대전화'>휴대폰; 모바일폰</annotation>
 
 		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
-		<annotation cp='[📲]' tts='왼쪽에 화살표가 있는 휴대전화' draft='provisional'>왼쪽에 화살표가 있는 휴대전화; 휴대전화; 휴대폰; 모바일폰; 통화</annotation>
+		<annotation cp='[📲]' tts='왼쪽에 화살표가 있는 휴대전화'>휴대전화; 휴대폰; 모바일폰; 통화</annotation>
+
+		<!-- telephone; phone -->
+		<annotation cp='[☎]' tts='전화기'>전화기</annotation>
 
 		<!-- telephone receiver; phone; receiver; telephone -->
-		<annotation cp='[📞]' tts='전화기' draft='provisional'>전화기; 전화</annotation>
+		<annotation cp='[📞]' tts='수화기'>전화</annotation>
 
 		<!-- pager -->
-		<annotation cp='[📟]' tts='삐삐' draft='provisional'>삐삐; 호출기</annotation>
+		<annotation cp='[📟]' tts='삐삐'>호출기</annotation>
 
 		<!-- fax machine; fax -->
-		<annotation cp='[📠]' tts='팩스' draft='provisional'>팩스; 팩스기; 팩시밀리</annotation>
+		<annotation cp='[📠]' tts='팩스'>팩스기; 팩시밀리</annotation>
 
 		<!-- battery -->
-		<annotation cp='[🔋]' tts='배터리' draft='provisional'>배터리; 배터리 충전</annotation>
+		<annotation cp='[🔋]' tts='배터리'>배터리 충전</annotation>
 
 		<!-- electric plug; electric; electricity; plug -->
-		<annotation cp='[🔌]' tts='전기 플러그' draft='provisional'>전기 플러그</annotation>
+		<annotation cp='[🔌]' tts='전기 플러그'>전기; 플러그</annotation>
 
 		<!-- laptop computer; computer; pc; personal -->
-		<annotation cp='[💻]' tts='컴퓨터' draft='provisional'>컴퓨터; PC</annotation>
+		<annotation cp='[💻]' tts='노트북'>PC</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='데스크톱 컴퓨터'>데스크톱; 컴퓨터</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='프린터'>프린터; 인쇄기</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='키보드'>키보드</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='컴퓨터 마우스'>컴퓨터; 마우스</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='트랙볼'>트랙볼</annotation>
 
 		<!-- minidisc; computer; disk; minidisk; optical -->
-		<annotation cp='[💽]' tts='엠디' draft='provisional'>엠디; MD; 미니 디스크; 디스크</annotation>
+		<annotation cp='[💽]' tts='엠디'>MD; 미니 디스크; 디스크</annotation>
 
 		<!-- floppy disk; computer; disk; floppy -->
-		<annotation cp='[💾]' tts='플로피 디스크' draft='provisional'>플로피 디스크; 디스켓</annotation>
+		<annotation cp='[💾]' tts='플로피 디스크'>디스켓</annotation>
 
 		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
-		<annotation cp='[💿]' tts='씨디' draft='provisional'>씨디; 블루레이; 광학 디스크; 디비디; CD; DVD</annotation>
+		<annotation cp='[💿]' tts='씨디'>블루레이; 광학 디스크; 디비디; CD; DVD</annotation>
 
 		<!-- dvd; blu-ray; cd; computer; disk; optical -->
-		<annotation cp='[📀]' tts='디비디' draft='provisional'>디비디; DVD</annotation>
+		<annotation cp='[📀]' tts='디비디'>DVD</annotation>
 
 		<!-- movie camera; camera; cinema; movie -->
-		<annotation cp='[🎥]' tts='카메라' draft='provisional'>카메라; 카메라 촬영; 촬영</annotation>
+		<annotation cp='[🎥]' tts='영화 카메라'>카메라 촬영; 촬영</annotation>
 
 		<!-- clapper board; clapper; movie -->
-		<annotation cp='[🎬]' tts='슬레이트' draft='provisional'>슬레이트; 클래퍼보드; 영화 촬영; 영화</annotation>
+		<annotation cp='[🎬]' tts='슬레이트'>클래퍼보드; 영화 촬영; 영화</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='영화 프로젝터'>영화; 프로젝터; 무비</annotation>
 
 		<!-- television; tv; video -->
-		<annotation cp='[📺]' tts='텔레비전' draft='provisional'>텔레비전; TV; 티비</annotation>
+		<annotation cp='[📺]' tts='텔레비전'>TV; 티비</annotation>
 
 		<!-- camera; video -->
-		<annotation cp='[📷]' tts='카메라' draft='provisional'>카메라; 사진; 사진 촬영</annotation>
+		<annotation cp='[📷]' tts='카메라'>사진; 사진 촬영</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='플래시를 터트리고 있는 카메라'>플래시; 카메라</annotation>
 
 		<!-- video camera; camera; video -->
-		<annotation cp='[📹]' tts='캠코더' draft='provisional'>캠코더; 비디오 카메라; 동영상 촬영</annotation>
+		<annotation cp='[📹]' tts='캠코더'>비디오 카메라; 동영상 촬영</annotation>
 
 		<!-- videocassette; tape; vhs; video -->
-		<annotation cp='[📼]' tts='비디오테이프' draft='provisional'>비디오테이프; 비디오; 테이프</annotation>
+		<annotation cp='[📼]' tts='비디오테이프'>비디오; 테이프</annotation>
 
 		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
-		<annotation cp='[🔍]' tts='돋보기' draft='provisional'>돋보기; 검색; 검색하기; 왼쪽으로 향한 돋보기</annotation>
+		<annotation cp='[🔍]' tts='왼쪽으로 향한 돋보기'>검색; 검색하기; 왼쪽으로 향한 돋보기</annotation>
 
 		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
-		<annotation cp='[🔎]' tts='돋보기' draft='provisional'>돋보기; 검색; 검색하기; 오른쪽으로 향한 돋보기</annotation>
+		<annotation cp='[🔎]' tts='오른쪽으로 향한 돋보기'>검색; 검색하기; 오른쪽으로 향한 돋보기</annotation>
 
 		<!-- microscope; tool -->
-		<annotation cp='[🔬]' tts='현미경' draft='provisional'>현미경</annotation>
+		<annotation cp='[🔬]' tts='현미경'>도구; 기구; 장치</annotation>
 
 		<!-- telescope; tool -->
-		<annotation cp='[🔭]' tts='망원경' draft='provisional'>망원경</annotation>
+		<annotation cp='[🔭]' tts='망원경'>도구; 장비</annotation>
 
 		<!-- satellite antenna; antenna; dish; satellite -->
-		<annotation cp='[📡]' tts='위성 안테나' draft='provisional'>위성 안테나; 안테나; 위성 방송</annotation>
+		<annotation cp='[📡]' tts='위성 안테나'>안테나; 위성 방송</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='양초'>양초; 캔들</annotation>
 
 		<!-- light bulb; bulb; comic; electric; idea; light -->
-		<annotation cp='[💡]' tts='전구' draft='provisional'>전구; 기발한 생각; 아하; 아이디어</annotation>
+		<annotation cp='[💡]' tts='전구'>기발한 생각; 아하; 아이디어</annotation>
 
 		<!-- flashlight; electric; light; tool; torch -->
-		<annotation cp='[🔦]' tts='손전등' draft='provisional'>손전등; 전등</annotation>
+		<annotation cp='[🔦]' tts='손전등'>전등</annotation>
 
 		<!-- red paper lantern; bar; japanese; lantern; light; red -->
-		<annotation cp='[🏮]' tts='일본식 등' draft='provisional'>일본식 등; 이자카야; 일본식 선술집; 선술집; 홍등</annotation>
+		<annotation cp='[🏮]' tts='일본식 등'>이자카야; 일본식 선술집; 선술집; 홍등</annotation>
 
 		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
-		<annotation cp='[📔]' tts='표지가 있는 노트' draft='provisional'>표지가 있는 노트; 노트; 공책</annotation>
+		<annotation cp='[📔]' tts='표지가 있는 노트'>노트; 공책</annotation>
 
 		<!-- closed book; book; closed -->
-		<annotation cp='[📕]' tts='책' draft='provisional'>책</annotation>
+		<annotation cp='[📕]' tts='펼치지 않은 책'>도서; 책</annotation>
 
 		<!-- open book; book; open -->
-		<annotation cp='[📖]' tts='펼쳐진 책' draft='provisional'>펼쳐진 책; 책</annotation>
+		<annotation cp='[📖]' tts='펼쳐진 책'>책</annotation>
 
 		<!-- green book; book; green -->
-		<annotation cp='[📗]' tts='초록색 책' draft='provisional'>초록색 책; 녹색 책; 책</annotation>
+		<annotation cp='[📗]' tts='초록색 책'>녹색 책; 책</annotation>
 
 		<!-- blue book; blue; book -->
-		<annotation cp='[📘]' tts='파란색 책' draft='provisional'>파란색 책; 파란 책; 책</annotation>
+		<annotation cp='[📘]' tts='파란색 책'>파란 책; 책</annotation>
 
 		<!-- orange book; book; orange -->
-		<annotation cp='[📙]' tts='주황색 책' draft='provisional'>주황색 책; 오렌지색 책; 책</annotation>
+		<annotation cp='[📙]' tts='주황색 책'>오렌지색 책; 책</annotation>
 
 		<!-- books; book -->
-		<annotation cp='[📚]' tts='책 여러 권' draft='provisional'>책 여러 권; 책</annotation>
+		<annotation cp='[📚]' tts='책 여러 권'>책</annotation>
 
 		<!-- notebook -->
-		<annotation cp='[📓]' tts='노트' draft='provisional'>노트; 공책</annotation>
+		<annotation cp='[📓]' tts='공책'>공책</annotation>
 
 		<!-- ledger; notebook -->
-		<annotation cp='[📒]' tts='노트' draft='provisional'>노트; 공책; 원장</annotation>
+		<annotation cp='[📒]' tts='노트'>공책; 원장</annotation>
 
 		<!-- page with curl; curl; document; page -->
-		<annotation cp='[📃]' tts='문서' draft='provisional'>문서; 안으로 말린 문서; 페이지</annotation>
+		<annotation cp='[📃]' tts='안으로 말린 문서'>안으로 말린 문서; 페이지</annotation>
 
 		<!-- scroll; paper -->
-		<annotation cp='[📜]' tts='문서' draft='provisional'>문서; 스크롤</annotation>
+		<annotation cp='[📜]' tts='문서'>스크롤</annotation>
 
 		<!-- page facing up; document; page -->
-		<annotation cp='[📄]' tts='문서' draft='provisional'>문서; 페이지</annotation>
+		<annotation cp='[📄]' tts='오른쪽 모서리가 접힌 문서'>페이지</annotation>
 
 		<!-- newspaper; news; paper -->
-		<annotation cp='[📰]' tts='신문' draft='provisional'>신문; 소식; 정보</annotation>
+		<annotation cp='[📰]' tts='신문'>소식; 정보</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='돌돌 말린 신문'>신문; 신문 뭉치</annotation>
 
 		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
-		<annotation cp='[📑]' tts='북마크' draft='provisional'>북마크; 마커; 포스트잇</annotation>
+		<annotation cp='[📑]' tts='북마크 탭'>마커; 포스트잇</annotation>
 
 		<!-- bookmark; mark -->
-		<annotation cp='[🔖]' tts='북마크' draft='provisional'>북마크</annotation>
+		<annotation cp='[🔖]' tts='북마크'>마크; 표시</annotation>
 
 		<!-- money bag; bag; dollar; money; moneybag -->
-		<annotation cp='[💰]' tts='돈주머니' draft='provisional'>돈주머니; 돈가방; 주머니</annotation>
+		<annotation cp='[💰]' tts='돈주머니'>돈가방; 주머니</annotation>
 
 		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
-		<annotation cp='[💴]' tts='엔' draft='provisional'>엔; 엔화; 일본 화폐; 일본 돈</annotation>
+		<annotation cp='[💴]' tts='엔'>엔화; 일본 화폐; 일본 돈</annotation>
 
 		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
-		<annotation cp='[💵]' tts='달러' draft='provisional'>달러; 달러화; 미국 화폐; 미국 돈</annotation>
+		<annotation cp='[💵]' tts='달러'>달러화; 미국 화폐; 미국 돈</annotation>
 
 		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
-		<annotation cp='[💶]' tts='유로' draft='provisional'>유로; 유로화; 유럽 화폐; 유럽 돈</annotation>
+		<annotation cp='[💶]' tts='유로'>유로화; 유럽 화폐; 유럽 돈</annotation>
 
 		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
-		<annotation cp='[💷]' tts='파운드' draft='provisional'>파운드; 파운드화; 영국 화폐; 영국 돈</annotation>
+		<annotation cp='[💷]' tts='파운드'>파운드화; 영국 화폐; 영국 돈</annotation>
 
 		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
-		<annotation cp='[💸]' tts='날개 달린 돈' draft='provisional'>날개 달린 돈; 날아가는 돈; 돈 날림; 손해; 돈; 지폐</annotation>
+		<annotation cp='[💸]' tts='날개 달린 돈'>날아가는 돈; 돈 날림; 손해; 돈; 지폐</annotation>
 
 		<!-- credit card; bank; card; credit; money -->
-		<annotation cp='[💳]' tts='신용카드' draft='provisional'>신용카드; 카드</annotation>
+		<annotation cp='[💳]' tts='신용카드'>카드</annotation>
 
 		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
-		<annotation cp='[💹]' tts='올라가는 그래프' draft='provisional'>올라가는 그래프; 시장 호황; 호황; </annotation>
+		<annotation cp='[💹]' tts='엔화 관련 상승하는 그래프'>시장 호황; 호황; </annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='봉투'>이메일; 편지; 편지 봉투</annotation>
 
 		<!-- e-mail; email; letter; mail -->
-		<annotation cp='[📧]' tts='이메일' draft='provisional'>이메일; 편지</annotation>
+		<annotation cp='[📧]' tts='이메일'>편지</annotation>
 
 		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
-		<annotation cp='[📨]' tts='받은 편지' draft='provisional'>받은 편지; 받은 이메일; 수신된 편지; 수신된 이메일; 편지; 이메일</annotation>
+		<annotation cp='[📨]' tts='받은 편지'>받은 이메일; 수신된 편지; 수신된 이메일; 편지; 이메일</annotation>
 
 		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
-		<annotation cp='[📩]' tts='보낸 편지' draft='provisional'>보낸 편지; 보낸 이메일; 전송된 편지; 전송된 이메일; 편지; 이메일</annotation>
+		<annotation cp='[📩]' tts='보낸 편지'>보낸 이메일; 전송된 편지; 전송된 이메일; 편지; 이메일</annotation>
 
 		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
-		<annotation cp='[📤]' tts='보낸편지함' draft='provisional'>보낸편지함; 메일 전송; 편지 보내기; 이메일; 편지</annotation>
+		<annotation cp='[📤]' tts='보낸편지함'>메일 전송; 편지 보내기; 이메일; 편지</annotation>
 
 		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
-		<annotation cp='[📥]' tts='받은편지함' draft='provisional'>받은편지함; 메일 수신; 편지 받기; 이메일; 편지</annotation>
+		<annotation cp='[📥]' tts='받은편지함'>메일 수신; 편지 받기; 이메일; 편지</annotation>
 
 		<!-- package; box; parcel -->
-		<annotation cp='[📦]' tts='소포' draft='provisional'>소포; 소포 꾸러미; 꾸러미; 소포 상자; 소포 박스</annotation>
+		<annotation cp='[📦]' tts='소포'>소포 꾸러미; 꾸러미; 소포 상자; 소포 박스</annotation>
 
 		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
-		<annotation cp='[📫]' tts='닫힌 우편함' draft='provisional'>닫힌 우편함; 표지가 올라간 닫힌 우편함; 우편함; 편지</annotation>
+		<annotation cp='[📫]' tts='표지가 올라간 닫힌 우편함'>표지가 올라간 닫힌 우편함; 우편함; 편지</annotation>
 
 		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
-		<annotation cp='[📪]' tts='닫힌 우편함' draft='provisional'>닫힌 우편함; 표지가 내려간 닫힌 우편함; 우편함; 편지</annotation>
+		<annotation cp='[📪]' tts='표지가 내려간 닫힌 우편함'>표지가 내려간 닫힌 우편함; 우편함; 편지</annotation>
 
 		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
-		<annotation cp='[📬]' tts='열린 우편함' draft='provisional'>열린 우편함; 표지가 올라간 열린 우편함; 우편함; 편지</annotation>
+		<annotation cp='[📬]' tts='표지가 올라간 열린 우편함'>표지가 올라간 열린 우편함; 우편함; 편지</annotation>
 
 		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
-		<annotation cp='[📭]' tts='열린 우편함' draft='provisional'>열린 우편함; 표지가 내려간 열린 우편함; 우편함; 편지</annotation>
+		<annotation cp='[📭]' tts='표지가 내려간 열린 우편함'>표지가 내려간 열린 우편함; 우편함; 편지</annotation>
 
 		<!-- postbox; mail; mailbox -->
-		<annotation cp='[📮]' tts='우편함' draft='provisional'>우편함; 우체국; 편지</annotation>
+		<annotation cp='[📮]' tts='우편함'>우체국; 편지</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='투표 용지가 있는 투표 상자'>투표; 투표상자</annotation>
+
+		<!-- pencil -->
+		<annotation cp='[✏]' tts='연필'>연필</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='검은색 펜촉'>펜; 펜촉</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='만년필'>만년필</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='펜'>펜; 볼펜</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='페인트 브러쉬'>붓; 페인트붓</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='크레용'>크레용</annotation>
 
 		<!-- memo; pencil -->
-		<annotation cp='[📝]' tts='메모' draft='provisional'>메모; 메모장; 메모지</annotation>
+		<annotation cp='[📝]' tts='메모'>메모장; 메모지</annotation>
 
 		<!-- briefcase -->
-		<annotation cp='[💼]' tts='서류 가방' draft='provisional'>서류 가방; 가방</annotation>
+		<annotation cp='[💼]' tts='서류 가방'>가방</annotation>
 
 		<!-- file folder; file; folder -->
-		<annotation cp='[📁]' tts='폴더' draft='provisional'>폴더; 파일 폴더; 파일</annotation>
+		<annotation cp='[📁]' tts='폴더'>파일 폴더; 파일</annotation>
 
 		<!-- open file folder; file; folder; open -->
-		<annotation cp='[📂]' tts='폴더 열기' draft='provisional'>폴더 열기; 열린 폴더; 폴더; 파일; 열기</annotation>
+		<annotation cp='[📂]' tts='폴더 열기'>열린 폴더; 폴더; 파일; 열기</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='카드 색인 파일'>카드; 색인; 폴더; 파일</annotation>
 
 		<!-- calendar; date -->
-		<annotation cp='[📅]' tts='달력' draft='provisional'>달력; 캘린더; 일정</annotation>
+		<annotation cp='[📅]' tts='달력'>캘린더; 일정</annotation>
 
 		<!-- tear-off calendar; calendar -->
-		<annotation cp='[📆]' tts='뜯어진 달력' draft='provisional'>뜯어진 달력; 달력; 캘린더; 일정</annotation>
+		<annotation cp='[📆]' tts='뜯어진 달력'>달력; 캘린더; 일정</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='스프링 노트'>노트; 노트 패드</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='스피링 달력'>달력; 벽걸이 달력</annotation>
 
 		<!-- card index; card; index; rolodex -->
-		<annotation cp='[📇]' tts='카드 인덱스' draft='provisional'>카드 인덱스; 명함 인덱스; 카드; 명함; 인덱스</annotation>
+		<annotation cp='[📇]' tts='카드 인덱스'>명함 인덱스; 카드; 명함; 인덱스</annotation>
 
 		<!-- chart increasing; chart; graph; growth; trend; upward -->
-		<annotation cp='[📈]' tts='올라가는 그래프' draft='provisional'>올라가는 그래프; 상향; 호황; 그래프</annotation>
+		<annotation cp='[📈]' tts='상승하는 그래프'>상향; 호황; 그래프</annotation>
 
 		<!-- chart decreasing; chart; down; graph; trend -->
-		<annotation cp='[📉]' tts='내려가는 그래프' draft='provisional'>내려가는 그래프; 하향; 불황; 그래프</annotation>
+		<annotation cp='[📉]' tts='내려가는 그래프'>하향; 불황; 그래프</annotation>
 
 		<!-- bar chart; bar; chart; graph -->
-		<annotation cp='[📊]' tts='막대그래프' draft='provisional'>막대그래프; 그래프</annotation>
+		<annotation cp='[📊]' tts='막대그래프'>그래프</annotation>
 
 		<!-- clipboard -->
-		<annotation cp='[📋]' tts='클립보드' draft='provisional'>클립보드</annotation>
+		<annotation cp='[📋]' tts='클립보드'>클립보드</annotation>
 
 		<!-- pushpin; pin -->
-		<annotation cp='[📌]' tts='핀' draft='provisional'>핀; 압정</annotation>
+		<annotation cp='[📌]' tts='압정'>핀</annotation>
 
 		<!-- round pushpin; pin; pushpin -->
-		<annotation cp='[📍]' tts='둥근 머리 핀' draft='provisional'>둥근 머리 핀; 둥근 머리 압정; 핀; 압정</annotation>
+		<annotation cp='[📍]' tts='둥근 머리 핀'>둥근 머리 압정; 핀; 압정</annotation>
 
 		<!-- paperclip -->
-		<annotation cp='[📎]' tts='클립' draft='provisional'>클립; 종이 클립</annotation>
+		<annotation cp='[📎]' tts='클립'>종이 클립</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='이어져 있는 클립'>클립</annotation>
 
 		<!-- straight ruler; ruler; straight edge -->
-		<annotation cp='[📏]' tts='자' draft='provisional'>자</annotation>
+		<annotation cp='[📏]' tts='자'>자; 직각</annotation>
 
 		<!-- triangular ruler; ruler; set; triangle -->
-		<annotation cp='[📐]' tts='삼각자' draft='provisional'>삼각자</annotation>
+		<annotation cp='[📐]' tts='삼각자'>자; 삼각형</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='가위'>도구; 기구; 가위</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='카드 파일 상자'>카드 상자</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='파일 보관 서랍장'>파일; 캐비닛</annotation>
+
+		<!-- wastebasket -->
+		<annotation cp='[🗑]' tts='쓰레기통'>쓰레기통; 휴지통</annotation>
 
 		<!-- lock; closed -->
-		<annotation cp='[🔒]' tts='자물쇠' draft='provisional'>자물쇠; 잠긴 자물쇠</annotation>
+		<annotation cp='[🔒]' tts='잠긴 자물쇠'>잠긴 자물쇠</annotation>
 
 		<!-- open lock; lock; open; unlock -->
-		<annotation cp='[🔓]' tts='자물쇠' draft='provisional'>자물쇠; 열린 자물쇠</annotation>
+		<annotation cp='[🔓]' tts='열린 자물쇠'>열린 자물쇠</annotation>
 
 		<!-- lock with pen; ink; lock; nib; pen; privacy -->
-		<annotation cp='[🔏]' tts='자물쇠와 펜' draft='provisional'>자물쇠와 펜; 자물쇠; 펜; 프라이버시; 사생활</annotation>
+		<annotation cp='[🔏]' tts='자물쇠와 펜'>자물쇠; 펜; 프라이버시; 사생활</annotation>
 
 		<!-- closed lock with key; closed; key; lock; secure -->
-		<annotation cp='[🔐]' tts='자물쇠와 열쇠' draft='provisional'>자물쇠와 열쇠; 자물쇠; 열쇠; 보안</annotation>
+		<annotation cp='[🔐]' tts='자물쇠와 열쇠'>자물쇠; 열쇠; 보안</annotation>
 
 		<!-- key; lock; password -->
-		<annotation cp='[🔑]' tts='열쇠' draft='provisional'>열쇠; 패스워드</annotation>
+		<annotation cp='[🔑]' tts='열쇠'>패스워드</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='오래된 열쇠'>열쇠; 보물 열쇠</annotation>
 
 		<!-- hammer; tool -->
-		<annotation cp='[🔨]' tts='망치' draft='provisional'>망치; 해머; 도구</annotation>
+		<annotation cp='[🔨]' tts='망치'>해머; 도구</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='곡괭이'>곡괭이; 광산</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='망치와 곡괭이'>망치; 곡괭이</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='망치와 렌치'>망치; 렌치; 스패너</annotation>
 
 		<!-- wrench; tool -->
-		<annotation cp='[🔧]' tts='렌치' draft='provisional'>렌치; 도구</annotation>
+		<annotation cp='[🔧]' tts='렌치'>도구</annotation>
 
 		<!-- nut and bolt; bolt; nut; tool -->
-		<annotation cp='[🔩]' tts='볼트와 너트' draft='provisional'>볼트와 너트; 볼트; 너트; 나사; 도구</annotation>
+		<annotation cp='[🔩]' tts='볼트와 너트'>볼트; 너트; 나사; 도구</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='톱니바퀴'>톱니바퀴; 기어</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='압축기'>압축기; 콤프레셔</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='증류기'>증류기; 증류; 정류; 정화</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='접시저울'>저울; 정의; 균형; 천칭자리</annotation>
 
 		<!-- link -->
-		<annotation cp='[🔗]' tts='링크' draft='provisional'>링크; 링크 표시</annotation>
+		<annotation cp='[🔗]' tts='링크'>링크 표시</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='쇠사슬'>사슬; 체인</annotation>
 
 		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
-		<annotation cp='[💉]' tts='주사기' draft='provisional'>주사기; 주사 바늘; 병원; 치료</annotation>
+		<annotation cp='[💉]' tts='주사기'>주사 바늘; 병원; 치료</annotation>
 
 		<!-- pill; doctor; medicine; sick -->
-		<annotation cp='[💊]' tts='알약' draft='provisional'>알약; 약</annotation>
+		<annotation cp='[💊]' tts='알약'>약</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='단검'>단검; 단도; 대거</annotation>
 
 		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
-		<annotation cp='[🔪]' tts='칼' draft='provisional'>칼; 식칼; 요리용 칼</annotation>
+		<annotation cp='[🔪]' tts='식칼'>식칼; 요리용 칼</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='쌍검'>검; 쌍검</annotation>
 
 		<!-- pistol; gun; handgun; revolver; tool; weapon -->
-		<annotation cp='[🔫]' tts='총' draft='provisional'>총; 권총</annotation>
+		<annotation cp='[🔫]' tts='총'>권총</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='방패'>방패; 보호</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='활과 화살'>활; 화살; 궁수; 사수자리</annotation>
 
 		<!-- chequered flag; checkered; chequered; racing -->
-		<annotation cp='[🏁]' tts='격자 무늬 깃발' draft='provisional'>격자 무늬 깃발; 격자 무늬; 결승선 깃발; 레이싱; 스포츠</annotation>
+		<annotation cp='[🏁]' tts='격자 무늬 깃발'>격자 무늬; 결승선 깃발; 레이싱; 스포츠</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='펄럭이는 흰색 깃발'>깃발; 항복; 플래그</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='펄럭이는 검은색 깃발'>깃발; 플래그</annotation>
 
 		<!-- triangular flag; post -->
-		<annotation cp='[🚩]' tts='세모 깃발' draft='provisional'>세모 깃발; 깃발; 위치 표시 깃발; 위치 표시</annotation>
+		<annotation cp='[🚩]' tts='세모 깃발'>깃발; 위치 표시 깃발; 위치 표시</annotation>
 
 		<!-- smoking -->
-		<annotation cp='[🚬]' tts='흡연 구역 신호' draft='provisional'>흡연 구역 신호; 흡연 구역</annotation>
+		<annotation cp='[🚬]' tts='흡연 구역 신호'>담배; 흡연</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='관'>관; 죽음; 장례식</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='납골 단지'>납골 단지; 단지; 죽음</annotation>
 
 		<!-- moai; face; moyai; statue -->
-		<annotation cp='[🗿]' tts='모아이' draft='provisional'>모아이; 모아이상; 석상</annotation>
+		<annotation cp='[🗿]' tts='모아이'>모아이상; 석상</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='기름통'>기름통; 드럼; 기름</annotation>
 
 		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
-		<annotation cp='[🔮]' tts='수정 구슬' draft='provisional'>수정 구슬; 예언; 운세; 수정; 구슬</annotation>
+		<annotation cp='[🔮]' tts='수정 구슬'>예언; 운세; 수정; 구슬</annotation>
 
 		<!-- ATM sign; atm; automated; bank; teller -->
-		<annotation cp='[🏧]' tts='에이티엠' draft='provisional'>에이티엠; ATM; 현금인출기</annotation>
+		<annotation cp='[🏧]' tts='에이티엠'>ATM; 현금인출기</annotation>
 
 		<!-- litter in bin sign; litter; litterbox -->
-		<annotation cp='[🚮]' tts='쓰레기는 쓰레기통에' draft='provisional'>쓰레기는 쓰레기통에</annotation>
+		<annotation cp='[🚮]' tts='쓰레기는 쓰레기통에'>쓰레기; 쓰레기통</annotation>
 
 		<!-- potable water; drink; potable; water -->
-		<annotation cp='[🚰]' tts='음수대' draft='provisional'>음수대; 식수대</annotation>
+		<annotation cp='[🚰]' tts='음수대'>식수대</annotation>
 
 		<!-- wheelchair; access -->
-		<annotation cp='[♿]' tts='휠체어' draft='provisional'>휠체어; 장애인</annotation>
+		<annotation cp='[♿]' tts='휠체어'>장애인</annotation>
 
 		<!-- men’s room; lavatory; man; restroom; wc -->
-		<annotation cp='[🚹]' tts='남자' draft='provisional'>남자; 남성; 남자용; 남성용</annotation>
+		<annotation cp='[🚹]' tts='남자 화장실'>남성; 남자용; 남성용</annotation>
 
 		<!-- women’s room; lavatory; restroom; wc; woman -->
-		<annotation cp='[🚺]' tts='여자' draft='provisional'>여자; 여성; 여자용; 여성용</annotation>
+		<annotation cp='[🚺]' tts='여자 화장실'>여성; 여자용; 여성용</annotation>
 
 		<!-- restroom; lavatory; wc -->
-		<annotation cp='[🚻]' tts='화장실' draft='provisional'>화장실; wc</annotation>
+		<annotation cp='[🚻]' tts='화장실'>화장실; 공중화장실</annotation>
 
 		<!-- baby symbol; baby; changing -->
-		<annotation cp='[🚼]' tts='수유실' draft='provisional'>수유실; 기저귀</annotation>
+		<annotation cp='[🚼]' tts='수유실'>기저귀</annotation>
 
 		<!-- water closet; closet; lavatory; restroom; water; wc -->
-		<annotation cp='[🚾]' tts='화장실' draft='provisional'>화장실; wc</annotation>
+		<annotation cp='[🚾]' tts='더블유씨'>화장실; 공중화장실</annotation>
 
 		<!-- passport control; control; passport -->
-		<annotation cp='[🛂]' tts='여권 검사' draft='provisional'>여권 검사; 여권</annotation>
+		<annotation cp='[🛂]' tts='여권 검사'>여권</annotation>
 
 		<!-- customs -->
-		<annotation cp='[🛃]' tts='세관' draft='provisional'>세관</annotation>
+		<annotation cp='[🛃]' tts='세관'>세관</annotation>
 
 		<!-- baggage claim; baggage; claim -->
-		<annotation cp='[🛄]' tts='짐 찾는 곳' draft='provisional'>짐 찾는 곳; 짐; 화물</annotation>
+		<annotation cp='[🛄]' tts='짐 찾는 곳'>짐; 화물</annotation>
 
 		<!-- left luggage; baggage; locker; luggage -->
-		<annotation cp='[🛅]' tts='화물 서비스' draft='provisional'>화물 서비스; 화물; 짐</annotation>
+		<annotation cp='[🛅]' tts='화물 서비스'>짐; 화물</annotation>
 
 		<!-- warning -->
-		<annotation cp='[⚠]' tts='주의' draft='provisional'>주의; 경고</annotation>
+		<annotation cp='[⚠]' tts='주의'>경고</annotation>
 
 		<!-- children crossing; child; crossing; pedestrian; traffic -->
-		<annotation cp='[🚸]' tts='어린이 보호 구역' draft='provisional'>어린이 보호 구역; 어린이 구역; 어린이</annotation>
+		<annotation cp='[🚸]' tts='어린이 보호 구역'>어린이 구역; 어린이</annotation>
 
 		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
-		<annotation cp='[⛔]' tts='진입 금지' draft='provisional'>진입 금지; 진입 금지 표시; 들어오지 마시오</annotation>
+		<annotation cp='[⛔]' tts='진입 금지'>진입 금지 표시; 들어오지 마시오</annotation>
 
 		<!-- prohibited; entry; forbidden; no; not -->
-		<annotation cp='[🚫]' tts='진입 금지' draft='provisional'>진입 금지; 진입 금지 표시; 들어오지 마시오</annotation>
+		<annotation cp='[🚫]' tts='진입금지'>진입 금지 표시; 들어오지 마시오</annotation>
 
 		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
-		<annotation cp='[🚳]' tts='자전거 금지' draft='provisional'>자전거 금지; 자전거 주행 금지</annotation>
+		<annotation cp='[🚳]' tts='자전거 금지'>자전거 주행 금지</annotation>
 
 		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
-		<annotation cp='[🚭]' tts='금연 신호' draft='provisional'>금연 신호; 금연 구역 신호; 금연 구역</annotation>
+		<annotation cp='[🚭]' tts='금연 신호'>금연 구역 신호; 금연 구역</annotation>
 
 		<!-- no littering; forbidden; litter; no; not; prohibited -->
-		<annotation cp='[🚯]' tts='쓰레기를 버리지 마시오' draft='provisional'>쓰레기를 버리지 마시오</annotation>
+		<annotation cp='[🚯]' tts='쓰레기 투기 금지'>쓰레기; 쓰레기 투기; 금지</annotation>
 
 		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
-		<annotation cp='[🚱]' tts='마실 수 없는 물' draft='provisional'>마실 수 없는 물; 마시지 마시오</annotation>
+		<annotation cp='[🚱]' tts='마실 수 없는 물'>마시지 마시오; 섭취 금지</annotation>
 
 		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
-		<annotation cp='[🚷]' tts='보행자 금지' draft='provisional'>보행자 금지; 보행자 통행 금지</annotation>
+		<annotation cp='[🚷]' tts='보행자 금지'>보행자 통행 금지</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='방사능'>방사능</annotation>
+
+		<!-- biohazard -->
+		<annotation cp='[☣]' tts='생물학적 위험'>바이오해저드</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='상향 화살표'>화살표; 위쪽; 북쪽</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='우상향 화살표'>화살표; 북동쪽</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='우향 화살표'>화살표; 동쪽</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='우하향 화살표'>화살표; 남동쪽</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='하향 화살표'>화살표; 남쪽</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='좌하향 화살표'>화살표; 남서쪽</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='좌향 화살표'>화살표; 서쪽</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='좌상향 화살표'>화살표; 북서쪽</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='상하향 화살표'>화살표; 위아래</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='좌우향 화살표'>화살표; 좌우</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='왼쪽으로 꺾어지는 우향 화살표'>화살표; 좌회전</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='오른쪽으로 꺾어지는 좌향 화살표'>화살표; 우회전</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='위쪽으로 꺾어지는 우향 화살표'>화살표; 좌회전</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='아래쪽으로 꺾어지는 우향 화살표'>화살표; 우회전</annotation>
 
 		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
-		<annotation cp='[🔃]' tts='시계 방향 화살표' draft='provisional'>시계 방향 화살표; 새로고침 표시; 새로고침; 화살표</annotation>
+		<annotation cp='[🔃]' tts='시계 방향 화살표'>새로고침 표시; 새로고침; 화살표</annotation>
 
 		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
-		<annotation cp='[🔄]' tts='반시계 방향 화살표' draft='provisional'>반시계 방향 화살표; 반시계 방향; 화살표</annotation>
+		<annotation cp='[🔄]' tts='반시계 방향 화살표'>반시계 방향; 화살표</annotation>
 
 		<!-- back arrow; arrow; back -->
-		<annotation cp='[🔙]' tts='뒤로' draft='provisional'>뒤로; 뒤로 화살표; 왼쪽 화살표; 화살표</annotation>
+		<annotation cp='[🔙]' tts='뒤로'>뒤로 화살표; 왼쪽 화살표; 화살표</annotation>
 
 		<!-- end arrow; arrow; end -->
-		<annotation cp='[🔚]' tts='종료' draft='provisional'>종료; 종료 화살표; 끝내기 화살표; 화살표</annotation>
+		<annotation cp='[🔚]' tts='종료'>종료 화살표; 끝내기 화살표; 화살표</annotation>
 
 		<!-- on! arrow; arrow; mark; on -->
-		<annotation cp='[🔛]' tts='켜짐' draft='provisional'>켜짐; 켜짐 화살표; 양쪽 방향 화살표; 화살표</annotation>
+		<annotation cp='[🔛]' tts='켜짐'>켜짐 화살표; 양쪽 방향 화살표; 화살표</annotation>
 
 		<!-- soon arrow; arrow; soon -->
-		<annotation cp='[🔜]' tts='곧' draft='provisional'>곧; 곧 진행된다는 표시; 곧 진행된다는 신호; 곧 진행된다는 화살표; 화살표</annotation>
+		<annotation cp='[🔜]' tts='곧'>곧 진행된다는 표시; 곧 진행된다는 신호; 곧 진행된다는 화살표; 화살표</annotation>
 
 		<!-- top arrow; arrow; top; up -->
-		<annotation cp='[🔝]' tts='위로' draft='provisional'>위로; 위쪽으로; 상단; 위쪽 화살표; 화살표</annotation>
+		<annotation cp='[🔝]' tts='위로 화살표'>위쪽으로; 상단; 위쪽 화살표; 화살표</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='예배공간'>기도; 예배; 사원</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='원자 기호'>원자</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='옴'>옴; 힌두교</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='다비드별'>다비드; 유대교; 별</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='진리의 수레바퀴'>다르마; 불교; 수레바퀴; 바퀴</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='음양'>음양; 음; 양</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='라틴 십자가'>십자가; 기독교; 종교</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='전통적인 십자가'>십자가; 기독교; 종교</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='초승달과 별'>이슬람; 초승달; 별; 종교</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='평화 기호'>평화</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='메노라'>촛대; 유대교</annotation>
 
 		<!-- dotted six-pointed star; fortune; star -->
-		<annotation cp='[🔯]' tts='육각 별' draft='provisional'>육각 별; 육각형 별; 별</annotation>
+		<annotation cp='[🔯]' tts='육각 별'>육각형 별; 별</annotation>
 
 		<!-- recycling symbol; recycle -->
-		<annotation cp='[♻]' tts='재활용 표시' draft='provisional'>재활용 표시; 재활용</annotation>
+		<annotation cp='[♻]' tts='재활용 표시'>재활용</annotation>
 
 		<!-- name badge; badge; name -->
-		<annotation cp='[📛]' tts='이름표' draft='provisional'>이름표; 명찰</annotation>
+		<annotation cp='[📛]' tts='이름표'>명찰</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='백합 문장'>백합 문장</annotation>
 
 		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
-		<annotation cp='[🔰]' tts='노란색 초록색 이파리 모양' draft='provisional'>노란색 초록색 이파리 모양; 노란색 초록색; 초보자</annotation>
+		<annotation cp='[🔰]' tts='노란색 초록색 이파리 모양'>노란색 초록색; 초보자</annotation>
 
 		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
-		<annotation cp='[🔱]' tts='삼지창' draft='provisional'>삼지창; 창</annotation>
+		<annotation cp='[🔱]' tts='삼지창'>창</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='크고 진한 동그라미'>동그라미; 원</annotation>
 
 		<!-- white heavy check mark; check; mark -->
-		<annotation cp='[✅]' tts='체크 표시' draft='provisional'>체크 표시; 체크</annotation>
+		<annotation cp='[✅]' tts='체크 표시'>체크</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='체크표시된 투표란'>투표; 체크박스</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='진한 체크표시'>체크표시</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='곱셈기호 엑스'>곱셈; 취소; 곱하기</annotation>
 
 		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
-		<annotation cp='[❌]' tts='엑스 표시' draft='provisional'>엑스 표시; 엑스표; 엑스</annotation>
+		<annotation cp='[❌]' tts='엑스 표시'>엑스표; 엑스</annotation>
 
 		<!-- cross mark button; mark; square -->
-		<annotation cp='[❎]' tts='엑스 표시' draft='provisional'>엑스 표시; 엑스표; 상자 안 엑스표</annotation>
+		<annotation cp='[❎]' tts='초록 상자 안 엑스표'>엑스표; 상자 안 엑스표</annotation>
 
 		<!-- heavy plus sign; math; plus -->
-		<annotation cp='[➕]' tts='더하기' draft='provisional'>더하기; 더하기 표시; 플러스</annotation>
+		<annotation cp='[➕]' tts='더하기'>더하기 표시; 플러스</annotation>
 
 		<!-- heavy minus sign; math; minus -->
-		<annotation cp='[➖]' tts='빼기' draft='provisional'>빼기; 빼기 표시; 마이너스</annotation>
+		<annotation cp='[➖]' tts='빼기'>빼기 표시; 마이너스</annotation>
 
 		<!-- heavy division sign; division; math -->
-		<annotation cp='[➗]' tts='나누기' draft='provisional'>나누기; 나누기 표시</annotation>
+		<annotation cp='[➗]' tts='나누기'>나누기 표시</annotation>
 
 		<!-- curly loop; curl; loop -->
-		<annotation cp='[➰]' tts='고리' draft='provisional'>고리; 루프</annotation>
+		<annotation cp='[➰]' tts='고리'>루프</annotation>
 
 		<!-- double curly loop; curl; double; loop -->
-		<annotation cp='[➿]' tts='두 개의 고리' draft='provisional'>두 개의 고리; 두 개의 루프</annotation>
+		<annotation cp='[➿]' tts='두 개의 고리'>두 개의 루프</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='부분 교체 기호'>기호; 부분</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='여덟 갈래 별표'>별표</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='팔각 별'>별</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='반짝임'>반짝</annotation>
 
 		<!-- currency exchange; bank; currency; exchange; money -->
-		<annotation cp='[💱]' tts='환전' draft='provisional'>환전</annotation>
+		<annotation cp='[💱]' tts='환전'>교환; 화폐; 돈</annotation>
 
 		<!-- heavy dollar sign; currency; dollar; money -->
-		<annotation cp='[💲]' tts='달러' draft='provisional'>달러; 불; 달러화; 미국 화폐; 미국 돈; 돈</annotation>
+		<annotation cp='[💲]' tts='미국 달러'>불; 달러화; 미국 화폐; 미국 돈; 돈</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='두 개의 느낌표'>느낌표</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='느낌표와 물음표'>느낌표; 물음표; 부호</annotation>
 
 		<!-- question mark; mark; punctuation; question -->
-		<annotation cp='[❓]' tts='물음표' draft='provisional'>물음표; 물음; 질문; 의문</annotation>
+		<annotation cp='[❓]' tts='물음표'>물음; 질문; 의문</annotation>
 
 		<!-- white question mark; mark; outlined; punctuation; question -->
-		<annotation cp='[❔]' tts='물음표' draft='provisional'>물음표; 물음; 질문; 의문</annotation>
+		<annotation cp='[❔]' tts='하얀색 물음표'>물음; 질문; 의문</annotation>
 
 		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
-		<annotation cp='[❕]' tts='느낌표' draft='provisional'>느낌표; 느낌</annotation>
+		<annotation cp='[❕]' tts='느낌표 표시'>느낌</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='느낌표'>느낌표; 부호</annotation>
 
 		<!-- wavy dash; dash; punctuation; wavy -->
-		<annotation cp='[〰]' tts='물결표' draft='provisional'>물결표; 물결</annotation>
+		<annotation cp='[〰]' tts='물결표'>물결</annotation>
 
 		<!-- copyright -->
-		<annotation cp='[©]' tts='저작권' draft='provisional'>저작권; 씨; 동그라미 C</annotation>
+		<annotation cp='[©]' tts='저작권'>씨; 동그라미 C</annotation>
 
 		<!-- registered -->
-		<annotation cp='[®]' tts='등록상표' draft='provisional'>등록상표; 알; 동그라미 R</annotation>
+		<annotation cp='[®]' tts='등록상표'>알; 동그라미 R</annotation>
 
 		<!-- trade mark; mark; tm; trademark -->
-		<annotation cp='[™]' tts='상표' draft='provisional'>상표; 상표 표시; 트레이드 마크 표시</annotation>
+		<annotation cp='[™]' tts='상표'>상표 표시; 트레이드 마크 표시</annotation>
 
 		<!-- aries; ram; zodiac -->
-		<annotation cp='[♈]' tts='양자리' draft='provisional'>양자리</annotation>
+		<annotation cp='[♈]' tts='양자리'>양; 별; 별자리</annotation>
 
 		<!-- taurus; bull; ox; zodiac -->
-		<annotation cp='[♉]' tts='황소자리' draft='provisional'>황소자리</annotation>
+		<annotation cp='[♉]' tts='황소자리'>황소; 별; 별자리</annotation>
 
 		<!-- gemini; twins; zodiac -->
-		<annotation cp='[♊]' tts='쌍둥이 자리' draft='provisional'>쌍둥이 자리</annotation>
+		<annotation cp='[♊]' tts='쌍둥이 자리'>쌍둥이; 별; 별자리</annotation>
 
 		<!-- cancer; crab; zodiac -->
-		<annotation cp='[♋]' tts='게자리' draft='provisional'>게자리</annotation>
+		<annotation cp='[♋]' tts='게자리'>게자리</annotation>
 
 		<!-- leo; lion; zodiac -->
-		<annotation cp='[♌]' tts='사자자리' draft='provisional'>사자자리</annotation>
+		<annotation cp='[♌]' tts='사자자리'>사자; 별; 별자리</annotation>
 
 		<!-- virgo; maiden; virgin; zodiac -->
-		<annotation cp='[♍]' tts='처녀자리' draft='provisional'>처녀자리</annotation>
+		<annotation cp='[♍]' tts='처녀자리'>처녀; 별; 별자리</annotation>
 
 		<!-- libra; balance; justice; scales; zodiac -->
-		<annotation cp='[♎]' tts='천칭자리' draft='provisional'>천칭자리</annotation>
+		<annotation cp='[♎]' tts='천칭자리'>천칭; 별; 별자리</annotation>
 
 		<!-- scorpius; scorpio; scorpion; zodiac -->
-		<annotation cp='[♏]' tts='전갈자리' draft='provisional'>전갈자리</annotation>
+		<annotation cp='[♏]' tts='전갈자리'>스콜피온; 전갈; 별; 별자리</annotation>
 
 		<!-- sagittarius; archer; zodiac -->
-		<annotation cp='[♐]' tts='사수자리' draft='provisional'>사수자리</annotation>
+		<annotation cp='[♐]' tts='사수자리'>활; 별; 별자리</annotation>
 
 		<!-- capricorn; goat; zodiac -->
-		<annotation cp='[♑]' tts='염소자리' draft='provisional'>염소자리</annotation>
+		<annotation cp='[♑]' tts='염소자리'>염소; 별; 별자리</annotation>
 
 		<!-- aquarius; bearer; water; zodiac -->
-		<annotation cp='[♒]' tts='물병자리' draft='provisional'>물병자리</annotation>
+		<annotation cp='[♒]' tts='물병자리'>물병; 물; 별; 별자리</annotation>
 
 		<!-- pisces; fish; zodiac -->
-		<annotation cp='[♓]' tts='물고기자리' draft='provisional'>물고기자리</annotation>
+		<annotation cp='[♓]' tts='물고기자리'>물고기; 별; 별자리</annotation>
 
 		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
-		<annotation cp='[⛎]' tts='뱀주인자리' draft='provisional'>뱀주인자리; 별자리</annotation>
+		<annotation cp='[⛎]' tts='뱀주인자리'>별자리</annotation>
 
 		<!-- shuffle tracks button; arrow; crossed -->
-		<annotation cp='[🔀]' tts='엇갈린 화살표' draft='provisional'>엇갈린 화살표; 랜덤 재생; 화살표</annotation>
+		<annotation cp='[🔀]' tts='엇갈린 화살표'>랜덤 재생; 화살표</annotation>
 
 		<!-- repeat button; arrow; clockwise; repeat -->
-		<annotation cp='[🔁]' tts='꼬리를 무는 화살표' draft='provisional'>꼬리를 무는 화살표; 전곡 반복 재생; 화살표</annotation>
+		<annotation cp='[🔁]' tts='꼬리를 무는 화살표'>전곡 반복 재생; 화살표</annotation>
 
 		<!-- repeat single button; arrow; clockwise; once -->
-		<annotation cp='[🔂]' tts='꼬리를 무는 화살표와 숫자 1' draft='provisional'>꼬리를 무는 화살표와 숫자 1; 한 곡 반복 재생; 화살표</annotation>
+		<annotation cp='[🔂]' tts='꼬리를 무는 화살표와 숫자 1'>한 곡 반복 재생; 화살표</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='재생 버튼'>재생; 삼각형; 플레이</annotation>
 
 		<!-- fast-forword button; arrow; double; fast; forward -->
-		<annotation cp='[⏩]' tts='빨리 감기' draft='provisional'>빨리 감기; 오른쪽 화살표 두 개</annotation>
+		<annotation cp='[⏩]' tts='빨리 감기'>오른쪽 화살표 두 개</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='다음 트랙 버튼'>다음 트랙; 다음 장면</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='재생 또는 일시정지 버튼'>재생; 일시정지</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='반대로 버튼'>복귀; 반대</annotation>
 
 		<!-- fast reverse button; arrow; double; rewind -->
-		<annotation cp='[⏪]' tts='되감기' draft='provisional'>되감기; 왼쪽 화살표 두 개</annotation>
+		<annotation cp='[⏪]' tts='되감기'>왼쪽 화살표 두 개</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='마지막 트랙 버튼'>마지막 트랙; 최종 트랙; 마지막 노래</annotation>
 
 		<!-- up button; arrow; button; red -->
-		<annotation cp='[🔼]' tts='위쪽 삼각형' draft='provisional'>위쪽 삼각형; 삼각형; 위쪽 삼각형 버튼</annotation>
+		<annotation cp='[🔼]' tts='위쪽 삼각형'>삼각형; 위쪽 삼각형 버튼</annotation>
 
 		<!-- fast up button; arrow; double -->
-		<annotation cp='[⏫]' tts='위쪽 화살표' draft='provisional'>위쪽 화살표; 위로; 위쪽</annotation>
+		<annotation cp='[⏫]' tts='위쪽 화살표'>위로; 위쪽</annotation>
 
 		<!-- down button; arrow; button; down; red -->
-		<annotation cp='[🔽]' tts='아래쪽 삼각형' draft='provisional'>아래쪽 삼각형; 삼각형; 아래쪽 삼각형 버튼</annotation>
+		<annotation cp='[🔽]' tts='아래쪽 삼각형'>삼각형; 아래쪽 삼각형 버튼</annotation>
 
 		<!-- fast down button; arrow; double; down -->
-		<annotation cp='[⏬]' tts='아래쪽 화살표' draft='provisional'>아래쪽 화살표; 아래로; 아랫쪽</annotation>
+		<annotation cp='[⏬]' tts='아래쪽 화살표'>아래로; 아랫쪽</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='일시정지 버튼'>일시정지; 중지</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='정지 버튼'>시각형; 정지</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='녹음 버튼'>동그라미; 원; 기록; 녹음</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='꺼냄 버튼'>꺼냄</annotation>
 
 		<!-- cinema; camera; film; movie -->
-		<annotation cp='[🎦]' tts='영화' draft='provisional'>영화; 영화관; 극장</annotation>
+		<annotation cp='[🎦]' tts='영화'>영화관; 극장</annotation>
 
 		<!-- dim button; brightness; dim; low -->
-		<annotation cp='[🔅]' tts='밝기 낮음' draft='provisional'>밝기 낮음; 낮은 밝기; 어두움; 어두움 표시</annotation>
+		<annotation cp='[🔅]' tts='밝기 낮음'>낮은 밝기; 어두움; 어두움 표시</annotation>
 
 		<!-- bright button; bright; brightness -->
-		<annotation cp='[🔆]' tts='밝기 높음' draft='provisional'>밝기 높음; 높은 밝기; 밝음; 밝음 표시</annotation>
+		<annotation cp='[🔆]' tts='밝기 높음'>높은 밝기; 밝음; 밝음 표시</annotation>
 
 		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
-		<annotation cp='[📶]' tts='안테나 신호' draft='provisional'>안테나 신호; 신호 강도; 안테나; 휴대전화</annotation>
+		<annotation cp='[📶]' tts='안테나 신호'>신호 강도; 안테나; 휴대전화</annotation>
 
 		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
-		<annotation cp='[📵]' tts='휴대전화 사용금지' draft='provisional'>휴대전화 사용금지; 전화 사용금지; 휴대전화 끄기</annotation>
+		<annotation cp='[📵]' tts='휴대전화 사용금지'>전화 사용금지; 휴대전화 끄기</annotation>
 
 		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
-		<annotation cp='[📳]' tts='진동 모드' draft='provisional'>진동 모드; 휴대전화 진동모드</annotation>
+		<annotation cp='[📳]' tts='진동 모드'>휴대전화 진동모드</annotation>
 
 		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
-		<annotation cp='[📴]' tts='휴대전화 끄기' draft='provisional'>휴대전화 끄기; 휴대전화 전원 끄기; 전원이 꺼진 휴대전화</annotation>
+		<annotation cp='[📴]' tts='휴대전화 끄기'>휴대전화 전원 끄기; 전원이 꺼진 휴대전화</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='키캡 번호'>우물정; 번호; 키캡</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='키캡 별표'>별표; 키캡</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='키캡 숫자 영'>0; 키캡</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='키캡 숫자 일'>1; 키캡</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='키캡 숫자 이'>2; 키캡</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='키캡 숫자 삼'>3; 키캡</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='키캡 숫자 사'>4; 키캡</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='키캡 숫자 오'>5; 키캡</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='키캡 숫자 육'>6; 키캡</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='키캡 숫자 칠'>7; 키캡</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='키캡 숫자 팔'>8; 키캡</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='키캡 숫자 구'>9; 키캡</annotation>
 
 		<!-- keycap ten; 10; keycap; ten -->
-		<annotation cp='[🔟]' tts='네모 십' draft='provisional'>네모 십; 십</annotation>
+		<annotation cp='[🔟]' tts='네모 십'>십</annotation>
 
 		<!-- hundred points; 100; full; hundred; score -->
-		<annotation cp='[💯]' tts='백점' draft='provisional'>백점; 백점 표시</annotation>
+		<annotation cp='[💯]' tts='백점'>백점 표시</annotation>
 
 		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
-		<annotation cp='[🔞]' tts='십팔금' draft='provisional'>십팔금; 18금; 18세 이하 금지; 18세</annotation>
+		<annotation cp='[🔞]' tts='십팔금'>18금; 18세 이하 금지; 18세</annotation>
 
 		<!-- input latin uppercase; input; latin; letters; uppercase -->
-		<annotation cp='[🔠]' tts='대문자' draft='provisional'>대문자; 영어 대문자; 대문자 입력</annotation>
+		<annotation cp='[🔠]' tts='대문자'>영어 대문자; 대문자 입력</annotation>
 
 		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
-		<annotation cp='[🔡]' tts='소문자' draft='provisional'>소문자; 영어 소문자; 소문자 입력</annotation>
+		<annotation cp='[🔡]' tts='소문자'>영어 소문자; 소문자 입력</annotation>
 
 		<!-- input numbers; 1234; input; numbers -->
-		<annotation cp='[🔢]' tts='숫자' draft='provisional'>숫자; 숫자 입력</annotation>
+		<annotation cp='[🔢]' tts='숫자'>숫자 입력</annotation>
 
 		<!-- input symbols; input -->
-		<annotation cp='[🔣]' tts='기호' draft='provisional'>기호; 기호 입력</annotation>
+		<annotation cp='[🔣]' tts='기호'>기호 입력</annotation>
 
 		<!-- input latin letters; abc; alphabet; input; latin; letters -->
-		<annotation cp='[🔤]' tts='라틴어 알파벳' draft='provisional'>라틴어 알파벳; 라틴어 알파벳 입력</annotation>
+		<annotation cp='[🔤]' tts='라틴어 알파벳'>라틴어 알파벳 입력</annotation>
 
 		<!-- a button; a; blood -->
-		<annotation cp='[🅰]' tts='에이' draft='provisional'>에이; A; 에이형; 혈액형 에이형</annotation>
+		<annotation cp='[🅰]' tts='에이형'>A; 에이형; 혈액형 에이형</annotation>
 
 		<!-- ab button; ab; blood -->
-		<annotation cp='[🆎]' tts='에이비' draft='provisional'>에이비; AB; 에이비형; 혈액형 에이비형</annotation>
+		<annotation cp='[🆎]' tts='에이비형'>AB; 에이비형; 혈액형 에이비형</annotation>
 
 		<!-- b button; b; blood -->
-		<annotation cp='[🅱]' tts='비' draft='provisional'>비; B; 비형; 혈액형 비형</annotation>
+		<annotation cp='[🅱]' tts='비형'>B; 비형; 혈액형 비형</annotation>
 
 		<!-- squared cl; cl -->
-		<annotation cp='[🆑]' tts='씨엘' draft='provisional'>씨엘; CL; 네모 안에 씨엘; 씨엘 네모 안</annotation>
+		<annotation cp='[🆑]' tts='씨엘'>CL; 네모 안에 씨엘; 씨엘 네모 안</annotation>
 
 		<!-- squared cool; cool -->
-		<annotation cp='[🆒]' tts='쿨' draft='provisional'>쿨; cool; 쿨 신호</annotation>
+		<annotation cp='[🆒]' tts='쿨'>cool; 쿨 신호</annotation>
 
 		<!-- squared free; free -->
-		<annotation cp='[🆓]' tts='프리' draft='provisional'>프리; 자유; 프리 신호; 자유 신호</annotation>
+		<annotation cp='[🆓]' tts='프리'>자유; 프리 신호; 자유 신호</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='정보 출처'>정보; I</annotation>
 
 		<!-- squared id; id; identity -->
-		<annotation cp='[🆔]' tts='아이디' draft='provisional'>아이디; ID; 아이디 신호; 아이디 표시</annotation>
+		<annotation cp='[🆔]' tts='아이디'>ID; 아이디 신호; 아이디 표시</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='원글자 엠'>원; 동그라미; M</annotation>
 
 		<!-- squared new; new -->
-		<annotation cp='[🆕]' tts='뉴' draft='provisional'>뉴; NEW; 새로운; 새롭다; 새로운 신호; 뉴 신호; 새로운 소식</annotation>
+		<annotation cp='[🆕]' tts='뉴'>NEW; 새로운; 새롭다; 새로운 신호; 뉴 신호; 새로운 소식</annotation>
 
 		<!-- squared ng; ng -->
-		<annotation cp='[🆖]' tts='엔지' draft='provisional'>엔지; 엔지 신호; NG; 엔지 표시; 노굿; 노굿 신호</annotation>
+		<annotation cp='[🆖]' tts='엔지'>엔지 신호; NG; 엔지 표시; 노굿; 노굿 신호</annotation>
 
 		<!-- o button; blood; o -->
-		<annotation cp='[🅾]' tts='오' draft='provisional'>오; O; 오형; 혈액형 오형</annotation>
+		<annotation cp='[🅾]' tts='오형'>O; 오형; 혈액형 오형</annotation>
 
 		<!-- squared ok; ok -->
-		<annotation cp='[🆗]' tts='오케이' draft='provisional'>오케이; OK; 오케이 신호; 좋다; 예; 네</annotation>
+		<annotation cp='[🆗]' tts='오케이'>OK; 오케이 신호; 좋다; 예; 네</annotation>
 
 		<!-- p button; parking -->
-		<annotation cp='[🅿]' tts='피' draft='provisional'>피; P; 음각 피; 파킹; 주차; 주차장</annotation>
+		<annotation cp='[🅿]' tts='주차 표시'>P; 음각 피; 파킹; 주차; 주차장</annotation>
 
 		<!-- squared sos; help; sos -->
-		<annotation cp='[🆘]' tts='에스오에스' draft='provisional'>에스오에스; SOS; 에스오에스 신호; 구조; 구조 신호</annotation>
+		<annotation cp='[🆘]' tts='에스오에스'>SOS; 에스오에스 신호; 구조; 구조 신호</annotation>
 
 		<!-- up! button; mark; up -->
-		<annotation cp='[🆙]' tts='위로' draft='provisional'>위로; 업; UP; 위쪽으로</annotation>
+		<annotation cp='[🆙]' tts='위로 버튼'>업; UP; 위쪽으로</annotation>
 
 		<!-- squared vs; versus; vs -->
-		<annotation cp='[🆚]' tts='대' draft='provisional'>대; 브이에스; VS</annotation>
+		<annotation cp='[🆚]' tts='대'>브이에스; VS</annotation>
 
 		<!-- squared katakana koko; japanese -->
-		<annotation cp='[🈁]' tts='가타가나 코코' draft='provisional'>가타가나 코코</annotation>
+		<annotation cp='[🈁]' tts='가타가나 코코'>가타가나 코코</annotation>
 
 		<!-- squared katakana sa; japanese -->
-		<annotation cp='[🈂]' tts='가타가나 사' draft='provisional'>가타가나 사</annotation>
+		<annotation cp='[🈂]' tts='가타가나 사'>가타가나 사</annotation>
 
 		<!-- squared moon ideograph; japanese -->
-		<annotation cp='[🈷]' tts='달월' draft='provisional'>달월</annotation>
+		<annotation cp='[🈷]' tts='달월'>달월</annotation>
 
 		<!-- squared exist ideograph; japanese -->
-		<annotation cp='[🈶]' tts='있을유' draft='provisional'>있을유</annotation>
+		<annotation cp='[🈶]' tts='있을유'>있을유</annotation>
 
 		<!-- squared finger ideograph; japanese -->
-		<annotation cp='[🈯]' tts='가리킬지' draft='provisional'>가리킬지</annotation>
+		<annotation cp='[🈯]' tts='가리킬지'>가리킬지</annotation>
 
 		<!-- circled advantage ideograph; japanese -->
-		<annotation cp='[🉐]' tts='얻을득' draft='provisional'>얻을득</annotation>
+		<annotation cp='[🉐]' tts='얻을득'>얻을득</annotation>
 
 		<!-- squared divide ideograph; japanese -->
-		<annotation cp='[🈹]' tts='나눌할' draft='provisional'>나눌할</annotation>
+		<annotation cp='[🈹]' tts='나눌할'>나눌할</annotation>
 
 		<!-- squared negation ideograph; japanese -->
-		<annotation cp='[🈚]' tts='없을무' draft='provisional'>없을무</annotation>
+		<annotation cp='[🈚]' tts='없을무'>없을무</annotation>
 
 		<!-- squared prohibit ideograph; japanese -->
-		<annotation cp='[🈲]' tts='금할금' draft='provisional'>금할금</annotation>
+		<annotation cp='[🈲]' tts='금할금'>금할금</annotation>
 
 		<!-- circled accept ideograph; chinese -->
-		<annotation cp='[🉑]' tts='옳을가' draft='provisional'>옳을가</annotation>
+		<annotation cp='[🉑]' tts='옳을가'>옳을가</annotation>
 
 		<!-- squared apply ideograph; chinese -->
-		<annotation cp='[🈸]' tts='거듭신' draft='provisional'>거듭신</annotation>
+		<annotation cp='[🈸]' tts='거듭신'>거듭신</annotation>
 
 		<!-- squared together ideograph; chinese -->
-		<annotation cp='[🈴]' tts='합할합' draft='provisional'>합할합</annotation>
+		<annotation cp='[🈴]' tts='합할합'>합할합</annotation>
 
 		<!-- squared empty ideograph; chinese -->
-		<annotation cp='[🈳]' tts='빌공' draft='provisional'>빌공</annotation>
+		<annotation cp='[🈳]' tts='빌공'>빌공</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='원 표시된 축하 표의문자'>중국어; 축하; 표의문자</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='원 표시된 비밀 표의문자'>중국어; 비밀; 표의문자</annotation>
 
 		<!-- squared operating ideograph; chinese -->
-		<annotation cp='[🈺]' tts='마땅당' draft='provisional'>마땅당</annotation>
+		<annotation cp='[🈺]' tts='마땅당'>마땅당</annotation>
 
 		<!-- squared fullness ideograph; chinese -->
-		<annotation cp='[🈵]' tts='찰만' draft='provisional'>찰만</annotation>
+		<annotation cp='[🈵]' tts='찰만'>찰만</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='작은 검은색 사각형'>무늬; 사각형</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='작은 흰색 사각형'>무늬; 사각형</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='중간 흰색 사각형'>무늬; 사각형</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='중간 검은색 사각형'>무늬; 사각형</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='중간 작은 흰색 사각형'>무늬; 사각형</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='중각 작은 검은색 사각형'>무늬; 사각형</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='큰 검은색 사각형'>무늬; 사각형</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='큰 흰색 사각형'>무늬; 사각형</annotation>
 
 		<!-- large orange diamond; diamond; geometric; orange -->
-		<annotation cp='[🔶]' tts='큰 주황색 마름모' draft='provisional'>큰 주황색 마름모; 마름모; 주황색; 오렌지색</annotation>
+		<annotation cp='[🔶]' tts='큰 주황색 마름모'>마름모; 주황색; 오렌지색</annotation>
 
 		<!-- large blue diamond; blue; diamond; geometric -->
-		<annotation cp='[🔷]' tts='큰 파란색 마름모' draft='provisional'>큰 파란색 마름모; 마름모; 파란색; 파랑</annotation>
+		<annotation cp='[🔷]' tts='큰 파란색 마름모'>마름모; 파란색; 파랑</annotation>
 
 		<!-- small orange diamond; diamond; geometric; orange -->
-		<annotation cp='[🔸]' tts='작은 주황색 마름모' draft='provisional'>작은 주황색 마름모; 마름모; 주황색; 오렌지색</annotation>
+		<annotation cp='[🔸]' tts='작은 주황색 마름모'>마름모; 주황색; 오렌지색</annotation>
 
 		<!-- small blue diamond; blue; diamond; geometric -->
-		<annotation cp='[🔹]' tts='작은 파란색 마름모' draft='provisional'>작은 파란색 마름모; 마름모; 파란색; 파랑</annotation>
+		<annotation cp='[🔹]' tts='작은 파란색 마름모'>마름모; 파란색; 파랑</annotation>
 
 		<!-- red triangle pointed up; geometric; red -->
-		<annotation cp='[🔺]' tts='위쪽 삼각형' draft='provisional'>위쪽 삼각형; 위쪽 빨간색 삼각형; 삼각형; 빨간색; 빨강</annotation>
+		<annotation cp='[🔺]' tts='빨간색 위쪽 삼각형'>위쪽 빨간색 삼각형; 삼각형; 빨간색; 빨강</annotation>
 
 		<!-- red triangle pointed down; down; geometric; red -->
-		<annotation cp='[🔻]' tts='아래쪽 삼각형' draft='provisional'>아래쪽 삼각형; 아래쪽 빨간색 삼각형; 삼각형; 빨간색; 빨강</annotation>
+		<annotation cp='[🔻]' tts='빨간색 아래쪽 삼각형'>아래쪽 빨간색 삼각형; 삼각형; 빨간색; 빨강</annotation>
 
 		<!-- diamond with a dot; comic; diamond; geometric; inside -->
-		<annotation cp='[💠]' tts='점이 찍힌 다이아몬드 모양' draft='provisional'>점이 찍힌 다이아몬드 모양; 다이아몬드 모양; 마름모꼴</annotation>
+		<annotation cp='[💠]' tts='점이 찍힌 다이아몬드 모양'>다이아몬드 모양; 마름모꼴</annotation>
 
 		<!-- radio button; button; geometric; radio -->
-		<annotation cp='[🔘]' tts='라디오 버튼' draft='provisional'>라디오 버튼; 라디오; 버튼</annotation>
+		<annotation cp='[🔘]' tts='라디오 버튼'>라디오; 버튼</annotation>
 
 		<!-- black square button; button; geometric; square -->
-		<annotation cp='[🔲]' tts='사각 표시' draft='provisional'>사각 표시; 사각형</annotation>
+		<annotation cp='[🔲]' tts='테두리가 검은 사각 버튼'>사각형; 버튼</annotation>
 
 		<!-- white square button; button; geometric; outlined; square -->
-		<annotation cp='[🔳]' tts='사각 표시' draft='provisional'>사각 표시; 사각형</annotation>
+		<annotation cp='[🔳]' tts='테두리가 하얀 사각 버튼'>사각형; 버튼</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='흰색 원'>동그라미; 원</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='검은색 원'>동그라미; 원</annotation>
 
 		<!-- red circle; circle; geometric; red -->
-		<annotation cp='[🔴]' tts='큰 빨간 원' draft='provisional'>큰 빨간 원; 원; 빨강</annotation>
+		<annotation cp='[🔴]' tts='큰 빨간 원'>원; 빨강</annotation>
 
 		<!-- blue circle; blue; circle; geometric -->
-		<annotation cp='[🔵]' tts='큰 파란 원' draft='provisional'>큰 파란 원; 원; 파랑</annotation>
+		<annotation cp='[🔵]' tts='큰 파란 원'>원; 파랑</annotation>
 	</annotations>
 </ldml>

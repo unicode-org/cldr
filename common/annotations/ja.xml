@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
-<!-- Copyright © 1991-2015 Unicode®, Inc. emoji-annotations.txt For 
- details about the format and other information, see /../../../reports/tr51/index.html#Data_Files. 
- http://unicode.org/cldr/trac/ticket/8019 CLDR data files are interpreted 
- according to the LDML specification (http://unicode.org/reports/tr35/) For 
- terms of use, see http://www.unicode.org/copyright.html 
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
  -->
 <ldml>
 	<identity>
@@ -14,2331 +14,3078 @@
 	<annotations>
 
 		<!-- grinning face; face; grin -->
-		<annotation cp='[😀]' tts='にやっとわらう' draft='provisional'>にやっとわらう; わらう; えがお; かお</annotation>
+		<annotation cp='[😀]' tts='にっこりわらう'>わらう; えがお; かお</annotation>
 
 		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
-		<annotation cp='[😁]' tts='にやっとわらう' draft='provisional'>にやっとわらう; めがわらう; わらう; えがお; かお</annotation>
+		<annotation cp='[😁]' tts='にやっとわらう'>わらう; えがお; かお; にやっ</annotation>
 
 		<!-- face with tears of joy; face; joy; laugh; tear -->
-		<annotation cp='[😂]' tts='うれしなき' draft='provisional'>うれしなき; わらい; えがお; かお</annotation>
+		<annotation cp='[😂]' tts='うれしなき'>わらい; えがお; かお; なみだ</annotation>
 
 		<!-- smiling face with open mouth; face; mouth; open; smile -->
-		<annotation cp='[😃]' tts='わーい' draft='provisional'>わーい; かお</annotation>
+		<annotation cp='[😃]' tts='わーい'>かお; えがお</annotation>
 
 		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
-		<annotation cp='[😄]' tts='えがお' draft='provisional'>えがお; わーい; かお</annotation>
+		<annotation cp='[😄]' tts='えがお'>わーい; かお; えがお</annotation>
 
 		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
-		<annotation cp='[😅]' tts='えがお' draft='provisional'>えがお; わーい; ひやあせ; かお</annotation>
+		<annotation cp='[😅]' tts='ひやあせえがお'>わーい; ひやあせ; かお</annotation>
 
 		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
-		<annotation cp='[😆]' tts='きゃー' draft='provisional'>きゃー; うれしい; えがお; かお</annotation>
+		<annotation cp='[😆]' tts='きゃー'>うれしい; えがお; かお</annotation>
 
 		<!-- winking face; face; wink -->
-		<annotation cp='[😉]' tts='うぃんく' draft='provisional'>うぃんく; ういんく; かお</annotation>
+		<annotation cp='[😉]' tts='うぃんく'>ういんく; かお</annotation>
 
 		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
-		<annotation cp='[😊]' tts='にこにこ' draft='provisional'>にこにこ; えがお; かお</annotation>
+		<annotation cp='[😊]' tts='にこにこ'>えがお; かお</annotation>
 
 		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
-		<annotation cp='[😋]' tts='にこにこ' draft='provisional'>にこにこ; えがお; かお</annotation>
+		<annotation cp='[😋]' tts='にこにこぺろり'>えがお; かお; ごちそう</annotation>
 
 		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
-		<annotation cp='[😎]' tts='さんぐらす' draft='provisional'>さんぐらす; えがお; かお</annotation>
+		<annotation cp='[😎]' tts='さんぐらすでえがお'>えがお; かお; さんぐらす; くーる</annotation>
 
 		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
-		<annotation cp='[😍]' tts='はーと' draft='provisional'>はーと; らぶ; かお</annotation>
+		<annotation cp='[😍]' tts='めがはーとのかお'>らぶ; かお; はーと; すまいる</annotation>
 
 		<!-- face throwing a kiss; face; heart; kiss -->
-		<annotation cp='[😘]' tts='ちゅっ' draft='provisional'>ちゅっ; かお; ; きす</annotation>
+		<annotation cp='[😘]' tts='なげきっす'>かお; はーと; きす</annotation>
 
 		<!-- kissing face; face; kiss -->
-		<annotation cp='[😗]' tts='きす' draft='provisional'>きす; かお</annotation>
+		<annotation cp='[😗]' tts='きす'>かお; きす</annotation>
 
 		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
-		<annotation cp='[😙]' tts='きす' draft='provisional'>きす; かお</annotation>
+		<annotation cp='[😙]' tts='にっこりきす'>かお; きす; すまいる</annotation>
 
 		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
-		<annotation cp='[😚]' tts='ちゅっ' draft='provisional'>ちゅっ; めをとじる; かお</annotation>
+		<annotation cp='[😚]' tts='ちゅっ'>めをとじる; かお; きす</annotation>
 
 		<!-- smiling face; face; outlined; relaxed; smile -->
-		<annotation cp='[☺]' tts='すまいりー' draft='provisional'>すまいりー; えがお</annotation>
+		<annotation cp='[☺]' tts='すまいりー'>えがお; かお</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='ほほえむ'>えがお; かお</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='はぐ'>えがお; かお; はぐ</annotation>
 
 		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
-		<annotation cp='[😇]' tts='えがお' draft='provisional'>えがお; ごこう; こうりん</annotation>
+		<annotation cp='[😇]' tts='えがおのてんし'>えがお; かお; てんしのわ</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='かんがえる'>かお; かんがえる</annotation>
 
 		<!-- neutral face; deadpan; face; neutral -->
-		<annotation cp='[😐]' tts='かお' draft='provisional'>かお; ふつう</annotation>
+		<annotation cp='[😐]' tts='かお'>ふつう; かお</annotation>
 
 		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
-		<annotation cp='[😑]' tts='むひょうじょう' draft='provisional'>むひょうじょう; かお</annotation>
+		<annotation cp='[😑]' tts='むひょうじょう'>かお; むひょうじょう</annotation>
 
 		<!-- face without mouth; face; mouth; quiet; silent -->
-		<annotation cp='[😶]' tts='くちなしがお' draft='provisional'>くちなしがお; くちなし; かお</annotation>
+		<annotation cp='[😶]' tts='くちなしがお'>くちなし; かお</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='うわめ'>かお; うわめ</annotation>
 
 		<!-- smirking face; face; smirk -->
-		<annotation cp='[😏]' tts='にゃっ' draft='provisional'>にゃっ; ふっ; かお</annotation>
+		<annotation cp='[😏]' tts='にやり'>ふっ; かお</annotation>
 
 		<!-- persevering face; face; persevere -->
-		<annotation cp='[😣]' tts='がまんがお' draft='provisional'>がまんがお; がまん; かお</annotation>
+		<annotation cp='[😣]' tts='がまん'>がまん; かお</annotation>
 
 		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
-		<annotation cp='[😥]' tts='がっかり' draft='provisional'>がっかり; ほっ; あせ; かお</annotation>
+		<annotation cp='[😥]' tts='がっかり'>がっかり; あせ; かお</annotation>
 
 		<!-- face with open mouth; face; mouth; open; sympathy -->
-		<annotation cp='[😮]' tts='あいたくち' draft='provisional'>あいたくち; かお</annotation>
+		<annotation cp='[😮]' tts='あいたくち'>かお; きょうかん</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='くちちゃっく'>かお; くち; ちゃっく</annotation>
 
 		<!-- hushed face; face; hushed; stunned; surprised -->
-		<annotation cp='[😯]' tts='だまる' draft='provisional'>だまる; かお</annotation>
+		<annotation cp='[😯]' tts='びっくりがお'>かお; おどろき</annotation>
 
 		<!-- sleepy face; face; sleep -->
-		<annotation cp='[😪]' tts='ねむい' draft='provisional'>ねむい; ねる; かお</annotation>
+		<annotation cp='[😪]' tts='ねむい'>ねる; かお; ねむい</annotation>
 
 		<!-- tired face; face; tired -->
-		<annotation cp='[😫]' tts='つかれ' draft='provisional'>つかれ; かお</annotation>
+		<annotation cp='[😫]' tts='つかれ'>かお; つかれ</annotation>
 
 		<!-- sleeping face; face; sleep; zzz -->
-		<annotation cp='[😴]' tts='ねむる' draft='provisional'>ねむる; かお</annotation>
+		<annotation cp='[😴]' tts='ねむる'>かお; ねる; zzz; ねむい</annotation>
 
 		<!-- relieved face; face; relieved -->
-		<annotation cp='[😌]' tts='ほっとしたかお' draft='provisional'>ほっとしたかお; かお</annotation>
+		<annotation cp='[😌]' tts='ほっ'>かお; あんしん</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='おたく'>かお; めがね</annotation>
 
 		<!-- face with stuck-out tongue; face; tongue -->
-		<annotation cp='[😛]' tts='したべー' draft='provisional'>したべー; めをとじた; かお</annotation>
+		<annotation cp='[😛]' tts='したべー'>かお; したべー; した</annotation>
 
 		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
-		<annotation cp='[😜]' tts='あっかんべー' draft='provisional'>あっかんべー; かお</annotation>
+		<annotation cp='[😜]' tts='あっかんべー'>かお; じょーく; あっかんべー</annotation>
 
 		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
-		<annotation cp='[😝]' tts='したべー' draft='provisional'>したべー; した; べー; わーい; かお</annotation>
+		<annotation cp='[😝]' tts='めをとじてべー'>した; べー; わーい; かお</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='こまった'>かお; しかめつら</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='すこしこまった'>かお; しかめつら</annotation>
 
 		<!-- unamused face; face; unamused; unhappy -->
-		<annotation cp='[😒]' tts='しらける' draft='provisional'>しらける; かお</annotation>
+		<annotation cp='[😒]' tts='しらける'>かお; しらけ; じとめ</annotation>
 
 		<!-- face with cold sweat; cold; face; sweat -->
-		<annotation cp='[😓]' tts='ひやあせ' draft='provisional'>ひやあせ; かお; あせ</annotation>
+		<annotation cp='[😓]' tts='ひやあせ'>かお; ひやあせ</annotation>
 
 		<!-- pensive face; dejected; face; pensive -->
-		<annotation cp='[😔]' tts='しょぼーん' draft='provisional'>しょぼーん; かお</annotation>
+		<annotation cp='[😔]' tts='しょぼーん'>かお; しょぼーん</annotation>
 
 		<!-- confused face; confused; face -->
-		<annotation cp='[😕]' tts='こんらん' draft='provisional'>こんらん; かお</annotation>
+		<annotation cp='[😕]' tts='こんらん'>かお; こんらん</annotation>
 
 		<!-- confounded face; confounded; face -->
-		<annotation cp='[😖]' tts='こんわく' draft='provisional'>こんわく; かお</annotation>
+		<annotation cp='[😖]' tts='こんわく'>かお; こんわく</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='さかさまのかお'>かお; さかさま</annotation>
 
 		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
-		<annotation cp='[😷]' tts='かぜますく' draft='provisional'>かぜますく; ますく; かお</annotation>
+		<annotation cp='[😷]' tts='かぜますく'>ますく; かお</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='ねつをはかる'>かお; ねつ; たいおんけい; びょうき</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='ほうたいをまく'>かお; けが; ほうたい</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='おかねのかお'>かお; したべー; おかね</annotation>
 
 		<!-- astonished face; astonished; face; shocked; totally -->
-		<annotation cp='[😲]' tts='きょうがく' draft='provisional'>きょうがく; かお</annotation>
+		<annotation cp='[😲]' tts='きょうがく'>かお; びっくり</annotation>
 
 		<!-- disappointed face; disappointed; face -->
-		<annotation cp='[😞]' tts='がっくり' draft='provisional'>がっくり; かお</annotation>
+		<annotation cp='[😞]' tts='がっくり'>かお; がっくり</annotation>
 
 		<!-- worried face; face; worried -->
-		<annotation cp='[😟]' tts='しんぱい' draft='provisional'>しんぱい; かお</annotation>
+		<annotation cp='[😟]' tts='しんぱい'>かお; しんぱい</annotation>
 
 		<!-- face with steam from nose; face; triumph; won -->
-		<annotation cp='[😤]' tts='ふんっ' draft='provisional'>ふんっ; かお</annotation>
+		<annotation cp='[😤]' tts='ふんっ'>かお; とくいげ; はないき</annotation>
 
 		<!-- crying face; cry; face; sad; tear -->
-		<annotation cp='[😢]' tts='なきがお' draft='provisional'>なきがお; なく; かお; かなしい</annotation>
+		<annotation cp='[😢]' tts='なきがお'>なく; かお; かなしい</annotation>
 
 		<!-- loudly crying face; cry; face; sad; sob; tear -->
-		<annotation cp='[😭]' tts='おおなき' draft='provisional'>おおなき; かお</annotation>
+		<annotation cp='[😭]' tts='おおなき'>かお; なく; かなしい; なみだ</annotation>
 
 		<!-- frowning face with open mouth; face; frown; mouth; open -->
-		<annotation cp='[😦]' tts='しかめがお' draft='provisional'>しかめがお; しかめる; くち; かお</annotation>
+		<annotation cp='[😦]' tts='しかめがお'>しかめる; くち; かお</annotation>
 
 		<!-- anguished face; anguished; face -->
-		<annotation cp='[😧]' tts='くのう' draft='provisional'>くのう; くもん; かお</annotation>
+		<annotation cp='[😧]' tts='くのう'>くもん; かお</annotation>
 
 		<!-- fearful face; face; fear; fearful; scared -->
-		<annotation cp='[😨]' tts='あおざめ' draft='provisional'>あおざめ; がーん; かお</annotation>
+		<annotation cp='[😨]' tts='あおざめ'>がーん; かお</annotation>
 
 		<!-- weary face; face; tired; weary -->
-		<annotation cp='[😩]' tts='あきらめ' draft='provisional'>あきらめ; かお</annotation>
+		<annotation cp='[😩]' tts='あきらめ'>かお; つかれ; あきらめ</annotation>
 
 		<!-- grimacing face; face; grimace -->
-		<annotation cp='[😬]' tts='しかめっつら' draft='provisional'>しかめっつら; しかめがお; かお</annotation>
+		<annotation cp='[😬]' tts='しかめっつら'>しかめがお; かお; いー</annotation>
 
 		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
-		<annotation cp='[😰]' tts='ひやあせ' draft='provisional'>ひやあせ; くちがあく; かお</annotation>
+		<annotation cp='[😰]' tts='ひやあせあおざめ'>くちがあく; かお; あおざめ; ひやあせ</annotation>
 
 		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
-		<annotation cp='[😱]' tts='きょうふ' draft='provisional'>きょうふ; さけび; かお</annotation>
+		<annotation cp='[😱]' tts='きょうふ'>さけび; かお; がーん; しょっく</annotation>
 
 		<!-- flushed face; dazed; face; flushed -->
-		<annotation cp='[😳]' tts='せきめん' draft='provisional'>せきめん; あかくなる; かお</annotation>
+		<annotation cp='[😳]' tts='せきめん'>あかくなる; かお</annotation>
 
 		<!-- dizzy face; dizzy; face -->
-		<annotation cp='[😵]' tts='めまい' draft='provisional'>めまい; ふらふら; かお</annotation>
+		<annotation cp='[😵]' tts='めまい'>ふらふら; かお</annotation>
 
 		<!-- pouting face; angry; face; mad; pouting; rage; red -->
-		<annotation cp='[😡]' tts='ふくれっつら' draft='provisional'>ふくれっつら; ふきげん; ぷんぷん; かお</annotation>
+		<annotation cp='[😡]' tts='ふくれっつら'>かんかん; かお; いかり</annotation>
 
 		<!-- angry face; angry; face; mad -->
-		<annotation cp='[😠]' tts='ぷんぷん' draft='provisional'>ぷんぷん; ふきげん; かお</annotation>
+		<annotation cp='[😠]' tts='ぷんぷん'>ぷんぷん; かお; いかり</annotation>
 
 		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
-		<annotation cp='[😈]' tts='あくまのえがお' draft='provisional'>あくまのえがお; えがお</annotation>
+		<annotation cp='[😈]' tts='あくまのえがお'>えがお; あくま; かお</annotation>
 
 		<!-- imp; demon; devil; face; fairy tale; fantasy -->
-		<annotation cp='[👿]' tts='あくまのこ' draft='provisional'>あくまのこ; かお; あくま</annotation>
+		<annotation cp='[👿]' tts='あくまのこ'>かお; あくま</annotation>
 
 		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
-		<annotation cp='[👹]' tts='おに' draft='provisional'>おに; かお; なまはげ</annotation>
+		<annotation cp='[👹]' tts='おに'>なまはげ; おに; おめん</annotation>
 
 		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
-		<annotation cp='[👺]' tts='てんぐ' draft='provisional'>てんぐ; かお</annotation>
+		<annotation cp='[👺]' tts='てんぐ'>てんぐ; おめん</annotation>
 
 		<!-- skull; body; death; face; fairy tale; monster -->
-		<annotation cp='[💀]' tts='どくろ' draft='provisional'>どくろ; かお; がいこつ</annotation>
+		<annotation cp='[💀]' tts='どくろ'>かお; がいこつ; どくろ</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='どくろとほね'>かお; すかる; どくろ; がいこつ</annotation>
 
 		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
-		<annotation cp='[👻]' tts='おばけ' draft='provisional'>おばけ</annotation>
+		<annotation cp='[👻]' tts='おばけ'>おばけ; ゆうれい; ゆーれい; ごーすと</annotation>
 
 		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
-		<annotation cp='[👽]' tts='ぐれい' draft='provisional'>ぐれい; うちゅうじん; えいりあん; かお; ゆーふぉー; ＵＦＯ</annotation>
+		<annotation cp='[👽]' tts='えいりあん'>うちゅうじん; えいりあん; かお; ゆーふぉー; ＵＦＯ</annotation>
 
 		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
-		<annotation cp='[👾]' tts='うちゅうじん' draft='provisional'>うちゅうじん; えいりあん; かお; もんすたー</annotation>
+		<annotation cp='[👾]' tts='うちゅうじん'>えいりあん; もんすたー; いんべーだー</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='ろぼっと'>かお; ろぼっと</annotation>
 
 		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
-		<annotation cp='[💩]' tts='うんこ' draft='provisional'>うんこ; うんち</annotation>
+		<annotation cp='[💩]' tts='うんこ'>うんこ; うんち</annotation>
 
 		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
-		<annotation cp='[😺]' tts='くちがあいた' draft='provisional'>くちがあいた; えがお; ねこ</annotation>
+		<annotation cp='[😺]' tts='くちがあいた'>えがお; ねこ; かお</annotation>
 
 		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
-		<annotation cp='[😸]' tts='にやっ' draft='provisional'>にやっ; めがわらう; わらう; えがお; ねこ; かお</annotation>
+		<annotation cp='[😸]' tts='にやっ'>わらう; えがお; ねこ; かお</annotation>
 
 		<!-- cat face with tears of joy; cat; face; joy; tear -->
-		<annotation cp='[😹]' tts='うれしなき' draft='provisional'>うれしなき; えがお; ねこ; かお</annotation>
+		<annotation cp='[😹]' tts='ねこのうれしなき'>えがお; ねこ; かお; なみだ</annotation>
 
 		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
-		<annotation cp='[😻]' tts='はーとのめ' draft='provisional'>はーとのめ; えがお; ねこ</annotation>
+		<annotation cp='[😻]' tts='はーとのめ'>えがお; ねこ; かお; はーと</annotation>
 
 		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
-		<annotation cp='[😼]' tts='にがわらい' draft='provisional'>にがわらい; ねこ; かお</annotation>
+		<annotation cp='[😼]' tts='にがわらい'>ねこ; かお; にがわらい; にやり</annotation>
 
 		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
-		<annotation cp='[😽]' tts='きす' draft='provisional'>きす; ねこ; かお</annotation>
+		<annotation cp='[😽]' tts='ねこのきす'>ねこ; かお; きす</annotation>
 
 		<!-- weary cat face; cat; face; oh; surprised; weary -->
-		<annotation cp='[🙀]' tts='あきらめ' draft='provisional'>あきらめ; ねこ; かお</annotation>
+		<annotation cp='[🙀]' tts='ぜつぼう'>ねこ; かお; びっくり</annotation>
 
 		<!-- crying cat face; cat; cry; face; sad; tear -->
-		<annotation cp='[😿]' tts='なきがお' draft='provisional'>なきがお; ねこ; かお</annotation>
+		<annotation cp='[😿]' tts='ねこのなみだ'>ねこ; かお; なみだ; かなしい</annotation>
 
 		<!-- pouting cat face; cat; face; pouting -->
-		<annotation cp='[😾]' tts='ぷんぷん' draft='provisional'>ぷんぷん; ねこ; かお</annotation>
+		<annotation cp='[😾]' tts='ふきげんなねこ'>ねこ; かお; ぷんぷん</annotation>
 
 		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
-		<annotation cp='[🙈]' tts='みざる' draft='provisional'>みざる</annotation>
+		<annotation cp='[🙈]' tts='みざる'>みざる; さる</annotation>
 
 		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
-		<annotation cp='[🙉]' tts='きかざる' draft='provisional'>きかざる</annotation>
+		<annotation cp='[🙉]' tts='きかざる'>きかざる: さる</annotation>
 
 		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
-		<annotation cp='[🙊]' tts='いわざる' draft='provisional'>いわざる</annotation>
+		<annotation cp='[🙊]' tts='いわざる'>いわざる; さる</annotation>
 
 		<!-- boy -->
-		<annotation cp='[👦]' tts='おとこのこ' draft='provisional'>おとこのこ; かお; こども</annotation>
+		<annotation cp='[👦]' tts='おとこのこ'>かお; こども; おとこ; おとこのこ</annotation>
 
 		<!-- girl; maiden; virgin; virgo; zodiac -->
-		<annotation cp='[👧]' tts='おんなのこ' draft='provisional'>おんなのこ; かお; こども</annotation>
+		<annotation cp='[👧]' tts='おんなのこ'>かお; こども; おんな; おんなのこ</annotation>
 
 		<!-- man -->
-		<annotation cp='[👨]' tts='おとこ' draft='provisional'>おとこ; かお; だんせい</annotation>
+		<annotation cp='[👨]' tts='おとこ'>かお; だんせい; おとこ</annotation>
 
 		<!-- woman -->
-		<annotation cp='[👩]' tts='おんな' draft='provisional'>おんな; かお; じょせい</annotation>
+		<annotation cp='[👩]' tts='おんな'>かお; じょせい; おんな</annotation>
 
 		<!-- old man; man; old -->
-		<annotation cp='[👴]' tts='おじいさん' draft='provisional'>おじいさん; おとしより; かお</annotation>
+		<annotation cp='[👴]' tts='おじいさん'>おとしより; かお; おじいさん; おとこ</annotation>
 
 		<!-- old woman; old; woman -->
-		<annotation cp='[👵]' tts='おばあさん' draft='provisional'>おばあさん; おとしより; かお</annotation>
+		<annotation cp='[👵]' tts='おばあさん'>おとしより; かお; おばあさん; おんな</annotation>
 
 		<!-- baby -->
-		<annotation cp='[👶]' tts='あかちゃん' draft='provisional'>あかちゃん; かお; あかんぼう</annotation>
+		<annotation cp='[👶]' tts='あかんぼう'>かお; あかんぼう; あかちゃん; べびー</annotation>
 
 		<!-- person with blond hair; blond -->
-		<annotation cp='[👱]' tts='きんぱつのひと' draft='provisional'>きんぱつのひと; かお; がいこくじん; きんぱつ</annotation>
+		<annotation cp='[👱]' tts='きんぱつのひと'>かお; がいこくじん; がいじん; きんぱつ</annotation>
 
 		<!-- police officer; cop; officer; police -->
-		<annotation cp='[👮]' tts='おまわりさん' draft='provisional'>おまわりさん; けいさつ; かお; けいかん; ぽりす</annotation>
+		<annotation cp='[👮]' tts='おまわりさん'>かお; けいかん; おまわりさん; けいさつ</annotation>
 
 		<!-- man with chinese cap; gua pi mao; hat; man -->
-		<annotation cp='[👲]' tts='おわんぼうのひと' draft='provisional'>おわんぼうのひと; ; おわんぼう; かお; ちゅうごくじん</annotation>
+		<annotation cp='[👲]' tts='おわんぼうのひと'>おわんぼう; かお; ちゅうごくじん</annotation>
 
 		<!-- man with turban; man; turban -->
-		<annotation cp='[👳]' tts='たーばんのひと' draft='provisional'>たーばんのひと; かお; いんどじん; たーばん</annotation>
+		<annotation cp='[👳]' tts='たーばんのひと'>かお; いんどじん; たーばん</annotation>
 
 		<!-- construction worker; construction; hat; worker -->
-		<annotation cp='[👷]' tts='こうじ' draft='provisional'>こうじ; さぎょういん; かお; へるめっと</annotation>
+		<annotation cp='[👷]' tts='さぎょういん'>さぎょういん; かお; へるめっと</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='しろじゅうじへるめっと'>きゅうきゅう; かお; へるめっと</annotation>
 
 		<!-- princess; fairy tale; fantasy -->
-		<annotation cp='[👸]' tts='ぷりんせす' draft='provisional'>ぷりんせす; かお; おうじょ; くいーん; おひめさま</annotation>
+		<annotation cp='[👸]' tts='ぷりんせす'>かお; おうじょ; くいーん; おひめさま</annotation>
 
 		<!-- guardsman; guard -->
-		<annotation cp='[💂]' tts='えいへい' draft='provisional'>えいへい; かお; けいび; もんばん</annotation>
+		<annotation cp='[💂]' tts='えいへい'>かお; けいび; もんばん</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='たんてい'>かお; たんてい</annotation>
 
 		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
-		<annotation cp='[🎅]' tts='さんた' draft='provisional'>さんた; くりすます; さんたくろーす</annotation>
+		<annotation cp='[🎅]' tts='さんた'>くりすます; さんたくろーす; かお; さんた</annotation>
 
 		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
-		<annotation cp='[👼]' tts='てんし' draft='provisional'>てんし</annotation>
+		<annotation cp='[👼]' tts='てんし'>かお; てんし</annotation>
 
 		<!-- face massage; massage; salon -->
-		<annotation cp='[💆]' tts='ふぇいすまっさーじ' draft='provisional'>ふぇいすまっさーじ; まっさーじ; えすて</annotation>
+		<annotation cp='[💆]' tts='ふぇいすまっさーじ'>まっさーじ; えすて</annotation>
 
 		<!-- haircut; barber; beauty; parlor -->
-		<annotation cp='[💇]' tts='へあかっと' draft='provisional'>へあかっと; さんぱつ; びよういん</annotation>
+		<annotation cp='[💇]' tts='へあかっと'>さんぱつ; びよういん</annotation>
 
 		<!-- bride with veil; bride; veil; wedding -->
-		<annotation cp='[👰]' tts='はなよめ' draft='provisional'>はなよめ; けっこん; かお</annotation>
+		<annotation cp='[👰]' tts='はなよめ'>けっこん; かお; はなよめ</annotation>
 
 		<!-- person frowning; frown; gesture -->
-		<annotation cp='[🙍]' tts='しかめつら' draft='provisional'>しかめつら; ひと</annotation>
+		<annotation cp='[🙍]' tts='しかめつら'>かお; しかめつら</annotation>
 
 		<!-- person pouting; gesture; pouting -->
-		<annotation cp='[🙎]' tts='ぷんぷん' draft='provisional'>ぷんぷん; かお</annotation>
+		<annotation cp='[🙎]' tts='ふきげん'>かお; ぷんぷん</annotation>
 
 		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
-		<annotation cp='[🙅]' tts='だめ' draft='provisional'>だめ; かお</annotation>
+		<annotation cp='[🙅]' tts='だめ'>かお; だめ</annotation>
 
 		<!-- gesturing ok; gesture; hand; ok -->
-		<annotation cp='[🙆]' tts='おーけー' draft='provisional'>おーけー; ＯＫ; かお</annotation>
+		<annotation cp='[🙆]' tts='うでおーけー'>ＯＫ; かお</annotation>
 
 		<!-- information desk person; hand; help; information; sassy -->
-		<annotation cp='[💁]' tts='あんないがかり' draft='provisional'>あんないがかり; かお; うけつけじょう; うけつけ; あんない</annotation>
+		<annotation cp='[💁]' tts='あんないがかり'>かお; うけつけじょう; うけつけ; あんない</annotation>
 
 		<!-- happy person raising hand; gesture; hand; happy; raised -->
-		<annotation cp='[🙋]' tts='きょしゅ' draft='provisional'>きょしゅ; しあわせなひと; てをあげるひと; てをあげる; ひと</annotation>
+		<annotation cp='[🙋]' tts='きょしゅ'>てをあげるひと; てをあげる</annotation>
 
 		<!-- person bowing; apology; bow; gesture; sorry -->
-		<annotation cp='[🙇]' tts='おじぎ' draft='provisional'>おじぎ; ごめんなさい; おじぎするひと</annotation>
+		<annotation cp='[🙇]' tts='おじぎ'>ごめんなさい; おじぎするひと; おじぎ</annotation>
 
 		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
-		<annotation cp='[🙌]' tts='おいわい' draft='provisional'>おいわい; りょうてをあげるひと; てをあげる; ばんざい; りょうて; て</annotation>
+		<annotation cp='[🙌]' tts='ばんざい'>りょうてをあげるひと; てをあげる; ばんざい; りょうて; て</annotation>
 
 		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
-		<annotation cp='[🙏]' tts='いのり' draft='provisional'>いのり; てをあわせる; ひと</annotation>
+		<annotation cp='[🙏]' tts='いのり'>てをあわせる; がっしょう</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='はなすよこがお'>かお; しるえっと; はなす</annotation>
 
 		<!-- bust in silhouette; bust; silhouette -->
-		<annotation cp='[👤]' tts='ひとかげ' draft='provisional'>ひとかげ; かげ; げすと; げすとあかうんと</annotation>
+		<annotation cp='[👤]' tts='ひとかげ'>じょうはんしん; しるえっと; ひとり</annotation>
 
 		<!-- busts in silhouette; bust; silhouette -->
-		<annotation cp='[👥]' tts='ひとかげたち' draft='provisional'>ひとかげたち; かげ; げすと; げすとあかうんと</annotation>
+		<annotation cp='[👥]' tts='ひとかげたち'>じょうはんしん; しるえっと; ふたり</annotation>
 
 		<!-- pedestrian; hike; walk; walking -->
-		<annotation cp='[🚶]' tts='ほこうしゃ' draft='provisional'>ほこうしゃ; こうつうさいん</annotation>
+		<annotation cp='[🚶]' tts='ほこうしゃ'>あるき; うぉーきんぐ; あるく; ほこう</annotation>
 
 		<!-- runner; marathon; running -->
-		<annotation cp='[🏃]' tts='らんなー' draft='provisional'>らんなー; まらそん; すぽーつ</annotation>
+		<annotation cp='[🏃]' tts='らんなー'>まらそん; はしる; らんにんぐ</annotation>
 
 		<!-- women partying; bunny; dancer; ear; girl; woman -->
-		<annotation cp='[👯]' tts='ばにーがーる' draft='provisional'>ばにーがーる; ばにー; かお</annotation>
+		<annotation cp='[👯]' tts='ばにーがーる'>ばにー; ばにーがーる</annotation>
 
 		<!-- dancer -->
-		<annotation cp='[💃]' tts='だんさー' draft='provisional'>だんさー; だんす; ふらめんこ</annotation>
+		<annotation cp='[💃]' tts='だんさー'>だんす; ふらめんこ</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='ういてるびじねすまん'>びじねすまん; すーつ</annotation>
 
 		<!-- kiss; couple; romance -->
-		<annotation cp='[💏]' tts='きす' draft='provisional'>きす</annotation>
+		<annotation cp='[💏]' tts='ふたりできす'>かっぷる; ろまんす; はーと</annotation>
 
 		<!-- couple with heart; couple; heart; love; romance -->
-		<annotation cp='[💑]' tts='はーとのかっぷる' draft='provisional'>はーとのかっぷる; こいびと; かっぷる; あつあつ</annotation>
+		<annotation cp='[💑]' tts='はーとのかっぷる'>こいびと; かっぷる; あつあつ; はーと</annotation>
 
 		<!-- family; child; father; mother -->
-		<annotation cp='[👪]' tts='かぞく' draft='provisional'>かぞく</annotation>
+		<annotation cp='[👪]' tts='かぞく'>かぞく; おやこ</annotation>
 
 		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
-		<annotation cp='[👫]' tts='かっぷる' draft='provisional'>かっぷる; ふたり</annotation>
+		<annotation cp='[👫]' tts='かっぷる'>ふたり; だんじょ</annotation>
 
 		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
-		<annotation cp='[👬]' tts='おとこたち' draft='provisional'>おとこたち; ふたり</annotation>
+		<annotation cp='[👬]' tts='おとこたち'>ふたり; おとこどうし</annotation>
 
 		<!-- two women holding hands; couple; hand; hold; woman -->
-		<annotation cp='[👭]' tts='おんなたち' draft='provisional'>おんなたち; ふたり</annotation>
+		<annotation cp='[👭]' tts='おんなたち'>ふたり; おんなどうし</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='はだいろ1-2'>はだのいろ</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='はだいろ3'>はだのいろ</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='はだいろ4'>はだのいろ</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='はだいろ5'>はだのいろ</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='はだいろ6'>はだのいろ</annotation>
 
 		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
-		<annotation cp='[💪]' tts='ちからこぶ' draft='provisional'>ちからこぶ</annotation>
+		<annotation cp='[💪]' tts='ちからこぶ'>ちからこぶ; きんにく</annotation>
 
 		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
-		<annotation cp='[👈]' tts='ひだり' draft='provisional'>ひだり; て; やじるし; ゆびさし; ゆびさす</annotation>
+		<annotation cp='[👈]' tts='ひだりゆびさし'>て; やじるし; ゆびさし; ゆびさす; ひだり</annotation>
 
 		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
-		<annotation cp='[👉]' tts='みぎ' draft='provisional'>みぎ; て; やじるし; ゆびさし; ゆびさす</annotation>
+		<annotation cp='[👉]' tts='みぎゆびさし'>て; やじるし; ゆびさし; ゆびさす; みぎ</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='うえゆびさし'>て; やじるし; ゆびさし; ゆびさす; うえ</annotation>
 
 		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
-		<annotation cp='[👆]' tts='うえ' draft='provisional'>うえ; て; やじるし; ゆびさし; ゆびさす</annotation>
+		<annotation cp='[👆]' tts='てのこううえゆびさし'>て; やじるし; ゆびさし; ゆびさす; うえ</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='なかゆび'>て; やじるし; ゆびさし; ゆびさす; うえ</annotation>
 
 		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
-		<annotation cp='[👇]' tts='した' draft='provisional'>した; て; やじるし; ゆびさし; ゆびさす</annotation>
+		<annotation cp='[👇]' tts='したゆびさし'>て; やじるし; ゆびさし; ゆびさす; した</annotation>
 
 		<!-- victory hand; body; hand; v; victory -->
-		<annotation cp='[✌]' tts='ぶいさいん' draft='provisional'>ぶいさいん; ぶい; いぇえ</annotation>
+		<annotation cp='[✌]' tts='ぶいさいん'>ぶいさいん; ぴーす; て</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='ばるかんのあいさつ'>て; ばるかんじん; すぽっく</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='つの'>きつね; て; つの</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='ぱー'>ぱー; て</annotation>
 
 		<!-- raised hand; body; hand -->
-		<annotation cp='[✋]' tts='てのひら' draft='provisional'>てのひら; ぱー; て</annotation>
+		<annotation cp='[✋]' tts='てのひら'>ぱー; て</annotation>
 
 		<!-- ok hand; body; hand; ok -->
-		<annotation cp='[👌]' tts='おーけー' draft='provisional'>おーけー; ＯＫ; て; おっけー</annotation>
+		<annotation cp='[👌]' tts='ておーけー'>ＯＫ; て; おーけー</annotation>
 
 		<!-- thumbs up; +1; body; hand; thumb; up -->
-		<annotation cp='[👍]' tts='さむずあっぷ' draft='provisional'>さむずあっぷ; おーけー; ぐっど; さむあっぷ; うえ; て; おっけー; おやゆびさいん</annotation>
+		<annotation cp='[👍]' tts='さむずあっぷ'>おーけー; ぐっど; さむあっぷ; うえ; て; おっけー; おやゆび; ＯＫ</annotation>
 
 		<!-- thumbs down; -1; body; down; hand; thumb -->
-		<annotation cp='[👎]' tts='さむずだうん' draft='provisional'>さむずだうん; した; ぶーいんぐ; て; ＮＧ; だめ</annotation>
+		<annotation cp='[👎]' tts='さむずだうん'>した; ぶーいんぐ; て; ＮＧ; だめ</annotation>
 
 		<!-- raised fist; body; clenched; fist; hand; punch -->
-		<annotation cp='[✊]' tts='げんこつ' draft='provisional'>げんこつ; ぐー; て</annotation>
+		<annotation cp='[✊]' tts='げんこつ'>ぐー; て</annotation>
 
 		<!-- oncoming fist; body; clenched; fist; hand; punch -->
-		<annotation cp='[👊]' tts='ぐー' draft='provisional'>ぐー; て; ぱんち; げんこつ</annotation>
+		<annotation cp='[👊]' tts='ぐー'>て; ぱんち; げんこつ</annotation>
 
 		<!-- waving hand; body; hand; wave; waving -->
-		<annotation cp='[👋]' tts='ばいばい' draft='provisional'>ばいばい; て; さよなら</annotation>
+		<annotation cp='[👋]' tts='ばいばい'>て; さよなら</annotation>
 
 		<!-- clapping hands; body; clap; hand -->
-		<annotation cp='[👏]' tts='はくしゅ' draft='provisional'>はくしゅ; て; ぱちぱち</annotation>
+		<annotation cp='[👏]' tts='はくしゅ'>て; ぱちぱち</annotation>
 
 		<!-- open hands; body; hand; open -->
-		<annotation cp='[👐]' tts='りょうてのひら' draft='provisional'>りょうてのひら; てのひら; て; おっはー</annotation>
+		<annotation cp='[👐]' tts='りょうてのひら'>てのひら; て; おっはー</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='てでかく'>て; てがき</annotation>
 
 		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
-		<annotation cp='[💅]' tts='まにきゅあ' draft='provisional'>まにきゅあ; つめ; ねいる</annotation>
+		<annotation cp='[💅]' tts='まにきゅあ'>つめ; ねいる; まにきゅあ</annotation>
 
 		<!-- ear; body -->
-		<annotation cp='[👂]' tts='みみ' draft='provisional'>みみ; かお</annotation>
+		<annotation cp='[👂]' tts='みみ'>みみ</annotation>
 
 		<!-- nose; body -->
-		<annotation cp='[👃]' tts='はな' draft='provisional'>はな; かお</annotation>
+		<annotation cp='[👃]' tts='はな'>はな</annotation>
 
 		<!-- footprints; body; clothing; footprint; print -->
-		<annotation cp='[👣]' tts='あしあと' draft='provisional'>あしあと</annotation>
+		<annotation cp='[👣]' tts='あしあと'>あしあと; あし</annotation>
 
 		<!-- eyes; body; eye; face -->
-		<annotation cp='[👀]' tts='め' draft='provisional'>め; かお</annotation>
+		<annotation cp='[👀]' tts='め'>め; りょうめ</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='ひとつめ'>め; かため</annotation>
 
 		<!-- tongue; body -->
-		<annotation cp='[👅]' tts='した' draft='provisional'>した; べろ; かお</annotation>
+		<annotation cp='[👅]' tts='した'>べろ; した</annotation>
 
 		<!-- mouth; body; lips -->
-		<annotation cp='[👄]' tts='くち' draft='provisional'>くち; かお</annotation>
+		<annotation cp='[👄]' tts='くち'>くちびる; きす</annotation>
 
 		<!-- kiss mark; heart; kiss; lips; mark; romance -->
-		<annotation cp='[💋]' tts='きすまーく' draft='provisional'>きすまーく; くちびる; きす</annotation>
+		<annotation cp='[💋]' tts='きすまーく'>くちびる; きす; きすまーく</annotation>
 
 		<!-- heart with arrow; arrow; cupid; heart; romance -->
-		<annotation cp='[💘]' tts='はーと' draft='provisional'>はーと; はーとのや</annotation>
+		<annotation cp='[💘]' tts='はーとのや'>はーとのや; はーと</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='あかいはーと'>はーと</annotation>
 
 		<!-- beating heart; beating; heart; heartbeat; pulsating -->
-		<annotation cp='[💓]' tts='はーと' draft='provisional'>はーと; どきどき</annotation>
+		<annotation cp='[💓]' tts='どきどきはーと'>はーと; どきどき</annotation>
 
 		<!-- broken heart; break; broken; heart -->
-		<annotation cp='[💔]' tts='はーと' draft='provisional'>はーと; しつれん</annotation>
+		<annotation cp='[💔]' tts='われたはーと'>はーと; しつれん</annotation>
 
 		<!-- two hearts; heart; love -->
-		<annotation cp='[💕]' tts='はーと' draft='provisional'>はーと</annotation>
+		<annotation cp='[💕]' tts='ふたつのはーと'>はーと; らぶ</annotation>
 
 		<!-- sparkling heart; excited; heart; sparkle -->
-		<annotation cp='[💖]' tts='はーと' draft='provisional'>はーと</annotation>
+		<annotation cp='[💖]' tts='きらきらはーと'>はーと; きらきら</annotation>
 
 		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
-		<annotation cp='[💗]' tts='はーと' draft='provisional'>はーと; どきどき</annotation>
+		<annotation cp='[💗]' tts='おおきくなるはーと'>はーと; どきどき</annotation>
 
 		<!-- blue heart; blue; heart -->
-		<annotation cp='[💙]' tts='あおいはーと' draft='provisional'>あおいはーと; はーと</annotation>
+		<annotation cp='[💙]' tts='あおいはーと'>はーと</annotation>
 
 		<!-- green heart; green; heart -->
-		<annotation cp='[💚]' tts='みどりのはーと' draft='provisional'>みどりのはーと; はーと</annotation>
+		<annotation cp='[💚]' tts='みどりのはーと'>はーと</annotation>
 
 		<!-- yellow heart; heart; yellow -->
-		<annotation cp='[💛]' tts='きいろのはーと' draft='provisional'>きいろのはーと; はーと</annotation>
+		<annotation cp='[💛]' tts='きいろのはーと'>はーと</annotation>
 
 		<!-- purple heart; heart; purple -->
-		<annotation cp='[💜]' tts='むらさきのはーと' draft='provisional'>むらさきのはーと; はーと</annotation>
+		<annotation cp='[💜]' tts='むらさきのはーと'>はーと</annotation>
 
 		<!-- heart with ribbon; heart; ribbon; valentine -->
-		<annotation cp='[💝]' tts='はーと' draft='provisional'>はーと; ばれんたいん; ばれんたいんでー</annotation>
+		<annotation cp='[💝]' tts='はーとにりぼん'>ばれんたいん; ばれんたいんでー; はーと</annotation>
 
 		<!-- revolving hearts; heart; revolving -->
-		<annotation cp='[💞]' tts='はーと' draft='provisional'>はーと; かわいい</annotation>
+		<annotation cp='[💞]' tts='かいてんするはーと'>はーと; かわいい</annotation>
 
 		<!-- heart decoration; heart -->
-		<annotation cp='[💟]' tts='はーとでこ' draft='provisional'>はーとでこ; はーとでこれーしょん; はーと</annotation>
+		<annotation cp='[💟]' tts='はーとでこ'>はーとでこれーしょん; はーと</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='はーとのびっくり'>はーと; びっくりまーく</annotation>
 
 		<!-- love letter; heart; letter; love; mail; romance -->
-		<annotation cp='[💌]' tts='らぶれたー' draft='provisional'>らぶれたー; てがみ; こいぶみ</annotation>
+		<annotation cp='[💌]' tts='らぶれたー'>らぶれたー</annotation>
 
 		<!-- zzz; comic; sleep -->
-		<annotation cp='[💤]' tts='ぐーぐー' draft='provisional'>ぐーぐー; Ｚｚｚ; ねる; いびき</annotation>
+		<annotation cp='[💤]' tts='ぐーぐー'>Ｚｚｚ; ねる; いびき</annotation>
 
 		<!-- anger symbol; angry; comic; mad -->
-		<annotation cp='[💢]' tts='いかり' draft='provisional'>いかり; ＃; むかっ</annotation>
+		<annotation cp='[💢]' tts='むかっ'>＃; むかっ</annotation>
 
 		<!-- bomb; comic -->
-		<annotation cp='[💣]' tts='ばくだん' draft='provisional'>ばくだん</annotation>
+		<annotation cp='[💣]' tts='ばくだん'>ばくだん</annotation>
 
 		<!-- collision; boom; comic -->
-		<annotation cp='[💥]' tts='しょうとつ' draft='provisional'>しょうとつ; しょうげき; どんっ</annotation>
+		<annotation cp='[💥]' tts='しょうとつ'>しょうげき; どんっ</annotation>
 
 		<!-- sweat droplets; comic; splashing; sweat -->
-		<annotation cp='[💦]' tts='あせあせ' draft='provisional'>あせあせ; あせ</annotation>
+		<annotation cp='[💦]' tts='あせあせ'>あせ</annotation>
 
 		<!-- dashing; comic; dash; running -->
-		<annotation cp='[💨]' tts='だっしゅ' draft='provisional'>だっしゅ; はしる</annotation>
+		<annotation cp='[💨]' tts='だっしゅ'>はしる</annotation>
 
 		<!-- dizzy; comic; star -->
-		<annotation cp='[💫]' tts='くらくら' draft='provisional'>くらくら; ほし</annotation>
+		<annotation cp='[💫]' tts='くらくら'>ほし</annotation>
 
 		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
-		<annotation cp='[💬]' tts='ふきだし' draft='provisional'>ふきだし; せりふ</annotation>
+		<annotation cp='[💬]' tts='せりふのふきだし'>ふきだし</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='ふきだしひだり'>ふきだし</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='いかりのふきだし'>ふきだし</annotation>
 
 		<!-- thought balloon; balloon; bubble; comic; thought -->
-		<annotation cp='[💭]' tts='ふきだし' draft='provisional'>ふきだし; せりふ</annotation>
+		<annotation cp='[💭]' tts='ふきだし'>ふきだし</annotation>
+
+		<!-- hole -->
+		<annotation cp='[🕳]' tts='あな'>あな</annotation>
 
 		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
-		<annotation cp='[👓]' tts='めがね' draft='provisional'>めがね</annotation>
+		<annotation cp='[👓]' tts='めがね'>めがね</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='さんぐらす'>さんぐらす</annotation>
 
 		<!-- necktie; clothing -->
-		<annotation cp='[👔]' tts='ねくたい' draft='provisional'>ねくたい; たい; しゃつ</annotation>
+		<annotation cp='[👔]' tts='ねくたい'>ねくたい; しゃつ; わいしゃつ; ふく</annotation>
 
 		<!-- t-shirt; clothing; shirt; tshirt -->
-		<annotation cp='[👕]' tts='てぃーしゃつ' draft='provisional'>てぃーしゃつ; しゃつ; ふく; Ｔしゃつ</annotation>
+		<annotation cp='[👕]' tts='てぃーしゃつ'>しゃつ; ふく; Ｔしゃつ</annotation>
 
 		<!-- jeans; clothing; pants; trousers -->
-		<annotation cp='[👖]' tts='ずぼん' draft='provisional'>ずぼん; ぱんつ; じーんず; じーぱん; ふく</annotation>
+		<annotation cp='[👖]' tts='ずぼん'>ぱんつ; じーんず; じーぱん; ふく; ずぼん</annotation>
 
 		<!-- dress; clothing -->
-		<annotation cp='[👗]' tts='わんぴーす' draft='provisional'>わんぴーす; どれす; ふく</annotation>
+		<annotation cp='[👗]' tts='わんぴーす'>どれす; ふく; わんぴーす</annotation>
 
 		<!-- kimono; clothing -->
-		<annotation cp='[👘]' tts='きもの' draft='provisional'>きもの; ふく</annotation>
+		<annotation cp='[👘]' tts='きもの'>きもの; ふく</annotation>
 
 		<!-- bikini; clothing; swim -->
-		<annotation cp='[👙]' tts='びきに' draft='provisional'>びきに; みずぎ; ふく</annotation>
+		<annotation cp='[👙]' tts='びきに'>みずぎ; びきに</annotation>
 
 		<!-- woman’s clothes; clothing; woman -->
-		<annotation cp='[👚]' tts='ふじんふく' draft='provisional'>ふじんふく; ふく</annotation>
+		<annotation cp='[👚]' tts='ふじんふく'>ふく; しゃつ</annotation>
 
 		<!-- purse; clothing; coin -->
-		<annotation cp='[👛]' tts='がまぐち' draft='provisional'>がまぐち; がまぐちざいふ; さいふ</annotation>
+		<annotation cp='[👛]' tts='がまぐち'>がまぐち; さいふ</annotation>
 
 		<!-- handbag; bag; clothing -->
-		<annotation cp='[👜]' tts='はんどばっぐ' draft='provisional'>はんどばっぐ; ばっぐ; かばん</annotation>
+		<annotation cp='[👜]' tts='はんどばっぐ'>ばっぐ; はんどばっぐ; かばん</annotation>
 
 		<!-- pouch; bag; clothing -->
-		<annotation cp='[👝]' tts='ぽーち' draft='provisional'>ぽーち; ばっぐ</annotation>
+		<annotation cp='[👝]' tts='ぽーち'>ばっぐ; ぽーち</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='かみてさげ'>ばっぐ; かみぶくろ</annotation>
 
 		<!-- school backpack; bag; satchel; school -->
-		<annotation cp='[🎒]' tts='らんどせる' draft='provisional'>らんどせる; かばん; しょうがっこう; がっこう</annotation>
+		<annotation cp='[🎒]' tts='らんどせる'>らんどせる</annotation>
 
 		<!-- man’s shoe; clothing; man; shoe -->
-		<annotation cp='[👞]' tts='しんしぐつ' draft='provisional'>しんしぐつ; くつ; かわぐつ</annotation>
+		<annotation cp='[👞]' tts='しんしぐつ'>くつ; かわぐつ</annotation>
 
 		<!-- running shoe; athletic; clothing; shoe; sneaker -->
-		<annotation cp='[👟]' tts='すにーかー' draft='provisional'>すにーかー; あすれちっくしゅーず; くつ; しゅーず</annotation>
+		<annotation cp='[👟]' tts='すにーかー'>くつ; すにーかー</annotation>
 
 		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
-		<annotation cp='[👠]' tts='はいひーる' draft='provisional'>はいひーる; くつ; ふく; ひーる</annotation>
+		<annotation cp='[👠]' tts='はいひーる'>くつ; はいひーる</annotation>
 
 		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
-		<annotation cp='[👡]' tts='さんだる' draft='provisional'>さんだる; くつ; ふく</annotation>
+		<annotation cp='[👡]' tts='さんだる'>くつ; さんだる</annotation>
 
 		<!-- woman’s boot; boot; clothing; shoe; woman -->
-		<annotation cp='[👢]' tts='ろんぐぶーつ' draft='provisional'>ろんぐぶーつ; くつ; ふく; ぶーつ</annotation>
+		<annotation cp='[👢]' tts='ろんぐぶーつ'>くつ; ぶーつ</annotation>
 
 		<!-- crown; clothing; king; queen -->
-		<annotation cp='[👑]' tts='おうかん' draft='provisional'>おうかん; かんむり</annotation>
+		<annotation cp='[👑]' tts='おうかん'>かんむり; くらうん</annotation>
 
 		<!-- woman’s hat; clothing; hat; woman -->
-		<annotation cp='[👒]' tts='じょせいぼうし' draft='provisional'>じょせいぼうし; ぼうし; むぎわら; むぎわらぼうし; おんなのぼうし</annotation>
+		<annotation cp='[👒]' tts='じょせいぼうし'>ぼうし; むぎわら; むぎわらぼうし</annotation>
 
 		<!-- top hat; clothing; hat; top; tophat -->
-		<annotation cp='[🎩]' tts='しるくはっと' draft='provisional'>しるくはっと; ぼうし</annotation>
+		<annotation cp='[🎩]' tts='しるくはっと'>ぼうし; しるくはっと</annotation>
 
 		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
-		<annotation cp='[🎓]' tts='そつぎょうしき' draft='provisional'>そつぎょうしき; そつぎょうぼうし; ぼうし</annotation>
+		<annotation cp='[🎓]' tts='そつぎょうしき'>ぼうし; そつぎょうしき; かくぼう</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='じゅず'>じゅず</annotation>
 
 		<!-- lipstick; cosmetics; makeup -->
-		<annotation cp='[💄]' tts='くちべに' draft='provisional'>くちべに; りっぷすてぃっく</annotation>
+		<annotation cp='[💄]' tts='くちべに'>りっぷすてぃっく; くちべに; りっぷ</annotation>
 
 		<!-- ring; diamond; romance -->
-		<annotation cp='[💍]' tts='ゆびわ' draft='provisional'>ゆびわ; じゅえりー; りんぐ</annotation>
+		<annotation cp='[💍]' tts='ゆびわ'>じゅえりー; りんぐ; ゆびわ</annotation>
 
 		<!-- gem stone; diamond; gem; jewel; romance -->
-		<annotation cp='[💎]' tts='ほうせき' draft='provisional'>ほうせき; だいや; だいあ</annotation>
+		<annotation cp='[💎]' tts='ほうせき'>だいや; だいあ; ほうせき</annotation>
 
 		<!-- monkey face; face; monkey -->
-		<annotation cp='[🐵]' tts='さるのかお' draft='provisional'>さるのかお; さる; どうぶつ</annotation>
+		<annotation cp='[🐵]' tts='さるのかお'>さる; どうぶつ; かお</annotation>
 
 		<!-- monkey -->
-		<annotation cp='[🐒]' tts='さる' draft='provisional'>さる; どうぶつ</annotation>
+		<annotation cp='[🐒]' tts='さる'>どうぶつ; さる</annotation>
 
 		<!-- dog face; dog; face; pet -->
-		<annotation cp='[🐶]' tts='いぬのかお' draft='provisional'>いぬのかお; いぬ; どうぶつ</annotation>
+		<annotation cp='[🐶]' tts='いぬのかお'>いぬ; どうぶつ; かお</annotation>
 
 		<!-- dog; pet -->
-		<annotation cp='[🐕]' tts='いぬ' draft='provisional'>いぬ; どうぶつ</annotation>
+		<annotation cp='[🐕]' tts='いぬ'>どうぶつ; いぬ</annotation>
 
 		<!-- poodle; dog -->
-		<annotation cp='[🐩]' tts='ぷーどる' draft='provisional'>ぷーどる; いぬ; どうぶつ</annotation>
+		<annotation cp='[🐩]' tts='ぷーどる'>いぬ; どうぶつ; ぷーどる</annotation>
 
 		<!-- wolf face; face; wolf -->
-		<annotation cp='[🐺]' tts='おおかみのかお' draft='provisional'>おおかみのかお; おおかみ; どうぶつ</annotation>
+		<annotation cp='[🐺]' tts='おおかみのかお'>おおかみ; どうぶつ; かお</annotation>
 
 		<!-- cat face; cat; face; pet -->
-		<annotation cp='[🐱]' tts='ねこのかお' draft='provisional'>ねこのかお; ねこ; どうぶつ</annotation>
+		<annotation cp='[🐱]' tts='ねこのかお'>ねこ; どうぶつ; かお</annotation>
 
 		<!-- cat; pet -->
-		<annotation cp='[🐈]' tts='ねこ' draft='provisional'>ねこ; どうぶつ</annotation>
+		<annotation cp='[🐈]' tts='ねこ'>どうぶつ; ねこ</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='らいおんのかお'>どうぶつ; らいおん; かお</annotation>
 
 		<!-- tiger face; face; tiger -->
-		<annotation cp='[🐯]' tts='とらのかお' draft='provisional'>とらのかお; とら; しし; どうぶつ; えと; じゅうにし</annotation>
+		<annotation cp='[🐯]' tts='とらのかお'>とら; どうぶつ; かお</annotation>
 
 		<!-- tiger -->
-		<annotation cp='[🐅]' tts='とら' draft='provisional'>とら; どうぶつ</annotation>
+		<annotation cp='[🐅]' tts='とら'>どうぶつ; とら</annotation>
 
 		<!-- leopard -->
-		<annotation cp='[🐆]' tts='ひょう' draft='provisional'>ひょう; どうぶつ</annotation>
+		<annotation cp='[🐆]' tts='ひょう'>どうぶつ; ひょう</annotation>
 
 		<!-- horse face; face; horse -->
-		<annotation cp='[🐴]' tts='うまのかお' draft='provisional'>うまのかお; うま; どうぶつ</annotation>
+		<annotation cp='[🐴]' tts='うまのかお'>どうぶつ; うま; かお</annotation>
 
 		<!-- horse; racehorse; racing -->
-		<annotation cp='[🐎]' tts='うま' draft='provisional'>うま; どうぶつ</annotation>
+		<annotation cp='[🐎]' tts='うま'>どうぶつ; うま; けいば</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='ゆにこーん'>どうぶつ; ゆにこーん</annotation>
 
 		<!-- cow face; cow; face -->
-		<annotation cp='[🐮]' tts='うしのかお' draft='provisional'>うしのかお; うし; どうぶつ; えと; じゅうにし</annotation>
+		<annotation cp='[🐮]' tts='うしのかお'>うし; どうぶつ; かお</annotation>
 
 		<!-- ox; bull; taurus; zodiac -->
-		<annotation cp='[🐂]' tts='おうし' draft='provisional'>おうし; うし</annotation>
+		<annotation cp='[🐂]' tts='おうし'>うし; どうぶつ</annotation>
 
 		<!-- water buffalo; buffalo; water -->
-		<annotation cp='[🐃]' tts='すいぎゅう' draft='provisional'>すいぎゅう; ばっふぁろー; どうぶつ</annotation>
+		<annotation cp='[🐃]' tts='すいぎゅう'>ばっふぁろー; どうぶつ; すいぎゅう</annotation>
 
 		<!-- cow -->
-		<annotation cp='[🐄]' tts='めうし' draft='provisional'>めうし; うし; どうぶつ</annotation>
+		<annotation cp='[🐄]' tts='めうし'>うし; どうぶつ</annotation>
 
 		<!-- pig face; face; pig -->
-		<annotation cp='[🐷]' tts='ぶたのかお' draft='provisional'>ぶたのかお; ぶた; どうぶつ</annotation>
+		<annotation cp='[🐷]' tts='ぶたのかお'>ぶた; どうぶつ; かお</annotation>
 
 		<!-- pig; sow -->
-		<annotation cp='[🐖]' tts='ぶた' draft='provisional'>ぶた; どうぶつ</annotation>
+		<annotation cp='[🐖]' tts='ぶた'>どうぶつ; ぶた</annotation>
 
 		<!-- boar; pig -->
-		<annotation cp='[🐗]' tts='いのしし' draft='provisional'>いのしし; のぶた; どうぶつ</annotation>
+		<annotation cp='[🐗]' tts='いのしし'>のぶた; どうぶつ; いのしし; かお</annotation>
 
 		<!-- pig nose; face; nose; pig -->
-		<annotation cp='[🐽]' tts='ぶたばな' draft='provisional'>ぶたばな; ぶた; はな</annotation>
+		<annotation cp='[🐽]' tts='ぶたばな'>ぶた; はな</annotation>
 
 		<!-- ram; aries; sheep; zodiac -->
-		<annotation cp='[🐏]' tts='おひつじ' draft='provisional'>おひつじ; ひつじ; どうぶつ</annotation>
+		<annotation cp='[🐏]' tts='おひつじ'>ひつじ; どうぶつ</annotation>
 
 		<!-- sheep; ewe -->
-		<annotation cp='[🐑]' tts='ひつじ' draft='provisional'>ひつじ; どうぶつ</annotation>
+		<annotation cp='[🐑]' tts='ひつじ'>どうぶつ; ひつじ</annotation>
 
 		<!-- goat; capricorn; zodiac -->
-		<annotation cp='[🐐]' tts='やぎ' draft='provisional'>やぎ; どうぶつ</annotation>
+		<annotation cp='[🐐]' tts='やぎ'>どうぶつ; やぎ</annotation>
 
 		<!-- camel; dromedary; hump -->
-		<annotation cp='[🐪]' tts='らくだ' draft='provisional'>らくだ; どうぶつ</annotation>
+		<annotation cp='[🐪]' tts='らくだ'>どうぶつ; らくだ</annotation>
 
 		<!-- two-hump camel; bactrian; camel; hump -->
-		<annotation cp='[🐫]' tts='らくだ' draft='provisional'>らくだ; どうぶつ</annotation>
+		<annotation cp='[🐫]' tts='ふたこぶらくだ'>どうぶつ; らくだ</annotation>
 
 		<!-- elephant -->
-		<annotation cp='[🐘]' tts='ぞう' draft='provisional'>ぞう; どうぶつ</annotation>
+		<annotation cp='[🐘]' tts='ぞう'>どうぶつ; ぞう</annotation>
 
 		<!-- mouse face; face; mouse -->
-		<annotation cp='[🐭]' tts='ねずみのかお' draft='provisional'>ねずみのかお; ね; どうぶつ; えと; じゅうにし</annotation>
+		<annotation cp='[🐭]' tts='ねずみのかお'>どうぶつ; ねずみ; かお</annotation>
 
 		<!-- mouse -->
-		<annotation cp='[🐁]' tts='はつかねずみ' draft='provisional'>はつかねずみ; まうす; どうぶつ</annotation>
+		<annotation cp='[🐁]' tts='はつかねずみ'>まうす; どうぶつ; ねずみ</annotation>
 
 		<!-- rat -->
-		<annotation cp='[🐀]' tts='ねずみ' draft='provisional'>ねずみ; どうぶつ</annotation>
+		<annotation cp='[🐀]' tts='ねずみ'>どうぶつ; ねずみ</annotation>
 
 		<!-- hamster face; face; hamster; pet -->
-		<annotation cp='[🐹]' tts='はむすたーのかお' draft='provisional'>はむすたーのかお; はむすたー; ねずみ; どうぶつ</annotation>
+		<annotation cp='[🐹]' tts='はむすたーのかお'>はむすたー; ねずみ; どうぶつ; かお</annotation>
 
 		<!-- rabbit face; bunny; face; pet; rabbit -->
-		<annotation cp='[🐰]' tts='うさぎのかお' draft='provisional'>うさぎのかお; う; うさぎ; どうぶつ; えと; じゅうにし</annotation>
+		<annotation cp='[🐰]' tts='うさぎのかお'>どうぶつ; うさぎ; かお</annotation>
 
 		<!-- rabbit; bunny; pet -->
-		<annotation cp='[🐇]' tts='うさぎ' draft='provisional'>うさぎ; どうぶつ</annotation>
+		<annotation cp='[🐇]' tts='うさぎ'>どうぶつ; うさぎ</annotation>
+
+		<!-- chipmunk -->
+		<annotation cp='[🐿]' tts='りす'>どうぶつ; りす</annotation>
 
 		<!-- bear face; bear; face -->
-		<annotation cp='[🐻]' tts='くまのかお' draft='provisional'>くまのかお; くま; どうぶつ</annotation>
+		<annotation cp='[🐻]' tts='くまのかお'>くま; どうぶつ; かお</annotation>
 
 		<!-- koala; bear -->
-		<annotation cp='[🐨]' tts='こあら' draft='provisional'>こあら; どうぶつ</annotation>
+		<annotation cp='[🐨]' tts='こあら'>どうぶつ; こあら; かお</annotation>
 
 		<!-- panda face; face; panda -->
-		<annotation cp='[🐼]' tts='ぱんだのかお' draft='provisional'>ぱんだのかお; ぱんだ; どうぶつ</annotation>
+		<annotation cp='[🐼]' tts='ぱんだのかお'>ぱんだ; どうぶつ; かお</annotation>
 
 		<!-- paw prints; feet; paw; print -->
-		<annotation cp='[🐾]' tts='あしあと' draft='provisional'>あしあと; ねこ; いぬ</annotation>
+		<annotation cp='[🐾]' tts='いぬのあしあと'>どうぶつ; あしあと</annotation>
+
+		<!-- turkey -->
+		<annotation cp='[🦃]' tts='しちめんちょう'>どうぶつ; しちめんちょう</annotation>
 
 		<!-- chicken -->
-		<annotation cp='[🐔]' tts='にわとり' draft='provisional'>にわとり; とり; どうぶつ</annotation>
+		<annotation cp='[🐔]' tts='にわとり'>どうぶつ; にわとり; かお</annotation>
 
 		<!-- rooster -->
-		<annotation cp='[🐓]' tts='おんどり' draft='provisional'>おんどり; どうぶつ</annotation>
+		<annotation cp='[🐓]' tts='おんどり'>どうぶつ; にわとり</annotation>
 
 		<!-- hatching chick; baby; chick; hatching -->
-		<annotation cp='[🐣]' tts='ひなどり' draft='provisional'>ひなどり; ひよこ; たまご; ふか; とり; どうぶつ</annotation>
+		<annotation cp='[🐣]' tts='ひなどり'>どうぶつ; ひよこ; たまご</annotation>
 
 		<!-- baby chick; baby; chick -->
-		<annotation cp='[🐤]' tts='ひよこのかお' draft='provisional'>ひよこのかお; ひよこ; とり; どうぶつ</annotation>
+		<annotation cp='[🐤]' tts='ひよこのかお'>どうぶつ; ひよこ; かお</annotation>
 
 		<!-- front-facing baby chick; baby; chick -->
-		<annotation cp='[🐥]' tts='ひよこ' draft='provisional'>ひよこ; とり; どうぶつ</annotation>
+		<annotation cp='[🐥]' tts='ひよこ'>どうぶつ; ひよこ</annotation>
 
 		<!-- bird -->
-		<annotation cp='[🐦]' tts='とり' draft='provisional'>とり; どうぶつ</annotation>
+		<annotation cp='[🐦]' tts='とり'>どうぶつ; とり; かお</annotation>
 
 		<!-- penguin -->
-		<annotation cp='[🐧]' tts='ぺんぎん' draft='provisional'>ぺんぎん; とり</annotation>
+		<annotation cp='[🐧]' tts='ぺんぎん'>どうぶつ; ぺんぎん; かお</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='はと'>どうぶつ; とり; へいわ; はと</annotation>
 
 		<!-- frog face; face; frog -->
-		<annotation cp='[🐸]' tts='かえるのかお' draft='provisional'>かえるのかお; かえる; むし</annotation>
+		<annotation cp='[🐸]' tts='かえるのかお'>かえる; かお</annotation>
 
 		<!-- crocodile -->
-		<annotation cp='[🐊]' tts='わに' draft='provisional'>わに; どうぶつ</annotation>
+		<annotation cp='[🐊]' tts='わに'>どうぶつ; わに</annotation>
 
 		<!-- turtle -->
-		<annotation cp='[🐢]' tts='かめ' draft='provisional'>かめ; どうぶつ</annotation>
+		<annotation cp='[🐢]' tts='かめ'>どうぶつ; かめ</annotation>
 
 		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
-		<annotation cp='[🐍]' tts='へび' draft='provisional'>へび; どうぶつ</annotation>
+		<annotation cp='[🐍]' tts='へび'>どうぶつ; へび</annotation>
 
 		<!-- dragon face; dragon; face; fairy tale -->
-		<annotation cp='[🐲]' tts='りゅうのかお' draft='provisional'>りゅうのかお; たつ; りゅう; どうぶつ; えと; じゅうにし</annotation>
+		<annotation cp='[🐲]' tts='りゅうのかお'>たつ; りゅう; どうぶつ; かお; どらごん</annotation>
 
 		<!-- dragon; fairy tale -->
-		<annotation cp='[🐉]' tts='りゅう' draft='provisional'>りゅう; どらごん; どうぶつ</annotation>
+		<annotation cp='[🐉]' tts='りゅう'>どうぶつ; りゅう; たつ; どらごん</annotation>
 
 		<!-- spouting whale; face; spouting; whale -->
-		<annotation cp='[🐳]' tts='しおふきくじら' draft='provisional'>しおふきくじら; くじら; しお; しおふき; どうぶつ</annotation>
+		<annotation cp='[🐳]' tts='しおふきくじら'>くじら; しお; しおふき; どうぶつ</annotation>
 
 		<!-- whale -->
-		<annotation cp='[🐋]' tts='くじら' draft='provisional'>くじら; どうぶつ</annotation>
+		<annotation cp='[🐋]' tts='くじら'>どうぶつ; くじら</annotation>
 
 		<!-- dolphin; flipper -->
-		<annotation cp='[🐬]' tts='いるか' draft='provisional'>いるか; どうぶつ</annotation>
+		<annotation cp='[🐬]' tts='いるか'>どうぶつ; いるか</annotation>
 
 		<!-- fish; pisces; zodiac -->
-		<annotation cp='[🐟]' tts='さかな' draft='provisional'>さかな; どうぶつ</annotation>
+		<annotation cp='[🐟]' tts='さかな'>どうぶつ; さかな</annotation>
 
 		<!-- tropical fish; fish; tropical -->
-		<annotation cp='[🐠]' tts='さかな' draft='provisional'>さかな; ねったいぎょ; どうぶつ</annotation>
+		<annotation cp='[🐠]' tts='ねったいぎょ'>ねったいぎょ; どうぶつ; さかな</annotation>
 
 		<!-- blowfish; fish -->
-		<annotation cp='[🐡]' tts='ふぐ' draft='provisional'>ふぐ; さかな; どうぶつ</annotation>
+		<annotation cp='[🐡]' tts='ふぐ'>さかな; どうぶつ; ふぐ</annotation>
 
 		<!-- octopus -->
-		<annotation cp='[🐙]' tts='たこ' draft='provisional'>たこ; どうぶつ</annotation>
+		<annotation cp='[🐙]' tts='たこ'>どうぶつ; たこ</annotation>
 
 		<!-- spiral shell; shell; spiral -->
-		<annotation cp='[🐚]' tts='かい' draft='provisional'>かい; まきがい; ; どうぶつ</annotation>
+		<annotation cp='[🐚]' tts='かい'>まきがい; どうぶつ</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='かに'>どうぶつ; かに</annotation>
 
 		<!-- snail -->
-		<annotation cp='[🐌]' tts='かたつむり' draft='provisional'>かたつむり; むし; でんでんむし; どうぶつ</annotation>
+		<annotation cp='[🐌]' tts='かたつむり'>むし; でんでんむし; かたつむり</annotation>
 
 		<!-- bug; insect -->
-		<annotation cp='[🐛]' tts='けむし' draft='provisional'>けむし; げじげじ; むし; どうぶつ</annotation>
+		<annotation cp='[🐛]' tts='けむし'>むし; けむし; いもむし</annotation>
 
 		<!-- ant; insect -->
-		<annotation cp='[🐜]' tts='あり' draft='provisional'>あり; むし; どうぶつ</annotation>
+		<annotation cp='[🐜]' tts='あり'>むし; あり</annotation>
 
 		<!-- honeybee; bee; insect -->
-		<annotation cp='[🐝]' tts='はち' draft='provisional'>はち; みつばち; むし; どうぶつ</annotation>
+		<annotation cp='[🐝]' tts='みつばち'>みつばち; むし; はち</annotation>
 
 		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
-		<annotation cp='[🐞]' tts='てんとうむし' draft='provisional'>てんとうむし; むし; どうぶつ</annotation>
+		<annotation cp='[🐞]' tts='てんとうむし'>むし; てんとうむし</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='すぱいだー'>むし; くも</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='くものす'>くものす; くも</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='さそり'>さそり; むし</annotation>
 
 		<!-- bouquet; flower; plant; romance -->
-		<annotation cp='[💐]' tts='ぶーけ' draft='provisional'>ぶーけ; はなたば</annotation>
+		<annotation cp='[💐]' tts='はなたば'>はなたば; ぶーけ</annotation>
 
 		<!-- cherry blossom; blossom; cherry; flower; plant -->
-		<annotation cp='[🌸]' tts='さくら' draft='provisional'>さくら; はな</annotation>
+		<annotation cp='[🌸]' tts='さくら'>はな; さくら</annotation>
 
 		<!-- white flower; flower -->
-		<annotation cp='[💮]' tts='よくできました' draft='provisional'>よくできました; はなまる</annotation>
+		<annotation cp='[💮]' tts='よくできました'>はなまる</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='ろぜっと'>はな</annotation>
 
 		<!-- rose; flower; plant -->
-		<annotation cp='[🌹]' tts='ばら' draft='provisional'>ばら; はな</annotation>
+		<annotation cp='[🌹]' tts='ばら'>はな; ばら</annotation>
 
 		<!-- hibiscus; flower; plant -->
-		<annotation cp='[🌺]' tts='はいびすかす' draft='provisional'>はいびすかす; はな</annotation>
+		<annotation cp='[🌺]' tts='はいびすかす'>はな; はいびすかす</annotation>
 
 		<!-- sunflower; flower; plant; sun -->
-		<annotation cp='[🌻]' tts='ひまわり' draft='provisional'>ひまわり; はな</annotation>
+		<annotation cp='[🌻]' tts='ひまわり'>はな; ひまわり</annotation>
 
 		<!-- blossom; flower; plant -->
-		<annotation cp='[🌼]' tts='さいたはな' draft='provisional'>さいたはな; はな</annotation>
+		<annotation cp='[🌼]' tts='さいたはな'>はな</annotation>
 
 		<!-- tulip; flower; plant -->
-		<annotation cp='[🌷]' tts='ちゅーりっぷ' draft='provisional'>ちゅーりっぷ; はな</annotation>
+		<annotation cp='[🌷]' tts='ちゅーりっぷ'>はな; ちゅーりっぷ</annotation>
 
 		<!-- seedling; plant; young -->
-		<annotation cp='[🌱]' tts='しんめ' draft='provisional'>しんめ; め; ふたば</annotation>
+		<annotation cp='[🌱]' tts='しんめ'>め; ふたば</annotation>
 
 		<!-- evergreen; plant; tree -->
-		<annotation cp='[🌲]' tts='じょうりょくじゅ' draft='provisional'>じょうりょくじゅ; き</annotation>
+		<annotation cp='[🌲]' tts='じょうりょくじゅ'>き</annotation>
 
 		<!-- deciduous tree; deciduous; plant; shedding; tree -->
-		<annotation cp='[🌳]' tts='らくようじゅ' draft='provisional'>らくようじゅ; き</annotation>
+		<annotation cp='[🌳]' tts='らくようじゅ'>き</annotation>
 
 		<!-- palm tree; palm; plant; tree -->
-		<annotation cp='[🌴]' tts='やしのき' draft='provisional'>やしのき; き; やし</annotation>
+		<annotation cp='[🌴]' tts='やしのき'>き; やし</annotation>
 
 		<!-- cactus; plant -->
-		<annotation cp='[🌵]' tts='さぼてん' draft='provisional'>さぼてん</annotation>
+		<annotation cp='[🌵]' tts='さぼてん'>さぼてん</annotation>
 
 		<!-- sheaf of rice; ear; plant; rice -->
-		<annotation cp='[🌾]' tts='いね' draft='provisional'>いね</annotation>
+		<annotation cp='[🌾]' tts='いね'>くさ; いね; すすき</annotation>
 
 		<!-- herb; leaf; plant -->
-		<annotation cp='[🌿]' tts='はーぶ' draft='provisional'>はーぶ; はっぱ</annotation>
+		<annotation cp='[🌿]' tts='はーぶ'>は; はーぶ; くさ</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='くろーばー'>くろーばー</annotation>
 
 		<!-- four leaf clover; 4; clover; four; leaf; plant -->
-		<annotation cp='[🍀]' tts='くろーばー' draft='provisional'>くろーばー; よつば</annotation>
+		<annotation cp='[🍀]' tts='よつば'>よつば; くろーばー</annotation>
 
 		<!-- maple leaf; falling; leaf; maple; plant -->
-		<annotation cp='[🍁]' tts='もみじ' draft='provisional'>もみじ; かえで; こうよう</annotation>
+		<annotation cp='[🍁]' tts='もみじ'>かえで; こうよう; もみじ</annotation>
 
 		<!-- fallen leaf; falling; leaf; plant -->
-		<annotation cp='[🍂]' tts='かれは' draft='provisional'>かれは; おちば</annotation>
+		<annotation cp='[🍂]' tts='かれは'>おちば; かれは; このは</annotation>
 
 		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
-		<annotation cp='[🍃]' tts='このは' draft='provisional'>このは; かぜ; びゅうびゅう</annotation>
+		<annotation cp='[🍃]' tts='このは'>このは; かぜ; おちば</annotation>
 
 		<!-- grapes; fruit; grape; plant -->
-		<annotation cp='[🍇]' tts='ぶどう' draft='provisional'>ぶどう; くだもの</annotation>
+		<annotation cp='[🍇]' tts='ぶどう'>くだもの; ぶどう; ぐれーぷ</annotation>
 
 		<!-- melon; fruit; plant -->
-		<annotation cp='[🍈]' tts='めろん' draft='provisional'>めろん; くだもの</annotation>
+		<annotation cp='[🍈]' tts='めろん'>くだもの; めろん</annotation>
 
 		<!-- watermelon; fruit; plant -->
-		<annotation cp='[🍉]' tts='すいか' draft='provisional'>すいか; くだもの</annotation>
+		<annotation cp='[🍉]' tts='すいか'>くだもの; すいか</annotation>
 
 		<!-- tangerine; fruit; orange; plant -->
-		<annotation cp='[🍊]' tts='みかん' draft='provisional'>みかん; おれんじ; くだもの</annotation>
+		<annotation cp='[🍊]' tts='みかん'>おれんじ; くだもの; みかん</annotation>
 
 		<!-- lemon; citrus; fruit; plant -->
-		<annotation cp='[🍋]' tts='れもん' draft='provisional'>れもん</annotation>
+		<annotation cp='[🍋]' tts='れもん'>くだもの; れもん</annotation>
 
 		<!-- banana; fruit; plant -->
-		<annotation cp='[🍌]' tts='ばなな' draft='provisional'>ばなな; くだもの</annotation>
+		<annotation cp='[🍌]' tts='ばなな'>くだもの; ばなな</annotation>
 
 		<!-- pineapple; fruit; plant -->
-		<annotation cp='[🍍]' tts='ぱいなっぷる' draft='provisional'>ぱいなっぷる; ぱいん; くだもの</annotation>
+		<annotation cp='[🍍]' tts='ぱいなっぷる'>ぱいん; くだもの; ぱいなっぷる</annotation>
 
 		<!-- red apple; apple; fruit; plant; red -->
-		<annotation cp='[🍎]' tts='あかりんご' draft='provisional'>あかりんご; りんご; あっぷる; くだもの</annotation>
+		<annotation cp='[🍎]' tts='あかりんご'>りんご; あっぷる; くだもの</annotation>
 
 		<!-- green apple; apple; fruit; green; plant -->
-		<annotation cp='[🍏]' tts='あおりんご' draft='provisional'>あおりんご; りんご; あっぷる; くだもの</annotation>
+		<annotation cp='[🍏]' tts='あおりんご'>りんご; あっぷる; くだもの</annotation>
 
 		<!-- pear; fruit; plant -->
-		<annotation cp='[🍐]' tts='せいようなし' draft='provisional'>せいようなし; なし; くだもの</annotation>
+		<annotation cp='[🍐]' tts='せいようなし'>なし; くだもの</annotation>
 
 		<!-- peach; fruit; plant -->
-		<annotation cp='[🍑]' tts='もも' draft='provisional'>もも; くだもの; ぴーち</annotation>
+		<annotation cp='[🍑]' tts='もも'>くだもの; ぴーち; もも</annotation>
 
 		<!-- cherries; cherry; fruit; plant -->
-		<annotation cp='[🍒]' tts='さくらんぼ' draft='provisional'>さくらんぼ; ちぇりー; くだもの</annotation>
+		<annotation cp='[🍒]' tts='さくらんぼ'>ちぇりー; くだもの; さくらんぼ</annotation>
 
 		<!-- strawberry; berry; fruit; plant -->
-		<annotation cp='[🍓]' tts='いちご' draft='provisional'>いちご; すとろべりー; くだもの</annotation>
+		<annotation cp='[🍓]' tts='いちご'>すとろべりー; くだもの; いちご</annotation>
 
 		<!-- tomato; plant; vegetable -->
-		<annotation cp='[🍅]' tts='とまと' draft='provisional'>とまと; やさい</annotation>
+		<annotation cp='[🍅]' tts='とまと'>やさい; とまと</annotation>
 
 		<!-- eggplant; aubergine; plant; vegetable -->
-		<annotation cp='[🍆]' tts='なす' draft='provisional'>なす; やさい</annotation>
+		<annotation cp='[🍆]' tts='なす'>やさい; なす</annotation>
 
 		<!-- ear of corn; corn; ear; maize; maze; plant -->
-		<annotation cp='[🌽]' tts='とうもろこし' draft='provisional'>とうもろこし; こーん</annotation>
+		<annotation cp='[🌽]' tts='とうもろこし'>とうもろこし; こーん; やさい</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='とうがらし'>やさい; とうがらし</annotation>
 
 		<!-- mushroom; plant -->
-		<annotation cp='[🍄]' tts='きのこ' draft='provisional'>きのこ</annotation>
+		<annotation cp='[🍄]' tts='きのこ'>きのこ</annotation>
 
 		<!-- chestnut; plant -->
-		<annotation cp='[🌰]' tts='くり' draft='provisional'>くり</annotation>
+		<annotation cp='[🌰]' tts='くり'>くだもの; くり</annotation>
 
 		<!-- bread; loaf -->
-		<annotation cp='[🍞]' tts='しょくぱん' draft='provisional'>しょくぱん; ぱん</annotation>
+		<annotation cp='[🍞]' tts='しょくぱん'>ぱん</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='ちーず'>ちーず</annotation>
 
 		<!-- meat on bone; bone; meat -->
-		<annotation cp='[🍖]' tts='ほねつきにく' draft='provisional'>ほねつきにく; にく; ももにく</annotation>
+		<annotation cp='[🍖]' tts='ほねつきにく'>にく; ほねつきにく; ももにく</annotation>
 
 		<!-- poultry leg; bone; chicken; leg; poultry -->
-		<annotation cp='[🍗]' tts='とりももにく' draft='provisional'>とりももにく; にく; ほねつきにく; ももにく</annotation>
+		<annotation cp='[🍗]' tts='とりももにく'>にく; ほねつきにく; ももにく</annotation>
 
 		<!-- hamburger; burger -->
-		<annotation cp='[🍔]' tts='ばーがー' draft='provisional'>ばーがー; はんばーがー</annotation>
+		<annotation cp='[🍔]' tts='ばーがー'>はんばーがー; ばーがー</annotation>
 
 		<!-- french fries; french; fries -->
-		<annotation cp='[🍟]' tts='ふらいどぽてと' draft='provisional'>ふらいどぽてと; ぽてと</annotation>
+		<annotation cp='[🍟]' tts='ふらいどぽてと'>ぽてと; ふらいどぽてと</annotation>
 
 		<!-- pizza; cheese; slice -->
-		<annotation cp='[🍕]' tts='ぴざ' draft='provisional'>ぴざ; ぴっつぁ</annotation>
+		<annotation cp='[🍕]' tts='ぴざ'>ぴっつぁ; ぴざ</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='ほっとどっぐ'>ほっとどっぐ; そーせーじ</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='たこす'>たこす</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='ぶりとー'>そふとたこす; ぶりとー</annotation>
+
+		<!-- popcorn -->
+		<annotation cp='[🍿]' tts='ぽっぷこーん'>ぽっぷこーん</annotation>
 
 		<!-- pot of food; pot; stew -->
-		<annotation cp='[🍲]' tts='なべ' draft='provisional'>なべ; なべりょうり</annotation>
+		<annotation cp='[🍲]' tts='なべ'>なべ</annotation>
 
 		<!-- bento box; bento; box -->
-		<annotation cp='[🍱]' tts='べんとう' draft='provisional'>べんとう; まくのうち</annotation>
+		<annotation cp='[🍱]' tts='べんとう'>まくのうち; べんとう</annotation>
 
 		<!-- rice cracker; cracker; rice -->
-		<annotation cp='[🍘]' tts='せんべい' draft='provisional'>せんべい</annotation>
+		<annotation cp='[🍘]' tts='せんべい'>せんべい</annotation>
 
 		<!-- rice ball; ball; japanese; rice -->
-		<annotation cp='[🍙]' tts='おにぎり' draft='provisional'>おにぎり</annotation>
+		<annotation cp='[🍙]' tts='おにぎり'>おにぎり</annotation>
 
 		<!-- cooked rice; cooked; rice -->
-		<annotation cp='[🍚]' tts='ごはん' draft='provisional'>ごはん; ちゃわん</annotation>
+		<annotation cp='[🍚]' tts='ごはん'>ごはん</annotation>
 
 		<!-- curry rice; curry; rice -->
-		<annotation cp='[🍛]' tts='かれー' draft='provisional'>かれー; かれーらいす</annotation>
+		<annotation cp='[🍛]' tts='かれーらいす'>かれー; かれーらいす</annotation>
 
 		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
-		<annotation cp='[🍜]' tts='らーめん' draft='provisional'>らーめん</annotation>
+		<annotation cp='[🍜]' tts='らーめん'>らーめん</annotation>
 
 		<!-- spaghetti; pasta -->
-		<annotation cp='[🍝]' tts='ぱすた' draft='provisional'>ぱすた; すぱげってぃー; すぱげってぃ</annotation>
+		<annotation cp='[🍝]' tts='ぱすた'>すぱげってぃー; すぱげってぃ; ぱすた</annotation>
 
 		<!-- roasted sweet potato; potato; roasted; sweet -->
-		<annotation cp='[🍠]' tts='やきいも' draft='provisional'>やきいも; いも</annotation>
+		<annotation cp='[🍠]' tts='やきいも'>いも; やきいも</annotation>
 
 		<!-- oden; kebab; seafood; skewer; stick -->
-		<annotation cp='[🍢]' tts='おでん' draft='provisional'>おでん</annotation>
+		<annotation cp='[🍢]' tts='おでん'>おでん</annotation>
 
 		<!-- sushi -->
-		<annotation cp='[🍣]' tts='すし' draft='provisional'>すし; おすし</annotation>
+		<annotation cp='[🍣]' tts='すし'>おすし; すし</annotation>
 
 		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
-		<annotation cp='[🍤]' tts='えびふらい' draft='provisional'>えびふらい; ふらい; えび</annotation>
+		<annotation cp='[🍤]' tts='えびふらい'>ふらい; えび; えびふらい</annotation>
 
 		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
-		<annotation cp='[🍥]' tts='なると' draft='provisional'>なると; うず</annotation>
+		<annotation cp='[🍥]' tts='なると'>なると</annotation>
 
 		<!-- dango; dessert; japanese; skewer; stick; sweet -->
-		<annotation cp='[🍡]' tts='だんご' draft='provisional'>だんご; おだんご</annotation>
+		<annotation cp='[🍡]' tts='だんご'>おだんご; だんご</annotation>
 
 		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
-		<annotation cp='[🍦]' tts='そふとくりーむ' draft='provisional'>そふとくりーむ; あいす; おかし</annotation>
+		<annotation cp='[🍦]' tts='そふとくりーむ'>あいす; そふとくりーむ</annotation>
 
 		<!-- shaved ice; dessert; ice; shaved; sweet -->
-		<annotation cp='[🍧]' tts='かきごおり' draft='provisional'>かきごおり; こおり; おかし</annotation>
+		<annotation cp='[🍧]' tts='かきごおり'>かきごおり</annotation>
 
 		<!-- ice cream; cream; dessert; ice; sweet -->
-		<annotation cp='[🍨]' tts='あいすくりーむ' draft='provisional'>あいすくりーむ; あいす; おかし</annotation>
+		<annotation cp='[🍨]' tts='あいすくりーむ'>あいす; あいすくりーむ</annotation>
 
 		<!-- doughnut; dessert; donut; sweet -->
-		<annotation cp='[🍩]' tts='どーなつ' draft='provisional'>どーなつ; おかし</annotation>
+		<annotation cp='[🍩]' tts='どーなつ'>どーなつ</annotation>
 
 		<!-- cookie; dessert; sweet -->
-		<annotation cp='[🍪]' tts='くっきー' draft='provisional'>くっきー; おかし</annotation>
+		<annotation cp='[🍪]' tts='くっきー'>くっきー</annotation>
 
 		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
-		<annotation cp='[🎂]' tts='ばーすでーけーき' draft='provisional'>ばーすでーけーき; けーき; ばーすでー; たんじょうび; おたんじょうび</annotation>
+		<annotation cp='[🎂]' tts='ばーすでーけーき'>けーき; ばーすでー; たんじょうび; ばーすでーけーき</annotation>
 
 		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
-		<annotation cp='[🍰]' tts='けーき' draft='provisional'>けーき; おかし; しょーとけーき</annotation>
+		<annotation cp='[🍰]' tts='けーき'>おかし; しょーとけーき</annotation>
 
 		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
-		<annotation cp='[🍫]' tts='ちょこ' draft='provisional'>ちょこ; ちょこれーと; おかし</annotation>
+		<annotation cp='[🍫]' tts='ちょこ'>ちょこれーと; おかし</annotation>
 
 		<!-- candy; dessert; sweet -->
-		<annotation cp='[🍬]' tts='きゃんでぃ' draft='provisional'>きゃんでぃ; きゃんでぃー; あめ; おかし</annotation>
+		<annotation cp='[🍬]' tts='きゃんでぃ'>きゃんでぃー; あめ; おかし</annotation>
 
 		<!-- lollipop; candy; dessert; sweet -->
-		<annotation cp='[🍭]' tts='あめ' draft='provisional'>きゃんでぃ; きゃんでぃー; あめ; おかし</annotation>
+		<annotation cp='[🍭]' tts='あめ'>きゃんでぃ; きゃんでぃー; おかし</annotation>
 
 		<!-- custard; dessert; pudding; sweet -->
-		<annotation cp='[🍮]' tts='ぷりん' draft='provisional'>ぷりん; おかし</annotation>
+		<annotation cp='[🍮]' tts='ぷりん'>ぷりん; おかし</annotation>
 
 		<!-- honey pot; honey; honeypot; pot; sweet -->
-		<annotation cp='[🍯]' tts='はちみつ' draft='provisional'>はちみつ; はにー; みつびん; はにーぽっと</annotation>
+		<annotation cp='[🍯]' tts='はちみつ'>はちみつ; はにー</annotation>
 
 		<!-- baby bottle; baby; bottle; drink; milk -->
-		<annotation cp='[🍼]' tts='ほにゅーびん' draft='provisional'>ほにゅーびん; みるく; あかちゃん</annotation>
+		<annotation cp='[🍼]' tts='ほにゅーびん'>みるく; あかちゃん; ほにゅうびん</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='こーひー'>こーひー</annotation>
 
 		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
-		<annotation cp='[🍵]' tts='ゆのみ' draft='provisional'>ゆのみ; おちゃ</annotation>
+		<annotation cp='[🍵]' tts='ゆのみ'>おちゃ</annotation>
 
 		<!-- sake; bar; beverage; bottle; cup; drink -->
-		<annotation cp='[🍶]' tts='とっくり' draft='provisional'>とっくり; さけ</annotation>
+		<annotation cp='[🍶]' tts='とっくり'>さけ; とっくり</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='しゃんぱん'>しゃんぱん; しゃんぺん</annotation>
 
 		<!-- wine glass; bar; beverage; drink; glass; wine -->
-		<annotation cp='[🍷]' tts='わいん' draft='provisional'>わいん; わいんぐらす</annotation>
+		<annotation cp='[🍷]' tts='わいん'>わいんぐらす; わいん</annotation>
 
 		<!-- cocktail glass; bar; cocktail; drink; glass -->
-		<annotation cp='[🍸]' tts='ばー' draft='provisional'>ばー; かくてる</annotation>
+		<annotation cp='[🍸]' tts='かくてる'>かくてる</annotation>
 
 		<!-- tropical drink; bar; drink; tropical -->
-		<annotation cp='[🍹]' tts='とろぴかるどりんく' draft='provisional'>とろぴかるどりんく; かくてる</annotation>
+		<annotation cp='[🍹]' tts='とろぴかるどりんく'>かくてる</annotation>
 
 		<!-- beer mug; bar; beer; drink; mug -->
-		<annotation cp='[🍺]' tts='じょっき' draft='provisional'>じょっき; びーる</annotation>
+		<annotation cp='[🍺]' tts='じょっき'>びーる; じょっき</annotation>
 
 		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
-		<annotation cp='[🍻]' tts='かんぱい' draft='provisional'>かんぱい; びーる</annotation>
+		<annotation cp='[🍻]' tts='かんぱい'>びーる; かんぱい</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='ないふふぉーくさら'>さら; おさら; ふぉーく; ないふ</annotation>
 
 		<!-- fork and knife; cooking; fork; knife -->
-		<annotation cp='[🍴]' tts='ふぉーく' draft='provisional'>ふぉーく; ないふ; れすとらん</annotation>
+		<annotation cp='[🍴]' tts='ないふふぉーく'>ふぉーく; ないふ; れすとらん</annotation>
 
 		<!-- cooking; egg; frying; pan -->
-		<annotation cp='[🍳]' tts='ふらいぱん' draft='provisional'>ふらいぱん; めだまやき; たまご</annotation>
+		<annotation cp='[🍳]' tts='ふらいぱん'>めだまやき; たまご; ふらいぱん</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='つぼ'>つぼ; みずがめ; かめ</annotation>
 
 		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
-		<annotation cp='[🌍]' tts='ちきゅう' draft='provisional'>ちきゅう; よーろっぱ; あふりか</annotation>
+		<annotation cp='[🌍]' tts='ちきゅうよーろっぱあふりか'>ちきゅう; よーろっぱ; あふりか</annotation>
 
 		<!-- globe showing americas; americas; earth; globe; world -->
-		<annotation cp='[🌎]' tts='ちきゅう' draft='provisional'>ちきゅう; あめりか; あめりかたいりく</annotation>
+		<annotation cp='[🌎]' tts='ちきゅうあめりか'>ちきゅう; あめりか; あめりかたいりく</annotation>
 
 		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
-		<annotation cp='[🌏]' tts='ちきゅう' draft='provisional'>ちきゅう; あじあおーすとらりあ</annotation>
+		<annotation cp='[🌏]' tts='ちきゅうあじあおーすとらりあ'>ちきゅう; あじあ; おーすとらりあ</annotation>
 
 		<!-- globe with meridians; earth; globe; meridians; world -->
-		<annotation cp='[🌐]' tts='ちきゅう' draft='provisional'>ちきゅう; しごせん</annotation>
+		<annotation cp='[🌐]' tts='ちきゅうしごせん'>ちきゅう; しごせん</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='ちず'>ちず; せかい</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='ゆきやま'>やま; ゆきやま</annotation>
+
+		<!-- mountain -->
+		<annotation cp='[⛰]' tts='やま'>やま</annotation>
 
 		<!-- volcano; eruption; mountain; weather -->
-		<annotation cp='[🌋]' tts='かざん' draft='provisional'>かざん; やま; ふんか</annotation>
+		<annotation cp='[🌋]' tts='かざん'>やま; ふんか; かざん</annotation>
 
 		<!-- mount fuji; fuji; mountain -->
-		<annotation cp='[🗻]' tts='ふじさん' draft='provisional'>ふじさん; やま</annotation>
+		<annotation cp='[🗻]' tts='ふじさん'>やま; ふじさん</annotation>
+
+		<!-- camping -->
+		<annotation cp='[🏕]' tts='きゃんぷ'>きゃんぷ; てんと</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='びーちぱらそる'>びーち; ぱらそる</annotation>
+
+		<!-- desert -->
+		<annotation cp='[🏜]' tts='さばく'>さばく</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='しま'>しま</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='こくりつこうえん'>こうえん</annotation>
+
+		<!-- stadium -->
+		<annotation cp='[🏟]' tts='すたじあむ'>すたじあむ</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='いせき'>いせき; しせき</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='けんせつちゅう'>けんせつ; くれーん</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='ふくすうのいえ'>いえ; まち</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='こうそうびる'>とかい; こうそうびる</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='はいおく'>たてもの; いえ</annotation>
 
 		<!-- house building; building; home; house -->
-		<annotation cp='[🏠]' tts='いえ' draft='provisional'>いえ; かおく; たてもの</annotation>
+		<annotation cp='[🏠]' tts='いえ'>たてもの; いえ</annotation>
 
 		<!-- house with garden; building; garden; home; house -->
-		<annotation cp='[🏡]' tts='まいほーむ' draft='provisional'>まいほーむ; いえ; うち; ほーむ; たてもの</annotation>
+		<annotation cp='[🏡]' tts='まいほーむ'>たてもの; いえ</annotation>
 
 		<!-- church; building; christian; cross; religion -->
-		<annotation cp='[⛪]' tts='きょうかい' draft='provisional'>きょうかい; たてもの</annotation>
+		<annotation cp='[⛪]' tts='きょうかい'>たてもの; きょうかい; きりすときょう</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='かーば'>たてもの; もすく; いすらむきょう</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='もすく'>たてもの; もすく; いすらむきょう</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='しなごーぐ'>たてもの; しなごーぐ; ゆだやきょう</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='じんじゃ'>じんじゃ; しんとう; たてもの</annotation>
 
 		<!-- office building; building -->
-		<annotation cp='[🏢]' tts='びる' draft='provisional'>びる; たてもの</annotation>
+		<annotation cp='[🏢]' tts='びる'>びる; たてもの</annotation>
 
 		<!-- japanese post office; building; japanese; post -->
-		<annotation cp='[🏣]' tts='ゆうびんきょく' draft='provisional'>ゆうびんきょく; たてもの</annotation>
+		<annotation cp='[🏣]' tts='ゆうびんきょく'>ゆうびんきょく; たてもの</annotation>
 
 		<!-- post office; building; european; post -->
-		<annotation cp='[🏤]' tts='せいおうのゆうびんきょく' draft='provisional'>せいおうのゆうびんきょく; ゆうびんきょく; たてもの</annotation>
+		<annotation cp='[🏤]' tts='せいようのゆうびんきょく'>ゆうびんきょく; たてもの</annotation>
 
 		<!-- hospital; building; doctor; medicine -->
-		<annotation cp='[🏥]' tts='びょういん' draft='provisional'>びょういん; たてもの</annotation>
+		<annotation cp='[🏥]' tts='びょういん'>びょういん; たてもの</annotation>
 
 		<!-- bank; building -->
-		<annotation cp='[🏦]' tts='ぎんこう' draft='provisional'>ぎんこう; たてもの</annotation>
+		<annotation cp='[🏦]' tts='ぎんこう'>ぎんこう; たてもの</annotation>
 
 		<!-- hotel; building -->
-		<annotation cp='[🏨]' tts='ほてる' draft='provisional'>ほてる; たてもの</annotation>
+		<annotation cp='[🏨]' tts='ほてる'>ほてる; たてもの</annotation>
 
 		<!-- love hotel; building; hotel; love -->
-		<annotation cp='[🏩]' tts='らぶほ' draft='provisional'>らぶほ; ほてる; たてもの; らぶほてる</annotation>
+		<annotation cp='[🏩]' tts='らぶほてる'>らぶほてる; らぶほ; たてもの</annotation>
 
 		<!-- convenience store; building; convenience; store -->
-		<annotation cp='[🏪]' tts='こんびに' draft='provisional'>こんびに; こんびにえんすすとあ; たてもの</annotation>
+		<annotation cp='[🏪]' tts='こんびに'>こんびにえんすすとあ; こんびに; たてもの</annotation>
 
 		<!-- school; building -->
-		<annotation cp='[🏫]' tts='がっこう' draft='provisional'>がっこう; たてもの</annotation>
+		<annotation cp='[🏫]' tts='がっこう'>がっこう; たてもの</annotation>
 
 		<!-- department store; building; department; store -->
-		<annotation cp='[🏬]' tts='でぱーと' draft='provisional'>でぱーと; たてもの</annotation>
+		<annotation cp='[🏬]' tts='でぱーと'>でぱーと; たてもの</annotation>
 
 		<!-- factory; building -->
-		<annotation cp='[🏭]' tts='こうじょう' draft='provisional'>こうじょう; こうば</annotation>
+		<annotation cp='[🏭]' tts='こうじょう'>こうじょう; たてもの</annotation>
 
 		<!-- japanese castle; building; castle; japanese -->
-		<annotation cp='[🏯]' tts='しろ' draft='provisional'>しろ; おしろ; たてもの</annotation>
+		<annotation cp='[🏯]' tts='しろ'>しろ; たてもの</annotation>
 
 		<!-- castle; building; european -->
-		<annotation cp='[🏰]' tts='しろ' draft='provisional'>しろ; おしろ; たてもの</annotation>
+		<annotation cp='[🏰]' tts='せいようのしろ'>しろ; たてもの; きゃっする</annotation>
 
 		<!-- wedding; chapel; romance -->
-		<annotation cp='[💒]' tts='きょうかい' draft='provisional'>きょうかい; けっこん; けっこんしき</annotation>
+		<annotation cp='[💒]' tts='けっこんしき'>きょうかい; けっこんしき; けっこん; たてもの</annotation>
 
 		<!-- tokyo tower; tokyo; tower -->
-		<annotation cp='[🗼]' tts='とうきょうたわー' draft='provisional'>とうきょうたわー; たわー</annotation>
+		<annotation cp='[🗼]' tts='とうきょうたわー'>とうきょうたわー</annotation>
 
 		<!-- statue of liberty; liberty; statue -->
-		<annotation cp='[🗽]' tts='じゆうのめがみ' draft='provisional'>じゆうのめがみ; めがみ</annotation>
+		<annotation cp='[🗽]' tts='じゆうのめがみ'>じゆうのめがみ</annotation>
 
 		<!-- map of japan; japan; map -->
-		<annotation cp='[🗾]' tts='にほん' draft='provisional'>にほん; ちず</annotation>
+		<annotation cp='[🗾]' tts='にほん'>ちず; にほん</annotation>
 
 		<!-- fountain -->
-		<annotation cp='[⛲]' tts='ふんすい' draft='provisional'>ふんすい</annotation>
+		<annotation cp='[⛲]' tts='ふんすい'>ふんすい</annotation>
 
 		<!-- tent; camping -->
-		<annotation cp='[⛺]' tts='てんと' draft='provisional'>てんと; きゃんぷ</annotation>
+		<annotation cp='[⛺]' tts='てんと'>きゃんぷ; てんと</annotation>
 
 		<!-- foggy; fog; weather -->
-		<annotation cp='[🌁]' tts='きり' draft='provisional'>きり</annotation>
+		<annotation cp='[🌁]' tts='やまにきり'>やま; きり</annotation>
 
 		<!-- night with stars; night; star; weather -->
-		<annotation cp='[🌃]' tts='ほしのよる' draft='provisional'>ほしのよる; よる; ほし; ながれぼし</annotation>
+		<annotation cp='[🌃]' tts='ほしのよる'>よる; ほし; やけい</annotation>
 
 		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
-		<annotation cp='[🌄]' tts='ひので' draft='provisional'>ひので; たいよう; あさひ</annotation>
+		<annotation cp='[🌄]' tts='やまからひので'>たいよう; あさひ; ひので; あさ</annotation>
 
 		<!-- sunrise; morning; sun; weather -->
-		<annotation cp='[🌅]' tts='ひので' draft='provisional'>ひので; たいよう; あさひ</annotation>
+		<annotation cp='[🌅]' tts='ひので'>たいよう; あさひ; ひので; あさ</annotation>
 
 		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
-		<annotation cp='[🌆]' tts='ゆうがた' draft='provisional'>ゆうがた; よる</annotation>
+		<annotation cp='[🌆]' tts='ゆうがた'>ゆうがた; ゆうひ</annotation>
 
 		<!-- sunset; building; dusk; sun; weather -->
-		<annotation cp='[🌇]' tts='ゆうひ' draft='provisional'>ゆうひ; ゆうがた</annotation>
+		<annotation cp='[🌇]' tts='ゆうひ'>たいよう; ゆうひ; ゆうがた</annotation>
 
 		<!-- bridge at night; bridge; night; weather -->
-		<annotation cp='[🌉]' tts='よるのはし' draft='provisional'>よるのはし; はし</annotation>
+		<annotation cp='[🌉]' tts='よるのはし'>はし; よる; やけい</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='おんせん'>おんせん</annotation>
 
 		<!-- milky way; space; weather -->
-		<annotation cp='[🌌]' tts='あまのがわ' draft='provisional'>あまのがわ; みるきーうぇい</annotation>
+		<annotation cp='[🌌]' tts='あまのがわ'>あまのがわ; よぞら</annotation>
 
 		<!-- carousel horse; carousel; horse -->
-		<annotation cp='[🎠]' tts='めりーごーらんど' draft='provisional'>めりーごーらんど; ゆうえんち</annotation>
+		<annotation cp='[🎠]' tts='めりーごーらんど'>ゆうえんち; めりーごーらんど</annotation>
 
 		<!-- ferris wheel; amusement park; ferris; wheel -->
-		<annotation cp='[🎡]' tts='かんらんしゃ' draft='provisional'>かんらんしゃ; ゆうえんち</annotation>
+		<annotation cp='[🎡]' tts='かんらんしゃ'>ゆうえんち; かんらんしゃ</annotation>
 
 		<!-- roller coaster; amusement park; coaster; roller -->
-		<annotation cp='[🎢]' tts='じぇっとこーすたー' draft='provisional'>じぇっとこーすたー; こーすたー; ゆうえんち</annotation>
+		<annotation cp='[🎢]' tts='じぇっとこーすたー'>こーすたー; ゆうえんち; じぇっとこーすたー</annotation>
 
 		<!-- barber pole; barber; haircut; pole -->
-		<annotation cp='[💈]' tts='とこや' draft='provisional'>とこや; ばーばー; さんぱつ; びよういん</annotation>
+		<annotation cp='[💈]' tts='とこや'>ばーばー; さんぱつ; びよういん; とこや</annotation>
 
 		<!-- circus tent; circus; tent -->
-		<annotation cp='[🎪]' tts='さーかす' draft='provisional'>さーかす; てんと; いべんと</annotation>
+		<annotation cp='[🎪]' tts='さーかす'>さーかす; てんと</annotation>
 
 		<!-- performing arts; art; mask; performing; theater; theatre -->
-		<annotation cp='[🎭]' tts='えんげい' draft='provisional'>えんげい; おめん; げいじゅつ; えんため</annotation>
+		<annotation cp='[🎭]' tts='えんげい'>かめん; げいじゅつ; げきじょう</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='え'>え; かいが; びじゅつかん</annotation>
 
 		<!-- artist palette; art; museum; painting; palette -->
-		<annotation cp='[🎨]' tts='あーとぱれっと' draft='provisional'>あーとぱれっと; ぱれっと; ふで</annotation>
+		<annotation cp='[🎨]' tts='あーとぱれっと'>ぱれっと</annotation>
 
 		<!-- slot machine; game; slot -->
-		<annotation cp='[🎰]' tts='すろっと' draft='provisional'>すろっと; すりーせぶん</annotation>
+		<annotation cp='[🎰]' tts='すろっと'>すりーせぶん; すろっと</annotation>
 
 		<!-- locomotive; engine; railway; steam; train; vehicle -->
-		<annotation cp='[🚂]' tts='えすえる' draft='provisional'>えすえる; ＳＬ</annotation>
+		<annotation cp='[🚂]' tts='えすえる'>のりもの; SL</annotation>
 
 		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
-		<annotation cp='[🚃]' tts='でんしゃ' draft='provisional'>でんしゃ; のりもの</annotation>
+		<annotation cp='[🚃]' tts='でんしゃ'>のりもの; でんしゃ; れっしゃ</annotation>
 
 		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
-		<annotation cp='[🚄]' tts='しんかんせん' draft='provisional'>しんかんせん; のりもの</annotation>
+		<annotation cp='[🚄]' tts='しんかんせん'>のりもの; しんかんせん; でんしゃ</annotation>
 
 		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
-		<annotation cp='[🚅]' tts='しんかんせん' draft='provisional'>しんかんせん; のりもの</annotation>
+		<annotation cp='[🚅]' tts='まるいしんかんせん'>のりもの; しんかんせん; でんしゃ</annotation>
 
 		<!-- train; railway; vehicle -->
-		<annotation cp='[🚆]' tts='でんしゃ' draft='provisional'>でんしゃ; れっしゃ; のりもの</annotation>
+		<annotation cp='[🚆]' tts='でんしゃしょうめん'>れっしゃ; のりもの; でんしゃ</annotation>
 
 		<!-- metro; subway; vehicle -->
-		<annotation cp='[🚇]' tts='めとろ' draft='provisional'>めとろ; ちかてつ; でんしゃ; のりもの</annotation>
+		<annotation cp='[🚇]' tts='めとろ'>ちかてつ; でんしゃ; のりもの</annotation>
 
 		<!-- light rail; railway; vehicle -->
-		<annotation cp='[🚈]' tts='らいとれーる' draft='provisional'>らいとれーる; けいりょうてつどう; でんしゃ; のりもの</annotation>
+		<annotation cp='[🚈]' tts='らいとれーる'>でんしゃ; のりもの; らいとれーる</annotation>
 
 		<!-- station; railway; train; vehicle -->
-		<annotation cp='[🚉]' tts='えき' draft='provisional'>えき; でんしゃ; ふみきり; のりもの</annotation>
+		<annotation cp='[🚉]' tts='えき'>でんしゃ; のりもの; えき</annotation>
 
 		<!-- tram; trolleybus; vehicle -->
-		<annotation cp='[🚊]' tts='とでん' draft='provisional'>とでん; でんしゃ; のりもの</annotation>
+		<annotation cp='[🚊]' tts='とでんしょうめん'>でんしゃ; のりもの</annotation>
 
 		<!-- monorail; vehicle -->
-		<annotation cp='[🚝]' tts='ものれーる' draft='provisional'>ものれーる; のりもの</annotation>
+		<annotation cp='[🚝]' tts='ものれーる'>のりもの; ものれーる</annotation>
 
 		<!-- mountain railway; car; mountain; railway; vehicle -->
-		<annotation cp='[🚞]' tts='とざんてつどう' draft='provisional'>とざんてつどう; とざんでんしゃ; でんしゃ; のりもの</annotation>
+		<annotation cp='[🚞]' tts='とざんてつどう'>とざんでんしゃ; でんしゃ; のりもの; とざんてつどう</annotation>
 
 		<!-- tram car; car; tram; trolleybus; vehicle -->
-		<annotation cp='[🚋]' tts='とでん' draft='provisional'>とでん; でんしゃ; ろめんでんしゃ; のりもの</annotation>
+		<annotation cp='[🚋]' tts='とでん'>でんしゃ; ろめんでんしゃ; のりもの</annotation>
 
 		<!-- bus; vehicle -->
-		<annotation cp='[🚌]' tts='ばす' draft='provisional'>ばす; のりもの</annotation>
+		<annotation cp='[🚌]' tts='ばす'>のりもの; ばす</annotation>
 
 		<!-- oncoming bus; bus; oncoming; vehicle -->
-		<annotation cp='[🚍]' tts='ばす' draft='provisional'>ばす; ばすのぜんめん; のりもの</annotation>
+		<annotation cp='[🚍]' tts='ばすしょうめん'>のりもの; ばす</annotation>
 
 		<!-- trolleybus; bus; tram; trolley; vehicle -->
-		<annotation cp='[🚎]' tts='とろりーばす' draft='provisional'>とろりーばす; ばす; のりもの</annotation>
+		<annotation cp='[🚎]' tts='とろりーばす'>ばす; のりもの; とろりーばす</annotation>
 
 		<!-- bus stop; bus; busstop; stop -->
-		<annotation cp='[🚏]' tts='ばすてい' draft='provisional'>ばすてい; ばすのりば; のりもの</annotation>
+		<annotation cp='[🚏]' tts='ばすてい'>ばすのりば; のりもの; ばすてい</annotation>
 
 		<!-- minibus; bus; vehicle -->
-		<annotation cp='[🚐]' tts='みにばす' draft='provisional'>みにばす; ばす; のりもの</annotation>
+		<annotation cp='[🚐]' tts='みにばす'>ばす; のりもの; みにばす</annotation>
 
 		<!-- ambulance; vehicle -->
-		<annotation cp='[🚑]' tts='きゅうきゅうしゃ' draft='provisional'>きゅうきゅうしゃ; のりもの</annotation>
+		<annotation cp='[🚑]' tts='きゅうきゅうしゃ'>のりもの; きゅうきゅうしゃ</annotation>
 
 		<!-- fire engine; engine; fire; truck; vehicle -->
-		<annotation cp='[🚒]' tts='しょうぼうしゃ' draft='provisional'>しょうぼうしゃ; のりもの</annotation>
+		<annotation cp='[🚒]' tts='しょうぼうしゃ'>のりもの; しょうぼうしゃ</annotation>
 
 		<!-- police car; car; patrol; police; vehicle -->
-		<annotation cp='[🚓]' tts='ぱとかー' draft='provisional'>ぱとかー; のりもの</annotation>
+		<annotation cp='[🚓]' tts='ぱとかー'>のりもの; ぱとかー</annotation>
 
 		<!-- oncoming police car; car; oncoming; police; vehicle -->
-		<annotation cp='[🚔]' tts='ぱとかー' draft='provisional'>ぱとかー; のりもの</annotation>
+		<annotation cp='[🚔]' tts='ぱとかーしょうめん'>のりもの; ぱとかー</annotation>
 
 		<!-- taxi; vehicle -->
-		<annotation cp='[🚕]' tts='たくしー' draft='provisional'>たくしー; のりもの</annotation>
+		<annotation cp='[🚕]' tts='たくしー'>のりもの; たくしー</annotation>
 
 		<!-- oncoming taxi; oncoming; taxi; vehicle -->
-		<annotation cp='[🚖]' tts='たくしー' draft='provisional'>たくしー; のりもの</annotation>
+		<annotation cp='[🚖]' tts='たくしーしょうめん'>のりもの; たくしー</annotation>
 
 		<!-- automobile; car; vehicle -->
-		<annotation cp='[🚗]' tts='じどうしゃ' draft='provisional'>じどうしゃ; くるま; のりもの</annotation>
+		<annotation cp='[🚗]' tts='じどうしゃ'>じどうしゃ; くるま; のりもの</annotation>
 
 		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
-		<annotation cp='[🚘]' tts='くるま' draft='provisional'>くるま; のりもの</annotation>
+		<annotation cp='[🚘]' tts='くるま'>じどうしゃ; くるま; のりもの</annotation>
 
 		<!-- recreational vehicle; recreational; rv; vehicle -->
-		<annotation cp='[🚙]' tts='あーるぶい' draft='provisional'>あーるぶい; じどうしゃ; くるま; のりもの</annotation>
+		<annotation cp='[🚙]' tts='あーるぶい'>じどうしゃ; くるま; のりもの</annotation>
 
 		<!-- delivery truck; delivery; truck; vehicle -->
-		<annotation cp='[🚚]' tts='とらっく' draft='provisional'>とらっく; くるま; のりもの</annotation>
+		<annotation cp='[🚚]' tts='とらっく'>くるま; のりもの; とらっく</annotation>
 
 		<!-- articulated lorry; lorry; semi; truck; vehicle -->
-		<annotation cp='[🚛]' tts='とらっく' draft='provisional'>とらっく; くるま; のりもの</annotation>
+		<annotation cp='[🚛]' tts='れんけつとらっく'>くるま; のりもの; とらっく</annotation>
 
 		<!-- tractor; vehicle -->
-		<annotation cp='[🚜]' tts='とらくたー' draft='provisional'>とらくたー; くるま; のりもの</annotation>
+		<annotation cp='[🚜]' tts='とらくたー'>くるま; のりもの; とらくたー</annotation>
 
 		<!-- bicycle; bike; vehicle -->
-		<annotation cp='[🚲]' tts='じてんしゃ' draft='provisional'>じてんしゃ; のりもの</annotation>
+		<annotation cp='[🚲]' tts='じてんしゃ'>のりもの; じてんしゃ</annotation>
 
 		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
-		<annotation cp='[⛽]' tts='がそりんのずる' draft='provisional'>がそりんのずる; がそりん</annotation>
+		<annotation cp='[⛽]' tts='がそりんのずる'>がそりん; がそりんすたんど</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='こうそくどうろ'>どうろ; こうそくどうろ</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='せんろ'>せんろ; てつどう</annotation>
 
 		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
-		<annotation cp='[🚨]' tts='ぱとらんぷ' draft='provisional'>ぱとらんぷ</annotation>
+		<annotation cp='[🚨]' tts='ぱとらんぷ'>ぱとらんぷ; ぱとかー</annotation>
 
 		<!-- horizontal traffic light; light; signal; traffic -->
-		<annotation cp='[🚥]' tts='しんごう' draft='provisional'>しんごう; しんごうき</annotation>
+		<annotation cp='[🚥]' tts='しんごうよこ'>しんごうき; しんごう</annotation>
 
 		<!-- vertical traffic light; light; signal; traffic -->
-		<annotation cp='[🚦]' tts='しんごう' draft='provisional'>しんごう; しんごうき</annotation>
+		<annotation cp='[🚦]' tts='しんごうたて'>しんごうき; しんごう</annotation>
 
 		<!-- construction; barrier -->
-		<annotation cp='[🚧]' tts='こうじちゅう' draft='provisional'>こうじちゅう; つうこうどめ; さいん</annotation>
+		<annotation cp='[🚧]' tts='こうじちゅう'>つうこうどめ; さいん</annotation>
 
 		<!-- anchor; ship; tool -->
-		<annotation cp='[⚓]' tts='いかり' draft='provisional'>いかり</annotation>
+		<annotation cp='[⚓]' tts='いかり'>いかり; ふね</annotation>
 
 		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
-		<annotation cp='[⛵]' tts='よっと' draft='provisional'>よっと; ほぶね; はんせん; ふね</annotation>
+		<annotation cp='[⛵]' tts='よっと'>ほぶね; はんせん; ふね; よっと; のりもの</annotation>
 
 		<!-- rowboat; boat; vehicle -->
-		<annotation cp='[🚣]' tts='ぼーと' draft='provisional'>ぼーと; こぐぼーと; ふね</annotation>
+		<annotation cp='[🚣]' tts='ぼーと'>ぼーと; ふね; のりもの</annotation>
 
 		<!-- speedboat; boat; vehicle -->
-		<annotation cp='[🚤]' tts='すぴーどぼーと' draft='provisional'>すぴーどぼーと; ぼーと; ふね; のりもの</annotation>
+		<annotation cp='[🚤]' tts='すぴーどぼーと'>ぼーと; ふね; のりもの; すぴーどぼーと</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='きゃくせん'>ふね; のりもの; きゃくせん</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='ふぇりー'>ふね; のりもの; ふぇりー</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='もーたーぼーと'>ぼーと; ふね; のりもの; もーたーぼーと</annotation>
 
 		<!-- ship; vehicle -->
-		<annotation cp='[🚢]' tts='ふね' draft='provisional'>ふね; のりもの</annotation>
+		<annotation cp='[🚢]' tts='ふね'>ふね; のりもの</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='ひこうき'>のりもの; ひこうき</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='ちいさいひこうき'>のりもの; ひこうき</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='ひこうきりりく'>のりもの; ひこうき; りりく</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='ひこうきちゃくりく'>のりもの; ひこうき; ちゃくりく</annotation>
 
 		<!-- seat; chair -->
-		<annotation cp='[💺]' tts='せき' draft='provisional'>せき; いす; ざせき</annotation>
+		<annotation cp='[💺]' tts='ざせき'>いす; ざせき; せき</annotation>
 
 		<!-- helicopter; vehicle -->
-		<annotation cp='[🚁]' tts='へりこぷたー' draft='provisional'>へりこぷたー; へり; のりもの</annotation>
+		<annotation cp='[🚁]' tts='へりこぷたー'>へり; のりもの; へりこぷたー</annotation>
 
 		<!-- suspension railway; railway; suspension; vehicle -->
-		<annotation cp='[🚟]' tts='ものれーる' draft='provisional'>ものれーる; つりものれーる; でんしゃ; のりもの</annotation>
+		<annotation cp='[🚟]' tts='つりものれーる'>つりものれーる; でんしゃ; のりもの; ものれーる</annotation>
 
 		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
-		<annotation cp='[🚠]' tts='けーぶるかー' draft='provisional'>けーぶるかー; でんしゃ; のりもの</annotation>
+		<annotation cp='[🚠]' tts='けーぶるかー'>のりもの; けーぶるかー</annotation>
 
 		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
-		<annotation cp='[🚡]' tts='ろーぷうぇい' draft='provisional'>ろーぷうぇい; けーぶるかー; のりもの</annotation>
+		<annotation cp='[🚡]' tts='ろーぷうぇい'>のりもの; ろーぷうぇい</annotation>
 
 		<!-- rocket; space; vehicle -->
-		<annotation cp='[🚀]' tts='ろけっと' draft='provisional'>ろけっと; のりもの</annotation>
+		<annotation cp='[🚀]' tts='ろけっと'>のりもの; ろけっと</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='じんこうえいせい'>うちゅう; じんこうえいせい</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='べるぼーいべる'>べる; ほてる</annotation>
 
 		<!-- door -->
-		<annotation cp='[🚪]' tts='どあ' draft='provisional'>どあ; とびら</annotation>
+		<annotation cp='[🚪]' tts='どあ'>とびら; どあ; と</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='べっどにねるひと'>ほてる; べっど</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='べっど'>ほてる; べっど</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='そふぁとらんぷ'>ほてる; そふぁ</annotation>
 
 		<!-- toilet -->
-		<annotation cp='[🚽]' tts='といれ' draft='provisional'>といれ</annotation>
+		<annotation cp='[🚽]' tts='べんき'>といれ; べんき</annotation>
 
 		<!-- shower; water -->
-		<annotation cp='[🚿]' tts='しゃわー' draft='provisional'>しゃわー</annotation>
+		<annotation cp='[🚿]' tts='しゃわー'>しゃわー</annotation>
 
 		<!-- person taking bath; bathtub; bath -->
-		<annotation cp='[🛀]' tts='ふろ' draft='provisional'>ふろ</annotation>
+		<annotation cp='[🛀]' tts='ふろ'>ふろ; ばすたぶ</annotation>
 
 		<!-- bathtub; bath -->
-		<annotation cp='[🛁]' tts='ばすたび' draft='provisional'>ばすたび</annotation>
+		<annotation cp='[🛁]' tts='ばすたぶ'>ふろ; ばすたぶ</annotation>
 
 		<!-- hourglass; sand; timer -->
-		<annotation cp='[⌛]' tts='すなどけい' draft='provisional'>すなどけい; とけい</annotation>
+		<annotation cp='[⌛]' tts='すなどけい'>とけい; すなどけい</annotation>
 
 		<!-- hourglass with flowing sand; hourglass; sand; timer -->
-		<annotation cp='[⏳]' tts='すなどけい' draft='provisional'>すなどけい; とけい</annotation>
+		<annotation cp='[⏳]' tts='ながれるすなどけい'>とけい; すなどけい</annotation>
 
 		<!-- watch; clock -->
-		<annotation cp='[⌚]' tts='うでどけい' draft='provisional'>うでどけい; うおっち; とけい</annotation>
+		<annotation cp='[⌚]' tts='うでどけい'>とけい; うでどけい</annotation>
 
 		<!-- alarm clock; alarm; clock -->
-		<annotation cp='[⏰]' tts='めざましどけい' draft='provisional'>めざましどけい; とけい; めざまし</annotation>
+		<annotation cp='[⏰]' tts='めざましどけい'>とけい; めざまし</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='すとっぷうぉっち'>とけい; めざまし; すとっぷうぉっち</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='たいまー'>とけい; たいまー</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='おきどけい'>とけい</annotation>
 
 		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
-		<annotation cp='[🕛]' tts='じゅうにじ' draft='provisional'>じゅうにじ; とけい; １２じ; しょうご</annotation>
+		<annotation cp='[🕛]' tts='じゅうにじ'>とけい; １２じ; しょうご</annotation>
 
 		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
-		<annotation cp='[🕧]' tts='じゅうにじはん' draft='provisional'>じゅうにじはん; とけい</annotation>
+		<annotation cp='[🕧]' tts='じゅうにじはん'>とけい; 12じはん</annotation>
 
 		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
-		<annotation cp='[🕐]' tts='いちじ' draft='provisional'>いちじ; とけい; １じ</annotation>
+		<annotation cp='[🕐]' tts='いちじ'>とけい; １じ</annotation>
 
 		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
-		<annotation cp='[🕜]' tts='いちじはん' draft='provisional'>いちじはん; とけい</annotation>
+		<annotation cp='[🕜]' tts='いちじはん'>とけい; 1じはん</annotation>
 
 		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
-		<annotation cp='[🕑]' tts='にじ' draft='provisional'>にじ; とけい; ２じ</annotation>
+		<annotation cp='[🕑]' tts='にじ'>とけい; ２じ</annotation>
 
 		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
-		<annotation cp='[🕝]' tts='にじはん' draft='provisional'>にじはん; とけい</annotation>
+		<annotation cp='[🕝]' tts='にじはん'>とけい; 2じはん</annotation>
 
 		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
-		<annotation cp='[🕒]' tts='さんじ' draft='provisional'>さんじ; とけい; ３じ</annotation>
+		<annotation cp='[🕒]' tts='さんじ'>とけい; ３じ</annotation>
 
 		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
-		<annotation cp='[🕞]' tts='さんじはん' draft='provisional'>さんじはん; とけい</annotation>
+		<annotation cp='[🕞]' tts='さんじはん'>とけい; 3じはん</annotation>
 
 		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
-		<annotation cp='[🕓]' tts='よじ' draft='provisional'>よじ; とけい; ４じ</annotation>
+		<annotation cp='[🕓]' tts='よじ'>とけい; ４じ</annotation>
 
 		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
-		<annotation cp='[🕟]' tts='よじはん' draft='provisional'>よじはん; とけい</annotation>
+		<annotation cp='[🕟]' tts='よじはん'>とけい; 4じはん</annotation>
 
 		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
-		<annotation cp='[🕔]' tts='ごじ' draft='provisional'>ごじ; とけい; ５じ</annotation>
+		<annotation cp='[🕔]' tts='ごじ'>とけい; ５じ</annotation>
 
 		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
-		<annotation cp='[🕠]' tts='ごじはん' draft='provisional'>ごじはん; とけい</annotation>
+		<annotation cp='[🕠]' tts='ごじはん'>とけい; 5じはん</annotation>
 
 		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
-		<annotation cp='[🕕]' tts='ろくじ' draft='provisional'>ろくじ; とけい; ６じ</annotation>
+		<annotation cp='[🕕]' tts='ろくじ'>とけい; ６じ</annotation>
 
 		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
-		<annotation cp='[🕡]' tts='ろくじはん' draft='provisional'>ろくじはん; とけい</annotation>
+		<annotation cp='[🕡]' tts='ろくじはん'>とけい; 6じはん</annotation>
 
 		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
-		<annotation cp='[🕖]' tts='ななじ' draft='provisional'>ななじ; とけい; しちじ; ７じ</annotation>
+		<annotation cp='[🕖]' tts='しちじ'>とけい; 7じ</annotation>
 
 		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
-		<annotation cp='[🕢]' tts='ななじはん' draft='provisional'>ななじはん; とけい</annotation>
+		<annotation cp='[🕢]' tts='ななじはん'>とけい; 7じはん</annotation>
 
 		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
-		<annotation cp='[🕗]' tts='はちじ' draft='provisional'>はちじ; とけい; ８じ</annotation>
+		<annotation cp='[🕗]' tts='はちじ'>とけい; ８じ</annotation>
 
 		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
-		<annotation cp='[🕣]' tts='はちじはん' draft='provisional'>はちじはん; とけい</annotation>
+		<annotation cp='[🕣]' tts='はちじはん'>とけい; 8じはん</annotation>
 
 		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
-		<annotation cp='[🕘]' tts='くじ' draft='provisional'>くじ; とけい; ９じ</annotation>
+		<annotation cp='[🕘]' tts='くじ'>とけい; ９じ</annotation>
 
 		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
-		<annotation cp='[🕤]' tts='くじはん' draft='provisional'>くじはん; とけい</annotation>
+		<annotation cp='[🕤]' tts='くじはん'>とけい; 9じはん</annotation>
 
 		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
-		<annotation cp='[🕙]' tts='じゅうじ' draft='provisional'>じゅうじ; とけい; １０じ; めざまし</annotation>
+		<annotation cp='[🕙]' tts='じゅうじ'>とけい; 10じ</annotation>
 
 		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
-		<annotation cp='[🕥]' tts='じゅうじはん' draft='provisional'>じゅうじはん; とけい</annotation>
+		<annotation cp='[🕥]' tts='じゅうじはん'>とけい; 10じはん</annotation>
 
 		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
-		<annotation cp='[🕚]' tts='じゅういちじ' draft='provisional'>じゅういちじ; とけい; １１じ</annotation>
+		<annotation cp='[🕚]' tts='じゅういちじ'>とけい; １１じ</annotation>
 
 		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
-		<annotation cp='[🕦]' tts='じゅういちじはん' draft='provisional'>じゅういちじはん; とけい</annotation>
+		<annotation cp='[🕦]' tts='じゅういちじはん'>とけい; 11じはん</annotation>
 
 		<!-- new moon; dark; moon; space; weather -->
-		<annotation cp='[🌑]' tts='しんげつ' draft='provisional'>しんげつ; つき</annotation>
+		<annotation cp='[🌑]' tts='しんげつ'>つき; しんげつ</annotation>
 
 		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
-		<annotation cp='[🌒]' tts='みかづき' draft='provisional'>みかづき; つき</annotation>
+		<annotation cp='[🌒]' tts='ういづき'>つき; みかづき</annotation>
 
 		<!-- first quarter moon; moon; quarter; space; weather -->
-		<annotation cp='[🌓]' tts='はんげつ' draft='provisional'>はんげつ; つき</annotation>
+		<annotation cp='[🌓]' tts='じょうげんのつき'>つき; はんげつ; じょうげん</annotation>
 
 		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
-		<annotation cp='[🌔]' tts='かけづき' draft='provisional'>かけづき; つき</annotation>
+		<annotation cp='[🌔]' tts='じゅうさんやづき'>つき</annotation>
 
 		<!-- full moon; full; moon; space; weather -->
-		<annotation cp='[🌕]' tts='まんげつ' draft='provisional'>まんげつ; つき</annotation>
+		<annotation cp='[🌕]' tts='まんげつ'>つき; まんげつ</annotation>
 
 		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
-		<annotation cp='[🌖]' tts='つき' draft='provisional'>つき</annotation>
+		<annotation cp='[🌖]' tts='ねまちづき'>つき</annotation>
 
 		<!-- last quarter moon; moon; quarter; space; weather -->
-		<annotation cp='[🌗]' tts='つき' draft='provisional'>つき</annotation>
+		<annotation cp='[🌗]' tts='かげんのつき'>つき; はんげつ; かげん</annotation>
 
 		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
-		<annotation cp='[🌘]' tts='みかづき' draft='provisional'>みかづき; にじゅうろくやのつき; つき</annotation>
+		<annotation cp='[🌘]' tts='ありあけづき'>つき</annotation>
 
 		<!-- crescent moon; crescent; moon; space; weather -->
-		<annotation cp='[🌙]' tts='みかづき' draft='provisional'>みかづき; つき</annotation>
+		<annotation cp='[🌙]' tts='みかづき'>つき; みかづき</annotation>
 
 		<!-- new moon face; face; moon; space; weather -->
-		<annotation cp='[🌚]' tts='しんげつ' draft='provisional'>しんげつ; つき</annotation>
+		<annotation cp='[🌚]' tts='しんげつのかお'>つき; かお</annotation>
 
 		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
-		<annotation cp='[🌛]' tts='みかづき' draft='provisional'>みかづき; つき</annotation>
+		<annotation cp='[🌛]' tts='じょうげんのつきのかお'>つき; かお</annotation>
 
 		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
-		<annotation cp='[🌜]' tts='みかづき' draft='provisional'>みかづき; つき</annotation>
+		<annotation cp='[🌜]' tts='かげんのつきのかお'>つき; かお</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='おんどけい'>おんどけい; おんど</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='たいよう'>たいよう; はれ</annotation>
 
 		<!-- full moon with face; bright; face; full; moon; space; weather -->
-		<annotation cp='[🌝]' tts='まんげつ' draft='provisional'>まんげつ; つき</annotation>
+		<annotation cp='[🌝]' tts='おつきさま'>つき; かお</annotation>
 
 		<!-- sun with face; bright; face; space; sun; weather -->
-		<annotation cp='[🌞]' tts='おひさま' draft='provisional'>おひさま; たいよう</annotation>
+		<annotation cp='[🌞]' tts='おひさま'>たいよう; かお</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='ほし'>ほし</annotation>
 
 		<!-- glowing star; glittery; glow; shining; sparkle; star -->
-		<annotation cp='[🌟]' tts='ほし' draft='provisional'>ほし; かがやき; きらきら</annotation>
+		<annotation cp='[🌟]' tts='きらきらぼし'>かがやき; きらきら; ほし</annotation>
 
 		<!-- shooting star; falling; shooting; space; star -->
-		<annotation cp='[🌠]' tts='ながれぼし' draft='provisional'>ながれぼし; ほし</annotation>
+		<annotation cp='[🌠]' tts='ながれぼし'>ほし; ながれぼし</annotation>
 
 		<!-- cloud; weather -->
-		<annotation cp='[☁]' tts='くも' draft='provisional'>くも</annotation>
+		<annotation cp='[☁]' tts='くも'>くも; くもり</annotation>
 
 		<!-- sun behind cloud; cloud; sun; weather -->
-		<annotation cp='[⛅]' tts='くもり' draft='provisional'>くもり; くも; たいよう</annotation>
+		<annotation cp='[⛅]' tts='くもり'>くも; たいよう; くもり</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='らいう'>くも; かみなり; あめ; らいう</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='たいようとちいさいくも'>くも; たいよう; はれ</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='たいようとおおきいくも'>くも; くもり</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='たいようとくもとあめ'>くも; くもり; あめ</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='くもとあめ'>くも; あめ</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='くもとゆき'>くも; ゆき</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='くもとかみなり'>くも; いなづま; かみなり</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='たつまき'>くも; たつまき</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='きり'>きり</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='かぜのかお'>かぜ</annotation>
 
 		<!-- cyclone; dizzy; twister; typhoon; weather -->
-		<annotation cp='[🌀]' tts='うずまき' draft='provisional'>うずまき; たいふう; うず; めまい; もやもや</annotation>
+		<annotation cp='[🌀]' tts='うずまき'>たいふう; うず; めまい; もやもや</annotation>
 
 		<!-- rainbow; rain; weather -->
-		<annotation cp='[🌈]' tts='にじ' draft='provisional'>にじ</annotation>
+		<annotation cp='[🌈]' tts='れいんぼー'>にじ</annotation>
 
 		<!-- closed umbrella; clothing; rain; umbrella; weather -->
-		<annotation cp='[🌂]' tts='かさ' draft='provisional'>かさ; あめ</annotation>
+		<annotation cp='[🌂]' tts='とじたかさ'>あめ; かさ</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='かさ'>あめ; かさ</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='かさとあめ'>あめ; かさ</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='ぱらそる'>かさ; ぱらそる; びーち</annotation>
 
 		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
-		<annotation cp='[⚡]' tts='こうでんあつ' draft='provisional'>こうでんあつ; さいん</annotation>
+		<annotation cp='[⚡]' tts='こうでんあつ'>いなづま; こうでんあつ; きけん; でんき</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='ゆきのけっしょう'>ゆき; けっしょう</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='ゆきだるまとゆき'>ゆき; ゆきだるま</annotation>
 
 		<!-- snowman without snow; cold; snow; snowman; weather -->
-		<annotation cp='[⛄]' tts='ゆきだるま' draft='provisional'>ゆきだるま</annotation>
+		<annotation cp='[⛄]' tts='ゆきだるま'>ゆき; ゆきだるま</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='すいせい'>すいせい</annotation>
 
 		<!-- fire; flame; tool -->
-		<annotation cp='[🔥]' tts='ひ' draft='provisional'>ひ; ほのお; ふぁいやー; ふぁいあー</annotation>
+		<annotation cp='[🔥]' tts='ひ'>ほのお; ふぁいやー; ふぁいあー; ひ</annotation>
 
 		<!-- droplet; cold; comic; drop; sweat; weather -->
-		<annotation cp='[💧]' tts='あせ' draft='provisional'>あせ; なみだ; しずく; たらーっ</annotation>
+		<annotation cp='[💧]' tts='あせ'>なみだ; しずく; たらーっ; あせ</annotation>
 
 		<!-- water wave; ocean; water; wave; weather -->
-		<annotation cp='[🌊]' tts='なみ' draft='provisional'>なみ</annotation>
+		<annotation cp='[🌊]' tts='なみ'>なみ</annotation>
 
 		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
-		<annotation cp='[🎃]' tts='きりぬきかぼちゃ　かぼちゃ' draft='provisional'>きりぬきかぼちゃ　かぼちゃ</annotation>
+		<annotation cp='[🎃]' tts='はろうぃんかぼちゃ'>かぼちゃ; はろうぃーん</annotation>
 
 		<!-- christmas tree; celebration; christmas; tree -->
-		<annotation cp='[🎄]' tts='くりすますつりー' draft='provisional'>くりすますつりー; つりー; くりすます</annotation>
+		<annotation cp='[🎄]' tts='くりすますつりー'>つりー; くりすます; くりすますつりー</annotation>
 
 		<!-- fireworks; celebration -->
-		<annotation cp='[🎆]' tts='はなび' draft='provisional'>はなび; うちあげはなび</annotation>
+		<annotation cp='[🎆]' tts='はなび'>うちあげはなび; はなび</annotation>
 
 		<!-- sparkler; celebration; fireworks; sparkle -->
-		<annotation cp='[🎇]' tts='せんこうはなび' draft='provisional'>せんこうはなび; はなび</annotation>
+		<annotation cp='[🎇]' tts='せんこうはなび'>はなび</annotation>
 
 		<!-- sparkles; sparkle; star -->
-		<annotation cp='[✨]' tts='きらきら' draft='provisional'>きらきら; ぴかぴか</annotation>
+		<annotation cp='[✨]' tts='きらきら'>ぴかぴか; きらきら; ほし</annotation>
 
 		<!-- balloon; celebration -->
-		<annotation cp='[🎈]' tts='ふうせん' draft='provisional'>ふうせん; ばるーん</annotation>
+		<annotation cp='[🎈]' tts='ふうせん'>ふうせん; ばるーん</annotation>
 
 		<!-- party popper; celebration; party; popper; tada -->
-		<annotation cp='[🎉]' tts='ぱーてぃくらっかー' draft='provisional'>ぱーてぃくらっかー; くらっかー</annotation>
+		<annotation cp='[🎉]' tts='ぱーてぃくらっかー'>くらっかー; ぱーてぃー</annotation>
 
 		<!-- confetti ball; ball; celebration; confetti -->
-		<annotation cp='[🎊]' tts='くすだま' draft='provisional'>くすだま</annotation>
+		<annotation cp='[🎊]' tts='くすだま'>くすだま; ぱーてぃー</annotation>
 
 		<!-- tanabata tree; banner; celebration; japanese; tree -->
-		<annotation cp='[🎋]' tts='たなばた' draft='provisional'>たなばた; たんざく</annotation>
+		<annotation cp='[🎋]' tts='たなばた'>たんざく; たなばた</annotation>
 
 		<!-- crossed flags; celebration; cross; crossed; japanese -->
-		<annotation cp='[🎌]' tts='しゅくじつ' draft='provisional'>しゅくじつ; はた; ひのまる</annotation>
+		<annotation cp='[🎌]' tts='しゅくじつ'>はた; ひのまる; しゅくじつ</annotation>
 
 		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
-		<annotation cp='[🎍]' tts='かどまつ' draft='provisional'>かどまつ; しょうがつ</annotation>
+		<annotation cp='[🎍]' tts='かどまつ'>しょうがつ; かどまつ</annotation>
 
 		<!-- japanese dolls; celebration; doll; festival; japanese -->
-		<annotation cp='[🎎]' tts='ひなまつり' draft='provisional'>ひなまつり; おだいりさま</annotation>
+		<annotation cp='[🎎]' tts='ひなまつり'>おだいりさま; ひなまつり</annotation>
 
 		<!-- carp streamer; carp; celebration; streamer -->
-		<annotation cp='[🎏]' tts='こいのぼり' draft='provisional'>こいのぼり; こどものひ</annotation>
+		<annotation cp='[🎏]' tts='こいのぼり'>こどものひ; こいのぼり</annotation>
 
 		<!-- wind chime; bell; celebration; chime; wind -->
-		<annotation cp='[🎐]' tts='ふうりん' draft='provisional'>ふうりん</annotation>
+		<annotation cp='[🎐]' tts='ふうりん'>ふうりん</annotation>
 
 		<!-- moon ceremony; celebration; ceremony; moon -->
-		<annotation cp='[🎑]' tts='つきみ' draft='provisional'>つきみ; すすき; つき; じゅうごや</annotation>
+		<annotation cp='[🎑]' tts='つきみ'>すすき; つき; じゅうごや; つきみ</annotation>
 
 		<!-- ribbon; celebration -->
-		<annotation cp='[🎀]' tts='りぼん' draft='provisional'>りぼん</annotation>
+		<annotation cp='[🎀]' tts='りぼん'>おいわい; りぼん</annotation>
 
 		<!-- wrapped present; box; celebration; gift; present; wrapped -->
-		<annotation cp='[🎁]' tts='ぷれぜんと' draft='provisional'>ぷれぜんと</annotation>
+		<annotation cp='[🎁]' tts='ぷれぜんと'>おいわい; ぷれぜんと; ぎふと</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='くんしょう'>おいわい; めだる; くんしょう</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='りまいんだーりぼん'>おいわい; りぼん; りまいんだー</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='えいがふぃるむ'>えいが; ふぃるむ</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='にゅうじょうけん'>にゅうじょうけん; ちけっと</annotation>
 
 		<!-- ticket; admission -->
-		<annotation cp='[🎫]' tts='ちけっと' draft='provisional'>ちけっと; きっぷ</annotation>
+		<annotation cp='[🎫]' tts='ちけっと'>きっぷ; ちけっと</annotation>
+
+		<!-- label -->
+		<annotation cp='[🏷]' tts='らべる'>らべる</annotation>
 
 		<!-- soccer ball; ball; soccer -->
-		<annotation cp='[⚽]' tts='さっかーぼーる' draft='provisional'>さっかーぼーる; さっかー</annotation>
+		<annotation cp='[⚽]' tts='さっかー'>さっかー; さっかーぼーる; ぼーる; すぽーつ</annotation>
 
 		<!-- baseball; ball -->
-		<annotation cp='[⚾]' tts='やきゅうぼーる' draft='provisional'>やきゅうぼーる; やきゅう</annotation>
+		<annotation cp='[⚾]' tts='やきゅう'>やきゅう; ぼーる; すぽーつ</annotation>
 
 		<!-- basketball; ball; hoop -->
-		<annotation cp='[🏀]' tts='ばすけ' draft='provisional'>ばすけ; ばすけっとぼーる; すぽーつ</annotation>
+		<annotation cp='[🏀]' tts='ばすけ'>ばすけっとぼーる; すぽーつ; ぼーる</annotation>
 
 		<!-- american football; american; ball; football -->
-		<annotation cp='[🏈]' tts='あめふと' draft='provisional'>あめふと; らぐびー; らぐびーぼーる; ぼーる; すぽーつ</annotation>
+		<annotation cp='[🏈]' tts='あめふと'>あめふと; あめりかんふっとぼーる; ぼーる; すぽーつ</annotation>
 
 		<!-- rugby football; ball; football; rugby -->
-		<annotation cp='[🏉]' tts='らぐびー' draft='provisional'>らぐびー; らぐびーぼーる; ぼーる; すぽーつ</annotation>
+		<annotation cp='[🏉]' tts='らぐびー'>らぐびーぼーる; ぼーる; すぽーつ; らぐびー</annotation>
 
 		<!-- tennis; ball; racquet -->
-		<annotation cp='[🎾]' tts='てにす' draft='provisional'>てにす; すぽーつ; てにすぼーる</annotation>
+		<annotation cp='[🎾]' tts='てにす'>すぽーつ; てにすぼーる; ぼーる; てにす</annotation>
 
 		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
-		<annotation cp='[🎱]' tts='びりやーど' draft='provisional'>びりやーど</annotation>
+		<annotation cp='[🎱]' tts='びりやーど'>びりやーど; えいとぼーる; ぼーる; すぽーつ</annotation>
 
 		<!-- bowling; ball; game -->
-		<annotation cp='[🎳]' tts='ぼーりんぐ' draft='provisional'>ぼーりんぐ</annotation>
+		<annotation cp='[🎳]' tts='ぼーりんぐ'>ぼーりんぐ; ぼーる; すぽーつ</annotation>
 
 		<!-- flag in hole; golf; hole -->
-		<annotation cp='[⛳]' tts='ごるふのはた' draft='provisional'>ごるふのはた; ごるふふらぐ; ふらぐ</annotation>
+		<annotation cp='[⛳]' tts='ごるふのはた'>ごるふ; ふらぐ; ほーる; ふらっぐ; すぽーつ</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='ごるふぁー'>ごるふ; すぽーつ</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='あいすすけーと'>すぽーつ; すけーと; あいすすけーと</annotation>
 
 		<!-- fishing pole; fish; pole -->
-		<annotation cp='[🎣]' tts='つりざお' draft='provisional'>つりざお; つり</annotation>
+		<annotation cp='[🎣]' tts='つりざお'>つり; さかな; つりざお</annotation>
 
 		<!-- running shirt; running; sash; shirt -->
-		<annotation cp='[🎽]' tts='たすきしゃつ' draft='provisional'>たすきしゃつ; しゃつ; たすき; まらそん</annotation>
+		<annotation cp='[🎽]' tts='たすきしゃつ'>しゃつ; たすき; えきでん</annotation>
 
 		<!-- skis; ski; snow -->
-		<annotation cp='[🎿]' tts='すきー' draft='provisional'>すきー; すとっく; すぽーつ; すきーぶーつ</annotation>
+		<annotation cp='[🎿]' tts='すきー'>すきー; すとっく; すぽーつ</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='すきーやー'>すきー; すとっく; すぽーつ</annotation>
 
 		<!-- snowboarder; ski; snow; snowboard -->
-		<annotation cp='[🏂]' tts='すのーぼーど' draft='provisional'>すのーぼーど; すのぼ; すぽーつ</annotation>
+		<annotation cp='[🏂]' tts='すのーぼーど'>すのぼ; すぽーつ; すのーぼーど</annotation>
 
 		<!-- surfer; surfing -->
-		<annotation cp='[🏄]' tts='さーふぃん' draft='provisional'>さーふぃん; ふぁーふぁー; すぽーつ</annotation>
+		<annotation cp='[🏄]' tts='さーふぃん'>さーふぃん; すぽーつ</annotation>
 
 		<!-- horse racing; horse; jockey; racehorse; racing -->
-		<annotation cp='[🏇]' tts='けいば' draft='provisional'>けいば</annotation>
+		<annotation cp='[🏇]' tts='けいば'>じょうば; けいば; じょっきー; すぽーつ; ぎゃんぶる</annotation>
 
 		<!-- swimmer; swim -->
-		<annotation cp='[🏊]' tts='すいまー' draft='provisional'>すいまー; すいえい; すぽーつ</annotation>
+		<annotation cp='[🏊]' tts='すいまー'>すいえい; すぽーつ</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='ばすけっとぷれーやー'>ばすけっとぼーる; すぽーつ</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='うぇいとりふてぃんぐ'>うぇいとりふてぃんぐ; じゅうりょうあげ; すぽーつ</annotation>
 
 		<!-- bicyclist; bicycle; bike; cyclist -->
-		<annotation cp='[🚴]' tts='じてんしゃのり' draft='provisional'>じてんしゃのり; さいくりすと</annotation>
+		<annotation cp='[🚴]' tts='じてんしゃのり'>じてんしゃ; さいくりんぐ; ろーどばいく; すぽーつ; けいりん</annotation>
 
 		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
-		<annotation cp='[🚵]' tts='じてんしゃのり' draft='provisional'>じてんしゃのり; まうんてんばいくのり; さいくりすと</annotation>
+		<annotation cp='[🚵]' tts='まうんてんばいく'>じてんしゃ; さいくりんぐ; まうんてんばいく; すぽーつ</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='れーしんぐかー'>くるま; れーしんぐかー; のりもの</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='おーとばい'>ばいく; おーとばい; のりもの</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='めだる'>めだる</annotation>
 
 		<!-- trophy; prize -->
-		<annotation cp='[🏆]' tts='とろふぃー' draft='provisional'>とろふぃー; かっぷ</annotation>
+		<annotation cp='[🏆]' tts='とろふぃー'>とろふぃー</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='くりけっと'>くりけっと; すぽーつ</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='ばれーぼーる'>ばれーぼーる; ぼーる; すぽーつ; ばれー</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='ほっけー'>ふぃーるどほっけー; すぽーつ; ほっけー</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='あいすほっけー'>あいすほっけー; すぽーつ; ほっけー</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='たっきゅう'>たっきゅう; ぴんぽん; すぽーつ; らけっと</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='ばどみんとん'>ばどみんとん; すぽーつ; らけっと</annotation>
 
 		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
-		<annotation cp='[🎯]' tts='まと' draft='provisional'>まと; あたり</annotation>
+		<annotation cp='[🎯]' tts='まと'>あたり; まと; だーつ</annotation>
 
 		<!-- video game; controller; game -->
-		<annotation cp='[🎮]' tts='びでおげーむ' draft='provisional'>びでおげーむ; こんとろーら; てれびげーむ</annotation>
+		<annotation cp='[🎮]' tts='びでおげーむ'>こんとろーら; てれびげーむ; げーむ</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='じょいすてぃっく'>こんとろーら; てれびげーむ; すてぃっく; げーむ</annotation>
 
 		<!-- game die; dice; die; game -->
-		<annotation cp='[🎲]' tts='さいころ' draft='provisional'>さいころ; だいす</annotation>
+		<annotation cp='[🎲]' tts='さいころ'>さいころ; だいす; げーむ</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='すぺーど'>すぺーど; とらんぷ; かーど</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='はーと'>はーと; とらんぷ; かーど</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='だいや'>だいや; だいあ; とらんぷ; かーど</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='くらぶ'>くろーばー; とらんぷ; かーど; くらぶ</annotation>
 
 		<!-- joker; card; game; playing -->
-		<annotation cp='[🃏]' tts='じょーかー' draft='provisional'>じょーかー; とらんぷ</annotation>
+		<annotation cp='[🃏]' tts='じょーかー'>じょーかー; とらんぷ; かーど</annotation>
 
 		<!-- mahjong red dragon; game; mahjong; red -->
-		<annotation cp='[🀄]' tts='まーじゃん' draft='provisional'>まーじゃん; ぱい</annotation>
+		<annotation cp='[🀄]' tts='まーじゃん'>まーじゃん; ぱい</annotation>
 
 		<!-- flower playing cards; card; flower; game; japanese; playing -->
-		<annotation cp='[🎴]' tts='はなふだ' draft='provisional'>はなふだ; かーど</annotation>
+		<annotation cp='[🎴]' tts='はなふだ'>はなふだ</annotation>
 
 		<!-- speaker off; mute; quiet; silent; speaker; volume -->
-		<annotation cp='[🔇]' tts='すぴーかー' draft='provisional'>すぴーかー; みゅーと; おとなし</annotation>
+		<annotation cp='[🔇]' tts='すぴーかーおふ'>みゅーと; おとなし; すぴーかー; おんりょう; ぼりゅーむ</annotation>
 
 		<!-- speaker; volume -->
-		<annotation cp='[🔈]' tts='すぴーかー' draft='provisional'>すぴーかー</annotation>
+		<annotation cp='[🔈]' tts='すぴーかー'>すぴーかー; おんりょう; ぼりゅーむ</annotation>
 
 		<!-- speaker on; low; speaker; volume; wave -->
-		<annotation cp='[🔉]' tts='すぴーかー' draft='provisional'>すぴーかー; おんりょうがちいさい; おんりょう</annotation>
+		<annotation cp='[🔉]' tts='すぴーかーおん'>おんりょうがちいさい; おんりょう; すぴーかー; ぼりゅーむ</annotation>
 
 		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
-		<annotation cp='[🔊]' tts='すぴーかー' draft='provisional'>すぴーかー; おんりょうがおおきい; おんりょう</annotation>
+		<annotation cp='[🔊]' tts='すぴーかーだいおんりょう'>おんりょうがおおきい; おんりょう; すぴーかー; ぼりゅーむ</annotation>
 
 		<!-- loudspeaker; loud; public address -->
-		<annotation cp='[📢]' tts='かくせいき' draft='provisional'>かくせいき; すぴーかー; めがほん</annotation>
+		<annotation cp='[📢]' tts='かくせいき'>すぴーかー; めがほん; かくせいき</annotation>
 
 		<!-- megaphone; cheering -->
-		<annotation cp='[📣]' tts='めがほん' draft='provisional'>めがほん; かくせいき</annotation>
+		<annotation cp='[📣]' tts='めがほん'>すぴーかー; めがほん; かくせいき</annotation>
 
 		<!-- postal horn; horn; post; postal -->
-		<annotation cp='[📯]' tts='ゆうびんらっぱ' draft='provisional'>ゆうびんらっぱ; らっぱ</annotation>
+		<annotation cp='[📯]' tts='ゆうびんらっぱ'>らっぱ; ゆうびん</annotation>
 
 		<!-- bell -->
-		<annotation cp='[🔔]' tts='べる' draft='provisional'>べる; ちゃぺる</annotation>
+		<annotation cp='[🔔]' tts='べる'>べる</annotation>
 
 		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
-		<annotation cp='[🔕]' tts='おとなしのべる　べる' draft='provisional'>おとなしのべる　べる</annotation>
+		<annotation cp='[🔕]' tts='べるみゅーと'>べる; みゅーと; おとなし</annotation>
 
 		<!-- musical score; music; score -->
-		<annotation cp='[🎼]' tts='がくふ' draft='provisional'>がくふ; とおんきごう; すこあ; ごせん</annotation>
+		<annotation cp='[🎼]' tts='がくふ'>とおんきごう; すこあ; ごせんふ; おんがく</annotation>
 
 		<!-- musical note; music; note -->
-		<annotation cp='[🎵]' tts='おんぷ' draft='provisional'>おんぷ</annotation>
+		<annotation cp='[🎵]' tts='おんぷ'>おんぷ; おんがく</annotation>
 
 		<!-- musical notes; music; note; notes -->
-		<annotation cp='[🎶]' tts='おんぷたち' draft='provisional'>おんぷたち; おんぷ</annotation>
+		<annotation cp='[🎶]' tts='おんぷたち'>おんぷ; おんがく</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='すたじおまいく'>まいく; おんがく</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='れべるすらいだー'>れべる; すらいだー; おんがく</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='こんとろーるつまみ'>つまみ; のぶ; こんとろーる; おんがく</annotation>
 
 		<!-- microphone; karaoke; mic -->
-		<annotation cp='[🎤]' tts='まいく' draft='provisional'>まいく; からおけ</annotation>
+		<annotation cp='[🎤]' tts='まいく'>からおけ; まいく; おんがく</annotation>
 
 		<!-- headphone; earbud -->
-		<annotation cp='[🎧]' tts='へっどほん' draft='provisional'>へっどほん; へっどふぉん; いやほん; いやふぉん</annotation>
+		<annotation cp='[🎧]' tts='へっどほん'>へっどふぉん; いやほん; いやふぉん; おんがく</annotation>
 
 		<!-- saxophone; instrument; music; sax -->
-		<annotation cp='[🎷]' tts='さっくす' draft='provisional'>さっくす; さくそふぉん; がっき</annotation>
+		<annotation cp='[🎷]' tts='さっくす'>さくそふぉん; がっき; さっくす; おんがく</annotation>
 
 		<!-- guitar; instrument; music -->
-		<annotation cp='[🎸]' tts='ぎたー' draft='provisional'>ぎたー; がっき</annotation>
+		<annotation cp='[🎸]' tts='ぎたー'>ぎたー; がっき; おんがく</annotation>
 
 		<!-- musical keyboard; instrument; keyboard; music; piano -->
-		<annotation cp='[🎹]' tts='きーぼーど' draft='provisional'>きーぼーど; がっき</annotation>
+		<annotation cp='[🎹]' tts='けんばん'>きーぼーど; ぴあの; がっき; おんがく</annotation>
 
 		<!-- trumpet; instrument; music -->
-		<annotation cp='[🎺]' tts='とらんぺっと' draft='provisional'>とらんぺっと; がっき</annotation>
+		<annotation cp='[🎺]' tts='とらんぺっと'>とらんぺっと; がっき; おんがく</annotation>
 
 		<!-- violin; instrument; music -->
-		<annotation cp='[🎻]' tts='ばいおりん' draft='provisional'>ばいおりん; がっき</annotation>
+		<annotation cp='[🎻]' tts='ばいおりん'>ばいおりん; がっき; おんがく</annotation>
 
 		<!-- radio; video -->
-		<annotation cp='[📻]' tts='らじお' draft='provisional'>らじお</annotation>
+		<annotation cp='[📻]' tts='らじお'>らじお</annotation>
 
 		<!-- mobile phone; cell; mobile; phone; telephone -->
-		<annotation cp='[📱]' tts='けいたい' draft='provisional'>けいたい; けいたいでんわ</annotation>
+		<annotation cp='[📱]' tts='けいたい'>けいたいでんわ; けいたい; すまほ; すまーとふぉん</annotation>
 
 		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
-		<annotation cp='[📲]' tts='でんわはっしん' draft='provisional'>でんわはっしん; けいたい; けいたいでんわ</annotation>
+		<annotation cp='[📲]' tts='けいたいじゅしん'>けいたいでんわ; けいたい; すまほ; すまーとふぉん; じゅしん; ちゃくしん</annotation>
+
+		<!-- telephone; phone -->
+		<annotation cp='[☎]' tts='でんわ'>でんわ</annotation>
 
 		<!-- telephone receiver; phone; receiver; telephone -->
-		<annotation cp='[📞]' tts='じゅわき' draft='provisional'>じゅわき; でんわ</annotation>
+		<annotation cp='[📞]' tts='じゅわき'>でんわ; じゅわき</annotation>
 
 		<!-- pager -->
-		<annotation cp='[📟]' tts='ぽけべる' draft='provisional'>ぽけべる; ぽけっとべる</annotation>
+		<annotation cp='[📟]' tts='ぽけべる'>ぽけっとべる; ぽけべる</annotation>
 
 		<!-- fax machine; fax -->
-		<annotation cp='[📠]' tts='ふぁっくす' draft='provisional'>ふぁっくす; ＦＡＸ</annotation>
+		<annotation cp='[📠]' tts='ふぁっくす'>ＦＡＸ; ふぁっくす</annotation>
 
 		<!-- battery -->
-		<annotation cp='[🔋]' tts='でんち' draft='provisional'>でんち; かんでんち</annotation>
+		<annotation cp='[🔋]' tts='でんち'>かんでんち; でんち</annotation>
 
 		<!-- electric plug; electric; electricity; plug -->
-		<annotation cp='[🔌]' tts='こんせんと' draft='provisional'>こんせんと; ぷらぐ; でんげん</annotation>
+		<annotation cp='[🔌]' tts='こんせんと'>ぷらぐ; でんげん; こんせんと</annotation>
 
 		<!-- laptop computer; computer; pc; personal -->
-		<annotation cp='[💻]' tts='ぱそこん' draft='provisional'>ぱそこん; こんぴゅーたー; こんぴゅーた</annotation>
+		<annotation cp='[💻]' tts='のーとぱそこん'>こんぴゅーたー; こんぴゅーた; ぱそこん; のーとぱそこん</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='ですくとっぷぱそこん'>こんぴゅーたー; こんぴゅーた; ぱそこん; ですくとっぷ</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='ぷりんた'>ぷりんた; ぷりんたー; いんさつ</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='きーぼーど'>きーぼーど; ぱそこん</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='まうす'>まうす</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='とらっくぼーる'>とらっくぼーる</annotation>
 
 		<!-- minidisc; computer; disk; minidisk; optical -->
-		<annotation cp='[💽]' tts='みにでぃすく' draft='provisional'>みにでぃすく; ＭＤ</annotation>
+		<annotation cp='[💽]' tts='みにでぃすく'>ＭＤ; みにでぃすく; でぃすく</annotation>
 
 		<!-- floppy disk; computer; disk; floppy -->
-		<annotation cp='[💾]' tts='ふろっぴー' draft='provisional'>ふろっぴー; ＦＤ; ふろっぴーでぃすく</annotation>
+		<annotation cp='[💾]' tts='ふろっぴー'>ＦＤ; ふろっぴーでぃすく; でぃすく</annotation>
 
 		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
-		<annotation cp='[💿]' tts='ＣＤ' draft='provisional'>ＣＤ</annotation>
+		<annotation cp='[💿]' tts='ＣＤ'>DVD; ぶるーれい; CD; でぃすく</annotation>
 
 		<!-- dvd; blu-ray; cd; computer; disk; optical -->
-		<annotation cp='[📀]' tts='ＤＶＤ' draft='provisional'>ＤＶＤ</annotation>
+		<annotation cp='[📀]' tts='ＤＶＤ'>DVD; ぶるーれい; CD; でぃすく</annotation>
 
 		<!-- movie camera; camera; cinema; movie -->
-		<annotation cp='[🎥]' tts='かめら' draft='provisional'>かめら; えいが</annotation>
+		<annotation cp='[🎥]' tts='えいがかめら'>えいが; かめら</annotation>
 
 		<!-- clapper board; clapper; movie -->
-		<annotation cp='[🎬]' tts='かちんこ' draft='provisional'>かちんこ; えいが</annotation>
+		<annotation cp='[🎬]' tts='かちんこ'>えいが; かちんこ</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='えいしゃき'>えいが; えいしゃき; ぷろじぇくたー</annotation>
 
 		<!-- television; tv; video -->
-		<annotation cp='[📺]' tts='てれび' draft='provisional'>てれび</annotation>
+		<annotation cp='[📺]' tts='てれび'>てれび</annotation>
 
 		<!-- camera; video -->
-		<annotation cp='[📷]' tts='かめら' draft='provisional'>かめら</annotation>
+		<annotation cp='[📷]' tts='かめら'>かめら</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='かめらふらっしゅ'>かめら; ふらっしゅ</annotation>
 
 		<!-- video camera; camera; video -->
-		<annotation cp='[📹]' tts='びでおかめら' draft='provisional'>びでおかめら; びでお; かめら</annotation>
+		<annotation cp='[📹]' tts='びでおかめら'>びでお; かめら</annotation>
 
 		<!-- videocassette; tape; vhs; video -->
-		<annotation cp='[📼]' tts='びでおてーぷ' draft='provisional'>びでおてーぷ; びでお; びでおかせっと</annotation>
+		<annotation cp='[📼]' tts='びでおてーぷ'>びでお; びでおかせっと; びでおてーぷ</annotation>
 
 		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
-		<annotation cp='[🔍]' tts='むしめがね' draft='provisional'>むしめがね; けんさく</annotation>
+		<annotation cp='[🔍]' tts='むしめがねひだり'>けんさく; むしめがね</annotation>
 
 		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
-		<annotation cp='[🔎]' tts='むしめがね' draft='provisional'>むしめがね; けんさく; しょうさい</annotation>
+		<annotation cp='[🔎]' tts='むしめがねみぎ'>けんさく; むしめがね</annotation>
 
 		<!-- microscope; tool -->
-		<annotation cp='[🔬]' tts='けんびきょう' draft='provisional'>けんびきょう</annotation>
+		<annotation cp='[🔬]' tts='けんびきょう'>けんびきょう</annotation>
 
 		<!-- telescope; tool -->
-		<annotation cp='[🔭]' tts='ぼうえんきょう' draft='provisional'>ぼうえんきょう</annotation>
+		<annotation cp='[🔭]' tts='ぼうえんきょう'>ぼうえんきょう</annotation>
 
 		<!-- satellite antenna; antenna; dish; satellite -->
-		<annotation cp='[📡]' tts='あんてな' draft='provisional'>あんてな; でんぱ; ぱらぼらあんてな; ぱらぼら</annotation>
+		<annotation cp='[📡]' tts='あんてな'>でんぱ; ぱらぼらあんてな; ぱらぼら</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='ろうそく'>ろうそく; きゃんどる</annotation>
 
 		<!-- light bulb; bulb; comic; electric; idea; light -->
-		<annotation cp='[💡]' tts='でんきゅう' draft='provisional'>でんきゅう; ぴこーん; ひらめき</annotation>
+		<annotation cp='[💡]' tts='でんきゅう'>ぴこーん; ひらめき; でんきゅう</annotation>
 
 		<!-- flashlight; electric; light; tool; torch -->
-		<annotation cp='[🔦]' tts='かいちゅうでんとう' draft='provisional'>かいちゅうでんとう; らいと; でんとう</annotation>
+		<annotation cp='[🔦]' tts='かいちゅうでんとう'>らいと; でんとう; かいちゅうでんとう</annotation>
 
 		<!-- red paper lantern; bar; japanese; lantern; light; red -->
-		<annotation cp='[🏮]' tts='いざかや' draft='provisional'>いざかや; ちょうちん; のみや; あかちょうちん</annotation>
+		<annotation cp='[🏮]' tts='あかちょうちん'>ちょうちん; のみや; あかちょうちん; いざかや</annotation>
 
 		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
-		<annotation cp='[📔]' tts='かざりのーと' draft='provisional'>かざりのーと; ぶんぼうぐ; のーと</annotation>
+		<annotation cp='[📔]' tts='かざりのーと'>ぶんぼうぐ; のーと</annotation>
 
 		<!-- closed book; book; closed -->
-		<annotation cp='[📕]' tts='ほん' draft='provisional'>ほん; ぶんぼうぐ</annotation>
+		<annotation cp='[📕]' tts='ほん'>ほん</annotation>
 
 		<!-- open book; book; open -->
-		<annotation cp='[📖]' tts='ほん' draft='provisional'>ほん; ぶんぼうぐ</annotation>
+		<annotation cp='[📖]' tts='ひらいたほん'>ほん</annotation>
 
 		<!-- green book; book; green -->
-		<annotation cp='[📗]' tts='ほん' draft='provisional'>ほん; ぶんぼうぐ</annotation>
+		<annotation cp='[📗]' tts='みどりのほん'>ほん</annotation>
 
 		<!-- blue book; blue; book -->
-		<annotation cp='[📘]' tts='ほん' draft='provisional'>ほん; ぶんぼうぐ</annotation>
+		<annotation cp='[📘]' tts='あおのほん'>ほん</annotation>
 
 		<!-- orange book; book; orange -->
-		<annotation cp='[📙]' tts='ほん' draft='provisional'>ほん; ぶんぼうぐ</annotation>
+		<annotation cp='[📙]' tts='おれんじのほん'>ほん</annotation>
 
 		<!-- books; book -->
-		<annotation cp='[📚]' tts='ほんのやま' draft='provisional'>ほんのやま; ほん; ぶんぼうぐ</annotation>
+		<annotation cp='[📚]' tts='ほんのやま'>ほん</annotation>
 
 		<!-- notebook -->
-		<annotation cp='[📓]' tts='のーと' draft='provisional'>のーと; ぶんぼうぐ</annotation>
+		<annotation cp='[📓]' tts='のーと'>のーと; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- ledger; notebook -->
-		<annotation cp='[📒]' tts='もとちょう' draft='provisional'>もとちょう; ぶんぼうぐ; のーと; だいちょう</annotation>
+		<annotation cp='[📒]' tts='りんぐのーと'>のーと; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- page with curl; curl; document; page -->
-		<annotation cp='[📃]' tts='ぺーじ' draft='provisional'>ぺーじ; しょるい; かーる</annotation>
+		<annotation cp='[📃]' tts='まきぺーじ'>しょるい; かーる</annotation>
 
 		<!-- scroll; paper -->
-		<annotation cp='[📜]' tts='すくろーる' draft='provisional'>すくろーる; ぶんぼうぐ</annotation>
+		<annotation cp='[📜]' tts='すくろーる'>しょるい; すくろーる</annotation>
 
 		<!-- page facing up; document; page -->
-		<annotation cp='[📄]' tts='ぺーじ' draft='provisional'>ぺーじ; しょるい</annotation>
+		<annotation cp='[📄]' tts='ぺーじ'>しょるい</annotation>
 
 		<!-- newspaper; news; paper -->
-		<annotation cp='[📰]' tts='しんぶん' draft='provisional'>しんぶん; しんぶんし</annotation>
+		<annotation cp='[📰]' tts='しんぶん'>しんぶんし; しんぶん</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='まるめたしんぶん'>しんぶんし; しんぶん</annotation>
 
 		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
-		<annotation cp='[📑]' tts='ぺーじまーく' draft='provisional'>ぺーじまーく; ぶんぼうぐ; まーく</annotation>
+		<annotation cp='[📑]' tts='ぺーじまーく'>ふせん; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- bookmark; mark -->
-		<annotation cp='[🔖]' tts='たぐ' draft='provisional'>たぐ; ふせん; しおり; ぶっくまーく</annotation>
+		<annotation cp='[🔖]' tts='たぐ'>ふせん; しおり; ぶっくまーく</annotation>
 
 		<!-- money bag; bag; dollar; money; moneybag -->
-		<annotation cp='[💰]' tts='どるぶくろ' draft='provisional'>どるぶくろ; おかね; かねぶくろ; しょうきん</annotation>
+		<annotation cp='[💰]' tts='どるぶくろ'>おかね; かねぶくろ; しょうきん</annotation>
 
 		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
-		<annotation cp='[💴]' tts='えんのおさつ' draft='provisional'>えんのおさつ; おかね; おさつ; さつたば; ゆうりょう; こぎって</annotation>
+		<annotation cp='[💴]' tts='えんのおさつ'>おかね; おさつ; さつたば; ゆうりょう; こぎって; えん</annotation>
 
 		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
-		<annotation cp='[💵]' tts='どるさつ' draft='provisional'>どるさつ; おかね; おさつ; さつたば</annotation>
+		<annotation cp='[💵]' tts='どるさつ'>おかね; おさつ; さつたば; どる</annotation>
 
 		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
-		<annotation cp='[💶]' tts='ゆーろさつ' draft='provisional'>ゆーろさつ; おかね; おさつ; ゆーろ</annotation>
+		<annotation cp='[💶]' tts='ゆーろさつ'>おかね; おさつ; ゆーろ; さつたば</annotation>
 
 		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
-		<annotation cp='[💷]' tts='ぽんどさつ' draft='provisional'>ぽんどさつ; おかね; おさつ; ぽんど</annotation>
+		<annotation cp='[💷]' tts='ぽんどさつ'>おかね; おさつ; ぽんど; さつたば</annotation>
 
 		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
-		<annotation cp='[💸]' tts='おかね' draft='provisional'>おかね; おさつ; さつたば</annotation>
+		<annotation cp='[💸]' tts='おかね'>おさつ; さつたば; おかね</annotation>
 
 		<!-- credit card; bank; card; credit; money -->
-		<annotation cp='[💳]' tts='くれじっとかーど' draft='provisional'>くれじっとかーど; かーど</annotation>
+		<annotation cp='[💳]' tts='くれじっとかーど'>かーど; くれじっとかーど</annotation>
 
 		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
-		<annotation cp='[💹]' tts='かわせ' draft='provisional'>かわせ; ちゃーと; かぶか; かぶ</annotation>
+		<annotation cp='[💹]' tts='かわせ'>ちゃーと; かぶか; かぶ; かわせ</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='ふうとう'>めーる; ふうとう; てがみ; Eめーる</annotation>
 
 		<!-- e-mail; email; letter; mail -->
-		<annotation cp='[📧]' tts='いーめーる' draft='provisional'>いーめーる; Ｅめーる; めーる</annotation>
+		<annotation cp='[📧]' tts='いーめーる'>Ｅめーる; めーる</annotation>
 
 		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
-		<annotation cp='[📨]' tts='めーる' draft='provisional'>めーる; じゅしん; じゅしんする</annotation>
+		<annotation cp='[📨]' tts='めーるじゅしんちゅう'>じゅしん; じゅしんする</annotation>
 
 		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
-		<annotation cp='[📩]' tts='めーる' draft='provisional'>めーる; そうしん; そうしんする; めーるする</annotation>
+		<annotation cp='[📩]' tts='めーるじゅしん'>そうしん; そうしんする; めーるする</annotation>
 
 		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
-		<annotation cp='[📤]' tts='そうしん' draft='provisional'>そうしん; めーる; そうしんとれい</annotation>
+		<annotation cp='[📤]' tts='そうしん'>めーる; そうしんとれい</annotation>
 
 		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
-		<annotation cp='[📥]' tts='じゅしん' draft='provisional'>じゅしん; めーる; じゅしんとれい</annotation>
+		<annotation cp='[📥]' tts='じゅしん'>めーる; じゅしんとれい</annotation>
 
 		<!-- package; box; parcel -->
-		<annotation cp='[📦]' tts='ぱっけーじ' draft='provisional'>ぱっけーじ; だんぼーる; ぱっく</annotation>
+		<annotation cp='[📦]' tts='ぱっけーじ'>だんぼーる; にもつ; こづづみ</annotation>
 
 		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
-		<annotation cp='[📫]' tts='ゆうびん' draft='provisional'>ゆうびん; ゆうびんうけ; めーる; はたつきぽすと; とじたゆうびんばこ</annotation>
+		<annotation cp='[📫]' tts='とじたゆうびんうけてがみあり'>ゆうびんうけ; めーる; ぽすと; ゆうびんばこ</annotation>
 
 		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
-		<annotation cp='[📪]' tts='ゆうびん' draft='provisional'>ゆうびん; ゆうびんうけ; めーる; はたつきぽすと; とじたゆうびんばこ</annotation>
+		<annotation cp='[📪]' tts='とじたゆうびんうけてがみなし'>ゆうびんうけ; めーる; ぽすと; ゆうびんばこ</annotation>
 
 		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
-		<annotation cp='[📬]' tts='ゆうびん' draft='provisional'>ゆうびん; ゆうびんうけ; めーる; はたつきぽすと; あいたゆうびんばこ</annotation>
+		<annotation cp='[📬]' tts='あいたゆうびんうけてがみあり'>ゆうびんうけ; めーる; ぽすと; ゆうびんばこ</annotation>
 
 		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
-		<annotation cp='[📭]' tts='ゆうびん' draft='provisional'>ゆうびん; ゆうびんうけ; めーる; はたつきぽすと; あいたゆうびんばこ</annotation>
+		<annotation cp='[📭]' tts='あいたゆうびんうけてがみなし'>ゆうびんうけ; めーる; ぽすと; ゆうびんばこ</annotation>
 
 		<!-- postbox; mail; mailbox -->
-		<annotation cp='[📮]' tts='ゆうびんぽすと' draft='provisional'>ゆうびんぽすと; ゆうびんばこ; ゆうびん; ぽすと</annotation>
+		<annotation cp='[📮]' tts='ゆうびんぽすと'>ゆうびんばこ; ゆうびん; ぽすと</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='とうひょうばこ'>とうひょうばこ; せんきょ</annotation>
+
+		<!-- pencil -->
+		<annotation cp='[✏]' tts='えんぴつ'>えんぴつ; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='ぺんさき'>まんねんひつ; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='まんねんひつ'>まんねんひつ; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='ぺん'>ぼーるぺん; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='えふで'>えのぐ; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='くれよん'>くれよん; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- memo; pencil -->
-		<annotation cp='[📝]' tts='めも' draft='provisional'>めも; ぶんぼうぐ</annotation>
+		<annotation cp='[📝]' tts='めも'>めも; えんぴつ; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- briefcase -->
-		<annotation cp='[💼]' tts='かばん' draft='provisional'>かばん; ぶりーふけーす</annotation>
+		<annotation cp='[💼]' tts='かばん'>ぶりーふけーす; かばん</annotation>
 
 		<!-- file folder; file; folder -->
-		<annotation cp='[📁]' tts='ふぉるだー' draft='provisional'>ふぉるだー</annotation>
+		<annotation cp='[📁]' tts='ふぉるだー'>ふぁいる; ふぉるだー; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- open file folder; file; folder; open -->
-		<annotation cp='[📂]' tts='ふぉるだー' draft='provisional'>ふぉるだー</annotation>
+		<annotation cp='[📂]' tts='ひらいたふぉるだー'>ふぁいる; ふぉるだー; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='かーどふぉるだー'>かーど; ふぉるだー; いんでっくす; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- calendar; date -->
-		<annotation cp='[📅]' tts='かれんだー' draft='provisional'>かれんだー</annotation>
+		<annotation cp='[📅]' tts='かれんだー'>かれんだー</annotation>
 
 		<!-- tear-off calendar; calendar -->
-		<annotation cp='[📆]' tts='ひめくり' draft='provisional'>ひめくり; かれんだー</annotation>
+		<annotation cp='[📆]' tts='ひめくり'>かれんだー</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='めもちょう'>めも; のーと; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='つきめくりかれんだー'>かれんだー</annotation>
 
 		<!-- card index; card; index; rolodex -->
-		<annotation cp='[📇]' tts='ろーろでっくす' draft='provisional'>ろーろでっくす; かーどいんでっくす</annotation>
+		<annotation cp='[📇]' tts='かーどいんでっくす'>かーどいんでっくす; かーど; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- chart increasing; chart; graph; growth; trend; upward -->
-		<annotation cp='[📈]' tts='ぐらふ' draft='provisional'>ぐらふ; おれせんぐらふ; うわむき; じょうしょう</annotation>
+		<annotation cp='[📈]' tts='ぐらふうえ'>おれせんぐらふ; うわむき; じょうしょう</annotation>
 
 		<!-- chart decreasing; chart; down; graph; trend -->
-		<annotation cp='[📉]' tts='ぐらふ' draft='provisional'>ぐらふ; おれせんぐらふ; したむき; かこう</annotation>
+		<annotation cp='[📉]' tts='ぐらふした'>おれせんぐらふ; したむき; かこう</annotation>
 
 		<!-- bar chart; bar; chart; graph -->
-		<annotation cp='[📊]' tts='ぼうぐらふ' draft='provisional'>ぼうぐらふ; ぐらふ; ちゃーと</annotation>
+		<annotation cp='[📊]' tts='ぼうぐらふ'>ぐらふ; ちゃーと; ぼうぐらふ</annotation>
 
 		<!-- clipboard -->
-		<annotation cp='[📋]' tts='くりっぷぼーど' draft='provisional'>くりっぷぼーど; くりっぷ; ぶんぼうぐ</annotation>
+		<annotation cp='[📋]' tts='くりっぷぼーど'>くりっぷ; ぶんぼうぐ; くりっぷぼーど</annotation>
 
 		<!-- pushpin; pin -->
-		<annotation cp='[📌]' tts='おしぴん' draft='provisional'>おしぴん; ぷっしゅぴん; ぴん; ぶんぼうぐ</annotation>
+		<annotation cp='[📌]' tts='おしぴん'>ぷっしゅぴん; ぴん; おしぴん; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- round pushpin; pin; pushpin -->
-		<annotation cp='[📍]' tts='おしぴん' draft='provisional'>おしぴん; ぷっしゅぴん; ぴん; ぶんぼうぐ</annotation>
+		<annotation cp='[📍]' tts='まるいおしぴん'>ぷっしゅぴん; ぴん; おしぴん; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- paperclip -->
-		<annotation cp='[📎]' tts='くりっぷ' draft='provisional'>くりっぷ; ぶんぼうぐ</annotation>
+		<annotation cp='[📎]' tts='くりっぷ'>くりっぷ; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='つながったくりっぷ'>くりっぷ; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- straight ruler; ruler; straight edge -->
-		<annotation cp='[📏]' tts='じょうぎ' draft='provisional'>じょうぎ; ぶんぼうぐ</annotation>
+		<annotation cp='[📏]' tts='じょうぎ'>じょうぎ; すけーる; ぶんぼうぐ; ぶんぐ</annotation>
 
 		<!-- triangular ruler; ruler; set; triangle -->
-		<annotation cp='[📐]' tts='さんかくじょうぎ' draft='provisional'>さんかくじょうぎ; じょうぎ; ぶんぼうぐ</annotation>
+		<annotation cp='[📐]' tts='さんかくじょうぎ'>さんかくじょうぎ; じょうぎ; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='はさみ'>はさみ; ぶんぼうぐ; ぶんぐ; きる; かっと</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='かーどふぁいるぼっくす'>かーど; はこ; ぼっくす; ふぁいる; ぶんぼうぐ; ぶんぐ</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='ふぁいるきゃびねっと'>きゃびねっと; ふぁいる</annotation>
+
+		<!-- wastebasket -->
+		<annotation cp='[🗑]' tts='ごみかご'>ごみばこ</annotation>
 
 		<!-- lock; closed -->
-		<annotation cp='[🔒]' tts='ろっくおん' draft='provisional'>ろっくおん; じょう; ; ろっく</annotation>
+		<annotation cp='[🔒]' tts='ろっくおん'>かぎ; じょう; ろっく</annotation>
 
 		<!-- open lock; lock; open; unlock -->
-		<annotation cp='[🔓]' tts='ろっくおふ' draft='provisional'>ろっくおふ; じょう; ろっく</annotation>
+		<annotation cp='[🔓]' tts='ろっくおふ'>かぎ; じょう; ろっく</annotation>
 
 		<!-- lock with pen; ink; lock; nib; pen; privacy -->
-		<annotation cp='[🔏]' tts='ろっく' draft='provisional'>ろっく; ぷらいばしー; かぎ</annotation>
+		<annotation cp='[🔏]' tts='ろっく'>ぷらいばしー; かぎ; じょう; ろっく</annotation>
 
 		<!-- closed lock with key; closed; key; lock; secure -->
-		<annotation cp='[🔐]' tts='ろっくかくにん' draft='provisional'>ろっくかくにん; かぎ; あんぜん</annotation>
+		<annotation cp='[🔐]' tts='ろっくかくにん'>かぎ; あんぜん; じょう; ろっく</annotation>
 
 		<!-- key; lock; password -->
-		<annotation cp='[🔑]' tts='かぎ' draft='provisional'>かぎ; ぱすわーど</annotation>
+		<annotation cp='[🔑]' tts='かぎ'>ぱすわーど; かぎ; きー</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='ふるいかぎ'>ぱすわーど; かぎ; きー</annotation>
 
 		<!-- hammer; tool -->
-		<annotation cp='[🔨]' tts='かなづち' draft='provisional'>かなづち; とんかち; はんまー</annotation>
+		<annotation cp='[🔨]' tts='かなづち'>とんかち; はんまー</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='つるはし'>つるはし</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='はんまー'>はんまー; とんかち</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='はんまーとれんち'>はんまー; れんち</annotation>
 
 		<!-- wrench; tool -->
-		<annotation cp='[🔧]' tts='れんち' draft='provisional'>れんち; こうぐ</annotation>
+		<annotation cp='[🔧]' tts='れんち'>れんち</annotation>
 
 		<!-- nut and bolt; bolt; nut; tool -->
-		<annotation cp='[🔩]' tts='ぼるととなっと' draft='provisional'>ぼるととなっと; ぼると; なっと</annotation>
+		<annotation cp='[🔩]' tts='ぼるととなっと'>ぼると; なっと</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='はぐるま'>はぐるま; ぎあ</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='まんりき'>まんりき</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='じょうりゅうき'>かがく; じっけん; じょうりゅうき</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='てんびん'>かがく; じっけん; てんびん; はかり</annotation>
 
 		<!-- link -->
-		<annotation cp='[🔗]' tts='りんくしんぼる' draft='provisional'>りんくしんぼる; りんく</annotation>
+		<annotation cp='[🔗]' tts='りんくしんぼる'>りんく</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='くさり'>ちぇーん; くさり</annotation>
 
 		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
-		<annotation cp='[💉]' tts='ちゅうしゃき' draft='provisional'>ちゅうしゃき; ちゅうしゃ</annotation>
+		<annotation cp='[💉]' tts='ちゅうしゃき'>ちゅうしゃ; びょうき; いしゃ</annotation>
 
 		<!-- pill; doctor; medicine; sick -->
-		<annotation cp='[💊]' tts='くすり' draft='provisional'>くすり; かぷせる; かぜぐすり</annotation>
+		<annotation cp='[💊]' tts='くすり'>かぷせる; くすり; びょうき; いしゃ</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='たんとう'>ないふ; だがー</annotation>
 
 		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
-		<annotation cp='[🔪]' tts='ほうちょう' draft='provisional'>ほうちょう</annotation>
+		<annotation cp='[🔪]' tts='ほうちょう'>ほうちょう; ないふ</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='つるぎ'>かたな; けん; つるぎ</annotation>
 
 		<!-- pistol; gun; handgun; revolver; tool; weapon -->
-		<annotation cp='[🔫]' tts='じゅう' draft='provisional'>じゅう; ぴすとる; けんじゅう</annotation>
+		<annotation cp='[🔫]' tts='ぴすとる'>ぴすとる; けんじゅう</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='たて'>たて; しーるど</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='ゆみや'>ゆみ; や; ゆみや</annotation>
 
 		<!-- chequered flag; checkered; chequered; racing -->
-		<annotation cp='[🏁]' tts='ふらぐ' draft='provisional'>ふらぐ; ちぇっかー; れーす; すぽーつ</annotation>
+		<annotation cp='[🏁]' tts='ふらぐ'>ちぇっかー; れーす; すぽーつ; ふらっぐ</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='しろはた'>はた; しろ; ふらっぐ</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='くろはた'>はた; くろ; ふらっぐ</annotation>
 
 		<!-- triangular flag; post -->
-		<annotation cp='[🚩]' tts='ふらっぐ' draft='provisional'>ふらっぐ; ごるふ; はた</annotation>
+		<annotation cp='[🚩]' tts='ふらっぐ'>ごるふ; はた; ふらっぐ</annotation>
 
 		<!-- smoking -->
-		<annotation cp='[🚬]' tts='きつえん' draft='provisional'>きつえん; たばこ</annotation>
+		<annotation cp='[🚬]' tts='きつえん'>たばこ</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='かんおけ'>し; かんおけ</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='こつつぼ'>し; つぼ; こつつぼ</annotation>
 
 		<!-- moai; face; moyai; statue -->
-		<annotation cp='[🗿]' tts='もやい' draft='provisional'>もやい; もあい</annotation>
+		<annotation cp='[🗿]' tts='もあい'>もあい</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='どらむかん'>せきゆ; どらむかん</annotation>
 
 		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
-		<annotation cp='[🔮]' tts='すいしょうだま' draft='provisional'>すいしょうだま; すいしょう; うらない</annotation>
+		<annotation cp='[🔮]' tts='すいしょうだま'>すいしょう; うらない</annotation>
 
 		<!-- ATM sign; atm; automated; bank; teller -->
-		<annotation cp='[🏧]' tts='ＡＴＭ' draft='provisional'>ＡＴＭ</annotation>
+		<annotation cp='[🏧]' tts='ＡＴＭ'>ATM; ぎんこう</annotation>
 
 		<!-- litter in bin sign; litter; litterbox -->
-		<annotation cp='[🚮]' tts='ごみばこ' draft='provisional'>ごみばこ</annotation>
+		<annotation cp='[🚮]' tts='ごみばこ'>ごみ; ごみばこ</annotation>
 
 		<!-- potable water; drink; potable; water -->
-		<annotation cp='[🚰]' tts='いんりょうすい' draft='provisional'>いんりょうすい; のみみず</annotation>
+		<annotation cp='[🚰]' tts='いんりょうすい'>のみみず; みず; すいどう</annotation>
 
 		<!-- wheelchair; access -->
-		<annotation cp='[♿]' tts='くるまいす' draft='provisional'>くるまいす</annotation>
+		<annotation cp='[♿]' tts='くるまいす'>くるまいす; ばりあふりー</annotation>
 
 		<!-- men’s room; lavatory; man; restroom; wc -->
-		<annotation cp='[🚹]' tts='だんせい' draft='provisional'>だんせい; といれ; だんし</annotation>
+		<annotation cp='[🚹]' tts='だんせい'>といれ; だんし; だんせい; おとこ</annotation>
 
 		<!-- women’s room; lavatory; restroom; wc; woman -->
-		<annotation cp='[🚺]' tts='じょせい' draft='provisional'>じょせい; といれ; じょし</annotation>
+		<annotation cp='[🚺]' tts='じょせい'>といれ; じょし; じょせい; おんな</annotation>
 
 		<!-- restroom; lavatory; wc -->
-		<annotation cp='[🚻]' tts='といれ' draft='provisional'>といれ</annotation>
+		<annotation cp='[🚻]' tts='といれ'>といれ; WC</annotation>
 
 		<!-- baby symbol; baby; changing -->
-		<annotation cp='[🚼]' tts='あかちゃん' draft='provisional'>あかちゃん; あかんぼう</annotation>
+		<annotation cp='[🚼]' tts='あかちゃん'>あかんぼう; あかちゃん; べびー</annotation>
 
 		<!-- water closet; closet; lavatory; restroom; water; wc -->
-		<annotation cp='[🚾]' tts='だぶりゅしー' draft='provisional'>だぶりゅしー; ＷＣ; といれ</annotation>
+		<annotation cp='[🚾]' tts='だぶりゅしー'>ＷＣ; といれ</annotation>
 
 		<!-- passport control; control; passport -->
-		<annotation cp='[🛂]' tts='ぱすぽーとこんとろーる' draft='provisional'>ぱすぽーとこんとろーる; しゅつにゅうこく</annotation>
+		<annotation cp='[🛂]' tts='ぱすぽーとこんとろーる'>しゅつにゅうこく; にゅうしゅつこく; ぱすぽーと</annotation>
 
 		<!-- customs -->
-		<annotation cp='[🛃]' tts='ぜいかん' draft='provisional'>ぜいかん</annotation>
+		<annotation cp='[🛃]' tts='ぜいかん'>ぜいかん</annotation>
 
 		<!-- baggage claim; baggage; claim -->
-		<annotation cp='[🛄]' tts='てにもつうけとり' draft='provisional'>てにもつうけとり; てにもつ</annotation>
+		<annotation cp='[🛄]' tts='てにもつうけとり'>てにもつ</annotation>
 
 		<!-- left luggage; baggage; locker; luggage -->
-		<annotation cp='[🛅]' tts='てにもつあずかり' draft='provisional'>てにもつあずかり; てにもつ</annotation>
+		<annotation cp='[🛅]' tts='てにもつあずかり'>てにもつ; ろっかー</annotation>
 
 		<!-- warning -->
-		<annotation cp='[⚠]' tts='けいこく' draft='provisional'>けいこく; さいん</annotation>
+		<annotation cp='[⚠]' tts='けいこく'>けいこく; ちゅうい; ひょうしき</annotation>
 
 		<!-- children crossing; child; crossing; pedestrian; traffic -->
-		<annotation cp='[🚸]' tts='じどうおうだん' draft='provisional'>じどうおうだん; ちゅうい; こうつうさいん</annotation>
+		<annotation cp='[🚸]' tts='じどうおうだん'>ひょうしき; じどうおうだん</annotation>
 
 		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
-		<annotation cp='[⛔]' tts='しんにゅうきんし' draft='provisional'>しんにゅうきんし; さいん</annotation>
+		<annotation cp='[⛔]' tts='しんにゅうきんし'>ひょうしき; しんにゅうきんし</annotation>
 
 		<!-- prohibited; entry; forbidden; no; not -->
-		<annotation cp='[🚫]' tts='きんし' draft='provisional'>きんし; しんにゅうきんし</annotation>
+		<annotation cp='[🚫]' tts='きんし'>ひょうしき; つうこうどめ</annotation>
 
 		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
-		<annotation cp='[🚳]' tts='じてんしゃきんし' draft='provisional'>じてんしゃきんし; こうつうさいん</annotation>
+		<annotation cp='[🚳]' tts='じてんしゃきんし'>ひょうしき; じてんしゃきんし</annotation>
 
 		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
-		<annotation cp='[🚭]' tts='きんえん' draft='provisional'>きんえん; たばこ</annotation>
+		<annotation cp='[🚭]' tts='きんえん'>たばこ; きんえん</annotation>
 
 		<!-- no littering; forbidden; litter; no; not; prohibited -->
-		<annotation cp='[🚯]' tts='ごみすてきんし' draft='provisional'>ごみすてきんし</annotation>
+		<annotation cp='[🚯]' tts='ごみすてきんし'>ごみすてきんし</annotation>
 
 		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
-		<annotation cp='[🚱]' tts='のめないみず' draft='provisional'>のめないみず; のめません</annotation>
+		<annotation cp='[🚱]' tts='のめないみず'>いんようふか</annotation>
 
 		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
-		<annotation cp='[🚷]' tts='ほこうきんし' draft='provisional'>ほこうきんし; こうつうさいん</annotation>
+		<annotation cp='[🚷]' tts='ほこうきんし'>ほこうきんし</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='ほうしゃのう'>ほうしゃせい; ほうしゃのう; きけん</annotation>
+
+		<!-- biohazard -->
+		<annotation cp='[☣]' tts='ゆうがいぶっしつ'>ばいおはざーど; きけん</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='うえやじるし'>やじるし; うえ; きた</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='みぎうえやじるし'>やじるし; みぎうえ; ほくとう</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='みぎやじるし'>やじるし; みぎ; ひがし</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='みぎしたやじるし'>やじるし; みぎした; なんとう</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='したやじるし'>やじるし; した; みなみ</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='ひだりしたやじるし'>やじるし; ひだりした; なんせい</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='ひだりやじるし'>やじるし; ひだり; にし</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='ひだりうえやじるし'>やじるし; ひだりうえ; ほくせい</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='うえしたやじるし'>やじるし; じょうげ</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='みぎひだりやじるし'>やじるし; さゆう</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='みぎかーぶやじるし'>やじるし; きょくせん; かーぶ; ひだり</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='ひだりかーぶやじるし'>やじるし; きょくせん; かーぶ; みぎ</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='うえかーぶやじるし'>やじるし; きょくせん; かーぶ; うえ</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='したかーぶやじるし'>やじるし; きょくせん; かーぶ; した</annotation>
 
 		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
-		<annotation cp='[🔃]' tts='くりかえし' draft='provisional'>くりかえし; やじるし; さいよみこみ; りろーど</annotation>
+		<annotation cp='[🔃]' tts='みぎまわりたてやじるし'>やじるし; みぎまわり; りろーど</annotation>
 
 		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
-		<annotation cp='[🔄]' tts='ひだりまわりやじるし' draft='provisional'>ひだりまわりやじるし</annotation>
+		<annotation cp='[🔄]' tts='ひだりまわりやじるし'>やじるし; ひだりまわり</annotation>
 
 		<!-- back arrow; arrow; back -->
-		<annotation cp='[🔙]' tts='もどりやじるし' draft='provisional'>もどりやじるし; やじるし; もどる</annotation>
+		<annotation cp='[🔙]' tts='もどりやじるし'>やじるし; もどる</annotation>
 
 		<!-- end arrow; arrow; end -->
-		<annotation cp='[🔚]' tts='えんどやじるし' draft='provisional'>えんどやじるし; やじるし; えんど</annotation>
+		<annotation cp='[🔚]' tts='えんどやじるし'>やじるし; えんど</annotation>
 
 		<!-- on! arrow; arrow; mark; on -->
-		<annotation cp='[🔛]' tts='おんやじるし' draft='provisional'>おんやじるし; おん; やじるし</annotation>
+		<annotation cp='[🔛]' tts='おんやじるし'>おん; やじるし</annotation>
 
 		<!-- soon arrow; arrow; soon -->
-		<annotation cp='[🔜]' tts='すーんやじるし' draft='provisional'>すーんやじるし; すーん; やじるし</annotation>
+		<annotation cp='[🔜]' tts='すーんやじるし'>すーん; やじるし</annotation>
 
 		<!-- top arrow; arrow; top; up -->
-		<annotation cp='[🔝]' tts='とっぷやじるし' draft='provisional'>とっぷやじるし; すーん; やじるし; ; うえ</annotation>
+		<annotation cp='[🔝]' tts='とっぷやじるし'>すーん; やじるし; ; うえ</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='れいはい'>しゅうきょう; いのり; れいはい</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='げんし'>げんし</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='おーむ'>おーむ; ひんどぅーきょう</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='だびでのほし'>だびでのほし; ゆだやきょう</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='ほうりん'>ほうりん; ぶっきょう</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='いんよう'>いんやん; どうきょう</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='じゅうじか'>じゅうじか; くろす; きりすときょう</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='はったんじゅうじか'>はったんじゅうじか; きりすときょう; じゅうじか</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='ほしとみかづき'>みかづき; ほし; いすらむきょう</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='ぴーすまーく'>ぴーすまーく; へいわ</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='めのーらー'>めのらー; めのーらー; しょくだい; ゆだやきょう</annotation>
 
 		<!-- dotted six-pointed star; fortune; star -->
-		<annotation cp='[🔯]' tts='ろっかくせい' draft='provisional'>ろっかくせい; うらない; だびで; ろくぼうせい</annotation>
+		<annotation cp='[🔯]' tts='ろっかくせい'>うらない; だびで; ろくぼうせい</annotation>
 
 		<!-- recycling symbol; recycle -->
-		<annotation cp='[♻]' tts='りさいくる' draft='provisional'>りさいくる</annotation>
+		<annotation cp='[♻]' tts='りさいくる'>りさいくる</annotation>
 
 		<!-- name badge; badge; name -->
-		<annotation cp='[📛]' tts='なふだ' draft='provisional'>なふだ</annotation>
+		<annotation cp='[📛]' tts='なふだ'>なふだ; ほいくしょ; ほいくえん; ようちえん</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='ふるーるどりす'>ふるーるどりす; えんぶれむ</annotation>
 
 		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
-		<annotation cp='[🔰]' tts='わかばまーく' draft='provisional'>わかばまーく; しょしんしゃ; はつ</annotation>
+		<annotation cp='[🔰]' tts='わかばまーく'>しょしんしゃ; わかばまーく</annotation>
 
 		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
-		<annotation cp='[🔱]' tts='いかり' draft='provisional'>いかり; とらいでんと; えんぶれむ</annotation>
+		<annotation cp='[🔱]' tts='みつまた'>とらいでんと; えんぶれむ</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='おおきいまる'>えん; わ; さーくる; きごう; まる</annotation>
 
 		<!-- white heavy check mark; check; mark -->
-		<annotation cp='[✅]' tts='ちぇっく' draft='provisional'>ちぇっく; ぴん</annotation>
+		<annotation cp='[✅]' tts='ちぇっく'>ちぇっく; ちぇっくまーく; きごう</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='ちぇっくぼっくす'>ちぇっく; ちぇっくまーく; きごう</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='おおきいちぇっく'>ちぇっく; ちぇっくまーく; きごう</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='かけざん'>きゃんせる; ばつ; ぺけ; かけざん; きごう</annotation>
 
 		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
-		<annotation cp='[❌]' tts='ばつ' draft='provisional'>ばつ; かけざんさいん; ぺけ</annotation>
+		<annotation cp='[❌]' tts='ばつ'>きゃんせる; ばつ; ぺけ; かけざん; きごう</annotation>
 
 		<!-- cross mark button; mark; square -->
-		<annotation cp='[❎]' tts='ばつ' draft='provisional'>ばつ; ぺけ</annotation>
+		<annotation cp='[❎]' tts='ばつぼたん'>きゃんせる; ばつ; ぺけ; かけざん; きごう</annotation>
 
 		<!-- heavy plus sign; math; plus -->
-		<annotation cp='[➕]' tts='ぷらす' draft='provisional'>ぷらす; ＋; たす; たしざん; ぷらすさいん</annotation>
+		<annotation cp='[➕]' tts='ぷらす'>＋; たす; たしざん; ぷらす; きごう</annotation>
 
 		<!-- heavy minus sign; math; minus -->
-		<annotation cp='[➖]' tts='まいなす' draft='provisional'>まいなす; ー; ひく; ひきざん; まいなすさいん</annotation>
+		<annotation cp='[➖]' tts='まいなす'>ー; ひく; ひきざん; まいなす; きごう</annotation>
 
 		<!-- heavy division sign; division; math -->
-		<annotation cp='[➗]' tts='わりざんさいん・' draft='provisional'>わりざんさいん・; ／; わる; わりざん</annotation>
+		<annotation cp='[➗]' tts='わりざん'>／; わる; わりざん; きごう</annotation>
 
 		<!-- curly loop; curl; loop -->
-		<annotation cp='[➰]' tts='くるり' draft='provisional'>くるり; ちょうおん</annotation>
+		<annotation cp='[➰]' tts='くるり'>ちょうおん; きごう; るーぷ</annotation>
 
 		<!-- double curly loop; curl; double; loop -->
-		<annotation cp='[➿]' tts='ふりーだいやる' draft='provisional'>ふりーだいやる; だぶるるーぷ</annotation>
+		<annotation cp='[➿]' tts='だぶるるーぷ'>だぶるるーぷ; きごう; ふりーだいやる</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='いおりてん'>いおりてん; うたきごう; きごう</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='はっかくあすたりすく'>あすたりすく; きごう</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='はっかくせい'>ほし; きごう</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='すぱーくる'>あすたりすく; きごう; すぱーくる</annotation>
 
 		<!-- currency exchange; bank; currency; exchange; money -->
-		<annotation cp='[💱]' tts='りょうがえ' draft='provisional'>りょうがえ; おかね</annotation>
+		<annotation cp='[💱]' tts='りょうがえ'>きごう; りょうがえ; おかね</annotation>
 
 		<!-- heavy dollar sign; currency; dollar; money -->
-		<annotation cp='[💲]' tts='どる' draft='provisional'>どる; おかね</annotation>
+		<annotation cp='[💲]' tts='どる'>きごう; どる</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='だぶるかんたんふ'>きごう; かんたんふ; びっくりまーく; ！</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='かんたんふぎもんふ'>きごう; かんたんふ; びっくりまーく; ぎもんふ; はてなまーく; ！; ？</annotation>
 
 		<!-- question mark; mark; punctuation; question -->
-		<annotation cp='[❓]' tts='くえすちょん' draft='provisional'>くえすちょん; ？; はてな</annotation>
+		<annotation cp='[❓]' tts='くえすちょん'>きごう; ぎもんふ; はてなまーく; ？</annotation>
 
 		<!-- white question mark; mark; outlined; punctuation; question -->
-		<annotation cp='[❔]' tts='くえすちょん' draft='provisional'>くえすちょん; ？; はてな</annotation>
+		<annotation cp='[❔]' tts='しろくえすちょん'>きごう; ぎもんふ; はてなまーく; ？</annotation>
 
 		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
-		<annotation cp='[❕]' tts='びっくり' draft='provisional'>びっくり; かんたんふ！</annotation>
+		<annotation cp='[❕]' tts='しろかんたんふ'>きごう; かんたんふ; びっくりまーく; ！</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='かんたんふ'>きごう; かんたんふ; びっくりまーく; ！</annotation>
 
 		<!-- wavy dash; dash; punctuation; wavy -->
-		<annotation cp='[〰]' tts='ちょうおん' draft='provisional'>ちょうおん</annotation>
+		<annotation cp='[〰]' tts='なみだっしゅ'>きごう; なみだっしゅ</annotation>
 
 		<!-- copyright -->
-		<annotation cp='[©]' tts='こぴーらいと' draft='provisional'>こぴーらいと; ちょさくけん</annotation>
+		<annotation cp='[©]' tts='こぴーらいと'>きごう; ちょさくけん</annotation>
 
 		<!-- registered -->
-		<annotation cp='[®]' tts='れじすたーど' draft='provisional'>れじすたーど; とうろくしょうひょう</annotation>
+		<annotation cp='[®]' tts='れじすたーど'>きごう; とうろくしょうひょう</annotation>
 
 		<!-- trade mark; mark; tm; trademark -->
-		<annotation cp='[™]' tts='とれーどまーく' draft='provisional'>とれーどまーく</annotation>
+		<annotation cp='[™]' tts='とれーどまーく'>きごう; しょうひょう; とれーどまーく</annotation>
 
 		<!-- aries; ram; zodiac -->
-		<annotation cp='[♈]' tts='おひつじざ' draft='provisional'>おひつじざ; せいざ</annotation>
+		<annotation cp='[♈]' tts='おひつじざ'>せいざ; おひつじざ</annotation>
 
 		<!-- taurus; bull; ox; zodiac -->
-		<annotation cp='[♉]' tts='おうしざ' draft='provisional'>おうしざ; せいざ</annotation>
+		<annotation cp='[♉]' tts='おうしざ'>せいざ; おうしざ</annotation>
 
 		<!-- gemini; twins; zodiac -->
-		<annotation cp='[♊]' tts='ふたござ' draft='provisional'>ふたござ; せいざ</annotation>
+		<annotation cp='[♊]' tts='ふたござ'>せいざ; ふたござ</annotation>
 
 		<!-- cancer; crab; zodiac -->
-		<annotation cp='[♋]' tts='かにざ' draft='provisional'>かにざ; せいざ</annotation>
+		<annotation cp='[♋]' tts='かにざ'>せいざ; かにざ</annotation>
 
 		<!-- leo; lion; zodiac -->
-		<annotation cp='[♌]' tts='ししざ' draft='provisional'>ししざ; せいざ</annotation>
+		<annotation cp='[♌]' tts='ししざ'>せいざ; ししざ</annotation>
 
 		<!-- virgo; maiden; virgin; zodiac -->
-		<annotation cp='[♍]' tts='おとめざ' draft='provisional'>おとめざ; せいざ</annotation>
+		<annotation cp='[♍]' tts='おとめざ'>せいざ; おとめざ</annotation>
 
 		<!-- libra; balance; justice; scales; zodiac -->
-		<annotation cp='[♎]' tts='てんびんざ' draft='provisional'>てんびんざ; せいざ</annotation>
+		<annotation cp='[♎]' tts='てんびんざ'>せいざ; てんびんざ</annotation>
 
 		<!-- scorpius; scorpio; scorpion; zodiac -->
-		<annotation cp='[♏]' tts='さそりざ' draft='provisional'>さそりざ; せいざ</annotation>
+		<annotation cp='[♏]' tts='さそりざ'>せいざ; さそりざ</annotation>
 
 		<!-- sagittarius; archer; zodiac -->
-		<annotation cp='[♐]' tts='いてざ' draft='provisional'>いてざ; せいざ</annotation>
+		<annotation cp='[♐]' tts='いてざ'>せいざ; いてざ</annotation>
 
 		<!-- capricorn; goat; zodiac -->
-		<annotation cp='[♑]' tts='やぎざ' draft='provisional'>やぎざ; せいざ</annotation>
+		<annotation cp='[♑]' tts='やぎざ'>せいざ; やぎざ</annotation>
 
 		<!-- aquarius; bearer; water; zodiac -->
-		<annotation cp='[♒]' tts='みずがめざ' draft='provisional'>みずがめざ; せいざ</annotation>
+		<annotation cp='[♒]' tts='みずがめざ'>せいざ; みずがめざ</annotation>
 
 		<!-- pisces; fish; zodiac -->
-		<annotation cp='[♓]' tts='うおざ' draft='provisional'>うおざ; せいざ</annotation>
+		<annotation cp='[♓]' tts='うおざ'>せいざ; うおざ</annotation>
 
 		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
-		<annotation cp='[⛎]' tts='へびつかいざ' draft='provisional'>へびつかいざ; せいざ</annotation>
+		<annotation cp='[⛎]' tts='へびつかいざ'>せいざ; へびつかいざ</annotation>
 
 		<!-- shuffle tracks button; arrow; crossed -->
-		<annotation cp='[🔀]' tts='みぎ' draft='provisional'>みぎ; やじるし</annotation>
+		<annotation cp='[🔀]' tts='しゃっふる'>しゃっふる</annotation>
 
 		<!-- repeat button; arrow; clockwise; repeat -->
-		<annotation cp='[🔁]' tts='みぎまわり' draft='provisional'>みぎまわり; やじるし</annotation>
+		<annotation cp='[🔁]' tts='くりかえし'>りぴーと</annotation>
 
 		<!-- repeat single button; arrow; clockwise; once -->
-		<annotation cp='[🔂]' tts='みぎまわり' draft='provisional'>みぎまわり; やじるし; みぎまわりやじるし</annotation>
+		<annotation cp='[🔂]' tts='いっかいくりかえし'>いっかいりぴーと</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='さいせい'>さいせい</annotation>
 
 		<!-- fast-forword button; arrow; double; fast; forward -->
-		<annotation cp='[⏩]' tts='はやおくり' draft='provisional'>はやおくり; みぎ</annotation>
+		<annotation cp='[⏩]' tts='はやおくり'>はやおくり</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='つぎのとらっく'>つぎのとらっく</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='さいせいいちじていし'>さいせい; いちじていし</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='りばーす'>りばーす</annotation>
 
 		<!-- fast reverse button; arrow; double; rewind -->
-		<annotation cp='[⏪]' tts='まきもどし' draft='provisional'>まきもどし; ひだり</annotation>
+		<annotation cp='[⏪]' tts='まきもどし'>まきもどし</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='まえのとらっく'>さいごのとらっく</annotation>
 
 		<!-- up button; arrow; button; red -->
-		<annotation cp='[🔼]' tts='うえ' draft='provisional'>うえ; さんかく; うえむきさんかく; あかいさんかく</annotation>
+		<annotation cp='[🔼]' tts='うえぼたん'>うえ</annotation>
 
 		<!-- fast up button; arrow; double -->
-		<annotation cp='[⏫]' tts='やじるし' draft='provisional'>やじるし; うえ</annotation>
+		<annotation cp='[⏫]' tts='こうそくうえ'>うえ</annotation>
 
 		<!-- down button; arrow; button; down; red -->
-		<annotation cp='[🔽]' tts='した' draft='provisional'>した; さんかく; したむきさんかく; あかいさんかく</annotation>
+		<annotation cp='[🔽]' tts='したぼたん'>した</annotation>
 
 		<!-- fast down button; arrow; double; down -->
-		<annotation cp='[⏬]' tts='やじるし' draft='provisional'>やじるし; した</annotation>
+		<annotation cp='[⏬]' tts='こうそくした'>した</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='いちじていし'>いちじていし</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='ていし'>ていし</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='ろくおん'>ろくおん; ろくが</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='いじぇくと'>とりだし; いじぇくと</annotation>
 
 		<!-- cinema; camera; film; movie -->
-		<annotation cp='[🎦]' tts='えいがかん' draft='provisional'>えいがかん; えいが; かめら</annotation>
+		<annotation cp='[🎦]' tts='えいがかん'>えいが; かめら</annotation>
 
 		<!-- dim button; brightness; dim; low -->
-		<annotation cp='[🔅]' tts='ひくいきど' draft='provisional'>ひくいきど; あかるさ; ぶらいとねす</annotation>
+		<annotation cp='[🔅]' tts='ひくいきど'>あかるさ; ぶらいとねす</annotation>
 
 		<!-- bright button; bright; brightness -->
-		<annotation cp='[🔆]' tts='たかいきど' draft='provisional'>たかいきど; あかるさ; ぶらいとねす</annotation>
+		<annotation cp='[🔆]' tts='たかいきど'>あかるさ; ぶらいとねす</annotation>
 
 		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
-		<annotation cp='[📶]' tts='でんぱ' draft='provisional'>でんぱ; けんない; けいたい; けいたいでんわ</annotation>
+		<annotation cp='[📶]' tts='でんぱ'>けんない; けいたい; けいたいでんわ; すまほ; すまーとふぉん</annotation>
 
 		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
-		<annotation cp='[📵]' tts='けいたいきんし' draft='provisional'>けいたいきんし</annotation>
+		<annotation cp='[📵]' tts='けいたいきんし'>けいたいきんし; けいたいでんわきんし; すまほきんし; すまーとふぉんきんし</annotation>
 
 		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
-		<annotation cp='[📳]' tts='まなーもーど' draft='provisional'>まなーもーど; けいたい; けいたいでんわ</annotation>
+		<annotation cp='[📳]' tts='まなーもーど'>けいたい; けいたいでんわ; すまほ; すまーとふぉん; まなーもーど</annotation>
 
 		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
-		<annotation cp='[📴]' tts='けいたいおふ' draft='provisional'>けいたいおふ; けいたい; けいたいでんわ; でんげんおふ</annotation>
+		<annotation cp='[📴]' tts='けいたいおふ'>けいたい; けいたいでんわ; すまほ; すまーとふぉん; でんげんおふ</annotation>
 
 		<!-- keycap number; hash; keycap; pound -->
-		<annotation cp='[{#⃣}]' tts='はっしゅきー' draft='provisional'>はっしゅきー; はっしゅ</annotation>
+		<annotation cp='[{#⃣}]' tts='はっしゅきー'>はっしゅ; きー</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='あすたりすく'>あすたりすく; きー</annotation>
 
 		<!-- keycap digit zero; 0; keycap; zero -->
-		<annotation cp='[{0⃣}]' tts='ぜろ' draft='provisional'>ぜろ; すうじ</annotation>
+		<annotation cp='[{0⃣}]' tts='ぜろ'>きー; すうじ; ぜろ</annotation>
 
 		<!-- keycap digit one; 1; keycap; one -->
-		<annotation cp='[{1⃣}]' tts='いち' draft='provisional'>いち; すうじ</annotation>
+		<annotation cp='[{1⃣}]' tts='いち'>きー; すうじ; いち</annotation>
 
 		<!-- keycap digit two; 2; keycap; two -->
-		<annotation cp='[{2⃣}]' tts='に' draft='provisional'>に; すうじ</annotation>
+		<annotation cp='[{2⃣}]' tts='に'>きー; すうじ; に</annotation>
 
 		<!-- keycap digit three; 3; keycap; three -->
-		<annotation cp='[{3⃣}]' tts='さん' draft='provisional'>さん; すうじ</annotation>
+		<annotation cp='[{3⃣}]' tts='さん'>きー; すうじ; さん</annotation>
 
 		<!-- keycap digit four; 4; four; keycap -->
-		<annotation cp='[{4⃣}]' tts='よん' draft='provisional'>よん; すうじ</annotation>
+		<annotation cp='[{4⃣}]' tts='よん'>きー; すうじ; よん</annotation>
 
 		<!-- keycap digit five; 5; five; keycap -->
-		<annotation cp='[{5⃣}]' tts='ご' draft='provisional'>ご; すうじ</annotation>
+		<annotation cp='[{5⃣}]' tts='ご'>きー; すうじ; ご</annotation>
 
 		<!-- keycap digit six; 6; keycap; six -->
-		<annotation cp='[{6⃣}]' tts='ろく' draft='provisional'>ろく; すうじ</annotation>
+		<annotation cp='[{6⃣}]' tts='ろく'>きー; すうじ; ろく</annotation>
 
 		<!-- keycap digit seven; 7; keycap; seven -->
-		<annotation cp='[{7⃣}]' tts='なな' draft='provisional'>なな; すうじ</annotation>
+		<annotation cp='[{7⃣}]' tts='なな'>きー; すうじ; なな</annotation>
 
 		<!-- keycap digit eight; 8; eight; keycap -->
-		<annotation cp='[{8⃣}]' tts='はち' draft='provisional'>はち; すうじ</annotation>
+		<annotation cp='[{8⃣}]' tts='はち'>きー; すうじ; はち</annotation>
 
 		<!-- keycap digit nine; 9; keycap; nine -->
-		<annotation cp='[{9⃣}]' tts='きゅう' draft='provisional'>きゅう; すうじ</annotation>
+		<annotation cp='[{9⃣}]' tts='きゅう'>きー; すうじ; きゅう</annotation>
 
 		<!-- keycap ten; 10; keycap; ten -->
-		<annotation cp='[🔟]' tts='じゅう' draft='provisional'>じゅう; すうじ</annotation>
+		<annotation cp='[🔟]' tts='じゅう'>きー; すうじ; じゅう</annotation>
 
 		<!-- hundred points; 100; full; hundred; score -->
-		<annotation cp='[💯]' tts='ひゃくてんまんてん' draft='provisional'>ひゃくてんまんてん; １００; まんてん</annotation>
+		<annotation cp='[💯]' tts='ひゃくてんまんてん'>ひゃくてん; まんてん; 100</annotation>
 
 		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
-		<annotation cp='[🔞]' tts='じゅうはっきん' draft='provisional'>じゅうはっきん; １８きん</annotation>
+		<annotation cp='[🔞]' tts='じゅうはっきん'>じゅうはっきん; 18</annotation>
 
 		<!-- input latin uppercase; input; latin; letters; uppercase -->
-		<annotation cp='[🔠]' tts='おおもじＡＢＣＤ' draft='provisional'>おおもじＡＢＣＤ; ろーまじ</annotation>
+		<annotation cp='[🔠]' tts='おおもじＡＢＣＤ'>ろーまじ; おおもじ; あるふぁべっと</annotation>
 
 		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
-		<annotation cp='[🔡]' tts='こもじ' draft='provisional'>こもじ; ａｂｃｄ; ろーまじ</annotation>
+		<annotation cp='[🔡]' tts='こもじＡＢＣＤ'>ろーまじ; こもじ; あるふぁべっと</annotation>
 
 		<!-- input numbers; 1234; input; numbers -->
-		<annotation cp='[🔢]' tts='すうじ' draft='provisional'>すうじ; １２３４</annotation>
+		<annotation cp='[🔢]' tts='すうじ'>すうじ</annotation>
 
 		<!-- input symbols; input -->
-		<annotation cp='[🔣]' tts='きごう' draft='provisional'>きごう</annotation>
+		<annotation cp='[🔣]' tts='きごう'>きごう</annotation>
 
 		<!-- input latin letters; abc; alphabet; input; latin; letters -->
-		<annotation cp='[🔤]' tts='ろーまじ' draft='provisional'>ろーまじ; ＡＢＣ; えいご</annotation>
+		<annotation cp='[🔤]' tts='ＡＢＣ'>ろーまじ; あるふぁべっと</annotation>
 
 		<!-- a button; a; blood -->
-		<annotation cp='[🅰]' tts='えーがた' draft='provisional'>えーがた; Ａ; けつえきがた</annotation>
+		<annotation cp='[🅰]' tts='えーがた'>けつえきがた; えーがた</annotation>
 
 		<!-- ab button; ab; blood -->
-		<annotation cp='[🆎]' tts='えーびーがた' draft='provisional'>えーびーがた; ＡＢ; けつえきがた</annotation>
+		<annotation cp='[🆎]' tts='えーびーがた'>けつえきがた; えーびーがた</annotation>
 
 		<!-- b button; b; blood -->
-		<annotation cp='[🅱]' tts='びーがた' draft='provisional'>びーがた; Ｂ; けつえきがた</annotation>
+		<annotation cp='[🅱]' tts='びーがた'>けつえきがた; びーがた</annotation>
 
 		<!-- squared cl; cl -->
-		<annotation cp='[🆑]' tts='くりあ' draft='provisional'>くりあ; ＣＬ</annotation>
+		<annotation cp='[🆑]' tts='くりあ'>くりあ; CL</annotation>
 
 		<!-- squared cool; cool -->
-		<annotation cp='[🆒]' tts='くーる' draft='provisional'>くーる; ＣＯＯＬ</annotation>
+		<annotation cp='[🆒]' tts='くーる'>くーる; COOL</annotation>
 
 		<!-- squared free; free -->
-		<annotation cp='[🆓]' tts='ただ' draft='provisional'>ただ; むりょう; ふりー; ＦＲＥＥ</annotation>
+		<annotation cp='[🆓]' tts='ただ'>むりょう; ふりー; ＦＲＥＥ</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='じょうほう'>いんふぉめーしょん; じょうほう</annotation>
 
 		<!-- squared id; id; identity -->
-		<annotation cp='[🆔]' tts='あいでぃー' draft='provisional'>あいでぃー; ＩＤ</annotation>
+		<annotation cp='[🆔]' tts='あいでぃー'>あいでぃー; ID</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='えむ'>えむ; M</annotation>
 
 		<!-- squared new; new -->
-		<annotation cp='[🆕]' tts='にゅー' draft='provisional'>にゅー; ＮＥＷ</annotation>
+		<annotation cp='[🆕]' tts='にゅー'>NEW; にゅー; あたらしい</annotation>
 
 		<!-- squared ng; ng -->
-		<annotation cp='[🆖]' tts='えぬじー' draft='provisional'>えぬじー; ＮＧ</annotation>
+		<annotation cp='[🆖]' tts='えぬじー'>NG; えぬじー</annotation>
 
 		<!-- o button; blood; o -->
-		<annotation cp='[🅾]' tts='おーがた' draft='provisional'>おーがた; Ｏ; けつえきがた</annotation>
+		<annotation cp='[🅾]' tts='おーがた'>けつえきがた; おーがた</annotation>
 
 		<!-- squared ok; ok -->
-		<annotation cp='[🆗]' tts='おーけー' draft='provisional'>おーけー; ＯＫ</annotation>
+		<annotation cp='[🆗]' tts='おーけー'>OK; おーけー</annotation>
 
 		<!-- p button; parking -->
-		<annotation cp='[🅿]' tts='ぱーきんぐ' draft='provisional'>ぱーきんぐ; ちゅうしゃじょう</annotation>
+		<annotation cp='[🅿]' tts='ぱーきんぐ'>ちゅうしゃじょう; ぱーきんぐ; P</annotation>
 
 		<!-- squared sos; help; sos -->
-		<annotation cp='[🆘]' tts='えすおーえす' draft='provisional'>えすおーえす; ＳＯＳ</annotation>
+		<annotation cp='[🆘]' tts='えすおーえす'>SOS; えすおーえす</annotation>
 
 		<!-- up! button; mark; up -->
-		<annotation cp='[🆙]' tts='あっぷ' draft='provisional'>あっぷ; こうしん; ＵＰ</annotation>
+		<annotation cp='[🆙]' tts='あっぷ'>こうしん; ＵＰ</annotation>
 
 		<!-- squared vs; versus; vs -->
-		<annotation cp='[🆚]' tts='ゔぃえす' draft='provisional'>ゔぃえす; ばーさす; ゔぁーさす; ＶＳ</annotation>
+		<annotation cp='[🆚]' tts='ゔぃえす'>ばーさす; ゔぁーさす; ＶＳ</annotation>
 
 		<!-- squared katakana koko; japanese -->
-		<annotation cp='[🈁]' tts='ここ' draft='provisional'>ここ</annotation>
+		<annotation cp='[🈁]' tts='ここ'>ここ</annotation>
 
 		<!-- squared katakana sa; japanese -->
-		<annotation cp='[🈂]' tts='さ' draft='provisional'>さ; さーびす</annotation>
+		<annotation cp='[🈂]' tts='さ'>さーびす</annotation>
 
 		<!-- squared moon ideograph; japanese -->
-		<annotation cp='[🈷]' tts='つきぎめ' draft='provisional'>つきぎめ; つき; げつがく</annotation>
+		<annotation cp='[🈷]' tts='つきぎめ'>つき; げつがく; つきぎめ</annotation>
 
 		<!-- squared exist ideograph; japanese -->
-		<annotation cp='[🈶]' tts='ゆう' draft='provisional'>ゆう; ゆうりょう; ゆうげん</annotation>
+		<annotation cp='[🈶]' tts='ゆう'>ゆうりょう; ゆうげん</annotation>
 
 		<!-- squared finger ideograph; japanese -->
-		<annotation cp='[🈯]' tts='し' draft='provisional'>し; してい</annotation>
+		<annotation cp='[🈯]' tts='し'>してい</annotation>
 
 		<!-- circled advantage ideograph; japanese -->
-		<annotation cp='[🉐]' tts='まるとく' draft='provisional'>まるとく; とく</annotation>
+		<annotation cp='[🉐]' tts='まるとく'>とく</annotation>
 
 		<!-- squared divide ideograph; japanese -->
-		<annotation cp='[🈹]' tts='わり' draft='provisional'>わり; わりびき</annotation>
+		<annotation cp='[🈹]' tts='わり'>わりびき</annotation>
 
 		<!-- squared negation ideograph; japanese -->
-		<annotation cp='[🈚]' tts='む' draft='provisional'>む; むりょう</annotation>
+		<annotation cp='[🈚]' tts='む'>むりょう</annotation>
 
 		<!-- squared prohibit ideograph; japanese -->
-		<annotation cp='[🈲]' tts='きん' draft='provisional'>きん; きんし</annotation>
+		<annotation cp='[🈲]' tts='きん'>きんし</annotation>
 
 		<!-- circled accept ideograph; chinese -->
-		<annotation cp='[🉑]' tts='か' draft='provisional'>か; かのう</annotation>
+		<annotation cp='[🉑]' tts='か'>かのう; か</annotation>
 
 		<!-- squared apply ideograph; chinese -->
-		<annotation cp='[🈸]' tts='しん' draft='provisional'>しん; もうしこみ</annotation>
+		<annotation cp='[🈸]' tts='しん'>もうしこみ</annotation>
 
 		<!-- squared together ideograph; chinese -->
-		<annotation cp='[🈴]' tts='ごうかく' draft='provisional'>ごうかく; ごう</annotation>
+		<annotation cp='[🈴]' tts='ごうかく'>ごう; ごうかく</annotation>
 
 		<!-- squared empty ideograph; chinese -->
-		<annotation cp='[🈳]' tts='から' draft='provisional'>から; あき; くう</annotation>
+		<annotation cp='[🈳]' tts='から'>あき; くう; から</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='おいわい'>おいわい; しゅく</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='ひみつ'>ひみつ; まるひ</annotation>
 
 		<!-- squared operating ideograph; chinese -->
-		<annotation cp='[🈺]' tts='えい' draft='provisional'>えい; えいぎょう; えいぎょうび</annotation>
+		<annotation cp='[🈺]' tts='えい'>えいぎょう; えいぎょうび</annotation>
 
 		<!-- squared fullness ideograph; chinese -->
-		<annotation cp='[🈵]' tts='まん' draft='provisional'>まん; まんしゃ; まんしつ; まんいん; まんせき</annotation>
+		<annotation cp='[🈵]' tts='まん'>まんしゃ; まんしつ; まんいん; まんせき</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='くろしかくしょう'>くろ; しかく; せいほうけい</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='しろしかくしょう'>しろ; しかく; せいほうけい</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='しろしかくだい'>しろ; しかく; せいほうけい</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='くろしかくだい'>くろ; しかく; せいほうけい</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='しろしかくちゅう'>しろ; しかく; せいほうけい</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='くろしかくちゅう'>くろ; しかく; せいほうけい</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='くろしかくさいだい'>くろ; しかく; せいほうけい</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='しろしかくさいだい'>しろ; しかく; せいほうけい</annotation>
 
 		<!-- large orange diamond; diamond; geometric; orange -->
-		<annotation cp='[🔶]' tts='ひしがた' draft='provisional'>ひしがた; しかく; おおきいひしがた</annotation>
+		<annotation cp='[🔶]' tts='ひしがたおれんじ'>しかく; ひしがた</annotation>
 
 		<!-- large blue diamond; blue; diamond; geometric -->
-		<annotation cp='[🔷]' tts='ひしがた' draft='provisional'>ひしがた; しかく; おおきいひしがた</annotation>
+		<annotation cp='[🔷]' tts='ひしがたあお'>しかく; ひしがた</annotation>
 
 		<!-- small orange diamond; diamond; geometric; orange -->
-		<annotation cp='[🔸]' tts='ひしがた' draft='provisional'>ひしがた; しかく; ちいさいひしがた</annotation>
+		<annotation cp='[🔸]' tts='ちいさいひしがたおれんじ'>しかく; ひしがた</annotation>
 
 		<!-- small blue diamond; blue; diamond; geometric -->
-		<annotation cp='[🔹]' tts='ひしがた' draft='provisional'>ひしがた; しかく; ちいさいひしがた</annotation>
+		<annotation cp='[🔹]' tts='ちいさいひしがたあお'>しかく; ひしがた</annotation>
 
 		<!-- red triangle pointed up; geometric; red -->
-		<annotation cp='[🔺]' tts='うえ' draft='provisional'>うえ; さんかく; あかいさんかく; うえむきさんかく</annotation>
+		<annotation cp='[🔺]' tts='あかいうえさんかく'>さんかく; うえ</annotation>
 
 		<!-- red triangle pointed down; down; geometric; red -->
-		<annotation cp='[🔻]' tts='した' draft='provisional'>した; さんかく; あかいさんかく; したむきさんかく</annotation>
+		<annotation cp='[🔻]' tts='あかいしたさんかく'>さんかく; した</annotation>
 
 		<!-- diamond with a dot; comic; diamond; geometric; inside -->
-		<annotation cp='[💠]' tts='ひしがた' draft='provisional'>ひしがた; だいや; だいあ; かわいい</annotation>
+		<annotation cp='[💠]' tts='ひしがた'>だいや; だいあ; ひしがた</annotation>
 
 		<!-- radio button; button; geometric; radio -->
-		<annotation cp='[🔘]' tts='らじおぼたん' draft='provisional'>らじおぼたん</annotation>
+		<annotation cp='[🔘]' tts='らじおぼたん'>らじおぼたん</annotation>
 
 		<!-- black square button; button; geometric; square -->
-		<annotation cp='[🔲]' tts='しかく' draft='provisional'>しかく; しかくぼたん</annotation>
+		<annotation cp='[🔲]' tts='くろわくしかく'>しかくぼたん</annotation>
 
 		<!-- white square button; button; geometric; outlined; square -->
-		<annotation cp='[🔳]' tts='しかく' draft='provisional'>しかく; しかくぼたん</annotation>
+		<annotation cp='[🔳]' tts='しろわくしかく'>しかくぼたん</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='しろまる'>まるいぼたん</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='くろまる'>まるいぼたん</annotation>
 
 		<!-- red circle; circle; geometric; red -->
-		<annotation cp='[🔴]' tts='おおきいまる' draft='provisional'>おおきいまる; まる; おおまる</annotation>
+		<annotation cp='[🔴]' tts='あかいまる'>まる; おおまる</annotation>
 
 		<!-- blue circle; blue; circle; geometric -->
-		<annotation cp='[🔵]' tts='おおきいまる' draft='provisional'>おおきいまる; まる; おおまる</annotation>
+		<annotation cp='[🔵]' tts='あおいまる'>まる; おおまる</annotation>
 	</annotations>
 </ldml>

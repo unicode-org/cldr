@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
-<!-- Copyright © 1991-2015 Unicode®, Inc. emoji-annotations.txt For 
- details about the format and other information, see /../../../reports/tr51/index.html#Data_Files. 
- http://unicode.org/cldr/trac/ticket/8019 CLDR data files are interpreted 
- according to the LDML specification (http://unicode.org/reports/tr35/) For 
- terms of use, see http://www.unicode.org/copyright.html 
+<!-- © 1991-2015 Unicode®, Inc.
+ Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+ For terms of use, see http://www.unicode.org/copyright.html
+
+ CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
  -->
 <ldml>
 	<identity>
@@ -14,2298 +14,3078 @@
 	<annotations>
 
 		<!-- grinning face; face; grin -->
-		<annotation cp='[😀]' tts='หน้ายิ้ม' draft='provisional'>หน้ายิ้ม; ตลก; หัวเราะ</annotation>
+		<annotation cp='[😀]' tts='หน้ายิ้มยิงฟัน'>หน้า; ยิ้ม; ตลก; หัวเราะ; 55, ฮ่าๆ, ฮ่าฮ่า</annotation>
 
 		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
-		<annotation cp='[😁]' tts='หน้ายิ้มตายิ้ม' draft='provisional'>หน้ายิ้มตายิ้ม</annotation>
+		<annotation cp='[😁]' tts='ยิ้มยิงฟันตายิ้ม'>หน้า; ยิงฟัน; ยิ้ม; ฮี่ๆ, ฮี่ฮี่</annotation>
 
 		<!-- face with tears of joy; face; joy; laugh; tear -->
-		<annotation cp='[😂]' tts='ร้องไห้ดีใจ' draft='provisional'>ร้องไห้ดีใจ</annotation>
+		<annotation cp='[😂]' tts='ร้องไห้ดีใจ'>หน้า; น้ำตา; ดีใจ; ปลื้ม</annotation>
 
 		<!-- smiling face with open mouth; face; mouth; open; smile -->
-		<annotation cp='[😃]' tts='หน้ายิ้ม' draft='provisional'>หน้ายิ้ม; หัวเราะ</annotation>
+		<annotation cp='[😃]' tts='หน้ายิ้มอ้าปาก'>หน้า; ยิ้ม; ตลก; หัวเราะ, 55, ฮ่าๆ, ฮ่าฮ่า</annotation>
 
 		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
-		<annotation cp='[😄]' tts='หน้ายิ้มตายิ้ม' draft='provisional'>หน้ายิ้มตายิ้ม</annotation>
+		<annotation cp='[😄]' tts='หน้ายิ้มตายิ้ม และอ้าปาก'>หน้า; ยิ้ม; ตลก; หัวเราะ, 55, ฮ่าๆ, ฮ่าฮ่า</annotation>
 
 		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
-		<annotation cp='[😅]' tts='ยิ้มเหงื่อตก' draft='provisional'>ยิ้มเหงื่อตก</annotation>
+		<annotation cp='[😅]' tts='ยิ้มเหงื่อตก'>หน้า; ยิ้ม; เหงื่อออก</annotation>
 
 		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
-		<annotation cp='[😆]' tts='ยิ้มตาหยี' draft='provisional'>ยิ้มตาหยี; ปากกว้าง; ใบหน้า</annotation>
+		<annotation cp='[😆]' tts='ยิ้มตาหยี'>หน้า; ยิ้ม; ตาหยี</annotation>
 
 		<!-- winking face; face; wink -->
-		<annotation cp='[😉]' tts='ขยิบตา' draft='provisional'>ขยิบตา; ใบหน้า</annotation>
+		<annotation cp='[😉]' tts='ขยิบตา'>หน้า; ยิ้ม; ขยิบตา; vbvb, อิอิ</annotation>
 
 		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
-		<annotation cp='[😊]' tts='หน้ายิ้มตายิ้ม' draft='provisional'>หน้ายิ้มตายิ้ม; ใบหน้า</annotation>
+		<annotation cp='[😊]' tts='หน้ายิ้มตายิ้ม'>หน้า; อมยิ้ม; vbvb, อิอิ</annotation>
 
 		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
-		<annotation cp='[😋]' tts='น้ำลายไหล' draft='provisional'>น้ำลายไหล; ใบหน้า</annotation>
+		<annotation cp='[😋]' tts='น้ำลายไหล'>หน้า; น้ำลายไหล; อร่อย</annotation>
 
 		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
-		<annotation cp='[😎]' tts='หน้ายิ้มใส่แว่น' draft='provisional'>หน้ายิ้มใส่แว่น; ใบหน้า</annotation>
+		<annotation cp='[😎]' tts='หน้ายิ้มใส่แว่น'>หน้า; ยิ้ม; แว่นกันแดด</annotation>
 
 		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
-		<annotation cp='[😍]' tts='ตาหัวใจ' draft='provisional'>ตาหัวใจ; ใบหน้า</annotation>
+		<annotation cp='[😍]' tts='ตาหัวใจ'>หน้า; ตา; หัวใจ; ยิ้ม; ความรัก</annotation>
 
 		<!-- face throwing a kiss; face; heart; kiss -->
-		<annotation cp='[😘]' tts='หน้าส่งจุ๊บ' draft='provisional'>หน้าส่งจุ๊บ; ใบหน้า</annotation>
+		<annotation cp='[😘]' tts='หน้าส่งจุ๊บ'>หน้า; จุ๊บ; หัวใจ; ส่งจูบ</annotation>
 
 		<!-- kissing face; face; kiss -->
-		<annotation cp='[😗]' tts='หน้าจุ๊บ' draft='provisional'>หน้าจุ๊บ; ใบหน้า</annotation>
+		<annotation cp='[😗]' tts='หน้าจุ๊บ'>หน้า; จุ๊บ; ส่งจูบ</annotation>
 
 		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
-		<annotation cp='[😙]' tts='หน้ายิ้มส่งจุ๊บ' draft='provisional'>หน้ายิ้มส่งจุ๊บ; ใบหน้า</annotation>
+		<annotation cp='[😙]' tts='หน้ายิ้มส่งจุ๊บ'>หน้า; จุ๊บ; ส่งจูบ</annotation>
 
 		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
-		<annotation cp='[😚]' tts='หยีตาส่งจุ๊บ' draft='provisional'>หยีตาส่งจุ๊บ; ใบหน้า</annotation>
+		<annotation cp='[😚]' tts='หยีตาส่งจุ๊บ'>หน้า; จุ๊บ; ส่งจูบ</annotation>
 
 		<!-- smiling face; face; outlined; relaxed; smile -->
-		<annotation cp='[☺]' tts='หน้ายิ้ม' draft='provisional'>หน้ายิ้ม</annotation>
+		<annotation cp='[☺]' tts='หน้ายิ้ม'>หน้า; ยิ้ม</annotation>
+
+		<!-- slightly smiling face; face; smile -->
+		<annotation cp='[🙂]' tts='หน้ายิ้มบางๆ'>หน้า; ยิ้ม</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
+		<annotation cp='[🤗]' tts='ยิ้มกอด'>หน้า; ยิ้ม; กอด; อบอุ่น</annotation>
 
 		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
-		<annotation cp='[😇]' tts='ยิ้มเทวดา' draft='provisional'>ยิ้มเทวดา; ใบหน้า</annotation>
+		<annotation cp='[😇]' tts='ยิ้มเทวดา'>หน้า; ยิ้ม; นางฟ้า; เทวดา; บริสุทธิ์</annotation>
+
+		<!-- thinking face; face; thinking -->
+		<annotation cp='[🤔]' tts='หน้าครุ่นคิด'>หน้า; คิด</annotation>
 
 		<!-- neutral face; deadpan; face; neutral -->
-		<annotation cp='[😐]' tts='หน้าเฉยๆ' draft='provisional'>หน้าเฉยๆ; ใบหน้า</annotation>
+		<annotation cp='[😐]' tts='หน้าเฉยๆ'>หน้า; เฉยๆ</annotation>
 
 		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
-		<annotation cp='[😑]' tts='หน้าเย็นชา' draft='provisional'>หน้าเย็นชา; หน้าไม่แสดงความรู้สึก; ใบหน้า</annotation>
+		<annotation cp='[😑]' tts='หน้าเย็นชา'>หน้า; เฉยๆ</annotation>
 
 		<!-- face without mouth; face; mouth; quiet; silent -->
-		<annotation cp='[😶]' tts='หน้าไม่มีปาก' draft='provisional'>หน้าไม่มีปาก; ไม่มีปาก; ใบหน้า</annotation>
+		<annotation cp='[😶]' tts='หน้าไม่มีปาก'>ไม่มีปาก; หน้า</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
+		<annotation cp='[🙄]' tts='กลอกตา'>หน้า; กลอกตา</annotation>
 
 		<!-- smirking face; face; smirk -->
-		<annotation cp='[😏]' tts='แสยะยิ้ม' draft='provisional'>แสยะยิ้ม; ใบหน้า</annotation>
+		<annotation cp='[😏]' tts='แสยะยิ้ม'>หน้า; แสยะยิ้ม</annotation>
 
 		<!-- persevering face; face; persevere -->
-		<annotation cp='[😣]' tts='อดทน' draft='provisional'>อดทน; ใบหน้า</annotation>
+		<annotation cp='[😣]' tts='อดทน'>หน้า; อดทน</annotation>
 
 		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
-		<annotation cp='[😥]' tts='โล่งอก' draft='provisional'>โล่งอก; ใบหน้า</annotation>
+		<annotation cp='[😥]' tts='โล่งอก'>หน้า; ผิดหวัง; โล่งอก</annotation>
 
 		<!-- face with open mouth; face; mouth; open; sympathy -->
-		<annotation cp='[😮]' tts='อ้าปาก' draft='provisional'>อ้าปาก; ใบหน้า</annotation>
+		<annotation cp='[😮]' tts='อ้าปาก'>หน้า; ตกใจ</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
+		<annotation cp='[🤐]' tts='รูดซิปปาก'>หน้า; รูดซิป</annotation>
 
 		<!-- hushed face; face; hushed; stunned; surprised -->
-		<annotation cp='[😯]' tts='หน้าจุ๊ๆ' draft='provisional'>หน้าจุ๊ๆ; ใบหน้า</annotation>
+		<annotation cp='[😯]' tts='หน้าจุ๊ๆ'>หน้า; ห่อปาก</annotation>
 
 		<!-- sleepy face; face; sleep -->
-		<annotation cp='[😪]' tts='ง่วง' draft='provisional'>ง่วง; ใบหน้า</annotation>
+		<annotation cp='[😪]' tts='ง่วง'>หน้า; ง่วง; หลับ</annotation>
 
 		<!-- tired face; face; tired -->
-		<annotation cp='[😫]' tts='เหนื่อย' draft='provisional'>เหนื่อย; ใบหน้า</annotation>
+		<annotation cp='[😫]' tts='เหนื่อย'>หน้า; เหนื่อย</annotation>
 
 		<!-- sleeping face; face; sleep; zzz -->
-		<annotation cp='[😴]' tts='หลับ' draft='provisional'>หลับ; ใบหน้า</annotation>
+		<annotation cp='[😴]' tts='หลับ'>หน้า; หลับ; กรน</annotation>
 
 		<!-- relieved face; face; relieved -->
-		<annotation cp='[😌]' tts='โล่งใจ' draft='provisional'>โล่งใจ; ใบหน้า</annotation>
+		<annotation cp='[😌]' tts='โล่งใจ'>หน้า; โล่งใจ</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
+		<annotation cp='[🤓]' tts='เด็กเนิร์ด'>หน้า; จริงจัง; เนิร์ด</annotation>
 
 		<!-- face with stuck-out tongue; face; tongue -->
-		<annotation cp='[😛]' tts='แลบลิ้น' draft='provisional'>แลบลิ้น; ใบหน้า</annotation>
+		<annotation cp='[😛]' tts='แลบลิ้น'>หน้า; แลบลิ้น</annotation>
 
 		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
-		<annotation cp='[😜]' tts='แลบลิ้นหน้าทะเล้น' draft='provisional'>แลบลิ้นหน้าทะเล้น; ใบหน้า</annotation>
+		<annotation cp='[😜]' tts='แลบลิ้นหน้าทะเล้น'>หน้า; แลบลิ้น; ขยิบตา</annotation>
 
 		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
-		<annotation cp='[😝]' tts='ตาหยีแลบลิ้น' draft='provisional'>ตาหยีแลบลิ้น; ใบหน้า</annotation>
+		<annotation cp='[😝]' tts='แลบลิ้นตาหยี'>หน้า; แลบลิ้น</annotation>
+
+		<!-- frowning face; face; frown -->
+		<annotation cp='[☹]' tts='หน้าบึ้ง'>หน้า; บึ้ง</annotation>
+
+		<!-- slightly frowning face; face; frown -->
+		<annotation cp='[🙁]' tts='หน้าบึ้งเล็กน้อย'>หน้า; บึ้ง</annotation>
 
 		<!-- unamused face; face; unamused; unhappy -->
-		<annotation cp='[😒]' tts='หน้าหน่าย' draft='provisional'>หน้าหน่าย; ไม่มีความสุข; ใบหน้า</annotation>
+		<annotation cp='[😒]' tts='หน้าหน่าย'>ไม่มีความสุข; หน้า</annotation>
 
 		<!-- face with cold sweat; cold; face; sweat -->
-		<annotation cp='[😓]' tts='เหงื่อตก' draft='provisional'>เหงื่อตก; ใบหน้า</annotation>
+		<annotation cp='[😓]' tts='เหงื่อตก'>หน้า; เหงื่อ</annotation>
 
 		<!-- pensive face; dejected; face; pensive -->
-		<annotation cp='[😔]' tts='หน้าครุ่นคิด' draft='provisional'>หน้าครุ่นคิด; ใบหน้า</annotation>
+		<annotation cp='[😔]' tts='คิดไม่ตก'>หน้า; ผิดหวัง; คิดมาก</annotation>
 
 		<!-- confused face; confused; face -->
-		<annotation cp='[😕]' tts='หน้าสับสน' draft='provisional'>หน้าสับสน; ใบหน้า</annotation>
+		<annotation cp='[😕]' tts='หน้าสับสน'>หน้า; สับสน</annotation>
 
 		<!-- confounded face; confounded; face -->
-		<annotation cp='[😖]' tts='หน้าสับสนมาก' draft='provisional'>หน้าสับสนมาก; ใบหน้า</annotation>
+		<annotation cp='[😖]' tts='หน้ารำคาญ'>หน้า; รำคาญ</annotation>
+
+		<!-- upside-down face; face; upside-down -->
+		<annotation cp='[🙃]' tts='หน้ากลับหัว'>หน้า; กลับหัว</annotation>
 
 		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
-		<annotation cp='[😷]' tts='ผ้าคาดปาก' draft='provisional'>ผ้าคาดปาก; เป็นหวัด; ใบหน้า</annotation>
+		<annotation cp='[😷]' tts='ผ้าคาดปาก'>เป็นหวัด; หน้า; ผ้าคาดปาก</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
+		<annotation cp='[🤒]' tts='อมปรอท'>หน้า; ป่วย; ปรอทวัดไข้</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
+		<annotation cp='[🤕]' tts='หัวแตก'>ผ้าก็อต; หน้า; แผล; เจ็บ</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
+		<annotation cp='[🤑]' tts='หน้าเห็นแก่เงิน'>หน้า; เงิน</annotation>
 
 		<!-- astonished face; astonished; face; shocked; totally -->
-		<annotation cp='[😲]' tts='ตกใจ' draft='provisional'>ตกใจ; ใบหน้า</annotation>
+		<annotation cp='[😲]' tts='หน้าประหลาดใจ'>หน้า; ประหลาดใจ</annotation>
 
 		<!-- disappointed face; disappointed; face -->
-		<annotation cp='[😞]' tts='ผิดหวัง' draft='provisional'>ผิดหวัง; ใบหน้า</annotation>
+		<annotation cp='[😞]' tts='หน้าผิดหวัง'>หน้า; ผิดหวัง</annotation>
 
 		<!-- worried face; face; worried -->
-		<annotation cp='[😟]' tts='กังวล' draft='provisional'>กังวล; ใบหน้า</annotation>
+		<annotation cp='[😟]' tts='หน้ากังวล'>หน้า; กังวล</annotation>
 
 		<!-- face with steam from nose; face; triumph; won -->
-		<annotation cp='[😤]' tts='หน้าชนะ' draft='provisional'>หน้าชนะ; ชนะแล้ว; ใบหน้า</annotation>
+		<annotation cp='[😤]' tts='หน้าชนะ'>หน้า; ชนะแล้ว</annotation>
 
 		<!-- crying face; cry; face; sad; tear -->
-		<annotation cp='[😢]' tts='ร้องไห้' draft='provisional'>ร้องไห้; ใบหน้า; เสียใจ</annotation>
+		<annotation cp='[😢]' tts='ร้องไห้'>น้ำตา; ร้องไห้; หน้า</annotation>
 
 		<!-- loudly crying face; cry; face; sad; sob; tear -->
-		<annotation cp='[😭]' tts='ร้องไห้โฮ' draft='provisional'>ร้องไห้โฮ; น้ำตา; ร้องไห้; ใบหน้า</annotation>
+		<annotation cp='[😭]' tts='ร้องไห้โฮ'>น้ำตา; ร้องไห้; หน้า</annotation>
 
 		<!-- frowning face with open mouth; face; frown; mouth; open -->
-		<annotation cp='[😦]' tts='หน้าบึ้งอ้าปาก' draft='provisional'>หน้าบึ้งอ้าปาก; ใบหน้า</annotation>
+		<annotation cp='[😦]' tts='หน้าบึ้งอ้าปาก'>หน้า; บึ้ง</annotation>
 
 		<!-- anguished face; anguished; face -->
-		<annotation cp='[😧]' tts='รวดร้าว' draft='provisional'>รวดร้าว; ใบหน้า</annotation>
+		<annotation cp='[😧]' tts='หน้าเจ็บปวด'>หน้า; เจ็บปวด</annotation>
 
 		<!-- fearful face; face; fear; fearful; scared -->
-		<annotation cp='[😨]' tts='ผวา' draft='provisional'>ผวา; กลัว; ใบหน้า</annotation>
+		<annotation cp='[😨]' tts='หวาดกลัว'>กลัว; หน้า</annotation>
 
 		<!-- weary face; face; tired; weary -->
-		<annotation cp='[😩]' tts='เหนื่อย' draft='provisional'>เหนื่อย; ใบหน้า</annotation>
+		<annotation cp='[😩]' tts='หน้าอิดโรย'>หน้า; เหนื่อย</annotation>
 
 		<!-- grimacing face; face; grimace -->
-		<annotation cp='[😬]' tts='ยิ้มยิงฟัน' draft='provisional'>ยิ้มยิงฟัน; ใบหน้า</annotation>
+		<annotation cp='[😬]' tts='เบะปาก'>หน้า; ยิงฟัน</annotation>
 
 		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
-		<annotation cp='[😰]' tts='กังวลเหงื่อตก' draft='provisional'>กังวลเหงื่อตก; ใบหน้า</annotation>
+		<annotation cp='[😰]' tts='กังวลเหงื่อตก'>หน้า; กังวล</annotation>
 
 		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
-		<annotation cp='[😱]' tts='กลัวกรีดร้อง' draft='provisional'>กลัวกรีดร้อง; ใบหน้า</annotation>
+		<annotation cp='[😱]' tts='กลัวกรีดร้อง'>หน้า; กลัว</annotation>
 
 		<!-- flushed face; dazed; face; flushed -->
-		<annotation cp='[😳]' tts='อายหน้าแดง' draft='provisional'>อายหน้าแดง; ใบหน้า</annotation>
+		<annotation cp='[😳]' tts='อายหน้าแดง'>หน้า; อาย</annotation>
 
 		<!-- dizzy face; dizzy; face -->
-		<annotation cp='[😵]' tts='หน้ามึน' draft='provisional'>หน้ามึน; ใบหน้า</annotation>
+		<annotation cp='[😵]' tts='หน้ามึน'>หน้า; มึน</annotation>
 
 		<!-- pouting face; angry; face; mad; pouting; rage; red -->
-		<annotation cp='[😡]' tts='โกรธมาก' draft='provisional'>โกรธมาก; ใบหน้า</annotation>
+		<annotation cp='[😡]' tts='โกรธมาก'>หน้า; โกรธ</annotation>
 
 		<!-- angry face; angry; face; mad -->
-		<annotation cp='[😠]' tts='โกรธ' draft='provisional'>โกรธ; โมโห; ใบหน้า</annotation>
+		<annotation cp='[😠]' tts='หน้าโกรธ'>โมโห; หน้า</annotation>
 
 		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
-		<annotation cp='[😈]' tts='ยิ้มมีเขา' draft='provisional'>ยิ้มมีเขา; ใบหน้า</annotation>
+		<annotation cp='[😈]' tts='ยิ้มมีเขา'>หน้า; ปิศาจ; ภูต</annotation>
 
 		<!-- imp; demon; devil; face; fairy tale; fantasy -->
-		<annotation cp='[👿]' tts='อิมป์' draft='provisional'>อิมป์; ภูต</annotation>
+		<annotation cp='[👿]' tts='หน้าบึ้งมีเขา'>หน้า; ปิศาจ; ภูต</annotation>
 
 		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
-		<annotation cp='[👹]' tts='ยักษ์ญี่ปุ่น' draft='provisional'>ยักษ์ญี่ปุ่น</annotation>
+		<annotation cp='[👹]' tts='ยักษ์ญี่ปุ่น'>หน้า; ปิศาจ; ยักษ์; ญี่ปุ่น</annotation>
 
 		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
-		<annotation cp='[👺]' tts='ปีศาจญี่ปุ่น' draft='provisional'>ปีศาจญี่ปุ่น</annotation>
+		<annotation cp='[👺]' tts='ปีศาจญี่ปุ่น'>หน้า; ปิศาจ; ญี่ปุ่น</annotation>
 
 		<!-- skull; body; death; face; fairy tale; monster -->
-		<annotation cp='[💀]' tts='หัวกระโหลก' draft='provisional'>หัวกระโหลก; เทพนิยาย</annotation>
+		<annotation cp='[💀]' tts='หัวกระโหลก'>กะโหลก</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
+		<annotation cp='[☠]' tts='กะโหลกไขว้'>กระดูก; กะโหลก; ความตาย; ปิศาจ; อันตราย</annotation>
 
 		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
-		<annotation cp='[👻]' tts='ผี' draft='provisional'>ผี; เทพนิยาย</annotation>
+		<annotation cp='[👻]' tts='ผี'>ผี; หลอก</annotation>
 
 		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
-		<annotation cp='[👽]' tts='เอเลี่ยน' draft='provisional'>เอเลี่ยน; ยูเอฟโอ</annotation>
+		<annotation cp='[👽]' tts='เอเลี่ยน'>เอเลี่ยน; นอกโลก; หน้า; ยูเอฟโอ; อวกาศ; มนุษย์ต่างดาว</annotation>
 
 		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
-		<annotation cp='[👾]' tts='สัตว์ประหลาดเอเลี่ยน' draft='provisional'>สัตว์ประหลาดเอเลี่ยน</annotation>
+		<annotation cp='[👾]' tts='สัตว์ประหลาดเอเลี่ยน'>เอเลี่ยน; นอกโลก; หน้า; ยูเอฟโอ; อวกาศ; มนุษย์ต่างดาว</annotation>
+
+		<!-- robot face; face; monster; robot -->
+		<annotation cp='[🤖]' tts='หุ่นยนต์'>หน้า; หุ่นยนต์</annotation>
 
 		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
-		<annotation cp='[💩]' tts='กองอึ' draft='provisional'>กองอึ; อึ</annotation>
+		<annotation cp='[💩]' tts='อุนจิ'>อึ; อุนจิ</annotation>
 
 		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
-		<annotation cp='[😺]' tts='แมวยิ้มอ้าปาก' draft='provisional'>แมวยิ้มอ้าปาก; ใบหน้า</annotation>
+		<annotation cp='[😺]' tts='แมวยิ้มอ้าปาก'>หน้า; แมว; ยิ้ม</annotation>
 
 		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
-		<annotation cp='[😸]' tts='แมวยิ้ม' draft='provisional'>แมวยิ้ม; ใบหน้า</annotation>
+		<annotation cp='[😸]' tts='แมวยิ้ม'>หน้า; แมว; ยิ้ม</annotation>
 
 		<!-- cat face with tears of joy; cat; face; joy; tear -->
-		<annotation cp='[😹]' tts='แมวร้องไห้ดีใจ' draft='provisional'>แมวร้องไห้ดีใจ; ใบหน้า</annotation>
+		<annotation cp='[😹]' tts='แมวร้องไห้ดีใจ'>หน้า; แมว; ยิ้ม, ร้องไห้</annotation>
 
 		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
-		<annotation cp='[😻]' tts='แมวตาหัวใจ' draft='provisional'>แมวตาหัวใจ; ใบหน้า</annotation>
+		<annotation cp='[😻]' tts='แมวตาหัวใจ'>หน้า; แมว; ยิ้ม, หลงรัก</annotation>
 
 		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
-		<annotation cp='[😼]' tts='แมวยิ้มเจ้าเล่ห์' draft='provisional'>แมวยิ้มเจ้าเล่ห์; ยิ้มเยาะ; ใบหน้า</annotation>
+		<annotation cp='[😼]' tts='แมวยิ้มเจ้าเล่ห์'>หน้า; แมว; ยิ้ม, เจ้าเล่ห์; ยิ้มเยาะ</annotation>
 
 		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
-		<annotation cp='[😽]' tts='แมวส่งจุ๊บ' draft='provisional'>แมวส่งจุ๊บ; ใบหน้า</annotation>
+		<annotation cp='[😽]' tts='แมวส่งจุ๊บ'>หน้า; แมว; ส่งจูบ; ส่งจุ๊บ</annotation>
 
 		<!-- weary cat face; cat; face; oh; surprised; weary -->
-		<annotation cp='[🙀]' tts='แมวตกใจ' draft='provisional'>แมวตกใจ; ใบหน้า</annotation>
+		<annotation cp='[🙀]' tts='แมวตกใจ'>หน้า; แมว; ตกใจ</annotation>
 
 		<!-- crying cat face; cat; cry; face; sad; tear -->
-		<annotation cp='[😿]' tts='แมวร้องไห้' draft='provisional'>แมวร้องไห้; ใบหน้า</annotation>
+		<annotation cp='[😿]' tts='แมวร้องไห้'>หน้า; แมว; ร้องไห้</annotation>
 
 		<!-- pouting cat face; cat; face; pouting -->
-		<annotation cp='[😾]' tts='แมวโกรธ' draft='provisional'>แมวโกรธ; ใบหน้า</annotation>
+		<annotation cp='[😾]' tts='แมวโกรธ'>หน้า; แมว; โกรธ</annotation>
 
 		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
-		<annotation cp='[🙈]' tts='ลิงปิดตา' draft='provisional'>ลิงปิดตา; ลิง</annotation>
+		<annotation cp='[🙈]' tts='ลิงปิดตา'>ลิง; ปิดตา</annotation>
 
 		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
-		<annotation cp='[🙉]' tts='ลิงปิดหู' draft='provisional'>ลิงปิดหู; ลิง</annotation>
+		<annotation cp='[🙉]' tts='ลิงปิดหู'>ลิง; ปิดหู</annotation>
 
 		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
-		<annotation cp='[🙊]' tts='ลิงปิดปาก' draft='provisional'>ลิงปิดปาก; ลิง</annotation>
+		<annotation cp='[🙊]' tts='ลิงปิดปาก'>ลิง; ปิดปาก</annotation>
 
 		<!-- boy -->
-		<annotation cp='[👦]' tts='เด็กชาย' draft='provisional'>เด็กชาย; คน</annotation>
+		<annotation cp='[👦]' tts='เด็กชาย'>คน; เด็กชาย</annotation>
 
 		<!-- girl; maiden; virgin; virgo; zodiac -->
-		<annotation cp='[👧]' tts='เด็กหญิง' draft='provisional'>เด็กหญิง; คน</annotation>
+		<annotation cp='[👧]' tts='เด็กหญิง'>คน; เด็กหญิง</annotation>
 
 		<!-- man -->
-		<annotation cp='[👨]' tts='ผู้ชาย' draft='provisional'>ผู้ชาย; คน</annotation>
+		<annotation cp='[👨]' tts='ผู้ชาย'>คน; ผู้ชาย</annotation>
 
 		<!-- woman -->
-		<annotation cp='[👩]' tts='ผู้หญิง' draft='provisional'>ผู้หญิง; คน</annotation>
+		<annotation cp='[👩]' tts='ผู้หญิง'>คน; ผู้หญิง</annotation>
 
 		<!-- old man; man; old -->
-		<annotation cp='[👴]' tts='ชายแก่' draft='provisional'>ชายแก่; ชาย; คน</annotation>
+		<annotation cp='[👴]' tts='ชายแก่'>ชาย; ชายแก่; คนแก่</annotation>
 
 		<!-- old woman; old; woman -->
-		<annotation cp='[👵]' tts='หญิงแก่' draft='provisional'>หญิงแก่; คน</annotation>
+		<annotation cp='[👵]' tts='หญิงแก่'>หญิง; หญิงแก่; คนแก่</annotation>
 
 		<!-- baby -->
-		<annotation cp='[👶]' tts='ทารก' draft='provisional'>ทารก; คน</annotation>
+		<annotation cp='[👶]' tts='ทารก'>คน; ทารก</annotation>
 
 		<!-- person with blond hair; blond -->
-		<annotation cp='[👱]' tts='คนผมทอง' draft='provisional'>คนผมทอง; ผมทอง</annotation>
+		<annotation cp='[👱]' tts='คนผมทอง'>คน; ผมทอง</annotation>
 
 		<!-- police officer; cop; officer; police -->
-		<annotation cp='[👮]' tts='เจ้าหน้าที่ตำรวจ' draft='provisional'>เจ้าหน้าที่ตำรวจ; ตำรวจ; คน</annotation>
+		<annotation cp='[👮]' tts='เจ้าหน้าที่ตำรวจ'>ตำรวจ; คน</annotation>
 
 		<!-- man with chinese cap; gua pi mao; hat; man -->
-		<annotation cp='[👲]' tts='ชายจีน' draft='provisional'>ชายจีน; คน</annotation>
+		<annotation cp='[👲]' tts='ชายจีน'>คน; ชายจีน</annotation>
 
 		<!-- man with turban; man; turban -->
-		<annotation cp='[👳]' tts='ชายโพกหัว' draft='provisional'>ชายโพกหัว; คน</annotation>
+		<annotation cp='[👳]' tts='ชายโพกหัว'>คน; โพกหัว</annotation>
 
 		<!-- construction worker; construction; hat; worker -->
-		<annotation cp='[👷]' tts='คนงานก่อสร้าง' draft='provisional'>คนงานก่อสร้าง; คน; ปลอดภัยไว้ก่อน</annotation>
+		<annotation cp='[👷]' tts='คนงานก่อสร้าง'>คน; ปลอดภัยไว้ก่อน; ก่อสร้าง</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
+		<annotation cp='[⛑]' tts='หมวกนิรภัยมีกากบาทขาว'>หมวกนิรภัย; ปลอดภัย; กากบาท</annotation>
 
 		<!-- princess; fairy tale; fantasy -->
-		<annotation cp='[👸]' tts='เจ้าหญิง' draft='provisional'>เจ้าหญิง; เทพนิยาย</annotation>
+		<annotation cp='[👸]' tts='เจ้าหญิง'>เทพนิยาย; เจ้าหญิง</annotation>
 
 		<!-- guardsman; guard -->
-		<annotation cp='[💂]' tts='การ์ดคุ้มกัน' draft='provisional'>การ์ดคุ้มกัน; การ์ด</annotation>
+		<annotation cp='[💂]' tts='การ์ดคุ้มกัน'>การ์ด; ยาม</annotation>
+
+		<!-- detective; sleuth; spy -->
+		<annotation cp='[🕵]' tts='นักสืบ'>แกะรอย; นักสืบ</annotation>
 
 		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
-		<annotation cp='[🎅]' tts='ซานต้า' draft='provisional'>ซานต้า; ซานตาคลอส; คริสต์มาส</annotation>
+		<annotation cp='[🎅]' tts='ซานต้า'>ซานตาคลอส; คริสต์มาส</annotation>
 
 		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
-		<annotation cp='[👼]' tts='นางฟ้าเด็ก' draft='provisional'>นางฟ้าเด็ก; นางฟ้า; เทพนิยาย</annotation>
+		<annotation cp='[👼]' tts='นางฟ้าเด็ก'>นางฟ้า; เทพนิยาย</annotation>
 
 		<!-- face massage; massage; salon -->
-		<annotation cp='[💆]' tts='นวดหน้า' draft='provisional'>นวดหน้า; นวด; เสริมสวย</annotation>
+		<annotation cp='[💆]' tts='นวดหน้า'>นวด; เสริมสวย</annotation>
 
 		<!-- haircut; barber; beauty; parlor -->
-		<annotation cp='[💇]' tts='ตัดผม' draft='provisional'>ตัดผม; ร้านเสริมสวย</annotation>
+		<annotation cp='[💇]' tts='ตัดผม'>เสริมสวย; ตัดผม</annotation>
 
 		<!-- bride with veil; bride; veil; wedding -->
-		<annotation cp='[👰]' tts='เจ้าสาว' draft='provisional'>เจ้าสาว; เจ้าสาวมีผ้าคลุมหน้า</annotation>
+		<annotation cp='[👰]' tts='เจ้าสาว'>เจ้าสาว; แต่งงาน</annotation>
 
 		<!-- person frowning; frown; gesture -->
-		<annotation cp='[🙍]' tts='ขมวดคิ้ว' draft='provisional'>ขมวดคิ้ว</annotation>
+		<annotation cp='[🙍]' tts='ขมวดคิ้ว'>หน้า; คิ้ว; บึ้งตึง</annotation>
 
 		<!-- person pouting; gesture; pouting -->
-		<annotation cp='[🙎]' tts='หน้าโกรธ' draft='provisional'>หน้าโกรธ</annotation>
+		<annotation cp='[🙎]' tts='ยื่นปาก'>หน้า; งอน; โกรธ; ยื่นปาก</annotation>
 
 		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
-		<annotation cp='[🙅]' tts='ทำมือไม่โอเค' draft='provisional'>ทำมือไม่โอเค</annotation>
+		<annotation cp='[🙅]' tts='ทำมือไม่โอเค'>มือ; ห้าม; ไม่เห็นด้วย</annotation>
 
 		<!-- gesturing ok; gesture; hand; ok -->
-		<annotation cp='[🙆]' tts='ทำมือโอเค' draft='provisional'>ทำมือโอเค; ตกลง</annotation>
+		<annotation cp='[🙆]' tts='ทำท่าโอเค'>ตกลง; โอเค</annotation>
 
 		<!-- information desk person; hand; help; information; sassy -->
-		<annotation cp='[💁]' tts='โต๊ะสอบถาม' draft='provisional'>โต๊ะสอบถาม; ความช่วยเหลือ</annotation>
+		<annotation cp='[💁]' tts='โต๊ะสอบถาม'>ความช่วยเหลือ</annotation>
 
 		<!-- happy person raising hand; gesture; hand; happy; raised -->
-		<annotation cp='[🙋]' tts='ยกมือขึ้น' draft='provisional'>ยกมือขึ้น</annotation>
+		<annotation cp='[🙋]' tts='ยกมือขึ้น'>มือ; ความสุข</annotation>
 
 		<!-- person bowing; apology; bow; gesture; sorry -->
-		<annotation cp='[🙇]' tts='ท่าขอโทษ' draft='provisional'>ท่าขอโทษ; โค้งตัวคำนับ</annotation>
+		<annotation cp='[🙇]' tts='ท่าขอโทษ'>โค้งตัวคำนับ</annotation>
 
 		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
-		<annotation cp='[🙌]' tts='ชู 2 มือ' draft='provisional'>ชู 2 มือ</annotation>
+		<annotation cp='[🙌]' tts='ชู 2 มือ'>อวัยวะ: มือ; ดีใจ</annotation>
 
 		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
-		<annotation cp='[🙏]' tts='พนมมือ' draft='provisional'>พนมมือ</annotation>
+		<annotation cp='[🙏]' tts='พนมมือ'>อวัยวะ: มือ; ขอบคุณ: เคารพ; ไหว้</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
+		<annotation cp='[🗣]' tts='เงาคนกำลังพูด'>พูด; เงา; คน</annotation>
 
 		<!-- bust in silhouette; bust; silhouette -->
-		<annotation cp='[👤]' tts='ภาพเงาครึ่งตัว' draft='provisional'>ภาพเงาครึ่งตัว; ผู้คน</annotation>
+		<annotation cp='[👤]' tts='เงาครึ่งตัวคนเดียว'>คน</annotation>
 
 		<!-- busts in silhouette; bust; silhouette -->
-		<annotation cp='[👥]' tts='ภาพเงาครึ่งตัว 2 คน' draft='provisional'>ภาพเงาครึ่งตัว 2 คน; ผู้คน</annotation>
+		<annotation cp='[👥]' tts='เงาครึ่งตัว 2 คน'>ผู้คน</annotation>
 
 		<!-- pedestrian; hike; walk; walking -->
-		<annotation cp='[🚶]' tts='คนเดินเท้า' draft='provisional'>คนเดินเท้า; เดิน</annotation>
+		<annotation cp='[🚶]' tts='คนเดินเท้า'>เดิน</annotation>
 
 		<!-- runner; marathon; running -->
-		<annotation cp='[🏃]' tts='นักวิ่ง' draft='provisional'>นักวิ่ง; กีฬา</annotation>
+		<annotation cp='[🏃]' tts='นักวิ่ง'>วิ่ง</annotation>
 
 		<!-- women partying; bunny; dancer; ear; girl; woman -->
-		<annotation cp='[👯]' tts='ผู้หญิงในชุดหูกระต่าย' draft='provisional'>ผู้หญิงในชุดหูกระต่าย; สาวๆ; คน</annotation>
+		<annotation cp='[👯]' tts='ผู้หญิงในชุดหูกระต่าย'>สาวๆ; คน</annotation>
 
 		<!-- dancer -->
-		<annotation cp='[💃]' tts='นักเต้น' draft='provisional'>นักเต้น; เต้น</annotation>
+		<annotation cp='[💃]' tts='นักเต้น'>เต้น</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
+		<annotation cp='[🕴]' tts='ชายใส่สูทลอยได้'>ชาย; สูท; ธุรกิจ; ลอย</annotation>
 
 		<!-- kiss; couple; romance -->
-		<annotation cp='[💏]' tts='จูบ' draft='provisional'>จูบ; ความรัก</annotation>
+		<annotation cp='[💏]' tts='จูบ'>ความรัก</annotation>
 
 		<!-- couple with heart; couple; heart; love; romance -->
-		<annotation cp='[💑]' tts='คู่รัก' draft='provisional'>คู่รัก; โรแมนติก; รักกัน</annotation>
+		<annotation cp='[💑]' tts='คู่รัก'>โรแมนติก; รักกัน</annotation>
 
 		<!-- family; child; father; mother -->
-		<annotation cp='[👪]' tts='ครอบครัว' draft='provisional'>ครอบครัว; คน; พ่อ; แม่; เด็ก</annotation>
+		<annotation cp='[👪]' tts='ครอบครัว'>คน; พ่อ; แม่; เด็ก</annotation>
 
 		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
-		<annotation cp='[👫]' tts='ชาย-หญิงจับมือ' draft='provisional'>ชาย-หญิงจับมือ; คู่; ชาย; หญิง; คน; จับมือ</annotation>
+		<annotation cp='[👫]' tts='ชาย-หญิงจับมือ'>คู่; ชาย; หญิง; คน; จับมือ</annotation>
 
 		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
-		<annotation cp='[👬]' tts='ชาย-ชายจับมือ' draft='provisional'>ชาย-ชายจับมือ; ชาย; คน; จับมือ</annotation>
+		<annotation cp='[👬]' tts='ชาย-ชายจับมือ'>ชาย; คน; จับมือ</annotation>
 
 		<!-- two women holding hands; couple; hand; hold; woman -->
-		<annotation cp='[👭]' tts='หญิง-หญิงจับมือ' draft='provisional'>หญิง-หญิงจับมือ; หญิง; คน; จับมือ</annotation>
+		<annotation cp='[👭]' tts='หญิง-หญิงจับมือ'>หญิง; คน; จับมือ</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏻]' tts='ผิวโทน 1-2'>ปรับแต่งอีโมจิ; fitzpatrick; ผิว; โทนสี</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏼]' tts='ผิวโทน 3'>ปรับแต่งอีโมจิ; fitzpatrick; ผิว; โทนสี</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏽]' tts='ผิวโทน 4'>ปรับแต่งอีโมจิ; fitzpatrick; ผิว; โทนสี</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏾]' tts='ผิวโทน 5'>ปรับแต่งอีโมจิ; fitzpatrick; ผิว; โทนสี</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
+		<annotation cp='[🏿]' tts='ผิวโทน 6'>ปรับแต่งอีโมจิ; fitzpatrick; ผิว; โทนสี</annotation>
 
 		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
-		<annotation cp='[💪]' tts='เบ่งกล้าม' draft='provisional'>เบ่งกล้าม; กล้าม; แข็งแรง</annotation>
+		<annotation cp='[💪]' tts='เบ่งกล้าม'>อวัยวะ; กล้าม; แข็งแรง</annotation>
 
 		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
-		<annotation cp='[👈]' tts='นิ้วชี้ทางซ้าย' draft='provisional'>นิ้วชี้ทางซ้าย; ซ้าย; นิ้ว</annotation>
+		<annotation cp='[👈]' tts='นิ้วชี้ทางซ้าย'>อวัยวะ; ซ้าย; นิ้ว; มือ; ชี้</annotation>
 
 		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
-		<annotation cp='[👉]' tts='นิ้วชี้ทางขวา' draft='provisional'>นิ้วชี้ทางขวา; ขวา; นิ้ว</annotation>
+		<annotation cp='[👉]' tts='นิ้วชี้ทางขวา'>อวัยวะ; ขวา; นิ้ว; มือ; ชี้</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
+		<annotation cp='[☝]' tts='ฝ่ามือนิ้วชี้ขึ้น'>อวัยวะ; นิ้ว; มือ; ชี้; ขึ้น</annotation>
 
 		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
-		<annotation cp='[👆]' tts='นิ้วชี้ขึ้น' draft='provisional'>นิ้วชี้ขึ้น; ขึ้น; นิ้ว</annotation>
+		<annotation cp='[👆]' tts='หลังมือนิ้วชีขึ้น'>อวัยวะ; นิ้ว; มือ; ชี้; ขึ้น</annotation>
+
+		<!-- middle finger; body; finger; hand -->
+		<annotation cp='[🖕]' tts='ชูนิ้วกลาง'>อวัยวะ; นิ้ว; มือ; ชี้; ขึ้น</annotation>
 
 		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
-		<annotation cp='[👇]' tts='นิ้วชี้ลง' draft='provisional'>นิ้วชี้ลง; ลง; นิ้ว</annotation>
+		<annotation cp='[👇]' tts='นิ้วชี้ลง'>อวัยวะ; นิ้ว; มือ; ชี้; ลง</annotation>
 
 		<!-- victory hand; body; hand; v; victory -->
-		<annotation cp='[✌]' tts='กรรไกร' draft='provisional'>กรรไกร; ชูสองนิ้ว</annotation>
+		<annotation cp='[✌]' tts='ชู 2 นิ้ว'>ชูสองนิ้ว</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
+		<annotation cp='[🖖]' tts='ชูนิ้วแบบวัลแคน'>อวัยวะ; นิ้ว; มือ; วัลแคน</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
+		<annotation cp='[🤘]' tts='ชูนิ้วชาวร็อก'>อวัยวะ; มือ; ร็อก</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
+		<annotation cp='[🖐]' tts='ชูมือกางนิ้ว'>อวัยวะ; นิ้ว; มือ</annotation>
 
 		<!-- raised hand; body; hand -->
-		<annotation cp='[✋]' tts='กระดาษ' draft='provisional'>กระดาษ</annotation>
+		<annotation cp='[✋]' tts='ตั้งฝ่ามือ'>อวัยวะ; มือ</annotation>
 
 		<!-- ok hand; body; hand; ok -->
-		<annotation cp='[👌]' tts='ทำมือโอเค' draft='provisional'>ทำมือโอเค; โอเค; ตกลง</annotation>
+		<annotation cp='[👌]' tts='ทำมือโอเค'>อวัยวะ; นิ้ว; มือ</annotation>
 
 		<!-- thumbs up; +1; body; hand; thumb; up -->
-		<annotation cp='[👍]' tts='ชูนิ้วโป้งขึ้น' draft='provisional'>ชูนิ้วโป้งขึ้น; มือ</annotation>
+		<annotation cp='[👍]' tts='ชูนิ้วโป้งขึ้น'>อวัยวะ; นิ้ว; มือ</annotation>
 
 		<!-- thumbs down; -1; body; down; hand; thumb -->
-		<annotation cp='[👎]' tts='ชูนิ้วโป้งลง' draft='provisional'>ชูนิ้วโป้งลง; มือ</annotation>
+		<annotation cp='[👎]' tts='ชูนิ้วโป้งลง'>อวัยวะ; นิ้ว; มือ</annotation>
 
 		<!-- raised fist; body; clenched; fist; hand; punch -->
-		<annotation cp='[✊]' tts='ค้อน' draft='provisional'>ค้อน</annotation>
+		<annotation cp='[✊]' tts='กำมือ'>อวัยวะ; กำมือ; หมัด; ค้อน</annotation>
 
 		<!-- oncoming fist; body; clenched; fist; hand; punch -->
-		<annotation cp='[👊]' tts='กำปั้น' draft='provisional'>กำปั้น; ชก</annotation>
+		<annotation cp='[👊]' tts='กำปั้น'>อวัยวะ; มือ; ชก; กำปั้น</annotation>
 
 		<!-- waving hand; body; hand; wave; waving -->
-		<annotation cp='[👋]' tts='โบกมือ' draft='provisional'>โบกมือ; มือ</annotation>
+		<annotation cp='[👋]' tts='โบกมือ'>อวัยวะ; มือ; โบก</annotation>
 
 		<!-- clapping hands; body; clap; hand -->
-		<annotation cp='[👏]' tts='ปรบมือ' draft='provisional'>ปรบมือ; มือ</annotation>
+		<annotation cp='[👏]' tts='ตบมือ'>อวัยวะ; มือ; ตบมือ</annotation>
 
 		<!-- open hands; body; hand; open -->
-		<annotation cp='[👐]' tts='แบมือ' draft='provisional'>แบมือ; มือ</annotation>
+		<annotation cp='[👐]' tts='แบมือ'>อวัยวะ; มือ</annotation>
+
+		<!-- writing hand; body; hand; write -->
+		<annotation cp='[✍]' tts='เขียนหนังสือ'>อวัยวะ; มือ; เขียน</annotation>
 
 		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
-		<annotation cp='[💅]' tts='สีทาเล็บ' draft='provisional'>สีทาเล็บ; ทำเล็บ</annotation>
+		<annotation cp='[💅]' tts='สีทาเล็บ'>ทำเล็บ</annotation>
 
 		<!-- ear; body -->
-		<annotation cp='[👂]' tts='หู' draft='provisional'>หู; ฟัง; ได้ยิน</annotation>
+		<annotation cp='[👂]' tts='หู'>อวัยวะ; หู; ฟัง</annotation>
 
 		<!-- nose; body -->
-		<annotation cp='[👃]' tts='จมูก' draft='provisional'>จมูก; ดม</annotation>
+		<annotation cp='[👃]' tts='จมูก'>อวัยวะ; จมูก; ดม</annotation>
 
 		<!-- footprints; body; clothing; footprint; print -->
-		<annotation cp='[👣]' tts='รอยเท้า' draft='provisional'>รอยเท้า; เท้า</annotation>
+		<annotation cp='[👣]' tts='รอยเท้า'>อวัยวะ; เท้า; รอยเท้า</annotation>
 
 		<!-- eyes; body; eye; face -->
-		<annotation cp='[👀]' tts='ตา' draft='provisional'>ตา; ดู; เห็น</annotation>
+		<annotation cp='[👀]' tts='ตา 2 ข้าง'>อวัยวะ; ตา</annotation>
+
+		<!-- eye; body -->
+		<annotation cp='[👁]' tts='ตาข้างเดียว'>อวัยวะ; ตา</annotation>
 
 		<!-- tongue; body -->
-		<annotation cp='[👅]' tts='ลิ้น' draft='provisional'>ลิ้น</annotation>
+		<annotation cp='[👅]' tts='ลิ้น'>อวัยวะ; ลิ้น</annotation>
 
 		<!-- mouth; body; lips -->
-		<annotation cp='[👄]' tts='ปาก' draft='provisional'>ปาก; ริมฝีปาก</annotation>
+		<annotation cp='[👄]' tts='ปาก'>อวัยวะ; ปาก</annotation>
 
 		<!-- kiss mark; heart; kiss; lips; mark; romance -->
-		<annotation cp='[💋]' tts='รอยจูบ' draft='provisional'>รอยจูบ; ริมฝีปาก; จูบ</annotation>
+		<annotation cp='[💋]' tts='รอยจูบ'>อวัยวะ; ปาก; จูบ</annotation>
 
 		<!-- heart with arrow; arrow; cupid; heart; romance -->
-		<annotation cp='[💘]' tts='ศรปักใจ' draft='provisional'>ศรปักใจ; ลูกศร; ความรัก</annotation>
+		<annotation cp='[💘]' tts='ศรปักใจ'>หัวใจ; ลูกศร; ความรัก</annotation>
+
+		<!-- red heart; heart -->
+		<annotation cp='[❤]' tts='หัวใจสีแดง'>หัวใจ; หัวใจแดง</annotation>
 
 		<!-- beating heart; beating; heart; heartbeat; pulsating -->
-		<annotation cp='[💓]' tts='หัวใจเต้น' draft='provisional'>หัวใจเต้น; หัวใจ</annotation>
+		<annotation cp='[💓]' tts='หัวใจเต้น'>หัวใจ; หัวใจเต้น</annotation>
 
 		<!-- broken heart; break; broken; heart -->
-		<annotation cp='[💔]' tts='อกหัก' draft='provisional'>อกหัก; หัวใจ</annotation>
+		<annotation cp='[💔]' tts='อกหัก'>หัวใจ; อกหัก</annotation>
 
 		<!-- two hearts; heart; love -->
-		<annotation cp='[💕]' tts='ใจ 2 ดวง' draft='provisional'>ใจ 2 ดวง; คู่รัก</annotation>
+		<annotation cp='[💕]' tts='ใจ 2 ดวง'>คู่รัก; หัวใจ; ใจ 2 ดวง</annotation>
 
 		<!-- sparkling heart; excited; heart; sparkle -->
-		<annotation cp='[💖]' tts='หัวใจวิบวับ' draft='provisional'>หัวใจวิบวับ; รัก; หัวใจ; ตื่นเต้น</annotation>
+		<annotation cp='[💖]' tts='หัวใจวิบวับ'>รัก; หัวใจ; ตื่นเต้น</annotation>
 
 		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
-		<annotation cp='[💗]' tts='ใจพองโต' draft='provisional'>ใจพองโต; ประหม่า</annotation>
+		<annotation cp='[💗]' tts='ใจพองโต'>หัวใจ; ใจพองโต</annotation>
 
 		<!-- blue heart; blue; heart -->
-		<annotation cp='[💙]' tts='หัวใจน้ำเงิน' draft='provisional'>หัวใจน้ำเงิน; หัวใจ; อารมณ์</annotation>
+		<annotation cp='[💙]' tts='หัวใจน้ำเงิน'>หัวใจ; อารมณ์</annotation>
 
 		<!-- green heart; green; heart -->
-		<annotation cp='[💚]' tts='หัวใจเขียว' draft='provisional'>หัวใจเขียว; หัวใจ; อารมณ์</annotation>
+		<annotation cp='[💚]' tts='หัวใจเขียว'>หัวใจ; อารมณ์</annotation>
 
 		<!-- yellow heart; heart; yellow -->
-		<annotation cp='[💛]' tts='หัวใจเหลือง' draft='provisional'>หัวใจเหลือง; หัวใจ; อารมณ์</annotation>
+		<annotation cp='[💛]' tts='หัวใจเหลือง'>หัวใจ; อารมณ์</annotation>
 
 		<!-- purple heart; heart; purple -->
-		<annotation cp='[💜]' tts='หัวใจม่วง' draft='provisional'>หัวใจม่วง; หัวใจ; อารมณ์</annotation>
+		<annotation cp='[💜]' tts='หัวใจม่วง'>หัวใจ; อารมณ์</annotation>
 
 		<!-- heart with ribbon; heart; ribbon; valentine -->
-		<annotation cp='[💝]' tts='หัวใจผูกริบบิ้น' draft='provisional'>หัวใจผูกริบบิ้น; หัวใจ; อารมณ์</annotation>
+		<annotation cp='[💝]' tts='หัวใจผูกริบบิ้น'>หัวใจ; อารมณ์</annotation>
 
 		<!-- revolving hearts; heart; revolving -->
-		<annotation cp='[💞]' tts='หัวใจโคจร' draft='provisional'>หัวใจโคจร; หัวใจ; อารมณ์</annotation>
+		<annotation cp='[💞]' tts='หัวใจโคจร'>หัวใจ; อารมณ์</annotation>
 
 		<!-- heart decoration; heart -->
-		<annotation cp='[💟]' tts='หัวใจประดับ' draft='provisional'>หัวใจประดับ; หัวใจ</annotation>
+		<annotation cp='[💟]' tts='หัวใจประดับ'>หัวใจ</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
+		<annotation cp='[❣]' tts='เครื่องหมายอัศเจรีย์รูปหัวใจ'>ตกใจ; หัวใจ; เครื่องหมายวรรคตอน</annotation>
 
 		<!-- love letter; heart; letter; love; mail; romance -->
-		<annotation cp='[💌]' tts='จดหมายรัก' draft='provisional'>จดหมายรัก</annotation>
+		<annotation cp='[💌]' tts='จดหมายรัก'>หัวใจ; จดหมาย; ความรัก; อีเมล</annotation>
 
 		<!-- zzz; comic; sleep -->
-		<annotation cp='[💤]' tts='หลับ' draft='provisional'>หลับ; ง่วง</annotation>
+		<annotation cp='[💤]' tts='หลับปุ๋ย'>ง่วง; กรน</annotation>
 
 		<!-- anger symbol; angry; comic; mad -->
-		<annotation cp='[💢]' tts='โกรธ' draft='provisional'>โกรธ; อารมณ์</annotation>
+		<annotation cp='[💢]' tts='โกรธ'>อารมณ์; โกรธ</annotation>
 
 		<!-- bomb; comic -->
-		<annotation cp='[💣]' tts='ระเบิด' draft='provisional'>ระเบิด; อารมณ์</annotation>
+		<annotation cp='[💣]' tts='ระเบิด'>อารมณ์; โกรธมาก; ระเบิด</annotation>
 
 		<!-- collision; boom; comic -->
-		<annotation cp='[💥]' tts='การปะทะ' draft='provisional'>การปะทะ; ระเบิด</annotation>
+		<annotation cp='[💥]' tts='การปะทะ'>อารมณ์; โกรธมาก; ระเบิด</annotation>
 
 		<!-- sweat droplets; comic; splashing; sweat -->
-		<annotation cp='[💦]' tts='เหงื่อหยด' draft='provisional'>เหงื่อหยด</annotation>
+		<annotation cp='[💦]' tts='เหงื่อหยด'>เหงื่อ</annotation>
 
 		<!-- dashing; comic; dash; running -->
-		<annotation cp='[💨]' tts='วิ่งฉิว' draft='provisional'>วิ่งฉิว; วิ่งหนี</annotation>
+		<annotation cp='[💨]' tts='วิ่งฉิว'>วิ่งหนี</annotation>
 
 		<!-- dizzy; comic; star -->
-		<annotation cp='[💫]' tts='มึนหัว' draft='provisional'>มึนหัว; เห็นดาว</annotation>
+		<annotation cp='[💫]' tts='มึนหัว'>เห็นดาว</annotation>
 
 		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
-		<annotation cp='[💬]' tts='พูดไม่ออก' draft='provisional'>พูดไม่ออก</annotation>
+		<annotation cp='[💬]' tts='พูดไม่ออก'>ลูกโป่ง; บทสนทนา; คำพูด</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
+		<annotation cp='[🗨]' tts='ลูกโป่งคำพูด'>บทสนทนา; คำพูด</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
+		<annotation cp='[🗯]' tts='ลูกโป่งคำพูดรุนแรง'>โกรธ; ลูกโป่ง</annotation>
 
 		<!-- thought balloon; balloon; bubble; comic; thought -->
-		<annotation cp='[💭]' tts='ลูกโป่งความคิด' draft='provisional'>ลูกโป่งความคิด</annotation>
+		<annotation cp='[💭]' tts='ลูกโป่งความคิด'>ลูกโป่ง; ความคิด</annotation>
+
+		<!-- hole -->
+		<annotation cp='[🕳]' tts='หลุม'>หลุม</annotation>
 
 		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
-		<annotation cp='[👓]' tts='แว่นตา' draft='provisional'>แว่นตา</annotation>
+		<annotation cp='[👓]' tts='แว่นตา'>ตา; แว่นสายตา</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
+		<annotation cp='[🕶]' tts='แว่นกันแดด'>ตา; แว่นตา; แดด</annotation>
 
 		<!-- necktie; clothing -->
-		<annotation cp='[👔]' tts='เนคไท' draft='provisional'>เนคไท; เสื้อผ้า</annotation>
+		<annotation cp='[👔]' tts='เนคไท'>เสื้อผ้า; เนคไท</annotation>
 
 		<!-- t-shirt; clothing; shirt; tshirt -->
-		<annotation cp='[👕]' tts='เสื้อยืด' draft='provisional'>เสื้อยืด; เสื้อผ้า</annotation>
+		<annotation cp='[👕]' tts='เสื้อยืด'>เสื้อผ้า; เสื้อยืด</annotation>
 
 		<!-- jeans; clothing; pants; trousers -->
-		<annotation cp='[👖]' tts='ยีนส์' draft='provisional'>ยีนส์; เสื้อผ้า</annotation>
+		<annotation cp='[👖]' tts='ยีนส์'>เสื้อผ้า; ยีนส์</annotation>
 
 		<!-- dress; clothing -->
-		<annotation cp='[👗]' tts='ชุดกระโปรง' draft='provisional'>ชุดกระโปรง; เสื้อผ้า</annotation>
+		<annotation cp='[👗]' tts='ชุดกระโปรง'>เสื้อผ้า; ชุดกระโปรง</annotation>
 
 		<!-- kimono; clothing -->
-		<annotation cp='[👘]' tts='กิโมโน' draft='provisional'>กิโมโน; เสื้อผ้า</annotation>
+		<annotation cp='[👘]' tts='กิโมโน'>เสื้อผ้า; กิโมโน</annotation>
 
 		<!-- bikini; clothing; swim -->
-		<annotation cp='[👙]' tts='บิกินี' draft='provisional'>บิกินี; เสื้อผ้า</annotation>
+		<annotation cp='[👙]' tts='บิกินี'>เสื้อผ้า; เนคไท</annotation>
 
 		<!-- woman’s clothes; clothing; woman -->
-		<annotation cp='[👚]' tts='เสื้อผู้หญิง' draft='provisional'>เสื้อผู้หญิง; เสื้อผ้า</annotation>
+		<annotation cp='[👚]' tts='เสื้อผู้หญิง'>เสื้อผ้า; เสื้อผู้หญิง</annotation>
 
 		<!-- purse; clothing; coin -->
-		<annotation cp='[👛]' tts='กระเป๋าใส่เงิน' draft='provisional'>กระเป๋าใส่เงิน; กระเป๋าใส่เหรียญ</annotation>
+		<annotation cp='[👛]' tts='กระเป๋าใส่เงิน'>กระเป๋า; กระเป๋าใส่เหรียญ</annotation>
 
 		<!-- handbag; bag; clothing -->
-		<annotation cp='[👜]' tts='กระเป๋าถือ' draft='provisional'>กระเป๋าถือ; กระเป๋า</annotation>
+		<annotation cp='[👜]' tts='กระเป๋าถือ'>กระเป๋า; กระเป๋าถือ</annotation>
 
 		<!-- pouch; bag; clothing -->
-		<annotation cp='[👝]' tts='กระเป๋าใบเล็ก' draft='provisional'>กระเป๋าใบเล็ก; กระเป๋า</annotation>
+		<annotation cp='[👝]' tts='กระเป๋าใบเล็ก'>กระเป๋า; กระเป๋าใบเล็ก</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
+		<annotation cp='[🛍]' tts='ถุงช็อปปิ้ง'>ถุง; ห้าง; ช็อปปิ่ง</annotation>
 
 		<!-- school backpack; bag; satchel; school -->
-		<annotation cp='[🎒]' tts='เป้นักเรียน' draft='provisional'>เป้นักเรียน; กระเป๋าเรียน</annotation>
+		<annotation cp='[🎒]' tts='เป้นักเรียน'>กระเป๋า; กระเป๋าเรียน</annotation>
 
 		<!-- man’s shoe; clothing; man; shoe -->
-		<annotation cp='[👞]' tts='รองเท้าชาย' draft='provisional'>รองเท้าชาย; รองเท้า</annotation>
+		<annotation cp='[👞]' tts='รองเท้าชาย'>รองเท้า; รองเท้าชาย</annotation>
 
 		<!-- running shoe; athletic; clothing; shoe; sneaker -->
-		<annotation cp='[👟]' tts='รองเท้ากีฬา' draft='provisional'>รองเท้ากีฬา; รองเท้า</annotation>
+		<annotation cp='[👟]' tts='รองเท้ากีฬา'>รองเท้า; รองเท้ากีฬา; รองเท้าผ้าใบ</annotation>
 
 		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
-		<annotation cp='[👠]' tts='รองเท้าส้นสูง' draft='provisional'>รองเท้าส้นสูง; รองเท้า</annotation>
+		<annotation cp='[👠]' tts='รองเท้าส้นสูง'>รองเท้า; รองเท้าผู้หญิง; ส้นสูง</annotation>
 
 		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
-		<annotation cp='[👡]' tts='รองเท้าแตะผู้หญิง' draft='provisional'>รองเท้าแตะผู้หญิง</annotation>
+		<annotation cp='[👡]' tts='รองเท้าแตะผู้หญิง'>เสื้อผ้า; รองเท้า; ผู้หญิง; รองเท้าแตะ</annotation>
 
 		<!-- woman’s boot; boot; clothing; shoe; woman -->
-		<annotation cp='[👢]' tts='รองเท้าบู๊ตผู้หญิง' draft='provisional'>รองเท้าบู๊ตผู้หญิง</annotation>
+		<annotation cp='[👢]' tts='รองเท้าบู๊ตผู้หญิง'>รองเท้าบู๊ต; เสื้อผ้า; ผู้หญิง</annotation>
 
 		<!-- crown; clothing; king; queen -->
-		<annotation cp='[👑]' tts='มงกุฎ' draft='provisional'>มงกุฎ</annotation>
+		<annotation cp='[👑]' tts='มงกุฎ'>พระราชา; พระราชินี; มงกุฎ</annotation>
 
 		<!-- woman’s hat; clothing; hat; woman -->
-		<annotation cp='[👒]' tts='หมวกผู้หญิง' draft='provisional'>หมวกผู้หญิง; หมวก</annotation>
+		<annotation cp='[👒]' tts='หมวกผู้หญิง'>หมวก; ผู้หญิง</annotation>
 
 		<!-- top hat; clothing; hat; top; tophat -->
-		<annotation cp='[🎩]' tts='หมวกสูง' draft='provisional'>หมวกสูง; หมวก</annotation>
+		<annotation cp='[🎩]' tts='หมวกสูง'>หมวก; หมวกสูง</annotation>
 
 		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
-		<annotation cp='[🎓]' tts='หมวกรับปริญญา' draft='provisional'>หมวกรับปริญญา; หมวก; รับปริญญา</annotation>
+		<annotation cp='[🎓]' tts='หมวกรับปริญญา'>หมวก; รับปริญญา</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
+		<annotation cp='[📿]' tts='ลูกประคำ'>ลูกปัด; สร้อย; สวดมนต์; ศาสนา</annotation>
 
 		<!-- lipstick; cosmetics; makeup -->
-		<annotation cp='[💄]' tts='ลิปสติก' draft='provisional'>ลิปสติก; เครื่องสำอาง</annotation>
+		<annotation cp='[💄]' tts='ลิปสติก'>เครื่องสำอาง; ลิปสติก</annotation>
 
 		<!-- ring; diamond; romance -->
-		<annotation cp='[💍]' tts='แหวน' draft='provisional'>แหวน; ความรัก</annotation>
+		<annotation cp='[💍]' tts='แหวน'>ความรัก; แหวน</annotation>
 
 		<!-- gem stone; diamond; gem; jewel; romance -->
-		<annotation cp='[💎]' tts='อัญมณี' draft='provisional'>อัญมณี; เพชร</annotation>
+		<annotation cp='[💎]' tts='อัญมณี'>เพชร; อัญมณี</annotation>
 
 		<!-- monkey face; face; monkey -->
-		<annotation cp='[🐵]' tts='หน้าลิง' draft='provisional'>หน้าลิง; ลิง; สัตว์; ใบหน้า</annotation>
+		<annotation cp='[🐵]' tts='หน้าลิง'>ลิง; สัตว์; ใบหน้า</annotation>
 
 		<!-- monkey -->
-		<annotation cp='[🐒]' tts='ลิง' draft='provisional'>ลิง; สัตว์</annotation>
+		<annotation cp='[🐒]' tts='ลิง'>สัตว์; ลิง</annotation>
 
 		<!-- dog face; dog; face; pet -->
-		<annotation cp='[🐶]' tts='หน้าสุนัข' draft='provisional'>หน้าสุนัข; สุนัข; สัตว์; ใบหน้า</annotation>
+		<annotation cp='[🐶]' tts='หน้าสุนัข'>สุนัข; สัตว์; ใบหน้า</annotation>
 
 		<!-- dog; pet -->
-		<annotation cp='[🐕]' tts='สุนัข' draft='provisional'>สุนัข; สัตว์</annotation>
+		<annotation cp='[🐕]' tts='สุนัข'>สัตว์; สุนัข</annotation>
 
 		<!-- poodle; dog -->
-		<annotation cp='[🐩]' tts='พุดเดิ้ล' draft='provisional'>พุดเดิ้ล; สุนัข; สัตว์</annotation>
+		<annotation cp='[🐩]' tts='พุดเดิ้ล'>สุนัข; สัตว์; พุดเดิ้ล</annotation>
 
 		<!-- wolf face; face; wolf -->
-		<annotation cp='[🐺]' tts='หน้าหมาป่า' draft='provisional'>หน้าหมาป่า; สัตว์; ใบหน้า</annotation>
+		<annotation cp='[🐺]' tts='หน้าหมาป่า'>สัตว์; หน้า; หมาป่า</annotation>
 
 		<!-- cat face; cat; face; pet -->
-		<annotation cp='[🐱]' tts='หน้าแมว' draft='provisional'>หน้าแมว; แมว; สัตว์</annotation>
+		<annotation cp='[🐱]' tts='หน้าแมว'>สัตว์; แมว</annotation>
 
 		<!-- cat; pet -->
-		<annotation cp='[🐈]' tts='แมว' draft='provisional'>แมว; สัตว์</annotation>
+		<annotation cp='[🐈]' tts='แมว'>สัตว์; แมว</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
+		<annotation cp='[🦁]' tts='หน้าสิงโต'>หน้า; สิงโต; ราศี</annotation>
 
 		<!-- tiger face; face; tiger -->
-		<annotation cp='[🐯]' tts='หน้าเสือ' draft='provisional'>หน้าเสือ; เสือ; สัตว์</annotation>
+		<annotation cp='[🐯]' tts='หน้าเสือ'>เสือ; สัตว์</annotation>
 
 		<!-- tiger -->
-		<annotation cp='[🐅]' tts='เสือ' draft='provisional'>เสือ; สัตว์</annotation>
+		<annotation cp='[🐅]' tts='เสือ'>เสือ; สัตว์</annotation>
 
 		<!-- leopard -->
-		<annotation cp='[🐆]' tts='เสือดาว' draft='provisional'>เสือดาว; สัตว์</annotation>
+		<annotation cp='[🐆]' tts='เสือดาว'>เสือ; สัตว์</annotation>
 
 		<!-- horse face; face; horse -->
-		<annotation cp='[🐴]' tts='หน้าม้า' draft='provisional'>หน้าม้า; ม้า; สัตว์</annotation>
+		<annotation cp='[🐴]' tts='หน้าม้า'>ม้า; สัตว์</annotation>
 
 		<!-- horse; racehorse; racing -->
-		<annotation cp='[🐎]' tts='ม้า' draft='provisional'>ม้า; สัตว์</annotation>
+		<annotation cp='[🐎]' tts='ม้า'>สัตว์; ม้า</annotation>
+
+		<!-- unicorn face; face; unicorn -->
+		<annotation cp='[🦄]' tts='หน้ายูนิคอร์น'>หน้า; ยูนิคอร์น</annotation>
 
 		<!-- cow face; cow; face -->
-		<annotation cp='[🐮]' tts='หน้าวัว' draft='provisional'>หน้าวัว; วัว; สัตว์</annotation>
+		<annotation cp='[🐮]' tts='หน้าวัว'>วัว; สัตว์</annotation>
 
 		<!-- ox; bull; taurus; zodiac -->
-		<annotation cp='[🐂]' tts='วัว' draft='provisional'>วัว; สัตว์</annotation>
+		<annotation cp='[🐂]' tts='วัวตัวผู้'>วัว; สัตว์</annotation>
 
 		<!-- water buffalo; buffalo; water -->
-		<annotation cp='[🐃]' tts='ควาย' draft='provisional'>ควาย; สัตว์</annotation>
+		<annotation cp='[🐃]' tts='ควาย'>สัตว์; ควาย</annotation>
 
 		<!-- cow -->
-		<annotation cp='[🐄]' tts='วัว' draft='provisional'>วัว; สัตว์</annotation>
+		<annotation cp='[🐄]' tts='วัว'>วัว; สัตว์</annotation>
 
 		<!-- pig face; face; pig -->
-		<annotation cp='[🐷]' tts='หน้าหมู' draft='provisional'>หน้าหมู; หมู; สัตว์; ใบหน้า</annotation>
+		<annotation cp='[🐷]' tts='หน้าหมู'>สัตว์; หมู</annotation>
 
 		<!-- pig; sow -->
-		<annotation cp='[🐖]' tts='หมู' draft='provisional'>หมู; สัตว์</annotation>
+		<annotation cp='[🐖]' tts='หมู'>สัตว์; หมู</annotation>
 
 		<!-- boar; pig -->
-		<annotation cp='[🐗]' tts='หมูป่าตัวผู้' draft='provisional'>หมูป่าตัวผู้; สัตว์</annotation>
+		<annotation cp='[🐗]' tts='หมูป่าตัวผู้'>สัตว์; หมูป่า</annotation>
 
 		<!-- pig nose; face; nose; pig -->
-		<annotation cp='[🐽]' tts='จมูกหมู' draft='provisional'>จมูกหมู; หมู</annotation>
+		<annotation cp='[🐽]' tts='จมูกหมู'>หมู</annotation>
 
 		<!-- ram; aries; sheep; zodiac -->
-		<annotation cp='[🐏]' tts='แกะตัวผู้' draft='provisional'>แกะตัวผู้; สัตว์</annotation>
+		<annotation cp='[🐏]' tts='แกะตัวผู้'>สัตว์; แกะ</annotation>
 
 		<!-- sheep; ewe -->
-		<annotation cp='[🐑]' tts='แกะ' draft='provisional'>แกะ; สัตว์</annotation>
+		<annotation cp='[🐑]' tts='แกะ'>สัตว์; แกะ</annotation>
 
 		<!-- goat; capricorn; zodiac -->
-		<annotation cp='[🐐]' tts='แพะ' draft='provisional'>แพะ; สัตว์</annotation>
+		<annotation cp='[🐐]' tts='แพะ'>สัตว์; แพะ</annotation>
 
 		<!-- camel; dromedary; hump -->
-		<annotation cp='[🐪]' tts='อูฐโหนกเดียว' draft='provisional'>อูฐโหนกเดียว; สัตว์; อูฐ</annotation>
+		<annotation cp='[🐪]' tts='อูฐโหนกเดียว'>สัตว์; อูฐ</annotation>
 
 		<!-- two-hump camel; bactrian; camel; hump -->
-		<annotation cp='[🐫]' tts='อูฐสองโหนก' draft='provisional'>อูฐสองโหนก; สัตว์; อูฐ</annotation>
+		<annotation cp='[🐫]' tts='อูฐสองโหนก'>สัตว์; อูฐ</annotation>
 
 		<!-- elephant -->
-		<annotation cp='[🐘]' tts='ช้าง' draft='provisional'>ช้าง; สัตว์</annotation>
+		<annotation cp='[🐘]' tts='ช้าง'>สัตว์; ช้าง</annotation>
 
 		<!-- mouse face; face; mouse -->
-		<annotation cp='[🐭]' tts='หน้าหนู' draft='provisional'>หน้าหนู; หนู; สัตว์</annotation>
+		<annotation cp='[🐭]' tts='หน้าหนู'>หนู; สัตว์</annotation>
 
 		<!-- mouse -->
-		<annotation cp='[🐁]' tts='หนู' draft='provisional'>หนู; สัตว์</annotation>
+		<annotation cp='[🐁]' tts='หนูตัวเล็ก'>สัตว์; หนู</annotation>
 
 		<!-- rat -->
-		<annotation cp='[🐀]' tts='หนู' draft='provisional'>หนู; สัตว์</annotation>
+		<annotation cp='[🐀]' tts='หนูตัวใหญ่'>สัตว์; หนู</annotation>
 
 		<!-- hamster face; face; hamster; pet -->
-		<annotation cp='[🐹]' tts='หน้าหนูแฮมสเตอร์' draft='provisional'>หน้าหนูแฮมสเตอร์; สัตว์; ใบหน้า</annotation>
+		<annotation cp='[🐹]' tts='หน้าหนูแฮมสเตอร์'>สัตว์; ใบหน้า</annotation>
 
 		<!-- rabbit face; bunny; face; pet; rabbit -->
-		<annotation cp='[🐰]' tts='หน้ากระต่าย กระต่าย' draft='provisional'>หน้ากระต่าย กระต่าย; สัตว์</annotation>
+		<annotation cp='[🐰]' tts='หน้ากระต่าย กระต่าย'>สัตว์; หนูแฮมสเตอร์</annotation>
 
 		<!-- rabbit; bunny; pet -->
-		<annotation cp='[🐇]' tts='กระต่าย' draft='provisional'>กระต่าย; สัตว์</annotation>
+		<annotation cp='[🐇]' tts='กระต่าย'>สัตว์; กระต่าย</annotation>
+
+		<!-- chipmunk -->
+		<annotation cp='[🐿]' tts='ชิปมังค์'>ชิปมังค์</annotation>
 
 		<!-- bear face; bear; face -->
-		<annotation cp='[🐻]' tts='หน้าหมี' draft='provisional'>หน้าหมี; สัตว์; ใบหน้า</annotation>
+		<annotation cp='[🐻]' tts='หน้าหมี'>สัตว์; หน้า; หมี</annotation>
 
 		<!-- koala; bear -->
-		<annotation cp='[🐨]' tts='โคอาล่า' draft='provisional'>โคอาล่า; สัตว์</annotation>
+		<annotation cp='[🐨]' tts='โคอาล่า'>สัตว์; โคอาล่า</annotation>
 
 		<!-- panda face; face; panda -->
-		<annotation cp='[🐼]' tts='หน้าแพนด้า' draft='provisional'>หน้าแพนด้า; สัตว์; ใบหน้า</annotation>
+		<annotation cp='[🐼]' tts='หน้าแพนด้า'>สัตว์; หน้า; แพนด้า; หมี</annotation>
 
 		<!-- paw prints; feet; paw; print -->
-		<annotation cp='[🐾]' tts='รอยเท้าสัตว์' draft='provisional'>รอยเท้าสัตว์; เท้าสัตว์</annotation>
+		<annotation cp='[🐾]' tts='รอยเท้าสัตว์'>รอยเท้า; รอยเท้าสัตว์</annotation>
+
+		<!-- turkey -->
+		<annotation cp='[🦃]' tts='ไก่งวง'>สัตว์; ไก่งวง</annotation>
 
 		<!-- chicken -->
-		<annotation cp='[🐔]' tts='ไก่' draft='provisional'>ไก่; สัตว์</annotation>
+		<annotation cp='[🐔]' tts='ไก่'>สัตว์; ไก่</annotation>
 
 		<!-- rooster -->
-		<annotation cp='[🐓]' tts='ไก่ตัวผู้' draft='provisional'>ไก่ตัวผู้; สัตว์</annotation>
+		<annotation cp='[🐓]' tts='ไก่ตัวผู้'>สัตว์; ไก่</annotation>
 
 		<!-- hatching chick; baby; chick; hatching -->
-		<annotation cp='[🐣]' tts='ลูกเจี๊ยบออกจากไข่' draft='provisional'>ลูกเจี๊ยบออกจากไข่; สัตว์; ลูกเจี๊ยบ</annotation>
+		<annotation cp='[🐣]' tts='ลูกเจี๊ยบออกจากไข่'>สัตว์; ลูกเจี๊ยบ</annotation>
 
 		<!-- baby chick; baby; chick -->
-		<annotation cp='[🐤]' tts='ลูกเจี๊ยบ' draft='provisional'>ลูกเจี๊ยบ; สัตว์</annotation>
+		<annotation cp='[🐤]' tts='ลูกเจี๊ยบ'>สัตว์; ลูกเจี๊ยบ</annotation>
 
 		<!-- front-facing baby chick; baby; chick -->
-		<annotation cp='[🐥]' tts='ลูกเจี๊ยบยืน' draft='provisional'>ลูกเจี๊ยบยืน; ลูกเจี๊ยบ; ไก่; สัตว์</annotation>
+		<annotation cp='[🐥]' tts='ลูกเจี๊ยบยืน'>ลูกเจี๊ยบ; ไก่; สัตว์</annotation>
 
 		<!-- bird -->
-		<annotation cp='[🐦]' tts='นก' draft='provisional'>นก; สัตว์</annotation>
+		<annotation cp='[🐦]' tts='นก'>สัตว์; นก</annotation>
 
 		<!-- penguin -->
-		<annotation cp='[🐧]' tts='เพนกวิน' draft='provisional'>เพนกวิน; สัตว์</annotation>
+		<annotation cp='[🐧]' tts='เพนกวิน'>สัตว์; เพนกวิน</annotation>
+
+		<!-- dove; bird; fly; peace -->
+		<annotation cp='[🕊]' tts='นกนางนวล'>นก; บิน; สันติภาพ</annotation>
 
 		<!-- frog face; face; frog -->
-		<annotation cp='[🐸]' tts='หน้ากบ' draft='provisional'>หน้ากบ; กบ; สัตว์; ใบหน้า</annotation>
+		<annotation cp='[🐸]' tts='หน้ากบ'>กบ; สัตว์; ใบหน้า</annotation>
 
 		<!-- crocodile -->
-		<annotation cp='[🐊]' tts='จระเข้' draft='provisional'>จระเข้; สัตว์</annotation>
+		<annotation cp='[🐊]' tts='จระเข้'>สัตว์; จระเข้</annotation>
 
 		<!-- turtle -->
-		<annotation cp='[🐢]' tts='เต่า' draft='provisional'>เต่า; สัตว์</annotation>
+		<annotation cp='[🐢]' tts='เต่า'>สัตว์; เต่า</annotation>
 
 		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
-		<annotation cp='[🐍]' tts='งู' draft='provisional'>งู; สัตว์</annotation>
+		<annotation cp='[🐍]' tts='งู'>สัตว์; งู</annotation>
 
 		<!-- dragon face; dragon; face; fairy tale -->
-		<annotation cp='[🐲]' tts='หน้ามังกร' draft='provisional'>หน้ามังกร; สัตว์</annotation>
+		<annotation cp='[🐲]' tts='หน้ามังกร'>สัตว์; หน้ามังกร</annotation>
 
 		<!-- dragon; fairy tale -->
-		<annotation cp='[🐉]' tts='มังกร' draft='provisional'>มังกร; สัตว์</annotation>
+		<annotation cp='[🐉]' tts='มังกร'>สัตว์; มังกร</annotation>
 
 		<!-- spouting whale; face; spouting; whale -->
-		<annotation cp='[🐳]' tts='ปลาวาฬพ่นน้ำ' draft='provisional'>ปลาวาฬพ่นน้ำ; สัตว์</annotation>
+		<annotation cp='[🐳]' tts='ปลาวาฬพ่นน้ำ'>สัตว์; ปลาวาฬ</annotation>
 
 		<!-- whale -->
-		<annotation cp='[🐋]' tts='ปลาวาฬ' draft='provisional'>ปลาวาฬ; สัตว์</annotation>
+		<annotation cp='[🐋]' tts='ปลาวาฬ'>สัตว์; ปลาวาฬ</annotation>
 
 		<!-- dolphin; flipper -->
-		<annotation cp='[🐬]' tts='ปลาโลมา' draft='provisional'>ปลาโลมา; สัตว์</annotation>
+		<annotation cp='[🐬]' tts='ปลาโลมา'>สัตว์; ปลาโลมา</annotation>
 
 		<!-- fish; pisces; zodiac -->
-		<annotation cp='[🐟]' tts='ปลา' draft='provisional'>ปลา; สัตว์</annotation>
+		<annotation cp='[🐟]' tts='ปลา'>สัตว์; ปลา</annotation>
 
 		<!-- tropical fish; fish; tropical -->
-		<annotation cp='[🐠]' tts='ปลาเขตร้อน' draft='provisional'>ปลาเขตร้อน; สัตว์; ปลา</annotation>
+		<annotation cp='[🐠]' tts='ปลาเขตร้อน'>สัตว์; ปลา</annotation>
 
 		<!-- blowfish; fish -->
-		<annotation cp='[🐡]' tts='ปลาปักเป้า' draft='provisional'>ปลาปักเป้า; สัตว์; ปลา</annotation>
+		<annotation cp='[🐡]' tts='ปลาปักเป้า'>สัตว์; ปลา</annotation>
 
 		<!-- octopus -->
-		<annotation cp='[🐙]' tts='ปลาหมึกยักษ์' draft='provisional'>ปลาหมึกยักษ์; สัตว์</annotation>
+		<annotation cp='[🐙]' tts='ปลาหมึกยักษ์'>สัตว์; ปลาหมึก</annotation>
 
 		<!-- spiral shell; shell; spiral -->
-		<annotation cp='[🐚]' tts='หอย' draft='provisional'>หอย; สัตว์</annotation>
+		<annotation cp='[🐚]' tts='หอย'>สัตว์; หอย</annotation>
+
+		<!-- crab; cancer; zodiac -->
+		<annotation cp='[🦀]' tts='ปู'>กรกฎ; ราศี; ปู; สัตว์</annotation>
 
 		<!-- snail -->
-		<annotation cp='[🐌]' tts='หอยทาก' draft='provisional'>หอยทาก; สัตว์</annotation>
+		<annotation cp='[🐌]' tts='หอยทาก'>สัตว์; หอยทาก</annotation>
 
 		<!-- bug; insect -->
-		<annotation cp='[🐛]' tts='แมลง' draft='provisional'>แมลง; สัตว์</annotation>
+		<annotation cp='[🐛]' tts='แมลง'>สัตว์; แมลง</annotation>
 
 		<!-- ant; insect -->
-		<annotation cp='[🐜]' tts='มด' draft='provisional'>มด; สัตว์</annotation>
+		<annotation cp='[🐜]' tts='มด'>สัตว์; มด</annotation>
 
 		<!-- honeybee; bee; insect -->
-		<annotation cp='[🐝]' tts='ผึ้ง' draft='provisional'>ผึ้ง; สัตว์</annotation>
+		<annotation cp='[🐝]' tts='ผึ้ง'>สัตว์; ผึ้ง</annotation>
 
 		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
-		<annotation cp='[🐞]' tts='เต่าทอง' draft='provisional'>เต่าทอง; สัตว์</annotation>
+		<annotation cp='[🐞]' tts='เต่าทอง'>สัตว์; เต่าทอง</annotation>
+
+		<!-- spider; insect -->
+		<annotation cp='[🕷]' tts='แมงมุม'>แมลง; แมงมุม</annotation>
+
+		<!-- spider web; spider; web -->
+		<annotation cp='[🕸]' tts='ใยแมงมุม'>แมงมุม; ใย</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
+		<annotation cp='[🦂]' tts='แมงป่อง'>แมงป่อง; พิจิก; ราศี</annotation>
 
 		<!-- bouquet; flower; plant; romance -->
-		<annotation cp='[💐]' tts='ช่อดอกไม้' draft='provisional'>ช่อดอกไม้; ดอกไม้</annotation>
+		<annotation cp='[💐]' tts='ช่อดอกไม้'>ดอกไม้</annotation>
 
 		<!-- cherry blossom; blossom; cherry; flower; plant -->
-		<annotation cp='[🌸]' tts='ดอกซากุระ' draft='provisional'>ดอกซากุระ; ดอกไม้</annotation>
+		<annotation cp='[🌸]' tts='ดอกซากุระ'>ดอกไม้</annotation>
 
 		<!-- white flower; flower -->
-		<annotation cp='[💮]' tts='ตราดอกไม้' draft='provisional'>ตราดอกไม้; ดอกไม้</annotation>
+		<annotation cp='[💮]' tts='ตราดอกไม้'>ดอกไม้</annotation>
+
+		<!-- rosette; plant -->
+		<annotation cp='[🏵]' tts='ลายดอกกุหลาบ'>ดอกไม้</annotation>
 
 		<!-- rose; flower; plant -->
-		<annotation cp='[🌹]' tts='ดอกกุหลาบ' draft='provisional'>ดอกกุหลาบ; ดอกไม้</annotation>
+		<annotation cp='[🌹]' tts='ดอกกุหลาบ'>ดอกไม้; กุหลาบแดง</annotation>
 
 		<!-- hibiscus; flower; plant -->
-		<annotation cp='[🌺]' tts='ดอกชบา' draft='provisional'>ดอกชบา; ดอกไม้</annotation>
+		<annotation cp='[🌺]' tts='ดอกชบา'>ดอกไม้; ชบา</annotation>
 
 		<!-- sunflower; flower; plant; sun -->
-		<annotation cp='[🌻]' tts='ดอกทานตะวัน' draft='provisional'>ดอกทานตะวัน; ดอกไม้</annotation>
+		<annotation cp='[🌻]' tts='ดอกทานตะวัน'>ดอกไม้; ทานตะวัน</annotation>
 
 		<!-- blossom; flower; plant -->
-		<annotation cp='[🌼]' tts='ดอกไม้บาน' draft='provisional'>ดอกไม้บาน; ดอกไม้</annotation>
+		<annotation cp='[🌼]' tts='ดอกไม้บาน'>ดอกไม้</annotation>
 
 		<!-- tulip; flower; plant -->
-		<annotation cp='[🌷]' tts='ทิวลิป' draft='provisional'>ทิวลิป; ดอกไม้</annotation>
+		<annotation cp='[🌷]' tts='ทิวลิป'>ดอกไม้</annotation>
 
 		<!-- seedling; plant; young -->
-		<annotation cp='[🌱]' tts='ต้นอ่อน' draft='provisional'>ต้นอ่อน; พืช</annotation>
+		<annotation cp='[🌱]' tts='ต้นอ่อน'>พืช</annotation>
 
 		<!-- evergreen; plant; tree -->
-		<annotation cp='[🌲]' tts='ต้นสน' draft='provisional'>ต้นสน; ต้นไม้</annotation>
+		<annotation cp='[🌲]' tts='ต้นสน'>ต้นไม้</annotation>
 
 		<!-- deciduous tree; deciduous; plant; shedding; tree -->
-		<annotation cp='[🌳]' tts='ต้นไม้ร่มรื่น' draft='provisional'>ต้นไม้ร่มรื่น; ร่มเงา; ต้นไม้</annotation>
+		<annotation cp='[🌳]' tts='ต้นไม้ร่มรื่น'>ร่มเงา; ต้นไม้</annotation>
 
 		<!-- palm tree; palm; plant; tree -->
-		<annotation cp='[🌴]' tts='ต้นมะพร้าว' draft='provisional'>ต้นมะพร้าว; ต้นปาล์ม</annotation>
+		<annotation cp='[🌴]' tts='ต้นมะพร้าว'>ต้นปาล์ม</annotation>
 
 		<!-- cactus; plant -->
-		<annotation cp='[🌵]' tts='ตะบองเพชร' draft='provisional'>ตะบองเพชร; พืช</annotation>
+		<annotation cp='[🌵]' tts='ตะบองเพชร'>พืช</annotation>
 
 		<!-- sheaf of rice; ear; plant; rice -->
-		<annotation cp='[🌾]' tts='รวงข้าว' draft='provisional'>รวงข้าว; ต้นข้าว</annotation>
+		<annotation cp='[🌾]' tts='รวงข้าว'>ต้นข้าว</annotation>
 
 		<!-- herb; leaf; plant -->
-		<annotation cp='[🌿]' tts='สมุนไพร' draft='provisional'>สมุนไพร; ใบไม้</annotation>
+		<annotation cp='[🌿]' tts='สมุนไพร'>ใบไม้</annotation>
+
+		<!-- shamrock; plant -->
+		<annotation cp='[☘]' tts='ใบโคลเวอร์'>พืช</annotation>
 
 		<!-- four leaf clover; 4; clover; four; leaf; plant -->
-		<annotation cp='[🍀]' tts='ใบโคลเวอร์ 4 แฉก' draft='provisional'>ใบโคลเวอร์ 4 แฉก; ใบไม้; โชคดี</annotation>
+		<annotation cp='[🍀]' tts='ใบโคลเวอร์ 4 แฉก'>ใบไม้; โชคดี</annotation>
 
 		<!-- maple leaf; falling; leaf; maple; plant -->
-		<annotation cp='[🍁]' tts='ใบเมเปิ้ล' draft='provisional'>ใบเมเปิ้ล; ใบไม้ร่วง</annotation>
+		<annotation cp='[🍁]' tts='ใบเมเปิ้ล'>ใบไม้ร่วง</annotation>
 
 		<!-- fallen leaf; falling; leaf; plant -->
-		<annotation cp='[🍂]' tts='ใบไม้ร่วง' draft='provisional'>ใบไม้ร่วง</annotation>
+		<annotation cp='[🍂]' tts='ใบไม้ร่วง'>ใบไม้; ร่วง; พืช</annotation>
 
 		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
-		<annotation cp='[🍃]' tts='ใบไม้ปลิว' draft='provisional'>ใบไม้ปลิว</annotation>
+		<annotation cp='[🍃]' tts='ใบไม้ปลิว'>ลมพัด; ปลิว; ใบไม้; พืช</annotation>
 
 		<!-- grapes; fruit; grape; plant -->
-		<annotation cp='[🍇]' tts='องุ่น' draft='provisional'>องุ่น; ผลไม้</annotation>
+		<annotation cp='[🍇]' tts='องุ่น'>ผลไม้</annotation>
 
 		<!-- melon; fruit; plant -->
-		<annotation cp='[🍈]' tts='เมลอน' draft='provisional'>เมลอน; ผลไม้</annotation>
+		<annotation cp='[🍈]' tts='เมลอน'>ผลไม้</annotation>
 
 		<!-- watermelon; fruit; plant -->
-		<annotation cp='[🍉]' tts='แตงโม' draft='provisional'>แตงโม; ผลไม้</annotation>
+		<annotation cp='[🍉]' tts='แตงโม'>ผลไม้</annotation>
 
 		<!-- tangerine; fruit; orange; plant -->
-		<annotation cp='[🍊]' tts='ส้ม' draft='provisional'>ส้ม; ผลไม้</annotation>
+		<annotation cp='[🍊]' tts='ส้ม'>ผลไม้</annotation>
 
 		<!-- lemon; citrus; fruit; plant -->
-		<annotation cp='[🍋]' tts='เลมอน' draft='provisional'>เลมอน; ผลไม้</annotation>
+		<annotation cp='[🍋]' tts='เลมอน'>ผลไม้</annotation>
 
 		<!-- banana; fruit; plant -->
-		<annotation cp='[🍌]' tts='กล้วย' draft='provisional'>กล้วย; ผลไม้</annotation>
+		<annotation cp='[🍌]' tts='กล้วย'>ผลไม้</annotation>
 
 		<!-- pineapple; fruit; plant -->
-		<annotation cp='[🍍]' tts='สับปะรด' draft='provisional'>สับปะรด; ผลไม้</annotation>
+		<annotation cp='[🍍]' tts='สับปะรด'>ผลไม้</annotation>
 
 		<!-- red apple; apple; fruit; plant; red -->
-		<annotation cp='[🍎]' tts='แอปเปิ้ลแดง' draft='provisional'>แอปเปิ้ลแดง; ผลไม้; แอปเปิ้ล</annotation>
+		<annotation cp='[🍎]' tts='แอปเปิ้ลแดง'>ผลไม้; แอปเปิ้ล</annotation>
 
 		<!-- green apple; apple; fruit; green; plant -->
-		<annotation cp='[🍏]' tts='แอปเปิ้ลเขียว' draft='provisional'>แอปเปิ้ลเขียว; ผลไม้; แอปเปิ้ล</annotation>
+		<annotation cp='[🍏]' tts='แอปเปิ้ลเขียว'>ผลไม้; แอปเปิ้ล</annotation>
 
 		<!-- pear; fruit; plant -->
-		<annotation cp='[🍐]' tts='ลูกแพร์' draft='provisional'>ลูกแพร์; ผลไม้</annotation>
+		<annotation cp='[🍐]' tts='ลูกแพร์'>ผลไม้</annotation>
 
 		<!-- peach; fruit; plant -->
-		<annotation cp='[🍑]' tts='ลูกพีช' draft='provisional'>ลูกพีช; ผลไม้</annotation>
+		<annotation cp='[🍑]' tts='ลูกพีช'>ผลไม้</annotation>
 
 		<!-- cherries; cherry; fruit; plant -->
-		<annotation cp='[🍒]' tts='เชอร์รี่' draft='provisional'>เชอร์รี่; ผลไม้</annotation>
+		<annotation cp='[🍒]' tts='เชอร์รี่'>ผลไม้</annotation>
 
 		<!-- strawberry; berry; fruit; plant -->
-		<annotation cp='[🍓]' tts='สตรอว์เบอร์รี่' draft='provisional'>สตรอว์เบอร์รี่; ผลไม้</annotation>
+		<annotation cp='[🍓]' tts='สตรอว์เบอร์รี่'>ผลไม้</annotation>
 
 		<!-- tomato; plant; vegetable -->
-		<annotation cp='[🍅]' tts='มะเขือเทศ' draft='provisional'>มะเขือเทศ; ผัก</annotation>
+		<annotation cp='[🍅]' tts='มะเขือเทศ'>ผัก</annotation>
 
 		<!-- eggplant; aubergine; plant; vegetable -->
-		<annotation cp='[🍆]' tts='มะเขือยาว' draft='provisional'>มะเขือยาว; ผัก</annotation>
+		<annotation cp='[🍆]' tts='มะเขือยาว'>ผัก</annotation>
 
 		<!-- ear of corn; corn; ear; maize; maze; plant -->
-		<annotation cp='[🌽]' tts='ข้าวโพด' draft='provisional'>ข้าวโพด</annotation>
+		<annotation cp='[🌽]' tts='ข้าวโพด'>ข้าวโพด; พืช; ธัญพืช</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
+		<annotation cp='[🌶]' tts='พริก'>พริก; พืช; เผ็ด</annotation>
 
 		<!-- mushroom; plant -->
-		<annotation cp='[🍄]' tts='เห็ด' draft='provisional'>เห็ด</annotation>
+		<annotation cp='[🍄]' tts='เห็ด'>พืช</annotation>
 
 		<!-- chestnut; plant -->
-		<annotation cp='[🌰]' tts='เกาลัด' draft='provisional'>เกาลัด</annotation>
+		<annotation cp='[🌰]' tts='เกาลัด'>พืช</annotation>
 
 		<!-- bread; loaf -->
-		<annotation cp='[🍞]' tts='ขนมปัง' draft='provisional'>ขนมปัง; ก้อนขนมปัง</annotation>
+		<annotation cp='[🍞]' tts='ขนมปัง'>ก้อนขนมปัง</annotation>
+
+		<!-- cheese wedge; cheese -->
+		<annotation cp='[🧀]' tts='เนยแข็ง'>เนยแข็ง; ชีส</annotation>
 
 		<!-- meat on bone; bone; meat -->
-		<annotation cp='[🍖]' tts='เนื้อ' draft='provisional'>เนื้อ; เนื้อติดกระดูก</annotation>
+		<annotation cp='[🍖]' tts='เนื้อ'>เนื้อติดกระดูก</annotation>
 
 		<!-- poultry leg; bone; chicken; leg; poultry -->
-		<annotation cp='[🍗]' tts='น่องไก่' draft='provisional'>น่องไก่; ไก่</annotation>
+		<annotation cp='[🍗]' tts='น่องไก่'>ไก่</annotation>
 
 		<!-- hamburger; burger -->
-		<annotation cp='[🍔]' tts='แฮมเบอร์เกอร์' draft='provisional'>แฮมเบอร์เกอร์; เบอร์เกอร์</annotation>
+		<annotation cp='[🍔]' tts='แฮมเบอร์เกอร์'>เบอร์เกอร์</annotation>
 
 		<!-- french fries; french; fries -->
-		<annotation cp='[🍟]' tts='เฟรนช์ฟราย' draft='provisional'>เฟรนช์ฟราย</annotation>
+		<annotation cp='[🍟]' tts='เฟรนช์ฟราย'>มันฝรั่งทอด; เฟรนช์ฟราย</annotation>
 
 		<!-- pizza; cheese; slice -->
-		<annotation cp='[🍕]' tts='พิซซ่า 1 ชิ้น' draft='provisional'>พิซซ่า 1 ชิ้น; พิซซ่า</annotation>
+		<annotation cp='[🍕]' tts='พิซซ่า 1 ชิ้น'>พิซซ่า</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
+		<annotation cp='[🌭]' tts='ฮอทด็อก'>ฮอทด็อก; ไส้กรอก</annotation>
+
+		<!-- taco; mexican -->
+		<annotation cp='[🌮]' tts='ทาโก้'>เม็กซิกัน; เม็กซิโก</annotation>
+
+		<!-- burrito; mexican -->
+		<annotation cp='[🌯]' tts='เบอร์ริโต'>เม็กซิกัน; เม็กซิโก</annotation>
+
+		<!-- popcorn -->
+		<annotation cp='[🍿]' tts='ป๊อปคอร์น'>ข้าวโพดคั่ว; ป๊อปคอร์น</annotation>
 
 		<!-- pot of food; pot; stew -->
-		<annotation cp='[🍲]' tts='สตูว์' draft='provisional'>สตูว์; หม้ออาหาร</annotation>
+		<annotation cp='[🍲]' tts='สตูว์'>หม้ออาหาร</annotation>
 
 		<!-- bento box; bento; box -->
-		<annotation cp='[🍱]' tts='กล่องเบนโตะ' draft='provisional'>กล่องเบนโตะ; เบนโตะ</annotation>
+		<annotation cp='[🍱]' tts='กล่องเบนโตะ'>เบนโตะ</annotation>
 
 		<!-- rice cracker; cracker; rice -->
-		<annotation cp='[🍘]' tts='ข้าวอบกรอบ' draft='provisional'>ข้าวอบกรอบ; แครกเกอร์</annotation>
+		<annotation cp='[🍘]' tts='ข้าวอบกรอบ'>แครกเกอร์</annotation>
 
 		<!-- rice ball; ball; japanese; rice -->
-		<annotation cp='[🍙]' tts='ข้าวปั้น' draft='provisional'>ข้าวปั้น; ก้อนข้าวปั้น</annotation>
+		<annotation cp='[🍙]' tts='ข้าวปั้น'>ก้อนข้าวปั้น</annotation>
 
 		<!-- cooked rice; cooked; rice -->
-		<annotation cp='[🍚]' tts='ข้าวสวย' draft='provisional'>ข้าวสวย; ข้าว; ชามข้าว</annotation>
+		<annotation cp='[🍚]' tts='ข้าวสวย'>ข้าว; ชามข้าว</annotation>
 
 		<!-- curry rice; curry; rice -->
-		<annotation cp='[🍛]' tts='ข้าวแกงกะหรี่' draft='provisional'>ข้าวแกงกะหรี่; แกงกะหรี่</annotation>
+		<annotation cp='[🍛]' tts='ข้าวแกงกะหรี่'>แกงกะหรี่</annotation>
 
 		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
-		<annotation cp='[🍜]' tts='ราเมน' draft='provisional'>ราเมน; ชามก๋วยเตี๋ยว; บะหมี่</annotation>
+		<annotation cp='[🍜]' tts='ราเมน'>ชามก๋วยเตี๋ยว; บะหมี่</annotation>
 
 		<!-- spaghetti; pasta -->
-		<annotation cp='[🍝]' tts='สปาเก็ตตี้' draft='provisional'>สปาเก็ตตี้; พาสต้า</annotation>
+		<annotation cp='[🍝]' tts='สปาเก็ตตี้'>พาสต้า</annotation>
 
 		<!-- roasted sweet potato; potato; roasted; sweet -->
-		<annotation cp='[🍠]' tts='มันเผา' draft='provisional'>มันเผา; มันเทศเผา</annotation>
+		<annotation cp='[🍠]' tts='มันเผา'>มันเทศเผา</annotation>
 
 		<!-- oden; kebab; seafood; skewer; stick -->
-		<annotation cp='[🍢]' tts='โอเด้ง' draft='provisional'>โอเด้ง; โอเด้งเสียบไม้</annotation>
+		<annotation cp='[🍢]' tts='โอเด้ง'>โอเด้งเสียบไม้</annotation>
 
 		<!-- sushi -->
-		<annotation cp='[🍣]' tts='ซูชิ' draft='provisional'>ซูชิ</annotation>
+		<annotation cp='[🍣]' tts='ซูชิ'>ซูชิ</annotation>
 
 		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
-		<annotation cp='[🍤]' tts='กุ้งทอด' draft='provisional'>กุ้งทอด; กุ้ง</annotation>
+		<annotation cp='[🍤]' tts='กุ้งทอด'>กุ้ง</annotation>
 
 		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
-		<annotation cp='[🍥]' tts='ลูกชิ้นปลา' draft='provisional'>ลูกชิ้นปลา</annotation>
+		<annotation cp='[🍥]' tts='ลูกชิ้นปลา'>ปลา; ลูกชิ้น</annotation>
 
 		<!-- dango; dessert; japanese; skewer; stick; sweet -->
-		<annotation cp='[🍡]' tts='ดังโงะ' draft='provisional'>ดังโงะ; โมจิ; ดังโงะเสียบไม้</annotation>
+		<annotation cp='[🍡]' tts='ดังโงะ'>โมจิ; ดังโงะเสียบไม้</annotation>
 
 		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
-		<annotation cp='[🍦]' tts='ซอฟต์ครีม' draft='provisional'>ซอฟต์ครีม; ไอศกรีม</annotation>
+		<annotation cp='[🍦]' tts='ซอฟต์ครีม'>ไอศกรีม</annotation>
 
 		<!-- shaved ice; dessert; ice; shaved; sweet -->
-		<annotation cp='[🍧]' tts='น้ำแข็งไส' draft='provisional'>น้ำแข็งไส</annotation>
+		<annotation cp='[🍧]' tts='น้ำแข็งไส'>ของหวาน; น้ำแข็ง; น้ำหวาน</annotation>
 
 		<!-- ice cream; cream; dessert; ice; sweet -->
-		<annotation cp='[🍨]' tts='ไอศกรีม' draft='provisional'>ไอศกรีม</annotation>
+		<annotation cp='[🍨]' tts='ไอศกรีม'>ครีม; ของหวาน; น้ำแข็ง</annotation>
 
 		<!-- doughnut; dessert; donut; sweet -->
-		<annotation cp='[🍩]' tts='โดนัท' draft='provisional'>โดนัท</annotation>
+		<annotation cp='[🍩]' tts='โดนัท'>ขนม; ของหวาน; โดนัท</annotation>
 
 		<!-- cookie; dessert; sweet -->
-		<annotation cp='[🍪]' tts='คุกกี้' draft='provisional'>คุกกี้</annotation>
+		<annotation cp='[🍪]' tts='คุกกี้'>ของหวาน; ขนม</annotation>
 
 		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
-		<annotation cp='[🎂]' tts='เค้กวันเกิด' draft='provisional'>เค้กวันเกิด; วันเกิด; เค้ก</annotation>
+		<annotation cp='[🎂]' tts='เค้กวันเกิด'>วันเกิด; เค้ก</annotation>
 
 		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
-		<annotation cp='[🍰]' tts='เค้ก' draft='provisional'>เค้ก; ชิ้นเค้ก</annotation>
+		<annotation cp='[🍰]' tts='เค้ก'>ชิ้นเค้ก</annotation>
 
 		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
-		<annotation cp='[🍫]' tts='ช็อกโกแลต' draft='provisional'>ช็อกโกแลต; ช็อกโกแลตแท่ง</annotation>
+		<annotation cp='[🍫]' tts='ช็อกโกแลต'>ช็อกโกแลตแท่ง</annotation>
 
 		<!-- candy; dessert; sweet -->
-		<annotation cp='[🍬]' tts='ลูกอม' draft='provisional'>ลูกอม</annotation>
+		<annotation cp='[🍬]' tts='ลูกอม'>ของหวาน; ขนม</annotation>
 
 		<!-- lollipop; candy; dessert; sweet -->
-		<annotation cp='[🍭]' tts='อมยิ้ม' draft='provisional'>อมยิ้ม</annotation>
+		<annotation cp='[🍭]' tts='อมยิ้ม'>ของหวาน; ขนม; ลูกอม</annotation>
 
 		<!-- custard; dessert; pudding; sweet -->
-		<annotation cp='[🍮]' tts='คัสตาร์ด' draft='provisional'>คัสตาร์ด; พุดดิ้ง</annotation>
+		<annotation cp='[🍮]' tts='คัสตาร์ด'>พุดดิ้ง</annotation>
 
 		<!-- honey pot; honey; honeypot; pot; sweet -->
-		<annotation cp='[🍯]' tts='โถน้ำผึ้ง' draft='provisional'>โถน้ำผึ้ง; น้ำผึ้ง</annotation>
+		<annotation cp='[🍯]' tts='โถน้ำผึ้ง'>น้ำผึ้ง</annotation>
 
 		<!-- baby bottle; baby; bottle; drink; milk -->
-		<annotation cp='[🍼]' tts='ขวดนม' draft='provisional'>ขวดนม; นม</annotation>
+		<annotation cp='[🍼]' tts='ขวดนม'>นม</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
+		<annotation cp='[☕]' tts='เครื่องดื่มร้อน'>เครื่องดื่ม; กาแฟ; ร้อน; ชา</annotation>
 
 		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
-		<annotation cp='[🍵]' tts='ถ้วยชา' draft='provisional'>ถ้วยชา; ชา</annotation>
+		<annotation cp='[🍵]' tts='ถ้วยชา'>ชา</annotation>
 
 		<!-- sake; bar; beverage; bottle; cup; drink -->
-		<annotation cp='[🍶]' tts='สาเก' draft='provisional'>สาเก; ขวดสาเก; เหล้าสาเก</annotation>
+		<annotation cp='[🍶]' tts='สาเก'>ขวดสาเก; เหล้าสาเก</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
+		<annotation cp='[🍾]' tts='แชมเปญ'>บาร์; ขวด; จุกไม้ก๊อก; เครื่องดื่ม</annotation>
 
 		<!-- wine glass; bar; beverage; drink; glass; wine -->
-		<annotation cp='[🍷]' tts='ไวน์' draft='provisional'>ไวน์; แก้วไวน์; ไวน์แดง</annotation>
+		<annotation cp='[🍷]' tts='ไวน์'>แก้วไวน์; ไวน์แดง</annotation>
 
 		<!-- cocktail glass; bar; cocktail; drink; glass -->
-		<annotation cp='[🍸]' tts='ค็อกเทล' draft='provisional'>ค็อกเทล; แก้วค็อกเทล</annotation>
+		<annotation cp='[🍸]' tts='ค็อกเทล'>แก้วค็อกเทล</annotation>
 
 		<!-- tropical drink; bar; drink; tropical -->
-		<annotation cp='[🍹]' tts='เครื่องดื่มผสมน้ำผลไม้' draft='provisional'>เครื่องดื่มผสมน้ำผลไม้</annotation>
+		<annotation cp='[🍹]' tts='เครื่องดื่มผสมน้ำผลไม้'>บาร์; เครื่องดื่ม; ผลไม้</annotation>
 
 		<!-- beer mug; bar; beer; drink; mug -->
-		<annotation cp='[🍺]' tts='เบียร์' draft='provisional'>เบียร์; เหยือกเบียร์</annotation>
+		<annotation cp='[🍺]' tts='เบียร์'>เบียร์; ดื่ม; เหยือกเบียร์; ฉลอง</annotation>
 
 		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
-		<annotation cp='[🍻]' tts='เหยือกเบียร์ชนกัน' draft='provisional'>เหยือกเบียร์ชนกัน; ฉลอง</annotation>
+		<annotation cp='[🍻]' tts='เหยือกเบียร์ชนกัน'>เบียร์; ดื่ม; เหยือกเบียร์; ฉลอง; ชน</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
+		<annotation cp='[🍽]' tts='จานพร้อมส้อมและมีด'>ทำอาหาร; ส้อม; มีด; จาน</annotation>
 
 		<!-- fork and knife; cooking; fork; knife -->
-		<annotation cp='[🍴]' tts='ส้อมและมีด' draft='provisional'>ส้อมและมีด; ร้านอาหาร</annotation>
+		<annotation cp='[🍴]' tts='ส้อมและมีด'>ร้านอาหาร</annotation>
 
 		<!-- cooking; egg; frying; pan -->
-		<annotation cp='[🍳]' tts='กระทะ' draft='provisional'>กระทะ; ทำอาหาร; ไข่ดาว</annotation>
+		<annotation cp='[🍳]' tts='กระทะ'>ทำอาหาร; ไข่ดาว</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
+		<annotation cp='[🏺]' tts='โถโบราณ'>โถ; โถโบราณ</annotation>
 
 		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
-		<annotation cp='[🌍]' tts='โลก' draft='provisional'>โลก; ยุโรป; แอฟริกา</annotation>
+		<annotation cp='[🌍]' tts='ลูกโลกแสดงทวีปยุโรปและแอฟริกา'>ลูกโลก; ยุโรป; แอฟริกา</annotation>
 
 		<!-- globe showing americas; americas; earth; globe; world -->
-		<annotation cp='[🌎]' tts='โลก' draft='provisional'>โลก; อเมริกา</annotation>
+		<annotation cp='[🌎]' tts='ลูกโลกแสดงทวีปอเมริกา'>ลูกโลก; อเมริกา</annotation>
 
 		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
-		<annotation cp='[🌏]' tts='โลก' draft='provisional'>โลก; เอเชีย; ออสเตรเลีย</annotation>
+		<annotation cp='[🌏]' tts='ลูกโลกแสดงทวีปเอเชียและออสเตรเลีย'>ลูกโลก; เอเชีย; ออสเตรเลีย</annotation>
 
 		<!-- globe with meridians; earth; globe; meridians; world -->
-		<annotation cp='[🌐]' tts='โลก' draft='provisional'>โลก; เส้นเมริเดียน</annotation>
+		<annotation cp='[🌐]' tts='ลูกโลกแสดงเส้นเมริเดียน'>ลูกโลก; เส้นเมริเดียน</annotation>
+
+		<!-- world map; map; world -->
+		<annotation cp='[🗺]' tts='แผนที่โลก'>แผนที่; โลก</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
+		<annotation cp='[🏔]' tts='ภูเขามีหิมะ'>ภูเขา; หิมะ; หนาว</annotation>
+
+		<!-- mountain -->
+		<annotation cp='[⛰]' tts='ภูเขา'>ภูเขา</annotation>
 
 		<!-- volcano; eruption; mountain; weather -->
-		<annotation cp='[🌋]' tts='ภูเขาไฟ' draft='provisional'>ภูเขาไฟ; ภูเขาไฟระเบิด</annotation>
+		<annotation cp='[🌋]' tts='ภูเขาไฟ'>ภูเขาไฟระเบิด</annotation>
 
 		<!-- mount fuji; fuji; mountain -->
-		<annotation cp='[🗻]' tts='ภูเขาไฟฟูจิ' draft='provisional'>ภูเขาไฟฟูจิ; ภูเขา</annotation>
+		<annotation cp='[🗻]' tts='ภูเขาไฟฟูจิ'>ภูเขา</annotation>
+
+		<!-- camping -->
+		<annotation cp='[🏕]' tts='ตั้งแคมป์'>แคมป์; เต็นท์</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
+		<annotation cp='[🏖]' tts='ร่มชายหาด'>ร่ม; ชายหาด</annotation>
+
+		<!-- desert -->
+		<annotation cp='[🏜]' tts='ทะเลทราย'>ทะเลทราย</annotation>
+
+		<!-- desert island; desert; island -->
+		<annotation cp='[🏝]' tts='เกาะ'>เกาะ; ทราย; ทะเล</annotation>
+
+		<!-- national park; park -->
+		<annotation cp='[🏞]' tts='อุทยาน'>อุทยาน; ต้นไม้</annotation>
+
+		<!-- stadium -->
+		<annotation cp='[🏟]' tts='สนามกีฬา'>สนามกีฬา; อัฒจันทร์</annotation>
+
+		<!-- classical building; building; classical -->
+		<annotation cp='[🏛]' tts='อาคารสไตล์คลาสสิก'>อาคาร; คลาสสิก</annotation>
+
+		<!-- building construction; building; construction -->
+		<annotation cp='[🏗]' tts='ก่อสร้างอาคาร'>อาคาร; ก่อสร้าง</annotation>
+
+		<!-- house buildings; building; house -->
+		<annotation cp='[🏘]' tts='บ้านหลายหลัง'>บ้าน</annotation>
+
+		<!-- cityscape; building; city -->
+		<annotation cp='[🏙]' tts='หมู่ตึกสูง'>ตึกสูง; เมือง</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
+		<annotation cp='[🏚]' tts='บ้านร้าง'>บ้าน; รกร้าง</annotation>
 
 		<!-- house building; building; home; house -->
-		<annotation cp='[🏠]' tts='บ้าน' draft='provisional'>บ้าน; ตึก</annotation>
+		<annotation cp='[🏠]' tts='บ้านเดี่ยว'>ตึก</annotation>
 
 		<!-- house with garden; building; garden; home; house -->
-		<annotation cp='[🏡]' tts='บ้านพร้อมสวน' draft='provisional'>บ้านพร้อมสวน; บ้าน</annotation>
+		<annotation cp='[🏡]' tts='บ้านพร้อมสวน'>บ้าน</annotation>
 
 		<!-- church; building; christian; cross; religion -->
-		<annotation cp='[⛪]' tts='โบสถ์' draft='provisional'>โบสถ์</annotation>
+		<annotation cp='[⛪]' tts='โบสถ์'>ศาสนสถาน; ศาสนา; คริสต์; ไม้กางเขน</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
+		<annotation cp='[🕋]' tts='วิหารกะอ์บะฮ์'>ศาสนา; อิสลาม; มุสลิม</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
+		<annotation cp='[🕌]' tts='มัสยิด'>ศาสนา; อิสลาม; มุสลิม</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
+		<annotation cp='[🕍]' tts='โบสถ์ยิว'>โบสถ์; ศาสนา; ยูดาย; ยิว</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
+		<annotation cp='[⛩]' tts='ศาลเจ้าชินโต'>ศาลเจ้า; ชินโต; ลัทธิ</annotation>
 
 		<!-- office building; building -->
-		<annotation cp='[🏢]' tts='ตึกสำนักงาน' draft='provisional'>ตึกสำนักงาน; ตึก; สำนักงาน</annotation>
+		<annotation cp='[🏢]' tts='ตึกสำนักงาน'>ตึก; สำนักงาน</annotation>
 
 		<!-- japanese post office; building; japanese; post -->
-		<annotation cp='[🏣]' tts='ไปรษณีย์ญี่ปุ่น' draft='provisional'>ไปรษณีย์ญี่ปุ่น; ตึก</annotation>
+		<annotation cp='[🏣]' tts='ไปรษณีย์ญี่ปุ่น'>ตึก</annotation>
 
 		<!-- post office; building; european; post -->
-		<annotation cp='[🏤]' tts='ไปรษณีย์ยุโรป' draft='provisional'>ไปรษณีย์ยุโรป; ตึก</annotation>
+		<annotation cp='[🏤]' tts='ไปรษณีย์ยุโรป'>ตึก</annotation>
 
 		<!-- hospital; building; doctor; medicine -->
-		<annotation cp='[🏥]' tts='โรงพยาบาล' draft='provisional'>โรงพยาบาล; ตึก</annotation>
+		<annotation cp='[🏥]' tts='โรงพยาบาล'>ตึก</annotation>
 
 		<!-- bank; building -->
-		<annotation cp='[🏦]' tts='ธนาคาร' draft='provisional'>ธนาคาร; ตึก</annotation>
+		<annotation cp='[🏦]' tts='ธนาคาร'>ตึก</annotation>
 
 		<!-- hotel; building -->
-		<annotation cp='[🏨]' tts='โรงแรม' draft='provisional'>โรงแรม; ตึก</annotation>
+		<annotation cp='[🏨]' tts='โรงแรม'>ตึก</annotation>
 
 		<!-- love hotel; building; hotel; love -->
-		<annotation cp='[🏩]' tts='ม่านรูด' draft='provisional'>ม่านรูด; โรงแรม</annotation>
+		<annotation cp='[🏩]' tts='ม่านรูด'>โรงแรม</annotation>
 
 		<!-- convenience store; building; convenience; store -->
-		<annotation cp='[🏪]' tts='ร้านสะดวกซื้อ' draft='provisional'>ร้านสะดวกซื้อ</annotation>
+		<annotation cp='[🏪]' tts='ร้านสะดวกซื้อ'>ร้านค้า; สินค้า; ของใช้</annotation>
 
 		<!-- school; building -->
-		<annotation cp='[🏫]' tts='โรงเรียน' draft='provisional'>โรงเรียน; ตึกเรียน</annotation>
+		<annotation cp='[🏫]' tts='โรงเรียน'>ตึกเรียน</annotation>
 
 		<!-- department store; building; department; store -->
-		<annotation cp='[🏬]' tts='ห้างสรรพสินค้า' draft='provisional'>ห้างสรรพสินค้า</annotation>
+		<annotation cp='[🏬]' tts='ห้างสรรพสินค้า'>ห้าง; สินค้า</annotation>
 
 		<!-- factory; building -->
-		<annotation cp='[🏭]' tts='โรงงาน' draft='provisional'>โรงงาน</annotation>
+		<annotation cp='[🏭]' tts='โรงงาน'>สิ่งปลูกสร้าง</annotation>
 
 		<!-- japanese castle; building; castle; japanese -->
-		<annotation cp='[🏯]' tts='ปราสาทญี่ปุ่น' draft='provisional'>ปราสาทญี่ปุ่น</annotation>
+		<annotation cp='[🏯]' tts='ปราสาทญี่ปุ่น'>ปราสาท; ญี่ปุ่น</annotation>
 
 		<!-- castle; building; european -->
-		<annotation cp='[🏰]' tts='ปราสาทยุโรป' draft='provisional'>ปราสาทยุโรป; ปราสาท</annotation>
+		<annotation cp='[🏰]' tts='ปราสาทยุโรป'>ปราสาท</annotation>
 
 		<!-- wedding; chapel; romance -->
-		<annotation cp='[💒]' tts='งานแต่งงาน' draft='provisional'>งานแต่งงาน; โบสถ์</annotation>
+		<annotation cp='[💒]' tts='งานแต่งงาน'>โบสถ์</annotation>
 
 		<!-- tokyo tower; tokyo; tower -->
-		<annotation cp='[🗼]' tts='โตเกียวทาวเวอร์' draft='provisional'>โตเกียวทาวเวอร์; โตเกียว</annotation>
+		<annotation cp='[🗼]' tts='โตเกียวทาวเวอร์'>โตเกียว</annotation>
 
 		<!-- statue of liberty; liberty; statue -->
-		<annotation cp='[🗽]' tts='เทพีเสรีภาพ' draft='provisional'>เทพีเสรีภาพ; รูปปั้น</annotation>
+		<annotation cp='[🗽]' tts='เทพีเสรีภาพ'>รูปปั้น</annotation>
 
 		<!-- map of japan; japan; map -->
-		<annotation cp='[🗾]' tts='แผนที่ญี่ปุ่น' draft='provisional'>แผนที่ญี่ปุ่น; ญี่ปุ่น</annotation>
+		<annotation cp='[🗾]' tts='แผนที่ญี่ปุ่น'>ญี่ปุ่น</annotation>
 
 		<!-- fountain -->
-		<annotation cp='[⛲]' tts='น้ำพุ' draft='provisional'>น้ำพุ</annotation>
+		<annotation cp='[⛲]' tts='น้ำพุ'>น้ำพุ</annotation>
 
 		<!-- tent; camping -->
-		<annotation cp='[⛺]' tts='เต๊นท์' draft='provisional'>เต๊นท์; ตั้งแคมป์</annotation>
+		<annotation cp='[⛺]' tts='เต็นท์'>ตั้งแคมป์</annotation>
 
 		<!-- foggy; fog; weather -->
-		<annotation cp='[🌁]' tts='หมอกลง' draft='provisional'>หมอกลง; หมอก</annotation>
+		<annotation cp='[🌁]' tts='หมอกลง'>หมอก</annotation>
 
 		<!-- night with stars; night; star; weather -->
-		<annotation cp='[🌃]' tts='ดาว' draft='provisional'>ดาว; ดาวยามค่ำคืน; กลางคืน</annotation>
+		<annotation cp='[🌃]' tts='ดาว'>ดาวยามค่ำคืน; กลางคืน</annotation>
 
 		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
-		<annotation cp='[🌄]' tts='ดวงอาทิตย์ขึ้น' draft='provisional'>ดวงอาทิตย์ขึ้น; ดวงอาทิตย์ตอนเช้า</annotation>
+		<annotation cp='[🌄]' tts='ดวงอาทิตย์โผล่พ้นเขา'>ดวงอาทิตย์ตอนเช้า</annotation>
 
 		<!-- sunrise; morning; sun; weather -->
-		<annotation cp='[🌅]' tts='ดวงอาทิตย์ขึ้น' draft='provisional'>ดวงอาทิตย์ขึ้น; ดวงอาทิตย์ตอนเช้า</annotation>
+		<annotation cp='[🌅]' tts='ดวงอาทิตย์ขึ้น'>ดวงอาทิตย์ตอนเช้า</annotation>
 
 		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
-		<annotation cp='[🌆]' tts='เมืองยามโพล้เพล้' draft='provisional'>เมืองยามโพล้เพล้; โพล้เพล้; ตอนเย็น</annotation>
+		<annotation cp='[🌆]' tts='เมืองยามโพล้เพล้'>โพล้เพล้; ตอนเย็น</annotation>
 
 		<!-- sunset; building; dusk; sun; weather -->
-		<annotation cp='[🌇]' tts='ดวงอาทิตย์ตก' draft='provisional'>ดวงอาทิตย์ตก; โพล้เพล้; ดวงอาทิตย์ตกเหนือตึก</annotation>
+		<annotation cp='[🌇]' tts='ดวงอาทิตย์ตก'>โพล้เพล้; ดวงอาทิตย์ตกเหนือตึก</annotation>
 
 		<!-- bridge at night; bridge; night; weather -->
-		<annotation cp='[🌉]' tts='สะพานกลางคืน' draft='provisional'>สะพานกลางคืน; สะพาน; กลางคืน</annotation>
+		<annotation cp='[🌉]' tts='สะพานกลางคืน'>สะพาน; กลางคืน</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
+		<annotation cp='[♨]' tts='น้ำพุร้อน'>น้ำพุ; น้ำพุร้อน; ไอน้ำ</annotation>
 
 		<!-- milky way; space; weather -->
-		<annotation cp='[🌌]' tts='ทางช้างเผือก' draft='provisional'>ทางช้างเผือก</annotation>
+		<annotation cp='[🌌]' tts='ทางช้างเผือก'>อวกาศ; ดาราจักร</annotation>
 
 		<!-- carousel horse; carousel; horse -->
-		<annotation cp='[🎠]' tts='ม้าหมุน' draft='provisional'>ม้าหมุน; สวนสนุก</annotation>
+		<annotation cp='[🎠]' tts='ม้าหมุน'>สวนสนุก; ม้าหมุน</annotation>
 
 		<!-- ferris wheel; amusement park; ferris; wheel -->
-		<annotation cp='[🎡]' tts='ชิงช้าสวรรค์' draft='provisional'>ชิงช้าสวรรค์; สวนสนุก</annotation>
+		<annotation cp='[🎡]' tts='ชิงช้าสวรรค์'>สวนสนุก; ชิงช้าสวรรค์</annotation>
 
 		<!-- roller coaster; amusement park; coaster; roller -->
-		<annotation cp='[🎢]' tts='รถไฟเหาะ' draft='provisional'>รถไฟเหาะ; สวนสนุก</annotation>
+		<annotation cp='[🎢]' tts='รถไฟเหาะ'>สวนสนุก; รถไฟเหาะ; โรลเลอร์โคสเตอร์</annotation>
 
 		<!-- barber pole; barber; haircut; pole -->
-		<annotation cp='[💈]' tts='ร้านตัดผม' draft='provisional'>ร้านตัดผม; บาร์เบอร์</annotation>
+		<annotation cp='[💈]' tts='ร้านตัดผม'>บาร์เบอร์</annotation>
 
 		<!-- circus tent; circus; tent -->
-		<annotation cp='[🎪]' tts='ละครสัตว์' draft='provisional'>ละครสัตว์; เต๊นท์ละครสัตว์</annotation>
+		<annotation cp='[🎪]' tts='ละครสัตว์'>เต๊นท์ละครสัตว์</annotation>
 
 		<!-- performing arts; art; mask; performing; theater; theatre -->
-		<annotation cp='[🎭]' tts='หน้ากาก' draft='provisional'>หน้ากาก; ศาสตร์การแสดง</annotation>
+		<annotation cp='[🎭]' tts='หน้ากาก'>ศาสตร์การแสดง</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
+		<annotation cp='[🖼]' tts='รูปใส่กรอบ'>ศิลปะ; กรอบรูป; พิพิธภัณฑ์; ภาพวาด; รูปภาพ</annotation>
 
 		<!-- artist palette; art; museum; painting; palette -->
-		<annotation cp='[🎨]' tts='จานสีวาดรูป' draft='provisional'>จานสีวาดรูป</annotation>
+		<annotation cp='[🎨]' tts='จานสีวาดรูป'>ศิลปะ; พิพิธภัณฑ์; ภาพวาด; จานสี</annotation>
 
 		<!-- slot machine; game; slot -->
-		<annotation cp='[🎰]' tts='สล็อตแมชชีน' draft='provisional'>สล็อตแมชชีน</annotation>
+		<annotation cp='[🎰]' tts='สล็อตแมชชีน'>เกม; สล็อต</annotation>
 
 		<!-- locomotive; engine; railway; steam; train; vehicle -->
-		<annotation cp='[🚂]' tts='หัวรถจักรไอน้ำ' draft='provisional'>หัวรถจักรไอน้ำ</annotation>
+		<annotation cp='[🚂]' tts='หัวรถจักรไอน้ำ'>รถไฟ; ไอน้ำ; ยานพาหนะ; เครื่องจักร</annotation>
 
 		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
-		<annotation cp='[🚃]' tts='รถไฟ' draft='provisional'>รถไฟ; รถไฟฟ้า; รถราง</annotation>
+		<annotation cp='[🚃]' tts='ตู้รถไฟ'>รถไฟฟ้า; รถราง</annotation>
 
 		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
-		<annotation cp='[🚄]' tts='ชินคันเซ็น' draft='provisional'>ชินคันเซ็น; รถไฟความเร็วสูง</annotation>
+		<annotation cp='[🚄]' tts='ชินคันเซ็น'>รถไฟความเร็วสูง</annotation>
 
 		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
-		<annotation cp='[🚅]' tts='รถไฟความเร็วสูง' draft='provisional'>รถไฟความเร็วสูง</annotation>
+		<annotation cp='[🚅]' tts='รถไฟความเร็วสูง'>รถไฟ; หัวกระสุน; ชินคันเซน; เร็ว; ยานพาหนะ</annotation>
 
 		<!-- train; railway; vehicle -->
-		<annotation cp='[🚆]' tts='รถไฟ' draft='provisional'>รถไฟ</annotation>
+		<annotation cp='[🚆]' tts='รถไฟ'>รถไฟ; ยานพาหนะ</annotation>
 
 		<!-- metro; subway; vehicle -->
-		<annotation cp='[🚇]' tts='รถไฟใต้ดิน' draft='provisional'>รถไฟใต้ดิน</annotation>
+		<annotation cp='[🚇]' tts='รถไฟใต้ดิน'>รถไฟ; ยานพาหนะ</annotation>
 
 		<!-- light rail; railway; vehicle -->
-		<annotation cp='[🚈]' tts='รถไฟรางเบา' draft='provisional'>รถไฟรางเบา</annotation>
+		<annotation cp='[🚈]' tts='รถไฟรางเบา'>รถไฟ; ยานพาหนะ</annotation>
 
 		<!-- station; railway; train; vehicle -->
-		<annotation cp='[🚉]' tts='สถานีรถไฟ' draft='provisional'>สถานีรถไฟ</annotation>
+		<annotation cp='[🚉]' tts='สถานีรถไฟ'>รถไฟ; ยานพาหนะ</annotation>
 
 		<!-- tram; trolleybus; vehicle -->
-		<annotation cp='[🚊]' tts='รถราง' draft='provisional'>รถราง</annotation>
+		<annotation cp='[🚊]' tts='รถรางบนราง'>รถไฟ; ยานพาหนะ</annotation>
 
 		<!-- monorail; vehicle -->
-		<annotation cp='[🚝]' tts='รถไฟรางเดี่ยว' draft='provisional'>รถไฟรางเดี่ยว</annotation>
+		<annotation cp='[🚝]' tts='รถไฟรางเดี่ยว'>ยานพาหนะ</annotation>
 
 		<!-- mountain railway; car; mountain; railway; vehicle -->
-		<annotation cp='[🚞]' tts='รางรถไฟภูเขา' draft='provisional'>รางรถไฟภูเขา</annotation>
+		<annotation cp='[🚞]' tts='รางรถไฟภูเขา'>รถ; ภูเขา; รถราง; ยานพาหนะ</annotation>
 
 		<!-- tram car; car; tram; trolleybus; vehicle -->
-		<annotation cp='[🚋]' tts='รถราง' draft='provisional'>รถราง</annotation>
+		<annotation cp='[🚋]' tts='ตู้รถราง'>รถ; รถราง; ยานพาหนะ</annotation>
 
 		<!-- bus; vehicle -->
-		<annotation cp='[🚌]' tts='รถบัส' draft='provisional'>รถบัส</annotation>
+		<annotation cp='[🚌]' tts='รถบัส'>ยานพาหนะ</annotation>
 
 		<!-- oncoming bus; bus; oncoming; vehicle -->
-		<annotation cp='[🚍]' tts='รถบัส' draft='provisional'>รถบัส</annotation>
+		<annotation cp='[🚍]' tts='รถบัสกำลังมา'>รถบัส; กำลังมา; ยานพาหนะ</annotation>
 
 		<!-- trolleybus; bus; tram; trolley; vehicle -->
-		<annotation cp='[🚎]' tts='รถราง' draft='provisional'>รถราง</annotation>
+		<annotation cp='[🚎]' tts='รถราง'>รถราง; ยานพาหนะ</annotation>
 
 		<!-- bus stop; bus; busstop; stop -->
-		<annotation cp='[🚏]' tts='ป้ายรถบัส' draft='provisional'>ป้ายรถบัส</annotation>
+		<annotation cp='[🚏]' tts='ป้ายรถบัส'>รถบัส; ยานพาหนะ; ป้ายรถ</annotation>
 
 		<!-- minibus; bus; vehicle -->
-		<annotation cp='[🚐]' tts='มินิบัส' draft='provisional'>มินิบัส</annotation>
+		<annotation cp='[🚐]' tts='มินิบัส'>รถบัส; ยานพาหนะ</annotation>
 
 		<!-- ambulance; vehicle -->
-		<annotation cp='[🚑]' tts='รถพยาบาล' draft='provisional'>รถพยาบาล</annotation>
+		<annotation cp='[🚑]' tts='รถพยาบาล'>ยานพาหนะ</annotation>
 
 		<!-- fire engine; engine; fire; truck; vehicle -->
-		<annotation cp='[🚒]' tts='รถดับเพลิง' draft='provisional'>รถดับเพลิง</annotation>
+		<annotation cp='[🚒]' tts='รถดับเพลิง'>ไฟ; รถ; ยานพาหนะ; สายดับเพลิง</annotation>
 
 		<!-- police car; car; patrol; police; vehicle -->
-		<annotation cp='[🚓]' tts='รถตำรวจ' draft='provisional'>รถตำรวจ</annotation>
+		<annotation cp='[🚓]' tts='รถตำรวจ'>รถยนต์; ตรวจการณ์; ตำรวจ; ยานพาหนะ</annotation>
 
 		<!-- oncoming police car; car; oncoming; police; vehicle -->
-		<annotation cp='[🚔]' tts='รถตำรวจกำลังมา' draft='provisional'>รถตำรวจกำลังมา</annotation>
+		<annotation cp='[🚔]' tts='รถตำรวจกำลังมา'>รถยนต์; ตำรวจ; กำลังมา; ยานพาหนะ</annotation>
 
 		<!-- taxi; vehicle -->
-		<annotation cp='[🚕]' tts='แท็กซี่' draft='provisional'>แท็กซี่</annotation>
+		<annotation cp='[🚕]' tts='แท็กซี่'>เครื่องยนต์</annotation>
 
 		<!-- oncoming taxi; oncoming; taxi; vehicle -->
-		<annotation cp='[🚖]' tts='แท็กซี่กำลังมา' draft='provisional'>แท็กซี่กำลังมา</annotation>
+		<annotation cp='[🚖]' tts='แท็กซี่กำลังมา'>ยานพาหนะ; แท็กซี่; กำลังมา</annotation>
 
 		<!-- automobile; car; vehicle -->
-		<annotation cp='[🚗]' tts='รถ' draft='provisional'>รถ</annotation>
+		<annotation cp='[🚗]' tts='รถ'>รถยนต์; ยานพาหนะ</annotation>
 
 		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
-		<annotation cp='[🚘]' tts='รถกำลังมา' draft='provisional'>รถกำลังมา; รถ</annotation>
+		<annotation cp='[🚘]' tts='รถกำลังมา'>รถ</annotation>
 
 		<!-- recreational vehicle; recreational; rv; vehicle -->
-		<annotation cp='[🚙]' tts='รถบ้าน' draft='provisional'>รถบ้าน; รถพักผ่อน; รถ</annotation>
+		<annotation cp='[🚙]' tts='รถบ้าน'>รถพักผ่อน; รถ</annotation>
 
 		<!-- delivery truck; delivery; truck; vehicle -->
-		<annotation cp='[🚚]' tts='รถขนส่ง' draft='provisional'>รถขนส่ง; รถ</annotation>
+		<annotation cp='[🚚]' tts='รถขนส่ง'>รถ</annotation>
 
 		<!-- articulated lorry; lorry; semi; truck; vehicle -->
-		<annotation cp='[🚛]' tts='รถบรรทุก' draft='provisional'>รถบรรทุก</annotation>
+		<annotation cp='[🚛]' tts='รถบรรทุก'>รถบรรทุก; ยานพาหนะ; ขนส่ง</annotation>
 
 		<!-- tractor; vehicle -->
-		<annotation cp='[🚜]' tts='แทร็กเตอร์' draft='provisional'>แทร็กเตอร์</annotation>
+		<annotation cp='[🚜]' tts='แทร็กเตอร์'>ยานพาหนะ</annotation>
 
 		<!-- bicycle; bike; vehicle -->
-		<annotation cp='[🚲]' tts='จักรยาน' draft='provisional'>จักรยาน</annotation>
+		<annotation cp='[🚲]' tts='จักรยาน'>จักรยาน; ยานพาหนะ</annotation>
 
 		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
-		<annotation cp='[⛽]' tts='ปั๊มน้ำมัน' draft='provisional'>ปั๊มน้ำมัน; น้ำมัน</annotation>
+		<annotation cp='[⛽]' tts='ปั๊มน้ำมัน'>น้ำมัน</annotation>
+
+		<!-- motorway; highway; road -->
+		<annotation cp='[🛣]' tts='ทางด่วน'>ถนน; ทางด่วน</annotation>
+
+		<!-- railway track; railway; train -->
+		<annotation cp='[🛤]' tts='รางรถไฟ'>รถไฟ</annotation>
 
 		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
-		<annotation cp='[🚨]' tts='สัญญาณไฟตำรวจ' draft='provisional'>สัญญาณไฟตำรวจ</annotation>
+		<annotation cp='[🚨]' tts='สัญญาณไฟตำรวจ'>ไฟสัญญาณ; รถยนต์; ตำรวจ; ยานพาหนะ; ฉุกเฉิน</annotation>
 
 		<!-- horizontal traffic light; light; signal; traffic -->
-		<annotation cp='[🚥]' tts='ไฟจราจร' draft='provisional'>ไฟจราจร; ไฟจราจรแนวนอน</annotation>
+		<annotation cp='[🚥]' tts='ไฟจราจรแนวนอน'>ไฟ, สัญญาณ, จราจร</annotation>
 
 		<!-- vertical traffic light; light; signal; traffic -->
-		<annotation cp='[🚦]' tts='ไฟจราจร' draft='provisional'>ไฟจราจร; ไฟจราจรแนวตั้ง</annotation>
+		<annotation cp='[🚦]' tts='ไฟจราจรแนวตั้ง'>ไฟ, สัญญาณ, จราจร</annotation>
 
 		<!-- construction; barrier -->
-		<annotation cp='[🚧]' tts='ป้ายไซต์ก่อสร้าง' draft='provisional'>ป้ายไซต์ก่อสร้าง; กำลังก่อสร้าง</annotation>
+		<annotation cp='[🚧]' tts='ป้ายไซต์ก่อสร้าง'>กำลังก่อสร้าง</annotation>
 
 		<!-- anchor; ship; tool -->
-		<annotation cp='[⚓]' tts='สมอเรือ' draft='provisional'>สมอเรือ</annotation>
+		<annotation cp='[⚓]' tts='สมอเรือ'>เรือ; เครื่องมือ; สมอ</annotation>
 
 		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
-		<annotation cp='[⛵]' tts='เรือใบ' draft='provisional'>เรือใบ; เรือ; ทะเล</annotation>
+		<annotation cp='[⛵]' tts='เรือใบ'>เรือ; ทะเล</annotation>
 
 		<!-- rowboat; boat; vehicle -->
-		<annotation cp='[🚣]' tts='เรือพาย' draft='provisional'>เรือพาย</annotation>
+		<annotation cp='[🚣]' tts='เรือพาย'>เรือ; ยานพาหนะ; ไม้พาย</annotation>
 
 		<!-- speedboat; boat; vehicle -->
-		<annotation cp='[🚤]' tts='เรือด่วน' draft='provisional'>เรือด่วน</annotation>
+		<annotation cp='[🚤]' tts='เรือด่วน'>เรือ; ยานพาหนะ</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
+		<annotation cp='[🛳]' tts='เรือโดยสาร'>เรือ</annotation>
+
+		<!-- ferry; boat -->
+		<annotation cp='[⛴]' tts='เรือเฟอร์รี'>เรือ</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
+		<annotation cp='[🛥]' tts='เรือยนต์'>เรือ; เรือยนต์; ยานพาหนะ</annotation>
 
 		<!-- ship; vehicle -->
-		<annotation cp='[🚢]' tts='เรือ' draft='provisional'>เรือ</annotation>
+		<annotation cp='[🚢]' tts='เรือ'>ยานพาหนะ</annotation>
+
+		<!-- airplane; vehicle -->
+		<annotation cp='[✈]' tts='เครื่องบิน'>ยานพาหนะ</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
+		<annotation cp='[🛩]' tts='เครื่องบินเล็ก'>เครื่องบิน; ยานพาหนะ</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='เครื่องบินขึ้น'>เครื่องบิน; ขาออก; ยานพาหนะ</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='เครื่องบินลง'>เครื่องบิน; ขาเข้า; ยานพาหนะ</annotation>
 
 		<!-- seat; chair -->
-		<annotation cp='[💺]' tts='ที่นั่ง' draft='provisional'>ที่นั่ง; เก้าอี้</annotation>
+		<annotation cp='[💺]' tts='ที่นั่ง'>เก้าอี้</annotation>
 
 		<!-- helicopter; vehicle -->
-		<annotation cp='[🚁]' tts='เฮลิคอปเตอร์' draft='provisional'>เฮลิคอปเตอร์</annotation>
+		<annotation cp='[🚁]' tts='เฮลิคอปเตอร์'>ยานพาหนะ</annotation>
 
 		<!-- suspension railway; railway; suspension; vehicle -->
-		<annotation cp='[🚟]' tts='รถไฟสะพานแขวน' draft='provisional'>รถไฟสะพานแขวน</annotation>
+		<annotation cp='[🚟]' tts='รถไฟสะพานแขวน'>รถไฟ; สะพานแขวน; ยานพาหนะ</annotation>
 
 		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
-		<annotation cp='[🚠]' tts='เคเบิลคาร์' draft='provisional'>เคเบิลคาร์; เคเบิลคาร์ภูเขา</annotation>
+		<annotation cp='[🚠]' tts='เคเบิลคาร์'>เคเบิลคาร์; ภูเขา; ยานพาหนะ</annotation>
 
 		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
-		<annotation cp='[🚡]' tts='เคเบิลคาร์' draft='provisional'>เคเบิลคาร์</annotation>
+		<annotation cp='[🚡]' tts='รถกระเช้าลอยฟ้า'>รถกระเช้า; ลอยฟ้า; สายเคเบิล; ยานพาหนะ</annotation>
 
 		<!-- rocket; space; vehicle -->
-		<annotation cp='[🚀]' tts='จรวด' draft='provisional'>จรวด</annotation>
+		<annotation cp='[🚀]' tts='จรวด'>อวกาศ; ยานพาหนะ</annotation>
+
+		<!-- satellite; space; vehicle -->
+		<annotation cp='[🛰]' tts='ดาวเทียม'>อวกาศ; เทคโนโลยี</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='กระดิ่งโรงแรม'>กระดิ่ง; พนักงาน; โรงแรม</annotation>
 
 		<!-- door -->
-		<annotation cp='[🚪]' tts='ประตู' draft='provisional'>ประตู</annotation>
+		<annotation cp='[🚪]' tts='ประตู'>ประตู</annotation>
+
+		<!-- person in bed; hotel; sleep -->
+		<annotation cp='[🛌]' tts='คนนอนหลับ'>โรงแรม; หลับ</annotation>
+
+		<!-- bed; hotel; sleep -->
+		<annotation cp='[🛏]' tts='เตียง'>โรงแรม; หลับ</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='โซฟากับโคมไฟ'>โซฟา; โรงแรม; โคมไฟ</annotation>
 
 		<!-- toilet -->
-		<annotation cp='[🚽]' tts='ห้องน้ำ' draft='provisional'>ห้องน้ำ</annotation>
+		<annotation cp='[🚽]' tts='โถส้วม'>ห้องน้ำ</annotation>
 
 		<!-- shower; water -->
-		<annotation cp='[🚿]' tts='ฝักบัว' draft='provisional'>ฝักบัว</annotation>
+		<annotation cp='[🚿]' tts='ฝักบัว'>น้ำ</annotation>
 
 		<!-- person taking bath; bathtub; bath -->
-		<annotation cp='[🛀]' tts='อาบน้ำ' draft='provisional'>อาบน้ำ</annotation>
+		<annotation cp='[🛀]' tts='อาบน้ำ'>อ่าง; อาบน้ำ</annotation>
 
 		<!-- bathtub; bath -->
-		<annotation cp='[🛁]' tts='อ่างอาบน้ำ' draft='provisional'>อ่างอาบน้ำ</annotation>
+		<annotation cp='[🛁]' tts='อ่างอาบน้ำ'>อ่าง; อาบน้ำ</annotation>
 
 		<!-- hourglass; sand; timer -->
-		<annotation cp='[⌛]' tts='นาฬิกาทราย' draft='provisional'>นาฬิกาทราย; ทราย</annotation>
+		<annotation cp='[⌛]' tts='นาฬิกาทราย'>ทราย</annotation>
 
 		<!-- hourglass with flowing sand; hourglass; sand; timer -->
-		<annotation cp='[⏳]' tts='นาฬิกาทรายจับเวลา' draft='provisional'>นาฬิกาทรายจับเวลา; นาฬิกาทราย</annotation>
+		<annotation cp='[⏳]' tts='นาฬิกาทรายจับเวลา'>นาฬิกาทราย</annotation>
 
 		<!-- watch; clock -->
-		<annotation cp='[⌚]' tts='นาฬิกาข้อมือ' draft='provisional'>นาฬิกาข้อมือ; นาฬิกา</annotation>
+		<annotation cp='[⌚]' tts='นาฬิกาข้อมือ'>นาฬิกา</annotation>
 
 		<!-- alarm clock; alarm; clock -->
-		<annotation cp='[⏰]' tts='นาฬิกาปลุก' draft='provisional'>นาฬิกาปลุก; ปลุก</annotation>
+		<annotation cp='[⏰]' tts='นาฬิกาปลุก'>ปลุก</annotation>
+
+		<!-- stopwatch; clock -->
+		<annotation cp='[⏱]' tts='นาฬิกาจับเวลา'>นาฬิกา</annotation>
+
+		<!-- timer clock; clock; timer -->
+		<annotation cp='[⏲]' tts='นาฬิกานับถอยหลัง'>นาฬิกา; จับเวลา; นับถอยหลัง</annotation>
+
+		<!-- mantelpiece clock; clock -->
+		<annotation cp='[🕰]' tts='นาฬิกาบนหิ้ง'>นาฬิิกา</annotation>
 
 		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
-		<annotation cp='[🕛]' tts='สิบสองนาฬิกา' draft='provisional'>สิบสองนาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕛]' tts='สิบสองนาฬิกา'>นาฬิกา</annotation>
 
 		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
-		<annotation cp='[🕧]' tts='สิบสองนาฬิกาครึ่ง' draft='provisional'>สิบสองนาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕧]' tts='สิบสองนาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
-		<annotation cp='[🕐]' tts='หนึ่งนาฬิกา' draft='provisional'>หนึ่งนาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕐]' tts='หนึ่งนาฬิกา'>นาฬิกา</annotation>
 
 		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
-		<annotation cp='[🕜]' tts='หนึ่งนาฬิกาครึ่ง' draft='provisional'>หนึ่งนาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕜]' tts='หนึ่งนาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
-		<annotation cp='[🕑]' tts='สองนาฬิกา' draft='provisional'>สองนาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕑]' tts='สองนาฬิกา'>นาฬิกา</annotation>
 
 		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
-		<annotation cp='[🕝]' tts='สองนาฬิกาครึ่ง' draft='provisional'>สองนาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕝]' tts='สองนาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
-		<annotation cp='[🕒]' tts='สามนาฬิกา' draft='provisional'>สามนาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕒]' tts='สามนาฬิกา'>นาฬิกา</annotation>
 
 		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
-		<annotation cp='[🕞]' tts='สามนาฬิกาครึ่ง' draft='provisional'>สามนาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕞]' tts='สามนาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
-		<annotation cp='[🕓]' tts='สี่นาฬิกา' draft='provisional'>สี่นาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕓]' tts='สี่นาฬิกา'>นาฬิกา</annotation>
 
 		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
-		<annotation cp='[🕟]' tts='สี่นาฬิกาครึ่ง' draft='provisional'>สี่นาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕟]' tts='สี่นาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
-		<annotation cp='[🕔]' tts='ห้านาฬิกา' draft='provisional'>ห้านาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕔]' tts='ห้านาฬิกา'>นาฬิกา</annotation>
 
 		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
-		<annotation cp='[🕠]' tts='ห้านาฬิกาครึ่ง' draft='provisional'>ห้านาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕠]' tts='ห้านาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
-		<annotation cp='[🕕]' tts='หกนาฬิกา' draft='provisional'>หกนาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕕]' tts='หกนาฬิกา'>นาฬิกา</annotation>
 
 		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
-		<annotation cp='[🕡]' tts='หกนาฬิกาครึ่ง' draft='provisional'>หกนาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕡]' tts='หกนาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
-		<annotation cp='[🕖]' tts='เจ็ดนาฬิกา' draft='provisional'>เจ็ดนาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕖]' tts='เจ็ดนาฬิกา'>นาฬิกา</annotation>
 
 		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
-		<annotation cp='[🕢]' tts='เจ็ดนาฬิกาครึ่ง' draft='provisional'>เจ็ดนาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕢]' tts='เจ็ดนาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
-		<annotation cp='[🕗]' tts='แปดนาฬิกา' draft='provisional'>แปดนาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕗]' tts='แปดนาฬิกา'>นาฬิกา</annotation>
 
 		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
-		<annotation cp='[🕣]' tts='แปดนาฬิกาครึ่ง' draft='provisional'>แปดนาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕣]' tts='แปดนาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
-		<annotation cp='[🕘]' tts='เก้านาฬิกา' draft='provisional'>เก้านาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕘]' tts='เก้านาฬิกา'>นาฬิกา</annotation>
 
 		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
-		<annotation cp='[🕤]' tts='เก้านาฬิกาครึ่ง' draft='provisional'>เก้านาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕤]' tts='เก้านาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
-		<annotation cp='[🕙]' tts='สิบนาฬิกา' draft='provisional'>สิบนาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕙]' tts='สิบนาฬิกา'>นาฬิกา</annotation>
 
 		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
-		<annotation cp='[🕥]' tts='สิบนาฬิกาครึ่ง' draft='provisional'>สิบนาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕥]' tts='สิบนาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
-		<annotation cp='[🕚]' tts='สิบเอ็ดนาฬิกา' draft='provisional'>สิบเอ็ดนาฬิกา; นาฬิกา</annotation>
+		<annotation cp='[🕚]' tts='สิบเอ็ดนาฬิกา'>นาฬิกา</annotation>
 
 		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
-		<annotation cp='[🕦]' tts='สิบเอ็ดนาฬิกาครึ่ง' draft='provisional'>สิบเอ็ดนาฬิกาครึ่ง; นาฬิกา</annotation>
+		<annotation cp='[🕦]' tts='สิบเอ็ดนาฬิกาครึ่ง'>นาฬิกา</annotation>
 
 		<!-- new moon; dark; moon; space; weather -->
-		<annotation cp='[🌑]' tts='จันทร์ดับ' draft='provisional'>จันทร์ดับ; จันทร์มืด; มืด</annotation>
+		<annotation cp='[🌑]' tts='จันทร์ดับ'>จันทร์มืด; มืด</annotation>
 
 		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
-		<annotation cp='[🌒]' tts='พระจันทร์เสี้ยว' draft='provisional'>พระจันทร์เสี้ยว; ข้างขึ้น</annotation>
+		<annotation cp='[🌒]' tts='พระจันทร์เสี้ยวข้างขึ้น'>ข้างขึ้น</annotation>
 
 		<!-- first quarter moon; moon; quarter; space; weather -->
-		<annotation cp='[🌓]' tts='พระจันทร์ครึ่งซีก' draft='provisional'>พระจันทร์ครึ่งซีก</annotation>
+		<annotation cp='[🌓]' tts='พระจันทร์ครึ่งซีกขวา'>พระจันทร์; ครึ่งซีก</annotation>
 
 		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
-		<annotation cp='[🌔]' tts='ข้างขึ้น' draft='provisional'>ข้างขึ้น; พระจันทร์เกือบเต็มดวง</annotation>
+		<annotation cp='[🌔]' tts='ข้างขึ้น'>พระจันทร์เกือบเต็มดวง</annotation>
 
 		<!-- full moon; full; moon; space; weather -->
-		<annotation cp='[🌕]' tts='พระจันทร์เต็มดวง' draft='provisional'>พระจันทร์เต็มดวง</annotation>
+		<annotation cp='[🌕]' tts='พระจันทร์เต็มดวง'>พระจันทร์, เต็มดวง</annotation>
 
 		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
-		<annotation cp='[🌖]' tts='ข้างแรม' draft='provisional'>ข้างแรม; พระจันทร์เกือบเต็มดวง</annotation>
+		<annotation cp='[🌖]' tts='ข้างแรม'>พระจันทร์เกือบเต็มดวง</annotation>
 
 		<!-- last quarter moon; moon; quarter; space; weather -->
-		<annotation cp='[🌗]' tts='พระจันทร์ครึ่งซีก' draft='provisional'>พระจันทร์ครึ่งซีก</annotation>
+		<annotation cp='[🌗]' tts='พระจันทร์ครึ่งซีกซ้าย'>พระจันทร์; ครึ่งซีก</annotation>
 
 		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
-		<annotation cp='[🌘]' tts='พระจันทร์เสี้ยว' draft='provisional'>พระจันทร์เสี้ยว</annotation>
+		<annotation cp='[🌘]' tts='พระจันทร์เสี้ยวข้างแรม'>พระจันทร์; เสี้ยว; ข้างแรม</annotation>
 
 		<!-- crescent moon; crescent; moon; space; weather -->
-		<annotation cp='[🌙]' tts='พระจันทร์เสี้ยว' draft='provisional'>พระจันทร์เสี้ยว</annotation>
+		<annotation cp='[🌙]' tts='พระจันทร์เสี้ยว'>พระจันทร์; เสี้ยว</annotation>
 
 		<!-- new moon face; face; moon; space; weather -->
-		<annotation cp='[🌚]' tts='หน้าพระจันทร์ดับ' draft='provisional'>หน้าพระจันทร์ดับ; หน้าดำ</annotation>
+		<annotation cp='[🌚]' tts='หน้าพระจันทร์ดับ'>หน้าดำ</annotation>
 
 		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
-		<annotation cp='[🌛]' tts='หน้าพระจันทร์เสี้ยว' draft='provisional'>หน้าพระจันทร์เสี้ยว; หน้าพระจันทร์</annotation>
+		<annotation cp='[🌛]' tts='หน้าพระจันทร์เสี้ยวขวา'>หน้าพระจันทร์</annotation>
 
 		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
-		<annotation cp='[🌜]' tts='หน้าพระจันทร์เสี้ยว' draft='provisional'>หน้าพระจันทร์เสี้ยว; หน้าพระจันทร์</annotation>
+		<annotation cp='[🌜]' tts='หน้าพระจันทร์เสี้ยวซ้าย'>หน้าพระจันทร์</annotation>
+
+		<!-- thermometer; weather -->
+		<annotation cp='[🌡]' tts='เครื่องวัดอุณหภูมิ'>อุณหภูมิ; เครื่องวัด</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
+		<annotation cp='[☀]' tts='พระอาทิตย์'>แสงแดด; อากาศ; สว่าง</annotation>
 
 		<!-- full moon with face; bright; face; full; moon; space; weather -->
-		<annotation cp='[🌝]' tts='หน้าพระจันทร์เต็มดวง' draft='provisional'>หน้าพระจันทร์เต็มดวง</annotation>
+		<annotation cp='[🌝]' tts='หน้าพระจันทร์เต็มดวง'>ใบหน้า; พระจันทร์; เต็มดวง; สว่าง</annotation>
 
 		<!-- sun with face; bright; face; space; sun; weather -->
-		<annotation cp='[🌞]' tts='หน้าพระอาทิตย์' draft='provisional'>หน้าพระอาทิตย์</annotation>
+		<annotation cp='[🌞]' tts='หน้าพระอาทิตย์'>ใบหน้า; พระอาทิตย์; อากาศ; สว่าง</annotation>
+
+		<!-- white medium star; star -->
+		<annotation cp='[⭐]' tts='ดาวสีขาวขนาดกลาง'>ดวงดาว</annotation>
 
 		<!-- glowing star; glittery; glow; shining; sparkle; star -->
-		<annotation cp='[🌟]' tts='ดาวส่องแสง' draft='provisional'>ดาวส่องแสง; ดาว</annotation>
+		<annotation cp='[🌟]' tts='ดาวส่องแสง'>ระยิบระยับ; ประกาย; ดาว; แสง</annotation>
 
 		<!-- shooting star; falling; shooting; space; star -->
-		<annotation cp='[🌠]' tts='ดาวตก' draft='provisional'>ดาวตก; ดาว</annotation>
+		<annotation cp='[🌠]' tts='ดาวตก'>ดาว</annotation>
 
 		<!-- cloud; weather -->
-		<annotation cp='[☁]' tts='เมฆ' draft='provisional'>เมฆ; สภาพอากาศ; เมฆดำ</annotation>
+		<annotation cp='[☁]' tts='เมฆ'>สภาพอากาศ; เมฆดำ</annotation>
 
 		<!-- sun behind cloud; cloud; sun; weather -->
-		<annotation cp='[⛅]' tts='ดวงอาทิตย์หลังเมฆ' draft='provisional'>ดวงอาทิตย์หลังเมฆ; ดวงอาทิตย์</annotation>
+		<annotation cp='[⛅]' tts='ดวงอาทิตย์หลังเมฆ'>ดวงอาทิตย์</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
+		<annotation cp='[⛈]' tts='ฝนฟ้าคะนอง'>เมฆ; ฝน; ฟ้าร้อง; สภาพอากาศ</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
+		<annotation cp='[🌤]' tts='เมฆน้อยบดบังพระอาทิตย์'>เมฆ; พระอาทิตย์; สภาพอากาศ</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
+		<annotation cp='[🌥]' tts='เมฆก้อนใหญ่บังพระอาทิตย์'>เมฆ; พระอาทิตย์; สภาพอากาศ</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
+		<annotation cp='[🌦]' tts='เมฆฝนบดบังพระอาทิตย์'>เมฆ; ฝน; พระอาทิตย์; สภาพอากาศ</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
+		<annotation cp='[🌧]' tts='เมฆฝน'>เมฆ; ฝน; สภาพอากาศ</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
+		<annotation cp='[🌨]' tts='เมฆและหิมะ'>เมฆ; หิมะ; สภาพอากาศ</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
+		<annotation cp='[🌩]' tts='เมฆและฟ้าแลบ'>เมฆ; ฟ้าแลบ; สภาพอากาศ</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
+		<annotation cp='[🌪]' tts='พายุทอร์นาโด'>เมฆ; อากาศ; พายุหมุน</annotation>
+
+		<!-- fog; cloud; weather -->
+		<annotation cp='[🌫]' tts='หมอก'>เมฆ; สภาพอากาศ</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
+		<annotation cp='[🌬]' tts='พ่นลม'>ลมพัด; เมฆ; สภาพอากาศ</annotation>
 
 		<!-- cyclone; dizzy; twister; typhoon; weather -->
-		<annotation cp='[🌀]' tts='ไซโคลน' draft='provisional'>ไซโคลน; ไต้ฝุ่น; พายุหมุน</annotation>
+		<annotation cp='[🌀]' tts='ไซโคลน'>ไต้ฝุ่น; พายุหมุน</annotation>
 
 		<!-- rainbow; rain; weather -->
-		<annotation cp='[🌈]' tts='รุ้ง' draft='provisional'>รุ้ง</annotation>
+		<annotation cp='[🌈]' tts='รุ้ง'>ฝน; สภาพอากาศ</annotation>
 
 		<!-- closed umbrella; clothing; rain; umbrella; weather -->
-		<annotation cp='[🌂]' tts='ร่ม' draft='provisional'>ร่ม; ฝน; หน้าฝน</annotation>
+		<annotation cp='[🌂]' tts='ร่มหุบ'>ฝน; หน้าฝน</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
+		<annotation cp='[☂]' tts='ร่ม'>ร่ม; ฝน; สภาพอากาศ</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
+		<annotation cp='[☔]' tts='ร่มและหยดน้ำฝน'>ร่ม; ฝน; สภาพอากาศ</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
+		<annotation cp='[⛱]' tts='ร่มปักดิน'>ฝน; พระอาทิตย์; ร่ม; สภาพอากาศ</annotation>
 
 		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
-		<annotation cp='[⚡]' tts='ไฟฟ้าแรงสูง' draft='provisional'>ไฟฟ้าแรงสูง; สัญลักษณ์ไฟฟ้าแรงสูง</annotation>
+		<annotation cp='[⚡]' tts='ไฟฟ้าแรงสูง'>สัญลักษณ์ไฟฟ้าแรงสูง</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
+		<annotation cp='[❄]' tts='เกล็ดหิมะ'>หิมะ; สภาพอากาศ; หนาว</annotation>
+
+		<!-- snowman; cold; snow; weather -->
+		<annotation cp='[☃]' tts='สโนว์แมนและหิมะ'>หิมะ; สภาพอากาศ; หนาว</annotation>
 
 		<!-- snowman without snow; cold; snow; snowman; weather -->
-		<annotation cp='[⛄]' tts='สโนว์แมน' draft='provisional'>สโนว์แมน</annotation>
+		<annotation cp='[⛄]' tts='สโนว์แมน'>หิมะ; สโนว์แมน; สภาพอากาศ; หนาว</annotation>
+
+		<!-- comet; space -->
+		<annotation cp='[☄]' tts='ดาวหาง'>อวกาศ</annotation>
 
 		<!-- fire; flame; tool -->
-		<annotation cp='[🔥]' tts='ไฟ' draft='provisional'>ไฟ; เปลวไฟ</annotation>
+		<annotation cp='[🔥]' tts='ไฟ'>เปลวไฟ</annotation>
 
 		<!-- droplet; cold; comic; drop; sweat; weather -->
-		<annotation cp='[💧]' tts='หยดน้ำ' draft='provisional'>หยดน้ำ; เหงื่อ</annotation>
+		<annotation cp='[💧]' tts='หยดน้ำ'>เหงื่อ</annotation>
 
 		<!-- water wave; ocean; water; wave; weather -->
-		<annotation cp='[🌊]' tts='คลื่น' draft='provisional'>คลื่น; คลื่นทะเล</annotation>
+		<annotation cp='[🌊]' tts='คลื่น'>คลื่นทะเล</annotation>
 
 		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
-		<annotation cp='[🎃]' tts='ฟักทองฮาโลวีน' draft='provisional'>ฟักทองฮาโลวีน; ฟักทอง</annotation>
+		<annotation cp='[🎃]' tts='ฟักทองฮาโลวีน'>ฟักทอง</annotation>
 
 		<!-- christmas tree; celebration; christmas; tree -->
-		<annotation cp='[🎄]' tts='ต้นคริสต์มาส' draft='provisional'>ต้นคริสต์มาส; คริสต์มาส</annotation>
+		<annotation cp='[🎄]' tts='ต้นคริสต์มาส'>คริสต์มาส</annotation>
 
 		<!-- fireworks; celebration -->
-		<annotation cp='[🎆]' tts='พลุ' draft='provisional'>พลุ; การเฉลิมฉลอง</annotation>
+		<annotation cp='[🎆]' tts='พลุ'>เฉลิมฉลอง</annotation>
 
 		<!-- sparkler; celebration; fireworks; sparkle -->
-		<annotation cp='[🎇]' tts='ดอกไม้ไฟ' draft='provisional'>ดอกไม้ไฟ; พลุ</annotation>
+		<annotation cp='[🎇]' tts='ดอกไม้ไฟ'>พลุ</annotation>
 
 		<!-- sparkles; sparkle; star -->
-		<annotation cp='[✨]' tts='ประกายวิบวับ' draft='provisional'>ประกายวิบวับ; ดาววิบวับ</annotation>
+		<annotation cp='[✨]' tts='ประกายวิบวับ'>ดาววิบวับ</annotation>
 
 		<!-- balloon; celebration -->
-		<annotation cp='[🎈]' tts='ลูกโป่ง' draft='provisional'>ลูกโป่ง; การเฉลิมฉลอง</annotation>
+		<annotation cp='[🎈]' tts='ลูกโป่ง'>เฉลิมฉลอง</annotation>
 
 		<!-- party popper; celebration; party; popper; tada -->
-		<annotation cp='[🎉]' tts='ปาร์ตี้' draft='provisional'>ปาร์ตี้; การเฉลิมฉลอง</annotation>
+		<annotation cp='[🎉]' tts='ปาร์ตี้'>เฉลิมฉลอง</annotation>
 
 		<!-- confetti ball; ball; celebration; confetti -->
-		<annotation cp='[🎊]' tts='ลูกบอลใส่เศษกระดาษงานปาร์ตี้' draft='provisional'>ลูกบอลใส่เศษกระดาษงานปาร์ตี้; การเฉลิมฉลอง</annotation>
+		<annotation cp='[🎊]' tts='ลูกบอลใส่เศษกระดาษงานปาร์ตี้'>เฉลิมฉลอง</annotation>
 
 		<!-- tanabata tree; banner; celebration; japanese; tree -->
-		<annotation cp='[🎋]' tts='ต้นไม้ประดับคำอวยพร' draft='provisional'>ต้นไม้ประดับคำอวยพร</annotation>
+		<annotation cp='[🎋]' tts='ต้นไม้ประดับคำอวยพร'>คำอวยพร; ต้นไม้; ญี่ปุ่น; เฉลิมฉลอง</annotation>
 
 		<!-- crossed flags; celebration; cross; crossed; japanese -->
-		<annotation cp='[🎌]' tts='ธงไขว้' draft='provisional'>ธงไขว้; ธง</annotation>
+		<annotation cp='[🎌]' tts='ธงไขว้'>ธง</annotation>
 
 		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
-		<annotation cp='[🎍]' tts='ต้นสนประดับ' draft='provisional'>ต้นสนประดับ; ปีใหม่</annotation>
+		<annotation cp='[🎍]' tts='ต้นสนประดับ'>ปีใหม่</annotation>
 
 		<!-- japanese dolls; celebration; doll; festival; japanese -->
-		<annotation cp='[🎎]' tts='ตุ๊กตาญี่ปุ่น' draft='provisional'>ตุ๊กตาญี่ปุ่น</annotation>
+		<annotation cp='[🎎]' tts='ตุ๊กตาญี่ปุ่น'>เฉลิมฉลอง; ตุ๊กตา; เทศกาล; ญี่ปุ่น</annotation>
 
 		<!-- carp streamer; carp; celebration; streamer -->
-		<annotation cp='[🎏]' tts='ธงปลาคาร์พ' draft='provisional'>ธงปลาคาร์พ</annotation>
+		<annotation cp='[🎏]' tts='ธงปลาคาร์พ'>ปลาคาร์พ; เฉลิมฉลอง; ธง</annotation>
 
 		<!-- wind chime; bell; celebration; chime; wind -->
-		<annotation cp='[🎐]' tts='โมบายล์กระดิ่ง' draft='provisional'>โมบายล์กระดิ่ง; โมบายล์</annotation>
+		<annotation cp='[🎐]' tts='โมบายล์กระดิ่ง'>โมบายล์</annotation>
 
 		<!-- moon ceremony; celebration; ceremony; moon -->
-		<annotation cp='[🎑]' tts='ดูจันทร์' draft='provisional'>ดูจันทร์</annotation>
+		<annotation cp='[🎑]' tts='ไหว้พระจันทร์'>เฉลิมฉลอง; พระจันทร์</annotation>
 
 		<!-- ribbon; celebration -->
-		<annotation cp='[🎀]' tts='ริบบิ้น' draft='provisional'>ริบบิ้น; การเฉลิมฉลอง</annotation>
+		<annotation cp='[🎀]' tts='ริบบิ้น'>การเฉลิมฉลอง</annotation>
 
 		<!-- wrapped present; box; celebration; gift; present; wrapped -->
-		<annotation cp='[🎁]' tts='ของขวัญ' draft='provisional'>ของขวัญ; ของขวัญในกล่อง</annotation>
+		<annotation cp='[🎁]' tts='ของขวัญ'>ของขวัญในกล่อง</annotation>
+
+		<!-- military medal; celebration; medal; military -->
+		<annotation cp='[🎖]' tts='เหรียญกล้าหาญ'>เหรียญ; กองทัพ; ยกย่อง</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
+		<annotation cp='[🎗]' tts='ริบบิ้นรำลึก'>ริบบิ้น; รณรงค์; รำลึก</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
+		<annotation cp='[🎞]' tts='เฟรมภาพยนตร์'>ภาพยนตร์; หนัง; เฟรม</annotation>
+
+		<!-- admission tickets; admission; ticket -->
+		<annotation cp='[🎟]' tts='ตั๋วเข้าชม'>ตั๋ว; เข้าชมงาน</annotation>
 
 		<!-- ticket; admission -->
-		<annotation cp='[🎫]' tts='ตั๋ว' draft='provisional'>ตั๋ว</annotation>
+		<annotation cp='[🎫]' tts='ตั๋ว'>ตั๋ว; เข้าชมงาน</annotation>
+
+		<!-- label -->
+		<annotation cp='[🏷]' tts='ป้ายกำกับ'>ป้ายกำกับ</annotation>
 
 		<!-- soccer ball; ball; soccer -->
-		<annotation cp='[⚽]' tts='ลูกฟุตบอล' draft='provisional'>ลูกฟุตบอล; ฟุตบอล</annotation>
+		<annotation cp='[⚽]' tts='ลูกฟุตบอล'>ฟุตบอล</annotation>
 
 		<!-- baseball; ball -->
-		<annotation cp='[⚾]' tts='เบสบอล' draft='provisional'>เบสบอล</annotation>
+		<annotation cp='[⚾]' tts='เบสบอล'>บอล; เบสบอล</annotation>
 
 		<!-- basketball; ball; hoop -->
-		<annotation cp='[🏀]' tts='บาสเกตบอล' draft='provisional'>บาสเกตบอล; กีฬา</annotation>
+		<annotation cp='[🏀]' tts='บาสเกตบอล'>กีฬา; บาสเกตบอล</annotation>
 
 		<!-- american football; american; ball; football -->
-		<annotation cp='[🏈]' tts='อเมริกันฟุตบอล' draft='provisional'>อเมริกันฟุตบอล; กีฬา</annotation>
+		<annotation cp='[🏈]' tts='อเมริกันฟุตบอล'>กีฬา; อเมริกันฟุตบอล</annotation>
 
 		<!-- rugby football; ball; football; rugby -->
-		<annotation cp='[🏉]' tts='รักบี้' draft='provisional'>รักบี้; กีฬา</annotation>
+		<annotation cp='[🏉]' tts='รักบี้'>กีฬา; รักบี้</annotation>
 
 		<!-- tennis; ball; racquet -->
-		<annotation cp='[🎾]' tts='เทนนิส' draft='provisional'>เทนนิส; ลูกเทนนิส</annotation>
+		<annotation cp='[🎾]' tts='เทนนิส'>กีฬา; เทนนิส</annotation>
 
 		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
-		<annotation cp='[🎱]' tts='บิลเลียด' draft='provisional'>บิลเลียด; แปด</annotation>
+		<annotation cp='[🎱]' tts='บิลเลียด'>แปด; บิลเลียด</annotation>
 
 		<!-- bowling; ball; game -->
-		<annotation cp='[🎳]' tts='โบว์ลิ่ง' draft='provisional'>โบว์ลิ่ง; ลูกโบว์ลิ่ง</annotation>
+		<annotation cp='[🎳]' tts='โบว์ลิ่ง'>กีฬา; โบว์ลิ่ง</annotation>
 
 		<!-- flag in hole; golf; hole -->
-		<annotation cp='[⛳]' tts='ธงในหลุม' draft='provisional'>ธงในหลุม; กอล์ฟ</annotation>
+		<annotation cp='[⛳]' tts='ธงในหลุม'>กอล์ฟ</annotation>
+
+		<!-- golfer; ball; golf -->
+		<annotation cp='[🏌]' tts='นักกอล์ฟ'>กอล์ฟ; ลูกกอล์ฟ</annotation>
+
+		<!-- ice skate; ice; skate -->
+		<annotation cp='[⛸]' tts='สเก็ตน้ำแข็ง'>สเก็ต; น้ำแข็ง</annotation>
 
 		<!-- fishing pole; fish; pole -->
-		<annotation cp='[🎣]' tts='ตกปลา' draft='provisional'>ตกปลา</annotation>
+		<annotation cp='[🎣]' tts='ตกปลา'>ปลา; ตกปลา; เบ็ด</annotation>
 
 		<!-- running shirt; running; sash; shirt -->
-		<annotation cp='[🎽]' tts='เสื้อวิ่ง' draft='provisional'>เสื้อวิ่ง; วิ่ง</annotation>
+		<annotation cp='[🎽]' tts='เสื้อวิ่ง'>วิ่ง</annotation>
 
 		<!-- skis; ski; snow -->
-		<annotation cp='[🎿]' tts='สกี' draft='provisional'>สกี</annotation>
+		<annotation cp='[🎿]' tts='สกี'>สกี; หิมะ</annotation>
+
+		<!-- skier; ski; snow -->
+		<annotation cp='[⛷]' tts='นักสกี'>สกี; หิมะ</annotation>
 
 		<!-- snowboarder; ski; snow; snowboard -->
-		<annotation cp='[🏂]' tts='นักสโนว์บอร์ด' draft='provisional'>นักสโนว์บอร์ด; กีฬา</annotation>
+		<annotation cp='[🏂]' tts='นักสโนว์บอร์ด'>สกี; หิมะ; สโนว์บอร์ด</annotation>
 
 		<!-- surfer; surfing -->
-		<annotation cp='[🏄]' tts='โต้คลื่น' draft='provisional'>โต้คลื่น; นักโต้คลื่น</annotation>
+		<annotation cp='[🏄]' tts='นักโต้คลื่น'>โต้คลื่น</annotation>
 
 		<!-- horse racing; horse; jockey; racehorse; racing -->
-		<annotation cp='[🏇]' tts='แข่งม้า' draft='provisional'>แข่งม้า; ม้า; จ็อกกี้</annotation>
+		<annotation cp='[🏇]' tts='แข่งม้า'>ม้า; จ๊อกกี้; แข่งม้า; แข่ง</annotation>
 
 		<!-- swimmer; swim -->
-		<annotation cp='[🏊]' tts='นักว่ายน้ำ' draft='provisional'>นักว่ายน้ำ; ว่ายน้ำ; กีฬา</annotation>
+		<annotation cp='[🏊]' tts='นักว่ายน้ำ'>ว่ายน้ำ; กีฬา</annotation>
+
+		<!-- person with ball; ball -->
+		<annotation cp='[⛹]' tts='คนเล่นบอล'>บอล</annotation>
+
+		<!-- weight lifter; lifter; weight -->
+		<annotation cp='[🏋]' tts='นักยกน้ำหนัก'>ยกน้ำหนัก; ดัมเบล</annotation>
 
 		<!-- bicyclist; bicycle; bike; cyclist -->
-		<annotation cp='[🚴]' tts='นักปั่นจักรยาน' draft='provisional'>นักปั่นจักรยาน; ปั่นจักรยาน</annotation>
+		<annotation cp='[🚴]' tts='นักปั่นจักรยาน'>ปั่นจักรยาน</annotation>
 
 		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
-		<annotation cp='[🚵]' tts='นักปั่นจักรยานเสือภูเขา' draft='provisional'>นักปั่นจักรยานเสือภูเขา; นักปั่นจักรยาน; ปั่นจักรยาน</annotation>
+		<annotation cp='[🚵]' tts='นักปั่นจักรยานเสือภูเขา'>นักปั่นจักรยาน; ปั่นจักรยาน</annotation>
+
+		<!-- racing car; car; racing -->
+		<annotation cp='[🏎]' tts='รถแข่ง'>รถ; แข่ง</annotation>
+
+		<!-- motorcycle; racing -->
+		<annotation cp='[🏍]' tts='มอเตอร์ไซค์'>มอเตอร์ไซค์; แข่ง</annotation>
+
+		<!-- sports medal; medal -->
+		<annotation cp='[🏅]' tts='เหรียญรางวัล'>เหรียญ</annotation>
 
 		<!-- trophy; prize -->
-		<annotation cp='[🏆]' tts='ถ้วยรางวัล' draft='provisional'>ถ้วยรางวัล</annotation>
+		<annotation cp='[🏆]' tts='ถ้วยรางวัล'>รางวัล</annotation>
+
+		<!-- cricket; ball; bat; game -->
+		<annotation cp='[🏏]' tts='คริกเก็ต'>บอล; เกม; ไม้</annotation>
+
+		<!-- volleyball; ball; game -->
+		<annotation cp='[🏐]' tts='วอลเลย์บอล'>บอล; เกม</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
+		<annotation cp='[🏑]' tts='ฮอกกี้'>บอล; เกม; ไม้; สนาม; ฮอกกี้</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
+		<annotation cp='[🏒]' tts='ไม้ฮอกกี้'>เกม; ไม้; น้ำแข็ง; ฮอกกี้; ลูกยาง</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='ปิงปอง'>ลูก; ไม้; เกม; ปิงปอง; โต๊ะ</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
+		<annotation cp='[🏸]' tts='แบดมินตัน'>เกม; ไม้แบด; ลูกขนไก่</annotation>
 
 		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
-		<annotation cp='[🎯]' tts='กลางเป้า' draft='provisional'>กลางเป้า; ตรงเป้า; ปาเป้า; ลูกดอก</annotation>
+		<annotation cp='[🎯]' tts='กลางเป้า'>ตรงเป้า; ปาเป้า; ลูกดอก</annotation>
 
 		<!-- video game; controller; game -->
-		<annotation cp='[🎮]' tts='วิดีโอเกม' draft='provisional'>วิดีโอเกม; เกม; จอยสติ๊ก</annotation>
+		<annotation cp='[🎮]' tts='วิดีโอเกม'>เกม; จอยสติ๊ก</annotation>
+
+		<!-- joystick; game; video game -->
+		<annotation cp='[🕹]' tts='จอยสติ๊ก'>เกม; วิดีโอ</annotation>
 
 		<!-- game die; dice; die; game -->
-		<annotation cp='[🎲]' tts='ลูกเต๋า' draft='provisional'>ลูกเต๋า; ทอยลูกเต๋า</annotation>
+		<annotation cp='[🎲]' tts='ลูกเต๋า'>ทอยลูกเต๋า</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
+		<annotation cp='[♠]' tts='โพดำ'>ไพ่; เกม; โพดำ</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
+		<annotation cp='[♥]' tts='หัวใจ'>ไพ่; เกม; หัวใจ</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
+		<annotation cp='[♦]' tts='ข้าวหลามตัด'>ไพ่; เกม; ข้าวหลามตัด</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
+		<annotation cp='[♣]' tts='ดอกจิก'>ไพ่; เกม; ดอกจิก</annotation>
 
 		<!-- joker; card; game; playing -->
-		<annotation cp='[🃏]' tts='ไพ่โจ๊กเกอร์' draft='provisional'>ไพ่โจ๊กเกอร์; โจ๊กเกอร์; เล่นไพ่</annotation>
+		<annotation cp='[🃏]' tts='ไพ่โจ๊กเกอร์'>โจ๊กเกอร์; เล่นไพ่</annotation>
 
 		<!-- mahjong red dragon; game; mahjong; red -->
-		<annotation cp='[🀄]' tts='ไพ่นกกระจอก' draft='provisional'>ไพ่นกกระจอก; มังกรแดง</annotation>
+		<annotation cp='[🀄]' tts='ไพ่นกกระจอกมังกรแดง'>ไพ่; เล่น; เกม; นกกระจอก; มังกรแดง</annotation>
 
 		<!-- flower playing cards; card; flower; game; japanese; playing -->
-		<annotation cp='[🎴]' tts='ไพ่ดอกไม้' draft='provisional'>ไพ่ดอกไม้</annotation>
+		<annotation cp='[🎴]' tts='ไพ่ดอกไม้'>ไพ่; เล่น; เกม; ดอกไม้; ญี่ปุ่น</annotation>
 
 		<!-- speaker off; mute; quiet; silent; speaker; volume -->
-		<annotation cp='[🔇]' tts='ไม่ใช้เสียง' draft='provisional'>ไม่ใช้เสียง; โปรดเงียบ; ปิดเสียง</annotation>
+		<annotation cp='[🔇]' tts='ไม่ใช้เสียง'>โปรดเงียบ; ปิดเสียง</annotation>
 
 		<!-- speaker; volume -->
-		<annotation cp='[🔈]' tts='ลำโพง' draft='provisional'>ลำโพง; เครื่องขยายเสียง</annotation>
+		<annotation cp='[🔈]' tts='ลำโพง'>เครื่องขยายเสียง</annotation>
 
 		<!-- speaker on; low; speaker; volume; wave -->
-		<annotation cp='[🔉]' tts='ลำโพงเบา' draft='provisional'>ลำโพงเบา; ลำโพง</annotation>
+		<annotation cp='[🔉]' tts='ลำโพงเบา'>ลำโพง</annotation>
 
 		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
-		<annotation cp='[🔊]' tts='ลำโพงดัง' draft='provisional'>ลำโพงดัง; ลำโพง</annotation>
+		<annotation cp='[🔊]' tts='ลำโพงดัง'>ลำโพง</annotation>
 
 		<!-- loudspeaker; loud; public address -->
-		<annotation cp='[📢]' tts='เครื่องขยายเสียง' draft='provisional'>เครื่องขยายเสียง</annotation>
+		<annotation cp='[📢]' tts='เครื่องขยายเสียง'>เสียงดัง; ประกาศ</annotation>
 
 		<!-- megaphone; cheering -->
-		<annotation cp='[📣]' tts='โทรโข่ง' draft='provisional'>โทรโข่ง</annotation>
+		<annotation cp='[📣]' tts='โทรโข่ง'>ประกาศ; เชียร์</annotation>
 
 		<!-- postal horn; horn; post; postal -->
-		<annotation cp='[📯]' tts='แตรส่งสาร' draft='provisional'>แตรส่งสาร</annotation>
+		<annotation cp='[📯]' tts='แตรส่งสาร'>แตร; สาร</annotation>
 
 		<!-- bell -->
-		<annotation cp='[🔔]' tts='กระดิ่ง' draft='provisional'>กระดิ่ง; โบสถ์</annotation>
+		<annotation cp='[🔔]' tts='กระดิ่ง'>โบสถ์</annotation>
 
 		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
-		<annotation cp='[🔕]' tts='ไม่มีกระดิ่ง' draft='provisional'>ไม่มีกระดิ่ง; ไม่มีเสียง</annotation>
+		<annotation cp='[🔕]' tts='ไม่มีกระดิ่ง'>ไม่มีเสียง</annotation>
 
 		<!-- musical score; music; score -->
-		<annotation cp='[🎼]' tts='บรรทัดห้าเส้น' draft='provisional'>บรรทัดห้าเส้น; โน้ตเพลง; กุญแจซอล</annotation>
+		<annotation cp='[🎼]' tts='บรรทัดห้าเส้น'>โน้ตเพลง; กุญแจซอล</annotation>
 
 		<!-- musical note; music; note -->
-		<annotation cp='[🎵]' tts='โน้ตดนตรี' draft='provisional'>โน้ตดนตรี</annotation>
+		<annotation cp='[🎵]' tts='โน้ตดนตรี'>โน้ตดนตรี</annotation>
 
 		<!-- musical notes; music; note; notes -->
-		<annotation cp='[🎶]' tts='โน้ตดนตรีหลายตัว' draft='provisional'>โน้ตดนตรีหลายตัว; โน้ตดนตรี</annotation>
+		<annotation cp='[🎶]' tts='โน้ตดนตรีหลายตัว'>โน้ตดนตรี</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
+		<annotation cp='[🎙]' tts='ไมค์สตูดิโอ'>ไมค์; ไมโครโฟน; เพลง; สตูดิโอ</annotation>
+
+		<!-- level slider; level; music; slider -->
+		<annotation cp='[🎚]' tts='ที่ปรับระดับเสียง'>ระดับ; เพลง; เสียง; ที่ปรับ</annotation>
+
+		<!-- control knobs; control; knobs; music -->
+		<annotation cp='[🎛]' tts='ปุ่มควบคุมเสียง'>ปุ่ม; ปรับ; เสียง; ควบคุม; เพลง</annotation>
 
 		<!-- microphone; karaoke; mic -->
-		<annotation cp='[🎤]' tts='ไมค์' draft='provisional'>ไมค์; ไมโครโฟน</annotation>
+		<annotation cp='[🎤]' tts='ไมค์'>ไมค์; ไมโครโฟน; เพลง; สตูดิโอ; คาราโอเกะ</annotation>
 
 		<!-- headphone; earbud -->
-		<annotation cp='[🎧]' tts='หูฟัง' draft='provisional'>หูฟัง</annotation>
+		<annotation cp='[🎧]' tts='หูฟัง'>หูฟัง</annotation>
 
 		<!-- saxophone; instrument; music; sax -->
-		<annotation cp='[🎷]' tts='แซ็ก' draft='provisional'>แซ็ก; แซ็กโซโฟน; เครื่องดนตรี</annotation>
+		<annotation cp='[🎷]' tts='แซ็ก'>แซ็กโซโฟน; เครื่องดนตรี</annotation>
 
 		<!-- guitar; instrument; music -->
-		<annotation cp='[🎸]' tts='กีต้าร์' draft='provisional'>กีต้าร์; เครื่องดนตรี</annotation>
+		<annotation cp='[🎸]' tts='กีต้าร์'>เครื่องดนตรี; กีตาร์; กีตาร์ไฟฟ้า</annotation>
 
 		<!-- musical keyboard; instrument; keyboard; music; piano -->
-		<annotation cp='[🎹]' tts='เปียโน' draft='provisional'>เปียโน; คีย์บอร์ด; เครื่องดนตรี</annotation>
+		<annotation cp='[🎹]' tts='เปียโน'>คีย์บอร์ด; เครื่องดนตรี; เปียโน</annotation>
 
 		<!-- trumpet; instrument; music -->
-		<annotation cp='[🎺]' tts='ทรัมเป็ต' draft='provisional'>ทรัมเป็ต; เครื่องดนตรี</annotation>
+		<annotation cp='[🎺]' tts='ทรัมเป็ต'>เครื่องดนตรี; ทรัมเป็ต</annotation>
 
 		<!-- violin; instrument; music -->
-		<annotation cp='[🎻]' tts='ไวโอลิน' draft='provisional'>ไวโอลิน; เครื่องดนตรี</annotation>
+		<annotation cp='[🎻]' tts='ไวโอลิน'>เครื่องดนตรี; ไวโอลิน</annotation>
 
 		<!-- radio; video -->
-		<annotation cp='[📻]' tts='วิทยุ' draft='provisional'>วิทยุ</annotation>
+		<annotation cp='[📻]' tts='วิทยุ'>วิทยุ; เพลง</annotation>
 
 		<!-- mobile phone; cell; mobile; phone; telephone -->
-		<annotation cp='[📱]' tts='โทรศัพท์มือถือ' draft='provisional'>โทรศัพท์มือถือ; โทรศัพท์</annotation>
+		<annotation cp='[📱]' tts='โทรศัพท์มือถือ'>โทรศัพท์</annotation>
 
 		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
-		<annotation cp='[📲]' tts='โทรศัพท์มือถือพร้อมลูกศรชี้' draft='provisional'>โทรศัพท์มือถือพร้อมลูกศรชี้</annotation>
+		<annotation cp='[📲]' tts='โทรศัพท์มือถือพร้อมลูกศรชี้'>ลูกศร; โทรศัพท์; มือถือ; โทร</annotation>
+
+		<!-- telephone; phone -->
+		<annotation cp='[☎]' tts='โทรศัพท์'>โทรศัพท์</annotation>
 
 		<!-- telephone receiver; phone; receiver; telephone -->
-		<annotation cp='[📞]' tts='โทรศัพท์' draft='provisional'>โทรศัพท์</annotation>
+		<annotation cp='[📞]' tts='หูโทรศัพท์'>โทรศัพท์; เครื่องรับ</annotation>
 
 		<!-- pager -->
-		<annotation cp='[📟]' tts='เพจเจอร์' draft='provisional'>เพจเจอร์</annotation>
+		<annotation cp='[📟]' tts='เพจเจอร์'>เพจเจอร์</annotation>
 
 		<!-- fax machine; fax -->
-		<annotation cp='[📠]' tts='แฟกซ์' draft='provisional'>แฟกซ์; เครื่องแฟกซ์</annotation>
+		<annotation cp='[📠]' tts='แฟกซ์'>เครื่องแฟกซ์</annotation>
 
 		<!-- battery -->
-		<annotation cp='[🔋]' tts='แบตเตอรี่' draft='provisional'>แบตเตอรี่</annotation>
+		<annotation cp='[🔋]' tts='แบตเตอรี่'>แบตเตอรี่</annotation>
 
 		<!-- electric plug; electric; electricity; plug -->
-		<annotation cp='[🔌]' tts='ปลั๊กไฟ' draft='provisional'>ปลั๊กไฟ</annotation>
+		<annotation cp='[🔌]' tts='ปลั๊กไฟ'>ไฟฟ้า; ปลั๊ก</annotation>
 
 		<!-- laptop computer; computer; pc; personal -->
-		<annotation cp='[💻]' tts='คอมพิวเตอร์' draft='provisional'>คอมพิวเตอร์; พีซี</annotation>
+		<annotation cp='[💻]' tts='คอมพิวเตอร์'>พีซี</annotation>
+
+		<!-- desktop computer; computer; desktop -->
+		<annotation cp='[🖥]' tts='คอมพิวเตอร์เดสก์ท็อป'>คอมพิวเตอร์; เดสก์ท็อป; ตั้งโต๊ะ</annotation>
+
+		<!-- printer; computer -->
+		<annotation cp='[🖨]' tts='เครื่องพิมพ์'>คอมพิวเตอร์</annotation>
+
+		<!-- keyboard; computer -->
+		<annotation cp='[⌨]' tts='แป้นพิมพ์'>คอมพิวเตอร์</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
+		<annotation cp='[🖱]' tts='เมาส์'>คอมพิวเตอร์; เมาส์</annotation>
+
+		<!-- trackball; computer -->
+		<annotation cp='[🖲]' tts='แทร็กบอล'>คอมพิวเตอร์</annotation>
 
 		<!-- minidisc; computer; disk; minidisk; optical -->
-		<annotation cp='[💽]' tts='แผ่นดิสก์ขนาดเล็ก' draft='provisional'>แผ่นดิสก์ขนาดเล็ก; ดิสก์</annotation>
+		<annotation cp='[💽]' tts='แผ่นดิสก์ขนาดเล็ก'>ดิสก์</annotation>
 
 		<!-- floppy disk; computer; disk; floppy -->
-		<annotation cp='[💾]' tts='แผ่นบันทึก' draft='provisional'>แผ่นบันทึก; ฟล็อปปี้</annotation>
+		<annotation cp='[💾]' tts='แผ่นบันทึก'>ฟล็อปปี้</annotation>
 
 		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
-		<annotation cp='[💿]' tts='บลูเรย์' draft='provisional'>บลูเรย์; ดีวีดี; ซีดี</annotation>
+		<annotation cp='[💿]' tts='บลูเรย์'>ดีวีดี; ซีดี</annotation>
 
 		<!-- dvd; blu-ray; cd; computer; disk; optical -->
-		<annotation cp='[📀]' tts='ดีวีดี' draft='provisional'>ดีวีดี; แผ่นดีวีดี</annotation>
+		<annotation cp='[📀]' tts='ดีวีดี'>แผ่นดีวีดี</annotation>
 
 		<!-- movie camera; camera; cinema; movie -->
-		<annotation cp='[🎥]' tts='กล้องภาพยนตร์' draft='provisional'>กล้องภาพยนตร์</annotation>
+		<annotation cp='[🎥]' tts='กล้องภาพยนตร์'>กล้อง; ภาพยนตร์; หนัง</annotation>
 
 		<!-- clapper board; clapper; movie -->
-		<annotation cp='[🎬]' tts='สเลท' draft='provisional'>สเลท; ถ่ายหนัง</annotation>
+		<annotation cp='[🎬]' tts='สเลท'>ถ่ายหนัง</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
+		<annotation cp='[📽]' tts='เครื่องฉายหนัง'>ภาพยนตร์; หนัง; วิดีโอ; เครื่องฉาย</annotation>
 
 		<!-- television; tv; video -->
-		<annotation cp='[📺]' tts='ทีวี' draft='provisional'>ทีวี; โทรทัศน์</annotation>
+		<annotation cp='[📺]' tts='ทีวี'>โทรทัศน์</annotation>
 
 		<!-- camera; video -->
-		<annotation cp='[📷]' tts='กล้อง' draft='provisional'>กล้อง</annotation>
+		<annotation cp='[📷]' tts='กล้อง'>กล้อง; วิดีโอ</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
+		<annotation cp='[📸]' tts='กล้องเปิดแฟลช'>กล้อง; วิดีโอ; แฟลช</annotation>
 
 		<!-- video camera; camera; video -->
-		<annotation cp='[📹]' tts='กล้องวิดีโอ' draft='provisional'>กล้องวิดีโอ</annotation>
+		<annotation cp='[📹]' tts='กล้องวิดีโอ'>กล้อง; วิดีโอ</annotation>
 
 		<!-- videocassette; tape; vhs; video -->
-		<annotation cp='[📼]' tts='วิดีโอเทป' draft='provisional'>วิดีโอเทป</annotation>
+		<annotation cp='[📼]' tts='วิดีโอเทป'>วิทยุ; เทป; เพลง</annotation>
 
 		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
-		<annotation cp='[🔍]' tts='แว่นขยาย' draft='provisional'>แว่นขยาย</annotation>
+		<annotation cp='[🔍]' tts='แว่นขยายเอียงซ้าย'>แว่น; ขยาย; ค้นหา; เครื่องมือ</annotation>
 
 		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
-		<annotation cp='[🔎]' tts='แว่นขยาย' draft='provisional'>แว่นขยาย</annotation>
+		<annotation cp='[🔎]' tts='แว่นขยายเอียงขวา'>แว่น; ขยาย; ค้นหา; เครื่องมือ</annotation>
 
 		<!-- microscope; tool -->
-		<annotation cp='[🔬]' tts='กล้องจุลทรรศน์' draft='provisional'>กล้องจุลทรรศน์</annotation>
+		<annotation cp='[🔬]' tts='กล้องจุลทรรศน์'>เครื่องมือ</annotation>
 
 		<!-- telescope; tool -->
-		<annotation cp='[🔭]' tts='กล้องโทรทรรศน์' draft='provisional'>กล้องโทรทรรศน์</annotation>
+		<annotation cp='[🔭]' tts='กล้องโทรทรรศน์'>เครื่องมือ</annotation>
 
 		<!-- satellite antenna; antenna; dish; satellite -->
-		<annotation cp='[📡]' tts='จานดาวเทียม' draft='provisional'>จานดาวเทียม</annotation>
+		<annotation cp='[📡]' tts='จานดาวเทียม'>เสาอากาศ; จาน; ดาวเทียม</annotation>
+
+		<!-- candle; light -->
+		<annotation cp='[🕯]' tts='เทียน'>แสง</annotation>
 
 		<!-- light bulb; bulb; comic; electric; idea; light -->
-		<annotation cp='[💡]' tts='หลอดไฟ' draft='provisional'>หลอดไฟ; ปิ๊งไอเดีย</annotation>
+		<annotation cp='[💡]' tts='หลอดไฟ'>ปิ๊งไอเดีย</annotation>
 
 		<!-- flashlight; electric; light; tool; torch -->
-		<annotation cp='[🔦]' tts='ไฟฉาย' draft='provisional'>ไฟฉาย</annotation>
+		<annotation cp='[🔦]' tts='ไฟฉาย'>ไฟฟ้า; แสง; เครื่องมือ</annotation>
 
 		<!-- red paper lantern; bar; japanese; lantern; light; red -->
-		<annotation cp='[🏮]' tts='โคมไฟแดง' draft='provisional'>โคมไฟแดง</annotation>
+		<annotation cp='[🏮]' tts='โคมไฟแดง'>บาร์; ญี่ปุ่น; โคมไฟ; แสง; สีแดง</annotation>
 
 		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
-		<annotation cp='[📔]' tts='สมุดโน้ตมีลาย' draft='provisional'>สมุดโน้ตมีลาย; สมุดโน้ต</annotation>
+		<annotation cp='[📔]' tts='สมุดโน้ตมีลาย'>สมุดโน้ต</annotation>
 
 		<!-- closed book; book; closed -->
-		<annotation cp='[📕]' tts='หนังสือปิด' draft='provisional'>หนังสือปิด; หนังสือ</annotation>
+		<annotation cp='[📕]' tts='หนังสือปิด'>หนังสือ</annotation>
 
 		<!-- open book; book; open -->
-		<annotation cp='[📖]' tts='หนังสือเปิด' draft='provisional'>หนังสือเปิด; หนังสือ</annotation>
+		<annotation cp='[📖]' tts='หนังสือเปิด'>หนังสือ</annotation>
 
 		<!-- green book; book; green -->
-		<annotation cp='[📗]' tts='หนังสือสีเขียว' draft='provisional'>หนังสือสีเขียว; หนังสือ</annotation>
+		<annotation cp='[📗]' tts='หนังสือสีเขียว'>หนังสือ</annotation>
 
 		<!-- blue book; blue; book -->
-		<annotation cp='[📘]' tts='หนังสือสีน้ำเงิน' draft='provisional'>หนังสือสีน้ำเงิน; หนังสือ</annotation>
+		<annotation cp='[📘]' tts='หนังสือสีน้ำเงิน'>หนังสือ</annotation>
 
 		<!-- orange book; book; orange -->
-		<annotation cp='[📙]' tts='หนังสือสีส้ม' draft='provisional'>หนังสือสีส้ม; หนังสือ</annotation>
+		<annotation cp='[📙]' tts='หนังสือสีส้ม'>หนังสือ</annotation>
 
 		<!-- books; book -->
-		<annotation cp='[📚]' tts='หนังสือ' draft='provisional'>หนังสือ</annotation>
+		<annotation cp='[📚]' tts='หนังสือ'>หนังสือ; จด</annotation>
 
 		<!-- notebook -->
-		<annotation cp='[📓]' tts='สมุดโน้ต' draft='provisional'>สมุดโน้ต</annotation>
+		<annotation cp='[📓]' tts='สมุดโน้ต'>สมุดโน้ต; บันทึก; จด</annotation>
 
 		<!-- ledger; notebook -->
-		<annotation cp='[📒]' tts='สมุดโน้ตเจาะรูข้าง' draft='provisional'>สมุดโน้ตเจาะรูข้าง; สมุดโน้ต</annotation>
+		<annotation cp='[📒]' tts='สมุดโน้ตเจาะรูข้าง'>สมุดโน้ต</annotation>
 
 		<!-- page with curl; curl; document; page -->
-		<annotation cp='[📃]' tts='เอกสาร' draft='provisional'>เอกสาร; เอกสารงอ</annotation>
+		<annotation cp='[📃]' tts='เอกสารม้วนปลาย'>เอกสารงอ</annotation>
 
 		<!-- scroll; paper -->
-		<annotation cp='[📜]' tts='ม้วนกระดาษ' draft='provisional'>ม้วนกระดาษ</annotation>
+		<annotation cp='[📜]' tts='ม้วนกระดาษ'>กระดาษ</annotation>
 
 		<!-- page facing up; document; page -->
-		<annotation cp='[📄]' tts='เอกสาร' draft='provisional'>เอกสาร</annotation>
+		<annotation cp='[📄]' tts='เอกสาร'>เอกสาร; หน้า</annotation>
 
 		<!-- newspaper; news; paper -->
-		<annotation cp='[📰]' tts='หนังสือพิมพ์' draft='provisional'>หนังสือพิมพ์; ข่าวสาร</annotation>
+		<annotation cp='[📰]' tts='หนังสือพิมพ์'>ข่าวสาร</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
+		<annotation cp='[🗞]' tts='ม้วนหนังสือพิมพ์'>ข่าว; หนังสือพิมพ์; กระดาษ; ม้วน</annotation>
 
 		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
-		<annotation cp='[📑]' tts='แถบคั่นหน้า' draft='provisional'>แถบคั่นหน้า</annotation>
+		<annotation cp='[📑]' tts='แถบคั่นหน้า'>คั่นหน้า; เครื่องหมาย; แท็บ</annotation>
 
 		<!-- bookmark; mark -->
-		<annotation cp='[🔖]' tts='ที่คั่นหนังสือ' draft='provisional'>ที่คั่นหนังสือ</annotation>
+		<annotation cp='[🔖]' tts='ที่คั่นหนังสือ'>เครื่องหมาย; คั่น; หนังสือ</annotation>
 
 		<!-- money bag; bag; dollar; money; moneybag -->
-		<annotation cp='[💰]' tts='ถุงเงิน' draft='provisional'>ถุงเงิน; เงิน</annotation>
+		<annotation cp='[💰]' tts='ถุงเงิน'>เงิน</annotation>
 
 		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
-		<annotation cp='[💴]' tts='ธนบัตรเยน' draft='provisional'>ธนบัตรเยน; เยน; ธนบัตร</annotation>
+		<annotation cp='[💴]' tts='ธนบัตรเยน'>เยน; ธนบัตร</annotation>
 
 		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
-		<annotation cp='[💵]' tts='ธนบัตรดอลลาร์' draft='provisional'>ธนบัตรดอลลาร์; ดอลลาร์; เงิน</annotation>
+		<annotation cp='[💵]' tts='ธนบัตรดอลลาร์'>ดอลลาร์; เงิน</annotation>
 
 		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
-		<annotation cp='[💶]' tts='ธนบัตรยูโร' draft='provisional'>ธนบัตรยูโร; ยูโร; ธนบัตร</annotation>
+		<annotation cp='[💶]' tts='ธนบัตรยูโร'>ยูโร; ธนบัตร</annotation>
 
 		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
-		<annotation cp='[💷]' tts='ธนบัตรปอนด์' draft='provisional'>ธนบัตรปอนด์; ธนบัตร; เงิน</annotation>
+		<annotation cp='[💷]' tts='ธนบัตรปอนด์'>ธนบัตร; เงิน</annotation>
 
 		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
-		<annotation cp='[💸]' tts='เงินบิน' draft='provisional'>เงินบิน; เงินมีปีก</annotation>
+		<annotation cp='[💸]' tts='เงินบิน'>เงินมีปีก</annotation>
 
 		<!-- credit card; bank; card; credit; money -->
-		<annotation cp='[💳]' tts='บัตรเครดิต' draft='provisional'>บัตรเครดิต; บัตร</annotation>
+		<annotation cp='[💳]' tts='บัตรเครดิต'>บัตร</annotation>
 
 		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
-		<annotation cp='[💹]' tts='ตลาดขึ้น' draft='provisional'>ตลาดขึ้น; ฟอเร็กซ์</annotation>
+		<annotation cp='[💹]' tts='ตลาดขึ้น'>ฟอเร็กซ์</annotation>
+
+		<!-- envelope; e-mail; email -->
+		<annotation cp='[✉]' tts='ซองจดหมาย'>อีเมล; จดหมาย</annotation>
 
 		<!-- e-mail; email; letter; mail -->
-		<annotation cp='[📧]' tts='อีเมล' draft='provisional'>อีเมล; จดหมาย; การสื่อสาร</annotation>
+		<annotation cp='[📧]' tts='อีเมล'>จดหมาย; การสื่อสาร</annotation>
 
 		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
-		<annotation cp='[📨]' tts='จดหมายเข้า' draft='provisional'>จดหมายเข้า; จดหมาย; การสื่อสาร</annotation>
+		<annotation cp='[📨]' tts='จดหมายเข้า'>จดหมาย; การสื่อสาร</annotation>
 
 		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
-		<annotation cp='[📩]' tts='จดหมายออก' draft='provisional'>จดหมายออก; จดหมาย; การสื่อสาร</annotation>
+		<annotation cp='[📩]' tts='จดหมายออก'>จดหมาย; การสื่อสาร</annotation>
 
 		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
-		<annotation cp='[📤]' tts='กล่องขาออก' draft='provisional'>กล่องขาออก; จดหมายออก</annotation>
+		<annotation cp='[📤]' tts='กล่องขาออก'>จดหมายออก</annotation>
 
 		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
-		<annotation cp='[📥]' tts='กล่องขาเข้า' draft='provisional'>กล่องขาเข้า; จดหมายเข้า</annotation>
+		<annotation cp='[📥]' tts='กล่องขาเข้า'>จดหมายเข้า</annotation>
 
 		<!-- package; box; parcel -->
-		<annotation cp='[📦]' tts='พัสดุ' draft='provisional'>พัสดุ; กล่อง</annotation>
+		<annotation cp='[📦]' tts='พัสดุ'>กล่อง</annotation>
 
 		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
-		<annotation cp='[📫]' tts='กล่องจดหมายปิด' draft='provisional'>กล่องจดหมายปิด; กล่องจดหมาย</annotation>
+		<annotation cp='[📫]' tts='กล่องจดหมายปิดยกธง'>กล่องจดหมาย</annotation>
 
 		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
-		<annotation cp='[📪]' tts='กล่องจดหมายปิด' draft='provisional'>กล่องจดหมายปิด; กล่องจดหมาย</annotation>
+		<annotation cp='[📪]' tts='กล่องจดหมายปิดคว่ำธง'>กล่องจดหมาย</annotation>
 
 		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
-		<annotation cp='[📬]' tts='มีจดหมาย กล่องจดหมาย' draft='provisional'>มีจดหมาย กล่องจดหมาย</annotation>
+		<annotation cp='[📬]' tts='กล่องจดหมายมีจดหมาย'>จดหมาย; กล่องจดหมาย; เปิด</annotation>
 
 		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
-		<annotation cp='[📭]' tts='กล่องจดหมายว่า' draft='provisional'>กล่องจดหมายว่า; กล่องจดหมาย</annotation>
+		<annotation cp='[📭]' tts='กล่องจดหมายว่าง'>กล่องจดหมาย</annotation>
 
 		<!-- postbox; mail; mailbox -->
-		<annotation cp='[📮]' tts='ตู้ไปรษณีย์' draft='provisional'>ตู้ไปรษณีย์; กล่องจดหมาย</annotation>
+		<annotation cp='[📮]' tts='ตู้ไปรษณีย์'>กล่องจดหมาย</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
+		<annotation cp='[🗳]' tts='หีบบัตรลงคะแนน'>หีบ; บัตร; ลงคะแนน</annotation>
+
+		<!-- pencil -->
+		<annotation cp='[✏]' tts='ดินสอ'>ดินสอ</annotation>
+
+		<!-- black nib; nib; pen -->
+		<annotation cp='[✒]' tts='ปลายปากกาสีดำ'>ปลายปากกา; ปากกา; สีดำ</annotation>
+
+		<!-- fountain pen; fountain; pen -->
+		<annotation cp='[🖋]' tts='ปากกาหมึกซึม'>ปากกา; หมึกซึม</annotation>
+
+		<!-- pen; ballpoint -->
+		<annotation cp='[🖊]' tts='ปากกา'>ปากกา; หมึก; ลูกลื่น</annotation>
+
+		<!-- paintbrush; painting -->
+		<annotation cp='[🖌]' tts='แปรงทาสี'>สี; ภาพวาด</annotation>
+
+		<!-- crayon -->
+		<annotation cp='[🖍]' tts='ดินสอสี'>ดินสอสี; วาดเขียน; สี</annotation>
 
 		<!-- memo; pencil -->
-		<annotation cp='[📝]' tts='จดบันทึก' draft='provisional'>จดบันทึก</annotation>
+		<annotation cp='[📝]' tts='จดบันทึก'>ดินสอ; บันทึก</annotation>
 
 		<!-- briefcase -->
-		<annotation cp='[💼]' tts='กระเป๋าเอกสาร' draft='provisional'>กระเป๋าเอกสาร</annotation>
+		<annotation cp='[💼]' tts='กระเป๋าเอกสาร'>กระเป๋า; เอกสาร</annotation>
 
 		<!-- file folder; file; folder -->
-		<annotation cp='[📁]' tts='แฟ้มเอกสาร' draft='provisional'>แฟ้มเอกสาร; โฟลเดอร์</annotation>
+		<annotation cp='[📁]' tts='แฟ้มเอกสาร'>โฟลเดอร์</annotation>
 
 		<!-- open file folder; file; folder; open -->
-		<annotation cp='[📂]' tts='เปิดเอกสาร' draft='provisional'>เปิดเอกสาร; แฟ้มเปิด</annotation>
+		<annotation cp='[📂]' tts='เปิดเอกสาร'>แฟ้มเปิด</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
+		<annotation cp='[🗂]' tts='ที่คั่นบัตรรายการ'>บัตร; รายการ; ดัชนี; ที่คั่น</annotation>
 
 		<!-- calendar; date -->
-		<annotation cp='[📅]' tts='ปฎิทิน' draft='provisional'>ปฎิทิน</annotation>
+		<annotation cp='[📅]' tts='ปฎิทิน'>วันที่</annotation>
 
 		<!-- tear-off calendar; calendar -->
-		<annotation cp='[📆]' tts='ปฎิทินแบบฉีกออก' draft='provisional'>ปฎิทินแบบฉีกออก; ปฎิทิน</annotation>
+		<annotation cp='[📆]' tts='ปฎิทินแบบฉีกออก'>ปฎิทิน</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
+		<annotation cp='[🗒]' tts='สมุดโน้ตสันห่วง'>โน้ต; สมุด; จด; ห่วง</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
+		<annotation cp='[🗓]' tts='ปฏิทินสันห่วง'>ปฏิทิน; ห่วง</annotation>
 
 		<!-- card index; card; index; rolodex -->
-		<annotation cp='[📇]' tts='ที่ใส่บัตร' draft='provisional'>ที่ใส่บัตร</annotation>
+		<annotation cp='[📇]' tts='ที่ใส่บัตร'>บัตร; ดัชนี</annotation>
 
 		<!-- chart increasing; chart; graph; growth; trend; upward -->
-		<annotation cp='[📈]' tts='แนวโน้มขึ้น' draft='provisional'>แนวโน้มขึ้น; ขาขึ้น</annotation>
+		<annotation cp='[📈]' tts='แนวโน้มขึ้น'>ขาขึ้น</annotation>
 
 		<!-- chart decreasing; chart; down; graph; trend -->
-		<annotation cp='[📉]' tts='แนวโน้มลง' draft='provisional'>แนวโน้มลง; ขาลง</annotation>
+		<annotation cp='[📉]' tts='แนวโน้มลง'>ขาลง</annotation>
 
 		<!-- bar chart; bar; chart; graph -->
-		<annotation cp='[📊]' tts='กราฟแท่ง' draft='provisional'>กราฟแท่ง; ชาร์ต</annotation>
+		<annotation cp='[📊]' tts='กราฟแท่ง'>ชาร์ต</annotation>
 
 		<!-- clipboard -->
-		<annotation cp='[📋]' tts='คลิปบอร์ด' draft='provisional'>คลิปบอร์ด</annotation>
+		<annotation cp='[📋]' tts='คลิปบอร์ด'>คลิปบอร์ด</annotation>
 
 		<!-- pushpin; pin -->
-		<annotation cp='[📌]' tts='หมุดปัก' draft='provisional'>หมุดปัก; หมุด</annotation>
+		<annotation cp='[📌]' tts='หมุดปัก'>หมุด</annotation>
 
 		<!-- round pushpin; pin; pushpin -->
-		<annotation cp='[📍]' tts='หมุดหัวกลม' draft='provisional'>หมุดหัวกลม; หมุด</annotation>
+		<annotation cp='[📍]' tts='หมุดหัวกลม'>หมุด</annotation>
 
 		<!-- paperclip -->
-		<annotation cp='[📎]' tts='คลิปหนีบกระดาษ' draft='provisional'>คลิปหนีบกระดาษ; คลิป</annotation>
+		<annotation cp='[📎]' tts='คลิปหนีบกระดาษ'>คลิป</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
+		<annotation cp='[🖇]' tts='คลิปหนีบกระดาษคู่'>คลิป; หนีบ; กระดาษ</annotation>
 
 		<!-- straight ruler; ruler; straight edge -->
-		<annotation cp='[📏]' tts='ไม้บรรทัดตรง' draft='provisional'>ไม้บรรทัดตรง; ไม้บรรทัด</annotation>
+		<annotation cp='[📏]' tts='ไม้บรรทัดตรง'>ไม้บรรทัด</annotation>
 
 		<!-- triangular ruler; ruler; set; triangle -->
-		<annotation cp='[📐]' tts='ไม้บรรทัดสามเหลี่ยม' draft='provisional'>ไม้บรรทัดสามเหลี่ยม; ไม้บรรทัด</annotation>
+		<annotation cp='[📐]' tts='ไม้บรรทัดสามเหลี่ยม'>ไม้บรรทัด</annotation>
+
+		<!-- scissors; tool -->
+		<annotation cp='[✂]' tts='กรรไกร'>เครื่องมือ</annotation>
+
+		<!-- card file box; box; card; file -->
+		<annotation cp='[🗃]' tts='กล่องใส่แฟ้ม'>กล่อง; แฟ้ม; กระดาษ; เอกสาร</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='ตู้เอกสาร'>ตู้; แฟ้ม; เอกสาร</annotation>
+
+		<!-- wastebasket -->
+		<annotation cp='[🗑]' tts='ตะกร้าขยะ'>ขยะ; ตะกร้า</annotation>
 
 		<!-- lock; closed -->
-		<annotation cp='[🔒]' tts='ล็อกปิด' draft='provisional'>ล็อกปิด</annotation>
+		<annotation cp='[🔒]' tts='ล็อกปิด'>ล็อก; ปิด</annotation>
 
 		<!-- open lock; lock; open; unlock -->
-		<annotation cp='[🔓]' tts='ล็อกเปิด' draft='provisional'>ล็อกเปิด</annotation>
+		<annotation cp='[🔓]' tts='ล็อกเปิด'>ล็็อก; ปลดล็อก; เปิด</annotation>
 
 		<!-- lock with pen; ink; lock; nib; pen; privacy -->
-		<annotation cp='[🔏]' tts='ล็อก' draft='provisional'>ล็อก; ข้อมูลส่วนตัว</annotation>
+		<annotation cp='[🔏]' tts='ล็อก'>ข้อมูลส่วนตัว</annotation>
 
 		<!-- closed lock with key; closed; key; lock; secure -->
-		<annotation cp='[🔐]' tts='ล็อกด้วยกุญแจ' draft='provisional'>ล็อกด้วยกุญแจ</annotation>
+		<annotation cp='[🔐]' tts='ล็อกด้วยกุญแจ'>ปิด; กุญแจ; ล็อก; ปลอดภัย</annotation>
 
 		<!-- key; lock; password -->
-		<annotation cp='[🔑]' tts='กุญแจ' draft='provisional'>กุญแจ</annotation>
+		<annotation cp='[🔑]' tts='กุญแจ'>ล็อก; รหัสผ่าน</annotation>
+
+		<!-- old key; clue; key; lock; old -->
+		<annotation cp='[🗝]' tts='กุญแจเก่า'>กุญแจ; เก่า; ล็อก</annotation>
 
 		<!-- hammer; tool -->
-		<annotation cp='[🔨]' tts='ค้อน' draft='provisional'>ค้อน; เครื่องมือ</annotation>
+		<annotation cp='[🔨]' tts='ค้อน'>เครื่องมือ</annotation>
+
+		<!-- pick; mining; tool -->
+		<annotation cp='[⛏]' tts='จอบ'>เครื่องมือ; เหมือง</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
+		<annotation cp='[⚒]' tts='ค้อนและจอบ'>ค้อน; จอบ; เครื่องมือ</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='ค้อนและประแจ'>ค้อน; เครื่องมือ; ประแจ</annotation>
 
 		<!-- wrench; tool -->
-		<annotation cp='[🔧]' tts='ประแจ' draft='provisional'>ประแจ; เครื่องมือ</annotation>
+		<annotation cp='[🔧]' tts='ประแจ'>เครื่องมือ</annotation>
 
 		<!-- nut and bolt; bolt; nut; tool -->
-		<annotation cp='[🔩]' tts='สลักและน็อต' draft='provisional'>สลักและน็อต; เครื่องมือ</annotation>
+		<annotation cp='[🔩]' tts='สลักและน็อต'>เครื่องมือ</annotation>
+
+		<!-- gear; tool -->
+		<annotation cp='[⚙]' tts='เฟือง'>เครื่องมือ</annotation>
+
+		<!-- compression; tool; vice -->
+		<annotation cp='[🗜]' tts='เครื่องบีบอัด'>เครื่องมือ; หนีบ; บีบอัด</annotation>
+
+		<!-- alembic; chemistry; tool -->
+		<annotation cp='[⚗]' tts='อุปกรณ์กลั่น'>เครื่องมือ; สารเคมี; วิทยาศาสตร์</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
+		<annotation cp='[⚖]' tts='ตราชั่ง'>สมดุล; ยุติธรรม; ราศี; ตุลย์; เครื่องมือ; น้ำหนัก; ตราชั่ง</annotation>
 
 		<!-- link -->
-		<annotation cp='[🔗]' tts='สัญลักษณ์การลิงก์' draft='provisional'>สัญลักษณ์การลิงก์</annotation>
+		<annotation cp='[🔗]' tts='สัญลักษณ์การลิงก์'>ลิงก์</annotation>
+
+		<!-- chains; chain -->
+		<annotation cp='[⛓]' tts='โซ่'>โซ่</annotation>
 
 		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
-		<annotation cp='[💉]' tts='กระบอกฉีดยา' draft='provisional'>กระบอกฉีดยา; ฉีดยา; เข็มฉีดยา</annotation>
+		<annotation cp='[💉]' tts='กระบอกฉีดยา'>ฉีดยา; เข็มฉีดยา</annotation>
 
 		<!-- pill; doctor; medicine; sick -->
-		<annotation cp='[💊]' tts='ยาเม็ด' draft='provisional'>ยาเม็ด; ยา; หมอ</annotation>
+		<annotation cp='[💊]' tts='ยาเม็ด'>ยา; หมอ</annotation>
+
+		<!-- dagger; knife; weapon -->
+		<annotation cp='[🗡]' tts='ดาบสั้น'>ดาบ; อาวุธ</annotation>
 
 		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
-		<annotation cp='[🔪]' tts='มืดทำครัว' draft='provisional'>มืดทำครัว; มีด</annotation>
+		<annotation cp='[🔪]' tts='มืดทำครัว'>มีด</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
+		<annotation cp='[⚔]' tts='ดาบไขว้'>ดาว; อาวุธ; ไขว้</annotation>
 
 		<!-- pistol; gun; handgun; revolver; tool; weapon -->
-		<annotation cp='[🔫]' tts='ปืน' draft='provisional'>ปืน; ปืนพก</annotation>
+		<annotation cp='[🔫]' tts='ปืน'>ปืนพก</annotation>
+
+		<!-- shield; weapon -->
+		<annotation cp='[🛡]' tts='โล่'>อาวุธ; ป้องกัน</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
+		<annotation cp='[🏹]' tts='ธนูและลูกศร'>ธนู; อาวุธ; ราศี; ลูกศร</annotation>
 
 		<!-- chequered flag; checkered; chequered; racing -->
-		<annotation cp='[🏁]' tts='ธงหมากรุก' draft='provisional'>ธงหมากรุก; กีฬา</annotation>
+		<annotation cp='[🏁]' tts='ธงหมากรุก'>กีฬา</annotation>
+
+		<!-- waving white flag; waving -->
+		<annotation cp='[🏳]' tts='ธงขาว'>ธง</annotation>
+
+		<!-- waving black flag; waving -->
+		<annotation cp='[🏴]' tts='ธงดำ'>ธง</annotation>
 
 		<!-- triangular flag; post -->
-		<annotation cp='[🚩]' tts='ธงปักตำแหน่ง' draft='provisional'>ธงปักตำแหน่ง; ธง; ธงแดง; ธงสามเหลี่ยม</annotation>
+		<annotation cp='[🚩]' tts='ธงปักตำแหน่ง'>ธง; ธงแดง; ธงสามเหลี่ยม</annotation>
 
 		<!-- smoking -->
-		<annotation cp='[🚬]' tts='ป้ายสูบบุหรี่' draft='provisional'>ป้ายสูบบุหรี่; สูบบุหรี่ได้; สูบบุหรี่</annotation>
+		<annotation cp='[🚬]' tts='ป้ายสูบบุหรี่'>สูบบุหรี่ได้; สูบบุหรี่</annotation>
+
+		<!-- coffin; death -->
+		<annotation cp='[⚰]' tts='โลงศพ'>ความตาย</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
+		<annotation cp='[⚱]' tts='โกศกระดูก'>ความตาย; งานศพ; โกศ; กระดูก</annotation>
 
 		<!-- moai; face; moyai; statue -->
-		<annotation cp='[🗿]' tts='รูปปั้นโมไอ' draft='provisional'>รูปปั้นโมไอ</annotation>
+		<annotation cp='[🗿]' tts='รูปปั้นโมไอ'>หน้า; โมไอ; รูปปั้น</annotation>
+
+		<!-- oil drum; drum; oil -->
+		<annotation cp='[🛢]' tts='ถังน้ำมัน'>ถัง; น้ำมัน</annotation>
 
 		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
-		<annotation cp='[🔮]' tts='ลูกแก้ววิเศษ' draft='provisional'>ลูกแก้ววิเศษ; ดูดวง</annotation>
+		<annotation cp='[🔮]' tts='ลูกแก้ววิเศษ'>ดูดวง</annotation>
 
 		<!-- ATM sign; atm; automated; bank; teller -->
-		<annotation cp='[🏧]' tts='เอทีเอ็ม' draft='provisional'>เอทีเอ็ม</annotation>
+		<annotation cp='[🏧]' tts='เอทีเอ็ม'>เครื่องกดเงิน; อัตโนมัติ; ธนาคาร; เงิน; ฝาก-ถอน</annotation>
 
 		<!-- litter in bin sign; litter; litterbox -->
-		<annotation cp='[🚮]' tts='ทิ้งขยะให้ลงถัง' draft='provisional'>ทิ้งขยะให้ลงถัง; ป้ายถังขยะ</annotation>
+		<annotation cp='[🚮]' tts='ทิ้งขยะให้ลงถัง'>ป้ายถังขยะ</annotation>
 
 		<!-- potable water; drink; potable; water -->
-		<annotation cp='[🚰]' tts='น้ำดื่ม' draft='provisional'>น้ำดื่ม; ก๊อก</annotation>
+		<annotation cp='[🚰]' tts='น้ำดื่ม'>ก๊อก</annotation>
 
 		<!-- wheelchair; access -->
-		<annotation cp='[♿]' tts='รถเข็นผู้ป่วย' draft='provisional'>รถเข็นผู้ป่วย; คนพิการ</annotation>
+		<annotation cp='[♿]' tts='รถเข็นผู้ป่วย'>คนพิการ</annotation>
 
 		<!-- men’s room; lavatory; man; restroom; wc -->
-		<annotation cp='[🚹]' tts='ห้องชาย' draft='provisional'>ห้องชาย</annotation>
+		<annotation cp='[🚹]' tts='ห้องชาย'>สุขภัณฑ์; ผู้ชาย; ห้องน้ำ; สุขา</annotation>
 
 		<!-- women’s room; lavatory; restroom; wc; woman -->
-		<annotation cp='[🚺]' tts='ห้องหญิง' draft='provisional'>ห้องหญิง; สัญลักษณ์ผู้หญิง</annotation>
+		<annotation cp='[🚺]' tts='ห้องหญิง'>สัญลักษณ์ผู้หญิง</annotation>
 
 		<!-- restroom; lavatory; wc -->
-		<annotation cp='[🚻]' tts='ห้องน้ำ' draft='provisional'>ห้องน้ำ</annotation>
+		<annotation cp='[🚻]' tts='ห้องน้ำ'>สุขภัณฑ์; ห้องน้ำ</annotation>
 
 		<!-- baby symbol; baby; changing -->
-		<annotation cp='[🚼]' tts='ป้ายทารก' draft='provisional'>ป้ายทารก; ที่เปลี่ยนผ้าอ้อมเด็ก</annotation>
+		<annotation cp='[🚼]' tts='ป้ายทารก'>ที่เปลี่ยนผ้าอ้อมเด็ก</annotation>
 
 		<!-- water closet; closet; lavatory; restroom; water; wc -->
-		<annotation cp='[🚾]' tts='ป้ายห้องน้ำ' draft='provisional'>ป้ายห้องน้ำ; ห้องน้ำ</annotation>
+		<annotation cp='[🚾]' tts='ป้ายห้องน้ำ'>ห้องน้ำ</annotation>
 
 		<!-- passport control; control; passport -->
-		<annotation cp='[🛂]' tts='ตรวจพาสปอร์ต' draft='provisional'>ตรวจพาสปอร์ต; พาสปอร์ต</annotation>
+		<annotation cp='[🛂]' tts='ตรวจพาสปอร์ต'>พาสปอร์ต</annotation>
 
 		<!-- customs -->
-		<annotation cp='[🛃]' tts='ศุลกากร' draft='provisional'>ศุลกากร</annotation>
+		<annotation cp='[🛃]' tts='ศุลกากร'>ศุลกากร; ภาษี</annotation>
 
 		<!-- baggage claim; baggage; claim -->
-		<annotation cp='[🛄]' tts='รับสัมภาระ' draft='provisional'>รับสัมภาระ; กระเป๋าเดินทาง</annotation>
+		<annotation cp='[🛄]' tts='รับสัมภาระ'>กระเป๋าเดินทาง</annotation>
 
 		<!-- left luggage; baggage; locker; luggage -->
-		<annotation cp='[🛅]' tts='บริการฝากกระเป๋า' draft='provisional'>บริการฝากกระเป๋า</annotation>
+		<annotation cp='[🛅]' tts='บริการฝากกระเป๋า'>รับฝาก; ล็อกเกอร์; กระเป๋า</annotation>
 
 		<!-- warning -->
-		<annotation cp='[⚠]' tts='ป้ายระวัง' draft='provisional'>ป้ายระวัง; ระวัง</annotation>
+		<annotation cp='[⚠]' tts='ป้ายระวัง'>ระวัง</annotation>
 
 		<!-- children crossing; child; crossing; pedestrian; traffic -->
-		<annotation cp='[🚸]' tts='เด็กๆ ข้ามถนน' draft='provisional'>เด็กๆ ข้ามถนน; โรงเรียน</annotation>
+		<annotation cp='[🚸]' tts='เด็กๆ ข้ามถนน'>โรงเรียน</annotation>
 
 		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
-		<annotation cp='[⛔]' tts='ป้ายห้ามเข้า' draft='provisional'>ป้ายห้ามเข้า; หวงห้าม</annotation>
+		<annotation cp='[⛔]' tts='ป้ายห้ามเข้า'>หวงห้าม</annotation>
 
 		<!-- prohibited; entry; forbidden; no; not -->
-		<annotation cp='[🚫]' tts='ป้ายห้ามเข้า' draft='provisional'>ป้ายห้ามเข้า; ห้ามเข้า</annotation>
+		<annotation cp='[🚫]' tts='ป้ายหวงห้าม'>ห้ามเข้า</annotation>
 
 		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
-		<annotation cp='[🚳]' tts='ห้ามจักรยาน' draft='provisional'>ห้ามจักรยาน</annotation>
+		<annotation cp='[🚳]' tts='ห้ามจักรยาน'>จักรยาน; ห้าม; ทางเท้า; จราจร</annotation>
 
 		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
-		<annotation cp='[🚭]' tts='ป้ายห้ามสูบบุหรี่' draft='provisional'>ป้ายห้ามสูบบุหรี่; ห้ามสูบบุหรี่</annotation>
+		<annotation cp='[🚭]' tts='ป้ายห้ามสูบบุหรี่'>ห้ามสูบบุหรี่</annotation>
 
 		<!-- no littering; forbidden; litter; no; not; prohibited -->
-		<annotation cp='[🚯]' tts='ห้ามทิ้งขยะ' draft='provisional'>ห้ามทิ้งขยะ; ป้ายห้ามทิ้งขยะ</annotation>
+		<annotation cp='[🚯]' tts='ห้ามทิ้งขยะ'>ป้ายห้ามทิ้งขยะ</annotation>
 
 		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
-		<annotation cp='[🚱]' tts='ห้ามดื่มน้ำ' draft='provisional'>ห้ามดื่มน้ำ</annotation>
+		<annotation cp='[🚱]' tts='ห้ามดื่มน้ำ'>ดื่ม; น้ำ; ห้าม; ทางเท้า</annotation>
 
 		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
-		<annotation cp='[🚷]' tts='ไม่มีคนเดินเท้า' draft='provisional'>ไม่มีคนเดินเท้า; ห้ามเดิน</annotation>
+		<annotation cp='[🚷]' tts='ไม่มีคนเดินเท้า'>ห้ามเดิน</annotation>
+
+		<!-- radioactive -->
+		<annotation cp='[☢]' tts='กัมมันตรังสี'>กัมมันตภาพรังสี; สารเคมี; พิษ</annotation>
+
+		<!-- biohazard -->
+		<annotation cp='[☣]' tts='เชื้อโรคอันตราย'>เชื้อโรค; อันตราย</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
+		<annotation cp='[⬆]' tts='ลูกศรชี้ขึ้น'>ลูกศร; ทิศทาง; เหนือ</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
+		<annotation cp='[↗]' tts='ลูกศรชี้มุมขวาบน'>ลููกศร; ทิศทาง; ตะวันออกเฉียงเหนือ</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
+		<annotation cp='[➡]' tts='ลูกศรชี้ไปทางขวา'>ลูกศร; ทิศทาง; ตะวันออก</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
+		<annotation cp='[↘]' tts='ลูกศรชี้มุมขวาล่าง'>ลูกศร; ทิศทาง; ตะวันออกเฉียงใต้</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
+		<annotation cp='[⬇]' tts='ลูกศรชี้ลง'>ลูกศร; ทิศทาง; ใต้; ลง</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
+		<annotation cp='[↙]' tts='ลูกศรชี้มุุมซ้ายล่าง'>ลูกศร; ทิศทาง; ตะวันตกเฉียงใต้</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
+		<annotation cp='[⬅]' tts='ลูกศรชี้ไปทางซ้าย'>ลูกศร; ทิศทาง; ตะวันตก</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
+		<annotation cp='[↖]' tts='ลูกศรชี้มุมซ้ายบน'>ลูกศร; ทิศทาง; ตะวันตกเฉียงเหนือ</annotation>
+
+		<!-- up-down arrow; arrow -->
+		<annotation cp='[↕]' tts='ลูกศรชี้ขึ้นลง'>ลูกศร; ขี้น; ลง</annotation>
+
+		<!-- left-right arrow; arrow -->
+		<annotation cp='[↔]' tts='ลูกศรชี้ซ้ายขวา'>ลูกศร; ซ้าย; ขวา</annotation>
+
+		<!-- right arrow curving left; arrow -->
+		<annotation cp='[↩]' tts='ลูกศรวนซ้าย'>ลูกศร; วน; ซ้าย</annotation>
+
+		<!-- left arrow curving right; arrow -->
+		<annotation cp='[↪]' tts='ลูกศรวนขวา'>ลูกศร; วน; ขวา</annotation>
+
+		<!-- right arrow curving up; arrow -->
+		<annotation cp='[⤴]' tts='ลูกศรโค้งขึ้น'>ลูกศร; ขี้น</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
+		<annotation cp='[⤵]' tts='ลูกศรโค้งลง'>ลูกศร; ลง</annotation>
 
 		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
-		<annotation cp='[🔃]' tts='สัญลักษณ์โหลดซ้ำ' draft='provisional'>สัญลักษณ์โหลดซ้ำ</annotation>
+		<annotation cp='[🔃]' tts='สัญลักษณ์โหลดซ้ำ'>ลูกศร; โหลด; ซ้ำ; ตามเข็มนาฬิกา</annotation>
 
 		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
-		<annotation cp='[🔄]' tts='ลูกศรทวนเข็มนาฬิกา' draft='provisional'>ลูกศรทวนเข็มนาฬิกา</annotation>
+		<annotation cp='[🔄]' tts='ลูกศรทวนเข็มนาฬิกา'>ลูกศร; ทวนเข็มนาฬิกา</annotation>
 
 		<!-- back arrow; arrow; back -->
-		<annotation cp='[🔙]' tts='กลับ' draft='provisional'>กลับ; ลูกศรกลับ; ลูกศร</annotation>
+		<annotation cp='[🔙]' tts='กลับ'>ลูกศรกลับ; ลูกศร</annotation>
 
 		<!-- end arrow; arrow; end -->
-		<annotation cp='[🔚]' tts='สิ้นสุด' draft='provisional'>สิ้นสุด; ลูกศรสิ้นสุด; ลูกศร</annotation>
+		<annotation cp='[🔚]' tts='สิ้นสุด'>ลูกศรสิ้นสุด; ลูกศร</annotation>
 
 		<!-- on! arrow; arrow; mark; on -->
-		<annotation cp='[🔛]' tts='เปิด' draft='provisional'>เปิด; ลูกศร</annotation>
+		<annotation cp='[🔛]' tts='เปิด'>ลูกศร</annotation>
 
 		<!-- soon arrow; arrow; soon -->
-		<annotation cp='[🔜]' tts='สัญลักษณ์เร็วๆ นี้' draft='provisional'>สัญลักษณ์เร็วๆ นี้; ลูกศร</annotation>
+		<annotation cp='[🔜]' tts='สัญลักษณ์เร็วๆ นี้'>ลูกศร</annotation>
 
 		<!-- top arrow; arrow; top; up -->
-		<annotation cp='[🔝]' tts='สัญลักษณ์บน' draft='provisional'>สัญลักษณ์บน; ลูกศร</annotation>
+		<annotation cp='[🔝]' tts='สัญลักษณ์บน'>ลูกศร</annotation>
+
+		<!-- place of worship; religion; worship -->
+		<annotation cp='[🛐]' tts='ที่บูชา'>ศาสนา; บูชา; สักการะ</annotation>
+
+		<!-- atom symbol; atheist; atom -->
+		<annotation cp='[⚛]' tts='อะตอม'>อะตอม; อเทวนิยม</annotation>
+
+		<!-- om; hindu; religion -->
+		<annotation cp='[🕉]' tts='เครื่องหมายโอม'>ฮินดู; ศาสนา</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
+		<annotation cp='[✡]' tts='สตาร์ออฟเดวิด'>ยิว; ยูดาย; ศาสนา; ดาว; ดาวิด</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
+		<annotation cp='[☸]' tts='ธรรมจักร'>พุทธ; ธรรมะ; ศาสนา; จักร</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
+		<annotation cp='[☯]' tts='หยินหยาง'>ลัทธิ; เต๋า; หยินหยาง</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
+		<annotation cp='[✝]' tts='ไม้กางเขนละติน'>ศาสนา; คริสต์; ไม้กางเขน</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
+		<annotation cp='[☦]' tts='ไม้กางเขนออร์โธดอกซ์'>ศาสนา; คริสต์; ไม้กางเขน</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
+		<annotation cp='[☪]' tts='พระจันทร์เสี้ยวและดาว'>ศาสนา; อิสลาม; มุสลิม</annotation>
+
+		<!-- peace symbol; peace -->
+		<annotation cp='[☮]' tts='เครื่องหมายสันติภาพ'>สันติภาพ; สันติสุข; สันติ</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
+		<annotation cp='[🕎]' tts='เชิงเทียน 7 กิ่ง'>เชิงเทียน; เทียน; ศาสนา</annotation>
 
 		<!-- dotted six-pointed star; fortune; star -->
-		<annotation cp='[🔯]' tts='ดาว 6 แฉก' draft='provisional'>ดาว 6 แฉก; ดาว</annotation>
+		<annotation cp='[🔯]' tts='ดาว 6 แฉก'>ดาว</annotation>
 
 		<!-- recycling symbol; recycle -->
-		<annotation cp='[♻]' tts='สัญลักษณ์รีไซเคิล' draft='provisional'>สัญลักษณ์รีไซเคิล; การรีไซเคิล; ป้ายรีไซเคิล</annotation>
+		<annotation cp='[♻]' tts='สัญลักษณ์รีไซเคิล'>การรีไซเคิล; ป้ายรีไซเคิล</annotation>
 
 		<!-- name badge; badge; name -->
-		<annotation cp='[📛]' tts='ป้ายชื่อ' draft='provisional'>ป้ายชื่อ</annotation>
+		<annotation cp='[📛]' tts='ป้ายชื่อ'>ป้าย; ชื่อ</annotation>
+
+		<!-- fleur-de-lis -->
+		<annotation cp='[⚜]' tts='ดอกไอริส'>ดอกไม้; ไอริส</annotation>
 
 		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
-		<annotation cp='[🔰]' tts='ป้ายสีเขียวและเหลือง' draft='provisional'>ป้ายสีเขียวและเหลือง</annotation>
+		<annotation cp='[🔰]' tts='ป้ายสีเขียวและเหลือง'>เหลือง; เขียว; เครื่องมือ; ใบไม้; บั้ง</annotation>
 
 		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
-		<annotation cp='[🔱]' tts='ฉมวก' draft='provisional'>ฉมวก; สมอ</annotation>
+		<annotation cp='[🔱]' tts='ฉมวก'>สมอ; ตรา; เรือ; เครื่องมือ; สามง่าม</annotation>
+
+		<!-- heavy large circle; circle; o -->
+		<annotation cp='[⭕]' tts='วงกลมใหญ่'>วงกลม</annotation>
 
 		<!-- white heavy check mark; check; mark -->
-		<annotation cp='[✅]' tts='เครื่องหมายถูก' draft='provisional'>เครื่องหมายถูก; เช็ค</annotation>
+		<annotation cp='[✅]' tts='ช่องเขียวมีเครื่องหมายถูก'>เช็ค</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
+		<annotation cp='[☑]' tts='ช่องดำมีเครื่องหมายถูก'>ช่อง; เครื่องหมาย; ถูก; เลือก</annotation>
+
+		<!-- heavy check mark; check; mark -->
+		<annotation cp='[✔]' tts='เครื่องหมายถูกแบบหนา'>เครื่องหมาย; ถูก; เลือก</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
+		<annotation cp='[✖]' tts='เครื่องหมายคูณ'>ยกเลิก; เครื่องหมาย; คูณ</annotation>
 
 		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
-		<annotation cp='[❌]' tts='เครื่องหมายกากบาท' draft='provisional'>เครื่องหมายกากบาท</annotation>
+		<annotation cp='[❌]' tts='เครื่องหมายกากบาท'>ยกเลิก; เครื่องหมาย; คูณ</annotation>
 
 		<!-- cross mark button; mark; square -->
-		<annotation cp='[❎]' tts='เครื่องหมายกากบาท' draft='provisional'>เครื่องหมายกากบาท</annotation>
+		<annotation cp='[❎]' tts='ปุ่มเครื่องหมายกากบาท'>เครื่องหมาย; กากบาท; สี่เหลี่ยม</annotation>
 
 		<!-- heavy plus sign; math; plus -->
-		<annotation cp='[➕]' tts='บวก' draft='provisional'>บวก; เครื่องหมายบวก</annotation>
+		<annotation cp='[➕]' tts='บวก'>เครื่องหมายบวก</annotation>
 
 		<!-- heavy minus sign; math; minus -->
-		<annotation cp='[➖]' tts='ลบ' draft='provisional'>ลบ; เครื่องหมายลบ</annotation>
+		<annotation cp='[➖]' tts='ลบ'>เครื่องหมายลบ</annotation>
 
 		<!-- heavy division sign; division; math -->
-		<annotation cp='[➗]' tts='หาร' draft='provisional'>หาร; เครื่องหมายหาร</annotation>
+		<annotation cp='[➗]' tts='หาร'>เครื่องหมายหาร</annotation>
 
 		<!-- curly loop; curl; loop -->
-		<annotation cp='[➰]' tts='ห่วง' draft='provisional'>ห่วง; วง</annotation>
+		<annotation cp='[➰]' tts='ห่วง'>วง</annotation>
 
 		<!-- double curly loop; curl; double; loop -->
-		<annotation cp='[➿]' tts='ห่วง 2 รู' draft='provisional'>ห่วง 2 รู</annotation>
+		<annotation cp='[➿]' tts='ห่วง 2 รู'>ห่วง; เส้นโค้ง</annotation>
+
+		<!-- part alternation mark; mark; part -->
+		<annotation cp='[〽]' tts='เครื่องหมายเปลี่ยนท่อน'>เครื่องหมาย; ท่อน</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
+		<annotation cp='[✳]' tts='เครื่องหมายดอกจัน'>ดอกจัน</annotation>
+
+		<!-- eight-pointed star; star -->
+		<annotation cp='[✴]' tts='ดาว 8 แฉก'>ดาว</annotation>
+
+		<!-- sparkle -->
+		<annotation cp='[❇]' tts='เปล่งประกาย'>ประกาย</annotation>
 
 		<!-- currency exchange; bank; currency; exchange; money -->
-		<annotation cp='[💱]' tts='การแลกเปลี่ยนเงิน' draft='provisional'>การแลกเปลี่ยนเงิน</annotation>
+		<annotation cp='[💱]' tts='การแลกเปลี่ยนเงิน'>ธนาคาร; สกุลเงิน; แลกเปลี่ยน; เงิน</annotation>
 
 		<!-- heavy dollar sign; currency; dollar; money -->
-		<annotation cp='[💲]' tts='สัญลักษณ์ดอลลาร์' draft='provisional'>สัญลักษณ์ดอลลาร์; เงิน</annotation>
+		<annotation cp='[💲]' tts='สัญลักษณ์ดอลลาร์'>เงิน</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
+		<annotation cp='[‼]' tts='เครื่องหมายอัศเจรีย์คู่'>เครื่องหมาย; อัศเจรีย์; ตกใจ</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
+		<annotation cp='[⁉]' tts='เครื่องหมายอัศเจรีย์และคำถาม'>เครื่องหมาย; อัศเจรีย์; ตกใจ</annotation>
 
 		<!-- question mark; mark; punctuation; question -->
-		<annotation cp='[❓]' tts='เครื่องหมายคำถาม' draft='provisional'>เครื่องหมายคำถาม</annotation>
+		<annotation cp='[❓]' tts='เครื่องหมายคำถาม'>เครื่่องหมาย; คำถาม</annotation>
 
 		<!-- white question mark; mark; outlined; punctuation; question -->
-		<annotation cp='[❔]' tts='เครื่องหมายคำถาม' draft='provisional'>เครื่องหมายคำถาม</annotation>
+		<annotation cp='[❔]' tts='เครื่องหมายคำถามสีขาว'>เครื่่องหมาย; คำถาม</annotation>
 
 		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
-		<annotation cp='[❕]' tts='เครื่องหมายตกใจ' draft='provisional'>เครื่องหมายตกใจ</annotation>
+		<annotation cp='[❕]' tts='เครื่องหมายอัศเจรีย์สีขาว'>เครื่องหมาย; อัศเจรีย์; ตกใจ</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
+		<annotation cp='[❗]' tts='เครื่องหมายอัศเจรีย์'>เครื่องหมาย; อัศเจรีย์; ตกใจ</annotation>
 
 		<!-- wavy dash; dash; punctuation; wavy -->
-		<annotation cp='[〰]' tts='เส้นคลื่น' draft='provisional'>เส้นคลื่น</annotation>
+		<annotation cp='[〰]' tts='เส้นคลื่น'>เครื่องหมาย; คลื่น; เส้น</annotation>
 
 		<!-- copyright -->
-		<annotation cp='[©]' tts='สัญลักษณ์ลิขสิทธิ์' draft='provisional'>สัญลักษณ์ลิขสิทธิ์; ลิขสิทธิ์</annotation>
+		<annotation cp='[©]' tts='สัญลักษณ์ลิขสิทธิ์'>ลิขสิทธิ์</annotation>
 
 		<!-- registered -->
-		<annotation cp='[®]' tts='สัญลักษณ์จดทะเบียน' draft='provisional'>สัญลักษณ์จดทะเบียน; จดทะเบียน</annotation>
+		<annotation cp='[®]' tts='สัญลักษณ์จดทะเบียน'>จดทะเบียน</annotation>
 
 		<!-- trade mark; mark; tm; trademark -->
-		<annotation cp='[™]' tts='เครื่องหมายการค้า' draft='provisional'>เครื่องหมายการค้า; ป้ายเครื่องหมายการค้า</annotation>
+		<annotation cp='[™]' tts='เครื่องหมายการค้า'>ป้ายเครื่องหมายการค้า</annotation>
 
 		<!-- aries; ram; zodiac -->
-		<annotation cp='[♈]' tts='ราศีเมษ' draft='provisional'>ราศีเมษ; จักรราศี</annotation>
+		<annotation cp='[♈]' tts='ราศีเมษ'>จักรราศี</annotation>
 
 		<!-- taurus; bull; ox; zodiac -->
-		<annotation cp='[♉]' tts='ราศีพฤษภ' draft='provisional'>ราศีพฤษภ; จักรราศี</annotation>
+		<annotation cp='[♉]' tts='ราศีพฤษภ'>จักรราศี</annotation>
 
 		<!-- gemini; twins; zodiac -->
-		<annotation cp='[♊]' tts='ราศีเมถุน' draft='provisional'>ราศีเมถุน; จักรราศี</annotation>
+		<annotation cp='[♊]' tts='ราศีเมถุน'>จักรราศี</annotation>
 
 		<!-- cancer; crab; zodiac -->
-		<annotation cp='[♋]' tts='ราศีกรกฎ' draft='provisional'>ราศีกรกฎ; จักรราศี</annotation>
+		<annotation cp='[♋]' tts='ราศีกรกฎ'>จักรราศี</annotation>
 
 		<!-- leo; lion; zodiac -->
-		<annotation cp='[♌]' tts='ราศีสิงห์' draft='provisional'>ราศีสิงห์; จักรราศี</annotation>
+		<annotation cp='[♌]' tts='ราศีสิงห์'>จักรราศี</annotation>
 
 		<!-- virgo; maiden; virgin; zodiac -->
-		<annotation cp='[♍]' tts='ราศีกันย์' draft='provisional'>ราศีกันย์; จักรราศี</annotation>
+		<annotation cp='[♍]' tts='ราศีกันย์'>จักรราศี</annotation>
 
 		<!-- libra; balance; justice; scales; zodiac -->
-		<annotation cp='[♎]' tts='ราศีตุลย์' draft='provisional'>ราศีตุลย์; จักรราศี</annotation>
+		<annotation cp='[♎]' tts='ราศีตุลย์'>จักรราศี</annotation>
 
 		<!-- scorpius; scorpio; scorpion; zodiac -->
-		<annotation cp='[♏]' tts='ราศีพิจิก' draft='provisional'>ราศีพิจิก; จักรราศี</annotation>
+		<annotation cp='[♏]' tts='ราศีพิจิก'>จักรราศี</annotation>
 
 		<!-- sagittarius; archer; zodiac -->
-		<annotation cp='[♐]' tts='ราศีธนู' draft='provisional'>ราศีธนู; จักรราศี</annotation>
+		<annotation cp='[♐]' tts='ราศีธนู'>จักรราศี</annotation>
 
 		<!-- capricorn; goat; zodiac -->
-		<annotation cp='[♑]' tts='ราศีมังกร' draft='provisional'>ราศีมังกร; จักรราศี</annotation>
+		<annotation cp='[♑]' tts='ราศีมังกร'>จักรราศี</annotation>
 
 		<!-- aquarius; bearer; water; zodiac -->
-		<annotation cp='[♒]' tts='ราศีกุมภ์' draft='provisional'>ราศีกุมภ์; จักรราศี</annotation>
+		<annotation cp='[♒]' tts='ราศีกุมภ์'>จักรราศี</annotation>
 
 		<!-- pisces; fish; zodiac -->
-		<annotation cp='[♓]' tts='ราศีมีน' draft='provisional'>ราศีมีน; จักรราศี</annotation>
+		<annotation cp='[♓]' tts='ราศีมีน'>จักรราศี</annotation>
 
 		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
-		<annotation cp='[⛎]' tts='กลุ่มดาวคนแบกงู' draft='provisional'>กลุ่มดาวคนแบกงู; จักรราศี</annotation>
+		<annotation cp='[⛎]' tts='กลุ่มดาวคนแบกงู'>จักรราศี</annotation>
 
 		<!-- shuffle tracks button; arrow; crossed -->
-		<annotation cp='[🔀]' tts='ลูกศรไขว้' draft='provisional'>ลูกศรไขว้</annotation>
+		<annotation cp='[🔀]' tts='ลูกศรไขว้'>ลูกศร; ไขว้</annotation>
 
 		<!-- repeat button; arrow; clockwise; repeat -->
-		<annotation cp='[🔁]' tts='ลูกศรตามเข็มนาฬิกา' draft='provisional'>ลูกศรตามเข็มนาฬิกา</annotation>
+		<annotation cp='[🔁]' tts='ลูกศรตามเข็มนาฬิกา'>ลููกศร; ซ้ำ; ตามเข็มนาฬิกา</annotation>
 
 		<!-- repeat single button; arrow; clockwise; once -->
-		<annotation cp='[🔂]' tts='ลูกศรตามเข็มนาฬิกาพร้อมเลข 1' draft='provisional'>ลูกศรตามเข็มนาฬิกาพร้อมเลข 1</annotation>
+		<annotation cp='[🔂]' tts='ลูกศรตามเข็มนาฬิกาพร้อมเลข 1'>ลููกศร; ครั้งเดียว; ทวนเข็มนาฬิกา</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
+		<annotation cp='[▶]' tts='เล่น'>ลูกศร; เล่น; ขวา; สามเหลี่ยม</annotation>
 
 		<!-- fast-forword button; arrow; double; fast; forward -->
-		<annotation cp='[⏩]' tts='เร่งไปข้างหน้า' draft='provisional'>เร่งไปข้างหน้า</annotation>
+		<annotation cp='[⏩]' tts='เร่งไปข้างหน้า'>ลูกศร; เร็ว; 2 เท่า</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
+		<annotation cp='[⏭]' tts='เล่นแทร็กถัดไป'>ลูกศร; ฉาก; แทร็ก; ถัดไป; สามเหลี่ยม</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
+		<annotation cp='[⏯]' tts='เล่นหรือหยุดชั่วคราว'>ลูกศร; หยุดชั่วคราว; เล่น; ขวา; สามเหลี่ยม</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
+		<annotation cp='[◀]' tts='ย้อนกลับ'>ลูกศร; ซ้าย; สามเหลี่ยม; ย้อนกลับ</annotation>
 
 		<!-- fast reverse button; arrow; double; rewind -->
-		<annotation cp='[⏪]' tts='ถอยกลับ' draft='provisional'>ถอยกลับ</annotation>
+		<annotation cp='[⏪]' tts='ถอยกลับ'>ลูกศร; กรอกลับ; ขวา; สามเหลี่ยม</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
+		<annotation cp='[⏮]' tts='ปุ่มแทร็กก่อนหน้า'>ลูกศร; ฉาก; แทร็ก; ก่อนหน้า; สามเหลี่ยม</annotation>
 
 		<!-- up button; arrow; button; red -->
-		<annotation cp='[🔼]' tts='ปุ่มสามเหลี่ยมขึ้น' draft='provisional'>ปุ่มสามเหลี่ยมขึ้น</annotation>
+		<annotation cp='[🔼]' tts='ปุ่มสามเหลี่ยมขึ้น'>ปุ่ม; ลูกศร; สีแดง</annotation>
 
 		<!-- fast up button; arrow; double -->
-		<annotation cp='[⏫]' tts='ลูกศรขึ้น' draft='provisional'>ลูกศรขึ้น</annotation>
+		<annotation cp='[⏫]' tts='ลูกศรขึ้น'>ปุุ่ม; ลูกศร</annotation>
 
 		<!-- down button; arrow; button; down; red -->
-		<annotation cp='[🔽]' tts='ปุ่มสามเหลี่ยมลง' draft='provisional'>ปุ่มสามเหลี่ยมลง</annotation>
+		<annotation cp='[🔽]' tts='ปุ่มสามเหลี่ยมลง'>ปุุ่ม; ลูกศร; ลง; สีแดง</annotation>
 
 		<!-- fast down button; arrow; double; down -->
-		<annotation cp='[⏬]' tts='ลูกศรลง' draft='provisional'>ลูกศรลง</annotation>
+		<annotation cp='[⏬]' tts='ลูกศรลง'>ปุ่ม; ลูกศร; ลง</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
+		<annotation cp='[⏸]' tts='ปุ่มหยุุดชั่วคราว'>ปุ่ม; หยุดชั่วคราว; แนวตั้ง</annotation>
+
+		<!-- stop button; square; stop -->
+		<annotation cp='[⏹]' tts='ปุ่มหยุด'>สี่เหลี่ยม; หยุด</annotation>
+
+		<!-- record button; circle; record -->
+		<annotation cp='[⏺]' tts='ปุ่มบันทึก'>วงกลม; บันทึก</annotation>
+
+		<!-- eject button; eject -->
+		<annotation cp='[⏏]' tts='ปุ่มดีดออก'>ปฏิเสธ; ปุ่ม; ดีดออก; อีเจ็กต์</annotation>
 
 		<!-- cinema; camera; film; movie -->
-		<annotation cp='[🎦]' tts='โรงภาพยนตร์' draft='provisional'>โรงภาพยนตร์; หนัง</annotation>
+		<annotation cp='[🎦]' tts='โรงภาพยนตร์'>หนัง</annotation>
 
 		<!-- dim button; brightness; dim; low -->
-		<annotation cp='[🔅]' tts='แสงสว่างน้อย' draft='provisional'>แสงสว่างน้อย; ความสว่าง</annotation>
+		<annotation cp='[🔅]' tts='แสงสว่างน้อย'>ความสว่าง</annotation>
 
 		<!-- bright button; bright; brightness -->
-		<annotation cp='[🔆]' tts='แสงสว่างมาก' draft='provisional'>แสงสว่างมาก; ความสว่าง</annotation>
+		<annotation cp='[🔆]' tts='แสงสว่างมาก'>ความสว่าง</annotation>
 
 		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
-		<annotation cp='[📶]' tts='สัญญาณมือถือ' draft='provisional'>สัญญาณมือถือ</annotation>
+		<annotation cp='[📶]' tts='สัญญาณมือถือ'>สัญญาณ; มือถือ; โทรศัพท์</annotation>
 
 		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
-		<annotation cp='[📵]' tts='ห้ามมือถือ' draft='provisional'>ห้ามมือถือ</annotation>
+		<annotation cp='[📵]' tts='ห้ามมือถือ'>โทรศัพท์; มือถือ; ห้าม</annotation>
 
 		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
-		<annotation cp='[📳]' tts='โหมดสั่น' draft='provisional'>โหมดสั่น; โทรศัพท์มือถือ</annotation>
+		<annotation cp='[📳]' tts='โหมดสั่น'>โทรศัพท์มือถือ</annotation>
 
 		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
-		<annotation cp='[📴]' tts='ปิดมือถือ' draft='provisional'>ปิดมือถือ</annotation>
+		<annotation cp='[📴]' tts='ปิดมือถือ'>โทรศัพท์; มือถือ; ปิด</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
+		<annotation cp='[{#⃣}]' tts='ปุ่มชาร์ป'>แฮช; ชาร์ป; แป้นพิมพ์</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
+		<annotation cp='[{*⃣}]' tts='ปุ่มดอกจัน'>ดอกจัน; ปุ่ม; แป้นพิมพ์; ดาว</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
+		<annotation cp='[{0⃣}]' tts='แป้นพิมพ์เลข 0'>0; แป้นพิมพ์; ศูนย์</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
+		<annotation cp='[{1⃣}]' tts='แป้นพิมพ์เลข 1'>1; แป้นพิมพ์; หนึ่ง</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
+		<annotation cp='[{2⃣}]' tts='แป้นพิมพ์เลข 2'>2; แป้นพิมพ์; สอง</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
+		<annotation cp='[{3⃣}]' tts='แป้นพิมพ์เลข 3'>3; แป้นพิมพ์; สาม</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
+		<annotation cp='[{4⃣}]' tts='แป้นพิมพ์เลข 4'>4; แป้นพิมพ์; สี่</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
+		<annotation cp='[{5⃣}]' tts='แป้นพิมพ์เลข 5'>5; แป้นพิมพ์; ห้า</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
+		<annotation cp='[{6⃣}]' tts='แป้นพิมพ์เลข 6'>6; แป้นพิมพ์; หก</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
+		<annotation cp='[{7⃣}]' tts='แป้นพิมพ์เลข 7'>7; แป้นพิมพ์; เจ็ด</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
+		<annotation cp='[{8⃣}]' tts='แป้นพิมพ์เลข 8'>8; แป้นพิมพ์; แปด</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
+		<annotation cp='[{9⃣}]' tts='แป้นพิมพ์เลข 9'>9; แป้นพิมพ์; เก้า</annotation>
 
 		<!-- keycap ten; 10; keycap; ten -->
-		<annotation cp='[🔟]' tts='แป้นพิมพ์เลข 10' draft='provisional'>แป้นพิมพ์เลข 10</annotation>
+		<annotation cp='[🔟]' tts='แป้นพิมพ์เลข 10'>10; แป้นพิมพ์; สิบ</annotation>
 
 		<!-- hundred points; 100; full; hundred; score -->
-		<annotation cp='[💯]' tts='คะแนนเต็ม' draft='provisional'>คะแนนเต็ม; 100 คะแนน</annotation>
+		<annotation cp='[💯]' tts='คะแนนเต็ม'>100 คะแนน</annotation>
 
 		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
-		<annotation cp='[🔞]' tts='ห้ามอายุต่ำกว่า 18 ปี' draft='provisional'>ห้ามอายุต่ำกว่า 18 ปี</annotation>
+		<annotation cp='[🔞]' tts='ห้ามอายุต่ำกว่า 18 ปี'>18; อายุ; สิบแปด; ห้าม; ไม่ถึง</annotation>
 
 		<!-- input latin uppercase; input; latin; letters; uppercase -->
-		<annotation cp='[🔠]' tts='อักษรตัวใหญ่' draft='provisional'>อักษรตัวใหญ่; ภาษาอังกฤษ</annotation>
+		<annotation cp='[🔠]' tts='อักษรตัวใหญ่'>ภาษาอังกฤษ</annotation>
 
 		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
-		<annotation cp='[🔡]' tts='อักษรตัวเล็ก' draft='provisional'>อักษรตัวเล็ก; ภาษาอังกฤษ</annotation>
+		<annotation cp='[🔡]' tts='อักษรตัวเล็ก'>ภาษาอังกฤษ</annotation>
 
 		<!-- input numbers; 1234; input; numbers -->
-		<annotation cp='[🔢]' tts='หมายเลข' draft='provisional'>หมายเลข</annotation>
+		<annotation cp='[🔢]' tts='หมายเลข'>ตัวเลข; 1234</annotation>
 
 		<!-- input symbols; input -->
-		<annotation cp='[🔣]' tts='สัญลักษณ์' draft='provisional'>สัญลักษณ์</annotation>
+		<annotation cp='[🔣]' tts='สัญลักษณ์'>สัญลักษณ์; เครื่องหมาย</annotation>
 
 		<!-- input latin letters; abc; alphabet; input; latin; letters -->
-		<annotation cp='[🔤]' tts='เอบีซี' draft='provisional'>เอบีซี; อักษรละติน</annotation>
+		<annotation cp='[🔤]' tts='เอบีซี'>อักษรละติน</annotation>
 
 		<!-- a button; a; blood -->
-		<annotation cp='[🅰]' tts='เลือดกรุ๊ปเอ' draft='provisional'>เลือดกรุ๊ปเอ; กรุ๊ปเอ; กรุ๊ปเลือด</annotation>
+		<annotation cp='[🅰]' tts='เลือดกรุ๊ปเอ'>กรุ๊ปเอ; กรุ๊ปเลือด</annotation>
 
 		<!-- ab button; ab; blood -->
-		<annotation cp='[🆎]' tts='กรุ๊ปเลือดเอบี' draft='provisional'>กรุ๊ปเลือดเอบี; กรุ๊ปเอบี; กรุ๊ปเลือด</annotation>
+		<annotation cp='[🆎]' tts='กรุ๊ปเลือดเอบี'>กรุ๊ปเอบี; กรุ๊ปเลือด</annotation>
 
 		<!-- b button; b; blood -->
-		<annotation cp='[🅱]' tts='เลือดกรุ๊ปบี' draft='provisional'>เลือดกรุ๊ปบี; กรุ๊ปบี; กรุ๊ปเลือด</annotation>
+		<annotation cp='[🅱]' tts='เลือดกรุ๊ปบี'>กรุ๊ปบี; กรุ๊ปเลือด</annotation>
 
 		<!-- squared cl; cl -->
-		<annotation cp='[🆑]' tts='ลบ' draft='provisional'>ลบ; สัญลักษณ์ลบ</annotation>
+		<annotation cp='[🆑]' tts='ลบข้อมูล'>สัญลักษณ์ลบ</annotation>
 
 		<!-- squared cool; cool -->
-		<annotation cp='[🆒]' tts='เย็น' draft='provisional'>เย็น; สัญลักษณ์ความเย็น</annotation>
+		<annotation cp='[🆒]' tts='เย็น'>สัญลักษณ์ความเย็น</annotation>
 
 		<!-- squared free; free -->
-		<annotation cp='[🆓]' tts='ฟรี' draft='provisional'>ฟรี; สัญลักษณ์ฟรี; ไม่มีค่าใช้จ่าย</annotation>
+		<annotation cp='[🆓]' tts='ฟรี'>สัญลักษณ์ฟรี; ไม่มีค่าใช้จ่าย</annotation>
+
+		<!-- information source; i; information -->
+		<annotation cp='[ℹ]' tts='แหล่งข้อมูล'>แหล่ง; ที่มา; ข้อมูล</annotation>
 
 		<!-- squared id; id; identity -->
-		<annotation cp='[🆔]' tts='หมายเลขประจำตัว' draft='provisional'>หมายเลขประจำตัว; สัญลักษณ์หมายเลขประจำตัว; รหัสประจำตัว</annotation>
+		<annotation cp='[🆔]' tts='หมายเลขประจำตัว'>สัญลักษณ์หมายเลขประจำตัว; รหัสประจำตัว</annotation>
+
+		<!-- circled letter m; circle; m -->
+		<annotation cp='[Ⓜ]' tts='ตัว m ในวงกลม'>วงกลม; m</annotation>
 
 		<!-- squared new; new -->
-		<annotation cp='[🆕]' tts='ใหม่' draft='provisional'>ใหม่; สัญลักษณ์ใหม่</annotation>
+		<annotation cp='[🆕]' tts='ใหม่'>สัญลักษณ์ใหม่</annotation>
 
 		<!-- squared ng; ng -->
-		<annotation cp='[🆖]' tts='NG' draft='provisional'>NG; สัญลักษณ์ NG</annotation>
+		<annotation cp='[🆖]' tts='NG'>สัญลักษณ์ NG</annotation>
 
 		<!-- o button; blood; o -->
-		<annotation cp='[🅾]' tts='เลือดกรุ๊ปโอ' draft='provisional'>เลือดกรุ๊ปโอ; กรุ๊ปโอ; กรุ๊ปเลือด</annotation>
+		<annotation cp='[🅾]' tts='เลือดกรุ๊ปโอ'>กรุ๊ปโอ; กรุ๊ปเลือด</annotation>
 
 		<!-- squared ok; ok -->
-		<annotation cp='[🆗]' tts='โอเค' draft='provisional'>โอเค; ตกลง; สัญลักษณ์โอเค</annotation>
+		<annotation cp='[🆗]' tts='โอเค'>ตกลง; สัญลักษณ์โอเค</annotation>
 
 		<!-- p button; parking -->
-		<annotation cp='[🅿]' tts='ที่จอดรถ' draft='provisional'>ที่จอดรถ; จอดรถ</annotation>
+		<annotation cp='[🅿]' tts='ที่จอดรถ'>จอดรถ</annotation>
 
 		<!-- squared sos; help; sos -->
-		<annotation cp='[🆘]' tts='ช่วยด้วย' draft='provisional'>ช่วยด้วย; ขอความช่วยเหลือ; สัญลักษณ์ขอความช่วยเหลือ</annotation>
+		<annotation cp='[🆘]' tts='ช่วยด้วย'>ขอความช่วยเหลือ; สัญลักษณ์ขอความช่วยเหลือ</annotation>
 
 		<!-- up! button; mark; up -->
-		<annotation cp='[🆙]' tts='ขึ้น' draft='provisional'>ขึ้น; สัญลักษณ์ขึ้น</annotation>
+		<annotation cp='[🆙]' tts='ขึ้น'>สัญลักษณ์ขึ้น</annotation>
 
 		<!-- squared vs; versus; vs -->
-		<annotation cp='[🆚]' tts='ต่อสู้กับ' draft='provisional'>ต่อสู้กับ; สัญลักษณ์ต่อสู้กับ</annotation>
+		<annotation cp='[🆚]' tts='ต่อสู้กับ'>สัญลักษณ์ต่อสู้กับ</annotation>
 
 		<!-- squared katakana koko; japanese -->
-		<annotation cp='[🈁]' tts='คำภาษาญี่ปุ่น' draft='provisional'>คำภาษาญี่ปุ่น</annotation>
+		<annotation cp='[🈁]' tts='ภาษาญี่ปุ่นอยู่ที่นี่'>ภาษาจีน</annotation>
 
 		<!-- squared katakana sa; japanese -->
-		<annotation cp='[🈂]' tts='คำภาษาญี่ปุ่น' draft='provisional'>คำภาษาญี่ปุ่น</annotation>
+		<annotation cp='[🈂]' tts='ภาษาญี่ปุ่นคำว่าซะ'>ภาษาจีน</annotation>
 
 		<!-- squared moon ideograph; japanese -->
-		<annotation cp='[🈷]' tts='คำภาษาญี่ปุ่น' draft='provisional'>คำภาษาญี่ปุ่น</annotation>
+		<annotation cp='[🈷]' tts='ภาษาญี่ปุ่นพระจันทร์'>ภาษาจีน</annotation>
 
 		<!-- squared exist ideograph; japanese -->
-		<annotation cp='[🈶]' tts='คำภาษาญี่ปุ่น' draft='provisional'>คำภาษาญี่ปุ่น</annotation>
+		<annotation cp='[🈶]' tts='ภาษาญี่ปุ่นมี'>ภาษาจีน</annotation>
 
 		<!-- squared finger ideograph; japanese -->
-		<annotation cp='[🈯]' tts='คำภาษาญี่ปุ่น' draft='provisional'>คำภาษาญี่ปุ่น</annotation>
+		<annotation cp='[🈯]' tts='ภาษาญี่ปุ่นชี้นิ้ว'>ภาษาจีน</annotation>
 
 		<!-- circled advantage ideograph; japanese -->
-		<annotation cp='[🉐]' tts='คำภาษาญี่ปุ่น' draft='provisional'>คำภาษาญี่ปุ่น</annotation>
+		<annotation cp='[🉐]' tts='ภาษาญี่ปุ่นประโยชน์'>ภาษาจีน</annotation>
 
 		<!-- squared divide ideograph; japanese -->
-		<annotation cp='[🈹]' tts='คำภาษาญี่ปุ่น' draft='provisional'>คำภาษาญี่ปุ่น</annotation>
+		<annotation cp='[🈹]' tts='ภาษาญี่ปุ่นหาร'>ภาษาจีน</annotation>
 
 		<!-- squared negation ideograph; japanese -->
-		<annotation cp='[🈚]' tts='คำภาษาญี่ปุ่น' draft='provisional'>คำภาษาญี่ปุ่น</annotation>
+		<annotation cp='[🈚]' tts='ภาษาญี่ปุ่นไม่มี'>ภาษาจีน</annotation>
 
 		<!-- squared prohibit ideograph; japanese -->
-		<annotation cp='[🈲]' tts='คำภาษาญี่ปุ่น' draft='provisional'>คำภาษาญี่ปุ่น</annotation>
+		<annotation cp='[🈲]' tts='ภาษาญี่ปุ่นห้าม'>ภาษาจีน</annotation>
 
 		<!-- circled accept ideograph; chinese -->
-		<annotation cp='[🉑]' tts='คำภาษาจีน' draft='provisional'>คำภาษาจีน</annotation>
+		<annotation cp='[🉑]' tts='ภาษาจีนยอมรับ'>ภาษาจีน</annotation>
 
 		<!-- squared apply ideograph; chinese -->
-		<annotation cp='[🈸]' tts='คำภาษาจีน' draft='provisional'>คำภาษาจีน</annotation>
+		<annotation cp='[🈸]' tts='ภาษาจีนใช้'>ภาษาจีน</annotation>
 
 		<!-- squared together ideograph; chinese -->
-		<annotation cp='[🈴]' tts='คำภาษาจีน' draft='provisional'>คำภาษาจีน</annotation>
+		<annotation cp='[🈴]' tts='ภาษาจีนด้วยกัน'>ภาษาจีน</annotation>
 
 		<!-- squared empty ideograph; chinese -->
-		<annotation cp='[🈳]' tts='คำภาษาจีน' draft='provisional'>คำภาษาจีน</annotation>
+		<annotation cp='[🈳]' tts='ภาษาจีนว่างเปล่า'>ภาษาจีน</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
+		<annotation cp='[㊗]' tts='ภาษาจีนแสดงความยินดี'>ภาษาจีน; ตัวอักษร; ความยินดี</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
+		<annotation cp='[㊙]' tts='ภาษาจีนความลับ'>ภาษาจีน; ตัวอักษร; ความลับ</annotation>
 
 		<!-- squared operating ideograph; chinese -->
-		<annotation cp='[🈺]' tts='คำภาษาจีน' draft='provisional'>คำภาษาจีน</annotation>
+		<annotation cp='[🈺]' tts='ภาษาจีนเปิดทำการ'>ภาษาจีน</annotation>
 
 		<!-- squared fullness ideograph; chinese -->
-		<annotation cp='[🈵]' tts='คำภาษาจีน' draft='provisional'>คำภาษาจีน</annotation>
+		<annotation cp='[🈵]' tts='ภาษาจีนสมบูรณ์'>ภาษาจีน</annotation>
+
+		<!-- black small square; geometric; square -->
+		<annotation cp='[▪]' tts='สี่เหลี่ยมเล็กสีดำ'>เรขาคณิต; สี่เหลี่ยม</annotation>
+
+		<!-- white small square; geometric; square -->
+		<annotation cp='[▫]' tts='สี่เหลี่ยมเล็กสีขาว'>เรขาคณิต; สี่เหลี่ยม</annotation>
+
+		<!-- white medium square; geometric; square -->
+		<annotation cp='[◻]' tts='สี่เหลี่ยมขนาดกลางสีขาว'>เรขาคณิต; สี่เหลี่ยม</annotation>
+
+		<!-- black medium square; geometric; square -->
+		<annotation cp='[◼]' tts='สี่เหลี่ยมขนาดกลางสีดำ'>เรขาคณิต; สี่เหลี่ยม</annotation>
+
+		<!-- white medium-small square; geometric; square -->
+		<annotation cp='[◽]' tts='สี่เหลี่ยมเล็กปานกลางสีขาว'>เรขาคณิต; สี่เหลี่ยม</annotation>
+
+		<!-- black medium-small square; geometric; square -->
+		<annotation cp='[◾]' tts='สี่เหลี่ยมเล็กปานกลางสีดำ'>เรขาคณิต; สี่เหลี่ยม</annotation>
+
+		<!-- black large square; geometric; square -->
+		<annotation cp='[⬛]' tts='สี่เหลี่ยมใหญ่สีดำ'>เรขาคณิต; สี่เหลี่ยม</annotation>
+
+		<!-- white large square; geometric; square -->
+		<annotation cp='[⬜]' tts='สี่เหลี่ยมใหญ่สีขาว'>เรขาคณิต; สี่เหลี่ยม</annotation>
 
 		<!-- large orange diamond; diamond; geometric; orange -->
-		<annotation cp='[🔶]' tts='เพชรใหญ่สีส้ม' draft='provisional'>เพชรใหญ่สีส้ม</annotation>
+		<annotation cp='[🔶]' tts='เพชรใหญ่สีส้ม'>เรขาคณิต; สี่เหลี่ยม</annotation>
 
 		<!-- large blue diamond; blue; diamond; geometric -->
-		<annotation cp='[🔷]' tts='เพชรใหญ่สีน้ำเงิน' draft='provisional'>เพชรใหญ่สีน้ำเงิน</annotation>
+		<annotation cp='[🔷]' tts='เพชรใหญ่สีน้ำเงิน'>เรขาคณิต; สี่เหลี่ยม</annotation>
 
 		<!-- small orange diamond; diamond; geometric; orange -->
-		<annotation cp='[🔸]' tts='เพชรเล็กสีส้ม' draft='provisional'>เพชรเล็กสีส้ม</annotation>
+		<annotation cp='[🔸]' tts='เพชรเล็กสีส้ม'>เพชร; สีส้ม; เรขาคณิต</annotation>
 
 		<!-- small blue diamond; blue; diamond; geometric -->
-		<annotation cp='[🔹]' tts='เพชรเล็กสีน้ำเงิน' draft='provisional'>เพชรเล็กสีน้ำเงิน</annotation>
+		<annotation cp='[🔹]' tts='เพชรเล็กสีน้ำเงิน'>เพชร; สีน้ำเงิน; เรขาคณิต</annotation>
 
 		<!-- red triangle pointed up; geometric; red -->
-		<annotation cp='[🔺]' tts='สามเหลี่ยมขึ้น' draft='provisional'>สามเหลี่ยมขึ้น</annotation>
+		<annotation cp='[🔺]' tts='สามเหลี่ยมหงายสีแดง'>เรขาคณิต; สีแดง; คว่ำลง</annotation>
 
 		<!-- red triangle pointed down; down; geometric; red -->
-		<annotation cp='[🔻]' tts='สามเหลี่ยมลง' draft='provisional'>สามเหลี่ยมลง</annotation>
+		<annotation cp='[🔻]' tts='สามเหลี่ยมคว่ำสีแดง'>เรขาคณิต; สีแดง; หงายขึ้น</annotation>
 
 		<!-- diamond with a dot; comic; diamond; geometric; inside -->
-		<annotation cp='[💠]' tts='ข้าวหลามตัด' draft='provisional'>ข้าวหลามตัด</annotation>
+		<annotation cp='[💠]' tts='ข้าวหลามตัดมีจุดตรงกลาง'>ข้าวหลามตัด; เพชร; เรขาคณิต</annotation>
 
 		<!-- radio button; button; geometric; radio -->
-		<annotation cp='[🔘]' tts='ปุ่มวิทยุ' draft='provisional'>ปุ่มวิทยุ</annotation>
+		<annotation cp='[🔘]' tts='ปุ่มวิทยุ'>ปุุ่ม; วิทยุ</annotation>
 
 		<!-- black square button; button; geometric; square -->
-		<annotation cp='[🔲]' tts='ปุ่มสี่เหลี่ยม' draft='provisional'>ปุ่มสี่เหลี่ยม; ปุ่ม; สี่เหลี่ยม</annotation>
+		<annotation cp='[🔲]' tts='ปุ่มสี่เหลี่ยมสีดำ'>ปุ่ม; สี่เหลี่ยม</annotation>
 
 		<!-- white square button; button; geometric; outlined; square -->
-		<annotation cp='[🔳]' tts='ปุ่มสี่เหลี่ยม' draft='provisional'>ปุ่มสี่เหลี่ยม; ปุ่ม; สี่เหลี่ยม</annotation>
+		<annotation cp='[🔳]' tts='ปุ่มสี่เหลี่ยมสีขาว'>ปุ่ม; สี่เหลี่ยม</annotation>
+
+		<!-- white circle; circle; geometric -->
+		<annotation cp='[⚪]' tts='วงกลมสีขาว'>วงกลม; สีขาว</annotation>
+
+		<!-- black circle; circle; geometric -->
+		<annotation cp='[⚫]' tts='วงกลมสีดำ'>วงกลม; สีดำ</annotation>
 
 		<!-- red circle; circle; geometric; red -->
-		<annotation cp='[🔴]' tts='วงกลมสีแดง' draft='provisional'>วงกลมสีแดง; แดง; วงกลม</annotation>
+		<annotation cp='[🔴]' tts='วงกลมสีแดง'>แดง; วงกลม</annotation>
 
 		<!-- blue circle; blue; circle; geometric -->
-		<annotation cp='[🔵]' tts='วงกลมสีน้ำเงิน' draft='provisional'>วงกลมสีน้ำเงิน; น้ำเงิน; วงกลม</annotation>
+		<annotation cp='[🔵]' tts='วงกลมสีน้ำเงิน'>น้ำเงิน; วงกลม</annotation>
 	</annotations>
 </ldml>

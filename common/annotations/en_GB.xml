@@ -8,1034 +8,3085 @@
  -->
 <ldml>
 	<identity>
-		<version number='$Revision$' />
+		<version number='$Revision: 10585 $' />
 		<language type='en'/>
+		<territory type='GB'/>
 	</identity>
 	<annotations>
+
+		<!-- grinning face; face; grin -->
 		<annotation cp='[😀]' tts='grinning face'>face; grin</annotation>
+
+		<!-- grinning face with smiling eyes; eye; face; grin; smile -->
 		<annotation cp='[😁]' tts='grinning face with smiling eyes'>eye; face; grin; smile</annotation>
+
+		<!-- face with tears of joy; face; joy; laugh; tear -->
 		<annotation cp='[😂]' tts='face with tears of joy'>face; joy; laugh; tear</annotation>
+
+		<!-- smiling face with open mouth; face; mouth; open; smile -->
 		<annotation cp='[😃]' tts='smiling face with open mouth'>face; mouth; open; smile</annotation>
+
+		<!-- smiling face with open mouth and smiling eyes; eye; face; mouth; open; smile -->
 		<annotation cp='[😄]' tts='smiling face with open mouth and smiling eyes'>eye; face; mouth; open; smile</annotation>
+
+		<!-- smiling face with open mouth and cold sweat; cold; face; open; smile; sweat -->
 		<annotation cp='[😅]' tts='smiling face with open mouth and cold sweat'>cold; face; open; smile; sweat</annotation>
+
+		<!-- smiling face with open mouth and tightly-closed eyes; face; laugh; mouth; open; satisfied; smile -->
 		<annotation cp='[😆]' tts='smiling face with open mouth and tightly-closed eyes'>face; laugh; mouth; open; satisfied; smile</annotation>
+
+		<!-- winking face; face; wink -->
 		<annotation cp='[😉]' tts='winking face'>face; wink</annotation>
+
+		<!-- smiling face with smiling eyes; blush; eye; face; smile -->
 		<annotation cp='[😊]' tts='smiling face with smiling eyes'>blush; eye; face; smile</annotation>
+
+		<!-- face savouring delicious food; delicious; face; savouring; smile; um; yum -->
 		<annotation cp='[😋]' tts='face savouring delicious food'>delicious; face; savouring; smile; um; yum</annotation>
+
+		<!-- smiling face with sunglasses; bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather -->
 		<annotation cp='[😎]' tts='smiling face with sunglasses'>bright; cool; eye; eyewear; face; glasses; smile; sun; sunglasses; weather</annotation>
+
+		<!-- smiling face with heart-shaped eyes; eye; face; heart; love; smile -->
 		<annotation cp='[😍]' tts='smiling face with heart-shaped eyes'>eye; face; heart; love; smile</annotation>
+
+		<!-- face throwing a kiss; face; heart; kiss -->
 		<annotation cp='[😘]' tts='face throwing a kiss'>face; heart; kiss</annotation>
+
+		<!-- kissing face; face; kiss -->
 		<annotation cp='[😗]' tts='kissing face'>face; kiss</annotation>
+
+		<!-- kissing face with smiling eyes; eye; face; kiss; smile -->
 		<annotation cp='[😙]' tts='kissing face with smiling eyes'>eye; face; kiss; smile</annotation>
+
+		<!-- kissing face with closed eyes; closed; eye; face; kiss -->
 		<annotation cp='[😚]' tts='kissing face with closed eyes'>closed; eye; face; kiss</annotation>
+
+		<!-- smiling face; face; outlined; relaxed; smile -->
 		<annotation cp='[☺]' tts='smiling face'>face; outlined; relaxed; smile</annotation>
+
+		<!-- slightly smiling face; face; smile -->
 		<annotation cp='[🙂]' tts='slightly smiling face'>face; smile</annotation>
+
+		<!-- hugging face; face; hug; hugging -->
 		<annotation cp='[🤗]' tts='hugging face'>face; hug; hugging</annotation>
+
+		<!-- smiling face with halo; angel; face; fairy tale; fantasy; halo; innocent; smile -->
 		<annotation cp='[😇]' tts='smiling face with halo'>angel; face; fairy tale; fantasy; halo; innocent; smile</annotation>
+
+		<!-- thinking face; face; thinking -->
 		<annotation cp='[🤔]' tts='thinking face'>face; thinking</annotation>
+
+		<!-- neutral face; deadpan; face; neutral -->
 		<annotation cp='[😐]' tts='neutral face'>deadpan; face; neutral</annotation>
+
+		<!-- expressionless face; expressionless; face; inexpressive; unexpressive -->
 		<annotation cp='[😑]' tts='expressionless face'>expressionless; face; inexpressive; unexpressive</annotation>
+
+		<!-- face without mouth; face; mouth; quiet; silent -->
 		<annotation cp='[😶]' tts='face without mouth'>face; mouth; quiet; silent</annotation>
+
+		<!-- face with rolling eyes; eyes; face; rolling -->
 		<annotation cp='[🙄]' tts='face with rolling eyes'>eyes; face; rolling</annotation>
+
+		<!-- smirking face; face; smirk -->
 		<annotation cp='[😏]' tts='smirking face'>face; smirk</annotation>
+
+		<!-- persevering face; face; persevere -->
 		<annotation cp='[😣]' tts='persevering face'>face; persevere</annotation>
+
+		<!-- disappointed but relieved face; disappointed; face; relieved; whew -->
 		<annotation cp='[😥]' tts='disappointed but relieved face'>disappointed; face; relieved; whew</annotation>
+
+		<!-- face with open mouth; face; mouth; open; sympathy -->
 		<annotation cp='[😮]' tts='face with open mouth'>face; mouth; open; sympathy</annotation>
+
+		<!-- zipper-mouth face; face; mouth; zipper -->
 		<annotation cp='[🤐]' tts='zipper-mouth face'>face; mouth; zipper</annotation>
+
+		<!-- hushed face; face; hushed; stunned; surprised -->
 		<annotation cp='[😯]' tts='hushed face'>face; hushed; stunned; surprised</annotation>
+
+		<!-- sleepy face; face; sleep -->
 		<annotation cp='[😪]' tts='sleepy face'>face; sleep</annotation>
+
+		<!-- tired face; face; tired -->
 		<annotation cp='[😫]' tts='tired face'>face; tired</annotation>
+
+		<!-- sleeping face; face; sleep; zzz -->
 		<annotation cp='[😴]' tts='sleeping face'>face; sleep; zzz</annotation>
+
+		<!-- relieved face; face; relieved -->
 		<annotation cp='[😌]' tts='relieved face'>face; relieved</annotation>
+
+		<!-- nerd face; face; geek; nerd -->
 		<annotation cp='[🤓]' tts='nerd face'>face; geek; nerd</annotation>
+
+		<!-- face with stuck-out tongue; face; tongue -->
 		<annotation cp='[😛]' tts='face with stuck-out tongue'>face; tongue</annotation>
+
+		<!-- face with stuck-out tongue and winking eye; eye; face; joke; tongue; wink -->
 		<annotation cp='[😜]' tts='face with stuck-out tongue and winking eye'>eye; face; joke; tongue; wink</annotation>
+
+		<!-- face with stuck-out tongue and tightly-closed eyes; eye; face; horrible; taste; tongue -->
 		<annotation cp='[😝]' tts='face with stuck-out tongue and tightly-closed eyes'>eye; face; horrible; taste; tongue</annotation>
+
+		<!-- frowning face; face; frown -->
 		<annotation cp='[☹]' tts='frowning face'>face; frown</annotation>
+
+		<!-- slightly frowning face; face; frown -->
 		<annotation cp='[🙁]' tts='slightly frowning face'>face; frown</annotation>
+
+		<!-- unamused face; face; unamused; unhappy -->
 		<annotation cp='[😒]' tts='unamused face'>face; unamused; unhappy</annotation>
+
+		<!-- face with cold sweat; cold; face; sweat -->
 		<annotation cp='[😓]' tts='face with cold sweat'>cold; face; sweat</annotation>
+
+		<!-- pensive face; dejected; face; pensive -->
 		<annotation cp='[😔]' tts='pensive face'>dejected; face; pensive</annotation>
+
+		<!-- confused face; confused; face -->
 		<annotation cp='[😕]' tts='confused face'>confused; face</annotation>
+
+		<!-- confounded face; confounded; face -->
 		<annotation cp='[😖]' tts='confounded face'>confounded; face</annotation>
+
+		<!-- upside-down face; face; upside-down -->
 		<annotation cp='[🙃]' tts='upside-down face'>face; upside-down</annotation>
+
+		<!-- face with medical mask; cold; doctor; face; mask; medicine; sick -->
 		<annotation cp='[😷]' tts='face with medical mask'>cold; doctor; face; mask; medicine; sick</annotation>
+
+		<!-- face with thermometer; face; ill; sick; thermometer -->
 		<annotation cp='[🤒]' tts='face with thermometer'>face; ill; sick; thermometer</annotation>
+
+		<!-- face with head-bandage; bandage; face; hurt; injury -->
 		<annotation cp='[🤕]' tts='face with head-bandage'>bandage; face; hurt; injury</annotation>
+
+		<!-- money-mouth face; face; money; mouth -->
 		<annotation cp='[🤑]' tts='money-mouth face'>face; money; mouth</annotation>
+
+		<!-- astonished face; astonished; face; shocked; totally -->
 		<annotation cp='[😲]' tts='astonished face'>astonished; face; shocked; totally</annotation>
+
+		<!-- disappointed face; disappointed; face -->
 		<annotation cp='[😞]' tts='disappointed face'>disappointed; face</annotation>
+
+		<!-- worried face; face; worried -->
 		<annotation cp='[😟]' tts='worried face'>face; worried</annotation>
+
+		<!-- face with steam from nose; face; triumph; won -->
 		<annotation cp='[😤]' tts='face with steam from nose'>face; triumph; won</annotation>
+
+		<!-- crying face; cry; face; sad; tear -->
 		<annotation cp='[😢]' tts='crying face'>cry; face; sad; tear</annotation>
+
+		<!-- loudly crying face; cry; face; sad; sob; tear -->
 		<annotation cp='[😭]' tts='loudly crying face'>cry; face; sad; sob; tear</annotation>
+
+		<!-- frowning face with open mouth; face; frown; mouth; open -->
 		<annotation cp='[😦]' tts='frowning face with open mouth'>face; frown; mouth; open</annotation>
+
+		<!-- anguished face; anguished; face -->
 		<annotation cp='[😧]' tts='anguished face'>anguished; face</annotation>
+
+		<!-- fearful face; face; fear; fearful; scared -->
 		<annotation cp='[😨]' tts='fearful face'>face; fear; fearful; scared</annotation>
+
+		<!-- weary face; face; tired; weary -->
 		<annotation cp='[😩]' tts='weary face'>face; tired; weary</annotation>
+
+		<!-- grimacing face; face; grimace -->
 		<annotation cp='[😬]' tts='grimacing face'>face; grimace</annotation>
+
+		<!-- face with open mouth and cold sweat; blue; cold; face; mouth; open; rushed; sweat -->
 		<annotation cp='[😰]' tts='face with open mouth and cold sweat'>blue; cold; face; mouth; open; rushed; sweat</annotation>
+
+		<!-- face screaming in fear; face; fear; fearful; munch; scared; scream -->
 		<annotation cp='[😱]' tts='face screaming in fear'>face; fear; fearful; munch; scared; scream</annotation>
+
+		<!-- flushed face; dazed; face; flushed -->
 		<annotation cp='[😳]' tts='flushed face'>dazed; face; flushed</annotation>
+
+		<!-- dizzy face; dizzy; face -->
 		<annotation cp='[😵]' tts='dizzy face'>dizzy; face</annotation>
+
+		<!-- pouting face; angry; face; mad; pouting; rage; red -->
 		<annotation cp='[😡]' tts='pouting face'>angry; face; mad; pouting; rage; red</annotation>
+
+		<!-- angry face; angry; face; mad -->
 		<annotation cp='[😠]' tts='angry face'>angry; face; mad</annotation>
+
+		<!-- smiling face with horns; face; fairy tale; fantasy; horns; smile -->
 		<annotation cp='[😈]' tts='smiling face with horns'>face; fairy tale; fantasy; horns; smile</annotation>
+
+		<!-- imp; demon; devil; face; fairy tale; fantasy -->
 		<annotation cp='[👿]' tts='imp'>demon; devil; face; fairy tale; fantasy</annotation>
+
+		<!-- ogre; creature; face; fairy tale; fantasy; japanese; monster -->
 		<annotation cp='[👹]' tts='ogre'>creature; face; fairy tale; fantasy; japanese; monster</annotation>
+
+		<!-- goblin; creature; face; fairy tale; fantasy; japanese; monster -->
 		<annotation cp='[👺]' tts='goblin'>creature; face; fairy tale; fantasy; japanese; monster</annotation>
+
+		<!-- skull; body; death; face; fairy tale; monster -->
 		<annotation cp='[💀]' tts='skull'>body; death; face; fairy tale; monster</annotation>
+
+		<!-- skull and crossbones; body; crossbones; death; face; monster; skull -->
 		<annotation cp='[☠]' tts='skull and crossbones'>body; crossbones; death; face; monster; skull</annotation>
+
+		<!-- ghost; creature; face; fairy tale; fantasy; monster -->
 		<annotation cp='[👻]' tts='ghost'>creature; face; fairy tale; fantasy; monster</annotation>
+
+		<!-- alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
 		<annotation cp='[👽]' tts='alien'>creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo</annotation>
+
+		<!-- alien monster; alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo -->
 		<annotation cp='[👾]' tts='alien monster'>alien; creature; extraterrestrial; face; fairy tale; fantasy; monster; space; ufo</annotation>
+
+		<!-- robot face; face; monster; robot -->
 		<annotation cp='[🤖]' tts='robot face'>face; monster; robot</annotation>
+
+		<!-- pile of poo; comic; dung; face; monster; poo; poop -->
 		<annotation cp='[💩]' tts='pile of poo'>comic; dung; face; monster; poo; poop</annotation>
+
+		<!-- smiling cat face with open mouth; cat; face; mouth; open; smile -->
 		<annotation cp='[😺]' tts='smiling cat face with open mouth'>cat; face; mouth; open; smile</annotation>
+
+		<!-- grinning cat face with smiling eyes; cat; eye; face; grin; smile -->
 		<annotation cp='[😸]' tts='grinning cat face with smiling eyes'>cat; eye; face; grin; smile</annotation>
+
+		<!-- cat face with tears of joy; cat; face; joy; tear -->
 		<annotation cp='[😹]' tts='cat face with tears of joy'>cat; face; joy; tear</annotation>
+
+		<!-- smiling cat face with heart-shaped eyes; cat; eye; face; heart; love; smile -->
 		<annotation cp='[😻]' tts='smiling cat face with heart-shaped eyes'>cat; eye; face; heart; love; smile</annotation>
+
+		<!-- cat face with wry smile; cat; face; ironic; smile; wry -->
 		<annotation cp='[😼]' tts='cat face with wry smile'>cat; face; ironic; smile; wry</annotation>
+
+		<!-- kissing cat face with closed eyes; cat; eye; face; kiss -->
 		<annotation cp='[😽]' tts='kissing cat face with closed eyes'>cat; eye; face; kiss</annotation>
+
+		<!-- weary cat face; cat; face; oh; surprised; weary -->
 		<annotation cp='[🙀]' tts='weary cat face'>cat; face; oh; surprised; weary</annotation>
+
+		<!-- crying cat face; cat; cry; face; sad; tear -->
 		<annotation cp='[😿]' tts='crying cat face'>cat; cry; face; sad; tear</annotation>
+
+		<!-- pouting cat face; cat; face; pouting -->
 		<annotation cp='[😾]' tts='pouting cat face'>cat; face; pouting</annotation>
+
+		<!-- see-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; see -->
 		<annotation cp='[🙈]' tts='see-no-evil'>evil; face; forbidden; gesture; monkey; no; not; prohibited; see</annotation>
+
+		<!-- hear-no-evil; evil; face; forbidden; gesture; hear; monkey; no; not; prohibited -->
 		<annotation cp='[🙉]' tts='hear-no-evil'>evil; face; forbidden; gesture; hear; monkey; no; not; prohibited</annotation>
+
+		<!-- speak-no-evil; evil; face; forbidden; gesture; monkey; no; not; prohibited; speak -->
 		<annotation cp='[🙊]' tts='speak-no-evil'>evil; face; forbidden; gesture; monkey; no; not; prohibited; speak</annotation>
+
+		<!-- boy -->
 		<annotation cp='[👦]' tts='boy'>boy</annotation>
+
+		<!-- girl; maiden; virgin; virgo; zodiac -->
 		<annotation cp='[👧]' tts='girl'>maiden; virgin; virgo; zodiac</annotation>
+
+		<!-- man -->
 		<annotation cp='[👨]' tts='man'>man</annotation>
+
+		<!-- woman -->
 		<annotation cp='[👩]' tts='woman'>woman</annotation>
+
+		<!-- old man; man; old -->
 		<annotation cp='[👴]' tts='old man'>man; old</annotation>
+
+		<!-- old woman; old; woman -->
 		<annotation cp='[👵]' tts='old woman'>old; woman</annotation>
+
+		<!-- baby -->
 		<annotation cp='[👶]' tts='baby'>baby</annotation>
+
+		<!-- person with blond hair; blond -->
 		<annotation cp='[👱]' tts='person with blond hair'>blond</annotation>
+
+		<!-- police officer; cop; officer; police -->
 		<annotation cp='[👮]' tts='police officer'>cop; officer; police</annotation>
+
+		<!-- man with chinese cap; gua pi mao; hat; man -->
 		<annotation cp='[👲]' tts='man with chinese cap'>gua pi mao; hat; man</annotation>
+
+		<!-- man with turban; man; turban -->
 		<annotation cp='[👳]' tts='man with turban'>man; turban</annotation>
+
+		<!-- construction worker; construction; hat; worker -->
 		<annotation cp='[👷]' tts='construction worker'>construction; hat; worker</annotation>
+
+		<!-- helmet with white cross; aid; cross; face; hat; helmet -->
 		<annotation cp='[⛑]' tts='helmet with white cross'>aid; cross; face; hat; helmet</annotation>
+
+		<!-- princess; fairy tale; fantasy -->
 		<annotation cp='[👸]' tts='princess'>fairy tale; fantasy</annotation>
+
+		<!-- guardsman; guard -->
 		<annotation cp='[💂]' tts='guardsman'>guard</annotation>
+
+		<!-- detective; sleuth; spy -->
 		<annotation cp='[🕵]' tts='detective'>sleuth; spy</annotation>
+
+		<!-- santa claus; celebration; christmas; fairy tale; fantasy; father; santa -->
 		<annotation cp='[🎅]' tts='santa claus'>celebration; christmas; fairy tale; fantasy; father; santa</annotation>
+
+		<!-- baby angel; angel; baby; face; fairy tale; fantasy -->
 		<annotation cp='[👼]' tts='baby angel'>angel; baby; face; fairy tale; fantasy</annotation>
+
+		<!-- face massage; massage; salon -->
 		<annotation cp='[💆]' tts='face massage'>massage; salon</annotation>
+
+		<!-- haircut; barber; beauty; parlor -->
 		<annotation cp='[💇]' tts='haircut'>barber; beauty; parlor</annotation>
+
+		<!-- bride with veil; bride; veil; wedding -->
 		<annotation cp='[👰]' tts='bride with veil'>bride; veil; wedding</annotation>
+
+		<!-- person frowning; frown; gesture -->
 		<annotation cp='[🙍]' tts='person frowning'>frown; gesture</annotation>
+
+		<!-- person pouting; gesture; pouting -->
 		<annotation cp='[🙎]' tts='person pouting'>gesture; pouting</annotation>
+
+		<!-- gesturing no; forbidden; gesture; hand; no; not; prohibited -->
 		<annotation cp='[🙅]' tts='gesturing no'>forbidden; gesture; hand; no; not; prohibited</annotation>
+
+		<!-- gesturing ok; gesture; hand; ok -->
 		<annotation cp='[🙆]' tts='gesturing ok'>gesture; hand; ok</annotation>
+
+		<!-- information desk person; hand; help; information; sassy -->
 		<annotation cp='[💁]' tts='information desk person'>hand; help; information; sassy</annotation>
+
+		<!-- happy person raising hand; gesture; hand; happy; raised -->
 		<annotation cp='[🙋]' tts='happy person raising hand'>gesture; hand; happy; raised</annotation>
+
+		<!-- person bowing; apology; bow; gesture; sorry -->
 		<annotation cp='[🙇]' tts='person bowing'>apology; bow; gesture; sorry</annotation>
+
+		<!-- person raising hands; body; celebration; gesture; hand; hooray; raised -->
 		<annotation cp='[🙌]' tts='person raising hands'>body; celebration; gesture; hand; hooray; raised</annotation>
+
+		<!-- folded hands; ask; body; bow; folded; gesture; hand; please; pray; thanks -->
 		<annotation cp='[🙏]' tts='folded hands'>ask; body; bow; folded; gesture; hand; please; pray; thanks</annotation>
+
+		<!-- speaking head; face; head; silhouette; speak; speaking -->
 		<annotation cp='[🗣]' tts='speaking head'>face; head; silhouette; speak; speaking</annotation>
+
+		<!-- bust in silhouette; bust; silhouette -->
 		<annotation cp='[👤]' tts='bust in silhouette'>bust; silhouette</annotation>
+
+		<!-- busts in silhouette; bust; silhouette -->
 		<annotation cp='[👥]' tts='busts in silhouette'>bust; silhouette</annotation>
+
+		<!-- pedestrian; hike; walk; walking -->
 		<annotation cp='[🚶]' tts='pedestrian'>hike; walk; walking</annotation>
+
+		<!-- runner; marathon; running -->
 		<annotation cp='[🏃]' tts='runner'>marathon; running</annotation>
+
+		<!-- women partying; bunny; dancer; ear; girl; woman -->
 		<annotation cp='[👯]' tts='women partying'>bunny; dancer; ear; girl; woman</annotation>
+
+		<!-- dancer -->
 		<annotation cp='[💃]' tts='dancer'>dancer</annotation>
+
+		<!-- man in business suit levitating; business; man; suit -->
 		<annotation cp='[🕴]' tts='man in business suit levitating'>business; man; suit</annotation>
+
+		<!-- kiss; couple; romance -->
 		<annotation cp='[💏]' tts='kiss'>couple; romance</annotation>
+
+		<!-- couple with heart; couple; heart; love; romance -->
 		<annotation cp='[💑]' tts='couple with heart'>couple; heart; love; romance</annotation>
+
+		<!-- family; child; father; mother -->
 		<annotation cp='[👪]' tts='family'>child; father; mother</annotation>
+
+		<!-- man and woman holding hands; couple; hand; hold; man; woman -->
 		<annotation cp='[👫]' tts='man and woman holding hands'>couple; hand; hold; man; woman</annotation>
+
+		<!-- two men holding hands; couple; gemini; hand; hold; man; twins; zodiac -->
 		<annotation cp='[👬]' tts='two men holding hands'>couple; gemini; hand; hold; man; twins; zodiac</annotation>
+
+		<!-- two women holding hands; couple; hand; hold; woman -->
 		<annotation cp='[👭]' tts='two women holding hands'>couple; hand; hold; woman</annotation>
+
+		<!-- skin type-1-2; emoji modifier; fitzpatrick; skin; tone -->
 		<annotation cp='[🏻]' tts='skin type-1-2'>emoji modifier; fitzpatrick; skin; tone</annotation>
+
+		<!-- skin type-3; emoji modifier; fitzpatrick; skin; tone -->
 		<annotation cp='[🏼]' tts='skin type-3'>emoji modifier; fitzpatrick; skin; tone</annotation>
+
+		<!-- skin type-4; emoji modifier; fitzpatrick; skin; tone -->
 		<annotation cp='[🏽]' tts='skin type-4'>emoji modifier; fitzpatrick; skin; tone</annotation>
+
+		<!-- skin type-5; emoji modifier; fitzpatrick; skin; tone -->
 		<annotation cp='[🏾]' tts='skin type-5'>emoji modifier; fitzpatrick; skin; tone</annotation>
+
+		<!-- skin type-6; emoji modifier; fitzpatrick; skin; tone -->
 		<annotation cp='[🏿]' tts='skin type-6'>emoji modifier; fitzpatrick; skin; tone</annotation>
+
+		<!-- flexed biceps; biceps; body; comic; flex; muscle -->
 		<annotation cp='[💪]' tts='flexed biceps'>biceps; body; comic; flex; muscle</annotation>
-		<annotation cp='[👈]' tts='backhand index pointing left'>backhand; body; finger; hand; index; point</annotation>
-		<annotation cp='[👉]' tts='backhand index pointing right'>backhand; body; finger; hand; index; point</annotation>
+
+		<!-- backhand index pointing left; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👈]' tts='left pointing backhand index'>backhand; body; finger; hand; index; point; left</annotation>
+
+		<!-- backhand index pointing right; backhand; body; finger; hand; index; point -->
+		<annotation cp='[👉]' tts='right pointing backhand index'>backhand; body; finger; hand; index; point; right</annotation>
+
+		<!-- index pointing up; body; finger; hand; index; point; up -->
 		<annotation cp='[☝]' tts='index pointing up'>body; finger; hand; index; point; up</annotation>
+
+		<!-- backhand index pointing up; backhand; body; finger; hand; index; point; up -->
 		<annotation cp='[👆]' tts='backhand index pointing up'>backhand; body; finger; hand; index; point; up</annotation>
+
+		<!-- middle finger; body; finger; hand -->
 		<annotation cp='[🖕]' tts='middle finger'>body; finger; hand</annotation>
+
+		<!-- backhand index pointing down; backhand; body; down; finger; hand; index; point -->
 		<annotation cp='[👇]' tts='backhand index pointing down'>backhand; body; down; finger; hand; index; point</annotation>
+
+		<!-- victory hand; body; hand; v; victory -->
 		<annotation cp='[✌]' tts='victory hand'>body; hand; v; victory</annotation>
+
+		<!-- vulcan salute; body; finger; hand; spock; vulcan -->
 		<annotation cp='[🖖]' tts='vulcan salute'>body; finger; hand; spock; vulcan</annotation>
+
+		<!-- sign of the horns; body; finger; hand; horns; rock-on -->
 		<annotation cp='[🤘]' tts='sign of the horns'>body; finger; hand; horns; rock-on</annotation>
+
+		<!-- raised hand with fingers splayed; body; finger; hand; splayed -->
 		<annotation cp='[🖐]' tts='raised hand with fingers splayed'>body; finger; hand; splayed</annotation>
+
+		<!-- raised hand; body; hand -->
 		<annotation cp='[✋]' tts='raised hand'>body; hand</annotation>
+
+		<!-- ok hand; body; hand; ok -->
 		<annotation cp='[👌]' tts='ok hand'>body; hand; ok</annotation>
+
+		<!-- thumbs up; +1; body; hand; thumb; up -->
 		<annotation cp='[👍]' tts='thumbs up'>+1; body; hand; thumb; up</annotation>
+
+		<!-- thumbs down; -1; body; down; hand; thumb -->
 		<annotation cp='[👎]' tts='thumbs down'>-1; body; down; hand; thumb</annotation>
+
+		<!-- raised fist; body; clenched; fist; hand; punch -->
 		<annotation cp='[✊]' tts='raised fist'>body; clenched; fist; hand; punch</annotation>
+
+		<!-- oncoming fist; body; clenched; fist; hand; punch -->
 		<annotation cp='[👊]' tts='oncoming fist'>body; clenched; fist; hand; punch</annotation>
+
+		<!-- waving hand; body; hand; wave; waving -->
 		<annotation cp='[👋]' tts='waving hand'>body; hand; wave; waving</annotation>
+
+		<!-- clapping hands; body; clap; hand -->
 		<annotation cp='[👏]' tts='clapping hands'>body; clap; hand</annotation>
+
+		<!-- open hands; body; hand; open -->
 		<annotation cp='[👐]' tts='open hands'>body; hand; open</annotation>
+
+		<!-- writing hand; body; hand; write -->
 		<annotation cp='[✍]' tts='writing hand'>body; hand; write</annotation>
+
+		<!-- nail polish; body; care; cosmetics; manicure; nail; polish -->
 		<annotation cp='[💅]' tts='nail polish'>body; care; cosmetics; manicure; nail; polish</annotation>
+
+		<!-- ear; body -->
 		<annotation cp='[👂]' tts='ear'>body</annotation>
+
+		<!-- nose; body -->
 		<annotation cp='[👃]' tts='nose'>body</annotation>
+
+		<!-- footprints; body; clothing; footprint; print -->
 		<annotation cp='[👣]' tts='footprints'>body; clothing; footprint; print</annotation>
+
+		<!-- eyes; body; eye; face -->
 		<annotation cp='[👀]' tts='eyes'>body; eye; face</annotation>
+
+		<!-- eye; body -->
 		<annotation cp='[👁]' tts='eye'>body</annotation>
+
+		<!-- tongue; body -->
 		<annotation cp='[👅]' tts='tongue'>body</annotation>
+
+		<!-- mouth; body; lips -->
 		<annotation cp='[👄]' tts='mouth'>body; lips</annotation>
+
+		<!-- kiss mark; heart; kiss; lips; mark; romance -->
 		<annotation cp='[💋]' tts='kiss mark'>heart; kiss; lips; mark; romance</annotation>
+
+		<!-- heart with arrow; arrow; cupid; heart; romance -->
 		<annotation cp='[💘]' tts='heart with arrow'>arrow; cupid; heart; romance</annotation>
+
+		<!-- red heart; heart -->
 		<annotation cp='[❤]' tts='red heart'>heart</annotation>
+
+		<!-- beating heart; beating; heart; heartbeat; pulsating -->
 		<annotation cp='[💓]' tts='beating heart'>beating; heart; heartbeat; pulsating</annotation>
+
+		<!-- broken heart; break; broken; heart -->
 		<annotation cp='[💔]' tts='broken heart'>break; broken; heart</annotation>
+
+		<!-- two hearts; heart; love -->
 		<annotation cp='[💕]' tts='two hearts'>heart; love</annotation>
+
+		<!-- sparkling heart; excited; heart; sparkle -->
 		<annotation cp='[💖]' tts='sparkling heart'>excited; heart; sparkle</annotation>
+
+		<!-- growing heart; excited; growing; heart; heartpulse; nervous -->
 		<annotation cp='[💗]' tts='growing heart'>excited; growing; heart; heartpulse; nervous</annotation>
+
+		<!-- blue heart; blue; heart -->
 		<annotation cp='[💙]' tts='blue heart'>blue; heart</annotation>
+
+		<!-- green heart; green; heart -->
 		<annotation cp='[💚]' tts='green heart'>green; heart</annotation>
+
+		<!-- yellow heart; heart; yellow -->
 		<annotation cp='[💛]' tts='yellow heart'>heart; yellow</annotation>
+
+		<!-- purple heart; heart; purple -->
 		<annotation cp='[💜]' tts='purple heart'>heart; purple</annotation>
+
+		<!-- heart with ribbon; heart; ribbon; valentine -->
 		<annotation cp='[💝]' tts='heart with ribbon'>heart; ribbon; valentine</annotation>
+
+		<!-- revolving hearts; heart; revolving -->
 		<annotation cp='[💞]' tts='revolving hearts'>heart; revolving</annotation>
+
+		<!-- heart decoration; heart -->
 		<annotation cp='[💟]' tts='heart decoration'>heart</annotation>
+
+		<!-- heavy heart exclamation mark ornament; exclamation; heart; mark; punctuation -->
 		<annotation cp='[❣]' tts='heavy heart exclamation mark ornament'>exclamation; heart; mark; punctuation</annotation>
+
+		<!-- love letter; heart; letter; love; mail; romance -->
 		<annotation cp='[💌]' tts='love letter'>heart; letter; love; mail; romance</annotation>
+
+		<!-- zzz; comic; sleep -->
 		<annotation cp='[💤]' tts='zzz'>comic; sleep</annotation>
+
+		<!-- anger symbol; angry; comic; mad -->
 		<annotation cp='[💢]' tts='anger symbol'>angry; comic; mad</annotation>
+
+		<!-- bomb; comic -->
 		<annotation cp='[💣]' tts='bomb'>comic</annotation>
+
+		<!-- collision; boom; comic -->
 		<annotation cp='[💥]' tts='collision'>boom; comic</annotation>
+
+		<!-- sweat droplets; comic; splashing; sweat -->
 		<annotation cp='[💦]' tts='sweat droplets'>comic; splashing; sweat</annotation>
+
+		<!-- dashing; comic; dash; running -->
 		<annotation cp='[💨]' tts='dashing'>comic; dash; running</annotation>
+
+		<!-- dizzy; comic; star -->
 		<annotation cp='[💫]' tts='dizzy'>comic; star</annotation>
+
+		<!-- speech balloon; balloon; bubble; comic; dialog; speech -->
 		<annotation cp='[💬]' tts='speech balloon'>balloon; bubble; comic; dialog; speech</annotation>
+
+		<!-- left speech bubble; dialog; speech -->
 		<annotation cp='[🗨]' tts='left speech bubble'>dialog; speech</annotation>
+
+		<!-- right anger bubble; angry; balloon; bubble; mad -->
 		<annotation cp='[🗯]' tts='right anger bubble'>angry; balloon; bubble; mad</annotation>
+
+		<!-- thought balloon; balloon; bubble; comic; thought -->
 		<annotation cp='[💭]' tts='thought balloon'>balloon; bubble; comic; thought</annotation>
+
+		<!-- hole -->
 		<annotation cp='[🕳]' tts='hole'>hole</annotation>
+
+		<!-- glasses; clothing; eye; eyeglasses; eyewear -->
 		<annotation cp='[👓]' tts='glasses'>clothing; eye; eyeglasses; eyewear</annotation>
+
+		<!-- sunglasses; dark; eye; eyewear; glasses -->
 		<annotation cp='[🕶]' tts='sunglasses'>dark; eye; eyewear; glasses</annotation>
+
+		<!-- necktie; clothing -->
 		<annotation cp='[👔]' tts='necktie'>clothing</annotation>
+
+		<!-- t-shirt; clothing; shirt; tshirt -->
 		<annotation cp='[👕]' tts='t-shirt'>clothing; shirt; tshirt</annotation>
+
+		<!-- jeans; clothing; pants; trousers -->
 		<annotation cp='[👖]' tts='jeans'>clothing; pants; trousers</annotation>
+
+		<!-- dress; clothing -->
 		<annotation cp='[👗]' tts='dress'>clothing</annotation>
+
+		<!-- kimono; clothing -->
 		<annotation cp='[👘]' tts='kimono'>clothing</annotation>
+
+		<!-- bikini; clothing; swim -->
 		<annotation cp='[👙]' tts='bikini'>clothing; swim</annotation>
+
+		<!-- woman’s clothes; clothing; woman -->
 		<annotation cp='[👚]' tts='woman’s clothes'>clothing; woman</annotation>
+
+		<!-- purse; clothing; coin -->
 		<annotation cp='[👛]' tts='purse'>clothing; coin</annotation>
+
+		<!-- handbag; bag; clothing -->
 		<annotation cp='[👜]' tts='handbag'>bag; clothing</annotation>
+
+		<!-- pouch; bag; clothing -->
 		<annotation cp='[👝]' tts='pouch'>bag; clothing</annotation>
+
+		<!-- shopping bags; bag; hotel; shopping -->
 		<annotation cp='[🛍]' tts='shopping bags'>bag; hotel; shopping</annotation>
+
+		<!-- school backpack; bag; satchel; school -->
 		<annotation cp='[🎒]' tts='school backpack'>bag; satchel; school</annotation>
+
+		<!-- man’s shoe; clothing; man; shoe -->
 		<annotation cp='[👞]' tts='man’s shoe'>clothing; man; shoe</annotation>
+
+		<!-- running shoe; athletic; clothing; shoe; sneaker -->
 		<annotation cp='[👟]' tts='running shoe'>athletic; clothing; shoe; sneaker</annotation>
+
+		<!-- high-heeled shoe; clothing; heel; shoe; woman -->
 		<annotation cp='[👠]' tts='high-heeled shoe'>clothing; heel; shoe; woman</annotation>
+
+		<!-- woman’s sandal; clothing; sandal; shoe; woman -->
 		<annotation cp='[👡]' tts='woman’s sandal'>clothing; sandal; shoe; woman</annotation>
+
+		<!-- woman’s boot; boot; clothing; shoe; woman -->
 		<annotation cp='[👢]' tts='woman’s boot'>boot; clothing; shoe; woman</annotation>
+
+		<!-- crown; clothing; king; queen -->
 		<annotation cp='[👑]' tts='crown'>clothing; king; queen</annotation>
+
+		<!-- woman’s hat; clothing; hat; woman -->
 		<annotation cp='[👒]' tts='woman’s hat'>clothing; hat; woman</annotation>
+
+		<!-- top hat; clothing; hat; top; tophat -->
 		<annotation cp='[🎩]' tts='top hat'>clothing; hat; top; tophat</annotation>
+
+		<!-- graduation cap; cap; celebration; clothing; graduation; hat -->
 		<annotation cp='[🎓]' tts='graduation cap'>cap; celebration; clothing; graduation; hat</annotation>
+
+		<!-- prayer beads; beads; clothing; necklace; prayer; religion -->
 		<annotation cp='[📿]' tts='prayer beads'>beads; clothing; necklace; prayer; religion</annotation>
+
+		<!-- lipstick; cosmetics; makeup -->
 		<annotation cp='[💄]' tts='lipstick'>cosmetics; makeup</annotation>
+
+		<!-- ring; diamond; romance -->
 		<annotation cp='[💍]' tts='ring'>diamond; romance</annotation>
+
+		<!-- gem stone; diamond; gem; jewel; romance -->
 		<annotation cp='[💎]' tts='gem stone'>diamond; gem; jewel; romance</annotation>
+
+		<!-- monkey face; face; monkey -->
 		<annotation cp='[🐵]' tts='monkey face'>face; monkey</annotation>
+
+		<!-- monkey -->
 		<annotation cp='[🐒]' tts='monkey'>monkey</annotation>
+
+		<!-- dog face; dog; face; pet -->
 		<annotation cp='[🐶]' tts='dog face'>dog; face; pet</annotation>
+
+		<!-- dog; pet -->
 		<annotation cp='[🐕]' tts='dog'>pet</annotation>
+
+		<!-- poodle; dog -->
 		<annotation cp='[🐩]' tts='poodle'>dog</annotation>
+
+		<!-- wolf face; face; wolf -->
 		<annotation cp='[🐺]' tts='wolf face'>face; wolf</annotation>
+
+		<!-- cat face; cat; face; pet -->
 		<annotation cp='[🐱]' tts='cat face'>cat; face; pet</annotation>
+
+		<!-- cat; pet -->
 		<annotation cp='[🐈]' tts='cat'>pet</annotation>
+
+		<!-- lion face; face; leo; lion; zodiac -->
 		<annotation cp='[🦁]' tts='lion face'>face; leo; lion; zodiac</annotation>
+
+		<!-- tiger face; face; tiger -->
 		<annotation cp='[🐯]' tts='tiger face'>face; tiger</annotation>
+
+		<!-- tiger -->
 		<annotation cp='[🐅]' tts='tiger'>tiger</annotation>
+
+		<!-- leopard -->
 		<annotation cp='[🐆]' tts='leopard'>leopard</annotation>
+
+		<!-- horse face; face; horse -->
 		<annotation cp='[🐴]' tts='horse face'>face; horse</annotation>
+
+		<!-- horse; racehorse; racing -->
 		<annotation cp='[🐎]' tts='horse'>racehorse; racing</annotation>
+
+		<!-- unicorn face; face; unicorn -->
 		<annotation cp='[🦄]' tts='unicorn face'>face; unicorn</annotation>
+
+		<!-- cow face; cow; face -->
 		<annotation cp='[🐮]' tts='cow face'>cow; face</annotation>
+
+		<!-- ox; bull; taurus; zodiac -->
 		<annotation cp='[🐂]' tts='ox'>bull; taurus; zodiac</annotation>
+
+		<!-- water buffalo; buffalo; water -->
 		<annotation cp='[🐃]' tts='water buffalo'>buffalo; water</annotation>
+
+		<!-- cow -->
 		<annotation cp='[🐄]' tts='cow'>cow</annotation>
+
+		<!-- pig face; face; pig -->
 		<annotation cp='[🐷]' tts='pig face'>face; pig</annotation>
+
+		<!-- pig; sow -->
 		<annotation cp='[🐖]' tts='pig'>sow</annotation>
+
+		<!-- boar; pig -->
 		<annotation cp='[🐗]' tts='boar'>pig</annotation>
+
+		<!-- pig nose; face; nose; pig -->
 		<annotation cp='[🐽]' tts='pig nose'>face; nose; pig</annotation>
+
+		<!-- ram; aries; sheep; zodiac -->
 		<annotation cp='[🐏]' tts='ram'>aries; sheep; zodiac</annotation>
+
+		<!-- sheep; ewe -->
 		<annotation cp='[🐑]' tts='sheep'>ewe</annotation>
+
+		<!-- goat; capricorn; zodiac -->
 		<annotation cp='[🐐]' tts='goat'>capricorn; zodiac</annotation>
+
+		<!-- camel; dromedary; hump -->
 		<annotation cp='[🐪]' tts='camel'>dromedary; hump</annotation>
+
+		<!-- two-hump camel; bactrian; camel; hump -->
 		<annotation cp='[🐫]' tts='two-hump camel'>bactrian; camel; hump</annotation>
+
+		<!-- elephant -->
 		<annotation cp='[🐘]' tts='elephant'>elephant</annotation>
+
+		<!-- mouse face; face; mouse -->
 		<annotation cp='[🐭]' tts='mouse face'>face; mouse</annotation>
+
+		<!-- mouse -->
 		<annotation cp='[🐁]' tts='mouse'>mouse</annotation>
+
+		<!-- rat -->
 		<annotation cp='[🐀]' tts='rat'>rat</annotation>
+
+		<!-- hamster face; face; hamster; pet -->
 		<annotation cp='[🐹]' tts='hamster face'>face; hamster; pet</annotation>
+
+		<!-- rabbit face; bunny; face; pet; rabbit -->
 		<annotation cp='[🐰]' tts='rabbit face'>bunny; face; pet; rabbit</annotation>
+
+		<!-- rabbit; bunny; pet -->
 		<annotation cp='[🐇]' tts='rabbit'>bunny; pet</annotation>
+
+		<!-- chipmunk -->
 		<annotation cp='[🐿]' tts='chipmunk'>chipmunk</annotation>
+
+		<!-- bear face; bear; face -->
 		<annotation cp='[🐻]' tts='bear face'>bear; face</annotation>
+
+		<!-- koala; bear -->
 		<annotation cp='[🐨]' tts='koala'>bear</annotation>
+
+		<!-- panda face; face; panda -->
 		<annotation cp='[🐼]' tts='panda face'>face; panda</annotation>
+
+		<!-- paw prints; feet; paw; print -->
 		<annotation cp='[🐾]' tts='paw prints'>feet; paw; print</annotation>
+
+		<!-- turkey -->
 		<annotation cp='[🦃]' tts='turkey'>turkey</annotation>
+
+		<!-- chicken -->
 		<annotation cp='[🐔]' tts='chicken'>chicken</annotation>
+
+		<!-- rooster -->
 		<annotation cp='[🐓]' tts='rooster'>rooster</annotation>
+
+		<!-- hatching chick; baby; chick; hatching -->
 		<annotation cp='[🐣]' tts='hatching chick'>baby; chick; hatching</annotation>
+
+		<!-- baby chick; baby; chick -->
 		<annotation cp='[🐤]' tts='baby chick'>baby; chick</annotation>
+
+		<!-- front-facing baby chick; baby; chick -->
 		<annotation cp='[🐥]' tts='front-facing baby chick'>baby; chick</annotation>
+
+		<!-- bird -->
 		<annotation cp='[🐦]' tts='bird'>bird</annotation>
+
+		<!-- penguin -->
 		<annotation cp='[🐧]' tts='penguin'>penguin</annotation>
+
+		<!-- dove; bird; fly; peace -->
 		<annotation cp='[🕊]' tts='dove'>bird; fly; peace</annotation>
+
+		<!-- frog face; face; frog -->
 		<annotation cp='[🐸]' tts='frog face'>face; frog</annotation>
+
+		<!-- crocodile -->
 		<annotation cp='[🐊]' tts='crocodile'>crocodile</annotation>
+
+		<!-- turtle -->
 		<annotation cp='[🐢]' tts='turtle'>turtle</annotation>
+
+		<!-- snake; bearer; ophiuchus; serpent; zodiac -->
 		<annotation cp='[🐍]' tts='snake'>bearer; ophiuchus; serpent; zodiac</annotation>
+
+		<!-- dragon face; dragon; face; fairy tale -->
 		<annotation cp='[🐲]' tts='dragon face'>dragon; face; fairy tale</annotation>
+
+		<!-- dragon; fairy tale -->
 		<annotation cp='[🐉]' tts='dragon'>fairy tale</annotation>
+
+		<!-- spouting whale; face; spouting; whale -->
 		<annotation cp='[🐳]' tts='spouting whale'>face; spouting; whale</annotation>
+
+		<!-- whale -->
 		<annotation cp='[🐋]' tts='whale'>whale</annotation>
+
+		<!-- dolphin; flipper -->
 		<annotation cp='[🐬]' tts='dolphin'>flipper</annotation>
+
+		<!-- fish; pisces; zodiac -->
 		<annotation cp='[🐟]' tts='fish'>pisces; zodiac</annotation>
+
+		<!-- tropical fish; fish; tropical -->
 		<annotation cp='[🐠]' tts='tropical fish'>fish; tropical</annotation>
+
+		<!-- blowfish; fish -->
 		<annotation cp='[🐡]' tts='blowfish'>fish</annotation>
+
+		<!-- octopus -->
 		<annotation cp='[🐙]' tts='octopus'>octopus</annotation>
+
+		<!-- spiral shell; shell; spiral -->
 		<annotation cp='[🐚]' tts='spiral shell'>shell; spiral</annotation>
+
+		<!-- crab; cancer; zodiac -->
 		<annotation cp='[🦀]' tts='crab'>cancer; zodiac</annotation>
+
+		<!-- snail -->
 		<annotation cp='[🐌]' tts='snail'>snail</annotation>
+
+		<!-- bug; insect -->
 		<annotation cp='[🐛]' tts='bug'>insect</annotation>
+
+		<!-- ant; insect -->
 		<annotation cp='[🐜]' tts='ant'>insect</annotation>
+
+		<!-- honeybee; bee; insect -->
 		<annotation cp='[🐝]' tts='honeybee'>bee; insect</annotation>
+
+		<!-- lady beetle; beetle; insect; ladybird; ladybug -->
 		<annotation cp='[🐞]' tts='lady beetle'>beetle; insect; ladybird; ladybug</annotation>
+
+		<!-- spider; insect -->
 		<annotation cp='[🕷]' tts='spider'>insect</annotation>
+
+		<!-- spider web; spider; web -->
 		<annotation cp='[🕸]' tts='spider web'>spider; web</annotation>
+
+		<!-- scorpion; scorpio; scorpius; zodiac -->
 		<annotation cp='[🦂]' tts='scorpion'>scorpio; scorpius; zodiac</annotation>
+
+		<!-- bouquet; flower; plant; romance -->
 		<annotation cp='[💐]' tts='bouquet'>flower; plant; romance</annotation>
+
+		<!-- cherry blossom; blossom; cherry; flower; plant -->
 		<annotation cp='[🌸]' tts='cherry blossom'>blossom; cherry; flower; plant</annotation>
+
+		<!-- white flower; flower -->
 		<annotation cp='[💮]' tts='white flower'>flower</annotation>
+
+		<!-- rosette; plant -->
 		<annotation cp='[🏵]' tts='rosette'>plant</annotation>
+
+		<!-- rose; flower; plant -->
 		<annotation cp='[🌹]' tts='rose'>flower; plant</annotation>
+
+		<!-- hibiscus; flower; plant -->
 		<annotation cp='[🌺]' tts='hibiscus'>flower; plant</annotation>
+
+		<!-- sunflower; flower; plant; sun -->
 		<annotation cp='[🌻]' tts='sunflower'>flower; plant; sun</annotation>
+
+		<!-- blossom; flower; plant -->
 		<annotation cp='[🌼]' tts='blossom'>flower; plant</annotation>
+
+		<!-- tulip; flower; plant -->
 		<annotation cp='[🌷]' tts='tulip'>flower; plant</annotation>
+
+		<!-- seedling; plant; young -->
 		<annotation cp='[🌱]' tts='seedling'>plant; young</annotation>
+
+		<!-- evergreen; plant; tree -->
 		<annotation cp='[🌲]' tts='evergreen'>plant; tree</annotation>
+
+		<!-- deciduous tree; deciduous; plant; shedding; tree -->
 		<annotation cp='[🌳]' tts='deciduous tree'>deciduous; plant; shedding; tree</annotation>
+
+		<!-- palm tree; palm; plant; tree -->
 		<annotation cp='[🌴]' tts='palm tree'>palm; plant; tree</annotation>
+
+		<!-- cactus; plant -->
 		<annotation cp='[🌵]' tts='cactus'>plant</annotation>
+
+		<!-- sheaf of rice; ear; plant; rice -->
 		<annotation cp='[🌾]' tts='sheaf of rice'>ear; plant; rice</annotation>
+
+		<!-- herb; leaf; plant -->
 		<annotation cp='[🌿]' tts='herb'>leaf; plant</annotation>
+
+		<!-- shamrock; plant -->
 		<annotation cp='[☘]' tts='shamrock'>plant</annotation>
+
+		<!-- four leaf clover; 4; clover; four; leaf; plant -->
 		<annotation cp='[🍀]' tts='four leaf clover'>4; clover; four; leaf; plant</annotation>
+
+		<!-- maple leaf; falling; leaf; maple; plant -->
 		<annotation cp='[🍁]' tts='maple leaf'>falling; leaf; maple; plant</annotation>
+
+		<!-- fallen leaf; falling; leaf; plant -->
 		<annotation cp='[🍂]' tts='fallen leaf'>falling; leaf; plant</annotation>
+
+		<!-- leaf fluttering in wind; blow; flutter; leaf; plant; wind -->
 		<annotation cp='[🍃]' tts='leaf fluttering in wind'>blow; flutter; leaf; plant; wind</annotation>
+
+		<!-- grapes; fruit; grape; plant -->
 		<annotation cp='[🍇]' tts='grapes'>fruit; grape; plant</annotation>
+
+		<!-- melon; fruit; plant -->
 		<annotation cp='[🍈]' tts='melon'>fruit; plant</annotation>
+
+		<!-- watermelon; fruit; plant -->
 		<annotation cp='[🍉]' tts='watermelon'>fruit; plant</annotation>
+
+		<!-- tangerine; fruit; orange; plant -->
 		<annotation cp='[🍊]' tts='tangerine'>fruit; orange; plant</annotation>
+
+		<!-- lemon; citrus; fruit; plant -->
 		<annotation cp='[🍋]' tts='lemon'>citrus; fruit; plant</annotation>
+
+		<!-- banana; fruit; plant -->
 		<annotation cp='[🍌]' tts='banana'>fruit; plant</annotation>
+
+		<!-- pineapple; fruit; plant -->
 		<annotation cp='[🍍]' tts='pineapple'>fruit; plant</annotation>
+
+		<!-- red apple; apple; fruit; plant; red -->
 		<annotation cp='[🍎]' tts='red apple'>apple; fruit; plant; red</annotation>
+
+		<!-- green apple; apple; fruit; green; plant -->
 		<annotation cp='[🍏]' tts='green apple'>apple; fruit; green; plant</annotation>
+
+		<!-- pear; fruit; plant -->
 		<annotation cp='[🍐]' tts='pear'>fruit; plant</annotation>
+
+		<!-- peach; fruit; plant -->
 		<annotation cp='[🍑]' tts='peach'>fruit; plant</annotation>
+
+		<!-- cherries; cherry; fruit; plant -->
 		<annotation cp='[🍒]' tts='cherries'>cherry; fruit; plant</annotation>
+
+		<!-- strawberry; berry; fruit; plant -->
 		<annotation cp='[🍓]' tts='strawberry'>berry; fruit; plant</annotation>
+
+		<!-- tomato; plant; vegetable -->
 		<annotation cp='[🍅]' tts='tomato'>plant; vegetable</annotation>
-		<annotation cp='[🍆]' tts='eggplant'>aubergine; plant; vegetable</annotation>
+
+		<!-- eggplant; aubergine; plant; vegetable -->
+		<annotation cp='[🍆]' tts='aubergine'>aubergine; plant; vegetable</annotation>
+
+		<!-- ear of corn; corn; ear; maize; maze; plant -->
 		<annotation cp='[🌽]' tts='ear of corn'>corn; ear; maize; maze; plant</annotation>
+
+		<!-- hot pepper; hot; pepper; plant -->
 		<annotation cp='[🌶]' tts='hot pepper'>hot; pepper; plant</annotation>
+
+		<!-- mushroom; plant -->
 		<annotation cp='[🍄]' tts='mushroom'>plant</annotation>
+
+		<!-- chestnut; plant -->
 		<annotation cp='[🌰]' tts='chestnut'>plant</annotation>
+
+		<!-- bread; loaf -->
 		<annotation cp='[🍞]' tts='bread'>loaf</annotation>
+
+		<!-- cheese wedge; cheese -->
 		<annotation cp='[🧀]' tts='cheese wedge'>cheese</annotation>
+
+		<!-- meat on bone; bone; meat -->
 		<annotation cp='[🍖]' tts='meat on bone'>bone; meat</annotation>
+
+		<!-- poultry leg; bone; chicken; leg; poultry -->
 		<annotation cp='[🍗]' tts='poultry leg'>bone; chicken; leg; poultry</annotation>
+
+		<!-- hamburger; burger -->
 		<annotation cp='[🍔]' tts='hamburger'>burger</annotation>
+
+		<!-- french fries; french; fries -->
 		<annotation cp='[🍟]' tts='french fries'>french; fries</annotation>
+
+		<!-- pizza; cheese; slice -->
 		<annotation cp='[🍕]' tts='pizza'>cheese; slice</annotation>
+
+		<!-- hot dog; frankfurter; hotdog; sausage -->
 		<annotation cp='[🌭]' tts='hot dog'>frankfurter; hotdog; sausage</annotation>
+
+		<!-- taco; mexican -->
 		<annotation cp='[🌮]' tts='taco'>mexican</annotation>
+
+		<!-- burrito; mexican -->
 		<annotation cp='[🌯]' tts='burrito'>mexican</annotation>
+
+		<!-- popcorn -->
 		<annotation cp='[🍿]' tts='popcorn'>popcorn</annotation>
+
+		<!-- pot of food; pot; stew -->
 		<annotation cp='[🍲]' tts='pot of food'>pot; stew</annotation>
+
+		<!-- bento box; bento; box -->
 		<annotation cp='[🍱]' tts='bento box'>bento; box</annotation>
+
+		<!-- rice cracker; cracker; rice -->
 		<annotation cp='[🍘]' tts='rice cracker'>cracker; rice</annotation>
+
+		<!-- rice ball; ball; japanese; rice -->
 		<annotation cp='[🍙]' tts='rice ball'>ball; japanese; rice</annotation>
+
+		<!-- cooked rice; cooked; rice -->
 		<annotation cp='[🍚]' tts='cooked rice'>cooked; rice</annotation>
+
+		<!-- curry rice; curry; rice -->
 		<annotation cp='[🍛]' tts='curry rice'>curry; rice</annotation>
+
+		<!-- steaming bowl; bowl; noodle; ramen; steaming -->
 		<annotation cp='[🍜]' tts='steaming bowl'>bowl; noodle; ramen; steaming</annotation>
+
+		<!-- spaghetti; pasta -->
 		<annotation cp='[🍝]' tts='spaghetti'>pasta</annotation>
+
+		<!-- roasted sweet potato; potato; roasted; sweet -->
 		<annotation cp='[🍠]' tts='roasted sweet potato'>potato; roasted; sweet</annotation>
+
+		<!-- oden; kebab; seafood; skewer; stick -->
 		<annotation cp='[🍢]' tts='oden'>kebab; seafood; skewer; stick</annotation>
+
+		<!-- sushi -->
 		<annotation cp='[🍣]' tts='sushi'>sushi</annotation>
+
+		<!-- fried shrimp; fried; prawn; shrimp; tempura -->
 		<annotation cp='[🍤]' tts='fried shrimp'>fried; prawn; shrimp; tempura</annotation>
+
+		<!-- fish cake with swirl; cake; fish; pastry; swirl -->
 		<annotation cp='[🍥]' tts='fish cake with swirl'>cake; fish; pastry; swirl</annotation>
+
+		<!-- dango; dessert; japanese; skewer; stick; sweet -->
 		<annotation cp='[🍡]' tts='dango'>dessert; japanese; skewer; stick; sweet</annotation>
+
+		<!-- soft ice cream; cream; dessert; ice; icecream; soft; sweet -->
 		<annotation cp='[🍦]' tts='soft ice cream'>cream; dessert; ice; icecream; soft; sweet</annotation>
+
+		<!-- shaved ice; dessert; ice; shaved; sweet -->
 		<annotation cp='[🍧]' tts='shaved ice'>dessert; ice; shaved; sweet</annotation>
+
+		<!-- ice cream; cream; dessert; ice; sweet -->
 		<annotation cp='[🍨]' tts='ice cream'>cream; dessert; ice; sweet</annotation>
+
+		<!-- doughnut; dessert; donut; sweet -->
 		<annotation cp='[🍩]' tts='doughnut'>dessert; donut; sweet</annotation>
+
+		<!-- cookie; dessert; sweet -->
 		<annotation cp='[🍪]' tts='cookie'>dessert; sweet</annotation>
+
+		<!-- birthday cake; birthday; cake; celebration; dessert; pastry; sweet -->
 		<annotation cp='[🎂]' tts='birthday cake'>birthday; cake; celebration; dessert; pastry; sweet</annotation>
+
+		<!-- shortcake; cake; dessert; pastry; slice; sweet -->
 		<annotation cp='[🍰]' tts='shortcake'>cake; dessert; pastry; slice; sweet</annotation>
+
+		<!-- chocolate bar; bar; chocolate; dessert; sweet -->
 		<annotation cp='[🍫]' tts='chocolate bar'>bar; chocolate; dessert; sweet</annotation>
+
+		<!-- candy; dessert; sweet -->
 		<annotation cp='[🍬]' tts='candy'>dessert; sweet</annotation>
+
+		<!-- lollipop; candy; dessert; sweet -->
 		<annotation cp='[🍭]' tts='lollipop'>candy; dessert; sweet</annotation>
+
+		<!-- custard; dessert; pudding; sweet -->
 		<annotation cp='[🍮]' tts='custard'>dessert; pudding; sweet</annotation>
+
+		<!-- honey pot; honey; honeypot; pot; sweet -->
 		<annotation cp='[🍯]' tts='honey pot'>honey; honeypot; pot; sweet</annotation>
+
+		<!-- baby bottle; baby; bottle; drink; milk -->
 		<annotation cp='[🍼]' tts='baby bottle'>baby; bottle; drink; milk</annotation>
+
+		<!-- hot beverage; beverage; coffee; drink; hot; steaming; tea -->
 		<annotation cp='[☕]' tts='hot beverage'>beverage; coffee; drink; hot; steaming; tea</annotation>
+
+		<!-- teacup without handle; beverage; cup; drink; tea; teacup -->
 		<annotation cp='[🍵]' tts='teacup without handle'>beverage; cup; drink; tea; teacup</annotation>
+
+		<!-- sake; bar; beverage; bottle; cup; drink -->
 		<annotation cp='[🍶]' tts='sake'>bar; beverage; bottle; cup; drink</annotation>
+
+		<!-- bottle with popping cork; bar; bottle; cork; drink; popping -->
 		<annotation cp='[🍾]' tts='bottle with popping cork'>bar; bottle; cork; drink; popping</annotation>
+
+		<!-- wine glass; bar; beverage; drink; glass; wine -->
 		<annotation cp='[🍷]' tts='wine glass'>bar; beverage; drink; glass; wine</annotation>
+
+		<!-- cocktail glass; bar; cocktail; drink; glass -->
 		<annotation cp='[🍸]' tts='cocktail glass'>bar; cocktail; drink; glass</annotation>
+
+		<!-- tropical drink; bar; drink; tropical -->
 		<annotation cp='[🍹]' tts='tropical drink'>bar; drink; tropical</annotation>
+
+		<!-- beer mug; bar; beer; drink; mug -->
 		<annotation cp='[🍺]' tts='beer mug'>bar; beer; drink; mug</annotation>
+
+		<!-- clinking beer mugs; bar; beer; clink; drink; mug -->
 		<annotation cp='[🍻]' tts='clinking beer mugs'>bar; beer; clink; drink; mug</annotation>
+
+		<!-- fork and knife with plate; cooking; fork; knife; plate -->
 		<annotation cp='[🍽]' tts='fork and knife with plate'>cooking; fork; knife; plate</annotation>
+
+		<!-- fork and knife; cooking; fork; knife -->
 		<annotation cp='[🍴]' tts='fork and knife'>cooking; fork; knife</annotation>
+
+		<!-- cooking; egg; frying; pan -->
 		<annotation cp='[🍳]' tts='cooking'>egg; frying; pan</annotation>
+
+		<!-- amphora; aquarius; cooking; drink; jug; tool; weapon; zodiac -->
 		<annotation cp='[🏺]' tts='amphora'>aquarius; cooking; drink; jug; tool; weapon; zodiac</annotation>
+
+		<!-- globe showing europe-africa; africa; earth; europe; globe; world -->
 		<annotation cp='[🌍]' tts='globe showing europe-africa'>africa; earth; europe; globe; world</annotation>
+
+		<!-- globe showing americas; americas; earth; globe; world -->
 		<annotation cp='[🌎]' tts='globe showing americas'>americas; earth; globe; world</annotation>
+
+		<!-- globe showing asia-australia; asia; australia; earth; globe; world -->
 		<annotation cp='[🌏]' tts='globe showing asia-australia'>asia; australia; earth; globe; world</annotation>
+
+		<!-- globe with meridians; earth; globe; meridians; world -->
 		<annotation cp='[🌐]' tts='globe with meridians'>earth; globe; meridians; world</annotation>
+
+		<!-- world map; map; world -->
 		<annotation cp='[🗺]' tts='world map'>map; world</annotation>
+
+		<!-- snow-capped mountain; cold; mountain; snow -->
 		<annotation cp='[🏔]' tts='snow-capped mountain'>cold; mountain; snow</annotation>
+
+		<!-- mountain -->
 		<annotation cp='[⛰]' tts='mountain'>mountain</annotation>
+
+		<!-- volcano; eruption; mountain; weather -->
 		<annotation cp='[🌋]' tts='volcano'>eruption; mountain; weather</annotation>
+
+		<!-- mount fuji; fuji; mountain -->
 		<annotation cp='[🗻]' tts='mount fuji'>fuji; mountain</annotation>
+
+		<!-- camping -->
 		<annotation cp='[🏕]' tts='camping'>camping</annotation>
+
+		<!-- beach with umbrella; beach; umbrella -->
 		<annotation cp='[🏖]' tts='beach with umbrella'>beach; umbrella</annotation>
+
+		<!-- desert -->
 		<annotation cp='[🏜]' tts='desert'>desert</annotation>
+
+		<!-- desert island; desert; island -->
 		<annotation cp='[🏝]' tts='desert island'>desert; island</annotation>
+
+		<!-- national park; park -->
 		<annotation cp='[🏞]' tts='national park'>park</annotation>
+
+		<!-- stadium -->
 		<annotation cp='[🏟]' tts='stadium'>stadium</annotation>
+
+		<!-- classical building; building; classical -->
 		<annotation cp='[🏛]' tts='classical building'>building; classical</annotation>
+
+		<!-- building construction; building; construction -->
 		<annotation cp='[🏗]' tts='building construction'>building; construction</annotation>
+
+		<!-- house buildings; building; house -->
 		<annotation cp='[🏘]' tts='house buildings'>building; house</annotation>
+
+		<!-- cityscape; building; city -->
 		<annotation cp='[🏙]' tts='cityscape'>building; city</annotation>
+
+		<!-- derelict house building; building; derelict; house -->
 		<annotation cp='[🏚]' tts='derelict house building'>building; derelict; house</annotation>
+
+		<!-- house building; building; home; house -->
 		<annotation cp='[🏠]' tts='house building'>building; home; house</annotation>
+
+		<!-- house with garden; building; garden; home; house -->
 		<annotation cp='[🏡]' tts='house with garden'>building; garden; home; house</annotation>
+
+		<!-- church; building; christian; cross; religion -->
 		<annotation cp='[⛪]' tts='church'>building; christian; cross; religion</annotation>
+
+		<!-- kaaba; islam; muslim; religion -->
 		<annotation cp='[🕋]' tts='kaaba'>islam; muslim; religion</annotation>
+
+		<!-- mosque; islam; muslim; religion -->
 		<annotation cp='[🕌]' tts='mosque'>islam; muslim; religion</annotation>
+
+		<!-- synagogue; jew; jewish; religion; temple -->
 		<annotation cp='[🕍]' tts='synagogue'>jew; jewish; religion; temple</annotation>
+
+		<!-- shinto shrine; religion; shinto; shrine -->
 		<annotation cp='[⛩]' tts='shinto shrine'>religion; shinto; shrine</annotation>
+
+		<!-- office building; building -->
 		<annotation cp='[🏢]' tts='office building'>building</annotation>
+
+		<!-- japanese post office; building; japanese; post -->
 		<annotation cp='[🏣]' tts='japanese post office'>building; japanese; post</annotation>
+
+		<!-- post office; building; european; post -->
 		<annotation cp='[🏤]' tts='post office'>building; european; post</annotation>
+
+		<!-- hospital; building; doctor; medicine -->
 		<annotation cp='[🏥]' tts='hospital'>building; doctor; medicine</annotation>
+
+		<!-- bank; building -->
 		<annotation cp='[🏦]' tts='bank'>building</annotation>
+
+		<!-- hotel; building -->
 		<annotation cp='[🏨]' tts='hotel'>building</annotation>
+
+		<!-- love hotel; building; hotel; love -->
 		<annotation cp='[🏩]' tts='love hotel'>building; hotel; love</annotation>
+
+		<!-- convenience store; building; convenience; store -->
 		<annotation cp='[🏪]' tts='convenience store'>building; convenience; store</annotation>
+
+		<!-- school; building -->
 		<annotation cp='[🏫]' tts='school'>building</annotation>
+
+		<!-- department store; building; department; store -->
 		<annotation cp='[🏬]' tts='department store'>building; department; store</annotation>
+
+		<!-- factory; building -->
 		<annotation cp='[🏭]' tts='factory'>building</annotation>
+
+		<!-- japanese castle; building; castle; japanese -->
 		<annotation cp='[🏯]' tts='japanese castle'>building; castle; japanese</annotation>
+
+		<!-- castle; building; european -->
 		<annotation cp='[🏰]' tts='castle'>building; european</annotation>
+
+		<!-- wedding; chapel; romance -->
 		<annotation cp='[💒]' tts='wedding'>chapel; romance</annotation>
+
+		<!-- tokyo tower; tokyo; tower -->
 		<annotation cp='[🗼]' tts='tokyo tower'>tokyo; tower</annotation>
+
+		<!-- statue of liberty; liberty; statue -->
 		<annotation cp='[🗽]' tts='statue of liberty'>liberty; statue</annotation>
+
+		<!-- map of japan; japan; map -->
 		<annotation cp='[🗾]' tts='map of japan'>japan; map</annotation>
+
+		<!-- fountain -->
 		<annotation cp='[⛲]' tts='fountain'>fountain</annotation>
+
+		<!-- tent; camping -->
 		<annotation cp='[⛺]' tts='tent'>camping</annotation>
+
+		<!-- foggy; fog; weather -->
 		<annotation cp='[🌁]' tts='foggy'>fog; weather</annotation>
+
+		<!-- night with stars; night; star; weather -->
 		<annotation cp='[🌃]' tts='night with stars'>night; star; weather</annotation>
+
+		<!-- sunrise over mountains; morning; mountain; sun; sunrise; weather -->
 		<annotation cp='[🌄]' tts='sunrise over mountains'>morning; mountain; sun; sunrise; weather</annotation>
+
+		<!-- sunrise; morning; sun; weather -->
 		<annotation cp='[🌅]' tts='sunrise'>morning; sun; weather</annotation>
+
+		<!-- cityscape at dusk; building; city; dusk; evening; landscape; sun; sunset; weather -->
 		<annotation cp='[🌆]' tts='cityscape at dusk'>building; city; dusk; evening; landscape; sun; sunset; weather</annotation>
+
+		<!-- sunset; building; dusk; sun; weather -->
 		<annotation cp='[🌇]' tts='sunset'>building; dusk; sun; weather</annotation>
+
+		<!-- bridge at night; bridge; night; weather -->
 		<annotation cp='[🌉]' tts='bridge at night'>bridge; night; weather</annotation>
+
+		<!-- hot springs; hot; hotsprings; springs; steaming -->
 		<annotation cp='[♨]' tts='hot springs'>hot; hotsprings; springs; steaming</annotation>
+
+		<!-- milky way; space; weather -->
 		<annotation cp='[🌌]' tts='milky way'>space; weather</annotation>
+
+		<!-- carousel horse; carousel; horse -->
 		<annotation cp='[🎠]' tts='carousel horse'>carousel; horse</annotation>
+
+		<!-- ferris wheel; amusement park; ferris; wheel -->
 		<annotation cp='[🎡]' tts='ferris wheel'>amusement park; ferris; wheel</annotation>
+
+		<!-- roller coaster; amusement park; coaster; roller -->
 		<annotation cp='[🎢]' tts='roller coaster'>amusement park; coaster; roller</annotation>
+
+		<!-- barber pole; barber; haircut; pole -->
 		<annotation cp='[💈]' tts='barber pole'>barber; haircut; pole</annotation>
+
+		<!-- circus tent; circus; tent -->
 		<annotation cp='[🎪]' tts='circus tent'>circus; tent</annotation>
+
+		<!-- performing arts; art; mask; performing; theater; theatre -->
 		<annotation cp='[🎭]' tts='performing arts'>art; mask; performing; theater; theatre</annotation>
+
+		<!-- frame with picture; art; frame; museum; painting; picture -->
 		<annotation cp='[🖼]' tts='frame with picture'>art; frame; museum; painting; picture</annotation>
+
+		<!-- artist palette; art; museum; painting; palette -->
 		<annotation cp='[🎨]' tts='artist palette'>art; museum; painting; palette</annotation>
+
+		<!-- slot machine; game; slot -->
 		<annotation cp='[🎰]' tts='slot machine'>game; slot</annotation>
+
+		<!-- locomotive; engine; railway; steam; train; vehicle -->
 		<annotation cp='[🚂]' tts='locomotive'>engine; railway; steam; train; vehicle</annotation>
+
+		<!-- railway car; car; electric; railway; train; tram; trolleybus; vehicle -->
 		<annotation cp='[🚃]' tts='railway car'>car; electric; railway; train; tram; trolleybus; vehicle</annotation>
+
+		<!-- high-speed train; railway; shinkansen; speed; train; vehicle -->
 		<annotation cp='[🚄]' tts='high-speed train'>railway; shinkansen; speed; train; vehicle</annotation>
+
+		<!-- high-speed train with bullet nose; bullet; railway; shinkansen; speed; train; vehicle -->
 		<annotation cp='[🚅]' tts='high-speed train with bullet nose'>bullet; railway; shinkansen; speed; train; vehicle</annotation>
+
+		<!-- train; railway; vehicle -->
 		<annotation cp='[🚆]' tts='train'>railway; vehicle</annotation>
+
+		<!-- metro; subway; vehicle -->
 		<annotation cp='[🚇]' tts='metro'>subway; vehicle</annotation>
+
+		<!-- light rail; railway; vehicle -->
 		<annotation cp='[🚈]' tts='light rail'>railway; vehicle</annotation>
+
+		<!-- station; railway; train; vehicle -->
 		<annotation cp='[🚉]' tts='station'>railway; train; vehicle</annotation>
+
+		<!-- tram; trolleybus; vehicle -->
 		<annotation cp='[🚊]' tts='tram'>trolleybus; vehicle</annotation>
+
+		<!-- monorail; vehicle -->
 		<annotation cp='[🚝]' tts='monorail'>vehicle</annotation>
+
+		<!-- mountain railway; car; mountain; railway; vehicle -->
 		<annotation cp='[🚞]' tts='mountain railway'>car; mountain; railway; vehicle</annotation>
+
+		<!-- tram car; car; tram; trolleybus; vehicle -->
 		<annotation cp='[🚋]' tts='tram car'>car; tram; trolleybus; vehicle</annotation>
+
+		<!-- bus; vehicle -->
 		<annotation cp='[🚌]' tts='bus'>vehicle</annotation>
+
+		<!-- oncoming bus; bus; oncoming; vehicle -->
 		<annotation cp='[🚍]' tts='oncoming bus'>bus; oncoming; vehicle</annotation>
+
+		<!-- trolleybus; bus; tram; trolley; vehicle -->
 		<annotation cp='[🚎]' tts='trolleybus'>bus; tram; trolley; vehicle</annotation>
+
+		<!-- bus stop; bus; busstop; stop -->
 		<annotation cp='[🚏]' tts='bus stop'>bus; busstop; stop</annotation>
+
+		<!-- minibus; bus; vehicle -->
 		<annotation cp='[🚐]' tts='minibus'>bus; vehicle</annotation>
+
+		<!-- ambulance; vehicle -->
 		<annotation cp='[🚑]' tts='ambulance'>vehicle</annotation>
+
+		<!-- fire engine; engine; fire; truck; vehicle -->
 		<annotation cp='[🚒]' tts='fire engine'>engine; fire; truck; vehicle</annotation>
+
+		<!-- police car; car; patrol; police; vehicle -->
 		<annotation cp='[🚓]' tts='police car'>car; patrol; police; vehicle</annotation>
+
+		<!-- oncoming police car; car; oncoming; police; vehicle -->
 		<annotation cp='[🚔]' tts='oncoming police car'>car; oncoming; police; vehicle</annotation>
+
+		<!-- taxi; vehicle -->
 		<annotation cp='[🚕]' tts='taxi'>vehicle</annotation>
+
+		<!-- oncoming taxi; oncoming; taxi; vehicle -->
 		<annotation cp='[🚖]' tts='oncoming taxi'>oncoming; taxi; vehicle</annotation>
+
+		<!-- automobile; car; vehicle -->
 		<annotation cp='[🚗]' tts='automobile'>car; vehicle</annotation>
+
+		<!-- oncoming automobile; automobile; car; oncoming; vehicle -->
 		<annotation cp='[🚘]' tts='oncoming automobile'>automobile; car; oncoming; vehicle</annotation>
+
+		<!-- recreational vehicle; recreational; rv; vehicle -->
 		<annotation cp='[🚙]' tts='recreational vehicle'>recreational; rv; vehicle</annotation>
+
+		<!-- delivery truck; delivery; truck; vehicle -->
 		<annotation cp='[🚚]' tts='delivery truck'>delivery; truck; vehicle</annotation>
+
+		<!-- articulated lorry; lorry; semi; truck; vehicle -->
 		<annotation cp='[🚛]' tts='articulated lorry'>lorry; semi; truck; vehicle</annotation>
+
+		<!-- tractor; vehicle -->
 		<annotation cp='[🚜]' tts='tractor'>vehicle</annotation>
+
+		<!-- bicycle; bike; vehicle -->
 		<annotation cp='[🚲]' tts='bicycle'>bike; vehicle</annotation>
+
+		<!-- fuel pump; fuel; fuelpump; gas; pump; station -->
 		<annotation cp='[⛽]' tts='fuel pump'>fuel; fuelpump; gas; pump; station</annotation>
+
+		<!-- motorway; highway; road -->
 		<annotation cp='[🛣]' tts='motorway'>highway; road</annotation>
+
+		<!-- railway track; railway; train -->
 		<annotation cp='[🛤]' tts='railway track'>railway; train</annotation>
+
+		<!-- police car’s light; beacon; car; light; police; revolving; vehicle -->
 		<annotation cp='[🚨]' tts='police car’s light'>beacon; car; light; police; revolving; vehicle</annotation>
+
+		<!-- horizontal traffic light; light; signal; traffic -->
 		<annotation cp='[🚥]' tts='horizontal traffic light'>light; signal; traffic</annotation>
+
+		<!-- vertical traffic light; light; signal; traffic -->
 		<annotation cp='[🚦]' tts='vertical traffic light'>light; signal; traffic</annotation>
+
+		<!-- construction; barrier -->
 		<annotation cp='[🚧]' tts='construction'>barrier</annotation>
+
+		<!-- anchor; ship; tool -->
 		<annotation cp='[⚓]' tts='anchor'>ship; tool</annotation>
-		<annotation cp='[⛵]' tts='sailboat'>boat; resort; sea; vehicle; yacht</annotation>
-		<annotation cp='[🚣]' tts='rowboat'>boat; vehicle</annotation>
-		<annotation cp='[🚤]' tts='speedboat'>boat; vehicle</annotation>
+
+		<!-- sailboat; boat; resort; sea; vehicle; yacht -->
+		<annotation cp='[⛵]' tts='sailing boat'>boat; resort; sea; vehicle; yacht</annotation>
+
+		<!-- rowboat; boat; vehicle -->
+		<annotation cp='[🚣]' tts='rowing boat'>boat; vehicle</annotation>
+
+		<!-- speedboat; boat; vehicle -->
+		<annotation cp='[🚤]' tts='speed boat'>boat; vehicle</annotation>
+
+		<!-- passenger ship; passenger; ship; vehicle -->
 		<annotation cp='[🛳]' tts='passenger ship'>passenger; ship; vehicle</annotation>
+
+		<!-- ferry; boat -->
 		<annotation cp='[⛴]' tts='ferry'>boat</annotation>
+
+		<!-- motor boat; boat; motorboat; vehicle -->
 		<annotation cp='[🛥]' tts='motor boat'>boat; motorboat; vehicle</annotation>
+
+		<!-- ship; vehicle -->
 		<annotation cp='[🚢]' tts='ship'>vehicle</annotation>
+
+		<!-- airplane; vehicle -->
 		<annotation cp='[✈]' tts='airplane'>vehicle</annotation>
+
+		<!-- small airplane; airplane; vehicle -->
 		<annotation cp='[🛩]' tts='small airplane'>airplane; vehicle</annotation>
-		<annotation cp='[🛫]' tts='airplane departure'>airplane; check-in; departure; departures; vehicle</annotation>
-		<annotation cp='[🛬]' tts='airplane arrival'>airplane; arrivals; arriving; landing; vehicle</annotation>
+
+		<!-- airplane departure; airplane; check-in; departure; departures; vehicle -->
+		<annotation cp='[🛫]' tts='aeroplane departure'>airplane; check-in; departure; departures; vehicle</annotation>
+
+		<!-- airplane arrival; airplane; arrivals; arriving; landing; vehicle -->
+		<annotation cp='[🛬]' tts='aeroplane arrival'>airplane; arrivals; arriving; landing; vehicle</annotation>
+
+		<!-- seat; chair -->
 		<annotation cp='[💺]' tts='seat'>chair</annotation>
+
+		<!-- helicopter; vehicle -->
 		<annotation cp='[🚁]' tts='helicopter'>vehicle</annotation>
+
+		<!-- suspension railway; railway; suspension; vehicle -->
 		<annotation cp='[🚟]' tts='suspension railway'>railway; suspension; vehicle</annotation>
-		<annotation cp='[🚠]' tts='mountain cableway'>cable; gondola; mountain; vehicle</annotation>
-		<annotation cp='[🚡]' tts='aerial tramway'>aerial; cable; car; gondola; ropeway; tramway; vehicle</annotation>
+
+		<!-- mountain cableway; cable; gondola; mountain; vehicle -->
+		<annotation cp='[🚠]' tts='mountain cable car'>cable; gondola; mountain; vehicle</annotation>
+
+		<!-- aerial tramway; aerial; cable; car; gondola; ropeway; tramway; vehicle -->
+		<annotation cp='[🚡]' tts='gondola'>aerial; cable; car; gondola; ropeway; tramway; vehicle</annotation>
+
+		<!-- rocket; space; vehicle -->
 		<annotation cp='[🚀]' tts='rocket'>space; vehicle</annotation>
+
+		<!-- satellite; space; vehicle -->
 		<annotation cp='[🛰]' tts='satellite'>space; vehicle</annotation>
-		<annotation cp='[🛎]' tts='bellhop bell'>bell; bellhop; hotel</annotation>
+
+		<!-- bellhop bell; bell; bellhop; hotel -->
+		<annotation cp='[🛎]' tts='hotel bell'>bell; bellhop; hotel</annotation>
+
+		<!-- door -->
 		<annotation cp='[🚪]' tts='door'>door</annotation>
+
+		<!-- person in bed; hotel; sleep -->
 		<annotation cp='[🛌]' tts='person in bed'>hotel; sleep</annotation>
+
+		<!-- bed; hotel; sleep -->
 		<annotation cp='[🛏]' tts='bed'>hotel; sleep</annotation>
-		<annotation cp='[🛋]' tts='couch and lamp'>couch; hotel; lamp</annotation>
+
+		<!-- couch and lamp; couch; hotel; lamp -->
+		<annotation cp='[🛋]' tts='sofa and lamp'>couch; hotel; lamp</annotation>
+
+		<!-- toilet -->
 		<annotation cp='[🚽]' tts='toilet'>toilet</annotation>
+
+		<!-- shower; water -->
 		<annotation cp='[🚿]' tts='shower'>water</annotation>
+
+		<!-- person taking bath; bathtub; bath -->
 		<annotation cp='[🛀]' tts='person taking bath'>bathtub; bath</annotation>
+
+		<!-- bathtub; bath -->
 		<annotation cp='[🛁]' tts='bathtub'>bath</annotation>
+
+		<!-- hourglass; sand; timer -->
 		<annotation cp='[⌛]' tts='hourglass'>sand; timer</annotation>
+
+		<!-- hourglass with flowing sand; hourglass; sand; timer -->
 		<annotation cp='[⏳]' tts='hourglass with flowing sand'>hourglass; sand; timer</annotation>
+
+		<!-- watch; clock -->
 		<annotation cp='[⌚]' tts='watch'>clock</annotation>
+
+		<!-- alarm clock; alarm; clock -->
 		<annotation cp='[⏰]' tts='alarm clock'>alarm; clock</annotation>
+
+		<!-- stopwatch; clock -->
 		<annotation cp='[⏱]' tts='stopwatch'>clock</annotation>
+
+		<!-- timer clock; clock; timer -->
 		<annotation cp='[⏲]' tts='timer clock'>clock; timer</annotation>
+
+		<!-- mantelpiece clock; clock -->
 		<annotation cp='[🕰]' tts='mantelpiece clock'>clock</annotation>
+
+		<!-- twelve o’clock; 00; 12; 12:00; clock; o’clock; twelve -->
 		<annotation cp='[🕛]' tts='twelve o’clock'>00; 12; 12:00; clock; o’clock; twelve</annotation>
+
+		<!-- twelve-thirty; 12; 12:30; 30; clock; thirty; twelve -->
 		<annotation cp='[🕧]' tts='twelve-thirty'>12; 12:30; 30; clock; thirty; twelve</annotation>
+
+		<!-- one o’clock; 00; 1; 1:00; clock; o’clock; one -->
 		<annotation cp='[🕐]' tts='one o’clock'>00; 1; 1:00; clock; o’clock; one</annotation>
+
+		<!-- one-thirty; 1; 1:30; 30; clock; one; thirty -->
 		<annotation cp='[🕜]' tts='one-thirty'>1; 1:30; 30; clock; one; thirty</annotation>
+
+		<!-- two o’clock; 00; 2; 2:00; clock; o’clock; two -->
 		<annotation cp='[🕑]' tts='two o’clock'>00; 2; 2:00; clock; o’clock; two</annotation>
+
+		<!-- two-thirty; 2; 2:30; 30; clock; thirty; two -->
 		<annotation cp='[🕝]' tts='two-thirty'>2; 2:30; 30; clock; thirty; two</annotation>
+
+		<!-- three o’clock; 00; 3; 3:00; clock; o’clock; three -->
 		<annotation cp='[🕒]' tts='three o’clock'>00; 3; 3:00; clock; o’clock; three</annotation>
+
+		<!-- three-thirty; 3; 3:30; 30; clock; thirty; three -->
 		<annotation cp='[🕞]' tts='three-thirty'>3; 3:30; 30; clock; thirty; three</annotation>
+
+		<!-- four o’clock; 00; 4; 4:00; clock; four; o’clock -->
 		<annotation cp='[🕓]' tts='four o’clock'>00; 4; 4:00; clock; four; o’clock</annotation>
+
+		<!-- four-thirty; 30; 4; 4:30; clock; four; thirty -->
 		<annotation cp='[🕟]' tts='four-thirty'>30; 4; 4:30; clock; four; thirty</annotation>
+
+		<!-- five o’clock; 00; 5; 5:00; clock; five; o’clock -->
 		<annotation cp='[🕔]' tts='five o’clock'>00; 5; 5:00; clock; five; o’clock</annotation>
+
+		<!-- five-thirty; 30; 5; 5:30; clock; five; thirty -->
 		<annotation cp='[🕠]' tts='five-thirty'>30; 5; 5:30; clock; five; thirty</annotation>
+
+		<!-- six o’clock; 00; 6; 6:00; clock; o’clock; six -->
 		<annotation cp='[🕕]' tts='six o’clock'>00; 6; 6:00; clock; o’clock; six</annotation>
+
+		<!-- six-thirty; 30; 6; 6:30; clock; six; thirty -->
 		<annotation cp='[🕡]' tts='six-thirty'>30; 6; 6:30; clock; six; thirty</annotation>
-		<annotation cp='[🕖]' tts='seven o’clock'>00; 7; 7:00; clock; o’clock; seven</annotation>
+
+		<!-- seven o’clock; 00; 7; 7:00; clock; o’clock; seven -->
+		<annotation cp='[🕖]' tts='seven o&apos;clock'>00; 7; 7:00; clock; o’clock; seven</annotation>
+
+		<!-- seven-thirty; 30; 7; 7:30; clock; seven; thirty -->
 		<annotation cp='[🕢]' tts='seven-thirty'>30; 7; 7:30; clock; seven; thirty</annotation>
+
+		<!-- eight o’clock; 00; 8; 8:00; clock; eight; o’clock -->
 		<annotation cp='[🕗]' tts='eight o’clock'>00; 8; 8:00; clock; eight; o’clock</annotation>
+
+		<!-- eight-thirty; 30; 8; 8:30; clock; eight; thirty -->
 		<annotation cp='[🕣]' tts='eight-thirty'>30; 8; 8:30; clock; eight; thirty</annotation>
+
+		<!-- nine o’clock; 00; 9; 9:00; clock; nine; o’clock -->
 		<annotation cp='[🕘]' tts='nine o’clock'>00; 9; 9:00; clock; nine; o’clock</annotation>
+
+		<!-- nine-thirty; 30; 9; 9:30; clock; nine; thirty -->
 		<annotation cp='[🕤]' tts='nine-thirty'>30; 9; 9:30; clock; nine; thirty</annotation>
+
+		<!-- ten o’clock; 00; 10; 10:00; clock; o’clock; ten -->
 		<annotation cp='[🕙]' tts='ten o’clock'>00; 10; 10:00; clock; o’clock; ten</annotation>
+
+		<!-- ten-thirty; 10; 10:30; 30; clock; ten; thirty -->
 		<annotation cp='[🕥]' tts='ten-thirty'>10; 10:30; 30; clock; ten; thirty</annotation>
+
+		<!-- eleven o’clock; 00; 11; 11:00; clock; eleven; o’clock -->
 		<annotation cp='[🕚]' tts='eleven o’clock'>00; 11; 11:00; clock; eleven; o’clock</annotation>
+
+		<!-- eleven-thirty; 11; 11:30; 30; clock; eleven; thirty -->
 		<annotation cp='[🕦]' tts='eleven-thirty'>11; 11:30; 30; clock; eleven; thirty</annotation>
+
+		<!-- new moon; dark; moon; space; weather -->
 		<annotation cp='[🌑]' tts='new moon'>dark; moon; space; weather</annotation>
+
+		<!-- waxing crescent moon; crescent; moon; space; waxing; weather -->
 		<annotation cp='[🌒]' tts='waxing crescent moon'>crescent; moon; space; waxing; weather</annotation>
+
+		<!-- first quarter moon; moon; quarter; space; weather -->
 		<annotation cp='[🌓]' tts='first quarter moon'>moon; quarter; space; weather</annotation>
+
+		<!-- waxing gibbous moon; gibbous; moon; space; waxing; weather -->
 		<annotation cp='[🌔]' tts='waxing gibbous moon'>gibbous; moon; space; waxing; weather</annotation>
+
+		<!-- full moon; full; moon; space; weather -->
 		<annotation cp='[🌕]' tts='full moon'>full; moon; space; weather</annotation>
+
+		<!-- waning gibbous moon; gibbous; moon; space; waning; weather -->
 		<annotation cp='[🌖]' tts='waning gibbous moon'>gibbous; moon; space; waning; weather</annotation>
+
+		<!-- last quarter moon; moon; quarter; space; weather -->
 		<annotation cp='[🌗]' tts='last quarter moon'>moon; quarter; space; weather</annotation>
+
+		<!-- waning crescent moon; crescent; moon; space; waning; weather -->
 		<annotation cp='[🌘]' tts='waning crescent moon'>crescent; moon; space; waning; weather</annotation>
+
+		<!-- crescent moon; crescent; moon; space; weather -->
 		<annotation cp='[🌙]' tts='crescent moon'>crescent; moon; space; weather</annotation>
+
+		<!-- new moon face; face; moon; space; weather -->
 		<annotation cp='[🌚]' tts='new moon face'>face; moon; space; weather</annotation>
+
+		<!-- first quarter moon with face; face; moon; quarter; space; weather -->
 		<annotation cp='[🌛]' tts='first quarter moon with face'>face; moon; quarter; space; weather</annotation>
+
+		<!-- last quarter moon with face; face; moon; quarter; space; weather -->
 		<annotation cp='[🌜]' tts='last quarter moon with face'>face; moon; quarter; space; weather</annotation>
+
+		<!-- thermometer; weather -->
 		<annotation cp='[🌡]' tts='thermometer'>weather</annotation>
+
+		<!-- sun; bright; rays; space; sunny; weather -->
 		<annotation cp='[☀]' tts='sun'>bright; rays; space; sunny; weather</annotation>
+
+		<!-- full moon with face; bright; face; full; moon; space; weather -->
 		<annotation cp='[🌝]' tts='full moon with face'>bright; face; full; moon; space; weather</annotation>
+
+		<!-- sun with face; bright; face; space; sun; weather -->
 		<annotation cp='[🌞]' tts='sun with face'>bright; face; space; sun; weather</annotation>
+
+		<!-- white medium star; star -->
 		<annotation cp='[⭐]' tts='white medium star'>star</annotation>
+
+		<!-- glowing star; glittery; glow; shining; sparkle; star -->
 		<annotation cp='[🌟]' tts='glowing star'>glittery; glow; shining; sparkle; star</annotation>
+
+		<!-- shooting star; falling; shooting; space; star -->
 		<annotation cp='[🌠]' tts='shooting star'>falling; shooting; space; star</annotation>
+
+		<!-- cloud; weather -->
 		<annotation cp='[☁]' tts='cloud'>weather</annotation>
+
+		<!-- sun behind cloud; cloud; sun; weather -->
 		<annotation cp='[⛅]' tts='sun behind cloud'>cloud; sun; weather</annotation>
+
+		<!-- cloud with lightning and rain; cloud; rain; thunder; weather -->
 		<annotation cp='[⛈]' tts='cloud with lightning and rain'>cloud; rain; thunder; weather</annotation>
+
+		<!-- sun behind small cloud; cloud; sun; weather -->
 		<annotation cp='[🌤]' tts='sun behind small cloud'>cloud; sun; weather</annotation>
+
+		<!-- sun behind large cloud; cloud; sun; weather -->
 		<annotation cp='[🌥]' tts='sun behind large cloud'>cloud; sun; weather</annotation>
+
+		<!-- sun behind cloud with rain; cloud; rain; sun; weather -->
 		<annotation cp='[🌦]' tts='sun behind cloud with rain'>cloud; rain; sun; weather</annotation>
+
+		<!-- cloud with rain; cloud; rain; weather -->
 		<annotation cp='[🌧]' tts='cloud with rain'>cloud; rain; weather</annotation>
+
+		<!-- cloud with snow; cloud; cold; snow; weather -->
 		<annotation cp='[🌨]' tts='cloud with snow'>cloud; cold; snow; weather</annotation>
+
+		<!-- cloud with lightning; cloud; lightning; weather -->
 		<annotation cp='[🌩]' tts='cloud with lightning'>cloud; lightning; weather</annotation>
+
+		<!-- tornado; cloud; weather; whirlwind -->
 		<annotation cp='[🌪]' tts='tornado'>cloud; weather; whirlwind</annotation>
+
+		<!-- fog; cloud; weather -->
 		<annotation cp='[🌫]' tts='fog'>cloud; weather</annotation>
+
+		<!-- wind face; blow; cloud; face; weather; wind -->
 		<annotation cp='[🌬]' tts='wind face'>blow; cloud; face; weather; wind</annotation>
+
+		<!-- cyclone; dizzy; twister; typhoon; weather -->
 		<annotation cp='[🌀]' tts='cyclone'>dizzy; twister; typhoon; weather</annotation>
+
+		<!-- rainbow; rain; weather -->
 		<annotation cp='[🌈]' tts='rainbow'>rain; weather</annotation>
+
+		<!-- closed umbrella; clothing; rain; umbrella; weather -->
 		<annotation cp='[🌂]' tts='closed umbrella'>clothing; rain; umbrella; weather</annotation>
+
+		<!-- umbrella; clothing; rain; weather -->
 		<annotation cp='[☂]' tts='umbrella'>clothing; rain; weather</annotation>
+
+		<!-- umbrella with rain drops; clothing; drop; rain; umbrella; weather -->
 		<annotation cp='[☔]' tts='umbrella with rain drops'>clothing; drop; rain; umbrella; weather</annotation>
+
+		<!-- umbrella on ground; rain; sun; umbrella; weather -->
 		<annotation cp='[⛱]' tts='umbrella on ground'>rain; sun; umbrella; weather</annotation>
+
+		<!-- high voltage; danger; electric; electricity; lightning; voltage; zap -->
 		<annotation cp='[⚡]' tts='high voltage'>danger; electric; electricity; lightning; voltage; zap</annotation>
+
+		<!-- snowflake; cold; snow; weather -->
 		<annotation cp='[❄]' tts='snowflake'>cold; snow; weather</annotation>
+
+		<!-- snowman; cold; snow; weather -->
 		<annotation cp='[☃]' tts='snowman'>cold; snow; weather</annotation>
+
+		<!-- snowman without snow; cold; snow; snowman; weather -->
 		<annotation cp='[⛄]' tts='snowman without snow'>cold; snow; snowman; weather</annotation>
+
+		<!-- comet; space -->
 		<annotation cp='[☄]' tts='comet'>space</annotation>
+
+		<!-- fire; flame; tool -->
 		<annotation cp='[🔥]' tts='fire'>flame; tool</annotation>
+
+		<!-- droplet; cold; comic; drop; sweat; weather -->
 		<annotation cp='[💧]' tts='droplet'>cold; comic; drop; sweat; weather</annotation>
+
+		<!-- water wave; ocean; water; wave; weather -->
 		<annotation cp='[🌊]' tts='water wave'>ocean; water; wave; weather</annotation>
+
+		<!-- jack-o-lantern; celebration; halloween; jack; lantern -->
 		<annotation cp='[🎃]' tts='jack-o-lantern'>celebration; halloween; jack; lantern</annotation>
+
+		<!-- christmas tree; celebration; christmas; tree -->
 		<annotation cp='[🎄]' tts='christmas tree'>celebration; christmas; tree</annotation>
+
+		<!-- fireworks; celebration -->
 		<annotation cp='[🎆]' tts='fireworks'>celebration</annotation>
+
+		<!-- sparkler; celebration; fireworks; sparkle -->
 		<annotation cp='[🎇]' tts='sparkler'>celebration; fireworks; sparkle</annotation>
+
+		<!-- sparkles; sparkle; star -->
 		<annotation cp='[✨]' tts='sparkles'>sparkle; star</annotation>
+
+		<!-- balloon; celebration -->
 		<annotation cp='[🎈]' tts='balloon'>celebration</annotation>
+
+		<!-- party popper; celebration; party; popper; tada -->
 		<annotation cp='[🎉]' tts='party popper'>celebration; party; popper; tada</annotation>
+
+		<!-- confetti ball; ball; celebration; confetti -->
 		<annotation cp='[🎊]' tts='confetti ball'>ball; celebration; confetti</annotation>
+
+		<!-- tanabata tree; banner; celebration; japanese; tree -->
 		<annotation cp='[🎋]' tts='tanabata tree'>banner; celebration; japanese; tree</annotation>
+
+		<!-- crossed flags; celebration; cross; crossed; japanese -->
 		<annotation cp='[🎌]' tts='crossed flags'>celebration; cross; crossed; japanese</annotation>
+
+		<!-- pine decoration; bamboo; celebration; japanese; pine; plant -->
 		<annotation cp='[🎍]' tts='pine decoration'>bamboo; celebration; japanese; pine; plant</annotation>
+
+		<!-- japanese dolls; celebration; doll; festival; japanese -->
 		<annotation cp='[🎎]' tts='japanese dolls'>celebration; doll; festival; japanese</annotation>
+
+		<!-- carp streamer; carp; celebration; streamer -->
 		<annotation cp='[🎏]' tts='carp streamer'>carp; celebration; streamer</annotation>
+
+		<!-- wind chime; bell; celebration; chime; wind -->
 		<annotation cp='[🎐]' tts='wind chime'>bell; celebration; chime; wind</annotation>
+
+		<!-- moon ceremony; celebration; ceremony; moon -->
 		<annotation cp='[🎑]' tts='moon ceremony'>celebration; ceremony; moon</annotation>
+
+		<!-- ribbon; celebration -->
 		<annotation cp='[🎀]' tts='ribbon'>celebration</annotation>
+
+		<!-- wrapped present; box; celebration; gift; present; wrapped -->
 		<annotation cp='[🎁]' tts='wrapped present'>box; celebration; gift; present; wrapped</annotation>
+
+		<!-- military medal; celebration; medal; military -->
 		<annotation cp='[🎖]' tts='military medal'>celebration; medal; military</annotation>
+
+		<!-- reminder ribbon; celebration; reminder; ribbon -->
 		<annotation cp='[🎗]' tts='reminder ribbon'>celebration; reminder; ribbon</annotation>
+
+		<!-- film frames; cinema; film; frames; movie -->
 		<annotation cp='[🎞]' tts='film frames'>cinema; film; frames; movie</annotation>
+
+		<!-- admission tickets; admission; ticket -->
 		<annotation cp='[🎟]' tts='admission tickets'>admission; ticket</annotation>
+
+		<!-- ticket; admission -->
 		<annotation cp='[🎫]' tts='ticket'>admission</annotation>
+
+		<!-- label -->
 		<annotation cp='[🏷]' tts='label'>label</annotation>
-		<annotation cp='[⚽]' tts='soccer ball'>ball; soccer</annotation>
+
+		<!-- soccer ball; ball; soccer -->
+		<annotation cp='[⚽]' tts='football'>ball; soccer</annotation>
+
+		<!-- baseball; ball -->
 		<annotation cp='[⚾]' tts='baseball'>ball</annotation>
+
+		<!-- basketball; ball; hoop -->
 		<annotation cp='[🏀]' tts='basketball'>ball; hoop</annotation>
+
+		<!-- american football; american; ball; football -->
 		<annotation cp='[🏈]' tts='american football'>american; ball; football</annotation>
-		<annotation cp='[🏉]' tts='rugby football'>ball; football; rugby</annotation>
+
+		<!-- rugby football; ball; football; rugby -->
+		<annotation cp='[🏉]' tts='rugby ball'>ball; football; rugby</annotation>
+
+		<!-- tennis; ball; racquet -->
 		<annotation cp='[🎾]' tts='tennis'>ball; racquet</annotation>
-		<annotation cp='[🎱]' tts='billiards'>8; 8 ball; ball; billiard; eight; game</annotation>
+
+		<!-- billiards; 8; 8 ball; ball; billiard; eight; game -->
+		<annotation cp='[🎱]' tts='8 ball pool'>8; 8 ball; ball; billiard; eight; game</annotation>
+
+		<!-- bowling; ball; game -->
 		<annotation cp='[🎳]' tts='bowling'>ball; game</annotation>
+
+		<!-- flag in hole; golf; hole -->
 		<annotation cp='[⛳]' tts='flag in hole'>golf; hole</annotation>
+
+		<!-- golfer; ball; golf -->
 		<annotation cp='[🏌]' tts='golfer'>ball; golf</annotation>
+
+		<!-- ice skate; ice; skate -->
 		<annotation cp='[⛸]' tts='ice skate'>ice; skate</annotation>
+
+		<!-- fishing pole; fish; pole -->
 		<annotation cp='[🎣]' tts='fishing pole'>fish; pole</annotation>
+
+		<!-- running shirt; running; sash; shirt -->
 		<annotation cp='[🎽]' tts='running shirt'>running; sash; shirt</annotation>
+
+		<!-- skis; ski; snow -->
 		<annotation cp='[🎿]' tts='skis'>ski; snow</annotation>
+
+		<!-- skier; ski; snow -->
 		<annotation cp='[⛷]' tts='skier'>ski; snow</annotation>
+
+		<!-- snowboarder; ski; snow; snowboard -->
 		<annotation cp='[🏂]' tts='snowboarder'>ski; snow; snowboard</annotation>
+
+		<!-- surfer; surfing -->
 		<annotation cp='[🏄]' tts='surfer'>surfing</annotation>
+
+		<!-- horse racing; horse; jockey; racehorse; racing -->
 		<annotation cp='[🏇]' tts='horse racing'>horse; jockey; racehorse; racing</annotation>
+
+		<!-- swimmer; swim -->
 		<annotation cp='[🏊]' tts='swimmer'>swim</annotation>
+
+		<!-- person with ball; ball -->
 		<annotation cp='[⛹]' tts='person with ball'>ball</annotation>
+
+		<!-- weight lifter; lifter; weight -->
 		<annotation cp='[🏋]' tts='weight lifter'>lifter; weight</annotation>
+
+		<!-- bicyclist; bicycle; bike; cyclist -->
 		<annotation cp='[🚴]' tts='bicyclist'>bicycle; bike; cyclist</annotation>
+
+		<!-- mountain biker; bicycle; bicyclist; bike; cyclist; mountain -->
 		<annotation cp='[🚵]' tts='mountain biker'>bicycle; bicyclist; bike; cyclist; mountain</annotation>
+
+		<!-- racing car; car; racing -->
 		<annotation cp='[🏎]' tts='racing car'>car; racing</annotation>
+
+		<!-- motorcycle; racing -->
 		<annotation cp='[🏍]' tts='motorcycle'>racing</annotation>
+
+		<!-- sports medal; medal -->
 		<annotation cp='[🏅]' tts='sports medal'>medal</annotation>
+
+		<!-- trophy; prize -->
 		<annotation cp='[🏆]' tts='trophy'>prize</annotation>
+
+		<!-- cricket; ball; bat; game -->
 		<annotation cp='[🏏]' tts='cricket'>ball; bat; game</annotation>
+
+		<!-- volleyball; ball; game -->
 		<annotation cp='[🏐]' tts='volleyball'>ball; game</annotation>
+
+		<!-- field hockey; ball; field; game; hockey; stick -->
 		<annotation cp='[🏑]' tts='field hockey'>ball; field; game; hockey; stick</annotation>
+
+		<!-- ice hockey stick and puck; game; hockey; ice; puck; stick -->
 		<annotation cp='[🏒]' tts='ice hockey stick and puck'>game; hockey; ice; puck; stick</annotation>
-		<annotation cp='[🏓]' tts='ping pong'>ball; bat; game; paddle; table tennis</annotation>
+
+		<!-- ping pong; ball; bat; game; paddle; table tennis -->
+		<annotation cp='[🏓]' tts='table tennis'>ball; bat; game; paddle; table tennis</annotation>
+
+		<!-- badminton; birdie; game; racquet; shuttlecock -->
 		<annotation cp='[🏸]' tts='badminton'>birdie; game; racquet; shuttlecock</annotation>
+
+		<!-- direct hit; bull; bullseye; dart; eye; game; hit; target -->
 		<annotation cp='[🎯]' tts='direct hit'>bull; bullseye; dart; eye; game; hit; target</annotation>
+
+		<!-- video game; controller; game -->
 		<annotation cp='[🎮]' tts='video game'>controller; game</annotation>
+
+		<!-- joystick; game; video game -->
 		<annotation cp='[🕹]' tts='joystick'>game; video game</annotation>
+
+		<!-- game die; dice; die; game -->
 		<annotation cp='[🎲]' tts='game die'>dice; die; game</annotation>
+
+		<!-- spade suit; card; game; spade; suit -->
 		<annotation cp='[♠]' tts='spade suit'>card; game; spade; suit</annotation>
+
+		<!-- heart suit; card; game; heart; hearts; suit -->
 		<annotation cp='[♥]' tts='heart suit'>card; game; heart; hearts; suit</annotation>
+
+		<!-- diamond suit; card; diamond; diamonds; game; suit -->
 		<annotation cp='[♦]' tts='diamond suit'>card; diamond; diamonds; game; suit</annotation>
+
+		<!-- club suit; card; club; clubs; game; suit -->
 		<annotation cp='[♣]' tts='club suit'>card; club; clubs; game; suit</annotation>
+
+		<!-- joker; card; game; playing -->
 		<annotation cp='[🃏]' tts='joker'>card; game; playing</annotation>
+
+		<!-- mahjong red dragon; game; mahjong; red -->
 		<annotation cp='[🀄]' tts='mahjong red dragon'>game; mahjong; red</annotation>
+
+		<!-- flower playing cards; card; flower; game; japanese; playing -->
 		<annotation cp='[🎴]' tts='flower playing cards'>card; flower; game; japanese; playing</annotation>
+
+		<!-- speaker off; mute; quiet; silent; speaker; volume -->
 		<annotation cp='[🔇]' tts='speaker off'>mute; quiet; silent; speaker; volume</annotation>
+
+		<!-- speaker; volume -->
 		<annotation cp='[🔈]' tts='speaker'>volume</annotation>
+
+		<!-- speaker on; low; speaker; volume; wave -->
 		<annotation cp='[🔉]' tts='speaker on'>low; speaker; volume; wave</annotation>
+
+		<!-- speaker loud; 3; high; loud; speaker; three; volume -->
 		<annotation cp='[🔊]' tts='speaker loud'>3; high; loud; speaker; three; volume</annotation>
+
+		<!-- loudspeaker; loud; public address -->
 		<annotation cp='[📢]' tts='loudspeaker'>loud; public address</annotation>
+
+		<!-- megaphone; cheering -->
 		<annotation cp='[📣]' tts='megaphone'>cheering</annotation>
+
+		<!-- postal horn; horn; post; postal -->
 		<annotation cp='[📯]' tts='postal horn'>horn; post; postal</annotation>
+
+		<!-- bell -->
 		<annotation cp='[🔔]' tts='bell'>bell</annotation>
+
+		<!-- bell with slash; bell; forbidden; mute; no; not; prohibited; quiet; silent -->
 		<annotation cp='[🔕]' tts='bell with slash'>bell; forbidden; mute; no; not; prohibited; quiet; silent</annotation>
+
+		<!-- musical score; music; score -->
 		<annotation cp='[🎼]' tts='musical score'>music; score</annotation>
+
+		<!-- musical note; music; note -->
 		<annotation cp='[🎵]' tts='musical note'>music; note</annotation>
+
+		<!-- musical notes; music; note; notes -->
 		<annotation cp='[🎶]' tts='musical notes'>music; note; notes</annotation>
+
+		<!-- studio microphone; mic; microphone; music; studio -->
 		<annotation cp='[🎙]' tts='studio microphone'>mic; microphone; music; studio</annotation>
+
+		<!-- level slider; level; music; slider -->
 		<annotation cp='[🎚]' tts='level slider'>level; music; slider</annotation>
+
+		<!-- control knobs; control; knobs; music -->
 		<annotation cp='[🎛]' tts='control knobs'>control; knobs; music</annotation>
+
+		<!-- microphone; karaoke; mic -->
 		<annotation cp='[🎤]' tts='microphone'>karaoke; mic</annotation>
+
+		<!-- headphone; earbud -->
 		<annotation cp='[🎧]' tts='headphone'>earbud</annotation>
+
+		<!-- saxophone; instrument; music; sax -->
 		<annotation cp='[🎷]' tts='saxophone'>instrument; music; sax</annotation>
+
+		<!-- guitar; instrument; music -->
 		<annotation cp='[🎸]' tts='guitar'>instrument; music</annotation>
+
+		<!-- musical keyboard; instrument; keyboard; music; piano -->
 		<annotation cp='[🎹]' tts='musical keyboard'>instrument; keyboard; music; piano</annotation>
+
+		<!-- trumpet; instrument; music -->
 		<annotation cp='[🎺]' tts='trumpet'>instrument; music</annotation>
+
+		<!-- violin; instrument; music -->
 		<annotation cp='[🎻]' tts='violin'>instrument; music</annotation>
+
+		<!-- radio; video -->
 		<annotation cp='[📻]' tts='radio'>video</annotation>
+
+		<!-- mobile phone; cell; mobile; phone; telephone -->
 		<annotation cp='[📱]' tts='mobile phone'>cell; mobile; phone; telephone</annotation>
+
+		<!-- mobile phone with arrow; arrow; call; cell; mobile; phone; receive; telephone -->
 		<annotation cp='[📲]' tts='mobile phone with arrow'>arrow; call; cell; mobile; phone; receive; telephone</annotation>
+
+		<!-- telephone; phone -->
 		<annotation cp='[☎]' tts='telephone'>phone</annotation>
+
+		<!-- telephone receiver; phone; receiver; telephone -->
 		<annotation cp='[📞]' tts='telephone receiver'>phone; receiver; telephone</annotation>
+
+		<!-- pager -->
 		<annotation cp='[📟]' tts='pager'>pager</annotation>
+
+		<!-- fax machine; fax -->
 		<annotation cp='[📠]' tts='fax machine'>fax</annotation>
+
+		<!-- battery -->
 		<annotation cp='[🔋]' tts='battery'>battery</annotation>
+
+		<!-- electric plug; electric; electricity; plug -->
 		<annotation cp='[🔌]' tts='electric plug'>electric; electricity; plug</annotation>
+
+		<!-- laptop computer; computer; pc; personal -->
 		<annotation cp='[💻]' tts='laptop computer'>computer; pc; personal</annotation>
+
+		<!-- desktop computer; computer; desktop -->
 		<annotation cp='[🖥]' tts='desktop computer'>computer; desktop</annotation>
+
+		<!-- printer; computer -->
 		<annotation cp='[🖨]' tts='printer'>computer</annotation>
+
+		<!-- keyboard; computer -->
 		<annotation cp='[⌨]' tts='keyboard'>computer</annotation>
+
+		<!-- computer mouse; 3; button; computer; mouse; three -->
 		<annotation cp='[🖱]' tts='computer mouse'>3; button; computer; mouse; three</annotation>
+
+		<!-- trackball; computer -->
 		<annotation cp='[🖲]' tts='trackball'>computer</annotation>
-		<annotation cp='[💽]' tts='minidisc'>computer; disk; minidisk; optical</annotation>
+
+		<!-- minidisc; computer; disk; minidisk; optical -->
+		<annotation cp='[💽]' tts='minidisk'>computer; disk; minidisk; optical</annotation>
+
+		<!-- floppy disk; computer; disk; floppy -->
 		<annotation cp='[💾]' tts='floppy disk'>computer; disk; floppy</annotation>
+
+		<!-- optical disc; dvd; blu-ray; cd; computer; disk; optical -->
 		<annotation cp='[💿]' tts='optical disc'>dvd; blu-ray; cd; computer; disk; optical</annotation>
+
+		<!-- dvd; blu-ray; cd; computer; disk; optical -->
 		<annotation cp='[📀]' tts='dvd'>blu-ray; cd; computer; disk; optical</annotation>
+
+		<!-- movie camera; camera; cinema; movie -->
 		<annotation cp='[🎥]' tts='movie camera'>camera; cinema; movie</annotation>
+
+		<!-- clapper board; clapper; movie -->
 		<annotation cp='[🎬]' tts='clapper board'>clapper; movie</annotation>
+
+		<!-- film projector; cinema; film; movie; projector; video -->
 		<annotation cp='[📽]' tts='film projector'>cinema; film; movie; projector; video</annotation>
+
+		<!-- television; tv; video -->
 		<annotation cp='[📺]' tts='television'>tv; video</annotation>
+
+		<!-- camera; video -->
 		<annotation cp='[📷]' tts='camera'>video</annotation>
+
+		<!-- camera with flash; camera; flash; video -->
 		<annotation cp='[📸]' tts='camera with flash'>camera; flash; video</annotation>
+
+		<!-- video camera; camera; video -->
 		<annotation cp='[📹]' tts='video camera'>camera; video</annotation>
+
+		<!-- videocassette; tape; vhs; video -->
 		<annotation cp='[📼]' tts='videocassette'>tape; vhs; video</annotation>
+
+		<!-- left-pointing magnifying glass; glass; magnifying; search; tool -->
 		<annotation cp='[🔍]' tts='left-pointing magnifying glass'>glass; magnifying; search; tool</annotation>
+
+		<!-- right-pointing magnifying glass; glass; magnifying; search; tool -->
 		<annotation cp='[🔎]' tts='right-pointing magnifying glass'>glass; magnifying; search; tool</annotation>
+
+		<!-- microscope; tool -->
 		<annotation cp='[🔬]' tts='microscope'>tool</annotation>
+
+		<!-- telescope; tool -->
 		<annotation cp='[🔭]' tts='telescope'>tool</annotation>
+
+		<!-- satellite antenna; antenna; dish; satellite -->
 		<annotation cp='[📡]' tts='satellite antenna'>antenna; dish; satellite</annotation>
+
+		<!-- candle; light -->
 		<annotation cp='[🕯]' tts='candle'>light</annotation>
+
+		<!-- light bulb; bulb; comic; electric; idea; light -->
 		<annotation cp='[💡]' tts='light bulb'>bulb; comic; electric; idea; light</annotation>
+
+		<!-- flashlight; electric; light; tool; torch -->
 		<annotation cp='[🔦]' tts='flashlight'>electric; light; tool; torch</annotation>
+
+		<!-- red paper lantern; bar; japanese; lantern; light; red -->
 		<annotation cp='[🏮]' tts='red paper lantern'>bar; japanese; lantern; light; red</annotation>
+
+		<!-- notebook with decorative cover; book; cover; decorated; notebook -->
 		<annotation cp='[📔]' tts='notebook with decorative cover'>book; cover; decorated; notebook</annotation>
+
+		<!-- closed book; book; closed -->
 		<annotation cp='[📕]' tts='closed book'>book; closed</annotation>
+
+		<!-- open book; book; open -->
 		<annotation cp='[📖]' tts='open book'>book; open</annotation>
+
+		<!-- green book; book; green -->
 		<annotation cp='[📗]' tts='green book'>book; green</annotation>
+
+		<!-- blue book; blue; book -->
 		<annotation cp='[📘]' tts='blue book'>blue; book</annotation>
+
+		<!-- orange book; book; orange -->
 		<annotation cp='[📙]' tts='orange book'>book; orange</annotation>
+
+		<!-- books; book -->
 		<annotation cp='[📚]' tts='books'>book</annotation>
+
+		<!-- notebook -->
 		<annotation cp='[📓]' tts='notebook'>notebook</annotation>
+
+		<!-- ledger; notebook -->
 		<annotation cp='[📒]' tts='ledger'>notebook</annotation>
+
+		<!-- page with curl; curl; document; page -->
 		<annotation cp='[📃]' tts='page with curl'>curl; document; page</annotation>
+
+		<!-- scroll; paper -->
 		<annotation cp='[📜]' tts='scroll'>paper</annotation>
+
+		<!-- page facing up; document; page -->
 		<annotation cp='[📄]' tts='page facing up'>document; page</annotation>
+
+		<!-- newspaper; news; paper -->
 		<annotation cp='[📰]' tts='newspaper'>news; paper</annotation>
+
+		<!-- rolled-up newspaper; news; newspaper; paper; rolled -->
 		<annotation cp='[🗞]' tts='rolled-up newspaper'>news; newspaper; paper; rolled</annotation>
+
+		<!-- bookmark tabs; bookmark; mark; marker; tabs -->
 		<annotation cp='[📑]' tts='bookmark tabs'>bookmark; mark; marker; tabs</annotation>
+
+		<!-- bookmark; mark -->
 		<annotation cp='[🔖]' tts='bookmark'>mark</annotation>
+
+		<!-- money bag; bag; dollar; money; moneybag -->
 		<annotation cp='[💰]' tts='money bag'>bag; dollar; money; moneybag</annotation>
+
+		<!-- yen banknote; bank; banknote; bill; currency; money; note; yen -->
 		<annotation cp='[💴]' tts='yen banknote'>bank; banknote; bill; currency; money; note; yen</annotation>
+
+		<!-- dollar banknote; bank; banknote; bill; currency; dollar; money; note -->
 		<annotation cp='[💵]' tts='dollar banknote'>bank; banknote; bill; currency; dollar; money; note</annotation>
+
+		<!-- euro banknote; bank; banknote; bill; currency; euro; money; note -->
 		<annotation cp='[💶]' tts='euro banknote'>bank; banknote; bill; currency; euro; money; note</annotation>
+
+		<!-- pound banknote; bank; banknote; bill; currency; money; note; pound -->
 		<annotation cp='[💷]' tts='pound banknote'>bank; banknote; bill; currency; money; note; pound</annotation>
+
+		<!-- money with wings; bank; banknote; bill; dollar; fly; money; note; wings -->
 		<annotation cp='[💸]' tts='money with wings'>bank; banknote; bill; dollar; fly; money; note; wings</annotation>
+
+		<!-- credit card; bank; card; credit; money -->
 		<annotation cp='[💳]' tts='credit card'>bank; card; credit; money</annotation>
+
+		<!-- chart increasing with yen; bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen -->
 		<annotation cp='[💹]' tts='chart increasing with yen'>bank; chart; currency; graph; growth; market; money; rise; trend; upward; yen</annotation>
+
+		<!-- envelope; e-mail; email -->
 		<annotation cp='[✉]' tts='envelope'>e-mail; email</annotation>
+
+		<!-- e-mail; email; letter; mail -->
 		<annotation cp='[📧]' tts='e-mail'>email; letter; mail</annotation>
+
+		<!-- incoming envelope; e-mail; email; envelope; incoming; letter; mail; receive -->
 		<annotation cp='[📨]' tts='incoming envelope'>e-mail; email; envelope; incoming; letter; mail; receive</annotation>
+
+		<!-- envelope with arrow; arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent -->
 		<annotation cp='[📩]' tts='envelope with arrow'>arrow; down; e-mail; email; envelope; letter; mail; outgoing; sent</annotation>
+
+		<!-- outbox tray; box; letter; mail; outbox; sent; tray -->
 		<annotation cp='[📤]' tts='outbox tray'>box; letter; mail; outbox; sent; tray</annotation>
+
+		<!-- inbox tray; box; inbox; letter; mail; receive; tray -->
 		<annotation cp='[📥]' tts='inbox tray'>box; inbox; letter; mail; receive; tray</annotation>
+
+		<!-- package; box; parcel -->
 		<annotation cp='[📦]' tts='package'>box; parcel</annotation>
+
+		<!-- closed mailbox with raised flag; closed; mail; mailbox; postbox -->
 		<annotation cp='[📫]' tts='closed mailbox with raised flag'>closed; mail; mailbox; postbox</annotation>
+
+		<!-- closed mailbox with lowered flag; closed; lowered; mail; mailbox; postbox -->
 		<annotation cp='[📪]' tts='closed mailbox with lowered flag'>closed; lowered; mail; mailbox; postbox</annotation>
+
+		<!-- open mailbox with raised flag; mail; mailbox; open; postbox -->
 		<annotation cp='[📬]' tts='open mailbox with raised flag'>mail; mailbox; open; postbox</annotation>
+
+		<!-- open mailbox with lowered flag; lowered; mail; mailbox; open; postbox -->
 		<annotation cp='[📭]' tts='open mailbox with lowered flag'>lowered; mail; mailbox; open; postbox</annotation>
+
+		<!-- postbox; mail; mailbox -->
 		<annotation cp='[📮]' tts='postbox'>mail; mailbox</annotation>
+
+		<!-- ballot box with ballot; ballot; box -->
 		<annotation cp='[🗳]' tts='ballot box with ballot'>ballot; box</annotation>
+
+		<!-- pencil -->
 		<annotation cp='[✏]' tts='pencil'>pencil</annotation>
+
+		<!-- black nib; nib; pen -->
 		<annotation cp='[✒]' tts='black nib'>nib; pen</annotation>
+
+		<!-- fountain pen; fountain; pen -->
 		<annotation cp='[🖋]' tts='fountain pen'>fountain; pen</annotation>
+
+		<!-- pen; ballpoint -->
 		<annotation cp='[🖊]' tts='pen'>ballpoint</annotation>
+
+		<!-- paintbrush; painting -->
 		<annotation cp='[🖌]' tts='paintbrush'>painting</annotation>
+
+		<!-- crayon -->
 		<annotation cp='[🖍]' tts='crayon'>crayon</annotation>
+
+		<!-- memo; pencil -->
 		<annotation cp='[📝]' tts='memo'>pencil</annotation>
+
+		<!-- briefcase -->
 		<annotation cp='[💼]' tts='briefcase'>briefcase</annotation>
+
+		<!-- file folder; file; folder -->
 		<annotation cp='[📁]' tts='file folder'>file; folder</annotation>
+
+		<!-- open file folder; file; folder; open -->
 		<annotation cp='[📂]' tts='open file folder'>file; folder; open</annotation>
+
+		<!-- card index dividers; card; dividers; index -->
 		<annotation cp='[🗂]' tts='card index dividers'>card; dividers; index</annotation>
+
+		<!-- calendar; date -->
 		<annotation cp='[📅]' tts='calendar'>date</annotation>
+
+		<!-- tear-off calendar; calendar -->
 		<annotation cp='[📆]' tts='tear-off calendar'>calendar</annotation>
+
+		<!-- spiral notepad; note; pad; spiral -->
 		<annotation cp='[🗒]' tts='spiral notepad'>note; pad; spiral</annotation>
+
+		<!-- spiral calendar; calendar; pad; spiral -->
 		<annotation cp='[🗓]' tts='spiral calendar'>calendar; pad; spiral</annotation>
+
+		<!-- card index; card; index; rolodex -->
 		<annotation cp='[📇]' tts='card index'>card; index; rolodex</annotation>
+
+		<!-- chart increasing; chart; graph; growth; trend; upward -->
 		<annotation cp='[📈]' tts='chart increasing'>chart; graph; growth; trend; upward</annotation>
+
+		<!-- chart decreasing; chart; down; graph; trend -->
 		<annotation cp='[📉]' tts='chart decreasing'>chart; down; graph; trend</annotation>
+
+		<!-- bar chart; bar; chart; graph -->
 		<annotation cp='[📊]' tts='bar chart'>bar; chart; graph</annotation>
+
+		<!-- clipboard -->
 		<annotation cp='[📋]' tts='clipboard'>clipboard</annotation>
-		<annotation cp='[📌]' tts='pushpin'>pin</annotation>
+
+		<!-- pushpin; pin -->
+		<annotation cp='[📌]' tts='pin'>pin</annotation>
+
+		<!-- round pushpin; pin; pushpin -->
 		<annotation cp='[📍]' tts='round pushpin'>pin; pushpin</annotation>
+
+		<!-- paperclip -->
 		<annotation cp='[📎]' tts='paperclip'>paperclip</annotation>
+
+		<!-- linked paperclips; link; paperclip -->
 		<annotation cp='[🖇]' tts='linked paperclips'>link; paperclip</annotation>
+
+		<!-- straight ruler; ruler; straight edge -->
 		<annotation cp='[📏]' tts='straight ruler'>ruler; straight edge</annotation>
+
+		<!-- triangular ruler; ruler; set; triangle -->
 		<annotation cp='[📐]' tts='triangular ruler'>ruler; set; triangle</annotation>
+
+		<!-- scissors; tool -->
 		<annotation cp='[✂]' tts='scissors'>tool</annotation>
+
+		<!-- card file box; box; card; file -->
 		<annotation cp='[🗃]' tts='card file box'>box; card; file</annotation>
-		<annotation cp='[🗄]' tts='file cabinet'>cabinet; file</annotation>
+
+		<!-- file cabinet; cabinet; file -->
+		<annotation cp='[🗄]' tts='filing cabinet'>cabinet; file</annotation>
+
+		<!-- wastebasket -->
 		<annotation cp='[🗑]' tts='wastebasket'>wastebasket</annotation>
+
+		<!-- lock; closed -->
 		<annotation cp='[🔒]' tts='lock'>closed</annotation>
+
+		<!-- open lock; lock; open; unlock -->
 		<annotation cp='[🔓]' tts='open lock'>lock; open; unlock</annotation>
+
+		<!-- lock with pen; ink; lock; nib; pen; privacy -->
 		<annotation cp='[🔏]' tts='lock with pen'>ink; lock; nib; pen; privacy</annotation>
+
+		<!-- closed lock with key; closed; key; lock; secure -->
 		<annotation cp='[🔐]' tts='closed lock with key'>closed; key; lock; secure</annotation>
+
+		<!-- key; lock; password -->
 		<annotation cp='[🔑]' tts='key'>lock; password</annotation>
+
+		<!-- old key; clue; key; lock; old -->
 		<annotation cp='[🗝]' tts='old key'>clue; key; lock; old</annotation>
+
+		<!-- hammer; tool -->
 		<annotation cp='[🔨]' tts='hammer'>tool</annotation>
+
+		<!-- pick; mining; tool -->
 		<annotation cp='[⛏]' tts='pick'>mining; tool</annotation>
+
+		<!-- hammer and pick; hammer; pick; tool -->
 		<annotation cp='[⚒]' tts='hammer and pick'>hammer; pick; tool</annotation>
-		<annotation cp='[🛠]' tts='hammer and wrench'>hammer; tool; wrench</annotation>
-		<annotation cp='[🔧]' tts='wrench'>tool</annotation>
+
+		<!-- hammer and wrench; hammer; tool; wrench -->
+		<annotation cp='[🛠]' tts='hammer and spanner'>hammer; tool; wrench</annotation>
+
+		<!-- wrench; tool -->
+		<annotation cp='[🔧]' tts='spanner'>tool</annotation>
+
+		<!-- nut and bolt; bolt; nut; tool -->
 		<annotation cp='[🔩]' tts='nut and bolt'>bolt; nut; tool</annotation>
+
+		<!-- gear; tool -->
 		<annotation cp='[⚙]' tts='gear'>tool</annotation>
+
+		<!-- compression; tool; vice -->
 		<annotation cp='[🗜]' tts='compression'>tool; vice</annotation>
+
+		<!-- alembic; chemistry; tool -->
 		<annotation cp='[⚗]' tts='alembic'>chemistry; tool</annotation>
+
+		<!-- balance scale; balance; justice; libra; scales; tool; weight; zodiac -->
 		<annotation cp='[⚖]' tts='balance scale'>balance; justice; libra; scales; tool; weight; zodiac</annotation>
+
+		<!-- link -->
 		<annotation cp='[🔗]' tts='link'>link</annotation>
+
+		<!-- chains; chain -->
 		<annotation cp='[⛓]' tts='chains'>chain</annotation>
+
+		<!-- syringe; doctor; medicine; needle; shot; sick; tool -->
 		<annotation cp='[💉]' tts='syringe'>doctor; medicine; needle; shot; sick; tool</annotation>
+
+		<!-- pill; doctor; medicine; sick -->
 		<annotation cp='[💊]' tts='pill'>doctor; medicine; sick</annotation>
+
+		<!-- dagger; knife; weapon -->
 		<annotation cp='[🗡]' tts='dagger'>knife; weapon</annotation>
+
+		<!-- kitchen knife; cooking; hocho; knife; tool; weapon -->
 		<annotation cp='[🔪]' tts='kitchen knife'>cooking; hocho; knife; tool; weapon</annotation>
+
+		<!-- crossed swords; crossed; swords; weapon -->
 		<annotation cp='[⚔]' tts='crossed swords'>crossed; swords; weapon</annotation>
-		<annotation cp='[🔫]' tts='pistol'>gun; handgun; revolver; tool; weapon</annotation>
+
+		<!-- pistol; gun; handgun; revolver; tool; weapon -->
+		<annotation cp='[🔫]' tts='pistol'>gun; revolver; tool; weapon</annotation>
+
+		<!-- shield; weapon -->
 		<annotation cp='[🛡]' tts='shield'>weapon</annotation>
+
+		<!-- bow and arrow; archer; arrow; bow; sagittarius; tool; weapon; zodiac -->
 		<annotation cp='[🏹]' tts='bow and arrow'>archer; arrow; bow; sagittarius; tool; weapon; zodiac</annotation>
+
+		<!-- chequered flag; checkered; chequered; racing -->
 		<annotation cp='[🏁]' tts='chequered flag'>checkered; chequered; racing</annotation>
+
+		<!-- waving white flag; waving -->
 		<annotation cp='[🏳]' tts='waving white flag'>waving</annotation>
+
+		<!-- waving black flag; waving -->
 		<annotation cp='[🏴]' tts='waving black flag'>waving</annotation>
+
+		<!-- triangular flag; post -->
 		<annotation cp='[🚩]' tts='triangular flag'>post</annotation>
+
+		<!-- smoking -->
 		<annotation cp='[🚬]' tts='smoking'>smoking</annotation>
+
+		<!-- coffin; death -->
 		<annotation cp='[⚰]' tts='coffin'>death</annotation>
+
+		<!-- funeral urn; death; funeral; urn -->
 		<annotation cp='[⚱]' tts='funeral urn'>death; funeral; urn</annotation>
+
+		<!-- moai; face; moyai; statue -->
 		<annotation cp='[🗿]' tts='moai'>face; moyai; statue</annotation>
+
+		<!-- oil drum; drum; oil -->
 		<annotation cp='[🛢]' tts='oil drum'>drum; oil</annotation>
+
+		<!-- crystal ball; ball; crystal; fairy tale; fantasy; fortune; tool -->
 		<annotation cp='[🔮]' tts='crystal ball'>ball; crystal; fairy tale; fantasy; fortune; tool</annotation>
+
+		<!-- ATM sign; atm; automated; bank; teller -->
 		<annotation cp='[🏧]' tts='ATM sign'>atm; automated; bank; teller</annotation>
+
+		<!-- litter in bin sign; litter; litterbox -->
 		<annotation cp='[🚮]' tts='litter in bin sign'>litter; litterbox</annotation>
-		<annotation cp='[🚰]' tts='potable water'>drink; potable; water</annotation>
+
+		<!-- potable water; drink; potable; water -->
+		<annotation cp='[🚰]' tts='drinking water'>drink; potable; water</annotation>
+
+		<!-- wheelchair; access -->
 		<annotation cp='[♿]' tts='wheelchair'>access</annotation>
+
+		<!-- men’s room; lavatory; man; restroom; wc -->
 		<annotation cp='[🚹]' tts='men’s room'>lavatory; man; restroom; wc</annotation>
+
+		<!-- women’s room; lavatory; restroom; wc; woman -->
 		<annotation cp='[🚺]' tts='women’s room'>lavatory; restroom; wc; woman</annotation>
-		<annotation cp='[🚻]' tts='restroom'>lavatory; wc</annotation>
+
+		<!-- restroom; lavatory; wc -->
+		<annotation cp='[🚻]' tts='lavatory'>lavatory; wc</annotation>
+
+		<!-- baby symbol; baby; changing -->
 		<annotation cp='[🚼]' tts='baby symbol'>baby; changing</annotation>
+
+		<!-- water closet; closet; lavatory; restroom; water; wc -->
 		<annotation cp='[🚾]' tts='water closet'>closet; lavatory; restroom; water; wc</annotation>
+
+		<!-- passport control; control; passport -->
 		<annotation cp='[🛂]' tts='passport control'>control; passport</annotation>
+
+		<!-- customs -->
 		<annotation cp='[🛃]' tts='customs'>customs</annotation>
+
+		<!-- baggage claim; baggage; claim -->
 		<annotation cp='[🛄]' tts='baggage claim'>baggage; claim</annotation>
+
+		<!-- left luggage; baggage; locker; luggage -->
 		<annotation cp='[🛅]' tts='left luggage'>baggage; locker; luggage</annotation>
+
+		<!-- warning -->
 		<annotation cp='[⚠]' tts='warning'>warning</annotation>
+
+		<!-- children crossing; child; crossing; pedestrian; traffic -->
 		<annotation cp='[🚸]' tts='children crossing'>child; crossing; pedestrian; traffic</annotation>
+
+		<!-- no entry; entry; forbidden; no; not; prohibited; traffic -->
 		<annotation cp='[⛔]' tts='no entry'>entry; forbidden; no; not; prohibited; traffic</annotation>
+
+		<!-- prohibited; entry; forbidden; no; not -->
 		<annotation cp='[🚫]' tts='prohibited'>entry; forbidden; no; not</annotation>
+
+		<!-- no bicycles; bicycle; bike; forbidden; no; not; prohibited; vehicle -->
 		<annotation cp='[🚳]' tts='no bicycles'>bicycle; bike; forbidden; no; not; prohibited; vehicle</annotation>
+
+		<!-- no smoking; forbidden; no; not; prohibited; smoking -->
 		<annotation cp='[🚭]' tts='no smoking'>forbidden; no; not; prohibited; smoking</annotation>
+
+		<!-- no littering; forbidden; litter; no; not; prohibited -->
 		<annotation cp='[🚯]' tts='no littering'>forbidden; litter; no; not; prohibited</annotation>
-		<annotation cp='[🚱]' tts='non-potable water'>drink; forbidden; no; not; potable; prohibited; water</annotation>
+
+		<!-- non-potable water; drink; forbidden; no; not; potable; prohibited; water -->
+		<annotation cp='[🚱]' tts='non-drinking water'>drink; forbidden; no; not; potable; prohibited; water</annotation>
+
+		<!-- no pedestrians; forbidden; no; not; pedestrian; prohibited -->
 		<annotation cp='[🚷]' tts='no pedestrians'>forbidden; no; not; pedestrian; prohibited</annotation>
+
+		<!-- radioactive -->
 		<annotation cp='[☢]' tts='radioactive'>radioactive</annotation>
+
+		<!-- biohazard -->
 		<annotation cp='[☣]' tts='biohazard'>biohazard</annotation>
+
+		<!-- up arrow; arrow; cardinal; direction; north -->
 		<annotation cp='[⬆]' tts='up arrow'>arrow; cardinal; direction; north</annotation>
+
+		<!-- up-right arrow; arrow; direction; intercardinal; northeast -->
 		<annotation cp='[↗]' tts='up-right arrow'>arrow; direction; intercardinal; northeast</annotation>
+
+		<!-- right arrow; arrow; cardinal; direction; east -->
 		<annotation cp='[➡]' tts='right arrow'>arrow; cardinal; direction; east</annotation>
+
+		<!-- down-right arrow; arrow; direction; intercardinal; southeast -->
 		<annotation cp='[↘]' tts='down-right arrow'>arrow; direction; intercardinal; southeast</annotation>
+
+		<!-- down arrow; arrow; cardinal; direction; down; south -->
 		<annotation cp='[⬇]' tts='down arrow'>arrow; cardinal; direction; down; south</annotation>
+
+		<!-- down-left arrow; arrow; direction; intercardinal; southwest -->
 		<annotation cp='[↙]' tts='down-left arrow'>arrow; direction; intercardinal; southwest</annotation>
+
+		<!-- left arrow; arrow; cardinal; direction; west -->
 		<annotation cp='[⬅]' tts='left arrow'>arrow; cardinal; direction; west</annotation>
+
+		<!-- up-left arrow; arrow; direction; intercardinal; northwest -->
 		<annotation cp='[↖]' tts='up-left arrow'>arrow; direction; intercardinal; northwest</annotation>
+
+		<!-- up-down arrow; arrow -->
 		<annotation cp='[↕]' tts='up-down arrow'>arrow</annotation>
+
+		<!-- left-right arrow; arrow -->
 		<annotation cp='[↔]' tts='left-right arrow'>arrow</annotation>
+
+		<!-- right arrow curving left; arrow -->
 		<annotation cp='[↩]' tts='right arrow curving left'>arrow</annotation>
+
+		<!-- left arrow curving right; arrow -->
 		<annotation cp='[↪]' tts='left arrow curving right'>arrow</annotation>
+
+		<!-- right arrow curving up; arrow -->
 		<annotation cp='[⤴]' tts='right arrow curving up'>arrow</annotation>
+
+		<!-- right arrow curving down; arrow; down -->
 		<annotation cp='[⤵]' tts='right arrow curving down'>arrow; down</annotation>
+
+		<!-- clockwise vertical arrows; arrow; clockwise; reload -->
 		<annotation cp='[🔃]' tts='clockwise vertical arrows'>arrow; clockwise; reload</annotation>
+
+		<!-- anticlockwise arrows button; anticlockwise; arrow; counterclockwise; withershins -->
 		<annotation cp='[🔄]' tts='anticlockwise arrows button'>anticlockwise; arrow; counterclockwise; withershins</annotation>
+
+		<!-- back arrow; arrow; back -->
 		<annotation cp='[🔙]' tts='back arrow'>arrow; back</annotation>
+
+		<!-- end arrow; arrow; end -->
 		<annotation cp='[🔚]' tts='end arrow'>arrow; end</annotation>
+
+		<!-- on! arrow; arrow; mark; on -->
 		<annotation cp='[🔛]' tts='on! arrow'>arrow; mark; on</annotation>
+
+		<!-- soon arrow; arrow; soon -->
 		<annotation cp='[🔜]' tts='soon arrow'>arrow; soon</annotation>
+
+		<!-- top arrow; arrow; top; up -->
 		<annotation cp='[🔝]' tts='top arrow'>arrow; top; up</annotation>
+
+		<!-- place of worship; religion; worship -->
 		<annotation cp='[🛐]' tts='place of worship'>religion; worship</annotation>
+
+		<!-- atom symbol; atheist; atom -->
 		<annotation cp='[⚛]' tts='atom symbol'>atheist; atom</annotation>
+
+		<!-- om; hindu; religion -->
 		<annotation cp='[🕉]' tts='om'>hindu; religion</annotation>
+
+		<!-- star of david; david; jew; jewish; religion; star -->
 		<annotation cp='[✡]' tts='star of david'>david; jew; jewish; religion; star</annotation>
+
+		<!-- wheel of dharma; buddhist; dharma; religion; wheel -->
 		<annotation cp='[☸]' tts='wheel of dharma'>buddhist; dharma; religion; wheel</annotation>
+
+		<!-- yin yang; religion; tao; taoist; yang; yin -->
 		<annotation cp='[☯]' tts='yin yang'>religion; tao; taoist; yang; yin</annotation>
+
+		<!-- latin cross; christian; cross; religion -->
 		<annotation cp='[✝]' tts='latin cross'>christian; cross; religion</annotation>
+
+		<!-- orthodox cross; christian; cross; religion -->
 		<annotation cp='[☦]' tts='orthodox cross'>christian; cross; religion</annotation>
+
+		<!-- star and crescent; islam; muslim; religion -->
 		<annotation cp='[☪]' tts='star and crescent'>islam; muslim; religion</annotation>
+
+		<!-- peace symbol; peace -->
 		<annotation cp='[☮]' tts='peace symbol'>peace</annotation>
+
+		<!-- menorah; candelabrum; candlestick; religion -->
 		<annotation cp='[🕎]' tts='menorah'>candelabrum; candlestick; religion</annotation>
+
+		<!-- dotted six-pointed star; fortune; star -->
 		<annotation cp='[🔯]' tts='dotted six-pointed star'>fortune; star</annotation>
+
+		<!-- recycling symbol; recycle -->
 		<annotation cp='[♻]' tts='recycling symbol'>recycle</annotation>
+
+		<!-- name badge; badge; name -->
 		<annotation cp='[📛]' tts='name badge'>badge; name</annotation>
+
+		<!-- fleur-de-lis -->
 		<annotation cp='[⚜]' tts='fleur-de-lis'>fleur-de-lis</annotation>
+
+		<!-- japanese symbol for beginner; beginner; chevron; green; japanese; leaf; tool; yellow -->
 		<annotation cp='[🔰]' tts='japanese symbol for beginner'>beginner; chevron; green; japanese; leaf; tool; yellow</annotation>
+
+		<!-- trident emblem; anchor; emblem; ship; tool; trident -->
 		<annotation cp='[🔱]' tts='trident emblem'>anchor; emblem; ship; tool; trident</annotation>
+
+		<!-- heavy large circle; circle; o -->
 		<annotation cp='[⭕]' tts='heavy large circle'>circle; o</annotation>
+
+		<!-- white heavy check mark; check; mark -->
 		<annotation cp='[✅]' tts='white heavy check mark'>check; mark</annotation>
+
+		<!-- ballot box with check; ballot; box; check -->
 		<annotation cp='[☑]' tts='ballot box with check'>ballot; box; check</annotation>
+
+		<!-- heavy check mark; check; mark -->
 		<annotation cp='[✔]' tts='heavy check mark'>check; mark</annotation>
+
+		<!-- heavy multiplication x; cancel; multiplication; multiply; x -->
 		<annotation cp='[✖]' tts='heavy multiplication x'>cancel; multiplication; multiply; x</annotation>
+
+		<!-- cross mark; cancel; mark; multiplication; multiply; x -->
 		<annotation cp='[❌]' tts='cross mark'>cancel; mark; multiplication; multiply; x</annotation>
+
+		<!-- cross mark button; mark; square -->
 		<annotation cp='[❎]' tts='cross mark button'>mark; square</annotation>
-		<annotation cp='[➕]' tts='heavy plus sign'>math; plus</annotation>
-		<annotation cp='[➖]' tts='heavy minus sign'>math; minus</annotation>
-		<annotation cp='[➗]' tts='heavy division sign'>division; math</annotation>
+
+		<!-- heavy plus sign; math; plus -->
+		<annotation cp='[➕]' tts='heavy plus sign'>maths; plus</annotation>
+
+		<!-- heavy minus sign; math; minus -->
+		<annotation cp='[➖]' tts='heavy minus sign'>maths; minus</annotation>
+
+		<!-- heavy division sign; division; math -->
+		<annotation cp='[➗]' tts='heavy division sign'>division; maths</annotation>
+
+		<!-- curly loop; curl; loop -->
 		<annotation cp='[➰]' tts='curly loop'>curl; loop</annotation>
+
+		<!-- double curly loop; curl; double; loop -->
 		<annotation cp='[➿]' tts='double curly loop'>curl; double; loop</annotation>
+
+		<!-- part alternation mark; mark; part -->
 		<annotation cp='[〽]' tts='part alternation mark'>mark; part</annotation>
+
+		<!-- eight-spoked asterisk; asterisk -->
 		<annotation cp='[✳]' tts='eight-spoked asterisk'>asterisk</annotation>
+
+		<!-- eight-pointed star; star -->
 		<annotation cp='[✴]' tts='eight-pointed star'>star</annotation>
+
+		<!-- sparkle -->
 		<annotation cp='[❇]' tts='sparkle'>sparkle</annotation>
+
+		<!-- currency exchange; bank; currency; exchange; money -->
 		<annotation cp='[💱]' tts='currency exchange'>bank; currency; exchange; money</annotation>
+
+		<!-- heavy dollar sign; currency; dollar; money -->
 		<annotation cp='[💲]' tts='heavy dollar sign'>currency; dollar; money</annotation>
+
+		<!-- double exclamation mark; bangbang; exclamation; mark; punctuation -->
 		<annotation cp='[‼]' tts='double exclamation mark'>bangbang; exclamation; mark; punctuation</annotation>
+
+		<!-- exclamation question mark; exclamation; interrobang; mark; punctuation; question -->
 		<annotation cp='[⁉]' tts='exclamation question mark'>exclamation; interrobang; mark; punctuation; question</annotation>
+
+		<!-- question mark; mark; punctuation; question -->
 		<annotation cp='[❓]' tts='question mark'>mark; punctuation; question</annotation>
+
+		<!-- white question mark; mark; outlined; punctuation; question -->
 		<annotation cp='[❔]' tts='white question mark'>mark; outlined; punctuation; question</annotation>
+
+		<!-- white exclamation mark; exclamation; mark; outlined; punctuation -->
 		<annotation cp='[❕]' tts='white exclamation mark'>exclamation; mark; outlined; punctuation</annotation>
+
+		<!-- exclamation mark; exclamation; mark; punctuation -->
 		<annotation cp='[❗]' tts='exclamation mark'>exclamation; mark; punctuation</annotation>
+
+		<!-- wavy dash; dash; punctuation; wavy -->
 		<annotation cp='[〰]' tts='wavy dash'>dash; punctuation; wavy</annotation>
+
+		<!-- copyright -->
 		<annotation cp='[©]' tts='copyright'>copyright</annotation>
+
+		<!-- registered -->
 		<annotation cp='[®]' tts='registered'>registered</annotation>
+
+		<!-- trade mark; mark; tm; trademark -->
 		<annotation cp='[™]' tts='trade mark'>mark; tm; trademark</annotation>
+
+		<!-- aries; ram; zodiac -->
 		<annotation cp='[♈]' tts='aries'>ram; zodiac</annotation>
+
+		<!-- taurus; bull; ox; zodiac -->
 		<annotation cp='[♉]' tts='taurus'>bull; ox; zodiac</annotation>
+
+		<!-- gemini; twins; zodiac -->
 		<annotation cp='[♊]' tts='gemini'>twins; zodiac</annotation>
+
+		<!-- cancer; crab; zodiac -->
 		<annotation cp='[♋]' tts='cancer'>crab; zodiac</annotation>
+
+		<!-- leo; lion; zodiac -->
 		<annotation cp='[♌]' tts='leo'>lion; zodiac</annotation>
+
+		<!-- virgo; maiden; virgin; zodiac -->
 		<annotation cp='[♍]' tts='virgo'>maiden; virgin; zodiac</annotation>
+
+		<!-- libra; balance; justice; scales; zodiac -->
 		<annotation cp='[♎]' tts='libra'>balance; justice; scales; zodiac</annotation>
+
+		<!-- scorpius; scorpio; scorpion; zodiac -->
 		<annotation cp='[♏]' tts='scorpius'>scorpio; scorpion; zodiac</annotation>
+
+		<!-- sagittarius; archer; zodiac -->
 		<annotation cp='[♐]' tts='sagittarius'>archer; zodiac</annotation>
+
+		<!-- capricorn; goat; zodiac -->
 		<annotation cp='[♑]' tts='capricorn'>goat; zodiac</annotation>
+
+		<!-- aquarius; bearer; water; zodiac -->
 		<annotation cp='[♒]' tts='aquarius'>bearer; water; zodiac</annotation>
+
+		<!-- pisces; fish; zodiac -->
 		<annotation cp='[♓]' tts='pisces'>fish; zodiac</annotation>
-		<annotation cp='[⛎]' tts='ophiuchus'>bearer; serpent; snake; zodiac</annotation>
+
+		<!-- ophiuchus; bearer; serpent; snake; zodiac -->
+		<annotation cp='[⛎]' tts='zodiac'>bearer; serpent; snake; zodiac</annotation>
+
+		<!-- shuffle tracks button; arrow; crossed -->
 		<annotation cp='[🔀]' tts='shuffle tracks button'>arrow; crossed</annotation>
+
+		<!-- repeat button; arrow; clockwise; repeat -->
 		<annotation cp='[🔁]' tts='repeat button'>arrow; clockwise; repeat</annotation>
+
+		<!-- repeat single button; arrow; clockwise; once -->
 		<annotation cp='[🔂]' tts='repeat single button'>arrow; clockwise; once</annotation>
+
+		<!-- play button; arrow; play; right; triangle -->
 		<annotation cp='[▶]' tts='play button'>arrow; play; right; triangle</annotation>
+
+		<!-- fast-forword button; arrow; double; fast; forward -->
 		<annotation cp='[⏩]' tts='fast-forword button'>arrow; double; fast; forward</annotation>
+
+		<!-- next track button; arrow; next scene; next track; triangle -->
 		<annotation cp='[⏭]' tts='next track button'>arrow; next scene; next track; triangle</annotation>
+
+		<!-- play or pause button; arrow; pause; play; right; triangle -->
 		<annotation cp='[⏯]' tts='play or pause button'>arrow; pause; play; right; triangle</annotation>
+
+		<!-- reverse button; arrow; left; reverse; triangle -->
 		<annotation cp='[◀]' tts='reverse button'>arrow; left; reverse; triangle</annotation>
+
+		<!-- fast reverse button; arrow; double; rewind -->
 		<annotation cp='[⏪]' tts='fast reverse button'>arrow; double; rewind</annotation>
+
+		<!-- last track button; arrow; previous scene; previous track; triangle -->
 		<annotation cp='[⏮]' tts='last track button'>arrow; previous scene; previous track; triangle</annotation>
+
+		<!-- up button; arrow; button; red -->
 		<annotation cp='[🔼]' tts='up button'>arrow; button; red</annotation>
+
+		<!-- fast up button; arrow; double -->
 		<annotation cp='[⏫]' tts='fast up button'>arrow; double</annotation>
+
+		<!-- down button; arrow; button; down; red -->
 		<annotation cp='[🔽]' tts='down button'>arrow; button; down; red</annotation>
+
+		<!-- fast down button; arrow; double; down -->
 		<annotation cp='[⏬]' tts='fast down button'>arrow; double; down</annotation>
+
+		<!-- pause button; bar; double; pause; vertical -->
 		<annotation cp='[⏸]' tts='pause button'>bar; double; pause; vertical</annotation>
+
+		<!-- stop button; square; stop -->
 		<annotation cp='[⏹]' tts='stop button'>square; stop</annotation>
+
+		<!-- record button; circle; record -->
 		<annotation cp='[⏺]' tts='record button'>circle; record</annotation>
+
+		<!-- eject button; eject -->
 		<annotation cp='[⏏]' tts='eject button'>eject</annotation>
+
+		<!-- cinema; camera; film; movie -->
 		<annotation cp='[🎦]' tts='cinema'>camera; film; movie</annotation>
+
+		<!-- dim button; brightness; dim; low -->
 		<annotation cp='[🔅]' tts='dim button'>brightness; dim; low</annotation>
+
+		<!-- bright button; bright; brightness -->
 		<annotation cp='[🔆]' tts='bright button'>bright; brightness</annotation>
+
+		<!-- antenna bars; antenna; bar; cell; mobile; phone; signal; telephone -->
 		<annotation cp='[📶]' tts='antenna bars'>antenna; bar; cell; mobile; phone; signal; telephone</annotation>
+
+		<!-- no mobile phones; cell; forbidden; mobile; no; not; phone; prohibited; telephone -->
 		<annotation cp='[📵]' tts='no mobile phones'>cell; forbidden; mobile; no; not; phone; prohibited; telephone</annotation>
+
+		<!-- vibration mode; cell; mobile; mode; phone; telephone; vibration -->
 		<annotation cp='[📳]' tts='vibration mode'>cell; mobile; mode; phone; telephone; vibration</annotation>
+
+		<!-- mobile phone off; cell; mobile; off; phone; telephone -->
 		<annotation cp='[📴]' tts='mobile phone off'>cell; mobile; off; phone; telephone</annotation>
+
+		<!-- keycap number; hash; keycap; pound -->
 		<annotation cp='[{#⃣}]' tts='keycap number'>hash; keycap; pound</annotation>
+
+		<!-- keycap asterisk; asterisk; keycap; star -->
 		<annotation cp='[{*⃣}]' tts='keycap asterisk'>asterisk; keycap; star</annotation>
+
+		<!-- keycap digit zero; 0; keycap; zero -->
 		<annotation cp='[{0⃣}]' tts='keycap digit zero'>0; keycap; zero</annotation>
+
+		<!-- keycap digit one; 1; keycap; one -->
 		<annotation cp='[{1⃣}]' tts='keycap digit one'>1; keycap; one</annotation>
+
+		<!-- keycap digit two; 2; keycap; two -->
 		<annotation cp='[{2⃣}]' tts='keycap digit two'>2; keycap; two</annotation>
+
+		<!-- keycap digit three; 3; keycap; three -->
 		<annotation cp='[{3⃣}]' tts='keycap digit three'>3; keycap; three</annotation>
+
+		<!-- keycap digit four; 4; four; keycap -->
 		<annotation cp='[{4⃣}]' tts='keycap digit four'>4; four; keycap</annotation>
+
+		<!-- keycap digit five; 5; five; keycap -->
 		<annotation cp='[{5⃣}]' tts='keycap digit five'>5; five; keycap</annotation>
+
+		<!-- keycap digit six; 6; keycap; six -->
 		<annotation cp='[{6⃣}]' tts='keycap digit six'>6; keycap; six</annotation>
+
+		<!-- keycap digit seven; 7; keycap; seven -->
 		<annotation cp='[{7⃣}]' tts='keycap digit seven'>7; keycap; seven</annotation>
+
+		<!-- keycap digit eight; 8; eight; keycap -->
 		<annotation cp='[{8⃣}]' tts='keycap digit eight'>8; eight; keycap</annotation>
+
+		<!-- keycap digit nine; 9; keycap; nine -->
 		<annotation cp='[{9⃣}]' tts='keycap digit nine'>9; keycap; nine</annotation>
+
+		<!-- keycap ten; 10; keycap; ten -->
 		<annotation cp='[🔟]' tts='keycap ten'>10; keycap; ten</annotation>
+
+		<!-- hundred points; 100; full; hundred; score -->
 		<annotation cp='[💯]' tts='hundred points'>100; full; hundred; score</annotation>
+
+		<!-- no one under eighteen; 18; age restriction; eighteen; forbidden; no; not; prohibited; underage -->
 		<annotation cp='[🔞]' tts='no one under eighteen'>18; age restriction; eighteen; forbidden; no; not; prohibited; underage</annotation>
+
+		<!-- input latin uppercase; input; latin; letters; uppercase -->
 		<annotation cp='[🔠]' tts='input latin uppercase'>input; latin; letters; uppercase</annotation>
+
+		<!-- input latin lowercase; abcd; input; latin; letters; lowercase -->
 		<annotation cp='[🔡]' tts='input latin lowercase'>abcd; input; latin; letters; lowercase</annotation>
+
+		<!-- input numbers; 1234; input; numbers -->
 		<annotation cp='[🔢]' tts='input numbers'>1234; input; numbers</annotation>
+
+		<!-- input symbols; input -->
 		<annotation cp='[🔣]' tts='input symbols'>input</annotation>
+
+		<!-- input latin letters; abc; alphabet; input; latin; letters -->
 		<annotation cp='[🔤]' tts='input latin letters'>abc; alphabet; input; latin; letters</annotation>
+
+		<!-- a button; a; blood -->
 		<annotation cp='[🅰]' tts='a button'>a; blood</annotation>
+
+		<!-- ab button; ab; blood -->
 		<annotation cp='[🆎]' tts='ab button'>ab; blood</annotation>
+
+		<!-- b button; b; blood -->
 		<annotation cp='[🅱]' tts='b button'>b; blood</annotation>
+
+		<!-- squared cl; cl -->
 		<annotation cp='[🆑]' tts='squared cl'>cl</annotation>
+
+		<!-- squared cool; cool -->
 		<annotation cp='[🆒]' tts='squared cool'>cool</annotation>
+
+		<!-- squared free; free -->
 		<annotation cp='[🆓]' tts='squared free'>free</annotation>
+
+		<!-- information source; i; information -->
 		<annotation cp='[ℹ]' tts='information source'>i; information</annotation>
+
+		<!-- squared id; id; identity -->
 		<annotation cp='[🆔]' tts='squared id'>id; identity</annotation>
+
+		<!-- circled letter m; circle; m -->
 		<annotation cp='[Ⓜ]' tts='circled letter m'>circle; m</annotation>
+
+		<!-- squared new; new -->
 		<annotation cp='[🆕]' tts='squared new'>new</annotation>
+
+		<!-- squared ng; ng -->
 		<annotation cp='[🆖]' tts='squared ng'>ng</annotation>
+
+		<!-- o button; blood; o -->
 		<annotation cp='[🅾]' tts='o button'>blood; o</annotation>
+
+		<!-- squared ok; ok -->
 		<annotation cp='[🆗]' tts='squared ok'>ok</annotation>
+
+		<!-- p button; parking -->
 		<annotation cp='[🅿]' tts='p button'>parking</annotation>
+
+		<!-- squared sos; help; sos -->
 		<annotation cp='[🆘]' tts='squared sos'>help; sos</annotation>
+
+		<!-- up! button; mark; up -->
 		<annotation cp='[🆙]' tts='up! button'>mark; up</annotation>
+
+		<!-- squared vs; versus; vs -->
 		<annotation cp='[🆚]' tts='squared vs'>versus; vs</annotation>
+
+		<!-- squared katakana koko; japanese -->
 		<annotation cp='[🈁]' tts='squared katakana koko'>japanese</annotation>
+
+		<!-- squared katakana sa; japanese -->
 		<annotation cp='[🈂]' tts='squared katakana sa'>japanese</annotation>
+
+		<!-- squared moon ideograph; japanese -->
 		<annotation cp='[🈷]' tts='squared moon ideograph'>japanese</annotation>
+
+		<!-- squared exist ideograph; japanese -->
 		<annotation cp='[🈶]' tts='squared exist ideograph'>japanese</annotation>
+
+		<!-- squared finger ideograph; japanese -->
 		<annotation cp='[🈯]' tts='squared finger ideograph'>japanese</annotation>
+
+		<!-- circled advantage ideograph; japanese -->
 		<annotation cp='[🉐]' tts='circled advantage ideograph'>japanese</annotation>
+
+		<!-- squared divide ideograph; japanese -->
 		<annotation cp='[🈹]' tts='squared divide ideograph'>japanese</annotation>
+
+		<!-- squared negation ideograph; japanese -->
 		<annotation cp='[🈚]' tts='squared negation ideograph'>japanese</annotation>
+
+		<!-- squared prohibit ideograph; japanese -->
 		<annotation cp='[🈲]' tts='squared prohibit ideograph'>japanese</annotation>
+
+		<!-- circled accept ideograph; chinese -->
 		<annotation cp='[🉑]' tts='circled accept ideograph'>chinese</annotation>
+
+		<!-- squared apply ideograph; chinese -->
 		<annotation cp='[🈸]' tts='squared apply ideograph'>chinese</annotation>
+
+		<!-- squared together ideograph; chinese -->
 		<annotation cp='[🈴]' tts='squared together ideograph'>chinese</annotation>
+
+		<!-- squared empty ideograph; chinese -->
 		<annotation cp='[🈳]' tts='squared empty ideograph'>chinese</annotation>
+
+		<!-- circled congratulate ideograph; chinese; congratulation; congratulations; ideograph -->
 		<annotation cp='[㊗]' tts='circled congratulate ideograph'>chinese; congratulation; congratulations; ideograph</annotation>
+
+		<!-- circled secret ideograph; chinese; ideograph; secret -->
 		<annotation cp='[㊙]' tts='circled secret ideograph'>chinese; ideograph; secret</annotation>
+
+		<!-- squared operating ideograph; chinese -->
 		<annotation cp='[🈺]' tts='squared operating ideograph'>chinese</annotation>
+
+		<!-- squared fullness ideograph; chinese -->
 		<annotation cp='[🈵]' tts='squared fullness ideograph'>chinese</annotation>
+
+		<!-- black small square; geometric; square -->
 		<annotation cp='[▪]' tts='black small square'>geometric; square</annotation>
+
+		<!-- white small square; geometric; square -->
 		<annotation cp='[▫]' tts='white small square'>geometric; square</annotation>
+
+		<!-- white medium square; geometric; square -->
 		<annotation cp='[◻]' tts='white medium square'>geometric; square</annotation>
+
+		<!-- black medium square; geometric; square -->
 		<annotation cp='[◼]' tts='black medium square'>geometric; square</annotation>
+
+		<!-- white medium-small square; geometric; square -->
 		<annotation cp='[◽]' tts='white medium-small square'>geometric; square</annotation>
+
+		<!-- black medium-small square; geometric; square -->
 		<annotation cp='[◾]' tts='black medium-small square'>geometric; square</annotation>
+
+		<!-- black large square; geometric; square -->
 		<annotation cp='[⬛]' tts='black large square'>geometric; square</annotation>
+
+		<!-- white large square; geometric; square -->
 		<annotation cp='[⬜]' tts='white large square'>geometric; square</annotation>
+
+		<!-- large orange diamond; diamond; geometric; orange -->
 		<annotation cp='[🔶]' tts='large orange diamond'>diamond; geometric; orange</annotation>
+
+		<!-- large blue diamond; blue; diamond; geometric -->
 		<annotation cp='[🔷]' tts='large blue diamond'>blue; diamond; geometric</annotation>
+
+		<!-- small orange diamond; diamond; geometric; orange -->
 		<annotation cp='[🔸]' tts='small orange diamond'>diamond; geometric; orange</annotation>
+
+		<!-- small blue diamond; blue; diamond; geometric -->
 		<annotation cp='[🔹]' tts='small blue diamond'>blue; diamond; geometric</annotation>
+
+		<!-- red triangle pointed up; geometric; red -->
 		<annotation cp='[🔺]' tts='red triangle pointed up'>geometric; red</annotation>
+
+		<!-- red triangle pointed down; down; geometric; red -->
 		<annotation cp='[🔻]' tts='red triangle pointed down'>down; geometric; red</annotation>
+
+		<!-- diamond with a dot; comic; diamond; geometric; inside -->
 		<annotation cp='[💠]' tts='diamond with a dot'>comic; diamond; geometric; inside</annotation>
+
+		<!-- radio button; button; geometric; radio -->
 		<annotation cp='[🔘]' tts='radio button'>button; geometric; radio</annotation>
+
+		<!-- black square button; button; geometric; square -->
 		<annotation cp='[🔲]' tts='black square button'>button; geometric; square</annotation>
+
+		<!-- white square button; button; geometric; outlined; square -->
 		<annotation cp='[🔳]' tts='white square button'>button; geometric; outlined; square</annotation>
+
+		<!-- white circle; circle; geometric -->
 		<annotation cp='[⚪]' tts='white circle'>circle; geometric</annotation>
+
+		<!-- black circle; circle; geometric -->
 		<annotation cp='[⚫]' tts='black circle'>circle; geometric</annotation>
+
+		<!-- red circle; circle; geometric; red -->
 		<annotation cp='[🔴]' tts='red circle'>circle; geometric; red</annotation>
+
+		<!-- blue circle; blue; circle; geometric -->
 		<annotation cp='[🔵]' tts='blue circle'>blue; circle; geometric</annotation>
 	</annotations>
 </ldml>

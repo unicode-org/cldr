@@ -194,7 +194,7 @@ public class ChartDelta extends Chart {
             try {
                 factories.add(Factory.make(current, ".*"));
             } catch (Exception e1) {
-                System.out.println("Skipping: " + dir);
+                System.out.println("Skipping: " + dir + "\t" + e1.getMessage());
                 continue; // skip where the directories don't exist in old versions
             }
             try {
@@ -205,7 +205,9 @@ public class ChartDelta extends Chart {
             }
             System.out.println("Adding: " + dir + "\t\t" + current + "\t\t" + past);
         }
-
+        if (factories.isEmpty()) {
+            throw new IllegalArgumentException("No factories found");
+        }
         // get a list of all the locales to cycle over
 
         Relation<String, String> baseToLocales = Relation.of(new TreeMap(), HashSet.class);
@@ -275,7 +277,7 @@ public class ChartDelta extends Chart {
                         if (path.startsWith("//ldml/identity")
                             || path.endsWith("/alias")
                             || path.startsWith("//ldml/segmentations") // do later
-                            || path.startsWith("//ldml/annotations") // do later
+                            //|| path.startsWith("//ldml/annotations") // do later
                             || path.startsWith("//ldml/rbnf") // do later
                         ) {
                             continue;

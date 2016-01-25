@@ -2910,6 +2910,10 @@ public class SupplementalDataInfo {
         } else if ((from == null) == (after == null) || (to == null) == (before == null)) {
             throw new IllegalArgumentException();
         }
+//        if (dayPeriodBuilder.contains(dayPeriod)) { // disallow multiple rules with same dayperiod
+//            throw new IllegalArgumentException("Multiple rules with same dayperiod are disallowed: "
+//                + lastDayPeriodLocales + ", " + lastDayPeriodType + ", " + dayPeriod);
+//        }
         boolean includesStart = from != null;
         boolean includesEnd = to != null;
         int start = parseTime(includesStart ? from : after);

@@ -59,8 +59,8 @@ public class ToolConstants {
         "25.0",
         "26.0",
         "27.0",
-        "28.0",
-        "29.0"
+        "28.0"
+        //"29.0"
         );
     public static final String PREVIOUS_CHART_VERSION;
     static {

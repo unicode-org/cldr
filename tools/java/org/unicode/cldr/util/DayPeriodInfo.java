@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
@@ -9,6 +10,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -148,10 +151,21 @@ public class DayPeriodInfo {
             return this;
         }
 
+        
         public DayPeriodInfo finish(String[] locales) {
             DayPeriodInfo result = new DayPeriodInfo(info, locales);
             info.clear();
             return result;
+        }
+
+
+        public boolean contains(DayPeriod dayPeriod) {
+            for (Span span : info) {
+                if (span.dayPeriod == dayPeriod) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 
@@ -169,9 +183,11 @@ public class DayPeriodInfo {
             }
             for (int i = 1; i < len; ++i) {
                 Span current = spans[i];
-                if (current.start != last.end) {
-                    throw new IllegalArgumentException("Gap or overlapping times:\t"
-                        + current + "\t" + last + "\t" + Arrays.asList(locales));
+                if (current.start != current.end && last.start != last.end){
+                    if (current.start != last.end) {
+                        throw new IllegalArgumentException("Gap or overlapping times:\t"
+                            + current + "\t" + last + "\t" + Arrays.asList(locales));
+                    }
                 }
                 tempPeriods.add(current.dayPeriod);
                 dayPeriodsToSpans.put(current.dayPeriod, current);
@@ -246,6 +262,18 @@ public class DayPeriodInfo {
             return spanList == null ? null : dayPeriodsToSpans.get(dayPeriod).iterator().next();
         }
     }
+
+    public Set<Span> getDayPeriodSpans(DayPeriodInfo.DayPeriod dayPeriod) {
+        switch (dayPeriod) {
+        case am:
+            return Collections.singleton(DayPeriod.am.span);
+        case pm:
+            return Collections.singleton(DayPeriod.pm.span);
+        default:
+            return dayPeriodsToSpans.get(dayPeriod);
+        }
+    }
+
 
     /**
      * Returns the day period for the time.

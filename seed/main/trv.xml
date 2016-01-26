@@ -90,63 +90,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="provisional">Emp</day>
-							<day type="mon" draft="provisional">Kin</day>
-							<day type="tue" draft="provisional">Dha</day>
-							<day type="wed" draft="provisional">Tru</day>
-							<day type="thu" draft="provisional">Spa</day>
-							<day type="fri" draft="provisional">Rim</day>
-							<day type="sat" draft="provisional">Mat</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="provisional">Jiyax sngayan</day>
-							<day type="mon" draft="provisional">tgKingal jiyax iyax sngayan</day>
-							<day type="tue" draft="provisional">tgDha jiyax iyax sngayan</day>
-							<day type="wed" draft="provisional">tgTru jiyax iyax sngayan</day>
-							<day type="thu" draft="provisional">tgSpac jiyax iyax sngayan</day>
-							<day type="fri" draft="provisional">tgRima jiyax iyax sngayan</day>
-							<day type="sat" draft="provisional">tgMataru jiyax iyax sngayan</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="provisional">E</day>
-							<day type="mon" draft="provisional">K</day>
-							<day type="tue" draft="provisional">D</day>
-							<day type="wed" draft="provisional">T</day>
-							<day type="thu" draft="provisional">S</day>
-							<day type="fri" draft="provisional">R</day>
-							<day type="sat" draft="provisional">M</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="provisional">mn1</quarter>
-							<quarter type="2" draft="provisional">mn2</quarter>
-							<quarter type="3" draft="provisional">mn3</quarter>
-							<quarter type="4" draft="provisional">mn4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">mnprxan</quarter>
-							<quarter type="2" draft="provisional">mndha</quarter>
-							<quarter type="3" draft="provisional">mntru</quarter>
-							<quarter type="4" draft="provisional">mnspat</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="provisional">Brax kndaax</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">Baubau kndaax</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -293,6 +236,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="provisional">Brax kndaax</dayPeriod>
+							<dayPeriod type="pm" draft="provisional">Baubau kndaax</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="provisional">Brax kndaax</dayPeriod>
 							<dayPeriod type="pm" draft="provisional">Baubau kndaax</dayPeriod>

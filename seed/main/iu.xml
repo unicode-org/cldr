@@ -25,31 +25,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">ᓈᑦᑏᖑᔭᖅ</day>
-							<day type="mon" draft="unconfirmed">ᓇᒡᒐᔾᔭᐅ</day>
-							<day type="tue" draft="unconfirmed">ᓇᒡᒐᔾᔭᐅᓕᖅᑭ</day>
-							<day type="wed" draft="unconfirmed">ᐱᖓᑦᓯᖅ</day>
-							<day type="thu" draft="unconfirmed">ᓯᑕᒻᒥᖅ</day>
-							<day type="fri" draft="unconfirmed">ᑕᓪᓕᒻᒥᐅᑦ</day>
-							<day type="sat" draft="unconfirmed">ᓈᑦᓰᖑᔭᓛᕐᓂᐊᖅ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">am</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">pm</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">am</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">pm</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -156,6 +131,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</days>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">am</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">pm</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am" draft="unconfirmed">am</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">pm</dayPeriod>

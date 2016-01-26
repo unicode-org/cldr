@@ -16,36 +16,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">Lad</day>
-							<day type="mon" draft="unconfirmed">Lin</day>
-							<day type="tue" draft="unconfirmed">Tal</day>
-							<day type="wed" draft="unconfirmed">Lar</day>
-							<day type="thu" draft="unconfirmed">Lam</day>
-							<day type="fri" draft="unconfirmed">Jum</day>
-							<day type="sat" draft="unconfirmed">Asa</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">Ladi</day>
-							<day type="mon" draft="unconfirmed">Lintani</day>
-							<day type="tue" draft="unconfirmed">Talata</day>
-							<day type="wed" draft="unconfirmed">Larba</day>
-							<day type="thu" draft="unconfirmed">Lamit</day>
-							<day type="fri" draft="unconfirmed">Juma</day>
-							<day type="sat" draft="unconfirmed">Asabar</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">A.M.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">P.M.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -126,6 +96,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</days>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">A.M.</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">P.M.</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="unconfirmed">A.M.</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">P.M.</dayPeriod>

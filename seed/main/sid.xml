@@ -27,47 +27,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">Sam</day>
-							<day type="mon" draft="unconfirmed">San</day>
-							<day type="tue" draft="unconfirmed">Mak</day>
-							<day type="wed" draft="unconfirmed">Row</day>
-							<day type="thu" draft="unconfirmed">Ham</day>
-							<day type="fri" draft="unconfirmed">Arb</day>
-							<day type="sat" draft="unconfirmed">Qid</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">Sambata</day>
-							<day type="mon" draft="unconfirmed">Sanyo</day>
-							<day type="tue" draft="unconfirmed">Maakisanyo</day>
-							<day type="wed" draft="unconfirmed">Roowe</day>
-							<day type="thu" draft="unconfirmed">Hamuse</day>
-							<day type="fri" draft="unconfirmed">Arbe</day>
-							<day type="sat" draft="unconfirmed">Qidaame</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">S</day>
-							<day type="mon" draft="unconfirmed">S</day>
-							<day type="tue" draft="unconfirmed">M</day>
-							<day type="wed" draft="unconfirmed">R</day>
-							<day type="thu" draft="unconfirmed">H</day>
-							<day type="fri" draft="unconfirmed">A</day>
-							<day type="sat" draft="unconfirmed">Q</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">soodo</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">hawwaro</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -149,6 +108,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</days>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">soodo</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">hawwaro</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="unconfirmed">soodo</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">hawwaro</dayPeriod>

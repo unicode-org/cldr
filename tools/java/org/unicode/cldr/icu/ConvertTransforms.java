@@ -89,8 +89,8 @@ public class ConvertTransforms extends CLDRConverterTool {
             // addAlias(index, "Latin", "Jamo", "", "Latin", "ConjoiningJamo", "");
             addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
             addAlias(index, "Digit", "Tone", "", "NumericPinyin", "Pinyin", "");
-            addAlias(index, "Hans", "Hant", "", "Simplified", "Traditional", "");
-            addAlias(index, "Hant", "Hans", "", "Traditional", "Simplified", "");
+            // addAlias(index, "Simplified", "Traditional", "", "Hans", "Hant", "");
+            // addAlias(index, "Traditional", "Simplified", "", "Hant", "Hans", "");
             for (String id : ids) {
                 if (id.equals("All")) continue;
                 try {

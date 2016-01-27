@@ -39,7 +39,7 @@ $Boundary =  [^[:L:][:M:][:N:]];
 
 # TODO: Diphthongs probably need more work.
 
-# [sekujesk] → [sekujask], for emitting سيکوياسک not سيکويسک
+# Romanian [sekujesk] → [sekujask], for emitting سيکوياسک not سيکويسک
 $UVowel [j $IVowel] [e {e̞} $SchwaVowel] → uia;
 
 # Kazakh Аягөз [ɑjɑɡy̯ʉz] → [ɑjɑɡiuz], to emit آياگيوز not آياگووز
@@ -126,9 +126,16 @@ j $IVowel? ː? → ي;
 [{l̼} {l̥} l {ɭ̊} ɭ {ʎ̥} ʎ] → ل;
 [ʟ {ʟ̠}] → غ;
 
-# Strip off syllable markers
+# Independent pass for misc cleanup.
 ::NULL;
-\. → ;
+
+# Strip off syllable markers
+\. → ;  
+
+# Sequences of three or more ووو look very confusing; we shorten them.
+# Polish Darłowo [darwɔvɔ] → داروو → داروووو
+ووو+ → وو;
+
 			]]></tRule>
 		</transform>
 	</transforms>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2016 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision: 12243 $"/>
+	<transforms>
+		<transform source="und_FONIPA" target="fa" direction="forward" alias="fa-t-und-fonipa">
+		  <tRule><![CDATA[
+# Vowels
+# ------
+# In these rules, we produce ي و ا both for short and for long vowels.
+# This would be wrong for writing Farsi or Arabic, but when transliterating
+# foreign words and names, it is strongly preferred to vowel marks.
+# Short schwa [ə] and a few other, schwa-like vowels get omitted entirely
+# unless at the end of the word, in which case we emit ه whose Farsi
+# word-final pronunciation comes close to [ə]. At the beginning of words,
+# Farsi speakers prefer to see آ for [ɑ] and a few other similar-sounding
+# dark vowels; note that this use of آ is quite different from Arabic.
+
+$IVowel = [i ɪ e {e̞}];
+$UVowel = [y {ɨ} {ʉ} ɯ u ʏ {ɪ̈} {ʊ̈} {ɯ̽} {ʊ} ø ɤ o {ø̞} {ɤ̞} {o̞} ɔ w ʍ ʷ];
+$AVowel = [ɛ œ ɜ æ ɶ];
+$DarkAVowel = [ʌ a ɑ ɒ ɐ ɞ {ä} {ɒ̈}];  # آ instead of ا at beginning of words
+$SchwaVowel = [ɘ ɵ ə {ɵ̞}];
+
+$Boundary =  [^[:L:][:M:][:N:]];
+
+::NFD;
+[ʰ ʱ  ̃  ̰  ̋  ́  ̄  ̀  ̏  ̌  ̂ ˥ ˦ ˧ ˨ ˩ ꜜ ꜛ ↗ ↘  ͡  ͜  ̯] → ;
+ʲ → j;
+::NFC;
+
+# TODO: Diphthongs probably need more work.
+
+# [sekujesk] → [sekujask], for emitting سيکوياسک not سيکويسک
+$UVowel [j $IVowel] [e {e̞} $SchwaVowel] → uia;
+
+::NULL;
+
+# Vowels
+$Boundary {$SchwaVowel ː?} → اي;
+$SchwaVowel ː → ي;
+{[$SchwaVowel e {e̞}]} [^[:L:][:M:][:N:][\.]] → ه;
+$SchwaVowel → ;
+
+$Boundary {$IVowel ː?} → اي;
+$IVowel ː? j? → ي;
+
+$Boundary {$UVowel ː?} → او;
+$UVowel ː? → و;
+
+$Boundary {$AVowel ː?} → ا;
+$AVowel ː? → ا;
+
+$Boundary {$DarkAVowel ː?} → آ;
+$DarkAVowel ː? → ا;
+
+# Shadda for long (geminated) consonants
+ː → ّ;
+
+# Affricates
+[{t͡ʃ}] → چ;
+
+# Nasal stops
+[{m̥} m ɱ] → م;
+[{n̼̊} {n̼} {n̥} n {ɳ̊} ɳ {ɲ̊} ɲ] → ن;
+[{ŋ̊} ŋ {ɴ̥} ɴ] k → نک;
+[{ŋ̊} ŋ {ɴ̥} ɴ] [ɡ g]? → نگ;
+
+# Non-nasal stops
+[p {p̪}] → پ;
+[b {b̪}] → ب;
+[{d̼} d] → د;
+[{t̼} t] → ت;
+[ʈ] → ط;
+[ɖ] → ض;
+c → چ;
+ɟ → دج;
+k → ک;
+[ɡ g] → گ;
+[q ɢ ʡ] → ق;
+ʔ → ;
+
+# Sibilant fricatives
+s → س;
+z → ز;
+[ʃ ʂ ɕ] → ش;
+[ʒ ʐ ʑ] → ژ;
+
+# Non-sibilant fricatives
+[ɸ f] → ف;
+[β v] → و;
+[{θ̼} θ {θ̱}] → ث;
+[{ð̼} ð {ð̠}] → ذ;
+ç → ش;
+ʝ $IVowel? ː? → ي;
+[x χ] → خ;
+[ɣ ʁ] → غ;
+ħ → ح;
+ʕ → ع;
+[h ɦ {ʔ̞}] → ه;
+
+# Approximants, trills, flaps
+ʋ → و;
+ʙ → بر;
+{r̝} → رژ;
+[{ɹ̥} {ɹ} {ɻ̊} {ɻ} {ɾ̥} ɾ {ɽ̊} ɽ {r̼} {r̥} r] → ر;
+[{ʀ̥} ʀ] → غ;
+ʜ → ح;
+ʢ → ع;
+j $IVowel? ː? → ي;
+
+# Laterals
+ɬ → ش;
+ɮ → ژ;
+[{l̼} {l̥} l {ɭ̊} ɭ {ʎ̥} ʎ] → ل;
+[ʟ {ʟ̠}] → غ;
+
+# Strip off syllable markers
+::NULL;
+\. → ;
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

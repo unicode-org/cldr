@@ -11,29 +11,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="de" draft="unconfirmed">Deutänapük</language>
 			<language type="en" draft="unconfirmed">Linglänapük</language>
 			<language type="eo" draft="unconfirmed">Sperantapük</language>
 			<language type="es" draft="unconfirmed">Spanyänapük</language>
+			<language type="fr" draft="unconfirmed">Fransänapük</language>
+			<language type="it" draft="unconfirmed">Litaliyänapük</language>
+			<language type="ja" draft="unconfirmed">Yapänapük</language>
 			<language type="pt" draft="unconfirmed">Portugänapük</language>
 			<language type="ru" draft="unconfirmed">Rusänapük</language>
 			<language type="vo" draft="unconfirmed">Volapük</language>
+			<language type="zh" draft="unconfirmed">Tsyinänapük</language>
 		</languages>
 		<territories>
+			<territory type="BR" draft="unconfirmed">Brasilän</territory>
+			<territory type="CN" draft="unconfirmed">Tsyinän</territory>
 			<territory type="DE" draft="unconfirmed">Deutän</territory>
 			<territory type="ES" draft="unconfirmed">Spanyän</territory>
 			<territory type="FR" draft="unconfirmed">Fransän</territory>
+			<territory type="GB" draft="unconfirmed">Regän Pebalöl</territory>
 			<territory type="GE" draft="unconfirmed">Grusiyän</territory>
 			<territory type="GR" draft="unconfirmed">Grikän</territory>
+			<territory type="IN" draft="unconfirmed">Lindän</territory>
 			<territory type="IT" draft="unconfirmed">Litaliyän</territory>
+			<territory type="JP" draft="unconfirmed">Yapän</territory>
 			<territory type="MX" draft="unconfirmed">Mäxikän</territory>
 			<territory type="NR" draft="unconfirmed">Naureän</territory>
 			<territory type="PT" draft="unconfirmed">Portugän</territory>
 			<territory type="PW" draft="unconfirmed">Palauäns</territory>
+			<territory type="RU" draft="unconfirmed">Rusän</territory>
+			<territory type="US" draft="unconfirmed">Lamerikän</territory>
 		</territories>
+		<codePatterns>
+			<codePattern type="language" draft="unconfirmed">Pük: {0}</codePattern>
+			<codePattern type="territory" draft="unconfirmed">Topäd: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a ä b c d e f g h i j k l m n o ö p q r s š t u ü v x y z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[w]</exemplarCharacters>
+		<exemplarCharacters>[a ä b c d e f g h i j k l m n o ö p r s t u ü v x y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[q w]</exemplarCharacters>
 		<exemplarCharacters type="index">[A Ä B C D E F G H I J K L M N O Ö P R S T U Ü V X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” « » ( ) \[ \] \{ \} § @ * / \&amp; #]</exemplarCharacters>
 		<ellipsis type="final" draft="unconfirmed">{0}…</ellipsis>

@@ -289,6 +289,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- Otherwise, do not break -->
 				<rule id="12"> × $Any </rule>
 			</segmentRules>
+			<suppressions type="standard">
+				<!-- root suppression is empty. -->
+			</suppressions>
 		</segmentation>
 		<segmentation type="WordBreak">
 			<variables>

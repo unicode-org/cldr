@@ -42,6 +42,9 @@ $Boundary =  [^[:L:][:M:][:N:]];
 # [sekujesk] → [sekujask], for emitting سيکوياسک not سيکويسک
 $UVowel [j $IVowel] [e {e̞} $SchwaVowel] → uia;
 
+# Kazakh Аягөз [ɑjɑɡy̯ʉz] → [ɑjɑɡiuz], to emit آياگيوز not آياگووز
+yʉ → iu;
+
 ::NULL;
 
 # Vowels

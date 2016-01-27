@@ -151,6 +151,7 @@ public class CLDRTransforms {
             addDependency("cs-ja", "cs-cs_FONIPA", "cs_FONIPA-ja");
             addDependency("cs_FONIPA-ko", "Latin-Hangul");
             addDependency("cs-ko", "cs-cs_FONIPA", "cs_FONIPA-ko");
+            addDependency("eo-fa", "eo-eo_FONIPA", "und_FONIPA-fa");
             addDependency("es_419-ja", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "es_FONIPA-ja");
             addDependency("es-am", "es-es_FONIPA", "es_FONIPA-am");
             addDependency("es-ja", "es-es_FONIPA", "es_FONIPA-ja");
@@ -162,6 +163,7 @@ public class CLDRTransforms {
             addDependency("hy-fa", "hy-hy_FONIPA", "und_FONIPA-fa");
             addDependency("hy_AREVMDA-am", "hy_AREVMDA-hy_AREVMDA_FONIPA", "am-am_FONIPA");
             addDependency("hy_AREVMDA-fa", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-fa");
+            addDependency("ia-fa", "ia-ia_FONIPA", "und_FONIPA-fa");
             addDependency("kk-am", "kk-kk_FONIPA", "am-am_FONIPA");
             addDependency("kk-fa", "kk-kk_FONIPA", "und_FONIPA-fa");
             addDependency("ky-am", "ky-ky_FONIPA", "am-am_FONIPA");
@@ -179,6 +181,7 @@ public class CLDRTransforms {
             addDependency("sk-am", "sk-sk_FONIPA", "am-am_FONIPA");
             addDependency("sk-fa", "sk-sk_FONIPA", "und_FONIPA-fa");
             addDependency("sk-ja", "sk-sk_FONIPA", "sk_FONIPA-ja");
+            addDependency("tlh-fa", "tlh-tlh_FONIPA", "und_FONIPA-fa");
             addDependency("Latin-Bopomofo", "Latin-NumericPinyin");
 
             // addExtras("cs-ja", "cs-ja", "es-am", "es-ja", "es-zh", "Han-Latin/Names");

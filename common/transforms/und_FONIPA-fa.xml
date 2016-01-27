@@ -22,7 +22,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 # dark vowels; note that this use of آ is quite different from Arabic.
 
 $IVowel = [i ɪ e {e̞}];
-$UVowel = [y {ɨ} {ʉ} ɯ u ʏ {ɪ̈} {ʊ̈} {ɯ̽} {ʊ} ø ɤ o {ø̞} {ɤ̞} {o̞} ɔ w ʍ ʷ];
+$UVowel = [y {ɨ} {ʉ} ɯ u ʏ {ɪ̈} {ʊ̈} {ɯ̽} {ʊ} ø ɤ o {ø̞} {ɤ̞} {o̞} ɔ w {w̥} ʍ ʷ];
 $AVowel = [ɛ œ ɜ æ ɶ];
 $DarkAVowel = [ʌ a ɑ ɒ ɐ ɞ {ä} {ɒ̈}];  # آ instead of ا at beginning of words
 $SchwaVowel = [ɘ ɵ ə {ɵ̞}];
@@ -32,6 +32,9 @@ $Boundary =  [^[:L:][:M:][:N:]];
 ::NFD;
 [ʰ ʱ  ̃  ̰  ̋  ́  ̄  ̀  ̏  ̌  ̂ ˥ ˦ ˧ ˨ ˩ ꜜ ꜛ ↗ ↘  ͡  ͜  ̯] → ;
 ʲ → j;
+ᵐ → m;
+ⁿ → n;
+ᵑ → ŋ;
 ::NFC;
 
 # TODO: Diphthongs probably need more work.
@@ -67,7 +70,7 @@ $DarkAVowel ː? → ا;
 
 # Nasal stops
 [{m̥} m ɱ] → م;
-[{n̼̊} {n̼} {n̥} n {ɳ̊} ɳ {ɲ̊} ɲ] → ن;
+[{n̼̊} {n̼} {n̥} n {ɳ̊} ɳ {ɲ̊} {ɲ̥} ɲ] → ن;
 [{ŋ̊} ŋ {ɴ̥} ɴ] k → نک;
 [{ŋ̊} ŋ {ɴ̥} ɴ] [ɡ g]? → نگ;
 

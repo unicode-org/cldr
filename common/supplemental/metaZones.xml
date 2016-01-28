@@ -555,7 +555,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="1982-12-02 05:00" mzone="America_Central"/>
 			</timezone>
 			<timezone type="America/Metlakatla">
-				<usesMetazone mzone="America_Pacific"/>
+				<usesMetazone to="2015-11-01 10:00" mzone="America_Pacific"/>
+				<usesMetazone from="2015-11-01 10:00" mzone="Alaska"/>
 			</timezone>
 			<timezone type="America/Mexico_City">
 				<usesMetazone mzone="America_Central"/>
@@ -846,7 +847,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Asia/Chita">
 				<usesMetazone to="2014-10-25 16:00" mzone="Yakutsk"/>
-				<usesMetazone from="2014-10-25 16:00" mzone="Irkutsk"/>
+				<usesMetazone to="2016-03-26 18:00" from="2014-10-25 16:00" mzone="Irkutsk"/>
+				<usesMetazone from="2016-03-26 18:00" mzone="Yakutsk"/>
 			</timezone>
 			<timezone type="Asia/Choibalsan">
 				<usesMetazone to="1983-03-31 16:00" mzone="Mongolia"/>

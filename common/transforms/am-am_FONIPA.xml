@@ -44,6 +44,9 @@ $IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒxh lr {t͡ʃ}{t
 # not written in Amharic.
 $LABIALIZABLE_BEFORE_A = [p{pʼ}t{tʼ} {t͡ʃ}{t͡ʃʼ}{d͡ʒ}{d͡ʒʼ} s{sʼ}zʃʒ fv r];
 
+← [ ͡  ͜  ̯];
+::(null);
+
 # Appendix B of [1] transcribes ሀ as /hə/. However, according to
 # an Amharic-speaking person, there is no /hə/ sequence
 # in Amharic; instead, it gets pronounced as /ha/.
@@ -739,6 +742,7 @@ x ← [ç x χ];
 h ← ɦ;
 j ← [ʝ ʲ];
 lj ← ʎ [iɨ]? [jʝʲ]?;
+t͡ʃl ← [{t͡ɬ} {tɬ}];
 
 w ← {u̯} $IPA_VOWEL;
 w ← ʷ;
@@ -758,7 +762,7 @@ $1ːʲ ← ([pbtd])ʲː;  # [bːʲeː] ← [bʲːeː]
 $1ːʷ ← ([pbtd])ʷː;  # [bːʷeː] ← [bʷːeː]
 
 ::(NFC);
-← [ ̀ ́ ̂ ̃ ̄ ̰];
+← [ ̃  ̰  ̋  ́  ̄  ̀  ̏  ̌  ̂ ˥ ˦ ˧ ˨ ˩ ꜜ ꜛ ↗ ↘ ];
 ::(NFD);
 			</tRule>
 		</transform>

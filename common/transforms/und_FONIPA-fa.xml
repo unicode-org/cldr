@@ -26,7 +26,7 @@ $UVowel = [y {ɨ} {ʉ} ɯ u ʏ {ɪ̈} {ʊ̈} {ɯ̽} {ʊ} ø ɤ o {ø̞} {ɤ̞} {
 $AVowel = [ɛ œ ɜ æ ɶ];
 $DarkAVowel = [ʌ a ɑ ɒ ɐ ɞ {ä} {ɒ̈}];  # آ instead of ا at beginning of words
 $SchwaVowel = [ɘ ɵ ə {ɵ̞}];
-
+$Click = [ʘ ɋ ǀ ʇ ǃ ʗ ǂ ʄ ǁ ʖ];
 $Boundary =  [^[:L:][:M:][:N:]];
 
 ::NFD;
@@ -71,6 +71,10 @@ $DarkAVowel ː? → ا;
 # Affricates
 [{t͡ʃ} ʧ] → چ;
 
+# Clicks
+[ɡ g ɠ k] $Click → کچ;
+[n ɲ]? $Click → نچ;
+
 # Nasal stops
 [{m̥} m ɱ] → م;
 [{n̼̊} {n̼} {n̥} n {ɳ̊} ɳ {ɲ̊} {ɲ̥} ɲ] → ن;
@@ -79,22 +83,22 @@ $DarkAVowel ː? → ا;
 
 # Non-nasal stops
 [p {p̪}] → پ;
-[b {b̪}] → ب;
-[{d̼} d] → د;
+[b {b̪} ɓ] → ب;
+[{d̼} d ɗ ᶑ] → د;
 [{t̼} t] → ت;
 [ʈ] → ط;
 [ɖ] → ض;
 c → چ;
 ɟ → دج;
 k → ک;
-[ɡ g] → گ;
-[q ɢ ʡ] → ق;
+[ɡ g ɠ] → گ;
+[q ɢ ʡ ʛ] → ق;
 ʔ → ;
 
 # Sibilant fricatives
 s → س;
 z → ز;
-[ʃ ʂ ɕ] → ش;
+[ʃ ʂ ɕ ʄ] → ش;
 [ʒ ʐ ʑ] → ژ;
 
 # Non-sibilant fricatives

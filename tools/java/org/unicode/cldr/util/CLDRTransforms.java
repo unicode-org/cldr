@@ -147,6 +147,7 @@ public class CLDRTransforms {
             addDependency("NumericPinyin-Latin(/.*)?", "Tone-Digit", "Digit-Tone");
             addDependency("am-fa", "am-am_FONIPA", "und_FONIPA-fa");
             addDependency("cs-am", "cs-cs_FONIPA", "am-am_FONIPA");
+            addDependency("cs-ar", "cs-cs_FONIPA", "und_FONIPA-ar");
             addDependency("cs-fa", "cs-cs_FONIPA", "und_FONIPA-fa");
             addDependency("cs-ja", "cs-cs_FONIPA", "cs_FONIPA-ja");
             addDependency("cs_FONIPA-ko", "Latin-Hangul");
@@ -176,11 +177,13 @@ public class CLDRTransforms {
             addDependency("my-am", "my-my_FONIPA", "am-am_FONIPA");
             addDependency("my-fa", "my-my_FONIPA", "und_FONIPA-fa");
             addDependency("pl-am", "pl-pl_FONIPA", "am-am_FONIPA");
+            addDependency("pl-ar", "pl-pl_FONIPA", "und_FONIPA-ar");
             addDependency("pl-fa", "pl-pl_FONIPA", "und_FONIPA-fa");
             addDependency("pl-ja", "pl-pl_FONIPA", "pl_FONIPA-ja");
             addDependency("rm_SURSILV-am", "rm_SURSILV-rm_FONIPA_SURSILV", "am-am_FONIPA");
             addDependency("rm_SURSILV-fa", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-fa");
             addDependency("ro-am", "ro-ro_FONIPA", "am-am_FONIPA");
+            addDependency("ro-ar", "ro-ro_FONIPA", "und_FONIPA-ar");
             addDependency("ro-fa", "ro-ro_FONIPA", "und_FONIPA-fa");
             addDependency("ro-ja", "ro-ro_FONIPA", "ro_FONIPA-ja");
             addDependency("sat-am", "sat_Olck-sat_FONIPA", "am-am_FONIPA");
@@ -188,6 +191,7 @@ public class CLDRTransforms {
             addDependency("si-am", "si-si_FONIPA", "am-am_FONIPA");
             addDependency("si-fa", "si-si_FONIPA", "und_FONIPA-fa");
             addDependency("sk-am", "sk-sk_FONIPA", "am-am_FONIPA");
+            addDependency("sk-ar", "sk-sk_FONIPA", "und_FONIPA-ar");
             addDependency("sk-fa", "sk-sk_FONIPA", "und_FONIPA-fa");
             addDependency("sk-ja", "sk-sk_FONIPA", "sk_FONIPA-ja");
             addDependency("tlh-am", "tlh-tlh_FONIPA", "am-am_FONIPA");

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2016 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision: 12243 $"/>
+	<transforms>
+		<transform source="und_FONIPA" target="ar" direction="forward" alias="ar-t-und-fonipa">
+		  <tRule><![CDATA[
+# Vowels
+# ------
+# In these rules, we produce ي و ا both for short and for long vowels.
+# This would be wrong for writing Arabic, but when transliterating
+# foreign words and names, it is strongly preferred to vowel marks.
+# However, we emit short schwa [ə] and a few other, schwa-like vowels.
+
+$IVowel = [i ɪ e {e̞}];
+$UVowel = [y {ɨ} {ʉ} ɯ u ʏ {ɪ̈} {ʊ̈} {ɯ̽} {ʊ} ø ɤ o {ø̞} {ɤ̞} {o̞} ɞ ɔ w {w̥} ʍ ʷ];
+$AVowel = [ɛ œ ɜ ʌ æ ɐ a ɶ {ä} {ɒ̈} ɑ ɒ];
+$SchwaVowel = [ɘ ɵ ə {ɵ̞}];
+$Click = [ʘ ɋ ǀ ʇ ǃ ʗ ǂ ʄ ǁ ʖ];
+$Boundary =  [^[:L:][:M:][:N:]];
+
+::NFD;
+[ʰ ʱ ʼ  ̃  ̰  ̋  ́  ̄  ̀  ̏  ̌  ̂ ˥ ˦ ˧ ˨ ˩ ꜜ ꜛ ↗ ↘  ͡  ͜  ̯] → ;
+ʲ → j;
+ᵐ → m;
+ⁿ → n;
+ᵑ → ŋ;
+::NFC;
+
+# TODO: Diphthongs probably need more work.
+
+# Romanian [sekujesk] → [sekujask], for emitting سيكوياسك not سيكويسك
+$UVowel [j $IVowel] [e {e̞} $SchwaVowel] → uia;
+
+# Kazakh Аягөз [ɑjɑɡy̯ʉz] → [ɑjɑɡiuz], to emit TODO
+yʉ → iu;
+
+::NULL;
+
+# Vowels
+$Boundary {$IVowel ː} → إِي;
+$Boundary {$IVowel} → إِ;
+$IVowel ː? → ي;
+
+$Boundary {$UVowel ː} → أو;
+$Boundary {$UVowel} → أ;
+$UVowel ː? → و;
+
+$Boundary {$AVowel ː} → آ;
+$Boundary {$AVowel} → أ;
+$AVowel ː? → ا;
+
+$Boundary {$SchwaVowel ː} → إِي;
+$Boundary {$SchwaVowel} → أ;
+$SchwaVowel ː → ي;
+$SchwaVowel → ;
+
+# Shadda for long (geminated) consonants
+ː → ّ;
+
+# Affricates
+[{t͡ʃ} ʧ] → تش;
+
+# Clicks
+[ɡ g ɠ k] $Click → كش;
+$Click → تش;
+
+# Nasal stops
+[{m̥} m ɱ] → م;
+[{n̼̊} {n̼} {n̥} n {ɳ̊} ɳ {ɲ̊} {ɲ̥} ɲ] → ن;
+[{ŋ̊} ŋ {ɴ̥} ɴ] k → نك;
+[{ŋ̊} ŋ {ɴ̥} ɴ] [ɡ g ɠ]? → نغ;
+
+# Non-nasal stops
+[p b {p̪} {b̪} ɓ] → ب;
+[{d̼} d ɗ ᶑ] → د;
+[{t̼} t] → ت;
+[ʈ] → ط;
+[ɖ] → ض;
+c → تش;
+ɟ → دج;
+k → ك;
+[ɡ g ɠ] → غ;
+[q ɢ ʡ ʛ] → ق;
+ʔ → ء;
+
+# Sibilant fricatives
+s → س;
+z → ز;
+[ʃ ʂ ɕ ʄ] → ش;
+[ʒ ʐ ʑ] → ج;
+
+# Non-sibilant fricatives
+[ɸ β f v] → ف;
+[{θ̼} θ {θ̱}] → ث;
+[{ð̼} ð {ð̠}] → ذ;
+ç → ش;
+ʝ $IVowel? ː? → ي;
+[x χ] → خ;
+[ɣ ʁ] → غ;
+ħ → ح;
+ʕ → ع;
+[h ɦ {ʔ̞}] → ه;
+
+# Approximants, trills, flaps
+ʋ → و;
+ʙ → بر;
+{r̝} → رش;
+[{ɹ̥} {ɹ} {ɻ̊} {ɻ} {ɾ̥} ɾ {ɽ̊} ɽ {r̼} {r̥} r] → ر;
+[{ʀ̥} ʀ] → غ;
+ʜ → ح;
+ʢ → ع;
+j $IVowel? ː? → ي;
+
+# Laterals
+ɬ → شل;
+ɮ → جل;
+{[{ʎ̥} ʎ]} [^ $IVowel j ʝ] → لي;
+[{l̼} {l̥} l {ɭ̊} ɭ {ʎ̥} ʎ] → ل;
+[ʟ {ʟ̠}] → غ;
+
+# Independent pass for misc cleanup.
+::NULL;
+
+# Strip off syllable markers
+\. → ;  
+
+# Sequences of three or more ووو look very confusing; we shorten them.
+# Polish Darłowo [darwɔvɔ] → داروو → داروووو
+ووو+ → وو;
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

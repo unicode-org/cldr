@@ -182,6 +182,7 @@ public class CLDRTransforms {
             addDependency("ro-am", "ro-ro_FONIPA", "am-am_FONIPA");
             addDependency("ro-fa", "ro-ro_FONIPA", "und_FONIPA-fa");
             addDependency("ro-ja", "ro-ro_FONIPA", "ro_FONIPA-ja");
+            addDependency("sat-am", "sat_Olck-sat_FONIPA", "am-am_FONIPA");
             addDependency("sat-fa", "sat_Olck-sat_FONIPA", "und_FONIPA-fa");
             addDependency("si-am", "si-si_FONIPA", "am-am_FONIPA");
             addDependency("si-fa", "si-si_FONIPA", "und_FONIPA-fa");

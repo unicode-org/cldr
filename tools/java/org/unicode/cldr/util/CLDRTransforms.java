@@ -189,12 +189,14 @@ public class CLDRTransforms {
             addDependency("pl-fa", "pl-pl_FONIPA", "und_FONIPA-fa");
             addDependency("pl-ja", "pl-pl_FONIPA", "pl_FONIPA-ja");
             addDependency("rm_SURSILV-am", "rm_SURSILV-rm_FONIPA_SURSILV", "am-am_FONIPA");
+            addDependency("rm_SURSILV-ar", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-ar");
             addDependency("rm_SURSILV-fa", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-fa");
             addDependency("ro-am", "ro-ro_FONIPA", "am-am_FONIPA");
             addDependency("ro-ar", "ro-ro_FONIPA", "und_FONIPA-ar");
             addDependency("ro-fa", "ro-ro_FONIPA", "und_FONIPA-fa");
             addDependency("ro-ja", "ro-ro_FONIPA", "ro_FONIPA-ja");
             addDependency("sat-am", "sat_Olck-sat_FONIPA", "am-am_FONIPA");
+            addDependency("sat-ar", "sat_Olck-sat_FONIPA", "und_FONIPA-ar");
             addDependency("sat-fa", "sat_Olck-sat_FONIPA", "und_FONIPA-fa");
             addDependency("si-am", "si-si_FONIPA", "am-am_FONIPA");
             addDependency("si-fa", "si-si_FONIPA", "und_FONIPA-fa");

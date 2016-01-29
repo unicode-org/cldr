@@ -15,6 +15,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 #
 # TODO: Currently this transform does not palatalize consonants.
 
+$VowelEI = [e i î];
+$VowelAOU = [a â ă o u];
+$Vowel = [$VowelEI $VowelAOU];
+$Boundary =  [^[:L:][:M:][:N:]];
+
 :: NFC () ;
 :: Lower () ;
 
@@ -30,7 +35,7 @@ ia\-i → jaj ;
 iau → jaw ;
 iei → jej ;
 ieu → jew ;
-[\uffff] { eu → jew ;
+$Boundary {eu} → jew ;
 ioa → jo̯a ;
 ioi → joj ;
 i\-oi → joj ;
@@ -44,7 +49,7 @@ uăi → wəj ;
 ai → aj ;
 âi → ɨj ;
 ăi → əj ;
-au } r → au ;
+au} r → au ;
 au → aw ;
 âu → ɨw ;
 ău → əw ;
@@ -59,7 +64,7 @@ i\-a → ja ;
 ie → je ;
 ii → ij ;
 io → jo ;
-iu } [aâăeiîou$] → iw ;
+iu} [$Vowel $Boundary] → iw ;
 iu → ju ;
 oa → o̯a ;
 oi → oj ;
@@ -76,13 +81,16 @@ a → a ;
 ă → ə ;
 b → b ;
 ch → k ;
-c } [ei] → t͡ʃ ;
+
+{c [ei]} $VowelAOU → t͡ʃ ;
+{c} [ei] → t͡ʃ ;
 c → k ;
 d → d ;
 e → e ;
 f → f ;
 gh → ɡ ;
-g } [ei] → d͡ʒ ;
+{g [ei]} $VowelAOU → d͡ʒ ;
+{g} [ei] → d͡ʒ ;
 g → ɡ ;
 h → h ;
 i → i ;

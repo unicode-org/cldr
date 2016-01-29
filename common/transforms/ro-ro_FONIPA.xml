@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<transforms>
 		<transform source="ro" target="ro_FONIPA" direction="forward" alias="ro-fonipa-t-ro">
-			<tRule>
+			<tRule><![CDATA[
 # Romanian orthography to phonemic transcription.
 # http://en.wikipedia.org/wiki/Romanian_phonology
 #
@@ -117,7 +117,34 @@ x → ks ;
 y → i ;
 z → z ;
 [:P:]+ → ' ';
-			</tRule>
+
+# Romanian does not have any gemination.
+# https://en.wikipedia.org/wiki/Gemination#Latin_and_Romance_languages
+::null;
+pp+ → p;
+bb+ → b;
+tt+ → t;
+dd+ → d;
+kk+ → k;
+dd+ → d;
+ɡɡ+ → ɡ;
+
+ff+ → f;
+vv+ → v;
+hh+ → h;
+
+ss+ → s;
+zz+ → z;
+ʃʃ+ → ʃ;
+ʒʒ+ → ʒ;
+
+rr+ → r;
+ll+ → l;
+
+jj+ → j;
+ww+ → w;
+
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

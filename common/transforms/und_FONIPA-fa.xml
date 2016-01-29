@@ -12,7 +12,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		  <tRule><![CDATA[
 # Vowels
 # ------
-# In these rules, we produce ي و ا both for short and for long vowels.
+# In these rules, we produce ی و ا both for short and for long vowels.
 # This would be wrong for writing Farsi or Arabic, but when transliterating
 # foreign words and names, it is strongly preferred to vowel marks.
 # Short schwa [ə] and a few other, schwa-like vowels get omitted entirely
@@ -39,22 +39,22 @@ $Boundary =  [^[:L:][:M:][:N:]];
 
 # TODO: Diphthongs probably need more work.
 
-# Romanian [sekujesk] → [sekujask], for emitting سيکوياسک not سيکويسک
+# Romanian [sekujesk] → [sekujask], for emitting سیکویاسک not سیکویسک
 $UVowel [j $IVowel] [e {e̞} $SchwaVowel] → uia;
 
-# Kazakh Аягөз [ɑjɑɡy̯ʉz] → [ɑjɑɡiuz], to emit آياگيوز not آياگووز
+# Kazakh Аягөз [ɑjɑɡy̯ʉz] → [ɑjɑɡiuz], to emit آیاگیوز not آیاگووز
 yʉ → iu;
 
 ::NULL;
 
 # Vowels
-$Boundary {$SchwaVowel ː?} → اي;
-$SchwaVowel ː → ي;
+$Boundary {$SchwaVowel ː?} → ای;
+$SchwaVowel ː → ی;
 {[$SchwaVowel e {e̞}]} [^[:L:][:M:][:N:][\.]] → ه;
 $SchwaVowel → ;
 
-$Boundary {$IVowel ː?} → اي;
-$IVowel ː? j? → ي;
+$Boundary {$IVowel ː?} → ای;
+$IVowel ː? j? → ی;
 
 $Boundary {$UVowel ː?} → او;
 $UVowel ː? → و;
@@ -107,7 +107,7 @@ z → ز;
 [{θ̼} θ {θ̱}] → ث;
 [{ð̼} ð {ð̠}] → ذ;
 ç → ش;
-ʝ $IVowel? ː? → ي;
+ʝ $IVowel? ː? → ی;
 [x χ] → خ;
 [ɣ ʁ] → غ;
 ħ → ح;
@@ -122,12 +122,12 @@ z → ز;
 [{ʀ̥} ʀ] → غ;
 ʜ → ح;
 ʢ → ع;
-j $IVowel? ː? → ي;
+j $IVowel? ː? → ی;
 
 # Laterals
 ɬ → شل;
 ɮ → ژل;
-{[{ʎ̥} ʎ]} [^ $IVowel j ʝ] → لي;
+{[{ʎ̥} ʎ]} [^ $IVowel j ʝ] → لی;
 [{l̼} {l̥} l {ɭ̊} ɭ {ʎ̥} ʎ] → ل;
 [ʟ {ʟ̠}] → غ;
 

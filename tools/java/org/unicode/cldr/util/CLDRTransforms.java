@@ -170,8 +170,10 @@ public class CLDRTransforms {
             addDependency("Han-Latin-Names", "Han-Latin");
 
             addDependency("hy-am", "hy-hy_FONIPA", "am-am_FONIPA");
+            addDependency("hy-ar", "hy-hy_FONIPA", "und_FONIPA-ar");
             addDependency("hy-fa", "hy-hy_FONIPA", "und_FONIPA-fa");
             addDependency("hy_AREVMDA-am", "hy_AREVMDA-hy_AREVMDA_FONIPA", "am-am_FONIPA");
+            addDependency("hy_AREVMDA-ar", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-ar");
             addDependency("hy_AREVMDA-fa", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-fa");
             addDependency("ia-am", "ia-ia_FONIPA", "am-am_FONIPA");
             addDependency("ia-ar", "ia-ia_FONIPA", "und_FONIPA-ar");

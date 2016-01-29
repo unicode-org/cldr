@@ -21,6 +21,7 @@ $IVowel = [i ɪ e {e̞}];
 $UVowel = [y {ɨ} {ʉ} ɯ u ʏ {ɪ̈} {ʊ̈} {ɯ̽} {ʊ} ø ɤ o {ø̞} {ɤ̞} {o̞} ɞ ɔ w {w̥} ʍ ʷ];
 $AVowel = [ɛ œ ɜ ʌ æ ɐ a ɶ {ä} {ɒ̈} ɑ ɒ];
 $SchwaVowel = [ɘ ɵ ə {ɵ̞}];
+$Vowel = [$IVowel $UVowel $AVowel $SchwaVowel];
 $Click = [ʘ ɋ ǀ ʇ ǃ ʗ ǂ ʄ ǁ ʖ];
 $Boundary =  [^[:L:][:M:][:N:]];
 
@@ -43,22 +44,33 @@ yʉ → iu;
 ::NULL;
 
 # Vowels
-$Boundary {$IVowel ː} → إِي;
-$Boundary {$IVowel} → إِ;
+$Boundary {ʔ? $IVowel ː} → إِي;
+$Boundary {ʔ? $IVowel} → إِ;
+{$IVowel ʔ} $Boundary → ئ;
+{$IVowel ː ʔ} $Boundary → يء;
+{$IVowel ː ʔ} [$Vowel] → ئ;
 $IVowel ː? → ي;
 
-$Boundary {$UVowel ː} → أو;
-$Boundary {$UVowel} → أ;
+$Boundary {ʔ? $UVowel ː} → أو;
+$Boundary {ʔ? $UVowel} → أ;
+{$UVowel ʔ} $Boundary → ؤ;
+{$UVowel ː ʔ} $Boundary → وء;
 $UVowel ː? → و;
 
-$Boundary {$AVowel ː} → آ;
-$Boundary {$AVowel} → أ;
+$Boundary {ʔ? $AVowel ː} → آ;
+$Boundary {ʔ? $AVowel} → أ;
+{$AVowel ʔ} $Boundary → أ;
+{$AVowel ː ʔ} $Boundary → اء;
+$AVowel ː? ʔ $AVowel ː? → اءا;
 $AVowel ː? → ا;
 
-$Boundary {$SchwaVowel ː} → إِي;
-$Boundary {$SchwaVowel} → أ;
+$Boundary {ʔ? $SchwaVowel ː} → إِي;
+$Boundary {ʔ? $SchwaVowel} → أ;
 $SchwaVowel ː → ي;
 $SchwaVowel → ;
+
+# TODO: Handle glottal stop.
+ʔ → ;
 
 # Shadda for long (geminated) consonants
 ː → ّ;
@@ -87,7 +99,6 @@ c → تش;
 k → ك;
 [ɡ g ɠ] → غ;
 [q ɢ ʡ ʛ] → ق;
-ʔ → ء;
 
 # Sibilant fricatives
 s → س;

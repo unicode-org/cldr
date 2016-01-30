@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2016-01-20</span></td>
+				<td><span class="changed">2016-01-29</span></td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -2224,6 +2224,31 @@ zh-Hant-HK</pre>
 				<td>Modern Tamil decimal digits</td>
 			</tr>
 
+			<tr class="changed">
+				<td colspan="4"><strong>A <a href="#RegionOverride" name="RegionOverride">Region
+					Override</a> specifies an alternate region to use for obtaining certain
+					region-specific default values, instead of using the region specified by
+					the <a href="#unicode_region_subtag">unicode_region_subtag</a> in the Unicode
+					Language Identifier (or inferred from the
+					<a href="#unicode_language_subtag">unicode_language_subtag</a>).
+				</strong></td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="2">"rg"</td>
+				<td rowspan="2">Region Override</td>
+				<td>&quot;uszzzz&quot;<br> <br></td>
+				<td rowspan="2">The value is a <a href="#unicode_region_subtag">unicode_region_subtag</a>
+					for a regular region (not a macroregion), suffixed by "ZZZZ" (case is
+					not significant). For example, “en-GB-u-rg-uszzzz” represents a locale
+					for British English but with region-specific defaults set to US for items
+					such as default currency, default calendar and week data, default time
+					cycle, and default measurement system and unit preferences.
+				</td>
+			</tr>
+			<tr>
+				<td>…</td>
+			</tr>
+
 			<tr>
 				<td colspan="4"><strong>A <a name="unicode_subdivision_subtag_validity"></a><a
 						href="#UnicodeSubdivisionIdentifier"
@@ -2478,8 +2503,8 @@ zh-Hant-HK</pre>
 					below is absent, this name can be also used with the old style <a
 						href="#Old_Locale_Extension_Syntax"> "@key=type" syntax</a>.
 				</p>
-				<p>The type name "CODEPOINTS" is reserved for a variable
-					representing Unicode code point(s). The syntax is:</p>
+				<p>The type name <strong>"CODEPOINTS"</strong> is reserved for a
+					variable representing Unicode code point(s). The syntax is:</p>
 				<table border="0">
 					<tr>
 						<th>&nbsp;</th>
@@ -2529,8 +2554,8 @@ zh-Hant-HK</pre>
 					</a>.
 				</p>
 				<p>
-					The type name "REORDER_CODE" is reserved for reordering block names
-					(e.g. "latn", "digit" and "others") defined in the <i><a
+					The type name <strong>"REORDER_CODE"</strong> is reserved for reordering
+					block names (e.g. "latn", "digit" and "others") defined in the <i><a
 						href="tr35-collation.html#Root_Collation">Root Collation</a></i>. The
 					type "REORDER_CODE" is used for locale extension key "kr"
 					(colReorder). The value of type for "kr" is represented by one or
@@ -2539,11 +2564,19 @@ zh-Hant-HK</pre>
 						Section 3.12 <em>Collation Reordering</em>
 					</a>.
 				</p>
+				<p class="changed">
+					The type name <strong>"RG_KEY_VALUE"</strong> is reserved for region codes
+					in the format required by the "rg" key; this is a region code with idStatus
+					'regular' (i.e. regular regions only, no macroregions) from the idValidity
+					data in common/validity/region.xml. Note that this is equivalent to a
+					subdivision code with idStatus='unknown' from the idValidity data in
+					common/validity/subdivision.xml, with the '-' removed.
+				</p>
 				<p>In the current version of CLDR, all type names except
-					"CODEPOINTS" and "REORDER_CODE" are final and used alone. For
-					example, "gregory" and "japanese" are valid type names for key "ca"
-					(calendar). Both "u-ca-gregory" and "u-ca-japanese" are valid
-					representations of Unicode locale extension, but
+					"CODEPOINTS", "REORDER_CODE"<span class="changed">, and "RG_KEY_VALUE"</span>
+					are final and used alone. For example, "gregory" and "japanese" are valid
+					type names for key "ca" (calendar). Both "u-ca-gregory" and
+					"u-ca-japanese" are valid representations of Unicode locale extension, but
 					"u-ca-gregory-japanese" is not.</p>
 			</dd>
 			<dt>
@@ -7916,6 +7949,24 @@ decimal?, group?, special*)) &gt;</pre>
 		</h3>
 		<ul class="changed">
 			<li>Proposed update for Version 29.</li>
+			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
+				<ul>
+					<li><em>Section <a href="#Key_And_Type_Definitions_">3.6.1
+								Key And Type Definitions</a>
+					</em>
+						<ul>
+							<li>Added new Region Override key rg.
+								[<a href="http://unicode.org/cldr/trac/ticket/7999" title="View ticket">#7999</a>]
+							</li>
+						</ul></li>
+					<li><em>Section <a
+							href="#Unicode_Locale_Extension_Data_Files">3.6.4 U Extension Data FIles</a></em>
+						<ul>
+							<li>Added new special type name RG_KEY_VALUE.
+								[<a href="http://unicode.org/cldr/trac/ticket/7999" title="View ticket">#7999</a>]
+							</li>
+						</ul></li>
+				</ul></li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
 				<ul>

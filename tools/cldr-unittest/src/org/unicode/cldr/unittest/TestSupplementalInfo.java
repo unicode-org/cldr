@@ -693,10 +693,13 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             regionsSoFar.add(region);
             PreferredAndAllowedHour preferredAndAllowedHour = e.getValue();
-            if (!preferredAndAllowedHour.allowed
-                .contains(preferredAndAllowedHour.preferred)) {
-                errln(region + ": " + preferredAndAllowedHour.allowed
-                    + "must contain" + preferredAndAllowedHour.preferred);
+            final HourStyle firstAllowed = preferredAndAllowedHour.allowed.iterator().next();
+            if (firstAllowed != preferredAndAllowedHour.preferred) {
+                errln(region + ": allowed " + preferredAndAllowedHour.allowed
+                    + " must start with preferred " + preferredAndAllowedHour.preferred);
+            } else if (isVerbose()) {
+                logln(region + ": allowed " + preferredAndAllowedHour.allowed
+                    + " starts with preferred " + preferredAndAllowedHour.preferred);
             }
             // for (HourStyle c : preferredAndAllowedHour.allowed) {
             // if (!PreferredAndAllowedHour.HOURS.contains(c)) {
@@ -725,7 +728,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // if we don't have 001, then we can't miss any regions
         if (!missing.isEmpty()) {
             if (haveWorld) {
-                logln("Missing regions: " + missing);
+                logln("Implicit regions: " + missing);
             } else {
                 errln("Missing regions: " + missing);
             }

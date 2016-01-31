@@ -35,6 +35,8 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -88,10 +90,10 @@ public class ChartDelta extends Chart {
         boolean verbose = MyOptions.verbose.option.doesOccur();
         ChartDelta temp = new ChartDelta(fileFilter, verbose);
         temp.writeChart(null);
-        showTotals(temp);
+        temp.showTotals(temp);
     }
 
-    private static void showTotals(ChartDelta temp) {
+    private void showTotals(ChartDelta temp) {
         long total = temp.counter.getCount(ChangeType.totalItems);
         NumberFormat pf = NumberFormat.getPercentInstance();
         pf.setMinimumFractionDigits(2);
@@ -102,6 +104,10 @@ public class ChartDelta extends Chart {
             String title = item == ChangeType.totalItems ? "unchanged" : item.toString();
             System.out.println(title + "\t" + pf.format(numerator / (double) total));
             same -= current;
+        }
+        System.out.println("total" + "\t" + total);
+        for (String s : badHeaders) {
+            System.out.println(s);
         }
     }
 
@@ -172,6 +178,7 @@ public class ChartDelta extends Chart {
     }
 
     Counter<ChangeType> counter = new Counter<>();
+    Set<String> badHeaders = new TreeSet<>();
 
     public void writeSubcharts(Anchors anchors) {
         FileUtilities.copyFile(ChartDelta.class, "index.css", getDirectory());
@@ -305,17 +312,12 @@ public class ChartDelta extends Chart {
                             && !path.equals(oldStatus.pathWhereFound)) {
                             continue;
                         }
-
                         // fix some incorrect cases
 
-                        PathHeader ph;
-                        try {
-                            ph = phf.fromPath(path);
-                        } catch (Exception e) {
-                            System.err.println("Skipping path with bad PathHeader: " + path);
+                        PathHeader ph = getPathHeader(path);
+                        if (ph == null) {
                             continue;
                         }
-
                         // handle non-distinguishing attributes
                         addPathDiff(old, current, locale, ph, diff);
 
@@ -327,6 +329,22 @@ public class ChartDelta extends Chart {
             diff.clear();
         }
         writeDiffs(anchors, diffAll);
+    }
+
+    PathStarrer starrer = new PathStarrer().setSubstitutionPattern("*");
+
+    private PathHeader getPathHeader(String path) {
+        try {
+            PathHeader ph = phf.fromPath(path);
+            if (ph.getPageId() == PageId.Unknown) {
+                String star = starrer.set(path);
+                badHeaders.add(star);
+            }
+            return null;
+        } catch (Exception e) {
+            System.err.println("Skipping path with bad PathHeader: " + path);
+            return null;
+        }
     }
 
     private CLDRFile makeWithFallback(Factory oldFactory, String locale) {
@@ -672,7 +690,7 @@ public class ChartDelta extends Chart {
         return key;
     }
 
-    private static Map<String, String> fillData(String directory, String file) {
+    private Map<String, String> fillData(String directory, String file) {
         Map<String, String> contentsA = Collections.emptyMap();
 
         List<Pair<String, String>> contents1;
@@ -745,13 +763,16 @@ public class ChartDelta extends Chart {
 
                 String cleanedPartialPath = parts.toString(i + 1);
                 for (Entry<String, String> entry : nonDistinguishing.entrySet()) {
-                    checkedPut(contentsA, cleanedPartialPath + "/_" + entry.getKey(), entry.getValue());
+                    final String pathFake = cleanedPartialPath + "/_" + entry.getKey();
+                    checkedPut(contentsA, pathFake, entry.getValue());
+                    PathHeader ph = getPathHeader(pathFake);
                 }
                 nonDistinguishing.clear();
             }
             if (!value.isEmpty()) {
                 String path2 = parts.toString();
                 checkedPut(contentsA, path2, value);
+                PathHeader ph = getPathHeader(path2);
             }
         }
         return contentsA;

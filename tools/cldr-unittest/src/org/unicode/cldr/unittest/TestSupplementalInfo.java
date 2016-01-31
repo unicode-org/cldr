@@ -694,9 +694,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             regionsSoFar.add(region);
             PreferredAndAllowedHour preferredAndAllowedHour = e.getValue();
             final HourStyle firstAllowed = preferredAndAllowedHour.allowed.iterator().next();
-            if (firstAllowed.base != preferredAndAllowedHour.preferred.base) {
+            if (preferredAndAllowedHour.preferred == HourStyle.H && firstAllowed == HourStyle.h
+                || preferredAndAllowedHour.preferred == HourStyle.H && firstAllowed == HourStyle.hb
+                || preferredAndAllowedHour.preferred == HourStyle.h && firstAllowed == HourStyle.H) {
                 errln(region + ": allowed " + preferredAndAllowedHour.allowed
-                    + " must start with preferred " + preferredAndAllowedHour.preferred);
+                    + " starts with preferred " + preferredAndAllowedHour.preferred);
             } else if (isVerbose()) {
                 logln(region + ": allowed " + preferredAndAllowedHour.allowed
                     + " starts with preferred " + preferredAndAllowedHour.preferred);
@@ -708,8 +710,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             // + " which is not in " + PreferredAndAllowedHour.HOURS);
             // }
             // }
-            if (preferredAndAllowedHour.allowed.size() == 1
-                && preferredAndAllowedHour.allowed.contains(HourStyle.H)) {
+            if (!preferredAndAllowedHour.allowed.contains(HourStyle.h)
+                && !preferredAndAllowedHour.allowed.contains(HourStyle.hb)) {
                 current24only.add(region);
             }
             if (preferredAndAllowedHour.preferred == HourStyle.h) {
@@ -740,6 +742,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             Arrays.asList(("sq, br, bu, ca, hr, cs, da, de, nl, et, eu, fi, "
                 + "fr, gl, he, is, id, it, nb, pt, ro, ru, sr, sk, sl, sv, tr, hy")
                 .split(",\\s*")));
+        // With the new preferences, this is changed 
         Set<String> only24region = new TreeSet<String>();
         Set<String> either24or12region = new TreeSet<String>();
 

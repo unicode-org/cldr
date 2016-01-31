@@ -1,18 +1,28 @@
 package org.unicode.cldr.util;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 
 public final class PreferredAndAllowedHour implements Comparable<PreferredAndAllowedHour> {
 
     public enum HourStyle {
-        h, H, k, K, hb, hB, Hb, HB;
+        H, Hb(H), HB(H), k, h, hb(h), hB(h), K;
+        public final HourStyle base;
+        HourStyle() {
+            base = this;
+        }
+        HourStyle(HourStyle base) {
+            this.base = base;
+        }
         public static boolean isHourCharacter(String c) {
             try {
                 HourStyle.valueOf(c);
@@ -24,13 +34,17 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
     }
 
     public final HourStyle preferred;
-    public final Set<HourStyle> allowed;
+    public final List<HourStyle> allowed;
 
-    public PreferredAndAllowedHour(char preferred, Set<Character> allowed) {
+    public PreferredAndAllowedHour(char preferred, Collection<Character> allowed) {
         this(HourStyle.valueOf(String.valueOf(preferred)), mungeSet(allowed));
     }
 
-    public PreferredAndAllowedHour(HourStyle preferred, Set<HourStyle> allowed) {
+    public PreferredAndAllowedHour(Collection<HourStyle> allowed) {
+        this(allowed.iterator().next(), allowed);
+    }
+    
+    public PreferredAndAllowedHour(HourStyle preferred, Collection<HourStyle> allowed) {
         if (preferred == null) {
             throw new NullPointerException();
         }
@@ -40,14 +54,14 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
                 ")");
         }
         this.preferred = preferred;
-        this.allowed = Collections.unmodifiableSet(new LinkedHashSet<>(allowed));
+        this.allowed = ImmutableList.copyOf(new LinkedHashSet<>(allowed));
     }
     
     public PreferredAndAllowedHour(String preferred2, String allowedString) {
         this(HourStyle.valueOf(preferred2), mungeOperands(allowedString));
     }
 
-    private static EnumSet<HourStyle> mungeSet(Set<Character> allowed) {
+    private static EnumSet<HourStyle> mungeSet(Collection<Character> allowed) {
         EnumSet<HourStyle> temp = EnumSet.noneOf(HourStyle.class);
         for (char c : allowed) {
             temp.add(HourStyle.valueOf(String.valueOf(c)));
@@ -69,13 +83,22 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
     public int compareTo(PreferredAndAllowedHour arg0) {
         int diff = preferred.compareTo(arg0.preferred);
         if (diff != 0) return diff;
-        return CollectionUtilities.compare(allowed, arg0.allowed);
+        return CollectionUtilities.compare(allowed.iterator(), arg0.allowed.iterator());
     }
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return preferred + ":" + allowed;
+        return toString(Collections.singleton("?"));
+    }
+    
+    public String toString(Collection<String> regions) {
+        return "<hours preferred=\""
+            + preferred
+            + "\" allowed=\""
+            + CollectionUtilities.join(allowed, " ")
+            + "\" regions=\""
+            + CollectionUtilities.join(regions, " ")
+            + "\"/>";
     }
 
     @Override

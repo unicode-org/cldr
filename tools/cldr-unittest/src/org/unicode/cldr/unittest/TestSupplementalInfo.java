@@ -694,7 +694,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             regionsSoFar.add(region);
             PreferredAndAllowedHour preferredAndAllowedHour = e.getValue();
             final HourStyle firstAllowed = preferredAndAllowedHour.allowed.iterator().next();
-            if (firstAllowed != preferredAndAllowedHour.preferred) {
+            if (firstAllowed.base != preferredAndAllowedHour.preferred.base) {
                 errln(region + ": allowed " + preferredAndAllowedHour.allowed
                     + " must start with preferred " + preferredAndAllowedHour.preferred);
             } else if (isVerbose()) {

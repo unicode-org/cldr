@@ -1215,85 +1215,84 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("dayPeriodRules")
                 && attribute.equals("locales")
                 || elementName.equals("dayPeriodRule")
-                && (attribute.equals("type") || attribute.equals("at") || attribute.equals("after") || attribute.equals("before") || attribute.equals("from") || attribute
-                    .equals("to"))
-                    || elementName.equals("metazones") && attribute.equals("type")
-                    || elementName.equals("subgroup") && attribute.equals("subtype")
-                    || elementName.equals("mapZone")
-                    && (attribute.equals("other") || attribute.equals("territory"))
-                    || elementName.equals("postCodeRegex")
-                    && attribute.equals("territoryId")
-                    || elementName.equals("calendarPreference")
-                    && attribute.equals("territories")
-                    || elementName.equals("minDays")
-                    && attribute.equals("count")
-                    || elementName.equals("firstDay")
-                    && attribute.equals("day")
-                    || elementName.equals("weekendStart")
-                    && attribute.equals("day")
-                    || elementName.equals("weekendEnd")
-                    && attribute.equals("day")
-                    || elementName.equals("measurementSystem")
-                    && attribute.equals("category")
-                    || elementName.equals("unitPreferences")
-                    && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
-                    || elementName.equals("unitPreference")
-                    && attribute.equals("regions")
-                    || elementName.equals("distinguishingItems")
-                    && attribute.equals("attributes")
-                    || elementName.equals("codesByTerritory")
-                    && attribute.equals("territory")
-                    || elementName.equals("currency")
-                    && attribute.equals("iso4217")
-                    || elementName.equals("territoryAlias")
-                    && attribute.equals("type")
-                    || elementName.equals("territoryCodes")
-                    && attribute.equals("type")
-                    || elementName.equals("group")
-                    && (attribute.equals("status")) //  || attribute.equals("grouping")
-                    || elementName.equals("plurals")
-                    && attribute.equals("type")
-                    || elementName.equals("pluralRules")
-                    && attribute.equals("locales")
-                    || elementName.equals("pluralRule")
-                    && attribute.equals("count")
-                    || elementName.equals("pluralRanges")
-                    && attribute.equals("locales")
-                    || elementName.equals("pluralRange")
-                    && (attribute.equals("start") || attribute.equals("end"))
-                    || elementName.equals("hours")
-                    && attribute.equals("regions")
-                    //|| elementName.equals("personList") && attribute.equals("type")
-                    || elementName.equals("likelySubtag")
-                    && attribute.equals("from")
-                    || elementName.equals("timezone")
-                    && attribute.equals("type")
-                    || elementName.equals("usesMetazone")
-                    && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
-                    || elementName.equals("numberingSystem")
-                    && attribute.equals("id")
-                    || elementName.equals("group")
-                    && attribute.equals("type")
-                    || elementName.equals("currency")
-                    && attribute.equals("from")
-                    || elementName.equals("currency")
-                    && attribute.equals("to")
-                    || elementName.equals("currency")
-                    && attribute.equals("iso4217")
-                    || elementName.equals("parentLocale")
-                    && attribute.equals("parent")
-                    || elementName.equals("currencyCodes")
-                    && attribute.equals("type")
-                    || elementName.equals("approvalRequirement")
-                    && (attribute.equals("locales") || attribute.equals("paths"))
-                    || elementName.equals("coverageVariable")
-                    && attribute.equals("key")
-                    || elementName.equals("coverageLevel")
-                    && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
-//                || elementName.equals("languageMatch")
-//                && (attribute.equals("desired") || attribute.equals("supported") || attribute.equals("oneway"))
-                    || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
-                        .equals("variant")));
+                && (attribute.equals("type"))
+                || elementName.equals("metazones") && attribute.equals("type")
+                || elementName.equals("subgroup") && attribute.equals("subtype")
+                || elementName.equals("mapZone")
+                && (attribute.equals("other") || attribute.equals("territory"))
+                || elementName.equals("postCodeRegex")
+                && attribute.equals("territoryId")
+                || elementName.equals("calendarPreference")
+                && attribute.equals("territories")
+                || elementName.equals("minDays")
+                && attribute.equals("count")
+                || elementName.equals("firstDay")
+                && attribute.equals("day")
+                || elementName.equals("weekendStart")
+                && attribute.equals("day")
+                || elementName.equals("weekendEnd")
+                && attribute.equals("day")
+                || elementName.equals("measurementSystem")
+                && attribute.equals("category")
+                || elementName.equals("unitPreferences")
+                && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
+                || elementName.equals("unitPreference")
+                && attribute.equals("regions")
+                || elementName.equals("distinguishingItems")
+                && attribute.equals("attributes")
+                || elementName.equals("codesByTerritory")
+                && attribute.equals("territory")
+                || elementName.equals("currency")
+                && attribute.equals("iso4217")
+                || elementName.equals("territoryAlias")
+                && attribute.equals("type")
+                || elementName.equals("territoryCodes")
+                && attribute.equals("type")
+                || elementName.equals("group")
+                && (attribute.equals("status")) //  || attribute.equals("grouping")
+                || elementName.equals("plurals")
+                && attribute.equals("type")
+                || elementName.equals("pluralRules")
+                && attribute.equals("locales")
+                || elementName.equals("pluralRule")
+                && attribute.equals("count")
+                || elementName.equals("pluralRanges")
+                && attribute.equals("locales")
+                || elementName.equals("pluralRange")
+                && (attribute.equals("start") || attribute.equals("end"))
+                || elementName.equals("hours")
+                && attribute.equals("regions")
+                //|| elementName.equals("personList") && attribute.equals("type")
+                || elementName.equals("likelySubtag")
+                && attribute.equals("from")
+                || elementName.equals("timezone")
+                && attribute.equals("type")
+                || elementName.equals("usesMetazone")
+                && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
+                || elementName.equals("numberingSystem")
+                && attribute.equals("id")
+                || elementName.equals("group")
+                && attribute.equals("type")
+                || elementName.equals("currency")
+                && attribute.equals("from")
+                || elementName.equals("currency")
+                && attribute.equals("to")
+                || elementName.equals("currency")
+                && attribute.equals("iso4217")
+                || elementName.equals("parentLocale")
+                && attribute.equals("parent")
+                || elementName.equals("currencyCodes")
+                && attribute.equals("type")
+                || elementName.equals("approvalRequirement")
+                && (attribute.equals("locales") || attribute.equals("paths"))
+                || elementName.equals("coverageVariable")
+                && attribute.equals("key")
+                || elementName.equals("coverageLevel")
+                && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
+                || elementName.equals("languageMatch")
+                && (attribute.equals("desired") || attribute.equals("supported"))
+                || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
+                    .equals("variant")));
 
         case keyboard:
             return attribute.equals("_q")
@@ -1554,15 +1553,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
     };
 
-    // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
-    private static final Map<DtdType, DtdData> CACHE;
-    static {
-        EnumMap<DtdType, DtdData> temp = new EnumMap<DtdType, DtdData>(DtdType.class);
-        for (DtdType type : DtdType.values()) {
-            temp.put(type, getInstance(type, null));
-        }
-        CACHE = Collections.unmodifiableMap(temp);
-    }
     public boolean hasValue(String elementName) {
         return nameToElement.get(elementName).type == ElementType.PCDATA;
     }
@@ -1617,6 +1607,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public String getRegularizedPaths(XPathParts pathPlain, Map<String,String> extras) {
+        extras.clear();
         Map<String,String> valueAttributes = new HashMap<>();
         XPathParts pathResult = new XPathParts();
         String element = null;
@@ -1646,6 +1637,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 // So we use a _ suffix on the element.
                 if (hasValue) {
                     pathResult.setElement(i, element+"_");
+                } else {
+                    int debug = 0;
                 }
                 for (Entry<String, String> attributeAndValue : valueAttributes.entrySet()) {
                     pathResult.addElement("_" + attributeAndValue.getKey());
@@ -1664,4 +1657,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return null;
         }
     }
+
+
+    // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
+    private static final Map<DtdType, DtdData> CACHE;
+    static {
+        EnumMap<DtdType, DtdData> temp = new EnumMap<DtdType, DtdData>(DtdType.class);
+        for (DtdType type : DtdType.values()) {
+            temp.put(type, getInstance(type, null));
+        }
+        CACHE = Collections.unmodifiableMap(temp);
+    }
+    // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
+
 }

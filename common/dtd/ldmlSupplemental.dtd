@@ -836,13 +836,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT languageMatch EMPTY >
     <!--@ORDERED-->
 <!ATTLIST languageMatch desired CDATA #REQUIRED >
-    <!--@VALUE-->
 <!ATTLIST languageMatch oneway (true | false) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST languageMatch percent NMTOKEN #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST languageMatch supported CDATA #REQUIRED >
-    <!--@VALUE-->
 
 <!-- # Day Periods -->
 
@@ -863,10 +861,17 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT dayPeriodRule EMPTY >
 <!ATTLIST dayPeriodRule type NMTOKEN #REQUIRED >
 <!ATTLIST dayPeriodRule at NMTOKEN #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST dayPeriodRule after NMTOKEN #IMPLIED >
+    <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST dayPeriodRule before NMTOKEN #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST dayPeriodRule from NMTOKEN #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST dayPeriodRule to NMTOKEN #IMPLIED >
+    <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST dayPeriodRule draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST dayPeriodRule references CDATA #IMPLIED >

@@ -301,6 +301,7 @@
 //supplementalData/likelySubtags/likelySubtag[@from="%A"]/_to			; Supplemental ; Likely ; Subtag ; $1 ; HIDE
 
 //supplementalData/languageMatching/languageMatches[@type="%A"]/languageMatch/_%E			; Supplemental ; LanguageMatch ; $1 ; $2 ; HIDE
+//supplementalData/languageMatching/languageMatches[@type="%A"]/languageMatch[@desired="%A"][@supported="%A"]/_%E			; Supplemental ; LanguageMatch ; $1 ; $2-3-$4 ; HIDE
 
 //supplementalData/languageData/language[@type="%A"]/_scripts			; Supplemental ; Language ; $1 ; scripts ; HIDE
 //supplementalData/languageData/language[@type="%A"][@alt="%A"]/_scripts			; Supplemental ; Language ; $1 ; scripts-$2 ; HIDE
@@ -369,6 +370,11 @@
 //supplementalData/measurementData/measurementSystem[@type="%A"]/_territories			; Supplemental ; Measurement ; default ; $1 ; HIDE
 //supplementalData/measurementData/measurementSystem[@type="%A"][@category="%A"]/_territories			; Supplemental ; Measurement ; $2 ; $1 ; HIDE
 //supplementalData/measurementData/paperSize[@type="%A"]/_territories			; Supplemental ; Measurement ; Paper ; $1 ; HIDE
+
+//supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_before			; Supplemental ; DayPeriod ; $1-$2 ; $3-before ; HIDE
+//supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_from			; Supplemental ; DayPeriod ; $1-$2 ; $3-before ; HIDE
+//supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_before			; Supplemental ; DayPeriod ; $1 ; $2-before ; HIDE
+//supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_from			; Supplemental ; DayPeriod ; $1 ; $2-before ; HIDE
 
 # Ultimate fallback (Error)
 //supplementalData/%S/(.*)                                                                              ; Supplemental ; Unknown ; $1 ; $2 ; DEPRECATED

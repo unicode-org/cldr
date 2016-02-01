@@ -1,38 +1,53 @@
 package org.unicode.cldr.util;
 
+import java.util.Arrays;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.google.common.collect.ImmutableSet;
+
 public enum DtdType {
-    ldml("common/dtd/ldml.dtd"),
+    ldml("common/dtd/ldml.dtd", null, null,
+        "main",
+        "annotations",
+        "casing",
+        "collation",
+        "rbnf",
+        "segments",
+        "subdivisions"),
     ldmlICU("common/dtd/ldmlICU.dtd", ldml),
-    supplementalData("common/dtd/ldmlSupplemental.dtd"),
-    ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2"),
-    keyboard("keyboards/dtd/ldmlKeyboard.dtd", "22.1"),
-    platform("keyboards/dtd/ldmlPlatform.dtd", "22.1");
+    supplementalData("common/dtd/ldmlSupplemental.dtd", null, null,
+        "supplemental", 
+        "transforms", 
+        "validity"),
+    ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2", null, 
+        "bcp47"),
+    keyboard("keyboards/dtd/ldmlKeyboard.dtd", "22.1", null, 
+        "../keyboards"),
+    platform("keyboards/dtd/ldmlPlatform.dtd", "22.1", null,
+        "../keyboards");
 
     static Pattern FIRST_ELEMENT = PatternCache.get("//([^/\\[]*)");
 
     public final String dtdPath;
     public final DtdType rootType;
     public final String firstVersion;
+    public final Set<String> directories;
 
     private DtdType(String dtdPath) {
-        this.dtdPath = dtdPath;
-        this.rootType = this;
-        this.firstVersion = null;
+        this(dtdPath,null,null);
     }
 
     private DtdType(String dtdPath, DtdType realType) {
-        this.dtdPath = dtdPath;
-        this.rootType = realType;
-        this.firstVersion = null;
+        this(dtdPath,null,realType);
     }
 
-    private DtdType(String dtdPath, String firstVersion) {
+    private DtdType(String dtdPath, String firstVersion, DtdType realType, String... directories) {
         this.dtdPath = dtdPath;
-        this.rootType = this;
+        this.rootType = realType == null ? this : realType;
         this.firstVersion = firstVersion;
+        this.directories = ImmutableSet.copyOf(directories);
     }
 
     public static DtdType fromPath(String elementOrPath) {

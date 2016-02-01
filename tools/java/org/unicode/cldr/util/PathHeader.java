@@ -267,6 +267,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Annotation(SectionId.Supplemental),
         RBNF(SectionId.Supplemental),
         Segmentation(SectionId.Supplemental),
+        DayPeriod(SectionId.Supplemental),
         ;
 
         private final SectionId sectionId;

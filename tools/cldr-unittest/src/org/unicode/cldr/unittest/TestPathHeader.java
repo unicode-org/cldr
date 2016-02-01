@@ -34,7 +34,6 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
@@ -47,15 +46,16 @@ import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.collect.Iterables;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 
 public class TestPathHeader extends TestFmwkPlus {
+    private static final DtdType DEBUG_DTD_TYPE = null; // DtdType.supplementalData;
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
 
     public static void main(String[] args) {
@@ -984,16 +984,20 @@ public class TestPathHeader extends TestFmwkPlus {
                 || dir.equals("dtd")
                 || dir.equals("main")
                 || dir.equals("uca")
-                || dir.equals("properties") // TODO as flat files
+                || dir.equals("properties")
                 ) {
                 continue;
             }
+            if (DEBUG_DTD_TYPE != null && !DEBUG_DTD_TYPE.directories.contains(dir)) {
+                continue;
+            }
             File dir2 = new File(COMMON_DIR + dir);
+            logln(dir2.getName());
             for (String file : dir2.list()) {
                 if (!file.endsWith(".xml")) {
                     continue;
                 }
-                logln(file);
+                logln(" \t" + file);
                 DtdData dtdData = null;
                 for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(
                     dir2 + "/" + file, new ArrayList<Pair<String, String>>(), true)) {

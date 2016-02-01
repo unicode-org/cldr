@@ -2094,21 +2094,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>'kl'. HH:mm:ss zzzz</pattern>
+							<pattern alt="variant">'kl'. HH.mm.ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
+							<pattern alt="variant">HH.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
+							<pattern alt="variant">HH.mm.ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern>HH:mm</pattern>
+							<pattern alt="variant">HH.mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -5515,6 +5519,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<infinity>∞</infinity>
 			<nan>¤¤¤</nan>
 			<timeSeparator draft="contributed">:</timeSeparator>
+			<timeSeparator alt="variant" draft="contributed">.</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -9406,12 +9411,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h:mm</durationUnitPattern>
+			<durationUnitPattern alt="variant">h.mm</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
 			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			<durationUnitPattern alt="variant">h.mm.ss</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
 			<durationUnitPattern>m:ss</durationUnitPattern>
+			<durationUnitPattern alt="variant">m.ss</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>

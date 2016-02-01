@@ -147,6 +147,7 @@ public class CLDRTransforms {
             addDependency("NumericPinyin-Latin(/.*)?", "Tone-Digit", "Digit-Tone");
             addDependency("am-ar", "am-am_FONIPA", "und_FONIPA-ar");
             addDependency("am-fa", "am-am_FONIPA", "und_FONIPA-fa");
+            addDependency("ch-am", "ch-ch_FONIPA", "am-am_FONIPA");
             addDependency("ch-ar", "ch-ch_FONIPA", "und_FONIPA-ar");
             addDependency("ch-fa", "ch-ch_FONIPA", "und_FONIPA-fa");
             addDependency("cs-am", "cs-cs_FONIPA", "am-am_FONIPA");

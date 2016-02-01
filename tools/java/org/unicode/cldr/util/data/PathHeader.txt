@@ -47,6 +47,7 @@
 //ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; &languageSection($1) ; &firstLetter($1) ; &languageSort($1)
 //ldml/localeDisplayNames/scripts/script[@type="%A"]           ; Locale Display Names ; Scripts ; &categoryFromScript($1) ; $1
 //ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1) ; $1
+//ldml/localeDisplayNames/subdivisions/subdivision[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1) ; $1
 //ldml/localeDisplayNames/variants/variant[@type="%A"]         ; Locale Display Names ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; &categoryFromKey($1) ; $1
 //ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; $1-$2
@@ -144,6 +145,10 @@
 //ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="narrow"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-narrow)
 //ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="variant"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-variant)
 
+//ldml/numbers/currencies/currency[@type="%A"]/decimal				; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)-decimal
+//ldml/numbers/currencies/currency[@type="%A"]/group				; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)-grouping
+//ldml/numbers/currencies/currency[@type="%A"]/pattern[@type="%A"]	; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)-pattern-$2
+
 ### Units
 
 //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Units ; Measurement Systems ; null ; $1
@@ -211,10 +216,13 @@
 //ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Misc ; Transforms ; null ; $1
 
 #Outside of Main
+//ldml/collations/defaultCollation	; Misc ; Linguistic Elements ; Collation ; default ; HIDE
+//ldml/collations/collation[@type="%A"]	; Misc ; Linguistic Elements ; Collation ; $1 ; HIDE
 //ldml/collations/collation[@type="%A"]/cr	; Misc ; Linguistic Elements ; Collation ; $1 ; HIDE
 //ldml/collations/collation[@type="%A"]/(%E)	; Misc ; Linguistic Elements ; Collation ; $1-$2 ; HIDE
 //ldml/collations/collation[@type="%A"]/(%E)(.*)	; Misc ; Linguistic Elements ; Collation ; $1-$2-$3 ; HIDE
 
+//ldml/annotations/annotation[@cp="%A"]	; Misc ; Linguistic Elements ; Annotation ; $1 ; HIDE
 //ldml/annotations/annotation[@cp="%A"]/(%E)	; Misc ; Linguistic Elements ; Annotation ; $1-$2 ; HIDE
 //ldml/annotations/annotation[@cp="%A"]/(%E)(.*)	; Misc ; Linguistic Elements ; Annotation ; $1-$2-$3 ; HIDE
 
@@ -242,6 +250,127 @@
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/%E[@type="%A"]                     ; Special ; Deprecated ; $1 ; $1-$2-$3-$4 ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]                                    ; Special ; Deprecated ; $1 ; $1-$2 ; HIDE
 
+//ldml/annotations/annotation_[@cp="%A"]/_tts			; Supplemental ; Annotation ; $1 ; TTS ; HIDE
+
+//ldml/rbnf/rulesetGrouping[@type="%A"]/ruleset[@type="%A"]/rbnfrule			; Supplemental ; RBNF ; $1-$2 ; rule ; HIDE
+//ldml/rbnf/rulesetGrouping[@type="%A"]/ruleset[@type="%A"]/_access			; Supplemental ; RBNF ; $1-$2 ; access ; HIDE
+//ldml/rbnf/rulesetGrouping[@type="%A"]/ruleset[@type="%A"]/rbnfrule_/_value			; Supplemental ; RBNF ; $1-$2 ; value ; HIDE
+//ldml/rbnf/rulesetGrouping[@type="%A"]/ruleset[@type="%A"]/rbnfrule_/_radix			; Supplemental ; RBNF ; $1-$2 ; radix ; HIDE
+
+//ldml/segmentations/segmentation[@type="%A"]/suppressions[@type="%A"]/suppression			; Supplemental ; Segmentation ; $1 ; suppression-$2 ; HIDE
+//ldml/segmentations/segmentation[@type="%A"]/variables/variable[@id="%A"]			; Supplemental ; Segmentation ; $1 ; variable-$2 ; HIDE
+//ldml/segmentations/segmentation[@type="%A"]/segmentRules/rule[@id="%A"]			; Supplemental ; Segmentation ; $1 ; rule-$2 ; HIDE
+
 # Ultimate fallback (Error)
 //ldml/%S/(.*)                                                                              ; Special ; Unknown ; $1 ; $2 ; DEPRECATED
 //ldml/(.*)                                                                                 ; Special ; Unknown ; Unknown ; $2 ; DEPRECATED
+
+# BCP47
+//ldmlBCP47/version			; Special ; Version; BCP47 ; plain ; HIDE
+//supplementalData/version			; Special ; Version ; Supplemental ; plain ; HIDE
+
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]/type[@name="%A"]/%E			; BCP47 ; $1_Extension ; $2-$3; $4 ; HIDE
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]/type[@name="%A"]			; BCP47 ; $1_Extension ; $2-$3; value ; HIDE
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]/type/%E						; BCP47 ; $1_Extension ; $2; $3 ; HIDE
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]/_%E						; BCP47 ; $1_Extension ; $2; $3 ; HIDE
+//ldmlBCP47/keyword/key[@extension="%A"][@name="%A"]						; BCP47 ; $1_Extension ; $2; value ; HIDE
+
+//ldmlBCP47/keyword/key[@name="%A"]/type[@name="%A"]/%E								; BCP47 ; u_Extension ; $1-$2; $3 ; HIDE
+//ldmlBCP47/keyword/key[@name="%A"]/type[@name="%A"]								; BCP47 ; u_Extension ; $1-$2; value ; HIDE
+//ldmlBCP47/keyword/key[@name="%A"]/type/%E											; BCP47 ; u_Extension ; $1; $2 ; HIDE
+//ldmlBCP47/keyword/key[@name="%A"]/_%E											; BCP47 ; u_Extension ; $1; $2 ; HIDE
+
+# Ultimate fallback (Error)
+//ldmlBCP47/%S/(.*)                                                                              ; BCP47 ; Unknown ; $1 ; $2 ; DEPRECATED
+//ldmlBCP47/(.*)                                                                                 ; BCP47 ; Unknown ; Unknown ; $2 ; DEPRECATED
+
+# Supplemental
+
+//supplementalData/metadata/alias/%EAlias[@type="%A"]/_reason			; Supplemental ; Alias ; $1 ; $2-reason ; HIDE
+//supplementalData/metadata/alias/%EAlias[@type="%A"]/_replacement		; Supplemental ; Alias ; $1 ; $2-replacement; HIDE
+
+//supplementalData/idValidity/id[@type="%A"][@idStatus="%A"]			; Supplemental ; IdValidity ; $1 ; $2 ; HIDE
+
+//supplementalData/codeMappings/territoryCodes[@type="%A"]/_%E			; Supplemental ; RegionMapping ; $1 ; $2 ; HIDE
+//supplementalData/windowsZones/mapTimezones/mapZone[@other="%A"][@territory="%A"]/_type			; Supplemental ; WZoneMapping ; $1 ; $2 ; HIDE
+
+//supplementalData/parentLocales/parentLocale[@parent="%A"]/_locales			; Supplemental ; Locale ; Parent ; $1 ; HIDE
+//supplementalData/metadata/skipDefaultLocale/_services			; Supplemental ; Locale ; SkipDefault ; plain ; HIDE
+//supplementalData/metadata/defaultContent/_locales			; Supplemental ; Locale ; DefaultContent ; plain ; HIDE
+
+//supplementalData/likelySubtags/likelySubtag[@from="%A"]/_to			; Supplemental ; Likely ; Subtag ; $1 ; HIDE
+
+//supplementalData/languageMatching/languageMatches[@type="%A"]/languageMatch/_%E			; Supplemental ; LanguageMatch ; $1 ; $2 ; HIDE
+
+//supplementalData/languageData/language[@type="%A"]/_scripts			; Supplemental ; Language ; $1 ; scripts ; HIDE
+//supplementalData/languageData/language[@type="%A"][@alt="%A"]/_scripts			; Supplemental ; Language ; $1 ; scripts-$2 ; HIDE
+//supplementalData/languageData/language[@type="%A"]/_territories			; Supplemental ; Language ; $1 ; territories ; HIDE
+//supplementalData/languageData/language[@type="%A"][@alt="%A"]/_territories			; Supplemental ; Language ; $1 ; territories-$2 ; HIDE
+
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@variant="%A"][@direction="%A"]/_alias			; Supplemental ; Transform ; $1→$2/$3 ; $4 ; HIDE
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@variant="%A"][@direction="%A"]/_visibility			; Supplemental ; Transform ; $1→$2/$3 ; $4 ; HIDE
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@variant="%A"][@direction="%A"]/tRule			; Supplemental ; Transform ; $1→$2/$3 ; $4 ; HIDE
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@variant="%A"][@direction="%A"]/_backwardAlias			; Supplemental ; Transform ; $1→$2/$3 ; $4 ; HIDE
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@direction="%A"]/_alias			; Supplemental ; Transform ; $1→$2 ; $3 ; HIDE
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@direction="%A"]/_visibility			; Supplemental ; Transform ; $1→$2 ; $3 ; HIDE
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@direction="%A"]/tRule			; Supplemental ; Transform ; $1→$2 ; $3 ; HIDE
+//supplementalData/transforms/transform[@source="%A"][@target="%A"][@direction="%A"]/_backwardAlias			; Supplemental ; Transform ; $1→$2 ; $3 ; HIDE
+
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference[@regions="%A"]			; Supplemental ; UnitPreferences ; $1/$2 ; $3 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"]/unitPreference[@regions="%A"][@alt="%A"]			; Supplemental ; UnitPreferences ; $1/$2 ; $3-$4 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"][@scope="%A"]/unitPreference[@regions="%A"]			; Supplemental ; UnitPreferences ; $1/$2/$3 ; $4 ; HIDE
+//supplementalData/unitPreferenceData/unitPreferences[@category="%A"][@usage="%A"][@scope="%A"]/unitPreference[@regions="%A"][@alt="%A"]			; Supplemental ; UnitPreferences ; $1/$2/$3 ; $4-$5 ; HIDE
+
+//supplementalData/territoryInfo/territory[@type="%A"]/_%E			; Supplemental ; TerritoryInfo ; $1 ; $2 ; HIDE
+//supplementalData/territoryInfo/territory[@type="%A"]/languagePopulation[@type="%A"]/_%E			; Supplemental ; LanguageInfo ; $1/$2 ; ZZZ ; HIDE
+
+//supplementalData/characters/character-fallback/character[@value="%A"]/substitute			; Supplemental ; Fallback ; $1 ; plain ; DEPRECATED
+
+//supplementalData/gender/personList[@type="%A"]/_locales			; Supplemental ; Gender ; List ; $1 ; HIDE
+
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"][@to="%A"]/_mzone			; Supplemental ; Metazone ; $1 ; $2-$3 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"]/_mzone			; Supplemental ; Metazone ; $1 ; $2–∞ ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@to="%A"]/_mzone			; Supplemental ; Metazone ; $1 ; -∞–$2 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone/_mzone			; Supplemental ; Metazone ; $1 ; -∞–∞ ; HIDE
+
+//supplementalData/metaZones/mapTimezones[@type="%A"]/mapZone[@other="%A"][@territory="%A"]/_type			; Supplemental ; Metazone ; $1 ; $2-$3 ; HIDE
+//supplementalData/primaryZones/primaryZone[@iso3166="%A"]			; Supplemental ; Metazone ; Primary ; $1 ; HIDE
+
+//supplementalData/numberingSystems/numberingSystem[@id="%A"]/_%E			; Supplemental ; NumberSystem ; $1 ; $2 ; HIDE
+
+//supplementalData/plurals[@type="%A"]/pluralRules[@locales="%A"]/pluralRule[@count="%A"]			; Supplemental ; Plural ; $1-$2 ; $3 ; HIDE
+//supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange[@start="%A"][@end="%A"]			; Supplemental ; PluralRange ; $1 ; $2–$3 ; HIDE
+//supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange_[@start="%A"][@end="%A"]/_result			; Supplemental ; PluralRange ; $1 ;  $2–$3-result ; HIDE
+
+//supplementalData/territoryContainment/group[@type="%A"]/_%E			; Supplemental ; Containment ; $1 ; $2 ; HIDE
+//supplementalData/territoryContainment/group[@type="%A"][@status="%A"]/_contains			; Supplemental ; Containment ; $1 ; $2 ; HIDE
+//supplementalData/subdivisionContainment/subgroup[@type="%A"]/_contains			; Supplemental ; Containment ; $1 ; sub ; HIDE
+//supplementalData/subdivisionContainment/subgroup[@type="%A"][@subtype="%A"]/_contains			; Supplemental ; Containment ; $1 ; sub-$2 ; HIDE
+
+//supplementalData/currencyData/fractions/info[@iso4217="%A"]/_%E			; Supplemental ; Currency ; $1 ; Fractions-$2 ; HIDE
+//supplementalData/codeMappings/currencyCodes[@type="%A"]/_numeric			; Supplemental ; Currency ; $1 ; NumericCode ; HIDE
+
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@from="%A"][@to="%A"][@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $4–$2–$3 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@to="%A"][@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $3–-∞–$2 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@from="%A"][@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $3–$2–∞ ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $2–-∞–∞; HIDE
+
+//supplementalData/calendarData/calendar[@type="%A"]/eras/era[@type="%A"]/_%E			; Supplemental ; Calendar ; $1 ; $2-$3 ; HIDE
+
+//supplementalData/calendarPreferenceData/calendarPreference[@territories="%A"]/_ordering			; Supplemental ; Calendar ; Preference ; $1 ; HIDE
+
+//supplementalData/weekData/minDays[@count="%A"]/_territories			; Supplemental ; WeekData ; minDays ; $1 ; HIDE
+//supplementalData/weekData/firstDay[@day="%A"]/_territories			; Supplemental ; WeekData ; firstDay ; $1 ; HIDE
+//supplementalData/weekData/firstDay[@day="%A"][@alt="%A"]/_territories			; Supplemental ; WeekData ; firstDay-$2 ; $1 ; HIDE
+//supplementalData/weekData/weekendStart[@day="%A"]/_territories			; Supplemental ; WeekData ; weekendStart ; $1 ; HIDE
+//supplementalData/weekData/weekendEnd[@day="%A"]/_territories			; Supplemental ; WeekData ; weekendEnd ; $1 ; HIDE
+//supplementalData/timeData/hours[@regions="%A"]/_%E			; Supplemental ; WeekData ; hours-$2 ; $1 ; HIDE
+
+//supplementalData/measurementData/measurementSystem[@type="%A"]/_territories			; Supplemental ; Measurement ; default ; $1 ; HIDE
+//supplementalData/measurementData/measurementSystem[@type="%A"][@category="%A"]/_territories			; Supplemental ; Measurement ; $2 ; $1 ; HIDE
+//supplementalData/measurementData/paperSize[@type="%A"]/_territories			; Supplemental ; Measurement ; Paper ; $1 ; HIDE
+
+# Ultimate fallback (Error)
+//supplementalData/%S/(.*)                                                                              ; Supplemental ; Unknown ; $1 ; $2 ; DEPRECATED
+//supplementalData/(.*)                                                                                 ; Supplemental ; Unknown ; Unknown ; $2 ; DEPRECATED
+

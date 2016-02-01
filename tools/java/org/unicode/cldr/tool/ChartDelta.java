@@ -255,8 +255,10 @@ public class ChartDelta extends Chart {
                 File sourceDir = sourceDirs.get(0);
                 String sourceDirLeaf = sourceDir.getName();
                 //System.out.println(sourceDirLeaf);
-
+                boolean resolving = !sourceDirLeaf.contains("subdivisions") 
+                    && !sourceDirLeaf.contains("transforms");
                 for (String locale : baseNLocale.getValue()) {
+                    //System.out.println("\t" + locale);
                     String nameAndLocale = sourceDirLeaf + "/" + locale;
                     if (fileFilter != null && !fileFilter.reset(nameAndLocale).find()) {
                         if (verbose) {
@@ -268,8 +270,8 @@ public class ChartDelta extends Chart {
                     if (verbose) {
                         System.out.println(nameAndLocale);
                     }
-                    CLDRFile current = makeWithFallback(factory, locale);
-                    CLDRFile old = makeWithFallback(oldFactory, locale);
+                    CLDRFile current = makeWithFallback(factory, locale, resolving);
+                    CLDRFile old = makeWithFallback(oldFactory, locale, resolving);
                     if (old == EMPTY_CLDR && current == EMPTY_CLDR) {
                         continue;
                     }
@@ -331,7 +333,7 @@ public class ChartDelta extends Chart {
         writeDiffs(anchors, diffAll);
     }
 
-    PathStarrer starrer = new PathStarrer().setSubstitutionPattern("*");
+    PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");
 
     private PathHeader getPathHeader(String path) {
         try {
@@ -342,12 +344,14 @@ public class ChartDelta extends Chart {
             }
             return null;
         } catch (Exception e) {
-            System.err.println("Skipping path with bad PathHeader: " + path);
+            String star = starrer.set(path);
+            badHeaders.add(star);
+            // System.err.println("Skipping path with bad PathHeader: " + path);
             return null;
         }
     }
 
-    private CLDRFile makeWithFallback(Factory oldFactory, String locale) {
+    private CLDRFile makeWithFallback(Factory oldFactory, String locale, boolean resolving) {
         if (oldFactory == null) {
             return EMPTY_CLDR;
         }
@@ -355,7 +359,7 @@ public class ChartDelta extends Chart {
         String oldLocale = locale;
         while (true) { // fall back for old, maybe to root
             try {
-                old = oldFactory.make(oldLocale, true);
+                old = oldFactory.make(oldLocale, resolving);
                 break;
             } catch (Exception e) {
                 oldLocale = LocaleIDParser.getParent(oldLocale);

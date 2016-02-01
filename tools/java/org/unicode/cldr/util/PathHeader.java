@@ -90,6 +90,8 @@ public class PathHeader implements Comparable<PathHeader> {
         Currencies,
         Units,
         Misc("Miscellaneous"),
+        BCP47,
+        Supplemental,
         Special;
 
         private SectionId(String... alternateNames) {
@@ -234,7 +236,38 @@ public class PathHeader implements Comparable<PathHeader> {
         C_SAsia(SectionId.Currencies, "Southern Asia (C)"),
         C_SEAsia(SectionId.Currencies, "Southeast Asia (C)"),
         C_Oceania(SectionId.Currencies, "Oceania (C)"),
-        C_Unknown(SectionId.Currencies, "Unknown Region (C)"), ;
+        C_Unknown(SectionId.Currencies, "Unknown Region (C)"), 
+        // BCP47
+        u_Extension(SectionId.BCP47), 
+        t_Extension(SectionId.BCP47), 
+        // Supplemental
+        Alias(SectionId.Supplemental), 
+        IdValidity(SectionId.Supplemental),
+        Locale(SectionId.Supplemental),
+        RegionMapping(SectionId.Supplemental),
+        WZoneMapping(SectionId.Supplemental),
+        Transform(SectionId.Supplemental),
+        UnitPreferences(SectionId.Supplemental),
+        Likely(SectionId.Supplemental),
+        LanguageMatch(SectionId.Supplemental),
+        TerritoryInfo(SectionId.Supplemental),
+        LanguageInfo(SectionId.Supplemental),
+        Fallback(SectionId.Supplemental),
+        Gender(SectionId.Supplemental),
+        Metazone(SectionId.Supplemental),
+        NumberSystem(SectionId.Supplemental),
+        Plural(SectionId.Supplemental),
+        PluralRange(SectionId.Supplemental),
+        Containment(SectionId.Supplemental),
+        Currency(SectionId.Supplemental),
+        Calendar(SectionId.Supplemental),
+        WeekData(SectionId.Supplemental),
+        Measurement(SectionId.Supplemental),
+        Language(SectionId.Supplemental),
+        Annotation(SectionId.Supplemental),
+        RBNF(SectionId.Supplemental),
+        Segmentation(SectionId.Supplemental),
+        ;
 
         private final SectionId sectionId;
 
@@ -1241,7 +1274,9 @@ public class PathHeader implements Comparable<PathHeader> {
                 final Set<String> specialRegions = new HashSet<String>(Arrays.asList("EU", "QO", "ZZ"));
 
                 public String transform(String source0) {
-                    String theTerritory = source0;
+                    // support subdivisions
+                    int dashPos = source0.indexOf('-');
+                    String theTerritory = dashPos < 0 ? source0 : source0.substring(0,dashPos);
                     try {
                         if (specialRegions.contains(theTerritory) || Integer.valueOf(theTerritory) > 0) {
                             return "Geographic Regions";

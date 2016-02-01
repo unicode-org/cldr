@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumMap;
@@ -19,17 +20,21 @@ import java.util.regex.Matcher;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
@@ -44,12 +49,15 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.collect.Iterables;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 
 public class TestPathHeader extends TestFmwkPlus {
+    private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
+
     public static void main(String[] args) {
         new TestPathHeader().run(args);
     }
@@ -372,6 +380,9 @@ public class TestPathHeader extends TestFmwkPlus {
         for (Entry<SectionId, Set<PageId>> sectionAndPages : PathHeader.Factory
             .getSectionIdsToPageIds().keyValuesSet()) {
             final SectionId section = sectionAndPages.getKey();
+            if (section == SectionId.Supplemental || section == SectionId.BCP47) {
+                continue;
+            }
             logln(section.toString());
             for (PageId page : sectionAndPages.getValue()) {
                 final Set<String> cachedPaths = PathHeader.Factory
@@ -963,5 +974,80 @@ public class TestPathHeader extends TestFmwkPlus {
         String p1 = pathDescription.getDescription(path1, v1, null, null);
         assertTrue("Check pd for format", p0.contains("in the morning"));
         assertTrue("Check pd for stand-alone", !p1.contains("in the morning"));
+    }
+
+    public void TestNonMain() {
+        Set<String> badHeaders = new TreeSet<>();
+        Map<PathHeader,PathHeader> goodHeaders = new HashMap<>();
+        for (String dir : new File(COMMON_DIR).list()) {
+            if (dir.equals(".DS_Store")
+                || dir.equals("dtd")
+                || dir.equals("main")
+                || dir.equals("uca")
+                || dir.equals("properties") // TODO as flat files
+                ) {
+                continue;
+            }
+            File dir2 = new File(COMMON_DIR + dir);
+            for (String file : dir2.list()) {
+                if (!file.endsWith(".xml")) {
+                    continue;
+                }
+                logln(file);
+                DtdData dtdData = null;
+                for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(
+                    dir2 + "/" + file, new ArrayList<Pair<String, String>>(), true)) {
+                    final String path = pathValue.getFirst();
+                    if (dtdData == null) {
+                        dtdData = DtdData.getInstance(DtdType.fromPath(path));
+                    }
+                    checkPathHeader(dtdData, path, goodHeaders, badHeaders);
+                };
+            }
+        }
+    }
+
+    static PathHeader.Factory phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
+    static PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");
+
+    private void checkPathHeader(DtdData dtdData, String rawPath, Map<PathHeader,PathHeader> goodHeaders, Set<String> badHeaders) {
+        XPathParts pathPlain = XPathParts.getFrozenInstance(rawPath);
+        if (dtdData.isMetadata(pathPlain)) {
+            return;
+        }
+        if (dtdData.isDeprecated(pathPlain)) {
+            return;
+        }
+        Map<String, String> extras = new LinkedHashMap<>();
+        String fixedPath = dtdData.getRegularizedPaths(pathPlain, extras);
+        if (fixedPath != null) {
+            checkSubpath(fixedPath, goodHeaders, badHeaders);
+        }
+        for (String path : extras.keySet()) {
+            checkSubpath(path, goodHeaders, badHeaders);
+        }
+    }
+
+    private void checkSubpath(String path, Map<PathHeader,PathHeader> goodHeaders, Set<String> badHeaders) {
+        String message = ": Can't compute path header";
+        try {
+            PathHeader ph = phf.fromPath(path);
+            if (ph != null && ph.getPageId() != PageId.Unknown) {
+                PathHeader old = goodHeaders.put(ph,ph);
+                if (old != null && !path.equals(old.getOriginalPath())) {
+                    errln("Duplicate path header for: " + ph 
+                        + "\n\t\t " + path
+                        + "\n\t\t≠" + old.getOriginalPath()
+                        );
+                }
+                return;
+            }
+        } catch (Exception e) {
+            message = ": Exception in path header: " + e.getMessage();
+        }
+        String star = starrer.set(path);
+        if (badHeaders.add(star)) {
+            errln(star + message);
+        }
     }
 }

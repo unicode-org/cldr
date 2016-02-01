@@ -217,13 +217,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             Attribute that = (Attribute) obj;
             return name.equals(that.name)
                 && element.name.equals(that.element.name) // don't use plain element: circularity
-            // not relevant to identity
-            //                && Objects.equals(comment, that.comment)
-            //                && mode.equals(that.mode)
-            //                && Objects.equals(defaultValue, that.defaultValue)
-            //                && type.equals(that.type)
-            //                && values.equals(that.values)
-            ;
+                // not relevant to identity
+                //                && Objects.equals(comment, that.comment)
+                //                && mode.equals(that.mode)
+                //                && Objects.equals(defaultValue, that.defaultValue)
+                //                && type.equals(that.type)
+                //                && values.equals(that.values)
+                ;
         }
 
         /**
@@ -233,13 +233,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public int hashCode() {
             return name.hashCode() * 37
                 + element.name.hashCode() // don't use plain element: circularity
-            // not relevant to identity
-            //                ) * 37 + Objects.hashCode(comment)) * 37
-            //                + mode.hashCode()) * 37
-            //                + Objects.hashCode(defaultValue)) * 37
-            //                + type.hashCode()) * 37
-            //                + values.hashCode()
-            ;
+                // not relevant to identity
+                //                ) * 37 + Objects.hashCode(comment)) * 37
+                //                + mode.hashCode()) * 37
+                //                + Objects.hashCode(defaultValue)) * 37
+                //                + type.hashCode()) * 37
+                //                + values.hashCode()
+                ;
         }
 
         public boolean isDeprecated() {
@@ -337,7 +337,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             result = CLEANER2.matcher(result).replaceAll(" $1");
             return result.equals(model2)
                 ? model2
-                : result; // for debugging
+                    : result; // for debugging
         }
 
         public boolean containsAttribute(String string) {
@@ -421,12 +421,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             Element that = (Element) obj;
             return name.equals(that.name)
-            // not relevant to the identity of the object
-            //                && Objects.equals(comment, that.comment)
-            //                && type == that.type
-            //                && attributes.equals(that.attributes)
-            //                && children.equals(that.children)
-            ;
+                // not relevant to the identity of the object
+                //                && Objects.equals(comment, that.comment)
+                //                && type == that.type
+                //                && attributes.equals(that.attributes)
+                //                && children.equals(that.children)
+                ;
         }
 
         /**
@@ -435,12 +435,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         @Override
         public int hashCode() {
             return name.hashCode()
-            // not relevant to the identity of the object
-            // * 37 + Objects.hashCode(comment)
-            //) * 37 + Objects.hashCode(type)
-            //                ) * 37 + attributes.hashCode()
-            //                ) * 37 + children.hashCode()
-            ;
+                // not relevant to the identity of the object
+                // * 37 + Objects.hashCode(comment)
+                //) * 37 + Objects.hashCode(type)
+                //                ) * 37 + attributes.hashCode()
+                //                ) * 37 + children.hashCode()
+                ;
         }
 
         public boolean isDeprecated() {
@@ -650,7 +650,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             "coverageLevel", // needed for supplemental/coverageLevel.xml
             "coverageVariable", // needed for supplemental/coverageLevel.xml
             "substitute" // needed for characters.xml
-        )));
+            )));
 
     public static boolean isOrderedOld(String element, DtdType type) {
         return orderedElements.contains(element);
@@ -963,8 +963,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (currentEnd != b.length()) {
             b.insert(currentEnd,
                 System.lineSeparator() + System.lineSeparator()
-                    + "<!-- Elements not reachable from root! -->"
-                    + System.lineSeparator());
+                + "<!-- Elements not reachable from root! -->"
+                + System.lineSeparator());
         }
         return b.toString();
     }
@@ -1131,10 +1131,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     // special handling for very first comment
                     if (b.length() == 0) {
                         b.append("<!--")
-                            .append(System.lineSeparator())
-                            .append(c)
-                            .append(System.lineSeparator())
-                            .append("-->");
+                        .append(System.lineSeparator())
+                        .append(c)
+                        .append(System.lineSeparator())
+                        .append("-->");
                         continue;
                     }
                     b.append(System.lineSeparator());
@@ -1217,83 +1217,83 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("dayPeriodRule")
                 && (attribute.equals("type") || attribute.equals("at") || attribute.equals("after") || attribute.equals("before") || attribute.equals("from") || attribute
                     .equals("to"))
-                || elementName.equals("metazones") && attribute.equals("type")
-                || elementName.equals("subgroup") && attribute.equals("subtype")
-                || elementName.equals("mapZone")
-                && (attribute.equals("other") || attribute.equals("territory"))
-                || elementName.equals("postCodeRegex")
-                && attribute.equals("territoryId")
-                || elementName.equals("calendarPreference")
-                && attribute.equals("territories")
-                || elementName.equals("minDays")
-                && attribute.equals("count")
-                || elementName.equals("firstDay")
-                && attribute.equals("day")
-                || elementName.equals("weekendStart")
-                && attribute.equals("day")
-                || elementName.equals("weekendEnd")
-                && attribute.equals("day")
-                || elementName.equals("measurementSystem")
-                && attribute.equals("category")
-                || elementName.equals("unitPreferences")
-                && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
-                || elementName.equals("unitPreference")
-                && attribute.equals("regions")
-                || elementName.equals("distinguishingItems")
-                && attribute.equals("attributes")
-                || elementName.equals("codesByTerritory")
-                && attribute.equals("territory")
-                || elementName.equals("currency")
-                && attribute.equals("iso4217")
-                || elementName.equals("territoryAlias")
-                && attribute.equals("type")
-                || elementName.equals("territoryCodes")
-                && attribute.equals("type")
-                || elementName.equals("group")
-                && (attribute.equals("status")) //  || attribute.equals("grouping")
-                || elementName.equals("plurals")
-                && attribute.equals("type")
-                || elementName.equals("pluralRules")
-                && attribute.equals("locales")
-                || elementName.equals("pluralRule")
-                && attribute.equals("count")
-                || elementName.equals("pluralRanges")
-                && attribute.equals("locales")
-                || elementName.equals("pluralRange")
-                && (attribute.equals("start") || attribute.equals("end"))
-                || elementName.equals("hours")
-                && attribute.equals("regions")
-                //|| elementName.equals("personList") && attribute.equals("type")
-                || elementName.equals("likelySubtag")
-                && attribute.equals("from")
-                || elementName.equals("timezone")
-                && attribute.equals("type")
-                || elementName.equals("usesMetazone")
-                && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
-                || elementName.equals("numberingSystem")
-                && attribute.equals("id")
-                || elementName.equals("group")
-                && attribute.equals("type")
-                || elementName.equals("currency")
-                && attribute.equals("from")
-                || elementName.equals("currency")
-                && attribute.equals("to")
-                || elementName.equals("currency")
-                && attribute.equals("iso4217")
-                || elementName.equals("parentLocale")
-                && attribute.equals("parent")
-                || elementName.equals("currencyCodes")
-                && attribute.equals("type")
-                || elementName.equals("approvalRequirement")
-                && (attribute.equals("locales") || attribute.equals("paths"))
-                || elementName.equals("coverageVariable")
-                && attribute.equals("key")
-                || elementName.equals("coverageLevel")
-                && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
+                    || elementName.equals("metazones") && attribute.equals("type")
+                    || elementName.equals("subgroup") && attribute.equals("subtype")
+                    || elementName.equals("mapZone")
+                    && (attribute.equals("other") || attribute.equals("territory"))
+                    || elementName.equals("postCodeRegex")
+                    && attribute.equals("territoryId")
+                    || elementName.equals("calendarPreference")
+                    && attribute.equals("territories")
+                    || elementName.equals("minDays")
+                    && attribute.equals("count")
+                    || elementName.equals("firstDay")
+                    && attribute.equals("day")
+                    || elementName.equals("weekendStart")
+                    && attribute.equals("day")
+                    || elementName.equals("weekendEnd")
+                    && attribute.equals("day")
+                    || elementName.equals("measurementSystem")
+                    && attribute.equals("category")
+                    || elementName.equals("unitPreferences")
+                    && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
+                    || elementName.equals("unitPreference")
+                    && attribute.equals("regions")
+                    || elementName.equals("distinguishingItems")
+                    && attribute.equals("attributes")
+                    || elementName.equals("codesByTerritory")
+                    && attribute.equals("territory")
+                    || elementName.equals("currency")
+                    && attribute.equals("iso4217")
+                    || elementName.equals("territoryAlias")
+                    && attribute.equals("type")
+                    || elementName.equals("territoryCodes")
+                    && attribute.equals("type")
+                    || elementName.equals("group")
+                    && (attribute.equals("status")) //  || attribute.equals("grouping")
+                    || elementName.equals("plurals")
+                    && attribute.equals("type")
+                    || elementName.equals("pluralRules")
+                    && attribute.equals("locales")
+                    || elementName.equals("pluralRule")
+                    && attribute.equals("count")
+                    || elementName.equals("pluralRanges")
+                    && attribute.equals("locales")
+                    || elementName.equals("pluralRange")
+                    && (attribute.equals("start") || attribute.equals("end"))
+                    || elementName.equals("hours")
+                    && attribute.equals("regions")
+                    //|| elementName.equals("personList") && attribute.equals("type")
+                    || elementName.equals("likelySubtag")
+                    && attribute.equals("from")
+                    || elementName.equals("timezone")
+                    && attribute.equals("type")
+                    || elementName.equals("usesMetazone")
+                    && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
+                    || elementName.equals("numberingSystem")
+                    && attribute.equals("id")
+                    || elementName.equals("group")
+                    && attribute.equals("type")
+                    || elementName.equals("currency")
+                    && attribute.equals("from")
+                    || elementName.equals("currency")
+                    && attribute.equals("to")
+                    || elementName.equals("currency")
+                    && attribute.equals("iso4217")
+                    || elementName.equals("parentLocale")
+                    && attribute.equals("parent")
+                    || elementName.equals("currencyCodes")
+                    && attribute.equals("type")
+                    || elementName.equals("approvalRequirement")
+                    && (attribute.equals("locales") || attribute.equals("paths"))
+                    || elementName.equals("coverageVariable")
+                    && attribute.equals("key")
+                    || elementName.equals("coverageLevel")
+                    && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
 //                || elementName.equals("languageMatch")
 //                && (attribute.equals("desired") || attribute.equals("supported") || attribute.equals("oneway"))
-                || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
-                    .equals("variant")));
+                    || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
+                        .equals("variant")));
 
         case keyboard:
             return attribute.equals("_q")
@@ -1562,5 +1562,106 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             temp.put(type, getInstance(type, null));
         }
         CACHE = Collections.unmodifiableMap(temp);
+    }
+    public boolean hasValue(String elementName) {
+        return nameToElement.get(elementName).type == ElementType.PCDATA;
+    }
+
+    public boolean isMetadata(XPathParts pathPlain) {
+        // TODO Don't use hard-coded list; instead add to DTD annotations
+        switch (dtdType) {
+        case ldml:
+            switch(pathPlain.getElement(1)) {
+            case "metadata": return true;
+            }
+            break;
+        case supplementalData:
+            // these are NOT under /metadata/ but are actually metadata
+            switch(pathPlain.getElement(1)) {
+            case "validity":
+            case "references":
+            case "coverageLevels":
+                return true;
+            case "metadata":
+                // these ARE under /metadata/, but many others under /metadata/ are NOT actually metadata.
+                switch (pathPlain.getElement(2)) {
+                case "validity":
+                case "serialElements":
+                case "suppress":
+                case "distinguishing":
+                case "blocking":
+                case "casingData":
+                    return true;
+                }
+                break;
+            }
+            break;
+        }
+        return false;
+    }
+
+    public boolean isDeprecated(XPathParts pathPlain) {
+        for (int i = 0; i < pathPlain.size(); ++i) {
+            String elementName = pathPlain.getElement(i);
+            if (isDeprecated(elementName, "*", null)) {
+                return true;
+            }
+            for (String attribute : pathPlain.getAttributeKeys(i)) {
+                String attributeValue = pathPlain.getAttributeValue(i, attribute);
+                if (isDeprecated(elementName, attribute, attributeValue)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public String getRegularizedPaths(XPathParts pathPlain, Map<String,String> extras) {
+        Map<String,String> valueAttributes = new HashMap<>();
+        XPathParts pathResult = new XPathParts();
+        String element = null;
+        for (int i = 0; i < pathPlain.size(); ++i) {
+            element = pathPlain.getElement(i);
+            pathResult.addElement(element);
+            valueAttributes.clear();
+            for (String attribute : pathPlain.getAttributeKeys(i)) {
+                AttributeStatus status = getAttributeStatus(element, attribute);
+                final String attributeValue = pathPlain.getAttributeValue(i, attribute);
+                switch (status) {
+                case distinguished: 
+                    pathResult.addAttribute(attribute, attributeValue);
+                    break;
+                case value:
+                    valueAttributes.put(attribute, attributeValue);
+                    break;
+                case metadata: 
+                    break;
+                }
+            }
+            if (!valueAttributes.isEmpty()) {
+                boolean hasValue = hasValue(element);
+                // if it doesn't have a value, we construct new child elements, with _ prefix
+                // if it does have a value, we have to play a further trick, since
+                // we can't have a value and child elements at the same level. 
+                // So we use a _ suffix on the element.
+                if (hasValue) {
+                    pathResult.setElement(i, element+"_");
+                }
+                for (Entry<String, String> attributeAndValue : valueAttributes.entrySet()) {
+                    pathResult.addElement("_" + attributeAndValue.getKey());
+                    extras.put(pathResult.toString(), attributeAndValue.getValue());
+                    pathResult.removeElement(pathResult.size()-1);
+                }
+                if (hasValue) {
+                    pathResult.setElement(i, element); // restore
+                }
+            }
+        }
+        // Only add the path if it could have a value, looking at the last element
+        if (hasValue(element)) {
+            return pathResult.toString();
+        } else {
+            return null;
+        }
     }
 }

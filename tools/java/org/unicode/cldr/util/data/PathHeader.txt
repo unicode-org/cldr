@@ -371,10 +371,12 @@
 //supplementalData/measurementData/measurementSystem[@type="%A"][@category="%A"]/_territories			; Supplemental ; Measurement ; $2 ; $1 ; HIDE
 //supplementalData/measurementData/paperSize[@type="%A"]/_territories			; Supplemental ; Measurement ; Paper ; $1 ; HIDE
 
+//supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_at				; Supplemental ; DayPeriod ; $1-$2 ; $3-at ; HIDE
 //supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_before			; Supplemental ; DayPeriod ; $1-$2 ; $3-before ; HIDE
-//supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_from			; Supplemental ; DayPeriod ; $1-$2 ; $3-before ; HIDE
+//supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_from			; Supplemental ; DayPeriod ; $1-$2 ; $3-from ; HIDE
+//supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_at				; Supplemental ; DayPeriod ; $1 ; $2-at ; HIDE
 //supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_before			; Supplemental ; DayPeriod ; $1 ; $2-before ; HIDE
-//supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_from			; Supplemental ; DayPeriod ; $1 ; $2-before ; HIDE
+//supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_from			; Supplemental ; DayPeriod ; $1 ; $2-from ; HIDE
 
 # Ultimate fallback (Error)
 //supplementalData/%S/(.*)                                                                              ; Supplemental ; Unknown ; $1 ; $2 ; DEPRECATED

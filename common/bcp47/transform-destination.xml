@@ -32,6 +32,7 @@
 		</key>
 		<key extension="t" name="s0" description="Transform source for non-languages/scripts."  since="29">
 			<type name="accents" description="accented characters to map base + punctuation, etc" since="29"/>
+			<type name="ascii" description="map from ASCII to the target, perhaps using different conventions" since="29"/>
 			<type name="publish" description="map publishing characters, such as “, ”, —, to from vanilla characters" since="29" alias="publishing"/>
 			<type name="hex" description="map characters from hex equivalents, trying all variants, eg 'U+0061' to 'a'; for hex variants see transform.xml" since="29"/>
 			<type name="npinyin" description="map the numeric form of pinyin to the tone format" since="29" alias="numericPinyin"/>

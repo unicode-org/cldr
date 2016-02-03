@@ -269,10 +269,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT hours EMPTY >
 <!ATTLIST hours allowed NMTOKENS #REQUIRED >
-    <!--@VALUE-->
 <!ATTLIST hours preferred NMTOKEN #REQUIRED >
-    <!--@VALUE-->
 <!ATTLIST hours regions NMTOKENS #REQUIRED >
+    <!--@VALUE-->
 <!ATTLIST hours draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST hours references CDATA #IMPLIED >
@@ -674,8 +673,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT parentLocales ( parentLocale* ) >
 
 <!ELEMENT parentLocale EMPTY >
-<!ATTLIST parentLocale parent CDATA #REQUIRED >
-<!ATTLIST parentLocale locales CDATA #REQUIRED >
+<!ATTLIST parentLocale parent NMTOKEN #REQUIRED >
+<!ATTLIST parentLocale locales NMTOKENS #REQUIRED >
     <!--@VALUE-->
 
 <!ELEMENT likelySubtags ( likelySubtag* ) >

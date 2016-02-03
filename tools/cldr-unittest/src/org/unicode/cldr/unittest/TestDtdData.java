@@ -21,6 +21,8 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestDtdData  extends TestFmwk {
@@ -75,7 +77,7 @@ public class TestDtdData  extends TestFmwk {
             "//ldmlBCP47/keyword/key[@name=\"ca\"]/_valueType",
             "//ldmlBCP47/keyword/key[@name=\"ca\"]/type[@name=\"chinese\"]/_description"},        
         };
-        Map<String, String> extras = new TreeMap<>();
+        Multimap<String, String> extras = TreeMultimap.create();
 
         for (String[] test : tests) {
             final String path = test[0];

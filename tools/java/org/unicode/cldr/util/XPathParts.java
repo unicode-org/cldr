@@ -17,9 +17,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSet.Builder;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
@@ -1198,5 +1201,13 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     public DtdData getDtdData() {
         return dtdData;
+    }
+
+    public Set<String> getElements() {
+        Builder<String> builder = ImmutableSet.builder();
+        for (int i = 0; i < elements.size(); ++i) {
+            builder.add(elements.get(i).getElement());
+        }
+        return builder.build();
     }
 }

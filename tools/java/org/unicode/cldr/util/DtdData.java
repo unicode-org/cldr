@@ -21,7 +21,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.DtdData.AttributeType;
+
 import com.google.common.base.Splitter;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transform;
@@ -1261,8 +1264,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("pluralRange")
                 && (attribute.equals("start") || attribute.equals("end"))
                 || elementName.equals("hours")
-                && attribute.equals("regions")
-                //|| elementName.equals("personList") && attribute.equals("type")
+                && (attribute.equals("preferred") || attribute.equals("allowed"))
+                || elementName.equals("personList") && attribute.equals("type")
                 || elementName.equals("likelySubtag")
                 && attribute.equals("from")
                 || elementName.equals("timezone")
@@ -1562,16 +1565,30 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         switch (dtdType) {
         case ldml:
             switch(pathPlain.getElement(1)) {
-            case "metadata": return true;
+            case "generation": 
+            case "metadata": 
+                return true;
             }
             break;
+        case ldmlBCP47:
+            switch(pathPlain.getElement(1)) {
+            case "generation": 
+            case "version": 
+                return true;
+            }
+            break;
+            ////supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
         case supplementalData:
             // these are NOT under /metadata/ but are actually metadata
             switch(pathPlain.getElement(1)) {
+            case "generation": 
+            case "version": 
             case "validity":
             case "references":
             case "coverageLevels":
                 return true;
+            case "transforms":
+                return pathPlain.getElement(-1).equals("comment");
             case "metadata":
                 // these ARE under /metadata/, but many others under /metadata/ are NOT actually metadata.
                 switch (pathPlain.getElement(2)) {
@@ -1606,7 +1623,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return false;
     }
 
-    public String getRegularizedPaths(XPathParts pathPlain, Map<String,String> extras) {
+    public final static Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults();
+
+    public String getRegularizedPaths(XPathParts pathPlain, Multimap<String,String> extras) {
         extras.clear();
         Map<String,String> valueAttributes = new HashMap<>();
         XPathParts pathResult = new XPathParts();
@@ -1641,9 +1660,21 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     int debug = 0;
                 }
                 for (Entry<String, String> attributeAndValue : valueAttributes.entrySet()) {
-                    pathResult.addElement("_" + attributeAndValue.getKey());
-                    extras.put(pathResult.toString(), attributeAndValue.getValue());
-                    pathResult.removeElement(pathResult.size()-1);
+                    final String attribute = attributeAndValue.getKey();
+                    final String attributeValue = attributeAndValue.getValue();
+                    
+                    pathResult.addElement("_" + attribute);
+                    String pathShort = pathResult.toString();
+                    pathResult.removeElement(pathResult.size()-1); // restore
+
+                    AttributeType attrType = getAttributeType(element, attribute);
+                    if (attrType == AttributeType.NMTOKENS) {
+                        for (String valuePart : SPACE_SPLITTER.split(attributeValue)) {
+                            extras.put(pathShort, valuePart);
+                        }
+                    } else {
+                        extras.put(pathShort, attributeValue);
+                    }
                 }
                 if (hasValue) {
                     pathResult.setElement(i, element); // restore
@@ -1658,6 +1689,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
     }
 
+    public AttributeType getAttributeType(String elementName, String attributeName) {
+        Element element = nameToElement.get(elementName);
+        if (element == null) {
+            return null;
+        }
+        Attribute attr = element.getAttributeNamed(attributeName);
+        if (attr == null) {
+            return null;
+        }
+        return attr.type;
+    }
 
     // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
     private static final Map<DtdType, DtdData> CACHE;
@@ -1669,5 +1711,4 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         CACHE = Collections.unmodifiableMap(temp);
     }
     // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
-
 }

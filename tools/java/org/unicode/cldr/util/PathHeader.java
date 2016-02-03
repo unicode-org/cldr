@@ -23,6 +23,7 @@ import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.With.SimpleIterator;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -1665,6 +1666,25 @@ public class PathHeader implements Comparable<PathHeader> {
                     return source;
                 }
             });
+            functionMap.put("alphaOrder", new Transform<String, String>() {
+                @Override
+                public String transform(String source) {
+                    order = 0;
+                    return source;
+                }
+            });
+            functionMap.put("transform", new Transform<String, String>() {
+                Splitter commas = Splitter.on(',').trimResults();
+                @Override
+                public String transform(String source) {
+                    List<String> parts = commas.splitToList(source);
+                    return parts.get(1)
+                        + (parts.get(0).equals("both") ? "↔︎" : "→")
+                        + parts.get(2)
+                        + (parts.size() > 3 ? "/"+parts.get(3) : "");
+                }
+            });
+
         }
 
         private static int getIndex(String item, String[] array) {

@@ -117,6 +117,7 @@ public class CLDRPaths {
         }
     }
     
+    @Deprecated
     public static final Set<String> LDML_DIRECTORIES = ImmutableSet.of(
         "main",
         "annotations",

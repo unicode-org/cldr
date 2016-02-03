@@ -49,6 +49,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -1022,7 +1024,7 @@ public class TestPathHeader extends TestFmwkPlus {
         if (dtdData.isDeprecated(pathPlain)) {
             return;
         }
-        Map<String, String> extras = new LinkedHashMap<>();
+        Multimap<String, String> extras = HashMultimap.create();
         String fixedPath = dtdData.getRegularizedPaths(pathPlain, extras);
         if (fixedPath != null) {
             checkSubpath(fixedPath, goodHeaders, badHeaders);

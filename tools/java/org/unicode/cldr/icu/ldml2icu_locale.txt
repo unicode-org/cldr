@@ -101,13 +101,13 @@
 # and the Hebrew calendar for he, and all calendars for haw (which has numbers="M=romanlow").
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateFormats/dateFormatLength[@type="(%A)"]/dateFormat[@type="%A"]/pattern[@type="%A"][@numbers="(%A)"] ; /calendar/$1/DateTimePatterns ;  values="{value}" $3 ; group=$2
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/((date|time|dateTime)Format)s/\2Length[@type="(%A)"]/\2[@type="%A"]/pattern[@type="%A"] ; /calendar/$1/DateTimePatterns
+//ldml/dates/calendars/calendar[@type="(%A)"]/((date|time|dateTime)Format)s/\2Length[@type="(%A)"]/\2[@type="%A"]/pattern[@type="%A"]$ ; /calendar/$1/DateTimePatterns
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/appendItems/appendItem[@request="(%A)"] ; /calendar/$1/appendItems/$2
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(%A)"] ; /calendar/$1/availableFormats/$2
+//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(%A)"]$ ; /calendar/$1/availableFormats/$2
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="(%A)"]/greatestDifference[@id="(%A)"] ; /calendar/$1/intervalFormats/$2/$3
+//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="(%A)"]/greatestDifference[@id="(%A)"]$ ; /calendar/$1/intervalFormats/$2/$3
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; /calendar/$1/intervalFormats/fallback
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="(am|pm)"][@alt="(%A)"] ; /calendar/$1/AmPmMarkers%$3
@@ -202,7 +202,7 @@
 //ldml/numbers/minimumGroupingDigits ; /NumberElements/minimumGroupingDigits
 //ldml/numbers/otherNumberingSystems/(%W)   ; /NumberElements/$1
 
-//ldml/numbers/symbols[@numberSystem="(%A)"]/(%W) ; /NumberElements/$1/symbols/$2
+//ldml/numbers/symbols[@numberSystem="(%A)"]/(%W)$ ; /NumberElements/$1/symbols/$2
 //ldml/numbers/(%GFormat)s[@numberSystem="(%W)"]/\1Length/\1[@type="standard"]/pattern[@type="standard"] ; /NumberElements/$2/patterns/$1
 //ldml/numbers/currencyFormats[@numberSystem="(%W)"]/currencyFormatLength/currencyFormat[@type="accounting"]/pattern[@type="standard"] ; /NumberElements/$1/patterns/accountingFormat
 //ldml/numbers/currencyFormats[@numberSystem="(%W)"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="(%N)"][@count="(%W)"] ; /NumberElements/$1/patternsShort/currencyFormat/$2/$3

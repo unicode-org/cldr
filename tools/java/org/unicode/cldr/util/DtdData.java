@@ -1268,6 +1268,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("personList") && attribute.equals("type")
                 || elementName.equals("likelySubtag")
                 && attribute.equals("from")
+                || elementName.equals("rgPath")
+                && attribute.equals("path")
                 || elementName.equals("timezone")
                 && attribute.equals("type")
                 || elementName.equals("usesMetazone")

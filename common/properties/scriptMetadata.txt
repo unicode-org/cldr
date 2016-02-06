@@ -1,5 +1,5 @@
 # ScriptMetadata.txt
-# Copyright © 1991-2014 Unicode, Inc.
+# Copyright © 1991-2016 Unicode, Inc.
 # CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 # For terms of use, see http://www.unicode.org/copyright.html
 #
@@ -49,6 +49,9 @@
 # 10- Cased
 #		YES if in modern (or most recent) usage case distinctions are customary.
 #
+# Sometimes a script is included here before it is added in the Unicode Standard.
+# Such scripts are marked with a "provisional" comment.
+#
 # Note: For the most likely language for each script, see 
 #		http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/likely_subtags.html
 #
@@ -90,7 +93,7 @@ Zzzz; 32; FDD0; ZZ; -1; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN
 Cans; 33; 14C0; CA; 2; ASPIRATIONAL; NO; NO; NO; YES; NO
 Syrc; 34; 0710; SY; 1; LIMITED_USE; YES; NO; YES; NO; NO
 Bopo; 35; 3105; CN; 2; RECOMMENDED; NO; YES; NO; NO; NO
-Nkoo; 36; 07D8; GN; 1; LIMITED_USE; YES; NO; YES; NO; NO
+Nkoo; 36; 07CA; GN; 1; LIMITED_USE; YES; NO; YES; NO; NO
 Cher; 37; 13C4; US; 2; LIMITED_USE; NO; NO; NO; NO; YES
 Yiii; 38; A288; CN; 3; ASPIRATIONAL; NO; YES; NO; YES; NO
 Samr; 39; 0800; IL; 1; EXCLUSION; YES; NO; MIN; NO; NO
@@ -99,7 +102,7 @@ Mong; 41; 1826; MN; 1; ASPIRATIONAL; NO; NO; YES; NO; NO
 Glag; 42; 2C00; BG; 1; EXCLUSION; NO; NO; NO; NO; YES
 Vaii; 43; A549; LR; 2; LIMITED_USE; NO; NO; NO; YES; NO
 Bali; 44; 1B05; ID; 1; LIMITED_USE; NO; NO; YES; NO; NO
-Tfng; 45; 2D5E; MA; 1; ASPIRATIONAL; NO; NO; NO; NO; NO
+Tfng; 45; 2D30; MA; 1; ASPIRATIONAL; NO; NO; NO; NO; NO
 Bamu; 46; A6A0; CM; 1; LIMITED_USE; NO; NO; MIN; YES; NO
 Batk; 47; 1BC0; ID; 1; LIMITED_USE; NO; NO; YES; NO; NO
 Cham; 48; AA00; VN; 1; LIMITED_USE; NO; NO; YES; NO; NO
@@ -107,7 +110,7 @@ Java; 49; A984; ID; 1; LIMITED_USE; NO; NO; YES; NO; NO
 Kali; 50; A90A; MM; 1; LIMITED_USE; NO; NO; MIN; NO; NO
 Lepc; 51; 1C00; IN; 1; LIMITED_USE; NO; NO; YES; NO; NO
 Limb; 52; 1900; IN; 1; LIMITED_USE; NO; NO; YES; NO; NO
-Lisu; 53; A4E8; CN; 1; LIMITED_USE; NO; NO; NO; YES; NO
+Lisu; 53; A4D0; CN; 1; LIMITED_USE; NO; NO; NO; YES; NO
 Mand; 54; 0840; IR; 1; LIMITED_USE; YES; NO; YES; NO; NO
 Mtei; 55; ABC0; IN; 1; LIMITED_USE; NO; NO; YES; NO; NO
 Talu; 56; 1980; CN; 1; LIMITED_USE; NO; YES; YES; NO; NO
@@ -122,7 +125,7 @@ Avst; 64; 10B00; IR; 1; EXCLUSION; YES; NO; YES; NO; NO
 Brah; 65; 11005; IN; 1; EXCLUSION; NO; NO; YES; NO; NO
 Bugi; 66; 1A00; ID; 1; EXCLUSION; NO; NO; MIN; NO; NO
 Buhd; 67; 1743; PH; 1; EXCLUSION; NO; NO; YES; NO; NO
-Cari; 68; 102B7; TR; 1; EXCLUSION; NO; NO; NO; NO; NO
+Cari; 68; 102A0; TR; 1; EXCLUSION; NO; NO; NO; NO; NO
 Xsux; 69; 12000; IQ; 3; EXCLUSION; NO; NO; NO; YES; NO
 Cprt; 70; 10800; CY; 1; EXCLUSION; YES; NO; NO; NO; NO
 Dsrt; 71; 10414; US; 1; EXCLUSION; NO; NO; NO; NO; YES
@@ -138,7 +141,7 @@ Linb; 80; 10000; GR; 1; EXCLUSION; NO; NO; NO; YES; NO
 Lyci; 81; 10280; TR; 1; EXCLUSION; NO; NO; NO; NO; NO
 Lydi; 82; 10920; TR; 1; EXCLUSION; YES; NO; NO; NO; NO
 Ogam; 83; 168F; IE; 1; EXCLUSION; NO; NO; NO; NO; NO
-Ital; 84; 10308; IT; 1; EXCLUSION; NO; NO; NO; NO; NO
+Ital; 84; 10300; IT; 1; EXCLUSION; NO; NO; NO; NO; NO
 Xpeo; 85; 103A0; IR; 1; EXCLUSION; NO; NO; NO; NO; NO
 Sarb; 86; 10A60; YE; 1; EXCLUSION; YES; NO; NO; NO; NO
 Orkh; 87; 10C00; MN; 1; EXCLUSION; YES; NO; NO; NO; NO
@@ -168,7 +171,7 @@ Hmng; 110; 16B1C; LA; 1; EXCLUSION; NO; NO; NO; NO; NO
 Khoj; 111; 11208; IN; 1; EXCLUSION; NO; NO; NO; NO; NO
 Lina; 112; 10647; GR; 1; EXCLUSION; NO; NO; NO; YES; NO
 Mahj; 113; 11152; IN; 1; EXCLUSION; NO; NO; NO; NO; NO
-Mani; 114; 10AC1; CN; 1; EXCLUSION; YES; NO; NO; NO; NO
+Mani; 114; 10AD8; CN; 1; EXCLUSION; YES; NO; NO; NO; NO
 Mend; 115; 1E802; SL; 1; EXCLUSION; YES; NO; NO; YES; NO
 Modi; 116; 1160E; IN; 1; EXCLUSION; NO; NO; NO; NO; NO
 Mroo; 117; 16A4F; BD; 1; EXCLUSION; NO; NO; NO; NO; NO
@@ -188,5 +191,11 @@ Hatr; 130; 108F4; IQ; 1; EXCLUSION; YES; NO; NO; NO; NO
 Mult; 131; 1128F; PK; 1; EXCLUSION; NO; NO; NO; NO; NO
 Hung; 132; 10CA1; HU; 1; EXCLUSION; YES; NO; NO; NO; YES
 Sgnw; 133; 1D850; US; 1; EXCLUSION; NO; NO; NO; YES; NO
+Adlm; 134; 1E909; GN; 1; LIMITED_USE; YES; NO; MIN; NO; YES  # provisional data for future Unicode 9.0 script
+Bhks; 135; 11C0E; IN; 1; EXCLUSION; NO; NO; YES; NO; NO  # provisional data for future Unicode 9.0 script
+Marc; 136; 11C72; CN; 1; EXCLUSION; NO; NO; YES; NO; NO  # provisional data for future Unicode 9.0 script
+Osge; 137; 104B5; US; 1; LIMITED_USE; NO; NO; NO; NO; YES  # provisional data for future Unicode 9.0 script
+Tang; 138; 18229; CN; 3; EXCLUSION; NO; YES; NO; YES; NO  # provisional data for future Unicode 9.0 script
+Newa; 139; 11412; NP; 1; LIMITED_USE; NO; NO; YES; NO; NO  # provisional data for future Unicode 9.0 script
 
 # EOF

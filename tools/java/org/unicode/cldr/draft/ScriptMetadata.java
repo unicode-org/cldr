@@ -12,28 +12,39 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.unicode.cldr.tool.CountryCodeConverter;
-import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SemiFileReader;
 import org.unicode.cldr.util.StandardCodes;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.util.VersionInfo;
 
 public class ScriptMetadata {
     private static final String DATA_FILE = "/org/unicode/cldr/util/data/Script_Metadata.csv";
 
     // To get the data, go do the Script MetaData spreadsheet, and Download As Comma Separated Items into DATA_FILE
-    // Then you'll run GenerateScriptMetadata
-    public enum Column {
-        // must match the spreadshee header (caseless compare) or have the alternate header as an argument.
+    // Run TestScriptMetadata.
+    // Then run GenerateScriptMetadata.
+    // See http://cldr.unicode.org/development/updating-codes/updating-script-metadata
+    private enum Column {
+        // must match the spreadsheet header (caseless compare) or have the alternate header as an argument.
         // doesn't have to be in order
-        WR, SAMPLE, ID_USAGE("ID Usage (UAX31)"), RTL("RTL?"), LB_LETTERS("LB letters?"), SHAPING_REQ("Shaping Req?"), IME(
-            "IME?"),
+        WR,
+        AGE,
+        SAMPLE_CODE,
+        ID_USAGE("ID Usage (UAX31)"),
+        RTL("RTL?"),
+        LB_LETTERS("LB letters?"),
+        SHAPING_REQ("Shaping Req?"),
+        IME("IME?"),
         ORIGIN_COUNTRY("Origin Country"),
         DENSITY("~Density"),
-        LIKELY_LANGUAGE("Likely Language"),
-        HAS_CASE("Has Case?"), ;
+        LANG_CODE,
+        HAS_CASE("Has Case?");
+
         int columnNumber = -1;
         final Set<String> names = new HashSet<String>();
 
@@ -117,7 +128,7 @@ public class ScriptMetadata {
     public static void addNameToCode(String type, Map<String, String> hashMap) {
         for (String language : SC.getAvailableCodes(type)) {
             Map<String, String> fullData = StandardCodes.getLStreg().get(type).get(language);
-            String name = (String) (fullData.get("Description"));
+            String name = fullData.get("Description");
             hashMap.put(name.toUpperCase(Locale.ENGLISH), language);
         }
     }
@@ -129,6 +140,7 @@ public class ScriptMetadata {
 
     public static class Info implements Comparable<Info> {
         public final int rank;
+        public final VersionInfo age;
         public final String sampleChar;
         public final IdUsage idUsage;
         public final Trinary rtl;
@@ -141,9 +153,14 @@ public class ScriptMetadata {
         public final String likelyLanguage;
 
         private Info(String[] items) {
-            // 3,Han,Hani,1.1,"74,519",字,5B57,East_Asian,Recommended,no,Yes,no,Yes
+            // 3,Han,Hani,1.1,"75,963",字,5B57,China,3,Chinese,zh,Recommended,no,Yes,no,Yes,no
             rank = Column.WR.getInt(items, 999);
-            sampleChar = Column.SAMPLE.getItem(items);
+            age = VersionInfo.getInstance(Column.AGE.getItem(items));
+            // Parse the code point of the sample character, rather than the sample character itself.
+            // The code point is more reliable, especially when the spreadsheet has a bug
+            // for supplementary characters.
+            int sampleCode = Integer.parseInt(Column.SAMPLE_CODE.getItem(items), 16);
+            sampleChar = UTF16.valueOf(sampleCode);
             idUsage = idUsageLookup.forString(Column.ID_USAGE.getItem(items));
             rtl = trinaryLookup.forString(Column.RTL.getItem(items));
             lbLetters = trinaryLookup.forString(Column.LB_LETTERS.getItem(items));
@@ -160,17 +177,16 @@ public class ScriptMetadata {
             }
             originCountry = country == null ? "ZZ" : country;
 
-            final String likelyLanguageRaw = Column.LIKELY_LANGUAGE.getItem(items);
-            String language = LanguageCodeConverter.getCodeForName(likelyLanguageRaw);
-            if (language == null && !likelyLanguageRaw.equals("n/a")) {
-                errors.add("Can't map " + likelyLanguageRaw + " to language");
-                LanguageCodeConverter.getCodeForName(likelyLanguageRaw); // for debugging
+            String langCode = Column.LANG_CODE.getItem(items);
+            if (langCode.equals("n/a")) {
+                langCode = null;
             }
-            likelyLanguage = language == null ? "und" : language;
+            likelyLanguage = langCode == null ? "und" : langCode;
         }
 
         public Info(Info other, String string) {
             rank = other.rank;
+            age = other.age;
             sampleChar = other.sampleChar;
             idUsage = other.idUsage;
             rtl = other.rtl;
@@ -276,6 +292,9 @@ public class ScriptMetadata {
         }
 
         private Map<String, Info> getData() {
+            if (!errors.isEmpty()) {
+                throw new RuntimeException(CollectionUtilities.join(errors, "\n\t"));
+            }
             return Collections.unmodifiableMap(data);
         }
     }

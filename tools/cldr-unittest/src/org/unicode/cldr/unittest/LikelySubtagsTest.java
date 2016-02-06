@@ -21,9 +21,11 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 
 public class LikelySubtagsTest extends TestFmwk {
 
@@ -365,6 +367,7 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestMissingInfoForScript() {
+        VersionInfo icuUnicodeVersion = UCharacter.getUnicodeVersion();
         TreeSet<String> sorted = new TreeSet<String>(
             ScriptMetadata.getScripts());
         Set<String> exceptions2 = new HashSet<String>(
@@ -383,9 +386,16 @@ public class LikelySubtagsTest extends TestFmwk {
             String langScript = likelyLanguage + "_" + script + "_";
             String likelyExpansion = likely.get(undScript);
             if (likelyExpansion == null) {
-                errln("Missing likely language for script (und_" + script
-                    + ")  should be something like:\t "
-                    + showOverride(script, originCountry, langScript));
+                String msg = "Missing likely language for script (und_" + script
+                        + ")  should be something like:\t "
+                        + showOverride(script, originCountry, langScript);
+                if (i.age.compareTo(icuUnicodeVersion) <= 0) {
+                    // Error: Missing data for a script in ICU's Unicode version.
+                    errln(msg);
+                } else {
+                    // Warning: Missing data for a script in a future Unicode version.
+                    warnln(msg);
+                }
             } else if (!exceptions2.contains(likelyExpansion)
                 && !likelyExpansion.startsWith(langScript)) {
                 // if

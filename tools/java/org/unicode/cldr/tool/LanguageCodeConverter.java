@@ -176,6 +176,13 @@ public class LanguageCodeConverter {
     }
 
     private static void addNameToCode(final String type, final String code, String name) {
+        if (code.equals("mru") && name.equals("mru")) {
+            // mru=Mono (Cameroon)
+            // mro=Mru
+            // Ignore the CLDR mapping of the code to itself,
+            // to avoid clobbering the mapping of the real name Mru to the real code mro.
+            return;
+        }
         name = name.toLowerCase(Locale.ENGLISH);
         String oldCode = languageNameToCode.get(name);
         if (oldCode != null) {

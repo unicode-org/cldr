@@ -15,6 +15,8 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.util.VersionInfo;
 
 public class GenerateScriptMetadata {
     public static void main(String[] args) throws IOException {
@@ -34,9 +36,12 @@ public class GenerateScriptMetadata {
             System.err.println(CollectionUtilities.join(ScriptMetadata.errors, "\n\t"));
             //throw new IllegalArgumentException();
         }
+        VersionInfo currentUnicodeVersion = UCharacter.getUnicodeVersion();
         for (R3<Integer, String, Info> s : sorted) {
             String script = s.get1();
             Info i = s.get2();
+            String comment = i.age.compareTo(currentUnicodeVersion) > 0 ?
+                    "  # provisional data for future Unicode " + i.age.getVersionString(2, 2) + " script" : "";
             out.println(script
                 + "; " + i.rank
                 + "; " + Utility.hex(i.sampleChar)
@@ -49,6 +54,7 @@ public class GenerateScriptMetadata {
                 + "; " + i.shapingReq
                 + "; " + i.ime
                 + "; " + i.hasCase
+                + comment
                 );
             // RTL? LB letters? Shaping Req? IME? Has Case?
         }

@@ -15,7 +15,6 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
-import org.unicode.cldr.util.DocumentPage;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
@@ -29,7 +28,6 @@ import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ICUUncheckedIOException;

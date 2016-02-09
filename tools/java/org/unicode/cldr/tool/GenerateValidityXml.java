@@ -14,6 +14,8 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.DocumentPage;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
@@ -32,6 +34,9 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
+@CLDRTool(
+    alias = "generate-validity-data",
+    url="http://cldr.unicode.org/development/updating-codes/update-validity-xml")
 public class GenerateValidityXml {
     private static final Map<LstrType, Map<String, Map<LstrField, String>>> LSTREG = StandardCodes.getEnumLstreg();
 
@@ -118,7 +123,10 @@ public class GenerateValidityXml {
                         output.append("\t\t<!-- " + comment.replace("\n", "\n\t\t\t ") + " -->\n");
                     }
                     output.append("\t\t<id type='" + type + "' idStatus='" + subtype + "'>");
-                    adder.reset(set.size() > 600 || type.equals("subdivision"));
+                    final int size = set.size();
+                    output.append("\t\t<!-- " + size + " item" + (size > 1 ? "s" : "") // we know it’s English ;-)
+                        + " -->");
+                    adder.reset(size > 600 || type.equals("subdivision"));
                     StringRange.compact(set, adder, true);
                     output.append("\n\t\t</id>\n");
                 }

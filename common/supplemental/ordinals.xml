@@ -22,11 +22,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="one">n % 10 = 1,2 and n % 100 != 11,12 @integer 1, 2, 21, 22, 31, 32, 41, 42, 51, 52, 61, 62, 71, 72, 81, 82, 101, 1001, …</pluralRule>
             <pluralRule count="other"> @integer 0, 3~17, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
-        <pluralRules locales="fil fr hy lo mo ms ro tl vi">
-            <pluralRule count="one">n = 1 @integer 1</pluralRule>
-            <pluralRule count="other"> @integer 0, 2~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
-        </pluralRules>
-        <pluralRules locales="ga">
+        <pluralRules locales="fil fr ga hy lo mo ms ro tl vi">
             <pluralRule count="one">n = 1 @integer 1</pluralRule>
             <pluralRule count="other"> @integer 0, 2~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>

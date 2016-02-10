@@ -164,16 +164,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayPeriodContext>
 				</dayPeriods>
 				<dateFormats>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d/M/yy</pattern>
@@ -183,7 +173,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="M">LL</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -619,10 +608,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} fm</unitPattern>
 				<unitPattern count="other">{0} fm</unitPattern>
 			</unit>
-			<unit type="mass-pound">
-				<unitPattern count="one">{0} lb</unitPattern>
-				<unitPattern count="other">{0} lb</unitPattern>
-			</unit>
 			<unit type="mass-carat">
 				<unitPattern count="one">{0} CM</unitPattern>
 				<unitPattern count="other">{0} CM</unitPattern>
@@ -768,12 +753,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} and {1}</listPatternPart>
-			<listPatternPart type="2">{0} and {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
-
 </ldml>
 

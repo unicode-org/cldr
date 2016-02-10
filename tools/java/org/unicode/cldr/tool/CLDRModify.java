@@ -550,7 +550,11 @@ public class CLDRModify {
                         QuickCheck.check(new File(targetDir, test + ".xml"));
                     }
 
-                    ToolUtilities.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
+                    // JCE: I don't think anyone really uses the .bat files from CLDRModify any more, since
+                    // Eclipse provides a decent file comparison program.  You can comment this back in if
+                    // you need it, but I found that sometimes having this here clobbers the real output
+                    // file, which we definitely don't want.
+                    // ToolUtilities.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
 
                     /*
                      * boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml",

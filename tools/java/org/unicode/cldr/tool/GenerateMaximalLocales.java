@@ -665,12 +665,16 @@ public class GenerateMaximalLocales {
         { "es_Latn", "es_Latn_ES" },
         { "ff_Adlm", "ff_Adlm_GN" },
         { "ku_Arab", "ku_Arab_IQ" },
+        { "lrc", "lrc_Arab_IR" },
+        { "lrc_Arab", "lrc_Arab_IR" },
         { "man", "man_Latn_GM" },
         { "man_Latn", "man_Latn_GM" },
         { "mas", "mas_Latn_KE" },
         { "mas_Latn", "mas_Latn_KE" },
         { "mn", "mn_Cyrl_MN" },
         { "mn_Cyrl", "mn_Cyrl_MN" },
+        { "mro", "mro_Mroo_BD" },
+        { "mro_BD", "mro_Mroo_BD" },
         { "ms_Arab", "ms_Arab_MY" },
         { "pap", "pap_Latn_AW" },
         { "pap_Latn", "pap_Latn_AW" },
@@ -696,10 +700,6 @@ public class GenerateMaximalLocales {
         { "und_Deva_FJ", "hif_Deva_FJ" },
         { "und_Hani", "zh_Hani_CN" },
         { "und_Hani_CN", "zh_Hani_CN" },
-
-        { "und_HK", "zh_Hant_HK" },  // TODO: probably remove once yue is more widely supported
-        { "und_Hant_HK", "zh_Hant_HK" },  // ditto
-
         { "und_Kana", "ja_Kana_JP" },
         { "und_Kana_JP", "ja_Kana_JP" },
         { "und_Latn", "en_Latn_US" },
@@ -719,6 +719,8 @@ public class GenerateMaximalLocales {
         { "vo_Latn", "vo_Latn_001" },
         { "yi", "yi_Hebr_001" },
         { "yi_Hebr", "yi_Hebr_001" },
+        { "yue", "yue_Hant_HK" },
+        { "yue_Hant", "yue_Hant_HK" },
         { "zh_Hani", "zh_Hani_CN" },
 
         { "zh_Bopo", "zh_Bopo_TW" },

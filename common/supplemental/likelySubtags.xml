@@ -307,6 +307,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Tomo Kan Dogon; ?; ? } => { Tomo Kan Dogon; Latin; Mali }-->
 		<likelySubtag from="dtp" to="dtp_Latn_MY"/>
 		<!--{ Central Dusun; ?; ? } => { Central Dusun; Latin; Malaysia }-->
+		<likelySubtag from="dty" to="dty_Deva_NP"/>
+		<!--{ Dotyali; ?; ? } => { Dotyali; Devanagari; Nepal }-->
 		<likelySubtag from="dua" to="dua_Latn_CM"/>
 		<!--{ Duala; ?; ? } => { Duala; Latin; Cameroon }-->
 		<likelySubtag from="dv" to="dv_Thaa_MV"/>
@@ -1485,10 +1487,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Yucateco; ?; ? } => { Yucateco; Latin; Mexico }-->
 		<likelySubtag from="yue" to="yue_Hant_HK"/>
 		<!--{ Cantonese; ?; ? } => { Cantonese; Traditional; Hong Kong SAR China }-->
-		<likelySubtag from="yue_CN" to="yue_Hans_CN"/>
-		<!--{ Cantonese; ?; China } => { Cantonese; Simplified; China }-->
-		<likelySubtag from="yue_Hans" to="yue_Hans_CN"/>
-		<!--{ Cantonese; Simplified; ? } => { Cantonese; Simplified; China }-->
 		<likelySubtag from="za" to="za_Latn_CN"/>
 		<!--{ Zhuang; ?; ? } => { Zhuang; Latin; China }-->
 		<likelySubtag from="zag" to="zag_Latn_SD"/>
@@ -2139,6 +2137,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Simplified; ? } => { Chinese; Simplified; China }-->
 		<likelySubtag from="und_Hant" to="zh_Hant_TW"/>
 		<!--{ ?; Traditional; ? } => { Chinese; Traditional; Taiwan }-->
+		<likelySubtag from="und_Hant_CN" to="yue_Hant_CN"/>
+		<!--{ ?; Traditional; China } => { Cantonese; Traditional; China }-->
 		<likelySubtag from="und_Hatr" to="mis_Hatr_IQ"/>
 		<!--{ ?; Hatran; ? } => { Uncoded languages; Hatran; Iraq }-->
 		<likelySubtag from="und_Hebr" to="he_Hebr_IL"/>

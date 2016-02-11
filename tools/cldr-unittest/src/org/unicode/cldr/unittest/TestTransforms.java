@@ -175,7 +175,7 @@ public class TestTransforms extends TestFmwkPlus {
     void register() {
         if (!registered) {
             CLDRTransforms.registerCldrTransforms(null, null,
-                isVerbose() ? getLogPrintWriter() : null);
+                isVerbose() ? getLogPrintWriter() : null, true);
             registered = true;
         }
     }

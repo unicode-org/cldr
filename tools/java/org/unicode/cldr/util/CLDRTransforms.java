@@ -77,10 +77,11 @@ public class CLDRTransforms {
      *            TODO
      * @param showProgress
      *            null if no progress needed
+     * @param skipDashTIds TODO
      * @return
      */
 
-    public static void registerCldrTransforms(String dir, String namesMatchingRegex, Appendable showProgress) {
+    public static void registerCldrTransforms(String dir, String namesMatchingRegex, Appendable showProgress, boolean keepDashTIds) {
         CLDRTransforms r = getInstance();
         if (dir == null) {
             dir = TRANSFORM_DIR;
@@ -102,7 +103,7 @@ public class CLDRTransforms {
 
         // System.out.println(ordered);
         for (String cldrFileName : ordered) {
-            r.registerTransliteratorsFromXML(dir, cldrFileName, files);
+            r.registerTransliteratorsFromXML(dir, cldrFileName, files, keepDashTIds);
         }
         Transliterator.registerAny(); // do this last!
 
@@ -305,7 +306,7 @@ public class CLDRTransforms {
             + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
     }
 
-    public void registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip) {
+    public void registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip, boolean keepDashTIds) {
         ParsedTransformID directionInfo = new ParsedTransformID();
         String ruleString;
         final String cldrFileName2 = cldrFileName + ".xml";
@@ -320,12 +321,18 @@ public class CLDRTransforms {
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.forward) {
             internalRegister(directionInfo.getId(), ruleString, Transliterator.FORWARD);
             for (String alias : directionInfo.getAliases()) {
+                if (!keepDashTIds && alias.contains("-t-")) {
+                    continue;
+                }
                 Transliterator.registerAlias(alias, directionInfo.getId());
             }
         }
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.backward) {
             internalRegister(directionInfo.getId(), ruleString, Transliterator.REVERSE);
             for (String alias : directionInfo.getBackwardAliases()) {
+                if (!keepDashTIds && alias.contains("-t-")) {
+                    continue;
+                }
                 Transliterator.registerAlias(alias, directionInfo.getBackwardId());
             }
         }

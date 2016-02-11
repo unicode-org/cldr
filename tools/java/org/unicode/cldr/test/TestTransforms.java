@@ -23,7 +23,7 @@ public class TestTransforms {
         CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
 
         if (source == null) {
-            CLDRTransforms.registerCldrTransforms(null, ".*", out);
+            CLDRTransforms.registerCldrTransforms(null, ".*", out, false);
         } else {
             CLDRTransforms.getInstance().setShowProgress(out).registerFromIcuFormatFiles(source);
         }
@@ -51,6 +51,7 @@ public class TestTransforms {
             // TestAll.main(new String[]{"-n"});
         } catch (Exception ex) {
             System.err.println("Could not load TestAll. Encountered exception: " + ex.toString());
+            ex.printStackTrace();
         }
     }
 

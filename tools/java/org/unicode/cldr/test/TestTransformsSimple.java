@@ -17,7 +17,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 public class TestTransformsSimple extends TestFmwk {
 
     public static void main(String[] args) throws Exception {
-        CLDRTransforms.registerCldrTransforms(null, null, out);
+        CLDRTransforms.registerCldrTransforms(null, null, out, true);
         new TestTransformsSimple().run(args);
     }
 

@@ -83,7 +83,7 @@ public class GenerateTransformCharts {
         FileCopier.copy(ShowData.class, "transforms-index.css", TRANSFORM_DIRECTORY, "index.css");
 
         // PrintWriter out = new PrintWriter(System.out);
-        CLDRTransforms.registerCldrTransforms(null, filter, verbose ? new PrintWriter(System.out) : null);
+        CLDRTransforms.registerCldrTransforms(null, filter, verbose ? new PrintWriter(System.out) : null, true);
         try {
             showAllLatin();
             // doIndic();

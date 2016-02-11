@@ -735,6 +735,8 @@ public class GenerateMaximalLocales {
         { "en_Shaw", "en_Shaw_GB" },
         { "sd_Sind", "sd_Sind_IN" },
         { "und_Brai", "fr_Brai_FR" }, // hack
+        { "und_Hanb", "zh_Hanb_TW" }, // Special script code
+        { "und_Jamo", "ko_Jamo_KR" }, // Special script code
     });
 
     private static NumberFormat percent = NumberFormat.getPercentInstance();
@@ -1853,8 +1855,8 @@ public class GenerateMaximalLocales {
         { "tet", "Latn" }, // Tetum (East Timor)
         { "tk", "Latn" }, // Turkmen (Turkmenistan)
         { "ty", "Latn" }, // Tahitian (French Polynesia)
-        { "ja", "Jpan" }, // Tahitian (French Polynesia)
-        { "und", "Latn" }, // Tahitian (French Polynesia)
+        { "ja", "Jpan" }, // Special script for japan
+        { "und", "Latn" }, // Ultimate fallback
     };
     private static Map<String, String> localeToScriptCache = new TreeMap<String, String>();
     static {

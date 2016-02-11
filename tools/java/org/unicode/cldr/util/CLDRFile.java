@@ -55,6 +55,7 @@ import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;
@@ -2137,18 +2138,34 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     result = info.get("Description");
                 }
             } else if (type == TERRITORY_NAME) {
-                Map<String, String> info = StandardCodes.getLStreg()
-                    .get("region")
-                    .get(code);
-                if (info != null) {
-                    String temp = info.get("Description");
-                    if (!temp.equalsIgnoreCase("Private use")) {
-                        return temp;
-                    }
-                }
+                result = getLstrFallback("region", code);
+            } else if (type == SCRIPT_NAME) {
+                result = getLstrFallback("script", code);
             }
         }
         return result;
+    }
+
+    static final Pattern CLEAN_DESCRIPTION = Pattern.compile("([^\\(\\[]*)[\\(\\[].*");
+    static final Splitter DESCRIPTION_SEP = Splitter.on('▪');
+    
+    private String getLstrFallback(String codeType, String code) {
+        Map<String, String> info = StandardCodes.getLStreg()
+            .get(codeType)
+            .get(code);
+        if (info != null) {
+            String temp = info.get("Description");
+            if (!temp.equalsIgnoreCase("Private use")) {
+                List<String> temp2 = DESCRIPTION_SEP.splitToList(temp);
+                temp = temp2.get(0);
+                final Matcher matcher = CLEAN_DESCRIPTION.matcher(temp);
+                if (matcher.lookingAt()) {
+                    return matcher.group(1).trim();
+                }
+                return temp;
+            }
+        }
+        return null;
     }
 
     /**

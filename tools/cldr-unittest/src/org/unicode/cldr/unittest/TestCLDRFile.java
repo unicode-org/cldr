@@ -49,13 +49,14 @@ public class TestCLDRFile extends TestFmwk {
 
     public void testFallbackNames() {
         String[][] tests = {
-            {"aaa", "Ghotuo"},
             {"zh-Hanb", "Chinese (Han with Bopomofo)"},
+            {"aaa", "Ghotuo"},
             {"zh-RR", "Chinese (RR)"},
             {"new_Newa_NP", "Newari (Newa, Nepal)"},
         };
+        CLDRFile nonResolvingEnglish = testInfo.getFullCldrFactory().make("en", false);
         for (String[] test : tests) {
-            assertEquals("", test[1], testInfo.getEnglish().getName(test[0]));
+            assertEquals("", test[1], nonResolvingEnglish.getName(test[0]));
         }
     }
 

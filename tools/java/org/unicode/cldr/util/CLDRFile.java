@@ -1403,9 +1403,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // "gb2312han"};
 
     /*    *//**
-              * Value that contains a node. WARNING: this is not done yet, and may change.
-              * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
-              */
+     * Value that contains a node. WARNING: this is not done yet, and may change.
+     * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
+     */
     /*
      * static public class NodeValue extends Value {
      * private Node nodeValue;
@@ -2126,21 +2126,25 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (result == null) {
             result = getStringValueWithBailey(path);
         }
-        if (result == null && getLocaleID().equals("en")) {
-            if (type == LANGUAGE_NAME) {
-                Set<String> set = Iso639Data.getNames(code);
-                if (set != null) {
-                    return set.iterator().next();
+        if (getLocaleID().equals("en")) {
+            Status status = new Status();
+            String sourceLocale = getSourceLocaleID(path, status);
+            if (result == null || !sourceLocale.equals("en")) {
+                if (type == LANGUAGE_NAME) {
+                    Set<String> set = Iso639Data.getNames(code);
+                    if (set != null) {
+                        return set.iterator().next();
+                    }
+                    Map<String, Map<String, String>> map = StandardCodes.getLStreg().get("language");
+                    Map<String, String> info = map.get(code);
+                    if (info != null) {
+                        result = info.get("Description");
+                    }
+                } else if (type == TERRITORY_NAME) {
+                    result = getLstrFallback("region", code);
+                } else if (type == SCRIPT_NAME) {
+                    result = getLstrFallback("script", code);
                 }
-                Map<String, Map<String, String>> map = StandardCodes.getLStreg().get("language");
-                Map<String, String> info = map.get(code);
-                if (info != null) {
-                    result = info.get("Description");
-                }
-            } else if (type == TERRITORY_NAME) {
-                result = getLstrFallback("region", code);
-            } else if (type == SCRIPT_NAME) {
-                result = getLstrFallback("script", code);
             }
         }
         return result;
@@ -2148,7 +2152,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     static final Pattern CLEAN_DESCRIPTION = Pattern.compile("([^\\(\\[]*)[\\(\\[].*");
     static final Splitter DESCRIPTION_SEP = Splitter.on('▪');
-    
+
     private String getLstrFallback(String codeType, String code) {
         Map<String, String> info = StandardCodes.getLStreg()
             .get(codeType)

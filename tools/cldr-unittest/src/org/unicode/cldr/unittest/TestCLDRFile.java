@@ -54,9 +54,9 @@ public class TestCLDRFile extends TestFmwk {
             {"zh-RR", "Chinese (RR)"},
             {"new_Newa_NP", "Newari (Newa, Nepal)"},
         };
-        CLDRFile nonResolvingEnglish = testInfo.getFullCldrFactory().make("en", false);
+        CLDRFile english = testInfo.getEnglish(); // testInfo.getFullCldrFactory().make("en", false);
         for (String[] test : tests) {
-            assertEquals("", test[1], nonResolvingEnglish.getName(test[0]));
+            assertEquals("", test[1], english.getName(test[0]));
         }
     }
 

@@ -736,6 +736,7 @@ public class GenerateMaximalLocales {
         { "sd_Sind", "sd_Sind_IN" },
         { "und_Brai", "fr_Brai_FR" }, // hack
         { "und_Hanb", "zh_Hanb_TW" }, // Special script code
+        { "zh_Hanb", "zh_Hanb_TW" }, // Special script code
         { "und_Jamo", "ko_Jamo_KR" }, // Special script code
     });
 

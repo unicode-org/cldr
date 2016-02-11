@@ -1188,6 +1188,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colReorder">Script/Block Reordering</key>
 			<key type="colStrength">Sorting Strength</key>
 			<key type="currency">Currency</key>
+			<key type="em">Emoji Presentation Style</key>
 			<key type="fw">First day of week</key>
 			<key type="hc">Hour Cycle (12 vs 24)</key>
 			<key type="kv">Highest Ignored</key>
@@ -1195,6 +1196,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="lw">Line Breaks In Words Setting</key>
 			<key type="ms">Measurement System</key>
 			<key type="numbers">Numbers</key>
+			<key type="rg">Region For Supplemental Data</key>
+			<key type="sd">Region Subdivision</key>
 			<key type="ss">Sentence Break Suppressions Type</key>
 			<key type="timezone">Time Zone</key>
 			<key type="va">Locale Variant</key>
@@ -1260,6 +1263,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">Sort Accents/Case/Width/Kana</type>
 			<type key="colStrength" type="secondary">Sort Accents</type>
 			<type key="colStrength" type="tertiary">Sort Accents/Case/Width</type>
+			<type key="em" type="default">Use Default Presentation For Emoji Characters</type>
+			<type key="em" type="emoji">Prefer Emoji Presentation For Emoji Characters</type>
+			<type key="em" type="text">Prefer Text Presentation For Emoji Characters</type>
+			<type key="fw" type="fri">First Day of Week Is Friday</type>
+			<type key="fw" type="mon">First Day of Week Is Monday</type>
+			<type key="fw" type="sat">First Day of Week Is Saturday</type>
+			<type key="fw" type="sun">First Day of Week Is Sunday</type>
+			<type key="fw" type="thu">First Day of Week Is Thursday</type>
+			<type key="fw" type="tue">First Day of Week Is Tuesday</type>
+			<type key="fw" type="wed">First Day of Week Is Wednesday</type>
 			<type key="hc" type="h11">12 Hour System (0–11)</type>
 			<type key="hc" type="h12">12 Hour System (1–12)</type>
 			<type key="hc" type="h23">24 Hour System (0–23)</type>

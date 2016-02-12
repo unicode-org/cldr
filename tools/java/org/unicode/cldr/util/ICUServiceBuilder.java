@@ -492,12 +492,16 @@ public class ICUServiceBuilder {
                         : null;
             if (result == null) throw new IllegalArgumentException();
             // snagged from currency
-            isChoiceFormat[0] = false;
+            if (isChoiceFormat != null ) {
+                isChoiceFormat[0] = false;
+            }
             int i = 0;
             while (i < result.length() && result.charAt(i) == '=' && i < 2) {
                 ++i;
             }
-            isChoiceFormat[0] = (i == 1);
+            if (isChoiceFormat != null ) {
+                isChoiceFormat[0] = (i == 1);
+            }
             if (i != 0) {
                 // Skip over first mark
                 result = result.substring(1);

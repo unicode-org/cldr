@@ -57,7 +57,7 @@ public class Ldml2JsonConverter {
     private static boolean DEBUG = false;
 
     private enum RunType {
-        main, supplemental, segments
+        main, supplemental, segments, rbnf
     };
 
     private static final StandardCodes sc = StandardCodes.make();
@@ -82,7 +82,7 @@ public class Ldml2JsonConverter {
             "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
             .add("match", 'm', ".*", ".*",
                 "Regular expression to define only specific locales or files to be generated")
-                .add("type", 't', "(main|supplemental|segments)", "main",
+                .add("type", 't', "(main|supplemental|segments|rbnf)", "main",
                     "Type of CLDR data being generated, main, supplemental, or segments.")
                     .add("resolved", 'r', "(true|false)", "false",
                         "Whether the output JSON for the main directory should be based on resolved or unresolved data")
@@ -229,6 +229,10 @@ public class Ldml2JsonConverter {
             case segments:
                 myReader.process(Ldml2JsonConverter.class, "JSON_config_segments.txt");
                 break;
+            case rbnf:
+                myReader.process(Ldml2JsonConverter.class, "JSON_config_rbnf.txt");
+                break;
+            
             }
         }
 
@@ -1119,6 +1123,11 @@ public class Ldml2JsonConverter {
                 writeDefaultContent(outputDir);
                 writeAvailableLocales(outputDir);
             } else if (type == RunType.supplemental) {
+                writeScriptMetadata(outputDir);
+            }
+            else if(type == RunType.rbnf) {
+                writeDefaultContent(outputDir);
+                writeAvailableLocales(outputDir);
                 writeScriptMetadata(outputDir);
             }
         }

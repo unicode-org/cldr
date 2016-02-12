@@ -70,7 +70,7 @@ class LdmlConvertRules {
 
         // in common/supplemental/dayPeriods.xml
         "dayPeriodRules:dayPeriodRule:from",
-
+       
         // in common/supplemental/likelySubtags.xml
         "likelySubtags:likelySubtag:to",
 

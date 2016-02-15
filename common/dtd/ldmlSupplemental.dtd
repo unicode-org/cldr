@@ -37,12 +37,12 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT currencyData ( fractions*, region+ ) >
 <!ATTLIST currencyData draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT fractions ( info+ ) >
 <!ATTLIST fractions draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT info EMPTY >
 <!ATTLIST info iso4217 NMTOKEN #REQUIRED >
@@ -64,7 +64,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST region iso3166 NMTOKEN #REQUIRED >
 <!ATTLIST region draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT currency ( alternate* ) >
 <!ATTLIST currency before NMTOKEN #IMPLIED >
@@ -84,7 +84,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@VALUE-->
 <!ATTLIST currency draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST currency references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -137,7 +137,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT territoryInfo ( territory* ) >
 <!ATTLIST territoryInfo draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST territoryInfo references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST territoryInfo alt NMTOKENS #IMPLIED >
@@ -152,7 +152,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@VALUE-->
 <!ATTLIST territory draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST territory references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST territory alt NMTOKENS #IMPLIED >
@@ -193,7 +193,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@DEPRECATED-->
 <!ATTLIST calendar draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST calendar references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
@@ -368,7 +368,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT characters ( character-fallback* ) >
 <!ATTLIST characters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT character-fallback ( character* ) >
 
@@ -376,7 +376,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST character value CDATA #REQUIRED >
 <!ATTLIST character draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST character standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -411,7 +411,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@VALUE-->
 <!ATTLIST transform draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST transform references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST transform alt NMTOKENS #IMPLIED >
@@ -426,7 +426,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT metadata ( attributeOrder?, elementOrder?, serialElements?, suppress?, validity?, alias?, deprecated?, distinguishing?, blocking?, coverageAdditions?, skipDefaultLocale?, defaultContent? ) >
 <!ATTLIST metadata draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT attributeOrder ( #PCDATA ) >
     <!--@DEPRECATED-->
@@ -450,7 +450,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
 <!ATTLIST suppress draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT attributes EMPTY >
     <!--@ORDERED-->
@@ -468,7 +468,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
 <!ATTLIST validity draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT variable ( #PCDATA ) >
     <!--@ORDERED-->
@@ -496,7 +496,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*, subdivisionAlias*, variantAlias*, zoneAlias* ) >
 <!ATTLIST alias draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT languageAlias EMPTY >
 <!ATTLIST languageAlias type NMTOKEN #REQUIRED >
@@ -543,7 +543,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT deprecated ( deprecatedItems* ) >
 <!ATTLIST deprecated draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT deprecatedItems EMPTY >
 <!ATTLIST deprecatedItems type (standard | supplemental | ldml | supplementalData | ldmlBCP47) #IMPLIED >
@@ -559,6 +559,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
 <!ATTLIST distinguishing draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT distinguishingItems EMPTY >
 <!ATTLIST distinguishingItems exclude (true | false) #IMPLIED >
@@ -573,6 +574,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@METADATA-->
 <!ATTLIST blocking draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT blockingItems EMPTY >
 <!ATTLIST blockingItems elements NMTOKENS #IMPLIED >
@@ -708,6 +710,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!-- default is cardinal -->
 <!ATTLIST plurals draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST plurals references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -715,6 +718,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST pluralRules locales NMTOKENS #REQUIRED >
 <!ATTLIST pluralRules draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST pluralRules references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -731,6 +735,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST pluralRanges locales NMTOKENS #REQUIRED >
 <!ATTLIST pluralRanges draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST pluralRanges references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -753,7 +758,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST codesByTerritory territory NMTOKEN #REQUIRED >
 <!ATTLIST codesByTerritory draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST codesByTerritory references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -857,6 +862,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST dayPeriodRuleSet type NMTOKEN #IMPLIED >
 <!ATTLIST dayPeriodRuleSet draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST dayPeriodRuleSet references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -864,6 +870,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST dayPeriodRules locales NMTOKENS #REQUIRED >
 <!ATTLIST dayPeriodRules draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST dayPeriodRules references CDATA #IMPLIED >
     <!--@METADATA-->
 

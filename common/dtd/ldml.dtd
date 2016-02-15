@@ -15,7 +15,7 @@ $Revision$
     <!--@DEPRECATED-->
 <!ATTLIST ldml draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!-- ######################################################### -->
 
@@ -35,7 +35,7 @@ $Revision$
 <!ATTLIST alias alt NMTOKENS #IMPLIED >
 <!ATTLIST alias draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT special ANY >
 
@@ -110,12 +110,13 @@ $Revision$
 <!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, subdivisions?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) ) >
 <!ATTLIST localeDisplayNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT localeDisplayPattern ( alias | ( localePattern*, localeSeparator*, localeKeyTypePattern*, special* ) ) >
 <!ATTLIST localeDisplayPattern alt NMTOKENS #IMPLIED >
 <!ATTLIST localeDisplayPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST localeDisplayPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -145,7 +146,7 @@ $Revision$
 <!ELEMENT languages ( alias | ( language | special )* ) >
 <!ATTLIST languages draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST languages standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -160,7 +161,7 @@ $Revision$
 <!ELEMENT scripts ( alias | ( script | special )* ) >
 <!ATTLIST scripts draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST scripts standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -175,7 +176,7 @@ $Revision$
 <!ELEMENT territories ( alias | ( territory | special )* ) >
 <!ATTLIST territories draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST territories standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -188,6 +189,7 @@ $Revision$
 <!ELEMENT subdivisions ( alias | ( subdivision | special )* ) >
 <!ATTLIST subdivisions draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST subdivisions references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -202,7 +204,7 @@ $Revision$
 <!ELEMENT variants ( alias | ( variant | special )* ) >
 <!ATTLIST variants draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST variants standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -217,7 +219,7 @@ $Revision$
 <!ELEMENT keys ( alias | ( key | special )* ) >
 <!ATTLIST keys draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST keys standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -241,7 +243,7 @@ $Revision$
 <!ELEMENT types ( alias | ( type | special )* ) >
 <!ATTLIST types draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST types standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -264,6 +266,7 @@ $Revision$
 <!ELEMENT transformNames ( alias | ( transformName | special )* ) >
 <!ATTLIST transformNames draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST transformNames references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -280,7 +283,7 @@ $Revision$
 <!ELEMENT measurementSystemNames ( alias | ( measurementSystemName | special )* ) >
 <!ATTLIST measurementSystemNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST measurementSystemNames references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST measurementSystemNames validSubLocales CDATA #IMPLIED >
@@ -312,7 +315,7 @@ $Revision$
 <!ELEMENT layout ( alias | ( orientation*, inList*, inText*, special* ) ) >
 <!ATTLIST layout draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST layout references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -326,7 +329,7 @@ $Revision$
 <!ATTLIST orientation alt NMTOKENS #IMPLIED >
 <!ATTLIST orientation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST orientation standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -376,6 +379,7 @@ $Revision$
 <!ATTLIST contextTransforms alt NMTOKENS #IMPLIED >
 <!ATTLIST contextTransforms draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST contextTransforms references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST contextTransforms validSubLocales CDATA #IMPLIED >
@@ -387,6 +391,7 @@ $Revision$
 <!ATTLIST contextTransformUsage alt NMTOKENS #IMPLIED >
 <!ATTLIST contextTransformUsage draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST contextTransformUsage references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST contextTransformUsage validSubLocales CDATA #IMPLIED >
@@ -406,7 +411,7 @@ $Revision$
 <!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, special* ) ) >
 <!ATTLIST characters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
 <!ATTLIST exemplarCharacters type (auxiliary | standard | punctuation | currencySymbol | index) #IMPLIED >
@@ -414,7 +419,7 @@ $Revision$
 <!ATTLIST exemplarCharacters alt NMTOKENS #IMPLIED >
 <!ATTLIST exemplarCharacters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST exemplarCharacters standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -569,7 +574,7 @@ $Revision$
 <!ATTLIST delimiters alt NMTOKENS #IMPLIED >
 <!ATTLIST delimiters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST delimiters standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -583,7 +588,7 @@ $Revision$
 <!ATTLIST quotationStart alt NMTOKENS #IMPLIED >
 <!ATTLIST quotationStart draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST quotationStart references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -591,7 +596,7 @@ $Revision$
 <!ATTLIST quotationEnd alt NMTOKENS #IMPLIED >
 <!ATTLIST quotationEnd draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST quotationEnd references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -599,7 +604,7 @@ $Revision$
 <!ATTLIST alternateQuotationStart alt NMTOKENS #IMPLIED >
 <!ATTLIST alternateQuotationStart draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST alternateQuotationStart references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -607,7 +612,7 @@ $Revision$
 <!ATTLIST alternateQuotationEnd alt NMTOKENS #IMPLIED >
 <!ATTLIST alternateQuotationEnd draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST alternateQuotationEnd references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -703,7 +708,7 @@ $Revision$
 <!ATTLIST dates alt NMTOKENS #IMPLIED >
 <!ATTLIST dates draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST dates standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -752,7 +757,7 @@ $Revision$
     <!-- use calendarPreferenceData instead of default element -->
 <!ATTLIST calendars draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -780,7 +785,7 @@ $Revision$
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
 <!ATTLIST calendar draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST calendar standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -794,7 +799,7 @@ $Revision$
 <!ATTLIST months alt NMTOKENS #IMPLIED >
 <!ATTLIST months draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST months standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -809,7 +814,7 @@ $Revision$
 <!ATTLIST monthContext alt NMTOKENS #IMPLIED >
 <!ATTLIST monthContext draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST monthContext standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -824,7 +829,7 @@ $Revision$
 <!ATTLIST monthWidth alt NMTOKENS #IMPLIED >
 <!ATTLIST monthWidth draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST monthWidth standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -840,7 +845,7 @@ $Revision$
 <!ATTLIST month alt NMTOKENS #IMPLIED >
 <!ATTLIST month draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST month references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -860,6 +865,7 @@ $Revision$
 <!ATTLIST monthPatterns alt NMTOKENS #IMPLIED >
 <!ATTLIST monthPatterns draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST monthPatterns references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST monthPatterns validSubLocales CDATA #IMPLIED >
@@ -871,6 +877,7 @@ $Revision$
 <!ATTLIST monthPatternContext alt NMTOKENS #IMPLIED >
 <!ATTLIST monthPatternContext draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST monthPatternContext references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST monthPatternContext validSubLocales CDATA #IMPLIED >
@@ -882,6 +889,7 @@ $Revision$
 <!ATTLIST monthPatternWidth alt NMTOKENS #IMPLIED >
 <!ATTLIST monthPatternWidth draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST monthPatternWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST monthPatternWidth validSubLocales CDATA #IMPLIED >
@@ -900,7 +908,7 @@ $Revision$
 <!ATTLIST days alt NMTOKENS #IMPLIED >
 <!ATTLIST days draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST days standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -915,7 +923,7 @@ $Revision$
 <!ATTLIST dayContext alt NMTOKENS #IMPLIED >
 <!ATTLIST dayContext draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST dayContext standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -930,7 +938,7 @@ $Revision$
 <!ATTLIST dayWidth alt NMTOKENS #IMPLIED >
 <!ATTLIST dayWidth draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST dayWidth standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -965,7 +973,7 @@ $Revision$
 <!ATTLIST quarters alt NMTOKENS #IMPLIED >
 <!ATTLIST quarters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST quarters references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST quarters validSubLocales CDATA #IMPLIED >
@@ -977,7 +985,7 @@ $Revision$
 <!ATTLIST quarterContext alt NMTOKENS #IMPLIED >
 <!ATTLIST quarterContext draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST quarterContext references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST quarterContext validSubLocales CDATA #IMPLIED >
@@ -989,7 +997,7 @@ $Revision$
 <!ATTLIST quarterWidth alt NMTOKENS #IMPLIED >
 <!ATTLIST quarterWidth draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST quarterWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST quarterWidth validSubLocales CDATA #IMPLIED >
@@ -1120,6 +1128,7 @@ $Revision$
 <!ELEMENT dayPeriods ( alias | ( dayPeriodContext*, special* ) ) >
 <!ATTLIST dayPeriods draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST dayPeriods references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -1127,6 +1136,7 @@ $Revision$
 <!ATTLIST dayPeriodContext type NMTOKEN #REQUIRED >
 <!ATTLIST dayPeriodContext draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST dayPeriodContext references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -1134,6 +1144,7 @@ $Revision$
 <!ATTLIST dayPeriodWidth type (abbreviated | narrow | wide) #REQUIRED >
 <!ATTLIST dayPeriodWidth draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST dayPeriodWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -1149,7 +1160,7 @@ $Revision$
 <!ATTLIST eras alt NMTOKENS #IMPLIED >
 <!ATTLIST eras draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST eras standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1163,7 +1174,7 @@ $Revision$
 <!ATTLIST eraNames alt NMTOKENS #IMPLIED >
 <!ATTLIST eraNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST eraNames references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST eraNames validSubLocales CDATA #IMPLIED >
@@ -1183,7 +1194,7 @@ $Revision$
 <!ATTLIST eraAbbr alt NMTOKENS #IMPLIED >
 <!ATTLIST eraAbbr draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST eraAbbr references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST eraAbbr validSubLocales CDATA #IMPLIED >
@@ -1194,7 +1205,7 @@ $Revision$
 <!ATTLIST eraNarrow alt NMTOKENS #IMPLIED >
 <!ATTLIST eraNarrow draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST eraNarrow references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST eraNarrow validSubLocales CDATA #IMPLIED >
@@ -1205,6 +1216,7 @@ $Revision$
 <!ATTLIST cyclicNameSets alt NMTOKENS #IMPLIED >
 <!ATTLIST cyclicNameSets draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST cyclicNameSets references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cyclicNameSets validSubLocales CDATA #IMPLIED >
@@ -1216,6 +1228,7 @@ $Revision$
 <!ATTLIST cyclicNameSet alt NMTOKENS #IMPLIED >
 <!ATTLIST cyclicNameSet draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST cyclicNameSet references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cyclicNameSet validSubLocales CDATA #IMPLIED >
@@ -1227,6 +1240,7 @@ $Revision$
 <!ATTLIST cyclicNameContext alt NMTOKENS #IMPLIED >
 <!ATTLIST cyclicNameContext draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST cyclicNameContext references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cyclicNameContext validSubLocales CDATA #IMPLIED >
@@ -1238,6 +1252,7 @@ $Revision$
 <!ATTLIST cyclicNameWidth alt NMTOKENS #IMPLIED >
 <!ATTLIST cyclicNameWidth draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST cyclicNameWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST cyclicNameWidth validSubLocales CDATA #IMPLIED >
@@ -1255,7 +1270,7 @@ $Revision$
 <!ELEMENT dateFormats ( alias | ( default*, dateFormatLength*, special* ) ) >
 <!ATTLIST dateFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST dateFormats validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -1265,7 +1280,7 @@ $Revision$
 <!ATTLIST dateFormatLength alt NMTOKENS #IMPLIED >
 <!ATTLIST dateFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST dateFormatLength standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1280,7 +1295,7 @@ $Revision$
 <!ATTLIST dateFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST dateFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST dateFormat standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1316,7 +1331,7 @@ $Revision$
 <!ELEMENT timeFormats ( alias | ( default*, timeFormatLength*, special* ) ) >
 <!ATTLIST timeFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST timeFormats validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -1326,7 +1341,7 @@ $Revision$
 <!ATTLIST timeFormatLength alt NMTOKENS #IMPLIED >
 <!ATTLIST timeFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST timeFormatLength standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1341,7 +1356,7 @@ $Revision$
 <!ATTLIST timeFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST timeFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST timeFormat standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1354,7 +1369,7 @@ $Revision$
 <!ELEMENT dateTimeFormats ( alias | ( default*, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special* ) ) >
 <!ATTLIST dateTimeFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST dateTimeFormats validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -1364,7 +1379,7 @@ $Revision$
 <!ATTLIST dateTimeFormatLength alt NMTOKENS #IMPLIED >
 <!ATTLIST dateTimeFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST dateTimeFormatLength standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1379,7 +1394,7 @@ $Revision$
 <!ATTLIST dateTimeFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST dateTimeFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST dateTimeFormat standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1393,7 +1408,7 @@ $Revision$
 <!ATTLIST availableFormats alt NMTOKENS #IMPLIED >
 <!ATTLIST availableFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST availableFormats references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST availableFormats validSubLocales CDATA #IMPLIED >
@@ -1413,7 +1428,7 @@ $Revision$
 <!ATTLIST appendItems alt NMTOKENS #IMPLIED >
 <!ATTLIST appendItems draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST appendItems references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST appendItems validSubLocales CDATA #IMPLIED >
@@ -1433,6 +1448,7 @@ $Revision$
 <!ATTLIST intervalFormats alt NMTOKENS #IMPLIED >
 <!ATTLIST intervalFormats draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST intervalFormats references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST intervalFormats validSubLocales CDATA #IMPLIED >
@@ -1454,6 +1470,7 @@ $Revision$
 <!ATTLIST intervalFormatItem alt NMTOKENS #IMPLIED >
 <!ATTLIST intervalFormatItem draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST intervalFormatItem references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST intervalFormatItem validSubLocales CDATA #IMPLIED >
@@ -1475,7 +1492,7 @@ $Revision$
 <!ATTLIST fields alt NMTOKENS #IMPLIED >
 <!ATTLIST fields draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST fields standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1490,7 +1507,7 @@ $Revision$
 <!ATTLIST field alt NMTOKENS #IMPLIED >
 <!ATTLIST field draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST field standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1517,7 +1534,7 @@ $Revision$
 <!ATTLIST relativeTime alt NMTOKENS #IMPLIED >
 <!ATTLIST relativeTime draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST relativeTime references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST relativeTime validSubLocales CDATA #IMPLIED >
@@ -1538,7 +1555,7 @@ $Revision$
 <!ELEMENT timeZoneNames ( alias | ( hourFormat*, hoursFormat*, gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*, fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special* ) ) >
 <!ATTLIST timeZoneNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST timeZoneNames validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -1664,7 +1681,7 @@ $Revision$
 <!ATTLIST zone alt NMTOKENS #IMPLIED >
 <!ATTLIST zone draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST zone standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1678,7 +1695,7 @@ $Revision$
 <!ATTLIST long alt NMTOKENS #IMPLIED >
 <!ATTLIST long draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST long references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST long validSubLocales CDATA #IMPLIED >
@@ -1713,7 +1730,7 @@ $Revision$
 <!ATTLIST short alt NMTOKENS #IMPLIED >
 <!ATTLIST short draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST short references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST short validSubLocales CDATA #IMPLIED >
@@ -1747,7 +1764,7 @@ $Revision$
 <!ATTLIST metazone alt NMTOKENS #IMPLIED >
 <!ATTLIST metazone draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST metazone standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1763,7 +1780,7 @@ $Revision$
 <!ATTLIST numbers alt NMTOKENS #IMPLIED >
 <!ATTLIST numbers draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST numbers standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1785,7 +1802,7 @@ $Revision$
 <!ATTLIST otherNumberingSystems alt NMTOKENS #IMPLIED >
 <!ATTLIST otherNumberingSystems draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT native ( #PCDATA ) >
 <!ATTLIST native alt NMTOKENS #IMPLIED >
@@ -1816,7 +1833,7 @@ $Revision$
 <!ATTLIST symbols alt NMTOKENS #IMPLIED >
 <!ATTLIST symbols draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST symbols standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1993,7 +2010,7 @@ $Revision$
 <!ELEMENT decimalFormats ( alias | ( default*, decimalFormatLength*, special* ) ) >
 <!ATTLIST decimalFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST decimalFormats validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2004,7 +2021,7 @@ $Revision$
 <!ATTLIST decimalFormatLength alt NMTOKENS #IMPLIED >
 <!ATTLIST decimalFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST decimalFormatLength standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2019,7 +2036,7 @@ $Revision$
 <!ATTLIST decimalFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST decimalFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST decimalFormat standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2032,7 +2049,7 @@ $Revision$
 <!ELEMENT scientificFormats ( alias | ( default*, scientificFormatLength*, special* ) ) >
 <!ATTLIST scientificFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST scientificFormats validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2043,7 +2060,7 @@ $Revision$
 <!ATTLIST scientificFormatLength alt NMTOKENS #IMPLIED >
 <!ATTLIST scientificFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST scientificFormatLength standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2058,7 +2075,7 @@ $Revision$
 <!ATTLIST scientificFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST scientificFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST scientificFormat standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2071,7 +2088,7 @@ $Revision$
 <!ELEMENT percentFormats ( alias | ( default*, percentFormatLength*, special* ) ) >
 <!ATTLIST percentFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST percentFormats validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2082,7 +2099,7 @@ $Revision$
 <!ATTLIST percentFormatLength alt NMTOKENS #IMPLIED >
 <!ATTLIST percentFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST percentFormatLength standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2097,7 +2114,7 @@ $Revision$
 <!ATTLIST percentFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST percentFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST percentFormat standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2110,7 +2127,7 @@ $Revision$
 <!ELEMENT currencyFormats ( alias | ( default*, currencySpacing*, currencyFormatLength*, unitPattern*, special* ) ) >
 <!ATTLIST currencyFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST currencyFormats validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2151,7 +2168,7 @@ $Revision$
 <!ATTLIST currencyFormatLength alt NMTOKENS #IMPLIED >
 <!ATTLIST currencyFormatLength draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST currencyFormatLength standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2166,7 +2183,7 @@ $Revision$
 <!ATTLIST currencyFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST currencyFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST currencyFormat standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2190,7 +2207,7 @@ $Revision$
 <!ELEMENT currencies ( alias | ( default?, currency*, special* ) ) >
 <!ATTLIST currencies draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2203,7 +2220,7 @@ $Revision$
 <!ATTLIST currency alt NMTOKENS #IMPLIED >
 <!ATTLIST currency draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST currency references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST currency validSubLocales CDATA #IMPLIED >
@@ -2224,6 +2241,7 @@ $Revision$
 <!ELEMENT miscPatterns ( alias | ( default*, pattern*, special* ) ) >
 <!ATTLIST miscPatterns draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
 
 <!-- ######################################################### -->
@@ -2232,6 +2250,7 @@ $Revision$
 <!ATTLIST units alt NMTOKENS #IMPLIED >
 <!ATTLIST units draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST units references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST units validSubLocales CDATA #IMPLIED >
@@ -2243,6 +2262,7 @@ $Revision$
 <!ATTLIST unit alt NMTOKENS #IMPLIED >
 <!ATTLIST unit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST unit references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST unit validSubLocales CDATA #IMPLIED >
@@ -2261,6 +2281,7 @@ $Revision$
 <!ATTLIST unitLength alt NMTOKENS #IMPLIED >
 <!ATTLIST unitLength draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST unitLength references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST unitLength validSubLocales CDATA #IMPLIED >
@@ -2272,6 +2293,7 @@ $Revision$
 <!ATTLIST compoundUnit alt NMTOKENS #IMPLIED >
 <!ATTLIST compoundUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST compoundUnit references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST compoundUnit validSubLocales CDATA #IMPLIED >
@@ -2292,6 +2314,7 @@ $Revision$
 <!ATTLIST coordinateUnit alt NMTOKENS #IMPLIED >
 <!ATTLIST coordinateUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT coordinateUnitPattern ( #PCDATA ) >
 <!ATTLIST coordinateUnitPattern type (north | east | south | west) #REQUIRED >
@@ -2304,6 +2327,7 @@ $Revision$
 <!ATTLIST durationUnit alt NMTOKENS #IMPLIED >
 <!ATTLIST durationUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST durationUnit references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -2321,6 +2345,7 @@ $Revision$
 <!ATTLIST listPatterns alt NMTOKENS #IMPLIED >
 <!ATTLIST listPatterns draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST listPatterns references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST listPatterns validSubLocales CDATA #IMPLIED >
@@ -2332,6 +2357,7 @@ $Revision$
 <!ATTLIST listPattern alt NMTOKENS #IMPLIED >
 <!ATTLIST listPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST listPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST listPattern validSubLocales CDATA #IMPLIED >
@@ -2356,7 +2382,7 @@ $Revision$
     <!--@METADATA-->
 <!ATTLIST collations draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2374,7 +2400,7 @@ $Revision$
 <!ATTLIST collation alt NMTOKENS #IMPLIED >
 <!ATTLIST collation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST collation standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2571,7 +2597,7 @@ $Revision$
 <!ELEMENT posix ( alias | ( messages*, special* ) ) >
 <!ATTLIST posix draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST posix references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST posix validSubLocales CDATA #IMPLIED >
@@ -2582,7 +2608,7 @@ $Revision$
 <!ATTLIST messages alt NMTOKENS #IMPLIED >
 <!ATTLIST messages draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST messages references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST messages validSubLocales CDATA #IMPLIED >
@@ -2631,7 +2657,7 @@ $Revision$
 <!ATTLIST segmentations alt NMTOKENS #IMPLIED >
 <!ATTLIST segmentations draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST segmentations references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST segmentations validSubLocales CDATA #IMPLIED >
@@ -2643,7 +2669,7 @@ $Revision$
 <!ATTLIST segmentation alt NMTOKENS #IMPLIED >
 <!ATTLIST segmentation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 <!ATTLIST segmentation references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST segmentation validSubLocales CDATA #IMPLIED >
@@ -2688,6 +2714,7 @@ $Revision$
 <!ATTLIST suppressions type NMTOKEN "standard" >
 <!ATTLIST suppressions draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT suppression ( #PCDATA ) >
     <!--@ORDERED-->
@@ -2701,7 +2728,7 @@ $Revision$
 <!ATTLIST rulesetGrouping type NMTOKEN #REQUIRED >
 <!ATTLIST rulesetGrouping draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT ruleset ( alias | ( rbnfrule*, special* ) ) >
     <!--@ORDERED-->
@@ -2712,7 +2739,7 @@ $Revision$
     <!--@VALUE-->
 <!ATTLIST ruleset draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT rbnfrule ( #PCDATA ) >
     <!--@ORDERED-->

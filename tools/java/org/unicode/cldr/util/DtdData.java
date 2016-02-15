@@ -105,6 +105,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             commentsPre = firstComment;
             element = element2;
             name = aName.intern();
+            if (name.equals("draft") && !element.getChildren().isEmpty()) {
+                isDeprecatedAttribute = true;
+            }
             mode = mode2;
             defaultValue = value2 == null ? null
                 : value2.intern();

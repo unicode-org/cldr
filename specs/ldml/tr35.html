@@ -2572,8 +2572,15 @@ zh-Hant-HK</pre>
 					subdivision code with idStatus='unknown' from the idValidity data in
 					common/validity/subdivision.xml, with the '-' removed.
 				</p>
+				<p class="changed">
+					The type name <strong>"PRIVATE_USE"</strong> is reserved for private use
+					type. A valid type value is composed of one or more subtags separated by
+					hyphens and each subtag consists of three to eight ASCII alphanumeric
+					characters. In the current version of CLDR, <strong>"PRIVATE_USE"</strong>
+					is only used for transform extension "x0".
+				</p>
 				<p>In the current version of CLDR, all type names except
-					"CODEPOINTS", "REORDER_CODE"<span class="changed">, and "RG_KEY_VALUE"</span>
+					"CODEPOINTS", "REORDER_CODE"<span class="changed">, "RG_KEY_VALUE" and "PRIVATE_USE"</span>
 					are final and used alone. For example, "gregory" and "japanese" are valid
 					type names for key "ca" (calendar). Both "u-ca-gregory" and
 					"u-ca-japanese" are valid representations of Unicode locale extension, but

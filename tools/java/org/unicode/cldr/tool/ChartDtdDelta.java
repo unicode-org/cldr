@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -26,6 +27,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.util.VersionInfo;
 
 /**
  * Changed ShowDtdDiffs into a chart.
@@ -59,14 +61,14 @@ public class ChartDtdDelta extends Chart {
 
         TablePrinter tablePrinter = new TablePrinter()
         .addColumn("Version", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .setSortPriority(1)
+        .setSortPriority(0)
         .setSortAscending(false)
         .setBreakSpans(true)
         .addColumn("Dtd Type", "class='source'", null, "class='source'", true)
-        .setSortPriority(2)
+        .setSortPriority(1)
 
         .addColumn("Intermediate Path", "class='source'", null, "class='target'", true)
-        .setSortPriority(3)
+        .setSortPriority(2)
 
         .addColumn("Element", "class='target'", null, "class='target'", true)
         .setSpanRows(false)
@@ -74,7 +76,10 @@ public class ChartDtdDelta extends Chart {
         .setSpanRows(false);
 
         String last = null;
-        for (String current : ToolConstants.CLDR_VERSIONS) {
+        LinkedHashSet<String> allVersions = new LinkedHashSet<>(ToolConstants.CLDR_VERSIONS);
+        allVersions.add(ToolConstants.LAST_CHART_VERSION);
+        for (String current : allVersions) {
+            System.out.println("DTD delta: " + current);
             final boolean finalVersion = current.equals(ToolConstants.LAST_CHART_VERSION);
             String currentName = finalVersion ? ToolConstants.CHART_DISPLAY_VERSION : current;
             for (DtdType type : TYPES) {
@@ -110,7 +115,7 @@ public class ChartDtdDelta extends Chart {
 
         for (DiffElement datum : data) {
             tablePrinter.addRow()
-            .addCell(datum.version)
+            .addCell(datum.getVersionString())
             .addCell(datum.dtdType)
             .addCell(datum.newPath)
             .addCell(datum.newElement)
@@ -193,14 +198,21 @@ public class ChartDtdDelta extends Chart {
 
     private static class DiffElement {
 
-        final String version;
+        final VersionInfo version;
         final DtdType dtdType;
+        final boolean isBeta;
         final String newPath;
         final String newElement;
         final String attributeNames;
 
         public DiffElement(DtdData dtdCurrent, String version, String newPath, String newElement, Set<String> attributeNames2) {
-            this.version = version;
+            isBeta = version.endsWith("β");
+            try {
+                this.version = isBeta ? VersionInfo.getInstance(version.substring(0, version.length()-1)) : VersionInfo.getInstance(version);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw e;
+            }
             dtdType = dtdCurrent.dtdType;
             this.newPath = fix(newPath);
             this.attributeNames = attributeNames2.isEmpty() ? NONE : "+" + CollectionUtilities.join(attributeNames2, ", +");
@@ -219,12 +231,16 @@ public class ChartDtdDelta extends Chart {
         @Override
         public String toString() {
             return MoreObjects.toStringHelper(this)
-                .add("version", version)
+                .add("version", getVersionString())
                 .add("dtdType", dtdType)
                 .add("newPath", newPath)
                 .add("newElement", newElement)
                 .add("attributeNames", attributeNames)
                 .toString();
+        }
+
+        private String getVersionString() {
+            return version.getVersionString(2, 4) + (isBeta ? "β" : "");
         }
     }
 

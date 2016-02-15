@@ -62,6 +62,7 @@ public class TablePrinter {
 
     public TablePrinter setSortPriority(int priority) {
         columnSorter.setSortPriority(columns.size() - 1, priority);
+        sort = true;
         return this;
     }
 

@@ -260,7 +260,7 @@ public class GenerateSidewaysView {
                         // Cf http://unicode.org/cldr/trac/ticket/7228
                         String parent = LocaleIDParser.getParent(locale);
                         if (!locales.contains(parent)) {
-                            out.print("<b>\u00B7" + locale + "\u00B7<b>");
+                            out.print("<b>\u00B7" + locale + "\u00B7</b>");
                         }
                     }
                 }

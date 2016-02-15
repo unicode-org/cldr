@@ -304,7 +304,7 @@ public class VerifyZones {
             PrintWriter out = BagFormatter.openUTF8Writer(DIR, localeID +
                 ".html");
             String title = "Verify Time Zones: " + englishCldrFile.getName(localeID);
-            out.println("<html><head>\n" +
+            out.println("<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n" +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +
                 "<title>" + title + "</title>\n" +
                 "<link rel='stylesheet' type='text/css' href='index.css'>\n" +

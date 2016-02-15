@@ -120,9 +120,9 @@ public class ShowLanguages {
 
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
 
+        new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartDayPeriods().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartLanguageMatching().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
-        new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
 
         linfo.showCoverageGoals(pw);
 

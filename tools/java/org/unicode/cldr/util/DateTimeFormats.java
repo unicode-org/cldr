@@ -852,7 +852,7 @@ public class DateTimeFormats {
             String redirect = "http://st.unicode.org/cldr-apps/survey?_=" + localeID
                 + "&x=r_datetime&calendar=gregorian";
             out.println(
-                "<html><head>\n"
+                "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n"
                     +
                     (RETIRE ? "<meta http-equiv='REFRESH' content='0;url=" + redirect + "'>\n" : "")
                     +
@@ -902,7 +902,7 @@ public class DateTimeFormats {
         PrintWriter index = BagFormatter.openUTF8Writer(directory, "index.html");
         index
             .println(
-            "<html><head>\n"
+            "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n"
                 +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
                 +

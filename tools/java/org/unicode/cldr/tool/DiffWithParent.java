@@ -66,7 +66,7 @@ public class DiffWithParent {
                     String title = locale + " " + english.getName(locale)
                         + " Diff with Parent";
                     out
-                    .println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>"
+                    .println("<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>"
                         + title + "</title></head><body>");
                     out.println("<h1>" + title + "</h1>");
                     out

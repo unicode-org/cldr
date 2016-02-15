@@ -21,8 +21,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.DtdData.AttributeType;
-
 import com.google.common.base.Splitter;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -36,7 +34,6 @@ import com.ibm.icu.text.Transform;
 public class DtdData extends XMLFileReader.SimpleHandler {
     private static final String COMMENT_PREFIX = System.lineSeparator() + "    ";
     private static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
-    private static final boolean SHOW_STR = true; // add extra structure to DTD
     private static final boolean USE_SYNTHESIZED = false;
 
     private static final boolean DEBUG = false;
@@ -287,6 +284,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         String getName();
     }
 
+    public enum ElementStatus {
+        regular, metadata
+    }
+
     public static class Element implements Named {
         public final String name;
         private String rawModel;
@@ -298,6 +299,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private String model;
         private boolean isOrderedElement;
         private boolean isDeprecatedElement;
+        private ElementStatus elementStatus = ElementStatus.regular;
 
         private Element(String name2) {
             name = name2.intern();
@@ -398,13 +400,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public void addComment(String addition) {
             if (addition.startsWith("@")) {
-                // there are exactly 2 cases: deprecated and ordered
+                // there are exactly 3 cases: deprecated, ordered, and metadata
                 switch (addition) {
                 case "@ORDERED":
                     isOrderedElement = true;
                     break;
                 case "@DEPRECATED":
                     isDeprecatedElement = true;
+                    break;
+                case "@METADATA":
+                    elementStatus = ElementStatus.metadata;
                     break;
                 default:
                     throw new IllegalArgumentException("Unrecognized annotation: " + addition);
@@ -448,6 +453,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public boolean isDeprecated() {
             return isDeprecatedElement;
+        }
+
+        public ElementStatus getElementStatus() {
+            return elementStatus;
         }
 
         /**
@@ -1007,6 +1016,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     //static final SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     private void toString(Element current, StringBuilder b, Seen seen) {
+        if ("calendar".equals(current.name) || current.commentsPost != null && current.commentsPost.contains("use of fields")) {
+            int debug = 0;
+        }
         boolean first = true;
         if (seen.seenElements.contains(current)) {
             return;
@@ -1054,7 +1066,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (isOrdered(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@ORDERED-->");
         }
-        if (SHOW_STR && elementDeprecated) {
+        if (current.getElementStatus() != ElementStatus.regular) {
+            b.append(COMMENT_PREFIX + "<!--@"
+                + current.getElementStatus().toString().toUpperCase(Locale.ROOT)
+                + "-->");
+        }
+        if (elementDeprecated) {
             b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
         }
 
@@ -1100,17 +1117,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 //            if (attributeDeprecated != deprecatedComment) {
 //                System.out.println("*** BAD DEPRECATION ***" + a);
 //            }
-            if (SHOW_STR) {
-                if (METADATA.contains(a.name)) {
-                    b.append(COMMENT_PREFIX + "<!--@METADATA-->");
-                } else if (!isDistinguishing(current.name, a.name)) {
-                    b.append(COMMENT_PREFIX + "<!--@VALUE-->");
-                }
-                if (attributeDeprecated) {
-                    b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
-                } else if (!deprecatedValues.isEmpty()) {
-                    b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ") + "-->");
-                }
+            if (METADATA.contains(a.name) || a.attributeStatus == AttributeStatus.metadata) {
+                b.append(COMMENT_PREFIX + "<!--@METADATA-->");
+            } else if (!isDistinguishing(current.name, a.name)) {
+                b.append(COMMENT_PREFIX + "<!--@VALUE-->");
+            }
+            if (attributeDeprecated) {
+                b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
+            } else if (!deprecatedValues.isEmpty()) {
+                b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ") + "-->");
             }
         }
         if (current.children.size() > 0) {
@@ -1128,7 +1143,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             b.append(System.lineSeparator());
         }
         for (String c : comments) {
-            boolean deprecatedComment = SHOW_STR && c.toLowerCase(Locale.ENGLISH).contains("deprecat");
+            boolean deprecatedComment = false; // the following served its purpose... c.toLowerCase(Locale.ENGLISH).contains("deprecat");
             if (!deprecatedComment) {
                 if (separate) {
                     // special handling for very first comment
@@ -1355,7 +1370,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
     }
 
-    @SuppressWarnings("unused")
+    //@SuppressWarnings("unused")
     public boolean isDeprecated(String elementName, String attributeName, String attributeValue) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
@@ -1563,17 +1578,30 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public boolean isMetadata(XPathParts pathPlain) {
+        for (String s : pathPlain.getElements()) {
+            Element e = getElementFromName().get(s);
+            if (e.elementStatus == ElementStatus.metadata) {
+                return true;
+            }
+        }
+        return false;
+    }
+        
+    public static boolean isMetadataOld(DtdType dtdType2, XPathParts pathPlain) {
         // TODO Don't use hard-coded list; instead add to DTD annotations
-        switch (dtdType) {
+        final String element1 = pathPlain.getElement(1);
+        final String element2 = pathPlain.getElement(2);
+        final String elementN = pathPlain.getElement(-1);
+        switch (dtdType2) {
         case ldml:
-            switch(pathPlain.getElement(1)) {
+            switch(element1) {
             case "generation": 
             case "metadata": 
                 return true;
             }
             break;
         case ldmlBCP47:
-            switch(pathPlain.getElement(1)) {
+            switch(element1) {
             case "generation": 
             case "version": 
                 return true;
@@ -1582,7 +1610,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             ////supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
         case supplementalData:
             // these are NOT under /metadata/ but are actually metadata
-            switch(pathPlain.getElement(1)) {
+            switch(element1) {
             case "generation": 
             case "version": 
             case "validity":
@@ -1590,10 +1618,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             case "coverageLevels":
                 return true;
             case "transforms":
-                return pathPlain.getElement(-1).equals("comment");
+                return elementN.equals("comment");
             case "metadata":
                 // these ARE under /metadata/, but many others under /metadata/ are NOT actually metadata.
-                switch (pathPlain.getElement(2)) {
+                switch (element2) {
                 case "validity":
                 case "serialElements":
                 case "suppress":
@@ -1664,7 +1692,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 for (Entry<String, String> attributeAndValue : valueAttributes.entrySet()) {
                     final String attribute = attributeAndValue.getKey();
                     final String attributeValue = attributeAndValue.getValue();
-                    
+
                     pathResult.addElement("_" + attribute);
                     String pathShort = pathResult.toString();
                     pathResult.removeElement(pathResult.size()-1); // restore

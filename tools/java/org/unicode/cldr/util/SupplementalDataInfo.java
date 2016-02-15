@@ -418,6 +418,7 @@ public class SupplementalDataInfo {
         public final int digits;
         public final int rounding;
         public final double roundingIncrement;
+        public final int cashDigits;
         public final int cashRounding;
         public final double cashRoundingIncrement;
 
@@ -433,12 +434,14 @@ public class SupplementalDataInfo {
             return roundingIncrement;
         }
 
-        public CurrencyNumberInfo(int digits, int rounding, int cashRounding) {
-            this.digits = digits;
-            this.rounding = rounding;
+        public CurrencyNumberInfo(int _digits, int _rounding, int _cashDigits, int _cashRounding) {
+            digits = _digits;
+            rounding = _rounding < 0 ? 0 : _rounding;
             roundingIncrement = rounding * Math.pow(10.0, -digits);
-            this.cashRounding = cashRounding;
-            cashRoundingIncrement = cashRounding * Math.pow(10.0, -digits);
+            // if the values are not set, use the above values
+            cashDigits = _cashDigits < 0 ? digits : _cashDigits;
+            cashRounding = _cashRounding < 0 ? rounding : _cashRounding;
+            cashRoundingIncrement = this.cashRounding * Math.pow(10.0, -digits);
         }
     }
 
@@ -1782,6 +1785,7 @@ public class SupplementalDataInfo {
                     new CurrencyNumberInfo(
                         parseIntegerOrNull(parts.getAttributeValue(3, "digits")),
                         parseIntegerOrNull(parts.getAttributeValue(3, "rounding")),
+                        parseIntegerOrNull(parts.getAttributeValue(3, "cashDigits")),
                         parseIntegerOrNull(parts.getAttributeValue(3, "cashRounding")))
                     );
                 return true;
@@ -1918,7 +1922,7 @@ public class SupplementalDataInfo {
     }
 
     public int parseIntegerOrNull(String attributeValue) {
-        return attributeValue == null ? 0 : Integer.parseInt(attributeValue);
+        return attributeValue == null ? -1 : Integer.parseInt(attributeValue);
     }
 
     Set<String> skippedElements = new TreeSet<String>();
@@ -3669,7 +3673,7 @@ public class SupplementalDataInfo {
         return typeToLocaleToDayPeriodInfo.get(type).keySet();
     }
 
-    private static CurrencyNumberInfo DEFAULT_NUMBER_INFO = new CurrencyNumberInfo(2, 0, 0);
+    private static CurrencyNumberInfo DEFAULT_NUMBER_INFO = new CurrencyNumberInfo(2, -1, -1, -1);
 
     public CurrencyNumberInfo getCurrencyNumberInfo(String currency) {
         CurrencyNumberInfo result = currencyToCurrencyNumberInfo.get(currency);

@@ -1953,23 +1953,22 @@ public class ShowLanguages {
 
             pw.println("<h2>" + CldrUtility.getDoubleLinkedText("format_info", "2. " + section2) + "</h2>");
 
-            pw.write("<p>This table shows the digit rounding for the currency, plus the countries where it is or was in use. "
-                +
-                "Countries where the currency is not in current use are marked by italics. "
-                +
-                "If the currency uses 'nickel rounding' in all transactions, the digits are followed by '(5)'. "
-                +
-                "If the currency uses 'nickel rounding' in cash retail transactions, the digits are followed by '[5]'."
-                +
-                "</p>");
+            pw.write("<p>This table shows the number of digits used for each currency, "
+                + " and the countries where it is or was in use. "
+                + "Countries where the currency is in current use are bolded. "
+                + "If the currency uses ‘nickel rounding’ in transactions, the digits are followed by ‘(5)’. "
+                + "Where the values are different in a cash context, that is shown in a second column."
+                + "</p>");
             pw.write("<div align='center'><table>");
 
             // doTitle(pw, "Currency Format Info");
+            //             <info iso4217="CZK" digits="2" rounding="0" cashDigits="0" cashRounding="0"/>
 
             pw.println("<tr>" +
                 "<th class='source nowrap'>Name</th>" +
                 "<th class='source'>Currency</th>" +
                 "<th class='target'>Digits</th>" +
+                "<th class='target'>Cash Digits</th>" +
                 "<th class='target'>Countries</th>" +
                 "</tr>");
             Set<String> currencyList = new TreeSet<String>(col);
@@ -1991,10 +1990,15 @@ public class ShowLanguages {
                     "<td class='source nowrap'>"
                     + TransliteratorUtilities.toHTML.transform(english.getName("currency", currency)) + "</td>" +
                     "<td class='source'>" + CldrUtility.getDoubleLinkedText(currency) + "</td>" +
-                    "<td class='target'>" + info.getDigits()
+                    "<td class='target'>" + 
+                    info.getDigits()
                     + (info.getRounding() == 0 ? "" : " (" + info.getRounding() + ")")
-                    + (info.cashRounding == 0 ? "" : " [" + info.cashRounding + "]")
-                    + "</td>" +
+                    + "</td>"
+                    + "<td class='target'>" 
+                    + (info.cashDigits == info.getDigits() && info.cashRounding == info.getRounding() ? "" :
+                        (info.cashDigits
+                            + (info.cashRounding == 0 ? "" : " (" + info.cashRounding + ")")))
+                            + "</td>" +
                     "<td class='target'>");
                 boolean first = true;
                 boolean needBreak = false;

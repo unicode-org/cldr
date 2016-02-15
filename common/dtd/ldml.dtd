@@ -419,7 +419,6 @@ $Revision$
 <!ATTLIST exemplarCharacters alt NMTOKENS #IMPLIED >
 <!ATTLIST exemplarCharacters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 <!ATTLIST exemplarCharacters standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -588,7 +587,6 @@ $Revision$
 <!ATTLIST quotationStart alt NMTOKENS #IMPLIED >
 <!ATTLIST quotationStart draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 <!ATTLIST quotationStart references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -596,7 +594,6 @@ $Revision$
 <!ATTLIST quotationEnd alt NMTOKENS #IMPLIED >
 <!ATTLIST quotationEnd draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 <!ATTLIST quotationEnd references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -604,7 +601,6 @@ $Revision$
 <!ATTLIST alternateQuotationStart alt NMTOKENS #IMPLIED >
 <!ATTLIST alternateQuotationStart draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 <!ATTLIST alternateQuotationStart references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -612,7 +608,6 @@ $Revision$
 <!ATTLIST alternateQuotationEnd alt NMTOKENS #IMPLIED >
 <!ATTLIST alternateQuotationEnd draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 <!ATTLIST alternateQuotationEnd references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -845,7 +840,6 @@ $Revision$
 <!ATTLIST month alt NMTOKENS #IMPLIED >
 <!ATTLIST month draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 <!ATTLIST month references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -2382,7 +2376,7 @@ $Revision$
     <!--@METADATA-->
 <!ATTLIST collations draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
+    <!-- should be DEPRECATED, but needs some cleanup first -->
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2400,7 +2394,6 @@ $Revision$
 <!ATTLIST collation alt NMTOKENS #IMPLIED >
 <!ATTLIST collation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 <!ATTLIST collation standard CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->

@@ -105,8 +105,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             commentsPre = firstComment;
             element = element2;
             name = aName.intern();
-            if (name.equals("draft") && !element.getChildren().isEmpty()) {
-                isDeprecatedAttribute = true;
+            if (name.equals("draft") // normally never permitted on elements with children, but special cases...
+                && !element.getName().equals("collation") 
+                && !element.getName().equals("transform")) { 
+                int elementChildrenCount = element.getChildren().size();
+                if (elementChildrenCount > 1 
+                    || elementChildrenCount == 1 && !element.getChildren().keySet().iterator().next().getName().equals("cp")) {
+                    isDeprecatedAttribute = true;
+                    if (DEBUG) {
+                        System.out.println(element.getName() + ":" + element.getChildren());
+                    }
+                }
             }
             mode = mode2;
             defaultValue = value2 == null ? null
@@ -1019,9 +1028,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     //static final SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     private void toString(Element current, StringBuilder b, Seen seen) {
-        if ("calendar".equals(current.name) || current.commentsPost != null && current.commentsPost.contains("use of fields")) {
-            int debug = 0;
-        }
+//        if ("calendar".equals(current.name) || current.commentsPost != null && current.commentsPost.contains("use of fields")) {
+//            int debug = 0;
+//        }
         boolean first = true;
         if (seen.seenElements.contains(current)) {
             return;
@@ -1589,7 +1598,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         return false;
     }
-        
+
     public static boolean isMetadataOld(DtdType dtdType2, XPathParts pathPlain) {
         // TODO Don't use hard-coded list; instead add to DTD annotations
         final String element1 = pathPlain.getElement(1);

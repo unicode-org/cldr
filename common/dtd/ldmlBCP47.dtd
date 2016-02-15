@@ -12,12 +12,14 @@ $Revision$
 <!ELEMENT ldmlBCP47 ( version, generation?, cldrVersion?, keyword*, attribute* ) >
 
 <!ELEMENT version EMPTY >
+    <!--@METADATA-->
 <!ATTLIST version number CDATA #REQUIRED >
     <!--@METADATA-->
 <!ATTLIST version cldrVersion CDATA #FIXED "29" >
     <!--@VALUE-->
 
 <!ELEMENT generation EMPTY >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST generation date CDATA #REQUIRED >
     <!--@METADATA-->

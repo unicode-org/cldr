@@ -12,7 +12,7 @@ $Revision$
 <!ELEMENT ldml ( identity, ( alias | ( fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, annotations?, metadata?, references?, special* ) ) ) >
 <!ATTLIST ldml version CDATA #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED -->
+    <!--@DEPRECATED-->
 <!ATTLIST ldml draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -46,9 +46,10 @@ $Revision$
     <!--@METADATA-->
 <!ATTLIST version draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED -->
+    <!--@DEPRECATED-->
 
 <!ELEMENT generation EMPTY >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST generation date CDATA #REQUIRED >
     <!--@VALUE-->
@@ -82,12 +83,6 @@ $Revision$
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST territory references CDATA #IMPLIED >
-    <!--@METADATA-->
-
-<!ELEMENT subdivision ( #PCDATA ) >
-<!ATTLIST subdivision type NMTOKEN #REQUIRED >
-<!ATTLIST subdivision alt NMTOKENS #IMPLIED >
-<!ATTLIST subdivision draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT variant ( #PCDATA ) >
@@ -189,14 +184,18 @@ $Revision$
 <!ATTLIST territories validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
-    
+
 <!ELEMENT subdivisions ( alias | ( subdivision | special )* ) >
 <!ATTLIST subdivisions draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST subdivisions references CDATA #IMPLIED >
     <!--@METADATA-->
 
-    
+<!ELEMENT subdivision ( #PCDATA ) >
+<!ATTLIST subdivision type NMTOKEN #REQUIRED >
+<!ATTLIST subdivision alt NMTOKENS #IMPLIED >
+<!ATTLIST subdivision draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!-- # Either 1 alias OR any specials, any order, zero or more variant -->
 
@@ -2288,7 +2287,7 @@ $Revision$
 <!ATTLIST compoundUnitPattern validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
-    
+
 <!ELEMENT coordinateUnit ( alias | ( coordinateUnitPattern*, special* ) ) >
 <!ATTLIST coordinateUnit alt NMTOKENS #IMPLIED >
 <!ATTLIST coordinateUnit draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -2394,11 +2393,15 @@ $Revision$
     <!--@DEPRECATED-->
 <!ATTLIST import source CDATA #REQUIRED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST import type CDATA #IMPLIED >
+    <!--@DEPRECATED-->
 <!ATTLIST import draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST import references CDATA #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT settings ( special* ) >
     <!-- deprecated, see CLDR ticket #8289 -->
@@ -2406,30 +2409,43 @@ $Revision$
     <!--@DEPRECATED-->
 <!ATTLIST settings strength (primary | secondary | tertiary | quaternary | identical) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings alternate (non-ignorable | shifted) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings backwards (on | off) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings normalization (on | off) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings caseLevel (on | off) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings caseFirst (upper | lower | off) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings hiraganaQuarternary (on | off) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings hiraganaQuaternary (on | off) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings maxVariable (space | punct | symbol | currency) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings numeric (on | off) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings private (true | false) #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings variableTop CDATA #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST settings reorder NMTOKENS #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT suppress_contractions ( #PCDATA | cp )* >
     <!-- deprecated, see CLDR ticket #8289 -->
@@ -2725,8 +2741,10 @@ $Revision$
 <!-- # This element contains metadata for Survey Tool internal use (optimization, etc). -->
 
 <!ELEMENT metadata ( alias | ( casingData?, special* ) ) >
+    <!--@METADATA-->
 
 <!ELEMENT casingData ( alias | ( casingItem*, special* ) ) >
+    <!--@METADATA-->
 
 <!ELEMENT casingItem ( #PCDATA ) >
 <!ATTLIST casingItem type CDATA #REQUIRED >
@@ -2739,9 +2757,11 @@ $Revision$
     <!--@METADATA-->
 
 <!ELEMENT references ( reference* ) >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT reference ( #PCDATA ) >
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST reference type NMTOKEN #REQUIRED >
     <!--@DEPRECATED-->

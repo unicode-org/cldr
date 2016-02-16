@@ -2099,7 +2099,8 @@ h2, h3, h4, table {
 			else: 0, 5–20, 25–30, 35–40, …, decimals). Russian does not need
 			additional separate forms for zero, two, or many, so these are not
 			defined.</p>
-		<p>Plural categories may also differ according to the decimals.
+		<p class="changed">The plural category for negative numbers is calculated according to the absolute value of the source. (This may change in the future, if we find languages that have different behavior.)</p>
+		<p>Plural categories may also differ according to the <span class="changed">visible</span> decimals.
 			For example, here are some of the behaviors exhibited by different
 			languages:</p>
 		<div dir="ltr">
@@ -2332,7 +2333,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			result of <strong>n mod 3</strong> is 1.3.
 		</p>
 		<p>The values of relations are defined according to the operand as
-			follows. Importantly, the results may depend on the decimals in the
+			follows. Importantly, the results may depend on the <span class="changed">visible</span> decimals in the
 			source, including trailing zeros.</p>
 		<ol>
 			<li>Let the base value BV be computed from absolute value of the

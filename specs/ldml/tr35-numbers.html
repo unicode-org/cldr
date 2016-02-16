@@ -700,7 +700,7 @@ h2, h3, h4, table {
 		A pattern type attribute is used for <em>compact number formats</em>,
 		such as the following:
 		<pre>
-&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		...<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>								...<br>		&lt;/decimalFormat&gt;</pre>
+&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		…<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>		…<br>		&lt;/decimalFormat&gt;</pre>
 		<p>To format a number N, the greatest type less than or equal to N
 			is used, with the appropriate plural category. N is divided by the
 			type, after removing the number of zeros in the pattern, less 1. APIs
@@ -1555,7 +1555,7 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<th>Divide by increment (0.65):</th>
-				<td>1.89846...</td>
+				<td>1.89846…</td>
 			</tr>
 			<tr>
 				<th>Round:</th>
@@ -1646,7 +1646,7 @@ h2, h3, h4, table {
 			such as in the following:</p>
 		<pre>&lt;currencyFormats&gt;
     &lt;unitPattern count=&quot;other&quot;&gt;{0} {1}&lt;/unitPattern&gt;
-    ...
+    …
 &lt;currencies&gt;</pre>
 		<pre>&lt;currency type=&quot;ZWD&quot;&gt;
     &lt;displayName&gt;Zimbabwe Dollar&lt;/displayName&gt;
@@ -1700,7 +1700,7 @@ h2, h3, h4, table {
 				</ol>
 			</li>
 			<li>Format the numeric value according to the locale. Use the
-				locale’s &lt;decimalFormats ...&gt; pattern, not the
+				locale’s &lt;decimalFormats …&gt; pattern, not the
 				&lt;currencyFormats&gt; pattern that is used with the symbol (eg,
 				Z$). As when formatting symbol currency values, reset the number of
 				decimals according to the supplemental &lt;currencyData&gt; and use
@@ -1851,27 +1851,27 @@ h2, h3, h4, table {
 		<pre>&lt;supplementalData&gt;
   &lt;currencyData&gt;
     &lt;fractions&gt;
-      ...
+      …
       &lt;info iso4217=&quot;CHF&quot; digits=&quot;2&quot; rounding=&quot;5&quot;/&gt;
-      ...
+      …
       &lt;info iso4217=&quot;<span style="color: blue">ITL</span>&quot; digits=&quot;<span
 				style="color: blue">0</span>&quot;/&gt;
-      ...
+      …
     &lt;/fractions&gt;
-    ...
+    …
     &lt;region iso3166=&quot;IT&quot;&gt;
       &lt;currency iso4217=&quot;EUR&quot; from=&quot;1999-01-01&quot;/&gt;
       &lt;currency iso4217=&quot;ITL&quot; from=&quot;1862-8-24&quot; to=&quot;2002-02-28&quot;/&gt;
     &lt;/region&gt;
-    ...
+    …
     &lt;region iso3166=&quot;CS&quot;&gt;
       &lt;currency iso4217=&quot;EUR&quot; from=&quot;2003-02-04&quot;/&gt;
       &lt;currency iso4217=&quot;CSD&quot; from=&quot;2002-05-15&quot;/&gt;
       &lt;currency iso4217=&quot;YUM&quot; from=&quot;1994-01-24&quot; to=&quot;2002-05-15&quot;/&gt;
     &lt;/region&gt;
-    ...
+    …
   &lt;/currencyData&gt;
-...
+…
 &lt;/supplementalData&gt;</pre>
 		<p>The fractions element contains any number of info elements,
 			with the following attributes:</p>
@@ -2164,7 +2164,7 @@ operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range |
 sampleList    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
 sampleRange   = decimalValue ('~' decimalValue)?
 value         = digit+
-decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9<br>
+decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9
 		</pre>
 		<ul>
 			<li>Whitespace (defined as Unicode <a
@@ -2312,21 +2312,56 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			</table>
 		</div>
 		<br>
-		<h4>
+	  <h4>
 			<a name="Relations" href="#Relations">5.1.2 Relations</a>
 		</h4>
-		<p>
-			The keywords 'mod', 'in', 'is', and 'within' are present only for
-			backwards compatibility. The preferred form is to use '%' for modulo,
-			and '=' or '!=' for the relations, with the operand 'i' instead of
-			within. The difference between <strong>in</strong> and <strong>within</strong>
-			is that <strong>in</strong> only includes integers in the specified
-			range, while <strong>within </strong>includes all values.
-		</p>
-		<p>
-			The relations can take comma-separated lists, such as: <strong>n
-				in 3,5,7..15</strong>.
-		</p>
+		<p class='changed'>
+		The positive relations are of the format <strong>x = y</strong> and <strong>x = y mod z</strong>. The <strong>y</strong> value can be a comma-separated list, such as <strong>n
+		= 3, 5, 7..15</strong>, and is treated as if each relation were expanded into an OR statement. The range value <strong>a..b</strong> is equivalent to listing all the integers between <strong>a</strong> and <strong>b</strong>, inclusive. When <strong>!=</strong> is used, it means the entire relation is negated.</p>
+		<p class='changed'><em>Examples</em></p>
+		<table class='simple changed'>
+		  <tr>
+		    <th>Expression</th>
+		    <th>Meaning</th>
+	      </tr>
+		  <tr>
+		    <td>x = 2..4, 15</td>
+		    <td>x = 2 OR x = 3 OR x = 4 OR x = 15</td>
+	      </tr>
+		  <tr>
+		    <td>x != 2..4, 15</td>
+		    <td>NOT (x = 2 OR x = 3 OR x = 4 OR x = 15)</td>
+	      </tr>
+	  </table><br>
+		<table class='simple changed'>
+		  <tr>
+		    <th>Expression</th>
+		    <th>Value</th>
+	      </tr>
+		  <tr>
+		    <td>3.5 = 2..4, 15</td>
+		    <td>false</td>
+	      </tr>
+		  <tr>
+		    <td>3 = 2..4,15</td>
+		    <td>true</td>
+	      </tr>
+		  <tr>
+		    <td>3.5 != 2..4, 15</td>
+		    <td>true</td>
+	      </tr>
+		  <tr>
+		    <td>3 = 2..4,15</td>
+		    <td>false</td>
+	      </tr>
+      </table>
+		<blockquote>
+		  <p>The old keywords 'mod', 'in', 'is', and 'within' are present only for
+		    backwards compatibility. The preferred form is to use '%' for modulo,
+		    and '=' or '!=' for the relations, with the operand 'i' instead of
+		    within. (The difference between <strong>in</strong> and <strong>within</strong> is that <strong>in</strong> only includes integers in the specified
+		    range, while <strong>within </strong>includes all values.)		</p>
+	  </blockquote>
 		<p dir="ltr">
 			The modulus (% or<strong> mod</strong>) is a remainder operation as
 			defined in Java; for example, where <strong>n</strong> = 4.3 the
@@ -2379,7 +2414,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 				</td>
 				<td>Each rule must not overlap with other rules. Also note that
 					a modulus is applied to n in the last rule, thus its condition
-					holds for 119, 219, 319...</td>
+					holds for 119, 219, 319…</td>
 			</tr>
 			<tr>
 				<td nowrap>one: n = 1<br> few: n mod 10 = 2..4 and n mod
@@ -2391,7 +2426,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 					applies a modulus to n before the test as in the previous example.
 					The second part applies a different modulus and also uses negation,
 					thus it matches all numbers <em>not</em> in 12, 13, 14, 112, 113,
-					114, 212, 213, 214...
+					114, 212, 213, 214…
 				</td>
 			</tr>
 		</table>
@@ -2518,7 +2553,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			for mapping binary numbers to and from a readable representation.
 			They are typically used for spelling out numbers, but can also be
 			used for other number systems like roman numerals, Chinese numerals,
-			or for ordinal numbers (1st, 2nd, 3rd,...).</p>
+			or for ordinal numbers (1st, 2nd, 3rd,…).</p>
 		<p>Where, however, the CLDR plurals or ordinals can be used, their
 			usage is recommended in preference to the RBNF data. First, the RBNF
 			data is not completely fleshed out over all languages that otherwise

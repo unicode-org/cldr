@@ -721,6 +721,8 @@ public class GenerateMaximalLocales {
         { "yi_Hebr", "yi_Hebr_001" },
         { "yue", "yue_Hant_HK" },
         { "yue_Hant", "yue_Hant_HK" },
+        { "yue_Hans", "yue_Hans_CN" },
+        { "yue_CN", "yue_Hans_CN" },
         { "zh_Hani", "zh_Hani_CN" },
 
         { "zh_Bopo", "zh_Bopo_TW" },

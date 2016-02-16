@@ -1487,6 +1487,10 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Yucateco; ?; ? } => { Yucateco; Latin; Mexico }-->
 		<likelySubtag from="yue" to="yue_Hant_HK"/>
 		<!--{ Cantonese; ?; ? } => { Cantonese; Traditional; Hong Kong SAR China }-->
+		<likelySubtag from="yue_CN" to="yue_Hans_CN"/>
+		<!--{ Cantonese; ?; China } => { Cantonese; Simplified; China }-->
+		<likelySubtag from="yue_Hans" to="yue_Hans_CN"/>
+		<!--{ Cantonese; Simplified; ? } => { Cantonese; Simplified; China }-->
 		<likelySubtag from="za" to="za_Latn_CN"/>
 		<!--{ Zhuang; ?; ? } => { Zhuang; Latin; China }-->
 		<likelySubtag from="zag" to="zag_Latn_SD"/>

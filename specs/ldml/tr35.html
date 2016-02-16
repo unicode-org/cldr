@@ -763,8 +763,8 @@ h5 {
 				<td><code>= alpha{4} ;</code></td>
 				<td><code>= 4ALPHA</code></td>
 				<td><code>
-						<a href='#unicode_script_subtag_validity'>validity</a><br> <a
-							class='changed'
+						<a href='#unicode_script_subtag_validity'>validity</a><br>
+						<a class='changed'
 							href='http://unicode.org/cldr/latest/common/validity/script.xml'>latest-data</a>
 					</code></td>
 			</tr>
@@ -934,8 +934,8 @@ h5 {
 						= <span class="changed">alphanum ALPHA</span>
 					</code></td>
 				<td><code>
-						<a href="#Key_Type_Definitions">validity</a><br> <a
-							class='changed'
+						<a href="#Key_Type_Definitions">validity</a><br>
+						<a class='changed'
 							href='http://unicode.org/cldr/latest/common/bcp47'>latest-data</a>
 					</code></td>
 			</tr>
@@ -948,8 +948,8 @@ h5 {
 						= 3*8alphanum<br>  *(sep 3*8alphanum)
 					</code></td>
 				<td><code>
-						<a href="#Key_Type_Definitions">validity</a><br> <a
-							class='changed'
+						<a href="#Key_Type_Definitions">validity</a><br>
+						<a class='changed'
 							href='http://unicode.org/cldr/latest/common/bcp47'>latest-data</a>
 					</code></td>
 			</tr>
@@ -999,7 +999,8 @@ h5 {
 						= 3*8alphanum<br>   *(sep 3*8alphanum)
 					</code></td>
 				<td><code>
-						<a href='#Validity_Data'>validity</a><br> <a class='changed'
+						<a href='#Validity_Data'>validity</a><br>
+						<a class='changed'
 							href='http://unicode.org/cldr/latest/common/validity/unit.xml'>latest-data</a>
 					</code></td>
 			</tr>
@@ -1027,8 +1028,8 @@ h5 {
 						= <span class="changed">tkey tvalue</span>
 					</code></td>
 				<td><code>
-						<a href="#BCP47_T_Extension">validity</a><br> <a
-							class='changed'
+						<a href="#BCP47_T_Extension">validity</a><br>
+						<a class='changed'
 							href='http://unicode.org/cldr/latest/common/bcp47'>latest-data</a>
 					</code></td>
 
@@ -8095,8 +8096,8 @@ decimal?, group?, special*)) &gt;</pre>
 							</li>
 						</ul></li>
 					<li><em>Section 3.6.4<a
-							href="#Unicode_Locale_Extension_Data_Files"> U Extension Data
-								FIles</a></em>
+							href="#Unicode_Locale_Extension_Data_Files"> U Extension
+								Data FIles</a></em>
 						<ul>
 							<li>Added new special type name RG_KEY_VALUE. [<a
 								href="http://unicode.org/cldr/trac/ticket/7999"
@@ -8111,26 +8112,23 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
 				<ul>
-					<li><em><i>Section 1 <a href="#Display_Name_Elements">Display
-									Name Elements</a></i></em>
-						<ul>
-							<li>Added a note that people should have no expectation that
-								all language names be translated, and pointed to the language
-								subtag registry for English fallback names. [<a
-								href="http://unicode.org/cldr/trac/ticket/9137"
-								title="View ticket">#9137</a>]
-							</li>
-						</ul></li>
-					<li><em><i>Section 3.2 <a
-								href="tr35-general.html#Unicode_locale_identifier">Unicode
-									Locale Identifier</a></i></em>
-						<ul>
-							<li>Modified -u- extension keys to disallow final digit.
-								That makes them disjoint with -t- keys, allowing for simpler
-								tooling. Also some minor cleanups to the BNF for clarity. [<a
+					<li><em><i>Section 1 <a href="#Display_Name_Elements">Display Name Elements</a></i></em>
+					  <ul>
+					    <li>Added a note that people should have no expectation that all language names be translated, and pointed to the language subtag registry for English fallback names. [<a href="http://unicode.org/cldr/trac/ticket/9137"
+								title="View ticket">#9137</a>] </li>
+				      </ul>
+					</li>
+					<li><em><i>Section 3.2
+					  <a
+								href="tr35-general.html#Unicode_locale_identifier">Unicode Locale Identifier</a></i></em>
+					  <ul>
+					    <li>Modified -u- extension keys to disallow final digit.
+					      That makes them disjoint with -t- keys, allowing for simpler
+					      tooling. Also some minor cleanups to the BNF for clarity. [<a
 								href="http://unicode.org/cldr/trac/ticket/9130">#9130</a>]
-							</li>
-						</ul></li>
+					      </li>
+					    </ul>
+				  </li>
 					<li><em>Section 6 <a
 							href="tr35-general.html#Unit_Elements">Unit Elements</a></em>
 						<ul>
@@ -8146,17 +8144,27 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a>
 			</strong>
 				<ul>
+					<li><em>Section 4.5.1.2
+			            <a href="tr35-dates.html#Variable_periods">Variable periods</a></em>
+					  <ul>
+					    <li>Added restriction that no two rules in the same set can have the same type, and clarified that they can span midnight.  [<a
+								href="http://unicode.org/cldr/trac/ticket/9209">#9209</a>, <a
+								href="http://unicode.org/cldr/trac/ticket/9116">#9116</a>] </li>
+				      </ul>
+					</li>
 					<li><em>Section 8 <a
 							href="tr35-dates.html#Date_Format_Patterns">Date Format
-								Patterns</a>
-					</em>
-						<ul>
-							<li>The date field symbol 'C' was misdescribed as being a <em>dayperiod</em>
-								symbol, when it is actually an <em>hour</em> symbol. Clarified
-								the usage, and added the widths to each of 'j', 'J', and 'C'.
-							</li>
-						</ul></li>
-				</ul></li>
+					  Patterns</a>
+				    </em>
+					  <ul>
+					    <li>The date field symbol 'C' was misdescribed as being a <em>dayperiod</em>
+					      symbol, when it is actually an <em>hour</em> symbol. Clarified
+					      the usage, and added the widths to each of 'j', 'J', and 'C'.
+					      </li>
+					    </ul>
+				  </li>
+				</ul>
+			</li>
 		</ul>
 
 		<h3>Revision 41</h3>

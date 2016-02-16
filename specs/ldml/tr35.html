@@ -763,8 +763,8 @@ h5 {
 				<td><code>= alpha{4} ;</code></td>
 				<td><code>= 4ALPHA</code></td>
 				<td><code>
-						<a href='#unicode_script_subtag_validity'>validity</a><br>
-						<a class='changed'
+						<a href='#unicode_script_subtag_validity'>validity</a><br> <a
+							class='changed'
 							href='http://unicode.org/cldr/latest/common/validity/script.xml'>latest-data</a>
 					</code></td>
 			</tr>
@@ -934,8 +934,8 @@ h5 {
 						= <span class="changed">alphanum ALPHA</span>
 					</code></td>
 				<td><code>
-						<a href="#Key_Type_Definitions">validity</a><br>
-						<a class='changed'
+						<a href="#Key_Type_Definitions">validity</a><br> <a
+							class='changed'
 							href='http://unicode.org/cldr/latest/common/bcp47'>latest-data</a>
 					</code></td>
 			</tr>
@@ -948,8 +948,8 @@ h5 {
 						= 3*8alphanum<br>  *(sep 3*8alphanum)
 					</code></td>
 				<td><code>
-						<a href="#Key_Type_Definitions">validity</a><br>
-						<a class='changed'
+						<a href="#Key_Type_Definitions">validity</a><br> <a
+							class='changed'
 							href='http://unicode.org/cldr/latest/common/bcp47'>latest-data</a>
 					</code></td>
 			</tr>
@@ -999,8 +999,7 @@ h5 {
 						= 3*8alphanum<br>   *(sep 3*8alphanum)
 					</code></td>
 				<td><code>
-						<a href='#Validity_Data'>validity</a><br>
-						<a class='changed'
+						<a href='#Validity_Data'>validity</a><br> <a class='changed'
 							href='http://unicode.org/cldr/latest/common/validity/unit.xml'>latest-data</a>
 					</code></td>
 			</tr>
@@ -1028,8 +1027,8 @@ h5 {
 						= <span class="changed">tkey tvalue</span>
 					</code></td>
 				<td><code>
-						<a href="#BCP47_T_Extension">validity</a><br>
-						<a class='changed'
+						<a href="#BCP47_T_Extension">validity</a><br> <a
+							class='changed'
 							href='http://unicode.org/cldr/latest/common/bcp47'>latest-data</a>
 					</code></td>
 
@@ -8086,7 +8085,7 @@ decimal?, group?, special*)) &gt;</pre>
 						<ul>
 							<li>Added direct links to validity data (latest version).</li>
 						</ul></li>
-					<li><em>Section <a href="#Key_And_Type_Definitions_">3.6.1
+					<li><em>Section 3.6.1<a href="#Key_And_Type_Definitions_">
 								Key And Type Definitions</a>
 					</em>
 						<ul>
@@ -8095,9 +8094,9 @@ decimal?, group?, special*)) &gt;</pre>
 								title="View ticket">#7999</a>]
 							</li>
 						</ul></li>
-					<li><em>Section <a
-							href="#Unicode_Locale_Extension_Data_Files">3.6.4 U Extension
-								Data FIles</a></em>
+					<li><em>Section 3.6.4<a
+							href="#Unicode_Locale_Extension_Data_Files"> U Extension Data
+								FIles</a></em>
 						<ul>
 							<li>Added new special type name RG_KEY_VALUE. [<a
 								href="http://unicode.org/cldr/trac/ticket/7999"
@@ -8112,9 +8111,19 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
 				<ul>
-					<li><em><i>Section <a
-								href="tr35-general.html#Unicode_locale_identifier">3.2
-									Unicode Locale Identifier</a></i></em>
+					<li><em><i>Section 1 <a href="#Display_Name_Elements">Display
+									Name Elements</a></i></em>
+						<ul>
+							<li>Added a note that people should have no expectation that
+								all language names be translated, and pointed to the language
+								subtag registry for English fallback names. [<a
+								href="http://unicode.org/cldr/trac/ticket/9137"
+								title="View ticket">#9137</a>]
+							</li>
+						</ul></li>
+					<li><em><i>Section 3.2 <a
+								href="tr35-general.html#Unicode_locale_identifier">Unicode
+									Locale Identifier</a></i></em>
 						<ul>
 							<li>Modified -u- extension keys to disallow final digit.
 								That makes them disjoint with -t- keys, allowing for simpler

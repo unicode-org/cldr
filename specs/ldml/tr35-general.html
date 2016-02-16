@@ -289,12 +289,10 @@ h2, h3, h4, table {
 			1 <a name="Display_Name_Elements" href="#Display_Name_Elements">Display
 				Name Elements</a>
 		</h2>
-		<p class="dtd">
-			&lt;!ELEMENT localeDisplayNames ( alias
-				| ( localeDisplayPattern?, languages?, scripts?, territories?,
-				subdivisions?, variants?, keys?, types?, transformNames?,
-				measurementSystemNames?, codePatterns?, special* ) )&gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT localeDisplayNames ( alias | (
+			localeDisplayPattern?, languages?, scripts?, territories?,
+			subdivisions?, variants?, keys?, types?, transformNames?,
+			measurementSystemNames?, codePatterns?, special* ) )&gt;</p>
 		<p>
 			Display names for scripts, languages, countries, currencies, and
 			variants in this locale are supplied by this element. They supply
@@ -391,7 +389,12 @@ h2, h3, h4, table {
 					style="color: blue">Albanian</span>&lt;/language&gt;
 </pre>
 		</blockquote>
-
+		<p class="changed">There should be no expectation that the list of
+			languages with translated names be complete: there are thousands of
+			languages that could have translated names. For debugging purposes or
+			comparison, when a language display name is missing, the Description
+			field of the language subtag registry can be used to supply a
+			fallback English user-readable name.</p>
 		<p>The type can actually be any locale ID as specified above. The
 			set of which locale IDs is not fixed, and depends on the locale. For
 			example, in one language one could translate the following locale
@@ -616,13 +619,12 @@ h2, h3, h4, table {
 </pre>
 		</blockquote>
 		<p class="dtd">
-			&lt;!ELEMENT subdivisions ( alias | (
-				subdivision | special )* ) &gt;<br> &lt;!ELEMENT subdivision (
-				#PCDATA )&gt;
+			&lt;!ELEMENT subdivisions ( alias | ( subdivision | special )* ) &gt;<br>
+			&lt;!ELEMENT subdivision ( #PCDATA )&gt;
 		</p>
-		<p>Note that the subdivision names are in separate
-			files, in the subdivisions/ directory. The type values are the fully
-			qualified subdivsion names. For example:</p>
+		<p>Note that the subdivision names are in separate files, in the
+			subdivisions/ directory. The type values are the fully qualified
+			subdivsion names. For example:</p>
 		<p class="xmlExample">
 			&lt;subdivision type=&quot;AL-04&quot;&gt;Fier
 			County&lt;/subdivision&gt;<br> &lt;subdivision
@@ -1052,28 +1054,32 @@ h2, h3, h4, table {
 		<h3>
 			3.2 <a name="Character_Mapping" href="#Character_Mapping">Mapping</a>
 		</h3>
-		
-		<p><b>This element has been deprecated.</b> For information
-			on its structure and how it was intended to specify locale-specific
+
+		<p>
+			<b>This element has been deprecated.</b> For information on its
+			structure and how it was intended to specify locale-specific
 			preferred encodings for various purposes (e-mail, web), see the <a
 				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#Character_Mapping">Mapping</a>
-			section from the CLDR 27 version of the LDML Specification.</p>
+			section from the CLDR 27 version of the LDML Specification.
+		</p>
 
 
 		<h3>
 			3.3 <a name="IndexLabels" href="#IndexLabels">Index Labels</a>
 		</h3>
 
-		<p><b>This element and its subelements have been
-			deprecated.</b> For information on its structure and how it was intended
-			to provide data for a compressed display of index exemplar characters
-			where space is limited, see the <a
+		<p>
+			<b>This element and its subelements have been deprecated.</b> For
+			information on its structure and how it was intended to provide data
+			for a compressed display of index exemplar characters where space is
+			limited, see the <a
 				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#IndexLabels">Index
-			Labels</a> section from the CLDR 27 version of the LDML Specification.</p>
+				Labels</a> section from the CLDR 27 version of the LDML Specification.
+		</p>
 
 		<p class="dtd">&lt;!ELEMENT indexLabels (indexSeparator*,
 			compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*,
-			indexLabelAfter*, indexLabel*) &gt; </p>
+			indexLabelAfter*, indexLabel*) &gt;</p>
 
 
 		<h3>
@@ -1260,30 +1266,25 @@ h2, h3, h4, table {
 
 		<p class="dtd">
 			&lt;!ELEMENT units (alias | (unit*, unitLength*, durationUnit*,
-			special*) ) &gt;<br>
-			<br> &lt;!ELEMENT unitLength (alias | (compoundUnit*, unit*, coordinateUnit*, special*) ) &gt;<br>
-			&lt;!ATTLIST unitLength type (long | short | narrow) #REQUIRED &gt;
-			<br>
+			special*) ) &gt;<br> <br> &lt;!ELEMENT unitLength (alias |
+			(compoundUnit*, unit*, coordinateUnit*, special*) ) &gt;<br>
+			&lt;!ATTLIST unitLength type (long | short | narrow) #REQUIRED &gt; <br>
 			<br> &lt;!ELEMENT compoundUnit (alias | (compoundUnitPattern*,
 			special*) ) &gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN
-			#REQUIRED &gt; <br>
-			<br> &lt;!ELEMENT unit (alias | (displayName*, unitPattern*,
-			perUnitPattern*, special*) ) &gt;<br> &lt;!ATTLIST unit type
-			NMTOKEN #REQUIRED &gt; <br>
-			<br> &lt;!ELEMENT durationUnit (alias | (durationUnitPattern*,
-			special*) ) &gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN
-			#REQUIRED &gt; <br>
+			#REQUIRED &gt; <br> <br> &lt;!ELEMENT unit (alias |
+			(displayName*, unitPattern*, perUnitPattern*, special*) ) &gt;<br>
+			&lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt; <br> <br>
+			&lt;!ELEMENT durationUnit (alias | (durationUnitPattern*, special*) )
+			&gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN #REQUIRED &gt; <br>
 			<br> &lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br>
 			&lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many
-			| other) #REQUIRED &gt; <br>
-			<br> &lt;!ELEMENT compoundUnitPattern ( #PCDATA ) &gt;<br>
-			<br> &lt;!ELEMENT coordinateUnit (
-				alias | ( coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
-				coordinateUnitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
-				coordinateUnitPattern type (north | east | south | west) #REQUIRED
-				&gt;
-			<br>
-			<br> &lt;!ELEMENT durationUnitPattern ( #PCDATA ) &gt;<br>
+			| other) #REQUIRED &gt; <br> <br> &lt;!ELEMENT
+			compoundUnitPattern ( #PCDATA ) &gt;<br> <br> &lt;!ELEMENT
+			coordinateUnit ( alias | ( coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
+			coordinateUnitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			coordinateUnitPattern type (north | east | south | west) #REQUIRED
+			&gt; <br> <br> &lt;!ELEMENT durationUnitPattern ( #PCDATA )
+			&gt;<br>
 		</p>
 
 		<p>These elements specify the localized way of formatting
@@ -1331,10 +1332,10 @@ h2, h3, h4, table {
 			type=&quot;acceleration-g-force&quot;&gt;</p>
 		<p>​</p>
 		<p>
-			Examples of these include the following.
-				The complete list is in the validity data: see <em>Section <a
-					href="tr35.html#Validity_Data">3.11 Validity Data</a></em>.
-			</p>
+			Examples of these include the following. The complete list is in the
+			validity data: see <em>Section <a href="tr35.html#Validity_Data">3.11
+					Validity Data</a></em>.
+		</p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -2063,10 +2064,10 @@ h2, h3, h4, table {
 			clear from context whether Celcius or Fahrenheit is implied.</p>
 		<p>For duration, there are special units such as &lt;unit
 			type=&quot;duration-year-person&quot;&gt; and &lt;unit
-			type=&quot;duration-year-week&quot;&gt; for indicating the age of a person,
-			which requires special forms in some languages. For example, in "zh",
-			references to a person being 3 days old or 30 years old would use the forms
-			“他3天大” and “他30岁” respectively.</p>
+			type=&quot;duration-year-week&quot;&gt; for indicating the age of a
+			person, which requires special forms in some languages. For example,
+			in "zh", references to a person being 3 days old or 30 years old
+			would use the forms “他3天大” and “他30岁” respectively.</p>
 		<h3>
 			6.1 <a name="perUnitPatterns" href="#perUnitPatterns">per Unit
 				patterns</a><a name="compoundUnitPattern" href="#compoundUnitPattern"></a>
@@ -2173,14 +2174,14 @@ h2, h3, h4, table {
 		</p>
 		<p class="xmlExample">
 			&lt;coordinateUnitPattern
-				type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
-				&lt;coordinateUnitPattern
-				type=&quot;north&quot;&gt;{0}N&lt;/coordinateUnitPattern&gt;<br>
-				&lt;coordinateUnitPattern
-				type=&quot;south&quot;&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
-				&lt;coordinateUnitPattern
-				type=&quot;west&quot;&gt;{0}W&lt;/coordinateUnitPattern&gt;
-			</p>
+			type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
+			&lt;coordinateUnitPattern
+			type=&quot;north&quot;&gt;{0}N&lt;/coordinateUnitPattern&gt;<br>
+			&lt;coordinateUnitPattern
+			type=&quot;south&quot;&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
+			&lt;coordinateUnitPattern
+			type=&quot;west&quot;&gt;{0}W&lt;/coordinateUnitPattern&gt;
+		</p>
 		<h2>
 			7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
 		</h2>
@@ -3940,13 +3941,14 @@ h2, h3, h4, table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All Rights Reserved. The Unicode
-			Consortium makes no expressed or implied warranty of any kind, and
-			assumes no liability for errors or omissions. No liability is assumed
-			for incidental and consequential damages in connection with or
-			arising out of the use of the information or programs contained or
-			accompanying this technical report. The Unicode <a
-				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
+			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

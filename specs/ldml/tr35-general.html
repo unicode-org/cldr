@@ -2533,7 +2533,7 @@ h2, h3, h4, table {
 			where &#39;und&#39; means an unspecified language, plus some
 			additional extensions.</p>
 
-		<ul>
+<ul>
 			<li>The long names of a script according to [<a
 				href="http://www.unicode.org/reports/tr41/#UAX24">UAX24</a>] may be
 				used instead of the short script codes. The script identifier may
@@ -2556,7 +2556,63 @@ h2, h3, h4, table {
 				"und_Latn-und_Grek" (or the equivalent "Latin-Greek"), the
 				translated name for Greek would be Λατινικό-Ελληνικό.</li>
 		</ul>
-
+		<p class='changed'>In version 29.0, BCP47 identifiers were added as aliases (while retaining the old identifiers). The following table shows the relationship between the old identifiers and the BCP47 format identifiers.</p>
+		<table class='simple changed'>
+		  <tbody>
+		    <tr>
+		      <th>Old ID</th>
+		      <th>BCP47 ID</th>
+		      <th>Comments</th>
+	        </tr>
+		    <tr>
+		      <td><strong>es_FONIPA</strong>-es_419_FONIPA</td>
+		      <td>es-419-fonipa-t-<strong>es-fonipa</strong></td>
+		      <td rowspan="2">The order reverses with -t-. That is, the language subtag part is what results.</td>
+	        </tr>
+		    <tr>
+		      <td><strong>hy_AREVMDA</strong>-hy_AREVMDA_FONIPA</td>
+		      <td>hy-arevmda-fonipa-t-<strong>hy-arevmda</strong></td>
+	        </tr>
+		    <tr>
+		      <td><strong>Devanagari</strong>-Latin</td>
+		      <td>und-Latn-t-<strong>und-deva</strong></td>
+		      <td rowspan="2">Scripts add  <strong>und-</strong></td>
+	        </tr>
+		    <tr>
+		      <td><strong>Latin</strong>-Devanagari</td>
+		      <td>und-Deva-t-<strong>und-latn</strong></td>
+	        </tr>
+		    <tr>
+		      <td>Greek-Latin/UNGEGN</td>
+		      <td>und-Latn-t-und-grek-<strong>m0-ungegn</strong></td>
+		      <td>Variants use the <strong>-m0-</strong> key.</td>
+	        </tr>
+		    <tr>
+		      <td>Russian-Latin/BGN</td>
+		      <td>ru<strong>-Latn</strong>-t-ru-m0-bgn</td>
+		      <td>Languages will have a script when it isn’t the default.</td>
+	        </tr>
+		    <tr>
+		      <td>Any-Hex/xml</td>
+		      <td>und-t-<strong>d0-hex</strong>-m0-xml</td>
+		      <td rowspan="2"><strong>Any</strong> becomes <strong>und</strong>, and keys <strong>d0</strong> (destination) and <strong>s0</strong> (source) are used for non-locales.</td>
+	        </tr>
+		    <tr>
+		      <td>Hex-Any/xml</td>
+		      <td>und-t-<strong>s0-hex</strong>-m0-xml</td>
+	        </tr>
+		    <tr>
+		      <td>Any-<strong>Publishing</strong></td>
+		      <td>und-t-d0-<strong>publish</strong></td>
+		      <td rowspan="2">Non-locales are normally the lowercases of the old ID, but may change because of BCP47 length restrictions.</td>
+	        </tr>
+		    <tr>
+		      <td><strong>Publishing</strong>-Any</td>
+		      <td>und-t-s0-<strong>publish</strong></td>
+	        </tr>
+	      </tbody>
+	  </table>
+            <p class='changed'>Note that the script and region codes are cased iff they are in the main subtag, but are lowercase in  extensions.</p>
 		<h3>
 			10.1 <a name="Inheritance" href="#Inheritance">Inheritance</a>
 		</h3>

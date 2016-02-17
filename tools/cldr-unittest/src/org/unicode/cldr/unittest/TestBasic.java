@@ -1199,14 +1199,12 @@ public class TestBasic extends TestFmwkPlus {
                     boolean tooOld = false;
                     switch (type) {
                     case ldmlBCP47:
+                    case ldmlICU:
                         tooOld = version.compareTo(Versions.v1_7_2) >= 0;
                         break;
                     case keyboard:
                     case platform:
                         tooOld = version.compareTo(Versions.v22_1) >= 0;
-                        break;
-                    case ldmlICU:
-                        tooOld = version.compareTo(Versions.v1_2_0) >= 0;
                         break;
                     default:
                         break;

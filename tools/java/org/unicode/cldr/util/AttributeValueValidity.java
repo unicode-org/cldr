@@ -119,9 +119,15 @@ public class AttributeValueValidity {
                     validItems = temp2;
                 } else if (key == LstrType.subdivision) {
                     for (String item : validItems) {
-                        List<String> parts = Splitter.on('-').splitToList(item);
-                        prefix.add(parts.get(0));
-                        suffix.add(parts.get(1));
+                        if (item.contains("-")) {
+                            List<String> parts = Splitter.on('-').splitToList(item);
+                            prefix.add(parts.get(0));
+                            suffix.add(parts.get(1)); }
+                        else {
+                            int prefixWidth = item.charAt(0) < 'A' ? 3 : 2;
+                            prefix.add(item.substring(0,prefixWidth));
+                            suffix.add(item.substring(prefixWidth));
+                        }
                     }
                 }
                 all.addAll(validItems);

@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -184,7 +185,7 @@ public class GenerateValidityXml {
         for (String container : SDI.getContainersForSubdivisions()) {
             for (String contained : SDI.getContainedSubdivisions(container)) {
                 Status status = aliases.containsKey(contained) ? Validity.Status.deprecated : Validity.Status.regular;
-                info.statusMap.put(status, contained);
+                info.statusMap.put(status, contained.toLowerCase(Locale.ROOT).replace("-", ""));
             }
         }
         
@@ -193,7 +194,9 @@ public class GenerateValidityXml {
         Map<Status, Set<String>> subdivisionData = VALIDITY.getData().get(LstrType.subdivision);
         TreeSet<String> missing = new TreeSet<>();
         for (Entry<Status, Set<String>> entry : subdivisionData.entrySet()) {
-            missing.addAll(entry.getValue());
+            for (String missingItem : entry.getValue()) {
+                missing.add(missingItem);
+            }
         }
         for (Entry<Status, String> entry : info.statusMap.entrySet()) {
             boolean old = missing.remove(entry.getValue());
@@ -255,7 +258,7 @@ public class GenerateValidityXml {
                     }
                     if (subtype == Status.regular) {
                         Info subInfo = Info.getInfo("subdivision");
-                        subInfo.statusMap.put(Status.unknown, code + "-" + "ZZZZ");
+                        subInfo.statusMap.put(Status.unknown, code.toLowerCase(Locale.ROOT) + "zzzz");
                     }
                     break;
                 case script:

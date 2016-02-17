@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -81,6 +82,9 @@ public class Validity {
                     submap.put(subtypeAttr, set = new LinkedHashSet<>());
                 }
                 for (String value : space.split(item.getSecond())) {
+                    if (type == LstrType.subdivision) {
+                        value = value.toLowerCase(Locale.ROOT).replace("-", "");
+                    }
                     int dashPos = value.indexOf('~');
                     if (dashPos < 0) {
                         set.add(value);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -68,7 +69,7 @@ public class TestSubdivisions extends TestFmwkPlus {
             }
             String value = entry.getSecond();
             final String subdivision = parts.getAttributeValue(-1, "type");
-            if (deprecated.contains(subdivision)) {
+            if (deprecated.contains(subdivision.replace("-","").toLowerCase(Locale.ROOT))) {
                 continue; // skip deprecated names
             }
             R2<List<String>, String> subdivisionAlias = subdivisionAliases.get(subdivision);

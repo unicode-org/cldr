@@ -58,7 +58,7 @@ li, p {
 	margin-bottom: 0.5em
 }
 
-h2, h3, h4, table {
+h2, h3, h4, h5, table {
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
 }
@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2016-02-16</span></td>
+				<td><span class="changed">2016-02-17</span></td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -5625,11 +5625,10 @@ root</pre>
 			and strings, and is defined by lists of code points and strings,
 			Unicode property sets, and set operators, all bounded by square
 			brackets. In this context, a code point means a string consisting of
-			exactly one code point. A UnicodeSet is based on a subset of features
+			exactly one code point.</p>
+		<p>A UnicodeSet is based on a subset of features
 			found in <i>UTS #18: Unicode Regular Expressions</i> [<a
-				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>], but
-			with sometimes different syntax.
-		</p>
+				href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>]. <span class="changed">A UnicodeSet may be used in specifications outside of the domain of LDML. In such a case, the specification may  support  a subset of the syntax provided here.</span></p>
 		<h5>
 			<a href="#Lists_of_Code_Points" name="Lists_of_Code_Points">5.3.3.1
 				Lists of Code Points</a>
@@ -5647,8 +5646,7 @@ root</pre>
 			A string with multiple code points is represented in a list by being
 			surrounded by curly braces, such as in <strong>[a-z {ch}]</strong>.
 			It can be used with the range notation, as described in <em>Section
-				<a href="#String_Range">5.3.4 String Range</a>
-			</em>. There is an additional restriction on string ranges in a
+				<a href="#String_Range">5.3.4 String Range</a></em>. There is an additional restriction on string ranges in a
 			UnicodeSet: the number of codepoints in the first string of the range
 			must be identical to the number in the second. Thus [{ab}-{c}] and
 			[{ab}-c] are invalid.
@@ -5926,9 +5924,13 @@ root</pre>
 			</p>
 		</blockquote>
 		<p>The separator and the format of strings X, Y may vary depending
-			on the domain. For example, for the validity files the separator is
-			~, while for UnicodeString the separator is -, but any
-			multi-codepoint string is enclosed in {…}.</p>
+			on the domain. For example,</p>
+		<ul>
+		  <li>for the validity files the separator is
+		    ~, </li>
+		  <li>for Unicode<span class="changed">Set</span> the separator is -, <span class="changed">and</span> any
+		    multi-codepoint string is enclosed in {…}.</li>
+      </ul>
 		<p>
 			<strong>Validity: <br>
 			</strong>
@@ -5936,8 +5938,8 @@ root</pre>
 		<blockquote>
 			<p>
 				A string range X <em>sep</em> Y is valid iff len(X) ≥ len(Y) &gt; 0,
-				where len(X) is the length of X in code points.
-			</p>
+				where len(X) is the length of X in code points.</p>
+			<p class="changed"><em>There may be additional, domain-specific requirements for validity of the expansion of the string range.</em></p>
 		</blockquote>
 		<p>
 			<strong>Interpretation:<br>

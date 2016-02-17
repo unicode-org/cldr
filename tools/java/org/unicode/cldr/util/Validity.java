@@ -18,7 +18,7 @@ public class Validity {
 
     public enum Status {
         regular,
-        special,
+        special, // for certain language codes like mul
         unknown,
         macroregion, // regions only (from M.49)
         deprecated,

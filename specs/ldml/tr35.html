@@ -960,7 +960,7 @@ h5 {
 			</tr>
 			<tr>
 				<td class='changed'><code>
-						<a name="subdivision_attribute" href="#subdivision_attribute">unicode_subdivision_id</a>
+						<a name="unicode_subdivision_id" href="#unicode_subdivision_id">unicode_subdivision_id</a><a name="unicode_subdivision_subtag"></a><a name="subdivision_attribute"></a>
 					</code></td>
 				<td><code>
 						= <a href="#unicode_region_subtag">unicode_region_subtag</a> <span
@@ -978,15 +978,9 @@ h5 {
 
 			</tr>
 			<tr>
-				<td class='changed'><code>
-						<a name="unicode_subdivision_subtag"
-							href="#unicode_subdivision_subtag">unicode_subdivision_suffix</a>
-					</code></td>
+				<td class='changed'><code>unicode_subdivision_suffix</code></td>
 				<td><code> = (alphanum{1,4} ;</code></td>
 				<td><code>= 1*4alphanum</code></td>
-				<td><code>
-						<a href='#unicode_subdivision_subtag_validity'>validity</a>
-					</code></td>
 			</tr>
 			<tr>
 				<td><code>
@@ -2305,9 +2299,9 @@ zh-Hant-HK</pre>
 				<td rowspan="2">Regional Subdivision</td>
 				<td>&quot;gbsct&quot;<br> <br></td>
 				<td rowspan="2">A <a class='changed'
-					href="#subdivision_attribute">unicode_subdivision_id</a>, which is
+					href="#unicode_subdivision_id">unicode_subdivision_id</a>, which is
 					a <a href="#unicode_region_subtag">unicode_region_subtag</a>concatenated
-					with a <a class='changed' href="#unicode_subdivision_subtag">unicode_subdivision_suffix</a>.<br>
+					with a unicode_subdivision_suffix.<br>
 					For example, <span class="changed"><em>gbsct</em> is
 						“gb”+“sct” (where sct represents the subdivision code for
 						Scotland). Thus</span> “en-GB-u-sd-gbsct” represents the language variant
@@ -2615,30 +2609,22 @@ zh-Hant-HK</pre>
 				<p class="changed">
 					The type name <strong>"RG_KEY_VALUE"</strong> is reserved for
 					region codes in the format required by the "rg" key; this is a
-					region code with idStatus 'regular' (i.e. regular regions only, no
-					macroregions) from the idValidity data in
-					common/validity/region.xml. Note that this is equivalent to a
-					subdivision code with idStatus='unknown' from the idValidity data
-					in common/validity/subdivision.xml, with the '-' removed.
-				</p>
+					region code from the idValidity data in
+				common/validity/region.xml, excluding   idStatus='unknown' and 'macroregion'. Codes with the idStatus='deprecated' should not be generated, and those with idStatus='private_use' are only to be used with prior agreement.</p>
 				<p class="changed">
 					The type name <strong>"SUBDIVISION_CODE"</strong> is reserved for
 					subdivision codes in the format required by the "sd" key; this is a
-					subdivision code with idStatus 'regular' (i.e. regular regions
-					only, no macroregions) from the idValidity data in
-					common/validity/subdivision.xml. Note that this is equivalent to a
-					subdivision code with idStatus='unknown' from the idValidity data
-					in common/validity/subdivision.xml, with the '-' removed.
-				</p>
+					subdivision code  from the idValidity data in
+					common/validity/subdivision.xml, excluding   idStatus='unknown'. Codes with the idStatus='deprecated' should not be generated, and those with idStatus='private_use' are only to be used with prior agreement.</p>
 				<p class="changed">
 					The type name <strong>"PRIVATE_USE"</strong> is reserved for
-					private use type. A valid type value is composed of one or more
+					private use types. A valid type value is composed of one or more
 					subtags separated by hyphens and each subtag consists of three to
 					eight ASCII alphanumeric characters. In the current version of
 					CLDR, <strong>"PRIVATE_USE"</strong> is only used for transform
 					extension "x0".
 				</p>
-				<p class='changed'>The valueType indicates how many subtags are
+				<p class='changed'>The <strong>valueType</strong> attribute indicates how many subtags are
 					valid for a given key.</p>
 				<table class='simple changed' width="100%" border="1">
 					<tbody>
@@ -2809,82 +2795,57 @@ zh-Hant-HK</pre>
 				subdivision of a country or region. They are called various names,
 				such as a <em>state</em> in the United States, or a <em>province</em>
 				in Canada. The codes in CLDR
-			</span>are based on ISO 3166-2 subdivision codes, which have 1..3 ASCII
-			letters or digits.
-		</p>
-		<p>Like BCP47, CLDR needs stable codes, which are not guaranteed
-			for ISO 3166-2 (nor have they been stable in the past). CLDR thus
-			adds 4-character sequences, also ASCII letters or digits, which can
-			be used for stability. If an ISO 3166-2 code is removed, it remains
-			valid (though marked as deprecated) in CLDR. If an ICU 3166-2 code is
-			reused (for the same region), then CLDR will define a new equivalent
-			code using these a 4-character sequence.</p>
-		<p>
-			For use in a <a href='#unicode_locale_id'>unicode_locale_id</a>, the
-			subdivision code must be extended to be more than 2 characters. This
-			is done syntactically by always prefixing the code by the <a
-				href="#unicode_region_subtag">unicode_region_subtag</a>. It does
-			not, however, contain an interior hyphen, unlike ISO 3166-2. For
+			</span>are based on ISO 3166-2 subdivision codes. <span class="changed">The ISO codes have a region code followed by a hyphen, then a suffix consisting of</span> 1..3 ASCII
+		letters or digits. </p>
+		<p><span class="changed">The CLDR codes are designed to work in a <a href='#unicode_locale_id'>unicode_locale_id</a> (BCP47), and are thus all lowercase, with no hyphen.</span> For
 			example, the following are valid, and mean “English as used in
-			California, USA”.
-		</p>
-		<ul>
-			<li>en-u-sd-usca</li>
-			<li>en-US-u-sd-usca</li>
-		</ul>
+		California, USA”. </p>
+        <ul>
+          <li>en-u-sd-<strong>usca</strong></li>
+          <li>en-US-u-sd-<strong>usca</strong></li>
+      </ul>
+		<p class="changed">CLDR  has additional  subdivision codes. These may start with a 3-digit region code or use a suffix of 4 ASCII letters or digits, so they will not collide with the ISO codes. Subdivision codes for unknown values are the region code plus &quot;zzzz&quot;, such as &quot;uszzzz&quot; for an unknown subdivision of the US. Other codes may be added for stability.</p>
+		<p>Like BCP47, CLDR requires stable codes, which are not guaranteed
+		  for ISO 3166-2 (nor <span class="changed">have the ISO 3166-2 codes</span> been stable in the past). If an ISO 3166-2 code is removed, it remains
+		  valid (though marked as deprecated) in CLDR. If an ICU 3166-2 code is
+		  reused (for the same region), then CLDR will define a new equivalent
+		  code using these a 4-character <span class="changed">suffixes</span>. </p>
 		<h5>Validity</h5>
-		<p>
-			A <a href="#subdivision_attribute"></a><a class='changed'
-				href="#unicode_subdivision_subtag">unicode_subdivision_suffix</a> is
-			valid for a <a href="#unicode_region_subtag">unicode_region_subtag</a>
-			only when combination of the two, with an intervening hyphen, is
+		<p>A <a class='changed' href="#unicode_subdivision_id">unicode_subdivision_id</a>
+			is only valid <span class="changed">when it is
 			present in the subdivision.xml file as described in <em>Section
-				3.11 <a href="#Validity_Data">Validity Data</a>
-			</em>.
-		</p>
-		<p>For example, the subdivision “ca” (and “CA”) is valid for the
-			region “US” because of the following element:</p>
-		<p align="center">
-			<code>&lt;id type="subdivision"…&gt;… US-CA …&lt;/id&gt;</code>
-		</p>
-		<p>The data is in a compressed form, and thus needs to be expanded
-			before such a test is made.</p>
-		<p>
-			A <a class='changed' href="#subdivision_attribute">unicode_subdivision_id</a>
-			is only valid when it consists of the concatenation of a <a
-				href="#unicode_region_subtag">unicode_region_subtag</a> and a <a
-				href="#unicode_subdivision_subtag" class='changed'>unicode_subdivision_suffix</a>
-			which is valid for that <a href="#unicode_region_subtag">unicode_region_subtag</a>.
-		</p>
-		<p>
-			Thus the following is invalid:<br>
-		</p>
+				3.11 <a href="#Validity_Data">Validity Data</a></em>.</span> The data is in a compressed form, and thus needs to be expanded
+		before such a test is made. </p>
+		<p class="changed"><em>
+		  Examples:<br>
+		</em></p>
 		<ul>
-			<li><strong>ussct</strong> — there is no <strong>id</strong>
-				element <code>&lt;id type="subdivision"…&gt;… US-SCT
+			<li><strong>usca</strong> is valid — there is an <strong>id</strong> element<code>&lt;id type="subdivision"…&gt;… usca …&lt;/id&gt;</code></li>
+			<li><strong>ussct</strong> is invalid — there is no <strong>id</strong>
+				element <code>&lt;id type="subdivision"…&gt;… ussct
 					…&lt;/id&gt;</code></li>
 		</ul>
 		<p>
 			A <a href="#unicode_subdivision_subtag"></a><a class='changed'
-				href="#subdivision_attribute">unicode_subdivision_id</a> is only
-			valid in a <a href='#unicode_locale_id'>unicode_locale_id</a> if the
-			prefixed <a href="#unicode_region_subtag">unicode_region_subtag</a>
-			matches the <a href="#unicode_region_subtag">unicode_region_subtag</a>
+				href="#unicode_subdivision_id">unicode_subdivision_id</a> is only
+			valid in a <a href='#unicode_locale_id'>unicode_locale_id</a> <span class="changed">if it starts with the</span> <a href="#unicode_region_subtag">unicode_region_subtag</a>
 			in the <a href="#unicode_language_id">unicode_language_id</a> (after
-			adding likely subtags).
-		</p>
-		<p>
-			Thus the following are invalid:<br>
+		adding likely subtags<span class="changed">, and comparing case-insensitively</span>). </p>
+		<p class="changed">Examples:<br>
 		</p>
 		<ul>
-			<li>en-<strong>CA</strong>-u-sd-<strong>gb</strong>sct — the
+			<li class="changed">en-<strong>US</strong>-u-sd-<strong>us</strong>ca is valid — the
+			  region &quot;US&quot; matches</li>
+            <li>en-<strong>CA</strong>-u-sd-<strong>gb</strong>sct is invalid — the
 				region &quot;gb&quot; does not match &quot;CA&quot;
 			</li>
-			<li>en-u-sd-<strong>gb</strong>sct — after adding likely
+			<li>en-u-sd-<strong>gb</strong>sct is invalid — after adding likely
 				subtags, this becomes en<strong>-Latn-US</strong>-u-sd-<strong>gb</strong>sct,
 				where the region &quot;gb&quot; does not match &quot;US&quot;
 			</li>
 		</ul>
+		<p><span class="changed">In version 28.0, t</span>he subdivisions in the validity files <span class="changed">used </span> the ISO format, <span class="changed">uppercase </span>with a
+		hyphen separating two components<span class="changed">, instead of the BCP47 format</span>.</p>
 		<h3>
 			<a name="t_Extension"></a><a name="BCP47_T_Extension"
 				href="#BCP47_T_Extension">3.7 Unicode BCP 47 T Extension</a>
@@ -3466,6 +3427,7 @@ zh-Hant-HK</pre>
 		<ul>
 			<li><strong>regular</strong> — the standard codes used for the
 				specific type of subtag</li>
+			<li class="changed"><strong>special</strong> — certain exceptional language codes like 'mul'<em> (languages only)</em></li>
 			<li><strong>unknown</strong> — the code used to indicate the
 				&quot;unknown&quot;, &quot;undetermined&quot; or &quot;invalid&quot;
 				values. For more information, see <em>Section 3.5.1 <a
@@ -3502,10 +3464,8 @@ zh-Hant-HK</pre>
 			“angle-arc-minute”. The first subtag provides a general “category” of
 			the unit.</p>
 		<p>
-			The subdivisions in the validity files use the ISO format, with a
-			hyphen separating two components. This hyphen is not used in the <a
-				class='changed' href="#subdivision_attribute">unicode_subdivision_id</a>.
-		</p>
+			<span class="changed">In version 28.0, t</span>he subdivisions in the validity files <span class="changed">used </span> the ISO format, <span class="changed">uppercase </span>with a
+		hyphen separating two components<span class="changed">, instead of the BCP47 format</span>.</p>
 		<h2>
 			<a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale
 				Inheritance and Matching</a>
@@ -8075,9 +8035,9 @@ decimal?, group?, special*)) &gt;</pre>
 						<ul>
 							<li>Modified terminology for clarity:
 								<ul>
+									<li>subdivision_attribute → unicode_subdivision_id</li>
 									<li>unicode_subdivision_subtag →
 										unicode_subdivision_suffix</li>
-									<li>subdivision_attribute → unicode_subdivision</li>
 								</ul>
 							</li>
 						</ul></li>
@@ -8107,8 +8067,17 @@ decimal?, group?, special*)) &gt;</pre>
 								attribute. [<a href="http://unicode.org/cldr/trac/ticket/9226"
 								title="View ticket">#9226</a>]
 							</li>
-						</ul></li>
-				</ul></li>
+						</ul>
+					</li>
+					<li>Section 3.6.5
+				<a href="#Unicode_Subdivision_Codes" >Subdivision Codes</a></li>
+					<li>Section 3.11 <a href="#Validity_Data">Validity Data</a> 
+					  <ul>
+					    <li>Changed the format of the subdivision validity data to use BCP47-style (lowercase, no hyphen)</li>
+				      </ul>
+					</li>
+				</ul>
+			</li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
 				<ul>

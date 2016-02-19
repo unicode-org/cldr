@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2016-02-17</span></td>
+				<td><span class="changed">2016-02-19</span></td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -175,7 +175,7 @@ h5 {
 			</i>
 		</p>
 		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		<!-- APPROVED
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -2607,15 +2607,25 @@ zh-Hant-HK</pre>
 					</a>.
 				</p>
 				<p class="changed">
-					The type name <strong>"RG_KEY_VALUE"</strong> is reserved for
-					region codes in the format required by the "rg" key; this is a
-					region code from the idValidity data in
-				common/validity/region.xml, excluding   idStatus='unknown' and 'macroregion'. Codes with the idStatus='deprecated' should not be generated, and those with idStatus='private_use' are only to be used with prior agreement.</p>
+					The type name <strong>"RG_KEY_VALUE"</strong> is reserved for region
+					codes in the format required by the "rg" key; this is a region code
+					from the idValidity data in common/validity/region.xml (with certain
+					exclusions, listed below) followed by "zzzz". The excluded region
+					codes are those with idStatus='unknown' and 'macroregion'; region
+					codes with idStatus='deprecated' should not be generated, and those
+					with idStatus='private_use' are only to be used with prior agreement.
+					Thus the value for the "rg" key will normally be a region code with
+					idStatus='regular' followed by "zzzz"; this set of values is the same
+					as the subdivision codes with idStatus='unknown' from the idValidity
+					data in common/validity/subdivision.xml.</p>
 				<p class="changed">
 					The type name <strong>"SUBDIVISION_CODE"</strong> is reserved for
 					subdivision codes in the format required by the "sd" key; this is a
 					subdivision code  from the idValidity data in
-					common/validity/subdivision.xml, excluding   idStatus='unknown'. Codes with the idStatus='deprecated' should not be generated, and those with idStatus='private_use' are only to be used with prior agreement.</p>
+					common/validity/subdivision.xml, excluding those with
+					idStatus='unknown'. Codes with idStatus='deprecated' should not be
+					generated, and those with idStatus='private_use' are only to be used
+					with prior agreement.</p>
 				<p class="changed">
 					The type name <strong>"PRIVATE_USE"</strong> is reserved for
 					private use types. A valid type value is composed of one or more
@@ -2890,7 +2900,7 @@ zh-Hant-HK</pre>
 			name attribute in an enclosed &lt;type&gt; element defines a valid
 			field subtag for the field separator subtag. For example:</p>
 		<pre>
-&lt;key extension="t" name="m0" 
+&lt;key extension="t" name="m0"
     description="Transform extension mechanism"&gt;
 	&lt;type name="ungegn"
 		description="United Nations Group of Experts on Geographical Names"
@@ -2965,7 +2975,7 @@ zh-Hant-HK</pre>
 				<td>old_unicode_locale_extensions</td>
 				<td><pre>= "@" old_key "=" old_type
  (";" old_key "=" old_type)*</pre></td>
-				<td><pre>= "@" old_key "=" old_type 
+				<td><pre>= "@" old_key "=" old_type
 *(";" old_key "=" old_type)</pre></td>
 			</tr>
 		</table>
@@ -6147,7 +6157,7 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
 		</p>
 		<pre>&lt;distinguishingItems
   exclude=&quot;true&quot;
-  elements=&quot;default measurementSystem mapping abbreviationFallback preferenceOrdering&quot; 
+  elements=&quot;default measurementSystem mapping abbreviationFallback preferenceOrdering&quot;
   attributes=&quot;type&quot;/&gt;
 </pre>
 		<h3>
@@ -6303,7 +6313,7 @@ decimal?, group?, special*)) &gt;</pre>
 	&lt;era type=&quot;0&quot;&gt;BC&lt;/era&gt; &lt;!-- might add alternate BDE in the future --&gt;
 ...
 &lt;timeZoneNames&gt;
-	&lt;!-- Note: zones that do not use daylight time need further work --&gt; 
+	&lt;!-- Note: zones that do not use daylight time need further work --&gt;
 	&lt;zone type=&quot;America/Los_Angeles&quot;&gt;
 	...
 	&lt;!-- Note: the following is known to be sparse,
@@ -6531,23 +6541,23 @@ decimal?, group?, special*)) &gt;</pre>
 			absence of other information. The value of the choice attribute is to
 			match the value of the type attribute for the selected item.</p>
 		<pre>&lt;timeFormats&gt;
-  &lt;default choice=&quot;<span style="color: red">medium</span>&quot; /&gt; 
+  &lt;default choice=&quot;<span style="color: red">medium</span>&quot; /&gt;
   &lt;timeFormatLength type=&quot;<span style="color: blue">full</span>&quot;&gt;
     &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
       &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span
-				style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt; 
+				style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt;
     &lt;/timeFormat&gt;
   &lt;/timeFormatLength&gt;
   &lt;timeFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
     &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
       &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span
-				style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt; 
+				style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt;
     &lt;/timeFormat&gt;
   &lt;/timeFormatLength&gt;
   &lt;timeFormatLength type=&quot;<span style="color: red">medium</span>&quot;&gt;
     &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
       &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span
-				style="color: blue">h:mm:ss a</span>&lt;/pattern&gt; 
+				style="color: blue">h:mm:ss a</span>&lt;/pattern&gt;
     &lt;/timeFormat&gt;
   &lt;/timeFormatLength&gt;
 ...</pre>
@@ -6564,7 +6574,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<pre>  &lt;timeFormatLength type=&quot;<span style="color: red">medium</span>&quot;&gt;
     &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
       &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span
-				style="color: blue">...</span>&lt;/pattern&gt; 
+				style="color: blue">...</span>&lt;/pattern&gt;
     &lt;/timeFormat&gt;
   &lt;/timeFormatLength&gt;
     </pre>
@@ -8073,7 +8083,7 @@ decimal?, group?, special*)) &gt;</pre>
 					</li>
 					<li>Section 3.6.5
 				<a href="#Unicode_Subdivision_Codes" >Subdivision Codes</a></li>
-					<li>Section 3.11 <a href="#Validity_Data">Validity Data</a> 
+					<li>Section 3.11 <a href="#Validity_Data">Validity Data</a>
 					  <ul>
 					    <li>Changed the format of the subdivision validity data to use BCP47-style (lowercase, no hyphen)</li>
 				      </ul>

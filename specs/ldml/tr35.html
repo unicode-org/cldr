@@ -1386,21 +1386,38 @@ h5 {
 						</tr>
 					</table>
 					<p>
-						Unicode identifiers give specific semantics to four Unicode Script
+						Unicode identifiers give specific semantics to <span class="changed">six</span> Unicode Script
 						values [<a href="http://www.unicode.org/reports/tr41/#UAX24">UAX24</a>]:
 					</p>
 					<table cellspacing="0" cellpadding="2" border="1"
 						style="margin: 0.5em">
 						<tr>
-							<td><code>Zyyy</code></td>
-							<td>Common</td>
-							<td>&nbsp;</td>
-						</tr>
-						<tr>
 							<td><code>Qaai</code></td>
 							<td>Inherited</td>
 							<td><strong>deprecated</strong>: the <em>canonicalized</em>
 								form is Zinh</td>
+						</tr>
+						<tr class="changed">
+							<td><code>Zinh</code></td>
+							<td>Inherited</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr class="changed">
+							<td><code>Zsye</code></td>
+							<td>Emoji Style</td>
+							<td>Prefer emoji style for characters that have both text and
+								emoji styles available.</td>
+						</tr>
+						<tr class="changed">
+							<td><code>Zsym</code></td>
+							<td>Text Style</td>
+							<td>Prefer text style for characters that have both text and
+								emoji styles available.</td>
+						</tr>
+						<tr>
+							<td><code>Zyyy</code></td>
+							<td>Common</td>
+							<td>&nbsp;</td>
 						</tr>
 						<tr>
 							<td><code>Zzzz</code></td>
@@ -8058,8 +8075,16 @@ decimal?, group?, special*)) &gt;</pre>
 						<ul>
 							<li>Added direct links to validity data (latest version).</li>
 						</ul></li>
-					<li><em>Section 3.6.1<a href="#Key_And_Type_Definitions_">
-								Key And Type Definitions</a>
+					<li><em>Section 3.4 <a href="#Field_Definitions">Language
+								Identifier Field Definitions</a></em>
+						<ul>
+							<li>Documented script tags Zsye, Zsym. [<a
+								href="http://unicode.org/cldr/trac/ticket/9279"
+								title="View ticket">#9279</a>]
+							</li>
+						</ul></li>
+					<li><em>Section 3.6.1 <a href="#Key_And_Type_Definitions_">Key And
+								Type Definitions</a>
 					</em>
 						<ul>
 							<li>Added new Region Override key rg. [<a

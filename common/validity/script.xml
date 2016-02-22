@@ -11,8 +11,8 @@
 		Tool documented on:	http://cldr.unicode.org/development/updating-codes/update-validity-xml
  -->
 <supplementalData>
-		<version number="$Revision$"/>
-		<idValidity>
+	<version number="$Revision$"/>
+	<idValidity>
 		<id type='script' idStatus='regular'>		<!-- 144 items -->
 			Adlm Aghb Ahom Arab Armi Armn Avst
 			Bali Bamu Bass Batk Beng Bhks Bopo Brah~i Bugi Buhd
@@ -42,14 +42,14 @@
 		<id type='script' idStatus='special'>		<!-- 4 items -->
 			Zmth Zsye Zsym Zxxx
 		</id>
-		<id type='script' idStatus='unknown'>		<!-- 1 item -->
-			Zzzz
-		</id>
 		<id type='script' idStatus='deprecated'>		<!-- 1 item -->
 			Qaai
 		</id>
 		<id type='script' idStatus='private_use'>		<!-- 49 items -->
 			Qaaa~h Qaaj~z Qaba~x
+		</id>
+		<id type='script' idStatus='unknown'>		<!-- 1 item -->
+			Zzzz
 		</id>
 	</idValidity>
 </supplementalData>

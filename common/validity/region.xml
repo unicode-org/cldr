@@ -11,8 +11,8 @@
 		Tool documented on:	http://cldr.unicode.org/development/updating-codes/update-validity-xml
  -->
 <supplementalData>
-		<version number="$Revision$"/>
-		<idValidity>
+	<version number="$Revision$"/>
+	<idValidity>
 		<id type='region' idStatus='regular'>		<!-- 256 items -->
 			AC~G AI AL~M AO AQ~U AW~X AZ
 			BA~B BD~J BL~O BQ~T BV~W BY~Z
@@ -41,9 +41,6 @@
 			YE YT
 			ZA ZM ZW
 		</id>
-		<id type='region' idStatus='unknown'>		<!-- 1 item -->
-			ZZ
-		</id>
 		<id type='region' idStatus='macroregion'>		<!-- 32 items -->
 			001~3 005 009 011 013~5 017~9 021 029 030 034~5 039 053~4 057 061
 			142~3 145 150~1 154~5
@@ -68,6 +65,9 @@
 			AA
 			QM~N QP~T QV~Z
 			XA~J XL~Z
+		</id>
+		<id type='region' idStatus='unknown'>		<!-- 1 item -->
+			ZZ
 		</id>
 	</idValidity>
 </supplementalData>

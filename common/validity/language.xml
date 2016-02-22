@@ -11,8 +11,8 @@
 		Tool documented on:	http://cldr.unicode.org/development/updating-codes/update-validity-xml
  -->
 <supplementalData>
-		<version number="$Revision$"/>
-		<idValidity>
+	<version number="$Revision$"/>
+	<idValidity>
 		<id type='language' idStatus='regular'>		<!-- 8018 items -->
 			aa aaa~i aak~q aas~x aaz
 			ab aba~j abl~z
@@ -620,9 +620,6 @@
 			mis mul
 			zxx
 		</id>
-		<id type='language' idStatus='unknown'>		<!-- 1 item -->
-			und
-		</id>
 		<id type='language' idStatus='deprecated'>		<!-- 71 items -->
 			aju als arb ayr azj
 			bcc bcl bxk bxr
@@ -651,6 +648,9 @@
 		</id>
 		<id type='language' idStatus='private_use'>		<!-- 520 items -->
 			qaa~z qba~z qca~z qda~z qea~z qfa~z qga~z qha~z qia~z qja~z qka~z qla~z qma~z qna~z qoa~z qpa~z qqa~z qra~z qsa~z qta~z
+		</id>
+		<id type='language' idStatus='unknown'>		<!-- 1 item -->
+			und
 		</id>
 	</idValidity>
 </supplementalData>

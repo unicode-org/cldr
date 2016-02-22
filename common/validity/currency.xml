@@ -11,8 +11,8 @@
 		Tool documented on:	http://cldr.unicode.org/development/updating-codes/update-validity-xml
  -->
 <supplementalData>
-		<version number="$Revision$"/>
-		<idValidity>
+	<version number="$Revision$"/>
+	<idValidity>
 		<id type='currency' idStatus='regular'>		<!-- 155 items -->
 			AED AFN ALL AMD ANG AOA ARS AUD AWG AZN
 			BAM BBD BDT BGN BHD BIF BMD BND BOB BRL BSD BTN BWP BYR BZD
@@ -41,9 +41,6 @@
 			YER
 			ZAR ZMW
 		</id>
-		<id type='currency' idStatus='unknown'>		<!-- 1 item -->
-			XXX
-		</id>
 		<!-- Deprecated values are those that are not legal tender in some country after 2016.
 			 More detailed usage information needed for some implementations is in supplemental data. -->
 		<id type='currency' idStatus='deprecated'>		<!-- 140 items -->
@@ -69,6 +66,9 @@
 			XAG XAU XBA~D XDR XEU XFO XFU XPD XPT XRE XSU XTS XUA
 			YDD YUD YUM~N YUR
 			ZAL ZMK ZRN ZRZ ZWD ZWL ZWR
+		</id>
+		<id type='currency' idStatus='unknown'>		<!-- 1 item -->
+			XXX
 		</id>
 	</idValidity>
 </supplementalData>

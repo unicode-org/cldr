@@ -18,9 +18,9 @@ public class Validity {
 
     public enum Status {
         regular,
-        deprecated,
         special, // for languages only (special codes like mul)
         macroregion, // regions only (from M.49)
+        deprecated,
         private_use, // for clients of cldr with prior agreements
         unknown,
         invalid; //  (anything else)

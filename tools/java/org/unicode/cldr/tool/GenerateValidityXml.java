@@ -28,6 +28,7 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
@@ -112,8 +113,8 @@ public class GenerateValidityXml {
             try (PrintWriter output = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "validity/" + type + ".xml")) {
                 adder.target = output;
                 output.append(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
-                    + "\t\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
-                    + "\t\t<idValidity>\n");
+                    + "\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"
+                    + "\t<idValidity>\n");
                 for (Entry<Validity.Status, Set<String>> entry2 : subtypeMap.keyValuesSet()) {
                     Validity.Status subtype = entry2.getKey();
                     Set<String> set = entry2.getValue();
@@ -125,7 +126,7 @@ public class GenerateValidityXml {
                     final int size = set.size();
                     output.append("\t\t<!-- " + size + " item" + (size > 1 ? "s" : "") // we know it’s English ;-)
                         + " -->");
-                    adder.reset(size > 600 || type.equals("subdivision"));
+                    adder.reset(size > 600); //  || type.equals("subdivision")
                     StringRange.compact(set, adder, true);
                     output.append("\n\t\t</id>\n");
                 }
@@ -270,10 +271,16 @@ public class GenerateValidityXml {
                         }
                     }
                     break;
+                case variant:
+                    if (VARIANT_EXTRAS.contains(code)) {
+                        continue;
+                    }
                 }
                 info.statusMap.put(subtype, code);
             }
         }
         System.out.println("Skipping non-Unicode scripts: " + Joiner.on(' ').join(skippedScripts));
     }
+    
+    static final Set<String> VARIANT_EXTRAS = ImmutableSet.of("POSIX", "REVISED", "SAAHO");
 }

@@ -232,7 +232,7 @@ public class Ldml2JsonConverter {
             case rbnf:
                 myReader.process(Ldml2JsonConverter.class, "JSON_config_rbnf.txt");
                 break;
-            
+
             }
         }
 
@@ -253,6 +253,7 @@ public class Ldml2JsonConverter {
      */
     private String transformPath(String pathStr, String pathPrefix) {
         String result = pathStr;
+
         if (DEBUG) {
             System.out.println(" IN pathStr : " + result);
         }
@@ -260,6 +261,7 @@ public class Ldml2JsonConverter {
         for (int i = 0; i < LdmlConvertRules.PATH_TRANSFORMATIONS.length; i++) {
             m = LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern.matcher(pathStr);
             if (m.matches()) {
+                System.out.println(LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern);
                 result = m.replaceFirst(LdmlConvertRules.PATH_TRANSFORMATIONS[i].replacement);
                 break;
             }
@@ -278,6 +280,32 @@ public class Ldml2JsonConverter {
         if (DEBUG) {
             System.out.println("OUT pathStr : " + result);
         }
+        /*
+        if(type == RunType.rbnf){
+            int startIndex = result.indexOf("/rbnfrule");
+            int endIndex = 0;
+            if (startIndex > 0){
+                endIndex = result.indexOf(']', startIndex)+1;
+                if(startIndex >= 0 && endIndex >=0 && endIndex > startIndex){
+                    String remove = result.substring(startIndex, endIndex);
+                    result = result.replace(remove, "");
+                    // Q MESS
+                   /* int qStart = result.indexOf("@_q");
+                    if(qStart > 0){
+                        int qEnd = result.indexOf(']', qStart);
+                        if(qStart >= 0  && qEnd >=0 && qEnd > qStart && result.contains("@value")){
+                            String qRemove = result.substring(qStart+5, qEnd-1);
+                            int replace = Integer.parseInt(qRemove)+1;
+                            result.replace(qRemove, "" + replace);
+                            //System.out.println("qRemove: " + qRemove);
+                        }  
+                    }
+// Q MESS OVER
+                }
+            }
+        }
+         */ 
+        System.out.println("result: " +result);
         return result;
     }
 
@@ -358,6 +386,7 @@ public class Ldml2JsonConverter {
                 js.matcher.reset(transformedPath);
                 if (js.matcher.matches()) {
                     CldrItem item = new CldrItem(transformedPath, transformedFullPath, path, fullPath, value);
+
                     List<CldrItem> cldrItems = sectionItems.get(js);
                     if (cldrItems == null) {
                         cldrItems = new ArrayList<CldrItem>();
@@ -417,6 +446,9 @@ public class Ldml2JsonConverter {
         // processed.
 
         for (JSONSection js : sections) {
+            if(type == RunType.rbnf){
+                js.section = filename;
+            }
             String outFilename = js.section + ".json";
             String tier = "";
             boolean writeOther = Boolean.parseBoolean(options.get("other").getValue());
@@ -448,15 +480,21 @@ public class Ldml2JsonConverter {
                             avl.full.add(filename.replaceAll("_", "-"));
                         }
                     }
+                    if(type == RunType.rbnf){
+                        js.packageName = null;
+                    }
                     if (js.packageName != null) {
-                        String packageName = "cldr-" + js.packageName + tier;
+                        String packageName = "cldr-" + js.packageName + tier;                        
                         outputDirname.append("/" + packageName);
                         packages.add(packageName);
                     }
                     outputDirname.append("/" + dirName + "/");
-                    if (type != RunType.supplemental) {
+                    if (type != RunType.supplemental && type != RunType.rbnf) {
                         outputDirname.append(filename.replaceAll("_", "-"));
                     }
+                    System.out.println("outDir: " + outputDirname);
+                    System.out.println("pack: " + js.packageName);
+                    System.out.println("dir: " + dirName);
                 }
 
                 File dir = new File(outputDirname.toString());
@@ -488,6 +526,26 @@ public class Ldml2JsonConverter {
                     int valueCount = 0;
                     String previousIdentityPath = null;
                     for (CldrItem item : theItems) {
+
+                        if(type == RunType.rbnf){
+                            item.setValue(item.getValue().replace('→', '>'));
+                            item.setValue(item.getValue().replace('←', '<'));
+                            if(item.getFullPath().contains("@value")){
+                                int indexStart = item.getFullPath().indexOf("@value") + 8;
+                                int indexEnd = item.getFullPath().indexOf("]", indexStart) - 1;
+                                if(indexStart >= 0 && indexEnd >= 0 && indexEnd > indexStart){
+                                    String sub = item.getFullPath().substring(indexStart, indexEnd);
+                                    /* System.out.println("sub: " + sub);
+                                    System.out.println("full: " + item.getFullPath());
+                                    System.out.println("val: " + item.getValue());*/
+                                    item.setFullPath(item.getFullPath().replace(sub, item.getValue()));
+                                    item.setFullPath(item.getFullPath().replaceAll("@value", "@" + sub));
+                                    //System.out.println("modifyfull: " + item.getFullPath());
+                                    item.setValue("");
+                                }
+                            }
+
+                        }
 
                         // items in the identity section of a file should only ever contain the lowest level, even if using
                         // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress
@@ -551,7 +609,6 @@ public class Ldml2JsonConverter {
 
                     resolveSortingItems(out, nodesForLastItem, sortingItems);
                     resolveArrayItems(out, nodesForLastItem, arrayItems);
-
                     System.out.println(String.format("  %s = %d values", outFilename, valueCount));
                     closeNodes(out, nodesForLastItem.size() - 2, 0);
                     outf.println();
@@ -679,7 +736,7 @@ public class Ldml2JsonConverter {
         outf.println(gson.toJson(obj));
         outf.close();
     }
-    
+
     public void writeScriptMetadata(String outputDir) throws IOException {
         PrintWriter outf = BagFormatter.openUTF8Writer(outputDir + "/cldr-core", "scriptMetadata.json");
         System.out.println("Creating script metadata file => " + outputDir + File.separator +"cldr-core" + File.separator + "scriptMetadata.json");
@@ -761,8 +818,11 @@ public class Ldml2JsonConverter {
             if (firstItem.needsSort()) {
                 Collections.sort(arrayItems);
                 firstItem = arrayItems.get(0);
-            }
+            }         
+
+
             int arrayLevel = getArrayIndentLevel(firstItem);
+            
             outputStartArray(out, nodesForLastItem, firstItem, arrayLevel);
 
             // Previous statement closed for first element, trim nodesForLastItem
@@ -774,6 +834,7 @@ public class Ldml2JsonConverter {
             }
 
             for (CldrItem insideItem : arrayItems) {
+               
                 outputArrayItem(out, insideItem, nodesForLastItem, arrayLevel);
             }
             arrayItems.clear();
@@ -866,9 +927,20 @@ public class Ldml2JsonConverter {
         }
 
         ArrayList<CldrNode> nodesInPath = item.getNodesInPath();
+        int arraySize = nodesInPath.size();
+
+        // REMOVES "rbnfrule" ---- START
+        if(nodesInPath.get(arraySize-1).getName().equals("rbnfrule")){
+            Map<String,String> nonDistAtt = nodesInPath.get(arraySize-2).getNondistinguishingAttributes();
+            Map<String,String> distAtt = nodesInPath.get(arraySize-2).getDistinguishingAttributes();
+            nonDistAtt.putAll(nodesInPath.get(arraySize-1).getNondistinguishingAttributes());
+            distAtt.putAll(nodesInPath.get(arraySize-1).getDistinguishingAttributes());
+            nodesInPath.remove(arraySize-1);
+        }
+        // REMOVES "rbnfrule"  ----- DONE
 
         int i = findFirstDiffNodeIndex(nodesForLastItem, nodesInPath);
-        if (i == nodesInPath.size()) {
+        if (i == nodesInPath.size() && type != RunType.rbnf) {
             System.err.println("This nodes and last nodes has identical path. ("
                 + item.getPath() + ") Some distinguishing attributes wrongly removed?");
             return;
@@ -977,7 +1049,8 @@ public class Ldml2JsonConverter {
 
         ArrayList<CldrNode> nodesInPath = item.getNodesInPath();
         String value = escapeValue(item.getValue());
-        int nodesNum = nodesInPath.size();
+        int nodesNum = nodesInPath.size();  
+
 
         // case 1
         int diff = findFirstDiffNodeIndex(nodesForLastItem, nodesInPath);
@@ -1115,6 +1188,7 @@ public class Ldml2JsonConverter {
 
         }
 
+
         if (writePackages) {
             for (String currentPackage : packages) {
                 writePackagingFiles(outputDir, currentPackage);
@@ -1125,11 +1199,7 @@ public class Ldml2JsonConverter {
             } else if (type == RunType.supplemental) {
                 writeScriptMetadata(outputDir);
             }
-            else if(type == RunType.rbnf) {
-                writeDefaultContent(outputDir);
-                writeAvailableLocales(outputDir);
-                writeScriptMetadata(outputDir);
-            }
+
         }
     }
 
@@ -1230,14 +1300,25 @@ public class Ldml2JsonConverter {
             // attribute is prefixed with "_" when being used as key.
             if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
                 String[] strings = attrValue.trim().split("\\s+");
-                out.name("_" + key);
+                if(type != RunType.rbnf){
+                    out.name("_" + key); 
+                }
+                else{
+                    out.name(key);
+                }
                 out.beginArray();
                 for (String s : strings) {
                     out.value(s);
                 }
                 out.endArray();
             } else {
-                out.name("_" + key).value(attrValue);
+                if(type != RunType.rbnf){
+                    out.name("_" + key).value(attrValue); 
+                }
+                else{
+                    out.name(key).value(attrValue);
+                }
+
             }
         }
         out.endObject();

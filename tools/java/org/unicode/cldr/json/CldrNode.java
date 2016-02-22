@@ -37,7 +37,9 @@ public class CldrNode {
                 String value = node.distinguishingAttributes.get(key);
                 if (value != null && value.equals(suppressList[i + 1])) {
                     node.distinguishingAttributes.remove(key);
+                    
                 }
+                
             }
         }
         return node;
@@ -164,6 +166,14 @@ public class CldrNode {
             }
         }
         return attributesAsValues;
+    }
+
+    public void setDistinguishingAttributes(Map<String, String> distinguishingAttributes) {
+        this.distinguishingAttributes = distinguishingAttributes;
+    }
+
+    public void setNondistinguishingAttributes(Map<String, String> nondistinguishingAttributes) {
+        this.nondistinguishingAttributes = nondistinguishingAttributes;
     }
 
     public Map<String, String> getDistinguishingAttributes() {

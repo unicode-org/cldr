@@ -152,7 +152,9 @@ class LdmlConvertRules {
         "timeFormats:default:choice",
         "dateTimeFormats:default:choice",
         "timeZoneNames:singleCountries:list",
-
+        
+        //rbnf
+        "ruleset:rbnfrule:value",
         // common/supplemental
         "likelySubtags:likelySubtag:to",
         //"territoryContainment:group:type",
@@ -297,8 +299,9 @@ class LdmlConvertRules {
      */
     public static final Pattern ARRAY_ITEM_PATTERN = PatternCache.get(
         "(.*/collation[^/]*/rules[^/]*/" +
-            "|.*/character-fallback[^/]*/character[^/]*/" +
-            "|.*/dayPeriodRuleSet[^/]*/dayPeriodRules[^/]*/" +
+            "|.*/character-fallback[^/]*/character[^/]*/" +            
+            "|.*/rbnfrule[^/]*/"+
+            "|.*/ruleset[^/]*/"+
             "|.*/languageMatching[^/]*/languageMatches[^/]*/" +
             "|.*/windowsZones[^/]*/mapTimezones[^/]*/" +
             "|.*/metaZones[^/]*/mapTimezones[^/]*/" +
@@ -362,7 +365,7 @@ class LdmlConvertRules {
         new PathTransformSpec(
             "(.*ldml/exemplarCharacters)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
         new PathTransformSpec("(.*ldml/exemplarCharacters)(.*)$", "$1/standard$2"),
-
+        
         // Add cldrVersion attribute
         new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
             + CLDRFile.GEN_VERSION + "\"\\]"),
@@ -424,5 +427,6 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/transforms/transform[^/]*)/(.*)", "$1/tRules/$2"),
         new PathTransformSpec("(.*)\\[@territories=\"([^\"]*)\"\\](.*)\\[@alt=\"variant\"\\](.*)", "$1\\[@territories=\"$2-alt-variant\"\\]"),
         new PathTransformSpec("(.*)/weekData/(.*)\\[@alt=\"variant\"\\](.*)", "$1/weekData/$2$3"),
+        
     };
 }

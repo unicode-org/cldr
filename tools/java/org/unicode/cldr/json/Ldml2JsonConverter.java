@@ -261,7 +261,9 @@ public class Ldml2JsonConverter {
         for (int i = 0; i < LdmlConvertRules.PATH_TRANSFORMATIONS.length; i++) {
             m = LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern.matcher(pathStr);
             if (m.matches()) {
-                System.out.println(LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern);
+                if (DEBUG) {
+                    System.out.println(LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern);
+                }
                 result = m.replaceFirst(LdmlConvertRules.PATH_TRANSFORMATIONS[i].replacement);
                 break;
             }
@@ -305,7 +307,9 @@ public class Ldml2JsonConverter {
             }
         }
          */ 
-        System.out.println("result: " +result);
+        if (DEBUG) {
+            System.out.println("result: " +result);
+        }
         return result;
     }
 
@@ -492,9 +496,11 @@ public class Ldml2JsonConverter {
                     if (type != RunType.supplemental && type != RunType.rbnf) {
                         outputDirname.append(filename.replaceAll("_", "-"));
                     }
-                    System.out.println("outDir: " + outputDirname);
-                    System.out.println("pack: " + js.packageName);
-                    System.out.println("dir: " + dirName);
+                    if (DEBUG) {
+                        System.out.println("outDir: " + outputDirname);
+                        System.out.println("pack: " + js.packageName);
+                        System.out.println("dir: " + dirName);
+                    }
                 }
 
                 File dir = new File(outputDirname.toString());

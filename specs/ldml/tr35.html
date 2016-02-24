@@ -3980,8 +3980,8 @@ root</pre>
 		<p class="dtd">
 			&lt;!ELEMENT parentLocales ( parentLocale* ) &gt;<br>
 			&lt;!ELEMENT parentLocale EMPTY &gt;<br> &lt;!ATTLIST
-			parentLocale parent CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
-			parentLocale locales CDATA #REQUIRED &gt;
+			parentLocale parent <span class="changed">NMTOKEN</span> #REQUIRED &gt;<br> &lt;!ATTLIST
+			parentLocale locales <span class="changed">NMTOKEN</span> #REQUIRED &gt;
 		</p>
 		<p>In some cases, the normal truncation inheritance does not
 			function well. This happens when:</p>

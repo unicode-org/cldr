@@ -819,6 +819,7 @@ public class Ldml2JsonConverter {
         ArrayList<CldrNode> nodesForLastItem,
         ArrayList<CldrItem> arrayItems)
             throws IOException, ParseException {
+        boolean rbnfFlag = false;
         if (!arrayItems.isEmpty()) {
             CldrItem firstItem = arrayItems.get(0);
             if (firstItem.needsSort()) {
@@ -838,17 +839,26 @@ public class Ldml2JsonConverter {
                 nodesForLastItem.remove(len - 1);
                 len--;
             }
-
-            for (CldrItem insideItem : arrayItems) {
-               
-                outputArrayItem(out, insideItem, nodesForLastItem, arrayLevel);
+            if(arrayItems.get(0).getFullPath().contains("rbnfrule")){
+                rbnfFlag = true;
+                out.beginObject();
             }
+            for (CldrItem insideItem : arrayItems) {
+                
+                outputArrayItem(out, insideItem, nodesForLastItem, arrayLevel );
+                
+            }
+            if(rbnfFlag){
+                out.endObject();
+            }
+            
             arrayItems.clear();
 
             int lastLevel = nodesForLastItem.size() - 1;
             closeNodes(out, lastLevel, arrayLevel);
-
-            out.endArray();
+            if(!rbnfFlag){
+                out.endArray();
+            }
             for (int i = arrayLevel - 1; i < lastLevel; i++) {
                 nodesForLastItem.remove(i);
             }
@@ -907,7 +917,9 @@ public class Ldml2JsonConverter {
 
         String objName = nodesInPath.get(i).getNodeKeyName();
         out.name(objName);
-        out.beginArray();
+        if(!item.getFullPath().contains("rbnfrule")){
+            out.beginArray();
+        }
     }
 
     /**
@@ -1092,9 +1104,14 @@ public class Ldml2JsonConverter {
                 out.name(objName).value(value);
                 out.endObject();
             } else {
-                out.beginObject();
+                if(!objName.equals("rbnfrule")){
+                    out.beginObject();
+                }
                 writeLeafNode(out, objName, attrAsValueMap, value, nodesNum);
-                out.endObject();
+                if(!objName.equals("rbnfrule")){
+                    out.endObject();
+                }
+                
             }
             // the last node is closed, remove it.
             nodesInPath.remove(nodesNum - 1);
@@ -1293,9 +1310,10 @@ public class Ldml2JsonConverter {
             out.name(objName).value(attrAsValueMap.get(LdmlConvertRules.ANONYMOUS_KEY));
             return;
         }
-
-        out.name(objName);
-        out.beginObject();
+        if(!objName.equals("rbnfrule")){
+            out.name(objName);
+            out.beginObject();
+        }
 
         if (!value.isEmpty()) {
             out.name("_value").value(value);
@@ -1327,6 +1345,8 @@ public class Ldml2JsonConverter {
 
             }
         }
-        out.endObject();
+        if(!objName.equals("rbnfrule")){
+            out.endObject();
+        }
     }
 }

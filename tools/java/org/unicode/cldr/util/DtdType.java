@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import java.lang.annotation.Annotation;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -5,12 +5,10 @@ import java.util.Collections;
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.lang.UCharacter;
 
 public final class PreferredAndAllowedHour implements Comparable<PreferredAndAllowedHour> {
 

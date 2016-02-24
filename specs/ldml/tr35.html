@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2016-02-19</span></td>
+				<td><span class="changed">2016-02-23</span></td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -449,6 +449,7 @@ h5 {
 					<li>7.2 <a href="#Loose_Matching">Loose Matching</a></li>
 				</ul>
 			</li>
+			<li class="changed">7a <a href="#Invalid_Patterns">Handling Invalid Patterns</a></li>
 			<li>8 <a href="#Deprecated_Structure">Deprecated Structure</a>
 				<ul class="toc">
 					<li>8.1 <a href="#Fallback_Elements">Element fallback</a></li>
@@ -6419,6 +6420,21 @@ decimal?, group?, special*)) &gt;</pre>
 			Unicode algorithms, this is a logical statement of the process;
 			actual implementations can optimize, such as by applying the
 			transform incrementally during matching.</p>
+		<h2 class="changed">
+			<a name="Invalid_Patterns" href="#Invalid_Patterns">7a Handling
+				Invalid Patterns</a>
+		</h2>
+		<p class="changed">Processes sometimes encounter invalid number or date
+			patterns, such as a number pattern with “¤¤¤¤¤” (valid pattern
+			character but invalid length in current CLDR), a date pattern with
+			“nn” (invalid pattern character in current CLDR), or a date pattern
+			with “MMMMMM” (invalid length in current CLDR). The recommended
+			behavior for handling such an invalid pattern field is:</p>
+		<ul class="changed">
+			<li>In <strong>formatting, </strong>emit U+FFFD REPLACEMENT
+			CHARACTER for the invalid field.</li>
+			<li>In <strong>parsing, </strong>the parse should fail.</li>
+		</ul>
 		<h2>
 			<a name="Deprecated_Structure" href="#Deprecated_Structure">8
 				Deprecated Structure</a>
@@ -8106,19 +8122,29 @@ decimal?, group?, special*)) &gt;</pre>
 							</li>
 						</ul>
 					</li>
-					<li>Section 3.6.5
-				<a href="#Unicode_Subdivision_Codes" >Subdivision Codes</a></li>
+					<li>Section 3.6.5 <a href="#Unicode_Subdivision_Codes">Subdivision
+						Codes</a></li>
 					<li>Section 3.11 <a href="#Validity_Data">Validity Data</a>
 					  <ul>
 					    <li>Changed the format of the subdivision validity data to use BCP47-style (lowercase, no hyphen)</li>
 				      </ul>
 					</li>
+
+					<li>Section 7a <a href="#Invalid_Patterns">Handling Invalid Patterns</a>
+					  <ul>
+					    <li>Add new section with recommendations for handling invalid
+					    	number/date pattern fields in formatting and parsing.
+					    	[<a href="http://unicode.org/cldr/trac/ticket/8955"
+								title="View ticket">#8955</a>]</li>
+				      </ul>
+					</li>
+
 				</ul>
 			</li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
 				<ul>
-					<li><em><i>Section 1 <a href="#Display_Name_Elements">Display Name Elements</a></i></em>
+					<li><em><i>Section 1 <a href="tr35-general.html#Display_Name_Elements">Display Name Elements</a></i></em>
 					  <ul>
 					    <li>Added a note that people should have no expectation that all language names be translated, and pointed to the language subtag registry for English fallback names. [<a href="http://unicode.org/cldr/trac/ticket/9137"
 								title="View ticket">#9137</a>] </li>
@@ -8149,7 +8175,14 @@ decimal?, group?, special*)) &gt;</pre>
 				</ul></li>
 			<li><strong>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a></strong>
 			  <ul>
-			    <li>Section 5 <a href="#Language_Plural_Rules">Language Plural Rules</a>
+			    <li>Section 3.2 <a href="tr35-numbers.html#Special_Pattern_Characters">Special Pattern Characters</a>
+			      <ul>
+			        <li>For handling invalid special character sequences, point to <a
+						href="#Invalid_Patterns">Handling Invalid Patterns</a>. [<a
+								href="http://unicode.org/cldr/trac/ticket/8955">#8955</a>] </li>
+		          </ul>
+			    </li>
+			    <li>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a>
 			      <ul>
 			        <li>Clarified behavior for negative numbers, and that visible decimal fractions are important. [<a
 								href="http://unicode.org/cldr/trac/ticket/9219">#9219</a>] </li>
@@ -8175,6 +8208,9 @@ decimal?, group?, special*)) &gt;</pre>
 			      Patterns</a>
 		        </em>
 			      <ul>
+			      	<li>For handling invalid special character sequences, point to <a
+						href="#Invalid_Patterns">Handling Invalid Patterns</a>. [<a
+								href="http://unicode.org/cldr/trac/ticket/8955">#8955</a>] </li>
 			        <li>The date field symbol 'C' was misdescribed as being a <em>dayperiod</em>
 			          symbol, when it is actually an <em>hour</em> symbol. Clarified
 			          the usage, and added the widths to each of 'j', 'J', and 'C'.

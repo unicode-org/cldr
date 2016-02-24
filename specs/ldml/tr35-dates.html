@@ -1894,12 +1894,12 @@ h2, h3, h4, table {
 			<li>Use of non-zero minutes or seconds is deprecated.</li>
 			<li>The dayPeriodRules for format must allow that hh:mm [period
 				name] and hh [period name] can be parsed uniquely to HH:mm [period
-				name].</li>
+				name].
 			<ul>
 				<li>For example, you can't have &lt;dayPeriod type = "morning"
 					from="00:00" to="13:00"/&gt; because "12:30 {morning}" would be
 					ambiguous.</li>
-			</ul>
+			</ul></li>
 			<li><span class="changed">There must not be two rules
 					with the same type. A day period rule may, however, span 24:00 /
 					00:00. Example:</span>
@@ -3342,9 +3342,11 @@ h2, h3, h4, table {
 			<p>Note 2: The examples in the table below are merely
 				illustrative and may not reflect current actual data.</p>
 		</blockquote>
-		<p>Any sequence of symbols other than those listed below is
-			invalid.</p>
-
+		<p>Any sequence of <span class="changed">syntax characters</span> other than
+			those listed below is invalid.<span class="changed"> Invalid pattern fields
+			should be handled for formatting and parsing as described in <a
+				href="tr35.html#Invalid_Patterns">Handling Invalid
+			Patterns</a>.</span></p>
 		<table cellspacing="0" cellpadding="2" border="1">
 			<caption>
 				<a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date

@@ -901,6 +901,11 @@ h2, h3, h4, table {
 			</em> or the numberSystem's digits: <em>italic</em> indicates a special
 				function.
 			</p>
+		<p class="changed">
+			Invalid sequences of special characters (such as “¤¤¤¤¤” in current
+			CLDR) should be handled for formatting and parsing as described in <a
+				href="tr35.html#Invalid_Patterns">Handling Invalid
+			Patterns</a>.</p>
 		<blockquote>
 			<table cellspacing="3" cellpadding="0"
 				summary="Chart showing symbol,
@@ -1051,7 +1056,7 @@ h2, h3, h4, table {
 				</tr>
 				<tr valign="top">
 					<td><em>others</em></td>
-					<td><em>Reserved for future specification</em></td>
+					<td><em><span class="changed">Invalid in current CLDR. </span>Reserved for future specification</em></td>
 				</tr>
 				<tr valign="top">
 					<td>*</td>

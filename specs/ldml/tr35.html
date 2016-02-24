@@ -2652,8 +2652,22 @@ zh-Hant-HK</pre>
 					CLDR, <strong>"PRIVATE_USE"</strong> is only used for transform
 					extension "x0".
 				</p>
-				<p class='changed'>The <strong>valueType</strong> attribute indicates how many subtags are
-					valid for a given key.</p>
+				<p class='removed'>
+					In the current version of CLDR, all type names except "CODEPOINTS",
+					"REORDER_CODE"<span class="changed">, "RG_KEY_VALUE",
+						&quot;SUBDIVISION_CODE&quot; and "PRIVATE_USE"</span> are final and used
+					alone. For example, "gregory" and "japanese" are valid type names
+					for key "ca" (calendar). Both "u-ca-gregory" and "u-ca-japanese"
+					are valid representations of Unicode locale extension, but
+					"u-ca-gregory-japanese" is not.
+				</p>
+			</dd>
+			<dt>
+				<b>valueType</b>
+			</dt>
+			<dd>
+				<p class='changed'>The valueType attribute indicates how many subtags are
+					valid for a given key:</p>
 				<table class='simple changed' width="100%" border="1">
 					<tbody>
 						<tr>
@@ -2697,15 +2711,6 @@ zh-Hant-HK</pre>
 						</tr>
 					</tbody>
 				</table>
-				<p class='removed'>
-					In the current version of CLDR, all type names except "CODEPOINTS",
-					"REORDER_CODE"<span class="changed">, "RG_KEY_VALUE",
-						&quot;SUBDIVISION_CODE&quot; and "PRIVATE_USE"</span> are final and used
-					alone. For example, "gregory" and "japanese" are valid type names
-					for key "ca" (calendar). Both "u-ca-gregory" and "u-ca-japanese"
-					are valid representations of Unicode locale extension, but
-					"u-ca-gregory-japanese" is not.
-				</p>
 			</dd>
 			<dt>
 				<b>description</b>

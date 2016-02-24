@@ -97,7 +97,8 @@ class LdmlConvertRules {
         "codeMappings:territoryCodes:numeric",
         "codeMappings:territoryCodes:alpha3",
         "codeMappings:currencyCodes:numeric",
-
+        "timeData:hours:allowed",
+        "timeData:hours:preferred",
         // common/supplemental/supplementalMetaData.xml
         "validity:variable:type",
         "deprecated:deprecatedItems:elements",

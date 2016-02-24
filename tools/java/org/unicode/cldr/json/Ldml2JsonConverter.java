@@ -710,6 +710,7 @@ public class Ldml2JsonConverter {
             JsonArray mainPaths = new JsonArray();
             mainPaths.add(new JsonPrimitive("availableLocales.json"));
             mainPaths.add(new JsonPrimitive("defaultContent.json"));
+            mainPaths.add(new JsonPrimitive("scriptMetadata.json"));
             mainPaths.add(new JsonPrimitive(type.toString() + "/*.json"));
             obj.add("main", mainPaths);
         } else {

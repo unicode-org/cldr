@@ -282,31 +282,7 @@ public class Ldml2JsonConverter {
         if (DEBUG) {
             System.out.println("OUT pathStr : " + result);
         }
-        /*
-        if(type == RunType.rbnf){
-            int startIndex = result.indexOf("/rbnfrule");
-            int endIndex = 0;
-            if (startIndex > 0){
-                endIndex = result.indexOf(']', startIndex)+1;
-                if(startIndex >= 0 && endIndex >=0 && endIndex > startIndex){
-                    String remove = result.substring(startIndex, endIndex);
-                    result = result.replace(remove, "");
-                    // Q MESS
-                   /* int qStart = result.indexOf("@_q");
-                    if(qStart > 0){
-                        int qEnd = result.indexOf(']', qStart);
-                        if(qStart >= 0  && qEnd >=0 && qEnd > qStart && result.contains("@value")){
-                            String qRemove = result.substring(qStart+5, qEnd-1);
-                            int replace = Integer.parseInt(qRemove)+1;
-                            result.replace(qRemove, "" + replace);
-                            //System.out.println("qRemove: " + qRemove);
-                        }  
-                    }
-// Q MESS OVER
-                }
-            }
-        }
-         */ 
+
         if (DEBUG) {
             System.out.println("result: " +result);
         }
@@ -486,6 +462,7 @@ public class Ldml2JsonConverter {
                     }
                     if(type == RunType.rbnf){
                         js.packageName = null;
+                        dirName = "cldr-rbnf";
                     }
                     if (js.packageName != null) {
                         String packageName = "cldr-" + js.packageName + tier;                        
@@ -552,7 +529,47 @@ public class Ldml2JsonConverter {
                             }
 
                         }
-
+                     // ADJUST ACCESS=PRIVATE/PUBLIC BASED ON ICU RULE -- START
+                        if(type == RunType.rbnf){
+                            String fullpath = item.getFullPath();
+                            if(fullpath.contains("/ruleset")){
+                                int ruleStartIndex = fullpath.indexOf("/ruleset[");
+                                String checkString = fullpath.substring(ruleStartIndex);
+                                
+                                int ruleEndIndex = 0;
+                                if(checkString.contains("/")){
+                                    ruleEndIndex = fullpath.indexOf("/", ruleStartIndex+1);
+                                }
+                                if(ruleEndIndex > ruleStartIndex){
+                                    String oldRulePath = fullpath.substring(ruleStartIndex, ruleEndIndex);
+                                    
+                                    String newRulePath = oldRulePath;
+                                    if(newRulePath.contains("@type")){
+                                        int typeIndexStart = newRulePath.indexOf("\"", newRulePath.indexOf("@type"));
+                                        int typeIndexEnd = newRulePath.indexOf("\"",typeIndexStart+1);
+                                        String type = newRulePath.substring(typeIndexStart + 1, typeIndexEnd);
+                                        
+                                        String newType = "";
+                                        if(newRulePath.contains("@access"))
+                                        {
+                                            newType = "%%" + type;
+                                        }
+                                        else{
+                                            newType = "%" + type;                                            
+                                        }                                        
+                                        newRulePath = newRulePath.replace(type, newType);
+                                        item.setPath(item.getPath().replace(type, newType));                                        
+                                    }
+                                    fullpath = fullpath.replace(oldRulePath, newRulePath);                                    
+                                    item.setFullPath(fullpath);
+                                    
+                                }
+                            }
+                        }
+                        // ADJUST ACCESS=PRIVATE/PUBLIC BASED ON ICU RULE -- END
+                        
+                        
+                        
                         // items in the identity section of a file should only ever contain the lowest level, even if using
                         // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress
                         // them here.
@@ -830,7 +847,7 @@ public class Ldml2JsonConverter {
 
 
             int arrayLevel = getArrayIndentLevel(firstItem);
-            
+
             outputStartArray(out, nodesForLastItem, firstItem, arrayLevel);
 
             // Previous statement closed for first element, trim nodesForLastItem
@@ -845,14 +862,14 @@ public class Ldml2JsonConverter {
                 out.beginObject();
             }
             for (CldrItem insideItem : arrayItems) {
-                
+
                 outputArrayItem(out, insideItem, nodesForLastItem, arrayLevel );
-                
+
             }
             if(rbnfFlag){
                 out.endObject();
             }
-            
+
             arrayItems.clear();
 
             int lastLevel = nodesForLastItem.size() - 1;
@@ -948,16 +965,6 @@ public class Ldml2JsonConverter {
         ArrayList<CldrNode> nodesInPath = item.getNodesInPath();
         int arraySize = nodesInPath.size();
 
-        // REMOVES "rbnfrule" ---- START
-        if(nodesInPath.get(arraySize-1).getName().equals("rbnfrule")){
-            Map<String,String> nonDistAtt = nodesInPath.get(arraySize-2).getNondistinguishingAttributes();
-            Map<String,String> distAtt = nodesInPath.get(arraySize-2).getDistinguishingAttributes();
-            nonDistAtt.putAll(nodesInPath.get(arraySize-1).getNondistinguishingAttributes());
-            distAtt.putAll(nodesInPath.get(arraySize-1).getDistinguishingAttributes());
-            nodesInPath.remove(arraySize-1);
-        }
-        // REMOVES "rbnfrule"  ----- DONE
-
         int i = findFirstDiffNodeIndex(nodesForLastItem, nodesInPath);
         if (i == nodesInPath.size() && type != RunType.rbnf) {
             System.err.println("This nodes and last nodes has identical path. ("
@@ -1025,6 +1032,7 @@ public class Ldml2JsonConverter {
         }
 
         Map<String, String> attrAsValueMap = node.getAttrAsValueMap();
+
         out.name(objName);
         out.beginObject();
         for (String key : attrAsValueMap.keySet()) {
@@ -1100,6 +1108,22 @@ public class Ldml2JsonConverter {
             Map<String, String> attrAsValueMap =
                 nodesInPath.get(nodesNum - 1).getAttrAsValueMap();
 
+            // ADJUST RADIX BASED ON ICU RULE -- BEGIN
+            if(attrAsValueMap.containsKey("radix"))
+            {
+                String radixValue = attrAsValueMap.get("radix");
+                attrAsValueMap.remove("radix");
+                for(Map.Entry<String,String> attributes : attrAsValueMap.entrySet()){
+                    String oldKey = attributes.getKey();
+                    String newValue = attributes.getValue();
+                    String newKey = oldKey + "/" + radixValue;
+                    attrAsValueMap.remove(oldKey);
+                    attrAsValueMap.put(newKey, newValue);
+
+                }               
+            }
+            // ADJUST RADIX BASED ON ICU RULE -- END
+
             if (attrAsValueMap.isEmpty()) {
                 out.beginObject();
                 out.name(objName).value(value);
@@ -1112,7 +1136,7 @@ public class Ldml2JsonConverter {
                 if(!objName.equals("rbnfrule")){
                     out.endObject();
                 }
-                
+
             }
             // the last node is closed, remove it.
             nodesInPath.remove(nodesNum - 1);
@@ -1131,7 +1155,7 @@ public class Ldml2JsonConverter {
             if (pos > 0) {
                 objName = objName.substring(0, pos);
             }
-            Map<String, String> attrAsValueMap = node.getAttrAsValueMap();
+            Map<String, String> attrAsValueMap = node.getAttrAsValueMap();           
             out.name(objName);
             out.beginObject();
             for (String key : attrAsValueMap.keySet()) {

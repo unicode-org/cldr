@@ -426,10 +426,12 @@ public class Ldml2JsonConverter {
         // processed.
 
         for (JSONSection js : sections) {
+            String outFilename;
             if(type == RunType.rbnf){
-                js.section = filename;
+                outFilename = filename.replaceAll("_", "-") + ".json";
+            } else {
+                outFilename = js.section + ".json";
             }
-            String outFilename = js.section + ".json";
             String tier = "";
             boolean writeOther = Boolean.parseBoolean(options.get("other").getValue());
             if (js.section.equals("other") && !writeOther) {
@@ -437,7 +439,7 @@ public class Ldml2JsonConverter {
             } else {
                 StringBuilder outputDirname = new StringBuilder(outputDir);
                 if (writePackages) {
-                    if (type != RunType.supplemental) {
+                    if (type != RunType.supplemental && type != RunType.rbnf) {
                         LocaleIDParser lp = new LocaleIDParser();
                         lp.set(filename);
                         if (defaultContentLocales.contains(filename) &&
@@ -459,10 +461,9 @@ public class Ldml2JsonConverter {
                         if (type == RunType.main) {
                             avl.full.add(filename.replaceAll("_", "-"));
                         }
-                    }
-                    if(type == RunType.rbnf){
-                        js.packageName = null;
-                        dirName = "cldr-rbnf";
+                    } else if(type == RunType.rbnf){
+                        js.packageName = "rbnf";
+                        tier = "";
                     }
                     if (js.packageName != null) {
                         String packageName = "cldr-" + js.packageName + tier;                        
@@ -730,6 +731,8 @@ public class Ldml2JsonConverter {
             mainPaths.add(new JsonPrimitive("scriptMetadata.json"));
             mainPaths.add(new JsonPrimitive(type.toString() + "/*.json"));
             obj.add("main", mainPaths);
+        } else if (type == RunType.rbnf) {
+            obj.addProperty("main", type.toString() + "/*.json");
         } else {
             obj.addProperty("main", type.toString() + "/**/*.json");
         }

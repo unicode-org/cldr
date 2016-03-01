@@ -80,7 +80,8 @@ public class CheckHtmlFiles {
 
     enum MyOptions {
 //        old(".*", Settings.OTHER_WORKSPACE_DIRECTORY + "cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
-        target(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
+        target(".*", CLDRPaths.BASE_DIRECTORY + "specs" + File.separator + "ldml" + File.separator +
+            "tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
             + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"),
             verbose(null, null, "verbose debugging messages"),
 //        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
@@ -628,7 +629,7 @@ public class CheckHtmlFiles {
                 if (firstParen < 0) {
                     firstParen = fileRegex.length();
                 }
-                int lastSlash = fileRegex.lastIndexOf('/', firstParen);
+                int lastSlash = fileRegex.lastIndexOf(File.separatorChar, firstParen);
                 base = fileRegex.substring(0, lastSlash);
                 regex = fileRegex.substring(lastSlash + 1);
             } catch (Exception e) {
@@ -642,7 +643,10 @@ public class CheckHtmlFiles {
                 throw new IllegalArgumentException("Can't find " + sourceDirectory);
             }
             String canonicalBase = sourceDirectory.getCanonicalPath();
-            Matcher m = PatternCache.get(canonicalBase + "/" + regex).matcher("");
+            String FileRegex = canonicalBase + File.separator + regex;
+            FileRegex = FileRegex.replace("\\", "\\\\");
+            FileRegex = FileRegex.replace("\\\\.", "\\.");
+            Matcher m = PatternCache.get(FileRegex).matcher("");
             System.out.println("Matcher: " + m);
 
             return getSentences(sourceDirectory, m);
@@ -665,7 +669,7 @@ public class CheckHtmlFiles {
                     continue;
                 }
 
-                System.out.println("\nProcessing:\t" + sourceDirectory + "/" + fileString + "\n");
+                System.out.println("\nProcessing:\t" + sourceDirectory + File.separator + fileString);
 
                 int H2_START = fileString.contains("tr18") ? -1 : 0;
                 try (Reader in = new FileReader(fileCanonical)) {
@@ -793,7 +797,7 @@ public class CheckHtmlFiles {
                     break;
                 case ELEMENT_END:
                     if (verbose && !attributeStack.isEmpty()) {
-                        LOG.write(parser.getLineCount() + "\tattr:\t" + showAttributeStack(attributeStack) + "\n");
+                        LOG.write(parser.getLineCount() + "\tattr:\t" + showAttributeStack(attributeStack) + System.lineSeparator());
                         LOG.flush();
                     }
                     attributeStack.clear();

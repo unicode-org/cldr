@@ -142,7 +142,7 @@ h2, h3, h4, table {
 			</i>
 		</p>
 		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		<!-- APPROVED
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -217,6 +217,13 @@ h2, h3, h4, table {
 							Territory Information</a></li>
 				</ul>
 			</li>
+			<li class="changed">2a <a href="#Territory_Based_Preferences">Territory-Based
+					Preferences</a>
+				<ul class="toc">
+					<li>2a.1 <a href="#Preferred_Units_For_Usage">Preferred Units for
+						Specific Usages</a></li>
+				</ul>
+			</li>
 			<li>3 <a href="#Supplemental_Language_Data">Supplemental
 					Language Data</a></li>
 			<li>4 <a href="#Supplemental_Code_Mapping">Supplemental Code
@@ -270,12 +277,12 @@ h2, h3, h4, table {
 		<p class="dtd">
 			<!-- t d {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}-->
 			&lt;!ELEMENT supplementalData
-				(version,generation?,cldrVersion?,currencyData?,territoryContainment?,subdivisionContainment?,
-				languageData?,territoryInfo?,postalCodeData?,calendarData?,calendarPreferenceData?,weekData?,
-				timeData?,measurementData?,timezoneData?,characters?,transforms?,metadata?,codeMappings?,
-				parentLocales?,likelySubtags?,metazoneInfo?,plurals?,telephoneCodeData?,numberingSystems?,
-				bcp47KeywordMappings?,gender?,references?,languageMatching?,dayPeriodRuleSet*,metaZones?,
-				primaryZones?,windowsZones?,coverageLevels?,idValidity?) &gt;
+				(version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?,
+				languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?,
+				timeData?, measurementData?<span class="changed">, unitPreferenceData?</span>, timezoneData?, characters?, transforms?, metadata?,
+				codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?,
+				numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*,
+				metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?<span class="changed">, rgScope?</span>) &gt;
 		</p>
 		<p>
 			The data in CLDR is presently split into multiple files:
@@ -450,9 +457,9 @@ h2, h3, h4, table {
 		</p>
 		<pre style='font-size: 70%'>&lt;territory type=&quot;AO&quot; gdp=&quot;175500000000&quot; literacyPercent=&quot;70.4&quot; population=&quot;19088100&quot;&gt; &lt;!--Angola--&gt;
  &lt;languagePopulation type=&quot;pt&quot; populationPercent=&quot;67&quot; officialStatus=&quot;official&quot;/&gt; &lt;!--Portuguese--&gt;
- &lt;languagePopulation type=&quot;umb&quot; populationPercent=&quot;29&quot;/&gt; &lt;!--Umbundu--&gt; 
- &lt;languagePopulation type=&quot;kmb&quot; writingPercent=&quot;10&quot; populationPercent=&quot;25&quot; references=&quot;R1034&quot;/&gt; &lt;!--Kimbundu--&gt; 
- &lt;languagePopulation type=&quot;ln&quot; populationPercent=&quot;0.67&quot; references=&quot;R1010&quot;/&gt; &lt;!--Lingala--&gt; 
+ &lt;languagePopulation type=&quot;umb&quot; populationPercent=&quot;29&quot;/&gt; &lt;!--Umbundu--&gt;
+ &lt;languagePopulation type=&quot;kmb&quot; writingPercent=&quot;10&quot; populationPercent=&quot;25&quot; references=&quot;R1034&quot;/&gt; &lt;!--Kimbundu--&gt;
+ &lt;languagePopulation type=&quot;ln&quot; populationPercent=&quot;0.67&quot; references=&quot;R1010&quot;/&gt; &lt;!--Lingala--&gt;
 &lt;/territory&gt;</pre>
 		<p>
 			Note that reliable information is
@@ -544,6 +551,59 @@ h2, h3, h4, table {
 			central government. The term “major” is meant to distinguish from
 			smaller-scale usage, such as for a town or village.
 		</p>
+
+		<h2 class="changed">
+			2a <a name="Territory_Based_Preferences"
+				href="#Territory_Based_Preferences">Territory-Based Preferences</a>
+		</h2>
+		<p class="changed">
+			The default preference for several locale items is based solely on a <a
+				href="tr35.html#unicode_region_subtag">unicode_region_subtag</a>,
+			which may either be specified as part of a <a
+				href="tr35.html#unicode_language_id">unicode_language_id</a> or
+			inferred from other locale ID elements using the <a
+				href="tr35.html#Likely_Subtags">Likely Subtags</a> mechanism; for more
+			information on this process see <a href="tr35.html#Locale_Inheritance">Locale
+				Inheritance and Matching</a>. The specific items that are handled in
+			this way are:
+		</p>
+		<ul class="changed">
+			<li>Default calendar (see <a href="tr35-dates.html#Calendar_Preference_Data">Calendar
+				Preference Data</a>)</li>
+			<li>Default week conventions (first day of week and weekend days; see
+				<a href="tr35-dates.html#Week_Data">Week Data</a>)</li>
+			<li>Default hour cycle (see <a href="tr35-dates.html#Time_Data">Time
+				Data</a>)</li>
+			<li>Default currency (see <a
+				href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental
+				Currency Data</a>)</li>
+			<li>Default measurement system and paper size (see <a
+				href="tr35-general.html#Measurement_System_Data">Measurement System
+				Data</a>)</li>
+			<li>Default units for specific usage (see <a
+				href="#Preferred_Units_For_Usage">Preferred Units for Specific
+				Usages</a>, below)</li>
+		</ul>
+
+		<h3 class="changed">
+			2a.1 <a name="Preferred_Units_For_Usage"
+				href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>
+		</h3>
+		<p class="dtd"><span class="changed">
+			&lt;!ELEMENT unitPreferenceData ( unitPreferences* ) &gt;<br>
+			<br>
+			&lt;!ELEMENT unitPreferences ( unitPreference* ) &gt;<br>
+			&lt;!ATTLIST unitPreferences category NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST unitPreferences usage NMTOKENS #REQUIRED &gt;<br>
+			&lt;!ATTLIST unitPreferences scope (small) #IMPLIED &gt;<br>
+			<br>
+			&lt;!ELEMENT unitPreference ( #PCDATA ) &gt;<br>
+			&lt;!ATTLIST unitPreference regions NMTOKENS #REQUIRED &gt;<br>
+		</span></p>
+		<p class="changed">
+			[TBS]
+		</p>
+
 		<h2>
 			3 <a name="Supplemental_Language_Data"
 				href="#Supplemental_Language_Data">Supplemental Language Data</a>
@@ -756,7 +816,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	&lt;character value = &quot;<span style="font-size: 150%">₣</span>&quot;&gt;
 		&lt;substitute&gt;Fr.&lt;/substitute&gt;
 	&lt;/character&gt;
-     &lt;/character-fallback&gt; 
+     &lt;/character-fallback&gt;
 &lt;/characters&gt;</pre>
 		<p>The ordering of the substitute elements indicates the
 			preference among them.</p>

@@ -141,7 +141,7 @@ h2, h3, h4, table {
 			</i>
 		</p>
 		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		<!-- APPROVED
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -232,6 +232,8 @@ h2, h3, h4, table {
 					<li>6.2 <a href="#Unit_Sequences">Unit Sequences</a></li>
 					<li>6.3 <a href="#durationUnit">durationUnit</a></li>
 					<li>6.4 <a href="#coordinateUnit">coordinateUnit</a></li>
+					<li class="changed">6.5 <a href="#Territory_Based_Unit_Preferences">Territory-Based
+						Unit Preferences</a></li>
 				</ul>
 			</li>
 			<li>7 <a href="#POSIX_Elements">POSIX Elements</a></li>
@@ -2182,6 +2184,29 @@ h2, h3, h4, table {
 			&lt;coordinateUnitPattern
 			type=&quot;west&quot;&gt;{0}W&lt;/coordinateUnitPattern&gt;
 		</p>
+
+		<h3 class="changed">
+			6.5 <a name="Territory_Based_Unit_Preferences" href="#Territory_Based_Unit_Preferences">Territory-Based
+				Unit Preferences</a>
+		</h3>
+		<p class="changed">
+			Different locales have different preferences for which unit or combination
+			of units is used for a particular usage, such as measuring a person’s
+			height. This is more fine-grained than merely a preference for metric versus
+			US or UK measurement systems. For example, one locale may use meters alone,
+			while another may use centimeters alone or a combination of meters and
+			centimeters; a third may use inches alone, or (informally) a combination of
+			feet and inches.
+		</p>
+		<p class="changed">
+			The &lt;unitPreferenceData&gt; element, described in <a
+				href="tr35-info.html#Preferred_Units_For_Usage">Preferred Units for
+			Specific Usages</a>, provides information on which unit or combination of
+			units is used for various purposes in different locales, with options for
+			the level of formality and the scale of the measurement (e.g measuring the
+			height of an adult versus that of an infant).
+		</p>
+
 		<h2>
 			7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
 		</h2>
@@ -3641,10 +3666,10 @@ h2, h3, h4, table {
       &lt;personList type="neutral" locales="af da en..."/&gt;
 
       &lt;!-- mixedNeutral: gender(all male) = male, gender(all female) = female, otherwise gender(list) = other --&gt;
-      &lt;personList type="mixedNeutral" locales="el"/&gt; 
+      &lt;personList type="mixedNeutral" locales="el"/&gt;
 
       &lt;!-- maleTaints: gender(all female) = female, otherwise gender(list) = male --&gt;
-      &lt;personList type="maleTaints" locales="ar ca..."/&gt; 
+      &lt;personList type="maleTaints" locales="ar ca..."/&gt;
     &lt;/gender&gt;
   &lt;/supplementalData&gt;</pre>
 

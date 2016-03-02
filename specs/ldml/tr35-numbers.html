@@ -205,37 +205,40 @@ h2, h3, h4, table {
 			<li>1 <a href="#Numbering_Systems">Numbering Systems</a></li>
 			<li>2 <a href="#Number_Elements">Number Elements</a>
 				<ul class="toc">
-					<li>2.1 <a href="#defaultNumberingSystem">Default
-							Numbering System</a></li>
-					<li>2.2 <a href="#otherNumberingSystems">Other Numbering
-							Systems</a></li>
+					<li>2.1 <a href="#defaultNumberingSystem">Default Numbering System</a></li>
+					<li>2.2 <a href="#otherNumberingSystems">Other Numbering Systems</a></li>
 					<li>2.3 <a href="#Number_Symbols">Number Symbols</a></li>
 					<li>2.4 <a href="#Number_Formats">Number Formats</a>
 						<ul class="toc">
-							<li>2.4.1 <a href="#Compact_Number_Formats">Compact
-									Number Formats</a></li>
+							<li>2.4.1 <a href="#Compact_Number_Formats">Compact Number Formats</a></li>
 							<li>2.4.2 <a href="#Currency_Formats">Currency Formats</a></li>
 						</ul>
 					</li>
-					<li>2.5 <a href="#Miscellaneous_Patterns">Miscellaneous
-							Patterns</a></li>
+					<li>2.5 <a href="#Miscellaneous_Patterns">Miscellaneous Patterns</a></li>
 				</ul>
 			</li>
-			<li>3 <a href="#Number_Format_Patterns">Number Format
-					Patterns</a>
+			<li>3 <a href="#Number_Format_Patterns">Number Format Patterns</a>
 				<ul class="toc">
-					<li>3.1 <a href="#Number_Patterns">Number Patterns</a></li>
-					<li>3.2 <a href="#Special_Pattern_Characters">Special
-							Pattern Characters</a>
+					<li>3.1 <a href="#Number_Patterns">Number Patterns</a>
 						<ul class="toc">
-							<li>Table: <a href="#Sample_Patterns_and_Results">Sample
-									Patterns and Results</a></li>
+							<li>Table: <a href="#Number_Pattern_Examples">Number Pattern Examples</a></li>
+						</ul>
+					</li>
+					<li>3.2 <a href="#Special_Pattern_Characters">Special Pattern Characters</a>
+						<ul class="toc">
+							<li>Table: <a href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a></li>
+							<li>Table: <a href="#Sample_Patterns_and_Results">Sample Patterns and Results</a></li>
+							<li>Table: <a href="#Examples_of_minimumGroupingDigits">Examples of minimumGroupingDigits</a></li>
 							<li>3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a></li>
 						</ul>
 					</li>
 					<li>3.3 <a href="#Formatting">Formatting</a></li>
 					<li>3.4 <a href="#sci">Scientific Notation</a></li>
-					<li>3.5 <a href="#sigdig">Significant Digits</a></li>
+					<li>3.5 <a href="#sigdig">Significant Digits</a>
+						<ul class="toc">
+							<li>Table: <a href="#Significant_Digits_Examples">Significant Digits Examples</a></li>
+						</ul>
+					</li>
 					<li>3.6 <a href="#Padding">Padding</a></li>
 					<li>3.7 <a href="#Rounding">Rounding</a></li>
 					<li>3.8 <a href="#Quoting_Rules">Quoting Rules</a></li>
@@ -243,25 +246,37 @@ h2, h3, h4, table {
 			</li>
 			<li>4 <a href="#Currencies">Currencies</a>
 				<ul class="toc">
-					<li>4.1 <a href="#Supplemental_Currency_Data">Supplemental
-							Currency Data</a></li>
+					<li>4.1 <a href="#Supplemental_Currency_Data">Supplemental Currency Data</a></li>
 				</ul>
 			</li>
 			<li>5 <a href="#Language_Plural_Rules">Language Plural Rules</a>
 				<ul class="toc">
 					<li>5.1 <a href="#Plural_rules_syntax">Plural rules syntax</a>
 						<ul class="toc">
-							<li>5.1.1 <a href="#Operands">Operands</a></li>
-							<li>5.1.2 <a href="#Relations">Relations</a></li>
-							<li>5.1.3 <a href="#Samples">Samples</a></li>
+							<li>5.1.1 <a href="#Operands">Operands</a>
+								<ul class="toc">
+									<li>Table: <a href="#Plural_Operand_Meanings">Plural Operand Meanings</a></li>
+									<li>Table: <a href="#Plural_Operand_Examples">Plural Operand Examples</a></li>
+								</ul>
+							</li>
+							<li>5.1.2 <a href="#Relations">Relations</a>
+								<ul class="toc">
+									<li>Table: <a href="#Relations_Examples">Relations Examples</a></li>
+									<li>Table: <a href="#Plural_Rules_Examples">Plural Rules Examples</a></li>
+								</ul>
+							</li>
+							<li>5.1.3 <a href="#Samples">Samples</a>
+								<ul class="toc">
+									<li>Table: <a href="#Plural_Samples_Examples">Plural Samples Examples</a></li>
+								</ul>
+							</li>
 							<li>5.1.4 <a href="#Using_cardinals">Using Cardinals</a></li>
 						</ul>
 					</li>
 					<li>5.2 <a href="#Plural_Ranges">Plural Ranges</a></li>
 				</ul>
 			</li>
-			<li>6 <a href="#Rule-Based_Number_Formatting">Rule-Based
-					Number Formatting</a></li>
+			<li>6 <a href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a></li>
 			<li>7 <a href="#Parsing_Numbers">Parsing Numbers</a></li>
 		</ul>
 		<h2>
@@ -816,6 +831,7 @@ h2, h3, h4, table {
 			appropriate for the locale.</p>
 		<blockquote>
 			<table cellspacing="0" cellpadding="4" border="1">
+				<caption class="changed"><a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number Pattern Examples</a></caption>
 				<tr bgcolor="#ccccff">
 					<th width="17%">Pattern</th>
 					<th width="16%">Currency</th>
@@ -911,6 +927,7 @@ h2, h3, h4, table {
 				summary="Chart showing symbol,
   location, localized, and meaning."
 				border="0">
+				<caption class="changed"><a name="Number_Pattern_Character_Definitions" href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a></caption>
 				<tr bgcolor="#ccccff">
 					<th align="left">Symbol</th>
 					<th align="left">Location</th>
@@ -1109,7 +1126,7 @@ h2, h3, h4, table {
 			characters, and results:</p>
 		<div align="center">
 			<table border="0" cellpadding="0" cellspacing="3">
-				<caption>
+				<caption class="changed">
 					<a name='Sample_Patterns_and_Results'
 						href='#Sample_Patterns_and_Results'>Sample Patterns and
 						Results</a>
@@ -1233,8 +1250,9 @@ h2, h3, h4, table {
 					<li>The attribute value is used by adding it to the grouping
 						separator value. If the input number has fewer integer digits, the
 						grouping separator is suppressed.</li>
-					<li>Examples:
+					<li><span class="removed">Examples:</span>
 						<table border="1" cellpadding="0" cellspacing="0">
+						<caption class="changed"><a name="Examples_of_minimumGroupingDigits" href="#Examples_of_minimumGroupingDigits">Examples of minimumGroupingDigits</a></caption>
 							<tr>
 								<th width="25%" scope="col"><div align="center">minimum&shy;GroupingDigits</div></th>
 								<th width="25%" scope="col"><div align="center">Pattern
@@ -1418,9 +1436,10 @@ h2, h3, h4, table {
 			integer and fraction digits are required to display the specified
 			number of significant digits. It may ignore min/max integer/fraction
 			digits, or it may use them to the extent possible.</p>
-		<p>Examples:</p>
+		<p class="removed">Examples:</p>
 		<blockquote>
 			<table cellpadding="0" border="0">
+			<caption class="changed"><a name="Significant_Digits_Examples" href="#Significant_Digits_Examples">Significant Digits Examples</a></caption>
 				<tr bgcolor="#ccccff">
 					<th align="left">Pattern</th>
 					<th align="left">Minimum significant digits</th>
@@ -1554,6 +1573,7 @@ h2, h3, h4, table {
 			follows:</p>
 		<table border="1" cellpadding="0" cellspacing="0"
 			style="border-collapse: collapse">
+			<!-- nocaption -->
 			<tr>
 				<th>Original:</th>
 				<td>1.234</td>
@@ -2110,6 +2130,7 @@ h2, h3, h4, table {
 			languages:</p>
 		<div dir="ltr">
 			<table>
+				<!-- nocaption -->
 				<tr>
 					<th>Behavior</th>
 					<th>Description</th>
@@ -2199,6 +2220,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 		<p>The operands have the following meaning:</p>
 		<div dir="ltr">
 			<table>
+				<caption class="changed"><a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a></caption>
 				<tr>
 					<th>Symbol</th>
 					<th>Value</th>
@@ -2239,9 +2261,10 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			</table>
 		</div>
 		<br>
-		<p>Example values:</p>
+		<p class="removed">Example values:</p>
 		<div dir="ltr">
 			<table>
+				<caption class="changed"><a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a></caption>
 				<colgroup>
 					<col width="10%">
 					<col width="10%">
@@ -2323,8 +2346,9 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 		<p class='changed'>
 		The positive relations are of the format <strong>x = y</strong> and <strong>x = y mod z</strong>. The <strong>y</strong> value can be a comma-separated list, such as <strong>n
 		= 3, 5, 7..15</strong>, and is treated as if each relation were expanded into an OR statement. The range value <strong>a..b</strong> is equivalent to listing all the integers between <strong>a</strong> and <strong>b</strong>, inclusive. When <strong>!=</strong> is used, it means the entire relation is negated.</p>
-		<p class='changed'><em>Examples</em></p>
+		<p class='removed'><em>Examples</em></p>
 		<table class='simple changed'>
+		  <caption class="changed"><a name="Relations_Examples" href="#Relations_Examples">Relations Examples</a></caption>
 		  <tr>
 		    <th>Expression</th>
 		    <th>Meaning</th>
@@ -2339,6 +2363,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 	      </tr>
 	  </table><br>
 		<table class='simple changed'>
+		  <!-- nocaption -->
 		  <tr>
 		    <th>Expression</th>
 		    <th>Value</th>
@@ -2397,8 +2422,9 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			<li>Otherwise return !R.</li>
 		</ol>
 		<p></p>
-		<p>Example Rules:</p>
+		<p class="removed">Example Rules:</p>
 		<table border="1">
+			<caption class="changed"><a name="Plural_Rules_Examples" href="#Plural_Rules_Examples">Plural Rules Examples</a></caption>
 			<tr>
 				<th>Rules</th>
 				<th>Comments</th>
@@ -2457,6 +2483,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			decimal) can satisfy the rule. If a set is not infinite, it must list
 			all the possible values.</p>
 		<table border="1">
+			<caption class="changed"><a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural Samples Examples</a></caption>
 			<tr>
 				<th>Rules</th>
 				<th>Comments</th>

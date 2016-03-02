@@ -589,6 +589,29 @@ h2, h3, h4, table {
 			2a.1 <a name="Preferred_Units_For_Usage"
 				href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>
 		</h3>
+		<p class="changed">
+			This data is intended to map from a particular usage — e.g. measuring the
+			height of a person or the fuel consumption of an automobile — to the unit
+			or combination of units typically used for that usage in a given region.
+			Considerations for such a mapping include:
+		</p>
+		<ul class="changed">
+			<li>The list of possible usages large and open-ended. The intent here is
+				to start with a small set for which there is an urgent need, and
+				expand as necessary.</li>
+			<li>Even for a given usage such a measuring a road distance, there are
+				multiple ranges in use. For example, one set of units may be used for
+				indicating the distance to the next city (kilometers or miles), while
+				another may be used for indicating the distance to the next exit
+				(meters, yards, or feet).</li>
+			<li>There are also differences between more formal usage (official signage,
+				medical records) and more informal usage (conversation, texting).</li>
+			<li>For some usages, the measurement may be expressed using a sequence of
+				units, such as “1 meter, 78 centimeters” or “12 stone, 2 pounds”.</li>
+		</ul>
+		<p class="changed">
+			The DTD structure is as follows:
+		</p>
 		<p class="dtd"><span class="changed">
 			&lt;!ELEMENT unitPreferenceData ( unitPreferences* ) &gt;<br>
 			<br>
@@ -601,8 +624,228 @@ h2, h3, h4, table {
 			&lt;!ATTLIST unitPreference regions NMTOKENS #REQUIRED &gt;<br>
 		</span></p>
 		<p class="changed">
-			[TBS]
+			An example of data using this structure is as follows:
 		</p>
+<pre class="changed">
+   &lt;unitPreferenceData&gt;
+      ...
+      &lt;unitPreferences category="length" usage="person"&gt;
+           &lt;unitPreference regions="001"&gt;centimeter&lt;/unitPreference&gt;
+           &lt;unitPreference regions="BR CN DE DK MX NL NO PL PT RU" alt="informal"&gt;meter centimeter&lt;/unitPreference&gt;
+           &lt;unitPreference regions="AT BE DZ EG ES FR HK ID IL IT JO MY SA SE TR VN"&gt;meter centimeter&lt;/unitPreference&gt;
+           &lt;unitPreference regions="CA GB IN US" alt="informal"&gt;foot inch&lt;/unitPreference&gt;
+           &lt;unitPreference regions="US"&gt;inch&lt;/unitPreference&gt;
+      &lt;/unitPreferences&gt;
+      &lt;unitPreferences category="length" usage="person" scope="small"&gt;
+           &lt;unitPreference regions="001"&gt;centimeter&lt;/unitPreference&gt;
+           &lt;unitPreference regions="CA GB IN" alt="informal"&gt;inch&lt;/unitPreference&gt;
+           &lt;unitPreference regions="US"&gt;inch&lt;/unitPreference&gt;
+      &lt;/unitPreferences&gt;
+      ...
+   &lt;/unitPreferenceData&gt;
+</pre>
+		<p class="changed">
+			There are several things to note:
+		</p>
+		<ul class="changed">
+			<li>The &lt;unitPreferences&gt; <em>category</em> attribute values match
+				a &lt;unit&gt; element <em>type</em> attribute value, as listed in
+				<a href="tr35-general.html#Unit_Elements">Unit Elements</a>.</li>
+			<li>The &lt;unitPreferences&gt; <em>usage</em> attribute values are
+				specific to this data; current values are listed in a table at the
+				end of this section.</li>
+			<li>The &lt;unitPreferences&gt; element may have a <em>scope="small"</em>
+				attribute to indicate that it is intended for the smaller range of
+				values for that usage, such measuring the height or weight of an
+				infant versus that of an adult, or measuring the road distance to
+				the next exit versus that to the next city.</li>
+			<li>Each &lt;unitPreferences&gt; element must contain one
+				&lt;unitPreference&gt; element with attribute <em>regions="001"</em>;
+				this specifies the worldwide default unit or unit sequence for the
+				usage and scope specified by the &lt;unitPreferences&gt; element. There
+				may be additional &lt;unitPreference&gt; elements which specify a
+				different unit or unit sequence for specific regions and possibly for a
+				different degree of formality.</li>
+			<li>The &lt;unitPreference&gt; element may have an <em>alt="informal"</em>
+				attribute to indicate that the specified unit or unit sequence is
+				preferred in more informal usage.</li>
+			<li>The value of the &lt;unitPreference&gt; element is a sequence of one
+				or more space-separated unit names from the a &lt;unit&gt; element
+				<em>unit</em> attribute values for the relevant type, as listed in
+				<a href="tr35-general.html#Unit_Elements">Unit Elements</a>.</li>
+		</ul>
+		<p class="changed">
+			For a given combination of category, usage, scope and formality, the
+			intended procedure for looking up the unit or unit combination to use
+			for a given region is as follows:
+		</p>
+		<ul class="changed">
+			<li>Get the appropriate &lt;unitPreferences&gt; element for the desired
+				<em>category</em> and <em>usage</em>: If scope=small is desired and a
+				&lt;unitPreferences&gt; element with <em>scope="small"</em> exists for
+				the desired <em>category</em> and <em>usage</em>, use it. Otherwise, use
+				a &lt;unitPreferences&gt; element for the desired <em>category</em> and
+				<em>usage</em> that has no <em>scope</em> attribute. In the selected
+				&lt;unitPreferences&gt; element, pick a  &lt;unitPreference&gt; element
+				using the following steps.</li>
+			<li>If informal usage is preferred, look for a &lt;unitPreference&gt;
+				element with <em>alt="informal"</em> whose <em>regions</em> attribute
+				includes the given region. If found, use the specified unit [sequence].
+			<li>Look for a &lt;unitPreference&gt; element whose <em>regions</em>
+				attribute includes the given region. If found, use the specified unit
+				[sequence].</li>
+			<li>Look for a &lt;unitPreference&gt; element with <em>alt="informal"</em>
+				whose <em>regions</em> attribute is "001". If found, use the specified
+				unit [sequence].</li>
+			<li>Look for a &lt;unitPreference&gt; element whose <em>regions</em>
+				attribute is "001". If found, use the specified unit [sequence].</li>
+		</ul>
+		<p class="changed">
+			CLDR 29 contains usage mapping data for the following combinations of
+			category, usage, and scope:
+		</p>
+		<table border="1" cellpadding="4" cellspacing="0" class="changed">
+			<tr>
+				<td><strong>Category</strong></td>
+				<td><strong>Usage</strong></td>
+				<td><strong>Sample Value</strong></td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>land-agricult</td>
+				<td>hectare</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>land-commercl</td>
+				<td>hectare</td>
+			</tr>
+			<tr>
+				<td><em>area</em></td>
+				<td>land-residntl</td>
+				<td>hectare</td>
+			</tr>
+			<tr>
+				<td><em>concentr</em></td>
+				<td>blood-glucose</td>
+				<td>milligram-per-deciliter</td>
+			</tr>
+			<tr>
+				<td><em>consumption</em></td>
+				<td>vehicle-fuel</td>
+				<td>liter-per-100kilometers</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>music-track</td>
+				<td>minute second</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>person-age</td>
+				<td>year-person month-person</td>
+			</tr>
+			<tr>
+				<td><em>duration</em></td>
+				<td>tv-program</td>
+				<td>minute second</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>food</td>
+				<td>foodcalorie</td>
+			</tr>
+			<tr>
+				<td><em>energy</em></td>
+				<td>person-usage</td>
+				<td>kilocalorie</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>person</td>
+				<td>centimeter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>person, scope=small</td>
+				<td>centimeter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>rainfall</td>
+				<td>millimeter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>road</td>
+				<td>kilometer</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>road, scope=small</td>
+				<td>meter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>snowfall</td>
+				<td>centimeter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>vehicle</td>
+				<td>meter</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>visiblty</td>
+				<td>kilometer</td>
+			</tr>
+			<tr>
+				<td><em>length</em></td>
+				<td>visiblty, scope=small</td>
+				<td>meter</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>person</td>
+				<td>kilogram</td>
+			</tr>
+			<tr>
+				<td><em>mass</em></td>
+				<td>person, scope=small</td>
+				<td>gram</td>
+			</tr>
+			<tr>
+				<td><em>pressure</em></td>
+				<td>baromtrc</td>
+				<td>hectopascal</td>
+			</tr>
+			<tr>
+				<td><em>speed</em></td>
+				<td>road-travel</td>
+				<td>kilometer-per-hour</td>
+			</tr>
+			<tr>
+				<td><em>speed</em></td>
+				<td>wind</td>
+				<td>kilometer-per-hour</td>
+			</tr>
+			<tr>
+				<td><em>temperature</em></td>
+				<td>person</td>
+				<td>celsius</td>
+			</tr>
+			<tr>
+				<td><em>temperature</em></td>
+				<td>weather</td>
+				<td>celsius</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>vehicle-fuel</td>
+				<td>liter</td>
+			</tr>
+		</table>
 
 		<h2>
 			3 <a name="Supplemental_Language_Data"
@@ -632,12 +875,12 @@ h2, h3, h4, table {
 		&lt;language type=&quot;am&quot; scripts=&quot;Ethi&quot; territories=&quot;ET&quot;/&gt;
 		&lt;language type=&quot;ar&quot; scripts=&quot;Arab&quot; territories=&quot;AE BH DZ EG IN IQ JO KW LB
 LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
-                ...</pre>
+                     ...</pre>
 		<p>If the language is not a modern language, or the script is not
 			a modern script, or the language not a major language of the
 			territory, then the alt attribute is set to secondary.</p>
 		<pre>		&lt;language type=&quot;fr&quot; scripts=&quot;Latn&quot; territories=&quot;IT US&quot; alt=&quot;secondary&quot; /&gt;
-                ...</pre>
+                     ...</pre>
 
 		<h2>
 			4 <a name="Supplemental_Code_Mapping"
@@ -802,7 +1045,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			values that can be used if the main value is not available. For
 			example:</p>
 		<pre>&lt;characters&gt;
-     &lt;character-fallback&gt;
+       &lt;character-fallback&gt;
 	&lt;character value = &quot;ß&quot;&gt;
 		&lt;substitute&gt;ss&lt;/substitute&gt;
 	&lt;/character&gt;
@@ -816,7 +1059,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	&lt;character value = &quot;<span style="font-size: 150%">₣</span>&quot;&gt;
 		&lt;substitute&gt;Fr.&lt;/substitute&gt;
 	&lt;/character&gt;
-     &lt;/character-fallback&gt;
+       &lt;/character-fallback&gt;
 &lt;/characters&gt;</pre>
 		<p>The ordering of the substitute elements indicates the
 			preference among them.</p>
@@ -941,7 +1184,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		</p>
 		<p>For example, here is an example coverageLevel line.</p>
 		<pre>&lt;coverageLevel<br>    value=&quot;30&quot;
-    inLanguage=&quot;(de|fi)&quot; <br>    match=&quot;localeDisplayNames/types/type[@type='phonebook'][@key='collation']&quot;/&gt;</pre>
+      inLanguage=&quot;(de|fi)&quot; <br>    match=&quot;localeDisplayNames/types/type[@type='phonebook'][@key='collation']&quot;/&gt;</pre>
 		<p>
 			The coverageLevel elements are read in order, and the first match
 			results in a coverage level value. The element matches based on the <span
@@ -1352,7 +1595,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 				Content</a>
 		</h3>
 		<pre class="dtd">&lt;!ELEMENT defaultContent EMPTY &gt;
-          &lt;!ATTLIST defaultContent locales NMTOKENS #IMPLIED &gt;</pre>
+               &lt;!ATTLIST defaultContent locales NMTOKENS #IMPLIED &gt;</pre>
 		<p>
 			In CLDR, locales without territory information (or where needed,
 			script information) provide data appropriate for what is called the <i>default

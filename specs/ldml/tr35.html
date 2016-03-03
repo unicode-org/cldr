@@ -2286,10 +2286,12 @@ zh-Hant-HK</pre>
 				<td colspan="4"><strong>A <a href="#RegionOverride"
 						name="RegionOverride">Region Override</a> specifies an alternate
 						region to use for obtaining certain region-specific default
-						values, instead of using the region specified by the <a
-						href="#unicode_region_subtag">unicode_region_subtag</a> in the
+						values (those specified by the <a
+							href="tr35-info.html#rgScope">&lt;rgScope&gt;</a> element),
+						instead of using the region specified by the <a
+							href="#unicode_region_subtag">unicode_region_subtag</a> in the
 						Unicode Language Identifier (or inferred from the <a
-						href="#unicode_language_subtag">unicode_language_subtag</a>).
+							href="#unicode_language_subtag">unicode_language_subtag</a>).
 				</strong></td>
 			</tr>
 			<tr class="changed">
@@ -3563,8 +3565,12 @@ root</pre>
 		</p>
 
 		<p>Certain data items depend only on the region specified in a
-			locale id, and are obtained from supplemental data rather than
-			through locale resources. For example:</p>
+			locale id <span class="changed">(by a <a
+				href="#unicode_region_subtag_validity">unicode_region_subtag</a>
+			or an “rg” <a
+				href="#RegionOverride">Region Override</a> key)</span>, and are
+			obtained from supplemental data rather than through locale resources.
+			For example:</p>
 		<ul>
 			<li>The currency for the specified region (see <a
 				href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental
@@ -8255,6 +8261,16 @@ decimal?, group?, special*)) &gt;</pre>
 						Unit Preferences</a>.
 						[<a href="http://unicode.org/cldr/trac/ticket/8346">#8346</a>,
 			    		<a href="http://unicode.org/cldr/trac/ticket/9177">#9177</a>]</li>
+		          </ul>
+			      </li>
+			    <li><em>Section 2.5 <a
+			    		href="tr35-info.html#rgScope">&lt;rgScope&gt;: Scope of the
+			    		“rg” Locale Key</a></em>
+			      <ul>
+			        <li>Added new section to document this element, though the path
+			        	format used is still provisional.
+						[<a href="http://unicode.org/cldr/trac/ticket/9224">#9224</a>,
+			    		<a href="http://unicode.org/cldr/trac/ticket/9295">#9295</a>]</li>
 		          </ul>
 			      </li>
 			  </ul>

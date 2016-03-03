@@ -222,6 +222,8 @@ h2, h3, h4, table {
 								Specific Usages</a></li>
 						</ul>
 					</li>
+					<li class="changed">2.5 <a href="#rgScope">&lt;rgScope&gt;: Scope of
+							the “rg” Locale Key</a></li>
 				</ul>
 			</li>
 			<li>3 <a href="#Supplemental_Language_Data">Supplemental
@@ -560,12 +562,14 @@ h2, h3, h4, table {
 			The default preference for several locale items is based solely on a <a
 				href="tr35.html#unicode_region_subtag">unicode_region_subtag</a>,
 			which may either be specified as part of a <a
-				href="tr35.html#unicode_language_id">unicode_language_id</a> or
+				href="tr35.html#unicode_language_id">unicode_language_id</a>,
 			inferred from other locale ID elements using the <a
-				href="tr35.html#Likely_Subtags">Likely Subtags</a> mechanism; for more
-			information on this process see <a href="tr35.html#Locale_Inheritance">Locale
-				Inheritance and Matching</a>. The specific items that are handled in
-			this way are:
+				href="tr35.html#Likely_Subtags">Likely Subtags</a> mechanism, or
+			provided explicitly using  an “rg” <a
+				href="tr35.html#RegionOverride">Region Override</a> locale key.
+			For more information on this process see <a
+				href="tr35.html#Locale_Inheritance">Locale Inheritance and
+			Matching</a>. The specific items that are handled in this way are:
 		</p>
 		<ul class="changed">
 			<li>Default calendar (see <a href="tr35-dates.html#Calendar_Preference_Data">Calendar
@@ -846,6 +850,51 @@ h2, h3, h4, table {
 				<td>liter</td>
 			</tr>
 		</table>
+
+		<h3 class="changed">
+			2.5 <a name="rgScope"
+				href="#rgScope">&lt;rgScope&gt;: Scope of the “rg” Locale Key</a>
+		</h3>
+		<p class="changed">
+			The supplemental &lt;rgScope&gt; element specifies the data paths for
+			which the region used for data lookup is determined by the value of any
+			“rg” key present in the locale identifier (see <a
+			href="tr35.html#RegionOverride">Region Override</a>). If no “rg” key
+			is present, the region used for lookup is determined as usual: from the
+			unicode_region_subtag if present, else inferred from the
+			unicode_language_subtag. The DTD structure is as follows:
+		</p>
+		<p class="dtd"><span class="changed">
+			&lt;!ELEMENT rgScope ( rgPath* ) &gt;<br>
+			<br>
+			&lt;!ELEMENT rgPath EMPTY &gt;<br>
+			&lt;!ATTLIST rgPath path CDATA #REQUIRED &gt;<br>
+		</span></p>
+		<p class="changed">
+			The &lt;rgScope&gt; element contains a list of &lt;rgPath&gt; elements,
+			each of which specifies a datapath for which any “rg” key determines the
+			region for lookup. For example:
+		</p>
+<pre class="changed">
+   &lt;rgScope&gt;
+      &lt;rgPath path="//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*'][@cashDigits='*'][@cashRounding='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*'][@cashRounding='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/calendarPreferenceData/calendarPreference[@territories='#'][@ordering='*']" draft="provisional" /&gt;
+      ...
+      &lt;rgPath path="//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*'][@scope='*']/unitPreference[@regions='#'][@alt='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*'][@scope='*']/unitPreference[@regions='#']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*']/unitPreference[@regions='#'][@alt='*']" draft="provisional" /&gt;
+      &lt;rgPath path="//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*']/unitPreference[@regions='#']" draft="provisional" /&gt;
+   &lt;/rgScope&gt;
+</pre>
+		<p class="changed">
+			The exact format of the path is provisional in CLDR 29, but as currently shown:
+		</p>
+		<ul class="changed">
+			<li>An attribute value of '*' indicates that the path applies regardless of the value of the attribute.</li>
+			<li>Lookup will be performed as if the region specified by the “rg” key were included in the region list designated by '#'.</li>
+		</ul>
 
 		<h2>
 			3 <a name="Supplemental_Language_Data"

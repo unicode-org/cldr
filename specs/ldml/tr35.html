@@ -443,13 +443,21 @@ h5 {
 				</ul>
 			</li>
 			<li>6 <a href="#Property_Data">Property Data</a></li>
-			<li>7 <a href="#Lenient_Parsing">Lenient Parsing</a>
+			<li><span class="changed">7 <a href="#Format_Parse_Issues">Issues in Formatting
+					and Parsing</a></span>
 				<ul class="toc">
-					<li>7.1 <a href="#Motivation">Motivation</a></li>
-					<li>7.2 <a href="#Loose_Matching">Loose Matching</a></li>
+					<li><span class="changed">7.1</span> <a href="#Lenient_Parsing">Lenient
+							Parsing</a>
+						<ul class="toc">
+							<li><span class="changed">7.1.1</span> <a href="#Motivation">Motivation</a>
+							<li><span class="changed">7.1.2</span> <a href="#Loose_Matching">Loose
+									Matching</a></li>
+						</ul>
+					</li>
+					<li class="changed">7.2 <a href="#Invalid_Patterns">Handling Invalid
+							Patterns</a></li>
 				</ul>
 			</li>
-			<li class="changed">7a <a href="#Invalid_Patterns">Handling Invalid Patterns</a></li>
 			<li>8 <a href="#Deprecated_Structure">Deprecated Structure</a>
 				<ul class="toc">
 					<li>8.1 <a href="#Fallback_Elements">Element fallback</a></li>
@@ -6357,13 +6365,17 @@ decimal?, group?, special*)) &gt;</pre>
 			in the common/properties directory.</p>
 		<p>Each file has a header that explains the format and usage of
 			the data.</p>
-		<h2>
-			<a name="Lenient_Parsing" href="#Lenient_Parsing">7 Lenient
-				Parsing</a>
+		<h2 class="changed">
+			<a name="Format_Parse_Issues" href="#Format_Parse_Issues">7 Issues in
+				Formatting and Parsing</a>
 		</h2>
 		<h3>
-			<a name="Motivation" href="#Motivation">7.1 Motivation</a>
+			<a name="Lenient_Parsing" href="#Lenient_Parsing"><span class="changed">7.1</span> Lenient
+				Parsing</a>
 		</h3>
+		<h4>
+			<a name="Motivation" href="#Motivation"><span class="changed">7.1.1</span> Motivation</a>
+		</h4>
 		<p>User input is frequently messy. Attempting to parse it by
 			matching it exactly against a pattern is likely to be unsuccessful,
 			even when the meaning of the input is clear to a human being. For
@@ -6375,10 +6387,10 @@ decimal?, group?, special*)) &gt;</pre>
 			exact template that must be matched. This informative section
 			suggests some heuristics that may be useful for lenient parsing of
 			dates, times, and numbers.</p>
-		<h3>
-			<a name="Loose_Matching" href="#Loose_Matching">7.2 Loose
+		<h4>
+			<a name="Loose_Matching" href="#Loose_Matching"><span class="changed">7.1.2</span> Loose
 				Matching</a>
-		</h3>
+		</h4>
 		<p>Loose matching ignores attributes of the strings being compared
 			that are not important to matching. It involves the following steps:</p>
 		<ul>
@@ -6429,10 +6441,10 @@ decimal?, group?, special*)) &gt;</pre>
 			Unicode algorithms, this is a logical statement of the process;
 			actual implementations can optimize, such as by applying the
 			transform incrementally during matching.</p>
-		<h2 class="changed">
-			<a name="Invalid_Patterns" href="#Invalid_Patterns">7a Handling
+		<h3 class="changed">
+			<a name="Invalid_Patterns" href="#Invalid_Patterns">7.2 Handling
 				Invalid Patterns</a>
-		</h2>
+		</h3>
 		<p class="changed">Processes sometimes encounter invalid number or date
 			patterns, such as a number pattern with “¤¤¤¤¤” (valid pattern
 			character but invalid length in current CLDR), a date pattern with
@@ -8139,7 +8151,7 @@ decimal?, group?, special*)) &gt;</pre>
 				      </ul>
 					</li>
 
-					<li>Section 7a <a href="#Invalid_Patterns">Handling Invalid Patterns</a>
+					<li>Section 7.2 <a href="#Invalid_Patterns">Handling Invalid Patterns</a>
 					  <ul>
 					    <li>Add new section with recommendations for handling invalid
 					    	number/date pattern fields in formatting and parsing.

@@ -140,7 +140,7 @@ h2, h3, h4, table {
 			</i>
 		</p>
 		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		<!-- APPROVED
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -896,9 +896,12 @@ h2, h3, h4, table {
 			and width. Each locale has an associated dayPeriodRuleSet in the
 			supplemental data, rules that specify when the day periods start and
 			end for that locale. Each type in the rules needs to have a
-			translation in a <span class="element">dayPeriod</span>. For more
-			information, see <em><a href="#Day_Period_Rules">Day Period
-					Rules</a></em>.
+			translation in a <span class="element">dayPeriod</span>
+			<span class="changed">(but if translation data is missing for a
+			particular variable dayPeriod in the locale’s language and script,
+			formatting should fall back to using the am/pm values)</span>.
+			For more information, see <em><a href="#Day_Period_Rules">Day Period
+			Rules</a></em>.
 		</p>
 
 		<p>The dayPeriod names should be distinct within each of the
@@ -1038,47 +1041,47 @@ h2, h3, h4, table {
        &lt;/dateTimeFormatLength&gt;
        &lt;availableFormats&gt;
          &lt;dateFormatItem id=&quot;Hm&quot;&gt;<span
-				style="color: blue">HH:mm</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">HH:mm</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;Hms&quot;&gt;<span
-				style="color: blue">HH:mm:ss</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">HH:mm:ss</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;M&quot;&gt;<span
-				style="color: blue">L</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">L</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;MEd&quot;&gt;<span
-				style="color: blue">E, M/d</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">E, M/d</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;MMM&quot;&gt;<span
-				style="color: blue">LLL</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">LLL</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;MMMEd&quot;&gt;<span
-				style="color: blue">E, MMM d</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">E, MMM d</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;MMMMEd&quot;&gt;<span
-				style="color: blue">E, MMMM d</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">E, MMMM d</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;MMMMd&quot;&gt;<span
-				style="color: blue">MMMM d</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">MMMM d</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;MMMd&quot;&gt;<span
-				style="color: blue">MMM d</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">MMM d</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;Md&quot;&gt;<span
-				style="color: blue">M/d</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">M/d</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;d&quot;&gt;<span
-				style="color: blue">d</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">d</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;hm&quot;&gt;<span
-				style="color: blue">h:mm a</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">h:mm a</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;ms&quot;&gt;<span
-				style="color: blue">mm:ss</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">mm:ss</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;y&quot;&gt;<span
-				style="color: blue">yyyy</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">yyyy</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;yM&quot;&gt;<span
-				style="color: blue">M/yyyy</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">M/yyyy</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;yMEd&quot;&gt;<span
-				style="color: blue">EEE, M/d/yyyy</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">EEE, M/d/yyyy</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;yMMM&quot;&gt;<span
-				style="color: blue">MMM yyyy</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">MMM yyyy</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;yMMMEd&quot;&gt;<span
-				style="color: blue">EEE, MMM d, yyyy</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">EEE, MMM d, yyyy</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;yMMMM&quot;&gt;<span
-				style="color: blue">MMMM yyyy</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">MMMM yyyy</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;yQ&quot;&gt;<span
-				style="color: blue">Q yyyy</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">Q yyyy</span>&lt;/dateFormatItem&gt;
          &lt;dateFormatItem id=&quot;yQQQ&quot;&gt;<span
-				style="color: blue">QQQ yyyy</span>&lt;/dateFormatItem&gt; 
+				style="color: blue">QQQ yyyy</span>&lt;/dateFormatItem&gt;
          . . .
        &lt;/availableFormats&gt;
        &lt;appendItems&gt;
@@ -1878,10 +1881,13 @@ h2, h3, h4, table {
 				Variable periods</a>
 		</h5>
 		<ol>
-			<li>The set of dayPeriodRules need to completely cover the 24
-				hours in a day (from 0:00 before 24:00), with <strong>no</strong> overlaps
+			<li><span class="changed">If a locale has a set of dayPeriodRules for
+				variable periods, it needs</span> to completely cover the 24 hours
+				in a day (from 0:00 before 24:00), with <strong>no</strong> overlaps
 				between any dayPeriodRules. They may overlap with the <strong>Fixed
-					Periods</strong>.
+				Periods</strong>.<br>
+				<span class="changed">If it does not have a rule set for variable periods,
+				behavior should fall back to using the fixed periods (am, pm).</span>
 			</li>
 			<li>"from" and "to" are closed intervals (inclusive). <em>(&quot;to&quot;
 					is deprecated)</em></li>
@@ -2256,29 +2262,29 @@ h2, h3, h4, table {
 			time.</p>
 		<p>The metazones can then have translations in different locale
 			files, such as the following.</p>
-		<pre>&lt;metazone type=&quot;America_Central&quot;&gt; 
-  &lt;long&gt; 
-    &lt;generic&gt;Central Time&lt;/generic&gt; 
-    &lt;standard&gt;Central Standard Time&lt;/standard&gt; 
-    &lt;daylight&gt;Central Daylight Time&lt;/daylight&gt; 
-  &lt;/long&gt; 
-  &lt;short&gt; 
-    &lt;generic&gt;CT&lt;/generic&gt; 
-    &lt;standard&gt;CST&lt;/standard&gt; 
-    &lt;daylight&gt;CDT&lt;/daylight&gt; 
-  &lt;/short&gt; 
-&lt;/metazone&gt; 
-&lt;metazone type=&quot;America_Eastern&quot;&gt; 
-  &lt;long&gt; 
-    &lt;generic&gt;Eastern Time&lt;/generic&gt; 
-    &lt;standard&gt;Eastern Standard Time&lt;/standard&gt; 
-    &lt;daylight&gt;Eastern Daylight Time&lt;/daylight&gt; 
-  &lt;/long&gt; 
-  &lt;short&gt; 
-    &lt;generic&gt;ET&lt;/generic&gt; 
-    &lt;standard&gt;EST&lt;/standard&gt; 
-    &lt;daylight&gt;EDT&lt;/daylight&gt; 
-  &lt;/short&gt; 
+		<pre>&lt;metazone type=&quot;America_Central&quot;&gt;
+  &lt;long&gt;
+    &lt;generic&gt;Central Time&lt;/generic&gt;
+    &lt;standard&gt;Central Standard Time&lt;/standard&gt;
+    &lt;daylight&gt;Central Daylight Time&lt;/daylight&gt;
+  &lt;/long&gt;
+  &lt;short&gt;
+    &lt;generic&gt;CT&lt;/generic&gt;
+    &lt;standard&gt;CST&lt;/standard&gt;
+    &lt;daylight&gt;CDT&lt;/daylight&gt;
+  &lt;/short&gt;
+&lt;/metazone&gt;
+&lt;metazone type=&quot;America_Eastern&quot;&gt;
+  &lt;long&gt;
+    &lt;generic&gt;Eastern Time&lt;/generic&gt;
+    &lt;standard&gt;Eastern Standard Time&lt;/standard&gt;
+    &lt;daylight&gt;Eastern Daylight Time&lt;/daylight&gt;
+  &lt;/long&gt;
+  &lt;short&gt;
+    &lt;generic&gt;ET&lt;/generic&gt;
+    &lt;standard&gt;EST&lt;/standard&gt;
+    &lt;daylight&gt;EDT&lt;/daylight&gt;
+  &lt;/short&gt;
 &lt;/metazone&gt;</pre>
 		<pre>&lt;metazone type=&quot;America_Eastern&quot;&gt;
   &lt;long&gt;

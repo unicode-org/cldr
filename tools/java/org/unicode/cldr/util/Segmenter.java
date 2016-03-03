@@ -709,7 +709,7 @@ public class Segmenter {
             "$E_Modifier=\\p{Grapheme_Cluster_Break=E_Modifier}",
             "$ZWJ=\\p{Grapheme_Cluster_Break=ZWJ}",
             "$Glue_After_Zwj=\\p{Grapheme_Cluster_Break=Glue_After_Zwj}",
-            "$GAZEB=\\p{Grapheme_Cluster_Break=Glue_After_Zwj_And_E_Base}",
+            "$EBG=\\p{Grapheme_Cluster_Break=E_Base_GAZ}",
 
             "3) $CR  	\u00D7  	$LF",
             "4) ( $Control | $CR | $LF ) 	\u00F7",
@@ -724,8 +724,8 @@ public class Segmenter {
             "9) \u00D7 	($Extend | $ZWJ)",
             "9.1) \u00D7 	$SpacingMark",
             "9.2) $Prepend  \u00D7",
-            "9.3) ($E_Base | $GAZEB) × $E_Modifier",
-            "9.4) $ZWJ × ($Glue_After_Zwj | $GAZEB)",
+            "9.3) ($E_Base | $EBG) × $E_Modifier",
+            "9.4) $ZWJ × ($Glue_After_Zwj | $EBG)",
         },
         {
             "LineBreak",
@@ -1046,7 +1046,7 @@ public class Segmenter {
             "$E_Modifier=\\p{Word_Break=E_Modifier}",
             "$ZWJ=\\p{Word_Break=ZWJ}",
             "$Glue_After_Zwj=\\p{Word_Break=Glue_After_Zwj}",
-            "$GAZEB=\\p{Word_Break=Glue_After_Zwj_And_E_Base}",
+            "$EBG=\\p{Word_Break=E_Base_GAZ}",
 
             "# WARNING: For Rule 4: Fixes for GC, Format",
             // "# Subtract Format from Control, since we don't want to break before/after",
@@ -1070,9 +1070,9 @@ public class Segmenter {
 
             "$E_Base=($E_Base $FE*)",
             "$E_Modifier=($E_Modifier $FE*)",
-            "$ZWJ=($ZWJ $FE*)",
+            //"$ZWJ=($ZWJ $FE*)", don't do this one!
             "$Glue_After_Zwj=($Glue_After_Zwj $FE*)",
-            "$GAZEB=($GAZEB $FE*)",
+            "$EBG=($EBG $FE*)",
 
             // macros
 
@@ -1083,6 +1083,7 @@ public class Segmenter {
             "3) $CR  	\u00D7  	$LF",
             "3.1) ($Newline | $CR | $LF)	\u00F7",
             "3.2) \u00F7    ($Newline | $CR | $LF)",
+            "3.3) $ZWJ × ($Glue_After_Zwj | $EBG)",
             // "3.4) ( $Control | $CR | $LF ) 	\u00F7",
             // "3.5) \u00F7 	( $Control | $CR | $LF )",
             // "3.9) \u00D7 	$Extend",
@@ -1113,7 +1114,6 @@ public class Segmenter {
             "13.31) ^ ($RI $RI)* $RI × $RI",
             "13.32) [^$RI] ($RI $RI)* $RI × $RI",
             "13.33) $RI ÷ $RI",
-            "13.4) ($E_Base | $GAZEB) × $E_Modifier",
-            "13.5) $ZWJ × ($Glue_After_Zwj | $GAZEB)",
+            "13.4) ($E_Base | $EBG) × $E_Modifier",
         } };
 }

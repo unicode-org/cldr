@@ -1796,13 +1796,13 @@ h2, h3, h4, table {
 		</p>
 
 		<p class="dtd">
-			&lt;!ELEMENT dayPeriodRule EMPTY &gt;<br> &lt;!ATTLIST
-			dayPeriodRule type NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST
-			dayPeriodRule at NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
-			dayPeriodRule after NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
-			dayPeriodRule from NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
-			dayPeriodRule before NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST
-			dayPeriodRule to NMTOKEN #IMPLIED &gt;
+			&lt;!ELEMENT dayPeriodRule EMPTY &gt;<br>
+			&lt;!ATTLIST dayPeriodRule type NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST dayPeriodRule at NMTOKEN #IMPLIED &gt;<br>
+			<span class="removed">&lt;!ATTLIST dayPeriodRule after NMTOKEN #IMPLIED &gt;<br></span>
+			&lt;!ATTLIST dayPeriodRule from NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST dayPeriodRule before NMTOKEN #IMPLIED &gt;<br>
+			<span class="removed">&lt;!ATTLIST dayPeriodRule to NMTOKEN #IMPLIED &gt;<br></span>
 		</p>
 
 		<p>Each locale can have a set of day period rules, which determine
@@ -1889,10 +1889,10 @@ h2, h3, h4, table {
 				<span class="changed">If it does not have a rule set for variable periods,
 				behavior should fall back to using the fixed periods (am, pm).</span>
 			</li>
-			<li>"from" and "to" are closed intervals (inclusive). <em>(&quot;to&quot;
-					is deprecated)</em></li>
-			<li>"after" and "before" are open intervals (exclusive). <em>(&quot;after&quot;
-					is deprecated)</em></li>
+			<li>"from" <span class="changed">is a</span> closed interval (inclusive).
+				<em>(<span class="changed">as is the deprecated "to"</span>)</em></li>
+			<li>"before" <span class="changed">is an</span> open interval (exclusive).
+				<em>(<span class="changed">as is the deprecated "after"</span>)</em></li>
 			<li>"at" means starting time and end time are the same. <em>(&quot;at&quot;
 					is deprecated except when used for the fixed periods)</em></li>
 			<li>There must be exactly one of {at, from, after} and exactly

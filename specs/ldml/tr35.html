@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2016-03-02</span></td>
+				<td><span class="changed">2016-03-05</span></td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -465,7 +465,15 @@ h5 {
 							Mapping</a></li>
 					<li>8.3 <a href="#Choice_Patterns">Choice Patterns</a></li>
 					<li>8.4 <a href="#Element_default">Element default</a></li>
-					<li>8.5 <a href="#Attribute_standard">Attribute standard</a></li>
+					<li>8.5 <span class="changed"><a href="#Deprecated_Common_Attributes">Deprecated
+							Common Attributes</a></span>
+						<ul class="toc">
+							<li><span class="changed">8.5.1</span> <a
+								href="#Attribute_standard">Attribute standard</a></li>
+							<li class="changed">8.5.2 <a href="#Attribute_draft_nonLeaf">Attribute
+								draft in non-leaf elements</a></li>
+						</ul>
+					</li>
 					<li>8.6 <a href="#Element_base">Element base</a></li>
 					<li>8.7 <a href="#Element_rules">Element rules</a></li>
 					<li>8.8 <a href="#Deprecated_subelements_of_dates">Deprecated
@@ -2527,31 +2535,33 @@ zh-Hant-HK</pre>
 		</p>
 		<p class="dtd">&lt;!ELEMENT keyword ( key* )&gt;</p>
 		<p class="dtd">
-			&lt;!ELEMENT key ( type* )&gt;<br> &lt;!ATTLIST key extension
-			NMTOKEN #IMPLIED&gt;<br> &lt;!ATTLIST key name NMTOKEN
-			#REQUIRED&gt;<br> &lt;!ATTLIST key description CDATA
-			#IMPLIED&gt;<br> &lt;!ATTLIST key deprecated ( true | false )
-			"false"&gt;<br> &lt;!ATTLIST key preferred NMTOKEN #IMPLIED&gt;<br>
-			&lt;!ATTLIST key alias NMTOKEN #IMPLIED&gt;<br> <span
-				class="changed">&lt;!ATTLIST key valueType (single | multiple
-				| incremental | any) #IMPLIED &gt;</span><br> &lt;!ATTLIST key since
-			CDATA #IMPLIED&gt;
+			&lt;!ELEMENT key ( type* )&gt;<br>
+			&lt;!ATTLIST key extension NMTOKEN #IMPLIED&gt;<br>
+			&lt;!ATTLIST key name NMTOKEN #REQUIRED&gt;<br>
+			&lt;!ATTLIST key description CDATA #IMPLIED&gt;<br>
+			&lt;!ATTLIST key deprecated ( true | false ) "false"&gt;<br>
+			&lt;!ATTLIST key preferred NMTOKEN #IMPLIED&gt;<br>
+			&lt;!ATTLIST key alias NMTOKEN #IMPLIED&gt;<br>
+			<span class="changed">&lt;!ATTLIST key valueType
+				(single | multiple | incremental | any) #IMPLIED &gt;</span><br>
+			&lt;!ATTLIST key since CDATA #IMPLIED&gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT type EMPTY&gt;<br> &lt;!ATTLIST type name NMTOKEN
-			#REQUIRED&gt;<br> &lt;!ATTLIST type description CDATA
-			#IMPLIED&gt;<br> &lt;!ATTLIST type deprecated ( true | false )
-			"false"&gt;<br> &lt;!ATTLIST type preferred NMTOKEN #IMPLIED&gt;<br>
-			&lt;!ATTLIST type alias CDATA #IMPLIED&gt;<br> &lt;!ATTLIST type
-			since CDATA #IMPLIED&gt;
+			&lt;!ELEMENT type EMPTY&gt;<br>
+			&lt;!ATTLIST type name NMTOKEN #REQUIRED&gt;<br>
+			&lt;!ATTLIST type description CDATA #IMPLIED&gt;<br>
+			&lt;!ATTLIST type deprecated ( true | false ) "false"&gt;<br>
+			&lt;!ATTLIST type preferred NMTOKEN #IMPLIED&gt;<br>
+			&lt;!ATTLIST type alias CDATA #IMPLIED&gt;<br>
+			&lt;!ATTLIST type since CDATA #IMPLIED&gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT attribute EMPTY&gt;<br> &lt;!ATTLIST attribute name
-			NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST attribute description
-			CDATA #IMPLIED&gt;<br> &lt;!ATTLIST attribute deprecated ( true
-			| false ) "false"&gt;<br> &lt;!ATTLIST attribute preferred
-			NMTOKEN #IMPLIED&gt;<br> &lt;!ATTLIST attribute since CDATA
-			#IMPLIED&gt;
+			&lt;!ELEMENT attribute EMPTY&gt;<br>
+			&lt;!ATTLIST attribute name NMTOKEN #REQUIRED&gt;<br>
+			&lt;!ATTLIST attribute description CDATA #IMPLIED&gt;<br>
+			&lt;!ATTLIST attribute deprecated ( true | false ) "false"&gt;<br>
+			&lt;!ATTLIST attribute preferred NMTOKEN #IMPLIED&gt;<br>
+			&lt;!ATTLIST attribute since CDATA #IMPLIED&gt;
 		</p>
 		<p>The extension attribute in &lt;key&gt; element specifies the
 			BCP 47 language tag extension type. The default value of the
@@ -3997,9 +4007,9 @@ root</pre>
 		</h4>
 		<p class="dtd">
 			&lt;!ELEMENT parentLocales ( parentLocale* ) &gt;<br>
-			&lt;!ELEMENT parentLocale EMPTY &gt;<br> &lt;!ATTLIST
-			parentLocale parent <span class="changed">NMTOKEN</span> #REQUIRED &gt;<br> &lt;!ATTLIST
-			parentLocale locales <span class="changed">NMTOKEN</span> #REQUIRED &gt;
+			&lt;!ELEMENT parentLocale EMPTY &gt;<br>
+			&lt;!ATTLIST parentLocale parent <span class="changed">NMTOKEN</span> #REQUIRED &gt;<br>
+			&lt;!ATTLIST parentLocale locales <span class="changed">NMTOKENS</span> #REQUIRED &gt;
 		</p>
 		<p>In some cases, the normal truncation inheritance does not
 			function well. This happens when:</p>
@@ -4557,9 +4567,9 @@ root</pre>
 				Subtags</a>
 		</h3>
 		<p class="dtd">
-			&lt;!ELEMENT likelySubtag EMPTY &gt;<br> &lt;!ATTLIST
-			likelySubtag from NMTOKEN #REQUIRED&gt;<br> &lt;!ATTLIST
-			likelySubtag to NMTOKEN #REQUIRED&gt;
+			&lt;!ELEMENT likelySubtag EMPTY &gt;<br>
+			&lt;!ATTLIST likelySubtag from NMTOKEN #REQUIRED&gt;<br>
+			&lt;!ATTLIST likelySubtag to NMTOKEN #REQUIRED&gt;
 		</p>
 		<p>There are a number of situations where it is useful to be able
 			to find the most likely language, script, or region. For example,
@@ -4768,11 +4778,11 @@ root</pre>
 			&lt;!ELEMENT languageMatching ( languageMatches* ) &gt;<br>
 			&lt;!ELEMENT languageMatches ( languageMatch* ) &gt;<br>
 			&lt;!ATTLIST languageMatches type NMTOKEN #REQUIRED &gt;<br>
-			&lt;!ELEMENT languageMatch EMPTY &gt;<br> &lt;!ATTLIST
-			languageMatch desired CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
-			languageMatch supported CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
-			languageMatch percent NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST
-			languageMatch oneway ( true | false ) #IMPLIED &gt;
+			&lt;!ELEMENT languageMatch EMPTY &gt;<br>
+			&lt;!ATTLIST languageMatch desired CDATA #REQUIRED &gt;<br>
+			&lt;!ATTLIST languageMatch supported CDATA #REQUIRED &gt;<br>
+			&lt;!ATTLIST languageMatch percent NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST languageMatch oneway ( true | false ) #IMPLIED &gt;
 		</p>
 		<p>
 			Implementers are often faced with the issue of how to match the
@@ -5280,9 +5290,9 @@ root</pre>
 				alias</a>
 		</h4>
 		<p class="dtd">
-			&lt;!ELEMENT alias (special*) &gt;<br> &lt;!ATTLIST alias source
-			NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST alias path CDATA
-			#IMPLIED&gt;
+			&lt;!ELEMENT alias (special*) &gt;<br>
+			&lt;!ATTLIST alias source NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST alias path CDATA #IMPLIED&gt;
 		</p>
 		<p>The contents of any element in root can be replaced by an
 			alias, which points to the path where the data can be found.</p>
@@ -5495,9 +5505,11 @@ root</pre>
 				Submission and Vetting Process</a> on the CLDR website.
 		</p>
 		<p>
-			Normally draft attributes should only occur on &quot;leaf&quot;
-			elements. For a more formal description of how elements are
-			inherited, and what their draft status is, see <i><a
+			<span class="removed">Normally</span><span class="changed">The</span> draft
+			attribute should only occur on &quot;leaf&quot;
+			elements<span class="changed">, and is deprecated elsewhere</span>.
+			For a more formal description of how elements are inherited, and what their
+			draft status is, see <i><a
 				href="#Inheritance_and_Validity">Section 4.2 Inheritance and
 					Validity</a></i>.
 		</p>
@@ -6176,8 +6188,8 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
 			<pre>&lt;deprecatedItems elements=&quot;abbreviationFallback default ... preferenceOrdering&quot; attributes=&quot;type&quot;/&gt; </pre>
 		</blockquote>
 		<p class="dtd">
-			&lt;!ELEMENT blockingItems EMPTY &gt;<br> &lt;!ATTLIST
-			blockingItems elements NMTOKENS #IMPLIED &gt;
+			&lt;!ELEMENT blockingItems EMPTY &gt;<br>
+			&lt;!ATTLIST blockingItems elements NMTOKENS #IMPLIED &gt;
 		</p>
 		<p>
 			The blockingItems indicate which elements (and their child elements)
@@ -6497,12 +6509,13 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<p class="dtd">
 			&lt;!ELEMENT bcp47KeywordMappings ( mapKeys?, mapTypes* ) &gt;<br>
-			&lt;!ELEMENT mapKeys ( keyMap* ) &gt;<br> &lt;!ELEMENT keyMap
-			EMPTY &gt;<br> &lt;!ATTLIST keyMap type NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ELEMENT mapKeys ( keyMap* ) &gt;<br>
+			&lt;!ELEMENT keyMap EMPTY &gt;<br>
+			&lt;!ATTLIST keyMap type NMTOKEN #REQUIRED &gt;<br>
 			&lt;!ATTLIST keyMap bcp47 NMTOKEN #REQUIRED &gt;<br>
-			&lt;!ELEMENT mapTypes ( typeMap* ) &gt;<br> &lt;!ATTLIST
-			mapTypes type NMTOKEN #REQUIRED &gt;<br> &lt;!ELEMENT typeMap
-			EMPTY &gt;<br> &lt;!ATTLIST typeMap type CDATA #REQUIRED &gt;<br>
+			&lt;!ELEMENT mapTypes ( typeMap* ) &gt;<br>
+			&lt;!ATTLIST mapTypes type NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ELEMENT typeMap EMPTY &gt;<br> &lt;!ATTLIST typeMap type CDATA #REQUIRED &gt;<br>
 			&lt;!ATTLIST typeMap bcp47 NMTOKEN #REQUIRED &gt;<br>
 		</p>
 		<p>
@@ -6641,10 +6654,14 @@ decimal?, group?, special*)) &gt;</pre>
 		<p>In this case, the &lt;default&gt; is inherited from fr, and has
 			the value &quot;medium&quot;. It thus refers to this new
 			&quot;medium&quot; pattern in this resource bundle.</p>
-		<h3>
-			<a name="Attribute_standard" href="#Attribute_standard">8.5
-				Attribute standard</a>
+		<h3 class="changed">
+			<a name="Deprecated_Common_Attributes" href="#Deprecated_Common_Attributes">8.5
+				Deprecated Common Attributes</a>
 		</h3>
+		<h4>
+			<a name="Attribute_standard" href="#Attribute_standard"><span class="changed">8.5.1</span>
+				Attribute standard</a>
+		</h4>
 		<p class="element2">
 			<b>Note: </b>This attribute is deprecated. Instead, use a reference
 			element with the attribute standard=&quot;true&quot;.
@@ -6663,7 +6680,15 @@ decimal?, group?, special*)) &gt;</pre>
 				standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30”&gt;
 			</code>
 		</p>
-		<p>&nbsp;</p>
+
+		<h4 class="changed">
+			<a name="Attribute_draft_nonLeaf" href="#Attribute_draft_nonLeaf">8.5.2
+				Attribute draft in non-leaf elements</a>
+		</h4>
+		<p class="changed">
+			The draft attribute is deprecated except in leaf elements
+			(elements that do not have any subelements)
+		</p>
 
 		<h3>
 			<a name="Element_base" href="#Element_base">8.6 Element base</a>
@@ -9403,7 +9428,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<br>
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All
+			Copyright © 2001–201<span class="changed">6</span> Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

@@ -21,6 +21,15 @@ import com.ibm.icu.text.UnicodeSet;
 public class RandomStringGenerator {
 
     private static final UnicodeSet SUPPLEMENTARIES = new UnicodeSet(0x10000, 0x10FFFF);
+    
+    /**
+     * If not null, masks off the character properties so the UnicodeSets are easier to use when debugging.
+     */
+    public static UnicodeSet DEBUG_REDUCE_SET_SIZE = null; // new
+    // UnicodeSet("[\\u0000-\\u00FF\\u0300-\\u03FF\\u2000-\\u20FF]");
+    // // new UnicodeSet("[\\u0000-\\u00FF\\u2000-\\u20FF]"); //
+    // or null
+
 
     private Random random = new Random(0);
     private UnicodeSet[] sets;
@@ -61,9 +70,9 @@ public class RandomStringGenerator {
         for (int i = 0; i < sets.length; ++i) {
             sets[i] = map.keySet(values.get(i));
             sets[i].removeAll(SUPPLEMENTARIES);
-            if (Segmenter.DEBUG_REDUCE_SET_SIZE != null) {
+            if (DEBUG_REDUCE_SET_SIZE != null) {
                 int first = sets[i].charAt(0);
-                sets[i].retainAll(Segmenter.DEBUG_REDUCE_SET_SIZE);
+                sets[i].retainAll(DEBUG_REDUCE_SET_SIZE);
                 if (sets[i].size() == 0) sets[i].add(first);
             }
         }

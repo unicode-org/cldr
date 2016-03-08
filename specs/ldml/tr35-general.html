@@ -248,7 +248,11 @@ h2, h3, h4, table {
 			</li>
 			<li>10 <a href="#Transforms">Transforms</a>
 				<ul class="toc">
-					<li>10.1 <a href="#Inheritance">Inheritance</a></li>
+					<li>10.1 <a href="#Inheritance">Inheritance</a>
+					  <ul class="toc changed">
+					    <li>10.1.1 <a href="#Pivots">Pivots</a></li>
+				      </ul>
+					</li>
 					<li>10.2 <a href="#Variants">Variants</a></li>
 					<li>10.3 <a href="#Transform_Rules_Syntax">Transform Rules
 							Syntax</a>
@@ -2840,10 +2844,17 @@ h2, h3, h4, table {
 				</tr>
 			</table>
 		</div>
-
-		<h3>
-			10.2 <a name="Variants" href="#Variants">Variants</a>
-		</h3>
+      <p class='changed'>Japanese and Korean are special, since they can be represented by combined script codes, such as ja-Jpan, ja_Hrkt, ja_Hira, or ja_Kana. These need to be considered in the above fallback chain as well.</p>
+	  <h2 class='changed'>
+			10.1.1 <a name="Pivots" href="#Pivots">Pivots</a>
+		</h2>
+<p class='changed'>Transforms can also use <i>pivots</i>. These are used when there is no direct transform between a source and target, but there are transforms X-Y and Y-Z. In such a case, the transforms can be internally chained to get X-Y = X-Y;Y-Z. This is done explicitly with the Indic script transforms: to get Devanagari-Latin, internally it is done by transforming first from Devanagari to Interindic (an internal superset encoding for Indic scripts), then from Interindic to Latin. This allows there to be only N sets of transform rules for the Indic scripts: each one to and from Interindic. These pivots are explicitly represented in the CLDR transforms.</p>
+<p class='changed'>The pivots can also be produced automatically (implicitly), as a fallback. A particularly useful pivot is IPA, since that tends to preserve pronunciation. For example, <em>Czech to IPA</em> can be chained with <em>IPA to Katakana</em> to get <em>Czech to Katakana</em>.
+  <p class='changed'>CLDR often has special forms of IPA: not just &quot;und-FONIPA&quot; but &quot;cs-FONIPA&quot;: specifically IPA that has come from Czech. These variants typically preserve some features of the source language — such as double consonants — that are indistinguishable from single consonants in that language, but that are often preserved in traditional transliterations. Thus when matching prospective pivots, FONIPA is treated specially. If there is an exact match, that match is used (such as cs-cs_FONIPA + cs_FONIPA-ko). Otherwise, the language is ignored, as for example in cs-cs_FONIPA + ru_FONIPA-ko.  
+  <p class='changed'>The interaction of implicit pivots and inheritance may result in a longer inheritance chain lookup than desired, so implementers may consider having some sort of caching mechanism to increase performance.<br>
+  <h3>
+	  10.2 <a name="Variants" href="#Variants">Variants</a>
+	</h3>
 
 		<p>
 			Variants used in CLDR include UNGEGN and BGN, both indicating sources

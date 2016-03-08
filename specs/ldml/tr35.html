@@ -2566,9 +2566,8 @@ zh-Hant-HK</pre>
 		<p>The extension attribute in &lt;key&gt; element specifies the
 			BCP 47 language tag extension type. The default value of the
 			extension attribute is "u" (Unicode locale extension). The
-			&lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.</p>
-
-		<p>In the Unicode locale extension 'u' data files, the common
+			&lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.		</p>
+		<p>In the Unicode locale extension 'u' <span class="changed">and 't'</span> data files, the common
 			attributes for the &lt;key&gt;, &lt;type&gt; and &lt;attribute&gt;
 			elements are as follows:</p>
 		<dl>
@@ -2578,12 +2577,13 @@ zh-Hant-HK</pre>
 			<dd>
 				<p>
 					The key or type name used by Unicode locale extension with <a
-						href="#Unicode_locale_identifier">'u' extension syntax</a>. When <i>alias</i>
+						href="#Unicode_locale_identifier">'u' extension syntax</a><span class="changed"> or the 't' extensions syntax</span>. When <i>alias</i>
 					below is absent, this name can be also used with the old style <a
 						href="#Old_Locale_Extension_Syntax"> "@key=type" syntax</a>.
 				</p>
-				<p>
-					The type name <strong>"CODEPOINTS"</strong> is reserved for a
+				<p class="changed">Most type names are <strong>literal type names</strong>, which match exactly the same value. All of these have at least one lowercase letter, such as &quot;buddhist&quot;. There are a small number of <strong>indirect type names</strong>, such as &quot;RG_KEY_VALUE&quot;. These  have no lowercase letters. The interpretation of each one is listed below.</p>
+				<h5 class="changed">CODEPOINTS</h5>
+				<p>The type name <strong>"CODEPOINTS"</strong> is reserved for a
 					variable representing Unicode code point(s). The syntax is:
 				</p>
 				<table border="0">
@@ -2633,19 +2633,18 @@ zh-Hant-HK</pre>
 						3.3 <em>Setting Options</em>
 					</a>.
 				</p>
-				<p>
-					The type name <strong>"REORDER_CODE"</strong> is reserved for
+				<h5 class="changed">REORDER_CODE</h5>
+			  <p>The type name <strong>"REORDER_CODE"</strong> is reserved for
 					reordering block names (e.g. "latn", "digit" and "others") defined
 					in the <i><a href="tr35-collation.html#Root_Collation">Root
 							Collation</a></i>. The type "REORDER_CODE" is used for locale extension
 					key "kr" (colReorder). The value of type for "kr" is represented by
 					one or more reordering block names such as "latn-digit". For more
 					information, see <a href="tr35-collation.html#Script_Reordering">Collation:
-						Section 3.12 <em>Collation Reordering</em>
-					</a>.
+						Section 3.12 <em>Collation Reordering</em></a>.
 				</p>
-				<p class="changed">
-					The type name <strong>"RG_KEY_VALUE"</strong> is reserved for region
+				<h5 class='changed'>RG_KEY_VALUE</h5>
+				<p class="changed">The type name <strong>"RG_KEY_VALUE"</strong> is reserved for region
 					codes in the format required by the "rg" key; this is a region code
 					from the idValidity data in common/validity/region.xml (with certain
 					exclusions, listed below) followed by "zzzz". The excluded region
@@ -2656,14 +2655,15 @@ zh-Hant-HK</pre>
 					idStatus='regular' followed by "zzzz"; this set of values is the same
 					as the subdivision codes with idStatus='unknown' from the idValidity
 					data in common/validity/subdivision.xml.</p>
-				<p class="changed">
-					The type name <strong>"SUBDIVISION_CODE"</strong> is reserved for
+				<h5 class='changed'>SUBDIVISION_CODE</h5>
+				<p class="changed">The type name <strong>"SUBDIVISION_CODE"</strong> is reserved for
 					subdivision codes in the format required by the "sd" key; this is a
 					subdivision code  from the idValidity data in
 					common/validity/subdivision.xml, excluding those with
 					idStatus='unknown'. Codes with idStatus='deprecated' should not be
 					generated, and those with idStatus='private_use' are only to be used
 					with prior agreement.</p>
+				<h5 class='changed'>PRIVATE_USE</h5>
 				<p class="changed">
 					The type name <strong>"PRIVATE_USE"</strong> is reserved for
 					private use types. A valid type value is composed of one or more
@@ -2963,7 +2963,8 @@ zh-Hant-HK</pre>
 				<b>name</b>
 			</dt>
 			<dd>The name of the mechanism, limited to 3-8 characters (or
-				sequences of them).</dd>
+				sequences of them). <span class="changed">Any indirect type names are listed in 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files">U
+				Extension Data Files</a>.</span></dd>
 			<dt>
 				<b>description</b>
 			</dt>
@@ -8172,6 +8173,8 @@ decimal?, group?, special*)) &gt;</pre>
 								attribute. [<a href="http://unicode.org/cldr/trac/ticket/9226"
 								title="View ticket">#9226</a>]
 							</li>
+							<li>Made it clear that the indirect type names cannot have any lowercase letters, and the literal type names must have at least one.  [<a href="http://unicode.org/cldr/trac/ticket/[#9226] "
+								title="View ticket">#9226</a>] </li>
 						</ul>
 					</li>
 					<li>Section 3.6.5 <a href="#Unicode_Subdivision_Codes">Subdivision

@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2016-03-05</span></td>
+				<td><span class="changed">2016-03-08</span></td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -6471,9 +6471,24 @@ decimal?, group?, special*)) &gt;</pre>
 			with “MMMMMM” (invalid length in current CLDR). The recommended
 			behavior for handling such an invalid pattern field is:</p>
 		<ul class="changed">
-			<li>In <strong>formatting, </strong>emit U+FFFD REPLACEMENT
-			CHARACTER for the invalid field.</li>
-			<li>In <strong>parsing, </strong>the parse should fail.</li>
+			<li>For a field using a currently-invalid length for a valid pattern
+				character:
+				<ul>
+					<li>In <strong>formatting, </strong>emit U+FFFD REPLACEMENT
+					CHARACTER for the invalid field.</li>
+					<li>In <strong>parsing, </strong>the field may be parsed as
+					if it had a valid length.</li>
+				</ul>
+			</li>
+			<li>For a pattern that contains a currently-invalid pattern character
+				(applies only to date patterns, for which A-Za-z are reserved as
+				pattern characters but not all defined as valid):
+				<ul>
+					<li>Produce an error (set an error code or throw an exception)
+					when an attempt is made to create a formatter with such a
+					pattern or to apply such a pattern to an existing formatter.</li>
+				</ul>
+			</li>
 		</ul>
 		<h2>
 			<a name="Deprecated_Structure" href="#Deprecated_Structure">8

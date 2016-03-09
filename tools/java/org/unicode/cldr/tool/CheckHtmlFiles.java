@@ -83,7 +83,7 @@ public class CheckHtmlFiles {
         target(".*", CLDRPaths.BASE_DIRECTORY + "specs" + File.separator + "ldml" + File.separator +
             "tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs; "
             + "for others use the format -t ${workspace_loc}/unicode-draft/reports/tr51/tr51.html"),
-            verbose(null, null, "verbose debugging messages"),
+            verbose(".*", "none", "verbose debugging messages"),
 //        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
             // /cldr-archive
             ;
@@ -96,7 +96,14 @@ public class CheckHtmlFiles {
         }
     }
 
-    static boolean verbose;
+    enum Verbosity {
+        none, element, all;
+        static Verbosity of(String input) {
+            return input == null ? Verbosity.none : Verbosity.valueOf(input.toLowerCase(Locale.ROOT));
+        }
+    }
+    
+    static Verbosity verbose;
     static boolean doContents;
     static boolean isLdml;
 
@@ -106,7 +113,7 @@ public class CheckHtmlFiles {
         System.out.println("Then check for all links that don't start with name or href <a (?!href|name)");
 
         myOptions.parse(MyOptions.target, args, true);
-        verbose = MyOptions.verbose.option.doesOccur();
+        verbose = Verbosity.of(MyOptions.verbose.option.getValue());
 
         String targetString = MyOptions.target.option.getValue();
         if (targetString.contains("ldml")) {
@@ -612,6 +619,20 @@ public class CheckHtmlFiles {
         }
     }
 
+    static class ElementLine {
+        final String element;
+        final int line;
+        public ElementLine(String element, int line) {
+            super();
+            this.element = element;
+            this.line = line;
+        }
+        @Override
+        public String toString() {
+            return element + '[' + line + ']';
+        }
+    }
+    
     static class Data implements Iterable<String> {
         private static final Pattern ELEMENT_ATTLIST = Pattern.compile("<!(ELEMENT|ATTLIST)\\s+(\\S+)[^>]*>");
         List<String> sentences = new ArrayList<String>();
@@ -662,7 +683,7 @@ public class CheckHtmlFiles {
                 String fileString = file.getCanonicalFile().toString();
                 File fileCanonical = new File(fileString);
                 if (!m.reset(fileString).matches()) {
-                    if (verbose) {
+                    if (verbose == Verbosity.all) {
                         System.out.println("Skipping: " + RegexUtilities.showMismatch(m, fileString)
                             + "\t" + sourceDirectory);
                     }
@@ -690,7 +711,7 @@ public class CheckHtmlFiles {
             StringBuilder content = new StringBuilder();
             HeadingInfo heading = new HeadingInfo();
             HeadingInfoList headingInfoList = new HeadingInfoList(fileCanonical.getName(), H2_START);
-            Stack<String> elementStack = new Stack<>();
+            Stack<ElementLine> elementStack = new Stack<>();
             Stack<Pair<String, String>> attributeStack = new Stack<>();
             String contentString;
             boolean inHeading = false;
@@ -706,7 +727,7 @@ public class CheckHtmlFiles {
             main: while (true) {
                 int lineCount = parser.getLineCount();
                 Type x = parser.next(content);
-                if (verbose && !SUPPRESS.contains(x)) {
+                if (verbose == Verbosity.all && !SUPPRESS.contains(x)) {
                     LOG.write(parser.getLineCount() + "\t" + x + ":\t«" + content + "»");
                     //SimpleHtmlParser.writeResult(x, content, LOG);
                     LOG.write("\n");
@@ -743,16 +764,18 @@ public class CheckHtmlFiles {
                 case ELEMENT:
                     contentString = content.toString().toLowerCase(Locale.ENGLISH);
                     if (inPop) {
-                        String peek;
+                        ElementLine peek;
                         while (true) {
                             peek = elementStack.peek();
-                            if (!NOPOP.contains(peek)) {
+                            if (!NOPOP.contains(peek.element)) {
                                 break;
                             }
                             elementStack.pop();
                         }
-                        if (!peek.equals(contentString)) {
-                            System.out.println(lineCount + "\tCouldn't pop: " + contentString + ", peek=" + peek);
+                        if (!peek.element.equals(contentString)) {
+                            System.out.println(lineCount 
+                                + "\tCouldn't pop: " + contentString 
+                                + ", " + showElementStack(elementStack));
                         } else {
                             elementStack.pop();
                         }
@@ -761,13 +784,13 @@ public class CheckHtmlFiles {
                         if (pushedTable && !"caption".equals(contentString)) {
                             captionWarnings.add(lineCount);
                         }
-                        elementStack.push(contentString);
+                        elementStack.push(new ElementLine(contentString, lineCount));
                         pushedTable = checkCaption && "table".equals(contentString);
                         if (!checkCaption && "h3".equals(contentString)) { // h3 around Summary in standard format
                             checkCaption = true;
                         }
                     }
-                    if (verbose) {
+                    if (verbose != Verbosity.none) {
                         LOG.write(parser.getLineCount() + "\telem:\t" + showElementStack(elementStack) + "\n");
                         LOG.flush();
                     }
@@ -796,7 +819,7 @@ public class CheckHtmlFiles {
                     inPop = false;
                     break;
                 case ELEMENT_END:
-                    if (verbose && !attributeStack.isEmpty()) {
+                    if (verbose == Verbosity.all && !attributeStack.isEmpty()) {
                         LOG.write(parser.getLineCount() + "\tattr:\t" + showAttributeStack(attributeStack) + System.lineSeparator());
                         LOG.flush();
                     }
@@ -881,11 +904,10 @@ public class CheckHtmlFiles {
             return result.toString();
         }
 
-        private String showElementStack(Stack<String> elementStack) {
+        private String showElementStack(Stack<ElementLine> elementStack) {
             StringBuilder result = new StringBuilder();
-            for (String s : elementStack) {
-                result.append('/');
-                result.append(s);
+            for (ElementLine s : elementStack) {
+                result.append('/').append(s);
             }
             return result.toString();
         }

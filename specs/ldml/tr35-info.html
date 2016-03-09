@@ -205,52 +205,44 @@ h2, h3, h4, table {
 				Supplemental</a>
 		</h2>
 		<ul class="toc">
-			<li>1 <a href="#Supplemental_Data">Introduction Supplemental
-					Data</a></li>
+			<li>1 <a href="#Supplemental_Data">Introduction Supplemental Data</a></li>
 			<li>2 <a href="#Territory_Data">Territory Data</a>
 				<ul class="toc">
-					<li>2.1 <a href="#Supplemental_Territory_Containment">Supplemental
-							Territory Containment</a></li>
-					<li>2.2 <a href="#Subdivision_Containment">Subdivision
-							Containment</a></li>
-					<li>2.3 <a href="#Supplemental_Territory_Information">Supplemental
-							Territory Information</a></li>
-					<li class="changed">2.4 <a href="#Territory_Based_Preferences">Territory-Based
-							Preferences</a>
+					<li>2.1 <a href="#Supplemental_Territory_Containment">Supplemental Territory Containment</a></li>
+					<li>2.2 <a href="#Subdivision_Containment">Subdivision Containment</a></li>
+					<li>2.3 <a href="#Supplemental_Territory_Information">Supplemental Territory Information</a></li>
+					<li>2.4 <a href="#Territory_Based_Preferences">Territory-Based Preferences</a>
 						<ul class="toc">
-							<li>2.4.1 <a href="#Preferred_Units_For_Usage">Preferred Units for
-								Specific Usages</a></li>
+							<li>2.4.1 <a href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>
+								<ul class="toc">
+									<li>Table: <a href="#Unit_Preference_Categories">Unit Preference Categories</a></li>
+								</ul>
+							</li>
 						</ul>
 					</li>
-					<li class="changed">2.5 <a href="#rgScope">&lt;rgScope&gt;: Scope of
-							the “rg” Locale Key</a></li>
+					<li>2.5 <a href="#rgScope">&lt;rgScope&gt;: Scope of the “rg” Locale Key</a></li>
 				</ul>
 			</li>
-			<li>3 <a href="#Supplemental_Language_Data">Supplemental
-					Language Data</a></li>
-			<li>4 <a href="#Supplemental_Code_Mapping">Supplemental Code
-					Mapping</a></li>
+			<li>3 <a href="#Supplemental_Language_Data">Supplemental Language Data</a></li>
+			<li>4 <a href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></li>
 			<li>5 <a href="#Telephone_Code_Data">Telephone Code Data</a></li>
-			<li>6 <a href="#Postal_Code_Validation">Postal Code
-					Validation (Deprecated)</a></li>
-			<li>7 <a href="#Supplemental_Character_Fallback_Data">Supplemental
-					Character Fallback Data</a></li>
+			<li>6 <a href="#Postal_Code_Validation">Postal Code Validation (Deprecated)</a></li>
+			<li>7 <a href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></li>
 			<li>8 <a href="#Coverage_Levels">Coverage Levels</a>
 				<ul class="toc">
 					<li>8.1 <a href="#Coverage_Level_Definitions">Definitions</a></li>
-					<li>8.2 <a href="#Coverage_Level_Data_Requirements">Data
-							Requirements</a></li>
-					<li>8.3 <a href="#Coverage_Level_Default_Values">Default
-							Values</a></li>
+					<li>8.2 <a href="#Coverage_Level_Data_Requirements">Data Requirements</a></li>
+					<li>8.3 <a href="#Coverage_Level_Default_Values">Default Values</a></li>
 				</ul>
 			</li>
-			<li>9 <a href="#Appendix_Supplemental_Metadata">Supplemental
-					Metadata</a>
+			<li>9 <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>
 				<ul class="toc">
-					<li>9.1 <a href="#Supplemental_Alias_Information">Supplemental
-							Alias Information</a></li>
-					<li>9.2 <a href="#Supplemental_Deprecated_Information">Supplemental
-							Deprecated Information</a>
+					<li>9.1 <a href="#Supplemental_Alias_Information">Supplemental Alias Information</a>
+						<ul class="toc">
+							<li>Table: <a href="#Alias_Attribute_Values">Alias Attribute Values</a></li>
+						</ul>
+					</li>
+					<li>9.2 <a href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information</a>
 						<ul class="toc">
 							<li>Table: <a href="#Deprecated_Items">Deprecated Items</a></li>
 						</ul>
@@ -389,7 +381,7 @@ h2, h3, h4, table {
 			groupings you can drop this containment. In the example above, EU is
 			a grouping, and contained in 150.</p>
 		<h3>
-			2.1.1 <a name="Subdivision_Containment"
+			2.2 <a name="Subdivision_Containment"
 				href="#Subdivision_Containment">Subdivision Containment</a>
 		</h3>
 		<p class="dtd">
@@ -426,7 +418,7 @@ h2, h3, h4, table {
 			FR, MK, and LU.
 		</p>
 		<h3>
-			2.2 <a name="Supplemental_Territory_Information"
+			2.3 <a name="Supplemental_Territory_Information"
 				href="#Supplemental_Territory_Information">Supplemental
 				Territory Information</a>
 		</h3>
@@ -709,6 +701,7 @@ h2, h3, h4, table {
 			category, usage, and scope:
 		</p>
 		<table border="1" cellpadding="4" cellspacing="0" class="changed">
+			<caption class="changed"><a name="Unit_Preference_Categories" href="#Unit_Preference_Categories">Unit Preference Categories</a></caption>
 			<tr>
 				<td><strong>Category</strong></td>
 				<td><strong>Usage</strong></td>
@@ -1140,6 +1133,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			current version of CLDR. This list will change between releases of
 			CLDR. Each level adds to what is in the lower level.</p>
 		<table border="1" cellpadding="0" cellspacing="1">
+			<!-- nocaption -->
 			<tr>
 				<th nowrap><div align="right">Level</div></th>
 				<th colspan="2">Description</th>
@@ -1533,6 +1527,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 &lt;/alias&gt;</pre>
 		<p>Attribute values for the *Alias values include the following:</p>
 		<table>
+			<caption class="changed"><a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a></caption>
 			<tr>
 				<th scope="col">Attribute</th>
 				<th scope="col">Value</th>

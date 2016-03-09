@@ -893,7 +893,9 @@ h2, h3, h4, table {
 		</p>
 		<ul class="changed">
 			<li>An attribute value of '*' indicates that the path applies regardless of the value of the attribute.</li>
-			<li>Lookup will be performed as if the region specified by the “rg” key were included in the region list designated by '#'.</li>
+			<li>Each path must have exactly one attribute whose value is marked here as '#'; in actual data items with
+			this path, the corresponding value is a list of region codes. It is the region codes in this list that are
+			compared with the region specified by the “rg” key to determine which data item to use for this path.</li>
 		</ul>
 
 		<h2>

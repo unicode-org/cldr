@@ -204,6 +204,7 @@ h2, h3, h4, table {
 		<h2>
 			<a name="Contents" href="#Contents">Contents of Part 5, Collation</a>
 		</h2>
+		<!-- START Generated TOC: CheckHtmlFiles -->
 		<ul class="toc">
 			<li>1 <a href="#CLDR_Collation">CLDR Collation</a>
 				<ul class="toc">
@@ -336,6 +337,8 @@ h2, h3, h4, table {
 				</ul>
 			</li>
 		</ul>
+		<!-- END Generated TOC: CheckHtmlFiles -->
+
 		<h2>
 			1 <a name="CLDR_Collation" href="#CLDR_Collation">CLDR Collation</a>
 		</h2>
@@ -1353,9 +1356,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			3.3 <a name="Collation_Element" href="#Collation_Element">Collation
 				Element</a>
 		</h3>
-		<p class="dtd">
-			&lt;!ELEMENT collation (alias | (cr*, special*)) &gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT collation (alias | (cr*, special*))
+			&gt;</p>
 		<p>
 			The tailoring syntax is designed to be independent of the actual
 			weights used in any particular UCA table. That way the same rules can
@@ -1386,13 +1388,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			weights.
 		</p>
 		<p>
-			If a
-				setting is not present, the CLDR default (or the default for the
+			If a setting is not present, the CLDR default (or the default for the
 			locale, if there is one) is used. That default is listed in bold
 			italics. Where there is a UCA default that is different, it is listed
 			in bold with (<strong>UCA default</strong>). Note that the default
-			value for a locale may be different than the normal
-			default value for the setting.
+			value for a locale may be different than the normal default value for
+			the setting.
 		</p>
 
 		<table>
@@ -1447,8 +1448,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					comparison. <em>The default for LDML is different than it is
 						in the UCA. In LDML, the default for alternate handling is <strong>non-ignorable</strong>,
 						while in UCA it is <strong>shifted</strong>. In addition, in LDML
-						only whitespace and punctuation are variable by
-							default.
+						only whitespace and punctuation are variable by default.
 				</em>
 				</td>
 			</tr>
@@ -1617,12 +1617,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<tr>
 				<td>vt</td>
 				<td>See <i>Part 1 Section 3.6.4, <a
-						href="tr35.html#Unicode_Locale_Extension_Data_Files">U Extension
-							Data Files</a></i>.<br>
-					<i><strong>Deprecated:</strong></i> Use maxVariable instead.
+						href="tr35.html#Unicode_Locale_Extension_Data_Files">U
+							Extension Data Files</a></i>.<br> <i><strong>Deprecated:</strong></i>
+					Use maxVariable instead.
 				</td>
 				<td><code>&amp;\u00XX\uYYYY &lt; [variable top]</code><br>
-				<br> (the default is set to the highest punctuation, thus
+					<br> (the default is set to the highest punctuation, thus
 					including spaces and punctuation, but not symbols)</td>
 				<td>
 					<p>
@@ -1641,29 +1641,30 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 						reordering group.<br> Variables are ignorable by default in [<a
 							href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but
 						not in CLDR. See below for more information.
-					</p></td>
+					</p>
+				</td>
 			</tr>
 			<tr>
 				<td><em>n/a</em></td>
 				<td><em>n/a</em></td>
 				<td><em>n/a</em></td>
-				<td>match-boundaries: <em><strong>none</strong></em>
-						| whole-character | whole-word
-				<br> Defined by <em>Section 8, <a
-						href="http://www.unicode.org/reports/tr10/#Searching">Searching
-							and Matching</a></em> of [<a
-					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+				<td>match-boundaries: <em><strong>none</strong></em> |
+					whole-character | whole-word <br> Defined by <em>Section
+						8, <a href="http://www.unicode.org/reports/tr10/#Searching">Searching
+							and Matching</a>
+				</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
+				</td>
 			</tr>
 			<tr>
 				<td><em>n/a</em></td>
 				<td><em>n/a</em></td>
 				<td><em>n/a</em></td>
-				<td>match-style: <em><strong>minimal</strong></em>
-						| medial | maximal
-				<br> Defined by <em>Section 8, <a
+				<td>match-style: <em><strong>minimal</strong></em> | medial |
+					maximal <br> Defined by <em>Section 8, <a
 						href="http://www.unicode.org/reports/tr10/#Searching">Searching
 							and Matching</a></em> of [<a
-					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
+				</td>
 			</tr>
 		</table>
 
@@ -1728,12 +1729,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			just include space marks. In that case, maxVariable would be set to
 			"space". (In CLDR 24 and earlier, the now-deprecated variableTop
 			would be set to U+1680, see the “Whitespace” <a
-				href="http://unicode.org/charts/collation/">UCA
-				collation chart</a>). Alternatively, someone could want more of the
-			Common characters in them, and include characters up to (but not
-			including) '0', by setting maxVariable to "currency". (In CLDR 24 and
-			earlier, the now-deprecated variableTop would be set to U+20BA,
-			see the “Currency-Symbol” collation chart).
+				href="http://unicode.org/charts/collation/">UCA collation chart</a>).
+			Alternatively, someone could want more of the Common characters in
+			them, and include characters up to (but not including) '0', by
+			setting maxVariable to "currency". (In CLDR 24 and earlier, the
+			now-deprecated variableTop would be set to U+20BA, see the
+			“Currency-Symbol” collation chart).
 		</p>
 		<p>The effect of these settings is to customize to ignore
 			different sets of characters when comparing strings. For example, the
@@ -1763,8 +1764,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			then they would have to change with every version, parallel with the
 			root collation. Instead, for tailorings, mappings are added and
 			modified relative to the root collation. (There is no syntax to <i>remove</i>
-			mappings, except via <a href="#Special_Purpose_Commands">special [suppressContractions [...]]
-			</a>.)
+			mappings, except via <a href="#Special_Purpose_Commands">special
+				[suppressContractions [...]] </a>.)
 		</p>
 
 		<p>
@@ -2416,14 +2417,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			3.12 <a name="Special_Purpose_Commands"
 				href="#Special_Purpose_Commands">Special-Purpose Commands</a>
 		</h3>
-		<p>
-			The import command imports rules from another collation. This allows
-			for better maintenance and smaller rule sizes. The source is a BCP 47
-			language tag with an optional collation type but without
-				other extensions.
-			The collation type is the BCP 47 form of
-			the collation type in the source; it defaults to "standard".
-		</p>
+		<p>The import command imports rules from another collation. This
+			allows for better maintenance and smaller rule sizes. The source is a
+			BCP 47 language tag with an optional collation type but without other
+			extensions. The collation type is the BCP 47 form of the collation
+			type in the source; it defaults to "standard".</p>
 		<p>
 			<em>Examples: </em>
 		</p>
@@ -3182,13 +3180,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">6</span> Unicode, Inc. All Rights Reserved. The Unicode
-			Consortium makes no expressed or implied warranty of any kind, and
-			assumes no liability for errors or omissions. No liability is assumed
-			for incidental and consequential damages in connection with or
-			arising out of the use of the information or programs contained or
-			accompanying this technical report. The Unicode <a
-				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
+			Copyright © 2001–201<span class="changed">6</span> Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

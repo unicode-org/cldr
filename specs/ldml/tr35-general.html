@@ -201,6 +201,7 @@ h2, h3, h4, table {
 		<h2>
 			<a name="Contents" href="#Contents">Contents of Part 2, General</a>
 		</h2>
+		<!-- START Generated TOC: CheckHtmlFiles -->
 		<ul class="toc">
 			<li>1 <a href="#Display_Name_Elements">Display Name Elements</a></li>
 			<li>2 <a href="#Layout_Elements">Layout Elements</a></li>
@@ -232,8 +233,8 @@ h2, h3, h4, table {
 					<li>6.2 <a href="#Unit_Sequences">Unit Sequences</a></li>
 					<li>6.3 <a href="#durationUnit">durationUnit</a></li>
 					<li>6.4 <a href="#coordinateUnit">coordinateUnit</a></li>
-					<li class="changed">6.5 <a href="#Territory_Based_Unit_Preferences">Territory-Based
-						Unit Preferences</a></li>
+					<li>6.5 <a href="#Territory_Based_Unit_Preferences">Territory-Based
+							Unit Preferences</a></li>
 				</ul>
 			</li>
 			<li>7 <a href="#POSIX_Elements">POSIX Elements</a></li>
@@ -249,9 +250,9 @@ h2, h3, h4, table {
 			<li>10 <a href="#Transforms">Transforms</a>
 				<ul class="toc">
 					<li>10.1 <a href="#Inheritance">Inheritance</a>
-					  <ul class="toc changed">
-					    <li>10.1.1 <a href="#Pivots">Pivots</a></li>
-				      </ul>
+						<ul class="toc">
+							<li>10.1.1 <a href="#Pivots">Pivots</a></li>
+						</ul>
 					</li>
 					<li>10.2 <a href="#Variants">Variants</a></li>
 					<li>10.3 <a href="#Transform_Rules_Syntax">Transform Rules
@@ -291,6 +292,7 @@ h2, h3, h4, table {
 			<li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
 			<li>14 <a href="#Annotations">Annotations</a></li>
 		</ul>
+		<!-- END Generated TOC: CheckHtmlFiles -->
 		<h2>
 			1 <a name="Display_Name_Elements" href="#Display_Name_Elements">Display
 				Name Elements</a>
@@ -2190,25 +2192,26 @@ h2, h3, h4, table {
 		</p>
 
 		<h3 class="changed">
-			6.5 <a name="Territory_Based_Unit_Preferences" href="#Territory_Based_Unit_Preferences">Territory-Based
-				Unit Preferences</a>
+			6.5 <a name="Territory_Based_Unit_Preferences"
+				href="#Territory_Based_Unit_Preferences">Territory-Based Unit
+				Preferences</a>
 		</h3>
-		<p class="changed">
-			Different locales have different preferences for which unit or combination
-			of units is used for a particular usage, such as measuring a person’s
-			height. This is more fine-grained than merely a preference for metric versus
-			US or UK measurement systems. For example, one locale may use meters alone,
-			while another may use centimeters alone or a combination of meters and
-			centimeters; a third may use inches alone, or (informally) a combination of
-			feet and inches.
-		</p>
+		<p class="changed">Different locales have different preferences
+			for which unit or combination of units is used for a particular
+			usage, such as measuring a person’s height. This is more fine-grained
+			than merely a preference for metric versus US or UK measurement
+			systems. For example, one locale may use meters alone, while another
+			may use centimeters alone or a combination of meters and centimeters;
+			a third may use inches alone, or (informally) a combination of feet
+			and inches.</p>
 		<p class="changed">
 			The &lt;unitPreferenceData&gt; element, described in <a
-				href="tr35-info.html#Preferred_Units_For_Usage">Preferred Units for
-			Specific Usages</a>, provides information on which unit or combination of
-			units is used for various purposes in different locales, with options for
-			the level of formality and the scale of the measurement (e.g measuring the
-			height of an adult versus that of an infant).
+				href="tr35-info.html#Preferred_Units_For_Usage">Preferred Units
+				for Specific Usages</a>, provides information on which unit or
+			combination of units is used for various purposes in different
+			locales, with options for the level of formality and the scale of the
+			measurement (e.g measuring the height of an adult versus that of an
+			infant).
 		</p>
 
 		<h2>
@@ -2562,7 +2565,7 @@ h2, h3, h4, table {
 			where &#39;und&#39; means an unspecified language, plus some
 			additional extensions.</p>
 
-<ul>
+		<ul>
 			<li>The long names of a script according to [<a
 				href="http://www.unicode.org/reports/tr41/#UAX24">UAX24</a>] may be
 				used instead of the short script codes. The script identifier may
@@ -2585,63 +2588,75 @@ h2, h3, h4, table {
 				"und_Latn-und_Grek" (or the equivalent "Latin-Greek"), the
 				translated name for Greek would be Λατινικό-Ελληνικό.</li>
 		</ul>
-		<p class='changed'>In version 29.0, BCP47 identifiers were added as aliases (while retaining the old identifiers). The following table shows the relationship between the old identifiers and the BCP47 format identifiers.</p>
+		<p class='changed'>In version 29.0, BCP47 identifiers were added
+			as aliases (while retaining the old identifiers). The following table
+			shows the relationship between the old identifiers and the BCP47
+			format identifiers.</p>
 		<table class='simple changed'>
-		  <tbody>
-		    <tr>
-		      <th>Old ID</th>
-		      <th>BCP47 ID</th>
-		      <th>Comments</th>
-	        </tr>
-		    <tr>
-		      <td><strong>es_FONIPA</strong>-es_419_FONIPA</td>
-		      <td>es-419-fonipa-t-<strong>es-fonipa</strong></td>
-		      <td rowspan="2">The order reverses with -t-. That is, the language subtag part is what results.</td>
-	        </tr>
-		    <tr>
-		      <td><strong>hy_AREVMDA</strong>-hy_AREVMDA_FONIPA</td>
-		      <td>hy-arevmda-fonipa-t-<strong>hy-arevmda</strong></td>
-	        </tr>
-		    <tr>
-		      <td><strong>Devanagari</strong>-Latin</td>
-		      <td>und-Latn-t-<strong>und-deva</strong></td>
-		      <td rowspan="2">Scripts add  <strong>und-</strong></td>
-	        </tr>
-		    <tr>
-		      <td><strong>Latin</strong>-Devanagari</td>
-		      <td>und-Deva-t-<strong>und-latn</strong></td>
-	        </tr>
-		    <tr>
-		      <td>Greek-Latin/UNGEGN</td>
-		      <td>und-Latn-t-und-grek-<strong>m0-ungegn</strong></td>
-		      <td>Variants use the <strong>-m0-</strong> key.</td>
-	        </tr>
-		    <tr>
-		      <td>Russian-Latin/BGN</td>
-		      <td>ru<strong>-Latn</strong>-t-ru-m0-bgn</td>
-		      <td>Languages will have a script when it isn’t the default.</td>
-	        </tr>
-		    <tr>
-		      <td>Any-Hex/xml</td>
-		      <td>und-t-<strong>d0-hex</strong>-m0-xml</td>
-		      <td rowspan="2"><strong>Any</strong> becomes <strong>und</strong>, and keys <strong>d0</strong> (destination) and <strong>s0</strong> (source) are used for non-locales.</td>
-	        </tr>
-		    <tr>
-		      <td>Hex-Any/xml</td>
-		      <td>und-t-<strong>s0-hex</strong>-m0-xml</td>
-	        </tr>
-		    <tr>
-		      <td>Any-<strong>Publishing</strong></td>
-		      <td>und-t-d0-<strong>publish</strong></td>
-		      <td rowspan="2">Non-locales are normally the lowercases of the old ID, but may change because of BCP47 length restrictions.</td>
-	        </tr>
-		    <tr>
-		      <td><strong>Publishing</strong>-Any</td>
-		      <td>und-t-s0-<strong>publish</strong></td>
-	        </tr>
-	      </tbody>
-	  </table>
-            <p class='changed'>Note that the script and region codes are cased iff they are in the main subtag, but are lowercase in  extensions.</p>
+			<tbody>
+				<tr>
+					<th>Old ID</th>
+					<th>BCP47 ID</th>
+					<th>Comments</th>
+				</tr>
+				<tr>
+					<td><strong>es_FONIPA</strong>-es_419_FONIPA</td>
+					<td>es-419-fonipa-t-<strong>es-fonipa</strong></td>
+					<td rowspan="2">The order reverses with -t-. That is, the
+						language subtag part is what results.</td>
+				</tr>
+				<tr>
+					<td><strong>hy_AREVMDA</strong>-hy_AREVMDA_FONIPA</td>
+					<td>hy-arevmda-fonipa-t-<strong>hy-arevmda</strong></td>
+				</tr>
+				<tr>
+					<td><strong>Devanagari</strong>-Latin</td>
+					<td>und-Latn-t-<strong>und-deva</strong></td>
+					<td rowspan="2">Scripts add <strong>und-</strong></td>
+				</tr>
+				<tr>
+					<td><strong>Latin</strong>-Devanagari</td>
+					<td>und-Deva-t-<strong>und-latn</strong></td>
+				</tr>
+				<tr>
+					<td>Greek-Latin/UNGEGN</td>
+					<td>und-Latn-t-und-grek-<strong>m0-ungegn</strong></td>
+					<td>Variants use the <strong>-m0-</strong> key.
+					</td>
+				</tr>
+				<tr>
+					<td>Russian-Latin/BGN</td>
+					<td>ru<strong>-Latn</strong>-t-ru-m0-bgn
+					</td>
+					<td>Languages will have a script when it isn’t the default.</td>
+				</tr>
+				<tr>
+					<td>Any-Hex/xml</td>
+					<td>und-t-<strong>d0-hex</strong>-m0-xml
+					</td>
+					<td rowspan="2"><strong>Any</strong> becomes <strong>und</strong>,
+						and keys <strong>d0</strong> (destination) and <strong>s0</strong>
+						(source) are used for non-locales.</td>
+				</tr>
+				<tr>
+					<td>Hex-Any/xml</td>
+					<td>und-t-<strong>s0-hex</strong>-m0-xml
+					</td>
+				</tr>
+				<tr>
+					<td>Any-<strong>Publishing</strong></td>
+					<td>und-t-d0-<strong>publish</strong></td>
+					<td rowspan="2">Non-locales are normally the lowercases of the
+						old ID, but may change because of BCP47 length restrictions.</td>
+				</tr>
+				<tr>
+					<td><strong>Publishing</strong>-Any</td>
+					<td>und-t-s0-<strong>publish</strong></td>
+				</tr>
+			</tbody>
+		</table>
+		<p class='changed'>Note that the script and region codes are cased
+			iff they are in the main subtag, but are lowercase in extensions.</p>
 		<h3>
 			10.1 <a name="Inheritance" href="#Inheritance">Inheritance</a>
 		</h3>
@@ -2844,17 +2859,49 @@ h2, h3, h4, table {
 				</tr>
 			</table>
 		</div>
-      <p class='changed'>Japanese and Korean are special, since they can be represented by combined script codes, such as ja_Jpan, ja_Hrkt, ja_Hira, or ja_Kana. These need to be considered in the above fallback chain as well.</p>
-	  <h4 class='changed'>
+		<p class='changed'>Japanese and Korean are special, since they can
+			be represented by combined script codes, such as ja_Jpan, ja_Hrkt,
+			ja_Hira, or ja_Kana. These need to be considered in the above
+			fallback chain as well.</p>
+		<h4 class='changed'>
 			10.1.1 <a name="Pivots" href="#Pivots">Pivots</a>
 		</h4>
-<p class='changed'>Transforms can also use <i>pivots</i>. These are used when there is no direct transform between a source and target, but there are transforms X-Y and Y-Z. In such a case, the transforms can be internally chained to get X-Y = X-Y;Y-Z. This is done explicitly with the Indic script transforms: to get Devanagari-Latin, internally it is done by transforming first from Devanagari to Interindic (an internal superset encoding for Indic scripts), then from Interindic to Latin. This allows there to be only N sets of transform rules for the Indic scripts: each one to and from Interindic. These pivots are explicitly represented in the CLDR transforms.</p>
-<p class='changed'>The pivots can also be produced automatically (implicitly), as a fallback. A particularly useful pivot is IPA, since that tends to preserve pronunciation. For example, <em>Czech to IPA</em> can be chained with <em>IPA to Katakana</em> to get <em>Czech to Katakana</em>.</p>
-  <p class='changed'>CLDR often has special forms of IPA: not just &quot;und-FONIPA&quot; but &quot;cs-FONIPA&quot;: specifically IPA that has come from Czech. These variants typically preserve some features of the source language — such as double consonants — that are indistinguishable from single consonants in that language, but that are often preserved in traditional transliterations. Thus when matching prospective pivots, FONIPA is treated specially. If there is an exact match, that match is used (such as cs-cs_FONIPA + cs_FONIPA-ko). Otherwise, the language is ignored, as for example in cs-cs_FONIPA + ru_FONIPA-ko.</p>
-  <p class='changed'>The interaction of implicit pivots and inheritance may result in a longer inheritance chain lookup than desired, so implementers may consider having some sort of caching mechanism to increase performance.</p>
-  <h3>
-	  10.2 <a name="Variants" href="#Variants">Variants</a>
-	</h3>
+		<p class='changed'>
+			Transforms can also use <i>pivots</i>. These are used when there is
+			no direct transform between a source and target, but there are
+			transforms X-Y and Y-Z. In such a case, the transforms can be
+			internally chained to get X-Y = X-Y;Y-Z. This is done explicitly with
+			the Indic script transforms: to get Devanagari-Latin, internally it
+			is done by transforming first from Devanagari to Interindic (an
+			internal superset encoding for Indic scripts), then from Interindic
+			to Latin. This allows there to be only N sets of transform rules for
+			the Indic scripts: each one to and from Interindic. These pivots are
+			explicitly represented in the CLDR transforms.
+		</p>
+		<p class='changed'>
+			The pivots can also be produced automatically (implicitly), as a
+			fallback. A particularly useful pivot is IPA, since that tends to
+			preserve pronunciation. For example, <em>Czech to IPA</em> can be
+			chained with <em>IPA to Katakana</em> to get <em>Czech to
+				Katakana</em>.
+		</p>
+		<p class='changed'>CLDR often has special forms of IPA: not just
+			&quot;und-FONIPA&quot; but &quot;cs-FONIPA&quot;: specifically IPA
+			that has come from Czech. These variants typically preserve some
+			features of the source language — such as double consonants — that
+			are indistinguishable from single consonants in that language, but
+			that are often preserved in traditional transliterations. Thus when
+			matching prospective pivots, FONIPA is treated specially. If there is
+			an exact match, that match is used (such as cs-cs_FONIPA +
+			cs_FONIPA-ko). Otherwise, the language is ignored, as for example in
+			cs-cs_FONIPA + ru_FONIPA-ko.</p>
+		<p class='changed'>The interaction of implicit pivots and
+			inheritance may result in a longer inheritance chain lookup than
+			desired, so implementers may consider having some sort of caching
+			mechanism to increase performance.</p>
+		<h3>
+			10.2 <a name="Variants" href="#Variants">Variants</a>
+		</h3>
 
 		<p>
 			Variants used in CLDR include UNGEGN and BGN, both indicating sources
@@ -2918,35 +2965,61 @@ h2, h3, h4, table {
 			source CDATA #IMPLIED &gt;<br> &lt;!ATTLIST transform target
 			CDATA #IMPLIED &gt;<br> &lt;!ATTLIST transform variant CDATA
 			#IMPLIED &gt;<br> &lt;!ATTLIST transform direction ( forward |
-		backward | both ) "both" &gt;<br>
-        <span class="changed">&lt;!ATTLIST transform alias CDATA #IMPLIED &gt;     <br>
-	 	  &lt;!--@VALUE--&gt; <br>
-	&lt;!ATTLIST transform backwardAlias CDATA #IMPLIED &gt;     <br>
-	  
-	&lt;!--@VALUE--&gt;</span><br> 
-		  &lt;!ATTLIST transform
-		  visibility ( internal | external ) "external" &gt;<br>
-			&lt;!ELEMENT comment (#PCDATA) &gt;<br> &lt;!ELEMENT tRule
-		(#PCDATA) &gt;</p>
-		<p class='changed'>The transform attributes indicate the <strong>source</strong>, <strong>target</strong>, <strong>direction</strong>, and <strong>alias</strong>es. For example:</p>
-		<p class='example changed'> &lt;transform<br>
-		    
-	    source=&quot;ja_Hrkt&quot;<br>
-  target=&quot;ja_Latn&quot;<br>
-  variant=&quot;BGN&quot;<br>
-  direction=&quot;forward&quot;<br>
-  draft=&quot;provisional&quot;<br>
-  alias=&quot;Katakana-Latin/BGN ja-Latn-t-ja-hrkt-m0-bgn&quot;&gt;</p>
-		<p class='changed'>The direction is either <strong>forward</strong> or <strong>both</strong> (<strong>backward</strong> is possible in theory, but not used). This indicates which directions the rules support.</p>
-		<p class='changed'>If the direction is <strong>forward</strong>, then an ID is composed from <strong>target + &quot;-&quot; + source + &quot;/&quot; + variant</strong>. If the direction is <strong>both</strong>, then the inverse ID is also value: <strong>source + &quot;-&quot; + target + &quot;/&quot; + variant</strong>. The <strong>alias</strong> attribute contains a space-delimited list of alternant forward IDs, while the <strong>backwardAlias</strong> contains a  space-delimited list of alternant backward IDs. The BCP47 versions of the IDs will be in the <strong>alias</strong> and/or <strong>backwardAlias</strong> attributes.</p>
-		<p class='changed'>The <strong>visibility</strong> attribute indicates whether the IDs should be externally visible, or whether they are only used internally.</p>
-		<p class='changed'>In previous versions, the rules were expressed as fine-grained XML. That was discarded in CLDR version 29, in favor of a simpler format where the separate rules are simply terminated with &quot;;&quot;.</p>
-		<p>The transform rules are similar to regular-expression substitutions,
+			backward | both ) "both" &gt;<br> <span class="changed">&lt;!ATTLIST
+				transform alias CDATA #IMPLIED &gt; <br>   &lt;!--@VALUE--&gt;
+				<br> &lt;!ATTLIST transform backwardAlias CDATA #IMPLIED &gt; <br>
+				  &lt;!--@VALUE--&gt;
+			</span><br> &lt;!ATTLIST transform visibility ( internal | external )
+			"external" &gt;<br> &lt;!ELEMENT comment (#PCDATA) &gt;<br>
+			&lt;!ELEMENT tRule (#PCDATA) &gt;
+		</p>
+		<p class='changed'>
+			The transform attributes indicate the <strong>source</strong>, <strong>target</strong>,
+			<strong>direction</strong>, and <strong>alias</strong>es. For
+			example:
+		</p>
+		<p class='example changed'>
+			&lt;transform<br>   source=&quot;ja_Hrkt&quot;<br>  
+			target=&quot;ja_Latn&quot;<br>   variant=&quot;BGN&quot;<br>
+			  direction=&quot;forward&quot;<br>  
+			draft=&quot;provisional&quot;<br>  
+			alias=&quot;Katakana-Latin/BGN ja-Latn-t-ja-hrkt-m0-bgn&quot;&gt;
+		</p>
+		<p class='changed'>
+			The direction is either <strong>forward</strong> or <strong>both</strong>
+			(<strong>backward</strong> is possible in theory, but not used). This
+			indicates which directions the rules support.
+		</p>
+		<p class='changed'>
+			If the direction is <strong>forward</strong>, then an ID is composed
+			from <strong>target + &quot;-&quot; + source + &quot;/&quot;
+				+ variant</strong>. If the direction is <strong>both</strong>, then the
+			inverse ID is also value: <strong>source + &quot;-&quot; +
+				target + &quot;/&quot; + variant</strong>. The <strong>alias</strong>
+			attribute contains a space-delimited list of alternant forward IDs,
+			while the <strong>backwardAlias</strong> contains a space-delimited
+			list of alternant backward IDs. The BCP47 versions of the IDs will be
+			in the <strong>alias</strong> and/or <strong>backwardAlias</strong>
+			attributes.
+		</p>
+		<p class='changed'>
+			The <strong>visibility</strong> attribute indicates whether the IDs
+			should be externally visible, or whether they are only used
+			internally.
+		</p>
+		<p class='changed'>In previous versions, the rules were expressed
+			as fine-grained XML. That was discarded in CLDR version 29, in favor
+			of a simpler format where the separate rules are simply terminated
+			with &quot;;&quot;.</p>
+		<p>
+			The transform rules are similar to regular-expression substitutions,
 			but adapted to the specific domain of text transformations. The rules
 			and comments in this discussion will be intermixed, with # marking
-			the comments. <span class="removed">In the xml format these in separate elements: comment and tRule. </span>The simplest rule is a conversion rule, which replaces one string of
-			characters with another. The conversion rule takes the following
-		form: </p>
+			the comments. <span class="removed">In the xml format these in
+				separate elements: comment and tRule. </span>The simplest rule is a
+			conversion rule, which replaces one string of characters with
+			another. The conversion rule takes the following form:
+		</p>
 
 		<table cellspacing="0" cellpadding="8" border="1">
 			<tr>

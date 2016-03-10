@@ -509,7 +509,7 @@ public class CheckHtmlFiles {
 
         public void listContents() {
 
-            System.out.println("\n*REVISED TOC*");
+            System.out.print("\n\t\t<!-- START Generated TOC: CheckHtmlFiles -->");
             Counter<String> idCounter = new Counter<String>();
 
             int lastLevel = new Levels().getDepth();
@@ -575,6 +575,7 @@ public class CheckHtmlFiles {
             }
             pad = pad.substring(PAD.length());
             System.out.println(pad + "</ul>");
+            System.out.println(pad + "<!-- END Generated TOC: CheckHtmlFiles -->");
             --ulCount;
             if (liCount != 0 || ulCount != 0) {
                 throw new IllegalArgumentException("Mismatched counts in generated contents, li:" + liCount + ", ul:" + ulCount);

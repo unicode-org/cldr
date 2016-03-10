@@ -13,6 +13,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -196,9 +197,10 @@ public class CheckHtmlFiles {
         }
         final Map<String, String> skeletonToInFile = new HashMap<>();
         Relation<String, String> extra = new Relation(new TreeMap(), TreeSet.class);
-        for (Entry<String, String> elementItem : target.dtdItems.entrySet()) {
-            String element = elementItem.getKey();
-            String item = elementItem.getValue();
+        for (R4<String, String, String, Boolean> elementItem : target.dtdItems.rows()) {
+            String file = elementItem.get0();
+            String element = elementItem.get1();
+            String item = elementItem.get2();
             extra.put(element, item);
             skeletonToInFile.put(item.replace(" ", ""), item);
         }
@@ -423,7 +425,7 @@ public class CheckHtmlFiles {
             this.ids.add(id);
         }
 
-        public void setLevels(Levels levels, Set<String> errors) {
+        public void setLevels(int line, Levels levels, Set<String> errors) {
             this.levels.set(levels);
             String error = "";
             if (badSectionMatcher.reset(text).find()) {
@@ -452,7 +454,7 @@ public class CheckHtmlFiles {
                 error += "Missing double link";
             }
             if (!error.isEmpty()) {
-                errors.add(this + "\t<!-- " + error + " -->");
+                errors.add(this + "\t<!-- " + line + ": " + error + " -->");
             }
             suppressSection = SUPPRESS_SECTION_NUMBER.matcher(text).matches();
         }
@@ -474,32 +476,33 @@ public class CheckHtmlFiles {
     static Matcher headerMatcher = WELLFORMED_HEADER.matcher("");
     static Matcher badSectionMatcher = BADSECTION.matcher("");
 
-    static class HeadingInfoList extends ArrayList<HeadingInfo> {
+    static class HeadingInfoList {
         private static final long serialVersionUID = -6722150173224993960L;
         Levels lastBuildLevel;
         private Set<String> errors = new LinkedHashSet<String>();
         Output<Boolean> missingLevel = new Output<Boolean>(false);
         private String fileName;
+        ArrayList<HeadingInfo> list = new ArrayList<>();
 
         public HeadingInfoList(String fileName, int h2_START) {
             this.fileName = fileName;
             lastBuildLevel = new Levels(h2_START);
         }
 
-        public boolean add(HeadingInfo h) {
+        public boolean add(int line, HeadingInfo h) {
             h.fixText();
             if (SUPPRESS_REVISION.matcher(h.text).matches()) {
                 return false;
             }
             if (h.isHeader) {
-                h.setLevels(lastBuildLevel.next(h.level, missingLevel), errors);
+                h.setLevels(line, lastBuildLevel.next(h.level, missingLevel), errors);
             } else {
-                h.setLevels(lastBuildLevel, errors);
+                h.setLevels(line, lastBuildLevel, errors);
             }
             if (missingLevel.value) {
                 errors.add("FATAL: Missing Level in: " + h);
             }
-            return super.add(h);
+            return list.add(h);
         }
 
         static final String PAD = "\t";
@@ -513,7 +516,7 @@ public class CheckHtmlFiles {
             String pad = PAD;
             int ulCount = 0;
             int liCount = 0;
-            for (HeadingInfo h : this) {
+            for (HeadingInfo h : list) {
                 h.addIds(idCounter);
                 final int depth = h.levels.getDepth() + (h.isHeader ? 0 : 1);
                 int levelDiff = depth - lastLevel;
@@ -604,7 +607,7 @@ public class CheckHtmlFiles {
                     }
                 }
             }
-            if (this.size() == 0) {
+            if (this.list.size() == 0) {
                 System.out.println("No header items (eg <h2>) captured.");
                 fatalCount = 1;
             }
@@ -636,7 +639,10 @@ public class CheckHtmlFiles {
     static class Data implements Iterable<String> {
         private static final Pattern ELEMENT_ATTLIST = Pattern.compile("<!(ELEMENT|ATTLIST)\\s+(\\S+)[^>]*>");
         List<String> sentences = new ArrayList<String>();
-        Relation<String, String> dtdItems = Relation.of(new TreeMap(), TreeSet.class);
+        M4<String, String, String, Boolean> dtdItems = ChainedMap.of(
+            new LinkedHashMap<String,Object>(), 
+            new TreeMap<String,Object>(), 
+            new TreeMap<String,Object>(), Boolean.class);
         Counter<String> hashedSentences = new Counter<String>();
         int count = 0;
         int totalErrorCount = 0;
@@ -710,7 +716,8 @@ public class CheckHtmlFiles {
             StringBuilder buffer = new StringBuilder();
             StringBuilder content = new StringBuilder();
             HeadingInfo heading = new HeadingInfo();
-            HeadingInfoList headingInfoList = new HeadingInfoList(fileCanonical.getName(), H2_START);
+            final String fileName = fileCanonical.getName();
+            HeadingInfoList headingInfoList = new HeadingInfoList(fileName, H2_START);
             Stack<ElementLine> elementStack = new Stack<>();
             Stack<Pair<String, String>> attributeStack = new Stack<>();
             String contentString;
@@ -804,7 +811,7 @@ public class CheckHtmlFiles {
                                 if (heading.isContents()) {
                                     haveContents = true;
                                 } else if (haveContents) {
-                                    headingInfoList.add(heading);
+                                    headingInfoList.add(parser.getLineCount(), heading);
                                     lastHeading = heading;
                                 }
                                 heading = new HeadingInfo();
@@ -848,7 +855,8 @@ public class CheckHtmlFiles {
             // get DTD elements
             Matcher m = ELEMENT_ATTLIST.matcher(buffer);
             while (m.find()) {
-                dtdItems.put(m.group(2), m.group());
+                dtdItems.put(fileName, m.group(2), m.group(), true);
+                //System.out.println(fileName + "\t" + m.group());
             }
             BreakIterator sentenceBreak = BreakIterator.getSentenceInstance(ULocale.ENGLISH);
             String bufferString = normalizeWhitespace(buffer);

@@ -1871,11 +1871,13 @@ h2, h3, h4, table {
 			Note that midnight and am can overlap, as can noon and pm.<br>
 		</p>
 		<p>
-			All locales must support am/pm, but not all support noon or midnight;
+			All locales must support am/pm, but not all support <strong>noon</strong> or <strong>midnight</strong>;
 			they are only supported if they meet the above definitions. For
 			example, German has no unique term that means exactly 12:00 noon; the
-			closest is Mittag, but that can extend before or after 12 noon.<br>
-		</p>
+		closest is Mittag, but that can extend before or after 12 noon.</p>
+	  <p class='changed'><strong>Midnight</strong> is also special, since it can refer to either 00:00 or 24:00 — either at the start or end of the day. That means that Tuesday 24:00 = Wednesday 00:00. “Midnight Tuesday&quot; is thus ambiguous: it means 24:00 in “the party is Tuesday from 10pm to 12 midnight”, while it means 00:00 in “I was awake from 12 midnight to 3 in the morning”.</p>
+		<p class='changed'>It is strongly recommended that implementations provide for the ability to specify whether <strong>midnight</strong> is supported or not (and for either 00:00 or 24:00 or both), since only the caller  knows enough of the context to determine what to use.<br>
+	    </p>
 		<h5>
 			<a name="Variable_periods" href="#Variable_periods">4.5.1.2
 				Variable periods</a>

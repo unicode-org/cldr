@@ -1876,7 +1876,7 @@ h2, h3, h4, table {
 			example, German has no unique term that means exactly 12:00 noon; the
 		closest is Mittag, but that can extend before or after 12 noon.</p>
 	  <p class='changed'><strong>Midnight</strong> is also special, since it can refer to either 00:00 or 24:00 — either at the start or end of the day. That means that Tuesday 24:00 = Wednesday 00:00. “Midnight Tuesday&quot; is thus ambiguous: it means 24:00 in “the party is Tuesday from 10pm to 12 midnight”, while it means 00:00 in “I was awake from 12 midnight to 3 in the morning”.</p>
-		<p class='changed'>It is strongly recommended that implementations provide for the ability to specify whether <strong>midnight</strong> is supported or not (and for either 00:00 or 24:00 or both), since only the caller  knows enough of the context to determine what to use.<br>
+		<p class='changed'>It is strongly recommended that implementations provide for the ability to specify whether <strong>midnight</strong> is supported or not (and for either 00:00 or 24:00 or both), since only the caller  knows enough of the context to determine what to use. In the absence of such information, 24:00 may be the best choice. <br>
 	    </p>
 		<h5>
 			<a name="Variable_periods" href="#Variable_periods">4.5.1.2
@@ -1904,7 +1904,7 @@ h2, h3, h4, table {
 				name] and hh [period name] can be parsed uniquely to HH:mm [period
 				name].
 			<ul>
-				<li>For example, you can't have &lt;dayPeriod type = "morning"
+				<li>For example, you can't have &lt;dayPeriod type = "morning1"
 					from="00:00" to="13:00"/&gt; because "12:30 {morning}" would be
 					ambiguous.</li>
 			</ul></li>
@@ -1927,14 +1927,19 @@ h2, h3, h4, table {
 				</ul></li>
 			<li>24:00 is <em>only</em> allowed in <em>before</em>="24:00".
 			</li>
-			<li>When parsing, if the hour is present with a strict parse the
-				dayperiod is checked for consistency with the hour. If there is no
-				hour, the center of the first matching dayPeriodRule can be
-				chosen (starting from 0:00).</li>
-			<li>If rounding is done—including the rounding done by the time
-				format—then it needs to be done before the dayperiod is computed, so
-				that the correct format is shown.</li>
-		</ol>
+      </ol>
+	  <h5 class="changed">
+			<a name="Parsing_Day_Periods" href="#Parsing_Day_Periods">4.5.1.3 Parsing Day Periods</a>
+		</h5>
+            <p>When parsing, if the hour is present with a strict parse the
+			  dayperiod is checked for consistency with the hour. If there is no
+			  hour, the center of the first matching dayPeriodRule can be
+			  chosen (starting from 0:00). <span class="changed">However, if there is other information available when parsing, a different point within the interval may be chosen.</span>
+      </p>
+                    <p class="changed">The dayPeriodRule may span two days, such as where <strong>night1</strong> is [21:00, 06:00). In that case, the midpoint is 01:30, so when parsing “Nov 12, at night”, the midpoint result would be Nov 12, 01:30. “Nov 12, am”, “Nov 12, pm”, “Nov 12, noon” can be parsed similarly, resulting in Nov 12, 06:00; Nov 12, 18:00; and Nov 12, 12:00; respectively.</p><p class="changed">“Nov 12, midnight” is special, because midnight may mean either 00:00 or 24:00. Extra information may be needed to disambiguate which is meant, such as whether the time is at the start or end of an interval. In the absence of such information, 24:00 may be the best choice. See the discussion of <strong>midnight</strong> above.</p>
+                    <p>If rounding is done—including the rounding done by the time
+                        format—then it needs to be done before the dayperiod is computed, so
+                        that the correct format is shown.</p>
 		<p>
 			For examples, see <a
 				href="http://www.unicode.org/cldr/charts/latest/supplemental/day_periods.html">Day

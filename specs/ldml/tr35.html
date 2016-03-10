@@ -2582,7 +2582,7 @@ zh-Hant-HK</pre>
 						href="#Old_Locale_Extension_Syntax"> "@key=type" syntax</a>.
 				</p>
 				<p class="changed">Most type names are <strong>literal type names</strong>, which match exactly the same value. All of these have at least one lowercase letter, such as &quot;buddhist&quot;. There are a small number of <strong>indirect type names</strong>, such as &quot;RG_KEY_VALUE&quot;. These  have no lowercase letters. The interpretation of each one is listed below.</p>
-				<h5 class="changed">CODEPOINTS</h5>
+				<h5><a name="CODEPOINTS" href="#CODEPOINTS">3.6.4.1 CODEPOINTS</a></h5>
 				<p>The type name <strong>"CODEPOINTS"</strong> is reserved for a
 					variable representing Unicode code point(s). The syntax is:
 				</p>
@@ -2633,7 +2633,7 @@ zh-Hant-HK</pre>
 						3.3 <em>Setting Options</em>
 					</a>.
 				</p>
-				<h5 class="changed">REORDER_CODE</h5>
+				<h5><a name="REORDER_CODE" href="#REORDER_CODE">3.6.4.2 REORDER_CODE</a></h5>
 			  <p>The type name <strong>"REORDER_CODE"</strong> is reserved for
 					reordering block names (e.g. "latn", "digit" and "others") defined
 					in the <i><a href="tr35-collation.html#Root_Collation">Root
@@ -2643,7 +2643,7 @@ zh-Hant-HK</pre>
 					information, see <a href="tr35-collation.html#Script_Reordering">Collation:
 						Section 3.12 <em>Collation Reordering</em></a>.
 				</p>
-				<h5 class='changed'>RG_KEY_VALUE</h5>
+				<h5><a name="RG_KEY_VALUE" href="#RG_KEY_VALUE">3.6.4.3 RG_KEY_VALUE</a></h5>
 				<p class="changed">The type name <strong>"RG_KEY_VALUE"</strong> is reserved for region
 					codes in the format required by the "rg" key; this is a region code
 					from the idValidity data in common/validity/region.xml (with certain
@@ -2655,7 +2655,7 @@ zh-Hant-HK</pre>
 					idStatus='regular' followed by "zzzz"; this set of values is the same
 					as the subdivision codes with idStatus='unknown' from the idValidity
 					data in common/validity/subdivision.xml.</p>
-				<h5 class='changed'>SUBDIVISION_CODE</h5>
+				<h5><a name="SUBDIVISION_CODE" href="#SUBDIVISION_CODE">3.6.4.4 SUBDIVISION_CODE</a></h5>
 				<p class="changed">The type name <strong>"SUBDIVISION_CODE"</strong> is reserved for
 					subdivision codes in the format required by the "sd" key; this is a
 					subdivision code  from the idValidity data in
@@ -2663,7 +2663,7 @@ zh-Hant-HK</pre>
 					idStatus='unknown'. Codes with idStatus='deprecated' should not be
 					generated, and those with idStatus='private_use' are only to be used
 					with prior agreement.</p>
-				<h5 class='changed'>PRIVATE_USE</h5>
+				<h5><a name="PRIVATE_USE" href="#PRIVATE_USE">3.6.4.5 PRIVATE_USE</a></h5>
 				<p class="changed">
 					The type name <strong>"PRIVATE_USE"</strong> is reserved for
 					private use types. A valid type value is composed of one or more
@@ -2863,7 +2863,7 @@ zh-Hant-HK</pre>
 		  valid (though marked as deprecated) in CLDR. If an ICU 3166-2 code is
 		  reused (for the same region), then CLDR will define a new equivalent
 		  code using these a 4-character <span class="changed">suffixes</span>. </p>
-		<h5>Validity</h5>
+		<h5><a name="Validity" href="#Validity">3.6.5.1 Validity</a></h5>
 		<p>A <a class='changed' href="#unicode_subdivision_id">unicode_subdivision_id</a>
 			is only valid <span class="changed">when it is
 			present in the subdivision.xml file as described in <em>Section

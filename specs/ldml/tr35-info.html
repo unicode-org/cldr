@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1>
@@ -95,7 +95,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">29</td>
+				<td>29</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -131,7 +131,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -141,8 +141,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -150,7 +150,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -293,14 +293,13 @@ h2, h3, h4, table {
 			&lt;!ELEMENT supplementalData (version, generation?, cldrVersion?,
 			currencyData?, territoryContainment?, subdivisionContainment?,
 			languageData?, territoryInfo?, postalCodeData?, calendarData?,
-			calendarPreferenceData?, weekData?, timeData?, measurementData?<span
-				class="changed">, unitPreferenceData?</span>, timezoneData?,
+			calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?,
 			characters?, transforms?, metadata?, codeMappings?, parentLocales?,
 			likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?,
 			numberingSystems?, bcp47KeywordMappings?, gender?, references?,
 			languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?,
-			windowsZones?, coverageLevels?, idValidity?<span class="changed">,
-				rgScope?</span>) &gt;
+			windowsZones?, coverageLevels?, idValidity?,
+				rgScope?) &gt;
 		</p>
 		<p>
 			The data in CLDR is presently split into multiple files:
@@ -572,11 +571,11 @@ h2, h3, h4, table {
 			smaller-scale usage, such as for a town or village.
 		</p>
 
-		<h3 class="changed">
+		<h3>
 			2.4 <a name="Territory_Based_Preferences"
 				href="#Territory_Based_Preferences">Territory-Based Preferences</a>
 		</h3>
-		<p class="changed">
+		<p>
 			The default preference for several locale items is based solely on a
 			<a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a>,
 			which may either be specified as part of a <a
@@ -588,7 +587,7 @@ h2, h3, h4, table {
 				href="tr35.html#Locale_Inheritance">Locale Inheritance and
 				Matching</a>. The specific items that are handled in this way are:
 		</p>
-		<ul class="changed">
+		<ul>
 			<li>Default calendar (see <a
 				href="tr35-dates.html#Calendar_Preference_Data">Calendar
 					Preference Data</a>)
@@ -613,17 +612,17 @@ h2, h3, h4, table {
 			</li>
 		</ul>
 
-		<h4 class="changed">
+		<h4>
 			2.4.1 <a name="Preferred_Units_For_Usage"
 				href="#Preferred_Units_For_Usage">Preferred Units for Specific
 				Usages</a>
 		</h4>
-		<p class="changed">This data is intended to map from a particular
+		<p>This data is intended to map from a particular
 			usage — e.g. measuring the height of a person or the fuel consumption
 			of an automobile — to the unit or combination of units typically used
 			for that usage in a given region. Considerations for such a mapping
 			include:</p>
-		<ul class="changed">
+		<ul>
 			<li>The list of possible usages large and open-ended. The intent
 				here is to start with a small set for which there is an urgent need,
 				and expand as necessary.</li>
@@ -639,9 +638,9 @@ h2, h3, h4, table {
 				sequence of units, such as “1 meter, 78 centimeters” or “12 stone, 2
 				pounds”.</li>
 		</ul>
-		<p class="changed">The DTD structure is as follows:</p>
+		<p>The DTD structure is as follows:</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT unitPreferenceData (
+			 &lt;!ELEMENT unitPreferenceData (
 				unitPreferences* ) &gt;<br> <br> &lt;!ELEMENT
 				unitPreferences ( unitPreference* ) &gt;<br> &lt;!ATTLIST
 				unitPreferences category NMTOKEN #REQUIRED &gt;<br>
@@ -649,11 +648,10 @@ h2, h3, h4, table {
 				&lt;!ATTLIST unitPreferences scope (small) #IMPLIED &gt;<br> <br>
 				&lt;!ELEMENT unitPreference ( #PCDATA ) &gt;<br> &lt;!ATTLIST
 				unitPreference regions NMTOKENS #REQUIRED &gt;<br>
-			</span>
 		</p>
-		<p class="changed">An example of data using this structure is as
+		<p>An example of data using this structure is as
 			follows:</p>
-		<pre class="changed">
+		<pre>
    &lt;unitPreferenceData&gt;
       ...
       &lt;unitPreferences category="length" usage="person"&gt;
@@ -671,8 +669,8 @@ h2, h3, h4, table {
       ...
    &lt;/unitPreferenceData&gt;
 </pre>
-		<p class="changed">There are several things to note:</p>
-		<ul class="changed">
+		<p>There are several things to note:</p>
+		<ul>
 			<li>The &lt;unitPreferences&gt; <em>category</em> attribute
 				values match a &lt;unit&gt; element <em>type</em> attribute value,
 				as listed in <a href="tr35-general.html#Unit_Elements">Unit
@@ -707,10 +705,10 @@ h2, h3, h4, table {
 					Elements</a>.
 			</li>
 		</ul>
-		<p class="changed">For a given combination of category, usage,
+		<p>For a given combination of category, usage,
 			scope and formality, the intended procedure for looking up the unit
 			or unit combination to use for a given region is as follows:</p>
-		<ul class="changed">
+		<ul>
 			<li>Get the appropriate &lt;unitPreferences&gt; element for the
 				desired <em>category</em> and <em>usage</em>: If scope=small is
 				desired and a &lt;unitPreferences&gt; element with <em>scope="small"</em>
@@ -737,10 +735,10 @@ h2, h3, h4, table {
 				attribute is "001". If found, use the specified unit [sequence].
 			</li>
 		</ul>
-		<p class="changed">CLDR 29 contains usage mapping data for the
+		<p>CLDR 29 contains usage mapping data for the
 			following combinations of category, usage, and scope:</p>
-		<table border="1" cellpadding="4" cellspacing="0" class="changed">
-			<caption class="changed">
+		<table border="1" cellpadding="4" cellspacing="0">
+			<caption>
 				<a name="Unit_Preference_Categories"
 					href="#Unit_Preference_Categories">Unit Preference Categories</a>
 			</caption>
@@ -886,11 +884,11 @@ h2, h3, h4, table {
 			</tr>
 		</table>
 
-		<h3 class="changed">
+		<h3>
 			2.5 <a name="rgScope" href="#rgScope">&lt;rgScope&gt;: Scope of
 				the “rg” Locale Key</a>
 		</h3>
-		<p class="changed">
+		<p>
 			The supplemental &lt;rgScope&gt; element specifies the data paths for
 			which the region used for data lookup is determined by the value of
 			any “rg” key present in the locale identifier (see <a
@@ -900,15 +898,14 @@ h2, h3, h4, table {
 			unicode_language_subtag. The DTD structure is as follows:
 		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT rgScope ( rgPath* ) &gt;<br>
+			 &lt;!ELEMENT rgScope ( rgPath* ) &gt;<br>
 				<br> &lt;!ELEMENT rgPath EMPTY &gt;<br> &lt;!ATTLIST
 				rgPath path CDATA #REQUIRED &gt;<br>
-			</span>
 		</p>
-		<p class="changed">The &lt;rgScope&gt; element contains a list of
+		<p>The &lt;rgScope&gt; element contains a list of
 			&lt;rgPath&gt; elements, each of which specifies a datapath for which
 			any “rg” key determines the region for lookup. For example:</p>
-		<pre class="changed">
+		<pre>
    &lt;rgScope&gt;
       &lt;rgPath path="//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*'][@cashDigits='*'][@cashRounding='*']" draft="provisional" /&gt;
       &lt;rgPath path="//supplementalData/currencyData/fractions/info[@iso4217='#'][@digits='*'][@rounding='*'][@cashRounding='*']" draft="provisional" /&gt;
@@ -921,9 +918,9 @@ h2, h3, h4, table {
       &lt;rgPath path="//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*']/unitPreference[@regions='#']" draft="provisional" /&gt;
    &lt;/rgScope&gt;
 </pre>
-		<p class="changed">The exact format of the path is provisional in
+		<p>The exact format of the path is provisional in
 			CLDR 29, but as currently shown:</p>
-		<ul class="changed">
+		<ul>
 			<li>An attribute value of '*' indicates that the path applies
 				regardless of the value of the attribute.</li>
 			<li>Each path must have exactly one attribute whose value is
@@ -1570,7 +1567,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 &lt;/alias&gt;</pre>
 		<p>Attribute values for the *Alias values include the following:</p>
 		<table>
-			<caption class="changed">
+			<caption>
 				<a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias
 					Attribute Values</a>
 			</caption>
@@ -1805,7 +1802,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">6</span> Unicode, Inc. All
+			Copyright © 2001–2016 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

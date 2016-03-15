@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">29</span></td>
+				<td>29</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -741,7 +741,7 @@ h2, h3, h4, table {
 		such as the following:
 		<pre>
 &lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		…<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>		…<br>		&lt;/decimalFormat&gt;</pre>
-		<p class="changed">Formats can be supplied for numbers (as above)
+		<p>Formats can be supplied for numbers (as above)
 			or for currencies or other units. They can also be used with ranges
 			of numbers, resulting in formatting strings like “$10K” or “$3–7M”.</p>
 		<p>To format a number N, the greatest type less than or equal to N
@@ -749,7 +749,7 @@ h2, h3, h4, table {
 			type, after removing the number of zeros in the pattern, less 1. APIs
 			supporting this format should provide control over the number of
 			significant or fraction digits.</p>
-		<p class="changed">If the value is precisely 0, or if the type is
+		<p>If the value is precisely 0, or if the type is
 			less than 1000, then the normal number format pattern for that sort
 			of object is supplied. For example, formatting 1200 would result in
 			“$1.2K”, while 990 would result in simply “$990”.</p>
@@ -863,7 +863,7 @@ h2, h3, h4, table {
 			appropriate for the locale.</p>
 		<blockquote>
 			<table cellspacing="0" cellpadding="4" border="1">
-				<caption class="changed">
+				<caption>
 					<a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number
 						Pattern Examples</a>
 				</caption>
@@ -950,7 +950,7 @@ h2, h3, h4, table {
 			</em> or the numberSystem's digits: <em>italic</em> indicates a special
 			function.
 		</p>
-		<p class="changed">
+		<p>
 			Invalid sequences of special characters (such as “¤¤¤¤¤” in current
 			CLDR) should be handled for formatting and parsing as described in <a
 				href="tr35.html#Invalid_Patterns">Handling Invalid Patterns</a>.
@@ -960,7 +960,7 @@ h2, h3, h4, table {
 				summary="Chart showing symbol,
   location, localized, and meaning."
 				border="0">
-				<caption class="changed">
+				<caption>
 					<a name="Number_Pattern_Character_Definitions"
 						href="#Number_Pattern_Character_Definitions">Number Pattern
 						Character Definitions</a>
@@ -1027,8 +1027,8 @@ h2, h3, h4, table {
 				</tr>
 				<tr valign="top">
 					<td>+</td>
-					<td>Exponent<span class="changed"> or Number (for
-							explicit plus)</span></td>
+					<td>Exponent or Number (for
+							explicit plus)</td>
 					<td>plusSign</td>
 					<td colspan="2">Prefix positive exponents with localized plus
 						sign. Used for explicit plus for numbers as well, as described in
@@ -1111,8 +1111,8 @@ h2, h3, h4, table {
 				</tr>
 				<tr valign="top">
 					<td><em>others</em></td>
-					<td><em><span class="changed">Invalid in current
-								CLDR. </span>Reserved for future specification</em></td>
+					<td><em>Invalid in current
+								CLDR. Reserved for future specification</em></td>
 				</tr>
 				<tr valign="top">
 					<td>*</td>
@@ -1160,7 +1160,7 @@ h2, h3, h4, table {
 		<p>Below is a sample of patterns, special characters, and results:</p>
 		<div align="center">
 			<table border="0" cellpadding="0" cellspacing="3">
-				<caption class="changed">
+				<caption>
 					<a name='Sample_Patterns_and_Results'
 						href='#Sample_Patterns_and_Results'>Sample Patterns and
 						Results</a>
@@ -1281,9 +1281,9 @@ h2, h3, h4, table {
 					<li>The attribute value is used by adding it to the grouping
 						separator value. If the input number has fewer integer digits, the
 						grouping separator is suppressed.</li>
-					<li><span class="removed">Examples:</span>
+					<li>
 						<table border="1" cellpadding="0" cellspacing="0">
-							<caption class="changed">
+							<caption>
 								<a name="Examples_of_minimumGroupingDigits"
 									href="#Examples_of_minimumGroupingDigits">Examples of
 									minimumGroupingDigits</a>
@@ -1468,10 +1468,10 @@ h2, h3, h4, table {
 			integer and fraction digits are required to display the specified
 			number of significant digits. It may ignore min/max integer/fraction
 			digits, or it may use them to the extent possible.</p>
-		<p class="removed">Examples:</p>
+
 		<blockquote>
 			<table cellpadding="0" border="0">
-				<caption class="changed">
+				<caption>
 					<a name="Significant_Digits_Examples"
 						href="#Significant_Digits_Examples">Significant Digits
 						Examples</a>
@@ -2160,13 +2160,12 @@ h2, h3, h4, table {
 			else: 0, 5–20, 25–30, 35–40, …, decimals). Russian does not need
 			additional separate forms for zero, two, or many, so these are not
 			defined.</p>
-		<p class="changed">The plural category for negative numbers is
+		<p>The plural category for negative numbers is
 			calculated according to the absolute value of the source. (This may
 			change in the future, if we find languages that have different
 			behavior.)</p>
 		<p>
-			Plural categories may also differ according to the <span
-				class="changed">visible</span> decimals. For example, here are some
+			Plural categories may also differ according to the visible decimals. For example, here are some
 			of the behaviors exhibited by different languages:
 		</p>
 		<div dir="ltr">
@@ -2261,7 +2260,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 		<p>The operands have the following meaning:</p>
 		<div dir="ltr">
 			<table>
-				<caption class="changed">
+				<caption>
 					<a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural
 						Operand Meanings</a>
 				</caption>
@@ -2305,10 +2304,10 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			</table>
 		</div>
 		<br>
-		<p class="removed">Example values:</p>
+
 		<div dir="ltr">
 			<table>
-				<caption class="changed">
+				<caption>
 					<a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural
 						Operand Examples</a>
 				</caption>
@@ -2390,7 +2389,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 		<h4>
 			<a name="Relations" href="#Relations">5.1.2 Relations</a>
 		</h4>
-		<p class='changed'>
+		<p>
 			The positive relations are of the format <strong>x = y</strong> and <strong>x
 				= y mod z</strong>. The <strong>y</strong> value can be a comma-separated
 			list, such as <strong>n = 3, 5, 7..15</strong>, and is treated as if
@@ -2399,11 +2398,9 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			and <strong>b</strong>, inclusive. When <strong>!=</strong> is used,
 			it means the entire relation is negated.
 		</p>
-		<p class='removed'>
-			<em>Examples</em>
-		</p>
-		<table class='simple changed'>
-			<caption class="changed">
+
+		<table class='simple'>
+			<caption>
 				<a name="Relations_Examples" href="#Relations_Examples">Relations
 					Examples</a>
 			</caption>
@@ -2421,7 +2418,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			</tr>
 		</table>
 		<br>
-		<table class='simple changed'>
+		<table class='simple'>
 			<!-- nocaption -->
 			<tr>
 				<th>Expression</th>
@@ -2461,8 +2458,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 		</p>
 		<p>
 			The values of relations are defined according to the operand as
-			follows. Importantly, the results may depend on the <span
-				class="changed">visible</span> decimals in the source, including
+			follows. Importantly, the results may depend on the visible decimals in the source, including
 			trailing zeros.
 		</p>
 		<ol>
@@ -2487,9 +2483,9 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			<li>Otherwise return !R.</li>
 		</ol>
 		<p></p>
-		<p class="removed">Example Rules:</p>
+
 		<table border="1">
-			<caption class="changed">
+			<caption>
 				<a name="Plural_Rules_Examples" href="#Plural_Rules_Examples">Plural
 					Rules Examples</a>
 			</caption>
@@ -2551,7 +2547,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			decimal) can satisfy the rule. If a set is not infinite, it must list
 			all the possible values.</p>
 		<table border="1">
-			<caption class="changed">
+			<caption>
 				<a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural
 					Samples Examples</a>
 			</caption>
@@ -2821,7 +2817,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">6</span> Unicode, Inc. All
+			Copyright © 2001–2016 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">29</td>
+				<td>29</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -129,7 +129,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -139,8 +139,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -148,7 +148,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -900,10 +900,9 @@ h2, h3, h4, table {
 			and width. Each locale has an associated dayPeriodRuleSet in the
 			supplemental data, rules that specify when the day periods start and
 			end for that locale. Each type in the rules needs to have a
-			translation in a <span class="element">dayPeriod</span> <span
-				class="changed">(but if translation data is missing for a
+			translation in a dayPeriod (but if translation data is missing for a
 				particular variable dayPeriod in the locale’s language and script,
-				formatting should fall back to using the am/pm values)</span>. For more
+				formatting should fall back to using the am/pm values). For more
 			information, see <em><a href="#Day_Period_Rules">Day Period
 					Rules</a></em>.
 		</p>
@@ -1222,7 +1221,7 @@ h2, h3, h4, table {
 			h or K should have patterns that only use h or K for hours, while
 			skeletons using H or k should have patterns that only use H or k for
 			hours.</p>
-		<p class="changed">The hour input skeleton symbols 'j', 'J', and
+		<p>The hour input skeleton symbols 'j', 'J', and
 			'C' can be used to select the best hour format (h, H, …) before
 			processing, and the appropriate dayperiod format (a, b, B) after a
 			successful match that contains an 'a' symbol.</p>
@@ -1766,11 +1765,10 @@ h2, h3, h4, table {
 			that are considered acceptable in the region. The defaults are those
 			specified for region 001.</p>
 		<p>
-			There is a single preferred value, and multiple <span class="changed">allowed</span>
+			There is a single preferred value, and multiple allowed
 			values. The meanings of the values H, h, K, k are defined in <a
-				href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>. <span
-				class="changed">The allowed values are in preference order,
-				and are used with the 'C' hour skeleton pattern symbol.</span>
+				href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>. The allowed values are in preference order,
+				and are used with the 'C' hour skeleton pattern symbol.
 		</p>
 		<p>For example, in the following, RU (Russia) is marked as using
 			only 24 hour time, and in particular the 24 hour time that goes from
@@ -1802,13 +1800,8 @@ h2, h3, h4, table {
 		<p class="dtd">
 			&lt;!ELEMENT dayPeriodRule EMPTY &gt;<br> &lt;!ATTLIST
 			dayPeriodRule type NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST
-			dayPeriodRule at NMTOKEN #IMPLIED &gt;<br> <span class="removed">&lt;!ATTLIST
-				dayPeriodRule after NMTOKEN #IMPLIED &gt;<br>
-			</span> &lt;!ATTLIST dayPeriodRule from NMTOKEN #IMPLIED &gt;<br>
-			&lt;!ATTLIST dayPeriodRule before NMTOKEN #IMPLIED &gt;<br> <span
-				class="removed">&lt;!ATTLIST dayPeriodRule to NMTOKEN
-				#IMPLIED &gt;<br>
-			</span>
+			dayPeriodRule at NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST dayPeriodRule from NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST dayPeriodRule before NMTOKEN #IMPLIED &gt;<br> 
 		</p>
 
 		<p>Each locale can have a set of day period rules, which determine
@@ -1883,7 +1876,7 @@ h2, h3, h4, table {
 			means exactly 12:00 noon; the closest is Mittag, but that can extend
 			before or after 12 noon.
 		</p>
-		<p class='changed'>
+		<p>
 			<strong>Midnight</strong> is also special, since it can refer to
 			either 00:00 or 24:00 — either at the start or end of the day. That
 			means that Tuesday 24:00 = Wednesday 00:00. “Midnight Tuesday&quot;
@@ -1891,7 +1884,7 @@ h2, h3, h4, table {
 			to 12 midnight”, while it means 00:00 in “I was awake from 12
 			midnight to 3 in the morning”.
 		</p>
-		<p class='changed'>
+		<p>
 			It is strongly recommended that implementations provide for the
 			ability to specify whether <strong>midnight</strong> is supported or
 			not (and for either 00:00 or 24:00 or both), since only the caller
@@ -1903,20 +1896,20 @@ h2, h3, h4, table {
 				Variable periods</a>
 		</h5>
 		<ol>
-			<li><span class="changed">If a locale has a set of
-					dayPeriodRules for variable periods, it needs</span> to completely cover
+			<li>If a locale has a set of
+					dayPeriodRules for variable periods, it needs to completely cover
 				the 24 hours in a day (from 0:00 before 24:00), with <strong>no</strong> overlaps
 				between any dayPeriodRules. They may overlap with the <strong>Fixed
-					Periods</strong>.<br> <span class="changed">If it does not have
+					Periods</strong>.<br> If it does not have
 					a rule set for variable periods, behavior should fall back to using
-					the fixed periods (am, pm).</span></li>
-			<li>"from" <span class="changed">is a</span> closed interval
-				(inclusive). <em>(<span class="changed">as is the
-						deprecated "to"</span>)
+					the fixed periods (am, pm).</li>
+			<li>"from" is a closed interval
+				(inclusive). <em>(as is the
+						deprecated "to")
 			</em></li>
-			<li>"before" <span class="changed">is an</span> open interval
-				(exclusive). <em>(<span class="changed">as is the
-						deprecated "after"</span>)
+			<li>"before" is an open interval
+				(exclusive). <em>(as is the
+						deprecated "after")
 			</em></li>
 			<li>"at" means starting time and end time are the same. <em>(&quot;at&quot;
 					is deprecated except when used for the fixed periods)</em></li>
@@ -1932,16 +1925,16 @@ h2, h3, h4, table {
 						would be ambiguous.</li>
 				</ul>
 			</li>
-			<li><span class="changed">There must not be two rules
+			<li>There must not be two rules
 					with the same type. A day period rule may, however, span 24:00 /
-					00:00. Example:</span>
+					00:00. Example:
 				<ul>
-					<li><span class="changed"><em>Valid: </em> </span>
+					<li><em>Valid: </em> 
 						<ul>
-							<li class="changed">&lt;dayPeriod type = "night1"
+							<li>&lt;dayPeriod type = "night1"
 								from="21:00" to="05:00"/&gt;</li>
 						</ul></li>
-					<li><span class="changed"><em>Invalid: </em></span>
+					<li><em>Invalid: </em>
 						<ul>
 							<li>&lt;dayPeriod type = "night1" from="00:00"
 								to="05:00"/&gt;</li>
@@ -1952,7 +1945,7 @@ h2, h3, h4, table {
 			<li>24:00 is <em>only</em> allowed in <em>before</em>="24:00".
 			</li>
 		</ol>
-		<h5 class="changed">
+		<h5>
 			<a name="Parsing_Day_Periods" href="#Parsing_Day_Periods">4.5.1.3
 				Parsing Day Periods</a>
 		</h5>
@@ -1960,11 +1953,11 @@ h2, h3, h4, table {
 			When parsing, if the hour is present with a strict parse the
 			dayperiod is checked for consistency with the hour. If there is no
 			hour, the center of the first matching dayPeriodRule can be
-			chosen (starting from 0:00). <span class="changed">However, if
+			chosen (starting from 0:00). However, if
 				there is other information available when parsing, a different point
-				within the interval may be chosen.</span>
+				within the interval may be chosen.
 		</p>
-		<p class="changed">
+		<p>
 			The dayPeriodRule may span two days, such as where <strong>night1</strong>
 			is [21:00, 06:00). In that case, the midpoint is 01:30, so when
 			parsing “Nov 12, at night”, the midpoint result would be Nov 12,
@@ -1972,7 +1965,7 @@ h2, h3, h4, table {
 			similarly, resulting in Nov 12, 06:00; Nov 12, 18:00; and Nov 12,
 			12:00; respectively.
 		</p>
-		<p class="changed">
+		<p>
 			“Nov 12, midnight” is special, because midnight may mean either 00:00
 			or 24:00. Extra information may be needed to disambiguate which is
 			meant, such as whether the time is at the start or end of an
@@ -3398,13 +3391,12 @@ h2, h3, h4, table {
 				illustrative and may not reflect current actual data.</p>
 		</blockquote>
 		<p>
-			Any sequence of <span class="changed">syntax characters</span> other
-			than those listed below is invalid.<span class="changed">
+			Any sequence of syntax characters other
+			than those listed below is invalid.
 				Invalid pattern fields should be handled for formatting and parsing
 				as described in <a href="tr35.html#Invalid_Patterns">Handling
 					Invalid Patterns</a>.
-			</span>
-		</p>
+			</p>
 		<table cellspacing="0" cellpadding="2" border="1">
 			<caption>
 				<a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date
@@ -3896,58 +3888,55 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td rowspan="3" style="text-align: center">j</td>
-				<td class="changed" style="text-align: center">1-3</td>
-				<td class="changed">n/a</td>
-				<td class="changed">Short</td>
+				<td  style="text-align: center">1-3</td>
+				<td >n/a</td>
+				<td >Short</td>
 				<td rowspan="3"><em><strong>Input skeleton symbol</strong></em><br>
 					It must not occur in pattern or skeleton data. Instead, it is
 					reserved for use in skeletons passed to APIs doing flexible date
 					pattern generation. In such a context, it requests the preferred
-					hour format for the locale (h, H, K, or k), as determined by <span
-					class="changed">the <strong>preferred</strong> attribute of
+					hour format for the locale (h, H, K, or k), as determined by the <strong>preferred</strong> attribute of
 						the <strong>hours</strong> element in supplemental data
-				</span>. In the implementation of such an API, 'j' must be replaced by h,
+				. In the implementation of such an API, 'j' must be replaced by h,
 					H, K, or k before beginning a match against availableFormats data.<br>
 					Note that use of 'j' in a skeleton passed to an API is the only way
 					to have a skeleton request a locale's preferred time cycle type
 					(12-hour or 24-hour).</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td style="text-align: center">4</td>
 				<td>n/a</td>
 				<td>Wide</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td style="text-align: center">5</td>
 				<td>n/a</td>
 				<td>Narrow</td>
 			</tr>
 			<tr>
 				<td rowspan="3" style="text-align: center">J</td>
-				<td class="changed" style="text-align: center">1-3</td>
-				<td class="changed">n/a</td>
-				<td class="changed">Short</td>
+				<td  style="text-align: center">1-3</td>
+				<td >n/a</td>
+				<td >Short</td>
 				<td rowspan="3"><em><strong>Input skeleton symbol</strong></em><br>
 					It must not occur in pattern or skeleton data. Instead, it is
 					reserved for use in skeletons passed to APIs doing flexible date
 					pattern generation. In such a context, like 'j', it requests the
-					preferred hour format for the locale (h, H, K, or k)<span
-					class="changed">, as determined by the <strong>preferred</strong>
+					preferred hour format for the locale (h, H, K, or k), as determined by the <strong>preferred</strong>
 						attribute of the <strong>hours</strong> element in supplemental
 						data
-				</span>. However, unlike 'j', it requests no "am/pm" marker (It is
+				. However, unlike 'j', it requests no "am/pm" marker (It is
 					typically used where there is enough context that that is not
-					necessary). For example, with "jmm", 1<span class="changed">8</span>:00
-					could appear as “<span class="changed">6</span>:00 PM”, while with
-					"Jmm", it would appear as “<span class="changed">6</span>:00”<span
-					class="changed"> (no PM)</span>.</td>
+					necessary). For example, with "jmm", 18:00
+					could appear as “6:00 PM”, while with
+					"Jmm", it would appear as “6:00” (no PM).</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td style="text-align: center">4</td>
 				<td>n/a</td>
 				<td>Wide</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td style="text-align: center">5</td>
 				<td>n/a</td>
 				<td>Narrow</td>
@@ -3960,7 +3949,7 @@ h2, h3, h4, table {
 				<td rowspan="3"><em><strong>Input skeleton symbol</strong></em><br>
 					It must not occur in pattern or skeleton data. Instead, it is
 					reserved for use in skeletons passed to APIs doing flexible date
-					pattern generation.<span class="changed"> In such a context,
+					pattern generation. In such a context,
 						like 'j', it requests the preferred hour format for the locale.
 						However, unlike 'j', it can also select formats such as hb or hB,
 						since it is based not on the <strong>preferred</strong> attribute
@@ -3968,7 +3957,7 @@ h2, h3, h4, table {
 						instead on the first element of the <strong>allowed</strong>
 						attribute (which is an ordered preferrence list. For example, with
 						&quot;Cmm&quot;, 18:00 could appear as “6:00 in the afternoon”.
-				</span></td>
+				</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">4</td>
@@ -4249,8 +4238,8 @@ h2, h3, h4, table {
 		</table>
 
 		<p>
-			All <span class="changed">characters other than A-Za-z
-				currently</span> represent themselves in a pattern, except for the single
+			All characters other than A-Za-z
+				currently represent themselves in a pattern, except for the single
 			quote. It is used to &#39;escape&#39; letters. Two single quotes in a
 			row, whether inside or outside a quoted &#39;real&#39; single quote.
 		</p>
@@ -4436,7 +4425,7 @@ h2, h3, h4, table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All
+			Copyright © 2001–2016 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

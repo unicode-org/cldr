@@ -802,7 +802,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Asia/Anadyr">
 				<usesMetazone to="2010-03-27 14:00" mzone="Anadyr"/>
-				<usesMetazone from="2010-03-27 14:00" mzone="Magadan"/>
+				<usesMetazone from="2010-03-27 14:00" to="2014-10-25 14:00" mzone="Magadan"/>
+				<usesMetazone from="2014-10-25 14:00" mzone="Anadyr"/>
 			</timezone>
 			<timezone type="Asia/Aqtau">
 				<usesMetazone to="1991-12-15 19:00" mzone="Shevchenko"/>
@@ -832,6 +833,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Asia/Bangkok">
 				<usesMetazone mzone="Indochina"/>
 			</timezone>
+<!-- No mappings for now
+			<timezone type="Asia/Barnaul">
+			</timezone>
+-->
 			<timezone type="Asia/Beirut">
 				<usesMetazone mzone="Europe_Eastern"/>
 			</timezone>
@@ -1151,6 +1156,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Europe/Andorra">
 				<usesMetazone mzone="Europe_Central"/>
 			</timezone>
+			<timezone type="Europe/Astrakhan">
+				<usesMetazone to="2016-03-26 23:00" from="1992-03-28 22:00" mzone="Moscow"/>
+			</timezone>
 			<timezone type="Europe/Athens">
 				<usesMetazone mzone="Europe_Eastern"/>
 			</timezone>
@@ -1280,8 +1288,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone to="1989-03-25 22:00" mzone="Kuybyshev"/>
 				<usesMetazone from="1989-03-25 22:00" to="1991-03-30 23:00" mzone="Moscow"/>
 				<usesMetazone from="1991-03-30 23:00" to="1991-09-29 00:00" mzone="Europe_Eastern"/>
-				<usesMetazone from="1991-09-29 00:00" to="1991-10-20 00:00" mzone="Kuybyshev"/>
-				<usesMetazone from="1991-10-20 00:00" mzone="Samara"/>
+				<usesMetazone from="1991-09-29 00:00" mzone="Samara"/>
 			</timezone>
 			<timezone type="Europe/San_Marino">
 				<usesMetazone mzone="Europe_Central"/>
@@ -1311,6 +1318,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Europe/Tirane">
 				<usesMetazone mzone="Europe_Central"/>
+			</timezone>
+			<timezone type="Europe/Ulyanovsk">
+				<usesMetazone to="2016-03-26 23:00" from="1992-01-19 00:00" mzone="Moscow"/>
 			</timezone>
 			<timezone type="Europe/Uzhgorod">
 				<usesMetazone to="1990-06-30 23:00" mzone="Moscow"/>

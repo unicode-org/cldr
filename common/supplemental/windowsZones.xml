@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<windowsZones>
-		<mapTimezones otherVersion="7df0103" typeVersion="2016a">
+		<mapTimezones otherVersion="7df0103" typeVersion="2016b">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -95,6 +95,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="SA Pacific Standard Time" territory="CL" type="Pacific/Easter"/>
 			<mapZone other="SA Pacific Standard Time" territory="CO" type="America/Bogota"/>
 			<mapZone other="SA Pacific Standard Time" territory="EC" type="America/Guayaquil"/>
+			<mapZone other="SA Pacific Standard Time" territory="HT" type="America/Port-au-Prince"/>
 			<mapZone other="SA Pacific Standard Time" territory="JM" type="America/Jamaica"/>
 			<mapZone other="SA Pacific Standard Time" territory="KY" type="America/Cayman"/>
 			<mapZone other="SA Pacific Standard Time" territory="PA" type="America/Panama"/>
@@ -110,7 +111,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Eastern Standard Time" territory="BS" type="America/Nassau"/>
 			<mapZone other="Eastern Standard Time" territory="CA" type="America/Toronto America/Iqaluit America/Montreal America/Nipigon America/Pangnirtung America/Thunder_Bay"/>
 			<mapZone other="Eastern Standard Time" territory="CU" type="America/Havana"/>
-			<mapZone other="Eastern Standard Time" territory="HT" type="America/Port-au-Prince"/>
 			<mapZone other="Eastern Standard Time" territory="US" type="America/New_York America/Detroit America/Indiana/Petersburg America/Indiana/Vincennes America/Indiana/Winamac America/Kentucky/Monticello America/Louisville"/>
 			<mapZone other="Eastern Standard Time" territory="ZZ" type="EST5EDT"/>
 
@@ -444,7 +444,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+04:00) Izhevsk, Samara (RTZ 3) -->
 			<mapZone other="Russia Time Zone 3" territory="001" type="Europe/Samara"/>
-			<mapZone other="Russia Time Zone 3" territory="RU" type="Europe/Samara"/>
+			<mapZone other="Russia Time Zone 3" territory="RU" type="Europe/Samara Europe/Astrakhan Europe/Ulyanovsk"/>
 
 			<!-- (UTC+04:00) Port Louis -->
 			<mapZone other="Mauritius Standard Time" territory="001" type="Indian/Mauritius"/>
@@ -531,7 +531,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+07:00) Krasnoyarsk (RTZ 6) -->
 			<mapZone other="North Asia Standard Time" territory="001" type="Asia/Krasnoyarsk"/>
-			<mapZone other="North Asia Standard Time" territory="RU" type="Asia/Krasnoyarsk Asia/Novokuznetsk"/>
+			<mapZone other="North Asia Standard Time" territory="RU" type="Asia/Krasnoyarsk Asia/Barnaul Asia/Novokuznetsk"/>
 
 			<!-- (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi -->
 			<mapZone other="China Standard Time" territory="001" type="Asia/Shanghai"/>
@@ -620,11 +620,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+10:00) Vladivostok, Magadan (RTZ 9) -->
 			<mapZone other="Vladivostok Standard Time" territory="001" type="Asia/Vladivostok"/>
-			<mapZone other="Vladivostok Standard Time" territory="RU" type="Asia/Vladivostok Asia/Sakhalin Asia/Ust-Nera"/>
+			<mapZone other="Vladivostok Standard Time" territory="RU" type="Asia/Vladivostok Asia/Ust-Nera"/>
 
 			<!-- (UTC+11:00) Chokurdakh (RTZ 10) -->
 			<mapZone other="Russia Time Zone 10" territory="001" type="Asia/Srednekolymsk"/>
-			<mapZone other="Russia Time Zone 10" territory="RU" type="Asia/Srednekolymsk"/>
+			<mapZone other="Russia Time Zone 10" territory="RU" type="Asia/Srednekolymsk Asia/Sakhalin"/>
 
 			<!-- (UTC+11:00) Solomon Is., New Caledonia -->
 			<mapZone other="Central Pacific Standard Time" territory="001" type="Pacific/Guadalcanal"/>

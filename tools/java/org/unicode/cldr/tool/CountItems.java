@@ -894,11 +894,11 @@ public class CountItems {
             }
             Map<String, R2<List<String>, String>> territoryAliasInfo = supplementalData.getLocaleAliasInfo().get("territory");
             String result;
-            if (territoryAliasInfo.containsKey(region)) {
-                result = CollectionUtilities.join(territoryAliasInfo.get(region).get0(), " ");
-            } else {
+            if (!territoryAliasInfo.containsKey(region)) {               
                 result = region;
             }
+            else
+                continue;
             String name = english.getName(CLDRFile.TERRITORY_NAME, result);
             System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + result
                 + "\" reason=\"overlong\"/> <!-- " + name + " -->");

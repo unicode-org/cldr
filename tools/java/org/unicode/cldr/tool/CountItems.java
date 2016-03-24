@@ -902,7 +902,7 @@ public class CountItems {
                     result = region;
                 }            
                 String name = english.getName(CLDRFile.TERRITORY_NAME, result);
-                if((duplicateDestroyer.contains(alpha3+result+name))){
+                if(!(duplicateDestroyer.contains(alpha3+result+name))){
                     duplicateDestroyer.add(alpha3+result+name);
                     System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + result
                         + "\" reason=\"overlong\"/> <!-- " + name + " -->");

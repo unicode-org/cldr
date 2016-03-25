@@ -208,28 +208,5 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2">=%%spellout-ordinal=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
-        <rulesetGrouping type="OrdinalRules">
-            <ruleset type="dord-mascabbrev" access="private">
-                <rbnfrule value="0">e;</rbnfrule>
-                <rbnfrule value="1">er;</rbnfrule>
-                <rbnfrule value="2">e;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-masculine">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-mascabbrev=;</rbnfrule>
-            </ruleset>
-            <ruleset type="dord-femabbrev" access="private">
-                <rbnfrule value="0">e;</rbnfrule>
-                <rbnfrule value="1">re;</rbnfrule>
-                <rbnfrule value="2">e;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-feminine">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-femabbrev=;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>
-            </ruleset>
-        </rulesetGrouping>
     </rbnf>
 </ldml>

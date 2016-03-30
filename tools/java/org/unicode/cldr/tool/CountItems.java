@@ -882,33 +882,37 @@ public class CountItems {
     }
 
     private static void addRegions(CLDRFile english, Set<String> availableCodes, String codeType, String[] exceptions,
-        Transform<String, String> trans) {
-        Set<String> missingRegions = new TreeSet<String>();
-        Set<String> exceptionSet = new HashSet<String>(Arrays.asList(exceptions));
-        for (String region : availableCodes) {
-            if (exceptionSet.contains(region)) continue;
-            String alpha3 = trans.transform(region);
-            if (alpha3 == null) {
-                missingRegions.add(region);
-                continue;
-            }
-            Map<String, R2<List<String>, String>> territoryAliasInfo = supplementalData.getLocaleAliasInfo().get("territory");
-            String result;
-            if (territoryAliasInfo.containsKey(region)) {
-                result = CollectionUtilities.join(territoryAliasInfo.get(region).get0(), " ");
-            } else {
-                result = region;
-            }
-            String name = english.getName(CLDRFile.TERRITORY_NAME, result);
-            System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + result
-                + "\" reason=\"overlong\"/> <!-- " + name + " -->");
-        }
-        for (String region : missingRegions) {
-            String name = english.getName(CLDRFile.TERRITORY_NAME, region);
-            System.err.println("ERROR: Missing " + codeType + " code for " + region + "\t" + name);
-        }
-    }
+            Transform<String, String> trans) {
+            Set<String> missingRegions = new TreeSet<String>();
+            Set<String> exceptionSet = new HashSet<String>(Arrays.asList(exceptions));
+            List<String> duplicateDestroyer = new ArrayList<String>();
+            for (String region : availableCodes) {
 
+                if (exceptionSet.contains(region)) continue;
+                String alpha3 = trans.transform(region);
+                if (alpha3 == null) {
+                    missingRegions.add(region);
+                    continue;
+                }
+                Map<String, R2<List<String>, String>> territoryAliasInfo = supplementalData.getLocaleAliasInfo().get("territory");
+                String result;
+                if (territoryAliasInfo.containsKey(region)) { 
+                    result = CollectionUtilities.join(territoryAliasInfo.get(region).get0(), " "); 
+                } else {
+                    result = region;
+                }            
+                String name = english.getName(CLDRFile.TERRITORY_NAME, result);
+                if(!(duplicateDestroyer.contains(alpha3+result+name))){
+                    duplicateDestroyer.add(alpha3+result+name);
+                    System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + result
+                        + "\" reason=\"overlong\"/> <!-- " + name + " -->");
+                }
+            }
+            for (String region : missingRegions) {
+                String name = english.getName(CLDRFile.TERRITORY_NAME, region);
+                System.err.println("ERROR: Missing " + codeType + " code for " + region + "\t" + name);
+            }
+        }
     /**
      *
      */

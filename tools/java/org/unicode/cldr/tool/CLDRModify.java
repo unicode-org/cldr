@@ -54,6 +54,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Objects;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -1921,18 +1922,29 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('q', "fix g-force", new CLDRFilter() {
-            Matcher m = PatternCache.get("(\\P{L}*)g(\\P{L}*)").matcher("");
-
+        fixList.add('q', "fix annotation punctuation", new CLDRFilter() {
+            Matcher commaColonSemi = PatternCache.get("[,，﹐︐⸴⸲⹁՝،߸᠂᠈꓾꘍꛵、﹑︑､;；﹔︔؛⁏⸵꛶\\：﹕︓܃-܈፣-፦᠄꛴܉⁝𒑱-𒑴𝪇𝪉𝪊]|:(?!\\d)").matcher("");
             @Override
             public void handlePath(String xpath) {
-                if (!xpath.contains("acceleration-g-force")) {
+                if (!xpath.contains("/annotation")) {
                     return;
                 }
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
+                String newFullPath = fullpath;
+                XPathParts parts = XPathParts.getInstance(fullpath);
+                String tts = parts.getAttributeValue(2, "tts");
+                String newTts = tts;
+                if (tts != null) {
+                    newTts = commaColonSemi.reset(tts).replaceAll(",");
+                    if (newTts != tts) {
+                        parts.setAttribute(2, "tts", newTts);
+                        newFullPath = parts.toString();
+                    }
+                }
                 String value = cldrFileToFilter.getStringValue(xpath);
-                if (m.reset(value).matches()) {
-                    replace(fullpath, fullpath, m.group(1) + "G" + m.group(2));
+                String newValue = commaColonSemi.reset(value).replaceAll(";");
+                if (!value.equals(newValue) || !Objects.equal(tts, newTts)) {
+                    replace(fullpath, newFullPath, newValue);
                 }
             }
         });

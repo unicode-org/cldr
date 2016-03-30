@@ -405,12 +405,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
         // now do the rest
-        final String COPYRIGHT_STRING = CldrUtility.getCopyrightString();
 
-        String initialComment = dataSource.getXpathComments().getInitialComment();
-        if (!initialComment.contains("Copyright") || !initialComment.contains("Unicode")) {
-            initialComment = initialComment + COPYRIGHT_STRING;
-        }
+        String initialComment = fixInitialComment(dataSource.getXpathComments().getInitialComment());
         XPathParts.writeComment(pw, 0, initialComment, true);
 
         XPathParts.Comments tempComments = (XPathParts.Comments) dataSource.getXpathComments().clone();
@@ -480,6 +476,27 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
         XPathParts.writeComment(pw, 0, finalComment, true);
         return this;
+    }
+
+    static final Splitter LINE_SPLITTER = Splitter.on('\n');
+    
+    private String fixInitialComment(String initialComment) {
+        if (initialComment == null || initialComment.isEmpty()) {
+            return CldrUtility.getCopyrightString();
+        } else {
+            StringBuilder sb = new StringBuilder(CldrUtility.getCopyrightString()).append(XPathParts.NEWLINE);
+            for (String line : LINE_SPLITTER.split(initialComment)) {
+                if (line.contains("Copyright") 
+                    || line.contains("©") 
+                    || line.contains("trademark")
+                    || line.startsWith("CLDR data files are interpreted")
+                    || line.startsWith("For terms of use")) {
+                    continue;
+                }
+                sb.append(XPathParts.NEWLINE).append(line);
+            }
+            return sb.toString();
+        }
     }
 
     /**

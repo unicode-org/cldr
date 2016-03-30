@@ -1533,6 +1533,23 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     static MapComparator<String> currencyFormatOrder = new MapComparator<String>().add(
         "standard", "accounting").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
+    
+    static final Comparator<String> COMP = (Comparator) CLDRConfig.getInstance().getCollator();
+
+    // Hack for US
+    static final Comparator<String> UNICODE_SET_COMPARATOR = new Comparator<String> () {
+        @Override
+        public int compare(String o1, String o2) {
+            if (o1.contains("{")) {
+                o1 = o1.replace("{","");
+            }
+            if (o2.contains("{")) {
+                o2 = o2.replace("{","");
+            }
+            return COMP.compare(o1, o2);
+        }
+        
+    };
 
     public static Comparator<String> getAttributeValueComparator(String element, String attribute) {
         return getAttributeValueComparator(DtdType.ldml, element, attribute);
@@ -1541,7 +1558,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     static Comparator<String> getAttributeValueComparator(DtdType type, String element, String attribute) {
         // The default is a map comparator, which compares numbers as numbers, and strings with UCA
         Comparator<String> comp = valueOrdering;
-        if (type != type.ldml && type != type.ldmlICU) {
+        if (type != DtdType.ldml && type != DtdType.ldmlICU) {
             return comp;
         }
         if (attribute.equals("day")) { // && (element.startsWith("weekend")
@@ -1570,6 +1587,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
         } else if (attribute.equals("count") && !element.equals("minDays")) {
             comp = countValueOrder;
+        } else if (attribute.equals("cp") && element.equals("annotation")) {
+            comp = UNICODE_SET_COMPARATOR;
         }
         return comp;
     }

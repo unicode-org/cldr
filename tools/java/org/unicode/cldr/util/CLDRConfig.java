@@ -20,6 +20,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.util.ULocale;
 
 public class CLDRConfig extends Properties {
     /**
@@ -299,8 +300,10 @@ public class CLDRConfig extends Properties {
     public Collator getCollator() {
         synchronized (GET_COLLATOR_SYNC) {
             if (col == null) {
-                col = (RuleBasedCollator) Collator.getInstance();
+                col = (RuleBasedCollator) Collator.getInstance(ULocale.forLanguageTag("en-u-co-emoji"));
+                col.setStrength(Collator.IDENTICAL);
                 col.setNumericCollation(true);
+                col.freeze();
             }
         }
         return col;

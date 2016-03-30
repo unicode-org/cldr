@@ -1923,7 +1923,7 @@ public class CLDRModify {
         });
 
         fixList.add('q', "fix annotation punctuation", new CLDRFilter() {
-            Matcher commaColonSemi = PatternCache.get("[,，﹐︐⸴⸲⹁՝،߸᠂᠈꓾꘍꛵、﹑︑､;；﹔︔؛⁏⸵꛶\\：﹕︓܃-܈፣-፦᠄꛴܉⁝𒑱-𒑴𝪇𝪉𝪊]|:(?!\\d)").matcher("");
+            Matcher commaColonSemi = PatternCache.get("[,，﹐︐⸴⸲⹁՝،߸᠂᠈꓾꘍꛵、﹑︑､;；﹔︔؛⁏⸵꛶\\：﹕︓܃-܈፣-፦᠄꛴܉⁝𒑱-𒑴𝪇𝪉𝪊]|:(?!\\p{Nd})").matcher("");
             @Override
             public void handlePath(String xpath) {
                 if (!xpath.contains("/annotation")) {

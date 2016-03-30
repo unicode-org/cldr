@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
@@ -55,6 +56,7 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Objects;
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -619,7 +621,7 @@ public class CLDRModify {
             return Retention.RETAIN_IF_DIFFERENT;
         }
     };
-
+    static final Splitter COMMA_SEMI = Splitter.on(Pattern.compile("[,;]")).trimResults().omitEmptyStrings();
     /**
      *
      */
@@ -1923,7 +1925,6 @@ public class CLDRModify {
         });
 
         fixList.add('q', "fix annotation punctuation", new CLDRFilter() {
-            Matcher commaColonSemi = PatternCache.get("[,，﹐︐⸴⸲⹁՝،߸᠂᠈꓾꘍꛵、﹑︑､;；﹔︔؛⁏⸵꛶\\：﹕︓܃-܈፣-፦᠄꛴܉⁝𒑱-𒑴𝪇𝪉𝪊]|:(?!\\p{Nd})").matcher("");
             @Override
             public void handlePath(String xpath) {
                 if (!xpath.contains("/annotation")) {
@@ -1935,14 +1936,14 @@ public class CLDRModify {
                 String tts = parts.getAttributeValue(2, "tts");
                 String newTts = tts;
                 if (tts != null) {
-                    newTts = commaColonSemi.reset(tts).replaceAll(",");
+                    newTts = CldrUtility.join(COMMA_SEMI.splitToList(tts), ", ");
                     if (newTts != tts) {
                         parts.setAttribute(2, "tts", newTts);
                         newFullPath = parts.toString();
                     }
                 }
                 String value = cldrFileToFilter.getStringValue(xpath);
-                String newValue = commaColonSemi.reset(value).replaceAll(";");
+                String newValue = CldrUtility.join(COMMA_SEMI.splitToList(value), "; ");
                 if (!value.equals(newValue) || !Objects.equal(tts, newTts)) {
                     replace(fullpath, newFullPath, newValue);
                 }

@@ -159,6 +159,10 @@ public final class XPathParts implements Freezable<XPathParts> {
             }
         }
 
+        public String getComment(CommentType style, String xpath) {
+           return comments.get(style).get(xpath);
+        }
+        
         public Comments addComment(CommentType style, String xpath, String comment) {
             String existing = comments.get(style).get(xpath);
             if (existing != null) {

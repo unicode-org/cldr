@@ -2753,6 +2753,8 @@ $Revision$
 <!ATTLIST annotation cp CDATA #REQUIRED >
 <!ATTLIST annotation tts CDATA #IMPLIED >
     <!--@VALUE-->
+    <!--@DEPRECATED-->
+<!ATTLIST annotation type (tts) #IMPLIED >
 <!ATTLIST annotation alt NMTOKENS #IMPLIED >
 <!ATTLIST annotation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->

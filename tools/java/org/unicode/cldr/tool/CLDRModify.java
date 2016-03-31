@@ -54,8 +54,9 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
-import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.BagFormatter;
@@ -621,7 +622,7 @@ public class CLDRModify {
             return Retention.RETAIN_IF_DIFFERENT;
         }
     };
-    static final Splitter COMMA_SEMI = Splitter.on(Pattern.compile("[,;]")).trimResults().omitEmptyStrings();
+    static final Splitter COMMA_SEMI = Splitter.on(Pattern.compile("[,;|]")).trimResults().omitEmptyStrings();
     /**
      *
      */
@@ -812,7 +813,7 @@ public class CLDRModify {
             if (oldValueNewPath == null) {
                 showAction(reason, "Moving", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
             } else if (oldValueNewPath.equals(newValue)) {
-                showAction(reason, "Redundant", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
+                showAction(reason, "Redundant Value", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
             } else {
                 showAction(reason, "Overriding", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
             }
@@ -1931,20 +1932,39 @@ public class CLDRModify {
                     return;
                 }
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                String newFullPath = fullpath;
                 XPathParts parts = XPathParts.getInstance(fullpath);
+                String cp = parts.getAttributeValue(2, "cp");
                 String tts = parts.getAttributeValue(2, "tts");
-                String newTts = tts;
-                if (tts != null) {
-                    newTts = CldrUtility.join(COMMA_SEMI.splitToList(tts), ", ");
-                    if (newTts != tts) {
-                        parts.setAttribute(2, "tts", newTts);
-                        newFullPath = parts.toString();
+                String type = parts.getAttributeValue(2, "type");
+                if ("tts".equals(type)) {
+                    return; // ok, skip
+                }
+                String hex = "1F600";
+                if (cp.startsWith("[")) {
+                    UnicodeSet us = new UnicodeSet(cp);
+                    if (us.size() == 1) {
+                        cp = us.iterator().next();
+                        hex = Utility.hex(cp);
+                    } else {
+                        hex = us.toString();
                     }
+                    parts.putAttributeValue(2, "cp", cp);
+                }
+                parts.removeAttribute(2, "tts");
+                if (tts != null) {
+                    String newTts = CldrUtility.join(COMMA_SEMI.splitToList(tts), ", ");
+                    XPathParts parts2 = parts.cloneAsThawed();
+                    parts2.putAttributeValue(2, "type", "tts");
+                    add(parts2.toString(), newTts, "separate tts");
                 }
                 String value = cldrFileToFilter.getStringValue(xpath);
-                String newValue = CldrUtility.join(COMMA_SEMI.splitToList(value), "; ");
-                if (!value.equals(newValue) || !Objects.equal(tts, newTts)) {
+                String newValue = CldrUtility.join(COMMA_SEMI.splitToList(value), " | ");
+                final String newFullPath = parts.toString();
+                Comments comments = cldrFileToFilter.getXpath_comments();
+                String comment = comments.removeComment(CommentType.PREBLOCK, xpath);
+                comment = hex + (comment == null ? "" : " " + comment);
+                comments.addComment(CommentType.PREBLOCK, newFullPath, comment);
+                if (!fullpath.equals(newFullPath) || !value.equals(newValue)) {
                     replace(fullpath, newFullPath, newValue);
                 }
             }

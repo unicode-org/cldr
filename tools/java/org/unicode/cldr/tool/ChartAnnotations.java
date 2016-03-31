@@ -9,20 +9,16 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
+import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.UnicodeRelation;
-import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
@@ -32,6 +28,12 @@ import com.ibm.icu.util.ULocale;
 
 public class ChartAnnotations extends Chart {
 
+    private static final String MAIN_HEADER = "<p>Annotations provide labels for Unicode characters, currently focusing on emoji. "
+        + "If you see any problems, please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> with the corrected values for the locale. "
+        + "For more information, see: "
+        + "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations'>Annotations</a>. "
+        + "The latest release data for this chart is in "
+        + "<a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>annotations/</a>.</p>";
     private static final boolean DEBUG = false;
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "annotations/";
 
@@ -56,13 +58,7 @@ public class ChartAnnotations extends Chart {
 
     @Override
     public String getExplanation() {
-        return "<p>Annotations provide labels for Unicode characters, currently focusing on emoji. "
-            + "The current data is provisional, and we are looking for feedback."
-            + "The charts are presented in groups of related languages, for easier comparison."
-            + "For more information, see: "
-            + "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations'>Annotations</a>. "
-            + "The latest release data for this chart is in "
-            + "<a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>annotations/</a>.</p>";
+        return MAIN_HEADER + "<p>The charts are presented in groups of related languages, for easier comparison.<p>";
     }
 
     public void writeContents(FormattedFileWriter pw) throws IOException {
@@ -77,8 +73,8 @@ public class ChartAnnotations extends Chart {
     public void writeSubcharts(Anchors anchors) throws IOException {
         Set<String> locales = Annotations.getAvailableLocales();
 
-        Annotations english = Annotations.make("en");
-        UnicodeSet s = english.values.keySet();
+        UnicodeMap<Annotations> english = Annotations.getData("en");
+        UnicodeSet s = english.keySet();
 
         // set up right order for columns
 
@@ -121,7 +117,7 @@ public class ChartAnnotations extends Chart {
 
             TablePrinter tablePrinter = new TablePrinter()
             .addColumn("Char", "class='source' width='1%'", null, "class='source-image'", true)
-            .addColumn("Char", "class='source' width='" + width + "%'", null, "class='source'", true);
+            .addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true);
 
             for (Entry<String, String> entry : nameToCode.entrySet()) {
                 String name = entry.getKey();
@@ -138,14 +134,14 @@ public class ChartAnnotations extends Chart {
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {
                     String name = nameAndLocale.getKey();
                     String locale = nameAndLocale.getValue();
-                    Annotations annotations = Annotations.make(locale);
-                    Set<String> values = annotations.values.get(cp);
+                    UnicodeMap<Annotations> annotations = Annotations.getData(locale);
+                    Annotations values = annotations.get(cp);
                     if (DEBUG) System.out.println(name + ":" + values);
-                    tablePrinter.addCell(values == null ? "" : CollectionUtilities.join(values, "; "));
+                    tablePrinter.addCell(values == null ? "" : values.toString());
                 }
                 tablePrinter.finishRow();
             }
-            new Subchart("Annotations in " + group + " languages", group.toString(), tablePrinter).writeChart(anchors);
+            new Subchart("Annotations in " + group.toString().replace('_', '-') + " languages", group.toString(), tablePrinter).writeChart(anchors);
         }
     }
 
@@ -250,9 +246,9 @@ public class ChartAnnotations extends Chart {
 
         @Override
         public String getExplanation() {
-            return "<p>Annotations provide labels for Unicode characters. The current data is provisional, "
-                + "and only covers a limited number of languages. Feedback is welcome.</p>"
-                + "<p>This table shows the annotations for a group of related languages (plus English) for easier comparison.<p>";
+            return MAIN_HEADER
+                + "<p>This table shows the annotations for a group of related languages (plus English) for easier comparison. "
+                + "The phrases are separated by |, with the TTS (text-to-speech) phrases marked with *.<p>";
         }
 
         @Override
@@ -284,68 +280,68 @@ public class ChartAnnotations extends Chart {
         "vehicle", "restaurant", "communication", "emotion", "geometric", "mark",
         "education", "gesture", "japanese", "symbol", "congratulation", "body", "clothing"));
 
-    static class Annotations {
-
-        final UnicodeRelation<String> values = new UnicodeRelation<>();
-
-        static Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "annotations/", ".*");
-
-        static Set<String> getAvailableLocales() {
-            return cldrFactory.getAvailable();
-        }
-
-        static Map<String, Annotations> cache = new ConcurrentHashMap<>();
-
-        static synchronized Annotations make(String locale) {
-            Annotations result = cache.get(locale);
-            if (result == null) {
-                CLDRFile file = cldrFactory.make(locale, false); // for now, don't resolve
-                result = new Annotations();
-                LinkedHashSet<String> values = new LinkedHashSet<>();
-                XPathParts parts = new XPathParts();
-                Splitter sp = Splitter.on(';').omitEmptyStrings().trimResults();
-                for (String path : file) {
-                    if (path.startsWith("//ldml/identity")) {
-                        continue;
-                    }
-                    String value = file.getStringValue(path);
-                    String fullPath = file.getFullXPath(path);
-                    String cpString = parts.set(fullPath).getAttributeValue(-1, "cp");
-                    UnicodeSet cps = new UnicodeSet(cpString);
-                    String tts = parts.set(fullPath).getAttributeValue(-1, "tts");
-                    values.clear();
-                    if (tts != null) {
-                        values.add(tts.trim()); // always first value
-                    }
-                    values.addAll(sp.splitToList(value));
-                    result.values.addAll(cps, values);
-                }
-
-                // remove labels
-
-                if (locale.equals("en")) {
-                    for (Entry<String, Set<String>> item : result.values.keyValues()) {
-                        String key = item.getKey();
-                        Set<String> valueSet = new LinkedHashSet<>(item.getValue());
-                        for (String skip : ENGLISH_LABELS) {
-                            if (valueSet.contains(skip)) {
-                                result.values.remove(key, skip);
-                                if (result.values.get(key) == null) {
-                                    result.values.add(key, skip); // restore
-                                    break;
-                                }
-                            }
-                        }
-                        Set<String> newSet = result.values.get(key);
-                        if (!valueSet.equals(newSet)) {
-                            if (DEBUG) System.out.println("dropping labels from " + item.getKey() + ", old: " + valueSet + ", new: " + newSet);
-                        }
-                    }
-                }
-                result.values.freeze();
-                cache.put(locale, result);
-            }
-            return result;
-        }
-    }
+//    static class Annotations {
+//
+//        final UnicodeRelation<String> values = new UnicodeRelation<>();
+//
+//        static Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "annotations/", ".*");
+//
+//        static Set<String> getAvailableLocales() {
+//            return cldrFactory.getAvailable();
+//        }
+//
+//        static Map<String, Annotations> cache = new ConcurrentHashMap<>();
+//
+//        static synchronized Annotations make(String locale) {
+//            Annotations result = cache.get(locale);
+//            if (result == null) {
+//                CLDRFile file = cldrFactory.make(locale, false); // for now, don't resolve
+//                result = new Annotations();
+//                LinkedHashSet<String> values = new LinkedHashSet<>();
+//                XPathParts parts = new XPathParts();
+//                Splitter sp = Splitter.on(';').omitEmptyStrings().trimResults();
+//                for (String path : file) {
+//                    if (path.startsWith("//ldml/identity")) {
+//                        continue;
+//                    }
+//                    String value = file.getStringValue(path);
+//                    String fullPath = file.getFullXPath(path);
+//                    String cpString = parts.set(fullPath).getAttributeValue(-1, "cp");
+//                    UnicodeSet cps = new UnicodeSet(cpString);
+//                    String tts = parts.set(fullPath).getAttributeValue(-1, "tts");
+//                    values.clear();
+//                    if (tts != null) {
+//                        values.add(tts.trim()); // always first value
+//                    }
+//                    values.addAll(sp.splitToList(value));
+//                    result.values.addAll(cps, values);
+//                }
+//
+//                // remove labels
+//
+//                if (locale.equals("en")) {
+//                    for (Entry<String, Set<String>> item : result.values.keyValues()) {
+//                        String key = item.getKey();
+//                        Set<String> valueSet = new LinkedHashSet<>(item.getValue());
+//                        for (String skip : ENGLISH_LABELS) {
+//                            if (valueSet.contains(skip)) {
+//                                result.values.remove(key, skip);
+//                                if (result.values.get(key) == null) {
+//                                    result.values.add(key, skip); // restore
+//                                    break;
+//                                }
+//                            }
+//                        }
+//                        Set<String> newSet = result.values.get(key);
+//                        if (!valueSet.equals(newSet)) {
+//                            if (DEBUG) System.out.println("dropping labels from " + item.getKey() + ", old: " + valueSet + ", new: " + newSet);
+//                        }
+//                    }
+//                }
+//                result.values.freeze();
+//                cache.put(locale, result);
+//            }
+//            return result;
+//        }
+//    }
 }

@@ -1391,6 +1391,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<codePattern type="script">Script: {0}</codePattern>
 			<codePattern type="territory">Region: {0}</codePattern>
 		</codePatterns>
+		<annotationPatterns>
+			<annotationPattern type="emoji">emoji {0}</annotationPattern>
+			<annotationPattern type="flag">emoji flag for {0}</annotationPattern>
+			<annotationPattern type="keycap">emoji keycap for {0}</annotationPattern>
+			<annotationPattern type="combined">combined {0}</annotationPattern>
+		</annotationPatterns>
 	</localeDisplayNames>
 	<contextTransforms>
 		<contextTransformUsage type="calendar-field">

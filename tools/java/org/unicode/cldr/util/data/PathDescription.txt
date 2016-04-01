@@ -134,10 +134,12 @@
 
 ^//ldml/localeDisplayNames/transformNames/transformName\[@type="([^"]*)"]   ;   The name of the transform “{1}”. For more information, please see http://cldr.org/translation/transforms.
 
-^//ldml/localeDisplayNames/codePatterns/codePattern[@type="([^"]*)"]    ;   The pattern to be used when displaying a {1}. For more information, please see http://cldr.org/translation/localepattern.
+^//ldml/localeDisplayNames/codePatterns/codePattern[@type="([^"]*)"]    ;   The pattern to be used when displaying a name for a character {1}. For more information, please see http://cldr.org/translation/localepattern.
 
 ^//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName\[@type="([^"]*)"]   ;   The name of the measurement system “{1}”.  For more information, please see http://cldr.org/translation/misc. 
 ^//ldml/posix/messages/(no|yes)str   ;   The word for “{1}”, lowercased, plus any abbreviations separated by a colon. For more information, see http://cldr.org/translation/misc.
+
+^//ldml/localeDisplayNames/annotationPatterns/annotationPattern[@type="([^"]*)"]    ;   The pattern to be used when displaying a {1}. For more information, please see http://cldr.org/translation/localepattern.
 
 ^//ldml/characters/stopwords/stopwordList\[@type="([^"]*)"] ;   The words that should be ignored in sorting in your language.  For more information, see http://cldr.org/translation/misc.
 ^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/([^/]*)/(.*)  ;   Override for the $3-$2 timezone name for $1.  For more information, see http://cldr.org/translation/timezones.

@@ -154,6 +154,11 @@
 ^//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern ; {0}=CATEGORY; {1}=SPECIFIC_NAME
 ^//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator ; {0}=FIRST_ITEM Arabic ; {1}=SECOND_ITEM Afghanistan
 
+^//ldml/localeDisplayNames/annotationPatterns/annotationPattern\[@type="emoji"] ; {0}=EMOJI_NAME person frowning
+^//ldml/localeDisplayNames/annotationPatterns/annotationPattern\[@type="flag"] ; {0}=COUNTRY_NAME United States, France
+^//ldml/localeDisplayNames/annotationPatterns/annotationPattern\[@type="keycap"] ; {0}=KEYCAP_NAME 1, asterisk
+^//ldml/localeDisplayNames/annotationPatterns/annotationPattern\[@type="combined"] ; {0}=SEQUENCE_OF_NAMES man, woman, boy
+
 ^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 ^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 

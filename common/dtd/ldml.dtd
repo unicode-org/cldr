@@ -107,7 +107,7 @@ $Revision$
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
-<!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, subdivisions?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) ) >
+<!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, subdivisions?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, annotationPatterns?, special* ) ) >
 <!ATTLIST localeDisplayNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -308,6 +308,17 @@ $Revision$
     <!--@METADATA-->
 <!ATTLIST codePattern references CDATA #IMPLIED >
     <!--@METADATA-->
+
+<!ELEMENT annotationPatterns ( alias | ( annotationPattern | special )* ) >
+
+<!ELEMENT annotationPattern ( #PCDATA ) >
+<!ATTLIST annotationPattern type NMTOKEN #REQUIRED >
+<!ATTLIST annotationPattern alt NMTOKENS #IMPLIED >
+<!ATTLIST annotationPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST annotationPattern references CDATA #IMPLIED >
+    <!--@METADATA-->
+
 
 <!-- ######################################################### -->
 <!-- # layout and orientation are script specific, so validSublocales attribute is not required -->

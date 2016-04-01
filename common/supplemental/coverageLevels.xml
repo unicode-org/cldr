@@ -160,6 +160,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%variantTypes" value="([A-Z0-9]++)"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
 		<coverageVariable key="%yesNo" value="(yes|no)"/>		
+		<coverageVariable key="%anyAttribute" value="([^\\x22]++)"/>		
 		<!-- -->
 		<!-- Coverage levels begin here -->
 		<!-- -->
@@ -334,6 +335,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="basic" match="localeDisplayNames/scripts/script[@type='%script40'][@alt='(variant|stand-alone)']"/>
 		<coverageLevel value="basic" match="localeDisplayNames/territories/territory[@type='%territory40']"/>
 		<coverageLevel value="basic" match="localeDisplayNames/codePatterns/codePattern[@type='(language|script|territory)']"/>
+		<coverageLevel value="basic" match="localeDisplayNames/annotationPatterns/annotationPattern[@type='(flag|keycap|emoji|combined)']"/>
 		<coverageLevel value="basic" match="localeDisplayNames/measurementSystemNames/measurementSystemName[@type='(metric|UK|US)']"/>
 		<coverageLevel value="basic" match="localeDisplayNames/localeDisplayPattern/localePattern"/>
 		<coverageLevel value="basic" match="localeDisplayNames/localeDisplayPattern/localeSeparator"/>

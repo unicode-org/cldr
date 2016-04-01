@@ -28,7 +28,6 @@ public class TestAnnotations extends TestFmwk {
         };
         for (String[] test : tests) {
             UnicodeMap<Annotations> data = Annotations.getData(test[0]);
-            data = Annotations.getData(test[0]);
             UnicodeSet us = new UnicodeSet(test[1]);
             Set<String> annotations = new LinkedHashSet<>();
             Containment contains = Containment.valueOf(test[2]);

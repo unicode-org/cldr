@@ -263,6 +263,11 @@ public class ChainedMap {
         }
         return map.put(keys[last], value);
     }
+    
+    @Override
+    public String toString() {
+        return mapBase.toString();
+    }
 
     public static void main(String[] args) {
         M5<Boolean, Byte, String, Integer, Double> foo = ChainedMap.of(

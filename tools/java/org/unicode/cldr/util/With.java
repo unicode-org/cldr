@@ -204,6 +204,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * @param iterator
      * @return Iterable, for use in for loops, etc.
      */
+    @SafeVarargs
     @SuppressWarnings("unchecked")
     public static <V> With<V> in(Iterator<V>... iterators) {
         return new With<V>().and(iterators);

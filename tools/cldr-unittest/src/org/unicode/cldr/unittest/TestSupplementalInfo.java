@@ -58,6 +58,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
 
+import com.google.common.collect.ImmutableSet;
+
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -1628,16 +1630,14 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void TestMetazones() {
         Date goalMin = new Date(70, 0, 1);
         Date goalMax = new Date(300, 0, 2);
+        ImmutableSet<String> knownTZWithoutMetazone = ImmutableSet.of("America/Montreal", "Asia/Barnaul");
         for (String timezoneRaw : TimeZone.getAvailableIDs()) {
             String timezone = TimeZone.getCanonicalID(timezoneRaw);
             String region = TimeZone.getRegion(timezone);
             if (!timezone.equals(timezoneRaw) || "001".equals(region)) {
                 continue;
             }
-            if (timezone.equals("America/Montreal")) {
-                // Montreal was deprecated. It's still 'available' in the tz
-                // database and ICU,
-                // but no mapping data in CLDR.
+            if (knownTZWithoutMetazone.contains(timezone)) {
                 continue;
             }
             final Set<MetaZoneRange> ranges = SUPPLEMENTAL

@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -10,7 +9,6 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Pair;
 
 import com.google.common.collect.ImmutableSet;
-
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.LocaleMatcher;

@@ -46,13 +46,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<currencies>
 			<currency type="CVE">
 				<symbol>​</symbol>
-				<decimal>$</decimal>
-				<group>,</group>
+				<decimal>$</decimal> <!-- zero width space -->
 			</currency>
 			<currency type="PTE">
 				<symbol>​PTE</symbol>
-				<decimal>,</decimal>
-				<group> </group>
 			</currency>
 		</currencies>
 	</numbers>

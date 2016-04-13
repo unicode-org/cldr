@@ -43,14 +43,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 $prime = ʹ ;
 $doublePrime = ʺ ;
 $wordBoundary = [^[:L:][:M:][:N:]] ;
-$upperConsonants = [БВГДЖЙКЛМНПРСТФХЦЧШЩЭ] ;
-$lowerConsonants = [бвгджйклмнпрстфхцчшщэ] ;
-$consonants = [$upperConsonants $lowerConsonants] ;
 $upperVowels = [АЕЁЭИОУЫЮЯ] ;
 $lowerVowels = [аеёэиоуыюя] ;
 $vowels = [$upperVowels $lowerVowels] ;
-$lower = [$lowerConsonants $lowerVowels] ;
-$upper = [$upperConsonants $upperVowels] ;
+$upperConsonants = [[:Uppercase:]-$vowels] ;
+$lowerConsonants = [[:Lowercase:]-$vowels] ;
+$consonants = [$upperConsonants $lowerConsonants] ;
+$upper = [:Uppercase:];
+$lower = [:Lowercase:];
 
 
 ########################################################################

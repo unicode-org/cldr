@@ -44,12 +44,12 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TimezoneFormatter;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.ICUPropertyFactory;
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.Tabber;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMapIterator;
@@ -209,7 +209,7 @@ public class CountItems {
                 // String fixedFull = CollectionUtilities.prettyPrint(exemplars, col, false);
                 // System.out.println(" =>\t" + fixedFull);
                 // verifyEquality(exemplars, new UnicodeSet(fixedFull));
-                String fixed = new PrettyPrinter()
+                String fixed = new UnicodeSetPrettyPrinter()
                 .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
                 .setSpaceComparator(spaceCol != null ? spaceCol : ROOT_PRIMARY_COLLATOR)
                 .setCompressRanges(true)

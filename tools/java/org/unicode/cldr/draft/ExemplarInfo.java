@@ -12,8 +12,8 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -44,7 +44,7 @@ public class ExemplarInfo {
         "[:dt=Narrow:][:dt=Wide:][:dt=Vertical:]" +
         "[:dt=Canonical:]]").freeze());
 
-    private static PrettyPrinter pp = new PrettyPrinter();
+    private static UnicodeSetPrettyPrinter pp = new UnicodeSetPrettyPrinter();
 
     private static Map<String, ExemplarInfo> languageToExemplars = new TreeMap<String, ExemplarInfo>();
     private static UnicodeSet az = new UnicodeSet("[a-z]").freeze();

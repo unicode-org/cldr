@@ -17,9 +17,9 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;
@@ -467,7 +467,7 @@ public abstract class Ids implements Comparable<Ids> {
      * U+2FFB ( ⿻ ) IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID
      */
 
-    static PrettyPrinter pp = new PrettyPrinter().setOrdering(RadicalStroke.RadicalStrokeComparator).setCompressRanges(
+    static UnicodeSetPrettyPrinter pp = new UnicodeSetPrettyPrinter().setOrdering(RadicalStroke.RadicalStrokeComparator).setCompressRanges(
         false);
 
     public static void main(String[] args) throws IOException {

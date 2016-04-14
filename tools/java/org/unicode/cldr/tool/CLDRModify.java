@@ -50,6 +50,7 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XMLSource;
@@ -61,7 +62,6 @@ import com.google.common.base.Splitter;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -1413,7 +1413,7 @@ public class CLDRModify {
                         s.add(Normalizer.compose(usi.getString(), false));
                     }
 
-                    String fixedExemplar1 = new PrettyPrinter()
+                    String fixedExemplar1 = new UnicodeSetPrettyPrinter()
                     .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
                     .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                         .setStrength2(Collator.PRIMARY))

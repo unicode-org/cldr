@@ -52,6 +52,7 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
@@ -60,7 +61,6 @@ import org.unicode.cldr.util.XMLSource;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UCharacter;
@@ -702,7 +702,7 @@ public class ConsoleCheckCLDR {
                 missingExemplars.removeAll(new UnicodeSet("[[:Uppercase:]-[İ]]")); // remove uppercase #4670
                 if (missingExemplars.size() != 0) {
                     Collator col = Collator.getInstance(new ULocale(localeID));
-                    showSummary(checkCldr, localeID, level, "Total missing from general exemplars:\t" + new PrettyPrinter()
+                    showSummary(checkCldr, localeID, level, "Total missing from general exemplars:\t" + new UnicodeSetPrettyPrinter()
                     .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
                     .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                         .setStrength2(Collator.PRIMARY))
@@ -713,7 +713,7 @@ public class ConsoleCheckCLDR {
             if (missingCurrencyExemplars.size() != 0) {
                 Collator col = Collator.getInstance(new ULocale(localeID));
                 showSummary(checkCldr, localeID, level, "Total missing from currency exemplars:\t"
-                    + new PrettyPrinter()
+                    + new UnicodeSetPrettyPrinter()
                 .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
                 .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                     .setStrength2(Collator.PRIMARY))

@@ -38,10 +38,10 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -556,7 +556,7 @@ public class ShowKeyboards {
         out.println(t.toTable());
     }
 
-    static PrettyPrinter prettyPrinter = new PrettyPrinter()
+    static UnicodeSetPrettyPrinter prettyPrinter = new UnicodeSetPrettyPrinter()
     .setOrdering(Collator.getInstance(ULocale.ROOT))
     .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY)
         );

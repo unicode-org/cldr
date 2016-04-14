@@ -21,9 +21,9 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.Tabber;
 import com.ibm.icu.dev.util.Tabber.HTMLTabber;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
@@ -325,7 +325,7 @@ public class IdnaLabelTester {
         ESCAPER.setFilter(TO_QUOTE);
     }
 
-    private static final PrettyPrinter PRETTY_PRINTER = new PrettyPrinter()
+    private static final UnicodeSetPrettyPrinter PRETTY_PRINTER = new UnicodeSetPrettyPrinter()
         .setOrdering(Collator.getInstance(ULocale.ROOT))
         .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
         .setToQuote(TO_QUOTE)

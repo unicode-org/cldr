@@ -24,6 +24,7 @@ import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -32,7 +33,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
@@ -94,7 +94,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     private boolean skip;
     private Collator col;
     private Collator spaceCol;
-    PrettyPrinter prettyPrint;
+    UnicodeSetPrettyPrinter prettyPrint;
     private Status otherPathStatus = new Status();
     private Matcher patternMatcher = ExampleGenerator.PARAMETER.matcher("");
 
@@ -210,7 +210,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         exemplarsPlusAscii = new UnicodeSet(exemplars).addAll(ASCII).freeze();
 
         skip = false;
-        prettyPrint = new PrettyPrinter()
+        prettyPrint = new UnicodeSetPrettyPrinter()
         .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
             .setStrength2(Collator.PRIMARY))

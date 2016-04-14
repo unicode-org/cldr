@@ -18,6 +18,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.MyanmarZawgyiConverter;
@@ -25,7 +26,6 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateIntervalInfo;
@@ -123,7 +123,7 @@ public class DisplayAndInputProcessor {
 
     private Collator spaceCol;
 
-    private PrettyPrinter pp = null;
+    private UnicodeSetPrettyPrinter pp = null;
 
     final private CLDRLocale locale;
     private boolean isPosix;
@@ -164,7 +164,7 @@ public class DisplayAndInputProcessor {
             if (spaceCol instanceof RuleBasedCollator) {
                 ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
             }
-            pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
+            pp = new UnicodeSetPrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
                 .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
                 .setCompressRanges(true)
                 .setToQuote(new UnicodeSet(TO_QUOTE))
@@ -692,7 +692,7 @@ public class DisplayAndInputProcessor {
     static Pattern NEEDS_QUOTE1 = PatternCache.get("(\\s|$)([-\\}\\]\\&])()");
     static Pattern NEEDS_QUOTE2 = PatternCache.get("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
-    public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter,
+    public static String getCleanedUnicodeSet(UnicodeSet exemplar, UnicodeSetPrettyPrinter prettyPrinter,
         ExemplarType exemplarType) {
         if (prettyPrinter == null) {
             return exemplar.toString();

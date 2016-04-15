@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.PatternCache;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Calendar;
 
@@ -96,7 +96,7 @@ public class IcuTextWriter {
      */
     public static void writeToFile(IcuData icuData, String dirPath) throws IOException {
         String name = icuData.getName();
-        PrintWriter out = BagFormatter.openUTF8Writer(dirPath, name + ".txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(dirPath, name + ".txt");
         out.write('\uFEFF');
         // Append the header.
         String header = getHeader().replace("%source%", icuData.getSourceFile());

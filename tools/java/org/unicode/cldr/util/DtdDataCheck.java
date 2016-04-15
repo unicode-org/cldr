@@ -12,13 +12,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeType;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -173,7 +173,7 @@ public class DtdDataCheck {
             timer.start();
             DtdType type = DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
-            PrintWriter br = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dataproj/src/temp/", type
+            PrintWriter br = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dataproj/src/temp/", type
                 + "-gen.dtd");
             br.append(dtdData.toString());
             br.close();

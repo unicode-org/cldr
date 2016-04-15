@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.FileCopier;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
@@ -20,8 +20,7 @@ import com.ibm.icu.util.VersionInfo;
 
 public class GenerateScriptMetadata {
     public static void main(String[] args) throws IOException {
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY + "/properties",
-            "scriptMetadata.txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY + "/properties", "scriptMetadata.txt");
         // PrintWriter out = new PrintWriter(System.out);
 //        FileUtilities.appendFile(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
         FileCopier.copy(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);

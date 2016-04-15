@@ -21,6 +21,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
@@ -49,7 +50,6 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -115,7 +115,7 @@ public class ConvertLanguageData {
             // Log.println("<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/data/dtd/ldmlSupplemental.dtd\">");
             // Log.println("<supplementalData version=\"1.5\">");
 
-            oldFile = BagFormatter.openUTF8Reader(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
+            oldFile = FileUtilities.openUTF8Reader(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
             CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<languageData>\\s*"), Log.getLog(), false);
 
             Set<String> available = cldrFactory.getAvailable();
@@ -517,7 +517,7 @@ public class ConvertLanguageData {
                 String xpath = it.next();
                 Map<String, String> x = parts.set(xpath).getAttributes(-1);
                 boolean alt = x.containsKey("alt");
-                String lang = (String) x.get("type");
+                String lang = x.get("type");
                 List<String> scripts = getAttributeList(x, "scripts");
                 if (scripts != null) {
                     if (alt) {
@@ -1046,10 +1046,10 @@ public class ConvertLanguageData {
             if (rawReferenceText == null || rawReferenceText.length() == 0) return "";
             Pair<String, String> p;
             if (URI.reset(rawReferenceText).matches()) {
-                p = (Pair<String, String>) new Pair<String, String>(URI.group(1), URI.group(2) == null || URI.group(2).length() == 0 ? "[missing]"
+                p = new Pair<String, String>(URI.group(1), URI.group(2) == null || URI.group(2).length() == 0 ? "[missing]"
                     : URI.group(2)).freeze();
             } else {
-                p = (Pair<String, String>) new Pair<String, String>(null, rawReferenceText).freeze();
+                p = new Pair<String, String>(null, rawReferenceText).freeze();
             }
 
             String Rxxx = reference_to_Rxxx.get(p);
@@ -1199,7 +1199,7 @@ public class ConvertLanguageData {
         }
 
         // write out file for rick
-        PrintWriter log = BagFormatter.openUTF8Writer(dir, ricksFile);
+        PrintWriter log = FileUtilities.openUTF8Writer(dir, ricksFile);
         log.println(
             "*\tCName" +
                 "\tCCode" +
@@ -1393,7 +1393,7 @@ public class ConvertLanguageData {
 
     static Comparator<Iterable> firstElementComparator = new Comparator<Iterable>() {
         public int compare(Iterable o1, Iterable o2) {
-            int result = ((Comparable) o1.iterator().next()).compareTo(((Comparable) o2.iterator().next()));
+            int result = ((Comparable) o1.iterator().next()).compareTo((o2.iterator().next()));
             assert result != 0;
             return result;
         }

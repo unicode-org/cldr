@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.icu.dev.util.BagFormatter;
+import org.unicode.cldr.draft.FileUtilities;
 
 public class SpreadSheet {
     static boolean DEBUG = CldrUtility.getProperty("SpreadSheetDebug", false);
 
     public static List<List<String>> convert(String filename) throws IOException {
-        return convert(BagFormatter.openUTF8Reader("", filename));
+        return convert(FileUtilities.openUTF8Reader("", filename));
     }
 
     public static List<List<String>> convert(BufferedReader r) throws IOException {

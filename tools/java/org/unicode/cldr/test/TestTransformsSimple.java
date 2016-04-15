@@ -3,11 +3,11 @@ package org.unicode.cldr.test;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
@@ -155,8 +155,7 @@ public class TestTransformsSimple extends TestFmwk {
         Transliterator fromLatin, boolean doLatin, UnicodeSet nativeSpecials, UnicodeSet latinSpecials)
             throws IOException {
         int errorCount = 0;
-        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY + "transTest/",
-            title + ".html");
+        PrintWriter out = FileUtilities.openUTF8Writer(org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY + "transTest/", title + ".html");
         out.println("<html><head>");
         out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>");
         if (nativeSpecials != null) {

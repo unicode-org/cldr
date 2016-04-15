@@ -21,6 +21,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.TestTransformsSimple;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
@@ -29,7 +30,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.SimpleEquivalenceClass;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
@@ -115,7 +115,7 @@ public class GenerateTransformCharts {
     // private static void printChart(SimpleEquivalenceClass equivalenceClass, Transliterator anyToLatin, UnicodeSet
     // failNorm, Set latinFail) throws IOException {
     // // collect equivalents
-    // PrintWriter pw = BagFormatter.openUTF8Writer(TRANSFORM_DIRECTORY, "Indic.html");
+    // PrintWriter pw = FileUtilities.openUTF8Writer(TRANSFORM_DIRECTORY, "Indic.html");
     // pw.println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
     // pw.println("<title>Indic Transliteration Chart</title><style>");
     // pw.println("td { text-align: Center; font-size: 200% }");
@@ -332,7 +332,7 @@ public class GenerateTransformCharts {
             null, "",
             headerAndFooter, "Main Charts Index", false);
 
-        index = BagFormatter.openUTF8Writer(TRANSFORM_DIRECTORY, "index.html");
+        index = FileUtilities.openUTF8Writer(TRANSFORM_DIRECTORY, "index.html");
         index.println(headerAndFooter[0]);
         // index.println("<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
         // index.println("<title>Transliteration Charts</title><style>");
@@ -445,7 +445,7 @@ public class GenerateTransformCharts {
         return UScript.getName(getScriptFromScriptOrLanguage(scriptSet.iterator().next()));
     }
 
-    static UnicodeSet stuffToSkip = (UnicodeSet) new UnicodeSet(
+    static UnicodeSet stuffToSkip = new UnicodeSet(
         "[[:block=Hangul Syllables:][:NFKC_QuickCheck=No:][\\U00010000-\\U0010FFFF]]").freeze();
     static Comparator UCA;
     static {
@@ -571,7 +571,7 @@ public class GenerateTransformCharts {
         String filename = "Latin-" + scriptChoice + ".html";
         filename = filename.replace('/', '-');
         index.println("<li><a href='" + filename + "'>" + scriptChoice + "</a></li>");
-        PrintWriter pw = BagFormatter.openUTF8Writer(TRANSFORM_DIRECTORY, filename);
+        PrintWriter pw = FileUtilities.openUTF8Writer(TRANSFORM_DIRECTORY, filename);
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate("Latin-" + scriptChoice + " Transliteration Chart",
             null, "",
@@ -708,7 +708,7 @@ public class GenerateTransformCharts {
         }
 
         // add extras
-        extras = (UnicodeSet) scriptExtras.get(scriptName);
+        extras = scriptExtras.get(scriptName);
         if (extras != null) {
             System.out.println(script + "\tAdding1: " + extras);
             System.out.println(extras.toPattern(false));
@@ -870,7 +870,7 @@ public class GenerateTransformCharts {
         return results;
     }
 
-    private static UnicodeSet BIDI_R = (UnicodeSet) new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]").freeze();
+    private static UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]").freeze();
 
     private static void showCell(PrintWriter pw, String item, String classString) {
         String backup = item;

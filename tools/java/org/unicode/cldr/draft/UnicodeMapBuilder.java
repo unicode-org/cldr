@@ -56,7 +56,6 @@ public class UnicodeMapBuilder<T> {
         if (result == null) {
             result = new UnicodeMap<T>();
         }
-        // final BufferedReader br = BagFormatter.openUTF8Reader(null, file);
         UnicodeSet sources = new UnicodeSet();
         String line = null;
         try {

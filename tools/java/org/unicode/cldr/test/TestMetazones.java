@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -21,7 +22,6 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.OlsonTimeZone;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.DateFormat;
@@ -82,7 +82,7 @@ public class TestMetazones {
             String exemplarOutFile = CldrUtility.getProperty("log", null,
                 CLDRPaths.GEN_DIRECTORY + "metazoneLog.txt");
             if (exemplarOutFile != null) {
-                log = BagFormatter.openUTF8Writer("", exemplarOutFile);
+                log = FileUtilities.openUTF8Writer("", exemplarOutFile);
             }
             String errorOutFile = CldrUtility.getProperty("errors", null,
                 CLDRPaths.GEN_DIRECTORY + "metazoneErrors" +
@@ -90,7 +90,7 @@ public class TestMetazones {
                     (skipPartialDays ? "-skipPartialDays" : "")
                     + ".txt");
             if (errorOutFile != null) {
-                errorLog = BagFormatter.openUTF8Writer("", errorOutFile);
+                errorLog = FileUtilities.openUTF8Writer("", errorOutFile);
             } else {
                 errorLog = new PrintWriter(System.out);
             }

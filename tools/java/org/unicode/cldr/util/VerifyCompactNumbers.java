@@ -11,6 +11,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.tool.Option;
@@ -21,7 +22,6 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.NumberFormat;
@@ -77,7 +77,7 @@ public class VerifyCompactNumbers {
             availableLanguages.add("pt_PT");
         }
 
-        PrintWriter plainText = BagFormatter.openUTF8Writer(DIR, "compactTestFile.txt");
+        PrintWriter plainText = FileUtilities.openUTF8Writer(DIR, "compactTestFile.txt");
         DateTimeFormats.writeCss(DIR);
         final CLDRFile english = CLDR_CONFIG.getEnglish();
 
@@ -96,7 +96,7 @@ public class VerifyCompactNumbers {
                 continue;
             }
 
-            PrintWriter out = BagFormatter.openUTF8Writer(DIR, locale + ".html");
+            PrintWriter out = FileUtilities.openUTF8Writer(DIR, locale + ".html");
             String title = "Verify Number Formats: " + englishCldrFile.getName(locale);
             out.println("<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n" +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +

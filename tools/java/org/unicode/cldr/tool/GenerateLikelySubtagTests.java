@@ -6,14 +6,13 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.GenerateMaximalLocales.OutputStyle;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
-
-import com.ibm.icu.dev.util.BagFormatter;
 
 public class GenerateLikelySubtagTests {
     private static final String SEPARATOR = CldrUtility.LINE_SEPARATOR;
@@ -23,8 +22,7 @@ public class GenerateLikelySubtagTests {
     private static final String VERSION = CLDRFile.GEN_VERSION;
 
     public static void main(String[] args) throws IOException {
-        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
-            "test/supplemental/likelySubtagTests" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
+        out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "test/supplemental/likelySubtagTests" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
         if (OUTPUT_STYLE == OutputStyle.C) {
             out.println("// START");
         } else {

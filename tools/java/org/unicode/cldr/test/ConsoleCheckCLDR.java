@@ -19,6 +19,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CompoundCheckCLDR;
@@ -59,7 +60,6 @@ import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
 import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -311,14 +311,13 @@ public class ConsoleCheckCLDR {
         if (options[GENERATE_HTML].doesOccur) {
             coverageLevel = Level.MODERN; // reset
             ErrorFile.generated_html_directory = options[GENERATE_HTML].value;
-            ErrorFile.generated_html_count = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory,
-                "count.txt");
+            ErrorFile.generated_html_count = FileUtilities.openUTF8Writer(ErrorFile.generated_html_directory, "count.txt");
             // try {
             // ErrorFile.voteFactory = CLDRFile.Factory.make(sourceDirectory + "../../proposed/main/", ".*");
             // } catch (RuntimeException e) {
             // ErrorFile.voteFactory = null;
             // }
-            // PrintWriter cssFile = BagFormatter.openUTF8Writer(generated_html_directory, "index.css");
+            // PrintWriter cssFile = FileUtilities.openUTF8Writer(generated_html_directory, "index.css");
             // Utility;
         }
 
@@ -985,8 +984,7 @@ public class ConsoleCheckCLDR {
             if (ErrorFile.errorFileWriter != null) {
                 ErrorFile.closeErrorFile();
             }
-            ErrorFile.errorFileWriter = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory, baseLanguage
-                + ".html");
+            ErrorFile.errorFileWriter = FileUtilities.openUTF8Writer(ErrorFile.generated_html_directory, baseLanguage + ".html");
             ErrorFile.errorFileTable = new TablePrinter();
             errorFileCounter.clear();
             ErrorFile.errorFileTable.setCaption("Problem Details")
@@ -1237,8 +1235,7 @@ public class ConsoleCheckCLDR {
                 }
                 indexTablePrinter.finishRow();
             }
-            PrintWriter generated_html_index = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory,
-                "sections.html");
+            PrintWriter generated_html_index = FileUtilities.openUTF8Writer(ErrorFile.generated_html_directory, "sections.html");
             ConsoleCheckCLDR.ErrorFile.showIndexHead("Error Report Index by Section", "", generated_html_index);
             generated_html_index.println(indexTablePrinter.toTable());
             generated_html_index.println(ShowData.dateFooter());
@@ -1311,8 +1308,7 @@ public class ConsoleCheckCLDR {
         }
 
         private static void writeErrorFileIndex() throws IOException {
-            PrintWriter generated_html_index = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory,
-                "index.html");
+            PrintWriter generated_html_index = FileUtilities.openUTF8Writer(ErrorFile.generated_html_directory, "index.html");
             ConsoleCheckCLDR.ErrorFile.showIndexHead("Error Report Index", "", generated_html_index);
             ConsoleCheckCLDR.ErrorFile.showErrorFileIndex(generated_html_index);
             generated_html_index.close();

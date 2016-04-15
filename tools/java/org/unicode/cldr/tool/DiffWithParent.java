@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -16,8 +17,6 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.XPathParts;
-
-import com.ibm.icu.dev.util.BagFormatter;
 
 public class DiffWithParent {
     private static Matcher fileMatcher;
@@ -61,8 +60,7 @@ public class DiffWithParent {
                                 pvalue).addCell(pfullPath).finishRow();
                         }
                     }
-                    PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
-                        locale + "_diff.html");
+                    PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, locale + "_diff.html");
                     String title = locale + " " + english.getName(locale)
                         + " Diff with Parent";
                     out

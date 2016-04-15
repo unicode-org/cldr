@@ -11,9 +11,9 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
 import com.ibm.icu.dev.util.CaseIterator;
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -50,7 +50,7 @@ public class TestCollationMapMaker {
             TreeSet.class);
         inverse.addAllInverted(mapping);
         UnicodeSet unicodeSet = new UnicodeSet();
-        PrettyPrinter pretty = new PrettyPrinter().setOrdering(
+        UnicodeSetPrettyPrinter pretty = new UnicodeSetPrettyPrinter().setOrdering(
             Collator.getInstance(ULocale.ROOT)).setSpaceComparator(
                 Collator.getInstance(ULocale.ROOT).setStrength2(
                     RuleBasedCollator.PRIMARY));

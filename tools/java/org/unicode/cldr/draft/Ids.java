@@ -19,7 +19,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;
@@ -487,7 +486,7 @@ public abstract class Ids implements Comparable<Ids> {
 
         for (String file : dir.list()) {
             int counter = 0;
-            BufferedReader in = BagFormatter.openUTF8Reader(dirString, file);
+            BufferedReader in = FileUtilities.openUTF8Reader(dirString, file);
             boolean radicals = file.startsWith("CJK Radicals");
             boolean corrections = file.startsWith("X-Corrections");
             Map<Integer, String> radicalToBase = new TreeMap<Integer, String>();
@@ -824,7 +823,7 @@ public abstract class Ids implements Comparable<Ids> {
         if (out != null) {
             out.close();
         }
-        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/../ids/", filename);
+        out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/../ids/", filename);
         out.print('\uFEFF');
         out.println(header);
     }

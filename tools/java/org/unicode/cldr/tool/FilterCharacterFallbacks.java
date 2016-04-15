@@ -12,12 +12,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.Normalizer;
 
 /**
@@ -34,7 +34,7 @@ public class FilterCharacterFallbacks {
         Node n;
         fb = LDMLUtilities.parse(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY + File.separator + "characters.xml", true);
         if (fb != null) {
-            PrintWriter out = BagFormatter.openUTF8Writer(".", "report");
+            PrintWriter out = FileUtilities.openUTF8Writer(".", "report");
             n = LDMLUtilities.getNode(fb, "//supplementalData/characters/character-fallback");
             for (Node cf = n.getFirstChild(); cf != null; cf = cf.getNextSibling()) {
                 String srcChar = LDMLUtilities.getAttributeValue(cf, "value");

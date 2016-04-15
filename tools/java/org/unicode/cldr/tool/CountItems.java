@@ -27,6 +27,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -47,7 +48,6 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.ICUPropertyFactory;
 import com.ibm.icu.dev.util.Tabber;
@@ -188,8 +188,7 @@ public class CountItems {
      *
      */
     private static void showExemplars() throws IOException {
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
-            "fixed_exemplars.txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "fixed_exemplars.txt");
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> locales = cldrFactory.getAvailable();
         for (Iterator<String> it = locales.iterator(); it.hasNext();) {
@@ -339,8 +338,8 @@ public class CountItems {
 
         for (Iterator<String> it = old_new.keySet().iterator(); it.hasNext();) {
             String old = it.next();
-            String newOne = (String) old_new.get(old);
-            Set<String> oldSet = (Set<String>) new_old.get(newOne);
+            String newOne = old_new.get(old);
+            Set<String> oldSet = new_old.get(newOne);
             if (oldSet == null)
                 new_old.put(newOne, oldSet = new TreeSet<String>());
             oldSet.add(old);
@@ -365,8 +364,8 @@ public class CountItems {
 
         Set<String> multizone = new TreeSet<String>();
         for (Iterator<String> it = country_zone.keySet().iterator(); it.hasNext();) {
-            String country = (String) it.next();
-            Set<String> zones = (Set<String>) country_zone.get(country);
+            String country = it.next();
+            Set<String> zones = country_zone.get(country);
             if (zones != null && zones.size() != 1)
                 multizone.add(country);
         }
@@ -388,11 +387,11 @@ public class CountItems {
                 tzid.append(' ');
             tzid.append(zone);
 
-            String country = (String) zone_country.get(zone);
+            String country = zone_country.get(zone);
             if (country == null)
                 continue; // skip deprecated
 
-            Set<String> aliases = (Set<String>) new_old.get(zone);
+            Set<String> aliases = new_old.get(zone);
             if (aliases != null) {
                 aliases = new TreeSet<String>(aliases);
                 aliases.remove(zone);
@@ -564,8 +563,7 @@ public class CountItems {
 
     public static void getSubtagVariables2() throws IOException {
         Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
-        BufferedReader oldFile = BagFormatter.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY,
-            "supplementalMetadata.xml");
+        BufferedReader oldFile = FileUtilities.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
         CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<!-- start of data generated with CountItems.*"),
             Log.getLog(), true);
 
@@ -961,7 +959,7 @@ public class CountItems {
         CLDRFile desiredLocaleFile = mainCldrFactory.make("root", true);
         String temp = desiredLocaleFile
             .getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
-        String singleCountriesList = (String) new XPathParts(null, null).set(temp)
+        String singleCountriesList = new XPathParts(null, null).set(temp)
             .findAttributes("singleCountries").get("list");
         Set<String> singleCountriesSet = new TreeSet<String>(CldrUtility.splitList(singleCountriesList,
             ' '));

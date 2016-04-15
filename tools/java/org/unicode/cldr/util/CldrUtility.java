@@ -43,11 +43,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.RegexLookup.Finder;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateFormat;
@@ -1085,7 +1085,7 @@ public class CldrUtility {
 
     public static String getText(String dir, String filename) {
         try {
-            BufferedReader br = BagFormatter.openUTF8Reader(dir, filename);
+            BufferedReader br = FileUtilities.openUTF8Reader(dir, filename);
             StringBuffer buffer = new StringBuffer();
             while (true) {
                 String line = br.readLine();

@@ -5,13 +5,12 @@ import java.io.PrintWriter;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
-
-import com.ibm.icu.dev.util.BagFormatter;
 
 public class DumpCoverage {
 
@@ -23,7 +22,7 @@ public class DumpCoverage {
         long start_time = System.currentTimeMillis();
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> languages = cldrFactory.getAvailableLanguages();
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "coverageDump.txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "coverageDump.txt");
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         for (String lang : languages) {
             CLDRFile cf = cldrFactory.makeWithFallback(lang);

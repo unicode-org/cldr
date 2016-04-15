@@ -27,9 +27,9 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.TestTransforms;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeFilter;
@@ -442,7 +442,7 @@ public class CLDRTransforms {
 
         File dir = new File(directory);
         // get the list of files to take, and their directions
-        BufferedReader input = BagFormatter.openUTF8Reader(directory, "root.txt");
+        BufferedReader input = FileUtilities.openUTF8Reader(directory, "root.txt");
         String id = null;
         String filename = null;
         Map<String, String> aliasMap = new LinkedHashMap<String, String>();
@@ -540,8 +540,8 @@ public class CLDRTransforms {
         }
 
         for (Iterator<String> it = aliasMap.keySet().iterator(); it.hasNext();) {
-            id = (String) it.next();
-            String source = (String) aliasMap.get(id);
+            id = it.next();
+            String source = aliasMap.get(id);
             Transliterator.unregister(id);
             Transliterator t = Transliterator.createFromRules(id, "::" + source + ";", Transliterator.FORWARD);
             Transliterator.registerInstance(t);
@@ -551,12 +551,12 @@ public class CLDRTransforms {
         }
         appendln("Fixed IDs");
         for (Iterator<String> it = fixedIDs.keySet().iterator(); it.hasNext();) {
-            String id2 = (String) it.next();
+            String id2 = it.next();
             appendln("\t" + id2 + "\t" + fixedIDs.get(id2));
         }
         appendln("Odd IDs");
         for (Iterator<String> it = oddIDs.iterator(); it.hasNext();) {
-            String id2 = (String) it.next();
+            String id2 = it.next();
             appendln("\t" + id2);
         }
         Transliterator.registerAny(); // do this last!
@@ -864,22 +864,22 @@ public class CLDRTransforms {
                 if (attributes == null) {
                     throw new IllegalArgumentException("Not an XML transform file: " + cldrFileName + "\t" + path);
                 }
-                directionInfo.setSource((String) attributes.get("source"));
-                directionInfo.setTarget((String) attributes.get("target"));
-                directionInfo.setVariant((String) attributes.get("variant"));
+                directionInfo.setSource(attributes.get("source"));
+                directionInfo.setTarget(attributes.get("target"));
+                directionInfo.setVariant(attributes.get("variant"));
                 directionInfo.setDirection(Direction.valueOf(attributes.get("direction").toLowerCase(Locale.ENGLISH)));
 
-                String alias = (String) attributes.get("alias");
+                String alias = attributes.get("alias");
                 if (alias != null) {
                     directionInfo.setAliases(alias.trim().split("\\s+"));
                 }
 
-                String backwardAlias = (String) attributes.get("backwardAlias");
+                String backwardAlias = attributes.get("backwardAlias");
                 if (backwardAlias != null) {
                     directionInfo.setBackwardAliases(backwardAlias.trim().split("\\s+"));
                 }
 
-                directionInfo.setVisibility((String) attributes.get("visibility"));
+                directionInfo.setVisibility(attributes.get("visibility"));
                 first = false;
             }
             if (path.indexOf("/comment") >= 0) {

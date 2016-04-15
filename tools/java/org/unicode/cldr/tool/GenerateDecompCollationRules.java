@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
@@ -17,7 +18,6 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Normalizer2;
@@ -173,7 +173,7 @@ public class GenerateDecompCollationRules {
         newFile.write(new PrintWriter(sw));
         sw.close();
         try (PrintWriter w =
-            BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, filename)) {
+            FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, filename)) {
             w.print(sw.toString().replace("xyzzy",
                 "<![CDATA[\n" +
                     rules.toString().replaceAll("\\\\u0020", "\\\\\\\\u0020") +

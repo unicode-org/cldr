@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -19,7 +20,6 @@ import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.Timer;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -351,7 +351,7 @@ public class GenerateComparison {
             }
 
             addToIndex(indexInfo, "", locale, localeName, fileCounter);
-            PrintWriter out = BagFormatter.openUTF8Writer(changesDirectory, locale + ".html");
+            PrintWriter out = FileUtilities.openUTF8Writer(changesDirectory, locale + ".html");
             String title = "Changes in " + localeDisplayName;
             out.println("<html>"
                 +
@@ -410,7 +410,7 @@ public class GenerateComparison {
             out.println("</body></html>");
             out.close();
         }
-        PrintWriter indexFile = BagFormatter.openUTF8Writer(changesDirectory, "index.html");
+        PrintWriter indexFile = FileUtilities.openUTF8Writer(changesDirectory, "index.html");
         indexFile
         .println("<html>"
             +

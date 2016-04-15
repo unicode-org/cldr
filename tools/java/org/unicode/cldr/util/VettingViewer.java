@@ -22,6 +22,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -39,7 +40,6 @@ import org.unicode.cldr.util.StandardCodes.LocaleCoverageType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
@@ -2197,11 +2197,11 @@ public class VettingViewer<T> {
         // open up a file, and output some of the styles to control the table
         // appearance
         PrintWriter out = myOutputDir == null ? new PrintWriter(new StringWriter())
-        : BagFormatter.openUTF8Writer(myOutputDir, "vettingView"
-            + name
-            + (newCode == CodeChoice.newCode ? "" : newCode == CodeChoice.summary ? "-summary" : "")
-            + (organization == null ? "" : "-" + organization.toString())
-            + ".html");
+            : FileUtilities.openUTF8Writer(myOutputDir, "vettingView"
+                + name
+                + (newCode == CodeChoice.newCode ? "" : newCode == CodeChoice.summary ? "-summary" : "")
+                + (organization == null ? "" : "-" + organization.toString())
+                + ".html");
 //        FileUtilities.appendFile(VettingViewer.class, "vettingViewerHead.txt", out);
         FileCopier.copy(VettingViewer.class, "vettingViewerHead.txt", out);
         out.append(getHeaderStyles());

@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -19,14 +20,12 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.BagFormatter;
-
 public class GenerateDayPeriods {
     static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
     private static final int MILLIS_PER_DAY = 24*60*60*1000;
 
     public static void main(String[] args) throws IOException {
-        try (PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/supplemental", "dayPeriods.xml")) {
+        try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/supplemental", "dayPeriods.xml")) {
             out.println(DtdType.supplementalData.header(null)
                 + "\t<version number=\"$Revision" /* bypass SVN */ + "$\"/>");
             Factory factory = CLDRConfig.getInstance().getCldrFactory();

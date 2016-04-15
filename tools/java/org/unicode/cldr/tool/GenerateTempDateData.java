@@ -6,12 +6,12 @@ import java.util.Iterator;
 import java.util.ListResourceBundle;
 import java.util.Set;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.BagFormatter;
 
 public class GenerateTempDateData {
     /*
@@ -26,7 +26,7 @@ public class GenerateTempDateData {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> x = cldrFactory.getAvailable();
         XPathParts parts = new XPathParts();
-        PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "datedata/", "DateData.java");
+        PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "datedata/", "DateData.java");
         pw.println("package com.ibm.icu.impl.data;");
         pw.println("import java.util.ListResourceBundle;");
         pw.println("class DateData { // extracted from CLDR 1.4");

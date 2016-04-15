@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -36,7 +37,6 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
 
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
@@ -102,7 +102,7 @@ public class ShowData {
             String targetDir = options[DESTDIR].value; // Utility.GEN_DIRECTORY +
             // "main/";
             cldrFactory = Factory.make(sourceDir, ".*");
-            english = (CLDRFile) cldrFactory.make("en", true);
+            english = cldrFactory.make("en", true);
             String lastSourceDir = options[LAST_DIR].value; // Utility.COMMON_DIRECTORY
 
             Level requiredCoverage = Level.fromString(options[COVERAGE].toString()); // Utility.COMMON_DIRECTORY
@@ -219,7 +219,7 @@ public class ShowData {
                     }
                 }
 
-                PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, locale + ".html");
+                PrintWriter pw = FileUtilities.openUTF8Writer(targetDir, locale + ".html");
 
                 String[] headerAndFooter = new String[2];
 
@@ -355,7 +355,7 @@ public class ShowData {
                 pw.println(headerAndFooter[1]);
                 pw.close();
             }
-            PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, "all-changed.html");
+            PrintWriter pw = FileUtilities.openUTF8Writer(targetDir, "all-changed.html");
             String[] headerAndFooter = new String[2];
 
             getChartTemplate(
@@ -441,8 +441,7 @@ public class ShowData {
         Set<String> scripts = new TreeSet<String>();
         //XPathParts parts = new XPathParts();
         Map<String, Map<String, Set<String>>> script_name_locales = new TreeMap<String, Map<String, Set<String>>>();
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
-            "scriptNames.txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "scriptNames.txt");
         for (Iterator<String> it = locales.iterator(); it.hasNext();) {
             String locale = it.next();
             System.out.println(locale);
@@ -573,7 +572,7 @@ public class ShowData {
                 for (Iterator<String> it = nonDistinguishingAttributes.keySet().iterator(); it
                     .hasNext();) {
                     String key = it.next();
-                    String value = (String) nonDistinguishingAttributes.get(key);
+                    String value = nonDistinguishingAttributes.get(key);
                     if (key.equals("draft") && !value.equals("contributed")) {
                         if (draftRef.length() != 0)
                             draftRef.append(",");

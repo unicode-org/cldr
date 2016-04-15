@@ -23,6 +23,7 @@ import java.util.TreeSet;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.unicode.cldr.draft.FileUtilities;
 //import org.unicode.cldr.test.TestCLDRTests.Handler;
 //import org.unicode.cldr.test.TestCLDRTests.MutableInteger;
 import org.unicode.cldr.util.CLDRPaths;
@@ -36,7 +37,6 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -72,7 +72,7 @@ public class TestCLDRTests extends TestFmwk {
     }
 
     TestCLDRTests() throws IOException {
-        log = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "collationTestLog.txt");
+        log = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "collationTestLog.txt");
         log.write(0xFEFF);
     }
 
@@ -80,7 +80,7 @@ public class TestCLDRTests extends TestFmwk {
 
     public void TestAll() throws Exception {
         Map<Organization, Map<String, Level>> platform_locale_status = StandardCodes.make().getLocaleTypes();
-        Map<String, Level> onlyLocales = (Map<String, Level>) platform_locale_status.get(Organization.ibm);
+        Map<String, Level> onlyLocales = platform_locale_status.get(Organization.ibm);
         Set<String> locales = onlyLocales.keySet();
         languagesToTest = (Set<String>) new CldrUtility.CollectionTransform() {
             LocaleIDParser lip = new LocaleIDParser();
@@ -144,14 +144,14 @@ public class TestCLDRTests extends TestFmwk {
         public void myerrln(String message) {
             String temp = uLocale + "\t" + message + "\t[" + name;
             for (Iterator<String> it = settings.keySet().iterator(); it.hasNext();) {
-                String attributeName = (String) it.next();
-                String attributeValue = (String) settings.get(attributeName);
+                String attributeName = it.next();
+                String attributeValue = settings.get(attributeName);
                 temp += " " + attributeName + "=<" + attributeValue + ">";
             }
             temp += "]";
             errln(temp);
             if (log != null) log.println(temp);
-            MutableInteger foo = (MutableInteger) results.get(uLocale.getDisplayName());
+            MutableInteger foo = results.get(uLocale.getDisplayName());
             if (foo == null) results.put(uLocale.getDisplayName(), foo = new MutableInteger());
             foo.value++;
         }
@@ -185,7 +185,7 @@ public class TestCLDRTests extends TestFmwk {
 
     public Handler getHandler(String name) {
         if (DEBUG) System.out.println("Creating Handler: " + name);
-        Handler result = (Handler) RegisteredHandlers.get(name);
+        Handler result = RegisteredHandlers.get(name);
         if (result == null) System.out.println("Unexpected test type: " + name);
         return result;
     }
@@ -244,8 +244,8 @@ public class TestCLDRTests extends TestFmwk {
                 NumberFormat nf = null;
                 double v = Double.NaN;
                 for (Iterator<String> it = settings.keySet().iterator(); it.hasNext();) {
-                    String attributeName = (String) it.next();
-                    String attributeValue = (String) settings
+                    String attributeName = it.next();
+                    String attributeValue = settings
                         .get(attributeName);
                     if (attributeName.equals("input")) {
                         v = Double.parseDouble(attributeValue);
@@ -287,8 +287,8 @@ public class TestCLDRTests extends TestFmwk {
                 int timeFormat = DateFormat.DEFAULT;
                 Date date = new Date();
                 for (Iterator<String> it = settings.keySet().iterator(); it.hasNext();) {
-                    String attributeName = (String) it.next();
-                    String attributeValue = (String) settings
+                    String attributeName = it.next();
+                    String attributeValue = settings
                         .get(attributeName);
                     if (attributeName.equals("input")) {
                         date = iso.parse(attributeValue);

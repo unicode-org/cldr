@@ -16,6 +16,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.TablePrinter;
@@ -23,7 +24,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.DateRange;
 import org.unicode.cldr.util.SupplementalDataInfo.MetaZoneRange;
 import org.unicode.cldr.util.TimezoneFormatter.Format;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -301,8 +301,7 @@ public class VerifyZones {
                 continue;
             }
             CLDRFile cldrFile = factory2.make(localeID, true);
-            PrintWriter out = BagFormatter.openUTF8Writer(DIR, localeID +
-                ".html");
+            PrintWriter out = FileUtilities.openUTF8Writer(DIR, localeID + ".html");
             String title = "Verify Time Zones: " + englishCldrFile.getName(localeID);
             out.println("<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n" +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +

@@ -36,7 +36,6 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
@@ -56,7 +55,7 @@ public class GenerateSubdivisions {
         RuleBasedCollator _ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
         _ROOT_COL.setNumericCollation(true);
         _ROOT_COL.freeze();
-        ROOT_COL = (Comparator<String>) (Comparator) _ROOT_COL;
+        ROOT_COL = (Comparator) _ROOT_COL;
     }
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
@@ -88,25 +87,25 @@ public class GenerateSubdivisions {
     public static void main(String[] args) throws IOException {
         loadIso();
         loadWiki();
-        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/subdivisions.xml")) {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/subdivisions.xml")) {
             SubdivisionNode.printXml(pw);
         }
-        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/subdivisionAliases.txt")) {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/subdivisionAliases.txt")) {
             SubdivisionNode.printAliases(pw);
         }
-        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.xml")) {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.xml")) {
             SubdivisionNode.printEnglish(pw);
         }
-        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/categories.txt")) {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/categories.txt")) {
             SubdivisionNode.printSamples(pw);
         }
-        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.txt")) {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.txt")) {
             SubdivisionNode.printEnglishComp(pw);
         }
-        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en-full.txt")) {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en-full.txt")) {
             SubdivisionNode.printEnglishCompFull(pw);
         }
-        try (PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/missing-mid.txt")) {
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/missing-mid.txt")) {
             SubdivisionNode.printMissingMIDs(pw);
         }
     }

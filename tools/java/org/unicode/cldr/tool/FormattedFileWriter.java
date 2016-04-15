@@ -12,7 +12,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.util.ArrayComparator;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.FileUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
@@ -124,7 +123,7 @@ public class FormattedFileWriter extends java.io.Writer {
         if (localeAnchors != null) {
             localeAnchors.add(title, filename + ".html", null);
         }
-        PrintWriter pw2 = BagFormatter.openUTF8Writer(dir, filename + ".html");
+        PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(dir, filename + ".html");
         String[] replacements = { "%header%", "",
             "%title%", title,
             "%version%", ToolConstants.CHART_DISPLAY_VERSION,

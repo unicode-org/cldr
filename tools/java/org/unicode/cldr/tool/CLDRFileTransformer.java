@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
@@ -13,7 +14,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
@@ -167,7 +167,7 @@ public class CLDRFileTransformer {
             CLDRFile output = transformer.transform(localeTransform);
             String outputDir = CLDRPaths.GEN_DIRECTORY + "main" + File.separator;
             String outputFile = output.getLocaleID() + ".xml";
-            PrintWriter out = BagFormatter.openUTF8Writer(outputDir, outputFile);
+            PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile);
             System.out.println("Generating locale file: " + outputDir + outputFile);
             output.write(out);
             out.close();

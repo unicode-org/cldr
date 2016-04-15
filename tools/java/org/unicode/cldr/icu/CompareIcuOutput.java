@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
@@ -219,7 +219,7 @@ public class CompareIcuOutput {
         }
         coreFile = coreFile.substring(0, coreFile.length() - 4);
         // redo this later on to use fixed PatternTokenizer
-        in = BagFormatter.openUTF8Reader("", filename);
+        in = FileUtilities.openUTF8Reader("", filename);
         MyTokenizer tokenIterator = new MyTokenizer(in);
         StringBuffer tokenText = new StringBuffer();
         List<String> oldPaths = new ArrayList<String>();

@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -24,7 +25,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -362,7 +362,7 @@ public class CheckYear {
 
     public static void writeYearWidths(Map<String, String> sorted,
         boolean modern, String filename) throws IOException {
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY
             + "datecheck/", filename);
         out.println("Name\tid\t"
             + CollectionUtilities.join(Category.values(), "\t"));
@@ -392,7 +392,7 @@ public class CheckYear {
         String filename) throws IOException {
         PrintWriter out;
         System.out.println("\nMismatched Stock items\n");
-        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY
+        out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY
             + "datecheck/", filename);
         out.println("Stock\tSkeleton\tLocales");
         for (Entry<String, Relation<String, String>> stockAndSkeleton2locales : stock2skeleton2locales
@@ -427,7 +427,7 @@ public class CheckYear {
     public static void writeConflictingPatterns(Map<String, String> sorted,
         boolean modern, String filename) throws IOException {
         PrintWriter out;
-        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY
+        out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY
             + "datecheck/", filename);
         out.println("Language\tId\tMin. Skeleton\tMin Pat1\tskeleton → pattern\tMin Pat2\tskeleton → pattern\tMin Pat3\tskeleton → pattern");
         for (Entry<String, String> entry : sorted.entrySet()) {

@@ -14,6 +14,7 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.ICUServiceBuilder.Context;
@@ -21,7 +22,6 @@ import org.unicode.cldr.util.ICUServiceBuilder.Width;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.DateFormat;
@@ -848,7 +848,7 @@ public class DateTimeFormats {
             String localeID = nameAndLocale.getValue();
             DateTimeFormats formats = new DateTimeFormats().set(factory.make(localeID, true), "gregorian");
             String filename = localeID + ".html";
-            out = BagFormatter.openUTF8Writer(DIR, filename);
+            out = FileUtilities.openUTF8Writer(DIR, filename);
             String redirect = "http://st.unicode.org/cldr-apps/survey?_=" + localeID
                 + "&x=r_datetime&calendar=gregorian";
             out.println(
@@ -899,7 +899,7 @@ public class DateTimeFormats {
 
     public static PrintWriter openIndex(String directory, String title) throws IOException {
         String dateString = CldrUtility.isoFormatDateOnly(new Date());
-        PrintWriter index = BagFormatter.openUTF8Writer(directory, "index.html");
+        PrintWriter index = FileUtilities.openUTF8Writer(directory, "index.html");
         index
             .println(
             "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n"
@@ -925,7 +925,7 @@ public class DateTimeFormats {
     }
 
     public static void writeCss(String directory) throws IOException {
-        PrintWriter out = BagFormatter.openUTF8Writer(directory, "index.css");
+        PrintWriter out = FileUtilities.openUTF8Writer(directory, "index.css");
         out.println(".dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}\n"
             +
             ".dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}\n"

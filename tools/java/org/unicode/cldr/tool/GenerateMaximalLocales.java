@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Builder;
@@ -42,7 +43,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -514,8 +514,7 @@ public class GenerateMaximalLocales {
         showDefaultContentDifferencesAndFix(defaultLocaleContent);
 
         Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
-        BufferedReader oldFile = BagFormatter.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY,
-            "supplementalMetadata.xml");
+        BufferedReader oldFile = FileUtilities.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
         CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
 
         String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
@@ -1361,8 +1360,7 @@ public class GenerateMaximalLocales {
 
     private static void printLikelySubtags(Map<String, String> fluffup) throws IOException {
 
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
-            "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
         String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
         String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"
             : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + CldrUtility.LINE_SEPARATOR

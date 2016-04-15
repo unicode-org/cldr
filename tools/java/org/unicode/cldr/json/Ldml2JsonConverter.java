@@ -16,6 +16,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.Option.Options;
@@ -43,7 +44,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.stream.JsonWriter;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 
 /**
@@ -497,7 +497,7 @@ public class Ldml2JsonConverter {
                     if (theItems == null || theItems.size() == 0) {
                         continue;
                     }
-                    PrintWriter outf = BagFormatter.openUTF8Writer(outputDir, outFilename);
+                    PrintWriter outf = FileUtilities.openUTF8Writer(outputDir, outFilename);
                     JsonWriter out = new JsonWriter(outf);
                     out.setIndent("  ");
 
@@ -684,7 +684,7 @@ public class Ldml2JsonConverter {
     }
 
     public void writePackageJson(String outputDir, String packageName) throws IOException {
-        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir + "/" + packageName, "package.json");
+        PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "package.json");
         System.out.println("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "package.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj, packageName, true);
@@ -720,7 +720,7 @@ public class Ldml2JsonConverter {
     }
 
     public void writeBowerJson(String outputDir, String packageName) throws IOException {
-        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir + "/" + packageName, "bower.json");
+        PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "bower.json");
         System.out.println("Creating packaging file => " + outputDir + File.separator + packageName + File.separator + "bower.json");
         JsonObject obj = new JsonObject();
         writeBasicInfo(obj, packageName, false);
@@ -747,7 +747,7 @@ public class Ldml2JsonConverter {
     }
 
     public void writeDefaultContent(String outputDir) throws IOException {
-        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir + "/cldr-core", "defaultContent.json");
+        PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "defaultContent.json");
         System.out.println("Creating packaging file => " + outputDir + "cldr-core" + File.separator + "defaultContent.json");
         JsonObject obj = new JsonObject();
         obj.add("defaultContent", gson.toJsonTree(skippedDefaultContentLocales));
@@ -756,7 +756,7 @@ public class Ldml2JsonConverter {
     }
 
     public void writeAvailableLocales(String outputDir) throws IOException {
-        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir + "/cldr-core", "availableLocales.json");
+        PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "availableLocales.json");
         System.out.println("Creating packaging file => " + outputDir + "cldr-core" + File.separator + "availableLocales.json");
         JsonObject obj = new JsonObject();
         obj.add("availableLocales", gson.toJsonTree(avl));
@@ -765,7 +765,7 @@ public class Ldml2JsonConverter {
     }
 
     public void writeScriptMetadata(String outputDir) throws IOException {
-        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir + "/cldr-core", "scriptMetadata.json");
+        PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "scriptMetadata.json");
         System.out.println("Creating script metadata file => " + outputDir + File.separator +"cldr-core" + File.separator + "scriptMetadata.json");
         Map<String,Info> scriptInfo = new TreeMap<String,Info>();
         for (String script : ScriptMetadata.getScripts()) {

@@ -17,6 +17,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
@@ -26,7 +27,6 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StringId;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
@@ -314,7 +314,7 @@ public class GenerateBirth {
         }
 
         Set<String> writeBirth(String directory, String filename, Births onlyNewer) throws IOException {
-            PrintWriter out = BagFormatter.openUTF8Writer(directory, filename + ".txt");
+            PrintWriter out = FileUtilities.openUTF8Writer(directory, filename + ".txt");
             Set<String> newer = writeBirth(out, onlyNewer);
             out.close();
             return newer;

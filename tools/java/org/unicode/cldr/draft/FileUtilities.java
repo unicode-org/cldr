@@ -1,12 +1,15 @@
 package org.unicode.cldr.draft;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -19,9 +22,64 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.With.SimpleIterator;
 
-import com.ibm.icu.dev.util.BagFormatter;
-
 public final class FileUtilities {
+    public static final boolean SHOW_FILES;
+    static {
+        boolean showFiles = false;
+        try {
+            showFiles = System.getProperty("SHOW_FILES") != null;
+        } catch (SecurityException ignored) {
+        }
+        SHOW_FILES = showFiles;
+    }
+
+    public static final PrintWriter CONSOLE = new PrintWriter(System.out,true);
+
+    private static PrintWriter log = CONSOLE;
+
+    /** Duplicate of ICU FileUtilities.openUTF8Reader(), could consolidate. */
+    public static BufferedReader openUTF8Reader(String dir, String filename) throws IOException {
+        return openReader(dir, filename, "UTF-8");
+    }
+
+    /** Duplicate of ICU FileUtilities.openReader(), could consolidate. */
+    public static BufferedReader openReader(String dir, String filename, String encoding) throws IOException {
+        File file = dir.length() == 0 ? new File(filename) : new File(dir, filename);
+        if (SHOW_FILES && log != null) {
+            log.println("Opening File: "
+                + file.getCanonicalPath());
+        }
+        return new BufferedReader(
+            new InputStreamReader(
+                new FileInputStream(file),
+                encoding),
+            4*1024);
+    }
+
+    /** Duplicate of ICU FileUtilities.openUTF8Writer(), could consolidate. */
+    public static PrintWriter openUTF8Writer(String dir, String filename) throws IOException {
+        return openWriter(dir, filename, "UTF-8");
+    }
+
+    /** Duplicate of ICU FileUtilities.openWriter(), could consolidate. */
+    public static PrintWriter openWriter(String dir, String filename, String encoding) throws IOException {
+        File file = new File(dir, filename);
+        if (SHOW_FILES && log != null) {
+            log.println("Creating File: "
+                + file.getCanonicalPath());
+        }
+        String parentName = file.getParent();
+        if (parentName != null) {
+            File parent = new File(parentName);
+            parent.mkdirs();
+        }
+        return new PrintWriter(
+            new BufferedWriter(
+                new OutputStreamWriter(
+                    new FileOutputStream(file),
+                    encoding),
+                4*1024));
+    }
 
     public static abstract class SemiFileReader extends FileProcessor {
         public final static Pattern SPLIT = PatternCache.get("\\s*;\\s*");
@@ -88,7 +146,7 @@ public final class FileUtilities {
 
         public FileProcessor process(Class<?> classLocation, String fileName) {
             try {
-                BufferedReader in = FileUtilities.openFile(classLocation, fileName);
+                BufferedReader in = openFile(classLocation, fileName);
                 return process(in, fileName);
             } catch (Exception e) {
                 throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
@@ -99,7 +157,7 @@ public final class FileUtilities {
         public FileProcessor process(String fileName) {
             try {
                 FileInputStream fileStream = new FileInputStream(fileName);
-                InputStreamReader reader = new InputStreamReader(fileStream, FileUtilities.UTF8);
+                InputStreamReader reader = new InputStreamReader(fileStream, UTF8);
                 BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);
             } catch (Exception e) {
@@ -110,7 +168,7 @@ public final class FileUtilities {
         public FileProcessor process(String directory, String fileName) {
             try {
                 FileInputStream fileStream = new FileInputStream(directory + File.separator + fileName);
-                InputStreamReader reader = new InputStreamReader(fileStream, FileUtilities.UTF8);
+                InputStreamReader reader = new InputStreamReader(fileStream, UTF8);
                 BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);
             } catch (Exception e) {
@@ -158,7 +216,7 @@ public final class FileUtilities {
     // return handler.process(classLocation, fileName);
     // }
     public static BufferedReader openFile(Class<?> class1, String file) {
-        return openFile(class1, file, FileUtilities.UTF8);
+        return openFile(class1, file, UTF8);
     }
 
     public static BufferedReader openFile(Class<?> class1, String file, Charset charset) {
@@ -249,7 +307,7 @@ public final class FileUtilities {
     }
 
     public static void appendFile(Class<?> class1, String filename, PrintWriter out) {
-        appendFile(class1, filename, FileUtilities.UTF8, null, out);
+        appendFile(class1, filename, UTF8, null, out);
     }
 
     public static void appendFile(Class<?> class1, String filename, Charset charset, String[] replacementList,
@@ -272,8 +330,8 @@ public final class FileUtilities {
 
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName, String[] replacementList) {
         try {
-            PrintWriter out = BagFormatter.openUTF8Writer(targetDirectory, newName);
-            FileUtilities.appendFile(class1, sourceFile, FileUtilities.UTF8, replacementList, out);
+            PrintWriter out = openUTF8Writer(targetDirectory, newName);
+            appendFile(class1, sourceFile, UTF8, replacementList, out);
             out.close();
         } catch (IOException e) {
             throw new IllegalArgumentException(e); // dang'd checked exceptions

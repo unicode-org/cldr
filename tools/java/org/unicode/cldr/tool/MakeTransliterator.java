@@ -13,10 +13,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
@@ -70,7 +70,7 @@ public class MakeTransliterator {
         String targetCountFile = cldrDataDir + "en-IPA_count.txt";
         String skippedLinesFile = "C:\\DATA\\GEN\\SkippedIPA.txt";
 
-        PrintWriter skippedOut = BagFormatter.openUTF8Writer("", skippedLinesFile);
+        PrintWriter skippedOut = FileUtilities.openUTF8Writer("", skippedLinesFile);
 
         // String coreRules = getCoreTransliterator();
         String fixBadIpaRules = createFromFile(cldrDataDir + "internal_fixBadIpa.txt", null, null);
@@ -108,9 +108,9 @@ public class MakeTransliterator {
 
         targetCharacters = new UnicodeSet();
         sourceCharacters = new UnicodeSet();
-        allowedSourceCharacters = (UnicodeSet) new UnicodeSet(
+        allowedSourceCharacters = new UnicodeSet(
             "[[:Letter:]\u2019]").freeze();
-        allowedTargetCharacters = (UnicodeSet) new UnicodeSet(
+        allowedTargetCharacters = new UnicodeSet(
             "[\u00E6 \u0251 b d\u00F0 e \u0259 \u025B f-i \u026A j-n \u014B o p r s \u0283 t u \u028A v w z \u0292 \u03B8]")
         .freeze();
         countSkipped = 0;
@@ -118,7 +118,7 @@ public class MakeTransliterator {
         skippedFrequency = 0;
         int targetField = isIPA ? 2 : 1;
 
-        BufferedReader in = BagFormatter.openUTF8Reader("", sourceFile);
+        BufferedReader in = FileUtilities.openUTF8Reader("", sourceFile);
         while (true) {
             String line = in.readLine();
             if (line == null)
@@ -345,11 +345,11 @@ public class MakeTransliterator {
         String rules = buildRules(coreRules, newRules, buffer);
         base = Transliterator.createFromRules("foo", rules, Transliterator.FORWARD); // verify that it builds
 
-        PrintWriter out = BagFormatter.openUTF8Writer("", targetFile);
+        PrintWriter out = FileUtilities.openUTF8Writer("", targetFile);
         out.println(rules);
         out.close();
 
-        out = BagFormatter.openUTF8Writer("", targetCountFile);
+        out = FileUtilities.openUTF8Writer("", targetCountFile);
         for (long count : count_failures.keySet()) {
             for (String line : count_failures.getAll(count)) {
                 out.println(count + "\t" + line);
@@ -360,7 +360,7 @@ public class MakeTransliterator {
         // if (false) {
         //
         // // now write out the transliterator file
-        // PrintWriter out = BagFormatter.openUTF8Writer("", targetFile);
+        // PrintWriter out = FileUtilities.openUTF8Writer("", targetFile);
         // for (String source : store.keySet()) {
         // Set<String> targetSet = store.getAll(source);
         // for (String target : targetSet) {
@@ -484,8 +484,8 @@ public class MakeTransliterator {
         }
     }
 
-    public static UnicodeSet vowels = (UnicodeSet) new UnicodeSet("[aeiou æ ɑ ə ɛ ɪ ʊ â î ô]").freeze();
-    public static UnicodeSet short_vowels = (UnicodeSet) new UnicodeSet("[ɑ æ ə ɛ ɪ ʊ]").freeze();
+    public static UnicodeSet vowels = new UnicodeSet("[aeiou æ ɑ ə ɛ ɪ ʊ â î ô]").freeze();
+    public static UnicodeSet short_vowels = new UnicodeSet("[ɑ æ ə ɛ ɪ ʊ]").freeze();
     /**
      * Return true if the strings are essentially the same.
      * Differences between schwas and short vowels are counted in certain cases
@@ -649,7 +649,7 @@ public class MakeTransliterator {
     public static String createFromFile(String fileName, Transliterator pretrans, Transliterator pretrans2)
         throws IOException {
         StringBuilder buffer = new StringBuilder();
-        BufferedReader fli = BagFormatter.openUTF8Reader("", fileName);
+        BufferedReader fli = FileUtilities.openUTF8Reader("", fileName);
         while (true) {
             String line = fli.readLine();
             if (line == null) break;
@@ -682,7 +682,7 @@ public class MakeTransliterator {
 
     public static Map<String, String> getOverrides() throws IOException {
         Map<String, String> result = new TreeMap<String, String>();
-        BufferedReader br = BagFormatter.openUTF8Reader(cldrDataDir, "internal_overrides.txt");
+        BufferedReader br = FileUtilities.openUTF8Reader(cldrDataDir, "internal_overrides.txt");
         try {
             int counter = 0;
             while (counter < LIMIT) {

@@ -18,10 +18,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.SimpleConverter;
 
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -52,7 +52,7 @@ public class GenerateCharmap {
         String codeset = options[CHARSET].value;
         GenerateCharmap gp = new GenerateCharmap(new UnicodeSet(options[UNICODESET].value),
             Charset.forName(codeset), codeset);
-        PrintWriter out = BagFormatter.openUTF8Writer(options[DESTDIR].value + File.separator, codeset + ".cm");
+        PrintWriter out = FileUtilities.openUTF8Writer(options[DESTDIR].value + File.separator, codeset + ".cm");
         gp.write(out);
         out.close();
     }
@@ -170,7 +170,7 @@ public class GenerateCharmap {
 
         for (ListIterator<CharmapLine> li = cml.listIterator(); li.hasNext();)
         {
-            current = (CharmapLine) li.next();
+            current = li.next();
 
             out.print(current.CharacterName);
             for (int i = LongestCharNameLength + 1; i > current.CharacterName.length(); i--)
@@ -201,9 +201,9 @@ public class GenerateCharmap {
             result.append("\\x");
             byte b = bb.get();
             if (b < 0)
-                i = (int) b + 256;
+                i = b + 256;
             else
-                i = (int) b;
+                i = b;
 
             result.append(Utility.hex(i, 2));
         }

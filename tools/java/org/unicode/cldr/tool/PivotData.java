@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -19,8 +20,6 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
-
-import com.ibm.icu.dev.util.BagFormatter;
 
 public class PivotData {
     public static final boolean DEBUG = true;
@@ -174,7 +173,7 @@ public class PivotData {
 
         // now add the different paths to the copy of the parent, and write out
 
-        newFile = (CLDRFile) factory.make(parentID, false).cloneAsThawed();
+        newFile = factory.make(parentID, false).cloneAsThawed();
         // System.out.println("parent " + size(CLDRFile.make(parentID).iterator()));
         // System.out.println("clone " + size(newFile.iterator()));
         int deltaChangeCount = addPathsAndValuesFrom(newFile, uniquePaths, me, true);
@@ -184,7 +183,7 @@ public class PivotData {
 
         // now add the parent's values for the paths to the siblings, and write out
         for (String id : siblings) {
-            newFile = (CLDRFile) factory.make(id, false).cloneAsThawed();
+            newFile = factory.make(id, false).cloneAsThawed();
             if (newFile.getFullXPath("//ldml/alias", true) != null) {
                 System.out.println("Skipping completely aliased file: " + id);
                 continue;
@@ -258,7 +257,7 @@ public class PivotData {
 
     private void writeFile(CLDRFile newFile) throws IOException {
         String id = newFile.getLocaleID();
-        PrintWriter out = BagFormatter.openUTF8Writer(outputDirectory, id + ".xml");
+        PrintWriter out = FileUtilities.openUTF8Writer(outputDirectory, id + ".xml");
         newFile.write(out);
         out.println();
         out.close();

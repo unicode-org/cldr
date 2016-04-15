@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
@@ -29,7 +30,6 @@ import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -110,7 +110,7 @@ public class GenerateValidityXml {
             String type = entry.getKey();
             final Info info = entry.getValue();
             Relation<Status, String> subtypeMap = info.statusMap;
-            try (PrintWriter output = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "validity/" + type + ".xml")) {
+            try (PrintWriter output = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "validity/" + type + ".xml")) {
                 adder.target = output;
                 output.append(DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
                     + "\t<version number=\"$Revision" /*hack to stop SVN changing this*/ + "$\"/>\n"

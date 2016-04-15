@@ -17,7 +17,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -66,8 +65,8 @@ public class IdnaFrequency {
     static UnicodeSet testchars = new UnicodeSet("[[:script=greek:]ÄäÖöÜüß]");
 
     static Counter<Integer> getData(boolean writeOut) throws IOException {
-        BufferedReader in = BagFormatter.openUTF8Reader("", CldrUtility.getProperty("idnaFrequency"));
-        PrintWriter out = !writeOut ? null : BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "idn41-data.txt");
+        BufferedReader in = FileUtilities.openUTF8Reader("", CldrUtility.getProperty("idnaFrequency"));
+        PrintWriter out = !writeOut ? null : FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "idn41-data.txt");
         if (writeOut) {
             out.write((char) 0xFEFF);
         }

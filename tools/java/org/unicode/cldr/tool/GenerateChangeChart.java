@@ -28,7 +28,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.base.Objects;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.FileUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R5;
@@ -57,7 +56,7 @@ public class GenerateChangeChart {
         EnumSet<SectionId> sections = EnumSet.noneOf(SectionId.class);
         FileCopier.copy(ShowLanguages.class, "index.css", dir);
 
-        try (PrintWriter out = BagFormatter.openUTF8Writer(dir, "summary.txt");) {
+        try (PrintWriter out = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(dir, "summary.txt");) {
             Counter<SectionId> counter = new Counter<>();
             for (String locale : locales) {
                 if (QUICK_TEST && locale.compareTo("b") >= 0) {
@@ -340,7 +339,7 @@ public class GenerateChangeChart {
 
         public void close() throws IOException {
             out.write("</div>");
-            PrintWriter pw2 = BagFormatter.openUTF8Writer(dir, filename);
+            PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(dir, filename);
             String[] replacements = { "%header%", "", "%title%", title, "%version%", ToolConstants.CHART_DISPLAY_VERSION,
                 "%date%", CldrUtility.isoFormatDateOnly(new Date()), "%body%", out.toString() };
             final String templateFileName = "chart-template.html";

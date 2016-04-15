@@ -17,6 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -45,7 +46,6 @@ import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 
 import com.google.common.collect.Ordering;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
@@ -55,7 +55,7 @@ public class ShowLocaleCoverage {
     private static final char DEBUG_FILTER = 0; // use letter to only load locales starting with that letter
 
     private static final String LATEST = ToolConstants.CHART_VERSION;
-    private static final double CORE_SIZE = (double) (CoreItems.values().length - CoreItems.ONLY_RECOMMENDED.size());
+    private static final double CORE_SIZE = CoreItems.values().length - CoreItems.ONLY_RECOMMENDED.size();
     public static CLDRConfig testInfo = ToolConfig.getToolInstance();
     private static final StandardCodes SC = testInfo.getStandardCodes();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
@@ -111,8 +111,7 @@ public class ShowLocaleCoverage {
 
         if (MyOptions.growth.option.doesOccur()) {
             try (PrintWriter out
-                = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/",
-                    "showLocaleGrowth.txt")) {
+                = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", "showLocaleGrowth.txt")) {
                 doGrowth(matcher, out);
                 return;
             }
@@ -418,7 +417,7 @@ public class ShowLocaleCoverage {
 
         PrintWriter out;
         try {
-            out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", "simpleCoverage.tsv");
+            out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", "simpleCoverage.tsv");
         } catch (IOException e1) {
             throw new IllegalArgumentException(e1);
         }
@@ -440,8 +439,7 @@ public class ShowLocaleCoverage {
         }
         PrintWriter out2;
         try {
-            out2 = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/",
-                "showLocaleCoverage.txt");
+            out2 = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", "showLocaleCoverage.txt");
         } catch (IOException e1) {
             throw new IllegalArgumentException(e1);
         }

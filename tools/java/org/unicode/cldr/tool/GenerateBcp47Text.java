@@ -7,9 +7,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -36,8 +36,7 @@ public class GenerateBcp47Text {
         for (Entry<String, Set<String>> extensionAndKeys : extension2Keys.keyValuesSet()) {
 
             String extension = extensionAndKeys.getKey();
-            PrintWriter out = BagFormatter
-                .openUTF8Writer(FormattedFileWriter.CHART_TARGET_DIR, "bcp47-" + extension + ".txt");
+            PrintWriter out = FileUtilities.openUTF8Writer(FormattedFileWriter.CHART_TARGET_DIR, "bcp47-" + extension + ".txt");
             showField(out, "Version", ToolConstants.CHART_DISPLAY_VERSION);
             showField(out, "Extension", extension);
 

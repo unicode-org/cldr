@@ -21,6 +21,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
@@ -29,7 +30,6 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.ArrayComparator;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
@@ -139,8 +139,8 @@ public class VettingAdder {
             CLDRFile cldr = SimpleFactory.makeFromFile(dir + fixedLocale, locale, DraftStatus.approved);
             for (Iterator<String> it3 = cldr.iterator(); it3.hasNext();) {
                 String path = it3.next();
-                String value = (String) cldr.getStringValue(path);
-                String fullPath = (String) cldr.getFullXPath(path);
+                String value = cldr.getStringValue(path);
+                String fullPath = cldr.getFullXPath(path);
                 // skip bogus values
                 if (value.startsWith("//ldml") || value.length() == 0) {
                     Log.logln("Skipping: [" + value + "] for " + fullPath);
@@ -169,7 +169,7 @@ public class VettingAdder {
         }
         if (gotOne) {
             Log.logln("Writing: " + targetDir + locale + ".xml");
-            PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, locale + ".xml");
+            PrintWriter pw = FileUtilities.openUTF8Writer(targetDir, locale + ".xml");
             cldrDelta.write(pw);
             pw.close();
         } else {
@@ -189,8 +189,8 @@ public class VettingAdder {
     }
 
     public void fixXML(String inputDir, String inputFile, String outputDir, String outputFile) throws IOException {
-        BufferedReader in = BagFormatter.openUTF8Reader(inputDir, inputFile);
-        PrintWriter out = BagFormatter.openUTF8Writer(outputDir, outputFile);
+        BufferedReader in = FileUtilities.openUTF8Reader(inputDir, inputFile);
+        PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile);
         int haveLanguages = 0, haveScripts = 0, haveTerritories = 0, haveVariants = 0, haveKeys = 0, haveTypes = 0;
         int inLocaleDisplayNames = 0;
         while (true) {
@@ -370,7 +370,7 @@ public class VettingAdder {
     private String stripAlt(String path) {
         tempParts.set(path);
         Map<String, String> x = tempParts.getAttributes(tempParts.size() - 1);
-        String value = (String) x.get("alt");
+        String value = x.get("alt");
         if (value != null && value.startsWith("proposed")) {
             x.remove("alt");
             // System.out.println(path + "\t=>\t" + tempParts.toString());

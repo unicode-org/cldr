@@ -66,7 +66,7 @@ public class FlexibleDateTime {
     public static PrintWriter log;
 
     // private static void generate(String[] args) throws IOException {
-    // log = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", "log.txt");
+    // log = FileUtilities.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", "log.txt");
     // String filter = ".*";
     // if (args.length > 0)
     // filter = args[0];
@@ -132,7 +132,7 @@ public class FlexibleDateTime {
     // String path = prefix + (count++) + "\"]";
     // temp.add(path, pattern);
     // }
-    // PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", targetLocale + ".xml");
+    // PrintWriter pw = FileUtilities.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", targetLocale + ".xml");
     // temp.write(pw);
     // pw.close();
     // log.flush();

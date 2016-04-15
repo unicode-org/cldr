@@ -7,12 +7,11 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
-
-import com.ibm.icu.dev.util.BagFormatter;
 
 /**
  * Run this code to extract the ISO currency data from a file.
@@ -33,12 +32,12 @@ public class ExtractIsoCurrencyData {
         if (inputFile == null) {
             in = CldrUtility.getUTF8Data("currency_codes_list-1.htm");
         } else {
-            in = BagFormatter.openUTF8Reader("", inputFile);
+            in = FileUtilities.openUTF8Reader("", inputFile);
         }
         // NOTE: UTIL_DATA_DIR is required here because it is used as an output directory.
         final String outputFile = CldrUtility.getProperty("output", CLDRPaths.UTIL_DATA_DIR
             + "/currencycodeslist.txt");
-        PrintWriter out = BagFormatter.openUTF8Writer(null, outputFile);
+        PrintWriter out = FileUtilities.openUTF8Writer(null, outputFile);
         try {
             String version = null;
             String[][] parts = new String[5][5];

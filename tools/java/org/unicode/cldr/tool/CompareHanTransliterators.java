@@ -3,11 +3,11 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
@@ -30,8 +30,7 @@ public class CompareHanTransliterators {
         UnicodeMap<String> old = handler.map;
 
         UnicodeSet merged = new UnicodeSet(trunk.keySet()).addAll(old.keySet());
-        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY,
-            "han-transliterator-diff.txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY, "han-transliterator-diff.txt");
         for (String s : merged) {
             String oldValue = old.get(s);
             if (oldValue == null) {

@@ -15,6 +15,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -24,7 +25,6 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
@@ -390,8 +390,7 @@ public class TestTransforms extends TestFmwkPlus {
                 }
 
                 Transliterator trans = Transliterator.getInstance(transName);
-                BufferedReader in = BagFormatter.openUTF8Reader(
-                    fileDirectoryName, file);
+                BufferedReader in = FileUtilities.openUTF8Reader(fileDirectoryName, file);
                 int counter = 0;
                 while (true) {
                     String line = in.readLine();

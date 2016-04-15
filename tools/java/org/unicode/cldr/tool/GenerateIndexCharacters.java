@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Set;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRFile;
@@ -14,7 +15,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.AlphabeticIndex;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
@@ -29,7 +29,7 @@ public class GenerateIndexCharacters {
             String cleanedSet = getConstructedIndexSet(locale, cldrFactory.make(locale, true));
             CLDRFile temp = SimpleFactory.makeFile(locale);
             temp.add("//ldml/characters/exemplarCharacters[@type=\"index\"][@draft=\"unconfirmed\"]", cleanedSet);
-            PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "indexchars/", locale + ".xml");
+            PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "indexchars/", locale + ".xml");
             temp.write(out);
             out.close();
         }

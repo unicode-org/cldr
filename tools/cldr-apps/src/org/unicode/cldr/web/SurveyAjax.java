@@ -75,7 +75,6 @@ import com.ibm.icu.util.Output;
  *
  */
 public class SurveyAjax extends HttpServlet {
-    public static final String E_NO_ACCESS = ErrorCode.E_NO_PERMISSION.name();
     final boolean DEBUG = false; //  || SurveyLog.isDebug();
     public final static String WHAT_MY_LOCALES = "mylocales";
 
@@ -804,17 +803,24 @@ public class SurveyAjax extends HttpServlet {
                         r.put(what, sm.fora.postCountFor(locale, id));
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_FETCH)) {
-                        mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
-                        r.put("what", what);
-
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
                         int id = Integer.parseInt(xpath);
-                        //String xp = sm.xpt.getById(id);
-                        r.put("loc", loc);
-                        r.put("xpath", xpath);
-                        r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id));
-
+                        if (mySession.user == null) {
+                            r.put("err", "Not logged in.");
+                            r.put("err_code", ErrorCode.E_NOT_LOGGED_IN.name());
+                        } else if (!UserRegistry.userCanAccessForum(mySession.user, locale)) {
+                            r.put("err", "You can’t access this forum.");
+                            r.put("err_code", ErrorCode.E_NO_PERMISSION.name());
+                        } else {
+                            mySession.userDidAction();
+                            r.put("what", what);
+    
+                            //String xp = sm.xpt.getById(id);
+                            r.put("loc", loc);
+                            r.put("xpath", xpath);
+                            r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id));
+                        }
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
                         mySession.userDidAction();
@@ -836,7 +842,7 @@ public class SurveyAjax extends HttpServlet {
                         JSONWriter r = newJSONStatus(sm);
                         if (mySession.user == null) {
                             r.put("err", "Not logged in.");
-                            r.put("err_code", E_NO_ACCESS);
+                            r.put("err_code", ErrorCode.E_NOT_LOGGED_IN.name());
                         } else {
 
                             String fetchAll = request.getParameter("fetchAll");

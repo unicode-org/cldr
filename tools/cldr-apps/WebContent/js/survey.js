@@ -1,4 +1,4 @@
-// survey.js  -Copyright (C) 2012-2014 IBM Corporation and Others. All Rights Reserved.
+// survey.js  -Copyright (C) 2012,2016 IBM Corporation and Others. All Rights Reserved.
 // move anything that's not dynamically generated here.
 
 // These need to be available @ bootstrap time.
@@ -1309,6 +1309,10 @@ function ariRetry() {
  * @param what - what we were doing
  */
 function handleDisconnect(why, json, word, what) {
+	if(json && (json.err_code === 'E_NOT_LOGGED_IN')) {
+		window.location = 'login.jsp?operationFailed'+window.location.hash;
+		return;
+	}
 	if(!what) {
 		what = "unknown";
 	}

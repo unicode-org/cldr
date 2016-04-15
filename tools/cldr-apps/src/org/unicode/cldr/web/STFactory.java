@@ -1568,6 +1568,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     public STFactory(SurveyMain sm) {
         super();
+        if(sm == null) {
+            throw new IllegalArgumentException("sm must not be null");
+        }
         this.sm = sm;
         try (CLDRProgressTask progress = sm.openProgress("STFactory")) {
             progress.update("setup supplemental data");

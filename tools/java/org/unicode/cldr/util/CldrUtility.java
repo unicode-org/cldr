@@ -1489,4 +1489,29 @@ public class CldrUtility {
         List<String> list = splitter.splitToList(source);
         return list.toArray(new String[list.size()]);
     }
+    
+    public static String toHex(String in, boolean javaStyle) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < in.length(); ++i) {
+            result.append(toHex(in.charAt(i), javaStyle));
+        }
+        return result.toString();
+    }
+
+    public static String toHex(int j, boolean javaStyle) {
+        if (j == '\"') {
+            return "\\\"";
+        } else if (j == '\\') {
+            return "\\\\";
+        } else if (0x20 < j && j < 0x7F) {
+            return String.valueOf((char) j);
+        }
+        final String hexString = Integer.toHexString(j).toUpperCase();
+        int gap = 4 - hexString.length();
+        if (gap < 0) {
+            gap = 0;
+        }
+        String prefix = javaStyle ? "\\u" : "U+";
+        return prefix + "000".substring(0, gap) + hexString;
+    }
 }

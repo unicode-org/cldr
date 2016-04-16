@@ -138,9 +138,9 @@ public class ScriptCategories {
         }
     }
 
-    static final Map<String, Integer> RADICAL_NUM2CHAR;
+    public static final Map<String, Integer> RADICAL_NUM2CHAR;
     static final Map<Integer, String> RADICAL_CHAR2NUM;
-    static final Map<Integer, Integer> RADICAL_CHAR2STROKES;
+    public static final Map<Integer, Integer> RADICAL_CHAR2STROKES;
 
     static {
         Map<String, Integer> num2char = new LinkedHashMap<String, Integer>();
@@ -963,6 +963,14 @@ public class ScriptCategories {
                 "}");
         }
         // System.out.println(data.toString().replace(" ", "\n ").replace("{", "{\n ").replace("}", "\n}"));
+    }
+
+    /**
+     * @param radical 
+     * @return the radicalNum2char
+     */
+    public static Integer getRadicalNum2char(String radical) {
+        return RADICAL_NUM2CHAR.get(radical);
     }
 
 }

@@ -655,9 +655,13 @@ function createGravitar(user) {
  * @return {Object} new DOM object
  */
 function createUser(user) {
+	var userLevelLc = user.userlevelName.toLowerCase();
+	var userLevelClass = "userlevel_"+userLevelLc;
+	var userLevelStr = stui_str(userLevelClass);
 	var div = createChunk(null,"div","adminUserUser");
 	div.appendChild(createGravitar(user));
-	div.appendChild(div.userLevel = createChunk(stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),"i","userlevel_"+user.userlevelName.toLowerCase()));
+	div.userLevel = createChunk(userLevelStr,"i",userLevelClass);
+	div.appendChild(div.userLevel);
 	div.appendChild(div.userName = createChunk(user.name,"span","adminUserName"));
 	if(!user.orgName) {
 	   user.orgName = user.org;
@@ -3913,19 +3917,22 @@ function insertRows(theDiv,xpath,session,json) {
 	//wrapRadios();
 }
 
-function loadStui(loc) {
+function loadStui(loc, cb) {
 	if(!stui.ready) {
 		require(["dojo/i18n!./surveyTool/nls/stui.js"], function(stuibundle){
-		if(!stuidebug_enabled) {
-			stui.str = function(x) { if(stuibundle[x]) return stuibundle[x]; else return x; };
-			stui.sub = function(x,y) { return dojo.string.substitute(stui.str(x), y);};
-		} else {
-			stui.str = stui_str; // debug
-			stui.sub = function(x,y) { return stui_str(x) + '{' +  Object.keys(y) + '}'; };
-		}
-		stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
-		stui.ready=true;
+			if(!stuidebug_enabled) {
+				stui.str = function(x) { if(stuibundle[x]) return stuibundle[x]; else return x; };
+				stui.sub = function(x,y) { return dojo.string.substitute(stui.str(x), y);};
+			} else {
+				stui.str = stui_str; // debug
+				stui.sub = function(x,y) { return stui_str(x) + '{' +  Object.keys(y) + '}'; };
+			}
+			stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
+			stui.ready=true;
+			if(cb) cb(stui);
 		});
+	} else {
+		if(cb) cb(stui);
 	}
 	return stui;
 }
@@ -7117,8 +7124,7 @@ function loadAdminPanel() {
  * @param {String} hname the name of the element to draw into
  */
 function showstats(hname) {
-	dojo.ready(function() {
-		loadStui();
+	dojo.ready(loadStui(null, function(/*stui*/) {
 		var ourUrl = contextPath + "/SurveyAjax?what=stats_byday";
 		var errorHandler = function(err, ioArgs) {
 			handleDisconnect('Error in showstats: ' + err + ' response '
@@ -7204,7 +7210,7 @@ function showstats(hname) {
 		error : errorHandler
 	};
 	queueXhr(xhrArgs);
-	});
+	}));
 }
 /**
  * @method refreshCounterVetting
@@ -7567,6 +7573,7 @@ function showRecent(divName, locale, user) {
 
 // for the admin page
 function showUserActivity(list, tableRef) {
+	loadStui(null, function(/*stui*/) {
 	require([
 	         "dojo/ready",
 	         "dojo/dom",
@@ -7584,7 +7591,6 @@ function showUserActivity(list, tableRef) {
 	        		 dojoNumber
 	        ) { ready(function(){
 	        	
-	        	loadStui();
 	        	
 	        	window._userlist = list; // DEBUG
 	        	var table = dom.byId(tableRef);
@@ -7735,4 +7741,5 @@ function showUserActivity(list, tableRef) {
 */	        
 	        });
 		});
+	});
 }

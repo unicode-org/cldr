@@ -31,7 +31,6 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.GenerateAttributeList;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;

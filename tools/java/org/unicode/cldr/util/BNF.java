@@ -14,12 +14,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-import org.unicode.cldr.util.Pick.Alternation;
-import org.unicode.cldr.util.Pick.Morph;
-import org.unicode.cldr.util.Pick.Quote;
-import org.unicode.cldr.util.Pick.Sequence;
-import org.unicode.cldr.util.Pick.Target;
-
 import com.ibm.icu.text.UnicodeSet;
 
 public class BNF {

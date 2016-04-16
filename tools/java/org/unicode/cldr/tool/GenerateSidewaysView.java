@@ -34,6 +34,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.LanguageTagParser.Fields;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
@@ -46,7 +47,6 @@ import org.xml.sax.SAXException;
 
 import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;

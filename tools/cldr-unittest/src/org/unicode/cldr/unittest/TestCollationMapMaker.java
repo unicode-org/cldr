@@ -8,12 +8,12 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.tool.GenerateTransformCharts;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CaseIterator;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
-import com.ibm.icu.dev.util.CaseIterator;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;

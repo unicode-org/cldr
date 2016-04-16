@@ -21,11 +21,11 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
 import com.ibm.icu.dev.util.Tabber;
 import com.ibm.icu.dev.util.Tabber.HTMLTabber;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMapIterator;
 import com.ibm.icu.dev.util.VariableReplacer;

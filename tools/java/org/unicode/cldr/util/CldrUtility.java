@@ -48,7 +48,6 @@ import org.unicode.cldr.util.RegexLookup.Finder;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;

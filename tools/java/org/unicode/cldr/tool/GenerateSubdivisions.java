@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
@@ -37,7 +38,6 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;

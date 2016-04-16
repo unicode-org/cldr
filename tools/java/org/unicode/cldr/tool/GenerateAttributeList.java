@@ -27,6 +27,7 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
@@ -35,8 +36,6 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
-
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 
 public class GenerateAttributeList {
     XPathParts parts = new XPathParts(null, null);

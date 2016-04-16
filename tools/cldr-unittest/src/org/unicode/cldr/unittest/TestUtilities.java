@@ -1,8 +1,10 @@
 package org.unicode.cldr.unittest;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +26,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.ICUPropertyFactory;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
@@ -40,6 +43,10 @@ import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -1178,5 +1185,131 @@ public class TestUtilities extends TestFmwkPlus {
                 + KOREAN_LANGUAGE_STRID, CLDRConfig.getInstance()
                 .absoluteUrls().forXpath(maltese, KOREAN_LANGUAGE));
 
+    }
+
+    static final UnicodeMap<String> SCRIPTS = ICUPropertyFactory.make().getProperty("script").getUnicodeMap_internal();
+    static final UnicodeMap<String> GC = ICUPropertyFactory.make().getProperty("general_category").getUnicodeMap_internal();
+
+    public void TestUnicodeMapCompose() {
+        logln("Getting Scripts");
+
+        UnicodeMap.Composer<String> composer = new UnicodeMap.Composer<String>() {
+            @Override
+            public String compose(int codepoint, String string, String a, String b) {
+                return a.toString() + "_" + b.toString();
+            }
+        };
+
+        logln("Trying Compose");
+
+//        Map<Integer, String> map2 = new HashMap<Integer, String>();
+//        Map<Integer, String> map3 = new TreeMap<Integer, String>();
+        UnicodeMap<String> composed = ((UnicodeMap)SCRIPTS.cloneAsThawed()).composeWith(GC, composer);
+        String last = "";
+        for (int i = 0; i < 0x10FFFF; ++i) {
+//            if (i == 888) {
+//                int debug = 0;
+//            }
+            String comp = composed.getValue(i);
+            String gc = GC.getValue(i);
+            String sc = SCRIPTS.getValue(i);
+            if (!comp.equals(composer.compose(i, null, sc, gc))) {
+                errln("Failed compose at: " + i);
+                break;
+            }
+            if (!last.equals(comp)) {
+                logln(Utility.hex(i) + "\t" + comp);
+                last = comp;
+            }
+        }
+    }
+
+    private static final int SET_LIMIT = 0x10FFFF;
+    private static final int CHECK_LIMIT = 0xFFFF;
+    private static final NumberFormat pf = NumberFormat.getPercentInstance();
+    private static final NumberFormat nf = NumberFormat.getInstance();
+
+    public void TestUnicodeMapTime() {
+        boolean shortTest = getInclusion() < 10;
+        double hashTime, umTime, icuTime, treeTime;
+        int warmup = shortTest ? 1 : 20;
+        umTime = checkUnicodeMapSetTime(warmup, 0);
+        hashTime = checkUnicodeMapSetTime(warmup, 1);
+        logln("Percentage: " + pf.format(hashTime/umTime));
+        treeTime = checkUnicodeMapSetTime(warmup, 3);
+        logln("Percentage: " + pf.format(treeTime/umTime));
+        //logln(map1.toString());
+        
+        if (shortTest) {
+            return;
+        }
+        
+        umTime = checkUnicodeMapGetTime(1000, 0);
+        hashTime = checkUnicodeMapGetTime(1000, 1);
+        logln("Percentage: " + pf.format(hashTime/umTime));
+        icuTime = checkUnicodeMapGetTime(1000, 2);
+        logln("Percentage: " + pf.format(icuTime/umTime));
+        treeTime = checkUnicodeMapGetTime(1000, 3);
+        logln("Percentage: " + pf.format(treeTime/umTime));
+    }
+
+    private static final int propEnum = UProperty.GENERAL_CATEGORY;
+
+    private double checkUnicodeMapSetTime(int iterations, int type) {
+        _checkUnicodeMapSetTime(1,type);
+        double result = _checkUnicodeMapSetTime(iterations, type);
+        logln((type == 0 ? "UnicodeMap" : type == 1 ? "HashMap" : type == 2 ? "ICU" : "TreeMap") + "\t" + nf.format(result));
+        return result;
+    }
+
+    private double _checkUnicodeMapSetTime(int iterations, int type) {
+        UnicodeMap<String> map1 = SCRIPTS;
+        Map<Integer,String> map2 = map1.putAllCodepointsInto(new HashMap<Integer,String>());
+        Map<Integer, String> map3 = new TreeMap<Integer, String>(map2);
+        System.gc();
+        double start = System.currentTimeMillis();
+        for (int j = 0; j < iterations; ++j)
+          for (int cp = 0; cp <= SET_LIMIT; ++cp) {
+            int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
+            if (enumValue <= 0) continue; // for smaller set
+            String value = UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
+            switch(type) {
+            case 0: map1.put(cp, value); break;
+            case 1: map2.put(cp, value); break;
+            case 3: map3.put(cp, value); break;
+            }
+        }
+        double end = System.currentTimeMillis();
+        return (end-start)/1000/iterations;
+    }
+
+    private double checkUnicodeMapGetTime(int iterations, int type) {
+        UnicodeMap<String> map1 = new UnicodeMap<String>();
+        Map<Integer,String> map2 = map1.putAllCodepointsInto(new HashMap<Integer,String>());
+        Map<Integer, String> map3 = new TreeMap<Integer, String>();
+        _checkUnicodeMapGetTime(map1, map2, map3, 1,type); // warmup
+        double result = _checkUnicodeMapGetTime(map1, map2, map3, iterations, type);
+        logln((type == 0 ? "UnicodeMap" : type == 1 ? "HashMap" : type == 2 ? "ICU" : "TreeMap") + "\t" + nf.format(result));
+        return result;
+    }
+
+    private double _checkUnicodeMapGetTime(UnicodeMap<String> map1, Map<Integer,String> map2, Map<Integer,String> map3, int iterations, int type) {
+        System.gc();
+        double start = System.currentTimeMillis();
+        for (int j = 0; j < iterations; ++j)
+          for (int cp = 0; cp < CHECK_LIMIT; ++cp) {
+            switch (type) {
+            case 0: map1.getValue(cp); break;
+            case 1: map2.get(cp); break;
+            case 2:
+                int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
+                //if (enumValue <= 0) continue;
+                UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
+                break;                
+            case 3: map3.get(cp); break;
+            }
+        }
+        double end = System.currentTimeMillis();
+        return (end-start)/1000/iterations;
     }
 }

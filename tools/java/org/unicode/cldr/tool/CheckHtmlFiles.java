@@ -41,11 +41,11 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.BreakIterator;

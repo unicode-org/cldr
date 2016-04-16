@@ -34,6 +34,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexFileParser;
@@ -42,7 +43,6 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.MessageFormat;

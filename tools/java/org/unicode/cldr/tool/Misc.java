@@ -35,13 +35,13 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ZoneParser;
 import org.unicode.cldr.util.ZoneParser.RuleLine;
 import org.unicode.cldr.util.ZoneParser.ZoneLine;
 
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;

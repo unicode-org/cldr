@@ -12,7 +12,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.SymbolTable;
 import com.ibm.icu.text.UTF16;

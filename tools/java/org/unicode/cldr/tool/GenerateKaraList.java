@@ -12,8 +12,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
-
-import com.ibm.icu.dev.util.TransliteratorUtilities;
+import org.unicode.cldr.util.TransliteratorUtilities;
 
 /**
  * Generates information used for some internal formats. Internal Use.

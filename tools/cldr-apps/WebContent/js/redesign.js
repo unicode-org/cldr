@@ -189,8 +189,10 @@ function unpackMenuSideBar(json) {
 	}
 	var menus = json.menus.sections;
 	var levelName = json.covlev_user;
-	if(!levelName)
+	
+	if(!levelName || levelName === 'default') {
 		levelName = json.covlev_org;
+	}
 	var menuRoot = $('#locale-menu');
 	var level = 0;
 	var levels = json.menus.levels;
@@ -201,6 +203,22 @@ function unpackMenuSideBar(json) {
 		if(element.name == levelName)
 			level = parseInt(element.level);
 	});
+	
+	if (level === 0) {
+		// We couldn't find the level name. Try again as if 'auto'.
+		levelName = json.covlev_org;
+		
+		//get the level number
+		$.each(levels, function(index, element) {
+			if(element.name == levelName)
+				level = parseInt(element.level);
+		});
+				
+		if ( level === 0) {
+			// Still couldn't.
+			level = 10; // fall back to CORE.
+		}
+	}
 	
 	var html = '<ul>';
 	if(!isVisitor) {

@@ -1757,18 +1757,20 @@ function cloneAnon(i) {
  * @param o
  */
 function localizeAnon(o) {
-	if(o&&o.childNodes) for(var i=0;i<o.childNodes.length;i++) {
-		var k = o.childNodes[i];
-		if(k.id && k.id.indexOf("stui-html")==0) {
-			var key = k.id.slice(5);
-			if(stui[key]) {
-				k.innerHTML=stui[key];
+	loadStui(null, function(stui) {
+		if(o&&o.childNodes) for(var i=0;i<o.childNodes.length;i++) {
+			var k = o.childNodes[i];
+			if(k.id && k.id.indexOf("stui-html")==0) {
+				var key = k.id.slice(5);
+				if(stui.str(key)) {
+					k.innerHTML=stui.str(key);
+				}
+				k.id=null;
+			} else {
+				localizeAnon(k);
 			}
-			k.id=null;
-		} else {
-			localizeAnon(k);
 		}
-	}
+	});
 }
 
 /**
@@ -1781,8 +1783,8 @@ function localizeFlyover(o) {
 		var k = o.childNodes[i];
 		if(k.title && k.title.indexOf("$")==0) {
 			var key = k.title.slice(1);
-			if(stui[key]) {
-				k.title=stui[key];
+			if(stui.str(key)) {
+				k.title=stui.str(key);
 			} else {
 				k.title=null;
 			}
@@ -3927,7 +3929,7 @@ function loadStui(loc, cb) {
 				stui.str = stui_str; // debug
 				stui.sub = function(x,y) { return stui_str(x) + '{' +  Object.keys(y) + '}'; };
 			}
-			stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
+			stuibundle.htmlbaseline = stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
 			stui.ready=true;
 			if(cb) cb(stui);
 		});
@@ -4135,7 +4137,7 @@ function showV() {
 	        		 domConstruct,
 	        		 dojoNumber
 	         ) {
-
+		loadStui(null, function(/*stui*/) {
 
 		var appendLocaleLink = function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
 			var name = locmap.getRegionAndOrVariantName(subLoc);
@@ -6270,7 +6272,7 @@ function showV() {
 				}
 		});
 		});
-
+		}); // end stui  load
 	});  // end require()
 } // end showV
 

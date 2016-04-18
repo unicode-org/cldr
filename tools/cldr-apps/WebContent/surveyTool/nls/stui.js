@@ -40,6 +40,7 @@ define({
 
 		possibleProblems: "Possible problems with this locale:",
 
+		flyoveradd: "Add another value",
 		flyoverst: "Status Icon",
 		flyoverdraft: "Approval Status",
 		flyovervoted: "Shows a checkmark if you voted",

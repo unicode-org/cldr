@@ -50,6 +50,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         static int uniqueCount;
         public long value;
         private final int forceUnique;
+        public long time;
         {
             synchronized (RWLong.class) { // make thread-safe
                 forceUnique = uniqueCount++;
@@ -69,12 +70,30 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         public String toString() {
             return String.valueOf(value);
         }
+        
     }
-
+    
     public Counter<T> add(T obj, long countValue) {
         RWLong count = map.get(obj);
         if (count == null) map.put(obj, count = new RWLong());
         count.value += countValue;
+        count.time = 0;
+        return this;
+    }
+
+    public Counter<T> add(T obj, long countValue, long time) {
+        RWLong count = map.get(obj);
+        if (count == null) map.put(obj, count = new RWLong());
+        count.value += countValue;
+        count.time = time;
+        return this;
+    }
+    
+    public Counter<T> add(T obj, long countValue, boolean boo) {
+        RWLong count = map.get(obj);
+        if (count == null) map.put(obj, count = new RWLong());
+        count.value = countValue;
+        count.time = 0;
         return this;
     }
 
@@ -86,7 +105,12 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         RWLong count = map.get(obj);
         return count == null ? 0 : count.value;
     }
-
+    
+    public long getTime(T obj){
+        RWLong count = map.get(obj);
+        return count == null ? 0 : count.time;
+    }
+    
     public Counter<T> clear() {
         map.clear();
         return this;
@@ -203,14 +227,16 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
 
     public Counter<T> addAll(Collection<T> keys, int delta) {
         for (T key : keys) {
-            add(key, delta);
+            long time = map.get(key).time;
+            add(key, delta, time);
         }
         return this;
     }
 
     public Counter<T> addAll(Counter<T> keys) {
         for (T key : keys) {
-            add(key, keys.getCount(key));
+            long time = map.get(key).time;
+            add(key, keys.getCount(key), time);
         }
         return this;
     }
@@ -237,7 +263,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
     }
 
     public Counter<T> increment(T key) {
-        return add(key, 1);
+        return add(key, 1, map.get(key).time);
     }
 
     public boolean containsKey(T key) {

@@ -7,10 +7,10 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Differ;
 import org.unicode.cldr.util.DtdData;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Differ;
 
 public class TestMetadata extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();

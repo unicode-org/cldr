@@ -471,6 +471,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="dates/fields/field[@type='year']/relative[@type='(-3|-2|2|3)']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='%relativeDayTypes']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='%relativeTimeTypes']/relativeTime[@type='%futurePast']/relativeTimePattern[@count='${Target-Plurals}']"/>		
+		<coverageLevel value="modern" match="dates/fields/field[@type='%relativeDayTypes']/relativeTime[@type='%futurePast']/relativeTimePattern[@count='${Target-Plurals}']"/>		
+		<coverageLevel value="modern" match="dates/fields/field[@type='hour']/relative[@type='0']"/>
+		<coverageLevel value="modern" match="dates/fields/field[@type='minute']/relative[@type='0']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='second']/relative[@type='0']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='quarter']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="modern" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/generic"/>

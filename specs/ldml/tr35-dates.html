@@ -1494,12 +1494,16 @@ h2, h3, h4, table {
 				intended as labels in a UI.</li>
 			<li>&lt;relative&gt; Display names for the current instance of
 				the field, and one or two past and future instances. In English,
-				this is only used for year, month, week, day, and specific days of
-				the week (sun, mon, tue, …).</li>
+				<span class="changed">data is provided</span> for year,
+				<span class="changed">quarter, </span>month, week, day, specific days
+				of the week (sun, mon, tue, …)<span class="changed">, and—with offset
+				0 only—for hour, minute, and second</span>.</li>
 			<li>&lt;relativeTime&gt; Display names for an instance of the
 				field that is a counted number of units in the past or the future
 				relative to the current instance; this needs plural forms. In
-				English, this is only used for year, month, week, day, hour, minute,
+				English, <span class="changed">data is provided</span> for year,
+				<span class="changed">quarter, </span>month, week, day, 
+				<span class="changed">specific days of the week, </span>,hour, minute,
 				and second.</li>
 		</ul>
 		<p>Where there is not a convenient, customary word or phrase in a
@@ -1530,10 +1534,19 @@ h2, h3, h4, table {
       &lt;relative type="-1"&gt;last Sunday&lt;/relative&gt;
       &lt;relative type="0"&gt;this Sunday&lt;/relative&gt;
       &lt;relative type="1"&gt;next Sunday&lt;/relative&gt;
+<span class="changed">      &lt;relativeTime type="future"&gt;
+        &lt;relativeTimePattern count="one"&gt;in {0} Sunday&lt;/relativeTimePattern&gt;
+        &lt;relativeTimePattern count="other"&gt;in {0} Sundays&lt;/relativeTimePattern&gt;
+      &lt;/relativeTime&gt;
+      &lt;relativeTime type="past"&gt;
+        &lt;relativeTimePattern count="one"&gt;{0} Sunday ago&lt;/relativeTimePattern&gt;
+        &lt;relativeTimePattern count="other"&gt;{0} Sundays ago&lt;/relativeTimePattern&gt;
+      &lt;/relativeTime&gt;</span>
     &lt;/field&gt;
     …
     &lt;field type="hour"&gt;
       &lt;displayName&gt;Hour&lt;/displayName&gt;
+<span class="changed">      &lt;relative type="0"&gt;now&lt;/relative&gt;</span>
       &lt;relativeTime type="future"&gt;
         &lt;relativeTimePattern count="one"&gt;in {0} hour&lt;/relativeTimePattern&gt;
         &lt;relativeTimePattern count="other"&gt;in {0} hours&lt;/relativeTimePattern&gt;

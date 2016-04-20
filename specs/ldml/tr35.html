@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2016-03-21</td>
+				<td class="changed">2016-04-19</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -8203,239 +8203,38 @@ decimal?, group?, special*)) &gt;</pre>
 				href="http://www.unicode.org/cldr/filing_bug_reports.html">Filing
 				Bug Reports</a>.
 		</p>
-		<ul>
+		<ul class="changed">
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
-				<ul>
-					<li><em>General</em>
-						<ul>
-							<li>Modified terminology for clarity:
-								<ul>
-									<li>subdivision_attribute → unicode_subdivision_id</li>
-									<li>unicode_subdivision_subtag →
-										unicode_subdivision_suffix</li>
-								</ul>
-							</li>
-						</ul></li>
-					<li><em>Section 3 <a href="#Identifiers">Unicode
-								Language and Locale Identifiers</a></em>
-						<ul>
-							<li>Added direct links to validity data (latest version).</li>
-						</ul></li>
-					<li><em>Section 3.4 <a href="#Field_Definitions">Language
-								Identifier Field Definitions</a></em>
-						<ul>
-							<li>Documented script tags Zsye, Zsym. [<a
-								href="http://unicode.org/cldr/trac/ticket/9279"
-								title="View ticket">#9279</a>]
-							</li>
-						</ul></li>
-					<li><em>Section 3.6.1 <a
-							href="#Key_And_Type_Definitions_">Key And Type Definitions</a>
-					</em>
-						<ul>
-							<li>Added new Region Override key rg. [<a
-								href="http://unicode.org/cldr/trac/ticket/7999"
-								title="View ticket">#7999</a>]
-							</li>
-						</ul></li>
-					<li><em>Section 3.6.4<a
-							href="#Unicode_Locale_Extension_Data_Files"> U Extension Data
-								FIles</a></em>
-						<ul>
-							<li>Added new special type name RG_KEY_VALUE. [<a
-								href="http://unicode.org/cldr/trac/ticket/7999"
-								title="View ticket">#7999</a>]
-							</li>
-							<li>Added SUBDIVISION_CODE, and described the new valueType
-								attribute. [<a href="http://unicode.org/cldr/trac/ticket/9226"
-								title="View ticket">#9226</a>]
-							</li>
-							<li>Made it clear that the indirect type names cannot have
-								any lowercase letters, and the literal type names must have at
-								least one. [<a
-								href="http://unicode.org/cldr/trac/ticket/[#9226] "
-								title="View ticket">#9226</a>]
-							</li>
-						</ul></li>
-					<li>Section 3.6.5 <a href="#Unicode_Subdivision_Codes">Subdivision
-							Codes</a></li>
-					<li>Section 3.11 <a href="#Validity_Data">Validity Data</a>
-						<ul>
-							<li>Changed the format of the subdivision validity data to
-								use BCP47-style (lowercase, no hyphen)</li>
-						</ul>
-					</li>
-
-					<li>Section 7.2 <a href="#Invalid_Patterns">Handling
-							Invalid Patterns</a>
-						<ul>
-							<li>Add new section with recommendations for handling
-								invalid number/date pattern fields in formatting and parsing. [<a
-								href="http://unicode.org/cldr/trac/ticket/8955"
-								title="View ticket">#8955</a>]
-							</li>
-						</ul>
-					</li>
-
-				</ul></li>
+				</li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
-				<ul>
-					<li><em><i>Section 1 <a
-								href="tr35-general.html#Display_Name_Elements">Display Name
-									Elements</a></i></em>
-						<ul>
-							<li>Added a note that people should have no expectation that
-								all language names be translated, and pointed to the language
-								subtag registry for English fallback names. [<a
-								href="http://unicode.org/cldr/trac/ticket/9137"
-								title="View ticket">#9137</a>]
-							</li>
-						</ul></li>
-					<li><em><i>Section 3.2 <a
-								href="#Unicode_locale_identifier">Unicode
-									Locale Identifier</a></i></em>
-						<ul>
-							<li>Modified -u- extension keys to disallow final digit.
-								That makes them disjoint with -t- keys, allowing for simpler
-								tooling. Also some minor cleanups to the BNF for clarity. [<a
-								href="http://unicode.org/cldr/trac/ticket/9130">#9130</a>]
-							</li>
-						</ul></li>
-					<li><em>Section 6 <a
-							href="tr35-general.html#Unit_Elements">Unit Elements</a></em>
-						<ul>
-							<li>Added general units new in CLDR 29 to the table of
-								units. [<a href="http://unicode.org/cldr/trac/ticket/9161">#9161</a>,
-								<a href="http://unicode.org/cldr/trac/ticket/9162">#9162</a>]
-							</li>
-							<li>Changed unit "proportion-karat" to "concentr-karat". [<a
-								href="http://unicode.org/cldr/trac/ticket/9170">#9170</a>]
-							</li>
-						</ul></li>
-					<li>Section 10.1.1 <a href="tr35-general.html#Pivots">Pivots</a>
-						<ul>
-							<li>New section on pivots with transforms. [<a
-								href="http://unicode.org/cldr/trac/ticket/9280">#9280</a>]
-							</li>
-						</ul>
-					</li>
-					<li>Section 10.3 <a
-						href="tr35-general.html#Transform_Rules_Syntax">Transform
-							Rules Syntax</a>
-						<ul>
-							<li>Documented the alias and backwardAlias attributes. Also
-								noted that the fine-grained XML structure is no longer used. [<a
-								href="http://unicode.org/cldr/trac/ticket/9294">#9294</a>]
-							</li>
-						</ul>
-					</li>
-				</ul></li>
+				</li>
 			<li><strong>Part 3: <a
 					href="tr35-numbers.html#Contents">Numbers</a></strong>
-				<ul>
-					<li>Section 2.4.1 <a href="tr35-numbers.html#Compact_Number_Formats">Compact
-							Number Formats</a>
-						<ul>
-							<li>Clarified behavior with 0 value, &amp;c. [<a
-								href="http://unicode.org/cldr/trac/ticket/9298">#9298</a>]
-							</li>
-						</ul>
-					</li>
-					<li>Section 3.2 <a
-						href="tr35-numbers.html#Special_Pattern_Characters">Special
-							Pattern Characters</a>
-						<ul>
-							<li>For handling invalid special character sequences, point
-								to <a href="#Invalid_Patterns">Handling Invalid Patterns</a>. [<a
-								href="http://unicode.org/cldr/trac/ticket/8955">#8955</a>]
-							</li>
-						</ul>
-					</li>
-					<li>Section 5 <a
-						href="tr35-numbers.html#Language_Plural_Rules">Language Plural
-							Rules</a>
-						<ul>
-							<li>Clarified behavior for negative numbers, and that
-								visible decimal fractions are important. [<a
-								href="http://unicode.org/cldr/trac/ticket/9219">#9219</a>]
-							</li>
-							<li>Clarified the semantics of the relations, especially the
-								ranges as in n=3..5. [<a
-								href="http://unicode.org/cldr/trac/ticket/9022">#9022</a>]
-							</li>
-						</ul>
-					</li>
-				</ul></li>
+				</li>
 			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
 				<ul>
-					<li><em>Section 4.5.1 <a
-							href="tr35-dates.html#Day_Period_Rules">Day Period Rules</a></em>
+					<li><em>Section 3 <a
+							href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>
 						<ul>
-							<li>Documented how midnight is to be used. [<a
-								href="http://unicode.org/cldr/trac/ticket/9310">#9310</a>]
-							</li>
-						</ul>
-						<ul>
-							<li>Clarified in guideline 1 that a locale need not have any
-								variable dayPeriodRules, in which case behavior should use the
-								fixed rules. [<a href="http://unicode.org/cldr/trac/ticket/9112">#9112</a>]
-							</li>
-							<li>Added restriction that no two rules in the same set can
-								have the same type, and clarified that they can span midnight. [<a
-								href="http://unicode.org/cldr/trac/ticket/9209">#9209</a>, <a
-								href="http://unicode.org/cldr/trac/ticket/9116">#9116</a>]
-							</li>
-							<li>Added clarifications for parsing, and a new subheading.</li>
-						</ul></li>
-					<li><em>Section 8 <a
-							href="tr35-dates.html#Date_Format_Patterns">Date Format
-								Patterns</a>
-					</em>
-						<ul>
-							<li>For handling invalid special character sequences, point
-								to <a href="#Invalid_Patterns">Handling Invalid Patterns</a>. [<a
-								href="http://unicode.org/cldr/trac/ticket/8955">#8955</a>]
-							</li>
-							<li>The date field symbol 'C' was misdescribed as being a <em>dayperiod</em>
-								symbol, when it is actually an <em>hour</em> symbol. Clarified
-								the usage, and added the widths to each of 'j', 'J', and 'C'.
+							<li>Add &lt;relativeTime&gt; entries for sun..sat;
+								add &lt;relative type="0"&gt; entries for hour, min. [<a
+								href="http://unicode.org/cldr/trac/ticket/9165">#9165</a>]
 							</li>
 						</ul></li>
 				</ul></li>
 			<li><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong>
-				<ul>
-					<li><em>Section 2.4 <a
-							href="tr35-info.html#Territory_Based_Preferences">Territory-Based
-								Preferences</a></em>
-						<ul>
-							<li>Added new section to document territory-based
-								preferences in general, and specifically new structure
-								specifying <a href="tr35-info.html#Preferred_Units_For_Usage">Preferred
-									Units for Specific Usages</a>. Link to it from <a
-								href="#Locale_Inheritance">Locale Inheritance and Matching</a>
-								and from another new section <a
-								href="tr35-general.html#Territory_Based_Unit_Preferences">Territory-Based
-									Unit Preferences</a>. [<a
-								href="http://unicode.org/cldr/trac/ticket/8346">#8346</a>, <a
-								href="http://unicode.org/cldr/trac/ticket/9177">#9177</a>]
-							</li>
-						</ul></li>
-					<li><em>Section 2.5 <a href="tr35-info.html#rgScope">&lt;rgScope&gt;:
-								Scope of the “rg” Locale Key</a></em>
-						<ul>
-							<li>Added new section to document this element, though the
-								path format used is still provisional. [<a
-								href="http://unicode.org/cldr/trac/ticket/9224">#9224</a>, <a
-								href="http://unicode.org/cldr/trac/ticket/9295">#9295</a>]
-							</li>
-						</ul></li>
-				</ul></li>
+				</li>
 		</ul>
 		<p>Modifications in previous versions are listed in those
 			respective versions:</p>
 		<table style='margin-left: 5em' border="1" cellspacing="0"
 			cellpadding="0">
+			<tr class="changed">
+				<td><a
+					href='http://www.unicode.org/reports/tr35/tr35-43/tr35.html#Modifications'>Version
+						29</a></td>
+			</tr>
 			<tr>
 				<td><a
 					href='http://www.unicode.org/reports/tr35/tr35-41/tr35.html#Modifications'>Version

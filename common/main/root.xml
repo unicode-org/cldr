@@ -2452,6 +2452,12 @@
 				<relative type="-1">last Sunday</relative>
 				<relative type="0">this Sunday</relative>
 				<relative type="1">next Sunday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} Sundays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} Sundays</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-short">
 				<alias source="locale" path="../field[@type='sun']"/>
@@ -2463,6 +2469,12 @@
 				<relative type="-1">last Monday</relative>
 				<relative type="0">this Monday</relative>
 				<relative type="1">next Monday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} Mondays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} Mondays</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-short">
 				<alias source="locale" path="../field[@type='mon']"/>
@@ -2474,6 +2486,12 @@
 				<relative type="-1">last Tuesday</relative>
 				<relative type="0">this Tuesday</relative>
 				<relative type="1">next Tuesday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} Tuesdays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} Tuesdays</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-short">
 				<alias source="locale" path="../field[@type='tue']"/>
@@ -2485,6 +2503,12 @@
 				<relative type="-1">last Wednesday</relative>
 				<relative type="0">this Wednesday</relative>
 				<relative type="1">next Wednesday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} Wednesdays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} Wednesdays</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-short">
 				<alias source="locale" path="../field[@type='wed']"/>
@@ -2496,6 +2520,12 @@
 				<relative type="-1">last Thursday</relative>
 				<relative type="0">this Thursday</relative>
 				<relative type="1">next Thursday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} Thursdays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} Thursdays</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-short">
 				<alias source="locale" path="../field[@type='thu']"/>
@@ -2507,6 +2537,12 @@
 				<relative type="-1">last Friday</relative>
 				<relative type="0">this Friday</relative>
 				<relative type="1">next Friday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} Fridays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} Fridays</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-short">
 				<alias source="locale" path="../field[@type='fri']"/>
@@ -2518,6 +2554,12 @@
 				<relative type="-1">last Saturday</relative>
 				<relative type="0">this Saturday</relative>
 				<relative type="1">next Saturday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">+{0} Saturdays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">-{0} Saturdays</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-short">
 				<alias source="locale" path="../field[@type='sat']"/>
@@ -2530,6 +2572,7 @@
 			</field>
 			<field type="hour">
 				<displayName>Hour</displayName>
+				<relative type="0">now</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">+{0} h</relativeTimePattern>
 				</relativeTime>
@@ -2545,6 +2588,7 @@
 			</field>
 			<field type="minute">
 				<displayName>Minute</displayName>
+				<relative type="0">now</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">+{0} min</relativeTimePattern>
 				</relativeTime>

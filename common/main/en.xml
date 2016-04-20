@@ -2569,6 +2569,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">last Sunday</relative>
 				<relative type="0">this Sunday</relative>
 				<relative type="1">next Sunday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Sunday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Sundays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Sunday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Sundays ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-short">
 				<relative type="-1">last Sun.</relative>
@@ -2584,6 +2592,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">last Monday</relative>
 				<relative type="0">this Monday</relative>
 				<relative type="1">next Monday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Monday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Mondays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Monday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Mondays ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-short">
 				<relative type="-1">last Mon.</relative>
@@ -2599,6 +2615,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">last Tuesday</relative>
 				<relative type="0">this Tuesday</relative>
 				<relative type="1">next Tuesday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Tuesday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Tuesdays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Tuesday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Tuesdays ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-short">
 				<relative type="-1">last Tue.</relative>
@@ -2614,6 +2638,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">last Wednesday</relative>
 				<relative type="0">this Wednesday</relative>
 				<relative type="1">next Wednesday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Wednesday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Wednesdays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Wednesday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Wednesdays ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-short">
 				<relative type="-1">last Wed.</relative>
@@ -2629,6 +2661,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">last Thursday</relative>
 				<relative type="0">this Thursday</relative>
 				<relative type="1">next Thursday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Thursday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Thursdays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Thursday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thursdays ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-short">
 				<relative type="-1">last Thu.</relative>
@@ -2644,6 +2684,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">last Friday</relative>
 				<relative type="0">this Friday</relative>
 				<relative type="1">next Friday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Friday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Fridays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Friday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Fridays ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-short">
 				<relative type="-1">last Fri.</relative>
@@ -2659,6 +2707,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">last Saturday</relative>
 				<relative type="0">this Saturday</relative>
 				<relative type="1">next Saturday</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Saturday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Saturdays</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Saturday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Saturdays ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-short">
 				<relative type="-1">last Sat.</relative>
@@ -2676,6 +2732,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>hour</displayName>
+				<relative type="0">now</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} hour</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} hours</relativeTimePattern>
@@ -2698,6 +2755,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="minute">
 				<displayName>minute</displayName>
+				<relative type="0">now</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} minute</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} minutes</relativeTimePattern>

@@ -18,7 +18,6 @@ import java.util.Map;
 import org.unicode.cldr.draft.FileUtilities;
 
 import com.ibm.icu.dev.util.Tabber;
-import com.ibm.icu.dev.util.UnicodeLabel;
 import com.ibm.icu.dev.util.Visitor;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;

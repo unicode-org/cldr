@@ -15,11 +15,11 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.ScriptCategories.RemapType;
 import org.unicode.cldr.util.BagFormatter;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.UnicodeLabel;
 import org.unicode.cldr.util.CldrUtility.CollectionComparator;
 import org.unicode.cldr.util.FileReaders;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.UnicodeLabel;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;

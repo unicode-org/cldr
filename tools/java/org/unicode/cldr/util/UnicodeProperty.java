@@ -23,7 +23,6 @@ import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.util.CollectionUtilities.InverseMatcher;
 import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
-import com.ibm.icu.dev.util.UnicodeLabel;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.SymbolTable;

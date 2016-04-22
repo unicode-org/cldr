@@ -125,7 +125,7 @@ public class SurveyAjax extends HttpServlet {
         public static JSONObject wrap(UserRegistry.User u) throws JSONException {
             return new JSONObject().put("id", u.id).put("email", u.email).put("name", u.name).put("userlevel", u.userlevel)
                 .put("emailHash", u.getEmailHash())
-                .put("userlevelName", u.getLevel()).put("org", u.org);
+                .put("userlevelName", u.getLevel()).put("org", u.org).put("time", u.last_connect);
         }
 
         public static JSONObject wrap(CheckCLDR check) throws JSONException {
@@ -170,7 +170,7 @@ public class SurveyAjax extends HttpServlet {
                 if (orgVote == null)
                     continue;
                 Map<String, Long> votes = r.getOrgToVotes(o);
-
+               
                 JSONObject org = new JSONObject();
                 org.put("status", r.getStatusForOrganization(o));
                 org.put("orgVote", orgVote);
@@ -186,6 +186,7 @@ public class SurveyAjax extends HttpServlet {
                 valueToVoteA.put(e.getKey()).put(e.getValue());
             }
             ret.put("value_vote", valueToVoteA);
+            ret.put("nameTime", r.getNameTime());
             return ret;
         }
 

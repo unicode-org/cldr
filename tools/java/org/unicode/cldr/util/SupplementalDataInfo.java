@@ -83,6 +83,8 @@ import com.ibm.icu.util.VersionInfo;
 public class SupplementalDataInfo {
     private static final boolean DEBUG = false;
     private static final StandardCodes sc = StandardCodes.make();
+    private static LocaleIDParser lp = new LocaleIDParser();
+    private static final String UNKNOWN_SCRIPT = "Zzzz";
 
     // TODO add structure for items shown by TestSupplementalData to be missing
     /*
@@ -1080,9 +1082,6 @@ public class SupplementalDataInfo {
         zone_aliases.freeze();
         languageToScriptVariants.freeze();
 
-        addDefaultScripts();
-        baseLanguageToDefaultScript = CldrUtility.protectCollection(baseLanguageToDefaultScript);
-
         numericTerritoryMapping.freeze();
         alpha3TerritoryMapping.freeze();
         numericCurrencyCodeMapping.freeze();
@@ -1155,35 +1154,6 @@ public class SupplementalDataInfo {
     // return Collections.unmodifiableMap(temp);
     // }
 
-    private void addDefaultScripts() {
-        // add scripts to mapping
-        for (Entry<String, Set<String>> entry : languageToScriptVariants.keyValuesSet()) {
-            String baseLanguage = entry.getKey();
-            Set<String> scriptVariants = entry.getValue();
-            String current = baseLanguageToDefaultScript.get(baseLanguage);
-            if (scriptVariants.size() == 1 && current == null) {
-                String scriptVariant = scriptVariants.iterator().next();
-                int pos = scriptVariant.indexOf('_');
-                if (!baseLanguage.equals(scriptVariant.substring(0, pos))) {
-                    throw new IllegalArgumentException("Bad script variant\t" + baseLanguage + "\t" + scriptVariant);
-                }
-                baseLanguageToDefaultScript.put(baseLanguage, scriptVariant.substring(pos + 1));
-            }
-        }
-        // HACK
-        String currentScript = null;
-        for (String s : "Latn aa af agq ak asa ast az bas bem bez bm br ca cgg cs cy da dav de dje dsb dua dyo ebu ee en eo es et eu ewo ff fi fil fo fr fur fy ga gd gl gsw guz gv ha haw hr hsb hu ia id ig is it jgo jmc kab kam kde kea khq ki kkj kl kln ksb ksf ksh kw lag lb lg lkt ln lt lu luo luy lv mas mer mfe mg mgh mgo ms mt mua naq nb nd nl nmg nn nnh nr nso nus nyn om pl prg pt qu rm rn ro rof rw rwk saq sbp se seh ses sg sk sl smn sn so sq ss ssy st sv sw swc teo tk tn to tr ts twq tzm ve vi vo vun wae xh xog yav yo zu Arab ar ckb fa ks lrc mzn ps sd ug ur Beng as bn Cans iu Cyrl be bg ce cu kk ky mk mn os ru sah tg uk Ethi am byn ti tig wal Deva brx hi kok mr ne Cher chr Grek el Gujr gu Guru pa Hebr he yi Armn hy Yiii ii Jpan ja Geor ka Hant yue Khmr km Knda kn Kore ko Laoo lo Mlym ml Mymr my Orya or Sinh si Taml ta Telu te Tfng shi zgh Thai th Tibt bo dz Vaii vai"
-            .split(" ")) {
-            if (s.length() == 4) {
-                currentScript = s;
-            } else {
-                String old = baseLanguageToDefaultScript.put(s, currentScript);
-//                if (old != null) {
-//                    System.out.println(s + ", " + currentScript);
-//                }
-            }
-        }
-    }
 
     /**
      * Core function used to process each of the paths, and add the data to the appropriate data member.
@@ -1604,12 +1574,6 @@ public class SupplementalDataInfo {
                 String defContent = parts.getAttributeValue(-1, "locales").trim();
                 String[] defLocales = defContent.split("\\s+");
                 defaultContentLocales = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(defLocales)));
-                for (String defaultContentLocale : defaultContentLocales) {
-                    int pos = LocaleIDParser.getScriptPosition(defaultContentLocale);
-                    if (pos >= 0) {
-                        baseLanguageToDefaultScript.put(defaultContentLocale.substring(0, pos), defaultContentLocale.substring(pos + 1));
-                    }
-                }
                 return true;
             }
             if (level2.equals("alias")) {
@@ -1942,7 +1906,6 @@ public class SupplementalDataInfo {
     public Map<CLDRLocale, CLDRLocale> defaultContentToBase; // wo_Arab_SN -> wo
     private Set<String> CLDRLanguageCodes = new TreeSet<String>();;
     private Set<String> CLDRScriptCodes;
-    private Map<String, String> baseLanguageToDefaultScript = new HashMap<String, String>();
 
     /**
      * Get the population data for a language. Warning: if the language has script variants, cycle on those variants.
@@ -3979,7 +3942,17 @@ public class SupplementalDataInfo {
     }
 
     public String getDefaultScript(String baseLanguage) {
-        return baseLanguageToDefaultScript.get(baseLanguage);
+        String ls = likelySubtags.get(baseLanguage);
+        if (ls == null) {
+            return UNKNOWN_SCRIPT;
+        }
+        lp.set(ls);
+        String defaultScript = lp.getScript();
+        if (defaultScript.length() > 0) {
+            return defaultScript;
+        } else {
+            return UNKNOWN_SCRIPT;
+        }
     }
 
     private XEquivalenceClass<String, String> equivalentLocales = null;

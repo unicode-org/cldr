@@ -425,6 +425,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="moderate" match="dates/fields/field[@type='(year|month|week)']/relative[@type='(-1|0|1)']"/>
+		<coverageLevel value="moderate" match="dates/fields/field[@type='week(-short|-narrow)?']/relativePeriod"/>
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/generic"/>
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/standard"/>
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/daylight"/>
@@ -458,6 +459,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='ss'][@type='%ssTypes']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItemsAll']"/>
+		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='MMMMW|yw'][@count='${Target-Plurals}']"/>
 		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="modern" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='format']/monthPatternWidth[@type='wide']/monthPattern[@type='leap']"/>
 		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="modern" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='numeric']/monthPatternWidth[@type='all']/monthPattern[@type='leap']"/>
 		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="modern" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='stand-alone']/monthPatternWidth[@type='narrow']/monthPattern[@type='leap']"/>

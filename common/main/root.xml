@@ -1267,6 +1267,8 @@
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
+						<dateFormatItem id='MMMMW' count='other'>'week' W 'of' MMM</dateFormatItem>
+						<dateFormatItem id='yw' count='other'>'week' w 'of' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
@@ -2420,6 +2422,7 @@
 				<relativeTime type="past">
 					<relativeTimePattern count="other">-{0} w</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>the week of {0}</relativePeriod> <!-- for example, “the week of April 1” -->
 			</field>
 			<field type="week-short">
 				<alias source="locale" path="../field[@type='week']"/>

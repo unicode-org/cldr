@@ -2154,6 +2154,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id='MMMMW' count='one'>'week' W 'of' MMM</dateFormatItem>
+						<dateFormatItem id='MMMMW' count='other'>'week' W 'of' MMM</dateFormatItem>
+						<dateFormatItem id='yw' count='one'>'week' w 'of' y</dateFormatItem>
+						<dateFormatItem id='yw' count='other'>'week' w 'of' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
@@ -2522,6 +2526,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="one">{0} week ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} weeks ago</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>the week of {0}</relativePeriod> <!-- for example, “the week of April 1” -->
 			</field>
 			<field type="week-short">
 				<displayName>wk.</displayName>

@@ -1422,6 +1422,7 @@ $Revision$
 
 <!ELEMENT dateFormatItem ( #PCDATA ) >
 <!ATTLIST dateFormatItem id CDATA #REQUIRED >
+<!ATTLIST dateFormatItem count (zero | one | two | few | many | other) #IMPLIED >
 <!ATTLIST dateFormatItem alt NMTOKENS #IMPLIED >
 <!ATTLIST dateFormatItem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1507,7 +1508,7 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
-<!ELEMENT field ( alias | ( displayName*, relative*, relativeTime*, special* ) ) >
+<!ELEMENT field ( alias | ( displayName*, relative*, relativeTime*, relativePeriod*, special* ) ) >
 <!ATTLIST field type (era | year | year-short | year-narrow | quarter | quarter-short | quarter-narrow | month | month-short | month-narrow | week | week-short | week-narrow | day | day-short | day-narrow | weekday | sun | sun-short | sun-narrow | mon | mon-short | mon-narrow | tue | tue-short | tue-narrow | wed | wed-short | wed-narrow | thu | thu-short | thu-narrow | fri | fri-short | fri-narrow | sat | sat-short | sat-narrow | dayperiod | hour | hour-short | hour-narrow | minute | minute-short | minute-narrow | second | second-short | second-narrow | zone) #IMPLIED >
 <!ATTLIST field alt NMTOKENS #IMPLIED >
 <!ATTLIST field draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -1556,6 +1557,11 @@ $Revision$
 <!ATTLIST relativeTimePattern validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+
+<!ELEMENT relativePeriod ( #PCDATA ) >
+<!ATTLIST relativePeriod alt NMTOKENS #IMPLIED >
+<!ATTLIST relativePeriod draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT timeZoneNames ( alias | ( hourFormat*, hoursFormat*, gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*, fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special* ) ) >
 <!ATTLIST timeZoneNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >

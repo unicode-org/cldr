@@ -130,6 +130,10 @@
 ^//ldml/dates/fields/field\[@type="year-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_YEARS 3
 ^//ldml/dates/fields/field\[@type="year-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_YEARS 3
 
+^//ldml/dates/fields/field\[@type="week"]/relativePeriod ; locale ; {0}=NUMBER_OF_WEEKS 3
+^//ldml/dates/fields/field\[@type="week-short"]/relativePeriod ; locale ; {0}=NUMBER_OF_WEEKS 3
+^//ldml/dates/fields/field\[@type="week-narrow"]/relativePeriod ; locale ; {0}=NUMBER_OF_WEEKS 3
+
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Day-Of-Week"] ; {0}=BASE_FORMAT January 23; {1}=APPEND_FIELD_FORMAT Monday
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Timezone"] ; {0}=BASE_FORMAT 12:30; {1}=APPEND_FIELD_FORMAT Pacific Time
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Era"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT A.D.

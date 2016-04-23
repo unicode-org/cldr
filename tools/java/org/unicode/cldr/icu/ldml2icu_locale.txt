@@ -106,6 +106,7 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/appendItems/appendItem[@request="(%A)"] ; /calendar/$1/appendItems/$2
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(%A)"]$ ; /calendar/$1/availableFormats/$2
+//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(%A)"][@count="(%A)"]$ ; /calendar/$1/availableFormats/$2/$3
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="(%A)"]/greatestDifference[@id="(%A)"]$ ; /calendar/$1/intervalFormats/$2/$3
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; /calendar/$1/intervalFormats/fallback
@@ -137,6 +138,7 @@
 //ldml/dates/fields/field[@type="(%A)"]/displayName[@alt="(%A)"] ; /fields/$1/dn%$2
 //ldml/dates/fields/field[@type="(%A)"]/displayName ; /fields/$1/dn
 //ldml/dates/fields/field[@type="(%A)"]/relative[@type="(%A)"] ; /fields/$1/relative/"$2"
+//ldml/dates/fields/field[@type="(%A)"]/relativePeriod ; /fields/$1/relativePeriod
 //ldml/dates/fields/field[@type="(%A)"]/relativeTime[@type="(%A)"]/relativeTimePattern[@count="(%A)"] ; /fields/$1/relativeTime/$2/$3
 
 //ldml/dates/fields/field[@type="(%A)"]/alias[@source="locale"][@path="../field[@type='(%A)']"]

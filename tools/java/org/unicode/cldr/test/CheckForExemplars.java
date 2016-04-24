@@ -24,12 +24,12 @@ import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
-import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -81,6 +81,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     static final UnicodeSet LETTER = new UnicodeSet("[[A-Za-z]]").freeze();
     static final UnicodeSet NUMBERS = new UnicodeSet("[[:N:]]").freeze();
     static final UnicodeSet DISALLOWED_HOUR_FORMAT = new UnicodeSet("[[:letter:]]").remove('H').remove('m').freeze();
+    static final UnicodeSet DISALLOWED_IN_RANGE = new UnicodeSet("[:L:]").freeze();
 
     private UnicodeSet exemplars;
     private UnicodeSet exemplarsPlusAscii;
@@ -346,6 +347,18 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 "This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
                 new Object[] {}));
             // end checks for patterns
+        }
+        if (path.startsWith("//ldml/numbers/miscPatterns") && path.contains("[@type=\"range\"]")) {
+            if (DISALLOWED_IN_RANGE.containsSome(value)) {
+                result
+                .add(new CheckStatus()
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.illegalCharactersInPattern)
+                .setMessage(
+                    "Range patterns should not have letters.",
+                    new Object[] {}));
+            }
         }
         // Now handle date patterns.
         if (containsPart(path, DATE_PARTS)) {

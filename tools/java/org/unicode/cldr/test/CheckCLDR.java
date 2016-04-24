@@ -34,12 +34,12 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
@@ -732,7 +732,8 @@ abstract public class CheckCLDR {
             inconsistentPeriods,
             inheritanceMarkerNotAllowed,
             invalidDurationUnitPattern,
-            invalidDelimiter;
+            invalidDelimiter,
+            illegalCharactersInPattern;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

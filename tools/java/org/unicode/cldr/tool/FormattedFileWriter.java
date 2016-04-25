@@ -9,10 +9,10 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
-import com.ibm.icu.dev.util.ArrayComparator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
 

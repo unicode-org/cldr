@@ -30,7 +30,6 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
-import com.ibm.icu.dev.util.XEquivalenceClass;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.UTF16;
 

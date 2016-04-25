@@ -13,16 +13,16 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.Tabber;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.ZoneInflections;
 
-import com.ibm.icu.dev.util.ArrayComparator;
-import com.ibm.icu.dev.util.Tabber;
 import com.ibm.icu.util.TimeZone;
 
 public class ShowZoneEquivalences {

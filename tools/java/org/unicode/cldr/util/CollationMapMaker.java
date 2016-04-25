@@ -22,7 +22,6 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.VariantFolder.CaseVariantFolder;
 
 import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.dev.util.XEquivalenceMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.CanonicalIterator;

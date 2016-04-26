@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -3414,6 +3415,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} 하계 표준시</regionFormat>
 			<regionFormat type="standard" draft="contributed">{0} 표준시</regionFormat>
 			<fallbackFormat>{1}({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity draft="contributed">산타 이사벨</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>알 수 없는 장소</exemplarCity>
 			</zone>
@@ -4178,9 +4182,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>티후아나</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity draft="contributed">산타 이사벨</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>에르모시요</exemplarCity>

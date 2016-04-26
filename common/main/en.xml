@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -1393,10 +1394,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<codePattern type="territory">Region: {0}</codePattern>
 		</codePatterns>
 		<annotationPatterns>
+			<annotationPattern type="combined">combined {0}</annotationPattern>
 			<annotationPattern type="emoji">emoji {0}</annotationPattern>
 			<annotationPattern type="flag">emoji flag for {0}</annotationPattern>
 			<annotationPattern type="keycap">emoji keycap for {0}</annotationPattern>
-			<annotationPattern type="combined">combined {0}</annotationPattern>
 		</annotationPatterns>
 	</localeDisplayNames>
 	<contextTransforms>
@@ -2143,6 +2144,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">'week' W 'of' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">'week' W 'of' MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
@@ -2154,10 +2157,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id='MMMMW' count='one'>'week' W 'of' MMM</dateFormatItem>
-						<dateFormatItem id='MMMMW' count='other'>'week' W 'of' MMM</dateFormatItem>
-						<dateFormatItem id='yw' count='one'>'week' w 'of' y</dateFormatItem>
-						<dateFormatItem id='yw' count='other'>'week' w 'of' y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'week' w 'of' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'week' w 'of' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>

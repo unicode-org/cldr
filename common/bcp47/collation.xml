@@ -68,7 +68,12 @@ For terms of use, see http://www.unicode.org/copyright.html
         </key>
 
         <key name="kr" description="Collation reorder codes" valueType="multiple" alias="colReorder" since="21">
-            <type name="REORDER_CODE" description="One or more collation reorder codes, see LDML Part 5: Collation" since="21"/>
+            <type name="space" description="Whitespace reordering code, see LDML Part 5: Collation" since="21"/>
+            <type name="punct" description="Punctuation reordering code, see LDML Part 5: Collation" since="21"/>
+            <type name="symbol" description="Symbol reordering code (other than currency), see LDML Part 5: Collation" since="21"/>
+            <type name="currency" description="Currency reordering code, see LDML Part 5: Collation" since="21"/>
+            <type name="digit" description="Digit (number) reordering code, see LDML Part 5: Collation" since="21"/>
+            <type name="REORDER_CODE" description="Other collation reorder code — for script, see LDML Part 5: Collation" since="21"/>
         </key>
 
         <key name="ks" description="Collation parameter key for collation strength" alias="colStrength">

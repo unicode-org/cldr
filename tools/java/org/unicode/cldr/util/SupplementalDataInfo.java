@@ -3547,6 +3547,23 @@ public class SupplementalDataInfo {
             }
             return result;
         }
+
+        public static FixedDecimal getNonZeroSampleIfPossible(FixedDecimalSamples exampleList) {
+            Set<FixedDecimalRange> sampleSet = exampleList.getSamples();
+            FixedDecimal sampleDecimal = null;
+            // skip 0 if possible
+            for (FixedDecimalRange range : sampleSet) {
+                sampleDecimal = range.start;
+                if (sampleDecimal.source != 0.0) {
+                    break;
+                }
+                sampleDecimal = range.end;
+                if (sampleDecimal.source != 0.0) {
+                    break;
+                }
+            }
+            return sampleDecimal;
+        }
     }
 
     /**

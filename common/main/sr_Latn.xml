@@ -983,7 +983,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Sortiranje prema obrnutim akcentima</key>
 			<key type="colCaseFirst" draft="contributed">Ređanje prema malom/velikom slovu</key>
 			<key type="colCaseLevel" draft="contributed">Sortiranje prema malom/velikom slovu</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Sortiranje prema kana simbolima</key>
 			<key type="collation">Sortiranje</key>
 			<key type="colNormalization" draft="contributed">Normalizovano sortiranje</key>
 			<key type="colNumeric" draft="contributed">Numeričko sortiranje</key>
@@ -995,7 +994,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">brojevi</key>
 			<key type="timezone" draft="contributed">Vremenska zona</key>
 			<key type="va" draft="contributed">Varijanta lokaliteta</key>
-			<key type="variableTop" draft="contributed">Sortiraj kao simbole</key>
 			<key type="x" draft="contributed">Privatna upotreba</key>
 		</keys>
 		<types>
@@ -1023,8 +1021,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Sortiraj prvo velika slova</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Sortiraj bez obzira na velika i mala slova</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Sortiraj mala i velika slova</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Sortiraj kana simbole odvojeno</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Sortiraj kana simbole drugačije</type>
 			<type key="collation" type="big5han">Tradicionalno kinesko sortiranje</type>
 			<type key="collation" type="dictionary" draft="contributed">Redosled sortiranja u rečniku</type>
 			<type key="collation" type="ducet" draft="contributed">Podrazumevani Unicode redosled sortiranja</type>

@@ -999,7 +999,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">വിപരീതക്രമ ആക്‌സന്റ് പ്രകാരമുള്ള അടുക്കൽ</key>
 			<key type="colCaseFirst">വലിയക്ഷര/ചെറിയക്ഷര പ്രകാരമുള്ള അടുക്കൽ</key>
 			<key type="colCaseLevel">കേസ് സെൻസിറ്റീവ് അടുക്കൽ</key>
-			<key type="colHiraganaQuaternary">Kana അടുക്കൽ</key>
 			<key type="collation">അടുക്കൽ ക്രമം</key>
 			<key type="colNormalization">സാധാരണ അടുക്കൽ</key>
 			<key type="colNumeric">അക്കങ്ങൾ പ്രകാരമുള്ള അടുക്കൽ</key>
@@ -1011,7 +1010,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">അക്കങ്ങൾ‌</key>
 			<key type="timezone">സമയ മേഖല</key>
 			<key type="va">ഭാഷാ ഭേദം</key>
-			<key type="variableTop">ചിഹ്നങ്ങളായി അടുക്കുക</key>
 			<key type="x">സ്വകാര്യ ഉപയോഗം</key>
 		</keys>
 		<types>
@@ -1039,8 +1037,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">ആദ്യം വലിയക്ഷരപ്രകാരം അടുക്കുക</type>
 			<type key="colCaseLevel" type="no">കേസ് സെൻസിറ്റീവ് പ്രകാരം അടുക്കുക</type>
 			<type key="colCaseLevel" type="yes">കേസ് സെൻസിറ്റീവ് അടുക്കുക</type>
-			<type key="colHiraganaQuaternary" type="no">Kana പ്രത്യേകം അടുക്കുക</type>
-			<type key="colHiraganaQuaternary" type="yes">Kana വ്യത്യസ്‌തമായി അടുക്കുക</type>
 			<type key="collation" type="big5han">പരമ്പരാഗത ചൈനീസ് ക്രമീകരണം - ബിഗ്5</type>
 			<type key="collation" type="dictionary" draft="contributed">നിഘണ്ടു അടുക്കൽ ക്രമം</type>
 			<type key="collation" type="ducet">സ്ഥിര യൂണികോഡ് അടുക്കൽ ക്രമം</type>

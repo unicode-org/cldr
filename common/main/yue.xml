@@ -1150,7 +1150,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">反向重音排序</key>
 			<key type="colCaseFirst" draft="contributed">大寫/小寫排列</key>
 			<key type="colCaseLevel" draft="contributed">區分大小寫排序</key>
-			<key type="colHiraganaQuaternary" draft="contributed">假名排序</key>
 			<key type="collation">排序</key>
 			<key type="colNormalization" draft="contributed">正規化排序</key>
 			<key type="colNumeric" draft="contributed">數字排序</key>
@@ -1162,7 +1161,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">數字</key>
 			<key type="timezone" draft="contributed">時區</key>
 			<key type="va" draft="contributed">區域變異</key>
-			<key type="variableTop" draft="contributed">以符號排序</key>
 			<key type="x" draft="contributed">專用區</key>
 		</keys>
 		<types>
@@ -1193,8 +1191,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">優先排序大寫</type>
 			<type key="colCaseLevel" type="no" draft="contributed">不分大小寫排序</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">依大小寫排序</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">個別排序假名</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">分別排序假名</type>
 			<type key="collation" type="big5han">繁體中文排序 - Big5</type>
 			<type key="collation" type="dictionary">字典排序</type>
 			<type key="collation" type="ducet">預設 Unicode 排序</type>

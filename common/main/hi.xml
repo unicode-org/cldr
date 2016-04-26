@@ -974,7 +974,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">विपरीत उच्‍चारण वर्गीकरण</key>
 			<key type="colCaseFirst" draft="contributed">अपरकेस/लोअरकेस क्रमांकन</key>
 			<key type="colCaseLevel" draft="contributed">केस संवेदी वर्गीकरण</key>
-			<key type="colHiraganaQuaternary" draft="contributed">काना वर्गीकरण</key>
 			<key type="collation">सॉर्ट क्रम</key>
 			<key type="colNormalization" draft="contributed">सामान्यीकृत वर्गीकरण</key>
 			<key type="colNumeric" draft="contributed">संख्यात्मक वर्गीकरण</key>
@@ -986,7 +985,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">संख्याएँ</key>
 			<key type="timezone" draft="contributed">समय क्षेत्र</key>
 			<key type="va" draft="contributed">स्थानीय प्रकार</key>
-			<key type="variableTop" draft="contributed">चिह्न के रूप में क्रमित करें</key>
 			<key type="x" draft="contributed">निजी-उपयोग</key>
 		</keys>
 		<types>
@@ -1014,8 +1012,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">पहले अपरकेस क्रमित करें</type>
 			<type key="colCaseLevel" type="no" draft="contributed">केस असंवेदी क्रमित करें</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">केस संवेदी को क्रमित करें</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">काना को अलग से क्रमित करें</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">काना को भिन्‍न रूप में क्रमित करें</type>
 			<type key="collation" type="big5han">पारम्पारिक चीनी वर्गीकरण</type>
 			<type key="collation" type="dictionary" draft="contributed">शब्दकोश क्रम विन्यास</type>
 			<type key="collation" type="ducet">डिफ़ॉल्ट यूनिकोड सॉर्ट क्रम</type>

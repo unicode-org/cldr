@@ -170,13 +170,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<keys>
 			<key type="colBackwards" draft="contributed">Ordenação de acentos invertida</key>
 			<key type="colCaseLevel" draft="contributed">Ordenação sensível a maiúsculas e minúsculas</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Ordenação kana</key>
 			<key type="colNormalization" draft="contributed">Ordenação normalizada</key>
 			<key type="colNumeric" draft="contributed">Ordenação numérica</key>
 			<key type="colStrength" draft="contributed">Força da ordenação</key>
 			<key type="hc" draft="contributed">Ciclo horário (12 vs. 24)</key>
 			<key type="ms" draft="contributed">Sistema de medida</key>
-			<key type="variableTop" draft="contributed">Ordenar como símbolos</key>
 			<key type="x" draft="contributed">Utilização privada</key>
 		</keys>
 		<types>
@@ -199,8 +197,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Ordenar por maiúsculas</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Ordenar insensível a maiúsculas/minúsculas</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Ordenar sensível a maiúsculas/minúsculas</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Ordenar kana separadamente</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Ordenar kana diferentemente</type>
 			<type key="collation" type="dictionary" draft="contributed">Ordenação do dicionário</type>
 			<type key="collation" type="ducet">Ordenação unicode predefinida</type>
 			<type key="collation" type="phonebook">Ordem da lista telefónica</type>

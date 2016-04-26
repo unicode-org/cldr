@@ -940,7 +940,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Röðun með viðsnúnum áherslum</key>
 			<key type="colCaseFirst">Röðun eftir hástöfum/lágstöfum</key>
 			<key type="colCaseLevel">Stafrétt röðun</key>
-			<key type="colHiraganaQuaternary">Kana-röðun</key>
 			<key type="collation">Röðun</key>
 			<key type="colNormalization">Stöðluð röðun</key>
 			<key type="colNumeric">Talnaröðun</key>
@@ -952,7 +951,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Tölur</key>
 			<key type="timezone">Tímabelti</key>
 			<key type="va">Landsstaðalsafbrigði</key>
-			<key type="variableTop">Raða sem táknum</key>
 			<key type="x">Einkanotkun</key>
 		</keys>
 		<types>
@@ -980,8 +978,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Raða hástöfum fyrst</type>
 			<type key="colCaseLevel" type="no">Raða óháð hástöfum og lágstöfum</type>
 			<type key="colCaseLevel" type="yes">Raða stafrétt</type>
-			<type key="colHiraganaQuaternary" type="no">Raða Kana sér</type>
-			<type key="colHiraganaQuaternary" type="yes">Raða Kana öðruvísi</type>
 			<type key="collation" type="big5han" draft="contributed">hefðbundin kínversk röðun - Big5</type>
 			<type key="collation" type="dictionary">Orðabókarröð</type>
 			<type key="collation" type="ducet">Sjálfgefin Unicode-röðun</type>

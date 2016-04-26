@@ -1144,7 +1144,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Atvirkštinis rikiavimas</key>
 			<key type="colCaseFirst">Didžiųjų / mažųjų raidžių tvarka</key>
 			<key type="colCaseLevel">Rikiavimas skiriant didžiąsias ir mažąsias raides</key>
-			<key type="colHiraganaQuaternary">Rikiavimas pagal kanos ženklus</key>
 			<key type="collation">rikiavimas</key>
 			<key type="colNormalization">Normalizuotas rikiavimas</key>
 			<key type="colNumeric">Skaitinis rikiavimas</key>
@@ -1156,7 +1155,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">skaičiai</key>
 			<key type="timezone">Laiko juosta</key>
 			<key type="va">Lokalės variantas</key>
-			<key type="variableTop">Rikiavimas simbolių principu</key>
 			<key type="x">Naudoti privačiai</key>
 		</keys>
 		<types>
@@ -1187,8 +1185,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Rikiuoti suteikiant pirmumą didžiosioms raidėms</type>
 			<type key="colCaseLevel" type="no">Rikiuoti neskiriant didžiųjų ir mažųjų raidžių</type>
 			<type key="colCaseLevel" type="yes">Rikiuoti skiriant didžiąsias ir mažąsias raides</type>
-			<type key="colHiraganaQuaternary" type="no">Rikiuoti kanos ženklus atskirai</type>
-			<type key="colHiraganaQuaternary" type="yes">Rikiuoti kanos ženklus kitaip</type>
 			<type key="collation" type="big5han">įprasta kiniška rūšiavimo tvarka - Big5</type>
 			<type key="collation" type="dictionary">žodyno rūšiavimo tvarka</type>
 			<type key="collation" type="ducet">numatytasis unikodo rikiavimas</type>

@@ -1008,7 +1008,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Orden de acentos con inversión</key>
 			<key type="colCaseFirst" draft="contributed">Orden de mayúsculas/minúsculas</key>
 			<key type="colCaseLevel" draft="contributed">Orden con distinción entre mayúsculas y minúsculas</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Orden de kana</key>
 			<key type="collation">orden</key>
 			<key type="colNormalization" draft="contributed">Orden con normalización</key>
 			<key type="colNumeric" draft="contributed">Orden numérico</key>
@@ -1020,7 +1019,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">números</key>
 			<key type="timezone" draft="contributed">Zona horaria</key>
 			<key type="va" draft="contributed">Variante local</key>
-			<key type="variableTop" draft="contributed">Ordenar como símbolos</key>
 			<key type="x" draft="contributed">Uso privado</key>
 		</keys>
 		<types>
@@ -1048,8 +1046,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Ordenar empezando por mayúsculas</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Ordenar sin distinguir entre mayúsculas y minúsculas</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Ordenar distinguiendo entre mayúsculas y minúsculas</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Ordenar caracteres kana por separado</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Ordenar diferenciando caracteres kana</type>
 			<type key="collation" type="big5han">orden del chino tradicional - Big5</type>
 			<type key="collation" type="dictionary">orden de clasificación del diccionario</type>
 			<type key="collation" type="ducet">orden de clasificación de Unicode predeterminado</type>

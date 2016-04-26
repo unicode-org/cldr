@@ -1031,7 +1031,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">зворотне сортування за діакритичними знаками</key>
 			<key type="colCaseFirst">порядок верхнього/нижнього регістру</key>
 			<key type="colCaseLevel" draft="contributed">сортування з урахуванням регістру</key>
-			<key type="colHiraganaQuaternary" draft="contributed">сортування кана</key>
 			<key type="collation">порядок сортування</key>
 			<key type="colNormalization" draft="contributed">уніфіковане сортування</key>
 			<key type="colNumeric" draft="contributed">цифрове сортування</key>
@@ -1043,7 +1042,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">цифри</key>
 			<key type="timezone" draft="contributed">часовий пояс</key>
 			<key type="va" draft="contributed">варіант мовного коду</key>
-			<key type="variableTop" draft="contributed">сортувати як символи</key>
 			<key type="x" draft="contributed">особисте використання</key>
 		</keys>
 		<types>
@@ -1071,8 +1069,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">сортувати спершу за великими символами</type>
 			<type key="colCaseLevel" type="no" draft="contributed">сортувати без урахування регістру</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">сортувати з урахуванням регістру</type>
-			<type key="colHiraganaQuaternary" type="no">сортувати кана окремо</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">сортувати за кана інакше</type>
 			<type key="collation" type="big5han">китайський традиційний порядок сортування Big5</type>
 			<type key="collation" type="compat" draft="contributed">попередній порядок сортування, для сумісності</type>
 			<type key="collation" type="dictionary">порядок сортування за словником</type>

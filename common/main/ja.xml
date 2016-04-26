@@ -1170,7 +1170,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">アクセント（逆方向）による並べ替え</key>
 			<key type="colCaseFirst" draft="contributed">大文字順/小文字順による並べ替え</key>
 			<key type="colCaseLevel" draft="contributed">大文字小文字を区別した並べ替え</key>
-			<key type="colHiraganaQuaternary" draft="contributed">仮名による並べ替え</key>
 			<key type="collation">並べ替え順序</key>
 			<key type="colNormalization">正規化による並べ替え</key>
 			<key type="colNumeric" draft="contributed">数値による並べ替え</key>
@@ -1182,7 +1181,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">数値書式</key>
 			<key type="timezone" draft="contributed">タイムゾーン</key>
 			<key type="va" draft="contributed">ロケールのバリアント</key>
-			<key type="variableTop" draft="contributed">記号として並べ替え</key>
 			<key type="x">私用</key>
 		</keys>
 		<types>
@@ -1213,8 +1211,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">大文字優先で並べ替え</type>
 			<type key="colCaseLevel" type="no" draft="contributed">大文字小文字を区別しないで並べ替え</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">大文字小文字を区別して並べ替え</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">仮名を区別しないで並べ替え</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">仮名を区別して並べ替え</type>
 			<type key="collation" type="big5han">繁体字中国語順(Big5)</type>
 			<type key="collation" type="dictionary">辞書順</type>
 			<type key="collation" type="ducet">ユニコード照合順</type>

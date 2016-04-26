@@ -1176,7 +1176,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">การจัดเรียงเสียงหนักเบาในลำดับถอยหลัง</key>
 			<key type="colCaseFirst" draft="contributed">การเรียงลำดับตัวพิมพ์ใหญ่/ตัวพิมพ์เล็ก</key>
 			<key type="colCaseLevel" draft="contributed">การจัดเรียงตามความสำคัญของตัวพิมพ์อักษร</key>
-			<key type="colHiraganaQuaternary" draft="contributed">การจัดเรียงตัวอักษรคะนะ</key>
 			<key type="collation">ลำดับการจัดเรียง</key>
 			<key type="colNormalization" draft="contributed">การจัดเรียงแบบที่เป็นปกติ</key>
 			<key type="colNumeric" draft="contributed">การจัดเรียงตัวเลข</key>
@@ -1188,7 +1187,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">ตัวเลข</key>
 			<key type="timezone" draft="contributed">เขตเวลา</key>
 			<key type="va" draft="contributed">ตัวแปรภาษาถิ่น</key>
-			<key type="variableTop" draft="contributed">จัดเรียงเป็นสัญลักษณ์</key>
 			<key type="x">ใช้งานส่วนบุคคล</key>
 		</keys>
 		<types>
@@ -1219,8 +1217,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">จัดเรียงตัวพิมพ์ใหญ่ก่อน</type>
 			<type key="colCaseLevel" type="no" draft="contributed">จัดเรียงตามความสำคัญของตัวพิมพ์</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">จัดเรียงความสำคัญของตัวพิมพ์</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">จัดเรียงตัวอักษรคะนะแยกต่างหาก</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">จัดเรียงตัวอักษรคะนะในแบบอื่น</type>
 			<type key="collation" type="big5han">เรียงตามอักษรจีนดั้งเดิม</type>
 			<type key="collation" type="dictionary" draft="contributed">เรียงตามพจนานุกรม</type>
 			<type key="collation" type="ducet">ลำดับการจัดเรียงตาม Unicode เริ่มต้น</type>

@@ -978,7 +978,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">વિપરીત એક્સેંટ સૉર્ટિંગ</key>
 			<key type="colCaseFirst">અપરકેસ/લોઅરકેસ ક્રમાંકન</key>
 			<key type="colCaseLevel">કેસ સંવેદી સૉર્ટિંગ</key>
-			<key type="colHiraganaQuaternary">કાના સૉર્ટિંગ</key>
 			<key type="collation">સૉર્ટ ક્રમ</key>
 			<key type="colNormalization">સામાન્ય સૉર્ટિંગ</key>
 			<key type="colNumeric">આંકડાકીય સૉર્ટિંગ</key>
@@ -990,7 +989,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">આંકડાઓ</key>
 			<key type="timezone">સમય ઝોન</key>
 			<key type="va">લોકેલ વેરિએન્ટ</key>
-			<key type="variableTop">પ્રતીકો તરીકે સૉર્ટ કરો</key>
 			<key type="x">ખાનગી-ઉપયોગ</key>
 		</keys>
 		<types>
@@ -1018,8 +1016,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">પ્રથમ અપરકેસ સૉર્ટ કરો</type>
 			<type key="colCaseLevel" type="no">કેસ સંવેદીને સૉર્ટ કરો</type>
 			<type key="colCaseLevel" type="yes">કેસ સંવેદી સૉર્ટ કરો</type>
-			<type key="colHiraganaQuaternary" type="no">કાનાને અલગ સૉર્ટ કરો</type>
-			<type key="colHiraganaQuaternary" type="yes">કાનાને અલગ રીતે સૉર્ટ કરો</type>
 			<type key="collation" type="big5han">પરંપરાગત ચાઇનિઝ સોર્ટ ક્રમબદ્ધ</type>
 			<type key="collation" type="dictionary">શબ્દકોશ અનુક્મ</type>
 			<type key="collation" type="ducet">ડિફોલ્ટ યુનિકોડ સૉર્ટ ક્રમ</type>

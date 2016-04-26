@@ -1145,7 +1145,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Umgekehrte Sortierung von Akzenten</key>
 			<key type="colCaseFirst" draft="contributed">Sortierung nach Groß- bzw. Kleinbuchstaben</key>
 			<key type="colCaseLevel" draft="contributed">Sortierung nach Groß- oder Kleinschreibung</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Kana-Sortierung</key>
 			<key type="collation">Sortierung</key>
 			<key type="colNormalization" draft="contributed">Normierte Sortierung</key>
 			<key type="colNumeric" draft="contributed">Sortierung nach Zahlen</key>
@@ -1157,7 +1156,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Zahlen</key>
 			<key type="timezone" draft="contributed">Zeitzone</key>
 			<key type="va" draft="contributed">Lokale Variante</key>
-			<key type="variableTop" draft="contributed">Nach Symbolen sortieren</key>
 			<key type="x">Privatnutzung</key>
 		</keys>
 		<types>
@@ -1188,8 +1186,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Großbuchstaben zuerst aufführen</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Ohne Groß-/Kleinschreibung sortieren</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Nach Groß-/Kleinschreibung sortieren</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Kana separat sortieren</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Kana anders sortieren</type>
 			<type key="collation" type="big5han">Traditionelles Chinesisch - Big5</type>
 			<type key="collation" type="dictionary">Lexikographische Sortierreihenfolge</type>
 			<type key="collation" type="ducet">Unicode-Sortierung</type>

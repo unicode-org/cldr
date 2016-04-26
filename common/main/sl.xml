@@ -970,7 +970,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Razvrščanje z obratnimi naglasi</key>
 			<key type="colCaseFirst" draft="contributed">Razvrščanje velike črke/male črke</key>
 			<key type="colCaseLevel" draft="contributed">Razvrščanje, občutljivo na velike/male črke</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Razvrščanje kana</key>
 			<key type="collation">razvrščanje</key>
 			<key type="colNormalization" draft="contributed">Normalizirano razvrščanje</key>
 			<key type="colNumeric" draft="contributed">Številsko razvrščanje</key>
@@ -982,7 +981,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">številke</key>
 			<key type="timezone" draft="contributed">Časovni pas</key>
 			<key type="va" draft="contributed">Različica območnih nastavitev</key>
-			<key type="variableTop" draft="contributed">Razvrščanje kot simboli</key>
 			<key type="x" draft="contributed">Private-Use</key>
 		</keys>
 		<types>
@@ -1010,8 +1008,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Razvrščanje velikih črk najprej</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Razvrščanje ne glede na velike/male črke</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Razvrščanje ob upoštevanju velikih/malih črk</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Razvrščanje kana ločeno</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Razvrščanje kana različno</type>
 			<type key="collation" type="big5han">razvrščanje po sistemu tradicionalne kitajščine - Big5</type>
 			<type key="collation" type="dictionary" draft="contributed">Vrstni red razvrščanja v slovarju</type>
 			<type key="collation" type="ducet">Privzeto razvrščanje Unicode</type>

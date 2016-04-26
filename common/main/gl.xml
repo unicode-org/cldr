@@ -640,7 +640,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Clasificación de acentos invertida</key>
 			<key type="colCaseFirst">Orde de maiúsculas/minúsculas</key>
 			<key type="colCaseLevel">Clasificación que distingue entre maiúsculas e minúsculas</key>
-			<key type="colHiraganaQuaternary">Clasificación Kana</key>
 			<key type="collation">Orde de clasificación</key>
 			<key type="colNormalization">Clasificación normalizada</key>
 			<key type="colNumeric">Clasificación numérica</key>
@@ -652,7 +651,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Números</key>
 			<key type="timezone">Fuso horario</key>
 			<key type="va">Variante local</key>
-			<key type="variableTop">Clasificar como símbolos</key>
 			<key type="x">Uso privado</key>
 		</keys>
 		<types>
@@ -681,8 +679,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Clasificar primeiro as maiúsculas</type>
 			<type key="colCaseLevel" type="no">Clasificar sen distinguir entre maiúsculas e minúsculas</type>
 			<type key="colCaseLevel" type="yes">Clasificar distinguindo entre maiúsculas e minúsculas</type>
-			<type key="colHiraganaQuaternary" type="no">Clasificar Kana por separado</type>
-			<type key="colHiraganaQuaternary" type="yes">Clasificar Kana de modo diferente</type>
 			<type key="collation" type="big5han">Orde de clasificación chinesa tradicional - Big5</type>
 			<type key="collation" type="dictionary">Criterio de ordenación do dicionario</type>
 			<type key="collation" type="ducet">Criterio de ordenación Unicode predeterminado</type>

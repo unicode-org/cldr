@@ -961,7 +961,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Ordonare inversă după accent</key>
 			<key type="colCaseFirst" draft="contributed">Ordonare după majuscule/minuscule</key>
 			<key type="colCaseLevel" draft="contributed">Ordonare care ține seama de majuscule/minuscule</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Ordonare după kana</key>
 			<key type="collation">ordine de sortare</key>
 			<key type="colNormalization" draft="contributed">Ordonare normalizată</key>
 			<key type="colNumeric" draft="contributed">Ordonare numerică</key>
@@ -973,7 +972,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">numere</key>
 			<key type="timezone" draft="contributed">Fusul orar</key>
 			<key type="va" draft="contributed">Varianta locală</key>
-			<key type="variableTop" draft="contributed">Ordonați ca simboluri</key>
 			<key type="x">Utilizare privată</key>
 		</keys>
 		<types>
@@ -1001,8 +999,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Ordonați mai întâi majusculele</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Ordonați neținând seama de diferența dintre majuscule/minuscule</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Ordonați ținând seama de diferența dintre majuscule/minuscule</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Ordonați caracterele kana separat</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Ordonați kana diferențiat</type>
 			<type key="collation" type="big5han">sortare pentru chineza tradițională - Big5</type>
 			<type key="collation" type="dictionary">Ordine de sortare a dicționarului</type>
 			<type key="collation" type="ducet">ordine de sortare Unicode implicită</type>

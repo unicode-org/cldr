@@ -968,7 +968,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">நேர்மறையான உச்சரிப்பு வரிசைபடுத்துதல்</key>
 			<key type="colCaseFirst">பெரெழுத்து/சிற்றெழுத்து வரிசைமுறை</key>
 			<key type="colCaseLevel">எழுத்து உணர்ந்து வரிசைபடுத்துதல்</key>
-			<key type="colHiraganaQuaternary">கானா வரிசைபடுத்துதல்</key>
 			<key type="collation">வரிசை முறை</key>
 			<key type="colNormalization">இயல்பாக்கப்பட்ட வரிசைபடுத்துதல்</key>
 			<key type="colNumeric">எண்முறை வரிசைபடுத்துதல்</key>
@@ -980,7 +979,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">எண்கள்</key>
 			<key type="timezone">நேர மண்டலம்</key>
 			<key type="va">மொழி மாறிலி</key>
-			<key type="variableTop">சின்னங்களாக வரிசைப்படுத்து</key>
 			<key type="x">தனிப்பட்ட பயன்</key>
 		</keys>
 		<types>
@@ -1008,8 +1006,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">முதலில் பேரெழுத்துகளை வரிசைப்படுத்து</type>
 			<type key="colCaseLevel" type="no">எழுத்து உணர்வின்றி வரிசைபடுத்து</type>
 			<type key="colCaseLevel" type="yes">எழுத்து உணர்வில் வரிசைபடுத்து</type>
-			<type key="colHiraganaQuaternary" type="no">கானாவை தனியாக வரிசைப்படுத்து</type>
-			<type key="colHiraganaQuaternary" type="yes">கானாவை வேறுபட்டதாக வரிசைப்படுத்து</type>
 			<type key="collation" type="big5han">பாரம்பரிய சீன வரிசை வடிவம் - Big5</type>
 			<type key="collation" type="dictionary">அகராதி வரிசை முறை</type>
 			<type key="collation" type="ducet">இயல்புநிலை யுனிகோட் வரிசை முறை</type>

@@ -1182,7 +1182,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Sortera accenter omvänt</key>
 			<key type="colCaseFirst" draft="contributed">Ordna efter versaler/gemener</key>
 			<key type="colCaseLevel" draft="contributed">Skiftlägeskänslig sortering</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Sortering efter kana</key>
 			<key type="collation">sorteringsordning</key>
 			<key type="colNormalization" draft="contributed">Normaliserad sortering</key>
 			<key type="colNumeric" draft="contributed">Numerisk sortering</key>
@@ -1194,7 +1193,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">siffror</key>
 			<key type="timezone" draft="contributed">Tidszon</key>
 			<key type="va" draft="contributed">Språkvariant</key>
-			<key type="variableTop" draft="contributed">Sortera som symboler</key>
 			<key type="x">privat</key>
 		</keys>
 		<types>
@@ -1225,8 +1223,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Sortera versaler först</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Sortera oavsett skiftläge</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Sortera efter skiftläge</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Sortera kana separat</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Sortera efter kana</type>
 			<type key="collation" type="big5han">big5-sorteringsordning</type>
 			<type key="collation" type="compat" draft="contributed">bakåtkompatibel sortering</type>
 			<type key="collation" type="dictionary">ordbokssorteringsordning</type>

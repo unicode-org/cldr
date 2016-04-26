@@ -1073,7 +1073,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Omvendt sortering efter accenter</key>
 			<key type="colCaseFirst" draft="contributed">Sortering efter store/små bogstaver</key>
 			<key type="colCaseLevel" draft="contributed">Sortering med forskel på små og store bogstaver</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Sortering efter kana</key>
 			<key type="collation">sorteringsrækkefølge</key>
 			<key type="colNormalization" draft="contributed">Normaliseret sortering</key>
 			<key type="colNumeric" draft="contributed">Numerisk sortering</key>
@@ -1085,7 +1084,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">tal</key>
 			<key type="timezone" draft="contributed">Tidszone</key>
 			<key type="va" draft="contributed">Sprogvariant</key>
-			<key type="variableTop" draft="contributed">Sortér som symboler</key>
 			<key type="x">Privatbrug</key>
 		</keys>
 		<types>
@@ -1116,8 +1114,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Sortér med store bogstaver først</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Sortér uden forskel på store og små bogstaver</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Sortér med skelnen mellem store og små bogstaver</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Sortér kana separat</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Sortér kana med forskel på varianter</type>
 			<type key="collation" type="big5han">sorteringsrækkefølge uforkortet kinesisk - Big5</type>
 			<type key="collation" type="dictionary">sorteringsrækkefølge for ordbog</type>
 			<type key="collation" type="ducet">Unicode-standardsortering</type>

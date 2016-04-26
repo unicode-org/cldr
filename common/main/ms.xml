@@ -695,7 +695,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Pengisihan Aksen Terbalik</key>
 			<key type="colCaseFirst">Penyusunan Huruf Besar/Huruf Kecil</key>
 			<key type="colCaseLevel">Pengisihan Sensitif Atur</key>
-			<key type="colHiraganaQuaternary">Pengisihan Kana</key>
 			<key type="collation">Urutan Isihan</key>
 			<key type="colNormalization">Pengisihan Ternormal</key>
 			<key type="colNumeric">Pengisihan Berangka</key>
@@ -707,7 +706,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Nombor</key>
 			<key type="timezone">Zon Waktu</key>
 			<key type="va">Varian Tempat</key>
-			<key type="variableTop">Isih Sebagai Simbol</key>
 			<key type="x">Penggunaan Peribadi</key>
 		</keys>
 		<types>
@@ -735,8 +733,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Isih Huruf Besar Dahulu</type>
 			<type key="colCaseLevel" type="no">Isih Tidak Sensitif Atur</type>
 			<type key="colCaseLevel" type="yes">Isih Sensitif Atur</type>
-			<type key="colHiraganaQuaternary" type="no">Isih Kana Berasingan</type>
-			<type key="colHiraganaQuaternary" type="yes">Isih Kana Secara Berbeza</type>
 			<type key="collation" type="big5han">Aturan Isih Cina Tradisional - Big5</type>
 			<type key="collation" type="dictionary">Aturan Isih Kamus</type>
 			<type key="collation" type="ducet">Aturan Isih Unikod Lalai</type>

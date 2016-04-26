@@ -1100,7 +1100,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Sắp xếp dấu trọng âm đảo ngược</key>
 			<key type="colCaseFirst" draft="contributed">Sắp xếp chữ hoa/chữ thường</key>
 			<key type="colCaseLevel" draft="contributed">Sắp xếp phân biệt chữ hoa/chữ thường</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Sắp xếp chữ Kana</key>
 			<key type="collation">Thứ tự sắp xếp</key>
 			<key type="colNormalization" draft="contributed">Sắp xếp theo chuẩn hóa</key>
 			<key type="colNumeric" draft="contributed">Sắp xếp theo số</key>
@@ -1112,7 +1111,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Số</key>
 			<key type="timezone" draft="contributed">Múi giờ</key>
 			<key type="va" draft="contributed">Biến thể ngôn ngữ</key>
-			<key type="variableTop" draft="contributed">Sắp xếp dưới dạng biểu tượng</key>
 			<key type="x">Sử dụng cá nhân</key>
 		</keys>
 		<types>
@@ -1143,8 +1141,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Sắp xếp chữ hoa đầu tiên</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Sắp xếp không phân biệt chữ hoa/chữ thường</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Sắp xếp phân biệt chữ hoa/chữ thường</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Sắp xếp chữ Kana riêng biệt</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Sắp xếp chữ Kana khác nhau</type>
 			<type key="collation" type="big5han">Thứ tự sắp xếp theo tiếng Trung phồn thể - Big5</type>
 			<type key="collation" type="dictionary">Thứ tự sắp xếp theo từ điển</type>
 			<type key="collation" type="ducet">Thứ tự sắp xếp unicode mặc định</type>

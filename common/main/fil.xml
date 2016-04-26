@@ -643,7 +643,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Pag-uuri-uri ng Baliktad na Accent</key>
 			<key type="colCaseFirst">Uppercase/Lowercase na Pagsusunud-sunod</key>
 			<key type="colCaseLevel">Case Sensitive na Pag-uuri-uri</key>
-			<key type="colHiraganaQuaternary">Pag-uuri-uri ng Kana</key>
 			<key type="collation">Pagkakasunud-sunod ng Ayos</key>
 			<key type="colNormalization">Normalized na Pag-uuri-uri</key>
 			<key type="colNumeric">Numeric na Pag-uuri-uri</key>
@@ -655,7 +654,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Mga Numero</key>
 			<key type="timezone">Time Zone</key>
 			<key type="va">Lokal na Variant</key>
-			<key type="variableTop">Pag-uri-uriin Bilang Mga Simbolo</key>
 			<key type="x">Pribadong Paggamit</key>
 		</keys>
 		<types>
@@ -683,8 +681,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Uppercase Muna ang Pag-uri-uriin</type>
 			<type key="colCaseLevel" type="no">Pag-uri-uriin ang Hindi Case Sensitive</type>
 			<type key="colCaseLevel" type="yes">Pag-uri-uriin ang Case Sensitive</type>
-			<type key="colHiraganaQuaternary" type="no">Pag-uri-uriin ang Kana nang Hiwalay</type>
-			<type key="colHiraganaQuaternary" type="yes">Pag-uri-uriin ang Kana nang Naiiba</type>
 			<type key="collation" type="big5han">Pagkakasunod-sunod ng Pag-uuri ng Tradisyunal na Chinese - Big5</type>
 			<type key="collation" type="dictionary">Pagkakasunud-sunod ng Pag-uuri ng Diksyunaryo</type>
 			<type key="collation" type="ducet">Default na Pagkakasunud-sunod ng Ayos ng Unicode</type>

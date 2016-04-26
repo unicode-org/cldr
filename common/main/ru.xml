@@ -1048,7 +1048,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Обратная сортировка по акценту</key>
 			<key type="colCaseFirst" draft="contributed">Сортировка по верхнему или нижнему регистру</key>
 			<key type="colCaseLevel" draft="contributed">Сортировка с учетом регистра</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Сортировка каны</key>
 			<key type="collation">порядок сортировки</key>
 			<key type="colNormalization" draft="contributed">Нормализованная сортировка</key>
 			<key type="colNumeric" draft="contributed">Сортировка чисел</key>
@@ -1060,7 +1059,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">цифры</key>
 			<key type="timezone" draft="contributed">Часовой пояс</key>
 			<key type="va" draft="contributed">Вариант региональных настроек</key>
-			<key type="variableTop" draft="contributed">Сортировать как символьный массив</key>
 			<key type="x" draft="contributed">Частное</key>
 		</keys>
 		<types>
@@ -1091,8 +1089,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Приоритетная сортировка слов в верхнем регистре</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Сортировка вне зависимости от регистра</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Сортировка с учетом регистра</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Отдельная сортировка каны</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Сортировка каны другим способом</type>
 			<type key="collation" type="big5han">Сортировка традиционного китайского языка – Big5</type>
 			<type key="collation" type="dictionary">словарный порядок сортировки</type>
 			<type key="collation" type="ducet">cтандартная сортировка Unicode</type>

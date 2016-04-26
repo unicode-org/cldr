@@ -648,7 +648,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Omgekeerde aksentsortering</key>
 			<key type="colCaseFirst">Hoofletters/kleinletters-sortering</key>
 			<key type="colCaseLevel">Kassensitiewe sortering</key>
-			<key type="colHiraganaQuaternary">Kana-sortering</key>
 			<key type="collation">Sorteervolgorde</key>
 			<key type="colNormalization">Genormaliseerde sortering</key>
 			<key type="colNumeric">Numeriese sortering</key>
@@ -660,7 +659,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Syfers</key>
 			<key type="timezone">Tydsone</key>
 			<key type="va">Lokaalvariant</key>
-			<key type="variableTop">Sorteer as simbole</key>
 			<key type="x">Privaat gebruik</key>
 		</keys>
 		<types>
@@ -688,8 +686,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Sorteer hoofletters eerste</type>
 			<type key="colCaseLevel" type="no">Sorteer nie kassensitief nie</type>
 			<type key="colCaseLevel" type="yes">Sorteer kassensitief</type>
-			<type key="colHiraganaQuaternary" type="no">Sorteer Kana afsonderlik</type>
-			<type key="colHiraganaQuaternary" type="yes">Sorteer Kana anders</type>
 			<type key="collation" type="big5han">Tradisionele Chinese sorteervolgorde - Groot5</type>
 			<type key="collation" type="dictionary">Woordeboek-sorteervolgorde</type>
 			<type key="collation" type="ducet">Verstek Unicode-sorteervolgorde</type>

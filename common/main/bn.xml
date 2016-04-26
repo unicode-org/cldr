@@ -965,7 +965,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">বিপরীত করা স্বরাঘাত বাছাইকরণ</key>
 			<key type="colCaseFirst" draft="contributed">বড়হাতের/ছোটহাতের অক্ষর ক্রম</key>
 			<key type="colCaseLevel" draft="contributed">কেস সংবেদী বাছাইকরণ</key>
-			<key type="colHiraganaQuaternary" draft="contributed">কানা বাছাইকরণ</key>
 			<key type="collation">বাছাই বিন্যাস</key>
 			<key type="colNormalization" draft="contributed">স্বাভাবিককৃত বাছাইকরণ</key>
 			<key type="colNumeric" draft="contributed">সংখ্যাসূচক বাছাইকরণ</key>
@@ -977,7 +976,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">সংখ্যাগুলি</key>
 			<key type="timezone">সময় জোন</key>
 			<key type="va" draft="contributed">স্থানীয় ভিন্নতা</key>
-			<key type="variableTop" draft="contributed">প্রতীক হিসেবে বাছাই করুন</key>
 			<key type="x" draft="contributed">বক্তিগত- ব্যবহার</key>
 		</keys>
 		<types>
@@ -1005,8 +1003,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">প্রথমে বড়হাতের অক্ষর বাছাই করুন</type>
 			<type key="colCaseLevel" type="no" draft="contributed">কেস অসংবেদী বাছাই করুন</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">কেস সংবেদী বাছাই করুন</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">কানা আলাদাভাবে বাছাই করুন</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">কানা ভিন্নভাবে বাছাই করুন</type>
 			<type key="collation" type="big5han">প্রথাগত চীনা সজ্জাক্রম - বিগ৫</type>
 			<type key="collation" type="dictionary" draft="contributed">অভিধান বাছাই বিন্যাস</type>
 			<type key="collation" type="ducet">ডিফল্ট ইউনিকোড বাছাই বিন্যাস</type>

@@ -623,7 +623,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Azentuen alderantzizko ordena</key>
 			<key type="colCaseFirst">Maiuskula/Minuskula ordena</key>
 			<key type="colCaseLevel">Maiuskulak eta minuskulak bereizten dituen ordena</key>
-			<key type="colHiraganaQuaternary">Kana ordena</key>
 			<key type="collation">Ordenatzeko irizpidea</key>
 			<key type="colNormalization">Araututako ordena</key>
 			<key type="colNumeric">Zenbakizko ordena</key>
@@ -632,7 +631,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Zenbakiak</key>
 			<key type="timezone">Ordu-zona</key>
 			<key type="va">Eskualdeko ezarpenen aldaera</key>
-			<key type="variableTop">Ordenatu ikur gisa</key>
 			<key type="x">Erabilera pribatua</key>
 		</keys>
 		<types>
@@ -660,8 +658,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Ordenatu maiuskulak lehenik</type>
 			<type key="colCaseLevel" type="no">Ordenatu maiuskulak eta minuskulak bereizi gabe</type>
 			<type key="colCaseLevel" type="yes">Ordenatu maiuskulak eta minuskulak bereizita</type>
-			<type key="colHiraganaQuaternary" type="no">Ordenatu kanak bereizita</type>
-			<type key="colHiraganaQuaternary" type="yes">Ordenatu kanak desberdin</type>
 			<type key="collation" type="big5han">Txinera tradizionalaren alfabetoa-Big5</type>
 			<type key="collation" type="dictionary">Hurrenkera alfabetikoa</type>
 			<type key="collation" type="ducet">Unicode hurrenkera lehenetsia</type>

@@ -1144,7 +1144,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">diakriitikute pöördjärjestus</key>
 			<key type="colCaseFirst">suur- ja väiketähe järjestus</key>
 			<key type="colCaseLevel">järjestuse tõstutundlikkus</key>
-			<key type="colHiraganaQuaternary">kana kirja järjestus</key>
 			<key type="collation">sortimisjärjestus</key>
 			<key type="colNormalization">normaliseeritud järjestus</key>
 			<key type="colNumeric">numbrite järjestus</key>
@@ -1156,7 +1155,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">numbrid</key>
 			<key type="timezone">ajavöönd</key>
 			<key type="va">lokaadi variant</key>
-			<key type="variableTop">sümbolite alusel järjestamine</key>
 			<key type="x">erakasutus</key>
 		</keys>
 		<types>
@@ -1184,8 +1182,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">suurtäht järjestuses eespool</type>
 			<type key="colCaseLevel" type="no">tõstutundetu järjestus</type>
 			<type key="colCaseLevel" type="yes">tõstutundlik järjestus</type>
-			<type key="colHiraganaQuaternary" type="no">järjesta kana eraldi</type>
-			<type key="colHiraganaQuaternary" type="yes">järjesta kana erinevalt</type>
 			<type key="collation" type="big5han">hiina traditsiooniline sortimisjärjestus (Big5)</type>
 			<type key="collation" type="compat">varasem sortimisjärjestus (ühilduvuse jaoks)</type>
 			<type key="collation" type="dictionary">sõnastiku sortimisjärjestus</type>

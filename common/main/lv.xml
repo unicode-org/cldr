@@ -949,7 +949,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Diakritisko zīmju kārtošana apgrieztā secībā</key>
 			<key type="colCaseFirst">Lielo/mazo burtu kārtošana</key>
 			<key type="colCaseLevel">Reģistrjutīgo rakstzīmju kārtošana</key>
-			<key type="colHiraganaQuaternary">Kana rakstzīmju kārtošana</key>
 			<key type="collation">Kārtošanas secība</key>
 			<key type="colNormalization">Normalizētā kārtošana</key>
 			<key type="colNumeric">Kārtošana skaitliskā secībā</key>
@@ -961,7 +960,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Cipari</key>
 			<key type="timezone">Laika josla</key>
 			<key type="va">Lokalizācijas variants</key>
-			<key type="variableTop">Kārtot kā simbolus</key>
 			<key type="x">Personīgai lietošanai</key>
 		</keys>
 		<types>
@@ -989,8 +987,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Kārtot pēc pirmā lielā burta</type>
 			<type key="colCaseLevel" type="no">Kārtot reģistrnejutīgas rakstzīmes</type>
 			<type key="colCaseLevel" type="yes">Kārtot reģistrjutīgās rakstzīmes</type>
-			<type key="colHiraganaQuaternary" type="no">Kārtot kana rakstzīmes atsevišķi</type>
-			<type key="colHiraganaQuaternary" type="yes">Kārtot kana rakstzīmes, norādot atšķirības</type>
 			<type key="collation" type="big5han">tradicionālās ķīniešu valodas kārtošanas secība - Big5</type>
 			<type key="collation" type="dictionary">Vārdnīcas kārtošanas secība</type>
 			<type key="collation" type="ducet">Noklusējuma unikoda kārtošanas secība</type>

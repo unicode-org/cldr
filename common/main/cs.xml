@@ -1104,7 +1104,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Obrácené řazení akcentů</key>
 			<key type="colCaseFirst" draft="contributed">Řazení velkých a malých písmen</key>
 			<key type="colCaseLevel" draft="contributed">Rozlišovaní velkých a malých písmen při řazení</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Řazení podle slabičných písem (kana)</key>
 			<key type="collation">Řazení</key>
 			<key type="colNormalization" draft="contributed">Normalizované řazení</key>
 			<key type="colNumeric" draft="contributed">Číselné řazení</key>
@@ -1116,7 +1115,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Čísla</key>
 			<key type="timezone">Časové pásmo</key>
 			<key type="va">Varianta národního prostředí</key>
-			<key type="variableTop">Řadit jako symboly</key>
 			<key type="x">Soukromé použití</key>
 		</keys>
 		<types>
@@ -1144,8 +1142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Nejdříve řadit velká písmena</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Nerozlišovat při řazení velká a malá písmena</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Rozlišovat při řazení velká a malá písmena</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Řadit slabičná písma (kana) samostatně</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Řadit jednotlivé typy slabičných písem (kana) různě</type>
 			<type key="collation" type="big5han">Řazení pro tradiční čínštinu – Big5</type>
 			<type key="collation" type="dictionary">Slovníkové řazení</type>
 			<type key="collation" type="ducet">Výchozí řazení Unicode</type>

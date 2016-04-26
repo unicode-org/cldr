@@ -1184,7 +1184,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Reversed Accent Sorting</key>
 			<key type="colCaseFirst">Uppercase/Lowercase Ordering</key>
 			<key type="colCaseLevel">Case Sensitive Sorting</key>
-			<key type="colHiraganaQuaternary">Kana Sorting</key>
 			<key type="collation">Sort Order</key>
 			<key type="colNormalization">Normalized Sorting</key>
 			<key type="colNumeric">Numeric Sorting</key>
@@ -1204,7 +1203,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="ss">Sentence Break Suppressions Type</key>
 			<key type="timezone">Time Zone</key>
 			<key type="va">Locale Variant</key>
-			<key type="variableTop">Sort As Symbols</key>
 			<key type="x">Private-Use</key>
 		</keys>
 		<types>
@@ -1237,8 +1235,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Sort Uppercase First</type>
 			<type key="colCaseLevel" type="no">Sort Case Insensitive</type>
 			<type key="colCaseLevel" type="yes">Sort Case Sensitive</type>
-			<type key="colHiraganaQuaternary" type="no">Sort Kana Separately</type>
-			<type key="colHiraganaQuaternary" type="yes">Sort Kana Differently</type>
 			<type key="collation" type="big5han">Traditional Chinese Sort Order - Big5</type>
 			<type key="collation" type="compat">Previous Sort Order, for compatibility</type>
 			<type key="collation" type="dictionary">Dictionary Sort Order</type>

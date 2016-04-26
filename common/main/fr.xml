@@ -1234,7 +1234,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Tri inversé des caractères accentués</key>
 			<key type="colCaseFirst" draft="contributed">Classement basé sur les majuscules et les minuscules</key>
 			<key type="colCaseLevel" draft="contributed">Tri sensible à la casse</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Tri des caractères Kana</key>
 			<key type="collation">ordre de tri</key>
 			<key type="colNormalization" draft="contributed">Tri normalisé</key>
 			<key type="colNumeric" draft="contributed">Tri numérique</key>
@@ -1246,7 +1245,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">nombres</key>
 			<key type="timezone" draft="contributed">Fuseau horaire</key>
 			<key type="va" draft="contributed">Variante locale</key>
-			<key type="variableTop" draft="contributed">Trier en tant que symboles</key>
 			<key type="x">Usage privé</key>
 		</keys>
 		<types>
@@ -1277,8 +1275,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Trier avec les majuscules d’abord</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Trier sans tenir compte de la casse</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Trier en tenant compte de la casse</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Trier les caractères Kana séparément</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Trier les caractères Kana différemment</type>
 			<type key="collation" type="big5han">Ordre chinois traditionnel - Big5</type>
 			<type key="collation" type="compat" draft="unconfirmed">ancien ordre de tri pour compatibilité</type>
 			<type key="collation" type="dictionary">Ordre du dictionnaire</type>

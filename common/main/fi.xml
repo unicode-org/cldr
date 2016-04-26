@@ -1195,7 +1195,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">painomerkkien lajittelu</key>
 			<key type="colCaseFirst">isojen ja pienten kirjainten järjestys</key>
 			<key type="colCaseLevel">aakkoslajien lajittelu</key>
-			<key type="colHiraganaQuaternary">kana-merkkien lajittelu</key>
 			<key type="collation">lajittelujärjestys</key>
 			<key type="colNormalization">lajittelun normalisointi</key>
 			<key type="colNumeric">numeroiden lajittelu</key>
@@ -1207,7 +1206,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">numerot</key>
 			<key type="timezone">aikavyöhyke</key>
 			<key type="va">maavalinnan muunnelma</key>
-			<key type="variableTop">lajittelu symboleina</key>
 			<key type="x">yksityiskäyttö</key>
 		</keys>
 		<types>
@@ -1238,8 +1236,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">isot kirjaimet edeltävät pieniä</type>
 			<type key="colCaseLevel" type="no">isojen ja pienten kirjainten lajittelu yhdessä</type>
 			<type key="colCaseLevel" type="yes">isojen ja pienten kirjainten lajittelu erikseen</type>
-			<type key="colHiraganaQuaternary" type="no">kana-merkkien lajittelu erillisinä</type>
-			<type key="colHiraganaQuaternary" type="yes">kana-merkkien lajittelu tyypin mukaan</type>
 			<type key="collation" type="big5han">perinteinen kiinalainen järjestys Big5</type>
 			<type key="collation" type="compat">aiempi lajittelujärjestys yhteensopivuutta varten</type>
 			<type key="collation" type="dictionary">sanakirjajärjestys</type>

@@ -1068,7 +1068,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">악센트 역순 정렬</key>
 			<key type="colCaseFirst" draft="contributed">대문자/소문자 순서</key>
 			<key type="colCaseLevel" draft="contributed">대/소문자 구분 정렬</key>
-			<key type="colHiraganaQuaternary" draft="contributed">가나 정렬</key>
 			<key type="collation">정렬 순서</key>
 			<key type="colNormalization" draft="contributed">표준 정렬</key>
 			<key type="colNumeric" draft="contributed">숫자 정렬</key>
@@ -1080,7 +1079,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">숫자</key>
 			<key type="timezone" draft="contributed">시간대</key>
 			<key type="va" draft="contributed">방언</key>
-			<key type="variableTop" draft="contributed">기호로 정렬</key>
 			<key type="x" draft="contributed">공개 여부</key>
 		</keys>
 		<types>
@@ -1108,8 +1106,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">대문자 우선 정렬</type>
 			<type key="colCaseLevel" type="no" draft="contributed">대/소문자 무시 정렬</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">대/소문자 구분 정렬</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">가나 별도 정렬</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">가나를 다르게 정렬</type>
 			<type key="collation" type="big5han">중국어 번체 정렬 순서 (Big5)</type>
 			<type key="collation" type="dictionary">사전 정렬순</type>
 			<type key="collation" type="ducet">기본 유니코드 정렬 순서</type>

@@ -930,7 +930,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">מיון לפי הטעמות בסדר הפוך</key>
 			<key type="colCaseFirst" draft="contributed">סידור לפי אותיות רישיות/קטנות</key>
 			<key type="colCaseLevel" draft="contributed">מיון תלוי רישיות</key>
-			<key type="colHiraganaQuaternary" draft="contributed">מיון קאנה</key>
 			<key type="collation">סדר מיון</key>
 			<key type="colNormalization" draft="contributed">מיון מנורמל</key>
 			<key type="colNumeric" draft="contributed">מיון לפי מספרים</key>
@@ -942,7 +941,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">מספרים</key>
 			<key type="timezone" draft="contributed">אזור זמן</key>
 			<key type="va" draft="contributed">משתנה אזור</key>
-			<key type="variableTop" draft="contributed">מיין כסמלים</key>
 			<key type="x" draft="contributed">שימוש פרטי</key>
 		</keys>
 		<types>
@@ -971,8 +969,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">מיין תחילה לפי אותיות רישיות</type>
 			<type key="colCaseLevel" type="no" draft="contributed">מיין באופן שאינו תלוי רישיות</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">מיין באופן תלוי רישיות</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">מיין קאנה בנפרד</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">מיין קאנה אחרת</type>
 			<type key="collation" type="big5han">מיון סינית מסורתית</type>
 			<type key="collation" type="dictionary" draft="contributed">סדר מיון במילון</type>
 			<type key="collation" type="ducet" draft="contributed">סדר מיון Unicode המוגדר כברירת מחדל</type>

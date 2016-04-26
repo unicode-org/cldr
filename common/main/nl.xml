@@ -1230,7 +1230,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Omgekeerd sorteren op accenten</key>
 			<key type="colCaseFirst" draft="contributed">Indelen op hoofdletters/kleine letters</key>
 			<key type="colCaseLevel" draft="contributed">Hoofdlettergevoelig sorteren</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Kana sorteren</key>
 			<key type="collation">sorteervolgorde</key>
 			<key type="colNormalization" draft="contributed">Genormaliseerd sorteren</key>
 			<key type="colNumeric" draft="contributed">Numeriek sorteren</key>
@@ -1242,7 +1241,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">cijfers</key>
 			<key type="timezone" draft="contributed">Tijdzone</key>
 			<key type="va" draft="contributed">Landvariant</key>
-			<key type="variableTop" draft="contributed">Sorteren als symbolen</key>
 			<key type="x" draft="contributed">Privégebruik</key>
 		</keys>
 		<types>
@@ -1273,8 +1271,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Eerst sorteren op hoofdletters</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Niet hoofdlettergevoelig sorteren</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Hoofdlettergevoelig sorteren</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Kana afzonderlijk sorteren</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Kana anders sorteren</type>
 			<type key="collation" type="big5han">Traditioneel-Chinese sorteervolgorde - Big5</type>
 			<type key="collation" type="compat" draft="contributed">vorige sorteervolgorde, voor compatibiliteit</type>
 			<type key="collation" type="dictionary">Woordenboeksorteervolgorde</type>

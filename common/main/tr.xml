@@ -1143,7 +1143,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Ters Aksan Sıralama</key>
 			<key type="colCaseFirst">Büyük/Küçük Harf Sıralama</key>
 			<key type="colCaseLevel">Büyük/Küçük Harfe Duyarlı Sıralama</key>
-			<key type="colHiraganaQuaternary">Kana Sıralaması</key>
 			<key type="collation">Sıralama Düzeni</key>
 			<key type="colNormalization">Normalleştirilmiş Sıralama</key>
 			<key type="colNumeric">Sayısal Sıralama</key>
@@ -1155,7 +1154,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Rakamlar</key>
 			<key type="timezone">Saat Dilimi</key>
 			<key type="va">Yerel Varyant</key>
-			<key type="variableTop">Sembollere Göre Sıralama</key>
 			<key type="x">Özel Kullanım</key>
 		</keys>
 		<types>
@@ -1186,8 +1184,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Önce Büyük Harfleri Sıralama</type>
 			<type key="colCaseLevel" type="no">Büyük/Küçük Harfe Duyarlı Olmadan Sıralama</type>
 			<type key="colCaseLevel" type="yes">Büyük/Küçük Harfe Duyarla Sıralama</type>
-			<type key="colHiraganaQuaternary" type="no">Kana’yı Ayrı Sıralama</type>
-			<type key="colHiraganaQuaternary" type="yes">Kana’yı Farklı Sıralama</type>
 			<type key="collation" type="big5han">Geleneksel Çince Sıralaması - Big5</type>
 			<type key="collation" type="dictionary">Sözlük Sıralama Düzeni</type>
 			<type key="collation" type="ducet">Saptanmış Unicode Sıralaması</type>

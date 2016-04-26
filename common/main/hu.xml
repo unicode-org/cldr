@@ -1040,7 +1040,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">Ékezetek fordított rendezése</key>
 			<key type="colCaseFirst" draft="contributed">Rendezés nagy- vagy kisbetűk szerint</key>
 			<key type="colCaseLevel" draft="contributed">Kisbetű-nagybetű érzékeny rendezés</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Kanák szerinti rendezés</key>
 			<key type="collation">Rendezési sorrend</key>
 			<key type="colNormalization" draft="contributed">Normalizált rendezés</key>
 			<key type="colNumeric" draft="contributed">Numerikus rendezés</key>
@@ -1052,7 +1051,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Számok</key>
 			<key type="timezone" draft="contributed">Időzóna</key>
 			<key type="va" draft="contributed">Földrajzi helyvariáns</key>
-			<key type="variableTop" draft="contributed">Rendezés szimbólumok szerint</key>
 			<key type="x">Privát használatra</key>
 		</keys>
 		<types>
@@ -1080,8 +1078,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Nagybetűs szavak rendezése előre</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Kis- és nagybetűket meg nem különböztető rendezés</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Rendezés kisbetű-nagybetű szerint</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Kanák rendezése külön</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Kanák megkülönböztető rendezése</type>
 			<type key="collation" type="big5han">Hagyományos kínai sorrend - Big5</type>
 			<type key="collation" type="dictionary">Szótári rendezési sorrend</type>
 			<type key="collation" type="ducet">Alapértelmezett Unicode rendezési sorrend</type>

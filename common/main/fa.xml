@@ -978,7 +978,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">مرتب‌سازی معکوس براساس آکسان</key>
 			<key type="colCaseFirst">ترتیب بر اساس حروف کوچک/بزرگ</key>
 			<key type="colCaseLevel">مرتب‌سازی حساس به اندازه حروف</key>
-			<key type="colHiraganaQuaternary">سیستم مرتب‌سازی کانا</key>
 			<key type="collation">ترتیب</key>
 			<key type="colNormalization">مرتب‌سازی معمولی</key>
 			<key type="colNumeric">مرتب‌سازی عددی</key>
@@ -990,7 +989,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">اعداد</key>
 			<key type="timezone">منطقه زمانی</key>
 			<key type="va">متغیر محلی</key>
-			<key type="variableTop">مرتب‌سازی به عنوان نماد</key>
 			<key type="x">استفادهٔ خصوصی</key>
 		</keys>
 		<types>
@@ -1021,8 +1019,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">مرتب‌سازی بر اساس حرف بزرگ در ابتدا</type>
 			<type key="colCaseLevel" type="no">مرتب‌سازی بدون توجه به کوچک و بزرگی حروف</type>
 			<type key="colCaseLevel" type="yes">مرتب‌سازی با حساسیت به اندازه حروف</type>
-			<type key="colHiraganaQuaternary" type="no">مرتب‌سازی بر اساس سیستم کانا به صورت جداگانه</type>
-			<type key="colHiraganaQuaternary" type="yes">مرتب‌سازی کانا به صورت متفاوت</type>
 			<type key="collation" type="big5han">ترتیب چینی سنتی - Big5</type>
 			<type key="collation" type="dictionary">ترتیب فرهنگ لغت</type>
 			<type key="collation" type="ducet">ترتیب پیش‌فرض یونی‌کد</type>

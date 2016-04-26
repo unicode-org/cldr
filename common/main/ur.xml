@@ -635,7 +635,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">معکوس تلفظ کی چھٹائی</key>
 			<key type="colCaseFirst">بڑے حروف/ چھوٹے حروف کی ترتیب بندی</key>
 			<key type="colCaseLevel">حروف کے تئیں حساس چھٹائی</key>
-			<key type="colHiraganaQuaternary">Kena چھٹائی</key>
 			<key type="collation">چھٹائی کی ترتیب</key>
 			<key type="colNormalization">معمول کی چھٹائی</key>
 			<key type="colNumeric">عددی چھٹائی</key>
@@ -647,7 +646,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">اعداد</key>
 			<key type="timezone">منطقۂ وقت</key>
 			<key type="va">مقام کا متغیرہ</key>
-			<key type="variableTop">بطور علامات چھٹائی کریں</key>
 			<key type="x">نجی-استعمال</key>
 		</keys>
 		<types>
@@ -675,8 +673,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">پہلے بالائی حروف کی چھٹائی کریں</type>
 			<type key="colCaseLevel" type="no">حروف کی عدم حساسیت کی چھٹائی کریں</type>
 			<type key="colCaseLevel" type="yes">حروف کے تئیں حساس کی چھٹائی کریں</type>
-			<type key="colHiraganaQuaternary" type="no">Kana کی چھٹائی الگ الگ کریں</type>
-			<type key="colHiraganaQuaternary" type="yes">Kana کی مختلف طریقے سے چھٹائی کریں</type>
 			<type key="collation" type="big5han">روایتی چینی کی چھٹائی کی ترتیب - Big5</type>
 			<type key="collation" type="dictionary">لغت کی چھٹنی کی ترتیب</type>
 			<type key="collation" type="ducet">ڈیفالٹ یونیکوڈ کی چھٹنی کی ترتیب</type>

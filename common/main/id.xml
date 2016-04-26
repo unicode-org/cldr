@@ -1094,7 +1094,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Penyortiran Aksen Terbalik</key>
 			<key type="colCaseFirst">Pengurutan Huruf Besar/Huruf Kecil</key>
 			<key type="colCaseLevel">Penyortiran Peka Huruf Besar</key>
-			<key type="colHiraganaQuaternary">Penyortiran Kana</key>
 			<key type="collation">Aturan Pengurutan</key>
 			<key type="colNormalization">Penyortiran Dinormalisasi</key>
 			<key type="colNumeric">Penyortiran Numerik</key>
@@ -1106,7 +1105,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">Angka</key>
 			<key type="timezone">Zona Waktu</key>
 			<key type="va">Varian Lokal</key>
-			<key type="variableTop">Sortir Sebagai Simbol</key>
 			<key type="x">Penggunaan Pribadi</key>
 		</keys>
 		<types>
@@ -1135,8 +1133,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Sortir Huruf Besar Dahulu</type>
 			<type key="colCaseLevel" type="no">Sortir Tidak Peka Huruf Besar</type>
 			<type key="colCaseLevel" type="yes">Sortir Peka Huruf Besar</type>
-			<type key="colHiraganaQuaternary" type="no">Sortir Kana Secara Terpisah</type>
-			<type key="colHiraganaQuaternary" type="yes">Sortir Kana Secara Berbeda</type>
 			<type key="collation" type="big5han">Urutan Sortir Tionghoa Tradisional - Big5</type>
 			<type key="collation" type="dictionary">Urutan Sortir Kamus</type>
 			<type key="collation" type="ducet">Aturan Pengurutan Unicode Default</type>

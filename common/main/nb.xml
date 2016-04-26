@@ -1232,7 +1232,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards" draft="contributed">omvendt sortering etter aksent</key>
 			<key type="colCaseFirst" draft="contributed">Organisering av store og små bokstaver</key>
 			<key type="colCaseLevel" draft="contributed">Sortering av store og små bokstaver</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Sortering av kana</key>
 			<key type="collation">sorteringsrekkefølge</key>
 			<key type="colNormalization" draft="contributed">Normalisert sortering</key>
 			<key type="colNumeric" draft="contributed">Numerisk sortering</key>
@@ -1244,7 +1243,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">tall</key>
 			<key type="timezone" draft="contributed">tidssone</key>
 			<key type="va" draft="contributed">Språkvariant</key>
-			<key type="variableTop" draft="contributed">Sortér som symboler</key>
 			<key type="x">privat bruk</key>
 		</keys>
 		<types>
@@ -1275,8 +1273,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Sortér store bokstaver først</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Sortér uavhengig av store og små bokstaver.</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Sortér med skille mellom små og store bokstaver</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Sortér kana separat</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Sortér med skille mellom forskjellige varianter av kana</type>
 			<type key="collation" type="big5han">tradisjonell kinesisk sortering - Big 5</type>
 			<type key="collation" type="compat" draft="contributed">forrige sorteringsrekkefølge (for kompatibilitet)</type>
 			<type key="collation" type="dictionary">ordlistesortering</type>

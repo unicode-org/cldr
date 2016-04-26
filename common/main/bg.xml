@@ -969,7 +969,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colBackwards">Сортиране по диакритични знаци в обратен ред</key>
 			<key type="colCaseFirst">Подреждане по горен/долен регистър</key>
 			<key type="colCaseLevel">Сортиране с различаване на регистъра на буквите</key>
-			<key type="colHiraganaQuaternary">Сортиране на кана</key>
 			<key type="collation">ред на сортиране</key>
 			<key type="colNormalization">Нормализирано сортиране</key>
 			<key type="colNumeric">Сортиране на цифрите</key>
@@ -981,7 +980,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="numbers">цифри</key>
 			<key type="timezone">Часова зона</key>
 			<key type="va">Вариант на локала</key>
-			<key type="variableTop">Сортиране като символи</key>
 			<key type="x">Собствена употреба</key>
 		</keys>
 		<types>
@@ -1009,8 +1007,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper">Сортиране първо по горен регистър</type>
 			<type key="colCaseLevel" type="no">Сортиране без различаване на регистъра на буквите</type>
 			<type key="colCaseLevel" type="yes">Сортиране с различаване на регистъра на буквите</type>
-			<type key="colHiraganaQuaternary" type="no">Сортиране на кана отделно</type>
-			<type key="colHiraganaQuaternary" type="yes">Сортиране на кана по различен начин</type>
 			<type key="collation" type="big5han">Традиционен китайски (Big5)</type>
 			<type key="collation" type="dictionary" draft="contributed">Речников ред на сортиране</type>
 			<type key="collation" type="ducet">стандартен ред на сортиране в Уникод</type>

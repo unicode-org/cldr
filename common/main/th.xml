@@ -695,6 +695,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">ฮังการีโบราณ</script>
 			<script type="Inds">อินดัส</script>
 			<script type="Ital">อิตาลีโบราณ</script>
+			<script type="Jamo" draft="contributed">จาโม</script>
 			<script type="Java">ชวา</script>
 			<script type="Jpan">ญี่ปุ่น</script>
 			<script type="Jurc" draft="contributed">จูร์เชน</script>
@@ -1242,6 +1243,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">จัดเรียงตามเสียงหนักเบา/ตัวพิมพ์/ความกว้าง/ตัวอักษรคะนะ</type>
 			<type key="colStrength" type="secondary" draft="contributed">จัดเรียงเสียงหนักเบา</type>
 			<type key="colStrength" type="tertiary" draft="contributed">จัดเรียงเสียงหนักเบา/ตัวพิมพ์/ความกว้าง</type>
+			<type key="d0" type="fwidth" draft="contributed">ตัวเต็ม</type>
+			<type key="d0" type="hwidth" draft="contributed">ตัวย่อ</type>
+			<type key="d0" type="npinyin" draft="contributed">ตัวเลข</type>
 			<type key="hc" type="h11">ระบบ 12 ชั่วโมง (0–11)</type>
 			<type key="hc" type="h12">ระบบ 12 ชั่วโมง (1–12)</type>
 			<type key="hc" type="h23">ระบบ 24 ชั่วโมง (0–23)</type>
@@ -1249,6 +1253,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">รูปแบบที่ยืดหยุ่นของการขึ้นบรรทัดใหม่</type>
 			<type key="lb" type="normal">รูปแบบปกติของการขึ้นบรรทัดใหม่</type>
 			<type key="lb" type="strict">รูปแบบที่เคร่งครัดของการขึ้นบรรทัดใหม่</type>
+			<type key="m0" type="bgn" draft="contributed">ชื่อมาตรฐานอังกฤษ (BGN)</type>
+			<type key="m0" type="ungegn" draft="contributed">ชื่อภูมิศาสตร์มาตรฐาน UN (UNGEGN)</type>
 			<type key="ms" type="metric">ระบบเมตริก</type>
 			<type key="ms" type="uksystem">ระบบการวัดอิมพีเรียล</type>
 			<type key="ms" type="ussystem">ระบบการวัดอเมริกัน</type>
@@ -1314,18 +1320,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">ตัวเลขแบบดั้งเดิม</type>
 			<type key="numbers" type="vaii" draft="contributed">ตัวเลขไว</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">ชื่อมาตรฐานอังกฤษ (BGN)</transformName>
-			<transformName type="Numeric" draft="contributed">ตัวเลข</transformName>
-			<transformName type="Tone" draft="contributed">ระดับเสียง</transformName>
-			<transformName type="UNGEGN" draft="contributed">ชื่อภูมิศาสตร์มาตรฐาน UN (UNGEGN)</transformName>
-			<transformName type="x-Accents" draft="contributed">สำเนียง</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">ตัวเต็ม</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">ตัวย่อ</transformName>
-			<transformName type="x-Jamo" draft="contributed">จาโม</transformName>
-			<transformName type="x-Pinyin" draft="contributed">พินอิน</transformName>
-			<transformName type="x-Publishing" draft="contributed">เพื่อเผยแพร่</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">เมตริก</measurementSystemName>
 			<measurementSystemName type="UK">สหราชอาณาจักร</measurementSystemName>

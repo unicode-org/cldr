@@ -560,6 +560,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">старомађарско писмо</script>
 			<script type="Inds">индушко писмо</script>
 			<script type="Ital">стари италик</script>
+			<script type="Jamo" draft="contributed">Џамо</script>
 			<script type="Java">јаванско писмо</script>
 			<script type="Jpan">јапанско писмо</script>
 			<script type="Kali">кајах-ли писмо</script>
@@ -1043,6 +1044,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Сортирај акценте/мала и велика слова/ширину/кана симболе</type>
 			<type key="colStrength" type="secondary" draft="contributed">Сортирај акценте</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Сортирај акценте/мала и велика слова/ширину</type>
+			<type key="d0" type="fwidth" draft="contributed">пуна ширина</type>
+			<type key="d0" type="hwidth" draft="contributed">пола ширине</type>
+			<type key="d0" type="npinyin" draft="contributed">Нумеричка</type>
 			<type key="hc" type="h11" draft="provisional">12-часовни систем (0-11)</type>
 			<type key="hc" type="h12" draft="provisional">12-часовни систем (1-12)</type>
 			<type key="hc" type="h23" draft="provisional">24-часовни систем (0-23)</type>
@@ -1050,6 +1054,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose" draft="provisional">loose</type>
 			<type key="lb" type="normal" draft="provisional">normal</type>
 			<type key="lb" type="strict" draft="provisional">strict</type>
+			<type key="m0" type="bgn" draft="contributed">БГН (BGN)</type>
+			<type key="m0" type="ungegn" draft="contributed">УНГЕГН (BGN)</type>
 			<type key="ms" type="metric" draft="provisional">метрички</type>
 			<type key="ms" type="uksystem" draft="provisional">uksystem</type>
 			<type key="ms" type="ussystem" draft="provisional">ussystem</type>
@@ -1094,18 +1100,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Традиционални бројеви</type>
 			<type key="numbers" type="vaii" draft="contributed">Ваи цифре</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">БГН (BGN)</transformName>
-			<transformName type="Numeric" draft="contributed">Нумеричка</transformName>
-			<transformName type="Tone" draft="contributed">Тон</transformName>
-			<transformName type="UNGEGN" draft="contributed">УНГЕГН (BGN)</transformName>
-			<transformName type="x-Accents" draft="contributed">Акценти</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">пуна ширина</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">пола ширине</transformName>
-			<transformName type="x-Jamo" draft="contributed">Џамо</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Пинјин</transformName>
-			<transformName type="x-Publishing" draft="contributed">Издавачки</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрички</measurementSystemName>
 			<measurementSystemName type="UK">УК</measurementSystemName>

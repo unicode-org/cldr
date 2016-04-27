@@ -581,6 +581,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">maghiară veche</script>
 			<script type="Inds">indus</script>
 			<script type="Ital">italică veche</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">javaneză</script>
 			<script type="Jpan">japoneză</script>
 			<script type="Kana">katakana</script>
@@ -1023,6 +1024,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Ordonați după accente/dimensiunea literei/lățime/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Ordonați după accent</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Ordonați după accente/dimensiunea literei/lățime</type>
+			<type key="d0" type="fwidth" draft="contributed">Cu lățime întreagă</type>
+			<type key="d0" type="hwidth" draft="contributed">Cu jumătate de lățime</type>
+			<type key="d0" type="npinyin" draft="contributed">Numeric</type>
 			<type key="hc" type="h11">sistem cu 12 ore (0–11)</type>
 			<type key="hc" type="h12">sistem cu 12 ore (0–12)</type>
 			<type key="hc" type="h23">sistem cu 24 de ore (0–23)</type>
@@ -1030,6 +1034,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">stil liber de întrerupere a liniei</type>
 			<type key="lb" type="normal">stil normal de întrerupere a liniei</type>
 			<type key="lb" type="strict">stil strict de întrerupere a liniei</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">sistemul metric</type>
 			<type key="ms" type="uksystem">sistemul imperial de unități de măsură</type>
 			<type key="ms" type="ussystem">sistemul american de unități de măsură</type>
@@ -1074,18 +1080,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Numere tradiționale</type>
 			<type key="numbers" type="vaii" draft="contributed">Cifre Vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numeric</transformName>
-			<transformName type="Tone" draft="contributed">Ton</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Accente</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Cu lățime întreagă</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Cu jumătate de lățime</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publicare</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metric</measurementSystemName>
 			<measurementSystemName type="UK">britanic</measurementSystemName>

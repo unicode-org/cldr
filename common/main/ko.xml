@@ -602,6 +602,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">고대 헝가리 문자</script>
 			<script type="Inds">인더스 문자</script>
 			<script type="Ital">고대 이탈리아 문자</script>
+			<script type="Jamo" draft="contributed">자모</script>
 			<script type="Java">자바 문자</script>
 			<script type="Jpan">일본 문자</script>
 			<script type="Jurc" draft="contributed">줄첸 문자</script>
@@ -1130,6 +1131,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">악센트/대소문자/전반각/가나 정렬</type>
 			<type key="colStrength" type="secondary" draft="contributed">악센트 정렬</type>
 			<type key="colStrength" type="tertiary" draft="contributed">악센트/대소문자/전반각 정렬</type>
+			<type key="d0" type="fwidth" draft="contributed">전각</type>
+			<type key="d0" type="hwidth" draft="contributed">반각</type>
+			<type key="d0" type="npinyin" draft="contributed">숫자</type>
 			<type key="hc" type="h11">12시간제(0–11)</type>
 			<type key="hc" type="h12">12시간제(1–12)</type>
 			<type key="hc" type="h23">24시간제(0–23)</type>
@@ -1137,6 +1141,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">줄바꿈 - 넓게</type>
 			<type key="lb" type="normal">줄바꿈 - 보통</type>
 			<type key="lb" type="strict">줄바꿈 - 좁게</type>
+			<type key="m0" type="bgn" draft="contributed">미국 지명위원회(BGN)</type>
+			<type key="m0" type="ungegn" draft="contributed">유엔지명전문가회의(UNGEGN)</type>
 			<type key="ms" type="metric">미터법</type>
 			<type key="ms" type="uksystem">야드파운드법</type>
 			<type key="ms" type="ussystem">미국 계량법</type>
@@ -1198,18 +1204,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">전통적인 숫자</type>
 			<type key="numbers" type="vaii" draft="contributed">바이 숫자</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">미국 지명위원회(BGN)</transformName>
-			<transformName type="Numeric" draft="contributed">숫자</transformName>
-			<transformName type="Tone" draft="contributed">성조</transformName>
-			<transformName type="UNGEGN" draft="contributed">유엔지명전문가회의(UNGEGN)</transformName>
-			<transformName type="x-Accents" draft="contributed">악센트</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">전각</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">반각</transformName>
-			<transformName type="x-Jamo" draft="contributed">자모</transformName>
-			<transformName type="x-Pinyin" draft="contributed">병음</transformName>
-			<transformName type="x-Publishing" draft="contributed">게시</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">미터법</measurementSystemName>
 			<measurementSystemName type="UK">영국식</measurementSystemName>

@@ -573,6 +573,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">பழைய ஹங்கேரியன்</script>
 			<script type="Inds">சிந்து</script>
 			<script type="Ital">பழைய இத்தாலி</script>
+			<script type="Jamo">ஜமோ</script>
 			<script type="Java">ஜாவனீஸ்</script>
 			<script type="Jpan">ஜப்பானியம்</script>
 			<script type="Kali">கயாஹ் லீ</script>
@@ -1029,6 +1030,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">உச்சரிப்புகள்/எழுத்து/அகலம்/கானாவை வரிசைப்படுத்து</type>
 			<type key="colStrength" type="secondary">உச்சரிப்புகளை வரிசைபடுத்து</type>
 			<type key="colStrength" type="tertiary">உச்சரிப்புகள்/எழுத்து/அகலத்தை வரிசைப்படுத்து</type>
+			<type key="d0" type="fwidth">முழு அகலம்</type>
+			<type key="d0" type="hwidth">அரை அகலம்</type>
+			<type key="d0" type="npinyin">எண்</type>
 			<type key="hc" type="h11">12 மணிநேர முறைமை (0–11)</type>
 			<type key="hc" type="h12">12 மணிநேர முறைமை (1–12)</type>
 			<type key="hc" type="h23">24 மணிநேர முறைமை (0–23)</type>
@@ -1036,6 +1040,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">தளர்வான வரி முறிப்பு ஸ்டைல்</type>
 			<type key="lb" type="normal">சாதாரண வரி முறிப்பு ஸ்டைல்</type>
 			<type key="lb" type="strict">கண்டிப்பான வரி முறிப்பு ஸ்டைல்</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">மெட்ரிக் முறை</type>
 			<type key="ms" type="uksystem">இம்பீரியல் அளவிடும் முறை</type>
 			<type key="ms" type="ussystem">அமெரிக்க அளவிடும் முறை</type>
@@ -1080,18 +1086,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">பாரம்பரிய எண்கள்</type>
 			<type key="numbers" type="vaii">வை எண்கள்</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">எண்</transformName>
-			<transformName type="Tone">டோன்</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">ஒலிப்புகள்</transformName>
-			<transformName type="x-Fullwidth">முழு அகலம்</transformName>
-			<transformName type="x-Halfwidth">அரை அகலம்</transformName>
-			<transformName type="x-Jamo">ஜமோ</transformName>
-			<transformName type="x-Pinyin">பின்யின்</transformName>
-			<transformName type="x-Publishing">வெளியிடுகிறது</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">மெட்ரிக்</measurementSystemName>
 			<measurementSystemName type="UK">யூகே</measurementSystemName>

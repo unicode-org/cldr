@@ -683,6 +683,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">staromaďarské</script>
 			<script type="Inds">harappské</script>
 			<script type="Ital">etruské</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">javánské</script>
 			<script type="Jpan">japonské</script>
 			<script type="Jurc">džürčenské</script>
@@ -1167,6 +1168,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Řadit akcenty/velká a malá písmena/šířku/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Řadit akcenty</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Řadit akcenty/velká a malá písmena/šířku</type>
+			<type key="d0" type="fwidth" draft="contributed">Plná šířka</type>
+			<type key="d0" type="hwidth" draft="contributed">Poloviční šířka</type>
+			<type key="d0" type="npinyin" draft="contributed">Numerický</type>
 			<type key="hc" type="h11">12hodinový systém (0–11)</type>
 			<type key="hc" type="h12">12hodinový systém (1–12)</type>
 			<type key="hc" type="h23">24hodinový systém (0–23)</type>
@@ -1174,6 +1178,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">Volný styl zalamování řádků</type>
 			<type key="lb" type="normal">Běžný styl zalamování řádků</type>
 			<type key="lb" type="strict">Striktní styl zalamování řádků</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">Metrická soustava</type>
 			<type key="ms" type="uksystem">Britská měrná soustava</type>
 			<type key="ms" type="ussystem">Americká měrná soustava</type>
@@ -1223,18 +1229,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Tradiční číslovky</type>
 			<type key="numbers" type="vaii">Vaiské číslice</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numerický</transformName>
-			<transformName type="Tone" draft="contributed">Tón</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Přízvuky</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Plná šířka</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Poloviční šířka</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin">Pchin-jin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publikování</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrický</measurementSystemName>
 			<measurementSystemName type="UK">Velká Británie</measurementSystemName>

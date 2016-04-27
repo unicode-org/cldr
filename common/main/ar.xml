@@ -590,6 +590,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">المجرية القديمة</script>
 			<script type="Inds">اندس - هارابان</script>
 			<script type="Ital">الإيطالية القديمة</script>
+			<script type="Jamo" draft="contributed">جامو</script>
 			<script type="Java">الجاوية</script>
 			<script type="Jpan">اليابانية</script>
 			<script type="Kali">الكياه لى</script>
@@ -1051,6 +1052,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">تصنيف اللكنات/الحالة/العرض/الكانا</type>
 			<type key="colStrength" type="secondary" draft="contributed">تصنيف اللكنات</type>
 			<type key="colStrength" type="tertiary" draft="contributed">تصنيف اللكنات/الحالة/العرض</type>
+			<type key="d0" type="fwidth" draft="contributed">عرض كامل</type>
+			<type key="d0" type="hwidth" draft="contributed">نصف العرض</type>
+			<type key="d0" type="npinyin" draft="contributed">رقمي</type>
 			<type key="hc" type="h11">نظام 12 ساعة (0–11)</type>
 			<type key="hc" type="h12">نظام 12 ساعة (1–12)</type>
 			<type key="hc" type="h23">نظام 24 ساعة (0–23)</type>
@@ -1058,6 +1062,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">نمط فصل السطور: متباعد</type>
 			<type key="lb" type="normal">نمط فصل السطور: عادي</type>
 			<type key="lb" type="strict">نمط فصل السطور: متقارب</type>
+			<type key="m0" type="bgn" draft="contributed">بي جي إن</type>
+			<type key="m0" type="ungegn" draft="contributed">يو إن جي إي جي إن</type>
 			<type key="ms" type="metric">نظام متري</type>
 			<type key="ms" type="uksystem">نظام المملكة المتحدة</type>
 			<type key="ms" type="ussystem">نظام الولايات المتحدة</type>
@@ -1102,18 +1108,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">أرقام تقليدية</type>
 			<type key="numbers" type="vaii" draft="contributed">أرقام فاي</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">بي جي إن</transformName>
-			<transformName type="Numeric" draft="contributed">رقمي</transformName>
-			<transformName type="Tone" draft="contributed">أسلوب</transformName>
-			<transformName type="UNGEGN" draft="contributed">يو إن جي إي جي إن</transformName>
-			<transformName type="x-Accents" draft="contributed">اللكنات</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">عرض كامل</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">نصف العرض</transformName>
-			<transformName type="x-Jamo" draft="contributed">جامو</transformName>
-			<transformName type="x-Pinyin" draft="contributed">بن يين</transformName>
-			<transformName type="x-Publishing" draft="contributed">نشر</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">النظام المتري</measurementSystemName>
 			<measurementSystemName type="UK">المملكة المتحدة</measurementSystemName>

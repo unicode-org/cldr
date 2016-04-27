@@ -267,6 +267,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">Салт. Кытай</script>
 			<script type="Hebr">Иврит</script>
 			<script type="Hira">Хирагана</script>
+			<script type="Jamo" draft="unconfirmed">Джамо</script>
 			<script type="Jpan">Жапан</script>
 			<script type="Kana">Катакана</script>
 			<script type="Khmr">Кмер</script>
@@ -615,6 +616,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="ducet">Демейки Unicode иргөө тартиби</type>
 			<type key="collation" type="search">Жалпы издөө</type>
 			<type key="collation" type="standard">Стандарттуу иргөө тартиби</type>
+			<type key="d0" type="fwidth" draft="unconfirmed">Кең формат</type>
+			<type key="d0" type="hwidth" draft="unconfirmed">Кыска формат</type>
+			<type key="d0" type="npinyin" draft="unconfirmed">Сандык</type>
 			<type key="hc" type="h11">12 сааттык тутум (0–11)</type>
 			<type key="hc" type="h12">12 сааттык тутум (1–12)</type>
 			<type key="hc" type="h23">24 сааттык тутум (0–23)</type>
@@ -661,16 +665,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="thai">тай сандары</type>
 			<type key="numbers" type="tibt">тибет сандары</type>
 		</types>
-		<transformNames>
-			<transformName type="Numeric" draft="unconfirmed">Сандык</transformName>
-			<transformName type="Tone" draft="unconfirmed">Тондук</transformName>
-			<transformName type="x-Accents" draft="unconfirmed">Диакриттик белгилер</transformName>
-			<transformName type="x-Fullwidth" draft="unconfirmed">Кең формат</transformName>
-			<transformName type="x-Halfwidth" draft="unconfirmed">Кыска формат</transformName>
-			<transformName type="x-Jamo" draft="unconfirmed">Джамо</transformName>
-			<transformName type="x-Pinyin" draft="unconfirmed">Пиньин</transformName>
-			<transformName type="x-Publishing" draft="unconfirmed">Басмаканалык</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрикалык өлчөө тутуму</measurementSystemName>
 			<measurementSystemName type="UK">Британия</measurementSystemName>

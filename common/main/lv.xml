@@ -577,6 +577,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hrkt">katakana vai hiragana</script>
 			<script type="Hung">senungāru</script>
 			<script type="Ital">vecitāļu</script>
+			<script type="Jamo">Džamo</script>
 			<script type="Java">javiešu</script>
 			<script type="Jpan">japāņu</script>
 			<script type="Kana">katakana</script>
@@ -1011,6 +1012,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Kārtot diakritiskās zīmes/reģistrjutīgās rakstzīmes/rakstzīmes pēc platuma/Kana rakstzīmes</type>
 			<type key="colStrength" type="secondary">Kārtot diakritiskās zīmes</type>
 			<type key="colStrength" type="tertiary">Kārtot diakritiskās zīmes/reģistrjutīgās rakstzīmes/rakstzīmes pēc platuma</type>
+			<type key="d0" type="fwidth">Pilna platuma</type>
+			<type key="d0" type="hwidth">Pusplatuma</type>
+			<type key="d0" type="npinyin">Ciparu</type>
 			<type key="hc" type="h11" draft="contributed">12 stundu sistēma (0–11)</type>
 			<type key="hc" type="h12" draft="contributed">12 stundu sistēma (1–12)</type>
 			<type key="hc" type="h23" draft="contributed">24 stundu sistēma (0–23)</type>
@@ -1018,6 +1022,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose" draft="contributed">Brīvais rindiņas pārtraukuma stils</type>
 			<type key="lb" type="normal" draft="contributed">Parastais rindiņas pārtraukuma stils</type>
 			<type key="lb" type="strict" draft="contributed">Stingrais rindiņas pārtraukuma stils</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric" draft="contributed">metriskā sistēma</type>
 			<type key="ms" type="uksystem" draft="contributed">britu mērvienību sistēma</type>
 			<type key="ms" type="ussystem" draft="contributed">amerikāņu mērvienību sistēma</type>
@@ -1062,18 +1068,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Tradicionālā ciparu sistēma</type>
 			<type key="numbers" type="vaii">VAI cipari</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Ciparu</transformName>
-			<transformName type="Tone">Intonācija</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Diakritiskās zīmes</transformName>
-			<transformName type="x-Fullwidth">Pilna platuma</transformName>
-			<transformName type="x-Halfwidth">Pusplatuma</transformName>
-			<transformName type="x-Jamo">Džamo</transformName>
-			<transformName type="x-Pinyin">Piņjiņ</transformName>
-			<transformName type="x-Publishing">Izdevējdarbība</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metriskā</measurementSystemName>
 			<measurementSystemName type="UK">angļu</measurementSystemName>

@@ -702,6 +702,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">Old Hungarian</script>
 			<script type="Inds">Indus</script>
 			<script type="Ital">Old Italic</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Java">Javanese</script>
 			<script type="Jpan">Japanese</script>
 			<script type="Jurc">Jurchen</script>
@@ -1262,6 +1263,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Sort Accents/Case/Width/Kana</type>
 			<type key="colStrength" type="secondary">Sort Accents</type>
 			<type key="colStrength" type="tertiary">Sort Accents/Case/Width</type>
+			<type key="d0" type="fwidth">Fullwidth</type>
+			<type key="d0" type="hwidth">Halfwidth</type>
+			<type key="d0" type="npinyin">Numeric</type>
 			<type key="em" type="default">Use Default Presentation For Emoji Characters</type>
 			<type key="em" type="emoji">Prefer Emoji Presentation For Emoji Characters</type>
 			<type key="em" type="text">Prefer Text Presentation For Emoji Characters</type>
@@ -1282,6 +1286,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lw" type="breakall">Allow Line Breaks In All Words</type>
 			<type key="lw" type="keepall">Prevent Line Breaks In All Words</type>
 			<type key="lw" type="normal">Normal Line Breaks For Words</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Metric System</type>
 			<type key="ms" type="uksystem">Imperial Measurement System</type>
 			<type key="ms" type="ussystem">US Measurement System</type>
@@ -1367,18 +1373,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="standard">Suppress Sentence Breaks After Standard Abbreviations</type>
 			<type key="va" type="posix">POSIX Compliant Locale</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Numeric</transformName>
-			<transformName type="Tone">Tone</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Accents</transformName>
-			<transformName type="x-Fullwidth">Fullwidth</transformName>
-			<transformName type="x-Halfwidth">Halfwidth</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Publishing</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 			<measurementSystemName type="UK">UK</measurementSystemName>

@@ -182,20 +182,23 @@ public class CLDRModify {
         }
 
         public static String getModified(ConfigMatch valueMatch, String value, ConfigMatch newValue) {
-            if (valueMatch == null) {
-                if (value == null) {
-                    throw new IllegalArgumentException("Can't have both old and new be null.");
+            if (valueMatch == null) { // match anything
+                if (newValue != null && newValue.exactMatch != null) {
+                    return newValue.exactMatch;
                 }
-                return value;
-            } else if (valueMatch.exactMatch == null) {
-                if (newValue == null) {
-                    throw new IllegalArgumentException("Can't have both regex without replacement.");
+                if (value != null) {
+                    return value;
+                }
+                throw new IllegalArgumentException("Can't have both old and new be null.");
+            } else if (valueMatch.exactMatch == null) { // regex
+                if (newValue == null || newValue.exactMatch == null) {
+                    throw new IllegalArgumentException("Can't have regex without replacement.");
                 }
                 StringBuffer buffer = new StringBuffer();
                 valueMatch.regexMatch.appendReplacement(buffer, newValue.exactMatch);
                 return buffer.toString();
             } else {
-                return value;
+                return newValue.exactMatch != null ? newValue.exactMatch : value;
             }
         }
     }
@@ -1975,7 +1978,7 @@ public class CLDRModify {
             new CLDRFilter() {
             private Map<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> locale2keyValues;
             private LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = new LinkedHashSet<Map<ConfigKeys, ConfigMatch>>();
-
+            private Matcher draftMatcher = Pattern.compile("\\[@draft=\"[^\"]+\"]").matcher("");
             @Override
             public void handleStart() {
                 super.handleStart();
@@ -2088,7 +2091,7 @@ public class CLDRModify {
                 };
                 myReader.process(CLDRModify.class, configFileName);
             }
-
+            
             @Override
             public void handlePath(String xpath) {
                 // slow method; could optimize
@@ -2111,7 +2114,15 @@ public class CLDRModify {
                         ConfigMatch newPath = entry.get(ConfigKeys.new_path);
                         ConfigMatch newValue = entry.get(ConfigKeys.new_value);
 
-                        String modPath = ConfigMatch.getModified(pathMatch, xpath, newPath);
+                        String fullpath = cldrFileToFilter.getFullXPath(xpath);
+                        String draft = "";
+                        int loc = fullpath.indexOf("[@draft=");
+                        if (loc >= 0) {
+                            int loc2 = fullpath.indexOf(']', loc+7);
+                            draft = fullpath.substring(loc, loc2+1);
+                        }
+
+                        String modPath = ConfigMatch.getModified(pathMatch, xpath, newPath) + draft;
                         String modValue = ConfigMatch.getModified(valueMatch, value, newValue);
                         replace(xpath, modPath, modValue, "config");
                     }

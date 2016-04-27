@@ -693,6 +693,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">senasis vengrų</script>
 			<script type="Inds">indus</script>
 			<script type="Ital">senasis italų</script>
+			<script type="Jamo">Jamo simboliai</script>
 			<script type="Java">javiečių</script>
 			<script type="Jpan">japonų</script>
 			<script type="Jurc">Jurchen</script>
@@ -1210,6 +1211,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Rikiuoti pagal didžiąsias ir mažąsias raides / plotį / diakritinius / kanos ženklus</type>
 			<type key="colStrength" type="secondary">Rikiuoti diakritinius ženklus</type>
 			<type key="colStrength" type="tertiary">Rikiuoti pagal diakritinius ženklus / didžiąsias ir mažąsias raides / plotį</type>
+			<type key="d0" type="fwidth">Viso pločio</type>
+			<type key="d0" type="hwidth">Vidutinio pločio</type>
+			<type key="d0" type="npinyin">Skaitinis</type>
 			<type key="hc" type="h11">12 valandų sistema (0–11)</type>
 			<type key="hc" type="h12">12 valandų sistema (1–12)</type>
 			<type key="hc" type="h23">24 valandų sistema (0–23)</type>
@@ -1217,6 +1221,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">laisvas teksto laužymo stilius</type>
 			<type key="lb" type="normal">įprastas teksto laužymo stilius</type>
 			<type key="lb" type="strict">griežtas teksto laužymo stilius</type>
+			<type key="m0" type="bgn">BGN simboliai</type>
+			<type key="m0" type="ungegn">UNGEGN simboliai</type>
 			<type key="ms" type="metric">metrinė sistema</type>
 			<type key="ms" type="uksystem">angliška matų sistema</type>
 			<type key="ms" type="ussystem">amerikietiška matų sistema</type>
@@ -1282,18 +1288,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Tradiciniai skaičiai</type>
 			<type key="numbers" type="vaii" draft="provisional">vai skaitmenys</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN simboliai</transformName>
-			<transformName type="Numeric">Skaitinis</transformName>
-			<transformName type="Tone">Tonas</transformName>
-			<transformName type="UNGEGN">UNGEGN simboliai</transformName>
-			<transformName type="x-Accents">Kirčiai</transformName>
-			<transformName type="x-Fullwidth">Viso pločio</transformName>
-			<transformName type="x-Halfwidth">Vidutinio pločio</transformName>
-			<transformName type="x-Jamo">Jamo simboliai</transformName>
-			<transformName type="x-Pinyin">Pinjino simboliai</transformName>
-			<transformName type="x-Publishing">Skelbimas</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrinė</measurementSystemName>
 			<measurementSystemName type="UK">JK</measurementSystemName>

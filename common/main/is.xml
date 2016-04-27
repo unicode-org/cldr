@@ -565,6 +565,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hebr">hebreskt</script>
 			<script type="Hira">hiragana</script>
 			<script type="Hrkt" draft="contributed">katakana eða hiragana</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Java" draft="unconfirmed">javanesíska</script>
 			<script type="Jpan">japanskt</script>
 			<script type="Kali" draft="unconfirmed">kayah li</script>
@@ -1002,6 +1003,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Raða áherslum/hástaf eða lágstaf/breidd/Kana</type>
 			<type key="colStrength" type="secondary">Raða áherslum</type>
 			<type key="colStrength" type="tertiary">Raða áherslum/hástaf eða lágstaf/breidd</type>
+			<type key="d0" type="fwidth">Full breidd</type>
+			<type key="d0" type="hwidth">Hálf breidd</type>
+			<type key="d0" type="npinyin">Tölulegur</type>
 			<type key="hc" type="h11">12 tíma kerfi (0–11)</type>
 			<type key="hc" type="h12">12 tíma kerfi (1–12)</type>
 			<type key="hc" type="h23">24 tíma kerfi (0–23)</type>
@@ -1009,6 +1013,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">Laus línuskipting</type>
 			<type key="lb" type="normal">Venjuleg línuskipting</type>
 			<type key="lb" type="strict">Ströng línuskipting</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Metrakerfi</type>
 			<type key="ms" type="uksystem">Breskt mælingakerfi</type>
 			<type key="ms" type="ussystem">Bandarískt mælingakerfi</type>
@@ -1053,18 +1059,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Hefðbundin tölutákn</type>
 			<type key="numbers" type="vaii">Vai-tölustafir</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Tölulegur</transformName>
-			<transformName type="Tone">Tónn</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Áherslur</transformName>
-			<transformName type="x-Fullwidth">Full breidd</transformName>
-			<transformName type="x-Halfwidth">Hálf breidd</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Birting</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrakerfi</measurementSystemName>
 			<measurementSystemName type="UK">breskt</measurementSystemName>

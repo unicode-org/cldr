@@ -309,6 +309,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">Tradisyonal na Han</script>
 			<script type="Hebr">Hebrew</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Jpan">Japanese</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khmr">Khmer</script>
@@ -704,6 +705,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Pag-uri-uriin ang Mga Accent/Case/Lapad/Kana</type>
 			<type key="colStrength" type="secondary">Pag-uri-uriin ang Mga Accent</type>
 			<type key="colStrength" type="tertiary">Pag-uri-uriin ang Mga Accent/Case/Lapad</type>
+			<type key="d0" type="fwidth">Fullwidth</type>
+			<type key="d0" type="hwidth">Halfwidth</type>
+			<type key="d0" type="npinyin">Numeric</type>
 			<type key="hc" type="h11">12 Oras na Sistema (0–11)</type>
 			<type key="hc" type="h12">12 Oras na Sistema (1–12)</type>
 			<type key="hc" type="h23">24 na Oras na Sistema (0–23)</type>
@@ -711,6 +715,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">Loose na Estilo ng Putol ng Linya</type>
 			<type key="lb" type="normal">Normal na Estilo ng Putol ng Linya</type>
 			<type key="lb" type="strict">Mahigpit na Estilo ng Putol ng Linya</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Metrikong Sistema</type>
 			<type key="ms" type="uksystem">Sistemang Imperial na Pagsukat</type>
 			<type key="ms" type="ussystem">Sistema ng Pagsukat sa US</type>
@@ -755,18 +761,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Mga Tradisyunal na Numeral</type>
 			<type key="numbers" type="vaii">Mga Vai na Digit</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Numeric</transformName>
-			<transformName type="Tone">Tono</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Accents</transformName>
-			<transformName type="x-Fullwidth">Fullwidth</transformName>
-			<transformName type="x-Halfwidth">Halfwidth</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Publishing</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metriko</measurementSystemName>
 			<measurementSystemName type="UK">UK</measurementSystemName>

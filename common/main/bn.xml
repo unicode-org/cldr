@@ -570,6 +570,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung" draft="contributed">পুরোনো হাঙ্গেরীয়</script>
 			<script type="Inds">সিন্ধু</script>
 			<script type="Ital" draft="contributed">প্রাচীন ইতালি</script>
+			<script type="Jamo" draft="contributed">জ্যামো</script>
 			<script type="Java">জাভানিজ</script>
 			<script type="Jpan">জাপানী</script>
 			<script type="Kali" draft="contributed">কায়াহ লি</script>
@@ -1026,6 +1027,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">স্বরাঘাত/কেস/প্রস্থ/কানা বাছাই করুন</type>
 			<type key="colStrength" type="secondary" draft="contributed">স্বরাঘাত বাছাই করুন</type>
 			<type key="colStrength" type="tertiary" draft="contributed">স্বরাঘাত/কেস/প্রস্থ বাছাই করুন</type>
+			<type key="d0" type="fwidth" draft="contributed">পূর্ণচওড়া</type>
+			<type key="d0" type="hwidth" draft="contributed">অর্ধচওড়া</type>
+			<type key="d0" type="npinyin" draft="contributed">সাংখিক</type>
 			<type key="hc" type="h11" draft="provisional">12 ঘণ্টার হিসাবে (0–11)</type>
 			<type key="hc" type="h12" draft="provisional">12 ঘণ্টার হিসাবে (1–12)</type>
 			<type key="hc" type="h23" draft="provisional">24 ঘণ্টার হিসাবে (0–23)</type>
@@ -1033,6 +1037,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose" draft="provisional">loose</type>
 			<type key="lb" type="normal" draft="provisional">normal</type>
 			<type key="lb" type="strict" draft="provisional">strict</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric" draft="provisional">metric</type>
 			<type key="ms" type="uksystem" draft="provisional">uksystem</type>
 			<type key="ms" type="ussystem" draft="provisional">ussystem</type>
@@ -1077,18 +1083,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">ঐতিহ্যগত সংখ্যাসূচক</type>
 			<type key="numbers" type="vaii" draft="contributed">ভাই সংখ্যা</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">সাংখিক</transformName>
-			<transformName type="Tone" draft="contributed">স্বরভঙ্গি</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">অ্যাসেন্টস</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">পূর্ণচওড়া</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">অর্ধচওড়া</transformName>
-			<transformName type="x-Jamo" draft="contributed">জ্যামো</transformName>
-			<transformName type="x-Pinyin" draft="contributed">পিনইন</transformName>
-			<transformName type="x-Publishing" draft="contributed">প্রকাশনা</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">মেট্রিক</measurementSystemName>
 			<measurementSystemName type="UK">ইউকে</measurementSystemName>

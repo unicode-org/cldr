@@ -568,6 +568,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">čínske tradičné</script>
 			<script type="Hebr">hebrejské</script>
 			<script type="Hira">hiragana</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Jpan">japonské</script>
 			<script type="Kana">katakana</script>
 			<script type="Khmr">khmérske</script>
@@ -967,6 +968,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Radiť akcenty/veľké a malé písmená/šírku/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Radiť akcenty</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Radiť akcenty/veľké a malé písmená/šírku</type>
+			<type key="d0" type="fwidth" draft="contributed">Celá šírka</type>
+			<type key="d0" type="hwidth" draft="contributed">Polovičná šírka</type>
+			<type key="d0" type="npinyin" draft="contributed">Číslice</type>
 			<type key="hc" type="h11">12-hodinový cyklus (0 – 11)</type>
 			<type key="hc" type="h12">12-hodinový cyklus (1 – 12)</type>
 			<type key="hc" type="h23">24-hodinový cyklus (0 – 23)</type>
@@ -974,6 +978,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">voľný štýl koncov riadka</type>
 			<type key="lb" type="normal">bežný štýl koncov riadka</type>
 			<type key="lb" type="strict">presný štýl koncov riadka</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">metrická sústava</type>
 			<type key="ms" type="uksystem">britská merná sústava</type>
 			<type key="ms" type="ussystem">americká merná sústava</type>
@@ -1018,18 +1024,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Tradičné číslovky</type>
 			<type key="numbers" type="vaii" draft="contributed">Vaiské číslice</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Číslice</transformName>
-			<transformName type="Tone" draft="contributed">Tón</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Diakritika</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Celá šírka</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Polovičná šírka</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Uverejnenie</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrický</measurementSystemName>
 			<measurementSystemName type="UK">britský</measurementSystemName>

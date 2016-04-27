@@ -594,6 +594,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">പുരാതന ഹംഗേറിയൻ</script>
 			<script type="Inds">സിന്ധു</script>
 			<script type="Ital">പഴയ ഇറ്റാലിയൻ</script>
+			<script type="Jamo" draft="contributed">ജാമോ</script>
 			<script type="Java">ജാവനീസ്</script>
 			<script type="Jpan">ജാപ്പനീസ്</script>
 			<script type="Kali">കയാ ലി</script>
@@ -1060,6 +1061,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">ആക്‌സന്റുകൾ/കേസ്/വീതി/Kana അടുക്കുക</type>
 			<type key="colStrength" type="secondary">ആക്‌സന്റുകൾ അടുക്കുക</type>
 			<type key="colStrength" type="tertiary">ആക്‌സന്റുകൾ/കേസ്/വീതി അടുക്കുക</type>
+			<type key="d0" type="fwidth" draft="contributed">പൂർണവീതി</type>
+			<type key="d0" type="hwidth" draft="contributed">ഹാഫ്‍വിഡ്ത്ത്</type>
+			<type key="d0" type="npinyin" draft="contributed">സംഖ്യാപരമായ</type>
 			<type key="hc" type="h11">12 മണിക്കൂർ സംവിധാനം (0–11)</type>
 			<type key="hc" type="h12">12 മണിക്കൂർ സംവിധാനം (1–12)</type>
 			<type key="hc" type="h23">24 മണിക്കൂർ സംവിധാനം (0–23)</type>
@@ -1067,6 +1071,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">അനിയന്ത്രിത രേഖാ വിഭാജി ശൈലി</type>
 			<type key="lb" type="normal">സാധാരണ രേഖാ വിഭാജി ശൈലി</type>
 			<type key="lb" type="strict">നിയന്ത്രിത രേഖാ വിഭാജി ശൈലി</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">മെട്രിക്ക് സംവിധാനം</type>
 			<type key="ms" type="uksystem">ബ്രിട്ടീഷ് അളക്കൽ സംവിധാനം</type>
 			<type key="ms" type="ussystem">യുഎസ് അളക്കൽ സംവിധാനം</type>
@@ -1111,18 +1117,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">സാധാരണയായി ഉപയോഗിച്ചുവരുന്ന സംഖ്യകൾ</type>
 			<type key="numbers" type="vaii">വായ് സംഖ്യകൾ</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">സംഖ്യാപരമായ</transformName>
-			<transformName type="Tone" draft="contributed">ശബ്ദം</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">ആൿസൻറുകൾ‌</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">പൂർണവീതി</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">ഹാഫ്‍വിഡ്ത്ത്</transformName>
-			<transformName type="x-Jamo" draft="contributed">ജാമോ</transformName>
-			<transformName type="x-Pinyin" draft="contributed">പിൻയിൻ</transformName>
-			<transformName type="x-Publishing" draft="contributed">പ്രസിദ്ധീകരിക്കുന്നു</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">മെട്രിക്ക്</measurementSystemName>
 			<measurementSystemName type="UK">യുകെ</measurementSystemName>

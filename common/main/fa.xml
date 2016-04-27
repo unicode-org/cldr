@@ -583,6 +583,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">مجاری باستان</script>
 			<script type="Inds" draft="contributed">ایندوس</script>
 			<script type="Ital">ایتالی باستان</script>
+			<script type="Jamo">جامو</script>
 			<script type="Java">جاوه‌ای</script>
 			<script type="Jpan">ژاپنی</script>
 			<script type="Kali" draft="contributed">کایالی</script>
@@ -1043,6 +1044,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">مرتب‌سازی بر اساس آکسان/اندازه حروف/عرض/کانا</type>
 			<type key="colStrength" type="secondary">مرتب‌سازی آکسان‌ها</type>
 			<type key="colStrength" type="tertiary">مرتب‌سازی بر اساس آکسان/اندازه حرف/عرض</type>
+			<type key="d0" type="fwidth">تمام‌عرض</type>
+			<type key="d0" type="hwidth">نیم‌عرض</type>
+			<type key="d0" type="npinyin">سیستم اعداد</type>
 			<type key="hc" type="h11">سیستم ۱۲ ساعته (۰ تا ۱۱)</type>
 			<type key="hc" type="h12">سیستم ۱۲ ساعته (۱ تا ۱۲)</type>
 			<type key="hc" type="h23">سیستم ۲۴ ساعته (۰ تا ۲۳)</type>
@@ -1050,6 +1054,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">شیوهٔ ضعیف اعمال سرخط</type>
 			<type key="lb" type="normal">شیوهٔ عادی اعمال سرخط</type>
 			<type key="lb" type="strict">شیوهٔ قوی اعمال سرخط</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">دستگاه متریک</type>
 			<type key="ms" type="uksystem">دستگاه اندازه‌گیری بریتانیایی</type>
 			<type key="ms" type="ussystem">دستگاه اندازه‌گیری امریکایی</type>
@@ -1097,18 +1103,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">سیستم اعداد سنتی</type>
 			<type key="numbers" type="vaii">ارقام وایی</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">سیستم اعداد</transformName>
-			<transformName type="Tone">تون</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">تکیه</transformName>
-			<transformName type="x-Fullwidth">تمام‌عرض</transformName>
-			<transformName type="x-Halfwidth">نیم‌عرض</transformName>
-			<transformName type="x-Jamo">جامو</transformName>
-			<transformName type="x-Pinyin">پین‌یین</transformName>
-			<transformName type="x-Publishing">نشر</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">متریک</measurementSystemName>
 			<measurementSystemName type="UK">بریتانیایی</measurementSystemName>

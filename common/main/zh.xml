@@ -601,6 +601,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">古匈牙利文</script>
 			<script type="Inds">古希腊哈拉潘</script>
 			<script type="Ital">古意大利文</script>
+			<script type="Jamo">韩文字母</script>
 			<script type="Java">爪哇文</script>
 			<script type="Jpan">日文</script>
 			<script type="Jurc">女真文</script>
@@ -1133,6 +1134,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">对重音/大小写/长度/假名进行排序</type>
 			<type key="colStrength" type="secondary" draft="contributed">对重音进行排序</type>
 			<type key="colStrength" type="tertiary" draft="contributed">对重音/大小写/长度进行排序</type>
+			<type key="d0" type="fwidth">全角</type>
+			<type key="d0" type="hwidth">半角</type>
+			<type key="d0" type="npinyin">数字</type>
 			<type key="hc" type="h11">12小时制（0–11）</type>
 			<type key="hc" type="h12">12小时制（1–12）</type>
 			<type key="hc" type="h23">24小时制（0–23）</type>
@@ -1140,6 +1144,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose" draft="contributed">宽</type>
 			<type key="lb" type="normal" draft="contributed">默认</type>
 			<type key="lb" type="strict" draft="contributed">窄</type>
+			<type key="m0" type="bgn">美国地名委员会 (BGN)</type>
+			<type key="m0" type="ungegn">联合国地名专家组 (UNGEGN)</type>
 			<type key="ms" type="metric">公制</type>
 			<type key="ms" type="uksystem">英制</type>
 			<type key="ms" type="ussystem">美制</type>
@@ -1199,18 +1205,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">传统数字</type>
 			<type key="numbers" type="vaii">瓦伊文数字</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">美国地名委员会 (BGN)</transformName>
-			<transformName type="Numeric">数字</transformName>
-			<transformName type="Tone">音调</transformName>
-			<transformName type="UNGEGN">联合国地名专家组 (UNGEGN)</transformName>
-			<transformName type="x-Accents">重音符号</transformName>
-			<transformName type="x-Fullwidth">全角</transformName>
-			<transformName type="x-Halfwidth">半角</transformName>
-			<transformName type="x-Jamo">韩文字母</transformName>
-			<transformName type="x-Pinyin">拼音</transformName>
-			<transformName type="x-Publishing">印刷体</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">公制</measurementSystemName>
 			<measurementSystemName type="UK">英制</measurementSystemName>

@@ -399,6 +399,9 @@ public class TestPathHeader extends TestFmwkPlus {
                 } else if (section == SectionId.Timezones
                     && page == PageId.UnknownT) {
                     // skip
+                } else if (section == SectionId.Misc
+                    && page == PageId.Transforms) {
+                    // skip
                 } else {
 
                     int count2 = cachedPaths.size();

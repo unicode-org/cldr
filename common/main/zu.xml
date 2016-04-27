@@ -304,6 +304,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">i-Traditional Han</script>
 			<script type="Hebr">i-Hebrew</script>
 			<script type="Hira">i-Hiragana</script>
+			<script type="Jamo">i-Jamo</script>
 			<script type="Jpan">i-Japanese</script>
 			<script type="Kana">i-Katakana</script>
 			<script type="Khmr">i-Khmer</script>
@@ -695,6 +696,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Hlola Ukuphimisela/Ukuma kwezinhlamvu/Ububanzi/i-Kana</type>
 			<type key="colStrength" type="secondary">Hlela Ukuphimisela</type>
 			<type key="colStrength" type="tertiary">Hlela Ukuphimisela/Ukuma kwezinhlamvu/Ububanzi</type>
+			<type key="d0" type="fwidth">i-Fullwidth</type>
+			<type key="d0" type="hwidth">Ubude obuhhafu</type>
+			<type key="d0" type="npinyin">Okwezinombolo</type>
 			<type key="hc" type="h11">isistimu yamahora angu-12 (0-11)</type>
 			<type key="hc" type="h12">isistimu yamahora angu-12 (1-12)</type>
 			<type key="hc" type="h23">isistimu yamahora angu-24 (0-23)</type>
@@ -702,6 +706,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">i-Line Break Style exegayo</type>
 			<type key="lb" type="normal">i-Line Break Style ekahle</type>
 			<type key="lb" type="strict">i-Line Break Style enomthetho oqinile</type>
+			<type key="m0" type="bgn">I-BGN</type>
+			<type key="m0" type="ungegn">I-UNGEGN</type>
 			<type key="ms" type="metric">isistimu ye-Metric</type>
 			<type key="ms" type="uksystem">isistimu yokulinganisa ebusayo</type>
 			<type key="ms" type="ussystem">isistimu yokulinganisa yase-US</type>
@@ -746,18 +752,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Izinombolo Ezijwayelekile</type>
 			<type key="numbers" type="vaii">Izinhlazu Zezinombolo ze-Vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">I-BGN</transformName>
-			<transformName type="Numeric">Okwezinombolo</transformName>
-			<transformName type="Tone">Ithoni</transformName>
-			<transformName type="UNGEGN">I-UNGEGN</transformName>
-			<transformName type="x-Accents">Ama-Accent</transformName>
-			<transformName type="x-Fullwidth">i-Fullwidth</transformName>
-			<transformName type="x-Halfwidth">Ubude obuhhafu</transformName>
-			<transformName type="x-Jamo">i-Jamo</transformName>
-			<transformName type="x-Pinyin">i-Pinyin</transformName>
-			<transformName type="x-Publishing">Ukushicilela</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">i-Metric</measurementSystemName>
 			<measurementSystemName type="UK">i-UK</measurementSystemName>

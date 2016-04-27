@@ -365,6 +365,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">Han Tradisional</script>
 			<script type="Hebr">Ibrani</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Jpan">Jepun</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khmr">Khmer</script>
@@ -756,6 +757,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Isih Aksen/Atur/Lebar/Kana</type>
 			<type key="colStrength" type="secondary">Isih Aksen</type>
 			<type key="colStrength" type="tertiary">Isih Aksen/Atur/Lebar</type>
+			<type key="d0" type="fwidth">Kelebaran penuh</type>
+			<type key="d0" type="hwidth">Kelebaran separa</type>
+			<type key="d0" type="npinyin">Bernombor</type>
 			<type key="hc" type="h11">Sistem 12 Jam (0–11)</type>
 			<type key="hc" type="h12">Sistem 12 Jam (1–12)</type>
 			<type key="hc" type="h23">Sistem 24 Jam (0–23)</type>
@@ -763,6 +767,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">Gaya Pemisah Baris Bebas</type>
 			<type key="lb" type="normal">Gaya Pemisah Baris Biasa</type>
 			<type key="lb" type="strict">Gaya Pemisah Baris Ketat</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Sistem Metrik</type>
 			<type key="ms" type="uksystem">Sistem Ukuran Imperial</type>
 			<type key="ms" type="ussystem">Sistem Ukuran AS</type>
@@ -807,18 +813,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Angka Tradisional</type>
 			<type key="numbers" type="vaii">Digit Vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Bernombor</transformName>
-			<transformName type="Tone">Nada</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Aksen</transformName>
-			<transformName type="x-Fullwidth">Kelebaran penuh</transformName>
-			<transformName type="x-Halfwidth">Kelebaran separa</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Penerbitan</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
 			<measurementSystemName type="UK">UK</measurementSystemName>

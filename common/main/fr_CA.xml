@@ -21,6 +21,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<scripts>
 			<script type="Deva" draft="contributed">devanagari</script>
 			<script type="Gujr" draft="contributed">gujarati</script>
+			<script type="Jamo" draft="unconfirmed">jamo</script>
 		</scripts>
 		<territories>
 			<territory type="151">Europe orientale</territory>
@@ -42,12 +43,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="mong" draft="contributed">Chiffres mongols</type>
 			<type key="numbers" type="taml">chiffres tamouls traditionnels</type>
 		</types>
-		<transformNames>
-			<transformName type="x-Accents" draft="unconfirmed">accents</transformName>
-			<transformName type="x-Jamo" draft="unconfirmed">jamo</transformName>
-			<transformName type="x-Pinyin" draft="unconfirmed">pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Édition</transformName>
-		</transformNames>
 	</localeDisplayNames>
 	<dates>
 		<calendars>

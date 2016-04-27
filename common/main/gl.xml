@@ -311,6 +311,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">Han tradicional</script>
 			<script type="Hebr">Hebreo</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Jpan">Xaponés</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khmr">Camboxano</script>
@@ -702,6 +703,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Clasificar acentos/maiúsculas e minúsculas/ancho/kana</type>
 			<type key="colStrength" type="secondary">Clasificar acentos</type>
 			<type key="colStrength" type="tertiary">Clasificar acentos/maiúsculas e minúsculas/ancho</type>
+			<type key="d0" type="fwidth">Ancho completo</type>
+			<type key="d0" type="hwidth">Ancho medio</type>
+			<type key="d0" type="npinyin">Numérico</type>
 			<type key="hc" type="h11">Sistema de 12 horas (0–11)</type>
 			<type key="hc" type="h12">Sistema de 12 horas (1–12)</type>
 			<type key="hc" type="h23">Sistema de 24 horas (0–23)</type>
@@ -709,6 +713,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">Estilo de quebra de liña separada</type>
 			<type key="lb" type="normal">Estilo de quebra de liña normal</type>
 			<type key="lb" type="strict">Estilo de quebra de liña estrita</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Sistema métrico</type>
 			<type key="ms" type="uksystem">Sistema imperial de unidades</type>
 			<type key="ms" type="ussystem">Sistema de unidades dos EUA</type>
@@ -753,18 +759,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Numeros tradicionais</type>
 			<type key="numbers" type="vaii">Díxitos Vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Numérico</transformName>
-			<transformName type="Tone">Ton</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Acentos</transformName>
-			<transformName type="x-Fullwidth">Ancho completo</transformName>
-			<transformName type="x-Halfwidth">Ancho medio</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Publicación</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">métrico decimal</measurementSystemName>
 			<measurementSystemName type="UK">británico</measurementSystemName>

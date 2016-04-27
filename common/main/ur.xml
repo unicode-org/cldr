@@ -305,6 +305,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">روایتی ہان</script>
 			<script type="Hebr">عبرانی</script>
 			<script type="Hira">ہیراگینا</script>
+			<script type="Jamo">جامو</script>
 			<script type="Jpan">جاپانی</script>
 			<script type="Kana">کٹاکانا</script>
 			<script type="Khmr">خمیر</script>
@@ -696,6 +697,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">لہجہ/ بڑے چھوٹے حروف/چوڑائی/Kana کی چھٹائی کریں</type>
 			<type key="colStrength" type="secondary">لہجوں کی چھٹائی کریں</type>
 			<type key="colStrength" type="tertiary">لہجوں/حروف/چوڑائی کی چھٹائی کریں</type>
+			<type key="d0" type="fwidth">پورا عرض</type>
+			<type key="d0" type="hwidth">نصف عرض</type>
+			<type key="d0" type="npinyin">عددی</type>
 			<type key="hc" type="h11">12 گھنٹے کا نظام (0–11)</type>
 			<type key="hc" type="h12">12 گھنٹے کا نظام (1–12)</type>
 			<type key="hc" type="h23">24 گھنٹے کا نظام (0–23)</type>
@@ -703,6 +707,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">ڈھیلا لائن بریک انداز</type>
 			<type key="lb" type="normal">عمومی لائن بریک انداز</type>
 			<type key="lb" type="strict">سخت لائن بریک انداز</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric" draft="provisional">میٹرک نظام</type>
 			<type key="ms" type="uksystem">پیمائش کا امپیریل نظام</type>
 			<type key="ms" type="ussystem">پیمائش کا برطانوی نظام</type>
@@ -747,18 +753,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">روایتی اعداد</type>
 			<type key="numbers" type="vaii">وائی ہندسے</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">عددی</transformName>
-			<transformName type="Tone">ٹون</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">لہجے</transformName>
-			<transformName type="x-Fullwidth">پورا عرض</transformName>
-			<transformName type="x-Halfwidth">نصف عرض</transformName>
-			<transformName type="x-Jamo">جامو</transformName>
-			<transformName type="x-Pinyin">پن یِن</transformName>
-			<transformName type="x-Publishing">اشاعت</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">میٹرک</measurementSystemName>
 			<measurementSystemName type="UK">سلطنت متحدہ</measurementSystemName>

@@ -688,6 +688,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">古代ハンガリー文字</script>
 			<script type="Inds">インダス文字</script>
 			<script type="Ital">古イタリア文字</script>
+			<script type="Jamo" draft="contributed">字母</script>
 			<script type="Java">ジャワ文字</script>
 			<script type="Jpan">日本語の文字</script>
 			<script type="Jurc">女真文字</script>
@@ -1236,6 +1237,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">アクセント/大文字小文字/全角半角/仮名で並べ替え</type>
 			<type key="colStrength" type="secondary" draft="contributed">アクセントで並べ替え</type>
 			<type key="colStrength" type="tertiary" draft="contributed">アクセント/大文字小文字/全角半角で並べ替え</type>
+			<type key="d0" type="fwidth" draft="contributed">全角</type>
+			<type key="d0" type="hwidth" draft="contributed">半角</type>
+			<type key="d0" type="npinyin" draft="contributed">数字</type>
 			<type key="hc" type="h11">12時間制(0〜11)</type>
 			<type key="hc" type="h12">12時間制(1〜12)</type>
 			<type key="hc" type="h23">24時間制(0〜23)</type>
@@ -1243,6 +1247,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">禁則処理(弱)</type>
 			<type key="lb" type="normal">禁則処理(標準)</type>
 			<type key="lb" type="strict">禁則処理(強)</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">メートル法</type>
 			<type key="ms" type="uksystem">ヤード・ポンド法</type>
 			<type key="ms" type="ussystem">米慣習単位</type>
@@ -1308,18 +1314,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">従来の記数法</type>
 			<type key="numbers" type="vaii">ヴァイ文字の記数法</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">数字</transformName>
-			<transformName type="Tone" draft="contributed">声調</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">アクセント</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">全角</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">半角</transformName>
-			<transformName type="x-Jamo" draft="contributed">字母</transformName>
-			<transformName type="x-Pinyin" draft="contributed">ピンイン</transformName>
-			<transformName type="x-Publishing" draft="contributed">出版</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">メートル法</measurementSystemName>
 			<measurementSystemName type="UK">英ヤード・ポンド法</measurementSystemName>

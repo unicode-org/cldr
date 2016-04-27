@@ -600,6 +600,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">старовенгерская</script>
 			<script type="Inds" draft="contributed">хараппская (письменность долины Инда)</script>
 			<script type="Ital">староитальянская</script>
+			<script type="Jamo" draft="contributed">Джамо</script>
 			<script type="Java">яванская</script>
 			<script type="Jpan">японская</script>
 			<script type="Jurc" draft="contributed">чжурчжэньская</script>
@@ -1114,6 +1115,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Сортировка по акцентам/регистрам/длине строки/кане</type>
 			<type key="colStrength" type="secondary" draft="contributed">Сортировка по акцентам</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Сортировка по акцентам/регистру/длине строки</type>
+			<type key="d0" type="fwidth" draft="contributed">Широкие символы</type>
+			<type key="d0" type="hwidth" draft="contributed">Краткий формат</type>
+			<type key="d0" type="npinyin" draft="contributed">Числовая</type>
 			<type key="hc" type="h11">12-часовая система (0-11)</type>
 			<type key="hc" type="h12">12-часовая система (1-12)</type>
 			<type key="hc" type="h23">24-часовая система (0-23)</type>
@@ -1121,6 +1125,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">мягкий перевод строки</type>
 			<type key="lb" type="normal">обычный перевод строки</type>
 			<type key="lb" type="strict">жесткий перевод строки</type>
+			<type key="m0" type="bgn" draft="contributed">Палата географических названий США</type>
+			<type key="m0" type="ungegn" draft="contributed">Группа экспертов ООН по географическим названиям</type>
 			<type key="ms" type="metric">метрическая система</type>
 			<type key="ms" type="uksystem">британская система мер</type>
 			<type key="ms" type="ussystem">американская система мер</type>
@@ -1186,18 +1192,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Традиционная система нумерации</type>
 			<type key="numbers" type="vaii" draft="contributed">Цифры языка вай</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">Палата географических названий США</transformName>
-			<transformName type="Numeric" draft="contributed">Числовая</transformName>
-			<transformName type="Tone" draft="contributed">Тоновая</transformName>
-			<transformName type="UNGEGN" draft="contributed">Группа экспертов ООН по географическим названиям</transformName>
-			<transformName type="x-Accents" draft="contributed">Диакритические знаки</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Широкие символы</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Краткий формат</transformName>
-			<transformName type="x-Jamo" draft="contributed">Джамо</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Пиньин</transformName>
-			<transformName type="x-Publishing" draft="contributed">Типографская</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрическая</measurementSystemName>
 			<measurementSystemName type="UK">Английская</measurementSystemName>

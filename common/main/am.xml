@@ -411,6 +411,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hebr">እብራይስጥ</script>
 			<script type="Hira">ሂራጋና</script>
 			<script type="Hrkt" draft="unconfirmed">ካታካና ወይንም ሂራጋና</script>
+			<script type="Jamo">ጃሞ</script>
 			<script type="Jpan">ጃፓንኛ</script>
 			<script type="Kana">ካታካና</script>
 			<script type="Khmr">ክህመር</script>
@@ -818,6 +819,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">የፊደል ጭረቶች/መልከፊደል/ስፋት/ካና ደርድር</type>
 			<type key="colStrength" type="secondary">የፊደል ጭረቶችን ደርድር</type>
 			<type key="colStrength" type="tertiary">የፊደል ጭረቶች/መልከፊደል/ስፋት ደርድር</type>
+			<type key="d0" type="fwidth">ሙሉ ወርድ</type>
+			<type key="d0" type="hwidth">ሃልፍዊድዝ</type>
+			<type key="d0" type="npinyin">አሃዛዊ</type>
 			<type key="hc" type="h11">የ12 ሰዓት ስርዓት (0–11)</type>
 			<type key="hc" type="h12">የ12 ሰዓት ስርዓት (1–12)</type>
 			<type key="hc" type="h23">የ24 ሰዓት ስርዓት (0–23)</type>
@@ -825,6 +829,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">ላላ ያለ መስመር መስበሪያ ቅጥ</type>
 			<type key="lb" type="normal">መደበኛ መስመር መስበሪያ ቅጥ</type>
 			<type key="lb" type="strict">ጠበቅ ያለ መስመር መስበሪያ ቅጥ</type>
+			<type key="m0" type="bgn">ቢ ጂ ኤን</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">የልኬት ስርዓት</type>
 			<type key="ms" type="uksystem">ኢምፔሪያል የመለኪያ ስርዓት</type>
 			<type key="ms" type="ussystem">የአሜሪካ መለኪያ ስርዓት</type>
@@ -869,18 +875,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">ተለምዷዊ ቁጥሮች</type>
 			<type key="numbers" type="vaii">የቫይ አሃዞች</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">ቢ ጂ ኤን</transformName>
-			<transformName type="Numeric">አሃዛዊ</transformName>
-			<transformName type="Tone">የድምፅ ቃና</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">ትእምርት</transformName>
-			<transformName type="x-Fullwidth">ሙሉ ወርድ</transformName>
-			<transformName type="x-Halfwidth">ሃልፍዊድዝ</transformName>
-			<transformName type="x-Jamo">ጃሞ</transformName>
-			<transformName type="x-Pinyin">ፒንዪን</transformName>
-			<transformName type="x-Publishing">ማሳተም</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ሜትሪክ</measurementSystemName>
 			<measurementSystemName type="UK">ዩኬ</measurementSystemName>

@@ -582,6 +582,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">ઓલ્ડ હંગેરિયન</script>
 			<script type="Inds">સિન્ધુ</script>
 			<script type="Ital">જૂનુ ઇટાલિક</script>
+			<script type="Jamo">જેમો</script>
 			<script type="Java">જાવાનીસ</script>
 			<script type="Jpan">જાપાની</script>
 			<script type="Kali">કાયાહ લી</script>
@@ -1039,6 +1040,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">ઉચ્ચારો/કેસ/પહોળાઈ/કાના સૉર્ટ કરો</type>
 			<type key="colStrength" type="secondary">ઉચ્ચારો સૉર્ટ કરો</type>
 			<type key="colStrength" type="tertiary">ઉચ્ચારો/કેસ/પહોળાઈ સૉર્ટ કરો</type>
+			<type key="d0" type="fwidth">પૂર્ણપહોળાઇ</type>
+			<type key="d0" type="hwidth">અર્ધપહોળાઈ</type>
+			<type key="d0" type="npinyin">સંખ્યા</type>
 			<type key="hc" type="h11">12 કલાકની સિસ્ટમ (0–11)</type>
 			<type key="hc" type="h12">12 કલાકની સિસ્ટમ (1–12)</type>
 			<type key="hc" type="h23">24 કલાકની સિસ્ટમ (0–23)</type>
@@ -1046,6 +1050,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">શિથિલ રેખા વિરામ પ્રકાર</type>
 			<type key="lb" type="normal">સામાન્ય રેખા વિરામ પ્રકાર</type>
 			<type key="lb" type="strict">ચુસ્ત રેખા વિરામ પ્રકાર</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">દશાંશ પદ્ધતિ</type>
 			<type key="ms" type="uksystem">રજવાડું માપદંડ પદ્ધતિ</type>
 			<type key="ms" type="ussystem">અમેરિકન માપદંડ પદ્ધતિ</type>
@@ -1090,18 +1096,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">પરંપરાગત અંકો</type>
 			<type key="numbers" type="vaii">વાઇ અંકો</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">સંખ્યા</transformName>
-			<transformName type="Tone">ધ્વની</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">સ્વરાઘાતો</transformName>
-			<transformName type="x-Fullwidth">પૂર્ણપહોળાઇ</transformName>
-			<transformName type="x-Halfwidth">અર્ધપહોળાઈ</transformName>
-			<transformName type="x-Jamo">જેમો</transformName>
-			<transformName type="x-Pinyin">પીનયીન</transformName>
-			<transformName type="x-Publishing">પ્રકાશન</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">મેટ્રિક</measurementSystemName>
 			<measurementSystemName type="UK">યુકે</measurementSystemName>

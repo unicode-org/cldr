@@ -646,6 +646,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">hongarès antic</script>
 			<script type="Inds">escriptura de la vall de l’Indus</script>
 			<script type="Ital">cursiva antiga</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">javanès</script>
 			<script type="Jpan">japonès</script>
 			<script type="Jurc" draft="contributed">jürchen</script>
@@ -1177,6 +1178,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Ordena per accents/majúscules/amplada/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Ordena els accents</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Ordena per accent/majúscules/amplada</type>
+			<type key="d0" type="fwidth" draft="contributed">Amplada completa</type>
+			<type key="d0" type="hwidth" draft="contributed">Amplada mitjana</type>
+			<type key="d0" type="npinyin" draft="contributed">Numèric</type>
 			<type key="hc" type="h11" draft="contributed">sistema de 12 hores (0–11)</type>
 			<type key="hc" type="h12" draft="contributed">sistema de 12 hores (1–12)</type>
 			<type key="hc" type="h23" draft="contributed">sistema de 24 hores (0–23)</type>
@@ -1184,6 +1188,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose" draft="contributed">salt de línia flexible</type>
 			<type key="lb" type="normal" draft="contributed">salt de línia normal</type>
 			<type key="lb" type="strict" draft="contributed">salt de línia estricte</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric" draft="contributed">sistema mètric</type>
 			<type key="ms" type="uksystem">sistema imperial d’unitats</type>
 			<type key="ms" type="ussystem">sistema d’unitats dels EUA</type>
@@ -1243,18 +1249,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Numerals tradicionals</type>
 			<type key="numbers" type="vaii" draft="contributed">dígits vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numèric</transformName>
-			<transformName type="Tone" draft="contributed">To</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Accents</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Amplada completa</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Amplada mitjana</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publicació</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">mètric</measurementSystemName>
 			<measurementSystemName type="UK">RU</measurementSystemName>

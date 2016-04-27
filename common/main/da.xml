@@ -601,6 +601,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">oldungarsk</script>
 			<script type="Inds">indus</script>
 			<script type="Ital">Olditalisk</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">javanesisk</script>
 			<script type="Jpan">japansk</script>
 			<script type="Jurc" draft="contributed">jurchen</script>
@@ -1139,6 +1140,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Sortér efter accenter/små og store bogstaver/bredde/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Sortér efter accenter</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Sortér efter accenter/store og små bogstaver/bredde</type>
+			<type key="d0" type="fwidth" draft="contributed">Fuld bredde</type>
+			<type key="d0" type="hwidth" draft="contributed">Halv bredde</type>
+			<type key="d0" type="npinyin" draft="contributed">Numerisk</type>
 			<type key="hc" type="h11">12-timersur (0-11)</type>
 			<type key="hc" type="h12">12-timersur (1-12)</type>
 			<type key="hc" type="h23">24-timersur (0-23)</type>
@@ -1146,6 +1150,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">løst linjeskift</type>
 			<type key="lb" type="normal">normalt linjeskift</type>
 			<type key="lb" type="strict">hårdt linjeskift</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">metersystem</type>
 			<type key="ms" type="uksystem">britisk målesystem</type>
 			<type key="ms" type="ussystem">amerikansk målesystem</type>
@@ -1211,18 +1217,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Traditionelle tal</type>
 			<type key="numbers" type="vaii" draft="contributed">Vai-tal</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numerisk</transformName>
-			<transformName type="Tone" draft="contributed">Tone</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Accenter</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Fuld bredde</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Halv bredde</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publishing</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Det metriske system</measurementSystemName>
 			<measurementSystemName type="UK">De britiske målesystemer</measurementSystemName>

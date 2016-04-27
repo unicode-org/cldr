@@ -694,6 +694,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">Oudhongaars</script>
 			<script type="Inds">Indus</script>
 			<script type="Ital">Oud-italisch</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">Javaans</script>
 			<script type="Jpan">Japans</script>
 			<script type="Jurc" draft="contributed">Jurchen</script>
@@ -1298,6 +1299,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Sorteren op accenten/hoofdlettergebruik/breedte/Kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Sorteren op accenten</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Sorteren op accenten/hoofdlettergebruik/breedte</type>
+			<type key="d0" type="fwidth" draft="contributed">Volledige breedte</type>
+			<type key="d0" type="hwidth" draft="contributed">Halve breedte</type>
+			<type key="d0" type="npinyin" draft="contributed">Numeriek</type>
 			<type key="hc" type="h11">12-uursysteem (0-11)</type>
 			<type key="hc" type="h12">12-uursysteem (1-12)</type>
 			<type key="hc" type="h23">24-uursysteem (0-23)</type>
@@ -1305,6 +1309,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">losse stijl regelafbreking</type>
 			<type key="lb" type="normal">normale stijl regelafbreking</type>
 			<type key="lb" type="strict">strikte stijl regelafbreking</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">metriek stelsel</type>
 			<type key="ms" type="uksystem">Brits imperiaal stelsel</type>
 			<type key="ms" type="ussystem">Amerikaans imperiaal stelsel</type>
@@ -1370,18 +1376,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Traditionele cijfers</type>
 			<type key="numbers" type="vaii" draft="contributed">Vai-cijfers</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numeriek</transformName>
-			<transformName type="Tone" draft="contributed">Toon</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Accenten</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Volledige breedte</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Halve breedte</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publicatie</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metriek</measurementSystemName>
 			<measurementSystemName type="UK">Brits</measurementSystemName>

@@ -553,6 +553,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">staroogrski</script>
 			<script type="Inds">induški</script>
 			<script type="Ital">staroitalski</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">javanski</script>
 			<script type="Jpan">japonski</script>
 			<script type="Kali">karenski</script>
@@ -1031,6 +1032,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Razvrščanje po naglasih/velikih črkah/malih črkah/širini/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Razvrščanje naglasov</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Razvrščanje po naglasih/velikih črkah/malih črkah/širini</type>
+			<type key="d0" type="fwidth" draft="contributed">Polna širina</type>
+			<type key="d0" type="hwidth" draft="contributed">Polovična širina</type>
+			<type key="d0" type="npinyin" draft="contributed">Številsko</type>
 			<type key="hc" type="h11">12-urni sistem (0–11)</type>
 			<type key="hc" type="h12">12-urni sistem (1–12)</type>
 			<type key="hc" type="h23">24-urni sistem (0–23)</type>
@@ -1038,6 +1042,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">Prosti slog preloma vrstic</type>
 			<type key="lb" type="normal">Običajni slog preloma vrstic</type>
 			<type key="lb" type="strict">Strogi slog preloma vrstic</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">metrični sistem</type>
 			<type key="ms" type="uksystem">imperialni merski sistem</type>
 			<type key="ms" type="ussystem">merski sistem Združenih držav</type>
@@ -1082,18 +1088,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Tradicionalne številke</type>
 			<type key="numbers" type="vaii" draft="contributed">Številke vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Številsko</transformName>
-			<transformName type="Tone" draft="contributed">Ton</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Accents</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Polna širina</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Polovična širina</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinjin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publishing</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrični</measurementSystemName>
 			<measurementSystemName type="UK">angleški</measurementSystemName>

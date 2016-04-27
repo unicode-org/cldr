@@ -691,6 +691,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">starowęgierskie</script>
 			<script type="Inds">indus</script>
 			<script type="Ital">starowłoskie</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">jawajskie</script>
 			<script type="Jpan">japońskie</script>
 			<script type="Jurc" draft="unconfirmed">jurchen</script>
@@ -1202,6 +1203,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Sortowanie znaków akcentowanych/wielkości liter/szerokości/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Sortowanie znaków akcentowanych</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Sortowanie znaków akcentowanych/wielkości liter/szerokości</type>
+			<type key="d0" type="fwidth" draft="contributed">Pełna szerokość</type>
+			<type key="d0" type="hwidth" draft="contributed">Połowa szerokości</type>
+			<type key="d0" type="npinyin" draft="contributed">Liczbowe</type>
 			<type key="hc" type="h11" draft="contributed">system 12-godzinny (0-11)</type>
 			<type key="hc" type="h12" draft="contributed">system 12-godzinny (1-12)</type>
 			<type key="hc" type="h23" draft="contributed">system 24-godzinny (0-23)</type>
@@ -1209,6 +1213,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose" draft="contributed">luźny styl podziału wiersza</type>
 			<type key="lb" type="normal" draft="contributed">normalny styl podziału wiersza</type>
 			<type key="lb" type="strict" draft="contributed">ścisły styl podziału wiersza</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric" draft="contributed">system metryczny</type>
 			<type key="ms" type="uksystem" draft="contributed">imperialny system miar</type>
 			<type key="ms" type="ussystem" draft="contributed">amerykański system miar</type>
@@ -1253,18 +1259,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Liczebniki tradycyjne</type>
 			<type key="numbers" type="vaii" draft="contributed">Cyfry vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Liczbowe</transformName>
-			<transformName type="Tone" draft="contributed">Ton</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Akcenty</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Pełna szerokość</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Połowa szerokości</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Druk</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metryczny</measurementSystemName>
 			<measurementSystemName type="UK">brytyjski</measurementSystemName>

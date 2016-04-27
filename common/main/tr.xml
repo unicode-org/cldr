@@ -692,6 +692,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">Eski Macar</script>
 			<script type="Inds">Indus</script>
 			<script type="Ital">Eski İtalyan</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Java">Cava Dili</script>
 			<script type="Jpan">Japon</script>
 			<script type="Jurc" draft="contributed">Jurchen</script>
@@ -1209,6 +1210,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Aksanları/Büyük-Küçük Harfleri/Genişliği/Kana’yı Sıralama</type>
 			<type key="colStrength" type="secondary">Aksanları Sıralama</type>
 			<type key="colStrength" type="tertiary">Aksanları/Büyük-Küçük Harfleri/Genişliği Sıralama</type>
+			<type key="d0" type="fwidth">Tam Genişlik</type>
+			<type key="d0" type="hwidth">Yarım genişlik</type>
+			<type key="d0" type="npinyin">Rakam</type>
 			<type key="hc" type="h11">12 Saat Sistemi (0–11)</type>
 			<type key="hc" type="h12">12 Saat Sistemi (1–12)</type>
 			<type key="hc" type="h23">24 Saat Sistemi (0–23)</type>
@@ -1216,6 +1220,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">loose</type>
 			<type key="lb" type="normal">normal</type>
 			<type key="lb" type="strict">strict</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Metrik Sistem</type>
 			<type key="ms" type="uksystem" draft="provisional">İmperial Ölçü Sistemi</type>
 			<type key="ms" type="ussystem">ABD Ölçü Sistemi</type>
@@ -1274,18 +1280,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Geleneksel Rakamlar</type>
 			<type key="numbers" type="vaii">Vai Rakamları</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Rakam</transformName>
-			<transformName type="Tone">Ton</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Aksanlar</transformName>
-			<transformName type="x-Fullwidth">Tam Genişlik</transformName>
-			<transformName type="x-Halfwidth">Yarım genişlik</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Yayıncılık</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
 			<measurementSystemName type="UK">İngiliz</measurementSystemName>

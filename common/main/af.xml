@@ -310,6 +310,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">Tradisionele Han</script>
 			<script type="Hebr">Hebreeus</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Jpan">Japannees</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khmr">Khmer</script>
@@ -709,6 +710,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Sorteer aksente/kas/breedte/Kana</type>
 			<type key="colStrength" type="secondary">Sorteer aksente</type>
 			<type key="colStrength" type="tertiary">Sorteer aksente/kas/breedte</type>
+			<type key="d0" type="fwidth">Vollewydte</type>
+			<type key="d0" type="hwidth">halfwydte</type>
+			<type key="d0" type="npinyin">Numeries</type>
 			<type key="hc" type="h11">12-uur-stelsel (0-11)</type>
 			<type key="hc" type="h12">112-uur-stelsel (1-12)</type>
 			<type key="hc" type="h23">24-uur-stelsel</type>
@@ -716,6 +720,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">Los reëlbreek-styl</type>
 			<type key="lb" type="normal">Normale reëlbreek-styl</type>
 			<type key="lb" type="strict">Streng reëlbreek-styl</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Metriese stelsel</type>
 			<type key="ms" type="uksystem">Imperiale meetstelsel</type>
 			<type key="ms" type="ussystem">VS-meetstelsel</type>
@@ -760,18 +766,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Tradisionele syfers</type>
 			<type key="numbers" type="vaii">Vai-syfers</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Numeries</transformName>
-			<transformName type="Tone">Toon</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Aksente</transformName>
-			<transformName type="x-Fullwidth">Vollewydte</transformName>
-			<transformName type="x-Halfwidth">halfwydte</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Publisering</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metriek</measurementSystemName>
 			<measurementSystemName type="UK">VK</measurementSystemName>

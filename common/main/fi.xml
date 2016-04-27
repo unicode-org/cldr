@@ -702,6 +702,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">muinaisunkarilainen</script>
 			<script type="Inds">induslainen</script>
 			<script type="Ital">muinaisitalialainen</script>
+			<script type="Jamo">jamo</script>
 			<script type="Java">jaavalainen</script>
 			<script type="Jpan">japanilainen</script>
 			<script type="Jurc">džurtšen</script>
@@ -1263,6 +1264,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">painomerkit ja aakkoslajit tai merkkileveydet ja kana-merkit huomioiva lajittelu</type>
 			<type key="colStrength" type="secondary">painomerkit huomioiva lajittelu</type>
 			<type key="colStrength" type="tertiary">painomerkit ja aakkoslajit tai merkkileveydet huomioiva lajittelu</type>
+			<type key="d0" type="fwidth">ideogrammin levyinen</type>
+			<type key="d0" type="hwidth">ideogrammin puolikkaan levyinen</type>
+			<type key="d0" type="npinyin">numeerinen muunnos</type>
 			<type key="hc" type="h11">12 tunnin järjestelmä (0–11)</type>
 			<type key="hc" type="h12">12 tunnin järjestelmä (1–12)</type>
 			<type key="hc" type="h23">24 tunnin järjestelmä (0–23)</type>
@@ -1270,6 +1274,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">väljä rivinvaihto</type>
 			<type key="lb" type="normal">normaali rivinvaihto</type>
 			<type key="lb" type="strict">tarkka rivinvaihto</type>
+			<type key="m0" type="bgn">BGN-latinaistus</type>
+			<type key="m0" type="ungegn">UNGEGN-latinaistus</type>
 			<type key="ms" type="metric">metrijärjestelmä</type>
 			<type key="ms" type="uksystem">brittiläinen mittajärjestelmä</type>
 			<type key="ms" type="ussystem">yhdysvaltalainen mittajärjestelmä</type>
@@ -1335,18 +1341,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">perinteiset numerot</type>
 			<type key="numbers" type="vaii">vai-numerot</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN-latinaistus</transformName>
-			<transformName type="Numeric">numeerinen muunnos</transformName>
-			<transformName type="Tone">tooni</transformName>
-			<transformName type="UNGEGN">UNGEGN-latinaistus</transformName>
-			<transformName type="x-Accents">aksenttimerkit</transformName>
-			<transformName type="x-Fullwidth">ideogrammin levyinen</transformName>
-			<transformName type="x-Halfwidth">ideogrammin puolikkaan levyinen</transformName>
-			<transformName type="x-Jamo">jamo</transformName>
-			<transformName type="x-Pinyin">pinyin-latinaistus</transformName>
-			<transformName type="x-Publishing">julkaisuvalinta</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrinen</measurementSystemName>
 			<measurementSystemName type="UK">brittiläinen</measurementSystemName>

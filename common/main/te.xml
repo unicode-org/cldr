@@ -575,6 +575,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">ప్రాచీన హంగేరియన్</script>
 			<script type="Inds">సింధు</script>
 			<script type="Ital">ప్రాచిన ఐటాలిక్</script>
+			<script type="Jamo">జమో</script>
 			<script type="Java">జావనీస్</script>
 			<script type="Jpan">జాపనీస్</script>
 			<script type="Kali">కాయాహ్ లి</script>
@@ -1036,6 +1037,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">ఉచ్ఛారణలు/కేస్‌/వెడల్పు/కానాను క్రమబద్ధీకరించు</type>
 			<type key="colStrength" type="secondary">ఉచ్ఛారణలని క్రమబద్ధీకరించు</type>
 			<type key="colStrength" type="tertiary">ఉచ్ఛారణలని/కేస్‌ని/వెడల్పుని క్రమబద్ధీకరించు</type>
+			<type key="d0" type="fwidth">పూర్తి వెడల్పు</type>
+			<type key="d0" type="hwidth">సగం వెడల్పు</type>
+			<type key="d0" type="npinyin">సంఖ్య</type>
 			<type key="hc" type="h11">12 గంటల పద్ధతి (0–11)</type>
 			<type key="hc" type="h12">12 గంటల పద్ధతి (1–12)</type>
 			<type key="hc" type="h23">24 గంటల పద్ధతి (0–23)</type>
@@ -1043,6 +1047,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">వదులు లైన్ బ్రేక్ శైలి</type>
 			<type key="lb" type="normal">సాధారణ లైన్ బ్రేక్ శైలి</type>
 			<type key="lb" type="strict">కఠిన లైన్ బ్రేక్ శైలి</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">మెట్రిక్ పద్ధతి</type>
 			<type key="ms" type="uksystem">ఇంపీరియల్ కొలమాన పద్ధతి</type>
 			<type key="ms" type="ussystem">యు.ఎస్. కొలమాన పద్ధతి</type>
@@ -1087,18 +1093,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">సాంప్రదాయ సంఖ్యలు</type>
 			<type key="numbers" type="vaii">వాయ్ అంకెలు</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">సంఖ్య</transformName>
-			<transformName type="Tone">టోన్</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">గాఢతలు</transformName>
-			<transformName type="x-Fullwidth">పూర్తి వెడల్పు</transformName>
-			<transformName type="x-Halfwidth">సగం వెడల్పు</transformName>
-			<transformName type="x-Jamo">జమో</transformName>
-			<transformName type="x-Pinyin">పిన్యిన్</transformName>
-			<transformName type="x-Publishing">ప్రచురించబడుతోంది</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">దశాంశం</measurementSystemName>
 			<measurementSystemName type="UK">యుకె</measurementSystemName>

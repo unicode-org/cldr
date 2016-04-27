@@ -215,6 +215,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Ordenar acentos/tipo de letra/largura/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Ordenar acentos</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Ordenar acentos/tipo de letra/largura</type>
+			<type key="d0" type="fwidth" draft="contributed">Largura completa</type>
+			<type key="d0" type="hwidth" draft="contributed">Meia largura</type>
 			<type key="lb" type="loose" draft="contributed">Estilo solto de quebra de linha</type>
 			<type key="lb" type="normal" draft="contributed">Estilo padrão de quebra de linha</type>
 			<type key="lb" type="strict" draft="contributed">Estilo estrito de quebra de linha</type>
@@ -252,11 +254,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="telu">Algarismos de telugu</type>
 			<type key="numbers" type="traditional" draft="contributed">Algarismos tradicionais</type>
 		</types>
-		<transformNames>
-			<transformName type="x-Accents" draft="contributed">Acentos</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Largura completa</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Meia largura</transformName>
-		</transformNames>
 		<codePatterns>
 			<codePattern type="script">Escrita: {0}</codePattern>
 		</codePatterns>

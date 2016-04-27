@@ -353,6 +353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">Kihan cha Jadi</script>
 			<script type="Hebr">Kiebrania</script>
 			<script type="Hira">Kihiragana</script>
+			<script type="Jamo">Kijamo</script>
 			<script type="Jpan">Kijapani</script>
 			<script type="Kana">Kikatakana</script>
 			<script type="Khmr">Kikambodia</script>
@@ -744,6 +745,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Panga Viinitoni/Herufi/Upana/Kana</type>
 			<type key="colStrength" type="secondary">Panga Viinitoni</type>
 			<type key="colStrength" type="tertiary">Panga Viinitoni/Herufi/Upana</type>
+			<type key="d0" type="fwidth">Upana kamili</type>
+			<type key="d0" type="hwidth">Nusu upana</type>
+			<type key="d0" type="npinyin">Ya Nambari</type>
 			<type key="hc" type="h11">h11</type>
 			<type key="hc" type="h12">h12</type>
 			<type key="hc" type="h23">h23</type>
@@ -751,6 +755,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">loose</type>
 			<type key="lb" type="normal">normal</type>
 			<type key="lb" type="strict">strict</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">metriki</type>
 			<type key="ms" type="uksystem">mfumo wa UK</type>
 			<type key="ms" type="ussystem">Mfumo wa US</type>
@@ -799,18 +805,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">Tarakimu za Jadi</type>
 			<type key="numbers" type="vaii">Dijiti za Vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Ya Nambari</transformName>
-			<transformName type="Tone">Sauti</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Rangi za Kuangaza</transformName>
-			<transformName type="x-Fullwidth">Upana kamili</transformName>
-			<transformName type="x-Halfwidth">Nusu upana</transformName>
-			<transformName type="x-Jamo">Kijamo</transformName>
-			<transformName type="x-Pinyin">Kipinyin</transformName>
-			<transformName type="x-Publishing">Inachapishwa</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Mfumo wa Mita</measurementSystemName>
 			<measurementSystemName type="UK">Uingereza</measurementSystemName>

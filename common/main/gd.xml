@@ -654,6 +654,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hrkt">Katakana no Hiragana</script>
 			<script type="Hung">Seann-Ungarais</script>
 			<script type="Ital">Seann-Eadailtis</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Java">Deàbhanais</script>
 			<script type="Jpan">Seapanais</script>
 			<script type="Jurc">Jurchen</script>
@@ -1092,6 +1093,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="traditional">Òrdugh seòrsachaidh tradaiseanta</type>
 			<type key="collation" type="unihan">Òrdugh an fhreumha ’s nan stràcan</type>
 			<type key="collation" type="zhuyin">Òrdugh seòrsachaidh Zhuyin</type>
+			<type key="d0" type="fwidth">Làn-Leud</type>
+			<type key="d0" type="hwidth">Leth-Leud</type>
+			<type key="d0" type="npinyin">Àireamhach</type>
 			<type key="hc" type="h11">Cleoc 12 uair a thìde (0–11)</type>
 			<type key="hc" type="h12">Cleoc 12 uair a thìde (1–12)</type>
 			<type key="hc" type="h23">Cleoc 24 uair a thìde (0–23)</type>
@@ -1099,6 +1103,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">Brisidhean-loidhe fuasgailte</type>
 			<type key="lb" type="normal">Brisidhean-loidhe àbhaisteach</type>
 			<type key="lb" type="strict">Brisidhean-loidhe teanna</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Tomhas meatrach</type>
 			<type key="ms" type="uksystem">Tomhas impireil</type>
 			<type key="ms" type="ussystem">Tomhas nan Stàitean Aonaichte</type>
@@ -1161,18 +1167,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="tibt">Àireamhan na Tibeitise</type>
 			<type key="numbers" type="vaii">Àireamhan Vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Àireamhach</transformName>
-			<transformName type="Tone">Tòna</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Stràcan</transformName>
-			<transformName type="x-Fullwidth">Làn-Leud</transformName>
-			<transformName type="x-Halfwidth">Leth-Leud</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Foillseachadh</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Meatrach</measurementSystemName>
 			<measurementSystemName type="UK">RA</measurementSystemName>

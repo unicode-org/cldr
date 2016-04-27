@@ -601,6 +601,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">staro mađarsko pismo</script>
 			<script type="Inds">indijsko pismo</script>
 			<script type="Ital">staro talijansko pismo</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">javansko pismo</script>
 			<script type="Jpan">japansko pismo</script>
 			<script type="Jurc" draft="contributed">jurchen pismo</script>
@@ -1116,6 +1117,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">Poredaj po naglascima/veličini/širini/pismu kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Poredaj po naglasku</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Poredaj po naglascima/veličini/širini</type>
+			<type key="d0" type="fwidth" draft="contributed">Široki</type>
+			<type key="d0" type="hwidth" draft="contributed">Uski</type>
+			<type key="d0" type="npinyin" draft="contributed">Numerički</type>
 			<type key="hc" type="h11" draft="contributed">12-satni format (0-11)</type>
 			<type key="hc" type="h12" draft="contributed">12-satni format (1-12)</type>
 			<type key="hc" type="h23" draft="contributed">24-satni format (0-23)</type>
@@ -1123,6 +1127,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose" draft="contributed">slobodni stil prijeloma retka</type>
 			<type key="lb" type="normal" draft="contributed">normalni stil prijeloma retka</type>
 			<type key="lb" type="strict" draft="contributed">strogi stil prijeloma retka</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric" draft="contributed">metrički sustav</type>
 			<type key="ms" type="uksystem" draft="contributed">imperijalni sustav mjera</type>
 			<type key="ms" type="ussystem" draft="contributed">američki sustav mjera</type>
@@ -1167,18 +1173,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Tradicionalni brojevi</type>
 			<type key="numbers" type="vaii" draft="contributed">Vai znamenke</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numerički</transformName>
-			<transformName type="Tone" draft="contributed">Ton</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Naglasci</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Široki</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Uski</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Nakladnički</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrički sustav</measurementSystemName>
 			<measurementSystemName type="UK">imperijalni sustav</measurementSystemName>

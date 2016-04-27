@@ -687,6 +687,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">vanaungari</script>
 			<script type="Inds">Induse</script>
 			<script type="Ital">vanaitali</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Java">jaava</script>
 			<script type="Jpan">jaapani</script>
 			<script type="Jurc">tšurtšeni</script>
@@ -1209,6 +1210,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">järjesta diakriitikud, algustähed, laius ja kana kiri</type>
 			<type key="colStrength" type="secondary">järjesta diakriitikud</type>
 			<type key="colStrength" type="tertiary">järjesta diakriitikud, algustähed ja laius</type>
+			<type key="d0" type="fwidth">Täislaius</type>
+			<type key="d0" type="hwidth">Poolaius</type>
+			<type key="d0" type="npinyin">Numbriline</type>
 			<type key="hc" type="h11">12-tunnine süsteem (0–11)</type>
 			<type key="hc" type="h12">12-tunnine süsteem (1–12)</type>
 			<type key="hc" type="h23">24-tunnine süsteem (0–23)</type>
@@ -1216,6 +1220,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="loose">paindlik reavahetuse laad</type>
 			<type key="lb" type="normal">harilik reavahetuse laad</type>
 			<type key="lb" type="strict">jäik reavahetuse laad</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">meetermõõdustik</type>
 			<type key="ms" type="uksystem">inglise mõõdustik</type>
 			<type key="ms" type="ussystem">USA mõõdustik</type>
@@ -1278,18 +1284,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional">traditsioonilised numbrid</type>
 			<type key="numbers" type="vaii">vai numbrid</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Numbriline</transformName>
-			<transformName type="Tone">Toon</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Diakriitikud</transformName>
-			<transformName type="x-Fullwidth">Täislaius</transformName>
-			<transformName type="x-Halfwidth">Poolaius</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Kirjastamine</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">meetermõõdustik</measurementSystemName>
 			<measurementSystemName type="UK">inglise mõõdustik</measurementSystemName>

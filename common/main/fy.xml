@@ -590,6 +590,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung" draft="contributed">Aldhongaars</script>
 			<script type="Inds" draft="contributed">Indus</script>
 			<script type="Ital" draft="contributed">Ald-italysk</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java" draft="contributed">Javaansk</script>
 			<script type="Jpan" draft="contributed">Japans</script>
 			<script type="Jurc" draft="contributed">Jurchen</script>
@@ -1120,6 +1121,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary" draft="contributed">sortearje neffens aksinten/haadletterbrûkme/breedte/Kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Sortearje op accenten</type>
 			<type key="colStrength" type="tertiary" draft="contributed">sortearje neffens aksinten/haadletterbrûkme/breedte</type>
+			<type key="d0" type="fwidth" draft="contributed">Volledige breedte</type>
+			<type key="d0" type="hwidth" draft="contributed">Halve breedte</type>
+			<type key="d0" type="npinyin" draft="contributed">Numeriek</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="numbers" type="arab" draft="contributed">Arabysk-Indyske sifers</type>
 			<type key="numbers" type="arabext" draft="contributed">Utwreide Arabysk-Indyske sifers</type>
 			<type key="numbers" type="armn" draft="contributed">Armeense sifers</type>
@@ -1163,18 +1169,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="traditional" draft="contributed">Tradisjonele sifers</type>
 			<type key="numbers" type="vaii" draft="contributed">Vai-sifers</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numeriek</transformName>
-			<transformName type="Tone" draft="contributed">Toon</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Accenten</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Volledige breedte</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Halve breedte</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publicatie</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric" draft="contributed">Metriek</measurementSystemName>
 			<measurementSystemName type="UK" draft="contributed">Brits</measurementSystemName>

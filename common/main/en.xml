@@ -1205,6 +1205,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="timezone">Time Zone</key>
 			<key type="va">Locale Variant</key>
 			<key type="x">Private-Use</key>
+			<key type="d0">Transform Destination</key>
+			<key type="s0">Transform Source</key>
+			<key type="i0">Input Method</key>
+			<key type="k0">Keyboard</key>
+			<key type="m0">Transform Rules</key>
+			<key type="t0">Machine Translated</key>
+			<key type="x0">Private-Use Transform</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">Buddhist Calendar</type>
@@ -1263,6 +1270,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Sort Accents/Case/Width/Kana</type>
 			<type key="colStrength" type="secondary">Sort Accents</type>
 			<type key="colStrength" type="tertiary">Sort Accents/Case/Width</type>
+			<type key="kr" type="currency">Currency</type>
+			<type key="kr" type="digit">Digits</type>
+			<type key="kr" type="punct">Punctuation</type>
+			<type key="kr" type="space">Whitespace</type>
+			<type key="kr" type="symbol">Symbol</type>
 			<type key="d0" type="fwidth">Fullwidth</type>
 			<type key="d0" type="hwidth">Halfwidth</type>
 			<type key="d0" type="npinyin">Numeric</type>

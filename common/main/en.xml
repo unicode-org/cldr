@@ -2734,7 +2734,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="hour">
 				<displayName>hour</displayName>
-				<relative type="0">now</relative>
+				<relative type="0">this hour</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} hour</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} hours</relativeTimePattern>
@@ -2757,7 +2757,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute">
 				<displayName>minute</displayName>
-				<relative type="0">now</relative>
+				<relative type="0">this minute</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} minute</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} minutes</relativeTimePattern>

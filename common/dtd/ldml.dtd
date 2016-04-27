@@ -264,6 +264,7 @@ $Revision$
     <!--@METADATA-->
 
 <!ELEMENT transformNames ( alias | ( transformName | special )* ) >
+    <!--@DEPRECATED-->
 <!ATTLIST transformNames draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -271,6 +272,7 @@ $Revision$
     <!--@METADATA-->
 
 <!ELEMENT transformName ( #PCDATA ) >
+    <!--@DEPRECATED-->
 <!ATTLIST transformName type NMTOKEN #REQUIRED >
 <!ATTLIST transformName alt NMTOKENS #IMPLIED >
 <!ATTLIST transformName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

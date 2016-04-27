@@ -80,7 +80,7 @@ import com.ibm.icu.util.ULocale;
 public class ShowLanguages {
     private static final boolean SHOW_NATIVE = true;
 
-    static Comparator col = new com.ibm.icu.impl.MultiComparator(
+    static Comparator col = new org.unicode.cldr.util.MultiComparator(
         Collator.getInstance(new ULocale("en")),
         new UTF16.StringComparator(true, false, 0)
         );

@@ -76,7 +76,7 @@ public class UnicodeSetPrettyPrinter {
      * @return
      */
     public UnicodeSetPrettyPrinter setOrdering(Comparator ordering) {
-        this.ordering = ordering == null ? CODEPOINT_ORDER : new com.ibm.icu.impl.MultiComparator<String>(ordering, CODEPOINT_ORDER);
+        this.ordering = ordering == null ? CODEPOINT_ORDER : new org.unicode.cldr.util.MultiComparator<String>(ordering, CODEPOINT_ORDER);
         return this;
     }
 

@@ -452,7 +452,7 @@ public class GenerateTransformCharts {
         RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         UCA2.setNumericCollation(true);
         UCA2.setStrength(Collator.IDENTICAL);
-        UCA = new com.ibm.icu.impl.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0));
+        UCA = new org.unicode.cldr.util.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0));
     }
 
     private static void showLatin(String scriptChoice, Set<String> targetVariant) throws IOException {

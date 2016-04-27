@@ -41,7 +41,7 @@ public class TestCollationMapMaker {
         col.setStrength(Collator.SECONDARY);
         col.setAlternateHandlingShifted(true);
 
-        Comparator c = new com.ibm.icu.impl.MultiComparator(new Comparator[] {
+        Comparator c = new org.unicode.cldr.util.MultiComparator(new Comparator[] {
             col,
             new com.ibm.icu.text.UTF16.StringComparator(true, false, 0) });
         Map mapping = new CollationMapMaker().generateCollatorFolding(col,

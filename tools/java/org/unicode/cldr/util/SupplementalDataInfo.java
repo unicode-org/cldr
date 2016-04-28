@@ -82,7 +82,6 @@ import com.ibm.icu.util.VersionInfo;
 public class SupplementalDataInfo {
     private static final boolean DEBUG = false;
     private static final StandardCodes sc = StandardCodes.make();
-    private static LocaleIDParser lp = new LocaleIDParser();
     private static final String UNKNOWN_SCRIPT = "Zzzz";
 
     // TODO add structure for items shown by TestSupplementalData to be missing
@@ -3962,7 +3961,7 @@ public class SupplementalDataInfo {
         if (ls == null) {
             return UNKNOWN_SCRIPT;
         }
-        lp.set(ls);
+        LocaleIDParser lp = new LocaleIDParser().set(ls);
         String defaultScript = lp.getScript();
         if (defaultScript.length() > 0) {
             return defaultScript;

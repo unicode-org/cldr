@@ -218,6 +218,10 @@
 //ldml/posix/messages/%Estr                                 ; Misc ; Linguistic Elements ; Yes and No ; posix-$1
 //ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Misc ; Transforms ; null ; $1
 
+//ldml/characterLabels/characterLabelPattern[@type="%A"][@count="%A"]	; Misc ; Linguistic Elements ; Character Label Pattern ; $1-$2
+//ldml/characterLabels/characterLabelPattern[@type="%A"]	; Misc ; Linguistic Elements ; Character Label Pattern ; $1
+//ldml/characterLabels/characterLabel[@type="%A"]			; Misc ; Linguistic Elements ; Character Label ; $1
+
 #Outside of Main
 //ldml/collations/defaultCollation	; Misc ; Linguistic Elements ; Collation ; default ; HIDE
 //ldml/collations/collation[@type="%A"]	; Misc ; Linguistic Elements ; Collation ; $1 ; HIDE

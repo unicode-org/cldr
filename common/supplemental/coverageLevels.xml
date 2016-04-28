@@ -160,7 +160,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%variantTypes" value="([A-Z0-9]++)"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
 		<coverageVariable key="%yesNo" value="(yes|no)"/>		
-		<coverageVariable key="%anyAttribute" value="([^\\x22]++)"/>		
+		<coverageVariable key="%anyAttribute" value='([^\x{22}]++)'/>		
 		<!-- -->
 		<!-- Coverage levels begin here -->
 		<!-- -->
@@ -541,6 +541,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='calendar'][@type='%calendarType80']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)'][@alt='variant']"/>
+		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)'][@alt='variant']"/>
+		<coverageLevel value="modern" match="characterLabels/characterLabel[@type='%anyAttribute']"/>
+		<coverageLevel value="modern" match="characterLabels/characterLabelPattern[@type='%anyAttribute']"/>
+		<coverageLevel value="modern" match="characterLabels/characterLabelPattern[@type='%anyAttribute'][@count='%allPlurals']"/>
 
 		<!-- 
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='narrow']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>

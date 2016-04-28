@@ -9,7 +9,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 $Revision$
 -->
 
-<!ELEMENT ldml ( identity, ( alias | ( fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, annotations?, metadata?, references?, special* ) ) ) >
+<!ELEMENT ldml ( identity, ( alias | ( fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, characterLabels?, segmentations?, rbnf?, annotations?, metadata?, references?, special* ) ) ) >
 <!ATTLIST ldml version CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -2387,6 +2387,22 @@ $Revision$
 <!ATTLIST listPatternPart validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+    
+<!ELEMENT characterLabels ( alias | ( characterLabelPattern*, characterLabel*, special* ) ) >
+
+<!ELEMENT characterLabelPattern ( #PCDATA ) >
+<!ATTLIST characterLabelPattern type NMTOKEN #REQUIRED >
+<!ATTLIST characterLabelPattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
+    <!-- count only used for certain patterns" -->
+<!ATTLIST characterLabelPattern alt NMTOKENS #IMPLIED >
+<!ATTLIST characterLabelPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+    
+<!ELEMENT characterLabel ( #PCDATA ) >
+<!ATTLIST characterLabel type NMTOKEN #REQUIRED >
+<!ATTLIST characterLabel alt NMTOKENS #IMPLIED >
+<!ATTLIST characterLabel draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!-- ######################################################### -->
 

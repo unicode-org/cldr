@@ -234,7 +234,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                             + rangeLine, 
                             "Cldrbug:7839", "Missing plural data for modern locales");
                         failure = true;
-                        failureCases.append("\tError: Need explicit result");
+                        failureCases.append("\tError — need explicit result");
                     } else if (!needsValue && explicitValue != null) {
                         errOrLog(CoverageIssue.error, locale + "\tDoesn't need explicit value, but has one: "
                             + PluralRanges.showRange(start, end, explicitValue), 

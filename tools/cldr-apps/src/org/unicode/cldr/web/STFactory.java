@@ -400,10 +400,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                  * What is this user's override strength?
                  */
                 Integer override = null;
+                Date when = null;
 
                 public PerUserData(String value, Integer voteOverride, Date when) {
                     this.vote = value;
                     this.override = voteOverride;
+                    this.when = when;
                     if (lastModDate == null || lastModDate.before(when)) {
                         lastModDate = when;
                     }
@@ -419,6 +421,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
                 public String getValue() {
                     return vote;
+                }
+                
+                public Date getWhen(){
+                    return when;
                 }
             };
 
@@ -906,7 +912,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
                     if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(v.getValue())) {
                         r.add(v.getValue(), // user's vote
-                            e.getKey().id, v.getOverride()); // user's id
+                            e.getKey().id, v.getOverride(), v.getWhen()); // user's id
                     }
                 }
             }

@@ -3053,16 +3053,35 @@ function updateRow(tr, theRow) {
 				} else {
 					for(org in theRow.voteResolver.orgs) {
 						var theOrg = vr.orgs[org];
+						var vrRaw = {};
+												
+						//console.log(vr);
 						var orgVoteValue = theOrg.votes[value];
 						if(orgVoteValue) { // someone in the org actually voted for it
 							var topVoter = null; // top voter for this item
 							var orgsVote = (theOrg.orgVote == value);
+							var topVoterTime = 0; // Calculating the latest time for a user from same org
+							
 							if(orgsVote) {
 								// find a top-ranking voter to use for the top line
 								for(var voter in item.votes) {
 									if(item.votes[voter].org==org && item.votes[voter].votes==theOrg.votes[value]) {
-										topVoter = voter;
-										break;
+										if(topVoterTime != 0){
+											// Get the latest time vote only
+											if(vr.nameTime[item.votes[topVoter].name] < vr.nameTime[item.votes[voter].name]){
+												topVoter = voter;
+												console.log(item);
+												console.log(vr.nameTime[item.votes[topVoter].name]);
+												topVoterTime = vr.nameTime[item.votes[topVoter].name];
+											}
+										}
+										else{
+											topVoter = voter;
+											console.log(item);
+											console.log(vr.nameTime[item.votes[topVoter].name]);
+											topVoterTime = vr.nameTime[item.votes[topVoter].name];
+										}
+										//break;
 									}
 								}
 							} else {
@@ -3075,6 +3094,11 @@ function updateRow(tr, theRow) {
 								}
 							}
 							
+							//console.log(org);
+							//console.log(orgsVote);
+							//console.log(theOrg);
+							//console.log(value);
+							//console.log(topVoter);
 							
 							// ORG SUBHEADING row
 							{

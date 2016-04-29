@@ -608,7 +608,12 @@ public class TestUtilities extends TestFmwkPlus {
                                                                                 118,
                                                                                 new VoterInfo(Organization.ibm, Level.expert,
                                                                                     "ibmE") },
-                                                                                    { 129, new VoterInfo(Organization.ibm, Level.tc, "ibmT") }, });
+                                                                                    { 
+                                                                                        129, new VoterInfo(Organization.ibm, Level.tc, 
+                                                                                        "ibmT") },
+                                                                                        { 
+                                                                                            802, new VoterInfo(Organization.guest, Level.street, 
+                                                                                            "guestS2") },});
 
     private int toVoterId(String s) {
         for (Entry<Integer, VoterInfo> entry : testdata.entrySet()) {
@@ -971,9 +976,9 @@ public class TestUtilities extends TestFmwkPlus {
             "424=best",
             // expected values
             "value=best", // alphabetical
-            "sameVotes=best, next",
+            "sameVotes=best",
             "conflicts=[google]",
-            "status=provisional",
+            "status=approved",
             "check",
 
             "comment=now cross-organizational conflict, also check for max value in same organization (4, 1) => 4 not 5",
@@ -1055,6 +1060,7 @@ public class TestUtilities extends TestFmwkPlus {
             String value = item.length < 2 ? null : item[1];
             if (name.equalsIgnoreCase("comment")) {
                 logln("#\t" + value);
+                System.out.println("#\t" + value);
                 if (DEBUG_COMMENT != null && value.contains(DEBUG_COMMENT)) {
                     int x = 0;
                 }
@@ -1187,6 +1193,7 @@ public class TestUtilities extends TestFmwkPlus {
 
     }
 
+
     static final UnicodeMap<String> SCRIPTS = ICUPropertyFactory.make().getProperty("script").getUnicodeMap_internal();
     static final UnicodeMap<String> GC = ICUPropertyFactory.make().getProperty("general_category").getUnicodeMap_internal();
 
@@ -1312,4 +1319,154 @@ public class TestUtilities extends TestFmwkPlus {
         double end = System.currentTimeMillis();
         return (end-start)/1000/iterations;
     }
+
+
+    public void TestStevenTest(){
+
+        VoteResolver.setVoterToInfo(testdata);
+        VoteResolver<String> resolver = new VoteResolver<String>();
+
+        String tests[] = {
+
+            "comment=Steven Loomis test case tweaked by Parthinator",
+            "locale=wae",
+            "oldValue=_",
+            "oldStatus=approved",
+            "304=test", // Apple vetter
+            // expected values
+            "value=test",
+            "status=approved",
+            "sameVotes=test",
+            "conflicts=[]",
+            "check",
+            
+            
+            //test1
+            "comment=timestamp case1",
+            "locale=de",
+            "oldValue=old-value",
+            "oldStatus=provisional",
+            "404=Foo",
+            "424=Bar",
+            //expected
+            "value=Bar",
+            "status=provisional",
+            "sameVotes=Bar, test",
+            "conflicts=[google]",
+            "check",
+            
+            //test2
+            "comment=timestamp case2",
+            "locale=de",
+            "oldValue=Bar",
+            "oldStatus=provisional",
+            "424=Foo",
+            "404=Bar",
+            // expected values
+            "value=Bar",
+            "status=provisional",
+            "sameVotes=Bar, test",
+            "conflicts=[google]",
+            "check",
+            
+            //test 3
+            "comment=timestamp guest case",
+            "locale=de",
+            "oldValue=_",
+            "oldStatus=unconfirmed",
+            //# // G vetter A
+            //timestamp=1
+            "801=Foo",
+            //timestamp=2
+            "802=Bar",
+            // expected values
+            "value=Bar",
+            "status=contributed",
+            "sameVotes=Bar",
+            "conflicts=[google, guest]",
+            "check",
+        };
+
+        String expectedValue = null;
+        String expectedConflicts = null;
+        Status expectedStatus = null;
+        String oldValue = null;
+        Status oldStatus = null;
+        List<String> sameVotes = null;
+        String locale = null;
+        int voteEntries = 0;
+        Map<Integer, String> values = new TreeMap<Integer, String>();
+        Map<Integer, VoteEntries> valuesMap = new TreeMap<Integer, VoteEntries>();
+        
+        int counter = -1;
+
+        for (String test : tests) {
+            String[] item = test.split("=");
+            String name = item[0];
+            String value = item.length < 2 ? null : item[1];
+            if (name.equalsIgnoreCase("comment")) {
+                logln("#\t" + value);
+                System.out.println("#\t" + value);
+                if (DEBUG_COMMENT != null && value.contains(DEBUG_COMMENT)) {
+                    int x = 0;
+                }
+            } else if (name.equalsIgnoreCase("locale")) {
+                locale = value;
+            } else if (name.equalsIgnoreCase("oldValue")) {
+                oldValue = value;
+            } else if (name.equalsIgnoreCase("oldStatus")) {
+                oldStatus = Status.valueOf(value);
+            } else if (name.equalsIgnoreCase("value")) {
+                expectedValue = value;
+            } else if (name.equalsIgnoreCase("sameVotes")) {
+                sameVotes = value == null ? new ArrayList<String>(0) : Arrays
+                    .asList(value.split(",\\s*"));
+            } else if (name.equalsIgnoreCase("status")) {
+                expectedStatus = Status.valueOf(value);
+            } else if (name.equalsIgnoreCase("conflicts")) {
+                expectedConflicts = value;
+            } else if (DIGITS.containsAll(name)) {
+                final int voter = Integer.parseInt(name);
+                if (value == null || value.equals("null")) {
+                    values.remove(voter);
+                    for(Map.Entry<Integer, VoteEntries> entry : valuesMap.entrySet()){
+                        if(entry.getValue().getVoter() == voter){
+                            valuesMap.remove(entry.getKey());
+                        }
+                    }
+                } else {
+                    values.put(voter, value);
+                    valuesMap.put(++voteEntries, new VoteEntries(voter, value));
+                }
+            } else if (name.equalsIgnoreCase("check")) {
+                counter++;
+                // load the resolver
+                resolver.setLocale(locale);
+                resolver.setLastRelease(oldValue, oldStatus);
+                for (int voteEntry : valuesMap.keySet()) {
+                    
+                    resolver.add(valuesMap.get(voteEntry).getValue(), valuesMap.get(voteEntry).getVoter());
+                }
+                // print the contents
+                logln(counter + "\t" + values);
+                logln(resolver.toString());
+                // now print the values
+                assertEquals(counter + " value", expectedValue,
+                    resolver.getWinningValue());
+                assertEquals(counter + " sameVotes", sameVotes.toString(),
+                    resolver.getValuesWithSameVotes().toString());
+                assertEquals(counter + " status", expectedStatus,
+                    resolver.getWinningStatus());
+                assertEquals(counter + " conflicts", expectedConflicts,
+                    resolver.getConflictedOrganizations().toString());
+                resolver.clear();
+                values.clear();
+            } else {
+                errln("unknown command:\t" + test);
+            }
+        }
+    }
+
 }
+
+

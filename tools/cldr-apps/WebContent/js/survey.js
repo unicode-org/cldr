@@ -3044,23 +3044,20 @@ function updateRow(tr, theRow) {
 					for(org in theRow.voteResolver.orgs) {
 						var theOrg = vr.orgs[org];
 						var vrRaw = {};
-						var obj = dojo.fromJson("{'a':'one', 'b':3, 'c':true}");
-						
-						console.log(obj.a);
-						
-						
-						console.log(vr);
+												
+						//console.log(vr);
 						var orgVoteValue = theOrg.votes[value];
 						if(orgVoteValue) { // someone in the org actually voted for it
 							var topVoter = null; // top voter for this item
 							var orgsVote = (theOrg.orgVote == value);
-							var topVoterTime = 0;
+							var topVoterTime = 0; // Calculating the latest time for a user from same org
 							
 							if(orgsVote) {
 								// find a top-ranking voter to use for the top line
 								for(var voter in item.votes) {
 									if(item.votes[voter].org==org && item.votes[voter].votes==theOrg.votes[value]) {
 										if(topVoterTime != 0){
+											// Get the latest time vote only
 											if(vr.nameTime[item.votes[topVoter].name] < vr.nameTime[item.votes[voter].name]){
 												topVoter = voter;
 												console.log(item);
@@ -3087,11 +3084,11 @@ function updateRow(tr, theRow) {
 								}
 							}
 							
-							console.log(org);
-							console.log(orgsVote);
-							console.log(theOrg);
-							console.log(value);
-							console.log(topVoter);
+							//console.log(org);
+							//console.log(orgsVote);
+							//console.log(theOrg);
+							//console.log(value);
+							//console.log(topVoter);
 							
 							// ORG SUBHEADING row
 							{

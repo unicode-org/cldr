@@ -38,6 +38,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<metazone type="Europe_Central">
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Western">
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

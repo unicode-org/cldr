@@ -1060,7 +1060,7 @@ public class TestUtilities extends TestFmwkPlus {
             String value = item.length < 2 ? null : item[1];
             if (name.equalsIgnoreCase("comment")) {
                 logln("#\t" + value);
-                System.out.println("#\t" + value);
+                //System.out.println("#\t" + value);
                 if (DEBUG_COMMENT != null && value.contains(DEBUG_COMMENT)) {
                     int x = 0;
                 }
@@ -1406,7 +1406,7 @@ public class TestUtilities extends TestFmwkPlus {
             String value = item.length < 2 ? null : item[1];
             if (name.equalsIgnoreCase("comment")) {
                 logln("#\t" + value);
-                System.out.println("#\t" + value);
+                //System.out.println("#\t" + value);
                 if (DEBUG_COMMENT != null && value.contains(DEBUG_COMMENT)) {
                     int x = 0;
                 }

@@ -61,7 +61,7 @@ import com.ibm.icu.util.ULocale;
  * </pre>
  */
 public class VoteResolver<T> {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     /**
      * The status levels according to the committee, in ascending order
@@ -399,7 +399,9 @@ public class VoteResolver<T> {
                     T value = iterator.next();
                     long weight = items.getCount(value);
                     Organization org = entry.getKey();
-                    System.out.println("sortedKeys?? " + value + " " + org.displayName);
+                    if(DEBUG){
+                    	System.out.println("sortedKeys?? " + value + " " + org.displayName);
+                    }
                    
                    // System.out.println("Org: " + org);
                     // if there is more than one item, check that it is less

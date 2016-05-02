@@ -1191,26 +1191,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colReorder">Script/Block Reordering</key>
 			<key type="colStrength">Sorting Strength</key>
 			<key type="currency">Currency</key>
+			<key type="d0">Transform Destination</key>
 			<key type="em">Emoji Presentation Style</key>
 			<key type="fw">First day of week</key>
 			<key type="hc">Hour Cycle (12 vs 24)</key>
+			<key type="i0">Input Method</key>
+			<key type="k0">Keyboard</key>
 			<key type="kv">Highest Ignored</key>
 			<key type="lb">Line Break Style</key>
 			<key type="lw">Line Breaks In Words Setting</key>
+			<key type="m0">Transform Rules</key>
 			<key type="ms">Measurement System</key>
 			<key type="numbers">Numbers</key>
 			<key type="rg">Region For Supplemental Data</key>
+			<key type="s0">Transform Source</key>
 			<key type="sd">Region Subdivision</key>
 			<key type="ss">Sentence Break Suppressions Type</key>
+			<key type="t0">Machine Translated</key>
 			<key type="timezone">Time Zone</key>
 			<key type="va">Locale Variant</key>
 			<key type="x">Private-Use</key>
-			<key type="d0">Transform Destination</key>
-			<key type="s0">Transform Source</key>
-			<key type="i0">Input Method</key>
-			<key type="k0">Keyboard</key>
-			<key type="m0">Transform Rules</key>
-			<key type="t0">Machine Translated</key>
 			<key type="x0">Private-Use Transform</key>
 		</keys>
 		<types>
@@ -1270,11 +1270,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Sort Accents/Case/Width/Kana</type>
 			<type key="colStrength" type="secondary">Sort Accents</type>
 			<type key="colStrength" type="tertiary">Sort Accents/Case/Width</type>
-			<type key="kr" type="currency">Currency</type>
-			<type key="kr" type="digit">Digits</type>
-			<type key="kr" type="punct">Punctuation</type>
-			<type key="kr" type="space">Whitespace</type>
-			<type key="kr" type="symbol">Symbol</type>
 			<type key="d0" type="fwidth">Fullwidth</type>
 			<type key="d0" type="hwidth">Halfwidth</type>
 			<type key="d0" type="npinyin">Numeric</type>
@@ -1292,6 +1287,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="hc" type="h12">12 Hour System (1–12)</type>
 			<type key="hc" type="h23">24 Hour System (0–23)</type>
 			<type key="hc" type="h24">24 Hour System (1–24)</type>
+			<type key="kr" type="currency">Currency</type>
+			<type key="kr" type="digit">Digits</type>
+			<type key="kr" type="punct">Punctuation</type>
+			<type key="kr" type="space">Whitespace</type>
+			<type key="kr" type="symbol">Symbol</type>
 			<type key="lb" type="loose">Loose Line Break Style</type>
 			<type key="lb" type="normal">Normal Line Break Style</type>
 			<type key="lb" type="strict">Strict Line Break Style</type>

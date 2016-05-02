@@ -1361,7 +1361,7 @@ public class SupplementalDataInfo {
                 bcp47Descriptions.put(key_empty, keyDescription);
             }
             if (deprecated != null && deprecated.equals("true")) {
-                bcp47Deprecated.put(key_empty, deprecated); 
+                bcp47Deprecated.put(key_empty, deprecated);
             }
 
             if (parts.size() > 3) { // for parts with no subtype: //ldmlBCP47/keyword/key[@extension="t"][@name="x0"]
@@ -3218,7 +3218,7 @@ public class SupplementalDataInfo {
         static final int fractDecrement = 13;
         static final int fractStart = 20;
 
-        private final Map<Count, List<Double>> countToExampleList;
+        private final Map<Count, Set<Double>> countToExampleList;
         private final Map<Count, String> countToStringExample;
         private final Map<Integer, Count> exampleToCount;
         private final PluralRules pluralRules;
@@ -3274,7 +3274,7 @@ public class SupplementalDataInfo {
 
             countSampleList = new CountSampleList(pluralRules, keywords, pluralType);
 
-            Map<Count, List<Double>> countToExampleListRaw = new TreeMap<Count, List<Double>>();
+            Map<Count, Set<Double>> countToExampleListRaw = new TreeMap<Count, Set<Double>>();
             Map<Integer, Count> exampleToCountRaw = new TreeMap<Integer, Count>();
 
             Output<Map<Count, SampleList[]>> output = new Output();
@@ -3297,19 +3297,27 @@ public class SupplementalDataInfo {
             String otherExamples = (baseOtherExamples == null ? "" : baseOtherExamples + "; ")
                 + otherFractionalExamples + "...";
             countToStringExampleRaw.put(Count.other, otherExamples);
-            // add otherFractions
-            List<Double> list_temp = countToExampleListRaw.get(Count.other);
-            if (list_temp == null) {
-                countToExampleListRaw.put(Count.other, list_temp = new ArrayList<Double>(0));
-            }
-            list_temp.addAll(otherFractions);
 
-            for (Count type : countToExampleListRaw.keySet()) {
-                List<Double> list = countToExampleListRaw.get(type);
-                // if (type.equals(Count.other)) {
-                // list.addAll(otherFractions);
-                // }
-                list = Collections.unmodifiableList(list);
+            // Now do double examples (previously unused & not working).
+            // Currently a bit of a hack, we should enhance SampleList to make this easier
+            // and then use SampleList directly.
+            for (Count type : countToStringExampleRaw.keySet()) {
+                Set<Double> doublesSet = new HashSet<Double>(0);
+                String examples = countToStringExampleRaw.get(type);
+                if (examples == null) {
+                    examples = "";
+                }
+                String strippedExamples = examples.replaceAll("(, …)|(; ...)", "");
+                String[] exampleArray = strippedExamples.split("(, )|(-)");
+                for (String example: exampleArray) {
+                    if (example == null || example.length() == 0) {
+                        continue;
+                    }
+                    Double doubleValue = Double.valueOf(example);
+                    doublesSet.add(doubleValue);
+                }
+                doublesSet = Collections.unmodifiableSet(doublesSet);
+                countToExampleListRaw.put(type, doublesSet);
             }
 
             countToExampleList = Collections.unmodifiableMap(countToExampleListRaw);
@@ -3353,7 +3361,7 @@ public class SupplementalDataInfo {
             return countToExampleList + "; " + exampleToCount + "; " + pluralRules;
         }
 
-        public Map<Count, List<Double>> getCountToExamplesMap() {
+        public Map<Count, Set<Double>> getCountToExamplesMap() {
             return countToExampleList;
         }
 

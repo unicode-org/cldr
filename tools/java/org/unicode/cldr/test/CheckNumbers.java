@@ -34,7 +34,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
     private static final Splitter SEMI_SPLITTER = Splitter.on(';');
 
     private static final UnicodeSet FORBIDDEN_NUMERIC_PATTERN_CHARS = new UnicodeSet("[[:n:]-[0]]");
-    
+
     /**
      * If you are going to use ICU services, then ICUServiceBuilder will allow you to create
      * them entirely from CLDR data, without using the ICU data.
@@ -42,6 +42,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
     private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
 
     private Set<Count> pluralTypes;
+    private Map<Count, Set<Double>> pluralExamples;
     private Set<String> validNumberingSystems;
     private PathHeader.Factory pathHeaderFactory;
     /**
@@ -92,6 +93,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             getFactory().getSupplementalDirectory());
         PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
         pluralTypes = pluralInfo.getCounts();
+        pluralExamples = pluralInfo.getCountToExamplesMap();
         validNumberingSystems = supplementalData.getNumberingSystems();
 
         return this;
@@ -358,15 +360,29 @@ public class CheckNumbers extends FactoryCheckCLDR {
         Set<String> inconsistentItems = new TreeSet<String>();
         Set<Count> otherCounts = new HashSet<Count>(pluralTypes);
         if (thisCount != null) {
+            if (pluralExamples.get(thisCount).size() == 1 && numIntegerDigits <= 0) {
+                // If a plural case corresponds to a single double value, the format is
+                // allowed to not include a numeric value and in this way be inconsistent
+                // with the numeric formats used for other plural cases.
+                return;
+            }
             otherCounts.remove(thisCount);
         }
         for (Count count : otherCounts) {
+            // System.out.println("## double examples for count " + count + ": " + pluralExamples.get(count));
             parts.setAttribute("pattern", "count", count.toString());
             String otherPattern = resolvedFile.getWinningValue(parts.toString());
             // Ignore the type="other" pattern if not present or invalid.
             if (otherPattern == null || findUnquotedChars(type, otherPattern) != null) continue;
             format = new DecimalFormat(otherPattern);
-            if (format.getMinimumIntegerDigits() != numIntegerDigits) {
+            int numIntegerDigitsOther = format.getMinimumIntegerDigits();
+            if (pluralExamples.get(count).size() == 1 && numIntegerDigitsOther <= 0) {
+                // If a plural case corresponds to a single double value, the format is
+                // allowed to not include a numeric value and in this way be inconsistent
+                // with the numeric formats used for other plural cases.
+                continue;
+            }
+            if (numIntegerDigitsOther != numIntegerDigits) {
                 PathHeader pathHeader = pathHeaderFactory.fromPath(parts.toString());
                 inconsistentItems.add(pathHeader.getHeaderCode());
             }
@@ -379,7 +395,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             result.add(new CheckStatus().setCause(this)
                 .setMainType(isWinningValue ? CheckStatus.errorType : CheckStatus.warningType)
                 .setSubtype(Subtype.inconsistentPluralFormat)
-                .setMessage("All values for {0} must the same number of digits. " +
+                .setMessage("All values for {0} must have the same number of digits. " +
                     "The number of zeros in this pattern is inconsistent with the following: {1}.",
                     groupHeaderString,
                     inconsistentItems.toString()));

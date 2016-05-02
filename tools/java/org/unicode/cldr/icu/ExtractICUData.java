@@ -31,7 +31,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 
-import com.ibm.icu.impl.ICUResourceBundle;
+import com.ibm.icu.impl.ICUData;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Collator;
@@ -251,7 +251,7 @@ public class ExtractICUData {
     private static void getTranslitIndex(CLDRFile accumulatedItems) throws IOException {
 
         UResourceBundle bundle, transIDs, colBund;
-        bundle = UResourceBundle.getBundleInstance(ICUResourceBundle.ICU_TRANSLIT_BASE_NAME, INDEX);
+        bundle = UResourceBundle.getBundleInstance(ICUData.ICU_TRANSLIT_BASE_NAME, INDEX);
         transIDs = bundle.get(RB_RULE_BASED_IDS);
 
         String[] attributesOut = new String[1];

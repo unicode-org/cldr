@@ -3218,7 +3218,7 @@ public class SupplementalDataInfo {
         static final int fractDecrement = 13;
         static final int fractStart = 20;
 
-        private final Map<Count, Set<Double>> countToExampleList;
+        private final Map<Count, Set<Double>> countToExampleSet;
         private final Map<Count, String> countToStringExample;
         private final Map<Integer, Count> exampleToCount;
         private final PluralRules pluralRules;
@@ -3274,7 +3274,7 @@ public class SupplementalDataInfo {
 
             countSampleList = new CountSampleList(pluralRules, keywords, pluralType);
 
-            Map<Count, Set<Double>> countToExampleListRaw = new TreeMap<Count, Set<Double>>();
+            Map<Count, Set<Double>> countToExampleSetRaw = new TreeMap<Count, Set<Double>>();
             Map<Integer, Count> exampleToCountRaw = new TreeMap<Integer, Count>();
 
             Output<Map<Count, SampleList[]>> output = new Output();
@@ -3317,10 +3317,10 @@ public class SupplementalDataInfo {
                     doublesSet.add(doubleValue);
                 }
                 doublesSet = Collections.unmodifiableSet(doublesSet);
-                countToExampleListRaw.put(type, doublesSet);
+                countToExampleSetRaw.put(type, doublesSet);
             }
 
-            countToExampleList = Collections.unmodifiableMap(countToExampleListRaw);
+            countToExampleSet = Collections.unmodifiableMap(countToExampleSetRaw);
             countToStringExample = Collections.unmodifiableMap(countToStringExampleRaw);
             exampleToCount = Collections.unmodifiableMap(exampleToCountRaw);
             Set<String> temp = new LinkedHashSet<String>();
@@ -3358,11 +3358,11 @@ public class SupplementalDataInfo {
         }
 
         public String toString() {
-            return countToExampleList + "; " + exampleToCount + "; " + pluralRules;
+            return countToExampleSet + "; " + exampleToCount + "; " + pluralRules;
         }
 
         public Map<Count, Set<Double>> getCountToExamplesMap() {
-            return countToExampleList;
+            return countToExampleSet;
         }
 
         public Map<Count, String> getCountToStringExamplesMap() {

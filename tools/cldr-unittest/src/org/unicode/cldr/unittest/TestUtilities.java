@@ -36,6 +36,7 @@ import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
@@ -195,6 +196,27 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("Iterator", "1tu[a-z]", result.toString());
     }
 
+    public void TestUntimedCounter() {
+        // simulates how Counter is used in VettingViewer
+        Counter<Choice> problemCounter = new Counter<Choice>();
+        problemCounter.increment(Choice.error);
+        problemCounter.increment(Choice.error);
+        problemCounter.increment(Choice.warning);
+        
+        assertEquals("problemCounter error", 2, problemCounter.get(Choice.error));
+        assertEquals("problemCounter warning", 1, problemCounter.get(Choice.warning));
+        assertEquals("problemCounter weLost", 0, problemCounter.get(Choice.weLost));
+
+        
+        Counter<Choice> otherCounter = new Counter<Choice>();
+        otherCounter.addAll(problemCounter);
+        otherCounter.increment(Choice.error);
+        
+        assertEquals("otherCounter error", 3, otherCounter.get(Choice.error));
+        assertEquals("otherCounter warning", 1, otherCounter.get(Choice.warning));
+        assertEquals("otherCounter weLost", 0, otherCounter.get(Choice.weLost));
+    }
+    
     public void TestCounter() {
         Counter<String> counter = new Counter<String>(true);
         Comparator<String> uca = new Comparator<String>() {

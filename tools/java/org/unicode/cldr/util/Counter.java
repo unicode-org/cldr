@@ -106,7 +106,12 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         return count == null ? 0 : count.value;
     }
     
-    public long getTime(T obj){
+    /**
+     * Get the time, or 0
+     * @param obj
+     * @return the time, or 0 as a fallback
+     */
+    public final long getTime(T obj){
         RWLong count = map.get(obj);
         return count == null ? 0 : count.time;
     }
@@ -227,7 +232,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
 
     public Counter<T> addAll(Collection<T> keys, int delta) {
         for (T key : keys) {
-            long time = map.get(key).time;
+            long time = getTime(key);
             add(key, delta, time);
         }
         return this;
@@ -235,7 +240,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
 
     public Counter<T> addAll(Counter<T> keys) {
         for (T key : keys) {
-            long time = map.get(key).time;
+            long time = getTime(key);
             add(key, keys.getCount(key), time);
         }
         return this;
@@ -263,7 +268,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
     }
 
     public Counter<T> increment(T key) {
-        return add(key, 1, map.get(key).time);
+        return add(key, 1, getTime(key));
     }
 
     public boolean containsKey(T key) {

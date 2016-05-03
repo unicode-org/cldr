@@ -4540,6 +4540,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="standard-short">
+			<alias source="locale" path="../listPattern"/>
+		</listPattern>
 		<listPattern type="unit">
 			<alias source="locale" path="../listPattern[@type='unit-short']"/>
 		</listPattern>

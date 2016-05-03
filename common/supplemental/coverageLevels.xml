@@ -19,9 +19,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/symbols[^/]++/timeSeparator"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/currencies/currency\[@type=.([A-Z]{3}).\]/symbol(\[@alt=.(narrow|variant).\])?"/>
             <approvalRequirement votes="20" locales="*" paths="//ldml/dates/timeZoneNames/metazone[^/]++/short/[^/]++"/>
-			<approvalRequirement votes="20" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" 
+			<approvalRequirement votes="20" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant"
 			   paths="//ldml/dates/calendars/calendar\[@type=.gregorian.\]/(days|months).*"/>
-			<approvalRequirement votes="20" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" 
+			<approvalRequirement votes="20" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant"
 			   paths="//ldml/dates/calendars/calendar\[@type=.gregorian.\]/(date|time)Formats/.*"/>
 			<!--  "high bar" items for specific locales -->
 			<approvalRequirement votes="20" locales="sk" paths="//ldml/dates/calendars/calendar[^/]++/dayPeriods/dayPeriodContext\[@type=.format.\]/dayPeriodWidth[^/]++/dayPeriod\[@type=.(am|pm).\]"/>
@@ -30,7 +30,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!--  all other items -->
 			<approvalRequirement votes="4" locales="*" paths=""/>
 		</approvalRequirements>
-		
+
 		<coverageVariable key="%acctPattern" value="[@type='accounting']/pattern[@type='standard']"/>
 		<coverageVariable key="%allPlurals" value="(zero|one|two|few|many|other)"/>
 		<coverageVariable key="%allWidths" value="(wide|abbreviated|narrow)"/>
@@ -100,7 +100,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%medLong" value="(medium|long)"/>
 		<coverageVariable key="%metazone30_AR" value="Argentina(_Western)?"/>
 		<coverageVariable key="%metazone30_AU" value="(Australia_(Central(Western)?|(East|West)ern)|Lord_Howe)"/>
-		<coverageVariable key="%metazone30_AU_stdonly" value="Macquarie"/> 
+		<coverageVariable key="%metazone30_AU_stdonly" value="Macquarie"/>
 		<coverageVariable key="%metazone30_BR" value="(Amazon|Brasilia|Noronha)"/>
 		<coverageVariable key="%metazone30_CA" value="(America_(Eastern|Central|Mountain|Pacific)|Newfoundland)"/>
 		<coverageVariable key="%metazone30_EU" value="Europe_(Central|(East|West)ern)"/>
@@ -111,8 +111,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%metazone30_RU_stdonly" value="Europe_Further_Eastern"/>
 		<coverageVariable key="%metazone30_US" value="(America_(Eastern|Central|Mountain|Pacific)|Alaska|Hawaii_Aleutian)"/>
 		<coverageVariable key="%metazone40" value="(America_(Eastern|Central|Mountain|Pacific)|Europe_(Central|(East|West)ern)|Atlantic)"/>
-		<coverageVariable key="%metazone60" value="(Africa_Western|Arabian|Australia_(Central(Western)?|(East|West)ern)|China|Israel|Japan|Korea|Moscow)"/> 
-		<coverageVariable key="%metazone60_stdonly" value="(Africa_(Central|(East|South)ern)|India|Indochina|Indonesia_(Central|(East|West)ern))"/> 
+		<coverageVariable key="%metazone60" value="(Africa_Western|Arabian|Australia_(Central(Western)?|(East|West)ern)|China|Israel|Japan|Korea|Moscow)"/>
+		<coverageVariable key="%metazone60_stdonly" value="(Africa_(Central|(East|South)ern)|India|Indochina|Indonesia_(Central|(East|West)ern))"/>
 		<coverageVariable key="%metazone80" value="(Alaska|Amazon|Apia|Argentina(_Western)?|Armenia|Azerbaijan|Azores|Bangladesh|Brasilia|Cape_Verde|Chatham|Chile|Choibalsan|Colombia|Cook|Cuba|Easter|Falkland|Fiji|Georgia|Greenland_(East|West)ern|Hawaii_Aleutian|Hong_Kong|Hovd|Iran|Irkutsk|Krasnoyarsk|Lord_Howe|Magadan|Mauritius|Mexico_(Northwest|Pacific)|Mongolia|New_(Caledonia|Zealand)|Newfoundland|Noronha|Novosibirsk|Omsk|Pakistan|Paraguay|Peru|Philippines|Pierre_Miquelon|Sakhalin|Samoa|Taipei|Tonga|Turkmenistan|Uruguay|Uzbekistan|Vanuatu|Vladivostok|Volgograd|Yakutsk|Yekaterinburg)"/>
 		<coverageVariable key="%metazone80_stdonly" value="(Afghanistan|Bhutan|Bolivia|Brunei|Chamorro|Christmas|Cocos|Davis|DumontDUrville|East_Timor|Ecuador|Europe_Further_Eastern|French_(Guiana|Southern)|Gambier|Galapagos|Gilbert_Islands|Gulf|Guyana|Indian_Ocean|Kazakhstan_(East|West)ern|Kosrae|Kyrgystan|Line_Islands|Macquarie|Malaysia|Maldives|Marquesas|Marshall_Islands|Mawson|Myanmar|Nauru|Nepal|Niue|Norfolk|Palau|Papua_New_Guinea|Phoenix_Islands|Pitcairn|Ponape|Pyongyang|Reunion|Rothera|Seychelles|Singapore|Solomon|South_Georgia|Suriname|Syowa|Tahiti|Tajikistan|Tokelau|Truk|Tuvalu|Venezuela|Vostok|Wake|Wallis)"/>
 		<coverageVariable key="%metazone100" value="(Acre|Almaty|Anadyr|Aqtau|Aqtobe|Kamchatka|Macau|Qyzylorda|Samara)"/>
@@ -159,8 +159,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%unitsOther" value="(length-(picometer|light-year)|pressure-(hectopascal|inch-hg|millibar)|acceleration-g-force|angle-(degree|minute|second)|area-(acre|hectare|square-(foot|kilometer|meter|mile))|power-(horsepower|kilowatt|watt)|speed-meter-per-second|volume-cubic-(mile|kilometer))"/>
 		<coverageVariable key="%variantTypes" value="([A-Z0-9]++)"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
-		<coverageVariable key="%yesNo" value="(yes|no)"/>		
-		<coverageVariable key="%anyAttribute" value='([^\x{22}]++)'/>		
+		<coverageVariable key="%yesNo" value="(yes|no)"/>
+		<coverageVariable key="%anyAttribute" value='([^\x{22}]++)'/>
 		<!-- -->
 		<!-- Coverage levels begin here -->
 		<!-- -->
@@ -437,15 +437,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="US" value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel inTerritory="US" value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/displayName"/>
 
-		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80']"/> 
-		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80'][@alt='%anyAlphaNum']"/> 
+		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80'][@alt='%anyAlphaNum']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/scripts/script[@type='%script80']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/territories/territory[@type='%territory80']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/territories/territory[@type='%territory40'][@alt='%shortVariant']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/territories/territory[@type='%territory60'][@alt='%shortVariant']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/territories/territory[@type='%territory80'][@alt='%shortVariant']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/keys/key[@type='%keys80']"/>
-		<coverageLevel inLanguage="pt" value="modern" match="localeDisplayNames/variants/variant[@type='%ptVariants']"/>		
+		<coverageLevel inLanguage="pt" value="modern" match="localeDisplayNames/variants/variant[@type='%ptVariants']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80']"/>
 		<coverageLevel inLanguage="%collationType80TopLangs" value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80ForTopLangs']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='numbers'][@type='%numberingSystem80']"/>
@@ -473,8 +473,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="dates/fields/field[@type='day']/relative[@type='(-3|-2|2|3)']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='year']/relative[@type='(-3|-2|2|3)']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='%relativeDayTypes']/relative[@type='(-1|0|1)']"/>
-		<coverageLevel value="modern" match="dates/fields/field[@type='%relativeTimeTypes']/relativeTime[@type='%futurePast']/relativeTimePattern[@count='${Target-Plurals}']"/>		
-		<coverageLevel value="modern" match="dates/fields/field[@type='%relativeDayTypes']/relativeTime[@type='%futurePast']/relativeTimePattern[@count='${Target-Plurals}']"/>		
+		<coverageLevel value="modern" match="dates/fields/field[@type='%relativeTimeTypes']/relativeTime[@type='%futurePast']/relativeTimePattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="modern" match="dates/fields/field[@type='%relativeDayTypes']/relativeTime[@type='%futurePast']/relativeTimePattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='hour']/relative[@type='0']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='minute']/relative[@type='0']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='second']/relative[@type='0']"/>
@@ -492,7 +492,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="numbers/symbols[@numberSystem='latn']/infinity"/>
 		<coverageLevel value="modern" match="numbers/symbols[@numberSystem='latn']/nan"/>
 		<coverageLevel value="modern" match="numbers/symbols[@numberSystem='latn']/timeSeparator"/>
-		<coverageLevel value="modern" match="numbers/minimumGroupingDigits"/>	 
+		<coverageLevel value="modern" match="numbers/minimumGroupingDigits"/>
 		<coverageLevel inLanguage="ar" value="modern" match="numbers/symbols[@numberSystem='arab']/exponential"/>
 		<coverageLevel inLanguage="ar" value="modern" match="numbers/symbols[@numberSystem='arab']/superscriptingExponent"/>
 		<coverageLevel inLanguage="ar" value="modern" match="numbers/symbols[@numberSystem='arab']/perMille"/>
@@ -535,8 +535,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/displayName"/>
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
-				
-		<coverageLevel value="modern" match="listPatterns/listPattern[@type='(duration|unit)(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
+
+		<coverageLevel value="modern" match="listPatterns/listPattern[@type='(duration|standard|unit)(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='%anyAlphaNum']/dayPeriodWidth[@type='%allWidths']/dayPeriod[@type='%anyAlphaNum']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='calendar'][@type='%calendarType80']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)']"/>
@@ -546,7 +546,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="characterLabels/characterLabelPattern[@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="characterLabels/characterLabelPattern[@type='%anyAttribute'][@count='%allPlurals']"/>
 
-		<!-- 
+		<!--
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='narrow']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='(0|1)']"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='(0|1)'][@alt='variant']"/>
@@ -597,7 +597,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/symbol[@alt='(narrow|variant)']"/>
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/displayName"/>
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/displayName[@count='${Target-Plurals}']"/>
-        <coverageLevel value="comprehensive" match="dates/fields/field[@type='%relativeTimeTypes']/relative[@type='(-1|0|1)']"/>        
+        <coverageLevel value="comprehensive" match="dates/fields/field[@type='%relativeTimeTypes']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/generic"/>
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/standard"/>
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/daylight"/>

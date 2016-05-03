@@ -35,7 +35,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%allPlurals" value="(zero|one|two|few|many|other)"/>
 		<coverageVariable key="%allWidths" value="(wide|abbreviated|narrow)"/>
 		<coverageVariable key="%ampmTypes" value="(am|pm|noon)"/>
-		<coverageVariable key="%arabextLanguages" value="(fa|pa|ps|uz)"/>
 		<coverageVariable key="%calendarType80" value="(buddhist|chinese|dangi|ethiopic|hebrew|islamic|japanese|persian|roc)"/>
 		<coverageVariable key="%calendarType100" value="(buddhist|chinese|coptic|dangi|ethiopic(-amete-alem)?|hebrew|indian|islamic(-(civil|rgsa|tbla|umalqura))?|japanese|persian|roc)"/>
 		<coverageVariable key="%calendarType100ForDateFormats" value="(buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc)"/>
@@ -73,7 +72,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%dayFieldTypes" value="(era|year|year-short|year-narrow|quarter|quarter-short|quarter-narrow|month|month-short|month-narrow|week|week-short|week-narrow|day|day-short|day-narrow|weekday|hour|hour-short|hour-narrow|minute|minute-short|minute-narrow|second|second-short|second-narrow|dayperiod|zone)"/>
 		<coverageVariable key="%dayTypes" value="(sun|mon|tue|wed|thu|fri|sat)"/>
 		<coverageVariable key="%relativeDayTypes" value="(sun|sun-short|sun-narrow|mon|mon-short|mon-narrow|tue|tue-short|tue-narrow|wed|wed-short|wed-narrow|thu|thu-short|thu-narrow|fri|fri-short|fri-narrow|sat|sat-short|sat-narrow)"/>
-		<coverageVariable key="%devaLanguages" value="(mr|ne)"/>
 		<coverageVariable key="%ellipsisTypes" value="(word-)?(initial|medial|final)"/>
 		<coverageVariable key="%exemplarTypes" value="(auxiliary|index|punctuation)"/>
         <coverageVariable key="%hcTypes80" value="h(11|12|23|24)"/>
@@ -161,6 +159,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
 		<coverageVariable key="%yesNo" value="(yes|no)"/>
 		<coverageVariable key="%anyAttribute" value='([^\x{22}]++)'/>
+		<!-- Number system coverage by language; default number system items at various levels, native system items all at modern -->
+		<coverageVariable key="%arabDefaultLanguages" value="(ar|ckb)"/>
+		<coverageVariable key="%arabextDefaultLanguages" value="(fa|ks|lrc|pa|ps|ur|uz)"/>
+		<coverageVariable key="%arabextNativeLanguages" value="(mzn|ug)"/>
+		<coverageVariable key="%bengDefaultLanguages" value="(as|bn)"/>
+		<coverageVariable key="%devaDefaultLanguages" value="(mr|ne)"/>
+		<coverageVariable key="%devaNativeLanguages" value="(brx|hi|kok)"/>
+		<coverageVariable key="%gujrNativeLanguages" value="(gu)"/>
+		<coverageVariable key="%hanidecNativeLanguages" value="(yue|zh)"/>
+		<coverageVariable key="%mymrDefaultLanguages" value="(my)"/>
+		<coverageVariable key="%tibtDefaultLanguages" value="(dz)"/>
+		<coverageVariable key="%tibtNativeLanguages" value="(bo)"/>
+		<coverageVariable key="%tamlNativeLanguages" value="(ta)"/>
 		<!-- -->
 		<!-- Coverage levels begin here -->
 		<!-- -->
@@ -199,7 +210,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="zh" value="minimal" match="localeDisplayNames/types/type[@key='collation'][@type='(big5han|gb2312han|pinyin|stroke|zhuyin)']"/>
 		<coverageLevel inScript="Arab" value="minimal" match="localeDisplayNames/types/type[@key='numbers'][@type='arab']"/>
 		<coverageLevel inScript="Armn" value="minimal" match="localeDisplayNames/types/type[@key='numbers'][@type='armn(low)?']"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="localeDisplayNames/types/type[@key='numbers'][@type='arabext']"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="localeDisplayNames/types/type[@key='numbers'][@type='arabext']"/>
 		<coverageLevel inScript="Beng" value="minimal" match="localeDisplayNames/types/type[@key='numbers'][@type='beng']"/>
 		<coverageLevel inScript="Deva" value="minimal" match="localeDisplayNames/types/type[@key='numbers'][@type='deva']"/>
 		<coverageLevel inScript="Ethi" value="minimal" match="localeDisplayNames/types/type[@key='numbers'][@type='ethi']"/>
@@ -237,42 +248,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="minimal" match="numbers/symbols[@numberSystem='latn']/plusSign"/>
 		<coverageLevel value="minimal" match="numbers/symbols[@numberSystem='latn']/minusSign"/>
 		<coverageLevel value="minimal" match="numbers/symbols[@numberSystem='latn']/percentSign"/>
-		<coverageLevel inLanguage="ar" value="minimal" match="numbers/symbols[@numberSystem='arab']/decimal"/>
-		<coverageLevel inLanguage="ar" value="minimal" match="numbers/symbols[@numberSystem='arab']/group"/>
-		<coverageLevel inLanguage="ar" value="minimal" match="numbers/symbols[@numberSystem='arab']/plusSign"/>
-		<coverageLevel inLanguage="ar" value="minimal" match="numbers/symbols[@numberSystem='arab']/minusSign"/>
-		<coverageLevel inLanguage="ar" value="minimal" match="numbers/symbols[@numberSystem='arab']/percentSign"/>
-		<coverageLevel inLanguage="ar" value="minimal" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength/decimalFormat%stdPattern"/>
-		<coverageLevel inLanguage="ar" value="minimal" match="numbers/currencyFormats[@numberSystem='arab']/currencyFormatLength/currencyFormat%stdPattern"/>
-		<coverageLevel inLanguage="ar" value="minimal" match="numbers/scientificFormats[@numberSystem='arab']/scientificFormatLength/scientificFormat%stdPattern"/>
-		<coverageLevel inLanguage="ar" value="minimal" match="numbers/percentFormats[@numberSystem='arab']/percentFormatLength/percentFormat%stdPattern"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/decimal"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/group"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/plusSign"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/minusSign"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/percentSign"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength/decimalFormat%stdPattern"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="numbers/currencyFormats[@numberSystem='arabext']/currencyFormatLength/currencyFormat%stdPattern"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="numbers/scientificFormats[@numberSystem='arabext']/scientificFormatLength/scientificFormat%stdPattern"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="minimal" match="numbers/percentFormats[@numberSystem='arabext']/percentFormatLength/percentFormat%stdPattern"/>
-		<coverageLevel inLanguage="%devaLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/decimal"/>
-		<coverageLevel inLanguage="%devaLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/group"/>
-		<coverageLevel inLanguage="%devaLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/plusSign"/>
-		<coverageLevel inLanguage="%devaLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/minusSign"/>
-		<coverageLevel inLanguage="%devaLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/percentSign"/>
-		<coverageLevel inLanguage="%devaLanguages" value="minimal" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength/decimalFormat%stdPattern"/>
-		<coverageLevel inLanguage="%devaLanguages" value="minimal" match="numbers/currencyFormats[@numberSystem='deva']/currencyFormatLength/currencyFormat%stdPattern"/>
-		<coverageLevel inLanguage="%devaLanguages" value="minimal" match="numbers/scientificFormats[@numberSystem='deva']/scientificFormatLength/scientificFormat%stdPattern"/>
-		<coverageLevel inLanguage="%devaLanguages" value="minimal" match="numbers/percentFormats[@numberSystem='deva']/percentFormatLength/percentFormat%stdPattern"/>
-		<coverageLevel inLanguage="dz" value="minimal" match="numbers/symbols[@numberSystem='tibt']/decimal"/>
-		<coverageLevel inLanguage="dz" value="minimal" match="numbers/symbols[@numberSystem='tibt']/group"/>
-		<coverageLevel inLanguage="dz" value="minimal" match="numbers/symbols[@numberSystem='tibt']/plusSign"/>
-		<coverageLevel inLanguage="dz" value="minimal" match="numbers/symbols[@numberSystem='tibt']/minusSign"/>
-		<coverageLevel inLanguage="dz" value="minimal" match="numbers/symbols[@numberSystem='tibt']/percentSign"/>
-		<coverageLevel inLanguage="dz" value="minimal" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength/decimalFormat%stdPattern"/>
-		<coverageLevel inLanguage="dz" value="minimal" match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern"/>
-		<coverageLevel inLanguage="dz" value="minimal" match="numbers/scientificFormats[@numberSystem='tibt']/scientificFormatLength/scientificFormat%stdPattern"/>
-		<coverageLevel inLanguage="dz" value="minimal" match="numbers/percentFormats[@numberSystem='tibt']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arab']/decimal"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arab']/group"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arab']/plusSign"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arab']/minusSign"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arab']/percentSign"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="minimal" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="minimal" match="numbers/currencyFormats[@numberSystem='arab']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="minimal" match="numbers/scientificFormats[@numberSystem='arab']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="minimal" match="numbers/percentFormats[@numberSystem='arab']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/decimal"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/group"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/plusSign"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/minusSign"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='arabext']/percentSign"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="numbers/currencyFormats[@numberSystem='arabext']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="numbers/scientificFormats[@numberSystem='arabext']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="minimal" match="numbers/percentFormats[@numberSystem='arabext']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='beng']/decimal"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='beng']/group"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='beng']/plusSign"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='beng']/minusSign"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='beng']/percentSign"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="minimal" match="numbers/decimalFormats[@numberSystem='beng']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="minimal" match="numbers/currencyFormats[@numberSystem='beng']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="minimal" match="numbers/scientificFormats[@numberSystem='beng']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="minimal" match="numbers/percentFormats[@numberSystem='beng']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/decimal"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/group"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/plusSign"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/minusSign"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='deva']/percentSign"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="minimal" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="minimal" match="numbers/currencyFormats[@numberSystem='deva']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="minimal" match="numbers/scientificFormats[@numberSystem='deva']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="minimal" match="numbers/percentFormats[@numberSystem='deva']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='mymr']/decimal"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='mymr']/group"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='mymr']/plusSign"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='mymr']/minusSign"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='mymr']/percentSign"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="minimal" match="numbers/decimalFormats[@numberSystem='mymr']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="minimal" match="numbers/currencyFormats[@numberSystem='mymr']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="minimal" match="numbers/scientificFormats[@numberSystem='mymr']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="minimal" match="numbers/percentFormats[@numberSystem='mymr']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='tibt']/decimal"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='tibt']/group"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='tibt']/plusSign"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='tibt']/minusSign"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="minimal" match="numbers/symbols[@numberSystem='tibt']/percentSign"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="minimal" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="minimal" match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="minimal" match="numbers/scientificFormats[@numberSystem='tibt']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="minimal" match="numbers/percentFormats[@numberSystem='tibt']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel value="minimal" match="dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='%fullMedium']/dateFormat%stdPattern"/>
 		<coverageLevel value="minimal" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength[@type='%dateTimeFormatLengths']/dateTimeFormat%stdPattern"/>
 		<coverageLevel value="minimal" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
@@ -379,10 +408,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="basic" match="delimiters/quotationEnd"/>
 		<coverageLevel value="basic" match="delimiters/alternateQuotationStart"/>
 		<coverageLevel value="basic" match="delimiters/alternateQuotationEnd"/>
-		<coverageLevel inLanguage="ar" value="basic" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="basic" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
-		<coverageLevel inLanguage="%devaLanguages" value="basic" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
-		<coverageLevel inLanguage="dz" value="basic" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="basic" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="basic" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="basic" match="numbers/decimalFormats[@numberSystem='beng']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="basic" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="basic" match="numbers/decimalFormats[@numberSystem='mymr']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="basic" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
 		<coverageLevel value="basic" match="listPatterns/listPattern/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="basic" match="units/durationUnit[@type='(hm|ms|hms)']/durationUnitPattern"/>
 		<coverageLevel value="moderate" match="localeDisplayNames/languages/language[@type='%language60']"/>
@@ -493,30 +524,138 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="numbers/symbols[@numberSystem='latn']/nan"/>
 		<coverageLevel value="modern" match="numbers/symbols[@numberSystem='latn']/timeSeparator"/>
 		<coverageLevel value="modern" match="numbers/minimumGroupingDigits"/>
-		<coverageLevel inLanguage="ar" value="modern" match="numbers/symbols[@numberSystem='arab']/exponential"/>
-		<coverageLevel inLanguage="ar" value="modern" match="numbers/symbols[@numberSystem='arab']/superscriptingExponent"/>
-		<coverageLevel inLanguage="ar" value="modern" match="numbers/symbols[@numberSystem='arab']/perMille"/>
-		<coverageLevel inLanguage="ar" value="modern" match="numbers/symbols[@numberSystem='arab']/infinity"/>
-		<coverageLevel inLanguage="ar" value="modern" match="numbers/symbols[@numberSystem='arab']/nan"/>
-		<coverageLevel inLanguage="ar" value="modern" match="numbers/symbols[@numberSystem='arab']/timeSeparator"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/exponential"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/superscriptingExponent"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/perMille"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/infinity"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/nan"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/timeSeparator"/>
-		<coverageLevel inLanguage="%devaLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/exponential"/>
-		<coverageLevel inLanguage="%devaLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/superscriptingExponent"/>
-		<coverageLevel inLanguage="%devaLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/perMille"/>
-		<coverageLevel inLanguage="%devaLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/infinity"/>
-		<coverageLevel inLanguage="%devaLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/nan"/>
-		<coverageLevel inLanguage="%devaLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/timeSeparator"/>
-		<coverageLevel inLanguage="dz" value="modern" match="numbers/symbols[@numberSystem='tibt']/exponential"/>
-		<coverageLevel inLanguage="dz" value="modern" match="numbers/symbols[@numberSystem='tibt']/superscriptingExponent"/>
-		<coverageLevel inLanguage="dz" value="modern" match="numbers/symbols[@numberSystem='tibt']/perMille"/>
-		<coverageLevel inLanguage="dz" value="modern" match="numbers/symbols[@numberSystem='tibt']/infinity"/>
-		<coverageLevel inLanguage="dz" value="modern" match="numbers/symbols[@numberSystem='tibt']/nan"/>
-		<coverageLevel inLanguage="dz" value="modern" match="numbers/symbols[@numberSystem='tibt']/timeSeparator"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arab']/exponential"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arab']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arab']/perMille"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arab']/infinity"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arab']/nan"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arab']/timeSeparator"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/exponential"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/perMille"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/infinity"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/nan"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/timeSeparator"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='beng']/exponential"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='beng']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='beng']/perMille"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='beng']/infinity"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='beng']/nan"/>
+		<coverageLevel inLanguage="%bengDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='beng']/timeSeparator"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/exponential"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/perMille"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/infinity"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/nan"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/timeSeparator"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/exponential"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/perMille"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/infinity"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/nan"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/timeSeparator"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/exponential"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/perMille"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/infinity"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/nan"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/timeSeparator"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/decimal"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/group"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/plusSign"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/minusSign"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/percentSign"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/currencyFormats[@numberSystem='arabext']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/scientificFormats[@numberSystem='arabext']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/percentFormats[@numberSystem='arabext']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/exponential"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/perMille"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/infinity"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/nan"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='arabext']/timeSeparator"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/decimal"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/group"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/plusSign"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/minusSign"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/percentSign"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/currencyFormats[@numberSystem='deva']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/scientificFormats[@numberSystem='deva']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/percentFormats[@numberSystem='deva']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/exponential"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/perMille"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/infinity"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/nan"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='deva']/timeSeparator"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/decimal"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/group"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/plusSign"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/minusSign"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/percentSign"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='gujr']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/currencyFormats[@numberSystem='gujr']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/scientificFormats[@numberSystem='gujr']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/percentFormats[@numberSystem='gujr']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='gujr']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/exponential"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/perMille"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/infinity"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/nan"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='gujr']/timeSeparator"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/decimal"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/group"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/plusSign"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/minusSign"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/percentSign"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='hanidec']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/currencyFormats[@numberSystem='hanidec']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/scientificFormats[@numberSystem='hanidec']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/percentFormats[@numberSystem='hanidec']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='hanidec']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/exponential"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/perMille"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/infinity"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/nan"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/timeSeparator"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/decimal"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/group"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/plusSign"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/minusSign"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/percentSign"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='taml']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/currencyFormats[@numberSystem='taml']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/scientificFormats[@numberSystem='taml']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/percentFormats[@numberSystem='taml']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='taml']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/exponential"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/perMille"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/infinity"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/nan"/>
+		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/timeSeparator"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/decimal"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/group"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/plusSign"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/minusSign"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/percentSign"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/scientificFormats[@numberSystem='tibt']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/percentFormats[@numberSystem='tibt']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/exponential"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/perMille"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/infinity"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/nan"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/timeSeparator"/>
 		<coverageLevel value="modern" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%acctPattern"/>
 		<coverageLevel value="modern" match="numbers/currencies/currency[@type='%currency80']/symbol"/>
 		<coverageLevel value="modern" match="numbers/currencies/currency[@type='%currency80']/symbol[@alt='(narrow|variant)']"/>

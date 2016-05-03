@@ -173,7 +173,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%mlymNativeLanguages" value="(ml)"/>
 		<coverageVariable key="%mymrDefaultLanguages" value="(my)"/>
 		<coverageVariable key="%oryaNativeLanguages" value="(or)"/>
-		<coverageVariable key="%tamlNativeLanguages" value="(ta)"/>
+		<coverageVariable key="%tamldecNativeLanguages" value="(ta)"/>
 		<coverageVariable key="%teluNativeLanguages" value="(te)"/>
 		<coverageVariable key="%tibtDefaultLanguages" value="(dz)"/>
 		<coverageVariable key="%tibtNativeLanguages" value="(bo)"/>
@@ -694,22 +694,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%oryaNativeLanguages" value="modern" match="numbers/scientificFormats[@numberSystem='orya']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%oryaNativeLanguages" value="modern" match="numbers/percentFormats[@numberSystem='orya']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%oryaNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='orya']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/decimal"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/group"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/plusSign"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/minusSign"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/percentSign"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/exponential"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/superscriptingExponent"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/perMille"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/infinity"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/nan"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='taml']/timeSeparator"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='taml']/decimalFormatLength/decimalFormat%stdPattern"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/currencyFormats[@numberSystem='taml']/currencyFormatLength/currencyFormat%stdPattern"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/scientificFormats[@numberSystem='taml']/scientificFormatLength/scientificFormat%stdPattern"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/percentFormats[@numberSystem='taml']/percentFormatLength/percentFormat%stdPattern"/>
-		<coverageLevel inLanguage="%tamlNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='taml']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/decimal"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/group"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/plusSign"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/minusSign"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/percentSign"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/exponential"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/superscriptingExponent"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/perMille"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/infinity"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/nan"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/timeSeparator"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='tamldec']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/currencyFormats[@numberSystem='tamldec']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/scientificFormats[@numberSystem='tamldec']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/percentFormats[@numberSystem='tamldec']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/decimalFormats[@numberSystem='tamldec']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
 		<coverageLevel inLanguage="%teluNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='telu']/decimal"/>
 		<coverageLevel inLanguage="%teluNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='telu']/group"/>
 		<coverageLevel inLanguage="%teluNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='telu']/plusSign"/>

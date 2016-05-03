@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="Any" target="Accents" direction="both">
+		<transform source="Any" target="Accents" direction="both" alias="und-t-d0-accents" backwardAlias="und-t-s0-accents">
 			<tRule>
 :: NFD (NFC) ;
 # to do: make reversible

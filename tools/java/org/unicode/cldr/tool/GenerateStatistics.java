@@ -17,16 +17,16 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.TransliteratorUtilities;
 
-import com.ibm.icu.dev.util.ArrayComparator;
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Transliterator;
@@ -50,9 +50,7 @@ class GenerateStatistics {
         factory = Factory.make(sourceDir, match);
         ToolUtilities.registerExtraTransliterators();
 
-        PrintWriter logHtml = BagFormatter.openUTF8Writer(
-            logDir,
-            "test_generation_log.html");
+        PrintWriter logHtml = FileUtilities.openUTF8Writer(logDir, "test_generation_log.html");
         //String dir = logDir + "main" + File.separator;
         // DraftChecker dc = new DraftChecker(dir);
         english = factory.make("en", true);
@@ -431,7 +429,7 @@ class GenerateStatistics {
             BufferedReader pw = null;
             //boolean result = true;
             try {
-                pw = BagFormatter.openUTF8Reader(dir, localeName + ".xml");
+                pw = FileUtilities.openUTF8Reader(dir, localeName + ".xml");
                 while (true) {
                     String line = pw.readLine();
                     if (line == null) {

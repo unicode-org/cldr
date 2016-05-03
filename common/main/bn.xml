@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -569,6 +570,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung" draft="contributed">পুরোনো হাঙ্গেরীয়</script>
 			<script type="Inds">সিন্ধু</script>
 			<script type="Ital" draft="contributed">প্রাচীন ইতালি</script>
+			<script type="Jamo" draft="contributed">জ্যামো</script>
 			<script type="Java">জাভানিজ</script>
 			<script type="Jpan">জাপানী</script>
 			<script type="Kali" draft="contributed">কায়াহ লি</script>
@@ -964,7 +966,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">বিপরীত করা স্বরাঘাত বাছাইকরণ</key>
 			<key type="colCaseFirst" draft="contributed">বড়হাতের/ছোটহাতের অক্ষর ক্রম</key>
 			<key type="colCaseLevel" draft="contributed">কেস সংবেদী বাছাইকরণ</key>
-			<key type="colHiraganaQuaternary" draft="contributed">কানা বাছাইকরণ</key>
 			<key type="collation">বাছাই বিন্যাস</key>
 			<key type="colNormalization" draft="contributed">স্বাভাবিককৃত বাছাইকরণ</key>
 			<key type="colNumeric" draft="contributed">সংখ্যাসূচক বাছাইকরণ</key>
@@ -976,7 +977,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">সংখ্যাগুলি</key>
 			<key type="timezone">সময় জোন</key>
 			<key type="va" draft="contributed">স্থানীয় ভিন্নতা</key>
-			<key type="variableTop" draft="contributed">প্রতীক হিসেবে বাছাই করুন</key>
 			<key type="x" draft="contributed">বক্তিগত- ব্যবহার</key>
 		</keys>
 		<types>
@@ -1004,8 +1004,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">প্রথমে বড়হাতের অক্ষর বাছাই করুন</type>
 			<type key="colCaseLevel" type="no" draft="contributed">কেস অসংবেদী বাছাই করুন</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">কেস সংবেদী বাছাই করুন</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">কানা আলাদাভাবে বাছাই করুন</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">কানা ভিন্নভাবে বাছাই করুন</type>
 			<type key="collation" type="big5han">প্রথাগত চীনা সজ্জাক্রম - বিগ৫</type>
 			<type key="collation" type="dictionary" draft="contributed">অভিধান বাছাই বিন্যাস</type>
 			<type key="collation" type="ducet">ডিফল্ট ইউনিকোড বাছাই বিন্যাস</type>
@@ -1029,6 +1027,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">স্বরাঘাত/কেস/প্রস্থ/কানা বাছাই করুন</type>
 			<type key="colStrength" type="secondary" draft="contributed">স্বরাঘাত বাছাই করুন</type>
 			<type key="colStrength" type="tertiary" draft="contributed">স্বরাঘাত/কেস/প্রস্থ বাছাই করুন</type>
+			<type key="d0" type="fwidth" draft="contributed">পূর্ণচওড়া</type>
+			<type key="d0" type="hwidth" draft="contributed">অর্ধচওড়া</type>
+			<type key="d0" type="npinyin" draft="contributed">সাংখিক</type>
 			<type key="hc" type="h11" draft="provisional">12 ঘণ্টার হিসাবে (0–11)</type>
 			<type key="hc" type="h12" draft="provisional">12 ঘণ্টার হিসাবে (1–12)</type>
 			<type key="hc" type="h23" draft="provisional">24 ঘণ্টার হিসাবে (0–23)</type>
@@ -1036,6 +1037,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose" draft="provisional">loose</type>
 			<type key="lb" type="normal" draft="provisional">normal</type>
 			<type key="lb" type="strict" draft="provisional">strict</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric" draft="provisional">metric</type>
 			<type key="ms" type="uksystem" draft="provisional">uksystem</type>
 			<type key="ms" type="ussystem" draft="provisional">ussystem</type>
@@ -1080,18 +1083,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">ঐতিহ্যগত সংখ্যাসূচক</type>
 			<type key="numbers" type="vaii" draft="contributed">ভাই সংখ্যা</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">সাংখিক</transformName>
-			<transformName type="Tone" draft="contributed">স্বরভঙ্গি</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">অ্যাসেন্টস</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">পূর্ণচওড়া</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">অর্ধচওড়া</transformName>
-			<transformName type="x-Jamo" draft="contributed">জ্যামো</transformName>
-			<transformName type="x-Pinyin" draft="contributed">পিনইন</transformName>
-			<transformName type="x-Publishing" draft="contributed">প্রকাশনা</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">মেট্রিক</measurementSystemName>
 			<measurementSystemName type="UK">ইউকে</measurementSystemName>
@@ -1525,8 +1516,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="night1">রাত্রি</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">পূর্বাহ্ণ</dayPeriod>
-							<dayPeriod type="pm">অপরাহ্ণ</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">ভোর</dayPeriod>
 							<dayPeriod type="morning2">সকাল</dayPeriod>
 							<dayPeriod type="afternoon1">দুপুর</dayPeriod>
@@ -1535,7 +1526,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="night1">রাত্রি</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="am">পূর্বাহ্ণ</dayPeriod>
 							<dayPeriod type="pm">অপরাহ্ণ</dayPeriod>
 							<dayPeriod type="morning1">ভোর</dayPeriod>
 							<dayPeriod type="morning2">সকাল</dayPeriod>
@@ -2066,6 +2057,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>দিন</displayName>
 				<relative type="-2">গত পরশু</relative>
+				<relative type="-1">গতকাল</relative>
+				<relative type="0">আজ</relative>
+				<relative type="1">আগামীকাল</relative>
 				<relative type="2">আগামী পরশু</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} দিনের মধ্যে</relativeTimePattern>
@@ -2079,6 +2073,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>দিন</displayName>
 				<relative type="-2">গত পরশু</relative>
+				<relative type="-1">গতকাল</relative>
+				<relative type="0">আজ</relative>
+				<relative type="1">আগামীকাল</relative>
 				<relative type="2">আগামী পরশু</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} দিনের মধ্যে</relativeTimePattern>
@@ -2312,6 +2309,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} দিবালোক সময়</regionFormat>
 			<regionFormat type="standard">{0} প্রমাণ সময়</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>সান্তা ইসাবেল</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>অজানা শহর</exemplarCity>
 			</zone>
@@ -3076,9 +3076,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>তিজুয়ানা</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>সান্তা ইসাবেল</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>হারমোসিল্লো</exemplarCity>
@@ -6132,6 +6129,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>প্রতি বর্গ ইঞ্চিতে {0}</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>ক্যারেট</displayName>
+				<unitPattern count="one">{0} ক্যারেট</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>লিটার, প্রতি কিলোমিটারে</displayName>
 				<unitPattern count="one">{0} লিটার, প্রতি কিলোমিটারে</unitPattern>
@@ -6533,11 +6535,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} মিলিবার</unitPattern>
 				<unitPattern count="other">{0} মিলিবার</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ক্যারেট</displayName>
-				<unitPattern count="one">{0} ক্যারেট</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ঘন্টা প্রতি কিলোমিটার</displayName>
 				<unitPattern count="one">{0} ঘন্টা প্রতি কিলোমিটার</unitPattern>
@@ -6790,6 +6787,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>লিটার/কিমি</displayName>
@@ -7191,11 +7193,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ঘন্টা প্রতি কিলোমিটার</displayName>

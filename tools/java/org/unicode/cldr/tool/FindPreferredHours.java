@@ -135,9 +135,7 @@ public class FindPreferredHours {
                 for (Object item : formatDateParser.getItems()) {
                     if (item instanceof VariableField) {
                         String itemString = item.toString();
-                        char c = itemString.charAt(0);
-
-                        if (PreferredAndAllowedHour.HourStyle.isHourCharacter(c)) {
+                        if (PreferredAndAllowedHour.HourStyle.isHourCharacter(itemString)) {
                             lang2Hours.put(locale, new Hours(type, itemString));
                         }
                     }

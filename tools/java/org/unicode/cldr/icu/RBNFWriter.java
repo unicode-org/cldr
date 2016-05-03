@@ -17,8 +17,9 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.util.Date;
 
+import org.unicode.cldr.draft.FileUtilities;
+
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
@@ -70,7 +71,7 @@ public class RBNFWriter {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         System.out.println(tofile);
 
-        PrintWriter out = BagFormatter.openUTF8Writer(options[DESTDIR].value + File.separator, tofile);
+        PrintWriter out = FileUtilities.openUTF8Writer(options[DESTDIR].value + File.separator, tofile);
         FileInputStream inFileStream = new FileInputStream(options[SOURCEDIR].value + File.separator + fromfile);
         InputStreamReader inFileReader = new InputStreamReader(inFileStream, "UTF-8");
         BufferedReader in = new BufferedReader(inFileReader);

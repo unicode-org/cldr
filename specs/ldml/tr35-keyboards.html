@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">29</td>
+				<td class="changed">30</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -129,7 +129,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED --> 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -201,6 +201,7 @@ h2, h3, h4, table {
 		<h2>
 			<a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a>
 		</h2>
+		<!-- START Generated TOC: CheckHtmlFiles -->
 		<ul class="toc">
 			<li>1 <a href="#Introduction">Keyboards</a></li>
 			<li>2 <a href="#Goals_and_Nongoals">Goals and Nongoals</a></li>
@@ -216,7 +217,12 @@ h2, h3, h4, table {
 					<li>5.4 <a href="#Element_names">Element: names</a></li>
 					<li>5.5 <a href="#Element_name">Element: name</a></li>
 					<li>5.6 <a href="#Element_settings">Element: settings</a></li>
-					<li>5.7 <a href="#Element_keyMap">Element: keyMap</a></li>
+					<li>5.7 <a href="#Element_keyMap">Element: keyMap</a>
+						<ul class="toc">
+							<li>Table: <a href="#Possible_Modifier_Keys">Possible
+									Modifier Keys</a></li>
+						</ul>
+					</li>
 					<li>5.8 <a href="#Element_map">Element: map</a></li>
 					<li>5.9 <a href="#Element_transforms">Element: transforms</a></li>
 					<li>5.10 <a href="#Element_transform">Element: transform</a></li>
@@ -232,7 +238,12 @@ h2, h3, h4, table {
 				</ul>
 			</li>
 			<li>7 <a href="#Invariants">Invariants</a></li>
-			<li>8 <a href="#Data_Sources">Data Sources</a></li>
+			<li>8 <a href="#Data_Sources">Data Sources</a>
+				<ul class="toc">
+					<li>Table: <a href="#Key_Map_Data_Sources">Key Map Data
+							Sources</a></li>
+				</ul>
+			</li>
 			<li>9 <a href="#Keyboard_IDs">Keyboard IDs</a>
 				<ul class="toc">
 					<li>9.1 <a href="#Principles_for_Keyboard_Ids">Principles
@@ -242,6 +253,7 @@ h2, h3, h4, table {
 			<li>10 <a href="#Platform_Behaviors_in_Edge_Cases">Platform
 					Behaviors in Edge Cases</a></li>
 		</ul>
+		<!-- END Generated TOC: CheckHtmlFiles -->
 		<h2>
 			1 <a name="Introduction" href="#Introduction">Keyboards</a><a
 				name="Keyboards" href="#Keyboards"></a>
@@ -459,9 +471,8 @@ h2, h3, h4, table {
 				generation</a>
 		</h3>
 		<p>
-			The generation element is now
-				deprecated. It was used to keep track of the generation date of the
-			data.<br> <br> Syntax
+			The generation element is now deprecated. It was used to keep track
+			of the generation date of the data.<br> <br> Syntax
 		</p>
 		<p>
 			&lt;generation date=&quot;..&quot;&gt;<br>
@@ -472,8 +483,8 @@ h2, h3, h4, table {
 		<p>&lt;keyboard locale=&quot;..&quot;&gt;</p>
 		<p>…</p>
 		<!-- This appears to be intentionally left in, as a removed item for demonstration. -->
-		<p class="removed">&lt;generation date=&quot;$Date:
-				2013-03-09 01:08:49 -0800 (Sat, 09 Mar 2013) $&quot;/&gt;</p>
+		<p class="removed">&lt;generation date=&quot;$Date: 2013-03-09
+			01:08:49 -0800 (Sat, 09 Mar 2013) $&quot;/&gt;</p>
 		<p>…</p>
 		<p>&lt;/keyboard&gt;</p>
 		<hr>
@@ -626,6 +637,10 @@ h2, h3, h4, table {
 		<p>Here is an exhaustive list of all possible modifier keys:</p>
 		<p>Possible Modifier Keys</p>
 		<table cellpadding="0" cellspacing="0" border='1'>
+			<caption>
+				<a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible
+					Modifier Keys</a>
+			</caption>
 			<tbody>
 				<tr>
 					<td><p>Modifier Keys</p></td>
@@ -833,6 +848,7 @@ h2, h3, h4, table {
 		<p>Here's what happens when the user types various sequence
 			characters:</p>
 		<table cellpadding="0" cellspacing="0" border='1'>
+			<!-- nocaption -->
 			<tbody>
 				<tr>
 					<td><p>Input characters</p></td>
@@ -976,6 +992,7 @@ h2, h3, h4, table {
 			</li>
 		</ol>
 		<table cellpadding="0" cellspacing="0" border='1'>
+			<!-- nocaption -->
 			<tbody>
 				<tr>
 					<td><p>Notation</p></td>
@@ -1011,6 +1028,7 @@ h2, h3, h4, table {
 			</tbody>
 		</table>
 		<table cellpadding="0" cellspacing="0" border='1'>
+			<!-- nocaption -->
 			<tbody>
 				<tr>
 					<td><p>Axiom</p></td>
@@ -1072,6 +1090,10 @@ h2, h3, h4, table {
 		<p>Here is a list of the data sources used to generate the initial
 			key map layouts:</p>
 		<table cellpadding="0" cellspacing="0" border='1'>
+			<caption>
+				<a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key
+					Map Data Sources</a>
+			</caption>
 			<tbody>
 				<tr>
 					<td><p>Platform</p></td>
@@ -1178,6 +1200,7 @@ h2, h3, h4, table {
 				Edge Cases</a>
 		</h2>
 		<table cellpadding="0" cellspacing="0" border="1">
+			<!-- nocaption -->
 			<tbody>
 				<tr>
 					<td><p>Platform</p></td>
@@ -1216,13 +1239,14 @@ h2, h3, h4, table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All Rights Reserved. The Unicode
-			Consortium makes no expressed or implied warranty of any kind, and
-			assumes no liability for errors or omissions. No liability is assumed
-			for incidental and consequential damages in connection with or
-			arising out of the use of the information or programs contained or
-			accompanying this technical report. The Unicode <a
-				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
+			Copyright © 2001–2016 Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

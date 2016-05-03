@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -589,6 +590,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung" draft="contributed">Aldhongaars</script>
 			<script type="Inds" draft="contributed">Indus</script>
 			<script type="Ital" draft="contributed">Ald-italysk</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java" draft="contributed">Javaansk</script>
 			<script type="Jpan" draft="contributed">Japans</script>
 			<script type="Jurc" draft="contributed">Jurchen</script>
@@ -1063,7 +1065,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">Omgekeerd sortearje op accenten</key>
 			<key type="colCaseFirst" draft="contributed">Yndiele op haad/lytse letters</key>
 			<key type="colCaseLevel" draft="contributed">Haadlettergefoelich sortearje</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Kana sortearje</key>
 			<key type="collation" draft="contributed">Sortearfolgorde</key>
 			<key type="colNormalization" draft="contributed">Genormaliseerd sortearje</key>
 			<key type="colNumeric" draft="contributed">Numeriek sortearje</key>
@@ -1072,7 +1073,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers" draft="contributed">Sifers</key>
 			<key type="timezone" draft="contributed">Tijdzone</key>
 			<key type="va" draft="contributed">Landvariant</key>
-			<key type="variableTop" draft="contributed">sortearje als symbolen</key>
 			<key type="x" draft="contributed">Privégebruik</key>
 		</keys>
 		<types>
@@ -1098,8 +1098,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">Eerst sortearje op haadletters</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Net haadlettergefoelich sortearje</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Hoofdlettergevoelig sortearje</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Kana apart sortearje</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Kana oars sortearje</type>
 			<type key="collation" type="big5han" draft="contributed">Tradisjonele-Sineeske soartear oarder - Big5</type>
 			<type key="collation" type="dictionary" draft="contributed">Wurdboeksortearfolgorde</type>
 			<type key="collation" type="ducet" draft="contributed">Standert Unikoade-sortearfolgorde</type>
@@ -1123,6 +1121,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">sortearje neffens aksinten/haadletterbrûkme/breedte/Kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Sortearje op accenten</type>
 			<type key="colStrength" type="tertiary" draft="contributed">sortearje neffens aksinten/haadletterbrûkme/breedte</type>
+			<type key="d0" type="fwidth" draft="contributed">Volledige breedte</type>
+			<type key="d0" type="hwidth" draft="contributed">Halve breedte</type>
+			<type key="d0" type="npinyin" draft="contributed">Numeriek</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="numbers" type="arab" draft="contributed">Arabysk-Indyske sifers</type>
 			<type key="numbers" type="arabext" draft="contributed">Utwreide Arabysk-Indyske sifers</type>
 			<type key="numbers" type="armn" draft="contributed">Armeense sifers</type>
@@ -1166,18 +1169,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">Tradisjonele sifers</type>
 			<type key="numbers" type="vaii" draft="contributed">Vai-sifers</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numeriek</transformName>
-			<transformName type="Tone" draft="contributed">Toon</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Accenten</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Volledige breedte</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Halve breedte</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publicatie</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric" draft="contributed">Metriek</measurementSystemName>
 			<measurementSystemName type="UK" draft="contributed">Brits</measurementSystemName>
@@ -2299,6 +2290,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>

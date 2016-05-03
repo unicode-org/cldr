@@ -29,10 +29,10 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
@@ -81,6 +81,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     static final UnicodeSet LETTER = new UnicodeSet("[[A-Za-z]]").freeze();
     static final UnicodeSet NUMBERS = new UnicodeSet("[[:N:]]").freeze();
     static final UnicodeSet DISALLOWED_HOUR_FORMAT = new UnicodeSet("[[:letter:]]").remove('H').remove('m').freeze();
+    static final UnicodeSet DISALLOWED_IN_RANGE = new UnicodeSet("[:L:]").freeze();
 
     private UnicodeSet exemplars;
     private UnicodeSet exemplarsPlusAscii;
@@ -94,7 +95,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     private boolean skip;
     private Collator col;
     private Collator spaceCol;
-    PrettyPrinter prettyPrint;
+    UnicodeSetPrettyPrinter prettyPrint;
     private Status otherPathStatus = new Status();
     private Matcher patternMatcher = ExampleGenerator.PARAMETER.matcher("");
 
@@ -210,7 +211,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         exemplarsPlusAscii = new UnicodeSet(exemplars).addAll(ASCII).freeze();
 
         skip = false;
-        prettyPrint = new PrettyPrinter()
+        prettyPrint = new UnicodeSetPrettyPrinter()
         .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
             .setStrength2(Collator.PRIMARY))
@@ -346,6 +347,18 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 "This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
                 new Object[] {}));
             // end checks for patterns
+        }
+        if (path.startsWith("//ldml/numbers/miscPatterns") && path.contains("[@type=\"range\"]")) {
+            if (DISALLOWED_IN_RANGE.containsSome(value)) {
+                result
+                .add(new CheckStatus()
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.illegalCharactersInPattern)
+                .setMessage(
+                    "Range patterns should not have letters.",
+                    new Object[] {}));
+            }
         }
         // Now handle date patterns.
         if (containsPart(path, DATE_PARTS)) {

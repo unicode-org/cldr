@@ -25,6 +25,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -34,14 +35,13 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ZoneParser;
 import org.unicode.cldr.util.ZoneParser.RuleLine;
 import org.unicode.cldr.util.ZoneParser.ZoneLine;
 
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
@@ -169,8 +169,7 @@ public class Misc {
             }
 
             if (options[INFO].doesOccur) {
-                PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.TMP_DIRECTORY + "logs/",
-                    "attributesAndValues.html");
+                PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.TMP_DIRECTORY + "logs/", "attributesAndValues.html");
                 new GenerateAttributeList(cldrFactory).show(pw);
                 pw.close();
             }
@@ -262,7 +261,7 @@ public class Misc {
                 String code = codeIt.next();
                 List<String> list = sc.getFullData(type, code);
                 if (list.size() < 3) continue;
-                String replacementCode = (String) list.get(2);
+                String replacementCode = list.get(2);
                 if (replacementCode.length() == 0) continue;
                 System.out.println(code + " => " + replacementCode + "; "
                     + english.getName(type, replacementCode));
@@ -315,7 +314,7 @@ public class Misc {
                 e.printStackTrace();
             }
         }
-        PrintWriter out = BagFormatter.openUTF8Writer("c:/", "zone_localizations.html");
+        PrintWriter out = FileUtilities.openUTF8Writer("c:/", "zone_localizations.html");
         out.println("<html><head>");
         out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
         out.println("<title>Zone Localizations</title>");
@@ -348,7 +347,7 @@ public class Misc {
                 out.println("<tr>");
                 out.println("<th>" + (++count) + "</th>");
                 out.println("<th>" + zone + "</th>");
-                String country = (String) zone_country.get(zone);
+                String country = zone_country.get(zone);
                 String countryName = english.getName(CLDRFile.TERRITORY_NAME, country);
                 out.println("<td>" + country + " (" + countryName + ")" + "</td>");
                 TimeZone tzone = TimeZone.getTimeZone(zone);
@@ -356,7 +355,7 @@ public class Misc {
                 Map<String, String> locale_name = zone_locale_name.get(zone);
                 for (Iterator<String> it3 = priorities.iterator(); it3.hasNext();) {
                     String locale = it3.next();
-                    String name = (String) locale_name.get(locale);
+                    String name = locale_name.get(locale);
                     out.println("<td>");
                     if (name == null) {
                         out.println("&nbsp;");
@@ -409,7 +408,7 @@ public class Misc {
             CLDRFile desiredLocaleFile = cldrFactory.make(language, true);
             String orientation = desiredLocaleFile.getStringValue("//ldml/layout/orientation/characterOrder");
             boolean rtl = orientation == null ? false : orientation.equals("right-to-left");
-            PrintWriter log = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", language + "_timezones.html");
+            PrintWriter log = FileUtilities.openUTF8Writer(options[DESTDIR].value + "", language + "_timezones.html");
             log.println("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
             log.println("<style type=\"text/css\"><!--");
             log.println("td { text-align: center; vertical-align:top }");
@@ -747,7 +746,7 @@ public class Misc {
         int count = 0;
         for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
             String key = it.next();
-            String newOne = (String) m.get(key);
+            String newOne = m.get(key);
             System.out.println(++count + "\t" + key + " => " + newOne);
         }
         count = 0;
@@ -757,11 +756,11 @@ public class Misc {
         for (Iterator<String> it = oldIDs.iterator(); it.hasNext();) {
             ++count;
             String key = it.next();
-            String newOne = (String) m.get(key);
-            String further = (String) m.get(newOne);
+            String newOne = m.get(key);
+            String further = m.get(newOne);
             if (further == null) continue;
             while (true) {
-                String temp = (String) m.get(further);
+                String temp = m.get(further);
                 if (temp == null) break;
                 further = temp;
             }
@@ -884,7 +883,7 @@ public class Misc {
         for (Iterator<String> it = abb_zones.keySet().iterator(); it.hasNext();) {
             String key = it.next();
             System.out.println(key + " => " + XPathParts.NEWLINE + "\t"
-                + getSeparated((Set<String>) abb_zones.get(key), XPathParts.NEWLINE + "\t"));
+                + getSeparated(abb_zones.get(key), XPathParts.NEWLINE + "\t"));
         }
 
         System.out.println("Types: " + ZoneParser.RuleLine.types);
@@ -965,7 +964,7 @@ public class Misc {
             "hex-any/html; [\\u0022] remove");
         Transliterator t2 = Transliterator.getInstance(
             "NFD; [:m:]Remove; NFC");
-        BufferedReader br = BagFormatter.openUTF8Reader("c:/data/", "cities.txt");
+        BufferedReader br = FileUtilities.openUTF8Reader("c:/data/", "cities.txt");
         counter = 0;
         Set<String> missing = new TreeSet<String>();
         while (true) {
@@ -973,14 +972,14 @@ public class Misc {
             if (line == null) break;
             if (line.startsWith("place name")) continue;
             List<String> list = CldrUtility.splitList(line, '\t', true);
-            String place = (String) list.get(0);
+            String place = list.get(0);
             place = t.transliterate(place);
             String place2 = t2.transliterate(place);
-            String country = (String) list.get(1);
-            String population = (String) list.get(2);
-            String latitude = (String) list.get(3);
-            String longitude = (String) list.get(4);
-            String code = (String) territoryName_code.get(country);
+            String country = list.get(1);
+            String population = list.get(2);
+            String latitude = list.get(3);
+            String longitude = list.get(4);
+            String code = territoryName_code.get(country);
             if (code == null) missing.add(country);
             Map<String, String> city_data = country_city_data.get(code);
             if (city_data == null) {
@@ -1007,7 +1006,7 @@ public class Misc {
         for (Iterator<String> it = zone_to_country.keySet().iterator(); it.hasNext();) {
             String zone = it.next();
             if (zone.startsWith("Etc")) continue;
-            String country = (String) zone_to_country.get(zone);
+            String country = zone_to_country.get(zone);
             Map<String, String> city_data = country_city_data.get(country);
             if (city_data == null) {
                 System.out.println("Missing country: " + zone + "\t" + country);
@@ -1017,7 +1016,7 @@ public class Misc {
             List<String> pieces = CldrUtility.splitList(zone, '/', true);
             String city = pieces.get(pieces.size() - 1);
             city = city.replace('_', ' ');
-            String data = (String) city_data.get(city);
+            String data = city_data.get(city);
             if (data != null) continue;
             System.out.println();
             System.out.println("\"" + city + "\", \"XXX\" // "
@@ -1030,9 +1029,9 @@ public class Misc {
 
     private static void printSupplementalData(String locale) throws IOException {
 
-        PrintWriter log = null; // BagFormatter.openUTF8Writer(options[DESTDIR].value + "", locale +
+        PrintWriter log = null; // FileUtilities.openUTF8Writer(options[DESTDIR].value + "", locale +
         // "_timezonelist.xml");
-        CLDRFile desiredLocaleFile = (CLDRFile) cldrFactory.make(locale, true).cloneAsThawed();
+        CLDRFile desiredLocaleFile = cldrFactory.make(locale, true).cloneAsThawed();
         desiredLocaleFile.removeDuplicates(resolvedRoot, false, null, null);
 
         CLDRFile english = cldrFactory.make("en", true);
@@ -1058,9 +1057,9 @@ public class Misc {
             Map<String, String> m = parts.findAttributes("territoryContainment");
             if (m == null) continue;
             Map<String, String> attributes = parts.getAttributes(2);
-            String type = (String) attributes.get("type");
+            String type = attributes.get("type");
             Collection<String> contents = CldrUtility
-                .splitList((String) attributes.get("contains"), ' ', true, new ArrayList<String>());
+                .splitList(attributes.get("contains"), ' ', true, new ArrayList<String>());
             groups.put(type, contents);
             if (false) {
                 System.out.print("\t\t<group type=\"" + fixNumericKey(type)
@@ -1108,8 +1107,7 @@ public class Misc {
         printWorldTimezoneCategorization(log, localization, groups, "001", 0, seen, col, showCode, zones_countrySet(),
             missing);
         if (missing[0].size() == 0 && missing[1].size() == 0) return;
-        PrintWriter log2 = BagFormatter.openUTF8Writer(options[DESTDIR].value + "",
-            localization.getLocaleID() + "_to_localize.xml");
+        PrintWriter log2 = FileUtilities.openUTF8Writer(options[DESTDIR].value + "", localization.getLocaleID() + "_to_localize.xml");
         log2.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
         log2.println("<!DOCTYPE ldml SYSTEM \"../../common/dtd/ldml.dtd\">");
         log2.println("<ldml><identity><version number=\"" + CLDRFile.GEN_VERSION
@@ -1141,7 +1139,7 @@ public class Misc {
             for (Iterator<String> it = missing[1].iterator(); it.hasNext();) {
                 String key = it.next();
                 List<String> data = StandardCodes.make().getZoneData().get(key);
-                String countryCode = (String) data.get(2);
+                String countryCode = data.get(2);
                 String country = english.getName(CLDRFile.TERRITORY_NAME, countryCode);
                 if (!country.equals(lastCountry)) {
                     lastCountry = country;
@@ -1194,7 +1192,7 @@ public class Misc {
         }
         for (Iterator<String> it = reorder.keySet().iterator(); it.hasNext();) {
             key = it.next();
-            String value = (String) reorder.get(key);
+            String value = reorder.get(key);
             printWorldTimezoneCategorization(log, localization, groups, value, indent + 1, seen, col, showCode,
                 zone_countrySet, missing);
         }
@@ -1241,7 +1239,7 @@ public class Misc {
         for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
             String tzid = it.next();
             List<String> list = m.get(tzid);
-            String country = (String) list.get(2);
+            String country = list.get(2);
             Set<String> zones = result.get(country);
             if (zones == null) {
                 zones = new TreeSet<String>();
@@ -1265,7 +1263,7 @@ public class Misc {
     }
 
     private static void compareLists() throws IOException {
-        BufferedReader in = BagFormatter.openUTF8Reader("", "language_list.txt");
+        BufferedReader in = FileUtilities.openUTF8Reader("", "language_list.txt");
         Factory cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", ".*");
         // CLDRKey.main(new String[]{"-mde.*"});
         Set<String> locales = cldrFactory.getAvailable();
@@ -1307,7 +1305,7 @@ public class Misc {
             if (!m.reset(name).matches()) continue;
             if (!name.endsWith(".txt")) continue;
             String fixedName = name.substring(name.length() - 4);
-            BufferedReader input = BagFormatter.openUTF8Reader(file.getParent() + File.pathSeparator, name);
+            BufferedReader input = FileUtilities.openUTF8Reader(file.getParent() + File.pathSeparator, name);
             SimpleXMLSource source = new SimpleXMLSource(null);
             CLDRFile outFile = new CLDRFile(source);
             int count = 0;
@@ -1319,7 +1317,7 @@ public class Misc {
                 count++;
                 outFile.add("//supplementalData/transforms/transform/line[@_q=\"" + count + "\"]", line);
             }
-            PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/", fixedName + ".xml");
+            PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/", fixedName + ".xml");
             outFile.write(pw);
             pw.close();
         }

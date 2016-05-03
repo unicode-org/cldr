@@ -24,14 +24,14 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.impl.ICUResourceBundle;
+import com.ibm.icu.impl.ICUData;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Collator;
@@ -121,7 +121,7 @@ public class ExtractICUData {
 
             BufferedReader input;
             if (file instanceof File) {
-                input = BagFormatter.openUTF8Reader(((File) file).getParent() + File.separator, fileName);
+                input = FileUtilities.openUTF8Reader(((File) file).getParent() + File.separator, fileName);
             } else {
                 input = CldrUtility.getUTF8Data(fileName);
             }
@@ -149,13 +149,12 @@ public class ExtractICUData {
                     addInTwo(outFile, accumulatedItems, prefix + (++count) + "\"]", fixedLine);
                 }
 
-                PrintWriter pw = BagFormatter
-                    .openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
+                PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
                 outFile.write(pw);
                 pw.close();
             }
         }
-        PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
+        PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
         accumulatedItems.write(pw);
         pw.close();
     }
@@ -175,7 +174,7 @@ public class ExtractICUData {
 
         System.out.println(coreName + "\t=>\t" + outName + " => " + attributes);
 
-        BufferedReader input = BagFormatter.openUTF8Reader("", fileName);
+        BufferedReader input = FileUtilities.openUTF8Reader("", fileName);
         CLDRFile outFile = SimpleFactory.makeSupplemental(coreName);
         int count = 0;
         String prefixBase = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform"
@@ -199,7 +198,7 @@ public class ExtractICUData {
             addInTwo(outFile, null, prefix + (++count) + "\"]", fixedLine);
         }
 
-        PrintWriter pw = BagFormatter.openUTF8Writer(targetDirectory, outName + ".xml");
+        PrintWriter pw = FileUtilities.openUTF8Writer(targetDirectory, outName + ".xml");
         outFile.write(pw);
         pw.close();
 
@@ -252,7 +251,7 @@ public class ExtractICUData {
     private static void getTranslitIndex(CLDRFile accumulatedItems) throws IOException {
 
         UResourceBundle bundle, transIDs, colBund;
-        bundle = (ICUResourceBundle) UResourceBundle.getBundleInstance(ICUResourceBundle.ICU_TRANSLIT_BASE_NAME, INDEX);
+        bundle = UResourceBundle.getBundleInstance(ICUData.ICU_TRANSLIT_BASE_NAME, INDEX);
         transIDs = bundle.get(RB_RULE_BASED_IDS);
 
         String[] attributesOut = new String[1];
@@ -304,8 +303,8 @@ public class ExtractICUData {
                         accumulatedItems.add(prefix + (++count) + "\"]", "::" + piece + ";");
                     }
                 }
-                PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName
-                    + ".xml");
+                PrintWriter pw = FileUtilities.openUTF8Writer(
+                    CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
                 outFile.write(pw);
                 pw.close();
             } else {

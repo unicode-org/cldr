@@ -62,6 +62,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         plurals,
         pluralRanges,
         postalCodeData,
+        rgScope,
         supplementalData,
         windowsZones,
         keyTypeData,

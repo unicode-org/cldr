@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
@@ -15,7 +16,6 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 //import org.unicode.cldr.util.XPathParts.Comments;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class CLDRFormat {
@@ -47,7 +47,7 @@ public class CLDRFormat {
                 CLDRFile cldrFile = cldrFactory.make(key, false);
 
                 // write
-                PrintWriter out = BagFormatter.openUTF8Writer(destSubdir, key + ".xml");
+                PrintWriter out = FileUtilities.openUTF8Writer(destSubdir, key + ".xml");
                 cldrFile.write(out);
                 out.close();
 

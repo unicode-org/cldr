@@ -38,6 +38,7 @@ import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.SimpleHtmlParser;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -46,7 +47,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
@@ -1225,6 +1225,9 @@ public class ExampleGenerator {
             if (territory == null || territory.length() == 0) {
                 loc = supplementalDataInfo.getDefaultContentFromBase(loc);
                 territory = loc.getCountry();
+                if (territory.equals("001") && loc.getLanguage().equals("ar")) {
+                    territory = "EG"; // Use Egypt as territory for examples in ar locale, since its default content is ar_001.
+                }
             }
             if (territory == null || territory.length() == 0) {
                 territory = "US";

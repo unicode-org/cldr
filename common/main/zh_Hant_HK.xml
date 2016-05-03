@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -76,6 +77,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hang" draft="contributed">韓文字母</script>
 			<script type="Hans" draft="contributed">簡體字</script>
 			<script type="Hant" draft="contributed">繁體字</script>
+			<script type="Jamo" draft="unconfirmed">韓文</script>
 			<script type="Knda" draft="contributed">坎納達文</script>
 			<script type="Laoo" draft="contributed">老撾文</script>
 			<script type="Latn" draft="contributed">拉丁字母</script>
@@ -201,6 +203,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="collation" type="dictionary" draft="contributed">詞典排序</type>
 			<type key="collation" type="gb2312han">簡體中文排序 (GB2312)</type>
 			<type key="collation" type="reformed" draft="contributed">改革版排序</type>
+			<type key="d0" type="npinyin" draft="unconfirmed">數值</type>
 			<type key="ms" type="uksystem" draft="contributed">英制</type>
 			<type key="ms" type="ussystem" draft="contributed">美制</type>
 			<type key="numbers" type="deva" draft="contributed">天城體數字</type>
@@ -214,11 +217,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="taml">泰米爾數字</type>
 			<type key="numbers" type="tamldec" draft="contributed">泰米爾數字</type>
 		</types>
-		<transformNames>
-			<transformName type="Numeric" draft="unconfirmed">數值</transformName>
-			<transformName type="x-Accents" draft="unconfirmed">重音</transformName>
-			<transformName type="x-Jamo" draft="unconfirmed">韓文</transformName>
-		</transformNames>
 	</localeDisplayNames>
 	<characters>
 		<ellipsis type="final" draft="contributed">{0}⋯</ellipsis>
@@ -700,6 +698,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-short">
 				<relative type="-2" draft="contributed">前日</relative>
+				<relative type="-1" draft="contributed">昨日</relative>
+				<relative type="0" draft="contributed">今日</relative>
+				<relative type="1" draft="contributed">明日</relative>
 				<relative type="2" draft="contributed">後日</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other" draft="contributed">{0} 日後</relativeTimePattern>
@@ -710,6 +711,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="day-narrow">
 				<relative type="-2" draft="contributed">前日</relative>
+				<relative type="-1" draft="contributed">昨日</relative>
+				<relative type="0" draft="contributed">今日</relative>
+				<relative type="1" draft="contributed">明日</relative>
 				<relative type="2" draft="contributed">後日</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other" draft="contributed">{0}日後</relativeTimePattern>

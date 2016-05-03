@@ -1,1 +1,11 @@
-locale=/.*/; action=delete ; path=//ldml/localeDisplayNames/territories/territory[@type="AN"]
+locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="BGN"]; new_path=//ldml/localeDisplayNames/types/type[@key="m0"][@type="bgn"]
+locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="UNGEGN"]; new_path=//ldml/localeDisplayNames/types/type[@key="m0"][@type="ungegn"]
+locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="Numeric"]; new_path=//ldml/localeDisplayNames/types/type[@key="d0"][@type="npinyin"]
+locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Fullwidth"]; new_path=//ldml/localeDisplayNames/types/type[@key="d0"][@type="fwidth"]
+locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Halfwidth"]; new_path=//ldml/localeDisplayNames/types/type[@key="d0"][@type="hwidth"]
+locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Jamo"]; new_path=//ldml/localeDisplayNames/scripts/script[@type="Jamo"]
+
+locale=/.*/; action=delete; path=//ldml/localeDisplayNames/transformNames/transformName[@type="Tone"]
+locale=/.*/; action=delete; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Pinyin"]
+locale=/.*/; action=delete; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Accents"]
+locale=/.*/; action=delete; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Publishing"]

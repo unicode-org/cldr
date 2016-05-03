@@ -12,8 +12,9 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 
+import org.unicode.cldr.draft.FileUtilities;
+
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
@@ -78,7 +79,7 @@ public class GeneratePOSIX {
 
         POSIXLocale pl = new POSIXLocale(locale, repertoire, Charset.forName(options[CHARSET].value), codeset,
             collate_set, variant);
-        PrintWriter out = BagFormatter.openUTF8Writer(options[DESTDIR].value + File.separator, options[MATCH].value
+        PrintWriter out = FileUtilities.openUTF8Writer(options[DESTDIR].value + File.separator, options[MATCH].value
             + "." + codeset + ".src");
         pl.write(out);
         out.close();

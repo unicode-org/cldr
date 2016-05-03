@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -600,6 +601,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">古匈牙利文</script>
 			<script type="Inds">古希腊哈拉潘</script>
 			<script type="Ital">古意大利文</script>
+			<script type="Jamo">韩文字母</script>
 			<script type="Java">爪哇文</script>
 			<script type="Jpan">日文</script>
 			<script type="Jurc">女真文</script>
@@ -1070,7 +1072,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">对重音进行逆向排序</key>
 			<key type="colCaseFirst" draft="contributed">大写/小写字母排序</key>
 			<key type="colCaseLevel" draft="contributed">区分大小写的排序</key>
-			<key type="colHiraganaQuaternary" draft="contributed">假名排序</key>
 			<key type="collation">排序</key>
 			<key type="colNormalization" draft="contributed">规范化排序</key>
 			<key type="colNumeric" draft="contributed">数字排序</key>
@@ -1082,7 +1083,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">数字</key>
 			<key type="timezone" draft="contributed">时区</key>
 			<key type="va" draft="contributed">语言区域别名</key>
-			<key type="variableTop" draft="contributed">按照符号排序</key>
 			<key type="x">专用</key>
 		</keys>
 		<types>
@@ -1110,8 +1110,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">先对大写字母进行排序</type>
 			<type key="colCaseLevel" type="no" draft="contributed">不区分大小写进行排序</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">区分大小写进行排序</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">对假名进行单独排序</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">对假名进行区别排序</type>
 			<type key="collation" type="big5han">繁体中文排序 - Big5</type>
 			<type key="collation" type="dictionary">字典排序</type>
 			<type key="collation" type="ducet">默认 Unicode 排序</type>
@@ -1136,6 +1134,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">对重音/大小写/长度/假名进行排序</type>
 			<type key="colStrength" type="secondary" draft="contributed">对重音进行排序</type>
 			<type key="colStrength" type="tertiary" draft="contributed">对重音/大小写/长度进行排序</type>
+			<type key="d0" type="fwidth">全角</type>
+			<type key="d0" type="hwidth">半角</type>
+			<type key="d0" type="npinyin">数字</type>
 			<type key="hc" type="h11">12小时制（0–11）</type>
 			<type key="hc" type="h12">12小时制（1–12）</type>
 			<type key="hc" type="h23">24小时制（0–23）</type>
@@ -1143,6 +1144,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose" draft="contributed">宽</type>
 			<type key="lb" type="normal" draft="contributed">默认</type>
 			<type key="lb" type="strict" draft="contributed">窄</type>
+			<type key="m0" type="bgn">美国地名委员会 (BGN)</type>
+			<type key="m0" type="ungegn">联合国地名专家组 (UNGEGN)</type>
 			<type key="ms" type="metric">公制</type>
 			<type key="ms" type="uksystem">英制</type>
 			<type key="ms" type="ussystem">美制</type>
@@ -1202,18 +1205,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">传统数字</type>
 			<type key="numbers" type="vaii">瓦伊文数字</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">美国地名委员会 (BGN)</transformName>
-			<transformName type="Numeric">数字</transformName>
-			<transformName type="Tone">音调</transformName>
-			<transformName type="UNGEGN">联合国地名专家组 (UNGEGN)</transformName>
-			<transformName type="x-Accents">重音符号</transformName>
-			<transformName type="x-Fullwidth">全角</transformName>
-			<transformName type="x-Halfwidth">半角</transformName>
-			<transformName type="x-Jamo">韩文字母</transformName>
-			<transformName type="x-Pinyin">拼音</transformName>
-			<transformName type="x-Publishing">印刷体</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">公制</measurementSystemName>
 			<measurementSystemName type="UK">英制</measurementSystemName>
@@ -3719,6 +3710,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0}夏令时间</regionFormat>
 			<regionFormat type="standard">{0}标准时间</regionFormat>
 			<fallbackFormat>{1}（{0}）</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>圣伊萨贝尔</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>未知城市</exemplarCity>
 			</zone>
@@ -4483,9 +4477,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>蒂华纳</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>圣伊萨贝尔</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>埃莫西约</exemplarCity>
@@ -7638,6 +7629,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}平方英寸</unitPattern>
 				<perUnitPattern draft="contributed">每平方英寸{0}</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>克拉</displayName>
+				<unitPattern count="other">{0}克拉</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>升每公里</displayName>
 				<unitPattern count="other">每公里{0}升</unitPattern>
@@ -7962,10 +7957,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0}毫巴</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>克拉</displayName>
-				<unitPattern count="other">{0}克拉</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>千米每小时</displayName>
 				<unitPattern count="other">每小时{0}公里</unitPattern>
@@ -8171,6 +8162,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>平方英寸</displayName>
 				<unitPattern count="other">{0}平方英寸</unitPattern>
 				<perUnitPattern draft="contributed">{0}/平方英寸</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>克拉</displayName>
+				<unitPattern count="other">{0}克拉</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>升/公里</displayName>
@@ -8495,10 +8490,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<displayName>毫巴</displayName>
 				<unitPattern count="other">{0}毫巴</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>克拉</displayName>
-				<unitPattern count="other">{0}克拉</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>千米/小时</displayName>

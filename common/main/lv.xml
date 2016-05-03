@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -576,6 +577,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hrkt">katakana vai hiragana</script>
 			<script type="Hung">senungāru</script>
 			<script type="Ital">vecitāļu</script>
+			<script type="Jamo">Džamo</script>
 			<script type="Java">javiešu</script>
 			<script type="Jpan">japāņu</script>
 			<script type="Kana">katakana</script>
@@ -948,7 +950,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">Diakritisko zīmju kārtošana apgrieztā secībā</key>
 			<key type="colCaseFirst">Lielo/mazo burtu kārtošana</key>
 			<key type="colCaseLevel">Reģistrjutīgo rakstzīmju kārtošana</key>
-			<key type="colHiraganaQuaternary">Kana rakstzīmju kārtošana</key>
 			<key type="collation">Kārtošanas secība</key>
 			<key type="colNormalization">Normalizētā kārtošana</key>
 			<key type="colNumeric">Kārtošana skaitliskā secībā</key>
@@ -960,7 +961,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Cipari</key>
 			<key type="timezone">Laika josla</key>
 			<key type="va">Lokalizācijas variants</key>
-			<key type="variableTop">Kārtot kā simbolus</key>
 			<key type="x">Personīgai lietošanai</key>
 		</keys>
 		<types>
@@ -988,8 +988,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">Kārtot pēc pirmā lielā burta</type>
 			<type key="colCaseLevel" type="no">Kārtot reģistrnejutīgas rakstzīmes</type>
 			<type key="colCaseLevel" type="yes">Kārtot reģistrjutīgās rakstzīmes</type>
-			<type key="colHiraganaQuaternary" type="no">Kārtot kana rakstzīmes atsevišķi</type>
-			<type key="colHiraganaQuaternary" type="yes">Kārtot kana rakstzīmes, norādot atšķirības</type>
 			<type key="collation" type="big5han">tradicionālās ķīniešu valodas kārtošanas secība - Big5</type>
 			<type key="collation" type="dictionary">Vārdnīcas kārtošanas secība</type>
 			<type key="collation" type="ducet">Noklusējuma unikoda kārtošanas secība</type>
@@ -1014,6 +1012,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">Kārtot diakritiskās zīmes/reģistrjutīgās rakstzīmes/rakstzīmes pēc platuma/Kana rakstzīmes</type>
 			<type key="colStrength" type="secondary">Kārtot diakritiskās zīmes</type>
 			<type key="colStrength" type="tertiary">Kārtot diakritiskās zīmes/reģistrjutīgās rakstzīmes/rakstzīmes pēc platuma</type>
+			<type key="d0" type="fwidth">Pilna platuma</type>
+			<type key="d0" type="hwidth">Pusplatuma</type>
+			<type key="d0" type="npinyin">Ciparu</type>
 			<type key="hc" type="h11" draft="contributed">12 stundu sistēma (0–11)</type>
 			<type key="hc" type="h12" draft="contributed">12 stundu sistēma (1–12)</type>
 			<type key="hc" type="h23" draft="contributed">24 stundu sistēma (0–23)</type>
@@ -1021,6 +1022,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose" draft="contributed">Brīvais rindiņas pārtraukuma stils</type>
 			<type key="lb" type="normal" draft="contributed">Parastais rindiņas pārtraukuma stils</type>
 			<type key="lb" type="strict" draft="contributed">Stingrais rindiņas pārtraukuma stils</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric" draft="contributed">metriskā sistēma</type>
 			<type key="ms" type="uksystem" draft="contributed">britu mērvienību sistēma</type>
 			<type key="ms" type="ussystem" draft="contributed">amerikāņu mērvienību sistēma</type>
@@ -1065,18 +1068,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">Tradicionālā ciparu sistēma</type>
 			<type key="numbers" type="vaii">VAI cipari</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Ciparu</transformName>
-			<transformName type="Tone">Intonācija</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Diakritiskās zīmes</transformName>
-			<transformName type="x-Fullwidth">Pilna platuma</transformName>
-			<transformName type="x-Halfwidth">Pusplatuma</transformName>
-			<transformName type="x-Jamo">Džamo</transformName>
-			<transformName type="x-Pinyin">Piņjiņ</transformName>
-			<transformName type="x-Publishing">Izdevējdarbība</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metriskā</measurementSystemName>
 			<measurementSystemName type="UK">angļu</measurementSystemName>
@@ -1500,7 +1491,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight" draft="contributed">pusnaktī</dayPeriod>
+							<dayPeriod type="am">priekšp.</dayPeriod>
 							<dayPeriod type="noon" draft="contributed">pusd.</dayPeriod>
+							<dayPeriod type="pm">pēcp.</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">no rīta</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">pēcpusd.</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">vakarā</dayPeriod>
@@ -2280,6 +2273,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0}: vasaras laiks</regionFormat>
 			<regionFormat type="standard">{0}: standarta laiks</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santaisabela</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>nezināma pilsēta</exemplarCity>
 			</zone>
@@ -3044,9 +3040,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tihuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santaisabela</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Ermosiljo</exemplarCity>
@@ -6058,14 +6051,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero">{0} kvadrātmetri</unitPattern>
 				<unitPattern count="one">{0} kvadrātmetrs</unitPattern>
 				<unitPattern count="other">{0} kvadrātmetri</unitPattern>
-				<perUnitPattern draft="contributed">uz kvadrātmetru</perUnitPattern>
+				<perUnitPattern draft="contributed">{0} uz kvadrātmetru</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>kvadrātcentimetri</displayName>
 				<unitPattern count="zero">{0} kvadrātcentimetri</unitPattern>
 				<unitPattern count="one">{0} kvadrātcentimetrs</unitPattern>
 				<unitPattern count="other">{0} kvadrātcentimetri</unitPattern>
-				<perUnitPattern draft="contributed">uz kvadrātcentimetru</perUnitPattern>
+				<perUnitPattern draft="contributed">{0} uz kvadrātcentimetru</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>kvadrātjūdzes</displayName>
@@ -6097,6 +6090,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kvadrātcolla</unitPattern>
 				<unitPattern count="other">{0} kvadrātcollas</unitPattern>
 				<perUnitPattern draft="contributed">{0} uz kvadrātcollu</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karāti</displayName>
+				<unitPattern count="zero">{0} karāti</unitPattern>
+				<unitPattern count="one">{0} karāts</unitPattern>
+				<unitPattern count="other">{0} karāti</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litri uz kilometru</displayName>
@@ -6575,12 +6574,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} milibārs</unitPattern>
 				<unitPattern count="other">{0} milibāri</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karāti</displayName>
-				<unitPattern count="zero">{0} karāti</unitPattern>
-				<unitPattern count="one">{0} karāts</unitPattern>
-				<unitPattern count="other">{0} karāti</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometri stundā</displayName>
 				<unitPattern count="zero">{0} kilometri stundā</unitPattern>
@@ -6640,14 +6633,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero">{0} kubikmetri</unitPattern>
 				<unitPattern count="one">{0} kubikmetrs</unitPattern>
 				<unitPattern count="other">{0} kubikmetri</unitPattern>
-				<perUnitPattern draft="contributed">uz kubikmetru</perUnitPattern>
+				<perUnitPattern draft="contributed">{0} uz kubikmetru</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName>kubikcentimetri</displayName>
 				<unitPattern count="zero">{0} kubikcentimetri</unitPattern>
 				<unitPattern count="one">{0} kubikcentimetrs</unitPattern>
 				<unitPattern count="other">{0} kubikcentimetri</unitPattern>
-				<perUnitPattern draft="contributed">uz kubikcentimetru</perUnitPattern>
+				<perUnitPattern draft="contributed">{0} uz kubikcentimetru</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>kubikjūdzes</displayName>
@@ -6690,7 +6683,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero">{0} litri</unitPattern>
 				<unitPattern count="one">{0} litrs</unitPattern>
 				<unitPattern count="other">{0} litri</unitPattern>
-				<perUnitPattern draft="contributed">uz litru</perUnitPattern>
+				<perUnitPattern draft="contributed">{0} uz litru</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>decilitri</displayName>
@@ -6874,6 +6867,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern draft="contributed">{0} uz collu²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="zero">{0} kt</unitPattern>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -7352,12 +7351,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero">{0} mbar</unitPattern>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="zero">{0} kt</unitPattern>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/st.</displayName>

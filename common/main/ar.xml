@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -589,6 +590,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">المجرية القديمة</script>
 			<script type="Inds">اندس - هارابان</script>
 			<script type="Ital">الإيطالية القديمة</script>
+			<script type="Jamo" draft="contributed">جامو</script>
 			<script type="Java">الجاوية</script>
 			<script type="Jpan">اليابانية</script>
 			<script type="Kali">الكياه لى</script>
@@ -986,7 +988,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">التصنيف بحسب اللكنة المعكوسة</key>
 			<key type="colCaseFirst" draft="contributed">الترتيب بحسب الأحرف الكبيرة/الصغيرة</key>
 			<key type="colCaseLevel" draft="contributed">التصنيف بحسب حساسية حالة الأحرف</key>
-			<key type="colHiraganaQuaternary" draft="contributed">التصنيف بحسب الكانا</key>
 			<key type="collation">ترتيب الفرز</key>
 			<key type="colNormalization" draft="contributed">التصنيف الموحد</key>
 			<key type="colNumeric" draft="contributed">التصنيف الرقمي</key>
@@ -998,7 +999,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">الأرقام</key>
 			<key type="timezone" draft="contributed">المنطقة الزمنية</key>
 			<key type="va" draft="contributed">متغيرات اللغة</key>
-			<key type="variableTop" draft="contributed">تصنيف كرموز</key>
 			<key type="x" draft="contributed">استخدام خاص</key>
 		</keys>
 		<types>
@@ -1029,8 +1029,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">تصنيف الأحرف الكبيرة أولاً</type>
 			<type key="colCaseLevel" type="no" draft="contributed">تصنيف بحسب الأحرف غير الحساسة لحالة الأحرف</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">تصنيف بحسب حساسية الأحرف</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">تصنيف الكانا بشكل منفصل</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">تصنيف الكانا بشكل مختلف</type>
 			<type key="collation" type="big5han">ترتيب فرز الصينية التقليدية (Big5)</type>
 			<type key="collation" type="dictionary">ترتيب فرز القاموس</type>
 			<type key="collation" type="ducet">ترتيب فرز Unicode الافتراضي</type>
@@ -1054,6 +1052,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">تصنيف اللكنات/الحالة/العرض/الكانا</type>
 			<type key="colStrength" type="secondary" draft="contributed">تصنيف اللكنات</type>
 			<type key="colStrength" type="tertiary" draft="contributed">تصنيف اللكنات/الحالة/العرض</type>
+			<type key="d0" type="fwidth" draft="contributed">عرض كامل</type>
+			<type key="d0" type="hwidth" draft="contributed">نصف العرض</type>
+			<type key="d0" type="npinyin" draft="contributed">رقمي</type>
 			<type key="hc" type="h11">نظام 12 ساعة (0–11)</type>
 			<type key="hc" type="h12">نظام 12 ساعة (1–12)</type>
 			<type key="hc" type="h23">نظام 24 ساعة (0–23)</type>
@@ -1061,6 +1062,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">نمط فصل السطور: متباعد</type>
 			<type key="lb" type="normal">نمط فصل السطور: عادي</type>
 			<type key="lb" type="strict">نمط فصل السطور: متقارب</type>
+			<type key="m0" type="bgn" draft="contributed">بي جي إن</type>
+			<type key="m0" type="ungegn" draft="contributed">يو إن جي إي جي إن</type>
 			<type key="ms" type="metric">نظام متري</type>
 			<type key="ms" type="uksystem">نظام المملكة المتحدة</type>
 			<type key="ms" type="ussystem">نظام الولايات المتحدة</type>
@@ -1105,18 +1108,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">أرقام تقليدية</type>
 			<type key="numbers" type="vaii" draft="contributed">أرقام فاي</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">بي جي إن</transformName>
-			<transformName type="Numeric" draft="contributed">رقمي</transformName>
-			<transformName type="Tone" draft="contributed">أسلوب</transformName>
-			<transformName type="UNGEGN" draft="contributed">يو إن جي إي جي إن</transformName>
-			<transformName type="x-Accents" draft="contributed">اللكنات</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">عرض كامل</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">نصف العرض</transformName>
-			<transformName type="x-Jamo" draft="contributed">جامو</transformName>
-			<transformName type="x-Pinyin" draft="contributed">بن يين</transformName>
-			<transformName type="x-Publishing" draft="contributed">نشر</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">النظام المتري</measurementSystemName>
 			<measurementSystemName type="UK">المملكة المتحدة</measurementSystemName>
@@ -3102,6 +3093,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">توقيت {0} الصيفي</regionFormat>
 			<regionFormat type="standard">توقيت {0} الرسمي</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>سانتا إيزابيل</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>مدينة غير معروفة</exemplarCity>
 			</zone>
@@ -3866,9 +3860,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>تيخوانا</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>سانتا إيزابيل</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>هيرموسيلو</exemplarCity>
@@ -7988,6 +7979,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} بوصة مربعة</unitPattern>
 				<perUnitPattern>{0} لكل بوصة مربعة</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>قيراط</displayName>
+				<unitPattern count="zero">{0} قيراط</unitPattern>
+				<unitPattern count="one">{0} قيراط</unitPattern>
+				<unitPattern count="two">{0} قيراط</unitPattern>
+				<unitPattern count="few">{0} قيراط</unitPattern>
+				<unitPattern count="many">{0} قيراط</unitPattern>
+				<unitPattern count="other">{0} قيراط</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>لتر لكل كيلومتر</displayName>
 				<unitPattern count="zero">{0} لتر لكل كيلومتر</unitPattern>
@@ -8122,7 +8122,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} سنوات</unitPattern>
 				<unitPattern count="many">{0} سنة</unitPattern>
 				<unitPattern count="other">{0} سنة</unitPattern>
-				<perUnitPattern>في السنة</perUnitPattern>
+				<perUnitPattern>{0} في السنة</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>شهور</displayName>
@@ -8697,15 +8697,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} مللي بار</unitPattern>
 				<unitPattern count="other">{0} مللي بار</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>قيراط</displayName>
-				<unitPattern count="zero">{0} قيراط</unitPattern>
-				<unitPattern count="one">{0} قيراط</unitPattern>
-				<unitPattern count="two">{0} قيراط</unitPattern>
-				<unitPattern count="few">{0} قيراط</unitPattern>
-				<unitPattern count="many">{0} قيراط</unitPattern>
-				<unitPattern count="other">{0} قيراط</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>كيلومتر في الساعة</displayName>
 				<unitPattern count="zero">{0} كيلومتر في الساعة</unitPattern>
@@ -9146,6 +9137,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} بوصة مربعة</unitPattern>
 				<unitPattern count="other">{0} بوصة مربعة</unitPattern>
 				<perUnitPattern>{0}/بوصة مربعة</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>قيراط</displayName>
+				<unitPattern count="zero">{0} قيراط</unitPattern>
+				<unitPattern count="one">{0} قيراط</unitPattern>
+				<unitPattern count="two">{0} قيراط</unitPattern>
+				<unitPattern count="few">{0} قيراط</unitPattern>
+				<unitPattern count="many">{0} قيراط</unitPattern>
+				<unitPattern count="other">{0} قيراط</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>لتر/كم</displayName>
@@ -9855,15 +9855,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} مللي بار</unitPattern>
 				<unitPattern count="many">{0} مللي بار</unitPattern>
 				<unitPattern count="other">{0} مللي بار</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>قيراط</displayName>
-				<unitPattern count="zero">{0} قيراط</unitPattern>
-				<unitPattern count="one">{0} قيراط</unitPattern>
-				<unitPattern count="two">{0} قيراط</unitPattern>
-				<unitPattern count="few">{0} قيراط</unitPattern>
-				<unitPattern count="many">{0} قيراط</unitPattern>
-				<unitPattern count="other">{0} قيراط</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>كم/س</displayName>

@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="lt" target="Lower" direction="forward">
+		<transform source="lt" target="Lower" direction="forward" alias="lt-t-d0-lower">
 			<tRule>
 # Introduce an explicit dot above when lowercasing capital Is and Js
 # whenever there are more accents above.

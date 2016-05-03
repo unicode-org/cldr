@@ -1,0 +1,2 @@
+#ant -f /home/st-bitten/build/_work/tools/java/build.xml jar && ant -f ~/build/_work/tools/cldr-apps/build.xml#  -DCLDR_TOOLS=../java -DCATALINA_HOME=/home/st-bitten/src/tomcat -Durl=http://127.0.0.1:8180/manager/text\
+#/ -Dusername=st-bitten -Dpassword=______ -Dpath=/smoketest war redeploy

@@ -13,13 +13,13 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 
 /**
@@ -90,7 +90,7 @@ public class WikipediaOfficialLanguages {
         Pattern commentBreak = PatternCache.get("\\)\\s*\\(?|\\s*\\(");
         int count = 0;
         try {
-            BufferedReader input = BagFormatter.openUTF8Reader(CLDRPaths.UTIL_DATA_DIR, "WikipediaOfficialLanguages.txt");
+            BufferedReader input = FileUtilities.openUTF8Reader(CLDRPaths.UTIL_DATA_DIR, "WikipediaOfficialLanguages.txt");
             Set<String> regionSet = null;
             while (true) {
                 String line = input.readLine();

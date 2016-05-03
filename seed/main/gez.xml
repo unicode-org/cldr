@@ -295,38 +295,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">እኁድ</day>
-							<day type="mon" draft="unconfirmed">ሰኑይ</day>
-							<day type="tue" draft="unconfirmed">ሠሉስ</day>
-							<day type="wed" draft="unconfirmed">ራብዕ</day>
-							<day type="thu" draft="unconfirmed">ሐሙስ</day>
-							<day type="fri" draft="unconfirmed">ዓርበ</day>
-							<day type="sat" draft="unconfirmed">ቀዳሚት</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">እ</day>
-							<day type="mon" draft="unconfirmed">ሰ</day>
-							<day type="tue" draft="unconfirmed">ሠ</day>
-							<day type="wed" draft="unconfirmed">ራ</day>
-							<day type="thu" draft="unconfirmed">ሐ</day>
-							<day type="fri" draft="unconfirmed">ዓ</day>
-							<day type="sat" draft="unconfirmed">ቀ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">ጽባሕ</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">ምሴት</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -433,6 +401,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</days>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">ጽባሕ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ምሴት</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="unconfirmed">ጽባሕ</dayPeriod>
 							<dayPeriod type="pm" draft="unconfirmed">ምሴት</dayPeriod>

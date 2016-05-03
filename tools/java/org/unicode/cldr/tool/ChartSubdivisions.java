@@ -1,7 +1,6 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -11,41 +10,20 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 
 public class ChartSubdivisions extends Chart {
 
-    static final Map<String, String> subdivisionToName = new HashMap<>();
-    static {
-        List<Pair<String, String>> data = new ArrayList<>();
-        XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "subdivisions/en.xml", data, true);
-        for (Pair<String, String> pair : data) {
-            // <subdivision type="AD-02">Canillo</subdivision>
-            XPathParts path = XPathParts.getFrozenInstance(pair.getFirst());
-            if (!"subdivision".equals(path.getElement(-1))) {
-                continue;
-            }
-            String name = pair.getSecond();
-            subdivisionToName.put(path.getAttributeValue(-1, "type"), name);
-        }
-    }
-
-    public static String getSubdivisionName(String subdivision) {
-        return subdivisionToName.get(subdivision);
-    }
-
+    static SubdivisionNames EN = new SubdivisionNames("en");
+    
     public static void main(String[] args) {
         new ChartSubdivisions().writeChart(null);
     }
@@ -143,7 +121,7 @@ public class ChartSubdivisions extends Chart {
     }
 
     private static String getName(String s1) {
-        return s1.isEmpty() ? "" : TransliteratorUtilities.toHTML.transform(subdivisionToName.get(s1));
+        return s1.isEmpty() ? "" : TransliteratorUtilities.toHTML.transform(CldrUtility.ifNull(EN.get(s1),""));
     }
 
 }

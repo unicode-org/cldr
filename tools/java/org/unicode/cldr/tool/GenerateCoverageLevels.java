@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CLDRConfig;
@@ -29,7 +30,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -79,14 +79,14 @@ public class GenerateCoverageLevels {
         if (true) {
             throw new IllegalArgumentException("See ShowLocaleCoverage (TODO: merge these).");
         }
-        PrintWriter out = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "fullpaths.txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(OUT_DIRECTORY, "fullpaths.txt");
         showEnglish(out);
         out.close();
 
         System.out.println("*** TODO check collations, RBNF, Transforms (if non-Latin)");
-        PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "summary.txt");
-        PrintWriter samples = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "samples.txt");
-        PrintWriter counts = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "counts.txt");
+        PrintWriter summary = FileUtilities.openUTF8Writer(OUT_DIRECTORY, "summary.txt");
+        PrintWriter samples = FileUtilities.openUTF8Writer(OUT_DIRECTORY, "samples.txt");
+        PrintWriter counts = FileUtilities.openUTF8Writer(OUT_DIRECTORY, "counts.txt");
         summarizeCoverage(summary, samples, counts);
         summary.close();
         samples.close();
@@ -404,9 +404,9 @@ public class GenerateCoverageLevels {
             double missingCount = weightedMissing / base;
             String summaryLine = "Weighted Missing:\t" + decimal.format(missingCount) + "\tFound:\t"
                 + decimal.format(foundCount) + "\tScore:\t"
-                + percent.format(foundCount / (double) (foundCount + missingCount));
+                + percent.format(foundCount / (foundCount + missingCount));
             String summaryLine2 = "\t" + decimal.format(missingCount) + "\t" + decimal.format(foundCount) + "\t"
-                + percent.format(foundCount / (double) (foundCount + missingCount));
+                + percent.format(foundCount / (foundCount + missingCount));
             samples2.println(summaryLine);
             summary.println(locale + "\t" + english.getName(locale) + "\t" + summaryLine2);
             if (header != null) {

@@ -27,9 +27,9 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.TestTransforms;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeFilter;
@@ -77,10 +77,11 @@ public class CLDRTransforms {
      *            TODO
      * @param showProgress
      *            null if no progress needed
+     * @param skipDashTIds TODO
      * @return
      */
 
-    public static void registerCldrTransforms(String dir, String namesMatchingRegex, Appendable showProgress) {
+    public static void registerCldrTransforms(String dir, String namesMatchingRegex, Appendable showProgress, boolean keepDashTIds) {
         CLDRTransforms r = getInstance();
         if (dir == null) {
             dir = TRANSFORM_DIR;
@@ -102,7 +103,7 @@ public class CLDRTransforms {
 
         // System.out.println(ordered);
         for (String cldrFileName : ordered) {
-            r.registerTransliteratorsFromXML(dir, cldrFileName, files);
+            r.registerTransliteratorsFromXML(dir, cldrFileName, files, keepDashTIds);
         }
         Transliterator.registerAny(); // do this last!
 
@@ -145,9 +146,26 @@ public class CLDRTransforms {
             addDependency(".*Digit.*", "NumericPinyin-Pinyin", "Pinyin-NumericPinyin");
             addDependency("Latin-NumericPinyin(/.*)?", "Tone-Digit", "Digit-Tone");
             addDependency("NumericPinyin-Latin(/.*)?", "Tone-Digit", "Digit-Tone");
+            addDependency("am-ar", "am-am_FONIPA", "und_FONIPA-ar");
+            addDependency("am-fa", "am-am_FONIPA", "und_FONIPA-fa");
+            addDependency("ch-am", "ch-ch_FONIPA", "am-am_FONIPA");
+            addDependency("ch-ar", "ch-ch_FONIPA", "und_FONIPA-ar");
+            addDependency("ch-fa", "ch-ch_FONIPA", "und_FONIPA-fa");
+            addDependency("cs-am", "cs-cs_FONIPA", "am-am_FONIPA");
+            addDependency("cs-ar", "cs-cs_FONIPA", "und_FONIPA-ar");
+            addDependency("cs-fa", "cs-cs_FONIPA", "und_FONIPA-fa");
             addDependency("cs-ja", "cs-cs_FONIPA", "cs_FONIPA-ja");
             addDependency("cs_FONIPA-ko", "Latin-Hangul");
             addDependency("cs-ko", "cs-cs_FONIPA", "cs_FONIPA-ko");
+            addDependency("eo-am", "eo-eo_FONIPA", "am-am_FONIPA");
+            addDependency("eo-ar", "eo-eo_FONIPA", "und_FONIPA-ar");
+            addDependency("eo-fa", "eo-eo_FONIPA", "und_FONIPA-fa");
+            addDependency("es-am", "es-es_FONIPA", "am-am_FONIPA");
+            addDependency("es-ar", "es-es_FONIPA", "und_FONIPA-ar");
+            addDependency("es-fa", "es-es_FONIPA", "und_FONIPA-fa");
+            addDependency("es_419-am", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "am-am_FONIPA");
+            addDependency("es_419-ar", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "und_FONIPA-ar");
+            addDependency("es_419-fa", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "und_FONIPA-fa");
             addDependency("es_419-ja", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "es_FONIPA-ja");
             addDependency("es-am", "es-es_FONIPA", "es_FONIPA-am");
             addDependency("es-ja", "es-es_FONIPA", "es_FONIPA-ja");
@@ -155,9 +173,54 @@ public class CLDRTransforms {
 
             addDependency("Han-Latin-Names", "Han-Latin");
 
+            addDependency("hy-am", "hy-hy_FONIPA", "am-am_FONIPA");
+            addDependency("hy-ar", "hy-hy_FONIPA", "und_FONIPA-ar");
+            addDependency("hy-fa", "hy-hy_FONIPA", "und_FONIPA-fa");
+            addDependency("hy_AREVMDA-am", "hy_AREVMDA-hy_AREVMDA_FONIPA", "am-am_FONIPA");
+            addDependency("hy_AREVMDA-ar", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-ar");
+            addDependency("hy_AREVMDA-fa", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-fa");
+            addDependency("ia-am", "ia-ia_FONIPA", "am-am_FONIPA");
+            addDependency("ia-ar", "ia-ia_FONIPA", "und_FONIPA-ar");
+            addDependency("ia-fa", "ia-ia_FONIPA", "und_FONIPA-fa");
+            addDependency("kk-am", "kk-kk_FONIPA", "am-am_FONIPA");
+            addDependency("kk-ar", "kk-kk_FONIPA", "und_FONIPA-ar");
+            addDependency("kk-fa", "kk-kk_FONIPA", "und_FONIPA-fa");
+            addDependency("ky-am", "ky-ky_FONIPA", "am-am_FONIPA");
+            addDependency("ky-ar", "ky-ky_FONIPA", "und_FONIPA-ar");
+            addDependency("ky-fa", "ky-ky_FONIPA", "und_FONIPA-fa");
+            addDependency("my-am", "my-my_FONIPA", "am-am_FONIPA");
+            addDependency("my-ar", "my-my_FONIPA", "und_FONIPA-ar");
+            addDependency("my-fa", "my-my_FONIPA", "und_FONIPA-fa");
+            addDependency("pl-am", "pl-pl_FONIPA", "am-am_FONIPA");
+            addDependency("pl-ar", "pl-pl_FONIPA", "und_FONIPA-ar");
+            addDependency("pl-fa", "pl-pl_FONIPA", "und_FONIPA-fa");
             addDependency("pl-ja", "pl-pl_FONIPA", "pl_FONIPA-ja");
+            addDependency("rm_SURSILV-am", "rm_SURSILV-rm_FONIPA_SURSILV", "am-am_FONIPA");
+            addDependency("rm_SURSILV-ar", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-ar");
+            addDependency("rm_SURSILV-fa", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-fa");
+            addDependency("ro-am", "ro-ro_FONIPA", "am-am_FONIPA");
+            addDependency("ro-ar", "ro-ro_FONIPA", "und_FONIPA-ar");
+            addDependency("ro-fa", "ro-ro_FONIPA", "und_FONIPA-fa");
             addDependency("ro-ja", "ro-ro_FONIPA", "ro_FONIPA-ja");
+            addDependency("sat-am", "sat_Olck-sat_FONIPA", "am-am_FONIPA");
+            addDependency("sat-ar", "sat_Olck-sat_FONIPA", "und_FONIPA-ar");
+            addDependency("sat-fa", "sat_Olck-sat_FONIPA", "und_FONIPA-fa");
+            addDependency("si-am", "si-si_FONIPA", "am-am_FONIPA");
+            addDependency("si-ar", "si-si_FONIPA", "und_FONIPA-ar");
+            addDependency("si-fa", "si-si_FONIPA", "und_FONIPA-fa");
+            addDependency("sk-am", "sk-sk_FONIPA", "am-am_FONIPA");
+            addDependency("sk-ar", "sk-sk_FONIPA", "und_FONIPA-ar");
+            addDependency("sk-fa", "sk-sk_FONIPA", "und_FONIPA-fa");
             addDependency("sk-ja", "sk-sk_FONIPA", "sk_FONIPA-ja");
+            addDependency("tlh-am", "tlh-tlh_FONIPA", "am-am_FONIPA");
+            addDependency("tlh-ar", "tlh-tlh_FONIPA", "und_FONIPA-ar");
+            addDependency("tlh-fa", "tlh-tlh_FONIPA", "und_FONIPA-fa");
+            addDependency("xh-am", "xh-xh_FONIPA", "am-am_FONIPA");
+            addDependency("xh-ar", "xh-xh_FONIPA", "und_FONIPA-ar");
+            addDependency("xh-fa", "xh-xh_FONIPA", "und_FONIPA-fa");
+            addDependency("zu-am", "zu-zu_FONIPA", "am-am_FONIPA");
+            addDependency("zu-ar", "zu-zu_FONIPA", "und_FONIPA-ar");
+            addDependency("zu-fa", "zu-zu_FONIPA", "und_FONIPA-fa");
             addDependency("Latin-Bopomofo", "Latin-NumericPinyin");
 
             // addExtras("cs-ja", "cs-ja", "es-am", "es-ja", "es-zh", "Han-Latin/Names");
@@ -243,7 +306,7 @@ public class CLDRTransforms {
             + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
     }
 
-    public void registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip) {
+    public void registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip, boolean keepDashTIds) {
         ParsedTransformID directionInfo = new ParsedTransformID();
         String ruleString;
         final String cldrFileName2 = cldrFileName + ".xml";
@@ -258,12 +321,18 @@ public class CLDRTransforms {
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.forward) {
             internalRegister(directionInfo.getId(), ruleString, Transliterator.FORWARD);
             for (String alias : directionInfo.getAliases()) {
+                if (!keepDashTIds && alias.contains("-t-")) {
+                    continue;
+                }
                 Transliterator.registerAlias(alias, directionInfo.getId());
             }
         }
         if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.backward) {
             internalRegister(directionInfo.getId(), ruleString, Transliterator.REVERSE);
             for (String alias : directionInfo.getBackwardAliases()) {
+                if (!keepDashTIds && alias.contains("-t-")) {
+                    continue;
+                }
                 Transliterator.registerAlias(alias, directionInfo.getBackwardId());
             }
         }
@@ -373,7 +442,7 @@ public class CLDRTransforms {
 
         File dir = new File(directory);
         // get the list of files to take, and their directions
-        BufferedReader input = BagFormatter.openUTF8Reader(directory, "root.txt");
+        BufferedReader input = FileUtilities.openUTF8Reader(directory, "root.txt");
         String id = null;
         String filename = null;
         Map<String, String> aliasMap = new LinkedHashMap<String, String>();
@@ -471,8 +540,8 @@ public class CLDRTransforms {
         }
 
         for (Iterator<String> it = aliasMap.keySet().iterator(); it.hasNext();) {
-            id = (String) it.next();
-            String source = (String) aliasMap.get(id);
+            id = it.next();
+            String source = aliasMap.get(id);
             Transliterator.unregister(id);
             Transliterator t = Transliterator.createFromRules(id, "::" + source + ";", Transliterator.FORWARD);
             Transliterator.registerInstance(t);
@@ -482,12 +551,12 @@ public class CLDRTransforms {
         }
         appendln("Fixed IDs");
         for (Iterator<String> it = fixedIDs.keySet().iterator(); it.hasNext();) {
-            String id2 = (String) it.next();
+            String id2 = it.next();
             appendln("\t" + id2 + "\t" + fixedIDs.get(id2));
         }
         appendln("Odd IDs");
         for (Iterator<String> it = oddIDs.iterator(); it.hasNext();) {
-            String id2 = (String) it.next();
+            String id2 = it.next();
             appendln("\t" + id2);
         }
         Transliterator.registerAny(); // do this last!
@@ -795,22 +864,22 @@ public class CLDRTransforms {
                 if (attributes == null) {
                     throw new IllegalArgumentException("Not an XML transform file: " + cldrFileName + "\t" + path);
                 }
-                directionInfo.setSource((String) attributes.get("source"));
-                directionInfo.setTarget((String) attributes.get("target"));
-                directionInfo.setVariant((String) attributes.get("variant"));
+                directionInfo.setSource(attributes.get("source"));
+                directionInfo.setTarget(attributes.get("target"));
+                directionInfo.setVariant(attributes.get("variant"));
                 directionInfo.setDirection(Direction.valueOf(attributes.get("direction").toLowerCase(Locale.ENGLISH)));
 
-                String alias = (String) attributes.get("alias");
+                String alias = attributes.get("alias");
                 if (alias != null) {
                     directionInfo.setAliases(alias.trim().split("\\s+"));
                 }
 
-                String backwardAlias = (String) attributes.get("backwardAlias");
+                String backwardAlias = attributes.get("backwardAlias");
                 if (backwardAlias != null) {
                     directionInfo.setBackwardAliases(backwardAlias.trim().split("\\s+"));
                 }
 
-                directionInfo.setVisibility((String) attributes.get("visibility"));
+                directionInfo.setVisibility(attributes.get("visibility"));
                 first = false;
             }
             if (path.indexOf("/comment") >= 0) {

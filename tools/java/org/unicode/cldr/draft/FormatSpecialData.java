@@ -13,13 +13,13 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.ScriptCategories.RemapType;
+import org.unicode.cldr.util.BagFormatter;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.UnicodeLabel;
 import org.unicode.cldr.util.CldrUtility.CollectionComparator;
 import org.unicode.cldr.util.FileReaders;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.UnicodeLabel;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -51,7 +51,7 @@ public class FormatSpecialData {
                 continue;
             }
             String specialName = type.toString().toLowerCase() + "Specials";
-            PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "special/", specialName + ".txt");
+            PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "special/", specialName + ".txt");
             pivot.clear();
             addDataToPivot(string2uset, pivot);
             if (type == RemapType.SCRIPT) {

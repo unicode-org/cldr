@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -17,7 +18,6 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StringIterables;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 
@@ -78,7 +78,7 @@ public class FixDelimiters {
                 String revalue = cldrFile.getStringValue(paths[i]);
                 System.out.println(locale + "\t" + paths[i] + "\t" + oldValue[i] + "\t=>\t" + revalue);
             }
-            PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "temp/", locale + ".xml");
+            PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "temp/", locale + ".xml");
             cldrFile.write(pw);
             pw.close();
         }

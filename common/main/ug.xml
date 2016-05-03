@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
 Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Science Association http://ukij.org
 -->
 <ldml>
@@ -1414,7 +1416,7 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 							<month type="8" draft="contributed">ئاۋغۇست</month>
 							<month type="9" draft="contributed">سېنتەبىر</month>
 							<month type="10" draft="contributed">ئۆكتەبىر</month>
-							<month type="11" draft="contributed">بويابىر</month>
+							<month type="11" draft="contributed">نويابىر</month>
 							<month type="12" draft="contributed">دېكابىر</month>
 						</monthWidth>
 					</monthContext>
@@ -1443,7 +1445,7 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 							<day type="tue" draft="contributed">سە</day>
 							<day type="wed" draft="contributed">چا</day>
 							<day type="thu" draft="contributed">پە</day>
-							<day type="fri" draft="contributed">چۈ</day>
+							<day type="fri" draft="contributed">جۈ</day>
 							<day type="sat" draft="contributed">شە</day>
 						</dayWidth>
 						<dayWidth type="short">
@@ -1503,6 +1505,10 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am" draft="contributed">چۈشتىن بۇرۇن</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">چۈشتىن كېيىن</dayPeriod>

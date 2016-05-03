@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -570,6 +571,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">ऑल्ड हंगेरियन</script>
 			<script type="Inds">सिन्धु</script>
 			<script type="Ital">पुरानी इटली</script>
+			<script type="Jamo" draft="contributed">जामो</script>
 			<script type="Java">जावानीस</script>
 			<script type="Jpan">जापानी</script>
 			<script type="Kali">कायाह ली</script>
@@ -973,7 +975,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">विपरीत उच्‍चारण वर्गीकरण</key>
 			<key type="colCaseFirst" draft="contributed">अपरकेस/लोअरकेस क्रमांकन</key>
 			<key type="colCaseLevel" draft="contributed">केस संवेदी वर्गीकरण</key>
-			<key type="colHiraganaQuaternary" draft="contributed">काना वर्गीकरण</key>
 			<key type="collation">सॉर्ट क्रम</key>
 			<key type="colNormalization" draft="contributed">सामान्यीकृत वर्गीकरण</key>
 			<key type="colNumeric" draft="contributed">संख्यात्मक वर्गीकरण</key>
@@ -985,7 +986,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">संख्याएँ</key>
 			<key type="timezone" draft="contributed">समय क्षेत्र</key>
 			<key type="va" draft="contributed">स्थानीय प्रकार</key>
-			<key type="variableTop" draft="contributed">चिह्न के रूप में क्रमित करें</key>
 			<key type="x" draft="contributed">निजी-उपयोग</key>
 		</keys>
 		<types>
@@ -1013,8 +1013,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">पहले अपरकेस क्रमित करें</type>
 			<type key="colCaseLevel" type="no" draft="contributed">केस असंवेदी क्रमित करें</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">केस संवेदी को क्रमित करें</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">काना को अलग से क्रमित करें</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">काना को भिन्‍न रूप में क्रमित करें</type>
 			<type key="collation" type="big5han">पारम्पारिक चीनी वर्गीकरण</type>
 			<type key="collation" type="dictionary" draft="contributed">शब्दकोश क्रम विन्यास</type>
 			<type key="collation" type="ducet">डिफ़ॉल्ट यूनिकोड सॉर्ट क्रम</type>
@@ -1038,6 +1036,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">उच्‍चारणों/केस/चौड़ाई/काना क्रमित करें</type>
 			<type key="colStrength" type="secondary" draft="contributed">उच्‍चारण क्रमित करें</type>
 			<type key="colStrength" type="tertiary" draft="contributed">उच्‍चारणों/केस/चौड़ाई क्रमित करें</type>
+			<type key="d0" type="fwidth" draft="contributed">पूर्ण-चौड़ाई</type>
+			<type key="d0" type="hwidth" draft="contributed">आधी-चौड़ाई</type>
+			<type key="d0" type="npinyin" draft="contributed">सांख्यिक</type>
 			<type key="hc" type="h11">12 घंटों की प्रणाली (0–11)</type>
 			<type key="hc" type="h12">12 घंटों की प्रणाली (1–12)</type>
 			<type key="hc" type="h23">24 घंटों की प्रणाली (0–23)</type>
@@ -1045,6 +1046,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">ढीली पंक्ति विच्छेद शैली</type>
 			<type key="lb" type="normal">सामान्य पंक्ति विच्छेद शैली</type>
 			<type key="lb" type="strict">सख्त पंक्ति विच्छेद शैली</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">मीट्रिक</type>
 			<type key="ms" type="uksystem">इम्पीरियल मापन प्रणाली</type>
 			<type key="ms" type="ussystem">अमेरिकी मापन प्रणाली</type>
@@ -1089,18 +1092,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">परंपरागत अंक</type>
 			<type key="numbers" type="vaii" draft="contributed">वाई अंक</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">सांख्यिक</transformName>
-			<transformName type="Tone" draft="contributed">स्वर</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">स्वराघात</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">पूर्ण-चौड़ाई</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">आधी-चौड़ाई</transformName>
-			<transformName type="x-Jamo" draft="contributed">जामो</transformName>
-			<transformName type="x-Pinyin" draft="contributed">पिनयिन</transformName>
-			<transformName type="x-Publishing" draft="contributed">प्रकाशन</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">मीट्रिक</measurementSystemName>
 			<measurementSystemName type="UK">यूके</measurementSystemName>
@@ -2616,6 +2607,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} डेलाइट समय</regionFormat>
 			<regionFormat type="standard">{0} मानक समय</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>सांता इसाबेल</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>अज्ञात शहर</exemplarCity>
 			</zone>
@@ -3380,9 +3374,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>तिजुआना</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>सांता इसाबेल</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>हर्मोसिल्लो</exemplarCity>
@@ -6109,6 +6100,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} वर्ग इंच</unitPattern>
 				<perUnitPattern draft="contributed">{0}/वर्ग इंच</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>कैरट</displayName>
+				<unitPattern count="one">{0} कैरट</unitPattern>
+				<unitPattern count="other">{0} कैरट</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>लीटर प्रति किलोमीटर</displayName>
 				<unitPattern count="one">{0} लीटर प्रति किलोमीटर</unitPattern>
@@ -6510,11 +6506,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} मिलीबार</unitPattern>
 				<unitPattern count="other">{0} मिलीबार</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>कैरट</displayName>
-				<unitPattern count="one">{0} कैरट</unitPattern>
-				<unitPattern count="other">{0} कैरट</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>किलोमीटर प्रति घंटा</displayName>
 				<unitPattern count="one">{0} किलोमीटर प्रति घंटा</unitPattern>
@@ -6767,6 +6758,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} व. इं.</unitPattern>
 				<unitPattern count="other">{0} व. इं.</unitPattern>
 				<perUnitPattern draft="contributed">{0}/वर्ग इंच</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>कैरट</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>लीटर/किमी</displayName>
@@ -7168,11 +7164,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>कैरट</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>कि.मी./घं.</displayName>

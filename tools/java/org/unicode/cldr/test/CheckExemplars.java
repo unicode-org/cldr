@@ -8,9 +8,9 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterDirection;
 import com.ibm.icu.lang.UProperty;
@@ -32,7 +32,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
     Collator col;
     Collator spaceCol;
     boolean isRoot;
-    PrettyPrinter prettyPrinter;
+    UnicodeSetPrettyPrinter prettyPrinter;
 
     static final UnicodeSet HangulSyllables = new UnicodeSet(
         "[[:Hangul_Syllable_Type=LVT:][:Hangul_Syllable_Type=LV:]]").freeze();
@@ -120,7 +120,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         spaceCol = Collator.getInstance(new ULocale(locale));
         spaceCol.setStrength(Collator.PRIMARY);
         isRoot = cldrFileToCheck.getLocaleID().equals("root");
-        prettyPrinter = new PrettyPrinter()
+        prettyPrinter = new UnicodeSetPrettyPrinter()
         .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
             .setStrength2(Collator.PRIMARY))
@@ -164,7 +164,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 if (auxiliarySet.containsSome(mainSet)) {
                     UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
                     if (overlap.size() != 0) {
-                        String fixedExemplar1 = new PrettyPrinter()
+                        String fixedExemplar1 = new UnicodeSetPrettyPrinter()
                         .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
                         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                             .setStrength2(Collator.PRIMARY))

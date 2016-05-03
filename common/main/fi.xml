@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -701,6 +702,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">muinaisunkarilainen</script>
 			<script type="Inds">induslainen</script>
 			<script type="Ital">muinaisitalialainen</script>
+			<script type="Jamo">jamo</script>
 			<script type="Java">jaavalainen</script>
 			<script type="Jpan">japanilainen</script>
 			<script type="Jurc">džurtšen</script>
@@ -1194,7 +1196,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">painomerkkien lajittelu</key>
 			<key type="colCaseFirst">isojen ja pienten kirjainten järjestys</key>
 			<key type="colCaseLevel">aakkoslajien lajittelu</key>
-			<key type="colHiraganaQuaternary">kana-merkkien lajittelu</key>
 			<key type="collation">lajittelujärjestys</key>
 			<key type="colNormalization">lajittelun normalisointi</key>
 			<key type="colNumeric">numeroiden lajittelu</key>
@@ -1206,7 +1207,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">numerot</key>
 			<key type="timezone">aikavyöhyke</key>
 			<key type="va">maavalinnan muunnelma</key>
-			<key type="variableTop">lajittelu symboleina</key>
 			<key type="x">yksityiskäyttö</key>
 		</keys>
 		<types>
@@ -1237,8 +1237,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">isot kirjaimet edeltävät pieniä</type>
 			<type key="colCaseLevel" type="no">isojen ja pienten kirjainten lajittelu yhdessä</type>
 			<type key="colCaseLevel" type="yes">isojen ja pienten kirjainten lajittelu erikseen</type>
-			<type key="colHiraganaQuaternary" type="no">kana-merkkien lajittelu erillisinä</type>
-			<type key="colHiraganaQuaternary" type="yes">kana-merkkien lajittelu tyypin mukaan</type>
 			<type key="collation" type="big5han">perinteinen kiinalainen järjestys Big5</type>
 			<type key="collation" type="compat">aiempi lajittelujärjestys yhteensopivuutta varten</type>
 			<type key="collation" type="dictionary">sanakirjajärjestys</type>
@@ -1266,6 +1264,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">painomerkit ja aakkoslajit tai merkkileveydet ja kana-merkit huomioiva lajittelu</type>
 			<type key="colStrength" type="secondary">painomerkit huomioiva lajittelu</type>
 			<type key="colStrength" type="tertiary">painomerkit ja aakkoslajit tai merkkileveydet huomioiva lajittelu</type>
+			<type key="d0" type="fwidth">ideogrammin levyinen</type>
+			<type key="d0" type="hwidth">ideogrammin puolikkaan levyinen</type>
+			<type key="d0" type="npinyin">numeerinen muunnos</type>
 			<type key="hc" type="h11">12 tunnin järjestelmä (0–11)</type>
 			<type key="hc" type="h12">12 tunnin järjestelmä (1–12)</type>
 			<type key="hc" type="h23">24 tunnin järjestelmä (0–23)</type>
@@ -1273,6 +1274,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">väljä rivinvaihto</type>
 			<type key="lb" type="normal">normaali rivinvaihto</type>
 			<type key="lb" type="strict">tarkka rivinvaihto</type>
+			<type key="m0" type="bgn">BGN-latinaistus</type>
+			<type key="m0" type="ungegn">UNGEGN-latinaistus</type>
 			<type key="ms" type="metric">metrijärjestelmä</type>
 			<type key="ms" type="uksystem">brittiläinen mittajärjestelmä</type>
 			<type key="ms" type="ussystem">yhdysvaltalainen mittajärjestelmä</type>
@@ -1338,18 +1341,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">perinteiset numerot</type>
 			<type key="numbers" type="vaii">vai-numerot</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN-latinaistus</transformName>
-			<transformName type="Numeric">numeerinen muunnos</transformName>
-			<transformName type="Tone">tooni</transformName>
-			<transformName type="UNGEGN">UNGEGN-latinaistus</transformName>
-			<transformName type="x-Accents">aksenttimerkit</transformName>
-			<transformName type="x-Fullwidth">ideogrammin levyinen</transformName>
-			<transformName type="x-Halfwidth">ideogrammin puolikkaan levyinen</transformName>
-			<transformName type="x-Jamo">jamo</transformName>
-			<transformName type="x-Pinyin">pinyin-latinaistus</transformName>
-			<transformName type="x-Publishing">julkaisuvalinta</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrinen</measurementSystemName>
 			<measurementSystemName type="UK">brittiläinen</measurementSystemName>
@@ -2770,6 +2761,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (kesäaika)</regionFormat>
 			<regionFormat type="standard">{0} (normaaliaika)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>tuntematon</exemplarCity>
 			</zone>
@@ -3538,9 +3532,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -7098,6 +7089,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} neliötuumaa</unitPattern>
 				<perUnitPattern>{0} / neliötuuma</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karaatit</displayName>
+				<unitPattern count="one">{0} karaatti</unitPattern>
+				<unitPattern count="other">{0} karaattia</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litrat per kilometri</displayName>
 				<unitPattern count="one">{0} litra per kilometri</unitPattern>
@@ -7514,11 +7510,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} millibaari</unitPattern>
 				<unitPattern count="other">{0} millibaaria</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karaatit</displayName>
-				<unitPattern count="one">{0} karaatti</unitPattern>
-				<unitPattern count="other">{0} karaattia</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometrit tunnissa</displayName>
 				<unitPattern count="one">{0} kilometri tunnissa</unitPattern>
@@ -7776,6 +7767,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ka</displayName>
+				<unitPattern count="one">{0} ka</unitPattern>
+				<unitPattern count="other">{0} ka</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -8193,11 +8189,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ka</displayName>
-				<unitPattern count="one">{0} ka</unitPattern>
-				<unitPattern count="other">{0} ka</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -8455,6 +8446,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}in²</unitPattern>
 				<unitPattern count="other">{0}in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ka</displayName>
+				<unitPattern count="one">{0}ka</unitPattern>
+				<unitPattern count="other">{0}ka</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -8871,11 +8867,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0}mbar</unitPattern>
 				<unitPattern count="other">{0}mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>ka</displayName>
-				<unitPattern count="one">{0}ka</unitPattern>
-				<unitPattern count="other">{0}ka</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

@@ -31,6 +31,7 @@ public class TestIdentity extends TestFmwk {
             factories.add(testInfo.getExemplarsFactory());
             factories.add(testInfo.getCollationFactory());
             factories.add(testInfo.getRBNFFactory());
+            factories.add(testInfo.getAnnotationsFactory());
         }
         for (Factory factory : factories) {
             for (String locale : factory.getAvailable()) {

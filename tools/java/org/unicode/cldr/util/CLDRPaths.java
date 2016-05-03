@@ -1,6 +1,5 @@
 package org.unicode.cldr.util;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -37,6 +36,8 @@ public class CLDRPaths {
     public static final String SEED_CASING_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../casing/");
     public static final String EXEMPLARS_DIRECTORY = CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/main/");
     public static final String RBNF_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "rbnf/");
+    public static final String TRANSFORMS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "transforms/");
+    public static final String ANNOTATIONS_DIRECTORY = CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "annotations/");
     public static final String TMP_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp/")));
     public static final String AUX_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
@@ -49,6 +50,10 @@ public class CLDRPaths {
     public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" +
         ToolConstants.PREVIOUS_CHART_VERSION +
         "/";
+    public static final String LAST_COMMON_DIRECTORY =
+	CldrUtility.getPath(CLDRPaths.LAST_DIRECTORY, "common/");
+    public static final String LAST_TRANSFORMS_DIRECTORY =
+	CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, "transforms/");
     public static final String GEN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         CldrUtility.getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
     public static final String DATA_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_EXT_DATA_DIR",
@@ -111,6 +116,7 @@ public class CLDRPaths {
         }
     }
     
+    @Deprecated
     public static final Set<String> LDML_DIRECTORIES = ImmutableSet.of(
         "main",
         "annotations",

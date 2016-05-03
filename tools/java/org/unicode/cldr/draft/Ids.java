@@ -17,11 +17,10 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.PrettyPrinter;
-import com.ibm.icu.impl.Relation;
 import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
@@ -467,7 +466,7 @@ public abstract class Ids implements Comparable<Ids> {
      * U+2FFB ( ⿻ ) IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID
      */
 
-    static PrettyPrinter pp = new PrettyPrinter().setOrdering(RadicalStroke.RadicalStrokeComparator).setCompressRanges(
+    static UnicodeSetPrettyPrinter pp = new UnicodeSetPrettyPrinter().setOrdering(RadicalStroke.RadicalStrokeComparator).setCompressRanges(
         false);
 
     public static void main(String[] args) throws IOException {
@@ -487,7 +486,7 @@ public abstract class Ids implements Comparable<Ids> {
 
         for (String file : dir.list()) {
             int counter = 0;
-            BufferedReader in = BagFormatter.openUTF8Reader(dirString, file);
+            BufferedReader in = FileUtilities.openUTF8Reader(dirString, file);
             boolean radicals = file.startsWith("CJK Radicals");
             boolean corrections = file.startsWith("X-Corrections");
             Map<Integer, String> radicalToBase = new TreeMap<Integer, String>();
@@ -824,7 +823,7 @@ public abstract class Ids implements Comparable<Ids> {
         if (out != null) {
             out.close();
         }
-        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/../ids/", filename);
+        out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/../ids/", filename);
         out.print('\uFEFF');
         out.println(header);
     }

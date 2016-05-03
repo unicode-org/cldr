@@ -11,11 +11,11 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Differ;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
 
-import com.ibm.icu.impl.Differ;
 import com.ibm.icu.text.Transform;
 
 public class TestMetadata {

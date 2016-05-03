@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -1440,6 +1441,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">ŋdi</dayPeriod>
+							<dayPeriod type="pm">ɣetrɔ</dayPeriod>
+							<dayPeriod type="morning1">fɔŋli</dayPeriod>
+							<dayPeriod type="morning2">ŋdi</dayPeriod>
+							<dayPeriod type="afternoon1">ŋdɔ</dayPeriod>
+							<dayPeriod type="afternoon2">ɣetrɔ</dayPeriod>
+							<dayPeriod type="evening1">fiẽ</dayPeriod>
+							<dayPeriod type="night1">zã</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">ŋ</dayPeriod>
 							<dayPeriod type="pm">ɣ</dayPeriod>

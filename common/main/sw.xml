@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -352,6 +353,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">Kihan cha Jadi</script>
 			<script type="Hebr">Kiebrania</script>
 			<script type="Hira">Kihiragana</script>
+			<script type="Jamo">Kijamo</script>
 			<script type="Jpan">Kijapani</script>
 			<script type="Kana">Kikatakana</script>
 			<script type="Khmr">Kikambodia</script>
@@ -682,7 +684,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">Upangaji Uliogeuzwa wa Kiinitoni</key>
 			<key type="colCaseFirst">Upangaji wa Herufi kubwa/Herufi ndogo</key>
 			<key type="colCaseLevel">Upangaji Unaoathiriwa na Herufi</key>
-			<key type="colHiraganaQuaternary">Upangaji wa Kana</key>
 			<key type="collation">Mpangilio</key>
 			<key type="colNormalization">Upangaji wa Kawaida</key>
 			<key type="colNumeric">Upangaji wa Namba</key>
@@ -694,7 +695,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Nambari</key>
 			<key type="timezone">Ukanda Saa</key>
 			<key type="va">Tofauti ya Mandhari</key>
-			<key type="variableTop">Panga Kama Alama</key>
 			<key type="x">Matumizi ya Kibinafsi</key>
 		</keys>
 		<types>
@@ -722,8 +722,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">Panga Herufi kubwa Kwanza</type>
 			<type key="colCaseLevel" type="no">Panga Isiyoathiriwa na Herufi</type>
 			<type key="colCaseLevel" type="yes">Panga kwa Inayoathiriwa na Herufi</type>
-			<type key="colHiraganaQuaternary" type="no">Panga Kana Kando</type>
-			<type key="colHiraganaQuaternary" type="yes">Panga Kana Kitofauti</type>
 			<type key="collation" type="big5han">Mpangilio wa Kichina cha Jadi - Big5</type>
 			<type key="collation" type="dictionary">Mpangilio wa Kamusi</type>
 			<type key="collation" type="ducet">Mpangilio Chaguo-Msingi wa Unicode</type>
@@ -747,6 +745,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">Panga Viinitoni/Herufi/Upana/Kana</type>
 			<type key="colStrength" type="secondary">Panga Viinitoni</type>
 			<type key="colStrength" type="tertiary">Panga Viinitoni/Herufi/Upana</type>
+			<type key="d0" type="fwidth">Upana kamili</type>
+			<type key="d0" type="hwidth">Nusu upana</type>
+			<type key="d0" type="npinyin">Ya Nambari</type>
 			<type key="hc" type="h11">h11</type>
 			<type key="hc" type="h12">h12</type>
 			<type key="hc" type="h23">h23</type>
@@ -754,6 +755,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">loose</type>
 			<type key="lb" type="normal">normal</type>
 			<type key="lb" type="strict">strict</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">metriki</type>
 			<type key="ms" type="uksystem">mfumo wa UK</type>
 			<type key="ms" type="ussystem">Mfumo wa US</type>
@@ -802,18 +805,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">Tarakimu za Jadi</type>
 			<type key="numbers" type="vaii">Dijiti za Vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Ya Nambari</transformName>
-			<transformName type="Tone">Sauti</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Rangi za Kuangaza</transformName>
-			<transformName type="x-Fullwidth">Upana kamili</transformName>
-			<transformName type="x-Halfwidth">Nusu upana</transformName>
-			<transformName type="x-Jamo">Kijamo</transformName>
-			<transformName type="x-Pinyin">Kipinyin</transformName>
-			<transformName type="x-Publishing">Inachapishwa</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Mfumo wa Mita</measurementSystemName>
 			<measurementSystemName type="UK">Uingereza</measurementSystemName>
@@ -1930,6 +1921,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">Saa za Mchana za {0}</regionFormat>
 			<regionFormat type="standard">Saa za wastani za {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Jiji Lisilojulikana</exemplarCity>
 			</zone>
@@ -2694,9 +2688,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -5376,6 +5367,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">inchi {0} za mraba</unitPattern>
 				<perUnitPattern>{0} kwa kila inchi ya mraba</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karati</displayName>
+				<unitPattern count="one">karati {0}</unitPattern>
+				<unitPattern count="other">karati {0}</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lita kwa kila kilomita</displayName>
 				<unitPattern count="one">lita {0} kwa kilomita</unitPattern>
@@ -5777,11 +5773,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">kipimo cha milibari {0}</unitPattern>
 				<unitPattern count="other">kipimo cha milibari {0}</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karati</displayName>
-				<unitPattern count="one">karati {0}</unitPattern>
-				<unitPattern count="other">karati {0}</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilomita kwa saa</displayName>
 				<unitPattern count="one">kilomita {0} kwa saa</unitPattern>
@@ -6034,6 +6025,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">in² {0}</unitPattern>
 				<unitPattern count="other">in² {0}</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karati</displayName>
+				<unitPattern count="one">karati {0}</unitPattern>
+				<unitPattern count="other">karati {0}</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lita kwa kila kilomita</displayName>
@@ -6435,11 +6431,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>kipimo cha milibari</displayName>
 				<unitPattern count="one">mbar {0}</unitPattern>
 				<unitPattern count="other">mbar {0}</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>karati</displayName>
-				<unitPattern count="one">karati {0}</unitPattern>
-				<unitPattern count="other">karati {0}</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilomita kwa saa</displayName>

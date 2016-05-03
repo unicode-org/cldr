@@ -15,6 +15,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
@@ -24,7 +25,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.PluralRules;
@@ -571,8 +571,7 @@ public class GeneratedPluralSamples {
 
         for (PluralType type : PluralType.values()) {
             if (fileFormat) {
-                out = BagFormatter.openUTF8Writer(MyOptions.output.option.getValue(),
-                    (type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml"));
+                out = FileUtilities.openUTF8Writer(MyOptions.output.option.getValue(), type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml");
                 out.print(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
             }
             System.out.println("\n");

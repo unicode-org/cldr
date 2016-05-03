@@ -27,8 +27,7 @@ public class TestAnnotations extends TestFmwk {
             { "en", "[\u2651]", "not_contains", "foobar" },
         };
         for (String[] test : tests) {
-            UnicodeMap<Set<String>> data = Annotations.getData(test[0]);
-            data = Annotations.getData(test[0]);
+            UnicodeMap<Annotations> data = Annotations.getData(test[0]);
             UnicodeSet us = new UnicodeSet(test[1]);
             Set<String> annotations = new LinkedHashSet<>();
             Containment contains = Containment.valueOf(test[2]);
@@ -36,7 +35,7 @@ public class TestAnnotations extends TestFmwk {
                 annotations.add(test[i]);
             }
             for (String s : us) {
-                Set<String> set = data.get(s);
+                Set<String> set = data.get(s).annotations;
                 if (set == null) {
                     set = Collections.emptySet();
                 }
@@ -66,7 +65,7 @@ public class TestAnnotations extends TestFmwk {
     public void TestList() {
         if (isVerbose()) {
             for (String locale : Annotations.getAvailable()) {
-                for (EntryRange<Set<String>> s : Annotations.getData(locale).entryRanges()) {
+                for (EntryRange<Annotations> s : Annotations.getData(locale).entryRanges()) {
                     logln(s.toString());
                 }
             }

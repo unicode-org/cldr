@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -21,7 +22,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.ULocale;
@@ -251,7 +251,7 @@ public class GeneratePluralList {
      * @param args
      */
     public static void main(String[] args) throws Exception {
-        PrintWriter out = BagFormatter.openUTF8Writer("/Users/jchye/Desktop", "plurals.tsv");
+        PrintWriter out = FileUtilities.openUTF8Writer("/Users/jchye/Desktop", "plurals.tsv");
         GeneratePluralList generator = new GeneratePluralList(out);
         generator.loadNouns();
 

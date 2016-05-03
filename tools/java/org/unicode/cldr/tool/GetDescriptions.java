@@ -11,10 +11,9 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
-
-import com.ibm.icu.dev.util.BagFormatter;
 
 public class GetDescriptions {
 
@@ -36,15 +35,15 @@ public class GetDescriptions {
 
     public static void main(String[] args) throws IOException {
         StandardCodes sc = StandardCodes.make();
-        PrintWriter commas = BagFormatter.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-commas.txt");
+        PrintWriter commas = FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-commas.txt");
         commas.write('\uFEFF');
-        PrintWriter all = BagFormatter.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-all.txt");
+        PrintWriter all = FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-all.txt");
         all.write('\uFEFF');
 
-        for (String type : (Set<String>) sc.getAvailableTypes()) {
+        for (String type : sc.getAvailableTypes()) {
             if (type.equals("tzid")) continue;
             if (type.equals("currency")) continue;
-            for (String code : (Set<String>) sc.getAvailableCodes(type)) {
+            for (String code : sc.getAvailableCodes(type)) {
                 Map<String, String> x = sc.getLangData(type, code);
                 if (x == null) {
                     continue;
@@ -52,7 +51,7 @@ public class GetDescriptions {
                 boolean isDeprecated = x.get("Deprecated") != null;
 
                 all.println(allCount++ + "\t" + type + "\t" + code + "\t" + x);
-                String descriptionField = (String) x.get("Description");
+                String descriptionField = x.get("Description");
                 String[] descriptions = descriptionField.split("\u25AA");
                 items.clear();
 
@@ -124,7 +123,7 @@ public class GetDescriptions {
     }
 
     private static void showReverse() throws IOException {
-        PrintWriter reverse = BagFormatter.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-reverse.txt");
+        PrintWriter reverse = FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-reverse.txt");
         reverse.write('\uFEFF');
         int reverseCount = 1;
         for (String name : name_type_codes.keySet()) {
@@ -147,7 +146,7 @@ public class GetDescriptions {
         }
         reverse.close();
         reverseCount = 1;
-        PrintWriter inversions = BagFormatter.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-inversions.txt");
+        PrintWriter inversions = FileUtilities.openUTF8Writer("c:\\data\\gen\\ltru\\", "ltru-inversions.txt");
         for (String invertedName : descriptionWithoutComments.keySet()) {
             String name = descriptionWithoutComments.get(invertedName);
             if (name.equals(invertedName)) continue;

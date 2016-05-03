@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2016 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="sat" target="am" direction="forward" alias="am-t-sat">
+			<tRule><![CDATA[
+# TODO: Add other scripts (eg. sat-Beng) once we can transcribe them to IPA.
+# Do this in a separate rule for "sat-sat_FONIPA", so it can be reused.
+::sat_Olck-sat_FONIPA;
+::am_FONIPA-am;
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

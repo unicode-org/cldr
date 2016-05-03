@@ -86,17 +86,20 @@
 ^//ldml/numbers/([a-z]*)Formats(\[@numberSystem="([^"]*)"])?/\1FormatLength/\1Format\[@type="standard"]/pattern\[@type="standard"]$    ;   Special pattern used to compose {1} numbers. Note: before translating, be sure to read http://cldr.org/translation/number-patterns.
 ^//ldml/numbers/currencyFormats\[@numberSystem="([^"]*)"]/currencyFormatLength/currencyFormat\[@type="accounting"]/pattern    ;   Special pattern used to compose currency values for accounting purposes. Note: before translating, be sure to read http://cldr.org/translation/number-patterns.
 
-^//ldml/listPatterns/listPattern/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
-^//ldml/listPatterns/listPattern/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two standard elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two standard elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
-^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two duration elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
-^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two duration elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a short-style list out of two standard elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="standard-short"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a short-style list out of more than two standard elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
-^//ldml/listPatterns/listPattern\[@type="unit-short"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two abbreviated duration elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
-^//ldml/listPatterns/listPattern\[@type="unit-short"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two abbreviated duration elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two unit elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="unit"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two unit elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
-^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two narrow duration elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
-^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two narrow duration elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="unit-short"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two abbreviated unit elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="unit-short"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two abbreviated unit elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
+
+^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two narrow unit elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
+^//ldml/listPatterns/listPattern\[@type="unit-narrow"]/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two narrow unit elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dayPeriods/dayPeriodContext\[@type="(format)"]/dayPeriodWidth\[@type="([^"]*)"]/dayPeriod\[@type="([^"]*)"]   ;   Provide the {3}, {2} version of the name for the day period code “{4}”. This version must have the right inflection/prepositions/etc. for adding after a number, such as “in the morning” for use in “10:00 in the morning”. To see the time spans for these codes, please see http://cldr.org/translation/date-time-names#TOC-Day-Periods-AM-and-PM-.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dayPeriods/dayPeriodContext\[@type="([^"]*)"]/dayPeriodWidth\[@type="([^"]*)"]/dayPeriod\[@type="([^"]*)"]   ;   Provide the {3}, {2} version of the name for the day period code “{4}”. To see the time spans for these codes, please see http://cldr.org/translation/date-time-names#TOC-Day-Periods-AM-and-PM-.
@@ -120,6 +123,8 @@
 ^//ldml/dates/fields/field\[@type="([^"]*)"]/relativeTime\[@type="future"]/relativeTimePattern\[@count="([^"]*)"] ; Provide a pattern used to display times in the future. For more information, please see http://cldr.org/translation/date-time-names
 ^//ldml/dates/fields/field\[@type="([^"]*)"]/relativeTime\[@type="past"]/relativeTimePattern\[@count="([^"]*)"] ; Provide a pattern used to display times in the past. For more information, please see http://cldr.org/translation/date-time-names
 
+^//ldml/dates/fields/field\[@type="([^"]*)"]/relativePeriod    ;   Provide a name for “the {1} of SOME_DATE”. For more information, please see http://cldr.org/translation/date-time-names.
+
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/dateTimeFormatLength\[@type="([^"]*)"]/dateTimeFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the date-time pattern. Note: before translating, be sure to read http://cldr.org/translation/date-time-patterns.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateFormats/dateFormatLength\[@type="([^"]*)"]/dateFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the basic date pattern. Note: before translating, be sure to read http://cldr.org/translation/date-time-patterns.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/timeFormats/timeFormatLength\[@type="([^"]*)"]/timeFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the basic time pattern. Note: before translating, be sure to read http://cldr.org/translation/date-time-patterns.
@@ -134,10 +139,16 @@
 
 ^//ldml/localeDisplayNames/transformNames/transformName\[@type="([^"]*)"]   ;   The name of the transform “{1}”. For more information, please see http://cldr.org/translation/transforms.
 
-^//ldml/localeDisplayNames/codePatterns/codePattern[@type="([^"]*)"]    ;   The pattern to be used when displaying a {1}. For more information, please see http://cldr.org/translation/localepattern.
+^//ldml/localeDisplayNames/codePatterns/codePattern[@type="([^"]*)"]    ;   The pattern to be used when displaying a name for a character {1}. For more information, please see http://cldr.org/translation/localepattern.
 
-^//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName\[@type="([^"]*)"]   ;   The name of the measurement system “{1}”.  For more information, please see http://cldr.org/translation/misc. 
+^//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName\[@type="([^"]*)"]   ;   The name of the measurement system “{1}”.  For more information, please see http://cldr.org/translation/misc.
 ^//ldml/posix/messages/(no|yes)str   ;   The word for “{1}”, lowercased, plus any abbreviations separated by a colon. For more information, see http://cldr.org/translation/misc.
+
+^//ldml/localeDisplayNames/annotationPatterns/annotationPattern[@type="([^"]*)"]    ;   The pattern to be used when displaying a {1}. For more information, please see http://cldr.org/translation/localepattern.
 
 ^//ldml/characters/stopwords/stopwordList\[@type="([^"]*)"] ;   The words that should be ignored in sorting in your language.  For more information, see http://cldr.org/translation/misc.
 ^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/([^/]*)/(.*)  ;   Override for the $3-$2 timezone name for $1.  For more information, see http://cldr.org/translation/timezones.
+
+^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"];   A modifier composed with a label for a set of characters.  For more information, see http://cldr.org/translation/character-labels.
+^//ldml/characterLabels/characterLabelPattern\[@type="([^"]*)"]\[@count="([^"]*)"];   A label for a set of characters that has a numeric placeholder, such as “1 Stroke”, “2 Strokes”.  For more information, see http://cldr.org/translation/character-labels.
+^//ldml/characterLabels/characterLabel\[@type="([^"]*)"];   A label for a set of characters.  For more information, see http://cldr.org/translation/character-labels.

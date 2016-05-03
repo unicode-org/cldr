@@ -8,27 +8,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="ro" target="ro_FONIPA" direction="forward">
-			<tRule>
+		<transform source="ro" target="ro_FONIPA" direction="forward" alias="ro-fonipa-t-ro">
+			<tRule><![CDATA[
 # Romanian orthography to phonemic transcription.
 # http://en.wikipedia.org/wiki/Romanian_phonology
 #
-# Currently this transform does not generate allophones like [ŋ] for /n/,
-# and it does not palatalize consonants.
-#
-# Transform input to normalized form NFC, and to lowercase.
+# TODO: Currently this transform does not palatalize consonants.
+
+$VowelEI = [e i î];
+$VowelAOU = [a â ă o u];
+$Vowel = [$VowelEI $VowelAOU];
+$Boundary =  [^[:L:][:M:][:N:]];
 
 :: NFC () ;
 :: Lower () ;
-#
-#
+
 # Special cases.
-
 eoai → eo̯aj ;  # eg. leoaică → /leo̯ajkə/, not /le̯o̯aikə/
-#
-#
-# Triphthongs.
 
+# Triphthongs.
 eai → e̯aj ;
 eau → e̯aw ;
 eoa → e̯o̯a ;
@@ -37,7 +35,7 @@ ia\-i → jaj ;
 iau → jaw ;
 iei → jej ;
 ieu → jew ;
-[\uffff] { eu → jew ;
+$Boundary {eu} → jew ;
 ioa → jo̯a ;
 ioi → joj ;
 i\-oi → joj ;
@@ -46,14 +44,12 @@ oai → o̯aj ;
 uai → waj ;
 uau → waw ;
 uăi → wəj ;
-#
-#
-# Diphthongs.
 
+# Diphthongs.
 ai → aj ;
 âi → ɨj ;
 ăi → əj ;
-au } r → au ;
+au} r → au ;
 au → aw ;
 âu → ɨw ;
 ău → əw ;
@@ -68,7 +64,7 @@ i\-a → ja ;
 ie → je ;
 ii → ij ;
 io → jo ;
-iu } [aâăeiîou$] → iw ;
+iu} [$Vowel $Boundary] → iw ;
 iu → ju ;
 oa → o̯a ;
 oi → oj ;
@@ -79,21 +75,22 @@ uă → wə ;
 ue → we ;
 ui → uj ;
 uu → uw ;
-#
-#
 
 a → a ;
 â → ɨ ;
 ă → ə ;
 b → b ;
 ch → k ;
-c } [ei] → t \u0361 ʃ ;
+
+{c [ei]} $VowelAOU → t͡ʃ ;
+{c} [ei] → t͡ʃ ;
 c → k ;
 d → d ;
 e → e ;
 f → f ;
 gh → ɡ ;
-g } [ei] → d \u0361 ʒ ;
+{g [ei]} $VowelAOU → d͡ʒ ;
+{g} [ei] → d͡ʒ ;
 g → ɡ ;
 h → h ;
 i → i ;
@@ -102,18 +99,52 @@ j → ʒ ;
 k → k ;
 l → l ;
 m → m ;
+ng → ŋ ;
 n → n ;
 o → o ;
 p → p ;
+q → k ;
 r → r ;
 s → s ;
 ş → ʃ ;
+ș → ʃ ;
 t → t ;
-ţ → t \u0361 s ;
+ţ → t͡s ;
+ț → t͡s ;
 u → u ;
 v → v ;
+x → ks ;
+y → i ;
 z → z ;
-			</tRule>
+[:P:]+ → ' ';
+
+# Romanian does not have any gemination.
+# https://en.wikipedia.org/wiki/Gemination#Latin_and_Romance_languages
+::null;
+pp+ → p;
+bb+ → b;
+tt+ → t;
+dd+ → d;
+kk+ → k;
+dd+ → d;
+ɡɡ+ → ɡ;
+
+ff+ → f;
+vv+ → v;
+hh+ → h;
+
+ss+ → s;
+zz+ → z;
+ʃʃ+ → ʃ;
+ʒʒ+ → ʒ;
+
+rr+ → r;
+ll+ → l;
+
+jj+ → j;
+ww+ → w;
+
+			]]></tRule>
 		</transform>
 	</transforms>
 </supplementalData>

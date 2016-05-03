@@ -4,11 +4,19 @@
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html -->
 <supplementalData>
-	<version number="$Revision: 11914 $" />
+	<version number="$Revision$" />
 	<transforms>
-		<transform source="am" target="am_FONIPA" direction="both">
+		<transform source="am" target="am_FONIPA" direction="both" alias="am-fonipa-t-am" backwardAlias="am-t-am-fonipa">
 			<tRule>
 # Transforms Amharic (am) to Amharic in phonemic IPA transcription (am_FONIPA).
+#
+# Long vowels, long/geminated consonants:
+#     In the direction from am_FONIPA to am, we emit Ethiopic gemination
+#     and vowel length markers (U+135D, U+135E, U+135F) although
+#     they are rarely written in Amharic text. Exceptions include
+#     school books and textbooks for non-native speakers.
+#     Clients who do not want these markers can easily strip them off
+#     in a post-processing step.
 #
 # Labialization:
 #     Amharic speakers will usually say ሟ as [mʷa] instead of [mwa];
@@ -27,10 +35,17 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 #     with the exception of /j/, which it consistently (but wrongly)
 #     writes as */y/.
 
-# TODO(sascha): Implement these, instead of stripping them away.
-\u135D → '';  # U+135D ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK
-\u135E → '';  # U+135E ETHIOPIC COMBINING VOWEL LENGTH MARK
-\u135F → '';  # U+135F ETHIOPIC COMBINING GEMINATION MARK
+$IPA_VOWEL = [aeəiɨou];
+$IPA_CONSONANT = [mnɲɴ p{pʼ}bt{tʼ}dk{kʼ}ɡʔʕ fvs{sʼ}zʃʒxh lr {t͡ʃ}{t͡ʃʼ}{d͡ʒ}];
+
+# Some consonants have a special syllable when labialized, such as ፗ ↔ /pʷa/.
+# Amharic restricts this mostly to /a/ syllables. While the Ethiopic script
+# does offer labialized syllables for other vowels, these are typically
+# not written in Amharic.
+$LABIALIZABLE_BEFORE_A = [p{pʼ}t{tʼ} {t͡ʃ}{t͡ʃʼ}{d͡ʒ}{d͡ʒʼ} s{sʼ}zʃʒ fv r];
+
+← [ ʼ  ͡  ͜  ̯];
+::(null);
 
 # Appendix B of [1] transcribes ሀ as /hə/. However, according to
 # an Amharic-speaking person, there is no /hə/ sequence
@@ -249,6 +264,36 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 ኟ ↔ ɲwa;
 ኝ ← ɲ;
 
+# Amharic speakers pronounce ኸ as [h] because Amharic has no [x] sound.
+# However, in transliterations of foreign (eg. Spanish) words with [x],
+# several Amharic speakers have confirmed that they prefer ኻ over ሃ.
+ዀ → hwə;
+ዂ → hwi;
+ዃ → hwa;
+ዄ → hwe;
+ዅ → hwɨ;
+ኸ → hə;
+ኹ → hu;
+ኺ → hi;
+ኻ → ha;
+ኼ → he;
+ኽ → hɨ;
+ኾ → ho;
+ዀ ← xwə;
+ዂ ← xwi;
+ዃ ← xwa;
+ዄ ← xwe;
+ዅ ← xwɨ;
+ዅ ← xw;
+ኸ ← xə;
+ኹ ← xu;
+ኺ ← xi;
+ኻ ← xa;
+ኼ ← xe;
+ኽ ← xɨ;
+ኾ ← xo;
+ኽ ← x;
+
 አ ↔ ʔə;
 ኡ ↔ ʔu;
 ኢ ↔ ʔi;
@@ -390,11 +435,11 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 ጔ ↔ ɡwe;
 ግ ← ɡ;
 
-# In Awngi, Blin, Qimant, and Xamtanga, ጘ is spoken as voiced velar nasal /ŋ/.
+# In Awngi, Blin, Qimant, and Xamtanga, ጘ is spoken as voiced velar nasal [ŋ].
 # Source: [1], Appendix C. While /ŋ/ is not an Amharic phoneme, Amharic speakers
-# still can pronounce it according to our source.
-# When transliterating foreign words with /ŋ/, Amharic uses the sequence ንግ /nɡ/.
-# For example, the Amharic transliteration of Washington /waʃiŋtən/ is ዋሺንግተን.
+# still can pronounce it according to our source. However, when transliterating
+# foreign words with [ŋ], Amharic uses the sequence ንግ /nɡ/. For example,
+# the Amharic transliteration of Washington /waʃiŋtən/ is ዋሺንግተን.
 ጘ → ŋə;
 ጙ → ŋu;
 ጚ → ŋi;
@@ -407,6 +452,16 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 ⶔ → ŋwi;
 ጟ → ŋwa;
 ⶕ → ŋwe;
+
+# Since there is no uvular nasal [ɴ] in Amharic, we use the velar nasal [ŋ].
+ጘ ← ɴə;
+ጙ ← ɴu;
+ጚ ← ɴi;
+ጛ ← ɴa;
+ጜ ← ɴe;
+ጝ ← ɴɨ;
+ጞ ← ɴo;
+ጝ ← ɴ;
 
 # In Sebatbeit, ⷘ is spoken as palatalized voiced velar stop /ɡj/ ([1], Appendix H).
 # Amharic speakers pronounce it as voiced velar stop /ɡ/ without palatalization.
@@ -591,17 +646,39 @@ For terms of use, see http://www.unicode.org/copyright.html -->
 ፻ → ' ';  # U+137B ETHIOPIC NUMBER HUNDRED
 ፼ → ' ';  # U+137C ETHIOPIC NUMBER TEN THOUSAND
 
-# Insert syllable markers in a separate pass.
-::NULL;
-{i} [[:L:]] → i \.;
-{ɨ} [[:L:]] → ɨ \.;
-{u} [[:L:]] → u \.;
-{e} [[:L:]] → e \.;
-{o} [[:L:]] → o \.;
-{ə} [[:L:]] → ə \.;
-{a} [[:L:]] → a \.;
+# Transform IPA length markers to one of these:
+# U+135D ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK
+# U+135E ETHIOPIC COMBINING VOWEL LENGTH MARK
+# U+135F ETHIOPIC COMBINING GEMINATION MARK
+::null();
+← ː ;  # Strip off any remaining IPA length markers.
+::(null);
+($IPA_CONSONANT) ([jw]? $IPA_VOWEL) \u135D → $1 ː $2 ː;
+($IPA_CONSONANT) ([jw]? $IPA_VOWEL) \u135E → $1 $2 ː;
+($IPA_CONSONANT) ([jw]? $IPA_VOWEL?) \u135F → $1 ː $2;
+[\u135D \u135E \u135F] → ;  # Strip off any remaining length markers.
 
-← [ːˈˌ\.];
+$1 wa \u135D ← ($LABIALIZABLE_BEFORE_A) ː waː;  # ቷ፝ ← [tːʷaː]
+$1 wa \u135E ← ($LABIALIZABLE_BEFORE_A)   waː;  # ቷ፞ ← [tʷaː]
+$1 wa \u135F ← ($LABIALIZABLE_BEFORE_A) ː wa;   # አቷ፟ ← [tːʷa]
+
+$1 \u135F $2 \u135E ← ([b $LABIALIZABLE_BEFORE_A]) ː ([jw] $IPA_VOWEL) ː;
+$1 \u135F $2 ← {([b $LABIALIZABLE_BEFORE_A]) ː ([jw] $IPA_VOWEL?)};
+
+$1 \u135E ← ($IPA_VOWEL ː);
+$1 \u135D ← (jː $IPA_VOWEL ː);
+$1 \u135E ← ([jw] $IPA_VOWEL ː);
+$1 \u135F ← (jː $IPA_VOWEL?);
+$1 \u135D ← ($IPA_CONSONANT ː [w]? $IPA_VOWEL ː);
+$1 \u135E ← ($IPA_CONSONANT [w]? $IPA_VOWEL ː);
+$1 \u135F ← ($IPA_CONSONANT ː [w]? $IPA_VOWEL?);
+
+# Insert syllable markers in a separate pass.
+::null;
+{($IPA_VOWEL ː?)} [[:L:]] → $1 \.;
+
+::(null);
+← [ˈˌ\. ̯̃];
 
 aj ← ai;     # Nairobi /nairobi/ ናይሮቢ, Cairo /kairo/ ካይሮ
 aw ← au;     # Bissau /bisːau/ ቢሳው
@@ -627,13 +704,72 @@ uwe ← ue;    # Lithuania /lituenia/ ሊቱዌኒያ, Venezuela /venɨzuela/ �
 ʔe ← \. e;
 ʔɨ ← \. ɨ;
 ʔo ← \. o;
+$1 w ← {($IPA_VOWEL ː?) ̯} $IPA_VOWEL;  # /ewowa/ ← /e̯o̯a/
 
 ::(null);
-t͡s ← ʦ;
-t͡ʃ ← ʧ;
-ɡ ← g;
-o ← ɔ;
+
+n ← [n {n̼} {n̼̊} {m̺} {n̊} {n̥} ⁿ ᵑ];
+m ← [ɱ {m̥} {m̪} ᵐ];
+ɲ ← [{ɳ̊} {ɳ̥} ɳ {ɲ̊} {ɲ̥} ɲ];
+ŋ ← [{ŋ̊} {ŋ̥} ŋ];
+ɴ ← [{ɴ̊} {ɴ̥} ɴ];
+
+p ← [{t̼} {p̺}];
+pʼ ← [ʘ ɋ];
+b ← [{d̼} {b̺} {ɾ̼} ɓ];
+t ← [{t̪} ʈ];
+tʼ ← [ǁ ʖ];
+d ← [ɖ ɗ ᶑ];
+k ← q;
+kʼ ←  [ǃ ʗ];
+ɡ ← [g ɢ ɣ ɠ ʛ];
+nɡ ← ᵑɡ;
+ʔ ← ʡ;
+
+s ← [θ {θ̱} {θ̞} {θ̼} {ɸ̺}];
+z ← [ð {ð̠} {ð̼} {β̺}];
+sʼ ← [{t͡s} {t͜s} ʦ];
+t͡ʃ ← [{t͜ʃ} ʧ {t͡ɕ} {t͜ɕ} ʨ {ʈ͡ʂ} c];
+t͡ʃʼ ← [ǀ ʇ ǂ ʄ];
+d͡ʒ ← [ʤ ʣ {d͡z} {d͜z} {d͡ɕ} ʥ {d͡ʑ} {d͜ʑ} {ɖ͡ʐ} {d͡ʐ} ɟ];
+pf ← [{p̪} {p͆} ȹ {p͡f} {p̪f} {p̪͜f}];
+bv ← [{b̪} {b͆} ȸ {b͡v} {b̪͡v}];
+
+ʃ ← [ʂ ɕ];
+ʒ ← [ʐ ʑ];
+r ← [ɾ ɽ ʁ];
+rːʒ ← r̝ː;
+rʒ ← r̝;
+
+v ← β;
+x ← [ç x χ];
+ʕ ← ʕ̝;
+h ← ɦ;
+j ← [ʝ ʲ];
+lj ← ʎ [iɨ]? [jʝʲ]?;
+t͡ʃl ← [{t͡ɬ} {tɬ}];
+ʃl ← ɬ;
+
+w ← {u̯} $IPA_VOWEL;
 w ← ʷ;
+ʼː ← ːʼ;  # /pʼː/ ← /pːʼ/; /sʼː/ ← /sːʼ/; etc.
+
+::(null);
+
+i ← y;
+ɨ ← [ɪ ʉ];
+u ← [ʊ ɯ];
+ə ← [ɛ æ ɘ];
+o ← [ɔ ø];
+a ← ɑ;
+ʼ ← ʰ;
+← [ʱ];
+$1ːʲ ← ([pbtd])ʲː;  # [bːʲeː] ← [bʲːeː]
+$1ːʷ ← ([pbtd])ʷː;  # [bːʷeː] ← [bʷːeː]
+
+::(NFC);
+← [ ̃  ̰  ̋  ́  ̄  ̀  ̏  ̌  ̂ ˥ ˦ ˧ ˨ ˩ ꜜ ꜛ ↗ ↘ ];
+::(NFD);
 			</tRule>
 		</transform>
 	</transforms>

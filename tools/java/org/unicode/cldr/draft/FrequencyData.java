@@ -14,12 +14,11 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.ICUPropertyFactory;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.UnicodeProperty;
 
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.ICUPropertyFactory;
 import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.dev.util.UnicodeProperty;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Normalizer;
@@ -37,8 +36,8 @@ public class FrequencyData {
 
     private static final UnicodeSet NO_SCRIPT = new UnicodeSet(
         "[[:script=common:][:script=inherited:][:script=unknown:]]");
-    static final UnicodeSet NfcNo = (UnicodeSet) new UnicodeSet("[:nfcqc=no:]").freeze();
-    static final UnicodeSet NfcMaybe = (UnicodeSet) new UnicodeSet("[:nfcqc=maybe:]").freeze();
+    static final UnicodeSet NfcNo = new UnicodeSet("[:nfcqc=no:]").freeze();
+    static final UnicodeSet NfcMaybe = new UnicodeSet("[:nfcqc=maybe:]").freeze();
     static final Transliterator fixOutput = Transliterator.createFromRules("fix", "" +
         "([[:di:][:whitespace:][:co:]\"'']) > &any-hex/unicode($1) ;" +
         "", Transliterator.FORWARD);
@@ -122,7 +121,7 @@ public class FrequencyData {
     }
 
     public long getCount(int codepoint) {
-        Long result = (Long) frequencies.getCount(codepoint);
+        Long result = frequencies.getCount(codepoint);
         return result == null ? 0 : result;
     }
 
@@ -436,7 +435,7 @@ public class FrequencyData {
             long runningTotal = 0;
             double threshold = standardDeviation[4] * total;
 
-            PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "/char_frequencies/" + lang
+            PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "/char_frequencies/" + lang
                 + (MARKUP ? "_markup" : "") + ".txt");
             out.println("lang\trank\tcount\tlangPPB\tNFC\tcat\tscript\tcodepoint\tchar\tname");
 

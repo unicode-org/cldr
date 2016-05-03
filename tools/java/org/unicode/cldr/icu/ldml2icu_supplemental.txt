@@ -43,9 +43,9 @@
      ; /CurrencyMap/$1/<FIFO>/id ; values=$3
      ; /CurrencyMap/$1/<FIFO>/to:intvector ; values=&date($2, to)
      ; /CurrencyMap/$1/<FIFO>/tender ; values=false
-//supplementalData/currencyData/fractions/info[@iso4217="(%W)"][@digits="(%N)"][@rounding="(%N)"] ; /CurrencyMeta/$1:intvector ; values=$2 $3 $2 $3
-//supplementalData/currencyData/fractions/info[@iso4217="(%W)"][@digits="(%N)"][@rounding="(%N)"][@cashRounding="(%N)"] ; /CurrencyMeta/$1:intvector ; values=$2 $3 $2 $4
 //supplementalData/currencyData/fractions/info[@iso4217="(%W)"][@digits="(%N)"][@rounding="(%N)"][@cashDigits="(%N)"][@cashRounding="(%N)"] ; /CurrencyMeta/$1:intvector ; values=$2 $3 $4 $5
+//supplementalData/currencyData/fractions/info[@iso4217="(%W)"][@digits="(%N)"][@rounding="(%N)"][@cashRounding="(%N)"] ; /CurrencyMeta/$1:intvector ; values=$2 $3 $2 $4
+//supplementalData/currencyData/fractions/info[@iso4217="(%W)"][@digits="(%N)"][@rounding="(%N)"] ; /CurrencyMeta/$1:intvector ; values=$2 $3 $2 $3
 
 //supplementalData/calendarPreferenceData/calendarPreference[@territories="(%A)"][@ordering="(%A)"] ; /calendarPreferenceData/$1    ; values=$2
 //supplementalData/codeMappings/territoryCodes[@type="(%W)"][@numeric="(%N)"][@alpha3="(%W)"].* ; /codeMappings/<$1> ; values=$1 $2 $3
@@ -93,6 +93,11 @@
 //supplementalData/measurementData/measurementSystem[@type="UK"][@territories="(%W)"] ; /measurementData/$1/MeasurementSystem:int ; values=2
 //supplementalData/measurementData/paperSize[@type="A4"][@territories="(%W)"] ; /measurementData/$1/PaperSize:intvector ; values=297 210
 //supplementalData/measurementData/paperSize[@type="US-Letter"][@territories="(%W)"] ; /measurementData/$1/PaperSize:intvector ; values=279 216
+
+//supplementalData/unitPreferenceData/unitPreferences[@category="(%W)"][@usage="(%A)"][@scope="small"]/unitPreference[@regions="(%A)"][@alt="informal"] ; /unitPreferenceData/$3/$1-$2-small-informal
+//supplementalData/unitPreferenceData/unitPreferences[@category="(%W)"][@usage="(%A)"][@scope="small"]/unitPreference[@regions="(%A)"] ; /unitPreferenceData/$3/$1-$2-small
+//supplementalData/unitPreferenceData/unitPreferences[@category="(%W)"][@usage="(%A)"]/unitPreference[@regions="(%A)"][@alt="informal"] ; /unitPreferenceData/$3/$1-$2-informal
+//supplementalData/unitPreferenceData/unitPreferences[@category="(%W)"][@usage="(%A)"]/unitPreference[@regions="(%A)"] ; /unitPreferenceData/$3/$1-$2
 
 //supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]/languagePopulation[@type="(%W)"][@writingPercent="(%N)"][@populationPercent="(%N)"][@officialStatus="(%W)"]([@references="%W"])?
     ; /territoryInfo/$1/territoryF:intvector ; values=&exp($2) &exp($3,-2) &exp($4) ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]

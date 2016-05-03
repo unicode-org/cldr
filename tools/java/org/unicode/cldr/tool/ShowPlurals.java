@@ -25,7 +25,6 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
 import com.ibm.icu.util.ULocale;
 
@@ -159,10 +158,10 @@ public class ShowPlurals {
                         if (samplePatterns != null) {
                             String samplePattern = samplePatterns.get(pluralType.standardType, Count.valueOf(keyword)); // CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
                             if (samplePattern != null) {
-                                FixedDecimal sampleDecimal = getNonZeroSampleIfPossible(exampleList);
+                                FixedDecimal sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList);
                                 sample = getSample(sampleDecimal, samplePattern, nf);
                                 if (exampleList2 != null) {
-                                    sampleDecimal = getNonZeroSampleIfPossible(exampleList2);
+                                    sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList2);
                                     sample += "<br>" + getSample(sampleDecimal, samplePattern, nf);
                                 }
                             }
@@ -213,23 +212,6 @@ public class ShowPlurals {
 
     private String getExamples(FixedDecimalSamples exampleList) {
         return CollectionUtilities.join(exampleList.getSamples(), ", ") + (exampleList.bounded ? "" : ", …");
-    }
-
-    public FixedDecimal getNonZeroSampleIfPossible(FixedDecimalSamples exampleList) {
-        Set<FixedDecimalRange> sampleSet = exampleList.getSamples();
-        FixedDecimal sampleDecimal = null;
-        // skip 0 if possible
-        for (FixedDecimalRange range : sampleSet) {
-            sampleDecimal = range.start;
-            if (sampleDecimal.source != 0.0) {
-                break;
-            }
-            sampleDecimal = range.end;
-            if (sampleDecimal.source != 0.0) {
-                break;
-            }
-        }
-        return sampleDecimal;
     }
 
     private String getSample(FixedDecimal numb, String samplePattern, NumberFormat nf) {

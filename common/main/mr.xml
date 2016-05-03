@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -569,6 +570,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">पुरातन हंगेरियन</script>
 			<script type="Inds">सिन्धु</script>
 			<script type="Ital">जुनी इटालिक</script>
+			<script type="Jamo">जामो</script>
 			<script type="Java">जावानीस</script>
 			<script type="Jpan">जपानी</script>
 			<script type="Kali">कायाह ली</script>
@@ -962,7 +964,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">उलट उच्चार क्रमवारी</key>
 			<key type="colCaseFirst">अपरकेस/लोअरकेस क्रम</key>
 			<key type="colCaseLevel">केस संवेदी क्रमवारी</key>
-			<key type="colHiraganaQuaternary">काना क्रमवारी</key>
 			<key type="collation">क्रमवारी क्रम</key>
 			<key type="colNormalization">सामान्य क्रमवारी</key>
 			<key type="colNumeric">अंकीय क्रमवारी</key>
@@ -974,7 +975,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">संख्या</key>
 			<key type="timezone">टाइम झोन</key>
 			<key type="va">लोकेल व्हेरियंट</key>
-			<key type="variableTop">प्रतीक म्हणून क्रमवारी लावा</key>
 			<key type="x">खासगी-वापर</key>
 		</keys>
 		<types>
@@ -1002,8 +1002,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">प्रथम अपरकेस क्रमवारी लावा</type>
 			<type key="colCaseLevel" type="no">केस संवेदी क्रमवारी लावा</type>
 			<type key="colCaseLevel" type="yes">केस संवेदी क्रमवारी लावा</type>
-			<type key="colHiraganaQuaternary" type="no">काना विभक्तपणे क्रमवारी लावा</type>
-			<type key="colHiraganaQuaternary" type="yes">काना भिन्नपणे क्रमवारी लावा</type>
 			<type key="collation" type="big5han">पारंपारिक चिनी क्रमवारी क्रम - Big5</type>
 			<type key="collation" type="dictionary">शब्दकोश अनुक्रम</type>
 			<type key="collation" type="ducet">डीफॉल्ट युनिकोड क्रमवारी क्रम</type>
@@ -1027,6 +1025,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">उच्चार/केस/रुंदी/काना क्रमवारी लावा</type>
 			<type key="colStrength" type="secondary">उच्चार क्रमवारी लावा</type>
 			<type key="colStrength" type="tertiary">उच्चार/केस/रुंदीची क्रमवारी लावा</type>
+			<type key="d0" type="fwidth">पूर्णरुंदी</type>
+			<type key="d0" type="hwidth">अर्धीरुंदी</type>
+			<type key="d0" type="npinyin">अंकीय</type>
 			<type key="hc" type="h11">12 तास पद्धती (0–11)</type>
 			<type key="hc" type="h12">12 तास पद्धती (1–12)</type>
 			<type key="hc" type="h23">24 तास पद्धती (0–23)</type>
@@ -1034,6 +1035,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">ढिली लाइन ब्रेक शैली</type>
 			<type key="lb" type="normal">सामान्य लाइन ब्रेक शैली</type>
 			<type key="lb" type="strict">काटेकोर लाइन ब्रेक</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">दशमान पद्धती</type>
 			<type key="ms" type="uksystem">ब्रिटिश मापन पद्धती</type>
 			<type key="ms" type="ussystem">अमेरीकन मापन पद्धती</type>
@@ -1078,18 +1081,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">पारंपारिक संख्‍या</type>
 			<type key="numbers" type="vaii">व्हाई अंक</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">अंकीय</transformName>
-			<transformName type="Tone">स्वर</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">गडद-फिकेपणा</transformName>
-			<transformName type="x-Fullwidth">पूर्णरुंदी</transformName>
-			<transformName type="x-Halfwidth">अर्धीरुंदी</transformName>
-			<transformName type="x-Jamo">जामो</transformName>
-			<transformName type="x-Pinyin">पिनयिन</transformName>
-			<transformName type="x-Publishing">प्रकाशन</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">मेट्रिक</measurementSystemName>
 			<measurementSystemName type="UK">यूके</measurementSystemName>
@@ -2242,6 +2233,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} सूर्यप्रकाश वेळ</regionFormat>
 			<regionFormat type="standard">{0} प्रमाण वेळ</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>सांता इसाबेल</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>अज्ञात शहर</exemplarCity>
 			</zone>
@@ -3006,9 +3000,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>तिजुआना</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>सांता इसाबेल</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>हर्मोसिलो</exemplarCity>
@@ -5770,6 +5761,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} चौरस इंच</unitPattern>
 				<perUnitPattern>{0} दर चौरस इंच</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>कॅरेट्स</displayName>
+				<unitPattern count="one">{0} कॅरेट</unitPattern>
+				<unitPattern count="other">{0} कॅरेट्स</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>लीटर प्रति किलोमीटर</displayName>
 				<unitPattern count="one">{0} लीटर प्रति किलोमीटर</unitPattern>
@@ -6171,11 +6167,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} मिलिबार</unitPattern>
 				<unitPattern count="other">{0} मिलिबार</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>कॅरेट्स</displayName>
-				<unitPattern count="one">{0} कॅरेट</unitPattern>
-				<unitPattern count="other">{0} कॅरेट्स</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>किलोमीटर प्रति तास</displayName>
 				<unitPattern count="one">{0} किलोमीटर प्रति तास</unitPattern>
@@ -6428,6 +6419,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} इंच²</unitPattern>
 				<unitPattern count="other">{0} इंच²</unitPattern>
 				<perUnitPattern>{0}/इंच²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>कॅरेट्स</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>लीटर/किमी</displayName>
@@ -6829,11 +6825,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>मिलिबार</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>कॅरेट्स</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>किमी/तास</displayName>

@@ -1,8 +1,10 @@
 package org.unicode.cldr.unittest;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +26,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.ICUPropertyFactory;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
@@ -33,6 +36,7 @@ import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
@@ -40,6 +44,10 @@ import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -188,6 +196,27 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("Iterator", "1tu[a-z]", result.toString());
     }
 
+    public void TestUntimedCounter() {
+        // simulates how Counter is used in VettingViewer
+        Counter<Choice> problemCounter = new Counter<Choice>();
+        problemCounter.increment(Choice.error);
+        problemCounter.increment(Choice.error);
+        problemCounter.increment(Choice.warning);
+        
+        assertEquals("problemCounter error", 2, problemCounter.get(Choice.error));
+        assertEquals("problemCounter warning", 1, problemCounter.get(Choice.warning));
+        assertEquals("problemCounter weLost", 0, problemCounter.get(Choice.weLost));
+
+        
+        Counter<Choice> otherCounter = new Counter<Choice>();
+        otherCounter.addAll(problemCounter);
+        otherCounter.increment(Choice.error);
+        
+        assertEquals("otherCounter error", 3, otherCounter.get(Choice.error));
+        assertEquals("otherCounter warning", 1, otherCounter.get(Choice.warning));
+        assertEquals("otherCounter weLost", 0, otherCounter.get(Choice.weLost));
+    }
+    
     public void TestCounter() {
         Counter<String> counter = new Counter<String>(true);
         Comparator<String> uca = new Comparator<String>() {
@@ -601,7 +630,12 @@ public class TestUtilities extends TestFmwkPlus {
                                                                                 118,
                                                                                 new VoterInfo(Organization.ibm, Level.expert,
                                                                                     "ibmE") },
-                                                                                    { 129, new VoterInfo(Organization.ibm, Level.tc, "ibmT") }, });
+                                                                                    { 
+                                                                                        129, new VoterInfo(Organization.ibm, Level.tc, 
+                                                                                        "ibmT") },
+                                                                                        { 
+                                                                                            802, new VoterInfo(Organization.guest, Level.street, 
+                                                                                            "guestS2") },});
 
     private int toVoterId(String s) {
         for (Entry<Integer, VoterInfo> entry : testdata.entrySet()) {
@@ -964,9 +998,9 @@ public class TestUtilities extends TestFmwkPlus {
             "424=best",
             // expected values
             "value=best", // alphabetical
-            "sameVotes=best, next",
+            "sameVotes=best",
             "conflicts=[google]",
-            "status=provisional",
+            "status=approved",
             "check",
 
             "comment=now cross-organizational conflict, also check for max value in same organization (4, 1) => 4 not 5",
@@ -1048,6 +1082,7 @@ public class TestUtilities extends TestFmwkPlus {
             String value = item.length < 2 ? null : item[1];
             if (name.equalsIgnoreCase("comment")) {
                 logln("#\t" + value);
+                //System.out.println("#\t" + value);
                 if (DEBUG_COMMENT != null && value.contains(DEBUG_COMMENT)) {
                     int x = 0;
                 }
@@ -1179,4 +1214,281 @@ public class TestUtilities extends TestFmwkPlus {
                 .absoluteUrls().forXpath(maltese, KOREAN_LANGUAGE));
 
     }
+
+
+    static final UnicodeMap<String> SCRIPTS = ICUPropertyFactory.make().getProperty("script").getUnicodeMap_internal();
+    static final UnicodeMap<String> GC = ICUPropertyFactory.make().getProperty("general_category").getUnicodeMap_internal();
+
+    public void TestUnicodeMapCompose() {
+        logln("Getting Scripts");
+
+        UnicodeMap.Composer<String> composer = new UnicodeMap.Composer<String>() {
+            @Override
+            public String compose(int codepoint, String string, String a, String b) {
+                return a.toString() + "_" + b.toString();
+            }
+        };
+
+        logln("Trying Compose");
+
+//        Map<Integer, String> map2 = new HashMap<Integer, String>();
+//        Map<Integer, String> map3 = new TreeMap<Integer, String>();
+        UnicodeMap<String> composed = ((UnicodeMap)SCRIPTS.cloneAsThawed()).composeWith(GC, composer);
+        String last = "";
+        for (int i = 0; i < 0x10FFFF; ++i) {
+//            if (i == 888) {
+//                int debug = 0;
+//            }
+            String comp = composed.getValue(i);
+            String gc = GC.getValue(i);
+            String sc = SCRIPTS.getValue(i);
+            if (!comp.equals(composer.compose(i, null, sc, gc))) {
+                errln("Failed compose at: " + i);
+                break;
+            }
+            if (!last.equals(comp)) {
+                logln(Utility.hex(i) + "\t" + comp);
+                last = comp;
+            }
+        }
+    }
+
+    private static final int SET_LIMIT = 0x10FFFF;
+    private static final int CHECK_LIMIT = 0xFFFF;
+    private static final NumberFormat pf = NumberFormat.getPercentInstance();
+    private static final NumberFormat nf = NumberFormat.getInstance();
+
+    public void TestUnicodeMapTime() {
+        boolean shortTest = getInclusion() < 10;
+        double hashTime, umTime, icuTime, treeTime;
+        int warmup = shortTest ? 1 : 20;
+        umTime = checkUnicodeMapSetTime(warmup, 0);
+        hashTime = checkUnicodeMapSetTime(warmup, 1);
+        logln("Percentage: " + pf.format(hashTime/umTime));
+        treeTime = checkUnicodeMapSetTime(warmup, 3);
+        logln("Percentage: " + pf.format(treeTime/umTime));
+        //logln(map1.toString());
+        
+        if (shortTest) {
+            return;
+        }
+        
+        umTime = checkUnicodeMapGetTime(1000, 0);
+        hashTime = checkUnicodeMapGetTime(1000, 1);
+        logln("Percentage: " + pf.format(hashTime/umTime));
+        icuTime = checkUnicodeMapGetTime(1000, 2);
+        logln("Percentage: " + pf.format(icuTime/umTime));
+        treeTime = checkUnicodeMapGetTime(1000, 3);
+        logln("Percentage: " + pf.format(treeTime/umTime));
+    }
+
+    private static final int propEnum = UProperty.GENERAL_CATEGORY;
+
+    private double checkUnicodeMapSetTime(int iterations, int type) {
+        _checkUnicodeMapSetTime(1,type);
+        double result = _checkUnicodeMapSetTime(iterations, type);
+        logln((type == 0 ? "UnicodeMap" : type == 1 ? "HashMap" : type == 2 ? "ICU" : "TreeMap") + "\t" + nf.format(result));
+        return result;
+    }
+
+    private double _checkUnicodeMapSetTime(int iterations, int type) {
+        UnicodeMap<String> map1 = SCRIPTS;
+        Map<Integer,String> map2 = map1.putAllCodepointsInto(new HashMap<Integer,String>());
+        Map<Integer, String> map3 = new TreeMap<Integer, String>(map2);
+        System.gc();
+        double start = System.currentTimeMillis();
+        for (int j = 0; j < iterations; ++j)
+          for (int cp = 0; cp <= SET_LIMIT; ++cp) {
+            int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
+            if (enumValue <= 0) continue; // for smaller set
+            String value = UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
+            switch(type) {
+            case 0: map1.put(cp, value); break;
+            case 1: map2.put(cp, value); break;
+            case 3: map3.put(cp, value); break;
+            }
+        }
+        double end = System.currentTimeMillis();
+        return (end-start)/1000/iterations;
+    }
+
+    private double checkUnicodeMapGetTime(int iterations, int type) {
+        UnicodeMap<String> map1 = new UnicodeMap<String>();
+        Map<Integer,String> map2 = map1.putAllCodepointsInto(new HashMap<Integer,String>());
+        Map<Integer, String> map3 = new TreeMap<Integer, String>();
+        _checkUnicodeMapGetTime(map1, map2, map3, 1,type); // warmup
+        double result = _checkUnicodeMapGetTime(map1, map2, map3, iterations, type);
+        logln((type == 0 ? "UnicodeMap" : type == 1 ? "HashMap" : type == 2 ? "ICU" : "TreeMap") + "\t" + nf.format(result));
+        return result;
+    }
+
+    private double _checkUnicodeMapGetTime(UnicodeMap<String> map1, Map<Integer,String> map2, Map<Integer,String> map3, int iterations, int type) {
+        System.gc();
+        double start = System.currentTimeMillis();
+        for (int j = 0; j < iterations; ++j)
+          for (int cp = 0; cp < CHECK_LIMIT; ++cp) {
+            switch (type) {
+            case 0: map1.getValue(cp); break;
+            case 1: map2.get(cp); break;
+            case 2:
+                int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
+                //if (enumValue <= 0) continue;
+                UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
+                break;                
+            case 3: map3.get(cp); break;
+            }
+        }
+        double end = System.currentTimeMillis();
+        return (end-start)/1000/iterations;
+    }
+
+
+    public void TestStevenTest(){
+
+        VoteResolver.setVoterToInfo(testdata);
+        VoteResolver<String> resolver = new VoteResolver<String>();
+
+        String tests[] = {
+
+            "comment=Steven Loomis test case tweaked by Parthinator",
+            "locale=wae",
+            "oldValue=_",
+            "oldStatus=approved",
+            "304=test", // Apple vetter
+            // expected values
+            "value=test",
+            "status=approved",
+            "sameVotes=test",
+            "conflicts=[]",
+            "check",
+            
+            
+            //test1
+            "comment=timestamp case1",
+            "locale=de",
+            "oldValue=old-value",
+            "oldStatus=provisional",
+            "404=Foo",
+            "424=Bar",
+            //expected
+            "value=Bar",
+            "status=provisional",
+            "sameVotes=Bar, test",
+            "conflicts=[google]",
+            "check",
+            
+            //test2
+            "comment=timestamp case2",
+            "locale=de",
+            "oldValue=Bar",
+            "oldStatus=provisional",
+            "424=Foo",
+            "404=Bar",
+            // expected values
+            "value=Bar",
+            "status=provisional",
+            "sameVotes=Bar, test",
+            "conflicts=[google]",
+            "check",
+            
+            //test 3
+            "comment=timestamp guest case",
+            "locale=de",
+            "oldValue=_",
+            "oldStatus=unconfirmed",
+            //# // G vetter A
+            //timestamp=1
+            "801=Foo",
+            //timestamp=2
+            "802=Bar",
+            // expected values
+            "value=Bar",
+            "status=contributed",
+            "sameVotes=Bar",
+            "conflicts=[google, guest]",
+            "check",
+        };
+
+        String expectedValue = null;
+        String expectedConflicts = null;
+        Status expectedStatus = null;
+        String oldValue = null;
+        Status oldStatus = null;
+        List<String> sameVotes = null;
+        String locale = null;
+        int voteEntries = 0;
+        Map<Integer, String> values = new TreeMap<Integer, String>();
+        Map<Integer, VoteEntries> valuesMap = new TreeMap<Integer, VoteEntries>();
+        
+        int counter = -1;
+
+        for (String test : tests) {
+            String[] item = test.split("=");
+            String name = item[0];
+            String value = item.length < 2 ? null : item[1];
+            if (name.equalsIgnoreCase("comment")) {
+                logln("#\t" + value);
+                //System.out.println("#\t" + value);
+                if (DEBUG_COMMENT != null && value.contains(DEBUG_COMMENT)) {
+                    int x = 0;
+                }
+            } else if (name.equalsIgnoreCase("locale")) {
+                locale = value;
+            } else if (name.equalsIgnoreCase("oldValue")) {
+                oldValue = value;
+            } else if (name.equalsIgnoreCase("oldStatus")) {
+                oldStatus = Status.valueOf(value);
+            } else if (name.equalsIgnoreCase("value")) {
+                expectedValue = value;
+            } else if (name.equalsIgnoreCase("sameVotes")) {
+                sameVotes = value == null ? new ArrayList<String>(0) : Arrays
+                    .asList(value.split(",\\s*"));
+            } else if (name.equalsIgnoreCase("status")) {
+                expectedStatus = Status.valueOf(value);
+            } else if (name.equalsIgnoreCase("conflicts")) {
+                expectedConflicts = value;
+            } else if (DIGITS.containsAll(name)) {
+                final int voter = Integer.parseInt(name);
+                if (value == null || value.equals("null")) {
+                    values.remove(voter);
+                    for(Map.Entry<Integer, VoteEntries> entry : valuesMap.entrySet()){
+                        if(entry.getValue().getVoter() == voter){
+                            valuesMap.remove(entry.getKey());
+                        }
+                    }
+                } else {
+                    values.put(voter, value);
+                    valuesMap.put(++voteEntries, new VoteEntries(voter, value));
+                }
+            } else if (name.equalsIgnoreCase("check")) {
+                counter++;
+                // load the resolver
+                resolver.setLocale(locale);
+                resolver.setLastRelease(oldValue, oldStatus);
+                for (int voteEntry : valuesMap.keySet()) {
+                    
+                    resolver.add(valuesMap.get(voteEntry).getValue(), valuesMap.get(voteEntry).getVoter());
+                }
+                // print the contents
+                logln(counter + "\t" + values);
+                logln(resolver.toString());
+                // now print the values
+                assertEquals(counter + " value", expectedValue,
+                    resolver.getWinningValue());
+                assertEquals(counter + " sameVotes", sameVotes.toString(),
+                    resolver.getValuesWithSameVotes().toString());
+                assertEquals(counter + " status", expectedStatus,
+                    resolver.getWinningStatus());
+                assertEquals(counter + " conflicts", expectedConflicts,
+                    resolver.getConflictedOrganizations().toString());
+                resolver.clear();
+                values.clear();
+            } else {
+                errln("unknown command:\t" + test);
+            }
+        }
+    }
+
 }
+
+

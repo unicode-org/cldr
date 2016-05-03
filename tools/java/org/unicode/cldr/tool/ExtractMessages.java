@@ -10,6 +10,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
@@ -19,10 +20,9 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
@@ -31,7 +31,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 class ExtractMessages {
-    public static final UnicodeSet LATIN_SCRIPT = (UnicodeSet) new UnicodeSet("[:script=latin:]").freeze();
+    public static final UnicodeSet LATIN_SCRIPT = new UnicodeSet("[:script=latin:]").freeze();
 
     private static Matcher fileMatcher;
 
@@ -43,7 +43,7 @@ class ExtractMessages {
 
     public static void main(String[] args) throws IOException {
         double startTime = System.currentTimeMillis();
-        output = BagFormatter.openUTF8Writer(DIR, "additions.txt");
+        output = FileUtilities.openUTF8Writer(DIR, "additions.txt");
         int totalCount = 0;
         Set<String> skipped = new TreeSet<String>();
 
@@ -129,7 +129,7 @@ class ExtractMessages {
                         }
                     }
                 }
-                PrintWriter cldrOut = BagFormatter.openUTF8Writer(DIR, otherHandler.getLocale() + ".xml");
+                PrintWriter cldrOut = FileUtilities.openUTF8Writer(DIR, otherHandler.getLocale() + ".xml");
                 newFile.write(cldrOut);
                 cldrOut.close();
 

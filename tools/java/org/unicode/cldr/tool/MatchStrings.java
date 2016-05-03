@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
 
-import com.ibm.icu.dev.util.BagFormatter;
+import org.unicode.cldr.draft.FileUtilities;
+
 import com.ibm.icu.impl.Relation;
 
 /**
@@ -41,8 +42,7 @@ public class MatchStrings {
         LinkedHashSet.class);
 
     MatchStrings() throws IOException {
-        BufferedReader in = BagFormatter.openUTF8Reader(cldrDataDir,
-            "internal_matchIpaRules.txt");
+        BufferedReader in = FileUtilities.openUTF8Reader(cldrDataDir, "internal_matchIpaRules.txt");
         while (true) {
             String line = in.readLine();
             if (line == null)

@@ -22,6 +22,7 @@ import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transform;
@@ -33,7 +34,6 @@ import com.ibm.icu.text.Transform;
 public class DtdData extends XMLFileReader.SimpleHandler {
     private static final String COMMENT_PREFIX = System.lineSeparator() + "    ";
     private static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
-    private static final boolean SHOW_STR = true; // add extra structure to DTD
     private static final boolean USE_SYNTHESIZED = false;
 
     private static final boolean DEBUG = false;
@@ -105,6 +105,18 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             commentsPre = firstComment;
             element = element2;
             name = aName.intern();
+            if (name.equals("draft") // normally never permitted on elements with children, but special cases...
+                && !element.getName().equals("collation") 
+                && !element.getName().equals("transform")) { 
+                int elementChildrenCount = element.getChildren().size();
+                if (elementChildrenCount > 1 
+                    || elementChildrenCount == 1 && !element.getChildren().keySet().iterator().next().getName().equals("cp")) {
+                    isDeprecatedAttribute = true;
+                    if (DEBUG) {
+                        System.out.println(element.getName() + ":" + element.getChildren());
+                    }
+                }
+            }
             mode = mode2;
             defaultValue = value2 == null ? null
                 : value2.intern();
@@ -217,13 +229,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             Attribute that = (Attribute) obj;
             return name.equals(that.name)
                 && element.name.equals(that.element.name) // don't use plain element: circularity
-            // not relevant to identity
-            //                && Objects.equals(comment, that.comment)
-            //                && mode.equals(that.mode)
-            //                && Objects.equals(defaultValue, that.defaultValue)
-            //                && type.equals(that.type)
-            //                && values.equals(that.values)
-            ;
+                // not relevant to identity
+                //                && Objects.equals(comment, that.comment)
+                //                && mode.equals(that.mode)
+                //                && Objects.equals(defaultValue, that.defaultValue)
+                //                && type.equals(that.type)
+                //                && values.equals(that.values)
+                ;
         }
 
         /**
@@ -233,13 +245,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public int hashCode() {
             return name.hashCode() * 37
                 + element.name.hashCode() // don't use plain element: circularity
-            // not relevant to identity
-            //                ) * 37 + Objects.hashCode(comment)) * 37
-            //                + mode.hashCode()) * 37
-            //                + Objects.hashCode(defaultValue)) * 37
-            //                + type.hashCode()) * 37
-            //                + values.hashCode()
-            ;
+                // not relevant to identity
+                //                ) * 37 + Objects.hashCode(comment)) * 37
+                //                + mode.hashCode()) * 37
+                //                + Objects.hashCode(defaultValue)) * 37
+                //                + type.hashCode()) * 37
+                //                + values.hashCode()
+                ;
         }
 
         public boolean isDeprecated() {
@@ -284,6 +296,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         String getName();
     }
 
+    public enum ElementStatus {
+        regular, metadata
+    }
+
     public static class Element implements Named {
         public final String name;
         private String rawModel;
@@ -295,6 +311,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private String model;
         private boolean isOrderedElement;
         private boolean isDeprecatedElement;
+        private ElementStatus elementStatus = ElementStatus.regular;
 
         private Element(String name2) {
             name = name2.intern();
@@ -337,7 +354,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             result = CLEANER2.matcher(result).replaceAll(" $1");
             return result.equals(model2)
                 ? model2
-                : result; // for debugging
+                    : result; // for debugging
         }
 
         public boolean containsAttribute(String string) {
@@ -395,13 +412,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public void addComment(String addition) {
             if (addition.startsWith("@")) {
-                // there are exactly 2 cases: deprecated and ordered
+                // there are exactly 3 cases: deprecated, ordered, and metadata
                 switch (addition) {
                 case "@ORDERED":
                     isOrderedElement = true;
                     break;
                 case "@DEPRECATED":
                     isDeprecatedElement = true;
+                    break;
+                case "@METADATA":
+                    elementStatus = ElementStatus.metadata;
                     break;
                 default:
                     throw new IllegalArgumentException("Unrecognized annotation: " + addition);
@@ -421,12 +441,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             Element that = (Element) obj;
             return name.equals(that.name)
-            // not relevant to the identity of the object
-            //                && Objects.equals(comment, that.comment)
-            //                && type == that.type
-            //                && attributes.equals(that.attributes)
-            //                && children.equals(that.children)
-            ;
+                // not relevant to the identity of the object
+                //                && Objects.equals(comment, that.comment)
+                //                && type == that.type
+                //                && attributes.equals(that.attributes)
+                //                && children.equals(that.children)
+                ;
         }
 
         /**
@@ -435,16 +455,20 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         @Override
         public int hashCode() {
             return name.hashCode()
-            // not relevant to the identity of the object
-            // * 37 + Objects.hashCode(comment)
-            //) * 37 + Objects.hashCode(type)
-            //                ) * 37 + attributes.hashCode()
-            //                ) * 37 + children.hashCode()
-            ;
+                // not relevant to the identity of the object
+                // * 37 + Objects.hashCode(comment)
+                //) * 37 + Objects.hashCode(type)
+                //                ) * 37 + attributes.hashCode()
+                //                ) * 37 + children.hashCode()
+                ;
         }
 
         public boolean isDeprecated() {
             return isDeprecatedElement;
+        }
+
+        public ElementStatus getElementStatus() {
+            return elementStatus;
         }
 
         /**
@@ -650,7 +674,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             "coverageLevel", // needed for supplemental/coverageLevel.xml
             "coverageVariable", // needed for supplemental/coverageLevel.xml
             "substitute" // needed for characters.xml
-        )));
+            )));
 
     public static boolean isOrderedOld(String element, DtdType type) {
         return orderedElements.contains(element);
@@ -963,8 +987,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (currentEnd != b.length()) {
             b.insert(currentEnd,
                 System.lineSeparator() + System.lineSeparator()
-                    + "<!-- Elements not reachable from root! -->"
-                    + System.lineSeparator());
+                + "<!-- Elements not reachable from root! -->"
+                + System.lineSeparator());
         }
         return b.toString();
     }
@@ -1004,6 +1028,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     //static final SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     private void toString(Element current, StringBuilder b, Seen seen) {
+//        if ("calendar".equals(current.name) || current.commentsPost != null && current.commentsPost.contains("use of fields")) {
+//            int debug = 0;
+//        }
         boolean first = true;
         if (seen.seenElements.contains(current)) {
             return;
@@ -1051,7 +1078,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (isOrdered(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@ORDERED-->");
         }
-        if (SHOW_STR && elementDeprecated) {
+        if (current.getElementStatus() != ElementStatus.regular) {
+            b.append(COMMENT_PREFIX + "<!--@"
+                + current.getElementStatus().toString().toUpperCase(Locale.ROOT)
+                + "-->");
+        }
+        if (elementDeprecated) {
             b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
         }
 
@@ -1097,17 +1129,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 //            if (attributeDeprecated != deprecatedComment) {
 //                System.out.println("*** BAD DEPRECATION ***" + a);
 //            }
-            if (SHOW_STR) {
-                if (METADATA.contains(a.name)) {
-                    b.append(COMMENT_PREFIX + "<!--@METADATA-->");
-                } else if (!isDistinguishing(current.name, a.name)) {
-                    b.append(COMMENT_PREFIX + "<!--@VALUE-->");
-                }
-                if (attributeDeprecated) {
-                    b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
-                } else if (!deprecatedValues.isEmpty()) {
-                    b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ") + "-->");
-                }
+            if (METADATA.contains(a.name) || a.attributeStatus == AttributeStatus.metadata) {
+                b.append(COMMENT_PREFIX + "<!--@METADATA-->");
+            } else if (!isDistinguishing(current.name, a.name)) {
+                b.append(COMMENT_PREFIX + "<!--@VALUE-->");
+            }
+            if (attributeDeprecated) {
+                b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
+            } else if (!deprecatedValues.isEmpty()) {
+                b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + CollectionUtilities.join(deprecatedValues, ", ") + "-->");
             }
         }
         if (current.children.size() > 0) {
@@ -1125,16 +1155,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             b.append(System.lineSeparator());
         }
         for (String c : comments) {
-            boolean deprecatedComment = SHOW_STR && c.toLowerCase(Locale.ENGLISH).contains("deprecat");
+            boolean deprecatedComment = false; // the following served its purpose... c.toLowerCase(Locale.ENGLISH).contains("deprecat");
             if (!deprecatedComment) {
                 if (separate) {
                     // special handling for very first comment
                     if (b.length() == 0) {
                         b.append("<!--")
-                            .append(System.lineSeparator())
-                            .append(c)
-                            .append(System.lineSeparator())
-                            .append("-->");
+                        .append(System.lineSeparator())
+                        .append(c)
+                        .append(System.lineSeparator())
+                        .append("-->");
                         continue;
                     }
                     b.append(System.lineSeparator());
@@ -1215,8 +1245,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("dayPeriodRules")
                 && attribute.equals("locales")
                 || elementName.equals("dayPeriodRule")
-                && (attribute.equals("type") || attribute.equals("at") || attribute.equals("after") || attribute.equals("before") || attribute.equals("from") || attribute
-                    .equals("to"))
+                && (attribute.equals("type"))
                 || elementName.equals("metazones") && attribute.equals("type")
                 || elementName.equals("subgroup") && attribute.equals("subtype")
                 || elementName.equals("mapZone")
@@ -1235,6 +1264,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 && attribute.equals("day")
                 || elementName.equals("measurementSystem")
                 && attribute.equals("category")
+                || elementName.equals("unitPreferences")
+                && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
+                || elementName.equals("unitPreference")
+                && attribute.equals("regions")
                 || elementName.equals("distinguishingItems")
                 && attribute.equals("attributes")
                 || elementName.equals("codesByTerritory")
@@ -1258,10 +1291,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || elementName.equals("pluralRange")
                 && (attribute.equals("start") || attribute.equals("end"))
                 || elementName.equals("hours")
-                && attribute.equals("regions")
-                //|| elementName.equals("personList") && attribute.equals("type")
+                && (attribute.equals("preferred") || attribute.equals("allowed"))
+                || elementName.equals("personList") && attribute.equals("type")
                 || elementName.equals("likelySubtag")
                 && attribute.equals("from")
+                || elementName.equals("rgPath")
+                && attribute.equals("path")
                 || elementName.equals("timezone")
                 && attribute.equals("type")
                 || elementName.equals("usesMetazone")
@@ -1286,8 +1321,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 && attribute.equals("key")
                 || elementName.equals("coverageLevel")
                 && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
-//                || elementName.equals("languageMatch")
-//                && (attribute.equals("desired") || attribute.equals("supported") || attribute.equals("oneway"))
+                || elementName.equals("languageMatch")
+                && (attribute.equals("desired") || attribute.equals("supported"))
                 || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
                     .equals("variant")));
 
@@ -1347,7 +1382,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
     }
 
-    @SuppressWarnings("unused")
+    //@SuppressWarnings("unused")
     public boolean isDeprecated(String elementName, String attributeName, String attributeValue) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
@@ -1449,8 +1484,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",
         "area-square-kilometer", "area-hectare", "area-square-meter", "area-square-centimeter",
         "area-square-mile", "area-acre", "area-square-yard", "area-square-foot", "area-square-inch",
+        "concentr-karat",
+        "concentr-milligram-per-deciliter", "concentr-millimole-per-liter",
+        "concentr-part-per-million",
         "consumption-liter-per-kilometer", "consumption-liter-per-100kilometers",
-        "consumption-mile-per-gallon",
+        "consumption-mile-per-gallon", "consumption-mile-per-gallon-imperial",
         "digital-terabyte", "digital-terabit", "digital-gigabyte", "digital-gigabit",
         "digital-megabyte", "digital-megabit", "digital-kilobyte", "digital-kilobit",
         "digital-byte", "digital-bit",
@@ -1478,7 +1516,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "power-horsepower",
         "pressure-hectopascal", "pressure-millimeter-of-mercury",
         "pressure-pound-per-square-inch", "pressure-inch-hg", "pressure-millibar",
-        "proportion-karat",
         "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
         "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
         "volume-cubic-kilometer", "volume-cubic-meter", "volume-cubic-centimeter",
@@ -1486,7 +1523,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "volume-megaliter", "volume-hectoliter", "volume-liter", "volume-deciliter", "volume-centiliter", "volume-milliliter",
         "volume-pint-metric", "volume-cup-metric",
         "volume-acre-foot",
-        "volume-bushel", "volume-gallon", "volume-quart", "volume-pint", "volume-cup",
+        "volume-bushel", "volume-gallon", "volume-gallon-imperial", "volume-quart", "volume-pint", "volume-cup",
         "volume-fluid-ounce", "volume-tablespoon", "volume-teaspoon").freeze();
 
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
@@ -1496,6 +1533,23 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     static MapComparator<String> currencyFormatOrder = new MapComparator<String>().add(
         "standard", "accounting").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
+    
+    static final Comparator<String> COMP = (Comparator) CLDRConfig.getInstance().getCollator();
+
+    // Hack for US
+    static final Comparator<String> UNICODE_SET_COMPARATOR = new Comparator<String> () {
+        @Override
+        public int compare(String o1, String o2) {
+            if (o1.contains("{")) {
+                o1 = o1.replace("{","");
+            }
+            if (o2.contains("{")) {
+                o2 = o2.replace("{","");
+            }
+            return COMP.compare(o1, o2);
+        }
+        
+    };
 
     public static Comparator<String> getAttributeValueComparator(String element, String attribute) {
         return getAttributeValueComparator(DtdType.ldml, element, attribute);
@@ -1504,7 +1558,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     static Comparator<String> getAttributeValueComparator(DtdType type, String element, String attribute) {
         // The default is a map comparator, which compares numbers as numbers, and strings with UCA
         Comparator<String> comp = valueOrdering;
-        if (type != type.ldml && type != type.ldmlICU) {
+        if (type != DtdType.ldml && type != DtdType.ldmlICU) {
             return comp;
         }
         if (attribute.equals("day")) { // && (element.startsWith("weekend")
@@ -1533,6 +1587,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
         } else if (attribute.equals("count") && !element.equals("minDays")) {
             comp = countValueOrder;
+        } else if (attribute.equals("cp") && element.equals("annotation")) {
+            comp = UNICODE_SET_COMPARATOR;
         }
         return comp;
     }
@@ -1548,6 +1604,164 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
     };
 
+    public boolean hasValue(String elementName) {
+        return nameToElement.get(elementName).type == ElementType.PCDATA;
+    }
+
+    public boolean isMetadata(XPathParts pathPlain) {
+        for (String s : pathPlain.getElements()) {
+            Element e = getElementFromName().get(s);
+            if (e.elementStatus == ElementStatus.metadata) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isMetadataOld(DtdType dtdType2, XPathParts pathPlain) {
+        // TODO Don't use hard-coded list; instead add to DTD annotations
+        final String element1 = pathPlain.getElement(1);
+        final String element2 = pathPlain.getElement(2);
+        final String elementN = pathPlain.getElement(-1);
+        switch (dtdType2) {
+        case ldml:
+            switch(element1) {
+            case "generation": 
+            case "metadata": 
+                return true;
+            }
+            break;
+        case ldmlBCP47:
+            switch(element1) {
+            case "generation": 
+            case "version": 
+                return true;
+            }
+            break;
+            ////supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
+        case supplementalData:
+            // these are NOT under /metadata/ but are actually metadata
+            switch(element1) {
+            case "generation": 
+            case "version": 
+            case "validity":
+            case "references":
+            case "coverageLevels":
+                return true;
+            case "transforms":
+                return elementN.equals("comment");
+            case "metadata":
+                // these ARE under /metadata/, but many others under /metadata/ are NOT actually metadata.
+                switch (element2) {
+                case "validity":
+                case "serialElements":
+                case "suppress":
+                case "distinguishing":
+                case "blocking":
+                case "casingData":
+                    return true;
+                }
+                break;
+            }
+            break;
+        }
+        return false;
+    }
+
+    public boolean isDeprecated(XPathParts pathPlain) {
+        for (int i = 0; i < pathPlain.size(); ++i) {
+            String elementName = pathPlain.getElement(i);
+            if (isDeprecated(elementName, "*", null)) {
+                return true;
+            }
+            for (String attribute : pathPlain.getAttributeKeys(i)) {
+                String attributeValue = pathPlain.getAttributeValue(i, attribute);
+                if (isDeprecated(elementName, attribute, attributeValue)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public final static Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults();
+
+    public String getRegularizedPaths(XPathParts pathPlain, Multimap<String,String> extras) {
+        extras.clear();
+        Map<String,String> valueAttributes = new HashMap<>();
+        XPathParts pathResult = new XPathParts();
+        String element = null;
+        for (int i = 0; i < pathPlain.size(); ++i) {
+            element = pathPlain.getElement(i);
+            pathResult.addElement(element);
+            valueAttributes.clear();
+            for (String attribute : pathPlain.getAttributeKeys(i)) {
+                AttributeStatus status = getAttributeStatus(element, attribute);
+                final String attributeValue = pathPlain.getAttributeValue(i, attribute);
+                switch (status) {
+                case distinguished: 
+                    pathResult.addAttribute(attribute, attributeValue);
+                    break;
+                case value:
+                    valueAttributes.put(attribute, attributeValue);
+                    break;
+                case metadata: 
+                    break;
+                }
+            }
+            if (!valueAttributes.isEmpty()) {
+                boolean hasValue = hasValue(element);
+                // if it doesn't have a value, we construct new child elements, with _ prefix
+                // if it does have a value, we have to play a further trick, since
+                // we can't have a value and child elements at the same level. 
+                // So we use a _ suffix on the element.
+                if (hasValue) {
+                    pathResult.setElement(i, element+"_");
+                } else {
+                    int debug = 0;
+                }
+                for (Entry<String, String> attributeAndValue : valueAttributes.entrySet()) {
+                    final String attribute = attributeAndValue.getKey();
+                    final String attributeValue = attributeAndValue.getValue();
+
+                    pathResult.addElement("_" + attribute);
+                    String pathShort = pathResult.toString();
+                    pathResult.removeElement(pathResult.size()-1); // restore
+
+                    AttributeType attrType = getAttributeType(element, attribute);
+                    if (attrType == AttributeType.NMTOKENS) {
+                        for (String valuePart : SPACE_SPLITTER.split(attributeValue)) {
+                            extras.put(pathShort, valuePart);
+                        }
+                    } else {
+                        extras.put(pathShort, attributeValue);
+                    }
+                }
+                if (hasValue) {
+                    pathResult.setElement(i, element); // restore
+                }
+            }
+        }
+        // Only add the path if it could have a value, looking at the last element
+        if (hasValue(element)) {
+            return pathResult.toString();
+        } else {
+            return null;
+        }
+    }
+
+    public AttributeType getAttributeType(String elementName, String attributeName) {
+        Element element = nameToElement.get(elementName);
+        if (element == null) {
+            return null;
+        }
+        Attribute attr = element.getAttributeNamed(attributeName);
+        if (attr == null) {
+            return null;
+        }
+        return attr.type;
+    }
+
     // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
     private static final Map<DtdType, DtdData> CACHE;
     static {
@@ -1557,4 +1771,5 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         CACHE = Collections.unmodifiableMap(temp);
     }
+    // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
 }

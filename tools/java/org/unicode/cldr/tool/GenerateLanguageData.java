@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -23,7 +24,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.MessageFormat;
 
@@ -76,7 +76,7 @@ public class GenerateLanguageData {
             }
             final String filename = newEn.getLocaleID() + ".xml";
             try (PrintWriter w =
-                BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, filename)) {
+                FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, filename)) {
                 newEn.write(w);
                 System.out.println("Wrote to " + CLDRPaths.GEN_DIRECTORY + "/" + filename);
             }

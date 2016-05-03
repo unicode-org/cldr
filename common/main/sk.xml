@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -567,6 +568,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">čínske tradičné</script>
 			<script type="Hebr">hebrejské</script>
 			<script type="Hira">hiragana</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Jpan">japonské</script>
 			<script type="Kana">katakana</script>
 			<script type="Khmr">khmérske</script>
@@ -905,7 +907,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">Obrátené radenie akcentov</key>
 			<key type="colCaseFirst" draft="contributed">Radenie veľkých a malých písmen</key>
 			<key type="colCaseLevel" draft="contributed">Rozlišovanie veľkých a malých písmen pri radení</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Radenie podľa slabičných písiem (kana)</key>
 			<key type="collation">zoradenie</key>
 			<key type="colNormalization" draft="contributed">Normalizované radenie</key>
 			<key type="colNumeric" draft="contributed">Číselné radenie</key>
@@ -917,7 +918,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">čísla</key>
 			<key type="timezone" draft="contributed">Časové pásmo</key>
 			<key type="va" draft="contributed">Variant miestneho nastavenia</key>
-			<key type="variableTop" draft="contributed">Radiť ako symboly</key>
 			<key type="x" draft="contributed">Súkromné použitie</key>
 		</keys>
 		<types>
@@ -945,8 +945,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">Najprv radiť veľké písmená</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Pri radení nerozlišovať veľké a malé písmená</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Pri radení rozlišovať veľké a malé písmená</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Radiť slabičné písma (kana) samostatne</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Radiť slabičné písma (kana) inak</type>
 			<type key="collation" type="big5han" draft="contributed">Tradičný čínsky Big5</type>
 			<type key="collation" type="dictionary" draft="contributed">Usporiadanie slovníka</type>
 			<type key="collation" type="ducet">predvolené zoradenie unicode</type>
@@ -970,6 +968,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">Radiť akcenty/veľké a malé písmená/šírku/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Radiť akcenty</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Radiť akcenty/veľké a malé písmená/šírku</type>
+			<type key="d0" type="fwidth" draft="contributed">Celá šírka</type>
+			<type key="d0" type="hwidth" draft="contributed">Polovičná šírka</type>
+			<type key="d0" type="npinyin" draft="contributed">Číslice</type>
 			<type key="hc" type="h11">12-hodinový cyklus (0 – 11)</type>
 			<type key="hc" type="h12">12-hodinový cyklus (1 – 12)</type>
 			<type key="hc" type="h23">24-hodinový cyklus (0 – 23)</type>
@@ -977,6 +978,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">voľný štýl koncov riadka</type>
 			<type key="lb" type="normal">bežný štýl koncov riadka</type>
 			<type key="lb" type="strict">presný štýl koncov riadka</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">metrická sústava</type>
 			<type key="ms" type="uksystem">britská merná sústava</type>
 			<type key="ms" type="ussystem">americká merná sústava</type>
@@ -1021,18 +1024,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">Tradičné číslovky</type>
 			<type key="numbers" type="vaii" draft="contributed">Vaiské číslice</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Číslice</transformName>
-			<transformName type="Tone" draft="contributed">Tón</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Diakritika</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Celá šírka</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Polovičná šírka</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Uverejnenie</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrický</measurementSystemName>
 			<measurementSystemName type="UK">britský</measurementSystemName>
@@ -2287,6 +2278,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>neznáme mesto</exemplarCity>
 			</zone>
@@ -3051,9 +3045,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -6503,6 +6494,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} štvorcových palcov</unitPattern>
 				<perUnitPattern>{0} na štvorcový palec</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karáty</displayName>
+				<unitPattern count="one">{0} karát</unitPattern>
+				<unitPattern count="few">{0} karáty</unitPattern>
+				<unitPattern count="many">{0} karátu</unitPattern>
+				<unitPattern count="other">{0} karátov</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litre na kilometer</displayName>
 				<unitPattern count="one">{0} liter na kilometer</unitPattern>
@@ -7058,13 +7056,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} milibaru</unitPattern>
 				<unitPattern count="other">{0} milibarov</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karáty</displayName>
-				<unitPattern count="one">{0} karát</unitPattern>
-				<unitPattern count="few">{0} karáty</unitPattern>
-				<unitPattern count="many">{0} karátu</unitPattern>
-				<unitPattern count="other">{0} karátov</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometre za hodinu</displayName>
 				<unitPattern count="one">{0} kilometer za hodinu</unitPattern>
@@ -7411,6 +7402,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="few">{0} kt</unitPattern>
+				<unitPattern count="many">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -7967,13 +7965,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="few">{0} kt</unitPattern>
-				<unitPattern count="many">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -8296,6 +8287,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} in²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} in²</unitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kt</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} kt</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="one" draft="contributed">{0} l/km</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} l/km</unitPattern>
@@ -8602,12 +8599,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0}mb</unitPattern>
 				<unitPattern count="many">{0}mb</unitPattern>
 				<unitPattern count="other">{0}mb</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} kt</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} kt</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

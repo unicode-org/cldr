@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -600,6 +601,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">Давньоугорський</script>
 			<script type="Inds">Харапський</script>
 			<script type="Ital">Давньоіталійський</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">Яванський</script>
 			<script type="Jpan">японська</script>
 			<script type="Kali">Кая Лі</script>
@@ -1030,7 +1032,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">зворотне сортування за діакритичними знаками</key>
 			<key type="colCaseFirst">порядок верхнього/нижнього регістру</key>
 			<key type="colCaseLevel" draft="contributed">сортування з урахуванням регістру</key>
-			<key type="colHiraganaQuaternary" draft="contributed">сортування кана</key>
 			<key type="collation">порядок сортування</key>
 			<key type="colNormalization" draft="contributed">уніфіковане сортування</key>
 			<key type="colNumeric" draft="contributed">цифрове сортування</key>
@@ -1042,7 +1043,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">цифри</key>
 			<key type="timezone" draft="contributed">часовий пояс</key>
 			<key type="va" draft="contributed">варіант мовного коду</key>
-			<key type="variableTop" draft="contributed">сортувати як символи</key>
 			<key type="x" draft="contributed">особисте використання</key>
 		</keys>
 		<types>
@@ -1070,8 +1070,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">сортувати спершу за великими символами</type>
 			<type key="colCaseLevel" type="no" draft="contributed">сортувати без урахування регістру</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">сортувати з урахуванням регістру</type>
-			<type key="colHiraganaQuaternary" type="no">сортувати кана окремо</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">сортувати за кана інакше</type>
 			<type key="collation" type="big5han">китайський традиційний порядок сортування Big5</type>
 			<type key="collation" type="compat" draft="contributed">попередній порядок сортування, для сумісності</type>
 			<type key="collation" type="dictionary">порядок сортування за словником</type>
@@ -1099,6 +1097,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">сортувати за діактричними знаками/регістром/шириною/кана</type>
 			<type key="colStrength" type="secondary" draft="contributed">сортувати за діактричними знаками</type>
 			<type key="colStrength" type="tertiary" draft="contributed">сортувати за діактричними знаками/регістром/шириною</type>
+			<type key="d0" type="fwidth" draft="contributed">Повна ширина</type>
+			<type key="d0" type="hwidth" draft="contributed">Половинна ширина</type>
+			<type key="d0" type="npinyin" draft="contributed">Цифри</type>
 			<type key="hc" type="h11">12-годинний формат (0–11)</type>
 			<type key="hc" type="h12">12-годинний формат (1–12)</type>
 			<type key="hc" type="h23">24-годинний формат (0–23)</type>
@@ -1106,6 +1107,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">вільний стиль розриву рядка</type>
 			<type key="lb" type="normal">типовий стиль розриву рядка</type>
 			<type key="lb" type="strict">строгий стиль розриву рядка</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">мертична система</type>
 			<type key="ms" type="uksystem">англійська система мір</type>
 			<type key="ms" type="ussystem">американська система мір</type>
@@ -1150,18 +1153,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">традиційні символи чисел</type>
 			<type key="numbers" type="vaii" draft="contributed">цифри ваї</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Цифри</transformName>
-			<transformName type="Tone" draft="contributed">Тон</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Діактричні знаки</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Повна ширина</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Половинна ширина</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Піньїнь</transformName>
-			<transformName type="x-Publishing" draft="contributed">Публікація</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрична</measurementSystemName>
 			<measurementSystemName type="UK">Британська</measurementSystemName>
@@ -2741,6 +2732,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>д.</displayName>
 				<relative type="-2">позавчора</relative>
+				<relative type="-1">учора</relative>
+				<relative type="0">сьогодні</relative>
+				<relative type="1">завтра</relative>
 				<relative type="2">післязавтра</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">через {0} д.</relativeTimePattern>
@@ -2758,6 +2752,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>д.</displayName>
 				<relative type="-2">позавчора</relative>
+				<relative type="-1">учора</relative>
+				<relative type="0">сьогодні</relative>
+				<relative type="1">завтра</relative>
 				<relative type="2">післязавтра</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} день</relativeTimePattern>
@@ -3031,6 +3028,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">час: {0}, літній</regionFormat>
 			<regionFormat type="standard">час: {0}, стандартний</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Санта-Ісабель</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Невідоме місто</exemplarCity>
 			</zone>
@@ -3795,9 +3795,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Тіхуана</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Санта-Ісабель</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Ермосільйо</exemplarCity>
@@ -7335,6 +7332,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} квадратного дюйма</unitPattern>
 				<perUnitPattern draft="provisional">{0} квадратний дюйм</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>карати</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="few">{0} карати</unitPattern>
+				<unitPattern count="many">{0} каратів</unitPattern>
+				<unitPattern count="other">{0} карата</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>літри на кілометр</displayName>
 				<unitPattern count="one">{0} літр на кілометр</unitPattern>
@@ -7890,13 +7894,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} мілібарів</unitPattern>
 				<unitPattern count="other">{0} мілібара</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>карати</displayName>
-				<unitPattern count="one">{0} карат</unitPattern>
-				<unitPattern count="few">{0} карати</unitPattern>
-				<unitPattern count="many">{0} каратів</unitPattern>
-				<unitPattern count="other">{0} карата</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>кілометри на годину</displayName>
 				<unitPattern count="one">{0} кілометр на годину</unitPattern>
@@ -8243,6 +8240,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} дюймів²</unitPattern>
 				<unitPattern count="other">{0} дюйма²</unitPattern>
 				<perUnitPattern>{0}/дюйм²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>карати</displayName>
+				<unitPattern count="one">{0} кар.</unitPattern>
+				<unitPattern count="few">{0} кар.</unitPattern>
+				<unitPattern count="many">{0} кар.</unitPattern>
+				<unitPattern count="other">{0} кар.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>літри/км</displayName>
@@ -8798,13 +8802,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} мбари</unitPattern>
 				<unitPattern count="many">{0} мбарів</unitPattern>
 				<unitPattern count="other">{0} мбара</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>карати</displayName>
-				<unitPattern count="one">{0} кар.</unitPattern>
-				<unitPattern count="few">{0} кар.</unitPattern>
-				<unitPattern count="many">{0} кар.</unitPattern>
-				<unitPattern count="other">{0} кар.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>км/годину</displayName>

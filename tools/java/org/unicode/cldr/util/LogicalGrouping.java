@@ -127,12 +127,15 @@ public class LogicalGrouping {
                 }
             }
         } else if (parts.containsElement("relative")) {
+            String fieldType = parts.findAttributeValue("field", "type");
             String relativeType = parts.findAttributeValue("relative", "type");
             Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
             if (relativeValue >= -3 && relativeValue <= 3) { // This is just a quick check to make sure the path is good.
-                for (Integer i = -1; i <= 1; i++) {
-                    parts.setAttribute("relative", "type", i.toString());
-                    result.add(parts.toString());
+                if (!(fieldType.startsWith("second") && relativeValue == 0)) { // Workaround for "now"
+                    for (Integer i = -1; i <= 1; i++) {
+                        parts.setAttribute("relative", "type", i.toString());
+                        result.add(parts.toString());
+                    }
                 }
             }
         } else if (path.indexOf("/decimalFormatLength") > 0) {

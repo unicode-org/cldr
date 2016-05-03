@@ -10,7 +10,6 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.UnicodeSetBuilder.MyActions;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.UnicodeSet;
 
 public class StateMachineTest {
@@ -22,8 +21,7 @@ public class StateMachineTest {
     public static void main(String[] args) throws Exception {
         System.out.println(new File(".").getCanonicalPath());
 
-        BufferedReader in = BagFormatter.openUTF8Reader("../",
-            "cldr-code/java/org/unicode/cldr/draft/UnicodeSetBuilderTests.txt");
+        BufferedReader in = FileUtilities.openUTF8Reader("../", "cldr-code/java/org/unicode/cldr/draft/UnicodeSetBuilderTests.txt");
         // icu4c-trunk/source/common/rbbirpt.txt
         // "icu4c-trunk/source/i18n/regexcst.txt"
 

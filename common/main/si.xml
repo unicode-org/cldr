@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -1395,12 +1396,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">මෙම වසර</relative>
 				<relative type="1">ඊළඟ වසර</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">වසර {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">වසර {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">වසර {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">වසර {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">වසර {0}ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">වසර {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">වසර {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">වසර {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-short">
@@ -1409,12 +1410,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">මෙම වසර</relative>
 				<relative type="1">ඊළඟ වසර</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">වසර {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">වසර {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">වසර {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">වසර {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">වසර {0}ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">වසර {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">වසර {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">වසර {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
@@ -1423,12 +1424,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">මෙම වසර</relative>
 				<relative type="1">ඊළඟ වසර</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">වසර {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">වසර {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">වසර {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">වසර {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">වසර {0}ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">වසර {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">වසර {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">වසර {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter">
@@ -1437,12 +1438,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">මෙම කාර්තුව</relative>
 				<relative type="1">ඊළඟ කාර්තුව</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">කාර්තුව {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">කාර්තුව {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">කාර්තු {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">කාර්තු {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">කාර්තුව {0} ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">කාර්තුව {0} ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">කාර්තු {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">කාර්තු {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-short">
@@ -1451,12 +1452,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">මෙම කාර්.</relative>
 				<relative type="1">ඊළඟ කාර්.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">කාර්. {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">කාර්. {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">කාර්. {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">කාර්. {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">කාර්. {0} ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">කාර්. {0} ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">කාර්. {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">කාර්. {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
@@ -1465,12 +1466,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">මෙම කාර්.</relative>
 				<relative type="1">ඊළඟ කාර්.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">කාර්. {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">කාර්. {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">කාර්. {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">කාර්. {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">කාර්. {0} ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">කාර්. {0} ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">කාර්. {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">කාර්. {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -1521,8 +1522,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">මෙම සතිය</relative>
 				<relative type="1">ඊළඟ සතිය</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">සති {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">සති {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">සති {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">සති {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">සති {0}කට පෙර</relativeTimePattern>
@@ -1535,8 +1536,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">මෙම සති.</relative>
 				<relative type="1">ඊළඟ සති.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">සති {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">සති {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">සති {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">සති {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">සති {0}කට පෙර</relativeTimePattern>
@@ -1549,8 +1550,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">මෙම සති.</relative>
 				<relative type="1">ඊළඟ සති.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">සති {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">සති {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">සති {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">සති {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">සති {0}කට පෙර</relativeTimePattern>
@@ -1569,8 +1570,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">දින {0}න්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">දින {0} ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">දින {0} ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">දින {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">දින {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-short">
@@ -1580,8 +1581,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">දින {0}න්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">දින {0} ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">දින {0} ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">දින {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">දින {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
@@ -1591,8 +1592,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">දින {0}න්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">දින {0} ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">දින {0} ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">දින {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">දින {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="weekday">
@@ -1709,75 +1710,75 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="hour">
 				<displayName>පැය</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">පැය {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">පැය {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">පැය {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">පැය {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">පැය {0}ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">පැය {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">පැය {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">පැය {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-short">
 				<displayName>පැය</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">පැය {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">පැය {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">පැය {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">පැය {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">පැය {0}ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">පැය {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">පැය {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">පැය {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
 				<displayName>පැ</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">පැය {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">පැය {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">පැය {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">පැය {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">පැය {0}ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">පැය {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">පැය {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">පැය {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>මිනිත්තුව</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">මිනිත්තු {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">මිනිත්තු {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">මිනිත්තු {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">මිනිත්තු {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">මිනිත්තු {0}ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">මිනිත්තු {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">මිනිත්තු {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">මිනිත්තු {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-short">
 				<displayName>මිනි.</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">මිනිත්තු {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">මිනිත්තු {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">මිනිත්තු {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">මිනිත්තු {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">මිනිත්තු {0}ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">මිනිත්තු {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">මිනිත්තු {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">මිනිත්තු {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
 				<displayName>මි</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">මිනිත්තු {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">මිනිත්තු {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">මිනිත්තු {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">මිනිත්තු {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">මිනිත්තු {0}ට පෙර</relativeTimePattern>
-					<relativeTimePattern count="other">මිනිත්තු {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="one">මිනිත්තු {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">මිනිත්තු {0}කට පෙර</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>තත්පරය</displayName>
 				<relative type="0">දැන්</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">තත්පර {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">තත්පර {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">තත්පර {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">තත්පර {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">තත්පර {0}කට පෙර</relativeTimePattern>
@@ -1787,8 +1788,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="second-short">
 				<displayName>තත්.</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">තත්පර {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">තත්පර {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">තත්පර {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">තත්පර {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">තත්පර {0}කට පෙර</relativeTimePattern>
@@ -1798,8 +1799,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="second-narrow">
 				<displayName>ත</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">තත්පර {0} කින්</relativeTimePattern>
-					<relativeTimePattern count="other">තත්පර {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="one">තත්පර {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">තත්පර {0}කින්</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">තත්පර {0}කට පෙර</relativeTimePattern>
@@ -1818,6 +1819,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} දිවාආලෝක වේලාව</regionFormat>
 			<regionFormat type="standard">{0} සම්මත වේලාව</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>සැන්ටා ඉසබෙල්</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>හඳුනා නොගත් නගරය</exemplarCity>
 			</zone>
@@ -2582,9 +2586,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>ටිජුආනා</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>සැන්ටා ඉසබෙල්</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>හෙමොසිලෝ</exemplarCity>
@@ -5223,6 +5224,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">වර්ග අඟල් {0}</unitPattern>
 				<perUnitPattern>වර්ග අඟලට {0}</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>ක්‍රාත්</displayName>
+				<unitPattern count="one">ක්‍රාත් {0}</unitPattern>
+				<unitPattern count="other">ක්‍රාත් {0}</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>කිලෝ මීටරයට ලීටරය</displayName>
 				<unitPattern count="one">කිලෝ මීටරයට ලීටරය {0}</unitPattern>
@@ -5333,7 +5339,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>තත්පර</displayName>
 				<unitPattern count="one">තත්පර {0}</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
-				<perUnitPattern>තත්පරයට</perUnitPattern>
+				<perUnitPattern>තත්පරයට {0}</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>මිලිතත්පර</displayName>
@@ -5624,11 +5630,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">මිලිබාර් {0}</unitPattern>
 				<unitPattern count="other">මිලිබාර් {0}</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ක්‍රාත්</displayName>
-				<unitPattern count="one">ක්‍රාත් {0}</unitPattern>
-				<unitPattern count="other">ක්‍රාත් {0}</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>පැයට කිලෝමීටර්</displayName>
 				<unitPattern count="one">පැයට කිලෝමීටර් {0}</unitPattern>
@@ -5881,6 +5882,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">වඅ {0}</unitPattern>
 				<unitPattern count="other">වඅ {0}</unitPattern>
 				<perUnitPattern>{0}/වඅ</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ක්‍රාත්</displayName>
+				<unitPattern count="one">ක්‍රාත් {0}</unitPattern>
+				<unitPattern count="other">ක්‍රාත් {0}</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ලීටරය/කිමී</displayName>
@@ -6282,11 +6288,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>මිලිබාර්</displayName>
 				<unitPattern count="one">මි.බාර් {0}</unitPattern>
 				<unitPattern count="other">මි.බාර් {0}</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>ක්‍රාත්</displayName>
-				<unitPattern count="one">ක්‍රාත් {0}</unitPattern>
-				<unitPattern count="other">ක්‍රාත් {0}</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>පැයට කිලෝමීටර්</displayName>

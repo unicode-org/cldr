@@ -8,12 +8,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.unicode.cldr.draft.CharacterListCompressor.Interval;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.text.UTF16;
 
-class Compacter {
-    static double totalOld;
-    static double totalNew;
+public class Compacter {
+    public static double totalOld;
+    public static double totalNew;
 
     static boolean useCibus = true;
 
@@ -44,7 +45,7 @@ class Compacter {
         List<Interval> intermediate = codePointsToIntervals(set2);
         String result = CharacterListCompressor.base88EncodeList(intermediate);
         totalOld += size;
-        totalNew += result.length() + 2;
+        totalNew += (result.length() + 2);
         return result;
     }
 
@@ -94,7 +95,7 @@ class Compacter {
      *            input is collection of strings, where each string is exactly one codepoint. The collection is read in
      *            Iterator order.
      */
-    static String appendCompacted(Collection<String> set2) {
+    public static String appendCompacted(Collection<String> set2) {
         if (Compacter.useCibus) {
             return encodeString(set2);
         }
@@ -130,8 +131,8 @@ class Compacter {
         if (first != last) {
             int delta = 0xE000 + last - first;
             if (delta >= 0xF800) {
-                throw new IllegalArgumentException("Range too large: " + GeneratePickerData.toHex(first, true) + "-"
-                    + GeneratePickerData.toHex(last, true));
+                throw new IllegalArgumentException("Range too large: " + CldrUtility.toHex(first, true) + "-"
+                    + CldrUtility.toHex(last, true));
             }
             result.appendCodePoint(delta);
         }
@@ -144,7 +145,7 @@ class Compacter {
      *         input to compaction,
      *         although the collection may be different.
      */
-    static List<String> getFromCompacted(String in) {
+    public static List<String> getFromCompacted(String in) {
         if (Compacter.useCibus) {
             return decodeString(in);
         }
@@ -164,4 +165,19 @@ class Compacter {
         }
         return result;
     }
+
+    /**
+     * @return the totalOld
+     */
+    public static double getTotalOld() {
+        return totalOld;
+    }
+
+    /**
+     * @return the totalNew
+     */
+    public static double getTotalNew() {
+        return totalNew;
+    }
+
 }

@@ -51,6 +51,10 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
         }
         return this;
     }
+    public Counter2<T> put(T obj, Double one2) {
+        map.put(obj, one2);
+        return this;
+    }
 
     public static Double ZERO = new Double(0);
     public static Double ONE = new Double(1);

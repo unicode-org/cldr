@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 
-import com.ibm.icu.dev.util.BagFormatter;
+import org.unicode.cldr.draft.FileUtilities;
 
 public class Log {
     static private PrintWriter log;
@@ -59,21 +59,21 @@ public class Log {
     }
 
     public static void setLog(String dir, String file) throws IOException {
-        log = BagFormatter.openUTF8Writer(dir, file);
+        log = FileUtilities.openUTF8Writer(dir, file);
         log.print('\uFEFF');
     }
 
     public static void setLog(String file) throws IOException {
-        log = BagFormatter.openUTF8Writer(null, file);
+        log = FileUtilities.openUTF8Writer(null, file);
         log.print('\uFEFF');
     }
 
     public static void setLogNoBOM(String file) throws IOException {
-        log = BagFormatter.openUTF8Writer(null, file);
+        log = FileUtilities.openUTF8Writer(null, file);
     }
 
     public static void setLogNoBOM(String dir, String file) throws IOException {
-        log = BagFormatter.openUTF8Writer(dir, file);
+        log = FileUtilities.openUTF8Writer(dir, file);
     }
 
     public static void println() {

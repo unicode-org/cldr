@@ -33,7 +33,7 @@
         { int i=0;
     %>
     
-    <table class="userlist" border="2">
+    <table class="userlist" border="2">    	
         <tr class="row<%= ((i++)%2) %>">
             <th>CLDRFile.GEN_VERSION</th>
             <td> <%= org.unicode.cldr.util.CLDRFile.GEN_VERSION %>  </td>
@@ -73,7 +73,10 @@
             <th>SurveyMain.BASELINE_LANGUAGE_NAME</th>
             <td> <%= org.unicode.cldr.web.SurveyMain.BASELINE_LANGUAGE_NAME %>  </td>
         </tr>
-
+        <tr class="row<%= ((i++)%2) %>">
+            <th>SVN Version</th>
+            <td> <%= org.unicode.cldr.util.CldrUtility.getProperty("CLDR_CURREV", null) %>  </td>
+        </tr>
     </table>    
     <%
         }

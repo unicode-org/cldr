@@ -141,6 +141,14 @@ public class CldrItem implements Comparable<CldrItem> {
     // like the original path is written as:
     // .../zone/America/Adak/...
 
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public void setFullPath(String fullPath) {
+        this.fullPath = fullPath;
+    }
+
     /**
      * This function create a node list from a CLDR path.
      *
@@ -192,6 +200,10 @@ public class CldrItem implements Comparable<CldrItem> {
             parent = nodeName;
         }
         return nodesInPath;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     /**

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -569,6 +570,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">ಪ್ರಾಚೀನ ಹಂಗೇರಿಯನ್</script>
 			<script type="Inds">ಸಿಂಧೂ</script>
 			<script type="Ital">ಪ್ರಾಚೀನ್ ಇಟಾಲಿಕ್</script>
+			<script type="Jamo">ಹಮೋ</script>
 			<script type="Java">ಜಾವನೀಸ್</script>
 			<script type="Jpan">ಜಾಪನೀಸ್</script>
 			<script type="Kali">ಕೆಯಾ ಲಿ</script>
@@ -964,7 +966,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">ತಿರುಗು ಮುರುಗಾದ ಉಚ್ಛಾರಣೆಯ ವಿಂಗಡಣೆ</key>
 			<key type="colCaseFirst">ದೊಡ್ಡಕ್ಷರ/ಸಣ್ಣಕ್ಷರ ಕ್ರಮಗೊಳಿಸುವಿಕೆ</key>
 			<key type="colCaseLevel">ಕೇಸ್-ಸೆನ್ಸಿಟೀವ್ ವಿಂಗಡಣೆ</key>
-			<key type="colHiraganaQuaternary">ಕನಾ ವಿಂಗಡಣೆ</key>
 			<key type="collation">ವಿಂಗಡಣೆ ಕ್ರಮ</key>
 			<key type="colNormalization">ಸಾಮಾನ್ಯ ವಿಂಗಡಣೆ</key>
 			<key type="colNumeric">ಸಂಖ್ಯೆ ವಿಂಗಡಣೆ</key>
@@ -976,7 +977,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">ಸಂಖ್ಯೆಗಳು</key>
 			<key type="timezone">ಸಮಯ ವಲಯ</key>
 			<key type="va">ಸ್ಥಳೀಯ ಭಿನ್ನತೆ</key>
-			<key type="variableTop">ಚಿಹ್ನೆಗಳ ಪ್ರಕಾರವಾಗಿ ವಿಂಗಡಿಸಿ</key>
 			<key type="x">ಖಾಸಗಿ ಬಳಕೆ</key>
 		</keys>
 		<types>
@@ -1004,8 +1004,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">ಮೊದಲು ಅಪ್ಪರ್‌ಕೇಸ್ ಅನ್ನು ವಿಂಗಡಿಸಿ</type>
 			<type key="colCaseLevel" type="no">ಕೇಸ್ ಇನ್‌ಸೆಂಟೀವ್ ಅನ್ನು ವಿಂಗಡಿಸಿ</type>
 			<type key="colCaseLevel" type="yes">ಕೇಸ್‌ ಸೆನ್ಸಿಟೀವ್‌‌ ವಿಂಗಡಿಸಿ</type>
-			<type key="colHiraganaQuaternary" type="no">ಕಾನಾ ಅನ್ನು ಬೇರೆಯಾಗಿ ವಿಂಗಡಿಸಿ</type>
-			<type key="colHiraganaQuaternary" type="yes">ಕಾನಾ ಅನ್ನು ಬೇರೆಯಾಗಿ ವಿಂಗಡಿಸಿ</type>
 			<type key="collation" type="big5han">ಸಾಂಪ್ರದಾಯಿಕ ಚೀನಾದ ಅನುಕ್ರಮ ವಿನ್ಯಾಸ - ದೊಡ್ಡ ಐದು</type>
 			<type key="collation" type="dictionary">ಡಿಕ್ಷನರಿ ಅನುಕ್ರಮ ವಿನ್ಯಾಸ</type>
 			<type key="collation" type="ducet">ಡೀಫಾಲ್ಟ್ ಯೂನಿಕೋಡ್ ವಿಂಗಡಣೆ ಕ್ರಮ</type>
@@ -1029,6 +1027,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">ಉಚ್ಛಾರಣೆ/ಕೇಸ್/ಅಳತೆ/ಕಾನಾ ವಿಂಗಡಿಸಿ</type>
 			<type key="colStrength" type="secondary">ಉಚ್ಛಾರಣೆಗಳನ್ನು ವಿಂಗಡಿಸಿ</type>
 			<type key="colStrength" type="tertiary">ಉಚ್ಛಾರಣೆ/ಕೇಸ್/ಅಳತೆ ವಿಂಗಡಿಸಿ</type>
+			<type key="d0" type="fwidth">ಪೂರ್ಣಅಗಲ</type>
+			<type key="d0" type="hwidth">ಅರೆಅಗಲ</type>
+			<type key="d0" type="npinyin">ಸಂಖ್ಯೆ</type>
 			<type key="hc" type="h11">12 ಗಂಟೆ ವ್ಯವಸ್ಥೆ (0–11)</type>
 			<type key="hc" type="h12">24 ಗಂಟೆ ವ್ಯವಸ್ಥೆ (0–23)</type>
 			<type key="hc" type="h23">24 ಗಂಟೆ ವ್ಯವಸ್ಥೆ (0–23)</type>
@@ -1036,6 +1037,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">ಲೂಸ್ ಲೈನ್ ಬ್ರೇಕ್ ಶೈಲಿ</type>
 			<type key="lb" type="normal">ಸಾಮಾನ್ಯ ಲೈನ್ ಬ್ರೇಕ್ ಶೈಲಿ</type>
 			<type key="lb" type="strict">ಕಡ್ಡಾಯ ಲೈನ್ ಬ್ರೇಕ್ ಶೈಲಿ</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">ಮೆಟ್ರಿಕ್ ವ್ಯವಸ್ಥೆ</type>
 			<type key="ms" type="uksystem">ಇಂಪಿರಿಯಲ್ ಮಾಪನ ವ್ಯವಸ್ಥೆ</type>
 			<type key="ms" type="ussystem">ಯುಎಸ್ ಮಾಪನ ವ್ಯವಸ್ಥೆ</type>
@@ -1080,18 +1083,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">ಸಾಂಪ್ರದಾಯಿಕ ಸಂಖ್ಯೆಗಳು</type>
 			<type key="numbers" type="vaii">ವಾಯ್ ಅಂಕೆಗಳು</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">ಸಂಖ್ಯೆ</transformName>
-			<transformName type="Tone">ಧ್ವನಿ</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">ಉಚ್ಚಾರಣೆಗಳು</transformName>
-			<transformName type="x-Fullwidth">ಪೂರ್ಣಅಗಲ</transformName>
-			<transformName type="x-Halfwidth">ಅರೆಅಗಲ</transformName>
-			<transformName type="x-Jamo">ಹಮೋ</transformName>
-			<transformName type="x-Pinyin">ಪಿನ್‌ಯಿನ್‌</transformName>
-			<transformName type="x-Publishing">ಪ್ರಕಟಣೆ</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ಮೆಟ್ರಿಕ್</measurementSystemName>
 			<measurementSystemName type="UK">ಯುಕೆ</measurementSystemName>
@@ -1986,6 +1977,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>ದಿನ</displayName>
 				<relative type="-2">ಮೊನ್ನೆ</relative>
+				<relative type="-1">ನಿನ್ನೆ</relative>
+				<relative type="0">ಇಂದು</relative>
+				<relative type="1">ನಾಳೆ</relative>
 				<relative type="2">ನಾಡಿದ್ದು</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ದಿನದಲ್ಲಿ</relativeTimePattern>
@@ -1999,6 +1993,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>ದಿನ</displayName>
 				<relative type="-2">ಮೊನ್ನೆ</relative>
+				<relative type="-1">ನಿನ್ನೆ</relative>
+				<relative type="0">ಇಂದು</relative>
+				<relative type="1">ನಾಳೆ</relative>
 				<relative type="2">ನಾಡಿದ್ದು</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ದಿನದಲ್ಲಿ</relativeTimePattern>
@@ -2232,6 +2229,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (+1) ದಿನದ ಸಮಯ</regionFormat>
 			<regionFormat type="standard">{0} (+0) ಪ್ರಮಾಣಿತ ಸಮಯ</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>ಸಾಂತಾ ಇಸಾಬೆಲ್</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>ಅಜ್ಞಾತ ನಗರ</exemplarCity>
 			</zone>
@@ -2996,9 +2996,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>ತಿಜ್ವಾನಾ</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>ಸಾಂತಾ ಇಸಾಬೆಲ್</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>ಹರ್ಮೊಸಿಲ್ಲೋ</exemplarCity>
@@ -5719,6 +5716,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ಚದರ ಅಂಗುಲಗಳು</unitPattern>
 				<perUnitPattern>{0} ಚದರ ಅಂಗುಲಕ್ಕೆ</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>ಕಾರಟ್‌ಗಳು</displayName>
+				<unitPattern count="one">{0} ಕಾರಟ್‌</unitPattern>
+				<unitPattern count="other">{0} ಕಾರಟ್‌ಗಳು</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ಲೀಟರ್ ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌ಗೆ</displayName>
 				<unitPattern count="one">{0} ಲೀಟರ್ ಪ್ರತಿ ಕಿಲೋಮೀಟರ್‌ಗೆ</unitPattern>
@@ -6120,11 +6122,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಮಿಲಿಬಾರ್</unitPattern>
 				<unitPattern count="other">{0} ಮಿಲಿಬಾರ್‌ಗಳು</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ಕಾರಟ್‌ಗಳು</displayName>
-				<unitPattern count="one">{0} ಕಾರಟ್‌</unitPattern>
-				<unitPattern count="other">{0} ಕಾರಟ್‌ಗಳು</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ಗಂಟೆಗೆ ಕಿಲೋಮೀಟರ್‌ಗಳು</displayName>
 				<unitPattern count="one">{0} ಕಿಲೋಮಿಟರ್ ಪ್ರತಿ ಗಂಟೆಗೆ</unitPattern>
@@ -6377,6 +6374,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಅಂ²</unitPattern>
 				<unitPattern count="other">{0} ಅಂ²</unitPattern>
 				<perUnitPattern>{0}/ಅಂ²ಕ್ಕೆ</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ಕಾರ.</displayName>
+				<unitPattern count="one">{0} ಕಾರ.</unitPattern>
+				<unitPattern count="other">{0} ಕಾರ.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ಲೀ/ಕಿ.ಮೀ</displayName>
@@ -6778,11 +6780,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ಮಿ.ಬಾರ್‌</displayName>
 				<unitPattern count="one">{0} ಮಿ.ಬಾರ್</unitPattern>
 				<unitPattern count="other">{0} ಮಿ.ಬಾರ್</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>ಕಾರ.</displayName>
-				<unitPattern count="one">{0} ಕಾರ.</unitPattern>
-				<unitPattern count="other">{0} ಕಾರ.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ಕಿ.ಮೀ/ಗಂ</displayName>

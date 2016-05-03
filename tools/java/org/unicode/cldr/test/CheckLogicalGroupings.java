@@ -16,7 +16,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
     // Change MINIMUM_DRAFT_STATUS to DraftStatus.contributed if you only care about
     // contributed or higher. This can help to reduce the error count when you have a lot of new data.
 
-    static final DraftStatus MIMIMUM_DRAFT_STATUS = DraftStatus.approved;
+    static final DraftStatus MIMIMUM_DRAFT_STATUS = DraftStatus.unconfirmed;
 
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*LogicalGroupings.*
@@ -29,15 +29,15 @@ public class CheckLogicalGroupings extends CheckCLDR {
         if (LogicalGrouping.isOptional(getCldrFileToCheck(), path)) return this;
         Set<String> paths = LogicalGrouping.getPaths(getCldrFileToCheck(), path);
         if (paths.size() < 2) return this; // skip if not part of a logical grouping
-        boolean logicalGroupingIsEmpty = true;
+        int logicalGroupingCount = 0;
         for (String apath : paths) {
             if (getCldrFileToCheck().isHere(apath)) {
-                logicalGroupingIsEmpty = false;
-                break;
+                logicalGroupingCount++;
             }
         }
-        if (logicalGroupingIsEmpty) return this; // skip if the logical grouping is empty
-        if (!getCldrFileToCheck().isHere(path)) {
+        if (logicalGroupingCount == 0) return this; // skip if the logical grouping is empty
+        if (!getCldrFileToCheck().isHere(path) || 
+            (this.getPhase().equals(Phase.FINAL_TESTING) && logicalGroupingCount != paths.size())) {
             CheckStatus.Type showError = CheckStatus.errorType;
             if (this.getPhase().equals(Phase.BUILD)) {
                 showError = CheckStatus.warningType;

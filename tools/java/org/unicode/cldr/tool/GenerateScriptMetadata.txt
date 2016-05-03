@@ -1,5 +1,5 @@
 # ScriptMetadata.txt
-# Copyright © 1991-2014 Unicode, Inc.
+# Copyright © 1991-2016 Unicode, Inc.
 # CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 # For terms of use, see http://www.unicode.org/copyright.html
 #
@@ -48,6 +48,9 @@
 #		and typical commercial products for those languages would need IME support in order to be competitive.
 # 10- Cased
 #		YES if in modern (or most recent) usage case distinctions are customary.
+#
+# Sometimes a script is included here before it is added in the Unicode Standard.
+# Such scripts are marked with a "provisional" comment.
 #
 # Note: For the most likely language for each script, see 
 #		http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/likely_subtags.html

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -1781,6 +1782,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (စံတော်ချိန်)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>ဆန်တာ အီးဇဘဲယ်လ်</exemplarCity>
+			</zone>
 			<!-- <zone type="Asia/Chongqing">
 				 <exemplarCity>ချောင်ချင်း</exemplarCity>
 				 </zone>
@@ -2555,9 +2559,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>တီဂျုအာနာ</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>ဆန်တာ အီးဇဘဲယ်လ်</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>ဟာမိုစ်စီလို</exemplarCity>
@@ -4858,6 +4859,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}စတုရန်းလက်မ</unitPattern>
 				<perUnitPattern>{0}တစ်စတုရန်းလက်မလျှင်</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>ကရက်</displayName>
+				<unitPattern count="other">{0} ကရက်</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>လီတာ/ကီလိုမီတာ</displayName>
 				<unitPattern count="other">၁ကီလိုမီတာ {0}လီတာနှုန်း</unitPattern>
@@ -5123,7 +5128,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-pound">
 				<displayName>ပေါင်</displayName>
 				<unitPattern count="other">{0}ပေါင်</unitPattern>
-				<perUnitPattern>တစ်ပေါင်လျှင်</perUnitPattern>
+				<perUnitPattern>{0}တစ်ပေါင်လျှင်</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>အောင်စ</displayName>
@@ -5182,10 +5187,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>မီလီဘား</displayName>
 				<unitPattern count="other">{0}မီလီဘား</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ကရက်</displayName>
-				<unitPattern count="other">{0} ကရက်</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>
 				<unitPattern count="other">တစ်နာရီလျှင်{0}ကီလိုမီတာနှုန်း</unitPattern>
@@ -5225,7 +5226,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-cubic-meter">
 				<displayName>ကုဗမီတာ</displayName>
 				<unitPattern count="other">{0}ကုဗမီတာ</unitPattern>
-				<perUnitPattern>တစ်ကုဗစင်တီမီတာလျှင်</perUnitPattern>
+				<perUnitPattern>{0}တစ်ကုဗမီတာလျှင်</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName>ကုဗစင်တီမီတာ</displayName>
@@ -5391,6 +5392,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>စတုရန်းလက်မ</displayName>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ကရက်</displayName>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>လီတာ/ကီလိုမီတာ</displayName>
@@ -5715,10 +5720,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<displayName>မီလီဘား</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>ကရက်</displayName>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>ကီလိုမီတာ/နာရီ</displayName>

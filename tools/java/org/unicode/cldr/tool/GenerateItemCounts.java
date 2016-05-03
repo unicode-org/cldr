@@ -19,6 +19,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
@@ -42,7 +43,6 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -119,15 +119,11 @@ public class GenerateItemCounts {
                 String prefix = (MyOptions.rawfilter.option.doesOccur() ? "filtered_" : "");
                 String fileKey = dir.replace("/", "_");
                 try (
-                    PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_count.txt");
-                    PrintWriter changes = BagFormatter
-                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_changes.txt");
-                    PrintWriter changesNew = BagFormatter
-                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_news.txt");
-                    PrintWriter changesDeletes = BagFormatter
-                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_deletes.txt");
-                    PrintWriter changesSummary = BagFormatter
-                        .openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_changes_summary.txt");) {
+                    PrintWriter summary = FileUtilities.openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_count.txt");
+                    PrintWriter changes = FileUtilities.openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_changes.txt");
+                    PrintWriter changesNew = FileUtilities.openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_news.txt");
+                    PrintWriter changesDeletes = FileUtilities.openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_deletes.txt");
+                    PrintWriter changesSummary = FileUtilities.openUTF8Writer(OUT_DIRECTORY, prefix + fileKey + "_changes_summary.txt");) {
                     main.summarizeCoverage(summary, fulldir, isFinal);
                     if (doChanges) {
                         if (oldPath2value != null) {
@@ -206,7 +202,7 @@ public class GenerateItemCounts {
             }
         }
         try (
-            PrintWriter out = BagFormatter.openUTF8Writer(OUT_DIRECTORY, outputFile)) {
+            PrintWriter out = FileUtilities.openUTF8Writer(OUT_DIRECTORY, outputFile)) {
             out.println("\nElements\tDeprecated\tOccurring\tPossible in DTD, but never occurs");
 
             for (Entry<String, Set<DtdType>> x : ELEMENTS_POSSIBLE.keyValuesSet()) {
@@ -310,7 +306,7 @@ public class GenerateItemCounts {
         }
 
         public void showStarred() throws IOException {
-            PrintWriter starred = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "starred" + ".txt");
+            PrintWriter starred = FileUtilities.openUTF8Writer(OUT_DIRECTORY, "starred" + ".txt");
 
             for (Entry<String, Set<String>> entry : elementPathToAttributes.keyValuesSet()) {
                 Set<String> attributes = entry.getValue();
@@ -485,7 +481,7 @@ public class GenerateItemCounts {
             VersionInfo vi = VersionInfo.getInstance(releaseNum);
             boolean captureData = vi.equals(mostRecentVersion);
             releases.add(releaseNum);
-            BufferedReader in = BagFormatter.openUTF8Reader("", subdir.getCanonicalPath());
+            BufferedReader in = FileUtilities.openUTF8Reader("", subdir.getCanonicalPath());
             while (true) {
                 String line = in.readLine();
                 if (line == null) break;
@@ -550,9 +546,8 @@ public class GenerateItemCounts {
             }
             in.close();
         }
-        PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
-            (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "summary" +
-            ".txt");
+        PrintWriter summary = FileUtilities.openUTF8Writer(OUT_DIRECTORY, (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "summary" +
+        ".txt");
         for (String file : releases) {
             summary.print("\t" + file + "\tlen");
         }
@@ -572,9 +567,8 @@ public class GenerateItemCounts {
             System.out.println("Release:\t" + release + "\t" + release_keys.getAll(release).size());
         }
         summary.close();
-        PrintWriter summary2 = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
-            (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "locales" +
-            ".txt");
+        PrintWriter summary2 = FileUtilities.openUTF8Writer(OUT_DIRECTORY, (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "locales" +
+        ".txt");
         summary2.println("#Languages (inc. script):\t" + writtenLanguages.size());
         summary2.println("#Countries:\t" + countries.size());
         summary2.println("#Locales:\t" + localesToPaths.size());

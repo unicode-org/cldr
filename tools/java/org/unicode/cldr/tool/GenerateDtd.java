@@ -3,11 +3,11 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.util.ULocale;
 
@@ -26,7 +26,7 @@ public class GenerateDtd {
                     name = name.substring(0, name.length() - 4);
                 }
             }
-            try (PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dtd/", name + ".dtd")) {
+            try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dtd/", name + ".dtd")) {
                 out.println(data);
             }
         }

@@ -1,4 +1,4 @@
-// survey.js  -Copyright (C) 2012-2014 IBM Corporation and Others. All Rights Reserved.
+// survey.js  -Copyright (C) 2012,2016 IBM Corporation and Others. All Rights Reserved.
 // move anything that's not dynamically generated here.
 
 // These need to be available @ bootstrap time.
@@ -655,9 +655,13 @@ function createGravitar(user) {
  * @return {Object} new DOM object
  */
 function createUser(user) {
+	var userLevelLc = user.userlevelName.toLowerCase();
+	var userLevelClass = "userlevel_"+userLevelLc;
+	var userLevelStr = stui_str(userLevelClass);
 	var div = createChunk(null,"div","adminUserUser");
 	div.appendChild(createGravitar(user));
-	div.appendChild(div.userLevel = createChunk(stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),"i","userlevel_"+user.userlevelName.toLowerCase()));
+	div.userLevel = createChunk(userLevelStr,"i",userLevelClass);
+	div.appendChild(div.userLevel);
 	div.appendChild(div.userName = createChunk(user.name,"span","adminUserName"));
 	if(!user.orgName) {
 	   user.orgName = user.org;
@@ -1309,6 +1313,10 @@ function ariRetry() {
  * @param what - what we were doing
  */
 function handleDisconnect(why, json, word, what) {
+	if(json && (json.err_code === 'E_NOT_LOGGED_IN')) {
+		window.location = 'login.jsp?operationFailed'+window.location.hash;
+		return;
+	}
 	if(!what) {
 		what = "unknown";
 	}
@@ -1749,18 +1757,20 @@ function cloneAnon(i) {
  * @param o
  */
 function localizeAnon(o) {
-	if(o&&o.childNodes) for(var i=0;i<o.childNodes.length;i++) {
-		var k = o.childNodes[i];
-		if(k.id && k.id.indexOf("stui-html")==0) {
-			var key = k.id.slice(5);
-			if(stui[key]) {
-				k.innerHTML=stui[key];
+	loadStui(null, function(stui) {
+		if(o&&o.childNodes) for(var i=0;i<o.childNodes.length;i++) {
+			var k = o.childNodes[i];
+			if(k.id && k.id.indexOf("stui-html")==0) {
+				var key = k.id.slice(5);
+				if(stui.str(key)) {
+					k.innerHTML=stui.str(key);
+				}
+				k.id=null;
+			} else {
+				localizeAnon(k);
 			}
-			k.id=null;
-		} else {
-			localizeAnon(k);
 		}
-	}
+	});
 }
 
 /**
@@ -1773,8 +1783,8 @@ function localizeFlyover(o) {
 		var k = o.childNodes[i];
 		if(k.title && k.title.indexOf("$")==0) {
 			var key = k.title.slice(1);
-			if(stui[key]) {
-				k.title=stui[key];
+			if(stui.str(key)) {
+				k.title=stui.str(key);
 			} else {
 				k.title=null;
 			}
@@ -3043,16 +3053,35 @@ function updateRow(tr, theRow) {
 				} else {
 					for(org in theRow.voteResolver.orgs) {
 						var theOrg = vr.orgs[org];
+						var vrRaw = {};
+												
+						//console.log(vr);
 						var orgVoteValue = theOrg.votes[value];
 						if(orgVoteValue) { // someone in the org actually voted for it
 							var topVoter = null; // top voter for this item
 							var orgsVote = (theOrg.orgVote == value);
+							var topVoterTime = 0; // Calculating the latest time for a user from same org
+							
 							if(orgsVote) {
 								// find a top-ranking voter to use for the top line
 								for(var voter in item.votes) {
 									if(item.votes[voter].org==org && item.votes[voter].votes==theOrg.votes[value]) {
-										topVoter = voter;
-										break;
+										if(topVoterTime != 0){
+											// Get the latest time vote only
+											if(vr.nameTime[item.votes[topVoter].name] < vr.nameTime[item.votes[voter].name]){
+												topVoter = voter;
+												console.log(item);
+												console.log(vr.nameTime[item.votes[topVoter].name]);
+												topVoterTime = vr.nameTime[item.votes[topVoter].name];
+											}
+										}
+										else{
+											topVoter = voter;
+											console.log(item);
+											console.log(vr.nameTime[item.votes[topVoter].name]);
+											topVoterTime = vr.nameTime[item.votes[topVoter].name];
+										}
+										//break;
 									}
 								}
 							} else {
@@ -3065,6 +3094,11 @@ function updateRow(tr, theRow) {
 								}
 							}
 							
+							//console.log(org);
+							//console.log(orgsVote);
+							//console.log(theOrg);
+							//console.log(value);
+							//console.log(topVoter);
 							
 							// ORG SUBHEADING row
 							{
@@ -3909,19 +3943,22 @@ function insertRows(theDiv,xpath,session,json) {
 	//wrapRadios();
 }
 
-function loadStui(loc) {
+function loadStui(loc, cb) {
 	if(!stui.ready) {
 		require(["dojo/i18n!./surveyTool/nls/stui.js"], function(stuibundle){
-		if(!stuidebug_enabled) {
-			stui.str = function(x) { if(stuibundle[x]) return stuibundle[x]; else return x; };
-			stui.sub = function(x,y) { return dojo.string.substitute(stui.str(x), y);};
-		} else {
-			stui.str = stui_str; // debug
-			stui.sub = function(x,y) { return stui_str(x) + '{' +  Object.keys(y) + '}'; };
-		}
-		stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
-		stui.ready=true;
+			if(!stuidebug_enabled) {
+				stui.str = function(x) { if(stuibundle[x]) return stuibundle[x]; else return x; };
+				stui.sub = function(x,y) { return dojo.string.substitute(stui.str(x), y);};
+			} else {
+				stui.str = stui_str; // debug
+				stui.sub = function(x,y) { return stui_str(x) + '{' +  Object.keys(y) + '}'; };
+			}
+			stuibundle.htmlbaseline = stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
+			stui.ready=true;
+			if(cb) cb(stui);
 		});
+	} else {
+		if(cb) cb(stui);
 	}
 	return stui;
 }
@@ -4124,7 +4161,7 @@ function showV() {
 	        		 domConstruct,
 	        		 dojoNumber
 	         ) {
-
+		loadStui(null, function(/*stui*/) {
 
 		var appendLocaleLink = function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
 			var name = locmap.getRegionAndOrVariantName(subLoc);
@@ -6259,7 +6296,7 @@ function showV() {
 				}
 		});
 		});
-
+		}); // end stui  load
 	});  // end require()
 } // end showV
 
@@ -7113,8 +7150,7 @@ function loadAdminPanel() {
  * @param {String} hname the name of the element to draw into
  */
 function showstats(hname) {
-	dojo.ready(function() {
-		loadStui();
+	dojo.ready(loadStui(null, function(/*stui*/) {
 		var ourUrl = contextPath + "/SurveyAjax?what=stats_byday";
 		var errorHandler = function(err, ioArgs) {
 			handleDisconnect('Error in showstats: ' + err + ' response '
@@ -7200,7 +7236,7 @@ function showstats(hname) {
 		error : errorHandler
 	};
 	queueXhr(xhrArgs);
-	});
+	}));
 }
 /**
  * @method refreshCounterVetting
@@ -7563,6 +7599,7 @@ function showRecent(divName, locale, user) {
 
 // for the admin page
 function showUserActivity(list, tableRef) {
+	loadStui(null, function(/*stui*/) {
 	require([
 	         "dojo/ready",
 	         "dojo/dom",
@@ -7580,7 +7617,6 @@ function showUserActivity(list, tableRef) {
 	        		 dojoNumber
 	        ) { ready(function(){
 	        	
-	        	loadStui();
 	        	
 	        	window._userlist = list; // DEBUG
 	        	var table = dom.byId(tableRef);
@@ -7731,4 +7767,5 @@ function showUserActivity(list, tableRef) {
 */	        
 	        });
 		});
+	});
 }

@@ -43,12 +43,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.RegexLookup.Finder;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -1085,7 +1084,7 @@ public class CldrUtility {
 
     public static String getText(String dir, String filename) {
         try {
-            BufferedReader br = BagFormatter.openUTF8Reader(dir, filename);
+            BufferedReader br = FileUtilities.openUTF8Reader(dir, filename);
             StringBuffer buffer = new StringBuffer();
             while (true) {
                 String line = br.readLine();
@@ -1360,12 +1359,10 @@ public class CldrUtility {
 
     public static String getCopyrightString() {
         // now do the rest
-        return "Copyright \u00A9 1991-"
-        + Calendar.getInstance().get(Calendar.YEAR)
-        + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
-        + "CLDR data files are interpreted according to the LDML specification "
-        + "(http://unicode.org/reports/tr35/)" + CldrUtility.LINE_SEPARATOR
-        + "For terms of use, see http://www.unicode.org/copyright.html";
+        return "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
+        + "For terms of use, see http://www.unicode.org/copyright.html" + CldrUtility.LINE_SEPARATOR
+        + "Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries." + CldrUtility.LINE_SEPARATOR
+        + "CLDR data files are interpreted according to the LDML specification " + "(http://unicode.org/reports/tr35/)";
     }
 
     // TODO Move to collection utilities
@@ -1491,5 +1488,30 @@ public class CldrUtility {
     public static String[] array(Splitter splitter, String source) {
         List<String> list = splitter.splitToList(source);
         return list.toArray(new String[list.size()]);
+    }
+    
+    public static String toHex(String in, boolean javaStyle) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < in.length(); ++i) {
+            result.append(toHex(in.charAt(i), javaStyle));
+        }
+        return result.toString();
+    }
+
+    public static String toHex(int j, boolean javaStyle) {
+        if (j == '\"') {
+            return "\\\"";
+        } else if (j == '\\') {
+            return "\\\\";
+        } else if (0x20 < j && j < 0x7F) {
+            return String.valueOf((char) j);
+        }
+        final String hexString = Integer.toHexString(j).toUpperCase();
+        int gap = 4 - hexString.length();
+        if (gap < 0) {
+            gap = 0;
+        }
+        String prefix = javaStyle ? "\\u" : "U+";
+        return prefix + "000".substring(0, gap) + hexString;
     }
 }

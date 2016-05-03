@@ -15,6 +15,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.Keyboard;
 import org.unicode.cldr.draft.Keyboard.Gesture;
 import org.unicode.cldr.draft.Keyboard.Iso;
@@ -38,11 +39,10 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TransliteratorUtilities;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.PrettyPrinter;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -160,7 +160,7 @@ public class ShowKeyboards {
         // logInfo.put(Row.of("k-cldr",common), keyboardId);
         try {
             FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartDir, "index.css");
-            PrintWriter out = BagFormatter.openUTF8Writer(keyboardChartDir, "chars2keyboards.html");
+            PrintWriter out = FileUtilities.openUTF8Writer(keyboardChartDir, "chars2keyboards.html");
             String[] headerAndFooter = new String[2];
 
             ShowData.getChartTemplate(
@@ -176,7 +176,7 @@ public class ShowKeyboards {
             out.println(headerAndFooter[1]);
             out.close();
 
-            out = BagFormatter.openUTF8Writer(keyboardChartDir, "keyboards2chars.html");
+            out = FileUtilities.openUTF8Writer(keyboardChartDir, "keyboards2chars.html");
             ShowData.getChartTemplate(
                 "Keyboards → Characters",
                 ToolConstants.CHART_DISPLAY_VERSION,
@@ -224,7 +224,7 @@ public class ShowKeyboards {
         }
 
         FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartLayoutsDir, "index.css");
-        PrintWriter index = BagFormatter.openUTF8Writer(keyboardChartLayoutsDir, "index.html");
+        PrintWriter index = FileUtilities.openUTF8Writer(keyboardChartLayoutsDir, "index.html");
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate(
             "Keyboard Layout Index",
@@ -252,7 +252,7 @@ public class ShowKeyboards {
             final String localeName = testInfo.getEnglish().getName(locale);
 
             // String localeNameString = localeName.replace(' ', '_').toLowerCase(Locale.ENGLISH);
-            PrintWriter out = BagFormatter.openUTF8Writer(keyboardChartLayoutsDir, locale + ".html");
+            PrintWriter out = FileUtilities.openUTF8Writer(keyboardChartLayoutsDir, locale + ".html");
             ShowData.getChartTemplate(
                 "Layouts: " + localeName + " (" + locale + ")",
                 ToolConstants.CHART_DISPLAY_VERSION,
@@ -556,7 +556,7 @@ public class ShowKeyboards {
         out.println(t.toTable());
     }
 
-    static PrettyPrinter prettyPrinter = new PrettyPrinter()
+    static UnicodeSetPrettyPrinter prettyPrinter = new UnicodeSetPrettyPrinter()
     .setOrdering(Collator.getInstance(ULocale.ROOT))
     .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY)
         );

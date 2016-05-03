@@ -55,6 +55,7 @@ import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;
@@ -112,9 +113,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
-    public static final String GEN_VERSION = "29";
+    public static final String GEN_VERSION = "30";
     public static final List<String> SUPPLEMENTAL_NAMES = Arrays.asList("characters", "coverageLevels", "dayPeriods", "genderList", "languageInfo",
-        "likelySubtags", "metaZones", "numberingSystems", "ordinals", "plurals", "postalCodeData", "supplementalData", "supplementalMetadata",
+        "likelySubtags", "metaZones", "numberingSystems", "ordinals", "plurals", "postalCodeData", "rgScope", "supplementalData", "supplementalMetadata",
         "telephoneCodeData", "windowsZones");
 
     private Collection<String> extraPaths = null;
@@ -404,12 +405,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
         // now do the rest
-        final String COPYRIGHT_STRING = CldrUtility.getCopyrightString();
 
-        String initialComment = dataSource.getXpathComments().getInitialComment();
-        if (!initialComment.contains("Copyright") || !initialComment.contains("Unicode")) {
-            initialComment = initialComment + COPYRIGHT_STRING;
-        }
+        String initialComment = fixInitialComment(dataSource.getXpathComments().getInitialComment());
         XPathParts.writeComment(pw, 0, initialComment, true);
 
         XPathParts.Comments tempComments = (XPathParts.Comments) dataSource.getXpathComments().clone();
@@ -479,6 +476,27 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
         XPathParts.writeComment(pw, 0, finalComment, true);
         return this;
+    }
+
+    static final Splitter LINE_SPLITTER = Splitter.on('\n');
+    
+    private String fixInitialComment(String initialComment) {
+        if (initialComment == null || initialComment.isEmpty()) {
+            return CldrUtility.getCopyrightString();
+        } else {
+            StringBuilder sb = new StringBuilder(CldrUtility.getCopyrightString()).append(XPathParts.NEWLINE);
+            for (String line : LINE_SPLITTER.split(initialComment)) {
+                if (line.contains("Copyright") 
+                    || line.contains("©") 
+                    || line.contains("trademark")
+                    || line.startsWith("CLDR data files are interpreted")
+                    || line.startsWith("For terms of use")) {
+                    continue;
+                }
+                sb.append(XPathParts.NEWLINE).append(line);
+            }
+            return sb.toString();
+        }
     }
 
     /**
@@ -1402,9 +1420,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // "gb2312han"};
 
     /*    *//**
-              * Value that contains a node. WARNING: this is not done yet, and may change.
-              * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
-              */
+     * Value that contains a node. WARNING: this is not done yet, and may change.
+     * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
+     */
     /*
      * static public class NodeValue extends Value {
      * private Node nodeValue;
@@ -2125,30 +2143,50 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (result == null) {
             result = getStringValueWithBailey(path);
         }
-        if (result == null && getLocaleID().equals("en")) {
-            if (type == LANGUAGE_NAME) {
-                Set<String> set = Iso639Data.getNames(code);
-                if (set != null) {
-                    return set.iterator().next();
-                }
-                Map<String, Map<String, String>> map = StandardCodes.getLStreg().get("language");
-                Map<String, String> info = map.get(code);
-                if (info != null) {
-                    result = info.get("Description");
-                }
-            } else if (type == TERRITORY_NAME) {
-                Map<String, String> info = StandardCodes.getLStreg()
-                    .get("region")
-                    .get(code);
-                if (info != null) {
-                    String temp = info.get("Description");
-                    if (!temp.equalsIgnoreCase("Private use")) {
-                        return temp;
+        if (getLocaleID().equals("en")) {
+            Status status = new Status();
+            String sourceLocale = getSourceLocaleID(path, status);
+            if (result == null || !sourceLocale.equals("en")) {
+                if (type == LANGUAGE_NAME) {
+                    Set<String> set = Iso639Data.getNames(code);
+                    if (set != null) {
+                        return set.iterator().next();
                     }
+                    Map<String, Map<String, String>> map = StandardCodes.getLStreg().get("language");
+                    Map<String, String> info = map.get(code);
+                    if (info != null) {
+                        result = info.get("Description");
+                    }
+                } else if (type == TERRITORY_NAME) {
+                    result = getLstrFallback("region", code);
+                } else if (type == SCRIPT_NAME) {
+                    result = getLstrFallback("script", code);
                 }
             }
         }
         return result;
+    }
+
+    static final Pattern CLEAN_DESCRIPTION = Pattern.compile("([^\\(\\[]*)[\\(\\[].*");
+    static final Splitter DESCRIPTION_SEP = Splitter.on('▪');
+
+    private String getLstrFallback(String codeType, String code) {
+        Map<String, String> info = StandardCodes.getLStreg()
+            .get(codeType)
+            .get(code);
+        if (info != null) {
+            String temp = info.get("Description");
+            if (!temp.equalsIgnoreCase("Private use")) {
+                List<String> temp2 = DESCRIPTION_SEP.splitToList(temp);
+                temp = temp2.get(0);
+                final Matcher matcher = CLEAN_DESCRIPTION.matcher(temp);
+                if (matcher.lookingAt()) {
+                    return matcher.group(1).trim();
+                }
+                return temp;
+            }
+        }
+        return null;
     }
 
     /**

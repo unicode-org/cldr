@@ -19,6 +19,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.ErrorHandler;
@@ -29,9 +30,6 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.XEquivalenceClass;
-import com.ibm.icu.impl.Differ;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.UTF16;
 
@@ -305,7 +303,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         attributeEquivalents = new XEquivalenceClass(null);
         for (Iterator it = attribEquiv.keySet().iterator(); it.hasNext();) {
             Object ename = it.next();
-            Set s = (Set) attribEquiv.get(ename);
+            Set s = attribEquiv.get(ename);
             Iterator it2 = s.iterator();
             Object first = it2.next();
             while (it2.hasNext()) {
@@ -420,7 +418,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     private void writeNewSupplemental(String dir, String filename, String startAttributeTag, String endAttributeTag,
         String startElementTag, String endElementTag, String startSep, String endSep) throws IOException {
-        BufferedReader oldFile = BagFormatter.openUTF8Reader(dir, filename);
+        BufferedReader oldFile = FileUtilities.openUTF8Reader(dir, filename);
         Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/DTDOrder/" + filename);
 
         // CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*" +

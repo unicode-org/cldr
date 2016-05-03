@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -686,6 +687,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">vanaungari</script>
 			<script type="Inds">Induse</script>
 			<script type="Ital">vanaitali</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Java">jaava</script>
 			<script type="Jpan">jaapani</script>
 			<script type="Jurc">tšurtšeni</script>
@@ -1143,7 +1145,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">diakriitikute pöördjärjestus</key>
 			<key type="colCaseFirst">suur- ja väiketähe järjestus</key>
 			<key type="colCaseLevel">järjestuse tõstutundlikkus</key>
-			<key type="colHiraganaQuaternary">kana kirja järjestus</key>
 			<key type="collation">sortimisjärjestus</key>
 			<key type="colNormalization">normaliseeritud järjestus</key>
 			<key type="colNumeric">numbrite järjestus</key>
@@ -1155,7 +1156,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">numbrid</key>
 			<key type="timezone">ajavöönd</key>
 			<key type="va">lokaadi variant</key>
-			<key type="variableTop">sümbolite alusel järjestamine</key>
 			<key type="x">erakasutus</key>
 		</keys>
 		<types>
@@ -1183,8 +1183,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">suurtäht järjestuses eespool</type>
 			<type key="colCaseLevel" type="no">tõstutundetu järjestus</type>
 			<type key="colCaseLevel" type="yes">tõstutundlik järjestus</type>
-			<type key="colHiraganaQuaternary" type="no">järjesta kana eraldi</type>
-			<type key="colHiraganaQuaternary" type="yes">järjesta kana erinevalt</type>
 			<type key="collation" type="big5han">hiina traditsiooniline sortimisjärjestus (Big5)</type>
 			<type key="collation" type="compat">varasem sortimisjärjestus (ühilduvuse jaoks)</type>
 			<type key="collation" type="dictionary">sõnastiku sortimisjärjestus</type>
@@ -1212,6 +1210,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">järjesta diakriitikud, algustähed, laius ja kana kiri</type>
 			<type key="colStrength" type="secondary">järjesta diakriitikud</type>
 			<type key="colStrength" type="tertiary">järjesta diakriitikud, algustähed ja laius</type>
+			<type key="d0" type="fwidth">Täislaius</type>
+			<type key="d0" type="hwidth">Poolaius</type>
+			<type key="d0" type="npinyin">Numbriline</type>
 			<type key="hc" type="h11">12-tunnine süsteem (0–11)</type>
 			<type key="hc" type="h12">12-tunnine süsteem (1–12)</type>
 			<type key="hc" type="h23">24-tunnine süsteem (0–23)</type>
@@ -1219,6 +1220,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">paindlik reavahetuse laad</type>
 			<type key="lb" type="normal">harilik reavahetuse laad</type>
 			<type key="lb" type="strict">jäik reavahetuse laad</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">meetermõõdustik</type>
 			<type key="ms" type="uksystem">inglise mõõdustik</type>
 			<type key="ms" type="ussystem">USA mõõdustik</type>
@@ -1281,18 +1284,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">traditsioonilised numbrid</type>
 			<type key="numbers" type="vaii">vai numbrid</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Numbriline</transformName>
-			<transformName type="Tone">Toon</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Diakriitikud</transformName>
-			<transformName type="x-Fullwidth">Täislaius</transformName>
-			<transformName type="x-Halfwidth">Poolaius</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Kirjastamine</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">meetermõõdustik</measurementSystemName>
 			<measurementSystemName type="UK">inglise mõõdustik</measurementSystemName>
@@ -2396,6 +2387,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>määramata linn</exemplarCity>
 			</zone>
@@ -3160,9 +3154,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -6338,6 +6329,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ruuttolli</unitPattern>
 				<perUnitPattern>{0} ruuttolli kohta</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karaadid</displayName>
+				<unitPattern count="one">{0} karaat</unitPattern>
+				<unitPattern count="other">{0} karaati</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liitrid kilomeetri kohta</displayName>
 				<unitPattern count="one">{0} liiter kilomeetri kohta</unitPattern>
@@ -6754,11 +6750,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} millibaar</unitPattern>
 				<unitPattern count="other">{0} millibaari</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karaadid</displayName>
-				<unitPattern count="one">{0} karaat</unitPattern>
-				<unitPattern count="other">{0} karaati</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilomeetrid tunnis</displayName>
 				<unitPattern count="one">{0} kilomeeter tunnis</unitPattern>
@@ -7001,6 +6992,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karaat</displayName>
+				<unitPattern count="one">{0} ct</unitPattern>
+				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -7404,11 +7400,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>karaat</displayName>
-				<unitPattern count="one">{0} ct</unitPattern>
-				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

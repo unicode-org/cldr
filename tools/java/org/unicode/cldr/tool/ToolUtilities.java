@@ -5,12 +5,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineComparer;
 import org.unicode.cldr.util.FileReaders;
-
-import com.ibm.icu.dev.util.BagFormatter;
 
 /**
  * Utilities for CLDR tools.
@@ -63,7 +62,7 @@ public class ToolUtilities {
                     f.delete();
                 }
             } else if (!CldrUtility.areFileIdentical(fullSource, fullTarget, failureLines, lineComparer)) {
-                PrintWriter bat = BagFormatter.openUTF8Writer(batDir, batName);
+                PrintWriter bat = FileUtilities.openUTF8Writer(batDir, batName);
                 try {
                     bat.println(CLDRPaths.COMPARE_PROGRAM + " " +
                         new File(fullSource).getCanonicalPath() + " " +
@@ -78,7 +77,7 @@ public class ToolUtilities {
                     f.delete();
                 }
                 f = new File(fullTarget);
-                if (BagFormatter.SHOW_FILES) System.out.println("*Deleting old:\t" + f.getCanonicalPath());
+                if (FileUtilities.SHOW_FILES) System.out.println("*Deleting old:\t" + f.getCanonicalPath());
                 f.delete();
             }
         } catch (IOException e) {

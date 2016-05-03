@@ -39,10 +39,10 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.MessageFormat;
@@ -731,7 +731,9 @@ abstract public class CheckCLDR {
             badMinimumGroupingDigits,
             inconsistentPeriods,
             inheritanceMarkerNotAllowed,
-            invalidDurationUnitPattern;
+            invalidDurationUnitPattern,
+            invalidDelimiter,
+            illegalCharactersInPattern;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

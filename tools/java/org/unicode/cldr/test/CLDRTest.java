@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -36,7 +37,6 @@ import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
@@ -106,7 +106,7 @@ public class CLDRTest extends TestFmwk {
 
     public void TestZZZZHack() throws IOException {
         // hack to get file written at the end of run.
-        PrintWriter surveyFile = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "surveyInfo.txt");
+        PrintWriter surveyFile = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "surveyInfo.txt");
         for (String s : surveyInfo) {
             surveyFile.println(s);
         }
@@ -124,7 +124,7 @@ public class CLDRTest extends TestFmwk {
         languageLocales = cldrFactory.getAvailableLanguages();
         resolvedRoot = cldrFactory.make("root", true);
         /*
-         * PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "resolved/", "root.xml");
+         * PrintWriter out = FileUtilities.openUTF8Writer(Utility.GEN_DIRECTORY + "resolved/", "root.xml");
          * CLDRFile temp = (CLDRFile) resolvedRoot.clone();
          * temp.write(out);
          * out.close();
@@ -477,7 +477,7 @@ public class CLDRTest extends TestFmwk {
                 int nameType = CLDRFile.getNameType(xpath);
                 if (nameType < 0) continue;
                 String value = item.getStringValue(xpath);
-                String xpath2 = (String) maps[nameType].get(value);
+                String xpath2 = maps[nameType].get(value);
                 if (xpath2 == null) {
                     maps[nameType].put(value, xpath);
                     continue;
@@ -666,7 +666,7 @@ public class CLDRTest extends TestFmwk {
                     m = parts.findAttributes(type = "languageAlias");
                     if (m == null) m = parts.findAttributes(type = "territoryAlias");
                     if (m != null) {
-                        Map top = (Map) aliases.get(type);
+                        Map top = aliases.get(type);
                         if (top == null) aliases.put(type, top = new TreeMap());
                         top.put(m.get("type"), m.get("replacement"));
                     }
@@ -674,15 +674,15 @@ public class CLDRTest extends TestFmwk {
                 if (territory_currencies != null) {
                     m = parts.findAttributes("region");
                     if (m != null) {
-                        String region = (String) m.get("iso3166");
-                        Set s = (Set) territory_currencies.get(region);
+                        String region = m.get("iso3166");
+                        Set s = territory_currencies.get(region);
                         if (s == null) territory_currencies.put(region, s = new LinkedHashSet());
                         m = parts.findAttributes("currency");
                         if (m == null) {
                             warnln("missing currency for region: " + path);
                             continue;
                         }
-                        String currency = (String) m.get("iso4217");
+                        String currency = m.get("iso4217");
                         s.add(currency);
                         m = parts.findAttributes("alternate");
                         String alternate = m == null ? null : (String) m.get("iso4217");
@@ -693,31 +693,31 @@ public class CLDRTest extends TestFmwk {
                 m = parts.findAttributes("group");
                 if (m != null) {
                     if (group_territory == null) continue;
-                    type = (String) m.get("type");
-                    String contains = (String) m.get("contains");
+                    type = m.get("type");
+                    String contains = m.get("contains");
                     group_territory.put(type, new TreeSet(CldrUtility.splitList(contains, ' ', true)));
                     continue;
                 }
                 m = parts.findAttributes("language");
                 if (m == null) continue;
-                String language = (String) m.get("type");
-                String scripts = (String) m.get("scripts");
+                String language = m.get("type");
+                String scripts = m.get("scripts");
                 if (scripts == null)
                     language_scripts.put(language, new TreeSet<String>());
                 else {
                     language_scripts.put(language, new TreeSet<String>(CldrUtility.splitList(scripts, ' ', true)));
                     if (SHOW)
                         System.out.println(getIDAndLocalization(language) + "\t\t"
-                            + getIDAndLocalization((Set) language_scripts.get(language)));
+                            + getIDAndLocalization(language_scripts.get(language)));
                 }
-                String territories = (String) m.get("territories");
+                String territories = m.get("territories");
                 if (territories == null)
                     language_territories.put(language, new TreeSet<String>());
                 else {
                     language_territories.put(language, new TreeSet<String>(CldrUtility.splitList(territories, ' ', true)));
                     if (SHOW)
                         System.out.println(getIDAndLocalization(language) + "\t\t"
-                            + getIDAndLocalization((Set) language_territories.get(language)));
+                            + getIDAndLocalization(language_territories.get(language)));
                 }
             } catch (RuntimeException e) {
                 throw (IllegalArgumentException) new IllegalArgumentException("Failure with: " + path).initCause(e);
@@ -772,12 +772,12 @@ public class CLDRTest extends TestFmwk {
 
             Set<String> scripts = new TreeSet<String>();
             scripts.add("Latn");
-            Set<String> others = (Set<String>) language_scripts.get(language);
+            Set<String> others = language_scripts.get(language);
             if (others != null) scripts.addAll(others);
             checkForItems(item, scripts, CLDRFile.SCRIPT_NAME, missing, failureCount, null);
 
             Set<String> countries = new TreeSet<String>(CldrUtility.MINIMUM_TERRITORIES);
-            others = (Set<String>) language_territories.get(language);
+            others = language_territories.get(language);
             if (others != null) countries.addAll(others);
             checkForItems(item, countries, CLDRFile.TERRITORY_NAME, missing, failureCount, null);
 
@@ -806,7 +806,7 @@ public class CLDRTest extends TestFmwk {
 
             String filename = "missing_" + locale + ".xml";
             if (failureCount[0] > 0 || warningCount[0] > 0) {
-                PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "missing/", filename);
+                PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "missing/", filename);
                 missing.write(out);
                 out.close();
                 // String s = getIDAndLocalization(missing);
@@ -937,8 +937,8 @@ public class CLDRTest extends TestFmwk {
         allLanguages.addAll(language_territories.keySet());
         for (Iterator<String> it = allLanguages.iterator(); it.hasNext();) {
             Object language = it.next();
-            Set<String> scripts = (Set<String>) language_scripts.get(language);
-            Set<String> territories = (Set<String>) language_territories.get(language);
+            Set<String> scripts = language_scripts.get(language);
+            Set<String> territories = language_territories.get(language);
             logln(EnglishName.transform(language)
                 + " scripts: " + EnglishName.transform(scripts)
                 + " territories: " + EnglishName.transform(territories));
@@ -952,7 +952,7 @@ public class CLDRTest extends TestFmwk {
                 System.out.println("data problem: " + data);
                 continue;
             }
-            String replacement = (String) data.get(2);
+            String replacement = data.get(2);
             if (!replacement.equals("")) {
                 if (!replacement.equals("--")) changedLanguage.put(code, replacement);
                 continue;
@@ -1030,13 +1030,13 @@ public class CLDRTest extends TestFmwk {
                 List<String> data = sc.getFullData("currency", code);
                 if (data.get(1).equals("ZZ")) continue;
                 String type = data.get(3) + "/" + data.get(1);
-                Set<String> s = (Set<String>) failures.get(type);
+                Set<String> s = failures.get(type);
                 if (s == null) failures.put(type, s = new TreeSet<String>());
                 s.add(code);
             }
             for (Iterator<String> it = failures.keySet().iterator(); it.hasNext();) {
                 String type = it.next();
-                Set<String> s = (Set<String>) failures.get(type);
+                Set<String> s = failures.get(type);
                 warnln("Currency info -- Missing Currencies: " + type + "\t \u2192 " + EnglishCurrencyName.transform(s));
             }
         }
@@ -1045,7 +1045,7 @@ public class CLDRTest extends TestFmwk {
             String currency = it.next();
             String name = english.getName("currency", currency);
             if (name == null) {
-                String standardName = (String) sc.getFullData("currency", currency).get(0);
+                String standardName = sc.getFullData("currency", currency).get(0);
                 logln("\t\t\t<currency type=\"" + currency + "\">");
                 logln("\t\t\t\t<displayName>" + standardName + "</displayName>");
                 logln("\t\t\t</currency>");
@@ -1055,7 +1055,7 @@ public class CLDRTest extends TestFmwk {
         for (Iterator<String> it = aliases.keySet().iterator(); it.hasNext();) {
             // the first part of the mapping had better not be in the standardTerritories
             String key = it.next();
-            Map<String, String> submap = (Map<String, String>) aliases.get(key);
+            Map<String, String> submap = aliases.get(key);
             if (key.equals("territoryAlias")) {
                 checkEqual(key, submap, changedTerritory);
             } else if (key.equals("languageAlias")) {
@@ -1083,8 +1083,8 @@ public class CLDRTest extends TestFmwk {
         foo.retainAll(map1.keySet());
         for (Iterator it = foo.iterator(); it.hasNext();) {
             Object key = it.next();
-            Object result1 = (String) map1.get(key);
-            Object result2 = (String) map2.get(key);
+            Object result1 = map1.get(key);
+            Object result2 = map2.get(key);
             if (!result1.equals(result2))
                 errln("Missing Aliases: " + title + "\t" + key + "\t" + result1 + " != " + result2);
         }
@@ -1104,7 +1104,7 @@ public class CLDRTest extends TestFmwk {
         for (Iterator<String> it = core.iterator(); it.hasNext();) {
             String currentItem = it.next();
             String defaultName = TimezoneFormatter.getFallbackName(currentItem);
-            String fullName = (String) defaultNames.get(defaultName);
+            String fullName = defaultNames.get(defaultName);
             if (fullName == null)
                 defaultNames.put(defaultName, currentItem);
             else {
@@ -1151,7 +1151,7 @@ public class CLDRTest extends TestFmwk {
         for (Iterator<String> it = old_new.keySet().iterator(); it.hasNext();) {
             String oldItem = it.next();
             String newItem = old_new.get(oldItem);
-            Set<String> oldItems = (Set<String>) new_old.get(newItem);
+            Set<String> oldItems = new_old.get(newItem);
             if (oldItems == null) { // try recursing
                 logln("!!!!Skipping " + oldItem + " \u2192 " + newItem);
                 continue;
@@ -1160,8 +1160,8 @@ public class CLDRTest extends TestFmwk {
             oldItems.add(oldItem);
         }
         for (Iterator<String> it = new_old.keySet().iterator(); it.hasNext();) {
-            String newOne = (String) it.next();
-            Set<String> oldItems = (Set<String>) new_old.get(newOne);
+            String newOne = it.next();
+            Set<String> oldItems = new_old.get(newOne);
             logln(newOne + "\t" + oldItems);
         }
     }
@@ -1243,7 +1243,7 @@ public class CLDRTest extends TestFmwk {
  * UOption.parseArgs(args, options);
  * localeList = getMatchingXMLFiles(options[SOURCEDIR].value, options[MATCH].value);
  * /*
- * log = BagFormatter.openUTF8Writer(options[DESTDIR].value, "log.txt");
+ * log = FileUtilities.openUTF8Writer(options[DESTDIR].value, "log.txt");
  * try {
  * for (Iterator it = getMatchingXMLFiles(options[SOURCEDIR].value, options[MATCH].value).iterator(); it.hasNext();) {
  * String name = (String) it.next();
@@ -1251,7 +1251,7 @@ public class CLDRTest extends TestFmwk {
  * boolean resolved = i == 1;
  * CLDRKey key = make(name, resolved);
  *
- * PrintWriter pw = BagFormatter.openUTF8Writer(options[DESTDIR].value, name + (resolved ? "_r" : "") + ".txt");
+ * PrintWriter pw = FileUtilities.openUTF8Writer(options[DESTDIR].value, name + (resolved ? "_r" : "") + ".txt");
  * write(pw, key);
  * pw.close();
  *

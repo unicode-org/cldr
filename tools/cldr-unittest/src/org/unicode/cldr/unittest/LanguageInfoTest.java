@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -9,6 +8,7 @@ import java.util.Set;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Pair;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.LocaleMatcher;
@@ -128,12 +128,9 @@ public class LanguageInfoTest extends TestFmwk {
     static final ULocale MUL = new ULocale("mul");
 
     public void testFallbacks() {
-        Set<String> skip = Collections.<String> emptySet();
-//            !logKnownIssue("Cldrbug:8812", "Problems with LanguageInfoTest")
-//            ? Collections.<String>emptySet()
-//            : new HashSet<String>(Arrays.asList("az", "bn", "hy", "ka", "km", "kn", "lo", "ml", "my", "ne", "or",
-//                "pa", "ps", "sd", "si", "ta", "te", "ti",
-//                "tk", "ur", "uz", "yi"));
+        ImmutableSet<String> skip = !logKnownIssue("Cldrbug:9168", "Problems with subtags/languageMatch data for bh")
+              ? ImmutableSet.of()
+              : ImmutableSet.of("bh");
 
         for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
             String rawDesired = foo.get0();

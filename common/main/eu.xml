@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -286,6 +287,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">idazkera txinatar tradizionala</script>
 			<script type="Hebr">hebreera</script>
 			<script type="Hira">hiragana</script>
+			<script type="Jamo">Jamo-bihurketa</script>
 			<script type="Jpan">japoniarra</script>
 			<script type="Kana">katakana</script>
 			<script type="Khmr">khemerarra</script>
@@ -622,7 +624,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">Azentuen alderantzizko ordena</key>
 			<key type="colCaseFirst">Maiuskula/Minuskula ordena</key>
 			<key type="colCaseLevel">Maiuskulak eta minuskulak bereizten dituen ordena</key>
-			<key type="colHiraganaQuaternary">Kana ordena</key>
 			<key type="collation">Ordenatzeko irizpidea</key>
 			<key type="colNormalization">Araututako ordena</key>
 			<key type="colNumeric">Zenbakizko ordena</key>
@@ -631,7 +632,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Zenbakiak</key>
 			<key type="timezone">Ordu-zona</key>
 			<key type="va">Eskualdeko ezarpenen aldaera</key>
-			<key type="variableTop">Ordenatu ikur gisa</key>
 			<key type="x">Erabilera pribatua</key>
 		</keys>
 		<types>
@@ -659,8 +659,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">Ordenatu maiuskulak lehenik</type>
 			<type key="colCaseLevel" type="no">Ordenatu maiuskulak eta minuskulak bereizi gabe</type>
 			<type key="colCaseLevel" type="yes">Ordenatu maiuskulak eta minuskulak bereizita</type>
-			<type key="colHiraganaQuaternary" type="no">Ordenatu kanak bereizita</type>
-			<type key="colHiraganaQuaternary" type="yes">Ordenatu kanak desberdin</type>
 			<type key="collation" type="big5han">Txinera tradizionalaren alfabetoa-Big5</type>
 			<type key="collation" type="dictionary">Hurrenkera alfabetikoa</type>
 			<type key="collation" type="ducet">Unicode hurrenkera lehenetsia</type>
@@ -684,6 +682,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">Ordenatu azentuak / maiuskula eta minuskulak / zabalera / kanak</type>
 			<type key="colStrength" type="secondary">Ordenatu azentuak</type>
 			<type key="colStrength" type="tertiary">Ordenatu azentuak / maiuskula eta minuskulak / zabalera</type>
+			<type key="d0" type="fwidth">Zabalera osoko karaktere-bihurketa</type>
+			<type key="d0" type="hwidth">Zabalera erdiko karaktere-bihurketa</type>
+			<type key="d0" type="npinyin">Zenbakizko bihurketa</type>
+			<type key="m0" type="bgn">BGN bihurketa</type>
+			<type key="m0" type="ungegn">UNGEGN bihurketa</type>
 			<type key="numbers" type="arab">Digitu arabiar-hindikoak</type>
 			<type key="numbers" type="arabext">Digitu arabiar-hindiko hedatuak</type>
 			<type key="numbers" type="armn">Zenbaki armeniarrak</type>
@@ -725,18 +728,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">Zenbaki tradizionalak</type>
 			<type key="numbers" type="vaii">Vai digituak</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN bihurketa</transformName>
-			<transformName type="Numeric">Zenbakizko bihurketa</transformName>
-			<transformName type="Tone">Tonu-bihurketa</transformName>
-			<transformName type="UNGEGN">UNGEGN bihurketa</transformName>
-			<transformName type="x-Accents">Azentu-bihurketa</transformName>
-			<transformName type="x-Fullwidth">Zabalera osoko karaktere-bihurketa</transformName>
-			<transformName type="x-Halfwidth">Zabalera erdiko karaktere-bihurketa</transformName>
-			<transformName type="x-Jamo">Jamo-bihurketa</transformName>
-			<transformName type="x-Pinyin">Pinyina</transformName>
-			<transformName type="x-Publishing">Argitalpen-bihurketa</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Sistema metrikoa</measurementSystemName>
 			<measurementSystemName type="UK">Erresuma Batuko sistema</measurementSystemName>
@@ -761,10 +752,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
-		<quotationStart>&quot;</quotationStart>
-		<quotationEnd>&quot;</quotationEnd>
-		<alternateQuotationStart>&quot;</alternateQuotationStart>
-		<alternateQuotationEnd>&quot;</alternateQuotationEnd>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>“</alternateQuotationStart>
+		<alternateQuotationEnd>”</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -1831,6 +1822,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (udako ordua)</regionFormat>
 			<regionFormat type="standard">{0} (ordu estandarra)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Hiri ezezaguna</exemplarCity>
 			</zone>
@@ -2595,9 +2589,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -5223,6 +5214,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} hazbete karratu</unitPattern>
 				<unitPattern count="other">{0} hazbete karratu</unitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>kilate</displayName>
+				<unitPattern count="one">{0} kilate</unitPattern>
+				<unitPattern count="other">{0} kilate</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litro kilometroko</displayName>
 				<unitPattern count="one">{0} litro kilometroko</unitPattern>
@@ -5595,11 +5591,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} milibar</unitPattern>
 				<unitPattern count="other">{0} milibar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>kilate</displayName>
-				<unitPattern count="one">{0} kilate</unitPattern>
-				<unitPattern count="other">{0} kilate</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometro orduko</displayName>
 				<unitPattern count="one">{0} kilometro orduko</unitPattern>
@@ -5814,6 +5805,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>in²</displayName>
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -6186,11 +6182,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mb</displayName>
 				<unitPattern count="one">{0} mb</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

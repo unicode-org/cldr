@@ -13,6 +13,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class TablePrinter {
+    
     public static void main(String[] args) {
         // quick test;
         TablePrinter tablePrinter = new TablePrinter()
@@ -61,6 +62,7 @@ public class TablePrinter {
 
     public TablePrinter setSortPriority(int priority) {
         columnSorter.setSortPriority(columns.size() - 1, priority);
+        sort = true;
         return this;
     }
 
@@ -280,6 +282,7 @@ public class TablePrinter {
 
     @SuppressWarnings("rawtypes")
     ColumnSorter<Comparable> columnSorter = new ColumnSorter<Comparable>();
+    private boolean sort;
 
     @SuppressWarnings("rawtypes")
     public String toTableInternal(Comparable[][] sortedFlat) {
@@ -287,7 +290,9 @@ public class TablePrinter {
         // sorted.addAll(data);
         Object[] patternArgs = new Object[columns.size() + 1];
 
-        Arrays.sort(sortedFlat, columnSorter);
+        if (sort) {
+            Arrays.sort(sortedFlat, columnSorter);
+        }
 
         columnsFlat = columns.toArray(new Column[0]);
 

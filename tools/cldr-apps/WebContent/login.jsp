@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" import="org.unicode.cldr.web.*" %>
-<!DOCTYPE PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <title>SurveyTool: Login</title>
@@ -10,10 +10,21 @@
 <img src="<%= request.getContextPath() %>/STLogo.png" align='left'>
 <div id='smalllogin' style='position: relative !important; top: inherit !important; left: inherit !important' class='small_login_normal'>
    	  <div id='small_login_show' class='small_login_hot'>
+<%
+	if(request.getParameter("operationFailed") != null) {
+%>
+	<div class="fnotebox">
+		Please login before continuing.
+	</div>
+<%		
+	}
+%>
+
 <form method='POST' action='<%= request.getContextPath() %>/v' >
 		<label for="email"> Email:</label><input id="email" name="email" /> <br/>
         <label for="pw"> Password:</label> <input id="pw" type="password"            name="pw" /> <br/>
-        <label for="save_cook"> Log me in automatically next time?</label> <input id="<%= SurveyMain.QUERY_SAVE_COOKIE %>" type="checkbox"            name="save_cookie" /> <br/>
+        <label for="save_cook"> Log me in automatically next time?</label> <input id="<%= SurveyMain.QUERY_SAVE_COOKIE %>" type="checkbox"
+                    name="save_cookie" /> <br/>
 		<%-- to allow non-JS login simply add:
 		
 					<input type="submit" value="Login" />
@@ -68,9 +79,12 @@
 
         </div>
 </div>
-
 	<p>
-		<img width=0 height=0 src='loader.gif'></img><!--  to preload this gif -->
+		<img width=0 height=0 src='loader.gif'><!--  to preload this gif -->
 	</p>
+	<script>
+		// append the hash to the target page 
+		var q = document.getElementsByTagName('form')[0]; q.setAttribute('action', q.getAttribute('action') + window.location.hash);
+	</script>
 </body>
 </html>

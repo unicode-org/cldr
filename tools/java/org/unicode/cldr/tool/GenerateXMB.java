@@ -26,6 +26,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckExemplars;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
@@ -41,6 +42,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.RegexLookup;
@@ -65,9 +67,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -158,7 +158,7 @@ public class GenerateXMB {
             pathMatcher = option.doesOccur() ? PatternCache.get(option.getValue()).matcher("") : null;
 
             String targetDir = myOptions.get("target").getValue();
-            countFile = BagFormatter.openUTF8Writer(targetDir + "/log/", "counts.txt");
+            countFile = FileUtilities.openUTF8Writer(targetDir + "/log/", "counts.txt");
 
             Factory cldrFactory1 = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile english = cldrFactory1.make("en", true);
@@ -227,7 +227,7 @@ public class GenerateXMB {
                 countFile.flush();
             }
             countFile.close();
-            PrintWriter errorFile = BagFormatter.openUTF8Writer(targetDir + "/log/", "errors.txt");
+            PrintWriter errorFile = FileUtilities.openUTF8Writer(targetDir + "/log/", "errors.txt");
             for (Entry<String, Set<String>> entry : path2errors.keyValuesSet()) {
                 errorFile.println(entry);
             }
@@ -241,7 +241,7 @@ public class GenerateXMB {
             SubmittedPathFixer fixer = new SubmittedPathFixer();
             Factory cldrFactory2 = Factory.make(compareDirectory, fileMatcherString);
             PrintWriter output = null;
-            PrintWriter log = BagFormatter.openUTF8Writer(targetDir + "/log/", "skipped.txt");
+            PrintWriter log = FileUtilities.openUTF8Writer(targetDir + "/log/", "skipped.txt");
 
             for (String file : cldrFactory2.getAvailable()) {
                 // System.out.println("Checking " + file);
@@ -267,7 +267,7 @@ public class GenerateXMB {
                         continue;
                     }
                     if (output == null) {
-                        output = BagFormatter.openUTF8Writer(targetDir, file + ".txt");
+                        output = FileUtilities.openUTF8Writer(targetDir, file + ".txt");
                         output.println("ID\tEnglish\tSource\tRelease\tDescription");
                     }
                     String englishValue = english.getStringValue(trunkPath);
@@ -372,7 +372,7 @@ public class GenerateXMB {
         }
 
         private static void showDefaultContents(String targetDir, CLDRFile english) throws IOException {
-            PrintWriter out = BagFormatter.openUTF8Writer(targetDir + "/log/", "locales.txt");
+            PrintWriter out = FileUtilities.openUTF8Writer(targetDir + "/log/", "locales.txt");
             String[] locales = stock.split("\\|");
             Set<R2<String, String>> sorted = new TreeSet<R2<String, String>>();
             for (String locale : locales) {
@@ -563,7 +563,7 @@ public class GenerateXMB {
 
             String file = LanguageCodeConverter.toGoogleLocaleId(localeId);
             String localeName = englishInfo.getName(localeId);
-            PrintWriter out = BagFormatter.openUTF8Writer(targetDir, file + "." + extension);
+            PrintWriter out = FileUtilities.openUTF8Writer(targetDir, file + "." + extension);
 
             if (isEnglish) {
                 FileCopier.copy(GenerateXMB.class, "xmb-dtd.xml", out);
@@ -574,7 +574,7 @@ public class GenerateXMB {
                 out.println(buffer.toString());
                 out.println("</messagebundle>");
 
-                PrintWriter out3File = BagFormatter.openUTF8Writer(targetDir, "IdToPath.java");
+                PrintWriter out3File = FileUtilities.openUTF8Writer(targetDir, "IdToPath.java");
                 out3File.println("package org.unicode.cldr.tool;");
                 out3File.println();
                 out3File.println("import java.util.HashMap;");
@@ -834,7 +834,7 @@ public class GenerateXMB {
             throws IOException {
             targetDir += "/skipped/";
             filename += ".txt";
-            PrintWriter out = BagFormatter.openUTF8Writer(targetDir, filename);
+            PrintWriter out = FileUtilities.openUTF8Writer(targetDir, filename);
             out.println("# " + DATE);
             for (Entry<String, Set<String>> reasonToSet : reasonsToPaths.keyValuesSet()) {
                 for (String path : reasonToSet.getValue()) {
@@ -1163,13 +1163,13 @@ public class GenerateXMB {
                     }
                 }
 
-                PrintWriter out = BagFormatter.openUTF8Writer(targetDir + "/log/", "en-paths.txt");
+                PrintWriter out = FileUtilities.openUTF8Writer(targetDir + "/log/", "en-paths.txt");
                 out.println("# " + DATE);
                 for (Entry<String, List<Set<String>>> starredPath : starredPaths.entrySet()) {
                     out.println(starredPath.getKey() + "\t\t" + starredPath.getValue());
                 }
                 out.close();
-                out = BagFormatter.openUTF8Writer(targetDir + "/log/", "en-missingDescriptions.txt");
+                out = FileUtilities.openUTF8Writer(targetDir + "/log/", "en-missingDescriptions.txt");
                 out.println("# " + DATE);
                 for (String starredPath : missingDescriptions) {
                     // ^//ldml/dates/timeZoneNames/zone\[@type=".*"]/exemplarCity ; ROOT timezone ; The name of a city in:

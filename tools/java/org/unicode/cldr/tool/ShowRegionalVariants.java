@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -29,7 +30,6 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Objects;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -105,9 +105,9 @@ public class ShowRegionalVariants {
         int count = 0;
 
         try (
-            PrintWriter grandSummary = BagFormatter.openUTF8Writer(MY_DIR, "GrandSummary.txt");
-            PrintWriter summary = BagFormatter.openUTF8Writer(MY_DIR, "Summary.txt");
-            PrintWriter detailFile = BagFormatter.openUTF8Writer(MY_DIR, "details.txt");) {
+            PrintWriter grandSummary = FileUtilities.openUTF8Writer(MY_DIR, "GrandSummary.txt");
+            PrintWriter summary = FileUtilities.openUTF8Writer(MY_DIR, "Summary.txt");
+            PrintWriter detailFile = FileUtilities.openUTF8Writer(MY_DIR, "details.txt");) {
             grandSummary.println("Parent\tName\tTotal Diff Count\tChildren");
             summary.println("Parent\tName\tDiff Count\tChild\tChild Name");
             detailFile
@@ -184,7 +184,7 @@ public class ShowRegionalVariants {
 //                    if (detailFile != null) {
 //                        detailFile.close();
 //                    }
-//                    detailFile = BagFormatter.openUTF8Writer(MY_DIR, "detail-" + base + ".txt");
+//                    detailFile = FileUtilities.openUTF8Writer(MY_DIR, "detail-" + base + ".txt");
 //                    detailFile.println("Section\tPage\tHeader\tCode\tLocales\tvalue\tParent Locales\tvalue\tParent Locales\tvalue");
 //                    lastBase = base;
                 }

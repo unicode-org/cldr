@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -694,6 +695,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">ฮังการีโบราณ</script>
 			<script type="Inds">อินดัส</script>
 			<script type="Ital">อิตาลีโบราณ</script>
+			<script type="Jamo" draft="contributed">จาโม</script>
 			<script type="Java">ชวา</script>
 			<script type="Jpan">ญี่ปุ่น</script>
 			<script type="Jurc" draft="contributed">จูร์เชน</script>
@@ -1175,7 +1177,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">การจัดเรียงเสียงหนักเบาในลำดับถอยหลัง</key>
 			<key type="colCaseFirst" draft="contributed">การเรียงลำดับตัวพิมพ์ใหญ่/ตัวพิมพ์เล็ก</key>
 			<key type="colCaseLevel" draft="contributed">การจัดเรียงตามความสำคัญของตัวพิมพ์อักษร</key>
-			<key type="colHiraganaQuaternary" draft="contributed">การจัดเรียงตัวอักษรคะนะ</key>
 			<key type="collation">ลำดับการจัดเรียง</key>
 			<key type="colNormalization" draft="contributed">การจัดเรียงแบบที่เป็นปกติ</key>
 			<key type="colNumeric" draft="contributed">การจัดเรียงตัวเลข</key>
@@ -1187,7 +1188,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">ตัวเลข</key>
 			<key type="timezone" draft="contributed">เขตเวลา</key>
 			<key type="va" draft="contributed">ตัวแปรภาษาถิ่น</key>
-			<key type="variableTop" draft="contributed">จัดเรียงเป็นสัญลักษณ์</key>
 			<key type="x">ใช้งานส่วนบุคคล</key>
 		</keys>
 		<types>
@@ -1218,8 +1218,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">จัดเรียงตัวพิมพ์ใหญ่ก่อน</type>
 			<type key="colCaseLevel" type="no" draft="contributed">จัดเรียงตามความสำคัญของตัวพิมพ์</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">จัดเรียงความสำคัญของตัวพิมพ์</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">จัดเรียงตัวอักษรคะนะแยกต่างหาก</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">จัดเรียงตัวอักษรคะนะในแบบอื่น</type>
 			<type key="collation" type="big5han">เรียงตามอักษรจีนดั้งเดิม</type>
 			<type key="collation" type="dictionary" draft="contributed">เรียงตามพจนานุกรม</type>
 			<type key="collation" type="ducet">ลำดับการจัดเรียงตาม Unicode เริ่มต้น</type>
@@ -1245,6 +1243,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">จัดเรียงตามเสียงหนักเบา/ตัวพิมพ์/ความกว้าง/ตัวอักษรคะนะ</type>
 			<type key="colStrength" type="secondary" draft="contributed">จัดเรียงเสียงหนักเบา</type>
 			<type key="colStrength" type="tertiary" draft="contributed">จัดเรียงเสียงหนักเบา/ตัวพิมพ์/ความกว้าง</type>
+			<type key="d0" type="fwidth" draft="contributed">ตัวเต็ม</type>
+			<type key="d0" type="hwidth" draft="contributed">ตัวย่อ</type>
+			<type key="d0" type="npinyin" draft="contributed">ตัวเลข</type>
 			<type key="hc" type="h11">ระบบ 12 ชั่วโมง (0–11)</type>
 			<type key="hc" type="h12">ระบบ 12 ชั่วโมง (1–12)</type>
 			<type key="hc" type="h23">ระบบ 24 ชั่วโมง (0–23)</type>
@@ -1252,6 +1253,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">รูปแบบที่ยืดหยุ่นของการขึ้นบรรทัดใหม่</type>
 			<type key="lb" type="normal">รูปแบบปกติของการขึ้นบรรทัดใหม่</type>
 			<type key="lb" type="strict">รูปแบบที่เคร่งครัดของการขึ้นบรรทัดใหม่</type>
+			<type key="m0" type="bgn" draft="contributed">ชื่อมาตรฐานอังกฤษ (BGN)</type>
+			<type key="m0" type="ungegn" draft="contributed">ชื่อภูมิศาสตร์มาตรฐาน UN (UNGEGN)</type>
 			<type key="ms" type="metric">ระบบเมตริก</type>
 			<type key="ms" type="uksystem">ระบบการวัดอิมพีเรียล</type>
 			<type key="ms" type="ussystem">ระบบการวัดอเมริกัน</type>
@@ -1317,18 +1320,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">ตัวเลขแบบดั้งเดิม</type>
 			<type key="numbers" type="vaii" draft="contributed">ตัวเลขไว</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">ชื่อมาตรฐานอังกฤษ (BGN)</transformName>
-			<transformName type="Numeric" draft="contributed">ตัวเลข</transformName>
-			<transformName type="Tone" draft="contributed">ระดับเสียง</transformName>
-			<transformName type="UNGEGN" draft="contributed">ชื่อภูมิศาสตร์มาตรฐาน UN (UNGEGN)</transformName>
-			<transformName type="x-Accents" draft="contributed">สำเนียง</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">ตัวเต็ม</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">ตัวย่อ</transformName>
-			<transformName type="x-Jamo" draft="contributed">จาโม</transformName>
-			<transformName type="x-Pinyin" draft="contributed">พินอิน</transformName>
-			<transformName type="x-Publishing" draft="contributed">เพื่อเผยแพร่</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">เมตริก</measurementSystemName>
 			<measurementSystemName type="UK">สหราชอาณาจักร</measurementSystemName>
@@ -3913,6 +3904,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>วัน</displayName>
 				<relative type="-2">เมื่อวานซืน</relative>
+				<relative type="-1">เมื่อวาน</relative>
+				<relative type="0">วันนี้</relative>
+				<relative type="1">พรุ่งนี้</relative>
 				<relative type="2">มะรืนนี้</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ใน {0} วัน</relativeTimePattern>
@@ -3924,6 +3918,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>วัน</displayName>
 				<relative type="-2">เมื่อวานซืน</relative>
+				<relative type="-1">เมื่อวาน</relative>
+				<relative type="0">วันนี้</relative>
+				<relative type="1">พรุ่งนี้</relative>
 				<relative type="2">มะรืนนี้</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">ใน {0} วัน</relativeTimePattern>
@@ -4137,6 +4134,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">เวลาออมแสง{0}</regionFormat>
 			<regionFormat type="standard">เวลามาตรฐาน{0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>ซานตาอิซาเบล</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>เมืองที่ไม่รู้จัก</exemplarCity>
 			</zone>
@@ -4901,9 +4901,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>ทิฮัวนา</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>ซานตาอิซาเบล</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>เอร์โมซีโย</exemplarCity>
@@ -7915,6 +7912,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ตร.นิ้ว</unitPattern>
 				<perUnitPattern>{0} ต่อตารางนิ้ว</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>กะรัต</displayName>
+				<unitPattern count="other">{0} กะรัต</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ลิตรต่อกิโลเมตร</displayName>
 				<unitPattern count="other">{0} ลิตรต่อกิโลเมตร</unitPattern>
@@ -8239,10 +8240,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>มิลลิบาร์</displayName>
 				<unitPattern count="other">{0} มิลลิบาร์</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>กะรัต</displayName>
-				<unitPattern count="other">{0} กะรัต</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>กิโลเมตรต่อชั่วโมง</displayName>
 				<unitPattern count="other">{0} กิโลเมตรต่อชั่วโมง</unitPattern>
@@ -8448,6 +8445,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ตร.นิ้ว</displayName>
 				<unitPattern count="other">{0} ตร.นิ้ว</unitPattern>
 				<perUnitPattern>{0} ต่อตารางนิ้ว</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>กะรัต</displayName>
+				<unitPattern count="other">{0} กะรัต</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ลิตร/กม.</displayName>
@@ -8772,10 +8773,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<displayName>มิลลิบาร์</displayName>
 				<unitPattern count="other">{0} มิลลิบาร์</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>กะรัต</displayName>
-				<unitPattern count="other">{0} กะรัต</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>กม./ชั่วโมง</displayName>

@@ -9,7 +9,6 @@ import org.unicode.cldr.draft.StateMachine.StateAction;
 import org.unicode.cldr.draft.StateMachine.StateObjectBuilder;
 import org.unicode.cldr.draft.StateMachine.StateObjectBuilderFactory;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -26,8 +25,7 @@ public class UnicodeSetBuilder {
 
     {
         try {
-            BufferedReader in = BagFormatter.openUTF8Reader("../",
-                "cldr-code/java/org/unicode/cldr/draft/UnicodeSetStates.txt");
+            BufferedReader in = FileUtilities.openUTF8Reader("../", "cldr-code/java/org/unicode/cldr/draft/UnicodeSetStates.txt");
             // icu4c-trunk/source/common/rbbirpt.txt
             // "icu4c-trunk/source/i18n/regexcst.txt"
             StateMachineBuilder<UnicodeSet> builder = new StateMachineBuilder<UnicodeSet>();

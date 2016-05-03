@@ -26,7 +26,7 @@ import com.ibm.icu.text.UCharacterIterator;
 
 public class CharacterListCompressor {
 
-    static class Interval {
+    public static class Interval {
         int first;
         int last;
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -595,6 +596,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung" draft="contributed">húngaro antigo</script>
 			<script type="Inds" draft="contributed">indo</script>
 			<script type="Ital">itálico antigo</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">javanês</script>
 			<script type="Jpan">japonês</script>
 			<script type="Kali" draft="contributed">kayah li</script>
@@ -1027,7 +1029,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">Classificação reversa de acentos</key>
 			<key type="colCaseFirst" draft="contributed">Ordem de maiúsculas/minúsculas</key>
 			<key type="colCaseLevel" draft="contributed">Ordem com diferenciação de maiúsculas e minúsculas</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Classificação kana</key>
 			<key type="collation">Ordenação</key>
 			<key type="colNormalization" draft="contributed">Classificação normalizada</key>
 			<key type="colNumeric" draft="contributed">Classificação numérica</key>
@@ -1039,7 +1040,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Números</key>
 			<key type="timezone" draft="contributed">Fuso horário</key>
 			<key type="va" draft="contributed">Variante de localidade</key>
-			<key type="variableTop" draft="contributed">Classificar como símbolos</key>
 			<key type="x" draft="contributed">Uso privado</key>
 		</keys>
 		<types>
@@ -1067,8 +1067,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">Classificar por maiúsculas</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Classificação sem diferenciação de maiúsculas e minúsculas</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Classificação com diferenciação de maiúsculas e minúsculas</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Classificar kana separadamente</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Classificar kana diferentemente</type>
 			<type key="collation" type="big5han">Ordem do Chinês Tradicional - Big5</type>
 			<type key="collation" type="dictionary">Ordem do dicionário</type>
 			<type key="collation" type="ducet">Ordem padrão do Unicode</type>
@@ -1092,6 +1090,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">Classificar acentos/maiúsculas e minúsculas/largura/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Classificar acentos</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Classificar acentos/maiúsculas e minúsculas/largura</type>
+			<type key="d0" type="fwidth" draft="contributed">Extensão total</type>
+			<type key="d0" type="hwidth" draft="contributed">Extensão total</type>
+			<type key="d0" type="npinyin" draft="contributed">Numérico</type>
 			<type key="hc" type="h11" draft="contributed">Sistema de 12 horas (0–11)</type>
 			<type key="hc" type="h12" draft="contributed">Sistema de 12 horas (1–12)</type>
 			<type key="hc" type="h23" draft="contributed">Sistema de 24 horas (0–23)</type>
@@ -1099,6 +1100,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose" draft="contributed">Quebra de linha com estilo solto</type>
 			<type key="lb" type="normal" draft="contributed">Quebra de linha com estilo normal</type>
 			<type key="lb" type="strict" draft="contributed">Quebra de linha com estilo estrito</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric" draft="contributed">Sistema métrico</type>
 			<type key="ms" type="uksystem" draft="contributed">Sistema de medição imperial</type>
 			<type key="ms" type="ussystem" draft="contributed">Sistema de medição americano</type>
@@ -1143,18 +1146,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">Numerais tradicionais</type>
 			<type key="numbers" type="vaii" draft="contributed">Dígitos vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numérico</transformName>
-			<transformName type="Tone" draft="contributed">Tom</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Tonalidade</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Extensão total</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Extensão total</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publicação</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">métrico</measurementSystemName>
 			<measurementSystemName type="UK">inglês</measurementSystemName>
@@ -2791,6 +2782,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Cidade desconhecida</exemplarCity>
 			</zone>
@@ -3555,9 +3549,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -6971,6 +6962,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} polegadas quadradas</unitPattern>
 				<perUnitPattern draft="contributed">{0} por polegada quadrada</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName draft="contributed">kilates</displayName>
+				<unitPattern count="one" draft="contributed">{0} kilate</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kilates</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="contributed">litros por quilômetro</displayName>
 				<unitPattern count="one" draft="contributed">{0} litro por quilômetro</unitPattern>
@@ -7372,11 +7368,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} milibar</unitPattern>
 				<unitPattern count="other">{0} milibares</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName draft="contributed">kilates</displayName>
-				<unitPattern count="one" draft="contributed">{0} kilate</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kilates</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="contributed">quilômetros por hora</displayName>
 				<unitPattern count="one">{0} quilômetro por hora</unitPattern>
@@ -7629,6 +7620,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} pol²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pol²</unitPattern>
 				<perUnitPattern draft="contributed">{0} por pol²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName draft="contributed">kilates</displayName>
+				<unitPattern count="one" draft="contributed">{0} k</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} k</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="contributed">litros/km</displayName>
@@ -8030,11 +8026,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName draft="contributed">kilates</displayName>
-				<unitPattern count="one" draft="contributed">{0} k</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} k</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="contributed">km/h</displayName>

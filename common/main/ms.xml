@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -364,6 +365,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">Han Tradisional</script>
 			<script type="Hebr">Ibrani</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Jpan">Jepun</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khmr">Khmer</script>
@@ -694,7 +696,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">Pengisihan Aksen Terbalik</key>
 			<key type="colCaseFirst">Penyusunan Huruf Besar/Huruf Kecil</key>
 			<key type="colCaseLevel">Pengisihan Sensitif Atur</key>
-			<key type="colHiraganaQuaternary">Pengisihan Kana</key>
 			<key type="collation">Urutan Isihan</key>
 			<key type="colNormalization">Pengisihan Ternormal</key>
 			<key type="colNumeric">Pengisihan Berangka</key>
@@ -706,7 +707,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Nombor</key>
 			<key type="timezone">Zon Waktu</key>
 			<key type="va">Varian Tempat</key>
-			<key type="variableTop">Isih Sebagai Simbol</key>
 			<key type="x">Penggunaan Peribadi</key>
 		</keys>
 		<types>
@@ -734,8 +734,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">Isih Huruf Besar Dahulu</type>
 			<type key="colCaseLevel" type="no">Isih Tidak Sensitif Atur</type>
 			<type key="colCaseLevel" type="yes">Isih Sensitif Atur</type>
-			<type key="colHiraganaQuaternary" type="no">Isih Kana Berasingan</type>
-			<type key="colHiraganaQuaternary" type="yes">Isih Kana Secara Berbeza</type>
 			<type key="collation" type="big5han">Aturan Isih Cina Tradisional - Big5</type>
 			<type key="collation" type="dictionary">Aturan Isih Kamus</type>
 			<type key="collation" type="ducet">Aturan Isih Unikod Lalai</type>
@@ -759,6 +757,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">Isih Aksen/Atur/Lebar/Kana</type>
 			<type key="colStrength" type="secondary">Isih Aksen</type>
 			<type key="colStrength" type="tertiary">Isih Aksen/Atur/Lebar</type>
+			<type key="d0" type="fwidth">Kelebaran penuh</type>
+			<type key="d0" type="hwidth">Kelebaran separa</type>
+			<type key="d0" type="npinyin">Bernombor</type>
 			<type key="hc" type="h11">Sistem 12 Jam (0–11)</type>
 			<type key="hc" type="h12">Sistem 12 Jam (1–12)</type>
 			<type key="hc" type="h23">Sistem 24 Jam (0–23)</type>
@@ -766,6 +767,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">Gaya Pemisah Baris Bebas</type>
 			<type key="lb" type="normal">Gaya Pemisah Baris Biasa</type>
 			<type key="lb" type="strict">Gaya Pemisah Baris Ketat</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Sistem Metrik</type>
 			<type key="ms" type="uksystem">Sistem Ukuran Imperial</type>
 			<type key="ms" type="ussystem">Sistem Ukuran AS</type>
@@ -810,18 +813,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">Angka Tradisional</type>
 			<type key="numbers" type="vaii">Digit Vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Bernombor</transformName>
-			<transformName type="Tone">Nada</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Aksen</transformName>
-			<transformName type="x-Fullwidth">Kelebaran penuh</transformName>
-			<transformName type="x-Halfwidth">Kelebaran separa</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Penerbitan</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
 			<measurementSystemName type="UK">UK</measurementSystemName>
@@ -1030,7 +1021,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="Hmm">H:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
@@ -1512,7 +1502,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="Hmm">H:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
@@ -2074,6 +2063,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">Waktu Siang {0}</regionFormat>
 			<regionFormat type="standard">Waktu Piawai {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Bandar Tidak Diketahui</exemplarCity>
 			</zone>
@@ -2838,9 +2830,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -5297,6 +5286,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} inci persegi</unitPattern>
 				<perUnitPattern>{0} setiap inci persegi</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="other">{0} karat</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter sekilometer</displayName>
 				<unitPattern count="other">{0} liter sekilometer</unitPattern>
@@ -5621,10 +5614,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>milibar</displayName>
 				<unitPattern count="other">{0} milibar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="other">{0} karat</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometer sejam</displayName>
 				<unitPattern count="other">{0} kilometer sejam</unitPattern>
@@ -5830,6 +5819,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>inci²</displayName>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0} setiap in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter/km</displayName>
@@ -6154,10 +6147,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<displayName>mbar</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/jam</displayName>

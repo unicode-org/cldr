@@ -23,7 +23,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
@@ -51,13 +53,15 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -80,7 +84,7 @@ public class CLDRModify {
     private static final boolean DEBUG = false;
     static final String DEBUG_PATHS = null; // ".*currency.*";
     static final boolean COMMENT_REMOVALS = false; // append removals as comments
-    static final UnicodeSet whitespace = (UnicodeSet) new UnicodeSet("[:whitespace:]").freeze();
+    static final UnicodeSet whitespace = new UnicodeSet("[:whitespace:]").freeze();
     static final UnicodeSet HEX = new UnicodeSet("[a-fA-F0-9]").freeze();
     private static final DtdData dtdData = DtdData.getInstance(DtdType.ldml);
 
@@ -178,20 +182,23 @@ public class CLDRModify {
         }
 
         public static String getModified(ConfigMatch valueMatch, String value, ConfigMatch newValue) {
-            if (valueMatch == null) {
-                if (value == null) {
-                    throw new IllegalArgumentException("Can't have both old and new be null.");
+            if (valueMatch == null) { // match anything
+                if (newValue != null && newValue.exactMatch != null) {
+                    return newValue.exactMatch;
                 }
-                return value;
-            } else if (valueMatch.exactMatch == null) {
-                if (newValue == null) {
-                    throw new IllegalArgumentException("Can't have both regex without replacement.");
+                if (value != null) {
+                    return value;
+                }
+                throw new IllegalArgumentException("Can't have both old and new be null.");
+            } else if (valueMatch.exactMatch == null) { // regex
+                if (newValue == null || newValue.exactMatch == null) {
+                    throw new IllegalArgumentException("Can't have regex without replacement.");
                 }
                 StringBuffer buffer = new StringBuffer();
                 valueMatch.regexMatch.appendReplacement(buffer, newValue.exactMatch);
                 return buffer.toString();
             } else {
-                return value;
+                return newValue.exactMatch != null ? newValue.exactMatch : value;
             }
         }
     }
@@ -276,8 +283,6 @@ public class CLDRModify {
         + XPathParts.NEWLINE
         + "-p\t set path for -fx"
         + XPathParts.NEWLINE
-        + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
-        + XPathParts.NEWLINE
         + "-u\t set user for -fb"
         + XPathParts.NEWLINE
         + "-a\t pattern: recurse over all subdirectories that match pattern"
@@ -287,6 +292,8 @@ public class CLDRModify {
         + "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
         + XPathParts.NEWLINE
         + "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
+        + XPathParts.NEWLINE
+        + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
         + XPathParts.NEWLINE;
 
     static final String HELP_TEXT2 = "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results."
@@ -419,7 +426,7 @@ public class CLDRModify {
                     // TODO parameterize the directory and filter
                     // System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
 
-                    CLDRFile k = (CLDRFile) cldrFactory.make(test, makeResolved).cloneAsThawed();
+                    CLDRFile k = cldrFactory.make(test, makeResolved).cloneAsThawed();
                     // HashSet<String> set = Builder.with(new HashSet<String>()).addAll(k).get();
                     // System.out.format("Locale\t%s, Size\t%s\n", test, set.size());
                     // if (k.isNonInheriting()) continue; // for now, skip supplementals
@@ -434,7 +441,7 @@ public class CLDRModify {
                     // System.out.println(k.ldmlComparator.compare(s1, s2));
                     if (mergeFactory != null) {
                         int mergeOption = CLDRFile.MERGE_ADD_ALTERNATE;
-                        CLDRFile toMergeIn = (CLDRFile) mergeFactory.make(join_prefix + test + join_postfix, false)
+                        CLDRFile toMergeIn = mergeFactory.make(join_prefix + test + join_postfix, false)
                             .cloneAsThawed();
                         if (toMergeIn != null) {
                             if (options[JOIN_ARGS].doesOccur) {
@@ -515,7 +522,7 @@ public class CLDRModify {
                         System.out.println("Debug4 (" + test + "):\t" + k.toString(DEBUG_PATHS));
                     }
 
-                    PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, test + ".xml");
+                    PrintWriter pw = FileUtilities.openUTF8Writer(targetDir, test + ".xml");
                     String testPath = "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
                     if (false) {
                         System.out.println("Printing Raw File:");
@@ -523,7 +530,7 @@ public class CLDRModify {
                         System.out.println(k.getStringValue(testPath));
                         // System.out.println(k.getFullXPath(testPath));
                         Iterator it4 = k.iterator();
-                        Set s = (Set) CollectionUtilities.addAll(it4, new TreeSet());
+                        Set s = CollectionUtilities.addAll(it4, new TreeSet());
 
                         System.out.println(k.getStringValue(testPath));
                         // if (true) return;
@@ -550,7 +557,11 @@ public class CLDRModify {
                         QuickCheck.check(new File(targetDir, test + ".xml"));
                     }
 
-                    ToolUtilities.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
+                    // JCE: I don't think anyone really uses the .bat files from CLDRModify any more, since
+                    // Eclipse provides a decent file comparison program.  You can comment this back in if
+                    // you need it, but I found that sometimes having this here clobbers the real output
+                    // file, which we definitely don't want.
+                    // ToolUtilities.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
 
                     /*
                      * boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml",
@@ -614,7 +625,7 @@ public class CLDRModify {
             return Retention.RETAIN_IF_DIFFERENT;
         }
     };
-
+    static final Splitter COMMA_SEMI = Splitter.on(Pattern.compile("[,;|]")).trimResults().omitEmptyStrings();
     /**
      *
      */
@@ -805,7 +816,7 @@ public class CLDRModify {
             if (oldValueNewPath == null) {
                 showAction(reason, "Moving", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
             } else if (oldValueNewPath.equals(newValue)) {
-                showAction(reason, "Redundant", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
+                showAction(reason, "Redundant Value", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
             } else {
                 showAction(reason, "Overriding", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
             }
@@ -997,7 +1008,7 @@ public class CLDRModify {
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
                 fullparts.set(fullXPath);
                 Map<String, String> attributes = fullparts.findAttributes("transform");
-                String oldValue = (String) attributes.get("direction");
+                String oldValue = attributes.get("direction");
                 if ("both".equals(oldValue)) {
                     attributes.put("direction", "forward");
                     replace(xpath, fullparts.toString(), v);
@@ -1405,7 +1416,7 @@ public class CLDRModify {
                         s.add(Normalizer.compose(usi.getString(), false));
                     }
 
-                    String fixedExemplar1 = new PrettyPrinter()
+                    String fixedExemplar1 = new UnicodeSetPrettyPrinter()
                     .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
                     .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                         .setStrength2(Collator.PRIMARY))
@@ -1749,7 +1760,7 @@ public class CLDRModify {
                 fullparts.set(fullpath);
 
                 Map<String, String> attributes = fullparts.findAttributes("dateFormatItem");
-                String id = (String) attributes.get("id");
+                String id = attributes.get("id");
                 String oldID = id;
                 try {
                     id = dateTimePatternGenerator.getBaseSkeleton(id);
@@ -1917,18 +1928,47 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('q', "fix g-force", new CLDRFilter() {
-            Matcher m = PatternCache.get("(\\P{L}*)g(\\P{L}*)").matcher("");
-
+        fixList.add('q', "fix annotation punctuation", new CLDRFilter() {
             @Override
             public void handlePath(String xpath) {
-                if (!xpath.contains("acceleration-g-force")) {
+                if (!xpath.contains("/annotation")) {
                     return;
                 }
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
+                XPathParts parts = XPathParts.getInstance(fullpath);
+                String cp = parts.getAttributeValue(2, "cp");
+                String tts = parts.getAttributeValue(2, "tts");
+                String type = parts.getAttributeValue(2, "type");
+                if ("tts".equals(type)) {
+                    return; // ok, skip
+                }
+                String hex = "1F600";
+                if (cp.startsWith("[")) {
+                    UnicodeSet us = new UnicodeSet(cp);
+                    if (us.size() == 1) {
+                        cp = us.iterator().next();
+                        hex = Utility.hex(cp);
+                    } else {
+                        hex = us.toString();
+                    }
+                    parts.putAttributeValue(2, "cp", cp);
+                }
+                parts.removeAttribute(2, "tts");
+                if (tts != null) {
+                    String newTts = CldrUtility.join(COMMA_SEMI.splitToList(tts), ", ");
+                    XPathParts parts2 = parts.cloneAsThawed();
+                    parts2.putAttributeValue(2, "type", "tts");
+                    add(parts2.toString(), newTts, "separate tts");
+                }
                 String value = cldrFileToFilter.getStringValue(xpath);
-                if (m.reset(value).matches()) {
-                    replace(fullpath, fullpath, m.group(1) + "G" + m.group(2));
+                String newValue = CldrUtility.join(COMMA_SEMI.splitToList(value), " | ");
+                final String newFullPath = parts.toString();
+                Comments comments = cldrFileToFilter.getXpath_comments();
+                String comment = comments.removeComment(CommentType.PREBLOCK, xpath);
+                comment = hex + (comment == null ? "" : " " + comment);
+                comments.addComment(CommentType.PREBLOCK, newFullPath, comment);
+                if (!fullpath.equals(newFullPath) || !value.equals(newValue)) {
+                    replace(fullpath, newFullPath, newValue);
                 }
             }
         });
@@ -1938,7 +1978,7 @@ public class CLDRModify {
             new CLDRFilter() {
             private Map<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> locale2keyValues;
             private LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = new LinkedHashSet<Map<ConfigKeys, ConfigMatch>>();
-
+            private Matcher draftMatcher = Pattern.compile("\\[@draft=\"[^\"]+\"]").matcher("");
             @Override
             public void handleStart() {
                 super.handleStart();
@@ -2025,7 +2065,7 @@ public class CLDRModify {
                         for (String linePart : lineParts) {
                             int pos = linePart.indexOf('=');
                             if (pos < 0) {
-                                throw new IllegalArgumentException("Bad line: «" + line + "»");
+                                throw new IllegalArgumentException(lineCount + "No = in command: «" + linePart + "»");
                             }
                             ConfigKeys key = ConfigKeys.valueOf(linePart.substring(0, pos).trim());
                             if (keyValue.containsKey(key)) {
@@ -2051,7 +2091,7 @@ public class CLDRModify {
                 };
                 myReader.process(CLDRModify.class, configFileName);
             }
-
+            
             @Override
             public void handlePath(String xpath) {
                 // slow method; could optimize
@@ -2074,7 +2114,15 @@ public class CLDRModify {
                         ConfigMatch newPath = entry.get(ConfigKeys.new_path);
                         ConfigMatch newValue = entry.get(ConfigKeys.new_value);
 
-                        String modPath = ConfigMatch.getModified(pathMatch, xpath, newPath);
+                        String fullpath = cldrFileToFilter.getFullXPath(xpath);
+                        String draft = "";
+                        int loc = fullpath.indexOf("[@draft=");
+                        if (loc >= 0) {
+                            int loc2 = fullpath.indexOf(']', loc+7);
+                            draft = fullpath.substring(loc, loc2+1);
+                        }
+
+                        String modPath = ConfigMatch.getModified(pathMatch, xpath, newPath) + draft;
                         String modValue = ConfigMatch.getModified(valueMatch, value, newValue);
                         replace(xpath, modPath, modValue, "config");
                     }
@@ -2251,7 +2299,7 @@ public class CLDRModify {
         }
         // at this point, haveSameValues is all kosher, so add items
         for (String xpath : haveSameValues.keySet()) {
-            ValuePair v = (ValuePair) haveSameValues.get(xpath);
+            ValuePair v = haveSameValues.get(xpath);
             // if (v.value.equals(resolvedFile.getStringValue(xpath))
             // && v.fullxpath.equals(resolvedFile.getFullXPath(xpath))) continue;
             replacements.add(v.fullxpath, v.value);

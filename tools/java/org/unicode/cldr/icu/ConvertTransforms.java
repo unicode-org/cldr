@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Date;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.ant.CLDRConverterTool;
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -20,7 +20,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
@@ -79,7 +78,7 @@ public class ConvertTransforms extends CLDRConverterTool {
         System.out.println(new File(inputDirectory).getCanonicalPath());
         Factory cldrFactory = Factory.make(inputDirectory, matchingPattern);
         Set<String> ids = cldrFactory.getAvailable();
-        PrintWriter index = BagFormatter.openUTF8Writer(outputDirectory, "root.txt");
+        PrintWriter index = FileUtilities.openUTF8Writer(outputDirectory, "root.txt");
         doHeader(index, "//", "root.txt");
         try {
             index.println("root {");
@@ -89,8 +88,8 @@ public class ConvertTransforms extends CLDRConverterTool {
             // addAlias(index, "Latin", "Jamo", "", "Latin", "ConjoiningJamo", "");
             addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
             addAlias(index, "Digit", "Tone", "", "NumericPinyin", "Pinyin", "");
-            addAlias(index, "Hans", "Hant", "", "Simplified", "Traditional", "");
-            addAlias(index, "Hant", "Hans", "", "Traditional", "Simplified", "");
+            // addAlias(index, "Simplified", "Traditional", "", "Hans", "Hant", "");
+            // addAlias(index, "Traditional", "Simplified", "", "Hant", "Hans", "");
             for (String id : ids) {
                 if (id.equals("All")) continue;
                 try {
@@ -163,7 +162,7 @@ public class ConvertTransforms extends CLDRConverterTool {
                 String fullPath = cldrFile.getFullXPath(path);
                 filename = addIndexInfo(index, fullPath, id);
                 if (filename == null) return; // not a transform file!
-                output = BagFormatter.openUTF8Writer(outputDirectory, filename);
+                output = FileUtilities.openUTF8Writer(outputDirectory, filename);
                 doHeader(output, "#", filename);
                 first = false;
             }
@@ -323,16 +322,17 @@ public class ConvertTransforms extends CLDRConverterTool {
     private void doHeader(PrintWriter output, String quoteSymbol, String filename) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
         output.print('\uFEFF');
-        output.println(quoteSymbol + " ************************************************************");
-        output.println(quoteSymbol + " Copyright © 1991-" + sdf.format(new Date())
-            + " Unicode, Inc.");
-        output.println(quoteSymbol + " CLDR data files are interpreted according to the LDML");
-        output.println(quoteSymbol + " specification (http://unicode.org/reports/tr35/)");
-        output.println(quoteSymbol + " For terms of use, see http://www.unicode.org/copyright.html");
-        output.println(quoteSymbol + " ************************************************************");
+        output.println(quoteSymbol + " ***************************************************************************");
+        output.println(quoteSymbol + " *");
+        output.println(quoteSymbol + " *  Copyright (C) 2004-" + sdf.format(new Date())
+            + ", International Business Machines");
+        output.println(quoteSymbol + " *  Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
+        output.println(quoteSymbol + " *");
+        output.println(quoteSymbol + " ***************************************************************************");
         output.println(quoteSymbol + " File: " + filename);
-        output.println(quoteSymbol + " Generated from Unicode CLDR");
-        output.println(quoteSymbol);
+        output.println(quoteSymbol + " Generated from CLDR ");
+        output.println(quoteSymbol + "");
+
     }
 
     public void processArgs(String[] args) {
@@ -374,8 +374,8 @@ public class ConvertTransforms extends CLDRConverterTool {
      * File[] files = dir.listFiles();
      * for (int i = 0; i < files.length; ++i) {
      * if (files[i].isDirectory()) continue;
-     * BufferedReader input = BagFormatter.openUTF8Reader("", files[i].getCanonicalPath());
-     * PrintWriter output = BagFormatter.openUTF8Writer("", outputDirectory + files[i].getName());
+     * BufferedReader input = FileUtilities.openUTF8Reader("", files[i].getCanonicalPath());
+     * PrintWriter output = FileUtilities.openUTF8Writer("", outputDirectory + files[i].getName());
      * while (true) {
      * String line = input.readLine();
      * if (line == null) break;

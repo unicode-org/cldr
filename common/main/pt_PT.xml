@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -169,13 +170,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<keys>
 			<key type="colBackwards" draft="contributed">Ordenação de acentos invertida</key>
 			<key type="colCaseLevel" draft="contributed">Ordenação sensível a maiúsculas e minúsculas</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Ordenação kana</key>
 			<key type="colNormalization" draft="contributed">Ordenação normalizada</key>
 			<key type="colNumeric" draft="contributed">Ordenação numérica</key>
 			<key type="colStrength" draft="contributed">Força da ordenação</key>
 			<key type="hc" draft="contributed">Ciclo horário (12 vs. 24)</key>
 			<key type="ms" draft="contributed">Sistema de medida</key>
-			<key type="variableTop" draft="contributed">Ordenar como símbolos</key>
 			<key type="x" draft="contributed">Utilização privada</key>
 		</keys>
 		<types>
@@ -198,8 +197,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">Ordenar por maiúsculas</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Ordenar insensível a maiúsculas/minúsculas</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Ordenar sensível a maiúsculas/minúsculas</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Ordenar kana separadamente</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Ordenar kana diferentemente</type>
 			<type key="collation" type="dictionary" draft="contributed">Ordenação do dicionário</type>
 			<type key="collation" type="ducet">Ordenação unicode predefinida</type>
 			<type key="collation" type="phonebook">Ordem da lista telefónica</type>
@@ -218,6 +215,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">Ordenar acentos/tipo de letra/largura/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Ordenar acentos</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Ordenar acentos/tipo de letra/largura</type>
+			<type key="d0" type="fwidth" draft="contributed">Largura completa</type>
+			<type key="d0" type="hwidth" draft="contributed">Meia largura</type>
 			<type key="lb" type="loose" draft="contributed">Estilo solto de quebra de linha</type>
 			<type key="lb" type="normal" draft="contributed">Estilo padrão de quebra de linha</type>
 			<type key="lb" type="strict" draft="contributed">Estilo estrito de quebra de linha</type>
@@ -255,11 +254,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="telu">Algarismos de telugu</type>
 			<type key="numbers" type="traditional" draft="contributed">Algarismos tradicionais</type>
 		</types>
-		<transformNames>
-			<transformName type="x-Accents" draft="contributed">Acentos</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Largura completa</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Meia largura</transformName>
-		</transformNames>
 		<codePatterns>
 			<codePattern type="script">Escrita: {0}</codePattern>
 		</codePatterns>
@@ -458,7 +452,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
-							<dayPeriod type="noon">meio-dia</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
@@ -473,11 +466,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">da manhã</dayPeriod>
-							<dayPeriod type="noon">meio-dia</dayPeriod>
 							<dayPeriod type="pm">da tarde</dayPeriod>
-							<dayPeriod type="morning1">da manhã</dayPeriod>
-							<dayPeriod type="afternoon1">da tarde</dayPeriod>
-							<dayPeriod type="evening1">da noite</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -488,8 +477,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">a.m.</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
-							<dayPeriod type="morning1">manhã</dayPeriod>
-							<dayPeriod type="afternoon1">tarde</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">manhã</dayPeriod>
@@ -748,6 +735,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="1">próxima quinta</relative>
 			</field>
 			<field type="thu-narrow">
+				<relative type="-1">qui. passada</relative>
+				<relative type="0">esta qui.</relative>
 				<relative type="1">próxima qui.</relative>
 			</field>
 			<field type="fri-short">
@@ -2527,6 +2516,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} quilómetro quadrado</unitPattern>
 				<unitPattern count="other">{0} quilómetros quadrados</unitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>quilates</displayName>
+				<unitPattern count="one">{0} quilate</unitPattern>
+				<unitPattern count="other">{0} quilates</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litros por quilómetro</displayName>
 				<unitPattern count="one">{0} litro por quilómetro</unitPattern>
@@ -2538,6 +2532,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} litros por 100 quilómetros</unitPattern>
 			</unit>
 			<unit type="duration-century">
+				<unitPattern count="one">{0} século</unitPattern>
 				<unitPattern count="other">{0} séculos</unitPattern>
 			</unit>
 			<unit type="duration-hour">
@@ -2580,26 +2575,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="length-mile-scandinavian">
 				<displayName draft="contributed">milha escandinava</displayName>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>quilates</displayName>
-				<unitPattern count="one">{0} quilate</unitPattern>
-				<unitPattern count="other">{0} quilates</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>quilómetros por hora</displayName>
 				<unitPattern count="one">{0} quilómetro por hora</unitPattern>
 				<unitPattern count="other">{0} quilómetros por hora</unitPattern>
 			</unit>
-			<unit type="temperature-generic">
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>quilómetros cúbicos</displayName>
 				<unitPattern count="one">{0} quilómetro cúbico</unitPattern>
 				<unitPattern count="other">{0} quilómetros cúbicos</unitPattern>
-			</unit>
-			<unit type="volume-cubic-centimeter">
-				<perUnitPattern draft="contributed">por centímetro cúbico</perUnitPattern>
 			</unit>
 			<unit type="volume-cup">
 				<displayName>chávenas</displayName>
@@ -2646,6 +2630,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern draft="contributed">{0}/in²</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>quilates</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">l/100km</displayName>
 				<unitPattern count="one" draft="contributed">{0} l/100km</unitPattern>
@@ -2682,9 +2671,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} nmi</unitPattern>
 				<unitPattern count="other">{0} nmi</unitPattern>
 			</unit>
-			<unit type="length-mile-scandinavian">
-				<unitPattern count="other">{0} smi</unitPattern>
-			</unit>
 			<unit type="mass-ton">
 				<unitPattern count="one">{0} ton</unitPattern>
 				<unitPattern count="other">{0} ton</unitPattern>
@@ -2701,11 +2687,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<unitPattern count="one">{0} mb</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>quilates</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>m/s</displayName>

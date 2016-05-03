@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="el" target="Lower" direction="forward">
+		<transform source="el" target="Lower" direction="forward" alias="el-t-d0-lower">
 			<tRule>
 # Special case for final form of sigma.
 ::NFD();

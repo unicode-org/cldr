@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2016 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="es_419" target="fa" direction="forward" alias="fa-t-es-419">
+			<tRule><![CDATA[
+$Boundary =  [^[:L:][:M:][:N:]];
+$Vowel = [i e o u a];
+
+::es-es_FONIPA;
+::es_FONIPA-es_419_FONIPA;
+
+# In Farsi transcription of Spanish, un-stressed [e] should be treated
+# like [ə] which gets stripped off.  However, we currently do have not
+# have a good way of finding stress in Spanish words.  In the long term,
+# it would be _much_ better to look at stress markers, but for now
+# we do this trivial heuristics to find unstressed [e] in the first
+# syllable.
+$Boundary [^Vowel] {e} [^$Vowel]* $Vowel → ə;
+
+::und_FONIPA-fa;
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

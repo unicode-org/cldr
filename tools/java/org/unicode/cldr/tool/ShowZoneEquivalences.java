@@ -12,17 +12,17 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.Tabber;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.ZoneInflections;
 
-import com.ibm.icu.dev.util.ArrayComparator;
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.Tabber;
 import com.ibm.icu.util.TimeZone;
 
 public class ShowZoneEquivalences {
@@ -61,7 +61,7 @@ public class ShowZoneEquivalences {
         Collection<String> codes = sc.getGoodAvailableCodes("tzid");
         TreeSet<String> extras = new TreeSet<String>();
         Map<String, Set<String>> m = sc.getZoneLinkNew_OldSet();
-        for (String code : (Collection<String>) codes) {
+        for (String code : codes) {
             Collection<String> s = m.get(code);
             if (s == null)
                 continue;
@@ -81,8 +81,7 @@ public class ShowZoneEquivalences {
         Map<String, String> zone_countries = sc.getZoneToCounty();
 
         TreeSet<Object[]> country_inflection_names = new TreeSet<Object[]>(ac);
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
-            "inflections.txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "inflections.txt");
 
         TreeMap<Integer, TreeSet<String>> minOffsetMap = new TreeMap<Integer, TreeSet<String>>();
         TreeMap<Integer, TreeSet<String>> maxOffsetMap = new TreeMap<Integer, TreeSet<String>>();
@@ -110,8 +109,7 @@ public class ShowZoneEquivalences {
         System.out.println("Maximum Offset: " + maxOffsetMap);
         out.close();
 
-        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
-            "modernTimezoneEquivalents.html");
+        out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "modernTimezoneEquivalents.html");
         out.println("<html>" + "<head>"
             + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
             + "<title>Modern Equivalent Timezones</title><style>");
@@ -159,7 +157,7 @@ public class ShowZoneEquivalences {
         int category = 1;
         Tabber tabber = tabber1;
         for (Iterator<Object[]> it = country_inflection_names.iterator(); it.hasNext();) {
-            Object[] row = (Object[]) it.next();
+            Object[] row = it.next();
             String country = (String) row[0];
             if (country.equals("001"))
                 continue;
@@ -191,7 +189,7 @@ public class ShowZoneEquivalences {
             }
             // if (country.equals(lastCountry) && diff.value >= minimumDate) System.out.print("X");
             String newCountry = country;
-            String mapLink = (String) CountItems.country_map.get(country);
+            String mapLink = CountItems.country_map.get(country);
             if (mapLink != null) {
                 newCountry = "<a target='map' href='" + mapLink + "'>" + country
                     + "</a>";

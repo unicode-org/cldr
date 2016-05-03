@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -308,6 +309,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">Tradisyonal na Han</script>
 			<script type="Hebr">Hebrew</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Jpan">Japanese</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khmr">Khmer</script>
@@ -642,7 +644,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">Pag-uuri-uri ng Baliktad na Accent</key>
 			<key type="colCaseFirst">Uppercase/Lowercase na Pagsusunud-sunod</key>
 			<key type="colCaseLevel">Case Sensitive na Pag-uuri-uri</key>
-			<key type="colHiraganaQuaternary">Pag-uuri-uri ng Kana</key>
 			<key type="collation">Pagkakasunud-sunod ng Ayos</key>
 			<key type="colNormalization">Normalized na Pag-uuri-uri</key>
 			<key type="colNumeric">Numeric na Pag-uuri-uri</key>
@@ -654,7 +655,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Mga Numero</key>
 			<key type="timezone">Time Zone</key>
 			<key type="va">Lokal na Variant</key>
-			<key type="variableTop">Pag-uri-uriin Bilang Mga Simbolo</key>
 			<key type="x">Pribadong Paggamit</key>
 		</keys>
 		<types>
@@ -682,8 +682,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">Uppercase Muna ang Pag-uri-uriin</type>
 			<type key="colCaseLevel" type="no">Pag-uri-uriin ang Hindi Case Sensitive</type>
 			<type key="colCaseLevel" type="yes">Pag-uri-uriin ang Case Sensitive</type>
-			<type key="colHiraganaQuaternary" type="no">Pag-uri-uriin ang Kana nang Hiwalay</type>
-			<type key="colHiraganaQuaternary" type="yes">Pag-uri-uriin ang Kana nang Naiiba</type>
 			<type key="collation" type="big5han">Pagkakasunod-sunod ng Pag-uuri ng Tradisyunal na Chinese - Big5</type>
 			<type key="collation" type="dictionary">Pagkakasunud-sunod ng Pag-uuri ng Diksyunaryo</type>
 			<type key="collation" type="ducet">Default na Pagkakasunud-sunod ng Ayos ng Unicode</type>
@@ -707,6 +705,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">Pag-uri-uriin ang Mga Accent/Case/Lapad/Kana</type>
 			<type key="colStrength" type="secondary">Pag-uri-uriin ang Mga Accent</type>
 			<type key="colStrength" type="tertiary">Pag-uri-uriin ang Mga Accent/Case/Lapad</type>
+			<type key="d0" type="fwidth">Fullwidth</type>
+			<type key="d0" type="hwidth">Halfwidth</type>
+			<type key="d0" type="npinyin">Numeric</type>
 			<type key="hc" type="h11">12 Oras na Sistema (0–11)</type>
 			<type key="hc" type="h12">12 Oras na Sistema (1–12)</type>
 			<type key="hc" type="h23">24 na Oras na Sistema (0–23)</type>
@@ -714,6 +715,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">Loose na Estilo ng Putol ng Linya</type>
 			<type key="lb" type="normal">Normal na Estilo ng Putol ng Linya</type>
 			<type key="lb" type="strict">Mahigpit na Estilo ng Putol ng Linya</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Metrikong Sistema</type>
 			<type key="ms" type="uksystem">Sistemang Imperial na Pagsukat</type>
 			<type key="ms" type="ussystem">Sistema ng Pagsukat sa US</type>
@@ -758,18 +761,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">Mga Tradisyunal na Numeral</type>
 			<type key="numbers" type="vaii">Mga Vai na Digit</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Numeric</transformName>
-			<transformName type="Tone">Tono</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Accents</transformName>
-			<transformName type="x-Fullwidth">Fullwidth</transformName>
-			<transformName type="x-Halfwidth">Halfwidth</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Publishing</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metriko</measurementSystemName>
 			<measurementSystemName type="UK">UK</measurementSystemName>
@@ -1928,6 +1919,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">Daylight Time ng {0}</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Di-kilalang Lungsod</exemplarCity>
 			</zone>
@@ -2692,9 +2686,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -5373,6 +5364,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} na pulgada kwadrado</unitPattern>
 				<perUnitPattern>{0} kada pulgada kwadrado</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} karat</unitPattern>
+				<unitPattern count="other">{0} na karat</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litro kada kilometro</displayName>
 				<unitPattern count="one">{0} litro kada kilometro</unitPattern>
@@ -5774,11 +5770,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} na millibar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} karat</unitPattern>
-				<unitPattern count="other">{0} na karat</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometro kada oras</displayName>
 				<unitPattern count="one">{0} kilometro kada oras</unitPattern>
@@ -6031,6 +6022,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0} kada in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litro/km</displayName>
@@ -6432,11 +6428,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mb</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/hr</displayName>

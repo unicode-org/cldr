@@ -1,6 +1,6 @@
 # ldml2icu_locale.txt
 #
-# Copyright © 2011-2014 Unicode, Inc.
+# Copyright © 2011-2016 Unicode, Inc.
 # CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 # For terms of use, see http://www.unicode.org/copyright.html
 #
@@ -101,13 +101,14 @@
 # and the Hebrew calendar for he, and all calendars for haw (which has numbers="M=romanlow").
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateFormats/dateFormatLength[@type="(%A)"]/dateFormat[@type="%A"]/pattern[@type="%A"][@numbers="(%A)"] ; /calendar/$1/DateTimePatterns ;  values="{value}" $3 ; group=$2
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/((date|time|dateTime)Format)s/\2Length[@type="(%A)"]/\2[@type="%A"]/pattern[@type="%A"] ; /calendar/$1/DateTimePatterns
+//ldml/dates/calendars/calendar[@type="(%A)"]/((date|time|dateTime)Format)s/\2Length[@type="(%A)"]/\2[@type="%A"]/pattern[@type="%A"]$ ; /calendar/$1/DateTimePatterns
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/appendItems/appendItem[@request="(%A)"] ; /calendar/$1/appendItems/$2
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(%A)"] ; /calendar/$1/availableFormats/$2
+//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(%A)"]$ ; /calendar/$1/availableFormats/$2
+//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(%A)"][@count="(%A)"]$ ; /calendar/$1/availableFormats/$2/$3
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="(%A)"]/greatestDifference[@id="(%A)"] ; /calendar/$1/intervalFormats/$2/$3
+//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="(%A)"]/greatestDifference[@id="(%A)"]$ ; /calendar/$1/intervalFormats/$2/$3
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; /calendar/$1/intervalFormats/fallback
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="(am|pm)"][@alt="(%A)"] ; /calendar/$1/AmPmMarkers%$3
@@ -137,6 +138,7 @@
 //ldml/dates/fields/field[@type="(%A)"]/displayName[@alt="(%A)"] ; /fields/$1/dn%$2
 //ldml/dates/fields/field[@type="(%A)"]/displayName ; /fields/$1/dn
 //ldml/dates/fields/field[@type="(%A)"]/relative[@type="(%A)"] ; /fields/$1/relative/"$2"
+//ldml/dates/fields/field[@type="(%A)"]/relativePeriod ; /fields/$1/relativePeriod
 //ldml/dates/fields/field[@type="(%A)"]/relativeTime[@type="(%A)"]/relativeTimePattern[@count="(%A)"] ; /fields/$1/relativeTime/$2/$3
 
 //ldml/dates/fields/field[@type="(%A)"]/alias[@source="locale"][@path="../field[@type='(%A)']"]
@@ -157,6 +159,7 @@
 # Locale Display Names
 
 //ldml/localeDisplayNames/codePatterns/codePattern[@type="(%A)"] ; /codePatterns/$1
+//ldml/localeDisplayNames/annotationPatterns/annotationPattern[@type="(%A)"] ; /codePatterns/$1
 
 //ldml/localeDisplayNames/keys/key[@type="(%A)"] ; /Keys/$1
 
@@ -202,7 +205,7 @@
 //ldml/numbers/minimumGroupingDigits ; /NumberElements/minimumGroupingDigits
 //ldml/numbers/otherNumberingSystems/(%W)   ; /NumberElements/$1
 
-//ldml/numbers/symbols[@numberSystem="(%A)"]/(%W) ; /NumberElements/$1/symbols/$2
+//ldml/numbers/symbols[@numberSystem="(%A)"]/(%W)$ ; /NumberElements/$1/symbols/$2
 //ldml/numbers/(%GFormat)s[@numberSystem="(%W)"]/\1Length/\1[@type="standard"]/pattern[@type="standard"] ; /NumberElements/$2/patterns/$1
 //ldml/numbers/currencyFormats[@numberSystem="(%W)"]/currencyFormatLength/currencyFormat[@type="accounting"]/pattern[@type="standard"] ; /NumberElements/$1/patterns/accountingFormat
 //ldml/numbers/currencyFormats[@numberSystem="(%W)"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="(%N)"][@count="(%W)"] ; /NumberElements/$1/patternsShort/currencyFormat/$2/$3
@@ -243,4 +246,9 @@
 //ldml/units/unitLength[@type="short"]/unit[@type="(\w++)-(%A)"]/perUnitPattern ; /unitsShort/$1/$2/per
 //ldml/units/unitLength[@type="long"]/unit[@type="(\w++)-(%A)"]/perUnitPattern ; /units/$1/$2/per
 
-//ldml/units/durationUnit[@type="(%A)"]/durationUnitPattern ; /durationUnits/$1
+//ldml/units/durationUnit[@type="(%A)"]/durationUnitPattern$ ; /durationUnits/$1
+
+//ldml/characterLabels/characterLabelPattern[@type="(%A)"] ; /characterLabelPattern/$1 
+//ldml/characterLabels/characterLabelPattern[@type="(%A)"][@count="(%A)"] ; /characterLabelPattern/$1/$2
+//ldml/characterLabels/characterLabel[@type="(%A)"] ; /characterLabel/$1 
+

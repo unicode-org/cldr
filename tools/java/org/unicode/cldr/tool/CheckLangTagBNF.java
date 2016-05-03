@@ -14,13 +14,13 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.BNF;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 //import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.Quoter;
 
-import com.ibm.icu.dev.util.BNF;
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.Quoter;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -57,7 +57,7 @@ class CheckLangTagBNF {
      * @throws IOException
      */
     public CheckLangTagBNF setFromFile(String filename) throws IOException {
-        BufferedReader in = BagFormatter.openUTF8Reader("", filename);
+        BufferedReader in = FileUtilities.openUTF8Reader("", filename);
         CldrUtility.VariableReplacer result = new CldrUtility.VariableReplacer();
         String variable = null;
         StringBuffer definition = new StringBuffer();
@@ -228,7 +228,7 @@ class CheckLangTagBNF {
         SimpleLocaleParser simpleLocaleParser = new SimpleLocaleParser();
         boolean expected = true;
         int errorCount = 0;
-        BufferedReader in = BagFormatter.openUTF8Reader("", LANGUAGE_TAG_TEST_FILE);
+        BufferedReader in = FileUtilities.openUTF8Reader("", LANGUAGE_TAG_TEST_FILE);
 
         while (true) {
             String test = in.readLine();

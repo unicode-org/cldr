@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -266,6 +267,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">Салт. Кытай</script>
 			<script type="Hebr">Иврит</script>
 			<script type="Hira">Хирагана</script>
+			<script type="Jamo" draft="unconfirmed">Джамо</script>
 			<script type="Jpan">Жапан</script>
 			<script type="Kana">Катакана</script>
 			<script type="Khmr">Кмер</script>
@@ -614,6 +616,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="collation" type="ducet">Демейки Unicode иргөө тартиби</type>
 			<type key="collation" type="search">Жалпы издөө</type>
 			<type key="collation" type="standard">Стандарттуу иргөө тартиби</type>
+			<type key="d0" type="fwidth" draft="unconfirmed">Кең формат</type>
+			<type key="d0" type="hwidth" draft="unconfirmed">Кыска формат</type>
+			<type key="d0" type="npinyin" draft="unconfirmed">Сандык</type>
 			<type key="hc" type="h11">12 сааттык тутум (0–11)</type>
 			<type key="hc" type="h12">12 сааттык тутум (1–12)</type>
 			<type key="hc" type="h23">24 сааттык тутум (0–23)</type>
@@ -660,16 +665,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="thai">тай сандары</type>
 			<type key="numbers" type="tibt">тибет сандары</type>
 		</types>
-		<transformNames>
-			<transformName type="Numeric" draft="unconfirmed">Сандык</transformName>
-			<transformName type="Tone" draft="unconfirmed">Тондук</transformName>
-			<transformName type="x-Accents" draft="unconfirmed">Диакриттик белгилер</transformName>
-			<transformName type="x-Fullwidth" draft="unconfirmed">Кең формат</transformName>
-			<transformName type="x-Halfwidth" draft="unconfirmed">Кыска формат</transformName>
-			<transformName type="x-Jamo" draft="unconfirmed">Джамо</transformName>
-			<transformName type="x-Pinyin" draft="unconfirmed">Пиньин</transformName>
-			<transformName type="x-Publishing" draft="unconfirmed">Басмаканалык</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрикалык өлчөө тутуму</measurementSystemName>
 			<measurementSystemName type="UK">Британия</measurementSystemName>
@@ -1555,6 +1550,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>күн</displayName>
 				<relative type="-2">мурдагы күнү</relative>
+				<relative type="-1">кечээ</relative>
+				<relative type="0">бүгүн</relative>
+				<relative type="1">эртеӊ</relative>
 				<relative type="2">бүрсүгүнү</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} күндөн кийин</relativeTimePattern>
@@ -1568,6 +1566,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>күн</displayName>
 				<relative type="-2">мурдагы күнү</relative>
+				<relative type="-1">кечээ</relative>
+				<relative type="0">бүгүн</relative>
+				<relative type="1">эртеӊ</relative>
 				<relative type="2">бүрсүгүнү</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} күн</relativeTimePattern>
@@ -1801,6 +1802,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Санта Изабел</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>белгисиз шаар</exemplarCity>
 			</zone>
@@ -2565,9 +2569,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Тихуана</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Санта Изабел</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Эрмосилло</exemplarCity>
@@ -5200,6 +5201,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} чарчы дюйм</unitPattern>
 				<perUnitPattern>чарчы дюймуна {0}</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="other">{0} карат</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>километрине литр</displayName>
 				<unitPattern count="one">километрине {0} литр</unitPattern>
@@ -5601,11 +5607,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} миллибар</unitPattern>
 				<unitPattern count="other">{0} миллибар</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>карат</displayName>
-				<unitPattern count="one">{0} карат</unitPattern>
-				<unitPattern count="other">{0} карат</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>саатына километр</displayName>
 				<unitPattern count="one">саатына {0} километр</unitPattern>
@@ -5858,6 +5859,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} дюйм²</unitPattern>
 				<unitPattern count="other">{0} дюйм²</unitPattern>
 				<perUnitPattern>дюйм²/{0}</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} кт</unitPattern>
+				<unitPattern count="other">{0} кт</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>км/литр</displayName>
@@ -6259,11 +6265,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>миллибар</displayName>
 				<unitPattern count="one">{0} мбар</unitPattern>
 				<unitPattern count="other">{0} мбар</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>карат</displayName>
-				<unitPattern count="one">{0} кт</unitPattern>
-				<unitPattern count="other">{0} кт</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>км/саат</displayName>

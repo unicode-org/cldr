@@ -24,7 +24,6 @@ import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -56,7 +55,7 @@ public class JsonConverter {
         // LinkedHashMap<String, String> nonDistinguishing = new LinkedHashMap<String, String>();
         for (String locale : locales) {
             System.out.println("Converting:\t" + locale);
-            final CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
+            final CLDRFile file = cldrFactory.make(locale, false);
             Relation<String, String> element2Attributes = file.isNonInheriting() ? suppInfo : mainInfo;
             final Item main = new TableItem(null);
             DtdType dtdType = null;
@@ -91,7 +90,7 @@ public class JsonConverter {
                     }
                 }
             }
-            PrintWriter out = BagFormatter.openUTF8Writer(OUT_DIRECTORY + subdirectory, locale + ".json");
+            PrintWriter out = FileUtilities.openUTF8Writer(OUT_DIRECTORY + subdirectory, locale + ".json");
             main.print(out, 0);
             out.close();
         }

@@ -20,9 +20,9 @@ import java.util.TreeSet;
 
 import javax.swing.JApplet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRPaths;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
@@ -32,7 +32,6 @@ import com.ibm.icu.text.UnicodeSetIterator;
 
 public class GenerateApproximateWidths extends JApplet implements Runnable {
     private static final long serialVersionUID = 1L;
-    private static final boolean DEBUG = false;
 
     private static final int IMAGE_HEIGHT = 360;
     private static final int IMAGE_WIDTH = 640;
@@ -69,8 +68,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
 
     private void showWidths(Graphics2D g) {
         try {
-            PrintWriter out = BagFormatter
-                .openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "widths/", "ApproximateWidth.txt");
+            PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "widths/", "ApproximateWidth.txt");
             // TODO Auto-generated method stub
             UnicodeMap<Integer> map = new UnicodeMap<Integer>();
             Widths widths = new Widths(g, new Font("Serif", 0, 100), new Font("SansSerif", 0, 100));

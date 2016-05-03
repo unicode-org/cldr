@@ -58,6 +58,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -145,8 +146,16 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> modernLocales = testInfo.getStandardCodes()
             .getLocaleCoverageLocales(Organization.cldr,
                 EnumSet.of(Level.MODERN));
+        
+        Output<FixedDecimal> maxSample = new Output<FixedDecimal>();
+        Output<FixedDecimal> minSample = new Output<FixedDecimal>();
 
         for (String locale : localesToTest) {
+            final String templateLine = "Template for "  + ULocale.getDisplayName(locale, "en") + " (" + locale + ") translators to fix:";
+            PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
+            Set<Count> counts = pluralInfo.getCounts();
+
+            final SamplePatterns samplePatterns = prf.getSamplePatterns(new ULocale(locale));
 
             // check that there are no null values
             PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
@@ -155,19 +164,26 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     logln("Missing plural ranges for " + locale);
                 } else {
                     errOrLog(CoverageIssue.error, locale + "\tMissing plural ranges", "Cldrbug:7839", "Missing plural data for modern locales");
+                    StringBuilder failureCases = new StringBuilder(templateLine);
+                    for (Count start : counts) {
+                        for (Count end : counts) {
+                            pluralInfo.rangeExists(start, end, minSample, maxSample);
+                            final String rangeLine = getRangeLine(start, end, null, maxSample, minSample, samplePatterns);
+                            failureCases.append("\n" + locale + "\t" + rangeLine);
+                        }
+                    }
+                    errOrLog(CoverageIssue.warn, failureCases.toString());
                 }
                 continue;
             }
-            PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
-            Set<Count> counts = pluralInfo.getCounts();
             EnumSet<Count> found = EnumSet.noneOf(Count.class);
             for (Count count : Count.values()) {
                 if (pluralRanges.isExplicitlySet(count)
                     && !counts.contains(count)) {
                     assertTrue(
                         locale
-                            + "\t pluralRanges categories must be valid for locale:\t"
-                            + count + " must be in " + counts,
+                        + "\t pluralRanges categories must be valid for locale:\t"
+                        + count + " must be in " + counts,
                         !pluralRanges.isExplicitlySet(count));
                 }
                 for (Count end : Count.values()) {
@@ -182,18 +198,20 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (found.isEmpty()) {
                 errOrLog(CoverageIssue.error, "Empty range results for " + locale, "Cldrbug:7839", "Missing plural data for modern locales");
             } else {
-                final SamplePatterns samplePatterns = prf
-                    .getSamplePatterns(new ULocale(locale));
-                for (Count result : found) {
-                    String samplePattern = samplePatterns.get(
-                        PluralRules.PluralType.CARDINAL, result);
-                    if (samplePattern != null && !samplePattern.contains("{0}")) {
-                        errln("Plural Ranges cannot have results that don't use {0} in samples: "
-                            + locale
-                            + ", "
-                            + result
-                            + "\t«"
-                            + samplePattern + "»");
+                if (samplePatterns == null) {
+                    errOrLog(CoverageIssue.error, locale + "\tMissing sample patterns", "Cldrbug:7839", "Missing plural data for modern locales");
+                } else {
+                    for (Count result : found) {
+                        String samplePattern = samplePatterns.get(
+                            PluralRules.PluralType.CARDINAL, result);
+                        if (samplePattern != null && !samplePattern.contains("{0}")) {
+                            errln("Plural Ranges cannot have results that don't use {0} in samples: "
+                                + locale
+                                + ", "
+                                + result
+                                + "\t«"
+                                + samplePattern + "»");
+                        }
                     }
                 }
                 if (isVerbose()) {
@@ -202,27 +220,72 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
 
             // check for missing values
-            Output<FixedDecimal> maxSample = new Output<FixedDecimal>();
-            Output<FixedDecimal> minSample = new Output<FixedDecimal>();
+            boolean failure = false;
+            StringBuilder failureCases = new StringBuilder(templateLine);
             for (Count start : counts) {
                 for (Count end : counts) {
                     boolean needsValue = pluralInfo.rangeExists(start, end,
                         minSample, maxSample);
                     Count explicitValue = pluralRanges.getExplicit(start, end);
+                    final String rangeLine = getRangeLine(start, end, explicitValue, maxSample, minSample, samplePatterns);
+                    failureCases.append("\n" + locale + "\t" + rangeLine);
                     if (needsValue && explicitValue == null) {
-                        errOrLog(CoverageIssue.error, locale + "\tNeeds value, but has none: "
-                            + PluralRanges.showRange(start, end,
-                                Count.other) + ", eg: " + minSample
-                                + "–" + maxSample, "Cldrbug:7839", "Missing plural data for modern locales");
+                        errOrLog(CoverageIssue.error, locale + "\tNo explicit value for range: "
+                            + rangeLine, 
+                            "Cldrbug:7839", "Missing plural data for modern locales");
+                        failure = true;
+                        failureCases.append("\tError — need explicit result");
                     } else if (!needsValue && explicitValue != null) {
-                        errOrLog(CoverageIssue.error, locale + "\tDoesn't need value, but has one: "
-                            + PluralRanges.showRange(start, end,
-                                explicitValue), "Cldrbug:7839", "Missing plural data for modern locales");
+                        errOrLog(CoverageIssue.error, locale + "\tDoesn't need explicit value, but has one: "
+                            + PluralRanges.showRange(start, end, explicitValue), 
+                            "Cldrbug:7839", "Missing plural data for modern locales");
+                        failureCases.append("\tUnnecessary");
+                        failure = true;
+                    } else {
+                        failureCases.append("\tOK");
                     }
                 }
             }
+            if (failure) {
+                errOrLog(CoverageIssue.warn, failureCases.toString());
+            }
         }
     }
+
+    private String getRangeLine(Count start, Count end, Count result, 
+        Output<FixedDecimal> maxSample, Output<FixedDecimal> minSample, 
+        SamplePatterns samplePatterns) {
+        final String range = minSample + "–" + maxSample;
+        String example = range;
+        if (samplePatterns != null) {
+            example = "";
+            if (result != null) {
+                String pat = samplePatterns.get(PluralRules.PluralType.CARDINAL, result);
+                example += "«" + pat.replace("{0}", range) + "»";
+            } else {
+                for (Count c : new TreeSet<>(Arrays.asList(start, end, Count.other))){
+                    String pat = samplePatterns.get(PluralRules.PluralType.CARDINAL, c);
+                    example += c + ":«" + pat.replace("{0}", range) + "»" + "?\tOR ";
+                }
+                example += " …";
+            }
+        }
+        return start + "\t" + end + "\t" + (result == null ? "?" : result.toString()) + "\t" + example;
+    }
+    
+    private String getRangeLine(Count count, PluralRules pluralRules, String pattern) {
+        String sample = "?";
+        FixedDecimalSamples exampleList = pluralRules.getDecimalSamples(count.toString(), PluralRules.SampleType.INTEGER);
+        if (exampleList == null) {
+            exampleList = pluralRules.getDecimalSamples(count.toString(), PluralRules.SampleType.DECIMAL);
+        }
+        FixedDecimal sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList);
+        sample = sampleDecimal.toString();
+
+        String example = pattern == null ? "NO-SAMPLE!" : "«" + pattern.replace("{0}", sample) + "»";
+        return count + "\t" + example;
+    }
+
 
     public void TestPluralSamples() {
         String[][] test = { { "en", "ordinal", "1", "one" },
@@ -309,7 +372,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     }
                     assertFalse(
                         "Rule '" + rule + "' for " + Arrays.asList(locales)
-                            + " doesn't contain 'within'",
+                        + " doesn't contain 'within'",
                         rule.contains("within"));
                 }
             }
@@ -328,25 +391,25 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             { "en", "other", "4", "1000-9999, 1000.0, 1000.1, 1000.2, …" },
             { "hr", "one", "1", "1, 0.1, 2.10, 1.1, …" },
             { "hr", "one", "2",
-                "21, 31, 41, 51, 61, 71, …, 10.1, 12.10, 11.1, …" },
+            "21, 31, 41, 51, 61, 71, …, 10.1, 12.10, 11.1, …" },
             { "hr", "one", "3",
-                "101, 121, 131, 141, 151, 161, …, 100.1, 102.10, 101.1, …" },
+            "101, 121, 131, 141, 151, 161, …, 100.1, 102.10, 101.1, …" },
             { "hr", "one", "4",
-                "1001, 1021, 1031, 1041, 1051, 1061, …, 1000.1, 1002.10, 1001.1, …" },
+            "1001, 1021, 1031, 1041, 1051, 1061, …, 1000.1, 1002.10, 1001.1, …" },
             { "hr", "few", "1", "2-4, 0.2, 0.3, 0.4, …" },
             { "hr", "few", "2",
-                "22-24, 32-34, 42-44, …, 10.2, 10.3, 10.4, …" },
+            "22-24, 32-34, 42-44, …, 10.2, 10.3, 10.4, …" },
             { "hr", "few", "3",
-                "102-104, 122-124, 132-134, …, 100.2, 100.3, 100.4, …" },
+            "102-104, 122-124, 132-134, …, 100.2, 100.3, 100.4, …" },
             { "hr", "few", "4",
-                "1002-1004, 1022-1024, 1032-1034, …, 1000.2, 1000.3, 1000.4, …" },
+            "1002-1004, 1022-1024, 1032-1034, …, 1000.2, 1000.3, 1000.4, …" },
             { "hr", "other", "1", "0, 5-9, 0.0, 0.5, 0.6, …" },
             { "hr", "other", "2",
-                "10-20, 25-30, 35-40, …, 10.0, 10.5, 10.6, …" },
+            "10-20, 25-30, 35-40, …, 10.0, 10.5, 10.6, …" },
             { "hr", "other", "3",
-                "100, 105-120, 125-130, 135-140, …, 100.0, 100.5, 100.6, …" },
+            "100, 105-120, 125-130, 135-140, …, 100.0, 100.5, 100.6, …" },
             { "hr", "other", "4",
-                "1000, 1005-1020, 1025-1030, 1035-1040, …, 1000.0, 1000.5, 1000.6, …" }, };
+            "1000, 1005-1020, 1025-1030, 1035-1040, …, 1000.0, 1000.5, 1000.6, …" }, };
         for (String[] row : tests) {
             PluralInfo plurals = SUPPLEMENTAL.getPlurals(row[0]);
             SampleList uset = plurals.getSamples9999(Count.valueOf(row[1]),
@@ -444,7 +507,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             // v != 0 and f % 10 !=
             // 4,6,9
             { "dsb", "one", "0,00,000,0000" }, // v = 0 and i % 100 = 1 or f
-        // % 100 = 1
+            // % 100 = 1
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<PluralInfo, Relation<Count, Integer>>();
@@ -516,7 +579,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
         if (!ruleToExceptions.isEmpty()) {
             System.out
-                .println("To fix the above, review the following, then replace in TestDigitPluralCompleteness");
+            .println("To fix the above, review the following, then replace in TestDigitPluralCompleteness");
             for (Entry<String, String> entry : ruleToExceptions.entrySet()) {
                 System.out.println(entry.getValue() + "\t// " + entry.getKey());
             }
@@ -693,10 +756,15 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             regionsSoFar.add(region);
             PreferredAndAllowedHour preferredAndAllowedHour = e.getValue();
-            if (!preferredAndAllowedHour.allowed
-                .contains(preferredAndAllowedHour.preferred)) {
-                errln(region + ": " + preferredAndAllowedHour.allowed
-                    + "must contain" + preferredAndAllowedHour.preferred);
+            final HourStyle firstAllowed = preferredAndAllowedHour.allowed.iterator().next();
+            if (preferredAndAllowedHour.preferred == HourStyle.H && firstAllowed == HourStyle.h
+                || preferredAndAllowedHour.preferred == HourStyle.H && firstAllowed == HourStyle.hb
+                || preferredAndAllowedHour.preferred == HourStyle.h && firstAllowed == HourStyle.H) {
+                errln(region + ": allowed " + preferredAndAllowedHour.allowed
+                    + " starts with preferred " + preferredAndAllowedHour.preferred);
+            } else if (isVerbose()) {
+                logln(region + ": allowed " + preferredAndAllowedHour.allowed
+                    + " starts with preferred " + preferredAndAllowedHour.preferred);
             }
             // for (HourStyle c : preferredAndAllowedHour.allowed) {
             // if (!PreferredAndAllowedHour.HOURS.contains(c)) {
@@ -705,8 +773,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             // + " which is not in " + PreferredAndAllowedHour.HOURS);
             // }
             // }
-            if (preferredAndAllowedHour.allowed.size() == 1
-                && preferredAndAllowedHour.allowed.contains(HourStyle.H)) {
+            if (!preferredAndAllowedHour.allowed.contains(HourStyle.h)
+                && !preferredAndAllowedHour.allowed.contains(HourStyle.hb)) {
                 current24only.add(region);
             }
             if (preferredAndAllowedHour.preferred == HourStyle.h) {
@@ -725,7 +793,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // if we don't have 001, then we can't miss any regions
         if (!missing.isEmpty()) {
             if (haveWorld) {
-                logln("Missing regions: " + missing);
+                logln("Implicit regions: " + missing);
             } else {
                 errln("Missing regions: " + missing);
             }
@@ -737,6 +805,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             Arrays.asList(("sq, br, bu, ca, hr, cs, da, de, nl, et, eu, fi, "
                 + "fr, gl, he, is, id, it, nb, pt, ro, ru, sr, sk, sl, sv, tr, hy")
                 .split(",\\s*")));
+        // With the new preferences, this is changed 
         Set<String> only24region = new TreeSet<String>();
         Set<String> either24or12region = new TreeSet<String>();
 
@@ -1292,12 +1361,12 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     errln("Has 'new' in name but used since "
                         + CurrencyDateInfo.formatDate(currencyFirstValid
                             .get(currency)) + "\t" + currency + "\t"
-                        + name + "\t" + data);
+                            + name + "\t" + data);
                 } else {
                     logln("Has 'new' in name but used since "
                         + CurrencyDateInfo.formatDate(currencyFirstValid
                             .get(currency)) + "\t" + currency + "\t"
-                        + name + "\t" + data);
+                            + name + "\t" + data);
                 }
             }
         }
@@ -1311,17 +1380,17 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 logln("Has 'new' in name but NOT used since "
                     + CurrencyDateInfo.formatDate(currencyLastValid
                         .get(currency)) + "\t" + currency + "\t" + name
-                    + "\t" + nonModernCurrencyCodes.getAll(currency));
+                        + "\t" + nonModernCurrencyCodes.getAll(currency));
             } else if (!oldMatcher.reset(name).find()
                 && !OK_TO_NOT_HAVE_OLD.contains(currency)) {
                 logln("Doesn't have 'old' or date range in name but NOT used since "
                     + CurrencyDateInfo.formatDate(currencyLastValid
                         .get(currency))
-                    + "\t"
-                    + currency
-                    + "\t"
-                    + name
-                    + "\t" + nonModernCurrencyCodes.getAll(currency));
+                        + "\t"
+                        + currency
+                        + "\t"
+                        + name
+                        + "\t" + nonModernCurrencyCodes.getAll(currency));
                 for (Pair<String, CurrencyDateInfo> pair : nonModernCurrencyCodes
                     .getAll(currency)) {
                     final String territory = pair.getFirst();
@@ -1469,7 +1538,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // HashSet<ULocale>(overrideCardinals.keySet());
 
         Set<String> testLocales = STANDARD_CODES.getLocaleCoverageLocales(
-            Organization.cldr, EnumSet.of(Level.MODERN));
+            Organization.google, EnumSet.of(Level.MODERN));
         Set<String> allLocales = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : allLocales) {
@@ -1484,7 +1553,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             CoverageIssue needsCoverage = testLocales.contains(locale)
                 ? CoverageIssue.error
-                : CoverageIssue.log;
+                    : CoverageIssue.log;
+            CoverageIssue needsCoverage2 = needsCoverage == CoverageIssue.error ? CoverageIssue.warn : needsCoverage;
+            
 //            if (logKnownIssue("Cldrbug:8809", "Missing plural rules/samples be and ga locales")) {
 //                if (locale.equals("be") || locale.equals("ga")) {
 //                    needsCoverage = CoverageIssue.warn;
@@ -1513,9 +1584,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     new HashMap(), LinkedHashSet.class);
                 Set<Count> countsFound = prf.getSampleCounts(ulocale,
                     type.standardType);
+                StringBuilder failureCases = new StringBuilder();
                 for (Count count : counts) {
-                    String pattern = prf.getSamplePattern(ulocale,
-                        type.standardType, count);
+                    String pattern = prf.getSamplePattern(ulocale, type.standardType, count);
+                    final String rangeLine = getRangeLine(count, pluralInfo.getPluralRules(), pattern);
+                    failureCases.append('\n').append(locale).append('\t').append(type).append('\t').append(rangeLine);
                     if (countsFound == null || !countsFound.contains(count)) {
                         countsWithNoSamples.add(count);
                     } else {
@@ -1527,12 +1600,14 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 if (!countsWithNoSamples.isEmpty()) {
                     errOrLog(needsCoverage, ulocale + "\t" + type + "\t missing samples:\t" + countsWithNoSamples,
                         "cldrbug:7075", "Missing ordinal minimal pairs");
+                    errOrLog(needsCoverage2, failureCases.toString());
                 }
                 for (Entry<String, Set<Count>> entry : samplesToCounts
                     .keyValuesSet()) {
                     if (entry.getValue().size() != 1) {
                         errOrLog(needsCoverage, ulocale + "\t" + type + "\t duplicate samples: " + entry.getValue()
                             + " => «" + entry.getKey() + "»", "cldrbug:7119", "Some duplicate minimal pairs");
+                        errOrLog(needsCoverage2, failureCases.toString());
                     }
                 }
             }
@@ -1622,16 +1697,14 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void TestMetazones() {
         Date goalMin = new Date(70, 0, 1);
         Date goalMax = new Date(300, 0, 2);
+        ImmutableSet<String> knownTZWithoutMetazone = ImmutableSet.of("America/Montreal", "Asia/Barnaul");
         for (String timezoneRaw : TimeZone.getAvailableIDs()) {
             String timezone = TimeZone.getCanonicalID(timezoneRaw);
             String region = TimeZone.getRegion(timezone);
             if (!timezone.equals(timezoneRaw) || "001".equals(region)) {
                 continue;
             }
-            if (timezone.equals("America/Montreal")) {
-                // Montreal was deprecated. It's still 'available' in the tz
-                // database and ICU,
-                // but no mapping data in CLDR.
+            if (knownTZWithoutMetazone.contains(timezone)) {
                 continue;
             }
             final Set<MetaZoneRange> ranges = SUPPLEMENTAL

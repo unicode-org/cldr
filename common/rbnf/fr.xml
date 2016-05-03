@@ -215,23 +215,13 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
-            <ruleset type="dord-mascabbrev" access="private">
-                <rbnfrule value="0">e;</rbnfrule>
-                <rbnfrule value="1">er;</rbnfrule>
-                <rbnfrule value="2">e;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal-masculine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-mascabbrev=;</rbnfrule>
-            </ruleset>
-            <ruleset type="dord-femabbrev" access="private">
-                <rbnfrule value="0">e;</rbnfrule>
-                <rbnfrule value="1">re;</rbnfrule>
-                <rbnfrule value="2">e;</rbnfrule>
+                <rbnfrule value="0">=#,##0=$(ordinal,one{er}other{e})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-feminine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-femabbrev=;</rbnfrule>
+                <rbnfrule value="0">=#,##0=$(ordinal,one{re}other{e})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>

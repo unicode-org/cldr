@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -687,6 +688,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">古代ハンガリー文字</script>
 			<script type="Inds">インダス文字</script>
 			<script type="Ital">古イタリア文字</script>
+			<script type="Jamo" draft="contributed">字母</script>
 			<script type="Java">ジャワ文字</script>
 			<script type="Jpan">日本語の文字</script>
 			<script type="Jurc">女真文字</script>
@@ -1169,7 +1171,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">アクセント（逆方向）による並べ替え</key>
 			<key type="colCaseFirst" draft="contributed">大文字順/小文字順による並べ替え</key>
 			<key type="colCaseLevel" draft="contributed">大文字小文字を区別した並べ替え</key>
-			<key type="colHiraganaQuaternary" draft="contributed">仮名による並べ替え</key>
 			<key type="collation">並べ替え順序</key>
 			<key type="colNormalization">正規化による並べ替え</key>
 			<key type="colNumeric" draft="contributed">数値による並べ替え</key>
@@ -1181,7 +1182,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">数値書式</key>
 			<key type="timezone" draft="contributed">タイムゾーン</key>
 			<key type="va" draft="contributed">ロケールのバリアント</key>
-			<key type="variableTop" draft="contributed">記号として並べ替え</key>
 			<key type="x">私用</key>
 		</keys>
 		<types>
@@ -1212,8 +1212,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">大文字優先で並べ替え</type>
 			<type key="colCaseLevel" type="no" draft="contributed">大文字小文字を区別しないで並べ替え</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">大文字小文字を区別して並べ替え</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">仮名を区別しないで並べ替え</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">仮名を区別して並べ替え</type>
 			<type key="collation" type="big5han">繁体字中国語順(Big5)</type>
 			<type key="collation" type="dictionary">辞書順</type>
 			<type key="collation" type="ducet">ユニコード照合順</type>
@@ -1239,6 +1237,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">アクセント/大文字小文字/全角半角/仮名で並べ替え</type>
 			<type key="colStrength" type="secondary" draft="contributed">アクセントで並べ替え</type>
 			<type key="colStrength" type="tertiary" draft="contributed">アクセント/大文字小文字/全角半角で並べ替え</type>
+			<type key="d0" type="fwidth" draft="contributed">全角</type>
+			<type key="d0" type="hwidth" draft="contributed">半角</type>
+			<type key="d0" type="npinyin" draft="contributed">数字</type>
 			<type key="hc" type="h11">12時間制(0〜11)</type>
 			<type key="hc" type="h12">12時間制(1〜12)</type>
 			<type key="hc" type="h23">24時間制(0〜23)</type>
@@ -1246,6 +1247,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">禁則処理(弱)</type>
 			<type key="lb" type="normal">禁則処理(標準)</type>
 			<type key="lb" type="strict">禁則処理(強)</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">メートル法</type>
 			<type key="ms" type="uksystem">ヤード・ポンド法</type>
 			<type key="ms" type="ussystem">米慣習単位</type>
@@ -1311,18 +1314,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">従来の記数法</type>
 			<type key="numbers" type="vaii">ヴァイ文字の記数法</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">数字</transformName>
-			<transformName type="Tone" draft="contributed">声調</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">アクセント</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">全角</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">半角</transformName>
-			<transformName type="x-Jamo" draft="contributed">字母</transformName>
-			<transformName type="x-Pinyin" draft="contributed">ピンイン</transformName>
-			<transformName type="x-Publishing" draft="contributed">出版</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">メートル法</measurementSystemName>
 			<measurementSystemName type="UK">英ヤード・ポンド法</measurementSystemName>
@@ -4170,6 +4161,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>日</displayName>
 				<relative type="-2">一昨日</relative>
+				<relative type="-1">昨日</relative>
+				<relative type="0">今日</relative>
+				<relative type="1">明日</relative>
 				<relative type="2">明後日</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 日後</relativeTimePattern>
@@ -4181,6 +4175,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>日</displayName>
 				<relative type="-2">一昨日</relative>
+				<relative type="-1">昨日</relative>
+				<relative type="0">今日</relative>
+				<relative type="1">明日</relative>
 				<relative type="2">明後日</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} 日後</relativeTimePattern>
@@ -4394,6 +4391,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0}夏時間</regionFormat>
 			<regionFormat type="standard">{0}標準時</regionFormat>
 			<fallbackFormat>{1}（{0}）</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>サンタイサベル</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>地域不明</exemplarCity>
 			</zone>
@@ -5158,9 +5158,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>ティフアナ</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>サンタイサベル</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>エルモシヨ</exemplarCity>
@@ -8376,6 +8373,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 平方インチ</unitPattern>
 				<perUnitPattern>{0}/平方インチ</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>金</displayName>
+				<unitPattern count="other">{0} 金</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>リットル毎キロメートル</displayName>
 				<unitPattern count="other">{0} リットル毎キロメートル</unitPattern>
@@ -8712,10 +8713,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ミリバール</displayName>
 				<unitPattern count="other">{0} ミリバール</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>金</displayName>
-				<unitPattern count="other">{0} 金</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>キロメートル毎時</displayName>
 				<unitPattern count="other">時速 {0} キロメートル</unitPattern>
@@ -8925,6 +8922,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>平方インチ</displayName>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>金</displayName>
+				<unitPattern count="other">{0} 金</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -9262,10 +9263,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ミリバール</displayName>
 				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>金</displayName>
-				<unitPattern count="other">{0} 金</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="other">{0} km/h</unitPattern>
@@ -9453,6 +9450,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="area-square-inch">
 				<unitPattern count="other" draft="contributed">{0}in²</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<unitPattern count="other" draft="contributed">{0}K</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="other" draft="contributed">{0}L/km</unitPattern>
@@ -9708,9 +9708,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="other">{0}mb</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<unitPattern count="other" draft="contributed">{0}K</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

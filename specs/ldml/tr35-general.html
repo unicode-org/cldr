@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">29</td>
+				<td class="changed">30</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED --> 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -201,6 +201,7 @@ h2, h3, h4, table {
 		<h2>
 			<a name="Contents" href="#Contents">Contents of Part 2, General</a>
 		</h2>
+		<!-- START Generated TOC: CheckHtmlFiles -->
 		<ul class="toc">
 			<li>1 <a href="#Display_Name_Elements">Display Name Elements</a></li>
 			<li>2 <a href="#Layout_Elements">Layout Elements</a></li>
@@ -232,6 +233,8 @@ h2, h3, h4, table {
 					<li>6.2 <a href="#Unit_Sequences">Unit Sequences</a></li>
 					<li>6.3 <a href="#durationUnit">durationUnit</a></li>
 					<li>6.4 <a href="#coordinateUnit">coordinateUnit</a></li>
+					<li>6.5 <a href="#Territory_Based_Unit_Preferences">Territory-Based
+							Unit Preferences</a></li>
 				</ul>
 			</li>
 			<li>7 <a href="#POSIX_Elements">POSIX Elements</a></li>
@@ -246,7 +249,11 @@ h2, h3, h4, table {
 			</li>
 			<li>10 <a href="#Transforms">Transforms</a>
 				<ul class="toc">
-					<li>10.1 <a href="#Inheritance">Inheritance</a></li>
+					<li>10.1 <a href="#Inheritance">Inheritance</a>
+						<ul class="toc">
+							<li>10.1.1 <a href="#Pivots">Pivots</a></li>
+						</ul>
+					</li>
 					<li>10.2 <a href="#Variants">Variants</a></li>
 					<li>10.3 <a href="#Transform_Rules_Syntax">Transform Rules
 							Syntax</a>
@@ -285,16 +292,15 @@ h2, h3, h4, table {
 			<li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
 			<li>14 <a href="#Annotations">Annotations</a></li>
 		</ul>
+		<!-- END Generated TOC: CheckHtmlFiles -->
 		<h2>
 			1 <a name="Display_Name_Elements" href="#Display_Name_Elements">Display
 				Name Elements</a>
 		</h2>
-		<p class="dtd">
-			&lt;!ELEMENT localeDisplayNames ( alias
-				| ( localeDisplayPattern?, languages?, scripts?, territories?,
-				subdivisions?, variants?, keys?, types?, transformNames?,
-				measurementSystemNames?, codePatterns?, special* ) )&gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT localeDisplayNames ( alias | (
+			localeDisplayPattern?, languages?, scripts?, territories?,
+			subdivisions?, variants?, keys?, types?, transformNames?,
+			measurementSystemNames?, codePatterns?, special* ) )&gt;</p>
 		<p>
 			Display names for scripts, languages, countries, currencies, and
 			variants in this locale are supplied by this element. They supply
@@ -391,7 +397,12 @@ h2, h3, h4, table {
 					style="color: blue">Albanian</span>&lt;/language&gt;
 </pre>
 		</blockquote>
-
+		<p>There should be no expectation that the list of
+			languages with translated names be complete: there are thousands of
+			languages that could have translated names. For debugging purposes or
+			comparison, when a language display name is missing, the Description
+			field of the language subtag registry can be used to supply a
+			fallback English user-readable name.</p>
 		<p>The type can actually be any locale ID as specified above. The
 			set of which locale IDs is not fixed, and depends on the locale. For
 			example, in one language one could translate the following locale
@@ -616,13 +627,12 @@ h2, h3, h4, table {
 </pre>
 		</blockquote>
 		<p class="dtd">
-			&lt;!ELEMENT subdivisions ( alias | (
-				subdivision | special )* ) &gt;<br> &lt;!ELEMENT subdivision (
-				#PCDATA )&gt;
+			&lt;!ELEMENT subdivisions ( alias | ( subdivision | special )* ) &gt;<br>
+			&lt;!ELEMENT subdivision ( #PCDATA )&gt;
 		</p>
-		<p>Note that the subdivision names are in separate
-			files, in the subdivisions/ directory. The type values are the fully
-			qualified subdivsion names. For example:</p>
+		<p>Note that the subdivision names are in separate files, in the
+			subdivisions/ directory. The type values are the fully qualified
+			subdivsion names. For example:</p>
 		<p class="xmlExample">
 			&lt;subdivision type=&quot;AL-04&quot;&gt;Fier
 			County&lt;/subdivision&gt;<br> &lt;subdivision
@@ -1052,28 +1062,32 @@ h2, h3, h4, table {
 		<h3>
 			3.2 <a name="Character_Mapping" href="#Character_Mapping">Mapping</a>
 		</h3>
-		
-		<p><b>This element has been deprecated.</b> For information
-			on its structure and how it was intended to specify locale-specific
+
+		<p>
+			<b>This element has been deprecated.</b> For information on its
+			structure and how it was intended to specify locale-specific
 			preferred encodings for various purposes (e-mail, web), see the <a
 				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#Character_Mapping">Mapping</a>
-			section from the CLDR 27 version of the LDML Specification.</p>
+			section from the CLDR 27 version of the LDML Specification.
+		</p>
 
 
 		<h3>
 			3.3 <a name="IndexLabels" href="#IndexLabels">Index Labels</a>
 		</h3>
 
-		<p><b>This element and its subelements have been
-			deprecated.</b> For information on its structure and how it was intended
-			to provide data for a compressed display of index exemplar characters
-			where space is limited, see the <a
+		<p>
+			<b>This element and its subelements have been deprecated.</b> For
+			information on its structure and how it was intended to provide data
+			for a compressed display of index exemplar characters where space is
+			limited, see the <a
 				href="http://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#IndexLabels">Index
-			Labels</a> section from the CLDR 27 version of the LDML Specification.</p>
+				Labels</a> section from the CLDR 27 version of the LDML Specification.
+		</p>
 
 		<p class="dtd">&lt;!ELEMENT indexLabels (indexSeparator*,
 			compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*,
-			indexLabelAfter*, indexLabel*) &gt; </p>
+			indexLabelAfter*, indexLabel*) &gt;</p>
 
 
 		<h3>
@@ -1260,30 +1274,25 @@ h2, h3, h4, table {
 
 		<p class="dtd">
 			&lt;!ELEMENT units (alias | (unit*, unitLength*, durationUnit*,
-			special*) ) &gt;<br>
-			<br> &lt;!ELEMENT unitLength (alias | (compoundUnit*, unit*, coordinateUnit*, special*) ) &gt;<br>
-			&lt;!ATTLIST unitLength type (long | short | narrow) #REQUIRED &gt;
-			<br>
+			special*) ) &gt;<br> <br> &lt;!ELEMENT unitLength (alias |
+			(compoundUnit*, unit*, coordinateUnit*, special*) ) &gt;<br>
+			&lt;!ATTLIST unitLength type (long | short | narrow) #REQUIRED &gt; <br>
 			<br> &lt;!ELEMENT compoundUnit (alias | (compoundUnitPattern*,
 			special*) ) &gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN
-			#REQUIRED &gt; <br>
-			<br> &lt;!ELEMENT unit (alias | (displayName*, unitPattern*,
-			perUnitPattern*, special*) ) &gt;<br> &lt;!ATTLIST unit type
-			NMTOKEN #REQUIRED &gt; <br>
-			<br> &lt;!ELEMENT durationUnit (alias | (durationUnitPattern*,
-			special*) ) &gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN
-			#REQUIRED &gt; <br>
+			#REQUIRED &gt; <br> <br> &lt;!ELEMENT unit (alias |
+			(displayName*, unitPattern*, perUnitPattern*, special*) ) &gt;<br>
+			&lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt; <br> <br>
+			&lt;!ELEMENT durationUnit (alias | (durationUnitPattern*, special*) )
+			&gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN #REQUIRED &gt; <br>
 			<br> &lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br>
 			&lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many
-			| other) #REQUIRED &gt; <br>
-			<br> &lt;!ELEMENT compoundUnitPattern ( #PCDATA ) &gt;<br>
-			<br> &lt;!ELEMENT coordinateUnit (
-				alias | ( coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
-				coordinateUnitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
-				coordinateUnitPattern type (north | east | south | west) #REQUIRED
-				&gt;
-			<br>
-			<br> &lt;!ELEMENT durationUnitPattern ( #PCDATA ) &gt;<br>
+			| other) #REQUIRED &gt; <br> <br> &lt;!ELEMENT
+			compoundUnitPattern ( #PCDATA ) &gt;<br> <br> &lt;!ELEMENT
+			coordinateUnit ( alias | ( coordinateUnitPattern*, special* ) ) &gt;<br>&lt;!ELEMENT
+			coordinateUnitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			coordinateUnitPattern type (north | east | south | west) #REQUIRED
+			&gt; <br> <br> &lt;!ELEMENT durationUnitPattern ( #PCDATA )
+			&gt;<br>
 		</p>
 
 		<p>These elements specify the localized way of formatting
@@ -1331,10 +1340,10 @@ h2, h3, h4, table {
 			type=&quot;acceleration-g-force&quot;&gt;</p>
 		<p>​</p>
 		<p>
-			Examples of these include the following.
-				The complete list is in the validity data: see <em>Section <a
-					href="tr35.html#Validity_Data">3.11 Validity Data</a></em>.
-			</p>
+			Examples of these include the following. The complete list is in the
+			validity data: see <em>Section <a href="tr35.html#Validity_Data">3.11
+					Validity Data</a></em>.
+		</p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -1422,6 +1431,26 @@ h2, h3, h4, table {
 				<td>{0} in²</td>
 			</tr>
 			<tr>
+				<td><em>concentr</em></td>
+				<td>karat</td>
+				<td>{0} kt</td>
+			</tr>
+			<tr>
+				<td><em>concentr</em></td>
+				<td>milligram-per-deciliter</td>
+				<td>{0} mg/dL</td>
+			</tr>
+			<tr>
+				<td><em>concentr</em></td>
+				<td>millimole-per-liter</td>
+				<td>{0} mmol/L</td>
+			</tr>
+			<tr>
+				<td><em>concentr</em></td>
+				<td>part-per-million</td>
+				<td>{0} ppm</td>
+			</tr>
+			<tr>
 				<td><em>consumption</em></td>
 				<td>liter-per-kilometer</td>
 				<td>{0} L/km</td>
@@ -1433,8 +1462,13 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>consumption</em></td>
-				<td>mile-per-gallon</td>
+				<td>mile-per-gallon (US)</td>
 				<td>{0} mpg</td>
+			</tr>
+			<tr>
+				<td><em>consumption</em></td>
+				<td>mile-per-gallon-imperial</td>
+				<td>{0} mpg Imp.</td>
 			</tr>
 			<tr>
 				<td><em>digital</em></td>
@@ -1842,11 +1876,6 @@ h2, h3, h4, table {
 				<td>{0} mbar</td>
 			</tr>
 			<tr>
-				<td><em>proportion</em></td>
-				<td>karat</td>
-				<td>{0} kt</td>
-			</tr>
-			<tr>
 				<td><em>speed</em></td>
 				<td>kilometer-per-hour</td>
 				<td>{0} km/h</td>
@@ -1973,8 +2002,13 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
-				<td>gallon</td>
+				<td>gallon (US)</td>
 				<td>{0} gal</td>
+			</tr>
+			<tr>
+				<td><em>volume</em></td>
+				<td>gallon-imperial</td>
+				<td>{0} gal Imp.</td>
 			</tr>
 			<tr>
 				<td><em>volume</em></td>
@@ -2033,10 +2067,10 @@ h2, h3, h4, table {
 			clear from context whether Celcius or Fahrenheit is implied.</p>
 		<p>For duration, there are special units such as &lt;unit
 			type=&quot;duration-year-person&quot;&gt; and &lt;unit
-			type=&quot;duration-year-week&quot;&gt; for indicating the age of a person,
-			which requires special forms in some languages. For example, in "zh",
-			references to a person being 3 days old or 30 years old would use the forms
-			“他3天大” and “他30岁” respectively.</p>
+			type=&quot;duration-year-week&quot;&gt; for indicating the age of a
+			person, which requires special forms in some languages. For example,
+			in "zh", references to a person being 3 days old or 30 years old
+			would use the forms “他3天大” and “他30岁” respectively.</p>
 		<h3>
 			6.1 <a name="perUnitPatterns" href="#perUnitPatterns">per Unit
 				patterns</a><a name="compoundUnitPattern" href="#compoundUnitPattern"></a>
@@ -2143,14 +2177,38 @@ h2, h3, h4, table {
 		</p>
 		<p class="xmlExample">
 			&lt;coordinateUnitPattern
-				type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
-				&lt;coordinateUnitPattern
-				type=&quot;north&quot;&gt;{0}N&lt;/coordinateUnitPattern&gt;<br>
-				&lt;coordinateUnitPattern
-				type=&quot;south&quot;&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
-				&lt;coordinateUnitPattern
-				type=&quot;west&quot;&gt;{0}W&lt;/coordinateUnitPattern&gt;
-			</p>
+			type=&quot;east&quot;&gt;{0}E&lt;/coordinateUnitPattern&gt;<br>
+			&lt;coordinateUnitPattern
+			type=&quot;north&quot;&gt;{0}N&lt;/coordinateUnitPattern&gt;<br>
+			&lt;coordinateUnitPattern
+			type=&quot;south&quot;&gt;{0}S&lt;/coordinateUnitPattern&gt;<br>
+			&lt;coordinateUnitPattern
+			type=&quot;west&quot;&gt;{0}W&lt;/coordinateUnitPattern&gt;
+		</p>
+
+		<h3>
+			6.5 <a name="Territory_Based_Unit_Preferences"
+				href="#Territory_Based_Unit_Preferences">Territory-Based Unit
+				Preferences</a>
+		</h3>
+		<p>Different locales have different preferences
+			for which unit or combination of units is used for a particular
+			usage, such as measuring a person’s height. This is more fine-grained
+			than merely a preference for metric versus US or UK measurement
+			systems. For example, one locale may use meters alone, while another
+			may use centimeters alone or a combination of meters and centimeters;
+			a third may use inches alone, or (informally) a combination of feet
+			and inches.</p>
+		<p>
+			The &lt;unitPreferenceData&gt; element, described in <a
+				href="tr35-info.html#Preferred_Units_For_Usage">Preferred Units
+				for Specific Usages</a>, provides information on which unit or
+			combination of units is used for various purposes in different
+			locales, with options for the level of formality and the scale of the
+			measurement (e.g measuring the height of an adult versus that of an
+			infant).
+		</p>
+
 		<h2>
 			7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
 		</h2>
@@ -2525,7 +2583,75 @@ h2, h3, h4, table {
 				"und_Latn-und_Grek" (or the equivalent "Latin-Greek"), the
 				translated name for Greek would be Λατινικό-Ελληνικό.</li>
 		</ul>
-
+		<p>In version 29.0, BCP47 identifiers were added
+			as aliases (while retaining the old identifiers). The following table
+			shows the relationship between the old identifiers and the BCP47
+			format identifiers.</p>
+		<table class='simple'>
+			<tbody>
+				<tr>
+					<th>Old ID</th>
+					<th>BCP47 ID</th>
+					<th>Comments</th>
+				</tr>
+				<tr>
+					<td><strong>es_FONIPA</strong>-es_419_FONIPA</td>
+					<td>es-419-fonipa-t-<strong>es-fonipa</strong></td>
+					<td rowspan="2">The order reverses with -t-. That is, the
+						language subtag part is what results.</td>
+				</tr>
+				<tr>
+					<td><strong>hy_AREVMDA</strong>-hy_AREVMDA_FONIPA</td>
+					<td>hy-arevmda-fonipa-t-<strong>hy-arevmda</strong></td>
+				</tr>
+				<tr>
+					<td><strong>Devanagari</strong>-Latin</td>
+					<td>und-Latn-t-<strong>und-deva</strong></td>
+					<td rowspan="2">Scripts add <strong>und-</strong></td>
+				</tr>
+				<tr>
+					<td><strong>Latin</strong>-Devanagari</td>
+					<td>und-Deva-t-<strong>und-latn</strong></td>
+				</tr>
+				<tr>
+					<td>Greek-Latin/UNGEGN</td>
+					<td>und-Latn-t-und-grek-<strong>m0-ungegn</strong></td>
+					<td>Variants use the <strong>-m0-</strong> key.
+					</td>
+				</tr>
+				<tr>
+					<td>Russian-Latin/BGN</td>
+					<td>ru<strong>-Latn</strong>-t-ru-m0-bgn
+					</td>
+					<td>Languages will have a script when it isn’t the default.</td>
+				</tr>
+				<tr>
+					<td>Any-Hex/xml</td>
+					<td>und-t-<strong>d0-hex</strong>-m0-xml
+					</td>
+					<td rowspan="2"><strong>Any</strong> becomes <strong>und</strong>,
+						and keys <strong>d0</strong> (destination) and <strong>s0</strong>
+						(source) are used for non-locales.</td>
+				</tr>
+				<tr>
+					<td>Hex-Any/xml</td>
+					<td>und-t-<strong>s0-hex</strong>-m0-xml
+					</td>
+				</tr>
+				<tr>
+					<td>Any-<strong>Publishing</strong></td>
+					<td>und-t-d0-<strong>publish</strong></td>
+					<td rowspan="2">Non-locales are normally the lowercases of the
+						old ID, but may change because of BCP47 length restrictions.</td>
+				</tr>
+				<tr>
+					<td><strong>Publishing</strong>-Any</td>
+					<td>und-t-s0-<strong>publish</strong></td>
+				</tr>
+			</tbody>
+		</table>
+		<p>Note that the script and region codes are cased
+			iff they are in the main subtag, but are lowercase in extensions.</p>
 		<h3>
 			10.1 <a name="Inheritance" href="#Inheritance">Inheritance</a>
 		</h3>
@@ -2728,7 +2854,46 @@ h2, h3, h4, table {
 				</tr>
 			</table>
 		</div>
-
+		<p>Japanese and Korean are special, since they can
+			be represented by combined script codes, such as ja_Jpan, ja_Hrkt,
+			ja_Hira, or ja_Kana. These need to be considered in the above
+			fallback chain as well.</p>
+		<h4>
+			10.1.1 <a name="Pivots" href="#Pivots">Pivots</a>
+		</h4>
+		<p>
+			Transforms can also use <i>pivots</i>. These are used when there is
+			no direct transform between a source and target, but there are
+			transforms X-Y and Y-Z. In such a case, the transforms can be
+			internally chained to get X-Y = X-Y;Y-Z. This is done explicitly with
+			the Indic script transforms: to get Devanagari-Latin, internally it
+			is done by transforming first from Devanagari to Interindic (an
+			internal superset encoding for Indic scripts), then from Interindic
+			to Latin. This allows there to be only N sets of transform rules for
+			the Indic scripts: each one to and from Interindic. These pivots are
+			explicitly represented in the CLDR transforms.
+		</p>
+		<p>
+			The pivots can also be produced automatically (implicitly), as a
+			fallback. A particularly useful pivot is IPA, since that tends to
+			preserve pronunciation. For example, <em>Czech to IPA</em> can be
+			chained with <em>IPA to Katakana</em> to get <em>Czech to
+				Katakana</em>.
+		</p>
+		<p>CLDR often has special forms of IPA: not just
+			&quot;und-FONIPA&quot; but &quot;cs-FONIPA&quot;: specifically IPA
+			that has come from Czech. These variants typically preserve some
+			features of the source language — such as double consonants — that
+			are indistinguishable from single consonants in that language, but
+			that are often preserved in traditional transliterations. Thus when
+			matching prospective pivots, FONIPA is treated specially. If there is
+			an exact match, that match is used (such as cs-cs_FONIPA +
+			cs_FONIPA-ko). Otherwise, the language is ignored, as for example in
+			cs-cs_FONIPA + ru_FONIPA-ko.</p>
+		<p>The interaction of implicit pivots and
+			inheritance may result in a longer inheritance chain lookup than
+			desired, so implementers may consider having some sort of caching
+			mechanism to increase performance.</p>
 		<h3>
 			10.2 <a name="Variants" href="#Variants">Variants</a>
 		</h3>
@@ -2795,24 +2960,59 @@ h2, h3, h4, table {
 			source CDATA #IMPLIED &gt;<br> &lt;!ATTLIST transform target
 			CDATA #IMPLIED &gt;<br> &lt;!ATTLIST transform variant CDATA
 			#IMPLIED &gt;<br> &lt;!ATTLIST transform direction ( forward |
-			backward | both ) "both" &gt;<br> &lt;!ATTLIST transform
-			visibility ( internal | external ) "external" &gt;<br>
+			backward | both ) "both" &gt;<br> &lt;!ATTLIST
+				transform alias CDATA #IMPLIED &gt; <br>   &lt;!--@VALUE--&gt;
+				<br> &lt;!ATTLIST transform backwardAlias CDATA #IMPLIED &gt; <br>
+				  &lt;!--@VALUE--&gt;
+			<br> &lt;!ATTLIST transform visibility ( internal | external )
+			"external" &gt;<br> &lt;!ELEMENT comment (#PCDATA) &gt;<br>
+			&lt;!ELEMENT tRule (#PCDATA) &gt;
 		</p>
-
-		<p class="dtd">
-			&lt;!ELEMENT comment (#PCDATA) &gt;<br> &lt;!ELEMENT tRule
-			(#PCDATA) &gt;
+		<p>
+			The transform attributes indicate the <strong>source</strong>, <strong>target</strong>,
+			<strong>direction</strong>, and <strong>alias</strong>es. For
+			example:
 		</p>
-
+		<p class='example'>
+			&lt;transform<br>   source=&quot;ja_Hrkt&quot;<br>  
+			target=&quot;ja_Latn&quot;<br>   variant=&quot;BGN&quot;<br>
+			  direction=&quot;forward&quot;<br>  
+			draft=&quot;provisional&quot;<br>  
+			alias=&quot;Katakana-Latin/BGN ja-Latn-t-ja-hrkt-m0-bgn&quot;&gt;
+		</p>
+		<p>
+			The direction is either <strong>forward</strong> or <strong>both</strong>
+			(<strong>backward</strong> is possible in theory, but not used). This
+			indicates which directions the rules support.
+		</p>
+		<p>
+			If the direction is <strong>forward</strong>, then an ID is composed
+			from <strong>target + &quot;-&quot; + source + &quot;/&quot;
+				+ variant</strong>. If the direction is <strong>both</strong>, then the
+			inverse ID is also value: <strong>source + &quot;-&quot; +
+				target + &quot;/&quot; + variant</strong>. The <strong>alias</strong>
+			attribute contains a space-delimited list of alternant forward IDs,
+			while the <strong>backwardAlias</strong> contains a space-delimited
+			list of alternant backward IDs. The BCP47 versions of the IDs will be
+			in the <strong>alias</strong> and/or <strong>backwardAlias</strong>
+			attributes.
+		</p>
+		<p>
+			The <strong>visibility</strong> attribute indicates whether the IDs
+			should be externally visible, or whether they are only used
+			internally.
+		</p>
+		<p>In previous versions, the rules were expressed
+			as fine-grained XML. That was discarded in CLDR version 29, in favor
+			of a simpler format where the separate rules are simply terminated
+			with &quot;;&quot;.</p>
 		<p>
 			The transform rules are similar to regular-expression substitutions,
 			but adapted to the specific domain of text transformations. The rules
 			and comments in this discussion will be intermixed, with # marking
-			the comments. In the xml format these in separate elements: <span
-				class="element">comment</span> and <span class="element">tRule</span>.
-			The simplest rule is a conversion rule, which replaces one string of
-			characters with another. The conversion rule takes the following
-			form:
+			the comments. The simplest rule is a
+			conversion rule, which replaces one string of characters with
+			another. The conversion rule takes the following form:
 		</p>
 
 		<table cellspacing="0" cellpadding="8" border="1">
@@ -3554,10 +3754,10 @@ h2, h3, h4, table {
       &lt;personList type="neutral" locales="af da en..."/&gt;
 
       &lt;!-- mixedNeutral: gender(all male) = male, gender(all female) = female, otherwise gender(list) = other --&gt;
-      &lt;personList type="mixedNeutral" locales="el"/&gt; 
+      &lt;personList type="mixedNeutral" locales="el"/&gt;
 
       &lt;!-- maleTaints: gender(all female) = female, otherwise gender(list) = male --&gt;
-      &lt;personList type="maleTaints" locales="ar ca..."/&gt; 
+      &lt;personList type="maleTaints" locales="ar ca..."/&gt;
     &lt;/gender&gt;
   &lt;/supplementalData&gt;</pre>
 
@@ -3910,13 +4110,14 @@ h2, h3, h4, table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–201<span class="changed">5</span> Unicode, Inc. All Rights Reserved. The Unicode
-			Consortium makes no expressed or implied warranty of any kind, and
-			assumes no liability for errors or omissions. No liability is assumed
-			for incidental and consequential damages in connection with or
-			arising out of the use of the information or programs contained or
-			accompanying this technical report. The Unicode <a
-				href="http://unicode.org/copyright.html">Terms of Use</a> apply.
+			Copyright © 2001–2016 Unicode, Inc. All
+			Rights Reserved. The Unicode Consortium makes no expressed or implied
+			warranty of any kind, and assumes no liability for errors or
+			omissions. No liability is assumed for incidental and consequential
+			damages in connection with or arising out of the use of the
+			information or programs contained or accompanying this technical
+			report. The Unicode <a href="http://unicode.org/copyright.html">Terms
+				of Use</a> apply.
 		</p>
 		<p class="copyright">Unicode and the Unicode logo are trademarks
 			of Unicode, Inc., and are registered in some jurisdictions.</p>

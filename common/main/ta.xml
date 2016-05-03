@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -572,6 +573,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">பழைய ஹங்கேரியன்</script>
 			<script type="Inds">சிந்து</script>
 			<script type="Ital">பழைய இத்தாலி</script>
+			<script type="Jamo">ஜமோ</script>
 			<script type="Java">ஜாவனீஸ்</script>
 			<script type="Jpan">ஜப்பானியம்</script>
 			<script type="Kali">கயாஹ் லீ</script>
@@ -798,7 +800,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="HT">ஹைட்டி</territory>
 			<territory type="HU">ஹங்கேரி</territory>
 			<territory type="IC">கேனரி தீவுகள்</territory>
-			<territory type="ID">இந்தோனேஷியா</territory>
+			<territory type="ID">இந்தோனேசியா</territory>
 			<territory type="IE">அயர்லாந்து</territory>
 			<territory type="IL">இஸ்ரேல்</territory>
 			<territory type="IM">ஐல் ஆஃப் மேன்</territory>
@@ -967,7 +969,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">நேர்மறையான உச்சரிப்பு வரிசைபடுத்துதல்</key>
 			<key type="colCaseFirst">பெரெழுத்து/சிற்றெழுத்து வரிசைமுறை</key>
 			<key type="colCaseLevel">எழுத்து உணர்ந்து வரிசைபடுத்துதல்</key>
-			<key type="colHiraganaQuaternary">கானா வரிசைபடுத்துதல்</key>
 			<key type="collation">வரிசை முறை</key>
 			<key type="colNormalization">இயல்பாக்கப்பட்ட வரிசைபடுத்துதல்</key>
 			<key type="colNumeric">எண்முறை வரிசைபடுத்துதல்</key>
@@ -979,7 +980,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">எண்கள்</key>
 			<key type="timezone">நேர மண்டலம்</key>
 			<key type="va">மொழி மாறிலி</key>
-			<key type="variableTop">சின்னங்களாக வரிசைப்படுத்து</key>
 			<key type="x">தனிப்பட்ட பயன்</key>
 		</keys>
 		<types>
@@ -1007,8 +1007,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">முதலில் பேரெழுத்துகளை வரிசைப்படுத்து</type>
 			<type key="colCaseLevel" type="no">எழுத்து உணர்வின்றி வரிசைபடுத்து</type>
 			<type key="colCaseLevel" type="yes">எழுத்து உணர்வில் வரிசைபடுத்து</type>
-			<type key="colHiraganaQuaternary" type="no">கானாவை தனியாக வரிசைப்படுத்து</type>
-			<type key="colHiraganaQuaternary" type="yes">கானாவை வேறுபட்டதாக வரிசைப்படுத்து</type>
 			<type key="collation" type="big5han">பாரம்பரிய சீன வரிசை வடிவம் - Big5</type>
 			<type key="collation" type="dictionary">அகராதி வரிசை முறை</type>
 			<type key="collation" type="ducet">இயல்புநிலை யுனிகோட் வரிசை முறை</type>
@@ -1032,6 +1030,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">உச்சரிப்புகள்/எழுத்து/அகலம்/கானாவை வரிசைப்படுத்து</type>
 			<type key="colStrength" type="secondary">உச்சரிப்புகளை வரிசைபடுத்து</type>
 			<type key="colStrength" type="tertiary">உச்சரிப்புகள்/எழுத்து/அகலத்தை வரிசைப்படுத்து</type>
+			<type key="d0" type="fwidth">முழு அகலம்</type>
+			<type key="d0" type="hwidth">அரை அகலம்</type>
+			<type key="d0" type="npinyin">எண்</type>
 			<type key="hc" type="h11">12 மணிநேர முறைமை (0–11)</type>
 			<type key="hc" type="h12">12 மணிநேர முறைமை (1–12)</type>
 			<type key="hc" type="h23">24 மணிநேர முறைமை (0–23)</type>
@@ -1039,6 +1040,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">தளர்வான வரி முறிப்பு ஸ்டைல்</type>
 			<type key="lb" type="normal">சாதாரண வரி முறிப்பு ஸ்டைல்</type>
 			<type key="lb" type="strict">கண்டிப்பான வரி முறிப்பு ஸ்டைல்</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">மெட்ரிக் முறை</type>
 			<type key="ms" type="uksystem">இம்பீரியல் அளவிடும் முறை</type>
 			<type key="ms" type="ussystem">அமெரிக்க அளவிடும் முறை</type>
@@ -1083,18 +1086,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">பாரம்பரிய எண்கள்</type>
 			<type key="numbers" type="vaii">வை எண்கள்</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">எண்</transformName>
-			<transformName type="Tone">டோன்</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">ஒலிப்புகள்</transformName>
-			<transformName type="x-Fullwidth">முழு அகலம்</transformName>
-			<transformName type="x-Halfwidth">அரை அகலம்</transformName>
-			<transformName type="x-Jamo">ஜமோ</transformName>
-			<transformName type="x-Pinyin">பின்யின்</transformName>
-			<transformName type="x-Publishing">வெளியிடுகிறது</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">மெட்ரிக்</measurementSystemName>
 			<measurementSystemName type="UK">யூகே</measurementSystemName>
@@ -2127,6 +2118,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>நாள்</displayName>
 				<relative type="-2">நேற்று முன் தினம்</relative>
+				<relative type="-1">நேற்று</relative>
+				<relative type="0">இன்று</relative>
+				<relative type="1">நாளை</relative>
 				<relative type="2">நாளை மறுநாள்</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} நாளில்</relativeTimePattern>
@@ -2140,6 +2134,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>நா.</displayName>
 				<relative type="-2">நேற்று முன் தினம்</relative>
+				<relative type="-1">நேற்று</relative>
+				<relative type="0">இன்று</relative>
+				<relative type="1">நாளை</relative>
 				<relative type="2">நாளை மறுநாள்</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} நா.</relativeTimePattern>
@@ -2373,6 +2370,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} பகலொளி நேரம்</regionFormat>
 			<regionFormat type="standard">{0} நிலையான நேரம்</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>சான்டா இசபெல்</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>தெரியாத நகரம்</exemplarCity>
 			</zone>
@@ -3137,9 +3137,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>டிஜுவானா</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>சான்டா இசபெல்</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>ஹெர்மோசிலோ</exemplarCity>
@@ -4092,17 +4089,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<standard>மத்திய இந்தோனேஷிய நேரம்</standard>
+					<standard>மத்திய இந்தோனேசியா நேரம்</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<standard>கிழக்கத்திய இந்தோனேஷிய நேரம்</standard>
+					<standard>கிழக்கத்திய இந்தோனேசியா நேரம்</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<standard>மேற்கத்திய இந்தோனேஷியா நேரம்</standard>
+					<standard>மேற்கத்திய இந்தோனேசியா நேரம்</standard>
 				</long>
 			</metazone>
 			<metazone type="Iran">
@@ -5861,6 +5858,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} சதுர அங்குலங்கள்</unitPattern>
 				<perUnitPattern>{0}/சதுர அங்குலம்</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>காரட்கள்</displayName>
+				<unitPattern count="one">{0} காரட்</unitPattern>
+				<unitPattern count="other">{0} காரட்கள்</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>லிட்டர்கள்/கிலோமீட்டர்</displayName>
 				<unitPattern count="one">{0} லிட்டர்/கிலோமீட்டர்</unitPattern>
@@ -6262,11 +6264,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} மில்லிபார்</unitPattern>
 				<unitPattern count="other">{0} மில்லிபார்கள்</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>காரட்கள்</displayName>
-				<unitPattern count="one">{0} காரட்</unitPattern>
-				<unitPattern count="other">{0} காரட்கள்</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>கிலோமீட்டர்கள்/மணிநேரம்</displayName>
 				<unitPattern count="one">{0} கிலோமீட்டர்/மணிநேரம்</unitPattern>
@@ -6519,6 +6516,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} அங்.²</unitPattern>
 				<unitPattern count="other">{0} அங்.²</unitPattern>
 				<perUnitPattern>{0}/அங்.²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>காரட்கள்</displayName>
+				<unitPattern count="one">{0} கார.</unitPattern>
+				<unitPattern count="other">{0} கார.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>லி./கி.மீ.</displayName>
@@ -6920,11 +6922,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>மில்லிபார்</displayName>
 				<unitPattern count="one">{0} மி.பா.</unitPattern>
 				<unitPattern count="other">{0} மி.பா.</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>காரட்கள்</displayName>
-				<unitPattern count="one">{0} கார.</unitPattern>
-				<unitPattern count="other">{0} கார.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>கி.மீ./மணிநேரம்</displayName>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -20,6 +21,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<scripts>
 			<script type="Deva" draft="contributed">devanagari</script>
 			<script type="Gujr" draft="contributed">gujarati</script>
+			<script type="Jamo" draft="unconfirmed">jamo</script>
 		</scripts>
 		<territories>
 			<territory type="151">Europe orientale</territory>
@@ -41,12 +43,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="mong" draft="contributed">Chiffres mongols</type>
 			<type key="numbers" type="taml">chiffres tamouls traditionnels</type>
 		</types>
-		<transformNames>
-			<transformName type="x-Accents" draft="unconfirmed">accents</transformName>
-			<transformName type="x-Jamo" draft="unconfirmed">jamo</transformName>
-			<transformName type="x-Pinyin" draft="unconfirmed">pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Édition</transformName>
-		</transformNames>
 	</localeDisplayNames>
 	<dates>
 		<calendars>
@@ -102,8 +98,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">min.</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
+							<dayPeriod type="morning1">mat.</dayPeriod>
 							<dayPeriod type="afternoon1">après-midi</dayPeriod>
+							<dayPeriod type="evening1">soir</dayPeriod>
 							<dayPeriod type="night1">du matin</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
@@ -111,10 +110,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="am">a</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="pm">p</dayPeriod>
+							<dayPeriod type="morning1">mat.</dayPeriod>
 							<dayPeriod type="afternoon1">après-midi</dayPeriod>
+							<dayPeriod type="evening1">soir</dayPeriod>
 							<dayPeriod type="night1">nuit</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">minuit</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="morning1">du matin</dayPeriod>
 							<dayPeriod type="afternoon1">de l’après-midi</dayPeriod>
@@ -190,23 +192,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="wide">
-							<month type="1">mouharram</month>
-							<month type="2">safar</month>
-							<month type="4">rabia ath-thani</month>
-							<month type="5">joumada al oula</month>
-							<month type="6">joumada ath-thania</month>
-							<month type="7">rajab</month>
-							<month type="8">chaabane</month>
-							<month type="9">ramadan</month>
-							<month type="10">chawwal</month>
-							<month type="11">dhou al qi`da</month>
-							<month type="12">dhou al-hijja</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<dateFormats>
 					<dateFormatLength type="short">
 						<dateFormat>
@@ -363,6 +348,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Amazon">
 				<long>
+					<generic>heure de l’Amazonie</generic>
 					<standard>heure normale de l’Amazonie</standard>
 					<daylight>heure avancée de l’Amazonie</daylight>
 				</long>
@@ -452,6 +438,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Argentina">
 				<long>
+					<generic>heure de l’Argentine</generic>
 					<standard>heure normale d’Argentine</standard>
 					<daylight>heure avancée de l’Argentine</daylight>
 				</long>
@@ -1053,9 +1040,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="GBP">
 				<symbol draft="contributed">£</symbol>
 			</currency>
-			<currency type="GEL">
-				<displayName count="one">lari géorgien</displayName>
-			</currency>
 			<currency type="GIP">
 				<symbol draft="contributed">GIP</symbol>
 			</currency>
@@ -1236,6 +1220,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} pi²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pi²</unitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>carats</displayName>
+			</unit>
 			<unit type="length-yard">
 				<displayName draft="contributed">vg</displayName>
 				<unitPattern count="one" draft="contributed">{0} vg</unitPattern>
@@ -1263,12 +1250,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">psi</displayName>
 				<unitPattern count="one" draft="contributed">{0} psi</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} psi</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>carats</displayName>
-			</unit>
-			<unit type="temperature-generic">
-				<unitPattern count="one">{0}°</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName draft="contributed">vg³</displayName>

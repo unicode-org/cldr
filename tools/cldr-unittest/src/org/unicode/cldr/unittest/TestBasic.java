@@ -1199,14 +1199,12 @@ public class TestBasic extends TestFmwkPlus {
                     boolean tooOld = false;
                     switch (type) {
                     case ldmlBCP47:
+                    case ldmlICU:
                         tooOld = version.compareTo(Versions.v1_7_2) >= 0;
                         break;
                     case keyboard:
                     case platform:
                         tooOld = version.compareTo(Versions.v22_1) >= 0;
-                        break;
-                    case ldmlICU:
-                        tooOld = version.compareTo(Versions.v1_2_0) >= 0;
                         break;
                     default:
                         break;
@@ -1380,35 +1378,5 @@ public class TestBasic extends TestFmwkPlus {
     public void sortPaths(Comparator<String> dc, String... array) {
         Arrays.sort(array, 0, array.length, dc);
     }
-
-    public void TestNewDtdData() {
-        for (DtdType type : DtdType.values()) {
-            if (type == DtdType.ldmlICU) {
-                continue;
-            }
-            DtdData dtdData = DtdData.getInstance(type);
-            for (Element element : dtdData.getElements()) {
-                boolean orderedNew = dtdData.isOrdered(element.name);
-                boolean orderedOld = DtdData.isOrderedOld(element.name, type);
-                assertEquals("isOrdered " + type + ":" + element, orderedOld, orderedNew);
-                boolean deprecatedNew = dtdData.isDeprecated(element.name, "*", "*");
-                boolean deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, "*", "*");
-                assertEquals("isDeprecated " + type + ":" + element, deprecatedOld, deprecatedNew);
-
-                for (Attribute attribute : element.getAttributes().keySet()) {
-                    boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
-                    boolean distinguishedOld = dtdData.isDistinguishingOld(element.name, attribute.name);
-                    assertEquals("isDistinguished " + type + ":" + attribute, distinguishedOld, distinguishedNew);
-                    deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
-                    deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, "*");
-                    assertEquals("isDeprecated " + type + ":" + attribute, deprecatedOld, deprecatedNew);
-                    for (String value : attribute.values.keySet()) {
-                        deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, value);
-                        deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, value);
-                        assertEquals("isDeprecated " + type + ":" + attribute + ":" + value, deprecatedOld, deprecatedNew);
-                    }
-                }
-            }
-        }
-    }
+    // public void TestNewDtdData() moved to TestDtdData
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -559,6 +560,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">старомађарско писмо</script>
 			<script type="Inds">индушко писмо</script>
 			<script type="Ital">стари италик</script>
+			<script type="Jamo" draft="contributed">Џамо</script>
 			<script type="Java">јаванско писмо</script>
 			<script type="Jpan">јапанско писмо</script>
 			<script type="Kali">кајах-ли писмо</script>
@@ -981,7 +983,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">Сортирање према обрнутим акцентима</key>
 			<key type="colCaseFirst" draft="contributed">Ређање према малом/великом слову</key>
 			<key type="colCaseLevel" draft="contributed">Сортирање према малом/великом слову</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Сортирање према кана симболима</key>
 			<key type="collation">Сортирање</key>
 			<key type="colNormalization" draft="contributed">Нормализовано сортирање</key>
 			<key type="colNumeric" draft="contributed">Нумеричко сортирање</key>
@@ -993,7 +994,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">бројеви</key>
 			<key type="timezone" draft="contributed">Временска зона</key>
 			<key type="va" draft="contributed">Варијанта локалитета</key>
-			<key type="variableTop" draft="contributed">Сортирај као симболе</key>
 			<key type="x" draft="contributed">Приватна употреба</key>
 		</keys>
 		<types>
@@ -1021,8 +1021,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">Сортирај прво велика слова</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Сортирај без обзира на велика и мала слова</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Сортирај мала и велика слова</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Сортирај кана симболе одвојено</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Сортирај кана симболе другачије</type>
 			<type key="collation" type="big5han">Традиционално кинеско сортирање</type>
 			<type key="collation" type="dictionary" draft="contributed">Редослед сортирања у речнику</type>
 			<type key="collation" type="ducet" draft="contributed">Подразумевани Unicode редослед сортирања</type>
@@ -1046,6 +1044,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">Сортирај акценте/мала и велика слова/ширину/кана симболе</type>
 			<type key="colStrength" type="secondary" draft="contributed">Сортирај акценте</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Сортирај акценте/мала и велика слова/ширину</type>
+			<type key="d0" type="fwidth" draft="contributed">пуна ширина</type>
+			<type key="d0" type="hwidth" draft="contributed">пола ширине</type>
+			<type key="d0" type="npinyin" draft="contributed">Нумеричка</type>
 			<type key="hc" type="h11" draft="provisional">12-часовни систем (0-11)</type>
 			<type key="hc" type="h12" draft="provisional">12-часовни систем (1-12)</type>
 			<type key="hc" type="h23" draft="provisional">24-часовни систем (0-23)</type>
@@ -1053,6 +1054,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose" draft="provisional">loose</type>
 			<type key="lb" type="normal" draft="provisional">normal</type>
 			<type key="lb" type="strict" draft="provisional">strict</type>
+			<type key="m0" type="bgn" draft="contributed">БГН (BGN)</type>
+			<type key="m0" type="ungegn" draft="contributed">УНГЕГН (BGN)</type>
 			<type key="ms" type="metric" draft="provisional">метрички</type>
 			<type key="ms" type="uksystem" draft="provisional">uksystem</type>
 			<type key="ms" type="ussystem" draft="provisional">ussystem</type>
@@ -1097,18 +1100,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">Традиционални бројеви</type>
 			<type key="numbers" type="vaii" draft="contributed">Ваи цифре</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">БГН (BGN)</transformName>
-			<transformName type="Numeric" draft="contributed">Нумеричка</transformName>
-			<transformName type="Tone" draft="contributed">Тон</transformName>
-			<transformName type="UNGEGN" draft="contributed">УНГЕГН (BGN)</transformName>
-			<transformName type="x-Accents" draft="contributed">Акценти</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">пуна ширина</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">пола ширине</transformName>
-			<transformName type="x-Jamo" draft="contributed">Џамо</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Пинјин</transformName>
-			<transformName type="x-Publishing" draft="contributed">Издавачки</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрички</measurementSystemName>
 			<measurementSystemName type="UK">УК</measurementSystemName>
@@ -2737,6 +2728,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0}, летње време</regionFormat>
 			<regionFormat type="standard">{0}, стандардно време</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Санта Изабел</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Непознат град</exemplarCity>
 			</zone>
@@ -3501,9 +3495,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Тихуана</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Санта Изабел</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Хермосиљо</exemplarCity>
@@ -7263,6 +7254,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} квадратних инча</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>карати</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="few">{0} карата</unitPattern>
+				<unitPattern count="other">{0} карата</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литри по километру</displayName>
 				<unitPattern count="one">{0} литар по километру</unitPattern>
@@ -7741,12 +7738,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} милибара</unitPattern>
 				<unitPattern count="other">{0} милибара</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>карати</displayName>
-				<unitPattern count="one">{0} карат</unitPattern>
-				<unitPattern count="few">{0} карата</unitPattern>
-				<unitPattern count="other">{0} карата</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>километри на сат</displayName>
 				<unitPattern count="one">{0} километар на сат</unitPattern>
@@ -7856,7 +7847,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} литар</unitPattern>
 				<unitPattern count="few">{0} литра</unitPattern>
 				<unitPattern count="other">{0} литара</unitPattern>
-				<perUnitPattern>по литри</perUnitPattern>
+				<perUnitPattern>{0} по литри</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>децилитри</displayName>
@@ -8046,6 +8037,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="few">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -8524,12 +8521,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="few">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>километри на сат</displayName>

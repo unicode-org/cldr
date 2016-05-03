@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -574,6 +575,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">ప్రాచీన హంగేరియన్</script>
 			<script type="Inds">సింధు</script>
 			<script type="Ital">ప్రాచిన ఐటాలిక్</script>
+			<script type="Jamo">జమో</script>
 			<script type="Java">జావనీస్</script>
 			<script type="Jpan">జాపనీస్</script>
 			<script type="Kali">కాయాహ్ లి</script>
@@ -974,7 +976,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">వ్యతిరేక ఉచ్ఛారణ క్రమబద్ధీకరణ</key>
 			<key type="colCaseFirst">అప్పర్‌కేస్‌/లోయర్ కేస్ క్రమం</key>
 			<key type="colCaseLevel">కేస్ సెన్సిటివ్ క్రమబద్ధీకరణ</key>
-			<key type="colHiraganaQuaternary">కానా క్రమబద్ధీకరణ</key>
 			<key type="collation">క్రమబద్ధీకరణ క్రమం</key>
 			<key type="colNormalization">సాధారణీకరించిన క్రమబద్ధీకరణ</key>
 			<key type="colNumeric">సంఖ్యాత్మక క్రమబద్ధీకరణ</key>
@@ -986,7 +987,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">సంఖ్యలు</key>
 			<key type="timezone">సమయ మండలి</key>
 			<key type="va">లొకేల్ రూపాంతరం</key>
-			<key type="variableTop">చిహ్నాలుగా క్రమబద్ధీకరించు</key>
 			<key type="x">ప్రైవేట్-ఉపయోగం</key>
 		</keys>
 		<types>
@@ -1014,8 +1014,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">ముందు అప్పర్‌కేస్‌ని క్రమబద్ధీకరించు</type>
 			<type key="colCaseLevel" type="no">కేస్ ఇన్‌సెన్సిటివ్‌ను క్రమబద్ధీకరించు</type>
 			<type key="colCaseLevel" type="yes">కేస్ సెన్సిటివ్‌ని క్రమబద్ధీకరించు</type>
-			<type key="colHiraganaQuaternary" type="no">కానాను వేరుగా క్రమబద్ధీకరించు</type>
-			<type key="colHiraganaQuaternary" type="yes">కానాని భిన్నంగా క్రమబద్ధీకరించు</type>
 			<type key="collation" type="big5han">సాంప్రదాయ చైనీస్ క్రమబద్ధీకరణ క్రమం - Big5</type>
 			<type key="collation" type="dictionary">నిఘంటువు క్రమబద్ధీకరణ క్రమం</type>
 			<type key="collation" type="ducet">డిఫాల్ట్ యూనీకోడ్ క్రమబద్ధీకరణ క్రమం</type>
@@ -1039,6 +1037,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">ఉచ్ఛారణలు/కేస్‌/వెడల్పు/కానాను క్రమబద్ధీకరించు</type>
 			<type key="colStrength" type="secondary">ఉచ్ఛారణలని క్రమబద్ధీకరించు</type>
 			<type key="colStrength" type="tertiary">ఉచ్ఛారణలని/కేస్‌ని/వెడల్పుని క్రమబద్ధీకరించు</type>
+			<type key="d0" type="fwidth">పూర్తి వెడల్పు</type>
+			<type key="d0" type="hwidth">సగం వెడల్పు</type>
+			<type key="d0" type="npinyin">సంఖ్య</type>
 			<type key="hc" type="h11">12 గంటల పద్ధతి (0–11)</type>
 			<type key="hc" type="h12">12 గంటల పద్ధతి (1–12)</type>
 			<type key="hc" type="h23">24 గంటల పద్ధతి (0–23)</type>
@@ -1046,6 +1047,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">వదులు లైన్ బ్రేక్ శైలి</type>
 			<type key="lb" type="normal">సాధారణ లైన్ బ్రేక్ శైలి</type>
 			<type key="lb" type="strict">కఠిన లైన్ బ్రేక్ శైలి</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">మెట్రిక్ పద్ధతి</type>
 			<type key="ms" type="uksystem">ఇంపీరియల్ కొలమాన పద్ధతి</type>
 			<type key="ms" type="ussystem">యు.ఎస్. కొలమాన పద్ధతి</type>
@@ -1090,18 +1093,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">సాంప్రదాయ సంఖ్యలు</type>
 			<type key="numbers" type="vaii">వాయ్ అంకెలు</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">సంఖ్య</transformName>
-			<transformName type="Tone">టోన్</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">గాఢతలు</transformName>
-			<transformName type="x-Fullwidth">పూర్తి వెడల్పు</transformName>
-			<transformName type="x-Halfwidth">సగం వెడల్పు</transformName>
-			<transformName type="x-Jamo">జమో</transformName>
-			<transformName type="x-Pinyin">పిన్యిన్</transformName>
-			<transformName type="x-Publishing">ప్రచురించబడుతోంది</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">దశాంశం</measurementSystemName>
 			<measurementSystemName type="UK">యుకె</measurementSystemName>
@@ -2026,6 +2017,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>దినం</displayName>
 				<relative type="-2">మొన్న</relative>
+				<relative type="-1">నిన్న</relative>
+				<relative type="0">ఈ రోజు</relative>
+				<relative type="1">రేపు</relative>
 				<relative type="2">ఎల్లుండి</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} రోజులో</relativeTimePattern>
@@ -2039,6 +2033,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>ది</displayName>
 				<relative type="-2">మొన్న</relative>
+				<relative type="-1">నిన్న</relative>
+				<relative type="0">ఈ రోజు</relative>
+				<relative type="1">రేపు</relative>
 				<relative type="2">ఎల్లుండి</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} రోజు</relativeTimePattern>
@@ -2272,6 +2269,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} పగటి సమయం</regionFormat>
 			<regionFormat type="standard">{0} ప్రామాణిక సమయం</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>శాంటా ఇసబెల్</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>తెలియని నగరం</exemplarCity>
 			</zone>
@@ -3036,9 +3036,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>తిజ్యునా</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>శాంటా ఇసబెల్</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>హెర్మోసిల్లో</exemplarCity>
@@ -5773,6 +5770,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} చదరపు అంగుళాలు</unitPattern>
 				<perUnitPattern>{0}/చదరపు అంగుళాలు</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>కేరట్లు</displayName>
+				<unitPattern count="one">{0} కేరట్</unitPattern>
+				<unitPattern count="other">{0} కేరట్లు</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>లీటర్లు/కిలోమీటరు</displayName>
 				<unitPattern count="one">{0} లీటరు/కిలోమీటరు</unitPattern>
@@ -6179,11 +6181,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} మిల్లీబార్</unitPattern>
 				<unitPattern count="other">{0} మిల్లీబార్‌లు</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>కేరట్లు</displayName>
-				<unitPattern count="one">{0} కేరట్</unitPattern>
-				<unitPattern count="other">{0} కేరట్లు</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>కిలోమీటర్లు/గంట</displayName>
 				<unitPattern count="one">{0} కిలోమీటరు/గంట</unitPattern>
@@ -6436,6 +6433,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} అం²</unitPattern>
 				<unitPattern count="other">{0} అం²</unitPattern>
 				<perUnitPattern>{0}/అం²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>కేరట్లు</displayName>
+				<unitPattern count="one">{0} కేర.</unitPattern>
+				<unitPattern count="other">{0} కేర.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>లీటర్లు/కి.మీ</displayName>
@@ -6840,11 +6842,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>మి.బార్</displayName>
 				<unitPattern count="one">{0} మి.బార్</unitPattern>
 				<unitPattern count="other">{0} మి.బార్</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>కేరట్లు</displayName>
-				<unitPattern count="one">{0} కేర.</unitPattern>
-				<unitPattern count="other">{0} కేర.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>కి.మీ/గంట</displayName>

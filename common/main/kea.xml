@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -984,6 +985,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">am</dayPeriod>
+							<dayPeriod type="pm">pm</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">a</dayPeriod>
 							<dayPeriod type="pm">p</dayPeriod>
@@ -1882,9 +1887,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="CVE">
 				<displayName>Skudu Kabuverdianu</displayName>
 				<displayName count="other">Skudu Kabuverdianu</displayName>
-				<symbol>​</symbol>
+				<symbol>​</symbol> <!-- zero width space -->
 				<decimal>$</decimal>
-				<group>,</group>
 			</currency>
 			<currency type="CZK">
 				<symbol>CZK</symbol>
@@ -2397,6 +2401,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>pulegada kuadradu</displayName>
 				<unitPattern count="other">{0} pulegada kuadradu</unitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>kilati</displayName>
+				<unitPattern count="other">{0} kilati</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litru pur kilómetru</displayName>
 				<unitPattern count="other">{0} litru pur kilómetru</unitPattern>
@@ -2558,10 +2566,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="power-watt">
 				<displayName>watt</displayName>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>kilati</displayName>
-				<unitPattern count="other">{0} kilati</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilómetru pur ora</displayName>
 				<unitPattern count="other">{0} kilómetru pur ora</unitPattern>
@@ -2719,6 +2723,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-inch">
 				<displayName>in²</displayName>
 				<unitPattern count="other">{0} in²</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -3003,10 +3011,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<displayName>mbar</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

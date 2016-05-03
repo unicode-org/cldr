@@ -194,17 +194,19 @@ public class TestPaths extends TestFmwkPlus {
         static final Set<String> ALLOWED = new HashSet<>(Arrays.asList("postalCodeData", "postCodeRegex"));
         static final Set<String> OK_IF_MISSING = new HashSet<>(Arrays.asList("alt", "draft", "references"));
 
-        public void check(DtdData dtdData, XPathParts parts) {
+        public boolean check(DtdData dtdData, XPathParts parts, String fullName) {
             for (int i = 0; i < parts.size(); ++i) {
                 String elementName = parts.getElement(i);
                 if (dtdData.isDeprecated(elementName, "*", "*")) {
                     if (ALLOWED.contains(elementName)) {
-                        return;
+                        return false;
                     }
                     testPaths.errln("Deprecated item in data: "
                         + dtdData.dtdType
-                        + ":" + elementName);
-                    return;
+                        + ":" + elementName
+                        + " \t;" + fullName
+                        );
+                    return true;
                 }
                 data.put(dtdData.dtdType, elementName, "*", "*", true);
                 for (Entry<String, String> attributeNValue : parts.getAttributes(i).entrySet()) {
@@ -214,8 +216,9 @@ public class TestPaths extends TestFmwkPlus {
                             + dtdData.dtdType
                             + ":" + elementName
                             + ":" + attributeName
+                            + " \t;" + fullName
                             );
-                        return;
+                        return true;
                     }
                     String attributeValue = attributeNValue.getValue();
                     if (dtdData.isDeprecated(elementName, attributeName, attributeValue)) {
@@ -224,13 +227,15 @@ public class TestPaths extends TestFmwkPlus {
                             + ":" + elementName
                             + ":" + attributeName
                             + ":" + attributeValue
+                            + " \t;" + fullName
                             );
-                        return;
+                        return true;
                     }
                     data.put(dtdData.dtdType, elementName, attributeName, "*", true);
                     data.put(dtdData.dtdType, elementName, attributeName, attributeValue, true);
                 }
             }
+            return false;
         }
 
         public void show() {
@@ -292,9 +297,7 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     public void TestNonLdml() {
-        if (getInclusion() <= 5) { // Only run this test in exhaustive mode.
-            return;
-        }
+        int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
         CheckDeprecated checkDeprecated = new CheckDeprecated(this);
         XPathParts parts = new XPathParts();
         PathStarrer starrer = new PathStarrer();
@@ -321,9 +324,13 @@ public class TestPaths extends TestFmwkPlus {
 
                 Set<Pair<String, String>> seen = new HashSet<>();
                 Set<String> seenStarred = new HashSet<>();
+                int count = 0;
                 for (String file : dir2.list()) {
                     if (!file.endsWith(".xml")) {
                         continue;
+                    }
+                    if (++count > maxPerDirectory) {
+                        break;
                     }
                     DtdType type = null;
                     DtdData dtdData = null;
@@ -336,7 +343,9 @@ public class TestPaths extends TestFmwkPlus {
                             type = DtdType.valueOf(parts.getElement(0));
                             dtdData = DtdData.getInstance(type);
                         }
-                        checkDeprecated.check(dtdData, parts);
+                        if (checkDeprecated.check(dtdData, parts, fullName)) {
+                            break;
+                        }
 
                         String last = parts.getElement(-1);
                         if (skipLast.contains(last)) {

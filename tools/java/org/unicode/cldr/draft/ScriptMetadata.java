@@ -184,16 +184,16 @@ public class ScriptMetadata {
             likelyLanguage = langCode == null ? "und" : langCode;
         }
 
-        public Info(Info other, String string) {
+        public Info(Info other, String string, String sampleCharacter) {
             rank = other.rank;
             age = other.age;
-            sampleChar = other.sampleChar;
+            sampleChar = sampleCharacter == null ? other.sampleChar : sampleCharacter;
             idUsage = other.idUsage;
             rtl = other.rtl;
             lbLetters = other.lbLetters;
             hasCase = other.hasCase;
             shapingReq = other.shapingReq;
-            ime = string.equals("IME:YES") ? Trinary.YES : other.ime;
+            ime = "IME:YES".equals(string) ? Trinary.YES : other.ime;
             density = other.density;
             originCountry = other.originCountry;
             likelyLanguage = other.likelyLanguage;
@@ -277,7 +277,9 @@ public class ScriptMetadata {
                     Info info2 = info;
                     if (script2.equals("Jpan")) {
                         // HACK
-                        info2 = new Info(info, "IME:YES");
+                        info2 = new Info(info, "IME:YES", null);
+                    } else if (script2.equals("Jamo")) {
+                        info2 = new Info(info, null, "ᄒ");
                     }
                     data.put(script2, info2);
                 }
@@ -303,7 +305,9 @@ public class ScriptMetadata {
     static {
         EXTRAS.put("Hani", "Hans");
         EXTRAS.put("Hani", "Hant");
+        EXTRAS.put("Hani", "Hanb");
         EXTRAS.put("Hang", "Kore");
+        EXTRAS.put("Hang", "Jamo");
         EXTRAS.put("Hira", "Jpan");
         EXTRAS.freeze();
     }

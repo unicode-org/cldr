@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -309,6 +310,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">Tradisionele Han</script>
 			<script type="Hebr">Hebreeus</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Jpan">Japannees</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khmr">Khmer</script>
@@ -647,7 +649,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">Omgekeerde aksentsortering</key>
 			<key type="colCaseFirst">Hoofletters/kleinletters-sortering</key>
 			<key type="colCaseLevel">Kassensitiewe sortering</key>
-			<key type="colHiraganaQuaternary">Kana-sortering</key>
 			<key type="collation">Sorteervolgorde</key>
 			<key type="colNormalization">Genormaliseerde sortering</key>
 			<key type="colNumeric">Numeriese sortering</key>
@@ -659,7 +660,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Syfers</key>
 			<key type="timezone">Tydsone</key>
 			<key type="va">Lokaalvariant</key>
-			<key type="variableTop">Sorteer as simbole</key>
 			<key type="x">Privaat gebruik</key>
 		</keys>
 		<types>
@@ -687,8 +687,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">Sorteer hoofletters eerste</type>
 			<type key="colCaseLevel" type="no">Sorteer nie kassensitief nie</type>
 			<type key="colCaseLevel" type="yes">Sorteer kassensitief</type>
-			<type key="colHiraganaQuaternary" type="no">Sorteer Kana afsonderlik</type>
-			<type key="colHiraganaQuaternary" type="yes">Sorteer Kana anders</type>
 			<type key="collation" type="big5han">Tradisionele Chinese sorteervolgorde - Groot5</type>
 			<type key="collation" type="dictionary">Woordeboek-sorteervolgorde</type>
 			<type key="collation" type="ducet">Verstek Unicode-sorteervolgorde</type>
@@ -712,6 +710,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">Sorteer aksente/kas/breedte/Kana</type>
 			<type key="colStrength" type="secondary">Sorteer aksente</type>
 			<type key="colStrength" type="tertiary">Sorteer aksente/kas/breedte</type>
+			<type key="d0" type="fwidth">Vollewydte</type>
+			<type key="d0" type="hwidth">halfwydte</type>
+			<type key="d0" type="npinyin">Numeries</type>
 			<type key="hc" type="h11">12-uur-stelsel (0-11)</type>
 			<type key="hc" type="h12">112-uur-stelsel (1-12)</type>
 			<type key="hc" type="h23">24-uur-stelsel</type>
@@ -719,6 +720,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">Los reëlbreek-styl</type>
 			<type key="lb" type="normal">Normale reëlbreek-styl</type>
 			<type key="lb" type="strict">Streng reëlbreek-styl</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Metriese stelsel</type>
 			<type key="ms" type="uksystem">Imperiale meetstelsel</type>
 			<type key="ms" type="ussystem">VS-meetstelsel</type>
@@ -763,18 +766,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">Tradisionele syfers</type>
 			<type key="numbers" type="vaii">Vai-syfers</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Numeries</transformName>
-			<transformName type="Tone">Toon</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Aksente</transformName>
-			<transformName type="x-Fullwidth">Vollewydte</transformName>
-			<transformName type="x-Halfwidth">halfwydte</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Publisering</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metriek</measurementSystemName>
 			<measurementSystemName type="UK">VK</measurementSystemName>
@@ -1898,6 +1889,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0}-dagligtyd</regionFormat>
 			<regionFormat type="standard">{0}-standaardtyd</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Onbekende stad</exemplarCity>
 			</zone>
@@ -2662,9 +2656,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -5358,6 +5349,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} vierkante duim</unitPattern>
 				<perUnitPattern>{0} per vierkante duim</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} karat</unitPattern>
+				<unitPattern count="other">{0} karat</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter per kilometer</displayName>
 				<unitPattern count="one">{0} liter per kilometer</unitPattern>
@@ -5759,11 +5755,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} karat</unitPattern>
-				<unitPattern count="other">{0} karat</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometer per uur</displayName>
 				<unitPattern count="one">{0} kilometer per uur</unitPattern>
@@ -6016,6 +6007,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} dm.²</unitPattern>
 				<unitPattern count="other">{0} dm.²</unitPattern>
 				<perUnitPattern>{0}/dm.²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} kar.</unitPattern>
+				<unitPattern count="other">{0} kar.</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter/km</displayName>
@@ -6417,11 +6413,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>millibar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} kar.</unitPattern>
-				<unitPattern count="other">{0} kar.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/uur</displayName>

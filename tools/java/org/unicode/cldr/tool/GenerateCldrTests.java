@@ -28,6 +28,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -38,14 +39,13 @@ import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SortedBag;
 import org.unicode.cldr.util.TimezoneFormatter;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.SortedBag;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
@@ -117,7 +117,7 @@ public class GenerateCldrTests {
         double deltaTime = System.currentTimeMillis();
         UOption.parseArgs(args, options);
         Log.setLog(options[LOGDIR].value, "log.txt");
-        // log = BagFormatter.openUTF8Writer(options[LOGDIR].value, "log.txt");
+        // log = FileUtilities.openUTF8Writer(options[LOGDIR].value, "log.txt");
         try {
             if (options[LANGUAGES].doesOccur) {
                 GenerateStatistics.generateSize(
@@ -340,7 +340,7 @@ public class GenerateCldrTests {
 
     private void generate2(String locale) throws Exception {
         System.out.println("Main Generation:\t" + locale);
-        out = BagFormatter.openUTF8Writer(options[DESTDIR].value, locale + ".xml");
+        out = FileUtilities.openUTF8Writer(options[DESTDIR].value, locale + ".xml");
         out.println("<?xml version='1.0' encoding='UTF-8' ?>");
         out.println(
             // "<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>"
@@ -599,10 +599,10 @@ public class GenerateCldrTests {
         Set<String> matchingLocales = new TreeSet<String>(ULocaleComparator);
         while (sublocales.size() != 0) {
             String first = sublocales.iterator().next();
-            ResultsPrinter r = (ResultsPrinter) locale_results.get(first);
+            ResultsPrinter r = locale_results.get(first);
             for (Iterator<String> it = sublocales.iterator(); it.hasNext();) {
                 String other = it.next();
-                ResultsPrinter r2 = (ResultsPrinter) locale_results.get(other);
+                ResultsPrinter r2 = locale_results.get(other);
                 if (r2.equals(r))
                     matchingLocales.add(other);
             }
@@ -676,7 +676,7 @@ public class GenerateCldrTests {
             // method stub
             ParsePosition parsePosition = new ParsePosition(0);
             for (Iterator<String> it = zones.iterator(); it.hasNext();) {
-                String tzid = (String) it.next();
+                String tzid = it.next();
                 rp.set("zone", tzid);
                 for (int j = 0; j < dates.length; ++j) {
                     String date = dates[j];
@@ -1110,7 +1110,7 @@ public class GenerateCldrTests {
          // UnicodeSetComparator()
 
          public UnicodeSet close(int cp, UnicodeSet toAddTo) {
-             UnicodeSet result = (UnicodeSet) map.getValue(cp);
+             UnicodeSet result = map.getValue(cp);
              if (result == null) {
                  result = new UnicodeSet();
                  result.add(cp);

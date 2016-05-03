@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -600,6 +601,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">oldungarsk</script>
 			<script type="Inds">indus</script>
 			<script type="Ital">Olditalisk</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">javanesisk</script>
 			<script type="Jpan">japansk</script>
 			<script type="Jurc" draft="contributed">jurchen</script>
@@ -1072,7 +1074,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">Omvendt sortering efter accenter</key>
 			<key type="colCaseFirst" draft="contributed">Sortering efter store/små bogstaver</key>
 			<key type="colCaseLevel" draft="contributed">Sortering med forskel på små og store bogstaver</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Sortering efter kana</key>
 			<key type="collation">sorteringsrækkefølge</key>
 			<key type="colNormalization" draft="contributed">Normaliseret sortering</key>
 			<key type="colNumeric" draft="contributed">Numerisk sortering</key>
@@ -1084,7 +1085,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">tal</key>
 			<key type="timezone" draft="contributed">Tidszone</key>
 			<key type="va" draft="contributed">Sprogvariant</key>
-			<key type="variableTop" draft="contributed">Sortér som symboler</key>
 			<key type="x">Privatbrug</key>
 		</keys>
 		<types>
@@ -1115,8 +1115,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">Sortér med store bogstaver først</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Sortér uden forskel på store og små bogstaver</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Sortér med skelnen mellem store og små bogstaver</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Sortér kana separat</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Sortér kana med forskel på varianter</type>
 			<type key="collation" type="big5han">sorteringsrækkefølge uforkortet kinesisk - Big5</type>
 			<type key="collation" type="dictionary">sorteringsrækkefølge for ordbog</type>
 			<type key="collation" type="ducet">Unicode-standardsortering</type>
@@ -1142,6 +1140,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">Sortér efter accenter/små og store bogstaver/bredde/kana</type>
 			<type key="colStrength" type="secondary" draft="contributed">Sortér efter accenter</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Sortér efter accenter/store og små bogstaver/bredde</type>
+			<type key="d0" type="fwidth" draft="contributed">Fuld bredde</type>
+			<type key="d0" type="hwidth" draft="contributed">Halv bredde</type>
+			<type key="d0" type="npinyin" draft="contributed">Numerisk</type>
 			<type key="hc" type="h11">12-timersur (0-11)</type>
 			<type key="hc" type="h12">12-timersur (1-12)</type>
 			<type key="hc" type="h23">24-timersur (0-23)</type>
@@ -1149,6 +1150,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">løst linjeskift</type>
 			<type key="lb" type="normal">normalt linjeskift</type>
 			<type key="lb" type="strict">hårdt linjeskift</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">metersystem</type>
 			<type key="ms" type="uksystem">britisk målesystem</type>
 			<type key="ms" type="ussystem">amerikansk målesystem</type>
@@ -1214,18 +1217,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">Traditionelle tal</type>
 			<type key="numbers" type="vaii" draft="contributed">Vai-tal</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numerisk</transformName>
-			<transformName type="Tone" draft="contributed">Tone</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Accenter</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Fuld bredde</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Halv bredde</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publishing</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Det metriske system</measurementSystemName>
 			<measurementSystemName type="UK">De britiske målesystemer</measurementSystemName>
@@ -2190,6 +2181,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>dag</displayName>
 				<relative type="-2">i forgårs</relative>
+				<relative type="-1">i går</relative>
+				<relative type="0">i dag</relative>
+				<relative type="1">i morgen</relative>
 				<relative type="2">i overmorgen</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">om {0} dag</relativeTimePattern>
@@ -2203,6 +2197,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>dag</displayName>
 				<relative type="-2">i forgårs</relative>
+				<relative type="-1">i går</relative>
+				<relative type="0">i dag</relative>
+				<relative type="1">i morgen</relative>
 				<relative type="2">i overmorgen</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">om {0} dag</relativeTimePattern>
@@ -2436,6 +2433,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Ukendt by</exemplarCity>
 			</zone>
@@ -3200,9 +3200,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -6369,7 +6366,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast">{0} eller derover</pattern>
+			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 	</numbers>
@@ -6460,6 +6457,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kvadrattomme</unitPattern>
 				<unitPattern count="other">{0} kvadrattommer</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} karat</unitPattern>
+				<unitPattern count="other">{0} karat</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liter pr. kilometer</displayName>
@@ -6862,11 +6864,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} karat</unitPattern>
-				<unitPattern count="other">{0} karat</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometer i timen</displayName>
 				<unitPattern count="one">kilometer i timen</unitPattern>
@@ -7119,6 +7116,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karat</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -7520,11 +7522,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>karat</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/t</displayName>

@@ -13,6 +13,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -22,8 +24,6 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.ArrayComparator;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
@@ -106,7 +106,7 @@ public class GenerateG2xG2 {
         Set<String> mainTimeZones = supplementalDataInfo.getCanonicalTimeZones();
         for (Iterator<String> it = targetRegionSet.iterator(); it.hasNext();) {
             String country = it.next();
-            String priority = (String) priorityMap.get(country);
+            String priority = priorityMap.get(country);
             for (Iterator<String> it2 = getCurrency(country).iterator(); it2.hasNext();) {
                 String currency = it2.next();
                 targetCurrencySet.add(currency);
@@ -122,7 +122,7 @@ public class GenerateG2xG2 {
             }
         }
         // print out missing translations.
-        PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "G2xG2.txt");
+        PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "G2xG2.txt");
         // show priorities
         Comparator<String> comp = new UTF16.StringComparator();
         @SuppressWarnings("unchecked")
@@ -131,7 +131,7 @@ public class GenerateG2xG2 {
             String code = it.next();
             String priority = priorityMap.get(code);
             if (priority == null) continue;
-            int type = getType((String) code);
+            int type = getType(code);
             // if (type != CLDRFile.TERRITORY_NAME) continue;
             priority_set.add(new String[] { priority, type + "", code });
         }
@@ -177,7 +177,7 @@ public class GenerateG2xG2 {
         nf.setMinimumFractionDigits(0);
         for (Iterator<String> it = totalMap.keySet().iterator(); it.hasNext();) {
             String key = it.next();
-            Totals t = (Totals) totalMap.get(key);
+            Totals t = totalMap.get(key);
             runningTotalCount = t.totalCount;
             runningMissingCount = t.missingCount;
             pw.println(key.substring(0, 2) + "\t" + key.substring(2) + "\t" + runningMissingCount
@@ -242,12 +242,12 @@ public class GenerateG2xG2 {
             Random rand = new Random();
             for (int i = 0; i < 200; ++i) {
                 int r = rand.nextInt(language_subtags.size());
-                String result = (String) language_subtags.get(rand.nextInt(language_subtags.size()));
+                String result = language_subtags.get(rand.nextInt(language_subtags.size()));
                 if (USE_3066bis && rand.nextDouble() > 0.5) {
-                    result += "-" + (String) script_subtags.get(rand.nextInt(script_subtags.size()));
+                    result += "-" + script_subtags.get(rand.nextInt(script_subtags.size()));
                 }
                 if (rand.nextDouble() > 0.1) {
-                    result += "-" + (String) region_subtags.get(rand.nextInt(region_subtags.size()));
+                    result += "-" + region_subtags.get(rand.nextInt(region_subtags.size()));
                 }
                 testSet.add(result);
             }
@@ -280,7 +280,7 @@ public class GenerateG2xG2 {
 
     static void addPriority(String priority, String code) {
         if (code.length() == 0) return;
-        String oldPriority = (String) priorityMap.get(code);
+        String oldPriority = priorityMap.get(code);
         if (oldPriority == null || priority.compareTo(oldPriority) < 0) priorityMap.put(code, priority);
         System.out.println(code + ": " + priority);
     }
@@ -297,7 +297,7 @@ public class GenerateG2xG2 {
             String item = it2.next();
             if (item.length() == 0) continue;
             String key = priorityMap.get(sourceLocale) + "" + priorityMap.get(item);
-            Totals t = (Totals) totalMap.get(key);
+            Totals t = totalMap.get(key);
             if (t == null) totalMap.put(key, t = new Totals());
             t.totalCount++;
             String translation = getItemName(sourceData, type, item);
@@ -380,10 +380,10 @@ public class GenerateG2xG2 {
                     if (path.indexOf("/region") >= 0) {
                         parts.set(supp.getFullXPath(path));
                         Map<String, String> attributes = parts.getAttributes(parts.size() - 2);
-                        String iso3166 = (String) attributes.get("iso3166");
+                        String iso3166 = attributes.get("iso3166");
                         attributes = parts.getAttributes(parts.size() - 1);
-                        String iso4217 = (String) attributes.get("iso4217");
-                        String to = (String) attributes.get("to");
+                        String iso4217 = attributes.get("iso4217");
+                        String to = attributes.get("to");
                         if (to != null) continue;
                         List<String> info = territory_currency.get(iso3166);
                         if (info == null) territory_currency.put(iso3166, info = new ArrayList<String>());

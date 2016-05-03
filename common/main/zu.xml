@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -303,6 +304,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">i-Traditional Han</script>
 			<script type="Hebr">i-Hebrew</script>
 			<script type="Hira">i-Hiragana</script>
+			<script type="Jamo">i-Jamo</script>
 			<script type="Jpan">i-Japanese</script>
 			<script type="Kana">i-Katakana</script>
 			<script type="Khmr">i-Khmer</script>
@@ -633,7 +635,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">Ukuhlelwa Kwendlela Yokubiza Okuhlehlisiwe</key>
 			<key type="colCaseFirst">Ukuhlelwa Ngokwezinhlamvu Ezinkulu/Ezincane</key>
 			<key type="colCaseLevel">Ukuhlelwa Okuncike Ezinkinobhweni</key>
-			<key type="colHiraganaQuaternary">Ukuhlela ngokwe-Kana</key>
 			<key type="collation">Uhlelo lokuhlunga</key>
 			<key type="colNormalization">Ukuhlelwa Okulinganisiwe</key>
 			<key type="colNumeric">Ukuhlelwa Ngezinombolo</key>
@@ -645,7 +646,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Izinombolo</key>
 			<key type="timezone">Izoni yesikhathi:</key>
 			<key type="va">Okokwehlukanisa Kwasendaweni</key>
-			<key type="variableTop">Hlela Njengezimpawu</key>
 			<key type="x">i-Private-Use</key>
 		</keys>
 		<types>
@@ -673,8 +673,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">Hlela Izinhlamvu Ezinkulu Kuqala</type>
 			<type key="colCaseLevel" type="no">Hlela Okungancikile Ezinkinobhweni</type>
 			<type key="colCaseLevel" type="yes">Hlela Okuncike Ekumeni Kwezinkinobho</type>
-			<type key="colHiraganaQuaternary" type="no">Hlela i-Kana Eceleni</type>
-			<type key="colHiraganaQuaternary" type="yes">Hlela i-Kana Ngendlela Ehlukile</type>
 			<type key="collation" type="big5han">Ukuhlunga kwe-Traditional Chinese - Big5</type>
 			<type key="collation" type="dictionary">Ukuhlunga kwesichazimazwi</type>
 			<type key="collation" type="ducet">Ukuhlunga okuzenzakalelayo kwe-Unicode</type>
@@ -698,6 +696,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">Hlola Ukuphimisela/Ukuma kwezinhlamvu/Ububanzi/i-Kana</type>
 			<type key="colStrength" type="secondary">Hlela Ukuphimisela</type>
 			<type key="colStrength" type="tertiary">Hlela Ukuphimisela/Ukuma kwezinhlamvu/Ububanzi</type>
+			<type key="d0" type="fwidth">i-Fullwidth</type>
+			<type key="d0" type="hwidth">Ubude obuhhafu</type>
+			<type key="d0" type="npinyin">Okwezinombolo</type>
 			<type key="hc" type="h11">isistimu yamahora angu-12 (0-11)</type>
 			<type key="hc" type="h12">isistimu yamahora angu-12 (1-12)</type>
 			<type key="hc" type="h23">isistimu yamahora angu-24 (0-23)</type>
@@ -705,6 +706,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">i-Line Break Style exegayo</type>
 			<type key="lb" type="normal">i-Line Break Style ekahle</type>
 			<type key="lb" type="strict">i-Line Break Style enomthetho oqinile</type>
+			<type key="m0" type="bgn">I-BGN</type>
+			<type key="m0" type="ungegn">I-UNGEGN</type>
 			<type key="ms" type="metric">isistimu ye-Metric</type>
 			<type key="ms" type="uksystem">isistimu yokulinganisa ebusayo</type>
 			<type key="ms" type="ussystem">isistimu yokulinganisa yase-US</type>
@@ -749,18 +752,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">Izinombolo Ezijwayelekile</type>
 			<type key="numbers" type="vaii">Izinhlazu Zezinombolo ze-Vai</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">I-BGN</transformName>
-			<transformName type="Numeric">Okwezinombolo</transformName>
-			<transformName type="Tone">Ithoni</transformName>
-			<transformName type="UNGEGN">I-UNGEGN</transformName>
-			<transformName type="x-Accents">Ama-Accent</transformName>
-			<transformName type="x-Fullwidth">i-Fullwidth</transformName>
-			<transformName type="x-Halfwidth">Ubude obuhhafu</transformName>
-			<transformName type="x-Jamo">i-Jamo</transformName>
-			<transformName type="x-Pinyin">i-Pinyin</transformName>
-			<transformName type="x-Publishing">Ukushicilela</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">i-Metric</measurementSystemName>
 			<measurementSystemName type="UK">i-UK</measurementSystemName>
@@ -1873,6 +1864,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} Isikhathi sasemini</regionFormat>
 			<regionFormat type="standard">{0} isikhathi esivamile</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>i-Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>idolobha elingaziwa</exemplarCity>
 			</zone>
@@ -2637,9 +2631,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>i-Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>i-Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>i-Hermosillo</exemplarCity>
@@ -5294,6 +5285,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karats</displayName>
+				<unitPattern count="one">{0} i-karat</unitPattern>
+				<unitPattern count="other">{0} ama-karats</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
 				<unitPattern count="one">{0} L/km</unitPattern>
@@ -5695,11 +5691,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karats</displayName>
-				<unitPattern count="one">{0} i-karat</unitPattern>
-				<unitPattern count="other">{0} ama-karats</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -5952,6 +5943,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>karats</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -6353,11 +6349,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mbar</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>karats</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

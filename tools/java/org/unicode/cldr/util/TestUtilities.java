@@ -26,12 +26,11 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.GenerateAttributeList;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -148,7 +147,7 @@ public class TestUtilities {
                 message_paths.put("\uFFFD<b>NO MESSAGE</b><hr>", path + "\t:\t" + value);
             }
         }
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "test/", "test_examples.html");
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "test/", "test_examples.html");
         out.println("<html><body><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
         for (String message : message_paths.keySet()) {
             Set<String> paths = message_paths.getAll(message);
@@ -178,7 +177,7 @@ public class TestUtilities {
             String[] parts = line.split(";\\s*");
             int numeric = Integer.parseInt(parts[0]);
             String originalTzid = parts[1].trim();
-            String fixedID = (String) fixOld.get(originalTzid);
+            String fixedID = fixOld.get(originalTzid);
             if (fixedID == null) {
                 if (!timezones.contains(originalTzid)) {
                     System.out.println(numeric + "\t" + originalTzid + "\tStrange ID: " + fixedID);
@@ -397,7 +396,7 @@ public class TestUtilities {
                 + suppressData[i][1] + "\"][@attributeValue=\"" + suppressData[i][2] + "\"]", "");
         }
         // write out and look at
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "meta/", "metaData.xml");
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "meta/", "metaData.xml");
         meta.write(out);
         out.close();
         XMLFileReader xfr = new XMLFileReader().setHandler(new MyHandler());
@@ -501,7 +500,7 @@ public class TestUtilities {
             System.out.println("Printing Data");
             for (Iterator it = m.keySet().iterator(); it.hasNext();) {
                 String type = (String) it.next();
-                Map subtagData = (Map) m.get(type);
+                Map subtagData = m.get(type);
                 for (Iterator it2 = subtagData.keySet().iterator(); it2.hasNext();) {
                     String subtag = (String) it2.next();
                     Map labelData = (Map) subtagData.get(subtag);
@@ -540,13 +539,13 @@ public class TestUtilities {
                     System.out.println("\t" + type + "\t" + tag + "\t" + data);
                     continue;
                 }
-                String description = (String) sdata.get(0);
+                String description = sdata.get(0);
                 boolean deprecated = !goodCodes.contains(tag);
                 if (description.equalsIgnoreCase("PRIVATE USE")) {
                     // description = "";
                     deprecated = false;
                 }
-                String newDescription = (String) data.get("Description");
+                String newDescription = data.get("Description");
                 boolean newDeprecated = data.get("Deprecated") != null;
                 if (!description.equals(newDescription)) {
                     System.out.println(type + "\t" + tag + "\tDescriptions differ: {" + description + "} ### {"
@@ -569,10 +568,10 @@ public class TestUtilities {
             Set<String> deprecatedCodes = new TreeSet<String>();
 
             for (Iterator<String> it2 = subtagData.keySet().iterator(); it2.hasNext();) {
-                String tag = (String) it2.next();
+                String tag = it2.next();
                 Map<String, String> data = subtagData.get(tag);
                 if (data.get("Deprecated") != null) {
-                    String preferred = (String) data.get("Preferred-Value");
+                    String preferred = data.get("Preferred-Value");
                     String cldr = null != data.get("CLDR") ? "CLDR: " : "";
                     System.out.println("\t\t\t<" + aliasType + "Alias type=\"" + tag + "\""
                         + (preferred == null || preferred.length() == 0 ? "" : " replacement=\"" + preferred + "\"")
@@ -643,7 +642,7 @@ public class TestUtilities {
     private static void printCountries() throws IOException {
         Factory mainCldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
         CLDRFile english = mainCldrFactory.make("en", true);
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "country_language_names.txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "country_language_names.txt");
         StandardCodes sc = StandardCodes.make();
         for (Iterator<String> it = sc.getGoodAvailableCodes("language").iterator(); it.hasNext();) {
             String code = it.next();
@@ -696,7 +695,7 @@ public class TestUtilities {
         String[][] fields = { { "2004-01-15T00:00:00Z", "Z", "ZZZZ", "z", "zzzz" },
             { "2004-07-15T00:00:00Z", "Z", "ZZZZ", "z", "zzzz", "v", "vvvv" } };
         Factory mainCldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "timezone_samples.txt");
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "timezone_samples.txt");
         long[] offsetMillis = new long[1];
         ParsePosition parsePosition = new ParsePosition(0);
 

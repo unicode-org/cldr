@@ -47,6 +47,20 @@ public class TestCLDRFile extends TestFmwk {
         new TestCLDRFile().run(args);
     }
 
+    public void testFallbackNames() {
+        String[][] tests = {
+            {"zh-Hanb", "Chinese (Han with Bopomofo)"},
+            {"aaa", "Ghotuo"},
+            {"zh-RR", "Chinese (RR)"},
+            {"new_Newa_NP", "Newari (Newa, Nepal)"},
+        };
+        CLDRFile english = testInfo.getEnglish(); // testInfo.getFullCldrFactory().make("en", false);
+        for (String[] test : tests) {
+            assertEquals("", test[1], english.getName(test[0]));
+        }
+    }
+
+
     // verify for all paths, if there is a count="other", then there is a
     // count="x", for all x in keywords
     public void testPlurals() {

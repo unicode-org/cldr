@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.ibm.icu.dev.util.XEquivalenceClass;
-import com.ibm.icu.dev.util.XEquivalenceClass.SetMaker;
+import org.unicode.cldr.util.XEquivalenceClass.SetMaker;
+
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UTF16;

@@ -16,7 +16,6 @@
 	<p>
 		<img width=0 height=0 src='loader.gif'></img><!--  to preload this gif -->
 	</p>
-
 	<% if(request.getParameter("logout")!=null) { 
         WebContext.logout(request,response);
     %>
@@ -74,6 +73,7 @@
         
         <hr />
         <p><a href="http://www.unicode.org">Unicode</a> | <a href="http://www.unicode.org/cldr">CLDR</a></p>
+        <span style='font-size: 60%;'>SVN Version : <%= org.unicode.cldr.util.CldrUtility.getProperty("CLDR_CURREV", null) %></span>
         <div style='float: right; font-size: 60%;'><span class='notselected'>valid <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>,
             <a href='http://validator.w3.org/check?uri=referer'>xhtml 1.1</a></span></div>
             

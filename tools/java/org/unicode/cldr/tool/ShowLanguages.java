@@ -30,11 +30,13 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CLDRURLS;
@@ -59,13 +61,10 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.ArrayComparator;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.FileUtilities;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
@@ -81,7 +80,7 @@ import com.ibm.icu.util.ULocale;
 public class ShowLanguages {
     private static final boolean SHOW_NATIVE = true;
 
-    static Comparator col = new com.ibm.icu.impl.MultiComparator(
+    static Comparator col = new org.unicode.cldr.util.MultiComparator(
         Collator.getInstance(new ULocale("en")),
         new UTF16.StringComparator(true, false, 0)
         );
@@ -120,9 +119,9 @@ public class ShowLanguages {
 
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
 
+        new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartDayPeriods().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         new ChartLanguageMatching().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
-        new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
 
         linfo.showCoverageGoals(pw);
 
@@ -176,7 +175,7 @@ public class ShowLanguages {
 
         String[] replacements = { "%date%", CldrUtility.isoFormatDateOnly(new Date()), "%contents%", SUPPLEMENTAL_INDEX_ANCHORS.toString(), "%data%",
             sw.toString() };
-        PrintWriter pw2 = BagFormatter.openUTF8Writer(FormattedFileWriter.CHART_TARGET_DIR, filename);
+        PrintWriter pw2 = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(FormattedFileWriter.CHART_TARGET_DIR, filename);
         FileUtilities.appendFile(CLDRPaths.BASE_DIRECTORY + java.io.File.separatorChar
             + "tools/java/org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
         pw2.close();
@@ -706,9 +705,9 @@ public class ShowLanguages {
                         if (!element.equals("info"))
                             throw new IllegalArgumentException("Unexpected fractions element: " + element);
                         Map<String, String> attributes = parts.getAttributes(parts.size() - 1);
-                        String iso4217 = (String) attributes.get("iso4217");
-                        String digits = (String) attributes.get("digits");
-                        String rounding = (String) attributes.get("rounding");
+                        String iso4217 = attributes.get("iso4217");
+                        String digits = attributes.get("digits");
+                        String rounding = attributes.get("rounding");
                         digits = digits + (rounding.equals("0") ? "" : " (" + rounding + ")");
                         if (iso4217.equals("DEFAULT"))
                             defaultDigits = digits;
@@ -720,13 +719,13 @@ public class ShowLanguages {
                     // <currency iso4217="ARS" from="1992-01-01"/>
                     if (path.indexOf("/region") >= 0) {
                         Map<String, String> attributes = parts.getAttributes(parts.size() - 2);
-                        String iso3166 = (String) attributes.get("iso3166");
+                        String iso3166 = attributes.get("iso3166");
                         attributes = parts.getAttributes(parts.size() - 1);
-                        String iso4217 = (String) attributes.get("iso4217");
-                        String to = (String) attributes.get("to");
+                        String iso4217 = attributes.get("iso4217");
+                        String to = attributes.get("to");
                         if (to == null)
                             to = "\u221E";
-                        String from = (String) attributes.get("from");
+                        String from = attributes.get("from");
                         if (from == null)
                             from = "-\u221E";
                         String countryName = getName(CLDRFile.TERRITORY_NAME, iso3166, false);
@@ -765,7 +764,7 @@ public class ShowLanguages {
                     else
                         language += "*" + alt;
                     // <language type="af" scripts="Latn" territories="ZA"/>
-                    addTokens(language, (String) attributes.get("territories"), " ", language_territories);
+                    addTokens(language, attributes.get("territories"), " ", language_territories);
                     continue;
                 }
 
@@ -779,8 +778,8 @@ public class ShowLanguages {
                         System.err.println("Err: on path " + fullPath
                             + " , no attributes on 'calendar'. Probably, this tool is out of date.");
                     } else {
-                        String type = (String) attributes.get("type");
-                        String territories = (String) attributes.get("territories");
+                        String type = attributes.get("type");
+                        String territories = attributes.get("territories");
                         if (territories == null) {
                             System.err.println("Err: on path " + fullPath
                                 + ", missing territories. Probably, this tool is out of date.");
@@ -815,13 +814,13 @@ public class ShowLanguages {
                         key = "type";
                         display = "Paper Size";
                     }
-                    String type = (String) attributes.get(key);
-                    String territories = (String) attributes.get("territories");
+                    String type = attributes.get(key);
+                    String territories = attributes.get("territories");
                     addTerritoryInfo(territories, display, type);
                 }
                 if (path.indexOf("/territoryInfo") >= 0) {
                     Map<String, String> attributes = parts.getAttributes(2);
-                    String type = (String) attributes.get("type");
+                    String type = attributes.get("type");
                     String name = english.getName(CLDRFile.TERRITORY_NAME, type);
                     Map<String, Object> languageData = territoryLanguageData.get(name);
                     if (languageData == null) territoryLanguageData.put(name, languageData = new TreeMap<String, Object>());
@@ -1140,7 +1139,7 @@ public class ShowLanguages {
         // "{" | "}" | "|" | "\" | "^" | "[" | "]" | "`"
         // Within a query component, the characters ";", "/", "?", ":", "@",
         // "&", "=", "+", ",", and "$" are reserved.
-        static final UnicodeSet ESCAPED_URI_QUERY = (UnicodeSet) new UnicodeSet(
+        static final UnicodeSet ESCAPED_URI_QUERY = new UnicodeSet(
             "[\\u0000-\\u0020\\u007F <>#%\"\\{}|\\\\\\^\\[\\]`;/?:@\\&=+,$\\u0080-\\U0001FFFF]").freeze();
 
         private static final int MINIMAL_BIG_VENDOR = 8;
@@ -1761,7 +1760,7 @@ public class ShowLanguages {
             pw.println("<table>");
             pw.println("<tr><th class='source'>Territory</th>");
             for (Iterator<String> it = territoryTypes.iterator(); it.hasNext();) {
-                String header = (String) it.next();
+                String header = it.next();
                 if (header.equals("calendar")) header = "calendar (+gregorian)";
                 pw.println("<th class='target'>" + header + "</th>");
             }
@@ -1839,14 +1838,14 @@ public class ShowLanguages {
                 }
                 for (int i = 0; i < words.length; ++i) {
                     String name = words[i];
-                    String script = (String) name_script.get(name);
+                    String script = name_script.get(name);
                     if (script != null) {
                         Set<String> langSet = script_languages.get(script);
                         if (langSet != null && langSet.contains(language))
                             System.out.print("*");
                         System.out.println("\t" + name + " [" + language + "]\t=> " + name + " [" + script + "]");
                     } else {
-                        String language2 = (String) name_language.get(name);
+                        String language2 = name_language.get(name);
                         if (language2 != null && !language.equals(language2)) {
                             Set<String> langSet = language_scripts.get(language);
                             if (langSet != null)
@@ -1953,23 +1952,22 @@ public class ShowLanguages {
 
             pw.println("<h2>" + CldrUtility.getDoubleLinkedText("format_info", "2. " + section2) + "</h2>");
 
-            pw.write("<p>This table shows the digit rounding for the currency, plus the countries where it is or was in use. "
-                +
-                "Countries where the currency is not in current use are marked by italics. "
-                +
-                "If the currency uses 'nickel rounding' in all transactions, the digits are followed by '(5)'. "
-                +
-                "If the currency uses 'nickel rounding' in cash retail transactions, the digits are followed by '[5]'."
-                +
-                "</p>");
+            pw.write("<p>This table shows the number of digits used for each currency, "
+                + " and the countries where it is or was in use. "
+                + "Countries where the currency is in current use are bolded. "
+                + "If the currency uses ‘nickel rounding’ in transactions, the digits are followed by ‘(5)’. "
+                + "Where the values are different in a cash context, that is shown in a second column."
+                + "</p>");
             pw.write("<div align='center'><table>");
 
             // doTitle(pw, "Currency Format Info");
+            //             <info iso4217="CZK" digits="2" rounding="0" cashDigits="0" cashRounding="0"/>
 
             pw.println("<tr>" +
                 "<th class='source nowrap'>Name</th>" +
                 "<th class='source'>Currency</th>" +
                 "<th class='target'>Digits</th>" +
+                "<th class='target'>Cash Digits</th>" +
                 "<th class='target'>Countries</th>" +
                 "</tr>");
             Set<String> currencyList = new TreeSet<String>(col);
@@ -1991,10 +1989,15 @@ public class ShowLanguages {
                     "<td class='source nowrap'>"
                     + TransliteratorUtilities.toHTML.transform(english.getName("currency", currency)) + "</td>" +
                     "<td class='source'>" + CldrUtility.getDoubleLinkedText(currency) + "</td>" +
-                    "<td class='target'>" + info.getDigits()
+                    "<td class='target'>" + 
+                    info.getDigits()
                     + (info.getRounding() == 0 ? "" : " (" + info.getRounding() + ")")
-                    + (info.cashRounding == 0 ? "" : " [" + info.cashRounding + "]")
-                    + "</td>" +
+                    + "</td>"
+                    + "<td class='target'>" 
+                    + (info.cashDigits == info.getDigits() && info.cashRounding == info.getRounding() ? "" :
+                        (info.cashDigits
+                            + (info.cashRounding == 0 ? "" : " (" + info.cashRounding + ")")))
+                            + "</td>" +
                     "<td class='target'>");
                 boolean first = true;
                 boolean needBreak = false;
@@ -2269,7 +2272,7 @@ public class ShowLanguages {
         private Collection<String> getContainedCollection(String start, int depth) {
             Collection<String> contains = supplementalDataInfo.getContainmentCore().get(start);
             if (contains == null) {
-                contains = (Collection<String>) sc.getCountryToZoneSet().get(start);
+                contains = sc.getCountryToZoneSet().get(start);
                 if (contains == null && depth == 3) {
                     contains = new TreeSet<String>();
                     if (start.compareTo("A") >= 0) {
@@ -2505,7 +2508,7 @@ public class ShowLanguages {
             //Collection<String> contains = (Collection<String>) group_contains.get(start);
             Collection<String> contains = supplementalDataInfo.getContainmentCore().get(start);
             if (contains == null) {
-                contains = (Collection<String>) sc.getCountryToZoneSet().get(start);
+                contains = sc.getCountryToZoneSet().get(start);
                 currentRow.add("");
                 if (contains == null) {
                     currentRow.set(len + 1, "???");

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -691,6 +692,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">Eski Macar</script>
 			<script type="Inds">Indus</script>
 			<script type="Ital">Eski İtalyan</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Java">Cava Dili</script>
 			<script type="Jpan">Japon</script>
 			<script type="Jurc" draft="contributed">Jurchen</script>
@@ -889,7 +891,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CV">Cape Verde</territory>
 			<territory type="CW">Curaçao</territory>
 			<territory type="CX">Christmas Adası</territory>
-			<territory type="CY">Güney Kıbrıs Rum Kesimi</territory>
+			<territory type="CY">Kıbrıs</territory>
 			<territory type="CZ">Çek Cumhuriyeti</territory>
 			<territory type="DE">Almanya</territory>
 			<territory type="DG">Diego Garcia</territory>
@@ -1142,7 +1144,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">Ters Aksan Sıralama</key>
 			<key type="colCaseFirst">Büyük/Küçük Harf Sıralama</key>
 			<key type="colCaseLevel">Büyük/Küçük Harfe Duyarlı Sıralama</key>
-			<key type="colHiraganaQuaternary">Kana Sıralaması</key>
 			<key type="collation">Sıralama Düzeni</key>
 			<key type="colNormalization">Normalleştirilmiş Sıralama</key>
 			<key type="colNumeric">Sayısal Sıralama</key>
@@ -1154,7 +1155,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Rakamlar</key>
 			<key type="timezone">Saat Dilimi</key>
 			<key type="va">Yerel Varyant</key>
-			<key type="variableTop">Sembollere Göre Sıralama</key>
 			<key type="x">Özel Kullanım</key>
 		</keys>
 		<types>
@@ -1185,8 +1185,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">Önce Büyük Harfleri Sıralama</type>
 			<type key="colCaseLevel" type="no">Büyük/Küçük Harfe Duyarlı Olmadan Sıralama</type>
 			<type key="colCaseLevel" type="yes">Büyük/Küçük Harfe Duyarla Sıralama</type>
-			<type key="colHiraganaQuaternary" type="no">Kana’yı Ayrı Sıralama</type>
-			<type key="colHiraganaQuaternary" type="yes">Kana’yı Farklı Sıralama</type>
 			<type key="collation" type="big5han">Geleneksel Çince Sıralaması - Big5</type>
 			<type key="collation" type="dictionary">Sözlük Sıralama Düzeni</type>
 			<type key="collation" type="ducet">Saptanmış Unicode Sıralaması</type>
@@ -1212,6 +1210,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">Aksanları/Büyük-Küçük Harfleri/Genişliği/Kana’yı Sıralama</type>
 			<type key="colStrength" type="secondary">Aksanları Sıralama</type>
 			<type key="colStrength" type="tertiary">Aksanları/Büyük-Küçük Harfleri/Genişliği Sıralama</type>
+			<type key="d0" type="fwidth">Tam Genişlik</type>
+			<type key="d0" type="hwidth">Yarım genişlik</type>
+			<type key="d0" type="npinyin">Rakam</type>
 			<type key="hc" type="h11">12 Saat Sistemi (0–11)</type>
 			<type key="hc" type="h12">12 Saat Sistemi (1–12)</type>
 			<type key="hc" type="h23">24 Saat Sistemi (0–23)</type>
@@ -1219,6 +1220,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">loose</type>
 			<type key="lb" type="normal">normal</type>
 			<type key="lb" type="strict">strict</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric">Metrik Sistem</type>
 			<type key="ms" type="uksystem" draft="provisional">İmperial Ölçü Sistemi</type>
 			<type key="ms" type="ussystem">ABD Ölçü Sistemi</type>
@@ -1277,18 +1280,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">Geleneksel Rakamlar</type>
 			<type key="numbers" type="vaii">Vai Rakamları</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Rakam</transformName>
-			<transformName type="Tone">Ton</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">Aksanlar</transformName>
-			<transformName type="x-Fullwidth">Tam Genişlik</transformName>
-			<transformName type="x-Halfwidth">Yarım genişlik</transformName>
-			<transformName type="x-Jamo">Jamo</transformName>
-			<transformName type="x-Pinyin">Pinyin</transformName>
-			<transformName type="x-Publishing">Yayıncılık</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
 			<measurementSystemName type="UK">İngiliz</measurementSystemName>
@@ -2386,6 +2377,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>gün</displayName>
 				<relative type="-2">evvelsi gün</relative>
+				<relative type="-1">dün</relative>
+				<relative type="0">bugün</relative>
+				<relative type="1">yarın</relative>
 				<relative type="2">öbür gün</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} gün sonra</relativeTimePattern>
@@ -2399,6 +2393,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>gün</displayName>
 				<relative type="-2">evvelsi gün</relative>
+				<relative type="-1">dün</relative>
+				<relative type="0">bugün</relative>
+				<relative type="1">yarın</relative>
 				<relative type="2">öbür gün</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} gün sonra</relativeTimePattern>
@@ -2632,6 +2629,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} Yaz Saati</regionFormat>
 			<regionFormat type="standard">{0} Standart Saati</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Bilinmeyen Şehir</exemplarCity>
 			</zone>
@@ -3396,9 +3396,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -6820,13 +6817,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>metrekare</displayName>
 				<unitPattern count="one">{0} metrekare</unitPattern>
 				<unitPattern count="other">{0} metrekare</unitPattern>
-				<perUnitPattern>/metrekare</perUnitPattern>
+				<perUnitPattern>{0}/metrekare</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName>santimetrekare</displayName>
 				<unitPattern count="one">{0} santimetrekare</unitPattern>
 				<unitPattern count="other">{0} santimetrekare</unitPattern>
-				<perUnitPattern>/santimetrekare</perUnitPattern>
+				<perUnitPattern>{0}/santimetrekare</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>mil kare</displayName>
@@ -6853,6 +6850,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} inç kare</unitPattern>
 				<unitPattern count="other">{0} inç kare</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ayar</displayName>
+				<unitPattern count="one">{0} ayar</unitPattern>
+				<unitPattern count="other">{0} ayar</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litre/kilometre</displayName>
@@ -7270,11 +7272,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} milibar</unitPattern>
 				<unitPattern count="other">{0} milibar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ayar</displayName>
-				<unitPattern count="one">{0} ayar</unitPattern>
-				<unitPattern count="other">{0} ayar</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometre/saat</displayName>
 				<unitPattern count="one">{0} kilometre/saat</unitPattern>
@@ -7324,7 +7321,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>metreküp</displayName>
 				<unitPattern count="one">{0} metreküp</unitPattern>
 				<unitPattern count="other">{0} metreküp</unitPattern>
-				<perUnitPattern>/metreküp</perUnitPattern>
+				<perUnitPattern>{0}/metreküp</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName>santimetreküp</displayName>
@@ -7532,6 +7529,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>ayar</displayName>
+				<unitPattern count="one">{0} ayar</unitPattern>
+				<unitPattern count="other">{0} ayar</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -7949,11 +7951,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>ayar</displayName>
-				<unitPattern count="one">{0} ayar</unitPattern>
-				<unitPattern count="other">{0} ayar</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/sa</displayName>
 				<unitPattern count="one">{0} km/sa</unitPattern>
@@ -8188,6 +8185,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-inch">
 				<unitPattern count="one" draft="contributed">{0} in²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} in²</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<unitPattern count="one" draft="contributed">{0} ayar</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ayar</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="one" draft="contributed">{0} l/km</unitPattern>
@@ -8518,10 +8519,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<unitPattern count="one" draft="contributed">{0} mb</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mb</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<unitPattern count="one" draft="contributed">{0} ayar</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ayar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/sa</displayName>

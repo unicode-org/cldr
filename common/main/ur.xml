@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -304,6 +305,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">روایتی ہان</script>
 			<script type="Hebr">عبرانی</script>
 			<script type="Hira">ہیراگینا</script>
+			<script type="Jamo">جامو</script>
 			<script type="Jpan">جاپانی</script>
 			<script type="Kana">کٹاکانا</script>
 			<script type="Khmr">خمیر</script>
@@ -634,7 +636,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards">معکوس تلفظ کی چھٹائی</key>
 			<key type="colCaseFirst">بڑے حروف/ چھوٹے حروف کی ترتیب بندی</key>
 			<key type="colCaseLevel">حروف کے تئیں حساس چھٹائی</key>
-			<key type="colHiraganaQuaternary">Kena چھٹائی</key>
 			<key type="collation">چھٹائی کی ترتیب</key>
 			<key type="colNormalization">معمول کی چھٹائی</key>
 			<key type="colNumeric">عددی چھٹائی</key>
@@ -646,7 +647,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">اعداد</key>
 			<key type="timezone">منطقۂ وقت</key>
 			<key type="va">مقام کا متغیرہ</key>
-			<key type="variableTop">بطور علامات چھٹائی کریں</key>
 			<key type="x">نجی-استعمال</key>
 		</keys>
 		<types>
@@ -674,8 +674,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper">پہلے بالائی حروف کی چھٹائی کریں</type>
 			<type key="colCaseLevel" type="no">حروف کی عدم حساسیت کی چھٹائی کریں</type>
 			<type key="colCaseLevel" type="yes">حروف کے تئیں حساس کی چھٹائی کریں</type>
-			<type key="colHiraganaQuaternary" type="no">Kana کی چھٹائی الگ الگ کریں</type>
-			<type key="colHiraganaQuaternary" type="yes">Kana کی مختلف طریقے سے چھٹائی کریں</type>
 			<type key="collation" type="big5han">روایتی چینی کی چھٹائی کی ترتیب - Big5</type>
 			<type key="collation" type="dictionary">لغت کی چھٹنی کی ترتیب</type>
 			<type key="collation" type="ducet">ڈیفالٹ یونیکوڈ کی چھٹنی کی ترتیب</type>
@@ -699,6 +697,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary">لہجہ/ بڑے چھوٹے حروف/چوڑائی/Kana کی چھٹائی کریں</type>
 			<type key="colStrength" type="secondary">لہجوں کی چھٹائی کریں</type>
 			<type key="colStrength" type="tertiary">لہجوں/حروف/چوڑائی کی چھٹائی کریں</type>
+			<type key="d0" type="fwidth">پورا عرض</type>
+			<type key="d0" type="hwidth">نصف عرض</type>
+			<type key="d0" type="npinyin">عددی</type>
 			<type key="hc" type="h11">12 گھنٹے کا نظام (0–11)</type>
 			<type key="hc" type="h12">12 گھنٹے کا نظام (1–12)</type>
 			<type key="hc" type="h23">24 گھنٹے کا نظام (0–23)</type>
@@ -706,6 +707,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">ڈھیلا لائن بریک انداز</type>
 			<type key="lb" type="normal">عمومی لائن بریک انداز</type>
 			<type key="lb" type="strict">سخت لائن بریک انداز</type>
+			<type key="m0" type="bgn">BGN</type>
+			<type key="m0" type="ungegn">UNGEGN</type>
 			<type key="ms" type="metric" draft="provisional">میٹرک نظام</type>
 			<type key="ms" type="uksystem">پیمائش کا امپیریل نظام</type>
 			<type key="ms" type="ussystem">پیمائش کا برطانوی نظام</type>
@@ -750,18 +753,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional">روایتی اعداد</type>
 			<type key="numbers" type="vaii">وائی ہندسے</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">عددی</transformName>
-			<transformName type="Tone">ٹون</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
-			<transformName type="x-Accents">لہجے</transformName>
-			<transformName type="x-Fullwidth">پورا عرض</transformName>
-			<transformName type="x-Halfwidth">نصف عرض</transformName>
-			<transformName type="x-Jamo">جامو</transformName>
-			<transformName type="x-Pinyin">پن یِن</transformName>
-			<transformName type="x-Publishing">اشاعت</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">میٹرک</measurementSystemName>
 			<measurementSystemName type="UK">سلطنت متحدہ</measurementSystemName>
@@ -1673,6 +1664,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>دن</displayName>
 				<relative type="-2">گزشتہ پرسوں</relative>
+				<relative type="-1">گزشتہ کل</relative>
+				<relative type="0">آج</relative>
+				<relative type="1">آئندہ کل</relative>
 				<relative type="2">آنے والا پرسوں</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} دن میں</relativeTimePattern>
@@ -1686,6 +1680,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>دن</displayName>
 				<relative type="-2">گزشتہ پرسوں</relative>
+				<relative type="-1">گزشتہ کل</relative>
+				<relative type="0">آج</relative>
+				<relative type="1">آئندہ کل</relative>
 				<relative type="2">آنے والا پرسوں</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} دنوں میں</relativeTimePattern>
@@ -1919,6 +1916,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>سانتا ایزابیل</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>نامعلوم شہر</exemplarCity>
 			</zone>
@@ -2683,9 +2683,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>تیجوآنا</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>سانتا ایزابیل</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>ہرموسیلو</exemplarCity>
@@ -5376,6 +5373,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} مربع انچ</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>قیراط</displayName>
+				<unitPattern count="one">{0} قیراط</unitPattern>
+				<unitPattern count="other">{0} قیراط</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
 				<unitPattern count="one">{0} L/km</unitPattern>
@@ -5777,11 +5779,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ملی بار</unitPattern>
 				<unitPattern count="other">{0} ملی بار</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>قیراط</displayName>
-				<unitPattern count="one">{0} قیراط</unitPattern>
-				<unitPattern count="other">{0} قیراط</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>کلومیٹر فی گھنٹہ</displayName>
 				<unitPattern count="one">{0} کلومیٹر فی گھنٹہ</unitPattern>
@@ -6034,6 +6031,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>قیراط</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -6436,11 +6438,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ملی بار</unitPattern>
 				<unitPattern count="other">{0} ملی بار</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>قیراط</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>کلومیٹر/گھنٹہ</displayName>
 				<unitPattern count="one">{0} kph</unitPattern>
@@ -6729,7 +6726,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} یارڈ</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<unitPattern count="one">'{0}</unitPattern>
+				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="length-inch">

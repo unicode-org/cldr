@@ -19,6 +19,7 @@ import org.unicode.cldr.util.PatternCache;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.MessageFormat;
 
 /**
@@ -185,7 +186,7 @@ public class CollationMapper extends Mapper {
             } else if (qName.equals("cr")) {
                 String[] lines = currentText.toString().split("\n");
                 for (String line : lines) {
-                    int commentPos = line.indexOf("#");
+                    int commentPos = Utility.quotedIndexOf(line, 0, line.length(), "#");
                     if (commentPos > -1) {
                         line = line.substring(0, commentPos);
                     }

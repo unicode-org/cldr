@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -692,6 +693,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">Altungarisch</script>
 			<script type="Inds">Indus-Schrift</script>
 			<script type="Ital">Altitalisch</script>
+			<script type="Jamo" draft="contributed">Jamo</script>
 			<script type="Java">Javanesisch</script>
 			<script type="Jpan">Japanisch</script>
 			<script type="Jurc" draft="contributed">Jurchen</script>
@@ -1144,7 +1146,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">Umgekehrte Sortierung von Akzenten</key>
 			<key type="colCaseFirst" draft="contributed">Sortierung nach Groß- bzw. Kleinbuchstaben</key>
 			<key type="colCaseLevel" draft="contributed">Sortierung nach Groß- oder Kleinschreibung</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Kana-Sortierung</key>
 			<key type="collation">Sortierung</key>
 			<key type="colNormalization" draft="contributed">Normierte Sortierung</key>
 			<key type="colNumeric" draft="contributed">Sortierung nach Zahlen</key>
@@ -1156,7 +1157,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">Zahlen</key>
 			<key type="timezone" draft="contributed">Zeitzone</key>
 			<key type="va" draft="contributed">Lokale Variante</key>
-			<key type="variableTop" draft="contributed">Nach Symbolen sortieren</key>
 			<key type="x">Privatnutzung</key>
 		</keys>
 		<types>
@@ -1187,8 +1187,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">Großbuchstaben zuerst aufführen</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Ohne Groß-/Kleinschreibung sortieren</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Nach Groß-/Kleinschreibung sortieren</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Kana separat sortieren</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Kana anders sortieren</type>
 			<type key="collation" type="big5han">Traditionelles Chinesisch - Big5</type>
 			<type key="collation" type="dictionary">Lexikographische Sortierreihenfolge</type>
 			<type key="collation" type="ducet">Unicode-Sortierung</type>
@@ -1214,6 +1212,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">Akzente/Fall/Breite/Kana sortieren</type>
 			<type key="colStrength" type="secondary" draft="contributed">Akzente sortieren</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Akzente/Fall/Breite sortieren</type>
+			<type key="d0" type="fwidth" draft="contributed">Breit</type>
+			<type key="d0" type="hwidth" draft="contributed">Halbe Breite</type>
+			<type key="d0" type="npinyin" draft="contributed">Numerisch</type>
 			<type key="hc" type="h11">12-Stunden-Zählung (0-11)</type>
 			<type key="hc" type="h12">12-Stunden-Zählung (1-12)</type>
 			<type key="hc" type="h23">24-Stunden-Zählung (0-23)</type>
@@ -1221,6 +1222,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose">lockerer Zeilenumbruch</type>
 			<type key="lb" type="normal">normaler Zeilenumbruch</type>
 			<type key="lb" type="strict">fester Zeilenumbruch</type>
+			<type key="m0" type="bgn" draft="contributed">BGN</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN</type>
 			<type key="ms" type="metric">metrisches System</type>
 			<type key="ms" type="uksystem">britisches Maßsystem</type>
 			<type key="ms" type="ussystem">US-Maßsystem</type>
@@ -1285,18 +1288,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">Traditionelle Zahlen</type>
 			<type key="numbers" type="vaii" draft="contributed">Vai-Ziffern</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
-			<transformName type="Numeric" draft="contributed">Numerisch</transformName>
-			<transformName type="Tone" draft="contributed">Tonsprache</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Akzente</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Breit</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Halbe Breite</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Veröffentlichung</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Internationales (SI)</measurementSystemName>
 			<measurementSystemName type="UK">Englisches</measurementSystemName>
@@ -2344,6 +2335,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-short">
 				<displayName>Tag</displayName>
 				<relative type="-2">vorgestern</relative>
+				<relative type="-1">gestern</relative>
+				<relative type="0">heute</relative>
+				<relative type="1">morgen</relative>
 				<relative type="2">übermorgen</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Tag</relativeTimePattern>
@@ -2357,6 +2351,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="day-narrow">
 				<displayName>Tag</displayName>
 				<relative type="-2">vorgestern</relative>
+				<relative type="-1">gestern</relative>
+				<relative type="0">heute</relative>
+				<relative type="1">morgen</relative>
 				<relative type="2">übermorgen</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Tag</relativeTimePattern>
@@ -2590,6 +2587,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0} Sommerzeit</regionFormat>
 			<regionFormat type="standard">{0} Normalzeit</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Unbekannt</exemplarCity>
 			</zone>
@@ -3354,9 +3354,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
@@ -6921,6 +6918,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} Quadratzoll</unitPattern>
 				<perUnitPattern>{0} pro Quadratzoll</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>Karat</displayName>
+				<unitPattern count="one">{0} Karat</unitPattern>
+				<unitPattern count="other">{0} Karat</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>Liter pro Kilometer</displayName>
 				<unitPattern count="one">{0} Liter pro Kilometer</unitPattern>
@@ -7270,7 +7272,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Unzen</displayName>
 				<unitPattern count="one">{0} Unze</unitPattern>
 				<unitPattern count="other">{0} Unzen</unitPattern>
-				<perUnitPattern>pro Unze</perUnitPattern>
+				<perUnitPattern>{0} pro Unze</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>Feinunzen</displayName>
@@ -7336,11 +7338,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Millibar</displayName>
 				<unitPattern count="one">{0} Millibar</unitPattern>
 				<unitPattern count="other">{0} Millibar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>Karat</displayName>
-				<unitPattern count="one">{0} Karat</unitPattern>
-				<unitPattern count="other">{0} Karat</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>Kilometer pro Stunde</displayName>
@@ -7599,6 +7596,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>Karat</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -8016,11 +8018,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>Karat</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -8256,6 +8253,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-square-inch">
 				<unitPattern count="one" draft="contributed">{0} in²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} in²</unitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<unitPattern count="one" draft="contributed">{0} l/km</unitPattern>
@@ -8599,10 +8600,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-millibar">
 				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<unitPattern count="one" draft="contributed">{0} kt</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>

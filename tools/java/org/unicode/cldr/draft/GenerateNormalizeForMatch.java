@@ -60,6 +60,8 @@ public class GenerateNormalizeForMatch {
 
     private static final int DIFF_LIMIT = 10;
 
+    private static final boolean SIMPLE = true;
+
     // Fixes to match Jim's names
     private static UnicodeMap<String> JIM_NAMES = new UnicodeMap<String>();
     static {
@@ -127,7 +129,9 @@ public class GenerateNormalizeForMatch {
         if (fix) {
             fixOld(sourceFile, targetFile);
         } else {
-            frequencies = new FrequencyData(frequencyFile, true);
+            if (frequencyFile != null) {
+                frequencies = new FrequencyData(frequencyFile, true);
+            }
             generateMappings(sourceFile, targetFile, oldMappingFile, frequencyFile);
         }
         LOG_WRITER.println("# END");
@@ -322,7 +326,7 @@ public class GenerateNormalizeForMatch {
 
         // print them
         for (UnicodeSetIterator it = new UnicodeSetIterator(mappings.keySet()); it.next();) {
-            writeMapping(out, it.getString(), (String) mappings.getValue(it.codepoint));
+            writeMapping(out, it.getString(), (String) mappings.getValue(it.codepoint), SIMPLE);
         }
         out.close();
 
@@ -426,8 +430,15 @@ public class GenerateNormalizeForMatch {
      * @param out
      * @param source
      * @param target
+     * @param simple TODO
      */
-    private static void writeMapping(PrintWriter out, String source, String target) {
+    private static void writeMapping(PrintWriter out, String source, String target, boolean simple) {
+        if (simple) {
+            out.println(source + "; " + target 
+                + " # " + hex(source, " ") + " → " + hex(target, " ") 
+                + ", " + UCharacter.getName(source, " + ") + " → " + UCharacter.getName(target, " + "));
+            return;
+        }
         String otherName = jimName(target);
         String age = (LIST_STYLE == ListStyle.SHOW_AGE) && (!U50.containsAll(source) || !U50.containsAll(target))
             ? showVersion(getNewest(source + target)) + " " : "";
@@ -772,7 +783,7 @@ public class GenerateNormalizeForMatch {
         for (UnicodeSetIterator it = new UnicodeSetIterator(oldMap.keySet()); it.next();) {
             String str = it.getString();
             String other = (String) oldMap.getValue(it.codepoint);
-            writeMapping(out, str, other);
+            writeMapping(out, str, other, false);
         }
         out.close();
     }

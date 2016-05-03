@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<transforms>
-		<transform source="lt" target="Title" direction="forward">
+		<transform source="lt" target="Title" direction="forward" alias="lt-t-d0-title">
 			<tRule><![CDATA[
 # Make any string of letters after a cased letter be lower
 ::NFD();

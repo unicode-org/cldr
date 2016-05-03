@@ -21,16 +21,15 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Tabber;
+import org.unicode.cldr.util.TransliteratorUtilities;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
+import org.unicode.cldr.util.VariableReplacer;
+import org.unicode.cldr.util.XEquivalenceClass;
+import org.unicode.cldr.util.Tabber.HTMLTabber;
 
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.PrettyPrinter;
-import com.ibm.icu.dev.util.Tabber;
-import com.ibm.icu.dev.util.Tabber.HTMLTabber;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMapIterator;
-import com.ibm.icu.dev.util.VariableReplacer;
-import com.ibm.icu.dev.util.XEquivalenceClass;
 import com.ibm.icu.impl.Punycode;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -272,7 +271,7 @@ public class IdnaLabelTester {
                 result.add(i);
             }
         }
-        return (UnicodeSet) result.freeze();
+        return result.freeze();
     }
 
     static String removals = new UnicodeSet("[\u1806[:di:]-[:cn:]]").complement().complement().toPattern(false);
@@ -325,7 +324,7 @@ public class IdnaLabelTester {
         ESCAPER.setFilter(TO_QUOTE);
     }
 
-    private static final PrettyPrinter PRETTY_PRINTER = new PrettyPrinter()
+    private static final UnicodeSetPrettyPrinter PRETTY_PRINTER = new UnicodeSetPrettyPrinter()
         .setOrdering(Collator.getInstance(ULocale.ROOT))
         .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
         .setToQuote(TO_QUOTE)
@@ -806,12 +805,9 @@ public class IdnaLabelTester {
         // 003A..0040;DISALLOWED;;DISALLOWED;; Po Sm;COLON..COMMERCIAL AT
         // 0041;REMAP; 0061; REMAP; 0061; Lu; LATIN CAPITAL LETTER A
 
-        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"),
-            "idna-info.txt");
-        PrintWriter out2 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"),
-            "idna-info-tab.txt");
-        PrintWriter out3 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"),
-            "idna-info.html");
+        PrintWriter out = FileUtilities.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"), "idna-info.txt");
+        PrintWriter out2 = FileUtilities.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"), "idna-info-tab.txt");
+        PrintWriter out3 = FileUtilities.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"), "idna-info.html");
         out3.println("<html>\n" +
             "<head>\n" +
             "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +

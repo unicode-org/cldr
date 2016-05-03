@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+<!-- Copyright © 1991-2016 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
 	<identity>
@@ -560,6 +561,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hung">staromađarsko pismo</script>
 			<script type="Inds">induško pismo</script>
 			<script type="Ital">stari italik</script>
+			<script type="Jamo" draft="contributed">Džamo</script>
 			<script type="Java">javansko pismo</script>
 			<script type="Jpan">japansko pismo</script>
 			<script type="Kali">kajah-li pismo</script>
@@ -982,7 +984,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colBackwards" draft="contributed">Sortiranje prema obrnutim akcentima</key>
 			<key type="colCaseFirst" draft="contributed">Ređanje prema malom/velikom slovu</key>
 			<key type="colCaseLevel" draft="contributed">Sortiranje prema malom/velikom slovu</key>
-			<key type="colHiraganaQuaternary" draft="contributed">Sortiranje prema kana simbolima</key>
 			<key type="collation">Sortiranje</key>
 			<key type="colNormalization" draft="contributed">Normalizovano sortiranje</key>
 			<key type="colNumeric" draft="contributed">Numeričko sortiranje</key>
@@ -994,7 +995,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">brojevi</key>
 			<key type="timezone" draft="contributed">Vremenska zona</key>
 			<key type="va" draft="contributed">Varijanta lokaliteta</key>
-			<key type="variableTop" draft="contributed">Sortiraj kao simbole</key>
 			<key type="x" draft="contributed">Privatna upotreba</key>
 		</keys>
 		<types>
@@ -1022,8 +1022,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colCaseFirst" type="upper" draft="contributed">Sortiraj prvo velika slova</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Sortiraj bez obzira na velika i mala slova</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Sortiraj mala i velika slova</type>
-			<type key="colHiraganaQuaternary" type="no" draft="contributed">Sortiraj kana simbole odvojeno</type>
-			<type key="colHiraganaQuaternary" type="yes" draft="contributed">Sortiraj kana simbole drugačije</type>
 			<type key="collation" type="big5han">Tradicionalno kinesko sortiranje</type>
 			<type key="collation" type="dictionary" draft="contributed">Redosled sortiranja u rečniku</type>
 			<type key="collation" type="ducet" draft="contributed">Podrazumevani Unicode redosled sortiranja</type>
@@ -1047,6 +1045,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="colStrength" type="quaternary" draft="contributed">Sortiraj akcente/mala i velika slova/širinu/kana simbole</type>
 			<type key="colStrength" type="secondary" draft="contributed">Sortiraj akcente</type>
 			<type key="colStrength" type="tertiary" draft="contributed">Sortiraj akcente/mala i velika slova/širinu</type>
+			<type key="d0" type="fwidth" draft="contributed">puna širina</type>
+			<type key="d0" type="hwidth" draft="contributed">pola širine</type>
+			<type key="d0" type="npinyin" draft="contributed">Numerička</type>
 			<type key="hc" type="h11" draft="provisional">12-časovni sistem (0-11)</type>
 			<type key="hc" type="h12" draft="provisional">12-časovni sistem (1-12)</type>
 			<type key="hc" type="h23" draft="provisional">24-časovni sistem (0-23)</type>
@@ -1054,6 +1055,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="lb" type="loose" draft="provisional">loose</type>
 			<type key="lb" type="normal" draft="provisional">normal</type>
 			<type key="lb" type="strict" draft="provisional">strict</type>
+			<type key="m0" type="bgn" draft="contributed">BGN (BGN)</type>
+			<type key="m0" type="ungegn" draft="contributed">UNGEGN (BGN)</type>
 			<type key="ms" type="metric" draft="provisional">metrički</type>
 			<type key="ms" type="uksystem" draft="provisional">uksystem</type>
 			<type key="ms" type="ussystem" draft="provisional">ussystem</type>
@@ -1098,18 +1101,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type key="numbers" type="traditional" draft="contributed">Tradicionalni brojevi</type>
 			<type key="numbers" type="vaii" draft="contributed">Vai cifre</type>
 		</types>
-		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN (BGN)</transformName>
-			<transformName type="Numeric" draft="contributed">Numerička</transformName>
-			<transformName type="Tone" draft="contributed">Ton</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN (BGN)</transformName>
-			<transformName type="x-Accents" draft="contributed">Akcenti</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">puna širina</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">pola širine</transformName>
-			<transformName type="x-Jamo" draft="contributed">Džamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinjin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Izdavački</transformName>
-		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrički</measurementSystemName>
 			<measurementSystemName type="UK">UK</measurementSystemName>
@@ -2738,6 +2729,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat type="daylight">{0}, letnje vreme</regionFormat>
 			<regionFormat type="standard">{0}, standardno vreme</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Izabel</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Nepoznat grad</exemplarCity>
 			</zone>
@@ -3502,9 +3496,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tihuana</exemplarCity>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Izabel</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosiljo</exemplarCity>
@@ -7264,6 +7255,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} kvadratnih inča</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
+			<unit type="concentr-karat">
+				<displayName>karati</displayName>
+				<unitPattern count="one">{0} karat</unitPattern>
+				<unitPattern count="few">{0} karata</unitPattern>
+				<unitPattern count="other">{0} karata</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litri po kilometru</displayName>
 				<unitPattern count="one">{0} litar po kilometru</unitPattern>
@@ -7742,12 +7739,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} milibara</unitPattern>
 				<unitPattern count="other">{0} milibara</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>karati</displayName>
-				<unitPattern count="one">{0} karat</unitPattern>
-				<unitPattern count="few">{0} karata</unitPattern>
-				<unitPattern count="other">{0} karata</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometri na sat</displayName>
 				<unitPattern count="one">{0} kilometar na sat</unitPattern>
@@ -7857,7 +7848,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} litar</unitPattern>
 				<unitPattern count="few">{0} litra</unitPattern>
 				<unitPattern count="other">{0} litara</unitPattern>
-				<perUnitPattern>po litri</perUnitPattern>
+				<perUnitPattern>{0} po litri</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>decilitri</displayName>
@@ -8047,6 +8038,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} in²</unitPattern>
 				<unitPattern count="other">{0} in²</unitPattern>
 				<perUnitPattern>{0}/in²</perUnitPattern>
+			</unit>
+			<unit type="concentr-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="few">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -8525,12 +8522,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
-			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="one">{0} kt</unitPattern>
-				<unitPattern count="few">{0} kt</unitPattern>
-				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometri na sat</displayName>

@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -29,7 +30,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.util.Output;
 
 /**
@@ -457,7 +457,7 @@ public class FilterFactory extends Factory {
         FilterFactory filterFactory = FilterFactory.load(rawFactory, org, true);
         String outputDir = CLDRPaths.GEN_DIRECTORY + "/filter";
         for (String locale : rawFactory.getAvailable()) {
-            try (PrintWriter out = BagFormatter.openUTF8Writer(outputDir, locale + ".xml");) {
+            try (PrintWriter out = FileUtilities.openUTF8Writer(outputDir, locale + ".xml");) {
                 filterFactory.make(locale, false).write(out);
             }
 //            out.close();

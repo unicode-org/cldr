@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Builder;
@@ -42,7 +43,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -514,8 +514,7 @@ public class GenerateMaximalLocales {
         showDefaultContentDifferencesAndFix(defaultLocaleContent);
 
         Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
-        BufferedReader oldFile = BagFormatter.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY,
-            "supplementalMetadata.xml");
+        BufferedReader oldFile = FileUtilities.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
         CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
 
         String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
@@ -663,13 +662,18 @@ public class GenerateMaximalLocales {
         { "eo_Latn", "eo_Latn_001" },
         { "es", "es_Latn_ES" },
         { "es_Latn", "es_Latn_ES" },
+        { "ff_Adlm", "ff_Adlm_GN" },
         { "ku_Arab", "ku_Arab_IQ" },
+        { "lrc", "lrc_Arab_IR" },
+        { "lrc_Arab", "lrc_Arab_IR" },
         { "man", "man_Latn_GM" },
         { "man_Latn", "man_Latn_GM" },
         { "mas", "mas_Latn_KE" },
         { "mas_Latn", "mas_Latn_KE" },
         { "mn", "mn_Cyrl_MN" },
         { "mn_Cyrl", "mn_Cyrl_MN" },
+        { "mro", "mro_Mroo_BD" },
+        { "mro_BD", "mro_Mroo_BD" },
         { "ms_Arab", "ms_Arab_MY" },
         { "pap", "pap_Latn_AW" },
         { "pap_Latn", "pap_Latn_AW" },
@@ -714,6 +718,10 @@ public class GenerateMaximalLocales {
         { "vo_Latn", "vo_Latn_001" },
         { "yi", "yi_Hebr_001" },
         { "yi_Hebr", "yi_Hebr_001" },
+        { "yue", "yue_Hant_HK" },
+        { "yue_Hant", "yue_Hant_HK" },
+        { "yue_Hans", "yue_Hans_CN" },
+        { "yue_CN", "yue_Hans_CN" },
         { "zh_Hani", "zh_Hani_CN" },
 
         { "zh_Bopo", "zh_Bopo_TW" },
@@ -728,6 +736,9 @@ public class GenerateMaximalLocales {
         { "en_Shaw", "en_Shaw_GB" },
         { "sd_Sind", "sd_Sind_IN" },
         { "und_Brai", "fr_Brai_FR" }, // hack
+        { "und_Hanb", "zh_Hanb_TW" }, // Special script code
+        { "zh_Hanb", "zh_Hanb_TW" }, // Special script code
+        { "und_Jamo", "ko_Jamo_KR" }, // Special script code
     });
 
     private static NumberFormat percent = NumberFormat.getPercentInstance();
@@ -1349,8 +1360,7 @@ public class GenerateMaximalLocales {
 
     private static void printLikelySubtags(Map<String, String> fluffup) throws IOException {
 
-        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
-            "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
+        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
         String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
         String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"
             : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + CldrUtility.LINE_SEPARATOR
@@ -1846,8 +1856,8 @@ public class GenerateMaximalLocales {
         { "tet", "Latn" }, // Tetum (East Timor)
         { "tk", "Latn" }, // Turkmen (Turkmenistan)
         { "ty", "Latn" }, // Tahitian (French Polynesia)
-        { "ja", "Jpan" }, // Tahitian (French Polynesia)
-        { "und", "Latn" }, // Tahitian (French Polynesia)
+        { "ja", "Jpan" }, // Special script for japan
+        { "und", "Latn" }, // Ultimate fallback
     };
     private static Map<String, String> localeToScriptCache = new TreeMap<String, String>();
     static {

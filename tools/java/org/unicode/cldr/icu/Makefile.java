@@ -10,12 +10,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StringArrayToMap;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.util.Calendar;
 
 /**
@@ -80,7 +80,7 @@ class Makefile {
     }
 
     public void print(String outputDir, String filename) throws IOException {
-        PrintWriter out = BagFormatter.openUTF8Writer(outputDir, filename);
+        PrintWriter out = FileUtilities.openUTF8Writer(outputDir, filename);
         String[] params = {
             "%year%", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)),
             "%prefix%", prefix,

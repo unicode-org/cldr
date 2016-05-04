@@ -473,8 +473,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="US" value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel inTerritory="US" value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/displayName"/>
 
-		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80']"/>
-		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80'][@alt='%anyAlphaNum']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%anyAttribute']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%anyAttribute'][@alt='%anyAlphaNum']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/scripts/script[@type='%script80']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/territories/territory[@type='%territory80']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/territories/territory[@type='%territory40'][@alt='%shortVariant']"/>

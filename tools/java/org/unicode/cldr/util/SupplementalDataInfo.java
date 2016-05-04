@@ -39,8 +39,10 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Relation;
@@ -1132,15 +1134,20 @@ public class SupplementalDataInfo {
         attributeValidityInfo = CldrUtility.protectCollection(attributeValidityInfo);
         parentLocales = Collections.unmodifiableMap(parentLocales);
 
-        Set<String> newScripts = new LinkedHashSet<String>();
+        ImmutableSet.Builder<String> newScripts = ImmutableSet.<String>builder();
         Map<Validity.Status, Set<String>> scripts = Validity.getInstance().getData().get(LstrType.script);
-        for (Entry<Validity.Status, Set<String>> e : scripts.entrySet()) {
-            if (e.getKey() != Validity.Status.deprecated) {
+        for (Entry<Status, Set<String>> e : scripts.entrySet()) {
+            switch(e.getKey()) {
+            case regular:
+            case special:
+            case unknown:
                 newScripts.addAll(e.getValue());
+                break;
+            default:
+                break; // do nothing
             }
         }
-        // TODO The above duplicates the old construction, but do we need the Private Use codes for whatever CLDRScriptCodes is used for?
-        CLDRScriptCodes = Collections.unmodifiableSet(newScripts);
+        CLDRScriptCodes = newScripts.build();
     }
 
     // private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>>

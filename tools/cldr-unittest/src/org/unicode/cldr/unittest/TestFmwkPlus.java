@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -226,6 +227,28 @@ public class TestFmwkPlus extends TestFmwk {
             return "contains-all";
         }
     };
+
+    @SuppressWarnings("rawtypes")
+    public static TestRelation CONTAINS_SOME = new TestRelation<Collection, Object>() {
+        @Override
+        public boolean isTrue(Collection a, Object... bs) {
+            for (Object b : bs) {
+                if (!(b instanceof Collection)) {
+                    return false;
+                }
+                if (Collections.disjoint(a, (Collection)b)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        @Override
+        public String toString() {
+            return "contains-some";
+        }
+    };
+
 
     @SuppressWarnings("rawtypes")
     public static TestRelation EMPTY = new TestRelation<Collection, Object>() {

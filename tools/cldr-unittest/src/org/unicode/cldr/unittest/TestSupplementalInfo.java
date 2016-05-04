@@ -43,6 +43,7 @@ import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.PreferredAndAllowedHour.HourStyle;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
@@ -57,6 +58,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -146,7 +149,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> modernLocales = testInfo.getStandardCodes()
             .getLocaleCoverageLocales(Organization.cldr,
                 EnumSet.of(Level.MODERN));
-        
+
         Output<FixedDecimal> maxSample = new Output<FixedDecimal>();
         Output<FixedDecimal> minSample = new Output<FixedDecimal>();
 
@@ -272,7 +275,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
         return start + "\t" + end + "\t" + (result == null ? "?" : result.toString()) + "\t" + example;
     }
-    
+
     private String getRangeLine(Count count, PluralRules pluralRules, String pattern) {
         String sample = "?";
         FixedDecimalSamples exampleList = pluralRules.getDecimalSamples(count.toString(), PluralRules.SampleType.INTEGER);
@@ -330,6 +333,35 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 }
             }
         }
+    }
+
+    public void TestCldrScriptCodes() {
+        Set<String> codes = SUPPLEMENTAL.getCLDRScriptCodes();
+        
+        Set<String> unicodeScripts = ScriptMetadata.getScripts();
+        assertRelation("getCLDRScriptCodes contains Unicode Scripts", true, codes, CONTAINS_ALL, unicodeScripts);
+
+        ImmutableSet<String> allSpecials = ImmutableSet.of("Zinh", "Zmth", "Zsye", "Zsym", "Zxxx", "Zyyy", "Zzzz");
+        assertRelation("getCLDRScriptCodes contains allSpecials", true, codes, CONTAINS_ALL, allSpecials);
+
+        ImmutableSet<String> allCompos = ImmutableSet.of("Hanb", "Hrkt", "Jamo", "Jpan", "Kore");
+        assertRelation("getCLDRScriptCodes contains allCompos", true, codes, CONTAINS_ALL, allCompos);
+
+        Map<Status, Set<String>> scripts = Validity.getInstance().getData().get(LstrType.script);
+        for (Entry<Status, Set<String>> e : scripts.entrySet()) {
+            switch(e.getKey()) {
+            case regular:
+            case special:
+            case unknown:
+                assertRelation("getCLDRScriptCodes contains " + e.getKey(), true, codes, CONTAINS_ALL, e.getValue());
+                break;
+            default:
+                break; // do nothin
+            }
+        }
+        
+        ImmutableSet<String> variants = ImmutableSet.of("Aran", "Cyrs", "Geok", "Latf", "Latg", "Syre", "Syrj", "Syrn");
+        assertRelation("getCLDRScriptCodes contains variants", false, codes, CONTAINS_SOME, variants);
     }
 
     public void checkPluralSamples(String... row) {
@@ -1555,7 +1587,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 ? CoverageIssue.error
                     : CoverageIssue.log;
             CoverageIssue needsCoverage2 = needsCoverage == CoverageIssue.error ? CoverageIssue.warn : needsCoverage;
-            
+
 //            if (logKnownIssue("Cldrbug:8809", "Missing plural rules/samples be and ga locales")) {
 //                if (locale.equals("be") || locale.equals("ga")) {
 //                    needsCoverage = CoverageIssue.warn;

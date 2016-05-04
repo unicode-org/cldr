@@ -44,16 +44,18 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
                   window.setInterval(function(){
                 	  spin0 = (spin0+1)%3;
                 	  var dots = document.getElementById('dots');
-                	  switch(spin0) {
-                	  case 0:
-                		  dots.innerHTML = ".";
-                		  break;
-                	  case 1:
-                		  dots.innerHTML="&nbsp;.";
-                		  break;
-                	  case 2:
-                		  dots.innerHTML="&nbsp;&nbsp;.";
-                		  break;
+                	  if(dots) {
+	                	  switch(spin0) {
+	                	  case 0:
+	                		  dots.innerHTML = ".";
+	                		  break;
+	                	  case 1:
+	                		  dots.innerHTML="&nbsp;.";
+	                		  break;
+	                	  case 2:
+	                		  dots.innerHTML="&nbsp;&nbsp;.";
+	                		  break;
+	                	  }
                 	  }
                   },1000);
                   </script>
@@ -95,19 +97,21 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
 <% if(request.getParameter("_STARTINGUP")==null) { %>
               var newUrl = '<%= url %>' + document.location.search +  document.location.hash;
               var survURL = '<%= survURL %>';
-                            document.getElementById("redir").href = newUrl;
+                            (document.getElementById("redir") || {}).href = newUrl;
                            var dstatus = document.getElementById('st_err');
-                           dstatus.appendChild(document.createElement('br'));
-                           dstatus.appendChild(document.createTextNode('.'));
-                           dojo.ready(function(){
-                               dstatus.appendChild(document.createTextNode('.'));
-                            	   window.setTimeout(function(){
-                                       dstatus.appendChild(document.createTextNode('.'));
-                            		    dojo.xhrGet({url: survURL, load: function(data) {   
-                            		        dstatus.appendChild(document.createTextNode('Loaded  '+data.length + ' bytes from SurveyTool. Reloading this page..')); window.location.reload(true);
-                            		        if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
-                            	   }, 2000);
-                           	   });
+                           if(dstatus != null) {
+	                           dstatus.appendChild(document.createElement('br'));
+	                           dstatus.appendChild(document.createTextNode('.'));
+	                           dojo.ready(function(){
+	                               dstatus.appendChild(document.createTextNode('.'));
+	                            	   window.setTimeout(function(){
+	                                       dstatus.appendChild(document.createTextNode('.'));
+	                            		    dojo.xhrGet({url: survURL, load: function(data) {   
+	                            		        dstatus.appendChild(document.createTextNode('Loaded  '+data.length + ' bytes from SurveyTool. Reloading this page..')); window.location.reload(true);
+	                            		        if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
+	                            	   }, 2000);
+	                           	   });
+                           }
 <% } %>
                             
                             </script>

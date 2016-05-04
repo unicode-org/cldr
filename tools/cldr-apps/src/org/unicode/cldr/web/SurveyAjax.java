@@ -1056,7 +1056,8 @@ public class SurveyAjax extends HttpServlet {
                                 CLDRLocale locale = CLDRLocale.getInstance(loc);
                                 oldvotes.put("locale", locale);
                                 oldvotes.put("localeDisplayName", locale.getDisplayName());
-                                oldvotes.put("dir", sm.getDirectionalityFor(locale));
+                                HTMLDirection dir = sm.getHTMLDirectionFor(locale);
+                                oldvotes.put("dir", dir);
                                 STFactory fac = sm.getSTFactory();
                                 //CLDRFile file = fac.make(loc, false);
                                 CLDRFile file = sm.getOldFile(loc, true);

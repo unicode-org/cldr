@@ -82,7 +82,7 @@ Note: When reading these dates, you should read them as inclusive date ranges.
 The date ranges are like date ranges that you see on tomb stones,
 but some dates are approximate. Some date ranges overlap due to
 revolts, invasions, new constitutions, and slow planned adoption of new currency.
-The length of time for these change overs vary widely. 
+The length of time for these change overs vary widely.
 Sometimes, hyperinflation will cause more than one currency to be in effect
 in one year. Dates without a "to" attribute mean that the currency is still
 in use.
@@ -103,7 +103,7 @@ application of trade, commerce or banking. ... At its seventeenth session
 codes for International Standard ISO 4217, "Codes for the representation of
 currencies and funds", would be suitable for use in international trade.
 
-Most of this list was derived from the following sources: 
+Most of this list was derived from the following sources:
 http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html
 http://www.globalfindata.com/gh/index.html
 http://europa.eu.int/comm/translation/currencies/entable1.htm
@@ -1002,8 +1002,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="XAF" from="1993-01-01"/>
         </region>
         <region iso3166="TF">
-        <!-- Part of the Antarctic claimed by France (whose sovereignty is not recognised 
-        internationally), makes up the French Southern and Antarctic Lands (TAAF) 
+        <!-- Part of the Antarctic claimed by France (whose sovereignty is not recognised
+        internationally), makes up the French Southern and Antarctic Lands (TAAF)
         administered from Saint-Pierre de la Réunion. No indigenous population -->
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="FRF" from="1959-01-01" to="2002-02-17"/>
@@ -1469,7 +1469,7 @@ XXX Code for transations where no currency is involved
 		<language type="dav" scripts="Latn"/>
 		<language type="dcc" scripts="Arab"/>
 		<language type="dcc" territories="IN" alt="secondary"/>
-		<language type="de" scripts="Latn" territories="AT BE CH DE LI LU"/>
+		<language type="de" scripts="Latn" territories="AT BE CH DE IT LI LU"/>
 		<language type="de" scripts="Runr" territories="BR DK KZ NL PL US" alt="secondary"/>
 		<language type="del" scripts="Latn"/>
 		<language type="den" scripts="Latn"/>
@@ -4649,12 +4649,12 @@ XXX Code for transations where no currency is involved
 			ZA ZW"
           />
           <firstDay day="sun"  territories="GB" alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
-        
+
           <weekendStart day="thu"  territories="AF"/>
           <weekendStart day="fri"  territories="AE BH DZ EG IL IQ IR JO KW LY MA OM QA SA SD SY TN YE"/>
           <weekendStart day="sat"  territories="001"/>
           <weekendStart day="sun"  territories="IN"/>
-        
+
           <weekendEnd day="fri"  territories="AF IR"/>
           <weekendEnd day="sat"  territories="AE BH DZ EG IL IQ JO KW LY MA OM QA SA SD SY TN YE"/>
           <weekendEnd day="sun"  territories="001"/>
@@ -5326,7 +5326,7 @@ XXX Code for transations where no currency is involved
 		<parentLocale parent="pt_PT" locales="pt_AO pt_CH pt_CV pt_GQ pt_GW pt_LU pt_MO pt_MZ pt_ST pt_TL"/>
 		<parentLocale parent="zh_Hant_HK" locales="zh_Hant_MO"/>
 	</parentLocales>
-	
+
 	<references>
 		<reference type="R1000" uri="https://www.cia.gov/cia/publications/factbook/geos/aa.html">Dutch official</reference>
 		<reference type="R1001" uri="http://www.migrationinformation.org/Feature/display.cfm?ID=72">At most 6% are not fluent in English</reference>

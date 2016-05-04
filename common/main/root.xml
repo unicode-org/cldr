@@ -2745,7 +2745,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<decimal>٫</decimal>
 			<group>٬</group>
 			<list>؛</list>
-			<percentSign>٪</percentSign>
+			<percentSign>٪‏</percentSign> <!-- includes RLM after sign -->
 			<plusSign>‏+</plusSign> <!-- includes RLM before sign -->
 			<minusSign>‏-</minusSign> <!-- includes RLM before sign (002D) -->
 			<exponential>اس</exponential>
@@ -3189,7 +3189,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<percentFormats numberSystem="arab">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0 %</pattern>
+				</percentFormat>
+			</percentFormatLength>
 		</percentFormats>
 		<percentFormats numberSystem="arabext">
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
@@ -3322,7 +3326,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencyFormats numberSystem="arab">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="arabext">
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>

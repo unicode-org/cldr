@@ -614,6 +614,7 @@ public class ICUServiceBuilder {
         MyCurrency mc = null;
         if (kind == CURRENCY) {
             // in this case numberSystem is null and symbols are for the default system
+            // ^^^^^ NO, that is not true.
 
             String prefix = "//ldml/numbers/currencies/currency[@type=\"" + key1 + "\"]/";
             // /ldml/numbers/currencies/currency[@type="GBP"]/symbol
@@ -739,12 +740,12 @@ public class ICUServiceBuilder {
         symbols.setExponentSeparator(getSymbolString("exponential", numberSystem));
         symbols.setGroupingSeparator(getSymbolCharacter("group", numberSystem));
         symbols.setInfinity(getSymbolString("infinity", numberSystem));
-        symbols.setMinusSign(getHackSymbolCharacter("minusSign", numberSystem));
+        symbols.setMinusString(getSymbolString("minusSign", numberSystem));
         symbols.setNaN(getSymbolString("nan", numberSystem));
         symbols.setPatternSeparator(getSymbolCharacter("list", numberSystem));
-        symbols.setPercent(getSymbolCharacter("percentSign", numberSystem));
+        symbols.setPercentString(getSymbolString("percentSign", numberSystem));
         symbols.setPerMill(getSymbolCharacter("perMille", numberSystem));
-        symbols.setPlusSign(getHackSymbolCharacter("plusSign", numberSystem));
+        symbols.setPlusString(getSymbolString("plusSign", numberSystem));
         // symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit", numberSystem));
         String digits = supplementalData.getDigits(numberSystem);
         if (digits != null && digits.length() == 10) {
@@ -782,7 +783,10 @@ public class ICUServiceBuilder {
         return getSymbolString(key, numsys).charAt(0);
     }
 
-    // TODO fix once http://bugs.icu-project.org/trac/ticket/11837 is done.
+    // TODO fix once http://bugs.icu-project.org/trac/ticket/10368 is done.
+    // Actually CLDR is instead now using a hacked version of DecimalFormatSymbols
+    // to address http://unicode.org/cldr/trac/ticket/9040
+    // So we no longer need this or isBidiMark
     private char getHackSymbolCharacter(String key, String numsys) {
         String minusString = getSymbolString(key, numsys);
         char minusSign = (minusString.length() > 1 && isBidiMark(minusString.charAt(0))) ? minusString.charAt(1) : minusString.charAt(0);

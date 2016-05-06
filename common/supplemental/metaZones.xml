@@ -1263,7 +1263,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Europe/Minsk">
 				<usesMetazone to="1991-03-30 23:00" mzone="Moscow"/>
 				<usesMetazone to="2011-03-27 00:00" from="1991-03-30 23:00" mzone="Europe_Eastern"/>
-				<usesMetazone from="2011-03-27 00:00" mzone="Europe_Further_Eastern"/>
+				<usesMetazone to="2014-10-26 22:00" from="2011-03-27 00:00" mzone="Europe_Further_Eastern"/>
+				<usesMetazone from="2014-10-26 22:00" mzone="Moscow"/>
 			</timezone>
 			<timezone type="Europe/Monaco">
 				<usesMetazone mzone="Europe_Central"/>
@@ -1771,7 +1772,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Kazakhstan_Western" territory="001" type="Asia/Aqtobe"/>
 			<mapZone other="Kizilorda" territory="001" type="Asia/Qyzylorda"/>
 			<mapZone other="Korea" territory="001" type="Asia/Seoul"/>
-			<mapZone other="Korea" territory="KP" type="Asia/Pyongyang"/>
 			<mapZone other="Kosrae" territory="001" type="Pacific/Kosrae"/>
 			<mapZone other="Krasnoyarsk" territory="001" type="Asia/Krasnoyarsk"/>
 			<mapZone other="Kuybyshev" territory="001" type="Europe/Samara"/>

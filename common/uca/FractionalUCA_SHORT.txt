@@ -1,5 +1,5 @@
 # Fractional UCA Table, generated from the UCA DUCET
-# 2016-05-03
+# 2016-05-06
 # VERSION: UCA=9.0.0, UCD=9.0.0
 # For a description of the format and usage, see
 #   http://www.unicode.org/reports/tr35/tr35-collation.html
@@ -261,7 +261,7 @@
 [top_byte	09	SPACE PUNCTUATION ]
 [top_byte	0A	SPACE PUNCTUATION ]
 [top_byte	0B	SPACE PUNCTUATION ]
-[top_byte	0C	SYMBOL CURRENCY ]  # 5726 primary weights
+[top_byte	0C	SYMBOL CURRENCY ]  # 5725 primary weights
 [top_byte	0D	SYMBOL CURRENCY ]
 [top_byte	0E	DIGIT ]  # 365 primary weights
 [top_byte	0F	DIGIT ]
@@ -373,7 +373,7 @@
 [top_byte	79	Hira Hrkt Kana	COMPRESS ]  # 51 primary weights
 [top_byte	7A	Bopo Yiii Lisu Plrd Wara Pauc Hmng Lyci Cari Lydi Ital Goth	COMPRESS ]  # 1746 primary weights
 [top_byte	7B	Dsrt Shaw Dupl Osma Elba Aghb Sora Mroo Linb Lina Cprt Sarb Narb Avst Palm Nbat Hatr Armi Prti Phli Phlp Mani Ugar Xpeo Xsux Egyp	COMPRESS ]  # 3594 primary weights
-[top_byte	7C	Merc Hluw Tang	COMPRESS ]  # 7493 primary weights
+[top_byte	7C	Merc Hluw Tang	COMPRESS ]  # 7494 primary weights
 [top_byte	7D	Hani Hans Hant ]
 [top_byte	7E	Hani Hans Hant ]
 [top_byte	7F	Hani Hans Hant ]
@@ -14927,109 +14927,107 @@ FF70; [0D 60, 05, A0]
 30FD; [0D 62, 05, 05]
 30FE; [0D 62, 05, 05][, AE, 05]
 
-FFFD; [0D 64 02, 05, 05]
+FDD1 20AC;	[0D 64 02, 05, 05]	# CURRENCY first primary
 
-FDD1 20AC;	[0D 65 02, 05, 05]	# CURRENCY first primary
+00A4; [0D 66, 05, 05]
 
-00A4; [0D 67, 05, 05]
+00A2; [0D 68, 05, 05]
+FFE0; [0D 68, 05, 20]
 
-00A2; [0D 69, 05, 05]
-FFE0; [0D 69, 05, 20]
+0024; [0D 6A, 05, 05]
+FF04; [0D 6A, 05, 20]
+FE69; [0D 6A, 05, 2E]
 
-0024; [0D 6B, 05, 05]
-FF04; [0D 6B, 05, 20]
-FE69; [0D 6B, 05, 2E]
+00A3; [0D 6C, 05, 05]
+FFE1; [0D 6C, 05, 20]
 
-00A3; [0D 6D, 05, 05]
-FFE1; [0D 6D, 05, 20]
+00A5; [0D 6E, 05, 05]
+FFE5; [0D 6E, 05, 20]
 
-00A5; [0D 6F, 05, 05]
-FFE5; [0D 6F, 05, 20]
+058F; [0D 70, 05, 05]
 
-058F; [0D 71, 05, 05]
+060B; [0D 72, 05, 05]
 
-060B; [0D 73, 05, 05]
+09F2; [0D 74, 05, 05]
 
-09F2; [0D 75, 05, 05]
+09F3; [0D 76, 05, 05]
 
-09F3; [0D 77, 05, 05]
+09FB; [0D 78, 05, 05]
 
-09FB; [0D 79, 05, 05]
+0AF1; [0D 7A, 05, 05]
 
-0AF1; [0D 7B, 05, 05]
+A838; [0D 7C, 05, 05]
 
-A838; [0D 7D, 05, 05]
+0BF9; [0D 7E, 05, 05]
 
-0BF9; [0D 7F, 05, 05]
+0E3F; [0D 80, 05, 05]
 
-0E3F; [0D 81, 05, 05]
+17DB; [0D 82, 05, 05]
 
-17DB; [0D 83, 05, 05]
+20A0; [0D 84, 05, 05]
 
-20A0; [0D 85, 05, 05]
+20A1; [0D 86, 05, 05]
 
-20A1; [0D 87, 05, 05]
+20A2; [0D 88, 05, 05]
 
-20A2; [0D 89, 05, 05]
+20A3; [0D 8A, 05, 05]
 
-20A3; [0D 8B, 05, 05]
+20A4; [0D 8C, 05, 05]
 
-20A4; [0D 8D, 05, 05]
+20A5; [0D 8E, 05, 05]
 
-20A5; [0D 8F, 05, 05]
+20A6; [0D 90, 05, 05]
 
-20A6; [0D 91, 05, 05]
+20A7; [0D 92, 05, 05]
 
-20A7; [0D 93, 05, 05]
+20A9; [0D 94, 05, 05]
+FFE6; [0D 94, 05, 20]
 
-20A9; [0D 95, 05, 05]
-FFE6; [0D 95, 05, 20]
+20AA; [0D 96, 05, 05]
 
-20AA; [0D 97, 05, 05]
+20AB; [0D 98, 05, 05]
 
-20AB; [0D 99, 05, 05]
+20AC; [0D 9A, 05, 05]
 
-20AC; [0D 9B, 05, 05]
+20AD; [0D 9C, 05, 05]
 
-20AD; [0D 9D, 05, 05]
+20AE; [0D 9E, 05, 05]
 
-20AE; [0D 9F, 05, 05]
+20AF; [0D A0, 05, 05]
 
-20AF; [0D A1, 05, 05]
+20B0; [0D A2, 05, 05]
 
-20B0; [0D A3, 05, 05]
+20B1; [0D A4, 05, 05]
 
-20B1; [0D A5, 05, 05]
+20B2; [0D A6, 05, 05]
 
-20B2; [0D A7, 05, 05]
+20B3; [0D A8, 05, 05]
 
-20B3; [0D A9, 05, 05]
+20B4; [0D AA, 05, 05]
 
-20B4; [0D AB, 05, 05]
+20B5; [0D AC, 05, 05]
 
-20B5; [0D AD, 05, 05]
+20B6; [0D AE, 05, 05]
 
-20B6; [0D AF, 05, 05]
+20B7; [0D B0, 05, 05]
 
-20B7; [0D B1, 05, 05]
+20B8; [0D B2, 05, 05]
 
-20B8; [0D B3, 05, 05]
+20B9; [0D B4, 05, 05]
 
-20B9; [0D B5, 05, 05]
+20BA; [0D B6, 05, 05]
 
-20BA; [0D B7, 05, 05]
+20BB; [0D B8, 05, 05]
 
-20BB; [0D B9, 05, 05]
+20BC; [0D BA, 05, 05]
 
-20BC; [0D BB, 05, 05]
+20BD; [0D BC, 05, 05]
 
-20BD; [0D BD, 05, 05]
+20BE; [0D BE, 05, 05]
 
-20BE; [0D BF, 05, 05]
+20A8; [0D C0, 05, 05]
 
-20A8; [0D C1, 05, 05]
-
-FDFC; [0D C3, 05, 05]
+FDFC; [0D C2, 05, 05]
 
 FDD1 0034;	[0E 02 02, 05, 05]	# DIGIT first primary starts new lead byte
 
@@ -58731,6 +58729,8 @@ FAD7; [U+27ED3]
 2F88F; [U+2A392]
 2FA1D; [U+2A600]
 
+FFFD; [EF FD, 05, 05]
+
 FDD1 FDD0;	[E4, 05, 05]	# unassigned first primary
 
 # SPECIAL MAX/MIN COLLATION ELEMENTS
@@ -58776,7 +58776,7 @@ FDD0 0050;	[, , 3D 02]	# CONSTRUCTED FAKE SECONDARY-IGNORABLE
 [last regular [7C 7C 2E, 05, 05]] # U+18AF2 TANGUT COMPONENT-755
 [first implicit [E0, 05, 05]] # CONSTRUCTED
 [last implicit [E4, 05, 05]] # CONSTRUCTED
-[first trailing [E5, 05, 05]] # CONSTRUCTED
+[first trailing [EF FD, 05, 05]] # U+FFFD REPLACEMENT CHARACTER
 [last trailing [EF FF, 05, 05]] # U+FFFF <noncharacter-FFFF>
 
 # Reordering Tokens => Top Bytes
@@ -58948,7 +58948,7 @@ FDD0 0050;	[, , 3D 02]	# CONSTRUCTED FAKE SECONDARY-IGNORABLE
 [categories	Sc	0D{CURRENCY}=52 ]
 [categories	Sk	0C{SYMBOL}=87 0D{CURRENCY}=5 ]
 [categories	Sm	0C{SYMBOL}=947 ]
-[categories	So	0C{SYMBOL}=2771 0D{CURRENCY}=1914 14{DIGIT}=1 16{DIGIT}=3 18{DIGIT}=1 1A{DIGIT}=1 1C{DIGIT}=1 1E{DIGIT}=1 20{DIGIT}=1 22{DIGIT}=1 28{Latn}=77 29{Latn}=77 2A{Latn}=77 2B{Latn}=77 2C{Latn}=77 2D{Latn}=77 2E{Latn}=77 2F{Latn}=77 30{Latn}=77 31{Latn}=77 32{Latn}=77 33{Latn}=77 34{Latn}=77 35{Latn}=77 36{Latn}=77 37{Latn}=77 38{Latn}=77 39{Latn}=77 3A{Latn}=77 3B{Latn}=77 3C{Latn}=77 3D{Latn}=77 3E{Latn}=77 3F{Latn}=77 40{Latn}=77 41{Latn}=77 42{Latn}=77 43{Latn}=77 44{Latn}=77 45{Latn}=77 46{Latn}=77 47{Latn}=77 48{Latn}=77 49{Latn}=77 4A{Latn}=77 4B{Latn}=77 4C{Latn}=77 4D{Latn}=77 4E{Latn}=77 4F{Latn}=77 50{Latn}=77 51{Latn}=77 52{Latn}=77 53{Latn}=77 54{Latn}=77 55{Latn}=77 56{Latn}=77 57{Latn}=77 58{Latn}=77 59{Latn}=77 5A{Latn}=77 5B{Latn}=77 5C{Latn}=77 65{Arab}=2 74{Batk Rjng Kali Mymr Cakm Khmr Tale Talu Lana Cham Bali Java}=2 7B{Dsrt Shaw Dupl Osma Elba Aghb Sora Mroo Linb Lina Cprt Sarb Narb Avst Palm Nbat Hatr Armi Prti Phli Phlp Mani Ugar Xpeo Xsux Egyp}=1 ]
+[categories	So	0C{SYMBOL}=2771 0D{CURRENCY}=1913 14{DIGIT}=1 16{DIGIT}=3 18{DIGIT}=1 1A{DIGIT}=1 1C{DIGIT}=1 1E{DIGIT}=1 20{DIGIT}=1 22{DIGIT}=1 28{Latn}=77 29{Latn}=77 2A{Latn}=77 2B{Latn}=77 2C{Latn}=77 2D{Latn}=77 2E{Latn}=77 2F{Latn}=77 30{Latn}=77 31{Latn}=77 32{Latn}=77 33{Latn}=77 34{Latn}=77 35{Latn}=77 36{Latn}=77 37{Latn}=77 38{Latn}=77 39{Latn}=77 3A{Latn}=77 3B{Latn}=77 3C{Latn}=77 3D{Latn}=77 3E{Latn}=77 3F{Latn}=77 40{Latn}=77 41{Latn}=77 42{Latn}=77 43{Latn}=77 44{Latn}=77 45{Latn}=77 46{Latn}=77 47{Latn}=77 48{Latn}=77 49{Latn}=77 4A{Latn}=77 4B{Latn}=77 4C{Latn}=77 4D{Latn}=77 4E{Latn}=77 4F{Latn}=77 50{Latn}=77 51{Latn}=77 52{Latn}=77 53{Latn}=77 54{Latn}=77 55{Latn}=77 56{Latn}=77 57{Latn}=77 58{Latn}=77 59{Latn}=77 5A{Latn}=77 5B{Latn}=77 5C{Latn}=77 65{Arab}=2 74{Batk Rjng Kali Mymr Cakm Khmr Tale Talu Lana Cham Bali Java}=2 7B{Dsrt Shaw Dupl Osma Elba Aghb Sora Mroo Linb Lina Cprt Sarb Narb Avst Palm Nbat Hatr Armi Prti Phli Phlp Mani Ugar Xpeo Xsux Egyp}=1 E5{TRAILING}=1 E6{TRAILING}=1 E7{TRAILING}=1 E8{TRAILING}=1 E9{TRAILING}=1 EA{TRAILING}=1 EB{TRAILING}=1 EC{TRAILING}=1 ED{TRAILING}=1 EE{TRAILING}=1 EF{TRAILING}=1 ]
 [categories	Zl	03{SPACE}=1 ]
 [categories	Zp	03{SPACE}=1 ]
 [categories	Zs	03{SPACE}=1 04{SPACE}=17 05{PUNCTUATION}=6 0C{SYMBOL}=29 5F{Grek Copt}=1 ]

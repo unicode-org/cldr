@@ -285,7 +285,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         Level level = sdi.getCoverageLevel(path, "en");
         assertEquals("Narrow $", Level.BASIC, level);
     }
-    
+
     public void TestA() {
         String path = "//ldml/characterLabels/characterLabel[@type=\"other\"]";
         SupplementalDataInfo sdi = SupplementalDataInfo
@@ -293,7 +293,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         Level level = sdi.getCoverageLevel(path, "en");
         assertEquals("Quick Check for any attribute", Level.MODERN, level);
     }
-    
+
     public void TestCoverageCompleteness() {
         /**
          * Check that English paths are, except for known cases, at least modern coverage.
@@ -399,6 +399,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     if (!modernCurrencies.contains(currencyType)) {
                         continue; // old currency or not tender, so we don't care
                     }
+                }
+                if (path.contains("//ldml/numbers")) {
+                }
+                // Currently not collecting timeSeparator data in SurveyTool
+                if (xpp.containsElement("timeSeparator")) {
+                    continue;
                 }
                 // Other paths in numbers without a numbering system are deprecated.
                 if (numberingSystem == null) {

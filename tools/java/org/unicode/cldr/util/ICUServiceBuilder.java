@@ -740,12 +740,12 @@ public class ICUServiceBuilder {
         symbols.setExponentSeparator(getSymbolString("exponential", numberSystem));
         symbols.setGroupingSeparator(getSymbolCharacter("group", numberSystem));
         symbols.setInfinity(getSymbolString("infinity", numberSystem));
-        symbols.setMinusSign(getHackSymbolCharacter("minusSign", numberSystem));
+        symbols.setMinusString(getSymbolString("minusSign", numberSystem));
         symbols.setNaN(getSymbolString("nan", numberSystem));
         symbols.setPatternSeparator(getSymbolCharacter("list", numberSystem));
-        symbols.setPercent(getSymbolCharacter("percentSign", numberSystem));
+        symbols.setPercentString(getSymbolString("percentSign", numberSystem));
         symbols.setPerMill(getSymbolCharacter("perMille", numberSystem));
-        symbols.setPlusSign(getHackSymbolCharacter("plusSign", numberSystem));
+        symbols.setPlusString(getSymbolString("plusSign", numberSystem));
         // symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit", numberSystem));
         String digits = supplementalData.getDigits(numberSystem);
         if (digits != null && digits.length() == 10) {

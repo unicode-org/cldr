@@ -312,6 +312,10 @@ public class DecimalFormatSymbols implements Cloneable, Serializable {
      */
     @Deprecated
     public String getPercentString() {
+        if (percentString == null) {
+            char[] percentArray = { percent };
+            percentString = new String(percentArray);
+        }
         return percentString;
     }
 
@@ -438,6 +442,10 @@ public class DecimalFormatSymbols implements Cloneable, Serializable {
      */
     @Deprecated
     public String getMinusString() {
+        if (minusString == null) {
+            char[] minusArray = { minusSign };
+            minusString = new String(minusArray);
+        }
         return minusString;
     }
 
@@ -642,6 +650,10 @@ public class DecimalFormatSymbols implements Cloneable, Serializable {
      */
     @Deprecated
     public String getPlusString() {
+        if (plusString == null) {
+            char[] plusArray = { plusSign };
+            plusString = new String(plusArray);
+        }
         return plusString;
     }
 

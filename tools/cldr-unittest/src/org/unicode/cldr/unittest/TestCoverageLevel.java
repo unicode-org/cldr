@@ -400,8 +400,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
                         continue; // old currency or not tender, so we don't care
                     }
                 }
-                if (path.contains("//ldml/numbers")) {
-                }
                 // Currently not collecting timeSeparator data in SurveyTool
                 if (xpp.containsElement("timeSeparator")) {
                     continue;

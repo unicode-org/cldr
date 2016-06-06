@@ -17,7 +17,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 # [3] Edward Finegan. Language: Its structure and use. ISBN 978-1-4130-3055-6.
 #     Figure 12-4: The Cherokee Writing System, page 401.
 
-::[[:sc=Cher:][:P:]];
+::[[:sc=Cher:][:P:][:M:]];
 
 ::upper;
 
@@ -121,6 +121,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 Ᏺ → jo;
 Ᏻ → ju;
 Ᏼ → jə̃;
+
+̋ → ˥;
+́ → ˦;
+̄ → ˧;
+̀ → ˧˩;
+[ ̌ ̆ ] → ˨˦;
+̂ → ˥˧;
+
+[:M:] → ;
 
 ::null;
 a a+ → aː;

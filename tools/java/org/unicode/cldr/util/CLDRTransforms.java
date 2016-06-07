@@ -153,6 +153,7 @@ public class CLDRTransforms {
             addDependency("ch-fa", "ch-ch_FONIPA", "und_FONIPA-fa");
             addDependency("cs-am", "cs-cs_FONIPA", "am-am_FONIPA");
             addDependency("cs-ar", "cs-cs_FONIPA", "und_FONIPA-ar");
+            addDependency("cs-chr", "cs-cs_FONIPA", "und_FONIPA-chr");
             addDependency("cs-fa", "cs-cs_FONIPA", "und_FONIPA-fa");
             addDependency("cs-ja", "cs-cs_FONIPA", "cs_FONIPA-ja");
             addDependency("cs_FONIPA-ko", "Latin-Hangul");

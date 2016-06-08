@@ -152,6 +152,7 @@ define({
 		pClass_loser: "This is a proposed item which is not currently winning.",
 		pClass_fallback: "This item is inherited.", //  ${inheritFromDisplay}.", - removed in r8801
 		pClassExplain_desc: "This area shows the item's status.",
+		followAlias: "Jump to Original ⇒",
 		
 		override_explain_msg: "You have voted for this item with ${overrideVotes} votes instead of the usual ${votes}",
 		voteInfo_overrideExplain_desc: "",

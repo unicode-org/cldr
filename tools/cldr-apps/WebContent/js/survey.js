@@ -2773,12 +2773,14 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 function showItemInfoFn(theRow, item, vHash, newButton, div) {
 	return function(td) {
 		//div.className = 'd-item-selected';
-
+		var isInherited = false;
 		var h3 = document.createElement("div");
 		var displayValue = item.value;
 		if (item.value == '\u2191\u2191\u2191') {
 			displayValue = theRow.inheritedValue;
+			isInherited = true;
 		}
+		
 		var span = appendItem(h3, displayValue, item.pClass); /* no need to pass in 'tr' - clicking this span would have no effect. */
 		setLang(span);
 		h3.className="span";
@@ -2795,7 +2797,17 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		
 		if ( item.value) {
                h3.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
-		 }
+		}
+		if ( item.pClass === 'alias' ) { 
+			isInherited = true;
+		}
+		
+		if ( isInherited && (theRow.inheritedLocale || theRow.inheritedXpid )) {
+//            h3.appendChild(document.createTextNode(  "Loc:" + ( theRow.inheritedLocale || "none") + ", X:" + ( theRow.inheritedXpid || "none?" ) ));
+			var clickyLink = createChunk(stui.str('followAlias'), "a", 'followAlias');
+			clickyLink.href = '#/'+ ( theRow.inheritedLocale || surveyCurrentLocale )+  '//'+ ( theRow.inheritedXpid || theRow.xpstrid ); //linkToLocale(subLoc);
+			h3.appendChild(clickyLink);
+		}
         
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);

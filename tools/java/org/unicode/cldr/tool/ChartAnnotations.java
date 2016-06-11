@@ -28,7 +28,7 @@ import com.ibm.icu.util.ULocale;
 
 public class ChartAnnotations extends Chart {
 
-    private static final String MAIN_HEADER = "<p>Annotations provide labels for Unicode characters, currently focusing on emoji. "
+    private static final String MAIN_HEADER = "<p>Annotations provide names and keywords for Unicode characters, currently focusing on emoji. "
         + "If you see any problems, please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> with the corrected values for the locale. "
         + "For more information, see: "
         + "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations'>Annotations</a>. "
@@ -101,7 +101,17 @@ public class ChartAnnotations extends Chart {
             LanguageGroup group = groupPairs.getKey();
             String ename = ENGLISH.getName("en", true);
             nameToCode.clear();
-            nameToCode.put(ename, "en"); // always have english firt
+            nameToCode.put(ename, "en"); // always have english first
+
+            // add English variants if they exist
+
+            for (Pair<String, String> pair : groupPairs.getValue()) {
+                String name = pair.getFirst();
+                String locale = pair.getSecond();
+                if (locale.startsWith("en_")) {
+                    nameToCode.put(name, locale);
+                }
+            }
 
             for (Pair<String, String> pair : groupPairs.getValue()) {
                 String name = pair.getFirst();
@@ -117,7 +127,8 @@ public class ChartAnnotations extends Chart {
 
             TablePrinter tablePrinter = new TablePrinter()
             .addColumn("Char", "class='source' width='1%'", null, "class='source-image'", true)
-            .addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true);
+            //.addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true)
+            ;
 
             for (Entry<String, String> entry : nameToCode.entrySet()) {
                 String name = entry.getKey();
@@ -130,14 +141,15 @@ public class ChartAnnotations extends Chart {
                 tablePrinter
                 .addRow()
                 .addCell(cp)
-                .addCell(getName(cp));
+                //.addCell(getName(cp))
+                ;
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {
                     String name = nameAndLocale.getKey();
                     String locale = nameAndLocale.getValue();
                     UnicodeMap<Annotations> annotations = Annotations.getData(locale);
                     Annotations values = annotations.get(cp);
                     if (DEBUG) System.out.println(name + ":" + values);
-                    tablePrinter.addCell(values == null ? "" : values.toString());
+                    tablePrinter.addCell(values == null ? "" : values.toString(true));
                 }
                 tablePrinter.finishRow();
             }
@@ -248,7 +260,9 @@ public class ChartAnnotations extends Chart {
         public String getExplanation() {
             return MAIN_HEADER
                 + "<p>This table shows the annotations for a group of related languages (plus English) for easier comparison. "
-                + "The phrases are separated by |, with the TTS (text-to-speech) phrases marked with *.<p>";
+                + "The first item is the name (also the text-to-speech phrase). "
+                + "It is bolded for clarity, and marked with a * for searching. "
+                + "The remaining phrases are keywords (labels), separated by |.<p>";
         }
 
         @Override

@@ -13,27 +13,37 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSet.Builder;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class Annotations {
-
     private static final boolean DEBUG = false;
+
+    static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
+    static final Splitter dotSplitter = Splitter.on(".").trimResults();
 
     public final Set<String> annotations;
     public final String tts;
 
-    static Map<String, UnicodeMap<Annotations>> cache = new ConcurrentHashMap<>();
+    static final Map<String, UnicodeMap<Annotations>> cache = new ConcurrentHashMap<>();
+    static final Set<String> LOCALES;
+    static final String DIR;
 
     static {
         File directory = new File(CLDRPaths.COMMON_DIRECTORY, "annotations");
-        if (DEBUG) {
-            try {
-                System.out.println(directory.getCanonicalPath());
-            } catch (IOException e) {
-            }
+        try {
+            DIR = directory.getCanonicalPath();
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException(e);
         }
+        if (DEBUG) {
+            System.out.println(DIR);
+        }
+        Builder<String> temp = ImmutableSet.builder();
         for (File file : directory.listFiles()) {
             if (DEBUG) {
                 try {
@@ -48,26 +58,23 @@ public class Annotations {
                 shortName.startsWith(".") ||
                 shortName.contains("001") // skip world english for now
                 ) continue; // skip dot files (backups, etc)
-            MyHandler myHandler = new MyHandler(shortName);
-            XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
-            xfr.read(name, -1, true);
-            myHandler.cleanup();
+            temp.add(dotSplitter.split(shortName).iterator().next());
         }
+        LOCALES = temp.build();
     }
 
     static class MyHandler extends SimpleHandler {
-        static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
-        static final Splitter dotSplitter = Splitter.on(".").trimResults();
         String locale;
         UnicodeMap<Annotations> localeData = new UnicodeMap<>();
         XPathParts parts = new XPathParts();
 
         public MyHandler(String locale) {
-            this.locale = dotSplitter.split(locale).iterator().next();
+            this.locale = locale;
         }
 
-        public void cleanup() {
+        public UnicodeMap<Annotations> cleanup() {
             cache.put(locale, localeData.freeze());
+            return localeData;
         }
 
         @Override
@@ -135,30 +142,45 @@ public class Annotations {
     }
 
     public static Set<String> getAvailable() {
-        return cache.keySet();
+        return LOCALES;
     }
 
     public static Set<String> getAvailableLocales() {
-        return cache.keySet();
+        return LOCALES;
     }
 
     public static UnicodeMap<Annotations> getData(String locale) {
-        return cache.get(locale);
+        UnicodeMap<Annotations> result = cache.get(locale);
+        if (result != null) {
+            return result;
+        }
+        if (!LOCALES.contains(locale)) {
+            return null;
+        }
+        MyHandler myHandler = new MyHandler(locale);
+        XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
+        xfr.read(DIR + "/" + locale + ".xml", -1, true);
+        return myHandler.cleanup();
     }
-    
+
     @Override
     public String toString() {
+        return toString(false);
+    }
+    
+    public String toString(boolean html) {
         Set<String> annotations2 = annotations;
         if (tts != null && annotations2.contains(tts)) {
             annotations2 = new LinkedHashSet<String>(annotations);
             annotations2.remove(tts);
         }
-        String result = CollectionUtilities.join(annotations2, " | ");
+        String result = CollectionUtilities.join(annotations2, " |\u00a0");
         if (tts != null) {
+            String ttsString = (html ? "*<b>" : "*") + tts + (html ? "</b>" : "*");
             if (result.isEmpty()) {
-                result = "*" + tts;
+                result = ttsString;
             } else {
-                result = "*" + tts + " | " + result;
+                result = ttsString + (html ? "<br>|\u00a0" : " |\u00a0") + result;
             }
         }
         return result;

@@ -36,12 +36,12 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
@@ -55,6 +55,7 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.Output;
 
 public class ChartDelta extends Chart {
     private static final PageId DEBUG_PAGE_ID = PageId.DayPeriod;
@@ -288,6 +289,10 @@ public class ChartDelta extends Chart {
                     for (String path : old.fullIterable()) {
                         paths.add(path);
                     }
+
+                    Output<String> reformattedValue = new Output<String>();
+                    Output<Boolean> hasReformattedValue = new Output<Boolean>();
+
                     for (String path : paths) {
                         if (path.startsWith("//ldml/identity")
                             || path.endsWith("/alias")
@@ -297,38 +302,33 @@ public class ChartDelta extends Chart {
                             ) {
                             continue;
                         }
-
-//                        if (path.startsWith("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"stand-alone\"]")) {
-//                            System.out.println(path);
-//                        }
-                        String sourceLocaleCurrent = current.getSourceLocaleID(path, currentStatus);
-                        String sourceLocaleOld = old.getSourceLocaleID(path, oldStatus);
-
-                        // filter out stuff that differs at a higher level, except allow root when we are in base
-                        if (!sourceLocaleCurrent.equals(locale)
-                            && !sourceLocaleOld.equals(locale)) {
-                            continue;
-//                            if (!isBase) {
-//                                continue;
-//                            } else if (!sourceLocaleCurrent.equals("root") && !sourceLocaleOld.equals("root")) {
-//                                continue;
-//                            } else if (sourceLocaleCurrent.equals(sourceLocaleOld)) {
-//                                continue;
-//                            }
-                        }
-                        if (!path.equals(currentStatus.pathWhereFound)
-                            && !path.equals(oldStatus.pathWhereFound)) {
-                            continue;
-                        }
-                        // fix some incorrect cases
-
-                        final String oldValue = old.getStringValue(path);
-                        final String currentValue = current.getStringValue(path);
-
                         PathHeader ph = getPathHeader(path);
                         if (ph == null) {
                             continue;
                         }
+
+                        String oldValue = null;
+                        String currentValue = null;
+
+                        {
+                            String sourceLocaleCurrent = current.getSourceLocaleID(path, currentStatus);
+                            String sourceLocaleOld = getReformattedPath(oldStatus, old, path, reformattedValue, hasReformattedValue);
+
+                            // filter out stuff that differs at a higher level
+                            if (!sourceLocaleCurrent.equals(locale)
+                                && !sourceLocaleOld.equals(locale)) {
+                                continue;
+                            }
+                            if (!path.equals(currentStatus.pathWhereFound)
+                                && !path.equals(oldStatus.pathWhereFound)) {
+                                continue;
+                            }
+                            // fix some incorrect cases?
+
+                            currentValue = current.getStringValue(path);
+                            oldValue = hasReformattedValue.value ? reformattedValue.value : old.getStringValue(path);
+                        }
+
                         // handle non-distinguishing attributes
                         addPathDiff(old, current, locale, ph, diff);
 
@@ -340,6 +340,38 @@ public class ChartDelta extends Chart {
             diff.clear();
         }
         writeDiffs(anchors, diffAll);
+    }
+
+    private String getReformattedPath(Status oldStatus, CLDRFile old, String path, Output<String> value, Output<Boolean> hasReformattedValue) {
+        if (!path.startsWith("//ldml/annotations/")) {
+            hasReformattedValue.value = Boolean.FALSE;
+            return old.getSourceLocaleID(path, oldStatus);
+        }
+        // OLD:     <annotation cp='[😀]' tts='grinning face'>face; grin</annotation>
+        // NEW:     <annotation cp="😀">face | grin</annotation>
+        //          <annotation cp="😀" type="tts">grinning face</annotation>
+        // from the NEW paths, get the OLD values
+        XPathParts parts = XPathParts.getInstance(path);
+        boolean isTts = parts.getAttributeValue(-1, "type") != null;
+        if (isTts) {
+            parts.removeAttribute(-1, "type");
+        }
+        String cp = parts.getAttributeValue(-1, "cp");
+        parts.setAttribute(-1, "cp", "[" + cp + "]");
+
+        String oldStylePath = parts.toString();
+        String temp = old.getStringValue(oldStylePath);
+        if (temp == null) {
+            hasReformattedValue.value = Boolean.FALSE;
+        } else if (isTts) {
+            String temp2 = old.getFullXPath(oldStylePath);
+            value.value = XPathParts.getInstance(temp2).getAttributeValue(-1, "tts");
+            hasReformattedValue.value = Boolean.TRUE;
+        } else {
+            value.value = temp.replaceAll("\\s*;\\s*", " | ");
+            hasReformattedValue.value = Boolean.TRUE;
+        }
+        return old.getSourceLocaleID(oldStylePath, oldStatus);
     }
 
     PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");

@@ -2598,11 +2598,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">last Sun.</relative>
 				<relative type="0">this Sun.</relative>
 				<relative type="1">next Sun.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Sun.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Sun.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Sun. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Sun. ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1">last Su</relative>
 				<relative type="0">this Su</relative>
 				<relative type="1">next Su</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Su</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Su</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Su ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Su ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon">
 				<relative type="-1">last Monday</relative>
@@ -2621,11 +2637,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">last Mon.</relative>
 				<relative type="0">this Mon.</relative>
 				<relative type="1">next Mon.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Mon.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Mon.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Mon. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Mon. ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1">last M</relative>
 				<relative type="0">this M</relative>
 				<relative type="1">next M</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} M</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} M</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} M ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} M ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue">
 				<relative type="-1">last Tuesday</relative>
@@ -2644,11 +2676,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">last Tue.</relative>
 				<relative type="0">this Tue.</relative>
 				<relative type="1">next Tue.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Tue.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Tue.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Tue. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Tue. ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-narrow">
 				<relative type="-1">last Tu</relative>
 				<relative type="0">this Tu</relative>
 				<relative type="1">next Tu</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Tu</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Tu</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Tu ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Tu ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed">
 				<relative type="-1">last Wednesday</relative>
@@ -2667,11 +2715,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">last Wed.</relative>
 				<relative type="0">this Wed.</relative>
 				<relative type="1">next Wed.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Wed.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Wed.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Wed. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Wed. ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-narrow">
 				<relative type="-1">last W</relative>
 				<relative type="0">this W</relative>
 				<relative type="1">next W</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} W</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} W</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} W ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} W ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu">
 				<relative type="-1">last Thursday</relative>
@@ -2690,11 +2754,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">last Thu.</relative>
 				<relative type="0">this Thu.</relative>
 				<relative type="1">next Thu.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Thu.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Thu.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Thu. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thu. ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-narrow">
 				<relative type="-1">last Th</relative>
 				<relative type="0">this Th</relative>
 				<relative type="1">next Th</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Th</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Th</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Th ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Th ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri">
 				<relative type="-1">last Friday</relative>
@@ -2713,11 +2793,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">last Fri.</relative>
 				<relative type="0">this Fri.</relative>
 				<relative type="1">next Fri.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Fri.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Fri.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Fri. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Fri. ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1">last F</relative>
 				<relative type="0">this F</relative>
 				<relative type="1">next F</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} F</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} F</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} F ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} F ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat">
 				<relative type="-1">last Saturday</relative>
@@ -2736,11 +2832,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">last Sat.</relative>
 				<relative type="0">this Sat.</relative>
 				<relative type="1">next Sat.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Sat.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Sat.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Sat. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Sat. ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-narrow">
 				<relative type="-1">last Sa</relative>
 				<relative type="0">this Sa</relative>
 				<relative type="1">next Sa</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} Sa</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Sa</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Sa ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Sa ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>

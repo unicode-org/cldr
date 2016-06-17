@@ -2798,14 +2798,17 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		if ( item.value) {
                h3.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
 		}
-		if ( item.pClass === 'alias' ) { 
+		if (   item.pClass === 'alias' 
+			|| item.pClass === 'fallback'
+		    || item.pClass === 'fallback_root' ) { 
 			isInherited = true;
 		}
 		
 		if ( isInherited && (theRow.inheritedLocale || theRow.inheritedXpid )) {
 //            h3.appendChild(document.createTextNode(  "Loc:" + ( theRow.inheritedLocale || "none") + ", X:" + ( theRow.inheritedXpid || "none?" ) ));
 			var clickyLink = createChunk(stui.str('followAlias'), "a", 'followAlias');
-			clickyLink.href = '#/'+ ( theRow.inheritedLocale || surveyCurrentLocale )+  '//'+ ( theRow.inheritedXpid || theRow.xpstrid ); //linkToLocale(subLoc);
+			clickyLink.href = '#/'+ ( theRow.inheritedLocale || surveyCurrentLocale )+ 
+				'//'+ ( theRow.inheritedXpid || theRow.xpstrid ); //linkToLocale(subLoc);
 			h3.appendChild(clickyLink);
 		}
         
@@ -3069,7 +3072,7 @@ function updateRow(tr, theRow) {
 												
 						//console.log(vr);
 						var orgVoteValue = theOrg.votes[value];
-						if(orgVoteValue) { // someone in the org actually voted for it
+						if(orgVoteValue !== undefined) { // someone in the org actually voted for it
 							var topVoter = null; // top voter for this item
 							var orgsVote = (theOrg.orgVote == value);
 							var topVoterTime = 0; // Calculating the latest time for a user from same org

@@ -14,6 +14,7 @@ define({
 		voting: "Voting",
 		checking: "Checking",
 
+		emailHidden: "(hidden)",
 		itemCount: "Items: ${itemCount}",
 		itemCountHidden: "Items shown: ${itemCount}; Items hidden at ${coverage} coverage level: ${skippedDueToCoverage}",
 		itemCountAllHidden: "No items visible due to coverage level.",

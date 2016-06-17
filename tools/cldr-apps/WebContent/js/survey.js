@@ -2508,9 +2508,14 @@ dojo.ready(function() {
 		//for the voter
 		 $('.voteInfo_voterInfo').hover(function() {
 			 	var email = $(this).data('email').replace(' (at) ', '@');
-		    	$(this).html('<a href="mailto:'+email+'" title="'+email+'" style="color:black"><span class="glyphicon glyphicon-envelope"></span></a>');
-		    	$(this).closest('td').css('text-align','center');
-		    	$(this).children('a').tooltip().tooltip('show');
+			 	if(email !== '') {
+			    	$(this).html('<a href="mailto:'+email+'" title="'+email+'" style="color:black"><span class="glyphicon glyphicon-envelope"></span></a>');
+			    	$(this).closest('td').css('text-align','center');
+			    	$(this).children('a').tooltip().tooltip('show');
+			 	} else {
+			    	$(this).html($(this).data('name'));
+			    	$(this).closest('td').css('text-align','left');
+			 	}
 		    }, function() {
 		    	$(this).html($(this).data('name'));
 		    	$(this).closest('td').css('text-align','left');
@@ -3048,11 +3053,11 @@ function updateRow(tr, theRow) {
 				
 				var createVoter = function(v) {
 					if(v==null) {
-						return createChunk("(NULL)!","i","stopText");
+						return createChunk("(missing information)!","i","stopText");
 					}
-					var div = createChunk(v.name,"td","voteInfo_voterInfo voteInfo_td");
-					div.setAttribute('data-name',v.name);
-					div.setAttribute('data-email',v.email);
+					var div = createChunk(v.name || stui.str('emailHidden'),"td","voteInfo_voterInfo voteInfo_td");
+					div.setAttribute('data-name', v.name || stui.str('emailHidden'));
+					div.setAttribute('data-email', v.email || '');
 					return div;
 				};
 				

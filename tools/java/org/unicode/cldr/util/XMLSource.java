@@ -949,6 +949,18 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             TreeMap<String, String> aliases = sources.get("root").getAliases();
             String aliasedPath = aliases.get(xpath);
 
+            if (aliasedPath == null) {
+                // Check if there is an alias for a subset xpath.
+                // If there are one or more matching aliases, lowerKey() will
+                // return the alias with the longest matching prefix since the
+                // hashmap is sorted according to xpath.
+                String possibleSubpath = aliases.lowerKey(xpath);
+                if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
+                    aliasedPath = aliases.get(possibleSubpath) +
+                        xpath.substring(possibleSubpath.length());
+                }
+            }
+
             // counts are special; they act like there is a root alias to 'other'
             // and in the special case of currencies, other => null
             // //ldml/numbers/currencies/currency[@type="BRZ"]/displayName[@count="other"] => //ldml/numbers/currencies/currency[@type="BRZ"]/displayName
@@ -966,17 +978,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 }
             }
 
-            if (aliasedPath == null) {
-                // Check if there is an alias for a subset xpath.
-                // If there are one or more matching aliases, lowerKey() will
-                // return the alias with the longest matching prefix since the
-                // hashmap is sorted according to xpath.
-                String possibleSubpath = aliases.lowerKey(xpath);
-                if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
-                    aliasedPath = aliases.get(possibleSubpath) +
-                        xpath.substring(possibleSubpath.length());
-                }
-            }
             if (aliasedPath != null) {
                 // Call getCachedFullStatus recursively to avoid recalculating cached aliases.
                 return getCachedFullStatus(aliasedPath);

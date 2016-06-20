@@ -52,17 +52,28 @@ public class TestAliases extends TestFmwk {
      */
     public void testCountBase() {
         String[][] testCases = {
-            { "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]", 
-            "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]" },
+            {"en", "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]", 
+             "en", "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]"
+            },
+            {"en", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
+                "en", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
+               },
+            {"ak", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
+                "root", "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"other\"]",
+               }
         };
         Status status = new Status();
 
         for (String[] row : testCases) {
-            String originalPath = row[0];
-            String expectedPath = row[1];
-            String actualLocale = en.getSourceLocaleID(originalPath, status);
+            String locale = row[0];
+            CLDRFile factory = config.getCldrFactory().make(locale, true);
+            String originalPath = row[1];
+            String expectedLocale = row[2];
+            String expectedPath = row[3];
+            String actualLocale = factory.getSourceLocaleID(originalPath, status);
             String actualPath = status.pathWhereFound;
-            assertEquals("", expectedPath, actualPath);
+            assertEquals("path", expectedPath, actualPath);
+            assertEquals("locale", expectedLocale, actualLocale);
         }
     }
 

@@ -7688,5 +7688,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr>no:n</nostr>
 		</messages>
 	</posix>
+	<characterLabels>
+		<characterLabelPattern type="strokes" count="one">{0} Stroke</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">{0} Strokes</characterLabelPattern>
+	</characterLabels>
 </ldml>
 

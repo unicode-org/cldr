@@ -111,7 +111,7 @@ public class TestAliases extends TestFmwk {
      * Change to "testEmitChanged()" to emit a file of current inheritance.
      * @throws IOException
      */
-    public void testEmitChanged() throws IOException {
+    public void checkEmitChanged() throws IOException {
         Status status = new Status();
         Set<String> sorted = new TreeSet<>();
         try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.AUX_DIRECTORY + "temp", "inheritance0.txt")) {

@@ -111,10 +111,10 @@ public class TestAliases extends TestFmwk {
      * Change to "testEmitChanged()" to emit a file of current inheritance.
      * @throws IOException
      */
-    public void checkEmitChanged() throws IOException {
+    public void testEmitChanged() throws IOException {
         Status status = new Status();
         Set<String> sorted = new TreeSet<>();
-        try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.AUX_DIRECTORY + "temp", "inheritance1.txt")) {
+        try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.AUX_DIRECTORY + "temp", "inheritance0.txt")) {
             for (CLDRFile factory : Arrays.asList(
                 config.getCldrFactory().make("root", true),
                 en, 
@@ -137,7 +137,7 @@ public class TestAliases extends TestFmwk {
                         ) {
                         continue;
                     }                    
-                    String actualLocale = en.getSourceLocaleID(path, status);
+                    String actualLocale = factory.getSourceLocaleID(path, status);
                     String actualPath = status.pathWhereFound;
                     if (path.equals(actualPath)) {
                         continue;

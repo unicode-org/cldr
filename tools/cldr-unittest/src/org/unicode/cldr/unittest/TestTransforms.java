@@ -345,6 +345,35 @@ public class TestTransforms extends TestFmwkPlus {
             trans.transliterate("Kornilʹev Kirill"));
     }
 
+    private Pattern rfc6497Pattern =
+        Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+?)(?:-m0-([a-zA-Z0-9-]+))?");
+
+    private Transliterator getTransliterator(String id) {
+        // TODO: Pass unmodified transform name to ICU, once
+        // ICU can handle transform identifiers according to
+        // BCP47 Extension T (RFC 6497). The rewriting below
+        // is just a temporary workaround, allowing us to use
+        // BCP47-T identifiers for naming test data files.
+        // http://bugs.icu-project.org/trac/ticket/12599
+        if (id.equalsIgnoreCase("und-t-d0-publish")) {
+            return Transliterator.getInstance("Any-Publishing");
+        } else if (id.equalsIgnoreCase("und-t-s0-publish")) {
+            return Transliterator.getInstance("Publishing-Any");
+        }
+
+        Matcher rfc6497Matcher = rfc6497Pattern.matcher(id);
+        if (rfc6497Matcher.matches()) {
+            String targetLanguage = rfc6497Matcher.group(1).replace('-', '_');
+            String originalLanguage = rfc6497Matcher.group(2).replace('-', '_');
+            String mechanism = rfc6497Matcher.group(3);
+            id = originalLanguage + "-" + targetLanguage;
+            if (mechanism != null && !mechanism.isEmpty()) {
+                id += "/" + mechanism.replace('-', '_');
+            }
+        }
+        return Transliterator.getInstance(id);
+    }
+
     public void TestData() {
         register();
         try {
@@ -364,32 +393,13 @@ public class TestTransforms extends TestFmwkPlus {
             // file
             logln("Testing files in: " + fileDirectoryName);
 
-            Pattern rfc6497Pattern =
-                Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+?)(?:-m0-([a-zA-Z0-9-]+))?");
             for (String file : fileDirectory.list()) {
                 if (!file.endsWith(".txt")) {
                     continue;
                 }
                 logln("Testing file: " + file);
                 String transName = file.substring(0, file.length() - 4);
-
-                // TODO: Pass unmodified transform name to ICU, once
-                // ICU can handle transform identifiers according to
-                // BCP47 Extension T (RFC 6497). The rewriting below
-                // is just a temporary workaround, allowing us to use
-                // BCP47 identifiers for naming test data files.
-                Matcher rfc6497Matcher = rfc6497Pattern.matcher(transName);
-                if (rfc6497Matcher.matches()) {
-                    String targetLanguage = rfc6497Matcher.group(1).replace('-', '_');
-                    String originalLanguage = rfc6497Matcher.group(2).replace('-', '_');
-                    String mechanism = rfc6497Matcher.group(3);
-                    transName = originalLanguage + "-" + targetLanguage;
-                    if (mechanism != null && !mechanism.isEmpty()) {
-                        transName += "/" + mechanism.replace('-', '_');
-                    }
-                }
-
-                Transliterator trans = Transliterator.getInstance(transName);
+                Transliterator trans = getTransliterator(transName);
                 BufferedReader in = FileUtilities.openUTF8Reader(fileDirectoryName, file);
                 int counter = 0;
                 while (true) {

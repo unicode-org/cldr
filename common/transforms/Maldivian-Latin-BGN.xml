@@ -10,8 +10,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="dv" target="dv_Latn" variant="BGN" direction="forward" draft="provisional" alias="Maldivian-Latin/BGN dv-Latn-t-dv-m0-bgn">
 			<tRule><![CDATA[
-#
-########################################################################
 # BGN/PCGN 1988 Agreement, with modifications 2009
 #
 # This romanization system supersedes the one which was approved by
@@ -21,11 +19,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 # with minor modifications introduced by the government of the Maldives 
 # in 2009.
 #
-########################################################################
-#
+# In our rules, we also convert Arabic punctuation characters to Latin.
+# These appears to be used in Maldivian text, for example in the Universal
+# Declaration of Human Rights.
 
-::[[:block=thaana:]\uFDF2] ;
-:: NFD (NFC) ;
+::[[:block=thaana:][،؛؟٪٫٬]\uFDF2] ;
+::NFD;
 
 $wordBoundary = [^[:L:][:M:][:N:]] ;
 $vowel = [\u07A6-\u07AF] ;
@@ -218,6 +217,13 @@ $rule4 → ;
 ޯ → oa; # OABOAFILI
 ު → u; # UBUFILI
 ޫ → oo; # OOBOOFILI
+
+، → ',';  # U+060C ARABIC COMMA
+؛ → ';';  # U+061B ARABIC SEMICOLON
+؟ → '?';  # U+061F ARABIC QUESTION MARK
+٪ → '%';  # U+066A ARABIC PERCENT SIGN
+٫ → '.';  # U+066B ARABIC DECIMAL SEPARATOR
+٬ → ',';  # U+066C ARABIC THOUSANDS SEPARATOR
 			]]></tRule>
 		</transform>
 	</transforms>

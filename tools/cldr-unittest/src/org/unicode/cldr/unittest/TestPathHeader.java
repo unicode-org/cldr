@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -20,7 +21,6 @@ import java.util.regex.Matcher;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -59,6 +59,7 @@ import com.ibm.icu.impl.Row.R2;
 public class TestPathHeader extends TestFmwkPlus {
     private static final DtdType DEBUG_DTD_TYPE = null; // DtdType.supplementalData;
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
+    private static final boolean DEBUG = true;
 
     public static void main(String[] args) {
         new TestPathHeader().run(args);
@@ -72,6 +73,68 @@ public class TestPathHeader extends TestFmwkPlus {
     static PathHeader.Factory pathHeaderFactory = PathHeader
         .getFactory(english);
     private EnumSet<PageId> badZonePages = EnumSet.of(PageId.UnknownT);
+
+    public void tempTestAnnotation() {
+        // NEW:     <annotation cp="😀">face | grin</annotation>
+        //          <annotation cp="😀" type="tts">grinning face</annotation>
+
+        final String path1 = "//ldml/annotations/annotation[@cp=\"🚻\"]";
+        PathHeader ph1 = pathHeaderFactory.fromPath(path1);
+        logln(ph1.toString() + "\t" + path1);
+        final String path2 = "//ldml/annotations/annotation[@cp=\"🚻\"][@type=\"tts\"]";
+        PathHeader ph2 = pathHeaderFactory.fromPath(path2);
+        logln(ph2.toString() + "\t" + path2);
+        final String path3 = "//ldml/annotations/annotation[@cp=\"🚱\"]";
+        PathHeader ph3 = pathHeaderFactory.fromPath(path2);
+        logln(ph3.toString() + "\t" + path3);
+
+        assertNotEquals("pathheader", ph1, ph2);
+        assertNotEquals("pathheader", ph1.toString(), ph2.toString());
+        assertRelation("pathheader", true, ph1, TestFmwkPlus.LEQ, ph3);
+        assertRelation("pathheader", true, ph3, TestFmwkPlus.LEQ, ph2);
+    }
+
+    public void tempTestCompletenessLdmlDtd() {
+        // List<String> failures = null;
+        pathHeaderFactory.clearCache();
+        PathChecker pathChecker = new PathChecker();
+        for (String directory : DtdType.ldml.directories) {
+            Factory factory2 = Factory.make(COMMON_DIR + directory, ".*");
+            Set<String> source = factory2.getAvailable();
+            for (String file : getFilesToTest(source, "root", "en")) {
+                if (DEBUG) warnln(" TestCompletenessLdmlDtd: " + directory + ", " + file);
+                DtdData dtdData = null;
+                CLDRFile cldrFile = factory2.make(file, true);
+                for (String path : cldrFile.fullIterable()) {
+                    if (dtdData == null) {
+                        dtdData = DtdData.getInstance(DtdType.fromPath(path));
+                    }
+                    pathChecker.checkPathHeader(dtdData, path);
+                }
+            }
+        }
+        Set<String> missing = pathHeaderFactory.getUnmatchedRegexes();
+        if (missing.size() != 0) {
+            for (String e : missing) {
+                logln("Path Regex never matched:\t" + e);
+            }
+        }
+    }
+
+    private Collection<String> getFilesToTest(Collection<String> source, String... doFirst) {
+        LinkedHashSet<String> files = new LinkedHashSet<>(Arrays.asList(doFirst));
+        files.retainAll(source); // put first
+        files.addAll(new HashSet<>(source)); // now add others semi-randomly
+        int max = Math.min(30, files.size());
+        if (getInclusion() == 10 || files.size() <= max) {
+            return files;
+        }
+        ArrayList<String> shortFiles = new ArrayList<>(files);
+        if (getInclusion() > 5) {
+            max += (files.size() - 30)*(getInclusion()-5)/10; // use proportional amount
+        }
+        return shortFiles.subList(0, max);
+    }
 
     public void TestCompleteness() {
         PathHeader.Factory pathHeaderFactory2 = PathHeader.getFactory(english);
@@ -96,7 +159,7 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
     }
-
+    
     public void Test6170() {
         String p1 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"speed-kilometer-per-hour\"]/unitPattern[@count=\"other\"]";
         String p2 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"other\"]";
@@ -406,7 +469,7 @@ public class TestPathHeader extends TestFmwkPlus {
 
                     int count2 = cachedPaths.size();
                     if (count2 == 0) {
-                        errln("Missing pages for: " + section + "\t" + page);
+                        warnln("Missing pages for: " + section + "\t" + page);
                     } else {
                         counter.clear();
                         for (String s : cachedPaths) {
@@ -975,27 +1038,28 @@ public class TestPathHeader extends TestFmwkPlus {
         assertTrue("Check pd for stand-alone", !p1.contains("in the morning"));
     }
 
-    public void TestNonMain() {
-        Set<String> badHeaders = new TreeSet<>();
-        Map<PathHeader,PathHeader> goodHeaders = new HashMap<>();
-        for (String dir : new File(COMMON_DIR).list()) {
-            if (dir.equals(".DS_Store")
-                || dir.equals("dtd")
-                || dir.equals("main")
-                || dir.equals("uca")
-                || dir.equals("properties")
-                ) {
+    public void TestCompletenessNonLdmlDtd() {
+        PathChecker pathChecker = new PathChecker();
+        Set<String> directories = new LinkedHashSet<>();
+        // get all the directories containing non-Ldml dtd files
+        for (DtdType dtdType : DtdType.values()) {
+            if (dtdType == DtdType.ldml || dtdType == DtdType.ldmlICU) {
                 continue;
             }
+            directories.addAll(dtdType.directories);
+        }
+        for (String dir : directories) {
             if (DEBUG_DTD_TYPE != null && !DEBUG_DTD_TYPE.directories.contains(dir)) {
                 continue;
             }
             File dir2 = new File(COMMON_DIR + dir);
             logln(dir2.getName());
             for (String file : dir2.list()) {
+                // don't need to restrict with getFilesToTest(Arrays.asList(dir2.list()), "root", "en")) {
                 if (!file.endsWith(".xml")) {
                     continue;
                 }
+                if (DEBUG) warnln(" TestCompletenessNonLdmlDtd: " + dir + ", " + file);
                 logln(" \t" + file);
                 DtdData dtdData = null;
                 for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(
@@ -1004,53 +1068,69 @@ public class TestPathHeader extends TestFmwkPlus {
                     if (dtdData == null) {
                         dtdData = DtdData.getInstance(DtdType.fromPath(path));
                     }
-                    checkPathHeader(dtdData, path, goodHeaders, badHeaders);
+                    pathChecker.checkPathHeader(dtdData, path);
                 };
             }
         }
     }
 
-    static PathHeader.Factory phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
-    static PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");
 
-    private void checkPathHeader(DtdData dtdData, String rawPath, Map<PathHeader,PathHeader> goodHeaders, Set<String> badHeaders) {
-        XPathParts pathPlain = XPathParts.getFrozenInstance(rawPath);
-        if (dtdData.isMetadata(pathPlain)) {
-            return;
-        }
-        if (dtdData.isDeprecated(pathPlain)) {
-            return;
-        }
-        Multimap<String, String> extras = HashMultimap.create();
-        String fixedPath = dtdData.getRegularizedPaths(pathPlain, extras);
-        if (fixedPath != null) {
-            checkSubpath(fixedPath, goodHeaders, badHeaders);
-        }
-        for (String path : extras.keySet()) {
-            checkSubpath(path, goodHeaders, badHeaders);
-        }
-    }
+    private class PathChecker {
+        PathHeader.Factory phf = pathHeaderFactory;
+        PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");
 
-    private void checkSubpath(String path, Map<PathHeader,PathHeader> goodHeaders, Set<String> badHeaders) {
-        String message = ": Can't compute path header";
-        try {
-            PathHeader ph = phf.fromPath(path);
-            if (ph != null && ph.getPageId() != PageId.Unknown) {
-                PathHeader old = goodHeaders.put(ph,ph);
-                if (old != null && !path.equals(old.getOriginalPath())) {
-                    errln("Duplicate path header for: " + ph 
-                        + "\n\t\t " + path
-                        + "\n\t\t≠" + old.getOriginalPath()
-                        );
-                }
+        Set<String> badHeaders = new TreeSet<>();
+        Map<PathHeader,PathHeader> goodHeaders = new HashMap<>();
+        Set<PathHeader> seenBad = new HashSet<>();
+        {
+            phf.clearCache();
+        }
+        public void checkPathHeader(DtdData dtdData, String rawPath) {
+            XPathParts pathPlain = XPathParts.getFrozenInstance(rawPath);
+            if (dtdData.isMetadata(pathPlain)) {
                 return;
             }
-        } catch (Exception e) {
-            message = ": Exception in path header: " + e.getMessage();
+            if (dtdData.isDeprecated(pathPlain)) {
+                return;
+            }
+            Multimap<String, String> extras = HashMultimap.create();
+            String fixedPath = dtdData.getRegularizedPaths(pathPlain, extras);
+            if (fixedPath != null) {
+                checkSubpath(fixedPath);
+            }
+            for (String path : extras.keySet()) {
+                checkSubpath(path);
+            }
         }
-        String star = starrer.set(path);
-        if (badHeaders.add(star)) {
-            errln(star + message);
+        public void checkSubpath(String path) {
+            String message = ": Can't compute path header";
+            PathHeader ph = null;
+            try {
+                ph = phf.fromPath(path);
+                if (seenBad.contains(ph)) {
+                    return;
+                }
+                if (ph.getPageId() == PageId.Deprecated) {
+                    return; // don't care
+                }
+                if (ph.getPageId() != PageId.Unknown) {
+                    PathHeader old = goodHeaders.put(ph,ph);
+                    if (old != null && !path.equals(old.getOriginalPath())) {
+                        errln("Duplicate path header for: " + ph 
+                            + "\n\t\t " + path
+                            + "\n\t\t≠" + old.getOriginalPath()
+                            );
+                        seenBad.add(ph);
+                    }
+                }
+                return;
+            } catch (Exception e) {
+                message = ": Exception in path header: " + e.getMessage();
+            }
+            String star = starrer.set(path);
+            if (badHeaders.add(star)) {
+                errln(star + message + ", " + ph);
+            }
         }
     }
 }

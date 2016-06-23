@@ -656,6 +656,8 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("", "new-item", resolver.getWinningValue());
 
         resolver.clear();
+        resolver.setBaileyValue("bailey");
+
         resolver.setLastRelease("old-item", Status.approved);
         resolver.setTrunk("new-item", Status.provisional);
         assertEquals("", "old-item", resolver.getWinningValue());
@@ -682,6 +684,7 @@ public class TestUtilities extends TestFmwkPlus {
         VoteResolver<String> resolver = new VoteResolver<String>();
 
         resolver.setLocale("de");
+        resolver.setBaileyValue("bailey");
         resolver.setLastRelease("foo", Status.approved);
         resolver.add("fii", toVoterId("adobeE"));
         resolver.add("fii", toVoterId("appleV"));
@@ -698,6 +701,7 @@ public class TestUtilities extends TestFmwkPlus {
             errln("Test problem");
         }
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         resolver.setLastRelease(s1, Status.approved);
         resolver.add(s2, toVoterId("appleV"));
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
@@ -727,6 +731,7 @@ public class TestUtilities extends TestFmwkPlus {
         // totals: {{0}: {1}=8}, winning: {{0}:
         // {1}, approved}}
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         resolver.setLastRelease("{0}: {1}", Status.missing);
         resolver.add("{0}: {1}", toVoterId("adobeE"));
         status = resolver.getStatusForOrganization(Organization.openoffice_org);
@@ -737,6 +742,7 @@ public class TestUtilities extends TestFmwkPlus {
         // sameVotes: [Arabisch], O: null, N: null, totals: {}, winning:
         // {Arabisch, approved}}
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         resolver.setLastRelease("Arabisch", Status.approved);
         resolver.setTrunk("Arabisch", Status.approved);
         status = resolver.getStatusForOrganization(Organization.openoffice_org);
@@ -749,6 +755,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         Status oldStatus = Status.unconfirmed;
 
+        resolver.setBaileyValue("bailey");
         resolver.setLocale("de");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
@@ -761,6 +768,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("", Status.provisional, winningStatus);
 
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         resolver.setLocale("de");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
@@ -780,6 +788,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         Status oldStatus = Status.unconfirmed;
 
+        resolver.setBaileyValue("bailey");
         resolver.setLocale("mt");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
@@ -790,6 +799,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("", Status.approved, resolver.getWinningStatus());
 
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         resolver.setLocale("mt");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
@@ -803,6 +813,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("", Status.approved, resolver.getWinningStatus());
 
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         resolver.setLocale("mt");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
@@ -820,6 +831,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("", Status.approved, resolver.getWinningStatus());
 
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         resolver.setLocale("mt");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
@@ -842,6 +854,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         Status oldStatus = Status.unconfirmed;
 
+        resolver.setBaileyValue("bailey");
         resolver.setLocale("de");
         resolver.setLastRelease("foo", oldStatus);
         resolver.setTrunk("foo", oldStatus);
@@ -854,6 +867,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("", "foo", new ArrayList<String>(counts.keySet()).get(2));
 
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         resolver.setLocale("de");
         resolver.setLastRelease("foo", Status.approved);
         resolver.setTrunk("foo", Status.approved);
@@ -864,6 +878,7 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("", "foo", new ArrayList<String>(counts.keySet()).get(0));
 
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         resolver.setLocale("de");
         resolver.setLastRelease("foo", Status.approved);
         resolver.setTrunk("foo", Status.approved);
@@ -878,6 +893,7 @@ public class TestUtilities extends TestFmwkPlus {
         StringBuilder sb = new StringBuilder();
         sb.append("Locale: " + locale);
         resolver.clear();
+        resolver.setBaileyValue("bailey");
         PathHeader ph = null;
         if (xpath != null) {
             sb.append(" XPath: " + xpath);
@@ -958,6 +974,7 @@ public class TestUtilities extends TestFmwkPlus {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
         String[] tests = {
+            "bailey=BAILEY",
             "comment=regression case from John Emmons",
             "locale=wae",
             "oldValue=2802",
@@ -1071,6 +1088,7 @@ public class TestUtilities extends TestFmwkPlus {
         Status expectedStatus = null;
         String oldValue = null;
         Status oldStatus = null;
+        String baileyValue = null;
         List<String> sameVotes = null;
         String locale = null;
         Map<Integer, String> values = new TreeMap<Integer, String>();
@@ -1088,6 +1106,8 @@ public class TestUtilities extends TestFmwkPlus {
                 }
             } else if (name.equalsIgnoreCase("locale")) {
                 locale = value;
+            } else if (name.equalsIgnoreCase("bailey")) {
+                baileyValue = value;
             } else if (name.equalsIgnoreCase("oldValue")) {
                 oldValue = value;
             } else if (name.equalsIgnoreCase("oldStatus")) {
@@ -1111,6 +1131,7 @@ public class TestUtilities extends TestFmwkPlus {
             } else if (name.equalsIgnoreCase("check")) {
                 counter++;
                 // load the resolver
+                resolver.setBaileyValue(baileyValue);
                 resolver.setLocale(locale);
                 resolver.setLastRelease(oldValue, oldStatus);
                 for (int voter : values.keySet()) {
@@ -1129,6 +1150,7 @@ public class TestUtilities extends TestFmwkPlus {
                 assertEquals(counter + " conflicts", expectedConflicts,
                     resolver.getConflictedOrganizations().toString());
                 resolver.clear();
+                resolver.setBaileyValue("bailey");
                 values.clear();
             } else {
                 errln("unknown command:\t" + test);
@@ -1349,7 +1371,7 @@ public class TestUtilities extends TestFmwkPlus {
         VoteResolver<String> resolver = new VoteResolver<String>();
 
         String tests[] = {
-
+            "bailey=BAILEY",
             "comment=Steven Loomis test case tweaked by Parthinator",
             "locale=wae",
             "oldValue=_",
@@ -1414,6 +1436,7 @@ public class TestUtilities extends TestFmwkPlus {
         Status expectedStatus = null;
         String oldValue = null;
         Status oldStatus = null;
+        String baileyValue = null;
         List<String> sameVotes = null;
         String locale = null;
         int voteEntries = 0;
@@ -1440,6 +1463,8 @@ public class TestUtilities extends TestFmwkPlus {
                 oldStatus = Status.valueOf(value);
             } else if (name.equalsIgnoreCase("value")) {
                 expectedValue = value;
+            } else if (name.equalsIgnoreCase("bailey")) {
+                baileyValue = value;
             } else if (name.equalsIgnoreCase("sameVotes")) {
                 sameVotes = value == null ? new ArrayList<String>(0) : Arrays
                     .asList(value.split(",\\s*"));
@@ -1463,6 +1488,7 @@ public class TestUtilities extends TestFmwkPlus {
             } else if (name.equalsIgnoreCase("check")) {
                 counter++;
                 // load the resolver
+                resolver.setBaileyValue(baileyValue);
                 resolver.setLocale(locale);
                 resolver.setLastRelease(oldValue, oldStatus);
                 for (int voteEntry : valuesMap.keySet()) {

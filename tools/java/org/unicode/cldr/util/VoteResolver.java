@@ -354,6 +354,9 @@ public class VoteResolver<T> {
          * @see #add(Object, int, Integer)
          */
         private void addInternal(T value, int voter, final VoterInfo info, final int votes, Date time) {
+            if (baileyValue == null) {
+                throw new IllegalArgumentException("setBaileyValue must be called before add");
+            }
             if (value.equals(baileyValue)) {
                 hasExplicitBailey = true;
             } else if (CldrUtility.INHERITANCE_MARKER.equals(value)) {

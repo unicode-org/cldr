@@ -3397,7 +3397,7 @@ function updateRow(tr, theRow) {
 		// find the fallback value
 		var theFallbackValue = null;
 		for(var k in theRow.items) {
-			if(theRow.items[k].isFallback) {
+			if(theRow.items[k].isFallback || theRow.winningValue == "") {
 				theFallbackValue = k;
 			}
 		}

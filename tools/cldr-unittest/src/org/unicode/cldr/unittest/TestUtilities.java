@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
@@ -44,6 +43,7 @@ import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
@@ -202,21 +202,21 @@ public class TestUtilities extends TestFmwkPlus {
         problemCounter.increment(Choice.error);
         problemCounter.increment(Choice.error);
         problemCounter.increment(Choice.warning);
-        
+
         assertEquals("problemCounter error", 2, problemCounter.get(Choice.error));
         assertEquals("problemCounter warning", 1, problemCounter.get(Choice.warning));
         assertEquals("problemCounter weLost", 0, problemCounter.get(Choice.weLost));
 
-        
+
         Counter<Choice> otherCounter = new Counter<Choice>();
         otherCounter.addAll(problemCounter);
         otherCounter.increment(Choice.error);
-        
+
         assertEquals("otherCounter error", 3, otherCounter.get(Choice.error));
         assertEquals("otherCounter warning", 1, otherCounter.get(Choice.warning));
         assertEquals("otherCounter weLost", 0, otherCounter.get(Choice.weLost));
     }
-    
+
     public void TestCounter() {
         Counter<String> counter = new Counter<String>(true);
         Comparator<String> uca = new Comparator<String>() {
@@ -591,59 +591,63 @@ public class TestUtilities extends TestFmwkPlus {
                 + "\tpath:\t<" + pathValueInfo.getRealPath(item) + ">");
         }
     }
-
-    Map<Integer, VoterInfo> testdata = CldrUtility
-        .asMap(new Object[][] {
-            {
-                801,
-                new VoterInfo(Organization.guest, Level.street,
-                    "guestS") },
-                    {
-                        701,
-                        new VoterInfo(Organization.gnome, Level.street,
-                            "gnomeS") },
-                            {
-                                404,
-                                new VoterInfo(Organization.google, Level.vetter,
-                                    "googleV") },
-                                    {
-                                        411,
-                                        new VoterInfo(Organization.google, Level.street,
-                                            "googleS") },
-                                            {
-                                                424,
-                                                new VoterInfo(Organization.google, Level.vetter,
-                                                    "googleV2") },
-                                                    {
-                                                        304,
-                                                        new VoterInfo(Organization.apple, Level.vetter,
-                                                            "appleV") },
-                                                            {
-                                                                208,
-                                                                new VoterInfo(Organization.adobe, Level.expert,
-                                                                    "adobeE") },
-                                                                    {
-                                                                        101,
-                                                                        new VoterInfo(Organization.ibm, Level.street,
-                                                                            "ibmS") },
-                                                                            {
-                                                                                118,
-                                                                                new VoterInfo(Organization.ibm, Level.expert,
-                                                                                    "ibmE") },
-                                                                                    { 
-                                                                                        129, new VoterInfo(Organization.ibm, Level.tc, 
-                                                                                        "ibmT") },
-                                                                                        { 
-                                                                                            802, new VoterInfo(Organization.guest, Level.street, 
-                                                                                            "guestS2") },});
+    
+    /** Test user data. Restructured to be easier to read, more typesafe */
+    enum TestUser {
+        guestS(801, Organization.guest, Level.street),
+        gnomeS(701, Organization.gnome, Level.street),
+        googleV(404, Organization.google, Level.vetter),
+        googleS(411, Organization.google, Level.street),
+        googleV2(424, Organization.google, Level.vetter),
+        appleV(304, Organization.apple, Level.vetter),
+        adobeE(208, Organization.adobe, Level.expert),
+        ibmS(101, Organization.ibm, Level.street),
+        ibmV(134, Organization.ibm, Level.vetter),
+        ibmE(118, Organization.ibm, Level.expert),
+        ibmT(129, Organization.ibm, Level.tc),
+        guestS2(802,Organization.guest, Level.street),
+        ;
+        public static final Map<Integer, VoterInfo> TEST_USERS;
+        public final Integer voterId;
+        public final VoterInfo voterInfo;
+        
+        TestUser(int intVoterId, Organization organization, Level level) {
+            voterId = intVoterId;
+            voterInfo = new VoterInfo(organization, level, name());
+        }
+        
+        static {
+            ImmutableMap.Builder<Integer, VoterInfo> temp = ImmutableMap.builder();
+            for (TestUser testUser : values()) {
+                temp.put(testUser.voterId, testUser.voterInfo);
+            }
+            TEST_USERS = temp.build();
+//            for (Entry<Integer, VoterInfo> entry : TEST_USERS.entrySet()) {
+//                int key = entry.getKey();
+//                VoterInfo value = entry.getValue();
+//                VoterInfo oldValue = testdata.get(key);
+//                if (!Objects.equal(value, oldValue)) {
+//                    System.out.println(key + "\t" + value + "\t" + oldValue);
+//                }
+//            }
+//            for (Entry<Integer, VoterInfo> entry : testdata.entrySet()) {
+//                int key = entry.getKey();
+//                VoterInfo value = entry.getValue();
+//                VoterInfo oldValue = TEST_USERS.get(key);
+//                if (!Objects.equal(value, oldValue)) {
+//                    System.out.println(key + "\t" + value + "\t" + oldValue);
+//                }
+//            }
+//            if (TEST_USERS.size() != testdata.size()) {
+//                throw new IllegalArgumentException();
+//            }
+        }
+    }
+    
+    public static final Map<Integer, VoterInfo> testdata = TestUser.TEST_USERS;
 
     private int toVoterId(String s) {
-        for (Entry<Integer, VoterInfo> entry : testdata.entrySet()) {
-            if (s.equals(entry.getValue().getName())) {
-                return entry.getKey();
-            }
-        }
-        return Integer.MIN_VALUE;
+        return TestUser.valueOf(s).voterId;
     }
 
     public void TestTrunkStatus() {
@@ -1290,11 +1294,11 @@ public class TestUtilities extends TestFmwkPlus {
         treeTime = checkUnicodeMapSetTime(warmup, 3);
         logln("Percentage: " + pf.format(treeTime/umTime));
         //logln(map1.toString());
-        
+
         if (shortTest) {
             return;
         }
-        
+
         umTime = checkUnicodeMapGetTime(1000, 0);
         hashTime = checkUnicodeMapGetTime(1000, 1);
         logln("Percentage: " + pf.format(hashTime/umTime));
@@ -1320,16 +1324,16 @@ public class TestUtilities extends TestFmwkPlus {
         System.gc();
         double start = System.currentTimeMillis();
         for (int j = 0; j < iterations; ++j)
-          for (int cp = 0; cp <= SET_LIMIT; ++cp) {
-            int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
-            if (enumValue <= 0) continue; // for smaller set
-            String value = UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
-            switch(type) {
-            case 0: map1.put(cp, value); break;
-            case 1: map2.put(cp, value); break;
-            case 3: map3.put(cp, value); break;
+            for (int cp = 0; cp <= SET_LIMIT; ++cp) {
+                int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
+                if (enumValue <= 0) continue; // for smaller set
+                String value = UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
+                switch(type) {
+                case 0: map1.put(cp, value); break;
+                case 1: map2.put(cp, value); break;
+                case 3: map3.put(cp, value); break;
+                }
             }
-        }
         double end = System.currentTimeMillis();
         return (end-start)/1000/iterations;
     }
@@ -1348,18 +1352,18 @@ public class TestUtilities extends TestFmwkPlus {
         System.gc();
         double start = System.currentTimeMillis();
         for (int j = 0; j < iterations; ++j)
-          for (int cp = 0; cp < CHECK_LIMIT; ++cp) {
-            switch (type) {
-            case 0: map1.getValue(cp); break;
-            case 1: map2.get(cp); break;
-            case 2:
-                int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
-                //if (enumValue <= 0) continue;
-                UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
-                break;                
-            case 3: map3.get(cp); break;
+            for (int cp = 0; cp < CHECK_LIMIT; ++cp) {
+                switch (type) {
+                case 0: map1.getValue(cp); break;
+                case 1: map2.get(cp); break;
+                case 2:
+                    int enumValue = UCharacter.getIntPropertyValue(cp, propEnum);
+                    //if (enumValue <= 0) continue;
+                    UCharacter.getPropertyValueName(propEnum,enumValue, UProperty.NameChoice.LONG);
+                    break;                
+                case 3: map3.get(cp); break;
+                }
             }
-        }
         double end = System.currentTimeMillis();
         return (end-start)/1000/iterations;
     }
@@ -1383,8 +1387,8 @@ public class TestUtilities extends TestFmwkPlus {
             "sameVotes=test",
             "conflicts=[]",
             "check",
-            
-            
+
+
             //test1
             "comment=timestamp case1",
             "locale=de",
@@ -1398,7 +1402,7 @@ public class TestUtilities extends TestFmwkPlus {
             "sameVotes=Bar, test",
             "conflicts=[google]",
             "check",
-            
+
             //test2
             "comment=timestamp case2",
             "locale=de",
@@ -1412,7 +1416,7 @@ public class TestUtilities extends TestFmwkPlus {
             "sameVotes=Bar, test",
             "conflicts=[google]",
             "check",
-            
+
             //test 3
             "comment=timestamp guest case",
             "locale=de",
@@ -1442,7 +1446,7 @@ public class TestUtilities extends TestFmwkPlus {
         int voteEntries = 0;
         Map<Integer, String> values = new TreeMap<Integer, String>();
         Map<Integer, VoteEntries> valuesMap = new TreeMap<Integer, VoteEntries>();
-        
+
         int counter = -1;
 
         for (String test : tests) {
@@ -1492,7 +1496,7 @@ public class TestUtilities extends TestFmwkPlus {
                 resolver.setLocale(locale);
                 resolver.setLastRelease(oldValue, oldStatus);
                 for (int voteEntry : valuesMap.keySet()) {
-                    
+
                     resolver.add(valuesMap.get(voteEntry).getValue(), valuesMap.get(voteEntry).getVoter());
                 }
                 // print the contents
@@ -1515,6 +1519,64 @@ public class TestUtilities extends TestFmwkPlus {
         }
     }
 
+    public void testBaileyVotes() {
+        VoteResolver.setVoterToInfo(TestUser.TEST_USERS);
+        VoteResolver<String> resolver = new VoteResolver<String>();
+        VoteStatus voteStatus;
+
+        // Simple case, all = bailey
+        resolver.setLocale("de");
+        resolver.setBaileyValue("bailey");
+        resolver.setTrunk("foo", Status.approved);
+        
+        resolver.add("bailey", TestUser.appleV.voterId);
+        resolver.add("bailey", TestUser.ibmV.voterId);
+        resolver.add("bailey", TestUser.googleV.voterId);
+        assertEquals("Simple case, all = bailey", "bailey", resolver.getWinningValue());
+        
+        resolver.clear();
+        resolver.setLocale("de");
+        resolver.setBaileyValue("bailey");
+        resolver.setTrunk("foo", Status.approved);
+        
+        resolver.add("bailey", TestUser.appleV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.googleV.voterId);
+        assertEquals("The bailey value and explicit value combine to win", "bailey", resolver.getWinningValue());
+        
+        // The bailey value and explicit value combine to win
+        resolver.clear();
+        resolver.setLocale("de");
+        resolver.setBaileyValue("bailey");
+        resolver.setTrunk("foo", Status.approved);
+        
+        resolver.add("bailey", TestUser.appleV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
+        resolver.add("other-vote", TestUser.googleV.voterId);
+        assertEquals("The bailey value and explicit value combine to win", "bailey", resolver.getWinningValue());
+        
+        // The bailey value and explicit value combine to win
+        resolver.clear();
+        resolver.setLocale("de");
+        resolver.setBaileyValue("bailey");
+        resolver.setTrunk("foo", Status.approved);
+        
+        resolver.add("bailey", TestUser.appleV.voterId);
+        resolver.add("not-bailey", TestUser.ibmV.voterId);
+        resolver.add("other-vote", TestUser.googleV.voterId);
+        assertEquals("Split vote, no action", "foo", resolver.getWinningValue());
+        
+        // Currently the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are.
+        resolver.clear();
+        resolver.setLocale("de");
+        resolver.setBaileyValue("bailey");
+        resolver.setTrunk("foo", Status.approved);
+        
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.googleV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.appleV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
+        assertEquals("Currently the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
+    }
 }
 
 

@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 
+import com.google.common.base.Objects;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
@@ -238,6 +239,22 @@ public class VoteResolver<T> {
 
         public void addLocale(String locale) {
             this.locales.add(locale);
+        }
+        
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            VoterInfo other = (VoterInfo) obj;
+            return organization.equals(other.organization)
+                && level.equals(other.level)
+                && name.equals(other.name)
+                && Objects.equal(locales, other.locales);
+        }
+        @Override
+        public int hashCode() {
+            return organization.hashCode() ^ level.hashCode() ^ name.hashCode();
         }
     }
 

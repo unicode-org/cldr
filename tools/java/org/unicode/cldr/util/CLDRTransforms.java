@@ -131,18 +131,18 @@ public class CLDRTransforms {
             addDependency("Latin-Han(/.*)", "Han-Spacedhan");
             addDependency(".*(Hiragana|Katakana|Han|han).*", "Fullwidth-Halfwidth", "Halfwidth-Fullwidth");
             addDependency(".*(Hiragana).*", "Latin-Katakana", "Katakana-Latin");
-            addPivotDependency("Bengali", "InterIndic");
-            addPivotDependency("Devanagari", "InterIndic");
-            addPivotDependency("Gujarati", "InterIndic");
-            addPivotDependency("Gurmukhi", "InterIndic");
-            addPivotDependency("Kannada", "InterIndic");
-            addPivotDependency("Malayalam", "InterIndic");
-            addPivotDependency("Oriya", "InterIndic");
-            addPivotDependency("Tamil", "InterIndic");
-            addPivotDependency("Telugu", "InterIndic");
-            addPivotDependency("Tamil", "InterIndic");
-            addPivotDependency("Tamil", "InterIndic");
-            addPivotDependency("Tamil", "InterIndic");
+
+            addInterIndicDependency("Arabic");
+            addInterIndicDependency("Bengali");
+            addInterIndicDependency("Devanagari");
+            addInterIndicDependency("Gujarati");
+            addInterIndicDependency("Gurmukhi");
+            addInterIndicDependency("Kannada");
+            addInterIndicDependency("Malayalam");
+            addInterIndicDependency("Oriya");
+            addInterIndicDependency("Tamil");
+            addInterIndicDependency("Telugu");
+
             addDependency(".*Digit.*", "NumericPinyin-Pinyin", "Pinyin-NumericPinyin");
             addDependency("Latin-NumericPinyin(/.*)?", "Tone-Digit", "Digit-Tone");
             addDependency("NumericPinyin-Latin(/.*)?", "Tone-Digit", "Digit-Tone");
@@ -246,6 +246,14 @@ public class CLDRTransforms {
 
             // addExtras("cs-ja", "cs-ja", "es-am", "es-ja", "es-zh", "Han-Latin/Names");
             // Pinyin-NumericPinyin.xml
+        }
+
+        private void addInterIndicDependency(String script) {
+            addPivotDependency(script, "InterIndic");
+            if (!script.equals("Arabic")) {
+                addDependency(script + "-Arabic",
+                              script + "-InterIndic", "InterIndic-Arabic");
+            }
         }
 
         private void addPivotDependency(String script, String pivot) {

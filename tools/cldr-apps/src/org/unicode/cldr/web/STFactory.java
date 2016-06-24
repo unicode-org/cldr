@@ -904,6 +904,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.setTrunk(currentValue, currentStatus);
                 r.add(currentValue);
             }
+            // Set the Bailey value.
+            // Note that this will recurse if there is an alias loop. 
+            r.setBaileyValue(rFile.getBaileyValue(path, null, null));
 
             // add each vote
             if (perXPathData != null && !perXPathData.isEmpty()) {

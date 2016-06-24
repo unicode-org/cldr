@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 
+import com.google.common.base.Objects;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
@@ -239,6 +240,22 @@ public class VoteResolver<T> {
         public void addLocale(String locale) {
             this.locales.add(locale);
         }
+        
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            VoterInfo other = (VoterInfo) obj;
+            return organization.equals(other.organization)
+                && level.equals(other.level)
+                && name.equals(other.name)
+                && Objects.equal(locales, other.locales);
+        }
+        @Override
+        public int hashCode() {
+            return organization.hashCode() ^ level.hashCode() ^ name.hashCode();
+        }
     }
 
     /**
@@ -277,6 +294,9 @@ public class VoteResolver<T> {
         private Map<String, Long> nameTime = new LinkedHashMap<String, Long>();
         // map an organization to what it voted for.
         private final Map<Organization, T> orgToAdd = new EnumMap<>(Organization.class);
+        private T baileyValue;
+        private boolean hasExplicitBailey; // has an explicit version of the bailey value
+        private boolean hasExplicitInheritanceMarker; // has an implicit version of the bailey value
 
         OrganizationToValueAndVote() {
             for (Organization org : Organization.values()) {
@@ -296,6 +316,9 @@ public class VoteResolver<T> {
             orgToAdd.clear();
             orgToMax.clear();
             totalVotes.clear();
+            baileyValue = null;
+            hasExplicitBailey = false;
+            hasExplicitInheritanceMarker = false;
         }
 
         public int countValuesWithVotes() {
@@ -348,6 +371,20 @@ public class VoteResolver<T> {
          * @see #add(Object, int, Integer)
          */
         private void addInternal(T value, int voter, final VoterInfo info, final int votes, Date time) {
+            if (baileyValue == null) {
+                throw new IllegalArgumentException("setBaileyValue must be called before add");
+            }
+            if (value.equals(baileyValue)) {
+                hasExplicitBailey = true;
+            } else if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                hasExplicitInheritanceMarker = true;
+                if (baileyValue != null) {
+                    value = baileyValue; // For now, we just remap to the bailey value
+                    // TODO 
+                    // Later, we might have a more complicated algorithm, but right now, if there is any explicit value,
+                    // we count CldrUtility.INHERITANCE_MARKERs as that value 
+                }
+            }
             //long time = new Date().getTime();
             totalVotes.add(value, votes, time.getTime());
             nameTime.put(info.getName(), time.getTime());
@@ -400,7 +437,7 @@ public class VoteResolver<T> {
                     long weight = items.getCount(value);
                     Organization org = entry.getKey();
                     if(DEBUG){
-                    	System.out.println("sortedKeys?? " + value + " " + org.displayName);
+                        System.out.println("sortedKeys?? " + value + " " + org.displayName);
                     }
                    
                    // System.out.println("Org: " + org);
@@ -574,7 +611,7 @@ public class VoteResolver<T> {
     private T nValue; // next to optimal value
     private List<T> valuesWithSameVotes = new ArrayList<T>();
     private Counter<T> totals = null;
-
+    
     private Status winningStatus;
     private EnumSet<Organization> conflictedOrganizations = EnumSet
         .noneOf(Organization.class);
@@ -676,7 +713,7 @@ public class VoteResolver<T> {
 
     /**
      * Call this method first, for a new base path. You'll then call add for each value
-     * associated with that base path
+     * associated with that base path.
      */
 
     public void clear() {
@@ -687,6 +724,15 @@ public class VoteResolver<T> {
         organizationToValueAndVote.clear();
         resolved = false;
         values.clear();
+    }
+    
+    /**
+     * Set the Bailey value (what the inherited value would be if there were no explicit value).
+     * This value is used in handling any {@link CldrUtility.INHERITANCE_MARKER}.
+     * This value must be set <i>before</i> adding values. Usually by calling CLDRFile.getBaileyValue().
+     */
+    public void setBaileyValue(T baileyValue) {
+        organizationToValueAndVote.baileyValue = baileyValue;
     }
 
     /**
@@ -826,6 +872,12 @@ public class VoteResolver<T> {
             }
         }
     //    System.out.println("Winning 764: " + winningValue);
+        if (organizationToValueAndVote.hasExplicitInheritanceMarker 
+            && !organizationToValueAndVote.hasExplicitBailey
+            && winningValue.equals(organizationToValueAndVote.baileyValue)
+            && winningValue instanceof CharSequence) {
+            winningValue = (T) CldrUtility.INHERITANCE_MARKER;
+        }
         oValue = winningValue;
         nValue = value2; // save this
         // here is the meat.

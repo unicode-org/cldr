@@ -40,6 +40,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
@@ -571,14 +572,32 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 //        private Map<Integer, Set<String>> xpathToOtherValues = new HashMap<Integer, Set<String>>();
         private boolean oldFileMissing;
         private XMLSource resolvedXmlsource = null;
+        /**
+         * Parent locale - or null.
+         */
+        private final String nextParent;
+        /**
+         * CLDR file for loading Bailey value
+         */
+        private final CLDRFile fallbackParent;
 
         PerLocaleData(CLDRLocale locale) {
             this.locale = locale;
+            this.nextParent = LocaleIDParser.getParent(locale.getBaseName());
             readonly = isReadOnlyLocale(locale);
             diskData = (XMLSource) sm.getDiskFactory().makeSource(locale.getBaseName()).freeze();
             sm.xpt.loadXPaths(diskData);
             diskFile = sm.getDiskFactory().make(locale.getBaseName(), true).freeze();
             pathsForFile = phf.pathsForFile(diskFile);
+            
+            if(nextParent == null) {
+                fallbackParent =  null; // no fallback parent
+            } else {
+                /**
+                 * This will cause a load of the parent before the child.
+                 */
+                fallbackParent = get(nextParent).getFile(true);
+            }
 
 //            if (checkHadVotesSometimeThisRelease) {
 //                votesSometimeThisRelease = loadVotesSometimeThisRelease(locale);
@@ -904,9 +923,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.setTrunk(currentValue, currentStatus);
                 r.add(currentValue);
             }
-            // Set the Bailey value.
-            // Note that this will recurse if there is an alias loop. 
-            r.setBaileyValue(rFile.getBaileyValue(path, null, null));
+            if(fallbackParent != null) {
+                // Set the Bailey value from the fallback parent - the vetted parent of this locale
+                r.setBaileyValue(fallbackParent.getStringValue(path));
+            } else {
+                // let CLDRFile (from svn) figure out what the Bailey value is.
+                r.setBaileyValue(diskFile.getBaileyValue(path, null, null));
+            }
 
             // add each vote
             if (perXPathData != null && !perXPathData.isEmpty()) {

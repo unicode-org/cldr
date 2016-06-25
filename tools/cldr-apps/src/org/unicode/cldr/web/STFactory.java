@@ -925,7 +925,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             if(fallbackParent != null) {
                 // Set the Bailey value from the fallback parent - the vetted parent of this locale
-                r.setBaileyValue(fallbackParent.getStringValue(path));
+                String stringValue = fallbackParent.getStringValue(path);
+                if(stringValue == null) stringValue = fallbackParent.getBaileyValue(path, null, null);
+                r.setBaileyValue(stringValue);
             } else {
                 // let CLDRFile (from svn) figure out what the Bailey value is.
                 r.setBaileyValue(diskFile.getBaileyValue(path, null, null));

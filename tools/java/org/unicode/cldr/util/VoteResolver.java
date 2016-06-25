@@ -295,6 +295,7 @@ public class VoteResolver<T> {
         // map an organization to what it voted for.
         private final Map<Organization, T> orgToAdd = new EnumMap<>(Organization.class);
         private T baileyValue;
+        private boolean baileySet; // was the bailey value set
         private boolean hasExplicitBailey; // has an explicit version of the bailey value
         private boolean hasExplicitInheritanceMarker; // has an implicit version of the bailey value
 
@@ -317,6 +318,7 @@ public class VoteResolver<T> {
             orgToMax.clear();
             totalVotes.clear();
             baileyValue = null;
+            baileySet = false;
             hasExplicitBailey = false;
             hasExplicitInheritanceMarker = false;
         }
@@ -371,7 +373,7 @@ public class VoteResolver<T> {
          * @see #add(Object, int, Integer)
          */
         private void addInternal(T value, int voter, final VoterInfo info, final int votes, Date time) {
-            if (baileyValue == null) {
+            if (baileySet == false) {
                 throw new IllegalArgumentException("setBaileyValue must be called before add");
             }
             if (value.equals(baileyValue)) {
@@ -732,6 +734,7 @@ public class VoteResolver<T> {
      * This value must be set <i>before</i> adding values. Usually by calling CLDRFile.getBaileyValue().
      */
     public void setBaileyValue(T baileyValue) {
+        organizationToValueAndVote.baileySet = true;
         organizationToValueAndVote.baileyValue = baileyValue;
     }
 

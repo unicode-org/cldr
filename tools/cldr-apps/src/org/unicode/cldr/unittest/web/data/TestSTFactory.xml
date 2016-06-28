@@ -106,4 +106,28 @@
     <vote name="E" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">{1} na {0}</vote>
     <verify status="approved" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">{1} na {0}</verify>
  -->
+ 
+  	<!--  testing vote for inherited ↑↑↑ -->
+    <!--  first switch und to AAA -->
+    <vote name="A" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
+    <vote name="B" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
+    <vote name="C" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
+	<verify status="approved" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify>
+	<verify status="missing" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify>
+	<!--  Now, sublocale vetting. -->
+	<vote name="A" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">↑↑↑</vote> <!--  inherited -->
+    <vote name="B" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote> <!--  explicit agree -->
+    <vote name="C" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">CCC</vote> <!--  (dissenter) -->
+	<verify status="approved" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify> <!-- ↑↑↑ and AAA should be the same, not split.  -->
+	
+    <!--  now switch und to BBB -->
+    <vote name="A" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
+    <vote name="B" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
+    <vote name="C" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
+	<verify status="approved" locale="und" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify>
+	<verify status="provisional" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify> <!-- split vote. AAA wins -->
+	
+    <vote name="B" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote> <!--  explicit agree -->
+	<verify status="approved" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- BBB wins. -->
+ 
 </TestSTFactory>

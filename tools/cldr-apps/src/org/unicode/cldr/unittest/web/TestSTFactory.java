@@ -501,7 +501,10 @@ public class TestSTFactory extends TestFmwk {
 
                     xpp2.clear();
                     Status xpathStatus;
-                    if (fullXpath == null) {
+                    CLDRFile.Status whereFound = new CLDRFile.Status();
+                    CLDRLocale sourceLocaleID = CLDRLocale.getInstance(cf.getSourceLocaleID(fullXpath, whereFound));
+                    boolean differentLocale = (sourceLocaleID != null && !sourceLocaleID.equals(locale));
+                    if ((fullXpath == null) || differentLocale) {
                         xpathStatus = Status.missing;
                     } else {
                         xpp2.set(fullXpath);
@@ -512,7 +515,10 @@ public class TestSTFactory extends TestFmwk {
                         }
                         xpathStatus = Status.fromString(statusFromXpath);
                     }
-                    if (xpathStatus == expStatus) {
+                    if (xpathStatus != winStatus) {
+                        logln("Warning: Winning Status=" + winStatus + " but xpath status is " + xpathStatus + " " + locale + ":"
+                            + fullXpath + " Resolver=" + box.getResolver(xpath));
+                    } else if (xpathStatus == expStatus) {
                         logln("OK from fullxpath: Status=" + xpathStatus + " " + locale + ":" + fullXpath + " Resolver="
                             + box.getResolver(xpath));
                     } else {
@@ -549,7 +555,7 @@ public class TestSTFactory extends TestFmwk {
                     xpp2.clear();
                     String fullXpathBack = readBack.getFullXPath(xpath);
                     Status xpathStatusBack;
-                    if (fullXpathBack == null) {
+                    if (fullXpathBack == null || differentLocale) {
                         xpathStatusBack = Status.missing;
                     } else {
                         xpp2.set(fullXpathBack);
@@ -573,6 +579,9 @@ public class TestSTFactory extends TestFmwk {
                     if (xpathStatusBack == expStatus) {
                         logln("OK from XML: Status=" + xpathStatusBack + " " + locale + ":" + fullXpathBack + " Resolver="
                             + box.getResolver(xpath));
+                    } else if(xpathStatusBack != winStatus) {
+                        logln("Warning: Problem from XML: Winning Status=" + winStatus + " got " + xpathStatusBack + " " + locale + ":"
+                            + fullXpathBack + " Resolver=" + box.getResolver(xpath));
                     } else {
                         errln("Expected from XML: Status=" + expStatus + " got " + xpathStatusBack + " " + locale + ":"
                             + fullXpathBack + " Resolver=" + box.getResolver(xpath));

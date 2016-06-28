@@ -897,6 +897,25 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.clear(); // reuse
             }
 
+            // Workaround
+            CLDRFile.Status status = new CLDRFile.Status();
+            diskFile.getSourceLocaleID(path, status); // ask disk file
+            String baileyValue = null;
+            if (status.pathWhereFound.equals(path)) {
+              // we found it on the same path, so no aliasing
+              // for that case, it is safe to use the parent's value
+              baileyValue = fallbackParent.getStringValue(path);
+            } else {
+              // the path changed, so use that path to get the right value
+              // from the *current* file (not the parent)
+//              System.out.println("≥≥@@@>>" + path +" << " + status.pathWhereFound);
+              r = getResolverInternal(null, status.pathWhereFound, r);
+              baileyValue = r.getWinningValue();
+//              System.out.println("≥≥@@@>>" + path +" << " + status.pathWhereFound + " == " + baileyValue);
+//              baileyValue = currentFile.getStringValue(status.pathWhereFound);
+               r.clear(); // clear it again
+            }
+
             final ValueChecker vc = ERRORS_ALLOWED_IN_VETTING ? null : new ValueChecker(path);
 
             // Set established locale
@@ -923,6 +942,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.setTrunk(currentValue, currentStatus);
                 r.add(currentValue);
             }
+            
+            r.setBaileyValue(baileyValue); 
+
+            
             if(fallbackParent != null) {
                 // Set the Bailey value from the fallback parent - the vetted parent of this locale
                 String stringValue = fallbackParent.getStringValue(path);

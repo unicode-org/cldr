@@ -2950,8 +2950,31 @@ function updateRow(tr, theRow) {
 		if(item.value) {
 			tr.valueToItem[item.value] = item; // back link by value
 			tr.rawValueToItem[item.rawValue] = item; // back link by value
+			if(item.rawValue === '↑↑↑') { // This is a vote for Bailey.
+				item.isVoteForBailey = true;
+				tr.voteForBaileyItem = item;
+			}
+		}
+		if(item.isBailey) {
+			tr.baileyItem = item; // This is the actual Bailey item (target of the votes)
 		}
 	}
+	
+	if(tr.voteForBaileyItem) {
+		// Some people voted for Bailey. Move those votes over to the actual target.
+		if(!tr.baileyItem) {
+			console.error('For ' + theRow.xpstrid + ' - there is no Bailey Target item!');
+			// don't delete the item
+		} else {
+			tr.baileyItem.votes = tr.baileyItem.votes || {};
+			for(var k in tr.voteForBaileyItem.votes) {
+				tr.baileyItem.votes[k] = tr.voteForBaileyItem.votes[k]; //  move vote from ↑↑↑ to explicit item
+				tr.baileyItem.votes[k].isVoteForBailey = true;
+				// no need to remove - will be handled specially below.
+			}
+		}
+	}
+	
 	
 	// update the vote info
 	if(theRow.voteResolver) {
@@ -3014,7 +3037,7 @@ function updateRow(tr, theRow) {
 					//var valueExtra = (value==vr.winningValue)?(" voteInfo_iconValue voteInfo_winningItem d-dr-"+theRow.voteResolver.winningStatus):"";
 					//var voteExtra = (value==vr.lastReleaseValue)?(" voteInfo_lastRelease"):"";
 					var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_tr_heading");
-					if(!item.votes || Object.keys(item.votes).length==0) {
+					if(!item.isVoteForBailey && (!item.votes || Object.keys(item.votes).length==0)) {
 						//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
 					} else {
 						vrow.appendChild(createChunk(stui.str("voteInfo_orgColumn"),"td","voteInfo_orgColumn voteInfo_td"));
@@ -3039,6 +3062,7 @@ function updateRow(tr, theRow) {
 					setLang(valdiv);
 					if (value == '\u2191\u2191\u2191') {
 						appendItem(valdiv, stui.str("voteInfo_acceptInherited"), "fallback", tr);
+						valdiv.appendChild(createChunk(stui.str('voteInfo_baileyVoteList'), 'p'));
 					} else {
 					    appendItem(valdiv, value, calcPClass(value, vr.winningValue), tr);
 					}
@@ -3070,6 +3094,21 @@ function updateRow(tr, theRow) {
 					vrow.appendChild(createChunk(null, "td","voteInfo_noVotes voteInfo_td"));
 					vdiv.appendChild(vrow);
 					
+				} else if(item.isVoteForBailey) {
+					// show the raw votes.
+					for(var kk in item.votes) {
+						var thevote = item.votes[kk];
+						var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading fallback");
+						vrow.appendChild(createChunk(thevote.org,"td","voteInfo_orgColumn voteInfo_td"));
+						vrow.appendChild(createVoter(thevote)); // voteInfo_td
+//						if(orgsVote) {
+//							var cell = createChunk(null,"td","voteInfo_orgsVote voteInfo_voteCount voteInfo_td");
+//							cell.appendChild(createChunk(orgVoteValue, "span", "badge"));
+//							vrow.appendChild(cell);
+//						}else
+//							vrow.appendChild(createChunk(orgVoteValue,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
+						vdiv.appendChild(vrow);
+					}
 				} else {
 					for(org in theRow.voteResolver.orgs) {
 						var theOrg = vr.orgs[org];
@@ -3119,20 +3158,20 @@ function updateRow(tr, theRow) {
 							//console.log(theOrg);
 							//console.log(value);
 							//console.log(topVoter);
-							
 							// ORG SUBHEADING row
 							{
+								var baileyClass = (item.votes[topVoter].isVoteForBailey)?" fallback":"";
 								var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
 								vrow.appendChild(createChunk(org,"td","voteInfo_orgColumn voteInfo_td"));
 								//var isection = createChunk(null, "td", "voteInfo_iconBar");
 								//vrow.appendChild(isection);
 								vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
 								if(orgsVote) {
-									var cell = createChunk(null,"td","voteInfo_orgsVote voteInfo_voteCount voteInfo_td");
+									var cell = createChunk(null,"td","voteInfo_orgsVote voteInfo_voteCount voteInfo_td"+baileyClass);
 									cell.appendChild(createChunk(orgVoteValue, "span", "badge"));
 									vrow.appendChild(cell);
 								}else
-									vrow.appendChild(createChunk(orgVoteValue,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
+									vrow.appendChild(createChunk(orgVoteValue,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"+baileyClass));
 								vdiv.appendChild(vrow);
 							}
 							
@@ -3144,12 +3183,13 @@ function updateRow(tr, theRow) {
 								}
 								// OTHER VOTER row
 								{
+									var baileyClass = (item.votes[voter].isVoteForBailey)?" fallback":"";
 									var vrow = createChunk(null, "tr", "voteInfo_tr");
 									vrow.appendChild(createChunk("","td","voteInfo_orgColumn voteInfo_td")); // spacer
 									//var isection = createChunk(null, "td", "voteInfo_iconBar");
 									//vrow.appendChild(isection);
 									vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
-									vrow.appendChild(createChunk(item.votes[voter].votes,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
+									vrow.appendChild(createChunk(item.votes[voter].votes,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"+baileyClass));
 									vdiv.appendChild(vrow);
 								}
 							}
@@ -3526,9 +3566,10 @@ function updateRow(tr, theRow) {
 	
 	//add the other vote info
 	for(k in theRow.items) {
-		if(k == theRow.winningVhash) {
-			continue; // skip the winner
-		}
+		if((k === theRow.winningVhash) // skip vote for winner
+		   || (theRow.items[k].isVoteForBailey)) { // skip vote for ↑↑↑
+					continue;
+				}
 		hadOtherItems=true;
 		addVitem(children[config.othercell],tr,theRow,theRow.items[k],cloneAnon(protoButton));
 		children[config.othercell].appendChild(document.createElement("hr"));

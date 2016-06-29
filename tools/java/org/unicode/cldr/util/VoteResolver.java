@@ -1022,6 +1022,7 @@ public class VoteResolver<T> {
         return "{"
             + "test: {" + "randomTest }, "
             + "lastRelease: {" + lastReleaseValue + ", " + lastReleaseStatus + "}, "
+            + "bailey: " + (organizationToValueAndVote.baileySet?("“"+organizationToValueAndVote.baileyValue+"” "):"none ")
             + "trunk: {" + trunkValue + ", " + trunkStatus + "}, "
             + organizationToValueAndVote
             + ", sameVotes: " + valuesWithSameVotes

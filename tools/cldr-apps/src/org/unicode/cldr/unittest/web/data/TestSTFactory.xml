@@ -31,7 +31,8 @@
     <user name="D" org="guest" level="street" locales="*"/>
     <user name="E" org="afrigen" level="tc" locales="*"/>
     
-    	
+
+
 	<!--  Vote for an item. We choose und to avoid other conflicting data.  --> 
 	<vote name="A" locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">a</vote>  
 	<vote name="B" locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">b</vote>  
@@ -129,5 +130,25 @@
 	
     <vote name="B" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote> <!--  explicit agree -->
 	<verify status="approved" locale="und_ZZ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- BBB wins. -->
+ 
+ 	<echo>More ↑↑↑ tests</echo>
+    
+    <!--  Vote in cross item -->
+    <vote name="E" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='0']">AAA</vote>
+
+ 	<verify status="approved" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='0']">AAA</verify> <!--  direct -->
+ 	<verify status="missing" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</verify> <!--  verify inheritance -->
+    
+    <!--  Put in initial non-split vote for ↑↑↑ -->
+    <vote name="A" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">↑↑↑</vote>
+    <vote name="B" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">BBB</vote>
+    <vote name="C" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</vote>
+
+ 	<verify status="approved" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</verify> <!--  not split- inheritance goes w/ AAA -->
+    <vote name="C" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">BBB</vote>
+ 	<verify status="approved" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">BBB</verify> <!--  only one vote for AAA now -->
+    <vote name="E" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">↑↑↑</vote> <!--  effective vote for AAA -->
+ 	<verify status="approved" locale="und_ZZ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</verify> <!--  not split- inheritance goes w/ AAA -->
+	
  
 </TestSTFactory>

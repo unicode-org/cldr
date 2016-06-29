@@ -501,10 +501,19 @@ public class TestSTFactory extends TestFmwk {
 
                     xpp2.clear();
                     Status xpathStatus;
-                    CLDRFile.Status whereFound = new CLDRFile.Status();
-                    CLDRLocale sourceLocaleID = CLDRLocale.getInstance(cf.getSourceLocaleID(fullXpath, whereFound));
-                    boolean differentLocale = (sourceLocaleID != null && !sourceLocaleID.equals(locale));
-                    if ((fullXpath == null) || differentLocale) {
+                    CLDRFile.Status newPath = new CLDRFile.Status();
+                    CLDRLocale newLocale = CLDRLocale.getInstance(cf.getSourceLocaleID(fullXpath, newPath));
+                    final boolean localeChanged = newLocale != null && !newLocale.equals(locale);
+                    final boolean pathChanged = newPath.pathWhereFound!=null && !newPath.pathWhereFound.equals(xpath);
+                    final boolean itMoved = localeChanged || pathChanged;
+                    if(localeChanged && pathChanged) {
+                        logln("Aliased(locale+path): "+locale+"->"+newLocale+" and "+xpath+"->"+newPath.pathWhereFound);
+                    } else if(localeChanged) {
+                        logln("Aliased(locale): "+locale+"->"+newLocale);
+                    } else if(pathChanged) {
+                        logln("Aliased(path): "+xpath+"->"+newPath.pathWhereFound);
+                    }
+                    if ((fullXpath == null) || itMoved) {
                         xpathStatus = Status.missing;
                     } else {
                         xpp2.set(fullXpath);
@@ -555,7 +564,7 @@ public class TestSTFactory extends TestFmwk {
                     xpp2.clear();
                     String fullXpathBack = readBack.getFullXPath(xpath);
                     Status xpathStatusBack;
-                    if (fullXpathBack == null || differentLocale) {
+                    if (fullXpathBack == null || itMoved) {
                         xpathStatusBack = Status.missing;
                     } else {
                         xpp2.set(fullXpathBack);

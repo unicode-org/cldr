@@ -923,7 +923,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (status.pathWhereFound.equals(path)) {
               // we found it on the same path, so no aliasing
               // for that case, it is safe to use the parent's value
-              baileyValue = fallbackParent.getStringValue(path);
+              if(fallbackParent == null) {
+                  // we are in root. 
+                  baileyValue = diskData.getBaileyValue(path, null, null);
+              } else {
+                  baileyValue = fallbackParent.getStringValue(path);
+              }
             } else {
               // the path changed, so use that path to get the right value
               // from the *current* file (not the parent)

@@ -62,6 +62,7 @@ public class DisplayAndInputProcessor {
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
     private static final Pattern APOSTROPHE_SKIP_PATHS = PatternCache.get("//ldml/("
+        + "localeDisplayNames/languages/language\\[@type=\"mic\"].*|"
         + "characters/.*|"
         + "delimiters/.*|"
         + "dates/.+/(pattern|intervalFormatItem|dateFormatItem).*|"

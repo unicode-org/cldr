@@ -223,6 +223,14 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=$(ordinal,one{re}other{e})$;</rbnfrule>
             </ruleset>
+            <ruleset type="digits-ordinal-masculine-plural">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=$(ordinal,one{ers}other{es})$;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-feminine-plural">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=$(ordinal,one{res}other{es})$;</rbnfrule>
+            </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>
             </ruleset>

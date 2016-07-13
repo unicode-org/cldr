@@ -28,13 +28,15 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="1">mốt;</rbnfrule>
                 <rbnfrule value="2">=%%teen=;</rbnfrule>
+                <rbnfrule value="4">tư;</rbnfrule>
+                <rbnfrule value="5">=%%teen=;</rbnfrule>
             </ruleset>
             <ruleset type="after-hundred" access="private">
                 <rbnfrule value="0">lẻ =%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="10">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="after-thousand-or-more" access="private">
-                <rbnfrule value="0">không trăm =%%after-hundred=;</rbnfrule> <!-- zero hundred ... -->
+                <rbnfrule value="0">không trăm =%%after-hundred=;</rbnfrule>
                 <rbnfrule value="100">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal">
@@ -54,8 +56,8 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="20">←← mươi[ →%%x-ty→];</rbnfrule>
                 <rbnfrule value="100">←← trăm[ →%%after-hundred→];</rbnfrule>
                 <rbnfrule value="1000">←← nghìn[ →%%after-thousand-or-more→];</rbnfrule>
-                <rbnfrule value="1000000">←← triệu[ →%%after-thousand-or-more→];</rbnfrule>
-                <rbnfrule value="1000000000">←← tỷ[ →%%after-thousand-or-more→];</rbnfrule>
+                <rbnfrule value="1000000">←← triệu[ →%%after-hundred→];</rbnfrule>
+                <rbnfrule value="1000000000">←← tỷ[ →%%after-hundred→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">

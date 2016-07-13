@@ -13,7 +13,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
             <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
                 <rbnfrule value="1000">=%%spellout-numbering-year-digits=;</rbnfrule>
                 <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
@@ -62,7 +62,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000">←←亿[→%%number5→];</rbnfrule>
                 <rbnfrule value="1000000000000">←←兆[→%%number8→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←←京[→%%number13→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="number2" access="private">
                 <rbnfrule value="1">〇=%spellout-numbering=;</rbnfrule>
@@ -120,7 +120,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000">←←亿[→%%financialnumber5→];</rbnfrule>
                 <rbnfrule value="1000000000000">←←兆[→%%financialnumber8→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←←京[→%%financialnumber13→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="financialnumber2" access="private">
                 <rbnfrule value="1">零=%spellout-cardinal-financial=;</rbnfrule>
@@ -177,7 +177,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000">←←亿[→%%cardinal5→];</rbnfrule>
                 <rbnfrule value="1000000000000">←←兆[→%%cardinal8→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←←京[→%%cardinal13→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="cardinal2" access="private">
                 <rbnfrule value="1">零=%spellout-numbering=;</rbnfrule>
@@ -234,7 +234,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000">←←亿[→%%cardinal-alternate2-5→];</rbnfrule>
                 <rbnfrule value="1000000000000">←←兆[→%%cardinal-alternate2-8→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←←京[→%%cardinal-alternate2-13→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="cardinal-alternate2-2" access="private">
                 <rbnfrule value="1">零=%spellout-numbering=;</rbnfrule>
@@ -272,14 +272,14 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000">=%spellout-cardinal-alternate2=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">
-                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">第=%spellout-numbering=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <ruleset type="digits-ordinal">
-                <rbnfrule value="-x">第−→#,###0→;</rbnfrule>
-                <rbnfrule value="0">第=#,###0=;</rbnfrule>
+                <rbnfrule value="-x">第−→#,##0→;</rbnfrule>
+                <rbnfrule value="0">第=#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

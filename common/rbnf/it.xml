@@ -16,7 +16,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="0">&amp;[last primary ignorable ] ←← ' ' ←← ',' ←← '-' ←← '­';</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
@@ -216,7 +216,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-ordinal-masculine">
                 <rbnfrule value="-x">meno →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">zero;</rbnfrule>
+                <rbnfrule value="0">zeresimo;</rbnfrule>
                 <rbnfrule value="1">primo;</rbnfrule>
                 <rbnfrule value="2">secondo;</rbnfrule>
                 <rbnfrule value="3">terzo;</rbnfrule>
@@ -314,7 +314,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-ordinal-feminine">
                 <rbnfrule value="-x">meno →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">zero;</rbnfrule>
+                <rbnfrule value="0">zeresima;</rbnfrule>
                 <rbnfrule value="1">prima;</rbnfrule>
                 <rbnfrule value="2">seconda;</rbnfrule>
                 <rbnfrule value="3">terza;</rbnfrule>

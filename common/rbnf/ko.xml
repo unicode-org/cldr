@@ -13,7 +13,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
             <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
@@ -46,7 +46,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000">←←억[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←←조[ →→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←←경[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-native-attributive">
                 <rbnfrule value="-x">마이너스 →→;</rbnfrule>
@@ -80,7 +80,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000">←%spellout-cardinal-sinokorean←억[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-cardinal-sinokorean←조[ →→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←%spellout-cardinal-sinokorean←경[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-native">
                 <rbnfrule value="-x">마이너스 →→;</rbnfrule>
@@ -126,11 +126,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000">←←억[→→];</rbnfrule>
                 <rbnfrule value="1000000000000">←←조[→→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←←경[→→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-sinokorean-count">
                 <rbnfrule value="-x">마이너스 →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">=%%spellout-ordinal-native-count-smaller= 번째;</rbnfrule>
                 <rbnfrule value="10">=%%spellout-ordinal-sinokorean-count-smaller= 번째;</rbnfrule>
             </ruleset>
@@ -181,7 +181,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-ordinal-native-count">
                 <rbnfrule value="-x">마이너스 →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">=%%spellout-ordinal-native-count-smaller= 번째;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-native-count-smaller" access="private">
@@ -210,7 +210,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000">←%spellout-cardinal-sinokorean←억[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-cardinal-sinokorean←조[ →→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←%spellout-cardinal-sinokorean←경[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-sinokorean">
                 <rbnfrule value="0">=%spellout-ordinal-native=;</rbnfrule>
@@ -218,7 +218,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100">=%%spellout-ordinal-sinokorean-count-larger=째;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-native">
-                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="-x">마이너스 →→;</rbnfrule>
                 <rbnfrule value="0">=%%spellout-ordinal-native-priv=째;</rbnfrule>
             </ruleset>
@@ -258,7 +258,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000">←%spellout-cardinal-sinokorean←억[ →%%spellout-ordinal-native-smaller-x02→];</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-cardinal-sinokorean←조[ →%%spellout-ordinal-native-smaller-x02→];</rbnfrule>
                 <rbnfrule value="10000000000000000">←%spellout-cardinal-sinokorean←경[ →%%spellout-ordinal-native-smaller-x02→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-native-smaller-x02" access="private">
                 <rbnfrule value="0">=%%spellout-ordinal-native-smaller=;</rbnfrule>

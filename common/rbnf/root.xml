@@ -275,7 +275,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000000000000">←←፼→%%ethiopic-p2→;</rbnfrule>
                 <rbnfrule value="10000000000000000">፼→%%ethiopic-p3→;</rbnfrule>
                 <rbnfrule value="20000000000000000">←←፼→%%ethiopic-p3→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="georgian">
                 <rbnfrule value="-x">−→→;</rbnfrule>
@@ -673,7 +673,8 @@ For terms of use, see http://www.unicode.org/copyright.html
         <rulesetGrouping type="SpelloutRules">
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=0.0=;</rbnfrule>
+                <rbnfrule value="0">=0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="-x">−→→;</rbnfrule>

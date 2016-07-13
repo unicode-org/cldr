@@ -19,7 +19,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="-x">min →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
                 <rbnfrule value="1100" radix="100">←← →%%2d-year→;</rbnfrule>
                 <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>

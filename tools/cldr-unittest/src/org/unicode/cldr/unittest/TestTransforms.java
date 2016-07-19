@@ -348,6 +348,17 @@ public class TestTransforms extends TestFmwkPlus {
     private Pattern rfc6497Pattern =
         Pattern.compile("([a-zA-Z0-9-]+)-t-([a-zA-Z0-9-]+?)(?:-m0-([a-zA-Z0-9-]+))?");
 
+    // cs-fonipa --> cs_fonipa; und-deva --> deva
+    // TODO: Remove this workaround once ICU supports BCP47-T identifiers.
+    // http://bugs.icu-project.org/trac/ticket/12599
+    private String getLegacyCode(String code) {
+        code = code.replace('-', '_');
+        if (code.startsWith("und_") && code.length() == 8) {
+            code = code.substring(4);
+        }
+        return code;
+    }
+
     private Transliterator getTransliterator(String id) {
         // TODO: Pass unmodified transform name to ICU, once
         // ICU can handle transform identifiers according to
@@ -363,8 +374,8 @@ public class TestTransforms extends TestFmwkPlus {
 
         Matcher rfc6497Matcher = rfc6497Pattern.matcher(id);
         if (rfc6497Matcher.matches()) {
-            String targetLanguage = rfc6497Matcher.group(1).replace('-', '_');
-            String originalLanguage = rfc6497Matcher.group(2).replace('-', '_');
+            String targetLanguage = getLegacyCode(rfc6497Matcher.group(1));
+            String originalLanguage = getLegacyCode(rfc6497Matcher.group(2));
             String mechanism = rfc6497Matcher.group(3);
             id = originalLanguage + "-" + targetLanguage;
             if (mechanism != null && !mechanism.isEmpty()) {

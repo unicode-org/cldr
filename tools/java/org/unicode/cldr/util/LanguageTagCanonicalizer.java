@@ -62,7 +62,9 @@ public class LanguageTagCanonicalizer implements StringTransform {
             ltp1.setVariants(newVariants);
         }
         final String result = ltp1.toString();
-        return "und".equals(ltp1.getLanguage()) ? result : likely.minimize(result);
+        if ("und".equals(ltp1.getLanguage())) return result;
+        String likelyMin = likely.minimize(result);
+        return likelyMin == null ? result : likelyMin;
     }
 
     private enum LanguageTagField {

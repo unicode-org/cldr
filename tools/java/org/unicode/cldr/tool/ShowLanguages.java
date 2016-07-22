@@ -34,9 +34,10 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
+import org.unicode.cldr.util.ArrayComparator;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
-import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CLDRURLS;
@@ -87,8 +88,8 @@ public class ShowLanguages {
 
     static StandardCodes sc = StandardCodes.make();
 
-    static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-    static CLDRFile english = cldrFactory.make("en", true);
+    static Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();//.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+    static CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
     public static void main(String[] args) throws IOException {
         System.out.println("Writing into " + FormattedFileWriter.CHART_TARGET_DIR);

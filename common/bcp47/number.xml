@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldmlBCP47 SYSTEM "../../common/dtd/ldmlBCP47.dtd">
 <!--
-Copyright © 1991-2014 Unicode, Inc.
+Copyright © 1991-2016 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -10,6 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <version number="$Revision$"/>
     <keyword>
         <key name="nu" description="Numbering system type key" alias="numbers">
+            <type name="adlm" description="Adlam digits" since="30"/>
             <type name="ahom" description="Ahom digits" since="28"/>
             <type name="arab" description="Arabic-Indic digits"/>
             <type name="arabext" description="Extended Arabic-Indic digits"/>
@@ -17,6 +18,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="armnlow" description="Armenian lower case numerals — algorithmic"/>
             <type name="bali" description="Balinese digits" since="21"/>
             <type name="beng" description="Bengali digits"/>
+            <type name="bhks" description="Bhaiksuki digits" since="30"/>
             <type name="brah" description="Brahmi digits" since="21"/>
             <type name="cakm" description="Chakma digits" since="21"/>
             <type name="cham" description="Cham digits" since="21"/>
@@ -64,6 +66,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="mymrshan" description="Myanmar Shan digits" since="21"/>
             <type name="mymrtlng" description="Myanmar Tai Laing digits" since="28"/>
             <type name="native" description="Native digits" since="21"/>
+            <type name="newa" description="Newa digits" since="30"/>
             <type name="nkoo" description="N'Ko digits" since="21"/>
             <type name="olck" description="Ol Chiki digits" since="21"/>
             <type name="orya" description="Oriya digits"/>

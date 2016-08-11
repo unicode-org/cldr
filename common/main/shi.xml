@@ -495,6 +495,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Day">{0} ({2}: {1})</appendItem>
+						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
+						<appendItem request="Era">{1} {0}</appendItem>
+						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
+						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
+						<appendItem request="Month">{0} ({2}: {1})</appendItem>
+						<appendItem request="Quarter">{0} ({2}: {1})</appendItem>
+						<appendItem request="Second">{0} ({2}: {1})</appendItem>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+						<appendItem request="Week">{0} ({2}: {1})</appendItem>
+						<appendItem request="Year">{1} {0}</appendItem>
+					</appendItems>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>

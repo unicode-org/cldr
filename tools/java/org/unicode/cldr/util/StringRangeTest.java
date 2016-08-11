@@ -141,12 +141,11 @@ public class StringRangeTest extends TestFmwk {
         };
 
         Validity validity = Validity.getInstance();
-        Map<LstrType, Map<Status, Set<String>>> data = validity.getData();
         NumberFormat pf = NumberFormat.getPercentInstance();
 
-        for (Entry<LstrType, Map<Status, Set<String>>> entry : data.entrySet()) {
-            LstrType type = entry.getKey();
-            for (Entry<Status, Set<String>> entry2 : entry.getValue().entrySet()) {
+        for (LstrType type : LstrType.values()) { 
+            final Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(type);
+            for (Entry<Status, Set<String>> entry2 : statusToCodes.entrySet()) {
                 Set<String> values = entry2.getValue();
                 String raw = Joiner.on(" ").join(values);
                 double rawsize = raw.length();

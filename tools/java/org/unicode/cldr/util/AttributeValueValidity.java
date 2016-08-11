@@ -101,14 +101,17 @@ public class AttributeValueValidity {
         addCollectionVariable("$_bcp47_value", bcp47Values);
 
         Validity validity = Validity.getInstance();
-        for (Entry<LstrType, Map<Validity.Status, Set<String>>> item1 : validity.getData().entrySet()) {
-            LstrType key = item1.getKey();
+        for (LstrType key : LstrType.values()) { 
+            final Map<Validity.Status, Set<String>> statusToCodes = validity.getStatusToCodes(key);
+            if (statusToCodes == null) {
+                continue;
+            }
             String keyName = "$_" + key;
             Set<String> all = new LinkedHashSet<>();
             Set<String> prefix = new LinkedHashSet<>();
             Set<String> suffix = new LinkedHashSet<>();
             Set<String> regularAndUnknown = new LinkedHashSet<>();
-            for (Entry<Validity.Status, Set<String>> item2 : item1.getValue().entrySet()) {
+            for (Entry<Validity.Status, Set<String>> item2 : statusToCodes.entrySet()) {
                 Validity.Status status = item2.getKey();
                 Set<String> validItems = item2.getValue();
                 if (key == LstrType.variant) { // uppercased in CLDR

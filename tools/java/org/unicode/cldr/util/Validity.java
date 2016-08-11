@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -28,7 +29,8 @@ public class Validity {
 
     private static final ConcurrentHashMap<String, Validity> cache = new ConcurrentHashMap<>();
 
-    private final Map<LstrType, Map<Validity.Status, Set<String>>> mappedData;
+    private final Map<LstrType, Map<Status, Set<String>>> typeToStatusToCodes;
+    private final Map<LstrType, Map<String, Status>> typeToCodeToStatus;
 
     public static Validity getInstance() {
         return getInstance(CLDRPaths.COMMON_DIRECTORY);
@@ -48,7 +50,8 @@ public class Validity {
 
     private Validity(String commonDirectory) {
         Splitter space = Splitter.on(PatternCache.get("\\s+")).trimResults().omitEmptyStrings();
-        Map<LstrType, Map<Validity.Status, Set<String>>> data = new EnumMap<>(LstrType.class);
+        Map<LstrType, Map<Status, Set<String>>> data = new EnumMap<>(LstrType.class);
+        Map<LstrType, Map<String, Status>> codeToStatus = new EnumMap<>(LstrType.class);
         final String basePath = commonDirectory + "validity/";
         for (String file : new File(basePath).list()) {
             if (!file.endsWith(".xml")) {
@@ -61,9 +64,13 @@ public class Validity {
                 continue;
             }
             List<Pair<String, String>> lineData = new ArrayList<>();
-            Map<Validity.Status, Set<String>> submap = data.get(type);
+            Map<Status, Set<String>> submap = data.get(type);            
             if (submap == null) {
-                data.put(type, submap = new EnumMap<>(Validity.Status.class));
+                data.put(type, submap = new EnumMap<>(Status.class));
+            }
+            Map<String, Status> subCodeToStatus = codeToStatus.get(type);
+            if (subCodeToStatus == null) {
+                codeToStatus.put(type, subCodeToStatus = new TreeMap<>());
             }
 
             XMLFileReader.loadPathValues(basePath + file, lineData, true);
@@ -76,7 +83,7 @@ public class Validity {
                 if (typeAttr != type) {
                     throw new IllegalArgumentException("Corrupt value for " + type);
                 }
-                Validity.Status subtypeAttr = Validity.Status.valueOf(parts.getAttributeValue(-1, "idStatus"));
+                Status subtypeAttr = Status.valueOf(parts.getAttributeValue(-1, "idStatus"));
                 Set<String> set = submap.get(subtypeAttr);
                 if (set == null) {
                     submap.put(subtypeAttr, set = new LinkedHashSet<>());
@@ -92,12 +99,26 @@ public class Validity {
                         StringRange.expand(value.substring(0, dashPos), value.substring(dashPos + 1), set);
                     }
                 }
+                for (String code : set) {
+                    subCodeToStatus.put(code, subtypeAttr);
+                }
             }
         }
-        mappedData = CldrUtility.protectCollectionX(data);
+        typeToStatusToCodes = CldrUtility.protectCollectionX(data);
+        typeToCodeToStatus = CldrUtility.protectCollectionX(codeToStatus);
     }
 
-    public Map<LstrType, Map<Validity.Status, Set<String>>> getData() {
-        return mappedData;
+    /**
+     * 
+     * @deprecated Use {@link #getStatusToCodes(LstrType)}
+     */
+    public Map<LstrType, Map<Status, Set<String>>> getData() {
+        return typeToStatusToCodes;
+    }
+    public Map<Status, Set<String>> getStatusToCodes(LstrType type) {
+        return typeToStatusToCodes.get(type);
+    }
+    public Map<String, Status> getCodeToStatus(LstrType type) {
+        return typeToCodeToStatus.get(type);
     }
 }

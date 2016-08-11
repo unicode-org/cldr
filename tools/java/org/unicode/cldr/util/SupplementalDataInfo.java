@@ -1135,7 +1135,7 @@ public class SupplementalDataInfo {
         parentLocales = Collections.unmodifiableMap(parentLocales);
 
         ImmutableSet.Builder<String> newScripts = ImmutableSet.<String>builder();
-        Map<Validity.Status, Set<String>> scripts = Validity.getInstance().getData().get(LstrType.script);
+        Map<Validity.Status, Set<String>> scripts = Validity.getInstance().getStatusToCodes(LstrType.script);
         for (Entry<Status, Set<String>> e : scripts.entrySet()) {
             switch(e.getKey()) {
             case regular:

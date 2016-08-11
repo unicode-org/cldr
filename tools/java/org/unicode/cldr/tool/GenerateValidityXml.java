@@ -192,7 +192,7 @@ public class GenerateValidityXml {
         
         // find out which items were valid, but are no longer in the containment map
         // add them as deprecated
-        Map<Status, Set<String>> subdivisionData = VALIDITY.getData().get(LstrType.subdivision);
+        Map<Status, Set<String>> subdivisionData = VALIDITY.getStatusToCodes(LstrType.subdivision);
         TreeSet<String> missing = new TreeSet<>();
         for (Entry<Status, Set<String>> entry : subdivisionData.entrySet()) {
             for (String missingItem : entry.getValue()) {

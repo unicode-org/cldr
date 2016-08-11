@@ -45,15 +45,15 @@ public class TestValidity extends TestFmwkPlus {
             { LstrType.region, Validity.Status.macroregion, true, "001" },
             { LstrType.region, Validity.Status.private_use, true, "AA" },
             { LstrType.region, Validity.Status.unknown, true, "ZZ" },
-            
-            { LstrType.subdivision, Validity.Status.unknown, true, "KZ-ZZZZ" },
-            { LstrType.subdivision, Validity.Status.regular, true, "US-CA" },
-            { LstrType.subdivision, Validity.Status.deprecated, true, "AL-BR" },
-            
+
+            { LstrType.subdivision, Validity.Status.unknown, true, "kzzzzz" },
+            { LstrType.subdivision, Validity.Status.regular, true, "usca" },
+            { LstrType.subdivision, Validity.Status.deprecated, true, "albr" },
+
             { LstrType.currency, Validity.Status.regular, true, "USD" },
             { LstrType.currency, Validity.Status.unknown, true, "XXX" },
             { LstrType.currency, Validity.Status.deprecated, true, "ADP" },
-            
+
             { LstrType.unit, Validity.Status.regular, true, "area-acre"},
         };
         for (Object[] test : tests) {
@@ -64,15 +64,17 @@ public class TestValidity extends TestFmwkPlus {
                 String code = (String) test[i];
                 List<Status> subtypes = subtypeRaw == null ? Arrays.asList(Status.values()) : Collections.singletonList(subtypeRaw);
                 for (Status subtype : subtypes) {
-                    Set<String> actual = validity.getData().get(lstr).get(subtype);
+                    Set<String> actual = validity.getStatusToCodes(lstr).get(subtype);
                     assertRelation("Validity", desired, CldrUtility.ifNull(actual,Collections.EMPTY_SET), TestFmwkPlus.CONTAINS, code);
                 }
             }
         }
         if (isVerbose()) {
-            for (Entry<LstrType, Map<Validity.Status, Set<String>>> entry : validity.getData().entrySet()) {
-                logln(entry.getKey().toString());
-                for (Entry<Validity.Status, Set<String>> entry2 : entry.getValue().entrySet()) {
+            
+            for (LstrType lstrType : LstrType.values()) { 
+                logln(lstrType.toString());
+                final Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(lstrType);
+                for (Entry<Validity.Status, Set<String>> entry2 : statusToCodes.entrySet()) {
                     logln("\t" + entry2.getKey());
                     logln("\t\t" + entry2.getValue());
                 }
@@ -91,9 +93,13 @@ public class TestValidity extends TestFmwkPlus {
 
         final String oldCommon = CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + ToolConstants.PREVIOUS_CHART_VERSION + "/common/";
         Validity oldValidity = Validity.getInstance(oldCommon);
-        for (Entry<LstrType, Map<Status, Set<String>>> e1 : oldValidity.getData().entrySet()) {
-            LstrType type = e1.getKey();
-            for (Entry<Status, Set<String>> e2 : e1.getValue().entrySet()) {
+        for (LstrType type : LstrType.values()) { 
+            final Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(type);
+            if (statusToCodes == null) {
+                logln("validity data unavailable: " + type);
+                continue;
+            }
+            for (Entry<Status, Set<String>> e2 : statusToCodes.entrySet()) {
                 Status oldStatus = e2.getKey();
                 for (String code : e2.getValue()) {
                     Status newStatus = getNewStatus(type, code);
@@ -115,12 +121,35 @@ public class TestValidity extends TestFmwkPlus {
     }
 
     private Status getNewStatus(LstrType type, String code) {
-        Map<Status, Set<String>> info = validity.getData().get(type);
+        Map<Status, Set<String>> info = validity.getStatusToCodes(type);
         for (Entry<Status, Set<String>> e : info.entrySet()) {
             if (e.getValue().contains(code)) {
                 return e.getKey();
             }
         }
         return null;
+    }
+
+    public void TestBothDirections() {
+        for (LstrType type : LstrType.values()) {
+            Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(type);
+            Map<String, Status> codeToStatus = validity.getCodeToStatus(type);
+            assertEquals("null at same time", statusToCodes == null, codeToStatus == null);
+            if (statusToCodes == null) {
+                logln("validity data unavailable: " + type);
+                continue;
+            }
+            for (Entry<Status, Set<String>> entry : statusToCodes.entrySet()) {
+                Status status = entry.getKey();
+                for (String code : entry.getValue()) {
+                    assertEquals("Forward works", status, codeToStatus.get(code));
+                }
+            }
+            for (Entry<String, Status> entry : codeToStatus.entrySet()) {
+                final String code = entry.getKey();
+                final Status status = entry.getValue();
+                assertTrue("Reverse works: " + status, statusToCodes.get(status).contains(code));
+            }
+        }
     }
 }

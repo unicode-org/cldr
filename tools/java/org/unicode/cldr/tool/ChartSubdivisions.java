@@ -11,8 +11,8 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
@@ -64,7 +64,7 @@ public class ChartSubdivisions extends Chart {
 
         Map<String, R2<List<String>, String>> aliases = SDI.getLocaleAliasInfo().get("subdivision");
 
-        Set<String> remainder = new HashSet<>(Validity.getInstance().getData().get(LstrType.region).get(Status.regular));
+        Set<String> remainder = new HashSet<>(Validity.getInstance().getStatusToCodes(LstrType.region).get(Status.regular));
         Relation<String, String> inverseAliases = Relation.of(new HashMap(), TreeSet.class);
         for (Entry<String, R2<List<String>, String>> entry : aliases.entrySet()) {
             List<String> value = entry.getValue().get0();

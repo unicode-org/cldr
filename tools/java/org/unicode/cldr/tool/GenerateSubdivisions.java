@@ -22,7 +22,6 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
-import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
@@ -31,6 +30,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XMLFileReader;
@@ -324,7 +324,7 @@ public class GenerateSubdivisions {
         }
 
         public static void printEnglish(Appendable output) throws IOException {
-            Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getData().get(LstrType.subdivision);
+            Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getStatusToCodes(LstrType.subdivision);
             Relation<String,String> regionToOld = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class, ROOT_COL);
             for (Entry<Status, Set<String>> e : oldSubdivisionData.entrySet()) {
                 final Status status = e.getKey();
@@ -608,7 +608,7 @@ public class GenerateSubdivisions {
             addAliases(output, TO_COUNTRY_CODE.keySet());
 
             // Get the old validity data
-            Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getData().get(LstrType.subdivision);
+            Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getStatusToCodes(LstrType.subdivision);
             Set<String> missing = new TreeSet<>(ROOT_COL);
             missing.addAll(TO_COUNTRY_CODE.keySet());
             Set<String> nowValid = ID_TO_NODE.keySet();

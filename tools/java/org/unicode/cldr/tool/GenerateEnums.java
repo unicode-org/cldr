@@ -346,8 +346,7 @@ public class GenerateEnums {
         }
         codes.close();
 //        String values = supplementalDataInfo.getValidityInfo().get("$territory").get1().trim();
-        Map<LstrType, Map<Status, Set<String>>> v = Validity.getInstance().getData();
-        Map<Status, Set<String>> validRegions = v.get(LstrType.region);
+        Map<Status, Set<String>> validRegions = Validity.getInstance().getStatusToCodes(LstrType.region);
         Set<String> regions = new TreeSet<String>();
         regions.addAll(validRegions.get(Status.regular));
         regions.addAll(validRegions.get(Status.macroregion));

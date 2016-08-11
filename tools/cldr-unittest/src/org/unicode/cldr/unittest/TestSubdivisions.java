@@ -55,7 +55,7 @@ public class TestSubdivisions extends TestFmwkPlus {
     public void TestEnglishNames() {
         final Map<String, R2<List<String>, String>> subdivisionAliases = SDI.getLocaleAliasInfo().get("subdivision");
         final Validity VALIDITY = Validity.getInstance();
-        Set<String> deprecated = VALIDITY.getData().get(LstrType.subdivision).get(Status.deprecated);
+        Set<String> deprecated = VALIDITY.getStatusToCodes(LstrType.subdivision).get(Status.deprecated);
 
         // <subdivision type="AL-DI">Dibër</subdivision>   <!-- in AL-09 : Dibër -->
 

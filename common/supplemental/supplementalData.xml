@@ -17,6 +17,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <info iso4217="BHD" digits="3" rounding="0"/>
             <info iso4217="BIF" digits="0" rounding="0"/>
             <info iso4217="BYR" digits="0" rounding="0"/>
+            <info iso4217="BYN" digits="2" rounding="0"/>
             <info iso4217="CAD" digits="2" rounding="0" cashRounding="5"/>
             <info iso4217="CHF" digits="2" rounding="0" cashRounding="5"/>
             <info iso4217="CLF" digits="4" rounding="0"/>
@@ -276,7 +277,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="ZAR" from="1961-02-14" to="1976-08-23"/>
         </region>
         <region iso3166="BY">
-            <currency iso4217="BYR" from="2000-01-01"/>
+            <currency iso4217="BYN" from="2016-07-01"/>
+            <currency iso4217="BYR" from="2000-01-01" to="2017-01-01"/>
             <currency iso4217="BYB" from="1994-08-01" to="2000-12-31"/><!-- This was a valid currency according to eu.int -->
             <currency iso4217="RUR" from="1991-12-25" to="1994-11-08"/>
             <currency iso4217="SUR" from="1961-01-01" to="1991-12-25"/>

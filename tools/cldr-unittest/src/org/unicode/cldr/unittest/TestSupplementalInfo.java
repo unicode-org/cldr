@@ -347,7 +347,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         ImmutableSet<String> allCompos = ImmutableSet.of("Hanb", "Hrkt", "Jamo", "Jpan", "Kore");
         assertRelation("getCLDRScriptCodes contains allCompos", true, codes, CONTAINS_ALL, allCompos);
 
-        Map<Status, Set<String>> scripts = Validity.getInstance().getData().get(LstrType.script);
+        Map<Status, Set<String>> scripts = Validity.getInstance().getStatusToCodes(LstrType.script);
         for (Entry<Status, Set<String>> e : scripts.entrySet()) {
             switch(e.getKey()) {
             case regular:

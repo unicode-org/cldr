@@ -1,3 +1,5 @@
+// © 2016 and later: Unicode, Inc. and others.
+// License & terms of use: http://www.unicode.org/copyright.html#License
 /*
  *******************************************************************************
  * Copyright (C) 1996-2016, International Business Machines Corporation and
@@ -843,6 +845,9 @@ public class DecimalFormat extends NumberFormat {
             }
 
             result.append(symbols.getNaN());
+            // TODO: Combine setting a single FieldPosition or adding to an AttributedCharacterIterator
+            // into a function like recordAttribute(FieldAttribute, begin, end).
+
             // [Spark/CDL] Add attribute for NaN here.
             // result.append(symbols.getNaN());
             if (parseAttr) {
@@ -1124,7 +1129,7 @@ public class DecimalFormat extends NumberFormat {
             digitList.set(number, precision(true));
             // Issue 11808
             if (digitList.wasRounded() && roundingMode == BigDecimal.ROUND_UNNECESSARY) {
-                throw new ArithmeticException("Rounding necessary");
+                throw new ArithmeticException("Rounding necessary");              
             }
             return subformat(number, result, fieldPosition, isNegative, true, parseAttr);
         }
@@ -1429,10 +1434,9 @@ public class DecimalFormat extends NumberFormat {
         // [Spark/CDL] Record the integer start index.
         int intBegin = result.length();
         // Record field information for caller.
-        if (fieldPosition.getField() == NumberFormat.INTEGER_FIELD) {
-            fieldPosition.setBeginIndex(result.length());
-        } else if (fieldPosition.getFieldAttribute() == NumberFormat.Field.INTEGER) {
-            fieldPosition.setBeginIndex(result.length());
+        if (fieldPosition.getField() == NumberFormat.INTEGER_FIELD ||
+                fieldPosition.getFieldAttribute() == NumberFormat.Field.INTEGER) {
+            fieldPosition.setBeginIndex(intBegin);
         }
         long fractionalDigits = 0;
         int fractionalDigitsCount = 0;
@@ -1484,17 +1488,22 @@ public class DecimalFormat extends NumberFormat {
             if (isGroupingPosition(i)) {
                 result.append(grouping);
                 // [Spark/CDL] Add grouping separator attribute here.
+                // Set only for the first instance.
+                // Length of grouping separator is 1.
+                if (fieldPosition.getFieldAttribute() == Field.GROUPING_SEPARATOR &&
+                        fieldPosition.getBeginIndex() == 0 && fieldPosition.getEndIndex() == 0) {
+                    fieldPosition.setBeginIndex(result.length()-1);
+                    fieldPosition.setEndIndex(result.length());
+                }
                 if (parseAttr) {
-                    // Length of grouping separator is 1.
                     addAttribute(Field.GROUPING_SEPARATOR, result.length() - 1, result.length());
                 }
             }
         }
 
         // Record field information for caller.
-        if (fieldPosition.getField() == NumberFormat.INTEGER_FIELD) {
-            fieldPosition.setEndIndex(result.length());
-        } else if (fieldPosition.getFieldAttribute() == NumberFormat.Field.INTEGER) {
+        if (fieldPosition.getField() == NumberFormat.INTEGER_FIELD ||
+                fieldPosition.getFieldAttribute() == NumberFormat.Field.INTEGER) {
             fieldPosition.setEndIndex(result.length());
         }
 
@@ -1640,7 +1649,6 @@ public class DecimalFormat extends NumberFormat {
             fieldPosition.setBeginIndex(-1);
         }
 
-
         // [Spark/CDL]
         // the begin index of integer part
         // the end index of integer part
@@ -1716,14 +1724,20 @@ public class DecimalFormat extends NumberFormat {
                     intEnd = result.length();
                     addAttribute(Field.INTEGER, intBegin, result.length());
                 }
+                if (fieldPosition.getFieldAttribute() == Field.DECIMAL_SEPARATOR) {
+                    fieldPosition.setBeginIndex(result.length());
+                }
                 result.append(decimal);
+                if (fieldPosition.getFieldAttribute() == Field.DECIMAL_SEPARATOR) {
+                    fieldPosition.setEndIndex(result.length());
+                }
                 // [Spark/CDL] Add attribute for decimal separator
+                fracBegin = result.length();
                 if (parseAttr) {
                     // Length of decimal separator is 1.
                     int decimalSeparatorBegin = result.length() - 1;
                     addAttribute(Field.DECIMAL_SEPARATOR, decimalSeparatorBegin,
                                  result.length());
-                    fracBegin = result.length();
                 }
                 // Record field information for caller.
                 if (fieldPosition.getField() == NumberFormat.FRACTION_FIELD) {
@@ -1748,6 +1762,22 @@ public class DecimalFormat extends NumberFormat {
             result.append(digits[0]);
         }
 
+        // add the decimal separator if it is to be always shown AND there are no decimal digits
+        if ((fracBegin == -1) && this.decimalSeparatorAlwaysShown) {
+            if (fieldPosition.getFieldAttribute() == Field.DECIMAL_SEPARATOR) {
+                fieldPosition.setBeginIndex(result.length());
+            }
+            result.append(decimal);
+            if (fieldPosition.getFieldAttribute() == Field.DECIMAL_SEPARATOR) {
+                fieldPosition.setEndIndex(result.length());
+            }
+            if (parseAttr) {
+                // Length of decimal separator is 1.
+                int decimalSeparatorBegin = result.length() - 1;
+                addAttribute(Field.DECIMAL_SEPARATOR, decimalSeparatorBegin, result.length());
+            }
+        }
+        
         // Record field information
         if (fieldPosition.getField() == NumberFormat.INTEGER_FIELD) {
             if (fieldPosition.getEndIndex() < 0) {
@@ -1772,7 +1802,7 @@ public class DecimalFormat extends NumberFormat {
             ((UFieldPosition) fieldPosition).setFractionDigits(fractionalDigitsCount, fractionalDigits);
         }
 
-        // [Spark/CDL] Calcuate the end index of integer part and fractional
+        // [Spark/CDL] Calculate the end index of integer part and fractional
         // part if they are not properly processed yet.
         if (parseAttr) {
             if (intEnd < 0) {
@@ -1786,7 +1816,14 @@ public class DecimalFormat extends NumberFormat {
         // The exponent is output using the pattern-specified minimum exponent
         // digits. There is no maximum limit to the exponent digits, since truncating
         // the exponent would result in an unacceptable inaccuracy.
+        if (fieldPosition.getFieldAttribute() == Field.EXPONENT_SYMBOL) {
+            fieldPosition.setBeginIndex(result.length());
+        }
+
         result.append(symbols.getExponentSeparator());
+        if (fieldPosition.getFieldAttribute() == Field.EXPONENT_SYMBOL) {
+            fieldPosition.setEndIndex(result.length());
+        }
         // [Spark/CDL] For exponent symbol, add an attribute.
         if (parseAttr) {
             addAttribute(Field.EXPONENT_SYMBOL, result.length() -
@@ -1801,7 +1838,13 @@ public class DecimalFormat extends NumberFormat {
         boolean negativeExponent = exponent < 0;
         if (negativeExponent) {
             exponent = -exponent;
+            if (fieldPosition.getFieldAttribute() == Field.EXPONENT_SIGN) {
+                fieldPosition.setBeginIndex(result.length());
+            }
             result.append(symbols.getMinusString());
+            if (fieldPosition.getFieldAttribute() == Field.EXPONENT_SIGN) {
+                fieldPosition.setEndIndex(result.length());
+            }
             // [Spark/CDL] If exponent has sign, then add an exponent sign
             // attribute.
             if (parseAttr) {
@@ -1809,7 +1852,13 @@ public class DecimalFormat extends NumberFormat {
                 addAttribute(Field.EXPONENT_SIGN, result.length() - 1, result.length());
             }
         } else if (exponentSignAlwaysShown) {
+            if (fieldPosition.getFieldAttribute() == Field.EXPONENT_SIGN) {
+                fieldPosition.setBeginIndex(result.length());
+            }
             result.append(symbols.getPlusString());
+            if (fieldPosition.getFieldAttribute() == Field.EXPONENT_SIGN) {
+                fieldPosition.setEndIndex(result.length());
+            }
             // [Spark/CDL] Add an plus sign attribute.
             if (parseAttr) {
                 // Length of exponent sign is 1.
@@ -1832,6 +1881,10 @@ public class DecimalFormat extends NumberFormat {
                           : digits[0]);
         }
         // [Spark/CDL] Add attribute for exponent part.
+        if (fieldPosition.getFieldAttribute() == Field.EXPONENT) {
+            fieldPosition.setBeginIndex(expBegin);
+            fieldPosition.setEndIndex(result.length());
+        }
         if (parseAttr) {
             addAttribute(Field.EXPONENT, expBegin, result.length());
         }
@@ -4236,7 +4289,32 @@ public class DecimalFormat extends NumberFormat {
             }
         }
 
-        // If kCurrencySymbol or kIntlCurrencySymbol is in the affix, check for currency symbol.
+        // Look for SIGN, PERCENT, PERMILLE in the formatted affix.
+        if (fieldPosition.getFieldAttribute() == NumberFormat.Field.SIGN) {
+            String sign = isNegative ? symbols.getMinusString() : symbols.getPlusString();
+            int firstPos = affix.indexOf(sign);
+            if (firstPos > -1) {
+                int startPos = buf.length() + firstPos;
+                fieldPosition.setBeginIndex(startPos);
+                fieldPosition.setEndIndex(startPos + sign.length());
+            }
+        } else if (fieldPosition.getFieldAttribute() == NumberFormat.Field.PERCENT) {
+            String percentString = symbols.getPercentString();
+            int firstPos = affix.indexOf(percentString);
+            if (firstPos > -1) {
+                int startPos = buf.length() + firstPos;
+                fieldPosition.setBeginIndex(startPos);
+                fieldPosition.setEndIndex(startPos + percentString.length());
+            }
+        } else if (fieldPosition.getFieldAttribute() == NumberFormat.Field.PERMILLE) {
+            int firstPos = affix.indexOf(symbols.getPerMill());
+            if (firstPos > -1) {
+                int startPos = buf.length() + firstPos;
+                fieldPosition.setBeginIndex(startPos);
+                fieldPosition.setEndIndex(startPos + 1);
+            }
+        } else
+        // If CurrencySymbol or InternationalCurrencySymbol is in the affix, check for currency symbol.
         // Get spelled out name if "¤¤¤" is in the pattern.
         if (fieldPosition.getFieldAttribute() == NumberFormat.Field.CURRENCY) {
             if (affix.indexOf(symbols.getCurrencySymbol()) > -1) {

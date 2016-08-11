@@ -1729,7 +1729,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void TestMetazones() {
         Date goalMin = new Date(70, 0, 1);
         Date goalMax = new Date(300, 0, 2);
-        ImmutableSet<String> knownTZWithoutMetazone = ImmutableSet.of("America/Montreal", "Asia/Barnaul");
+        ImmutableSet<String> knownTZWithoutMetazone = ImmutableSet.of("America/Montreal", "Asia/Barnaul", "Asia/Tomsk", "Europe/Kirov");
         for (String timezoneRaw : TimeZone.getAvailableIDs()) {
             String timezone = TimeZone.getCanonicalID(timezoneRaw);
             String region = TimeZone.getRegion(timezone);

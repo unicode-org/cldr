@@ -33,7 +33,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="akk">akkadi</language>
 			<language type="akz">alabama</language>
 			<language type="ale">aleutti</language>
-			<language type="aln">geg</language>
+			<language type="aln">gegi</language>
 			<language type="alt">altai</language>
 			<language type="am">amhara</language>
 			<language type="an">aragonia</language>
@@ -124,6 +124,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cr">cree</language>
 			<language type="crh">krimintataari</language>
 			<language type="crh" alt="secondary">kriminturkki</language>
+			<language type="crs">seychellienkreoli</language>
 			<language type="cs">tšekki</language>
 			<language type="csb">kašubi</language>
 			<language type="cu">kirkkoslaavi</language>
@@ -387,7 +388,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ms">malaiji</language>
 			<language type="mt">malta</language>
 			<language type="mua">mundang</language>
-			<language type="mul">monia kieliä</language>
+			<language type="mul">useita kieliä</language>
 			<language type="mus">creek</language>
 			<language type="mwl">mirandeesi</language>
 			<language type="mwr">marwari</language>
@@ -444,6 +445,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pap">papiamentu</language>
 			<language type="pau">palau</language>
 			<language type="pcd">picardi</language>
+			<language type="pcm">nigerianpidgin</language>
 			<language type="pdc">pennsylvaniansaksa</language>
 			<language type="pdt">plautdietsch</language>
 			<language type="peo">muinaispersia</language>
@@ -589,7 +591,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="uga">ugarit</language>
 			<language type="uk">ukraina</language>
 			<language type="umb">mbundu</language>
-			<language type="und">määrittämätön kieli</language>
+			<language type="und">tuntematon kieli</language>
 			<language type="ur">urdu</language>
 			<language type="uz">uzbekki</language>
 			<language type="vai">vai</language>
@@ -638,6 +640,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zza">zaza</language>
 		</languages>
 		<scripts>
+			<script type="Adlm">fulanin adlam-aakkosto</script>
 			<script type="Afak">afaka</script>
 			<script type="Aghb">kaukasianalbanialainen</script>
 			<script type="Ahom">ahom</script>
@@ -651,6 +654,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Bass">bassa</script>
 			<script type="Batk">batakilainen</script>
 			<script type="Beng">bengalilainen</script>
+			<script type="Bhks">sanskritin bhaiksuki-aakkosto</script>
 			<script type="Blis">bliss-symbolit</script>
 			<script type="Bopo">bopomofo</script>
 			<script type="Brah">brahmi</script>
@@ -686,6 +690,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Grek">kreikkalainen</script>
 			<script type="Gujr">gudžaratilainen</script>
 			<script type="Guru">gurmukhi</script>
+			<script type="Hanb">kiinan han ja bopomofo</script>
 			<script type="Hang">hangul</script>
 			<script type="Hani">kiinalainen han</script>
 			<script type="Hano">hanunoolainen</script>
@@ -702,7 +707,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">muinaisunkarilainen</script>
 			<script type="Inds">induslainen</script>
 			<script type="Ital">muinaisitalialainen</script>
-			<script type="Jamo">jamo</script>
+			<script type="Jamo">korean hangulin jamo-elementit</script>
 			<script type="Java">jaavalainen</script>
 			<script type="Jpan">japanilainen</script>
 			<script type="Jurc">džurtšen</script>
@@ -731,6 +736,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Mahj">mahajanilainen</script>
 			<script type="Mand">mandealainen</script>
 			<script type="Mani">manikealainen</script>
+			<script type="Marc">tiibetiläinen marchan-kirjoitus</script>
 			<script type="Maya">maya-hieroglyfit</script>
 			<script type="Mend">mende</script>
 			<script type="Merc">meroiittinen kursiivikirjoitus</script>
@@ -746,6 +752,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Mymr">burmalainen</script>
 			<script type="Narb">muinaispohjoisarabialainen</script>
 			<script type="Nbat">nabatealainen</script>
+			<script type="Newa">newarin newa-tavukirjoitus</script>
 			<script type="Nkgb">naxi geba</script>
 			<script type="Nkoo">n’ko</script>
 			<script type="Nshu">nüshu</script>
@@ -753,6 +760,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Olck">ol chiki</script>
 			<script type="Orkh">orkhon</script>
 			<script type="Orya">orijalainen</script>
+			<script type="Osge">osagen aakkosto</script>
 			<script type="Osma">osmanjalainen</script>
 			<script type="Palm">palmyralainen</script>
 			<script type="Pauc">zotuallai</script>
@@ -810,6 +818,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Yiii">yiläinen</script>
 			<script type="Zinh">peritty</script>
 			<script type="Zmth">matemaattinen</script>
+			<script type="Zsye">emoji-symbolit</script>
 			<script type="Zsym">symbolit</script>
 			<script type="Zxxx">kirjoittamaton</script>
 			<script type="Zyyy">määrittämätön</script>
@@ -907,6 +916,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Joulusaari</territory>
 			<territory type="CY">Kypros</territory>
 			<territory type="CZ">Tšekki</territory>
+			<territory type="CZ" alt="variant">Tšekinmaa</territory>
 			<territory type="DE">Saksa</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibouti</territory>
@@ -1068,7 +1078,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SM">San Marino</territory>
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somalia</territory>
-			<territory type="SR">Surinam</territory>
+			<territory type="SR">Suriname</territory>
 			<territory type="SS">Etelä-Sudan</territory>
 			<territory type="ST">São Tomé ja Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
@@ -1124,18 +1134,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="1606NICT">myöhäiskeskiranska</variant>
 			<variant type="1694ACAD">varhaisnykyranska</variant>
 			<variant type="1959ACAD">valkovenäjän virallinen oikeinkirjoitus</variant>
+			<variant type="ABL1943">portugalin oikeinkirjoitus 1943</variant>
 			<variant type="ALALC97">amerikkalainen kirjastolatinaistus 1997</variant>
 			<variant type="ALUKU">alukun kreolimurre</variant>
+			<variant type="AO1990">portugalin oikeinkirjoitussopimus 1990</variant>
 			<variant type="AREVELA">itäarmenialainen</variant>
 			<variant type="AREVMDA">länsiarmenialainen</variant>
 			<variant type="BAKU1926">yhtenäistetty turkkilainen latinalainen aakkosto</variant>
 			<variant type="BALANKA">aniin balankalaismurre</variant>
 			<variant type="BARLA">kapverdenkreolin barlaventolainen murreryhmä</variant>
+			<variant type="BASICENG">Ogdenin perusenglanti</variant>
 			<variant type="BAUDDHA">sanskriitin buddhalainen sekamuoto</variant>
 			<variant type="BISCAYAN">baskin biskajalaismurre</variant>
 			<variant type="BISKE">sloveenin resian San Giorgion/Bilan alamurre</variant>
 			<variant type="BOHORIC">sloveenin Bohorič-aakkosto</variant>
 			<variant type="BOONT">englannin boontling-murre</variant>
+			<variant type="COLB1945">portugalin oikeinkirjoitus 1945</variant>
+			<variant type="CORNU">englannin cornu-murre</variant>
 			<variant type="DAJNKO">sloveenin Dajnko-aakkosto</variant>
 			<variant type="EKAVSK">serbian ekavialainen ääntämys</variant>
 			<variant type="EMODENG">varhaisnykyenglanti</variant>
@@ -1145,13 +1160,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="FONXSAMP">foneettinen X-SAMPA-merkistö</variant>
 			<variant type="HEPBURN">japanin Hepburn-latinaistus</variant>
 			<variant type="HOGNORSK">norjan högnorsk</variant>
-			<variant type="IJEKAVSK">serbian ijekavialainen ääntämiys</variant>
+			<variant type="IJEKAVSK">serbian ijekavialainen ääntämys</variant>
 			<variant type="ITIHASA">sanskriitin eeppinen muoto</variant>
 			<variant type="JAUER">retoromaanin jauer-murre</variant>
 			<variant type="JYUTPING">kantoninkiinan jyutping-latinaistus</variant>
 			<variant type="KKCOR">kornin yleiskirjoitus</variant>
 			<variant type="KOCIEWIE">puolan kociewielainen murre</variant>
-			<variant type="KSCOR">kornin standardikirjoitus</variant>
+			<variant type="KSCOR">kornin Kernowek-ortografia</variant>
 			<variant type="LAUKIKA">klassinen sanskriitti</variant>
 			<variant type="LIPAW">sloveenin resian Lipovazin/Lipovecin alamurre</variant>
 			<variant type="LUNA1918">venäjän ortografia 1918</variant>
@@ -1159,9 +1174,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="MONOTON">monotoninen kreikka</variant>
 			<variant type="NDYUKA">ndyukan kreolimurre</variant>
 			<variant type="NEDIS">sloveenin natisonen murre</variant>
+			<variant type="NEWFOUND">englannin newfoundlandilaismurre</variant>
 			<variant type="NJIVA">sloveenin resian Gnivan/Njivan alamurre</variant>
 			<variant type="NULIK">nykyvolapük</variant>
 			<variant type="OSOJS">sloveenin resian Oseaccon/Osojanen alamurre</variant>
+			<variant type="OXENDICT">englannin Oxfordin sanakirjan oikeinkirjoitus</variant>
 			<variant type="PAMAKA">pamakan kreolimurre</variant>
 			<variant type="PETR1708">venäjän Pietarin siviiliaakkosto 1708</variant>
 			<variant type="PINYIN">kiinan pinyin-latinaistus</variant>
@@ -1175,6 +1192,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="SAAHO">afarin saho-murre</variant>
 			<variant type="SCOTLAND">skotlanninenglanti</variant>
 			<variant type="SCOUSE">englannin scouse-murre</variant>
+			<variant type="SIMPLE">yksinkertaistettu kielimuoto</variant>
 			<variant type="SOLBA">sloveenin resian Stolvizzan/Solbican alamurre</variant>
 			<variant type="SOTAV">kapverdenkreolin sotaventolainen murreryhmä</variant>
 			<variant type="SURMIRAN">retoromaanin surmiran-muoto</variant>
@@ -1192,6 +1210,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</variants>
 		<keys>
 			<key type="calendar">kalenteri</key>
+			<key type="cf">valuuttojen esitysmuoto</key>
 			<key type="colAlternate">symbolien lajittelu</key>
 			<key type="colBackwards">painomerkkien lajittelu</key>
 			<key type="colCaseFirst">isojen ja pienten kirjainten järjestys</key>
@@ -1228,6 +1247,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="japanese">japanilainen kalenteri</type>
 			<type key="calendar" type="persian">persialainen kalenteri</type>
 			<type key="calendar" type="roc">Kiinan tasavallan kalenteri</type>
+			<type key="cf" type="account">valuuttojen laskentatoimen esitysmuoto</type>
+			<type key="cf" type="standard">valuuttojen vakioesitysmuoto</type>
 			<type key="colAlternate" type="non-ignorable">symbolit huomioiva lajittelu</type>
 			<type key="colAlternate" type="shifted">symbolit ohittava lajittelu</type>
 			<type key="colBackwards" type="no">painomerkkien normaali lajittelu</type>
@@ -1279,6 +1300,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ms" type="metric">metrijärjestelmä</type>
 			<type key="ms" type="uksystem">brittiläinen mittajärjestelmä</type>
 			<type key="ms" type="ussystem">yhdysvaltalainen mittajärjestelmä</type>
+			<type key="numbers" type="ahom">ahom-numerot</type>
 			<type key="numbers" type="arab">arabialaiset numerot</type>
 			<type key="numbers" type="arabext">laajennetut arabialaiset numerot</type>
 			<type key="numbers" type="armn">armenialaiset numerot</type>
@@ -1288,6 +1310,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="brah">brahmilaiset numerot</type>
 			<type key="numbers" type="cakm">chakmalaiset numerot</type>
 			<type key="numbers" type="cham">cham-numerot</type>
+			<type key="numbers" type="cyrl">kyrilliset numerot</type>
 			<type key="numbers" type="deva">devanagarinumerot</type>
 			<type key="numbers" type="ethi">etiopialaiset numerot</type>
 			<type key="numbers" type="finance">talousnumerot</type>
@@ -1303,6 +1326,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="hant">perinteiset kiinalaiset numerot</type>
 			<type key="numbers" type="hantfin">perinteiset kiinalaiset talousnumerot</type>
 			<type key="numbers" type="hebr">heprealaiset numerot</type>
+			<type key="numbers" type="hmng">pahawh hmong -numerot</type>
 			<type key="numbers" type="java">jaavalaiset numerot</type>
 			<type key="numbers" type="jpan">japanilaiset numerot</type>
 			<type key="numbers" type="jpanfin">japanilaiset talousnumerot</type>
@@ -1315,11 +1339,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="latn">länsimaiset numerot</type>
 			<type key="numbers" type="lepc">lepchanumerot</type>
 			<type key="numbers" type="limb">limbunumerot</type>
+			<type key="numbers" type="mathbold">matemaattiset lihavoidut numerot</type>
+			<type key="numbers" type="mathdbl">matemaattiset kaksoislyöntinumerot</type>
+			<type key="numbers" type="mathmono">matemaattiset tasalevyiset numerot</type>
+			<type key="numbers" type="mathsanb">matemaattiset pääteviivattomat lihavoidut numerot</type>
+			<type key="numbers" type="mathsans">matemaattiset pääteviivattomat numerot</type>
 			<type key="numbers" type="mlym">malajalamilaiset numerot</type>
+			<type key="numbers" type="modi">modi-numerot</type>
 			<type key="numbers" type="mong">mongolialaiset numerot</type>
+			<type key="numbers" type="mroo">mro-numerot</type>
 			<type key="numbers" type="mtei">meetei mayek -numerot</type>
 			<type key="numbers" type="mymr">burmalaiset numerot</type>
 			<type key="numbers" type="mymrshan">myanmarin shan-numerot</type>
+			<type key="numbers" type="mymrtlng">myanmarin tai laing -numerot</type>
 			<type key="numbers" type="native">kielen omat numerot</type>
 			<type key="numbers" type="nkoo">n’ko-numerot</type>
 			<type key="numbers" type="olck">ol chiki -numerot</type>
@@ -1328,7 +1360,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="roman">roomalaiset numerot</type>
 			<type key="numbers" type="romanlow">roomalaiset piennumerot</type>
 			<type key="numbers" type="saur">saurashtra-numerot</type>
-			<type key="numbers" type="shrd">šarida-numerot</type>
+			<type key="numbers" type="shrd">šarada-numerot</type>
+			<type key="numbers" type="sind">khutabadi-numerot</type>
+			<type key="numbers" type="sinh">sinhalan lith-numerot</type>
 			<type key="numbers" type="sora">sora sompeng -numerot</type>
 			<type key="numbers" type="sund">sundalaiset numerot</type>
 			<type key="numbers" type="takr">takri-numerot</type>
@@ -1338,8 +1372,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="telu">telugulaiset numerot</type>
 			<type key="numbers" type="thai">thainumerot</type>
 			<type key="numbers" type="tibt">tiibetiläiset numerot</type>
+			<type key="numbers" type="tirh">tirhuta-numerot</type>
 			<type key="numbers" type="traditional">perinteiset numerot</type>
 			<type key="numbers" type="vaii">vai-numerot</type>
+			<type key="numbers" type="wara">varang kshiti -numerot</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrinen</measurementSystemName>
@@ -1370,7 +1406,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="medial">{0}…{1}</ellipsis>
 		<ellipsis type="word-final">{0}…</ellipsis>
 		<ellipsis type="word-initial">…{0}</ellipsis>
-		<ellipsis type="word-medial">{0}… {1}</ellipsis>
+		<ellipsis type="word-medial">{0}…{1}</ellipsis>
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
@@ -1545,7 +1581,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">ccc d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">d. MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
@@ -1665,18 +1701,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">tammikuuta</month>
-							<month type="2">helmikuuta</month>
-							<month type="3">maaliskuuta</month>
-							<month type="4">huhtikuuta</month>
-							<month type="5">toukokuuta</month>
-							<month type="6">kesäkuuta</month>
-							<month type="7">heinäkuuta</month>
-							<month type="8">elokuuta</month>
-							<month type="9">syyskuuta</month>
-							<month type="10">lokakuuta</month>
-							<month type="11">marraskuuta</month>
-							<month type="12">joulukuuta</month>
+							<month type="1">tammik.</month>
+							<month type="2">helmik.</month>
+							<month type="3">maalisk.</month>
+							<month type="4">huhtik.</month>
+							<month type="5">toukok.</month>
+							<month type="6">kesäk.</month>
+							<month type="7">heinäk.</month>
+							<month type="8">elok.</month>
+							<month type="9">syysk.</month>
+							<month type="10">lokak.</month>
+							<month type="11">marrask.</month>
+							<month type="12">jouluk.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">T</month>
@@ -1875,26 +1911,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">keskiyö</dayPeriod>
+							<dayPeriod type="midnight">keskiyöllä</dayPeriod>
 							<dayPeriod type="am">ap.</dayPeriod>
 							<dayPeriod type="noon">keskip.</dayPeriod>
 							<dayPeriod type="pm">ip.</dayPeriod>
-							<dayPeriod type="morning1">aamu</dayPeriod>
+							<dayPeriod type="morning1">aamulla</dayPeriod>
 							<dayPeriod type="morning2">aamup.</dayPeriod>
 							<dayPeriod type="afternoon1">iltap.</dayPeriod>
-							<dayPeriod type="evening1">ilta</dayPeriod>
-							<dayPeriod type="night1">yö</dayPeriod>
+							<dayPeriod type="evening1">illalla</dayPeriod>
+							<dayPeriod type="night1">yöllä</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">ky.</dayPeriod>
 							<dayPeriod type="am">ap.</dayPeriod>
 							<dayPeriod type="noon">kp.</dayPeriod>
 							<dayPeriod type="pm">ip.</dayPeriod>
-							<dayPeriod type="morning1">aamu</dayPeriod>
+							<dayPeriod type="morning1">aamulla</dayPeriod>
 							<dayPeriod type="morning2">ap.</dayPeriod>
 							<dayPeriod type="afternoon1">ip.</dayPeriod>
-							<dayPeriod type="evening1">ilta</dayPeriod>
-							<dayPeriod type="night1">yö</dayPeriod>
+							<dayPeriod type="evening1">illalla</dayPeriod>
+							<dayPeriod type="night1">yöllä</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">keskiyöllä</dayPeriod>
@@ -1958,9 +1994,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="1" alt="variant">jaa.</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0">eK</era>
+						<era type="0">eKr</era>
 						<era type="0" alt="variant">eaa</era>
-						<era type="1">jK</era>
+						<era type="1">jKr</era>
 						<era type="1" alt="variant">jaa</era>
 					</eraNarrow>
 				</eras>
@@ -2038,7 +2074,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">E h.mm.ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E H.mm.ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d. MMM y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
@@ -2058,19 +2094,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">ccc d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">LLLL'n' W. 'viikko'</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">LLLL'n' W. 'viikko'</dateFormatItem>
 						<dateFormatItem id="ms">m.ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">L.y</dateFormatItem>
 						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
 						<dateFormatItem id="yMEd">E d.M.y</dateFormatItem>
 						<dateFormatItem id="yMM">M.y</dateFormatItem>
-						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d. MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d. MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yMMMMccccd">cccc d. MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'vuoden' y 'viikko' w</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'vuoden' y 'viikko' w</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -2387,7 +2427,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} neljännes sitten</relativeTimePattern>
-					<relativeTimePattern count="other">{0} neljännes sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} neljännestä sitten</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
@@ -2459,6 +2499,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} viikko sitten</relativeTimePattern>
 					<relativeTimePattern count="other">{0} viikkoa sitten</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>päivän {0} viikolla</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName>vk</displayName>
@@ -2473,6 +2514,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} vk sitten</relativeTimePattern>
 					<relativeTimePattern count="other">{0} vk sitten</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>päivän {0} viikolla</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>vk</displayName>
@@ -2487,6 +2529,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} vk sitten</relativeTimePattern>
 					<relativeTimePattern count="other">{0} vk sitten</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>päivän {0} viikolla</relativePeriod>
 			</field>
 			<field type="day">
 				<displayName>päivä</displayName>
@@ -2543,112 +2586,281 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">viime sunnuntaina</relative>
 				<relative type="0">tänä sunnuntaina</relative>
 				<relative type="1">ensi sunnuntaina</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} sunnuntain päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} sunnuntain päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} sunnuntai sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} sunnuntaita sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-short">
 				<relative type="-1">viime su</relative>
 				<relative type="0">tänä su</relative>
 				<relative type="1">ensi su</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} su päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} su päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} su sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} su sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1">viime su</relative>
 				<relative type="0">tänä su</relative>
 				<relative type="1">ensi su</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} su päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} su päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} su sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} su sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon">
 				<relative type="-1">viime maanantaina</relative>
 				<relative type="0">tänä maanantaina</relative>
 				<relative type="1">ensi maanantaina</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} maanantain päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} maanantain päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} maanantai sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} maanantaita sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-short">
 				<relative type="-1">viime ma</relative>
 				<relative type="0">tänä ma</relative>
 				<relative type="1">ensi ma</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ma päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ma päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ma sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ma sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1">viime ma</relative>
 				<relative type="0">tänä ma</relative>
 				<relative type="1">ensi ma</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ma päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ma päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ma sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ma sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue">
 				<relative type="-1">viime tiistaina</relative>
 				<relative type="0">tänä tiistaina</relative>
 				<relative type="1">ensi tiistaina</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} tiistain päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} tiistain päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} tiistai sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} tiistaita sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-short">
 				<relative type="-1">viime ti</relative>
 				<relative type="0">tänä ti</relative>
 				<relative type="1">ensi ti</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ti päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ti päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ti sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ti sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-narrow">
 				<relative type="-1">viime ti</relative>
 				<relative type="0">tänä ti</relative>
 				<relative type="1">ensi ti</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ti päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ti päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ti sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ti sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed">
 				<relative type="-1">viime keskiviikkona</relative>
 				<relative type="0">tänä keskiviikkona</relative>
 				<relative type="1">ensi keskiviikkona</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} keskiviikon päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} keskiviikon päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} keskiviikko sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} keskiviikkoa sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-short">
 				<relative type="-1">viime ke</relative>
 				<relative type="0">tänä ke</relative>
 				<relative type="1">ensi ke</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ke päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ke päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ke sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ke sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-narrow">
 				<relative type="-1">viime ke</relative>
 				<relative type="0">tänä ke</relative>
 				<relative type="1">ensi ke</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ke päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ke päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ke sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ke sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu">
 				<relative type="-1">viime torstaina</relative>
 				<relative type="0">tänä torstaina</relative>
 				<relative type="1">ensi torstaina</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} torstain päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} torstain päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} torstai sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} torstaita sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-short">
 				<relative type="-1">viime to</relative>
 				<relative type="0">tänä to</relative>
 				<relative type="1">ensi to</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} to päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} to päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} to sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} to sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-narrow">
 				<relative type="-1">viime to</relative>
 				<relative type="0">tänä to</relative>
 				<relative type="1">ensi to</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} to päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} to päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} to sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} to sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri">
 				<relative type="-1">viime perjantaina</relative>
 				<relative type="0">tänä perjantaina</relative>
 				<relative type="1">ensi perjantaina</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} perjantain päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} perjantain päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} perjantai sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} perjantaita sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-short">
 				<relative type="-1">viime pe</relative>
 				<relative type="0">tänä pe</relative>
 				<relative type="1">ensi pe</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} pe päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pe päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} pe sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pe sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1">viime pe</relative>
 				<relative type="0">tänä pe</relative>
 				<relative type="1">ensi pe</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} pe päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pe päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} pe sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pe sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat">
 				<relative type="-1">viime lauantaina</relative>
 				<relative type="0">tänä lauantaina</relative>
 				<relative type="1">ensi lauantaina</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} lauantain päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} lauantain päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} lauantai sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} lauantaita sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-short">
 				<relative type="-1">viime la</relative>
 				<relative type="0">tänä la</relative>
 				<relative type="1">ensi la</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} la päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} la päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} la sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} la sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-narrow">
 				<relative type="-1">viime la</relative>
 				<relative type="0">tänä la</relative>
 				<relative type="1">ensi la</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} la päästä</relativeTimePattern>
+					<relativeTimePattern count="other">{0} la päästä</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} la sitten</relativeTimePattern>
+					<relativeTimePattern count="other">{0} la sitten</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="dayperiod">
 				<displayName>vuorokaudenaika</displayName>
 			</field>
 			<field type="hour">
 				<displayName>tunti</displayName>
+				<relative type="0">tämän tunnin aikana</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} tunnin päästä</relativeTimePattern>
 					<relativeTimePattern count="other">{0} tunnin päästä</relativeTimePattern>
@@ -2660,6 +2872,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="hour-short">
 				<displayName>t</displayName>
+				<relative type="0">tunnin sisällä</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} t päästä</relativeTimePattern>
 					<relativeTimePattern count="other">{0} t päästä</relativeTimePattern>
@@ -2671,6 +2884,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="hour-narrow">
 				<displayName>t</displayName>
+				<relative type="0">tunnin sisällä</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} t päästä</relativeTimePattern>
 					<relativeTimePattern count="other">{0} t päästä</relativeTimePattern>
@@ -2682,6 +2896,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute">
 				<displayName>minuutti</displayName>
+				<relative type="0">tämän minuutin aikana</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} minuutin päästä</relativeTimePattern>
 					<relativeTimePattern count="other">{0} minuutin päästä</relativeTimePattern>
@@ -2693,6 +2908,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute-short">
 				<displayName>min</displayName>
+				<relative type="0">minuutin sisällä</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} min päästä</relativeTimePattern>
 					<relativeTimePattern count="other">{0} min päästä</relativeTimePattern>
@@ -2704,6 +2920,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute-narrow">
 				<displayName>min</displayName>
+				<relative type="0">minuutin sisällä</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} min päästä</relativeTimePattern>
 					<relativeTimePattern count="other">{0} min päästä</relativeTimePattern>
@@ -3029,6 +3246,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Vancouver">
 				<exemplarCity>Vancouver</exemplarCity>
 			</zone>
+			<zone type="America/Fort_Nelson">
+				<exemplarCity>Fort Nelson</exemplarCity>
+			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>Dawson Creek</exemplarCity>
 			</zone>
@@ -3162,7 +3382,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Praha</exemplarCity>
 			</zone>
 			<zone type="Europe/Busingen">
-				<exemplarCity>Busingen</exemplarCity>
+				<exemplarCity>Büsingen</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>Berliini</exemplarCity>
@@ -3698,6 +3918,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
 			</zone>
+			<zone type="Europe/Astrakhan">
+				<exemplarCity>Astrahan</exemplarCity>
+			</zone>
+			<zone type="Europe/Ulyanovsk">
+				<exemplarCity>Uljanovsk</exemplarCity>
+			</zone>
+			<zone type="Europe/Kirov">
+				<exemplarCity>Kirov</exemplarCity>
+			</zone>
 			<zone type="Europe/Samara">
 				<exemplarCity>Samara</exemplarCity>
 			</zone>
@@ -3709,6 +3938,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>Novosibirsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Barnaul">
+				<exemplarCity>Barnaul</exemplarCity>
+			</zone>
+			<zone type="Asia/Tomsk">
+				<exemplarCity>Tomsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Novokuznetsk">
 				<exemplarCity>Novokuznetsk</exemplarCity>
@@ -4114,9 +4349,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic draft="contributed">Apian aika</generic>
-					<standard draft="contributed">Apian normaaliaika</standard>
-					<daylight draft="contributed">Apian kesäaika</daylight>
+					<generic>Apian aika</generic>
+					<standard>Apian normaaliaika</standard>
+					<daylight>Apian kesäaika</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4796,6 +5031,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Pohnpein aika</standard>
 				</long>
 			</metazone>
+			<metazone type="Pyongyang">
+				<long>
+					<standard>Pjongjangin aika</standard>
+				</long>
+			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
 					<generic>Qızılordan aika</generic>
@@ -4856,7 +5096,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Suriname">
 				<long>
-					<standard>Surinamin aika</standard>
+					<standard>Surinamen aika</standard>
 				</long>
 			</metazone>
 			<metazone type="Syowa">
@@ -4982,9 +5222,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<defaultNumberingSystem>latn</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="contributed">latn</native>
+			<native>latn</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits>1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
@@ -5172,7 +5412,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Angolan kwanza</displayName>
 				<displayName count="other">Angolan kwanzaa</displayName>
 				<symbol>AOA</symbol>
-				<symbol alt="narrow" draft="contributed">Kz</symbol>
+				<symbol alt="narrow">AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Angolan kwanza (1977–1991)</displayName>
@@ -5221,7 +5461,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Argentiinan peso</displayName>
 				<displayName count="other">Argentiinan pesoa</displayName>
 				<symbol>ARS</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Itävallan šillinki</displayName>
@@ -5234,7 +5474,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Australian dollari</displayName>
 				<displayName count="other">Australian dollaria</displayName>
 				<symbol>AUD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">AUD</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Aruban floriini</displayName>
@@ -5278,14 +5518,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Barbadosin dollari</displayName>
 				<displayName count="other">Barbadosin dollaria</displayName>
 				<symbol>BBD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Bangladeshin taka</displayName>
 				<displayName count="one">Bangladeshin taka</displayName>
 				<displayName count="other">Bangladeshin takaa</displayName>
 				<symbol>BDT</symbol>
-				<symbol alt="narrow" draft="contributed">৳</symbol>
+				<symbol alt="narrow">BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Belgian vaihdettava frangi</displayName>
@@ -5346,21 +5586,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Bermudan dollari</displayName>
 				<displayName count="other">Bermudan dollaria</displayName>
 				<symbol>BMD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Brunein dollari</displayName>
 				<displayName count="one">Brunein dollari</displayName>
 				<displayName count="other">Brunein dollaria</displayName>
 				<symbol>BND</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Bolivian boliviano</displayName>
 				<displayName count="one">Bolivian boliviano</displayName>
 				<displayName count="other">Bolivian bolivianoa</displayName>
 				<symbol>BOB</symbol>
-				<symbol alt="narrow" draft="contributed">Bs</symbol>
+				<symbol alt="narrow">BOB</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName>Bolivian boliviano (1863–1963)</displayName>
@@ -5403,7 +5643,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Brasilian real</displayName>
 				<displayName count="other">Brasilian realia</displayName>
 				<symbol>BRL</symbol>
-				<symbol alt="narrow" draft="contributed">R$</symbol>
+				<symbol alt="narrow">BRL</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brasilian uusi cruzado (1989–1990)</displayName>
@@ -5428,7 +5668,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Bahaman dollari</displayName>
 				<displayName count="other">Bahaman dollaria</displayName>
 				<symbol>BSD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Bhutanin ngultrum</displayName>
@@ -5447,7 +5687,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Botswanan pula</displayName>
 				<displayName count="other">Botswanan pulaa</displayName>
 				<symbol>BWP</symbol>
-				<symbol alt="narrow" draft="contributed">P</symbol>
+				<symbol alt="narrow">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Valko-Venäjän uusi rupla (1994–1999)</displayName>
@@ -5460,21 +5700,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Valko-Venäjän rupla</displayName>
 				<displayName count="other">Valko-Venäjän ruplaa</displayName>
 				<symbol>BYR</symbol>
-				<symbol alt="narrow" draft="contributed">р.</symbol>
+				<symbol alt="narrow">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Belizen dollari</displayName>
 				<displayName count="one">Belizen dollari</displayName>
 				<displayName count="other">Belizen dollaria</displayName>
 				<symbol>BZD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanadan dollari</displayName>
 				<displayName count="one">Kanadan dollari</displayName>
 				<displayName count="other">Kanadan dollaria</displayName>
 				<symbol>CAD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">CAD</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Kongon frangi</displayName>
@@ -5517,7 +5757,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Chilen peso</displayName>
 				<displayName count="other">Chilen pesoa</displayName>
 				<symbol>CLP</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">CLP</symbol>
 			</currency>
 			<currency type="CNX">
 				<displayName>Kiinan kansanpankin dollari</displayName>
@@ -5526,18 +5766,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>CNX</symbol>
 			</currency>
 			<currency type="CNY">
-				<displayName>Kiinan yuan</displayName>
-				<displayName count="one">Kiinan yuan</displayName>
-				<displayName count="other">Kiinan yuania</displayName>
+				<displayName>Kiinan juan</displayName>
+				<displayName count="one">Kiinan juan</displayName>
+				<displayName count="other">Kiinan juania</displayName>
 				<symbol>CNY</symbol>
-				<symbol alt="narrow" draft="contributed">¥</symbol>
+				<symbol alt="narrow">CNY</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Kolumbian peso</displayName>
 				<displayName count="one">Kolumbian peso</displayName>
 				<displayName count="other">Kolumbian pesoa</displayName>
 				<symbol>COP</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">COP</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>Kolumbian unidad de valor real</displayName>
@@ -5550,7 +5790,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Costa Rican colon</displayName>
 				<displayName count="other">Costa Rican colonia</displayName>
 				<symbol>CRC</symbol>
-				<symbol alt="narrow" draft="contributed">₡</symbol>
+				<symbol alt="narrow">CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>Serbian dinaari (2002–2006)</displayName>
@@ -5569,14 +5809,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Kuuban vaihdettava peso</displayName>
 				<displayName count="other">Kuuban vaihdettavaa pesoa</displayName>
 				<symbol>CUC</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Kuuban peso</displayName>
 				<displayName count="one">Kuuban peso</displayName>
 				<displayName count="other">Kuuban pesoa</displayName>
 				<symbol>CUP</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Kap Verden escudo</displayName>
@@ -5595,7 +5835,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Tšekin koruna</displayName>
 				<displayName count="other">Tšekin korunaa</displayName>
 				<symbol>CZK</symbol>
-				<symbol alt="narrow" draft="contributed">Kč</symbol>
+				<symbol alt="narrow">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Itä-Saksan markka</displayName>
@@ -5620,14 +5860,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Tanskan kruunu</displayName>
 				<displayName count="other">Tanskan kruunua</displayName>
 				<symbol>DKK</symbol>
-				<symbol alt="narrow" draft="contributed">kr</symbol>
+				<symbol alt="narrow">DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominikaanisen tasavallan peso</displayName>
 				<displayName count="one">Dominikaanisen tasavallan peso</displayName>
 				<displayName count="other">Dominikaanisen tasavallan pesoa</displayName>
 				<symbol>DOP</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Algerian dinaari</displayName>
@@ -5658,7 +5898,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Egyptin punta</displayName>
 				<displayName count="other">Egyptin puntaa</displayName>
 				<symbol>EGP</symbol>
-				<symbol alt="narrow" draft="contributed">E£</symbol>
+				<symbol alt="narrow">EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritrean nakfa</displayName>
@@ -5683,6 +5923,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Espanjan peseta</displayName>
 				<displayName count="other">Espanjan pesetaa</displayName>
 				<symbol>ESP</symbol>
+				<symbol alt="narrow">ESP</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Etiopian birr</displayName>
@@ -5708,14 +5949,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Fidžin dollari</displayName>
 				<displayName count="other">Fidžin dollaria</displayName>
 				<symbol>FJD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Falklandinsaarten punta</displayName>
 				<displayName count="one">Falklandinsaarten punta</displayName>
 				<displayName count="other">Falklandinsaarten puntaa</displayName>
 				<symbol>FKP</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
+				<symbol alt="narrow">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Ranskan frangi</displayName>
@@ -5741,7 +5982,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Georgian lari</displayName>
 				<displayName count="other">Georgian laria</displayName>
 				<symbol>GEL</symbol>
-				<symbol alt="variant" draft="contributed">₾</symbol>
+				<symbol alt="narrow">GEL</symbol>
+				<symbol alt="variant">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Ghanan cedi (1979–2007)</displayName>
@@ -5760,7 +6002,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Gibraltarin punta</displayName>
 				<displayName count="other">Gibraltarin puntaa</displayName>
 				<symbol>GIP</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
+				<symbol alt="narrow">GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Gambian dalasi</displayName>
@@ -5773,7 +6015,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Guinean frangi</displayName>
 				<displayName count="other">Guinean frangia</displayName>
 				<symbol>GNF</symbol>
-				<symbol alt="narrow" draft="contributed">FG</symbol>
+				<symbol alt="narrow">GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Guinean syli</displayName>
@@ -5798,7 +6040,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Guatemalan quetzal</displayName>
 				<displayName count="other">Guatemalan quetzalia</displayName>
 				<symbol>GTQ</symbol>
-				<symbol alt="narrow" draft="contributed">Q</symbol>
+				<symbol alt="narrow">GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Portugalin Guinean escudo</displayName>
@@ -5817,21 +6059,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Guyanan dollari</displayName>
 				<displayName count="other">Guyanan dollaria</displayName>
 				<symbol>GYD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Hongkongin dollari</displayName>
 				<displayName count="one">Hongkongin dollari</displayName>
 				<displayName count="other">Hongkongin dollaria</displayName>
 				<symbol>HKD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">HKD</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Hondurasin lempira</displayName>
 				<displayName count="one">Hondurasin lempira</displayName>
 				<displayName count="other">Hondurasin lempiraa</displayName>
 				<symbol>HNL</symbol>
-				<symbol alt="narrow" draft="contributed">L</symbol>
+				<symbol alt="narrow">HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>Kroatian dinaari</displayName>
@@ -5844,7 +6086,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Kroatian kuna</displayName>
 				<displayName count="other">Kroatian kunaa</displayName>
 				<symbol>HRK</symbol>
-				<symbol alt="narrow" draft="contributed">kn</symbol>
+				<symbol alt="narrow">HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haitin gourde</displayName>
@@ -5857,14 +6099,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Unkarin forintti</displayName>
 				<displayName count="other">Unkarin forinttia</displayName>
 				<symbol>HUF</symbol>
-				<symbol alt="narrow" draft="contributed">Ft</symbol>
+				<symbol alt="narrow">HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Indonesian rupia</displayName>
 				<displayName count="one">Indonesian rupia</displayName>
 				<displayName count="other">Indonesian rupiaa</displayName>
 				<symbol>IDR</symbol>
-				<symbol alt="narrow" draft="contributed">Rp</symbol>
+				<symbol alt="narrow">IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Irlannin punta</displayName>
@@ -5889,14 +6131,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Israelin uusi sekeli</displayName>
 				<displayName count="other">Israelin uutta sekeliä</displayName>
 				<symbol>ILS</symbol>
-				<symbol alt="narrow" draft="contributed">₪</symbol>
+				<symbol alt="narrow">ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Intian rupia</displayName>
 				<displayName count="one">Intian rupia</displayName>
 				<displayName count="other">Intian rupiaa</displayName>
 				<symbol>INR</symbol>
-				<symbol alt="narrow" draft="contributed">₹</symbol>
+				<symbol alt="narrow">INR</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Irakin dinaari</displayName>
@@ -5921,7 +6163,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Islannin kruunu</displayName>
 				<displayName count="other">Islannin kruunua</displayName>
 				<symbol>ISK</symbol>
-				<symbol alt="narrow" draft="contributed">kr</symbol>
+				<symbol alt="narrow">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Italian liira</displayName>
@@ -5934,7 +6176,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Jamaikan dollari</displayName>
 				<displayName count="other">Jamaikan dollaria</displayName>
 				<symbol>JMD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Jordanian dinaari</displayName>
@@ -5966,21 +6208,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Kambodžan riel</displayName>
 				<displayName count="other">Kambodžan rieliä</displayName>
 				<symbol>KHR</symbol>
-				<symbol alt="narrow" draft="contributed">៛</symbol>
+				<symbol alt="narrow">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Komorien frangi</displayName>
 				<displayName count="one">Komorien frangi</displayName>
 				<displayName count="other">Komorien frangia</displayName>
 				<symbol>KMF</symbol>
-				<symbol alt="narrow" draft="contributed">CF</symbol>
+				<symbol alt="narrow">KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Pohjois-Korean won</displayName>
 				<displayName count="one">Pohjois-Korean won</displayName>
 				<displayName count="other">Pohjois-Korean wonia</displayName>
 				<symbol>KPW</symbol>
-				<symbol alt="narrow" draft="contributed">₩</symbol>
+				<symbol alt="narrow">KPW</symbol>
 			</currency>
 			<currency type="KRH">
 				<displayName>Etelä-Korean hwan (1953–1962)</displayName>
@@ -5999,7 +6241,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Etelä-Korean won</displayName>
 				<displayName count="other">Etelä-Korean wonia</displayName>
 				<symbol>KRW</symbol>
-				<symbol alt="narrow" draft="contributed">₩</symbol>
+				<symbol alt="narrow">KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuwaitin dinaari</displayName>
@@ -6012,42 +6254,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Caymansaarten dollari</displayName>
 				<displayName count="other">Caymansaarten dollaria</displayName>
 				<symbol>KYD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazakstanin tenge</displayName>
 				<displayName count="one">Kazakstanin tenge</displayName>
 				<displayName count="other">Kazakstanin tengeä</displayName>
 				<symbol>KZT</symbol>
-				<symbol alt="narrow" draft="contributed">₸</symbol>
+				<symbol alt="narrow">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Laosin kip</displayName>
 				<displayName count="one">Laosin kip</displayName>
 				<displayName count="other">Laosin kipiä</displayName>
 				<symbol>LAK</symbol>
-				<symbol alt="narrow" draft="contributed">₭</symbol>
+				<symbol alt="narrow">LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Libanonin punta</displayName>
 				<displayName count="one">Libanonin punta</displayName>
 				<displayName count="other">Libanonin puntaa</displayName>
 				<symbol>LBP</symbol>
-				<symbol alt="narrow" draft="contributed">L£</symbol>
+				<symbol alt="narrow">LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Sri Lankan rupia</displayName>
 				<displayName count="one">Sri Lankan rupia</displayName>
 				<displayName count="other">Sri Lankan rupiaa</displayName>
 				<symbol>LKR</symbol>
-				<symbol alt="narrow" draft="contributed">Rs</symbol>
+				<symbol alt="narrow">LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Liberian dollari</displayName>
 				<displayName count="one">Liberian dollari</displayName>
 				<displayName count="other">Liberian dollaria</displayName>
 				<symbol>LRD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesothon loti</displayName>
@@ -6060,6 +6302,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Liettuan liti</displayName>
 				<displayName count="other">Liettuan litiä</displayName>
 				<symbol>LTL</symbol>
+				<symbol alt="narrow">LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Liettuan talonas</displayName>
@@ -6090,6 +6333,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Latvian lati</displayName>
 				<displayName count="other">Latvian latia</displayName>
 				<symbol>LVL</symbol>
+				<symbol alt="narrow">LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Latvian rupla</displayName>
@@ -6138,7 +6382,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Madagaskarin ariary</displayName>
 				<displayName count="other">Madagaskarin ariarya</displayName>
 				<symbol>MGA</symbol>
-				<symbol alt="narrow" draft="contributed">Ar</symbol>
+				<symbol alt="narrow">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Madagaskarin frangi</displayName>
@@ -6169,14 +6413,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Myanmarin kyat</displayName>
 				<displayName count="other">Myanmarin kyatia</displayName>
 				<symbol>MMK</symbol>
-				<symbol alt="narrow" draft="contributed">K</symbol>
+				<symbol alt="narrow">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Mongolian tugrik</displayName>
 				<displayName count="one">Mongolian tugrik</displayName>
 				<displayName count="other">Mongolian tugrikia</displayName>
 				<symbol>MNT</symbol>
-				<symbol alt="narrow" draft="contributed">₮</symbol>
+				<symbol alt="narrow">MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Macaon pataca</displayName>
@@ -6207,7 +6451,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Mauritiuksen rupia</displayName>
 				<displayName count="other">Mauritiuksen rupiaa</displayName>
 				<symbol>MUR</symbol>
-				<symbol alt="narrow" draft="contributed">Rs</symbol>
+				<symbol alt="narrow">MUR</symbol>
 			</currency>
 			<currency type="MVP">
 				<displayName>Malediivien rupia (1947–1981)</displayName>
@@ -6232,7 +6476,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Meksikon peso</displayName>
 				<displayName count="other">Meksikon pesoa</displayName>
 				<symbol>MXN</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>Meksikon hopeapeso (1861–1992)</displayName>
@@ -6251,7 +6495,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Malesian ringgit</displayName>
 				<displayName count="other">Malesian ringgitiä</displayName>
 				<symbol>MYR</symbol>
-				<symbol alt="narrow" draft="contributed">RM</symbol>
+				<symbol alt="narrow">MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mosambikin escudo</displayName>
@@ -6276,27 +6520,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Namibian dollari</displayName>
 				<displayName count="other">Namibian dollaria</displayName>
 				<symbol>NAD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigerian naira</displayName>
 				<displayName count="one">Nigerian naira</displayName>
 				<displayName count="other">Nigerian nairaa</displayName>
 				<symbol>NGN</symbol>
-				<symbol alt="narrow" draft="contributed">₦</symbol>
+				<symbol alt="narrow">NGN</symbol>
 			</currency>
 			<currency type="NIC">
-				<displayName>Nicaraguan cordoba (1988–1991)</displayName>
-				<displayName count="one">Nicaraguan cordoba (1988–1991)</displayName>
-				<displayName count="other">Nicaraguan cordobaa (1988–1991)</displayName>
+				<displayName>Nicaraguan córdoba (1988–1991)</displayName>
+				<displayName count="one">Nicaraguan córdoba (1988–1991)</displayName>
+				<displayName count="other">Nicaraguan córdobaa (1988–1991)</displayName>
 				<symbol>NIC</symbol>
 			</currency>
 			<currency type="NIO">
-				<displayName>Nicaraguan cordoba</displayName>
-				<displayName count="one">Nicaraguan cordoba</displayName>
-				<displayName count="other">Nicaraguan cordobaa</displayName>
+				<displayName>Nicaraguan córdoba</displayName>
+				<displayName count="one">Nicaraguan córdoba</displayName>
+				<displayName count="other">Nicaraguan córdobaa</displayName>
 				<symbol>NIO</symbol>
-				<symbol alt="narrow" draft="contributed">C$</symbol>
+				<symbol alt="narrow">NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Alankomaiden guldeni</displayName>
@@ -6309,21 +6553,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Norjan kruunu</displayName>
 				<displayName count="other">Norjan kruunua</displayName>
 				<symbol>NOK</symbol>
-				<symbol alt="narrow" draft="contributed">kr</symbol>
+				<symbol alt="narrow">NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Nepalin rupia</displayName>
 				<displayName count="one">Nepalin rupia</displayName>
 				<displayName count="other">Nepalin rupiaa</displayName>
 				<symbol>NPR</symbol>
-				<symbol alt="narrow" draft="contributed">Rs</symbol>
+				<symbol alt="narrow">NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Uuden-Seelannin dollari</displayName>
 				<displayName count="one">Uuden-Seelannin dollari</displayName>
 				<displayName count="other">Uuden-Seelannin dollaria</displayName>
 				<symbol>NZD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">NZD</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Omanin rial</displayName>
@@ -6366,21 +6610,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Filippiinien peso</displayName>
 				<displayName count="other">Filippiinien pesoa</displayName>
 				<symbol>PHP</symbol>
-				<symbol alt="narrow" draft="contributed">₱</symbol>
+				<symbol alt="narrow">PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistanin rupia</displayName>
 				<displayName count="one">Pakistanin rupia</displayName>
 				<displayName count="other">Pakistanin rupiaa</displayName>
 				<symbol>PKR</symbol>
-				<symbol alt="narrow" draft="contributed">Rs</symbol>
+				<symbol alt="narrow">PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Puolan zloty</displayName>
 				<displayName count="one">Puolan zloty</displayName>
 				<displayName count="other">Puolan zlotya</displayName>
 				<symbol>PLN</symbol>
-				<symbol alt="narrow" draft="contributed">zł</symbol>
+				<symbol alt="narrow">PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Puolan zloty (1950–1995)</displayName>
@@ -6399,7 +6643,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Paraguayn guarani</displayName>
 				<displayName count="other">Paraguayn guarania</displayName>
 				<symbol>PYG</symbol>
-				<symbol alt="narrow" draft="contributed">₲</symbol>
+				<symbol alt="narrow">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Qatarin rial</displayName>
@@ -6424,6 +6668,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Romanian leu</displayName>
 				<displayName count="other">Romanian leuta</displayName>
 				<symbol>RON</symbol>
+				<symbol alt="narrow">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Serbian dinaari</displayName>
@@ -6436,20 +6681,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Venäjän rupla</displayName>
 				<displayName count="other">Venäjän ruplaa</displayName>
 				<symbol>RUB</symbol>
-				<symbol alt="narrow" draft="contributed">₽</symbol>
+				<symbol alt="narrow">₽</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Venäjän rupla (1991–1998)</displayName>
 				<displayName count="one">Venäjän rupla (1991–1998)</displayName>
 				<displayName count="other">Venäjän ruplaa (1991–1998)</displayName>
 				<symbol>RUR</symbol>
+				<symbol alt="narrow">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ruandan frangi</displayName>
 				<displayName count="one">Ruandan frangi</displayName>
 				<displayName count="other">Ruandan frangia</displayName>
 				<symbol>RWF</symbol>
-				<symbol alt="narrow" draft="contributed">RF</symbol>
+				<symbol alt="narrow">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Saudi-Arabian rial</displayName>
@@ -6462,7 +6708,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Salomonsaarten dollari</displayName>
 				<displayName count="other">Salomonsaarten dollaria</displayName>
 				<symbol>SBD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seychellien rupia</displayName>
@@ -6493,21 +6739,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Ruotsin kruunu</displayName>
 				<displayName count="other">Ruotsin kruunua</displayName>
 				<symbol>SEK</symbol>
-				<symbol alt="narrow" draft="contributed">kr</symbol>
+				<symbol alt="narrow">SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Singaporen dollari</displayName>
 				<displayName count="one">Singaporen dollari</displayName>
 				<displayName count="other">Singaporen dollaria</displayName>
 				<symbol>SGD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Saint Helenan punta</displayName>
 				<displayName count="one">Saint Helenan punta</displayName>
 				<displayName count="other">Saint Helenan puntaa</displayName>
 				<symbol>SHP</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
+				<symbol alt="narrow">SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Slovenian tolar</displayName>
@@ -6534,16 +6780,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
-				<displayName>Surinamin dollari</displayName>
-				<displayName count="one">Surinamin dollari</displayName>
-				<displayName count="other">Surinamin dollaria</displayName>
+				<displayName>Surinamen dollari</displayName>
+				<displayName count="one">Surinamen dollari</displayName>
+				<displayName count="other">Surinamen dollaria</displayName>
 				<symbol>SRD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">SRD</symbol>
 			</currency>
 			<currency type="SRG">
-				<displayName>Surinamin guldeni</displayName>
-				<displayName count="one">Surinamin guldeni</displayName>
-				<displayName count="other">Surinamin guldenia</displayName>
+				<displayName>Surinamen guldeni</displayName>
+				<displayName count="one">Surinamen guldeni</displayName>
+				<displayName count="other">Surinamen guldeni</displayName>
 				<symbol>SRG</symbol>
 			</currency>
 			<currency type="SSP">
@@ -6551,14 +6797,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Etelä-Sudanin punta</displayName>
 				<displayName count="other">Etelä-Sudanin puntaa</displayName>
 				<symbol>SSP</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
+				<symbol alt="narrow">SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>São Tomén ja Príncipen dobra</displayName>
 				<displayName count="one">São Tomén ja Príncipen dobra</displayName>
 				<displayName count="other">São Tomén ja Príncipen dobraa</displayName>
 				<symbol>STD</symbol>
-				<symbol alt="narrow" draft="contributed">Db</symbol>
+				<symbol alt="narrow">STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Neuvostoliiton rupla</displayName>
@@ -6577,7 +6823,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Syyrian punta</displayName>
 				<displayName count="other">Syyrian puntaa</displayName>
 				<symbol>SYP</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
+				<symbol alt="narrow">SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Swazimaan lilangeni</displayName>
@@ -6590,7 +6836,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Thaimaan baht</displayName>
 				<displayName count="other">Thaimaan bahtia</displayName>
 				<symbol>THB</symbol>
-				<symbol alt="narrow" draft="contributed">฿</symbol>
+				<symbol alt="narrow">THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Tadžikistanin rupla</displayName>
@@ -6627,7 +6873,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Tongan pa’anga</displayName>
 				<displayName count="other">Tongan pa’angaa</displayName>
 				<symbol>TOP</symbol>
-				<symbol alt="narrow" draft="contributed">T$</symbol>
+				<symbol alt="narrow">TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Timorin escudo</displayName>
@@ -6646,22 +6892,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Turkin liira</displayName>
 				<displayName count="other">Turkin liiraa</displayName>
 				<symbol>TRY</symbol>
-				<symbol alt="narrow" draft="contributed">₺</symbol>
-				<symbol alt="variant" draft="contributed">TL</symbol>
+				<symbol alt="narrow">TRY</symbol>
+				<symbol alt="variant">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidadin ja Tobagon dollari</displayName>
 				<displayName count="one">Trinidadin ja Tobagon dollari</displayName>
 				<displayName count="other">Trinidadin ja Tobagon dollaria</displayName>
 				<symbol>TTD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Taiwanin uusi dollari</displayName>
 				<displayName count="one">Taiwanin uusi dollari</displayName>
 				<displayName count="other">Taiwanin uutta dollaria</displayName>
 				<symbol>TWD</symbol>
-				<symbol alt="narrow" draft="contributed">NT$</symbol>
+				<symbol alt="narrow">TWD</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tansanian šillinki</displayName>
@@ -6674,7 +6920,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Ukrainan hryvnia</displayName>
 				<displayName count="other">Ukrainan hryvniaa</displayName>
 				<symbol>UAH</symbol>
-				<symbol alt="narrow" draft="contributed">₴</symbol>
+				<symbol alt="narrow">UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukrainan karbovanetz</displayName>
@@ -6730,7 +6976,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Uruguayn peso</displayName>
 				<displayName count="other">Uruguayn pesoa</displayName>
 				<symbol>UYU</symbol>
-				<symbol alt="narrow" draft="contributed">$U</symbol>
+				<symbol alt="narrow">UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Uzbekistanin som</displayName>
@@ -6749,14 +6995,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Venezuelan bolivar</displayName>
 				<displayName count="other">Venezuelan bolivaria</displayName>
 				<symbol>VEF</symbol>
-				<symbol alt="narrow" draft="contributed">Bs</symbol>
+				<symbol alt="narrow">VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vietnamin dong</displayName>
 				<displayName count="one">Vietnamin dong</displayName>
 				<displayName count="other">Vietnamin dongia</displayName>
 				<symbol>VND</symbol>
-				<symbol alt="narrow" draft="contributed">₫</symbol>
+				<symbol alt="narrow">VND</symbol>
 			</currency>
 			<currency type="VNN">
 				<displayName>Vietnamin dong (1978–1985)</displayName>
@@ -6823,7 +7069,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Itä-Karibian dollari</displayName>
 				<displayName count="other">Itä-Karibian dollaria</displayName>
 				<symbol>XCD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow">XCD</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>erityisnosto-oikeus (SDR)</displayName>
@@ -6950,7 +7196,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Etelä-Afrikan randi</displayName>
 				<displayName count="other">Etelä-Afrikan randia</displayName>
 				<symbol>ZAR</symbol>
-				<symbol alt="narrow" draft="contributed">R</symbol>
+				<symbol alt="narrow">ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Sambian kwacha (1968–2012)</displayName>
@@ -6963,7 +7209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Sambian kwacha</displayName>
 				<displayName count="other">Sambian kwachaa</displayName>
 				<symbol>ZMW</symbol>
-				<symbol alt="narrow" draft="contributed">ZK</symbol>
+				<symbol alt="narrow">ZMW</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zairen uusi zaire (1993–1998)</displayName>
@@ -7004,7 +7250,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<units>
 		<unitLength type="long">
 			<compoundUnit type="per">
-				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+				<compoundUnitPattern>{0} / {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G-voimat</displayName>
@@ -7045,6 +7291,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>neliökilometrit</displayName>
 				<unitPattern count="one">{0} neliökilometri</unitPattern>
 				<unitPattern count="other">{0} neliökilometriä</unitPattern>
+				<perUnitPattern>{0} / neliökilometri</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>hehtaarit</displayName>
@@ -7067,6 +7314,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>neliömailit</displayName>
 				<unitPattern count="one">{0} neliömaili</unitPattern>
 				<unitPattern count="other">{0} neliömailia</unitPattern>
+				<perUnitPattern>{0} / neliömaili</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>eekkerit</displayName>
@@ -7094,20 +7342,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} karaatti</unitPattern>
 				<unitPattern count="other">{0} karaattia</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>mg/dl</displayName>
+				<unitPattern count="one">{0} mg/dl</unitPattern>
+				<unitPattern count="other">{0} mg/dl</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>mmol/l</displayName>
+				<unitPattern count="one">{0} mmol/l</unitPattern>
+				<unitPattern count="other">{0} mmol/l</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>ppm</displayName>
+				<unitPattern count="one">{0} ppm</unitPattern>
+				<unitPattern count="other">{0} ppm</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
-				<displayName>litrat per kilometri</displayName>
-				<unitPattern count="one">{0} litra per kilometri</unitPattern>
-				<unitPattern count="other">{0} litraa per kilometri</unitPattern>
+				<displayName>litrat / kilometri</displayName>
+				<unitPattern count="one">{0} litra / kilometri</unitPattern>
+				<unitPattern count="other">{0} litraa / kilometri</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName>litrat per 100 kilometriä</displayName>
-				<unitPattern count="one">{0} litra per 100 km</unitPattern>
-				<unitPattern count="other">{0} litraa per 100 km</unitPattern>
+				<displayName>litrat / 100 kilometriä</displayName>
+				<unitPattern count="one">{0} litra / 100 km</unitPattern>
+				<unitPattern count="other">{0} litraa / 100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>mailit per gallona</displayName>
-				<unitPattern count="one">{0} maili per gallona</unitPattern>
-				<unitPattern count="other">{0} mailia per gallona</unitPattern>
+				<displayName>mailit / am. gallona</displayName>
+				<unitPattern count="one">{0} maili / am. gallona</unitPattern>
+				<unitPattern count="other">{0} mailia / am. gallona</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>mailit / br. gallona</displayName>
+				<unitPattern count="one">{0} maili / br. gallona</unitPattern>
+				<unitPattern count="other">{0} mailia / br. gallona</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>teratavut</displayName>
@@ -7168,43 +7436,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>vuodet</displayName>
 				<unitPattern count="one">{0} vuosi</unitPattern>
 				<unitPattern count="other">{0} vuotta</unitPattern>
-				<perUnitPattern>{0} vuodessa</perUnitPattern>
+				<perUnitPattern>{0} / vuosi</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>kuukaudet</displayName>
 				<unitPattern count="one">{0} kuukausi</unitPattern>
 				<unitPattern count="other">{0} kuukautta</unitPattern>
-				<perUnitPattern>{0} kuukaudessa</perUnitPattern>
+				<perUnitPattern>{0} / kuukausi</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>viikot</displayName>
 				<unitPattern count="one">{0} viikko</unitPattern>
 				<unitPattern count="other">{0} viikkoa</unitPattern>
-				<perUnitPattern>{0} viikossa</perUnitPattern>
+				<perUnitPattern>{0} / viikko</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>päivät</displayName>
 				<unitPattern count="one">{0} päivä</unitPattern>
 				<unitPattern count="other">{0} päivää</unitPattern>
-				<perUnitPattern>{0} päivässä</perUnitPattern>
+				<perUnitPattern>{0} / päivä</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>tunnit</displayName>
 				<unitPattern count="one">{0} tunti</unitPattern>
 				<unitPattern count="other">{0} tuntia</unitPattern>
-				<perUnitPattern>{0} tunnissa</perUnitPattern>
+				<perUnitPattern>{0} / tunti</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>minuutit</displayName>
 				<unitPattern count="one">{0} minuutti</unitPattern>
 				<unitPattern count="other">{0} minuuttia</unitPattern>
-				<perUnitPattern>{0} minuutissa</perUnitPattern>
+				<perUnitPattern>{0} / minuutti</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>sekunnit</displayName>
 				<unitPattern count="one">{0} sekunti</unitPattern>
 				<unitPattern count="other">{0} sekuntia</unitPattern>
-				<perUnitPattern>{0} sekunnissa</perUnitPattern>
+				<perUnitPattern>{0} / sekunti</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>millisekunnit</displayName>
@@ -7405,13 +7673,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>kilogrammat</displayName>
 				<unitPattern count="one">{0} kilogramma</unitPattern>
 				<unitPattern count="other">{0} kilogrammaa</unitPattern>
-				<perUnitPattern>{0}/kg</perUnitPattern>
+				<perUnitPattern>{0} / kilogramma</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>grammat</displayName>
 				<unitPattern count="one">{0} gramma</unitPattern>
 				<unitPattern count="other">{0} grammaa</unitPattern>
-				<perUnitPattern>{0}/g</perUnitPattern>
+				<perUnitPattern>{0} / gramma</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>milligrammat</displayName>
@@ -7424,9 +7692,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} mikrogrammaa</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>US-tonnit</displayName>
-				<unitPattern count="one">{0} US-tonni</unitPattern>
-				<unitPattern count="other">{0} US-tonnia</unitPattern>
+				<displayName>am. tonnit</displayName>
+				<unitPattern count="one">{0} am. tonni</unitPattern>
+				<unitPattern count="other">{0} am. tonnia</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>stonet</displayName>
@@ -7496,9 +7764,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} millimetriä elohopeaa</unitPattern>
 			</unit>
 			<unit type="pressure-pound-per-square-inch">
-				<displayName>paunat neliötuumaa kohti</displayName>
-				<unitPattern count="one">{0} pauna neliötuumaa kohti</unitPattern>
-				<unitPattern count="other">{0} paunaa neliötuumaa kohti</unitPattern>
+				<displayName>paunat / neliötuuma</displayName>
+				<unitPattern count="one">{0} pauna / neliötuuma</unitPattern>
+				<unitPattern count="other">{0} paunaa / neliötuuma</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
 				<displayName>elohopeatuumat</displayName>
@@ -7601,7 +7869,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>litrat</displayName>
 				<unitPattern count="one">{0} litra</unitPattern>
 				<unitPattern count="other">{0} litraa</unitPattern>
-				<perUnitPattern>{0} litrassa</perUnitPattern>
+				<perUnitPattern>{0} / litra</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>desilitrat</displayName>
@@ -7639,10 +7907,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} bushelia</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>gallonat</displayName>
-				<unitPattern count="one">{0} gallona</unitPattern>
-				<unitPattern count="other">{0} gallonaa</unitPattern>
-				<perUnitPattern>{0} / gallona</perUnitPattern>
+				<displayName>am. gallonat</displayName>
+				<unitPattern count="one">{0} am. gallona</unitPattern>
+				<unitPattern count="other">{0} am. gallonaa</unitPattern>
+				<perUnitPattern>{0} / am. gallona</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>br. gallonat</displayName>
+				<unitPattern count="one">{0} br. gallona</unitPattern>
+				<unitPattern count="other">{0} br. gallonaa</unitPattern>
+				<perUnitPattern>{0} / br. gallona</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>neljännesgallonat</displayName>
@@ -7724,6 +7998,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>km²</displayName>
 				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
+				<perUnitPattern>{0}/km²</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ha</displayName>
@@ -7746,6 +8021,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>mi²</displayName>
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
+				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>ac</displayName>
@@ -7773,6 +8049,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ka</unitPattern>
 				<unitPattern count="other">{0} ka</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>mg/dl</displayName>
+				<unitPattern count="one">{0} mg/dl</unitPattern>
+				<unitPattern count="other">{0} mg/dl</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>mmol/l</displayName>
+				<unitPattern count="one">{0} mmol/l</unitPattern>
+				<unitPattern count="other">{0} mmol/l</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>ppm</displayName>
+				<unitPattern count="one">{0} ppm</unitPattern>
+				<unitPattern count="other">{0} ppm</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
@@ -7784,9 +8075,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>mpg</displayName>
-				<unitPattern count="one">{0} mpg</unitPattern>
-				<unitPattern count="other">{0} mpg</unitPattern>
+				<displayName>mpg-am</displayName>
+				<unitPattern count="one">{0} mpg-am</unitPattern>
+				<unitPattern count="other">{0} mpg-am</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>mpg-br</displayName>
+				<unitPattern count="one">{0} mpg-br</unitPattern>
+				<unitPattern count="other">{0} mpg-br</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>Tt</displayName>
@@ -8103,9 +8399,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} µg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>US-tn</displayName>
-				<unitPattern count="one">{0} US-tn</unitPattern>
-				<unitPattern count="other">{0} US-tn</unitPattern>
+				<displayName>am. tn</displayName>
+				<unitPattern count="one">{0} am. tn</unitPattern>
+				<unitPattern count="other">{0} am. tn</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>st</displayName>
@@ -8318,10 +8614,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} bu</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="one">{0} gal</unitPattern>
-				<unitPattern count="other">{0} gal</unitPattern>
-				<perUnitPattern>{0}/gal</perUnitPattern>
+				<displayName>am. gal</displayName>
+				<unitPattern count="one">{0} am. gal</unitPattern>
+				<unitPattern count="other">{0} am. gal</unitPattern>
+				<perUnitPattern>{0}/am. gal</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>br. gal</displayName>
+				<unitPattern count="one">{0} br. gal</unitPattern>
+				<unitPattern count="other">{0} br. gal</unitPattern>
+				<perUnitPattern>{0}/br. gal</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
@@ -8403,6 +8705,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>km²</displayName>
 				<unitPattern count="one">{0}km²</unitPattern>
 				<unitPattern count="other">{0}km²</unitPattern>
+				<perUnitPattern>{0}/km²</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ha</displayName>
@@ -8425,6 +8728,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>mi²</displayName>
 				<unitPattern count="one">{0}mi²</unitPattern>
 				<unitPattern count="other">{0}mi²</unitPattern>
+				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>ac</displayName>
@@ -8452,6 +8756,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}ka</unitPattern>
 				<unitPattern count="other">{0}ka</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>mg/dl</displayName>
+				<unitPattern count="one">{0}mg/dl</unitPattern>
+				<unitPattern count="other">{0}mg/dl</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>mmol/l</displayName>
+				<unitPattern count="one">{0}mmol/l</unitPattern>
+				<unitPattern count="other">{0}mmol/l</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>ppm</displayName>
+				<unitPattern count="one">{0}ppm</unitPattern>
+				<unitPattern count="other">{0}ppm</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="one">{0}l/km</unitPattern>
@@ -8463,9 +8782,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}l/100km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>mpg</displayName>
-				<unitPattern count="one">{0}mpg</unitPattern>
-				<unitPattern count="other">{0}mpg</unitPattern>
+				<displayName>mpg-am</displayName>
+				<unitPattern count="one">{0}mpg-am</unitPattern>
+				<unitPattern count="other">{0}mpg-am</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>mpg-br</displayName>
+				<unitPattern count="one">{0}mpg-br</unitPattern>
+				<unitPattern count="other">{0}mpg-br</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>Tt</displayName>
@@ -8746,8 +9070,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName>pnk</displayName>
-				<unitPattern count="one">{0} pnk</unitPattern>
-				<unitPattern count="other">{0} pnk</unitPattern>
+				<unitPattern count="one">{0}pnk</unitPattern>
+				<unitPattern count="other">{0}pnk</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
@@ -8782,9 +9106,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}μg</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>US-tn</displayName>
-				<unitPattern count="one">{0}US-tn</unitPattern>
-				<unitPattern count="other">{0}US-tn</unitPattern>
+				<displayName>am.tn</displayName>
+				<unitPattern count="one">{0}am.tn</unitPattern>
+				<unitPattern count="other">{0}am.tn</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>st</displayName>
@@ -8849,9 +9173,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-of-mercury">
-				<displayName>mm Hg</displayName>
-				<unitPattern count="one">{0}mm Hg</unitPattern>
-				<unitPattern count="other">{0}mm Hg</unitPattern>
+				<displayName>mmHg</displayName>
+				<unitPattern count="one">{0}mmHg</unitPattern>
+				<unitPattern count="other">{0}mmHg</unitPattern>
 			</unit>
 			<unit type="pressure-pound-per-square-inch">
 				<displayName>psi</displayName>
@@ -8885,8 +9209,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="speed-knot">
 				<displayName>kn</displayName>
-				<unitPattern count="one">{0} kn</unitPattern>
-				<unitPattern count="other">{0} kn</unitPattern>
+				<unitPattern count="one">{0}kn</unitPattern>
+				<unitPattern count="other">{0}kn</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
@@ -8916,7 +9240,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-cubic-meter">
 				<displayName>m³</displayName>
 				<unitPattern count="one">{0}m³</unitPattern>
-				<unitPattern count="other">{0} m³</unitPattern>
+				<unitPattern count="other">{0}m³</unitPattern>
 				<perUnitPattern>{0}/m³</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
@@ -8978,13 +9302,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>tp</displayName>
-				<unitPattern count="one">{0} tp</unitPattern>
-				<unitPattern count="other">{0} tp</unitPattern>
+				<unitPattern count="one">{0}tp</unitPattern>
+				<unitPattern count="other">{0}tp</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>tkp</displayName>
-				<unitPattern count="one">{0} tkp</unitPattern>
-				<unitPattern count="other">{0} tkp</unitPattern>
+				<unitPattern count="one">{0}tkp</unitPattern>
+				<unitPattern count="other">{0}tkp</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>ac ft</displayName>
@@ -8997,10 +9321,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}bu</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="one">{0}gal</unitPattern>
-				<unitPattern count="other">{0}gal</unitPattern>
-				<perUnitPattern>{0}/gal</perUnitPattern>
+				<displayName>am.gal</displayName>
+				<unitPattern count="one">{0}am.gal</unitPattern>
+				<unitPattern count="other">{0}am.gal</unitPattern>
+				<perUnitPattern>{0}/am.gal</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>br.gal</displayName>
+				<unitPattern count="one">{0}br.gal</unitPattern>
+				<unitPattern count="other">{0}br.gal</unitPattern>
+				<perUnitPattern>{0}/br.gal</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
@@ -9056,6 +9386,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0} ja {1}</listPatternPart>
 			<listPatternPart type="2">{0} ja {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} ja {1}</listPatternPart>
+			<listPatternPart type="2">{0} ja {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="unit">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -9081,5 +9417,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr>ei:e</nostr>
 		</messages>
 	</posix>
+	<characterLabels>
+		<characterLabelPattern type="all">{0} – Kaikki</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} – Yhteensopivuus</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} – Ympäröity</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} – Laajennettu</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} – Historiallinen</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} – Sekalaiset</characterLabelPattern>
+		<characterLabelPattern type="other">{0} – Muu</characterLabelPattern>
+		<characterLabelPattern type="scripts">Kirjoitusjärjestelmät – {0}</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">{0} piirtoviiva</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">{0} piirtoviivaa</characterLabelPattern>
+		<characterLabel type="activities">Toiminnot</characterLabel>
+		<characterLabel type="african_scripts">Afrikkalaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="american_scripts">Amerikkalaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="animals_nature">Eläimet ja luonto</characterLabel>
+		<characterLabel type="arrows">Nuolet</characterLabel>
+		<characterLabel type="box_drawing">Viivapiirrosmerkit</characterLabel>
+		<characterLabel type="braille">Pistekirjoitus</characterLabel>
+		<characterLabel type="bullets_stars">Luettelomerkit/tähdet</characterLabel>
+		<characterLabel type="consonantal_jamo">Jamo-konsonanttielementit</characterLabel>
+		<characterLabel type="currency_symbols">Valuuttamerkit</characterLabel>
+		<characterLabel type="dash_connector">Yhdysmerkit</characterLabel>
+		<characterLabel type="digits">Numerot</characterLabel>
+		<characterLabel type="dingbats">Ornamentit</characterLabel>
+		<characterLabel type="divination_symbols">Ennustussymbolit</characterLabel>
+		<characterLabel type="downwards_arrows">Alaspäin osoittavat nuolet</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">Alas- ja ylöspäin osoittavat nuolet</characterLabel>
+		<characterLabel type="east_asian_scripts">Itäaasialaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="emoji">Emojit</characterLabel>
+		<characterLabel type="european_scripts">Eurooppalaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="flags">Liput</characterLabel>
+		<characterLabel type="food_drink">Ruoka ja juoma</characterLabel>
+		<characterLabel type="format">Muotoilu</characterLabel>
+		<characterLabel type="format_whitespace">Muotoilu ja tyhjämerkit</characterLabel>
+		<characterLabel type="full_width_form_variant">Ideografin levyiset muotovariantit</characterLabel>
+		<characterLabel type="geometric_shapes">Geometriset kuviot</characterLabel>
+		<characterLabel type="half_width_form_variant">Ideografin puolikkaan levyiset muotovariantit</characterLabel>
+		<characterLabel type="han_characters">Han-merkit</characterLabel>
+		<characterLabel type="han_radicals">Han-radikaalit</characterLabel>
+		<characterLabel type="hanja">Hanja</characterLabel>
+		<characterLabel type="hanzi_simplified">Hanzi (yksinkertaistettu)</characterLabel>
+		<characterLabel type="hanzi_traditional">Hanzi (perinteinen)</characterLabel>
+		<characterLabel type="historic_scripts">Historialliset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="ideographic_desc_characters">Ideogrammien kuvausmerkit</characterLabel>
+		<characterLabel type="japanese_kana">Japanilainen Kana-kirjoitusjärjestelmä</characterLabel>
+		<characterLabel type="kanbun">Kanbun</characterLabel>
+		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="leftwards_arrows">Vasemmalle osoittavat nuolet</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">Vasemmalle ja oikealle osoittavat nuolet</characterLabel>
+		<characterLabel type="letterlike_symbols">Kirjainsymbolit</characterLabel>
+		<characterLabel type="limited_use">Rajoitettu käyttö</characterLabel>
+		<characterLabel type="math_symbols">Matemaattiset symbolit</characterLabel>
+		<characterLabel type="middle_eastern_scripts">Lähi-idän kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="miscellaneous">Sekalaiset</characterLabel>
+		<characterLabel type="modern_scripts">Nykyaikaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="modifier">Tarkkeenomaiset merkit</characterLabel>
+		<characterLabel type="musical_symbols">Musiikkisymbolit</characterLabel>
+		<characterLabel type="nonspacing">Välittömästi yhdistyvät merkit</characterLabel>
+		<characterLabel type="numbers">Numerot</characterLabel>
+		<characterLabel type="objects">Objektit</characterLabel>
+		<characterLabel type="other">Muu</characterLabel>
+		<characterLabel type="paired">Merkkiparit</characterLabel>
+		<characterLabel type="phonetic_alphabet">Foneettinen aakkosto</characterLabel>
+		<characterLabel type="pictographs">Kuvakirjoitus</characterLabel>
+		<characterLabel type="punctuation">Välimerkit</characterLabel>
+		<characterLabel type="rightwards_arrows">Oikealle osoittavat nuolet</characterLabel>
+		<characterLabel type="sign_standard_symbols">Vakiosymbolit</characterLabel>
+		<characterLabel type="small_form_variant">Vähäiset muotovariantit</characterLabel>
+		<characterLabel type="smileys_people">Hymiöt ja ihmiset</characterLabel>
+		<characterLabel type="south_asian_scripts">Etelä-Aasian kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="southeast_asian_scripts">Kaakkois-Aasian kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="spacing">Välistys</characterLabel>
+		<characterLabel type="symbols">Symbolit</characterLabel>
+		<characterLabel type="technical_symbols">Tekniset symbolit</characterLabel>
+		<characterLabel type="tone_marks">Toonimerkit</characterLabel>
+		<characterLabel type="travel_places">Matkustus ja paikat</characterLabel>
+		<characterLabel type="upwards_arrows">Ylöspäin osoittavat nuolet</characterLabel>
+		<characterLabel type="variant_forms">Varianttimuodot</characterLabel>
+		<characterLabel type="vocalic_jamo">Jamo-vokaalilementit</characterLabel>
+		<characterLabel type="western_asian_scripts">Länsiaasialaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="whitespace">Tyhjämerkit</characterLabel>
+	</characterLabels>
 </ldml>
-

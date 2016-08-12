@@ -12,6 +12,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="SO"/>
 	</identity>
 	<numbers>
+		<symbols numberSystem="latn">
+			<percentSign draft="contributed">٪</percentSign>
+		</symbols>
 		<currencies>
 			<currency type="SOS">
 				<symbol>S</symbol>
@@ -19,4 +22,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 	</numbers>
 </ldml>
-

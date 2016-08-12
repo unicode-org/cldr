@@ -11,6 +11,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="es"/>
 		<territory type="CO"/>
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="ace" draft="contributed">acehnés</language>
+			<language type="arp" draft="contributed">arapaho</language>
+			<language type="bho" draft="contributed">bhojpuri</language>
+			<language type="eu" draft="contributed">euskera</language>
+			<language type="grc" draft="contributed">griego antiguo</language>
+			<language type="lo" draft="contributed">lao</language>
+			<language type="nl_BE" draft="contributed">flamenco</language>
+			<language type="nso" draft="contributed">sotho septentrional</language>
+			<language type="pa" draft="contributed">punyabí</language>
+			<language type="ss" draft="contributed">siswati</language>
+			<language type="sw" draft="contributed">suajili</language>
+			<language type="sw_CD" draft="contributed">suajili del Congo</language>
+			<language type="tn" draft="contributed">setswana</language>
+			<language type="wo" draft="contributed">wolof</language>
+			<language type="zgh" draft="contributed">tamazight marroquí estándar</language>
+			<language type="zh_Hans" draft="contributed">chino simplificado</language>
+			<language type="zh_Hant" draft="contributed">chino tradicional</language>
+			<language type="zun" draft="contributed">zuni</language>
+		</languages>
+		<territories>
+			<territory type="BA" draft="contributed">Bosnia y Herzegovina</territory>
+			<territory type="GB" alt="short" draft="contributed">RU</territory>
+			<territory type="TA" draft="contributed">Tristán de Acuña</territory>
+			<territory type="TL" draft="contributed">Timor-Leste</territory>
+			<territory type="UM" draft="contributed">Islas menores alejadas de EE. UU.</territory>
+			<territory type="US" alt="short" draft="contributed">EE. UU.</territory>
+			<territory type="VI" draft="contributed">Islas Vírgenes de EE. UU.</territory>
+		</territories>
+	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="generic">
@@ -151,6 +182,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 				</months>
 				<days>
+					<dayContext type="format">
+						<dayWidth type="narrow">
+							<day type="sun" draft="contributed">D</day>
+							<day type="mon" draft="contributed">L</day>
+							<day type="tue" draft="contributed">M</day>
+							<day type="wed" draft="contributed">M</day>
+							<day type="thu" draft="contributed">J</day>
+							<day type="fri" draft="contributed">V</day>
+							<day type="sat" draft="contributed">S</day>
+						</dayWidth>
+					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
 							<day type="sun" draft="contributed">d</day>
@@ -164,11 +206,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 				</days>
 				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="provisional">a. m.</dayPeriod>
-							<dayPeriod type="noon" draft="provisional">m.</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">p. m.</dayPeriod>
+							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -220,9 +282,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<availableFormats>
 						<dateFormatItem id="GyMMM" draft="contributed">MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="contributed">E, d MMM 'de' y G</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">H</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="contributed">d 'de' MMM</dateFormatItem>
 						<dateFormatItem id="MMMdd" draft="contributed">d 'de' MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="contributed">E, d 'de' MMM</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="contributed">EEE, d/M/y</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">MMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yMMMd" draft="contributed">d 'de' MMM 'de' y</dateFormatItem>
 					</availableFormats>
@@ -340,6 +406,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<minimumGroupingDigits draft="contributed">2</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
@@ -434,4 +501,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 	</units>
 </ldml>
-

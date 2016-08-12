@@ -57,7 +57,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="awa">Awadhi</language>
 			<language type="ay">Aymareg</language>
 			<language type="az">Aserbaijaneg</language>
-			<language type="az" alt="short" draft="provisional">Aseri</language>
+			<language type="az" alt="short">Aseri</language>
 			<language type="az_Arab">Aserbaijaneg Deheuol</language>
 			<language type="ba">Bashcorteg</language>
 			<language type="bal">Balwtsi</language>
@@ -72,7 +72,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bfq">Badaga</language>
 			<language type="bg">Bwlgareg</language>
 			<language type="bgn">Balochi Gorllewinol</language>
+			<language type="bho">Bhojpuri</language>
 			<language type="bi">Bislama</language>
+			<language type="bin">Bini</language>
 			<language type="bkm">Comeg</language>
 			<language type="bla">Siksika</language>
 			<language type="bm">Bambareg</language>
@@ -84,14 +86,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bs">Bosnieg</language>
 			<language type="bss">Acwseg</language>
 			<language type="bua">Bwriateg</language>
+			<language type="bug">Buginese</language>
 			<language type="bum">Bwlw</language>
+			<language type="byn">Blin</language>
 			<language type="ca">Catalaneg</language>
 			<language type="cad">Cado</language>
 			<language type="car">Caribeg</language>
 			<language type="cch">Atsameg</language>
 			<language type="ce">Tsietsieneg</language>
+			<language type="ceb">Cebuano</language>
 			<language type="cgg">Tsiga</language>
 			<language type="ch">Tsiamorro</language>
+			<language type="chk">Chuukese</language>
 			<language type="chm">Marieg</language>
 			<language type="cho">Siocto</language>
 			<language type="chr">Tsierocî</language>
@@ -101,6 +107,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cop">Copteg</language>
 			<language type="cr">Cri</language>
 			<language type="crh">Tyrceg y Crimea</language>
+			<language type="crs">Ffrangeg Seselwa Creole</language>
 			<language type="cs">Tsieceg</language>
 			<language type="cu">Hen Slafoneg</language>
 			<language type="cv">Tshwfasheg</language>
@@ -112,6 +119,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="de">Almaeneg</language>
 			<language type="de_AT">Almaeneg Awstria</language>
 			<language type="de_CH">Almaeneg Safonol y Swistir</language>
+			<language type="dgr">Dogrib</language>
 			<language type="din">Dinca</language>
 			<language type="dje">Zarmaeg</language>
 			<language type="doi">Dogri</language>
@@ -121,9 +129,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dv">Difehi</language>
 			<language type="dyo">Jola-Fonyi</language>
 			<language type="dz">Dzongkha</language>
+			<language type="dzg">Dazaga</language>
 			<language type="ebu">Embw</language>
 			<language type="ee">Ewe</language>
+			<language type="efi">Efik</language>
 			<language type="egy">Hen Eiffteg</language>
+			<language type="eka">Ekajuk</language>
 			<language type="el">Groeg</language>
 			<language type="elx">Elameg</language>
 			<language type="en">Saesneg</language>
@@ -151,6 +162,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fit">Ffinneg Tornedal</language>
 			<language type="fj">Ffijïeg</language>
 			<language type="fo">Ffaröeg</language>
+			<language type="fon">Fon</language>
 			<language type="fr">Ffrangeg</language>
 			<language type="fr_CA">Ffrangeg Canada</language>
 			<language type="fr_CH">Ffrangeg y Swistir</language>
@@ -158,54 +170,62 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="frm">Ffrangeg Canol</language>
 			<language type="fro">Hen Ffrangeg</language>
 			<language type="frp">Arpitaneg</language>
-			<language type="frr">Ffriseg y Gogledd</language>
+			<language type="frr">Ffriseg Gogleddol</language>
 			<language type="frs">Ffriseg y Dwyrain</language>
 			<language type="fur">Ffriwleg</language>
 			<language type="fy">Ffriseg y Gorllewin</language>
 			<language type="ga">Gwyddeleg</language>
+			<language type="gaa">Ga</language>
 			<language type="gag">Gagauz</language>
 			<language type="gay">Gaio</language>
 			<language type="gba">Gbaia</language>
 			<language type="gbz">Dareg y Zoroastriaid</language>
 			<language type="gd">Gaeleg yr Alban</language>
+			<language type="gez">Geez</language>
 			<language type="gil">Gilberteg</language>
 			<language type="gl">Galisieg</language>
-			<language type="gmh">Uchel Almaeneg Canol</language>
+			<language type="gmh">Almaeneg Uchel Canol</language>
 			<language type="gn">Guaraní</language>
-			<language type="goh">Hen Uchel Almaeneg</language>
+			<language type="goh">Hen Almaeneg Uchel</language>
+			<language type="gor">Gorontalo</language>
 			<language type="got">Gotheg</language>
 			<language type="grc">Hen Roeg</language>
 			<language type="gsw">Almaeneg y Swistir</language>
 			<language type="gu">Gwjarati</language>
 			<language type="guz">Gusii</language>
 			<language type="gv">Manaweg</language>
+			<language type="gwi">Gwichʼin</language>
 			<language type="ha">Hawsa</language>
 			<language type="hai">Haida</language>
 			<language type="haw">Hawäieg</language>
 			<language type="he">Hebraeg</language>
 			<language type="hi">Hindi</language>
+			<language type="hil">Hiligaynon</language>
 			<language type="hit">Hetheg</language>
 			<language type="hmn">Hmongeg</language>
 			<language type="hr">Croateg</language>
 			<language type="hsb">Sorbeg Uchaf</language>
 			<language type="ht">Creol Haiti</language>
 			<language type="hu">Hwngareg</language>
+			<language type="hup">Hupa</language>
 			<language type="hy">Armeneg</language>
 			<language type="hz">Herero</language>
-			<language type="ia" draft="contributed">Interlingua</language>
+			<language type="ia">Interlingua</language>
 			<language type="iba">Ibaneg</language>
 			<language type="ibb">Ibibio</language>
 			<language type="id">Indoneseg</language>
-			<language type="ie" draft="contributed">Interlingue</language>
+			<language type="ie">Interlingue</language>
 			<language type="ig">Igbo</language>
 			<language type="ii">Nwosw</language>
 			<language type="ik">Inwpiaceg</language>
 			<language type="ilo">Ilocaneg</language>
 			<language type="inh">Ingwsieg</language>
+			<language type="io">Ido</language>
 			<language type="is">Islandeg</language>
 			<language type="it">Eidaleg</language>
 			<language type="iu">Inwctitwt</language>
 			<language type="ja">Japaneeg</language>
+			<language type="jbo">Lojban</language>
 			<language type="jgo">Ngomba</language>
 			<language type="jmc">Matsiame</language>
 			<language type="jpr">Iddew-Bersieg</language>
@@ -214,26 +234,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ka">Georgeg</language>
 			<language type="kaa">Cara-Calpaceg</language>
 			<language type="kab">Cabileg</language>
+			<language type="kac">Kachin</language>
+			<language type="kaj">Jju</language>
 			<language type="kam">Camba</language>
 			<language type="kbd">Circaseg Dwyreiniol</language>
 			<language type="kcg">Tyapeg</language>
 			<language type="kde">Macondeg</language>
 			<language type="kea">Caboferdianeg</language>
+			<language type="kfo">Koro</language>
 			<language type="kg">Congo</language>
 			<language type="kha">Càseg</language>
 			<language type="khq">Koyra Chiini</language>
 			<language type="khw">Chowareg</language>
 			<language type="ki">Kikuyu</language>
+			<language type="kj">Kuanyama</language>
 			<language type="kk">Casacheg</language>
+			<language type="kkj">Kako</language>
 			<language type="kl">Kalaallisut</language>
 			<language type="kln">Kalenjin</language>
 			<language type="km">Chmereg</language>
+			<language type="kmb">Kimbundu</language>
 			<language type="kn">Kannada</language>
 			<language type="ko">Coreeg</language>
 			<language type="koi">Komi-Permyak</language>
 			<language type="kok">Concani</language>
+			<language type="kpe">Kpelle</language>
 			<language type="kr">Canwri</language>
+			<language type="krc">Karachay-Balkar</language>
 			<language type="krl">Careleg</language>
+			<language type="kru">Kurukh</language>
 			<language type="ks">Cashmireg</language>
 			<language type="ksb">Shambala</language>
 			<language type="ksf">Baffia</language>
@@ -262,6 +291,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lt">Lithwaneg</language>
 			<language type="ltg">Latgaleg</language>
 			<language type="lu">Luba-Katanga</language>
+			<language type="lua">Luba-Lulua</language>
 			<language type="lun">Lwnda</language>
 			<language type="luo">Lŵo</language>
 			<language type="lus">Lwshaieg</language>
@@ -285,6 +315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="mh">Marsialeg</language>
 			<language type="mi">Maori</language>
 			<language type="mic">Micmaceg</language>
+			<language type="min">Minangkabau</language>
 			<language type="mk">Macedoneg</language>
 			<language type="ml">Malayalam</language>
 			<language type="mn">Mongoleg</language>
@@ -297,27 +328,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ms">Maleieg</language>
 			<language type="mt">Malteg</language>
 			<language type="mua">Mundang</language>
-			<language type="mul">mwy nag un iaith</language>
+			<language type="mul">Mwy nag un iaith</language>
+			<language type="mus">Creek</language>
 			<language type="mwl">Mirandeg</language>
 			<language type="mwr">Marwari</language>
 			<language type="my">Byrmaneg</language>
+			<language type="myv">Erzya</language>
 			<language type="mzn">Masanderani</language>
 			<language type="na">Nawrŵeg</language>
 			<language type="nap">Naplieg</language>
 			<language type="naq">Nama</language>
 			<language type="nb">Norwyeg Bokmål</language>
 			<language type="nd">Ndebele Gogleddol</language>
-			<language type="nds">Isel Almaeneg</language>
+			<language type="nds">Almaeneg Isel</language>
 			<language type="nds_NL">Sacsoneg Isel</language>
 			<language type="ne">Nepaleg</language>
 			<language type="new">Newaeg</language>
 			<language type="ng">Ndonga</language>
+			<language type="nia">Nias</language>
+			<language type="niu">Niuean</language>
 			<language type="njo">Ao Naga</language>
 			<language type="nl">Iseldireg</language>
 			<language type="nl_BE">Fflemeg</language>
 			<language type="nmg">Kwasio</language>
 			<language type="nn">Norwyeg Nynorsk</language>
+			<language type="nnh">Ngiemboon</language>
 			<language type="no">Norwyeg</language>
+			<language type="nog">Nogai</language>
 			<language type="non">Hen Norseg</language>
 			<language type="nqo">N’Ko</language>
 			<language type="nr">Ndebele Deheuol</language>
@@ -341,7 +378,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pag">Pangasineg</language>
 			<language type="pal">Pahlafi</language>
 			<language type="pam">Pampanga</language>
+			<language type="pap">Papiamento</language>
+			<language type="pau">Palawan</language>
 			<language type="pcd">Picardeg</language>
+			<language type="pcm">Pidgin Nigeria</language>
 			<language type="pdc">Almaeneg Pensylfania</language>
 			<language type="peo">Hen Bersieg</language>
 			<language type="pfl">Almaeneg Palatin</language>
@@ -368,7 +408,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ro_MD">Moldofeg</language>
 			<language type="rof">Rombo</language>
 			<language type="rom">Romani</language>
-			<language type="root">y Gwraidd</language>
+			<language type="root">Y Gwraidd</language>
 			<language type="rtm">Rotumaneg</language>
 			<language type="ru">Rwseg</language>
 			<language type="rup">Aromaneg</language>
@@ -376,7 +416,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="rwk">Rwa</language>
 			<language type="sa">Sansgrit</language>
 			<language type="sad">Sandäweg</language>
-			<language type="sah" draft="unconfirmed">Iacwteg</language>
+			<language type="sah">Sakha</language>
 			<language type="sam">Aramaeg Samaria</language>
 			<language type="saq">Sambŵrw</language>
 			<language type="sas">Sasaceg</language>
@@ -400,6 +440,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sgs">Samogiteg</language>
 			<language type="sh">Serbo-Croateg</language>
 			<language type="shi">Tachelhit</language>
+			<language type="shn">Shan</language>
 			<language type="shu">Arabeg Chad</language>
 			<language type="si">Sinhaleg</language>
 			<language type="sid">Sidamo</language>
@@ -417,9 +458,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sog">Sogdeg</language>
 			<language type="sq">Albaneg</language>
 			<language type="sr">Serbeg</language>
+			<language type="srn">Sranan Tongo</language>
 			<language type="srr">Serereg</language>
 			<language type="ss">Swati</language>
-			<language type="st" draft="contributed">Sesotheg</language>
+			<language type="ssy">Saho</language>
+			<language type="st">Sesotheg Deheuol</language>
 			<language type="stq">Ffriseg Saterland</language>
 			<language type="su">Swndaneg</language>
 			<language type="suk">Swcwma</language>
@@ -464,7 +507,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tvl">Twfalweg</language>
 			<language type="tw">Twi</language>
 			<language type="twq">Tasawaq</language>
-			<language type="ty" draft="unconfirmed">Tahitïeg</language>
+			<language type="ty">Tahitïeg</language>
+			<language type="tyv">Twfwnieg</language>
 			<language type="tzm">Tamaseit Canolbarth Moroco</language>
 			<language type="udm">Fotiaceg</language>
 			<language type="ug">Uighur</language>
@@ -480,6 +524,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="vep">Feps</language>
 			<language type="vi">Fietnameg</language>
 			<language type="vls">Fflemeg Gorllewinol</language>
+			<language type="vo">Folapük</language>
 			<language type="vot">Foteg</language>
 			<language type="vun">Funjo</language>
 			<language type="wa">Walwneg</language>
@@ -492,6 +537,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="xal">Calmyceg</language>
 			<language type="xh">Xhosa</language>
 			<language type="xog">Soga</language>
+			<language type="yav">Iangben</language>
 			<language type="ybb">Iembaeg</language>
 			<language type="yi">Iddew-Almaeneg</language>
 			<language type="yo">Iorwba</language>
@@ -521,6 +567,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Grek">Groegaidd</script>
 			<script type="Gujr">Gwjarataidd</script>
 			<script type="Guru">Gwrmwci</script>
+			<script type="Hanb">Hanb</script>
 			<script type="Hang">Hangul</script>
 			<script type="Hani">Han</script>
 			<script type="Hans">Symledig</script>
@@ -529,6 +576,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone">Han traddodiadol</script>
 			<script type="Hebr">Hebreig</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Hrkt">Syllwyddor Japaneaidd</script>
+			<script type="Jamo">Jamo</script>
 			<script type="Jpan">Japaneaidd</script>
 			<script type="Kana">Catacana</script>
 			<script type="Khmr">Chmeraidd</script>
@@ -547,6 +596,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Thaa">Thaana</script>
 			<script type="Thai">Tai</script>
 			<script type="Tibt">Tibetaidd</script>
+			<script type="Zmth">Nodiant Mathemategol</script>
+			<script type="Zsye">Emoji</script>
 			<script type="Zsym">Symbolau</script>
 			<script type="Zxxx">Anysgrifenedig</script>
 			<script type="Zyyy">Cyffredin</script>
@@ -624,7 +675,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CA">Canada</territory>
 			<territory type="CC">Ynysoedd Cocos (Keeling)</territory>
 			<territory type="CD">Y Congo - Kinshasa</territory>
-			<territory type="CD" alt="variant">y Congo (G.Dd.C.)</territory>
+			<territory type="CD" alt="variant">Y Congo (G.Dd.C.)</territory>
 			<territory type="CF">Gweriniaeth Canolbarth Affrica</territory>
 			<territory type="CG">Y Congo - Brazzaville</territory>
 			<territory type="CG" alt="variant">Y Congo (Gweriniaeth)</territory>
@@ -644,6 +695,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Ynys y Nadolig</territory>
 			<territory type="CY">Cyprus</territory>
 			<territory type="CZ">Gweriniaeth Tsiec</territory>
+			<territory type="CZ" alt="variant">Tsiecia</territory>
 			<territory type="DE">Yr Almaen</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibouti</territory>
@@ -895,6 +947,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</variants>
 		<keys>
 			<key type="calendar">Calendr</key>
+			<key type="cf">Fformat Arian</key>
 			<key type="collation">Trefn</key>
 			<key type="currency">Arian Breiniol</key>
 			<key type="hc">Cylched Awr (12 vs 24)</key>
@@ -918,6 +971,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="japanese">Calendr Japan</type>
 			<type key="calendar" type="persian">Calendr Persia</type>
 			<type key="calendar" type="roc">Calendr Gweriniaeth Tseina</type>
+			<type key="cf" type="account">Fformat Arian Cyfrifeg</type>
+			<type key="cf" type="standard">Fformat Arian Safonol</type>
 			<type key="collation" type="big5han">Trefn Traddodiadol Tsieina - Big5</type>
 			<type key="collation" type="dictionary">Trefn Geiriadur</type>
 			<type key="collation" type="ducet">Trefn Rhagosodedig Unicode</type>
@@ -1003,10 +1058,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
-		<quotationStart>‘</quotationStart>
-		<quotationEnd>’</quotationEnd>
-		<alternateQuotationStart>“</alternateQuotationStart>
-		<alternateQuotationEnd>”</alternateQuotationEnd>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -1402,16 +1457,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">yb</dayPeriod>
+							<dayPeriod type="pm">yh</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">b</dayPeriod>
+							<dayPeriod type="pm">h</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">yb</dayPeriod>
+							<dayPeriod type="pm">yh</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">yb</dayPeriod>
+							<dayPeriod type="pm">yh</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">yb</dayPeriod>
+							<dayPeriod type="pm">yh</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">yb</dayPeriod>
+							<dayPeriod type="pm">yh</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1424,9 +1493,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</eraNames>
 					<eraAbbr>
 						<era type="0">CC</era>
-						<era type="0" alt="variant">BCE</era>
+						<era type="0" alt="variant">CCC</era>
 						<era type="1">OC</era>
-						<era type="1" alt="variant">CE</era>
+						<era type="1" alt="variant">CC</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">C</era>
@@ -1501,7 +1570,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
-						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="Ed">d, E</dateFormatItem>
 						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
@@ -1527,6 +1596,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="zero">'wythnos' W 'o' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">'wythnos' W 'o' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="two">'wythnos' W 'o' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="few">'wythnos' W 'o' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="many">'wythnos' W 'o' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">'wythnos' W 'o' MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
@@ -1539,6 +1614,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQ">Q y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yw" count="zero">'wythnos' w 'of' y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'wythnos' w 'of' y</dateFormatItem>
+						<dateFormatItem id="yw" count="two">'wythnos' w 'of' y</dateFormatItem>
+						<dateFormatItem id="yw" count="few">'wythnos' w 'of' y</dateFormatItem>
+						<dateFormatItem id="yw" count="many">'wythnos' w 'of' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'wythnos' w 'of' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1646,7 +1727,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="era">
-				<displayName>Oes</displayName>
+				<displayName>oes</displayName>
 			</field>
 			<field type="year">
 				<displayName>blwyddyn</displayName>
@@ -1710,6 +1791,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter">
 				<displayName>chwarter</displayName>
+				<relative type="-1">chwarter olaf</relative>
+				<relative type="0">chwarter hwn</relative>
+				<relative type="1">chwarter nesaf</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">ymhen {0} o chwarteri</relativeTimePattern>
 					<relativeTimePattern count="one">ymhen {0} chwarter</relativeTimePattern>
@@ -1800,7 +1884,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="zero">{0} mis yn ôl</relativeTimePattern>
 					<relativeTimePattern count="one">{0} mis yn ôl</relativeTimePattern>
-					<relativeTimePattern count="two">{0} mis yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">deufis yn ôl</relativeTimePattern>
 					<relativeTimePattern count="few">{0} mis yn ôl</relativeTimePattern>
 					<relativeTimePattern count="many">{0} mis yn ôl</relativeTimePattern>
 					<relativeTimePattern count="other">{0} mis yn ôl</relativeTimePattern>
@@ -1846,6 +1930,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="many">{0} wythnos yn ôl</relativeTimePattern>
 					<relativeTimePattern count="other">{0} wythnos yn ôl</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>wythnos {0}</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName>wythnos</displayName>
@@ -1865,6 +1950,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="many">{0} wythnos yn ôl</relativeTimePattern>
 					<relativeTimePattern count="other">{0} wythnos yn ôl</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>wythnos {0}</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>wythnos</displayName>
@@ -1884,6 +1970,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="many">{0} wythnos yn ôl</relativeTimePattern>
 					<relativeTimePattern count="other">{0} wythnos yn ôl</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>wythnos {0}</relativePeriod>
 			</field>
 			<field type="day">
 				<displayName>dydd</displayName>
@@ -1959,112 +2046,449 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">dydd Sul diwethaf</relative>
 				<relative type="0">dydd Sul yma</relative>
 				<relative type="1">dydd Sul nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} Ddydd Sul</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} Dydd Sul</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Ddydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Dydd Sul yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-short">
 				<relative type="-1">Sul diwethaf</relative>
 				<relative type="0">Sul yma</relative>
 				<relative type="1">Sul nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} Ddydd Sul</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} Dydd Sul</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Ddydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Dydd Sul yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1">Sul diwethaf</relative>
 				<relative type="0">Sul yma</relative>
 				<relative type="1">Sul nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} Ddydd Sul</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} Dydd Sul</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} Dydd Sul</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Ddydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} Dydd Sul yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Dydd Sul yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon">
 				<relative type="-1">dydd Llun diwethaf</relative>
 				<relative type="0">dydd Llun yma</relative>
 				<relative type="1">dydd Llun nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} Ddydd Llun</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} Dydd Llun</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Llun yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-short">
 				<relative type="-1">Llun diwethaf</relative>
 				<relative type="0">Llun yma</relative>
 				<relative type="1">Llun nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} Ddydd Llun</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} Dydd Llun</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} ddydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Llun yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1">Llun diwethaf</relative>
 				<relative type="0">Llun yma</relative>
 				<relative type="1">Llun nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} Ddydd Llun</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} Dydd Llun</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} Dydd Llun</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Llun yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Llun yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue">
 				<relative type="-1">dydd Mawrth diwethaf</relative>
 				<relative type="0">dydd Mawrth yma</relative>
 				<relative type="1">dydd Mawrth nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Mawrth</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Mawrth yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-short">
 				<relative type="-1">Mawrth diwethaf</relative>
 				<relative type="0">Mawrth yma</relative>
 				<relative type="1">Mawrth nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Mawrth</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Mawrth yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-narrow">
 				<relative type="-1">Maw. diwethaf</relative>
 				<relative type="0">Maw. yma</relative>
 				<relative type="1">Maw. nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Mawrth</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Mawrth</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Mawrth yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Mawrth yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed">
 				<relative type="-1">dydd Mercher diwethaf</relative>
 				<relative type="0">dydd Mercher yma</relative>
 				<relative type="1">dydd Mercher nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Mercher</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Mercher yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-short">
 				<relative type="-1">Mercher diwethaf</relative>
 				<relative type="0">Mercher yma</relative>
 				<relative type="1">Mercher nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Mercher</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Mercher yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-narrow">
 				<relative type="-1">Merch. diwethaf</relative>
 				<relative type="0">Merch. yma</relative>
 				<relative type="1">Merch. nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Mercher</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Mercher</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Mercher yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Mercher yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu">
 				<relative type="-1">dydd Iau diwethaf</relative>
 				<relative type="0">dydd Iau yma</relative>
 				<relative type="1">dydd Iau nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Iau</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Iau</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Iau yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-short">
 				<relative type="-1">Iau diwethaf</relative>
 				<relative type="0">Iau yma</relative>
 				<relative type="1">Iau nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddau Iau</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Iau</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Iau yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-narrow">
 				<relative type="-1">Iau diwethaf</relative>
 				<relative type="0">Iau yma</relative>
 				<relative type="1">Iau nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Iau</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Iau</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Iau</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Iau yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Iau yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri">
 				<relative type="-1">dydd Gwener diwethaf</relative>
 				<relative type="0">dydd Gwener yma</relative>
 				<relative type="1">dydd Gwener nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Gwener</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Gwener yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-short">
 				<relative type="-1">Gwener diwethaf</relative>
 				<relative type="0">Gwener yma</relative>
 				<relative type="1">Gwener nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Gwener</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Gwener yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1">Gwen. diwethaf</relative>
 				<relative type="0">Gwen. yma</relative>
 				<relative type="1">Gwen. nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Gwener</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Gwener</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Gwener yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Gwener yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat">
 				<relative type="-1">dydd Sadwrn diwethaf</relative>
 				<relative type="0">dydd Sadwrn yma</relative>
 				<relative type="1">dydd Sadwrn nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Sadwrn</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-short">
 				<relative type="-1">Sadwrn diwethaf</relative>
 				<relative type="0">Sadwrn yma</relative>
 				<relative type="1">Sadwrn nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Sadwrn</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-narrow">
 				<relative type="-1">Sad. diwethaf</relative>
 				<relative type="0">Sad. yma</relative>
 				<relative type="1">Sad. nesaf</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="one">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="two">ymhen {0} ddydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="few">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="many">ymhen {0} dydd Sadwrn</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} dydd Sadwrn</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="one">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="two">{0} ddydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="many">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dydd Sadwrn yn ôl</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="dayperiod">
-				<displayName>AM/PM</displayName>
+				<displayName>YB/YH</displayName>
 			</field>
 			<field type="hour">
 				<displayName>awr</displayName>
+				<relative type="0">yr awr hon</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">ymhen {0} awr</relativeTimePattern>
 					<relativeTimePattern count="one">ymhen awr</relativeTimePattern>
@@ -2122,6 +2546,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute">
 				<displayName>munud</displayName>
+				<relative type="0">y funud hon</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">ymhen {0} munud</relativeTimePattern>
 					<relativeTimePattern count="one">ymhen munud</relativeTimePattern>
@@ -2236,7 +2661,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="zone">
-				<displayName>Cylchfa Amser</displayName>
+				<displayName>cylchfa amser</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -2386,7 +2811,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Macquarie</exemplarCity>
 			</zone>
 			<zone type="Australia/Lord_Howe">
-				<exemplarCity draft="provisional">Lord Howe</exemplarCity>
+				<exemplarCity>Lord Howe</exemplarCity>
 			</zone>
 			<zone type="America/Aruba">
 				<exemplarCity>Aruba</exemplarCity>
@@ -2513,6 +2938,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity>Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Fort_Nelson">
+				<exemplarCity>Fort Nelson</exemplarCity>
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>Dawson Creek</exemplarCity>
@@ -2686,7 +3114,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Asmera</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Canary">
-				<exemplarCity>yr Ynysoedd Dedwydd</exemplarCity>
+				<exemplarCity>Yr Ynysoedd Dedwydd</exemplarCity>
 			</zone>
 			<zone type="Africa/Ceuta">
 				<exemplarCity>Ceuta</exemplarCity>
@@ -3180,6 +3608,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
 			</zone>
+			<zone type="Europe/Astrakhan">
+				<exemplarCity>Astrakhan</exemplarCity>
+			</zone>
+			<zone type="Europe/Ulyanovsk">
+				<exemplarCity>Ulyanovsk</exemplarCity>
+			</zone>
+			<zone type="Europe/Kirov">
+				<exemplarCity>Kirov</exemplarCity>
+			</zone>
 			<zone type="Europe/Samara">
 				<exemplarCity>Samara</exemplarCity>
 			</zone>
@@ -3191,6 +3628,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>Novosibirsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Barnaul">
+				<exemplarCity>Barnaul</exemplarCity>
+			</zone>
+			<zone type="Asia/Tomsk">
+				<exemplarCity>Tomsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Novokuznetsk">
 				<exemplarCity>Novokuznetsk</exemplarCity>
@@ -3463,7 +3906,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Tashkent</exemplarCity>
 			</zone>
 			<zone type="Europe/Vatican">
-				<exemplarCity>y Fatican</exemplarCity>
+				<exemplarCity>Y Fatican</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity>Saint Vincent</exemplarCity>
@@ -4227,6 +4670,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Amser Pohnpei</standard>
 				</long>
 			</metazone>
+			<metazone type="Pyongyang">
+				<long>
+					<standard>Amser Pyongyang</standard>
+				</long>
+			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Amser Réunion</standard>
@@ -4894,7 +5342,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Marc Trosadwy Bosnia a Hercegovina</displayName>
 				<displayName count="zero">marc trosadwy Bosnia a Hercegovina</displayName>
 				<displayName count="one">marc trosadwy Bosnia a Hercegovina</displayName>
-				<displayName count="two">marc trosadwy Bosnia a Hercegovina</displayName>
+				<displayName count="two">farc trosiadwy Bosnia a Hercegovina</displayName>
 				<displayName count="few">marc trosadwy Bosnia a Hercegovina</displayName>
 				<displayName count="many">marc trosadwy Bosnia a Hercegovina</displayName>
 				<displayName count="other">marc trosadwy Bosnia a Hercegovina</displayName>
@@ -4904,7 +5352,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BBD">
 				<displayName>Doler Barbados</displayName>
 				<displayName count="zero">doler Barbados</displayName>
-				<displayName count="one">ddoler Barbados</displayName>
+				<displayName count="one">doler Barbados</displayName>
 				<displayName count="two">ddoler Barbados</displayName>
 				<displayName count="few">doler Barbados</displayName>
 				<displayName count="many">doler Barbados</displayName>
@@ -4985,7 +5433,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BMD">
 				<displayName>Doler Bermuda</displayName>
 				<displayName count="zero">doler Bermuda</displayName>
-				<displayName count="one">ddoler Bermuda</displayName>
+				<displayName count="one">doler Bermuda</displayName>
 				<displayName count="two">ddoler Bermuda</displayName>
 				<displayName count="few">doler Bermuda</displayName>
 				<displayName count="many">doler Bermuda</displayName>
@@ -5120,7 +5568,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Doler y Bahamas</displayName>
 				<displayName count="zero">doler y Bahamas</displayName>
 				<displayName count="one">doler y Bahamas</displayName>
-				<displayName count="two">doler y Bahamas</displayName>
+				<displayName count="two">ddoler y Bahamas</displayName>
 				<displayName count="few">doler y Bahamas</displayName>
 				<displayName count="many">doler y Bahamas</displayName>
 				<displayName count="other">doler y Bahamas</displayName>
@@ -5172,7 +5620,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BZD">
 				<displayName>Doler Belize</displayName>
 				<displayName count="zero">doler Belize</displayName>
-				<displayName count="one">ddoler Belize</displayName>
+				<displayName count="one">doler Belize</displayName>
 				<displayName count="two">ddoler Belize</displayName>
 				<displayName count="few">doler Belize</displayName>
 				<displayName count="many">doler Belize</displayName>
@@ -5183,7 +5631,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CAD">
 				<displayName>Doler Canada</displayName>
 				<displayName count="zero">doler Canada</displayName>
-				<displayName count="one">ddoler Canada</displayName>
+				<displayName count="one">doler Canada</displayName>
 				<displayName count="two">ddoler Canada</displayName>
 				<displayName count="few">doler Canada</displayName>
 				<displayName count="many">doler Canada</displayName>
@@ -5410,7 +5858,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="EGP">
 				<displayName>Punt Yr Aifft</displayName>
 				<displayName count="zero">punt yr Aifft</displayName>
-				<displayName count="one">bunt yr Aifft</displayName>
+				<displayName count="one">punt yr Aifft</displayName>
 				<displayName count="two">bunt yr Aifft</displayName>
 				<displayName count="few">punt yr Aifft</displayName>
 				<displayName count="many">phunt yr Aifft</displayName>
@@ -5469,7 +5917,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="FKP">
 				<displayName>Punt Ynysoedd Falkland/Malvinas</displayName>
 				<displayName count="zero">punt Ynysoedd Falkland/Malvinas</displayName>
-				<displayName count="one">bunt Ynysoedd Falkland/Malvinas</displayName>
+				<displayName count="one">punt Ynysoedd Falkland/Malvinas</displayName>
 				<displayName count="two">bunt Ynysoedd Falkland/Malvinas</displayName>
 				<displayName count="few">punt Ynysoedd Falkland/Malvinas</displayName>
 				<displayName count="many">phunt Ynysoedd Falkland/Malvinas</displayName>
@@ -5510,6 +5958,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="many">lari Georgia</displayName>
 				<displayName count="other">lari Georgia</displayName>
 				<symbol draft="contributed">GEL</symbol>
+				<symbol alt="narrow" draft="contributed">₾</symbol>
 				<symbol alt="variant" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="GHC">
@@ -5535,7 +5984,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="GIP">
 				<displayName>Punt Gibraltar</displayName>
 				<displayName count="zero">punt Gibraltar</displayName>
-				<displayName count="one">bunt Gibraltar</displayName>
+				<displayName count="one">punt Gibraltar</displayName>
 				<displayName count="two">bunt Gibraltar</displayName>
 				<displayName count="few">punt Gibraltar</displayName>
 				<displayName count="many">phunt Gibraltar</displayName>
@@ -5614,7 +6063,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="GYD">
 				<displayName>Doler Guyana</displayName>
 				<displayName count="zero">doler Guyana</displayName>
-				<displayName count="one">ddoler Guyana</displayName>
+				<displayName count="one">doler Guyana</displayName>
 				<displayName count="two">ddoler Guyana</displayName>
 				<displayName count="few">doler Guyana</displayName>
 				<displayName count="many">doler Guyana</displayName>
@@ -5625,7 +6074,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="HKD">
 				<displayName>Doler Hong Kong</displayName>
 				<displayName count="zero">doler Hong Kong</displayName>
-				<displayName count="one">ddoler Hong Kong</displayName>
+				<displayName count="one">doler Hong Kong</displayName>
 				<displayName count="two">ddoler Hong Kong</displayName>
 				<displayName count="few">doler Hong Kong</displayName>
 				<displayName count="many">doler Hong Kong</displayName>
@@ -5904,7 +6353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="KYD">
 				<displayName>Doler Ynysoedd Cayman</displayName>
 				<displayName count="zero">doler Ynysoedd Cayman</displayName>
-				<displayName count="one">ddoler Ynysoedd Cayman</displayName>
+				<displayName count="one">doler Ynysoedd Cayman</displayName>
 				<displayName count="two">ddoler Ynysoedd Cayman</displayName>
 				<displayName count="few">doler Ynysoedd Cayman</displayName>
 				<displayName count="many">doler Ynysoedd Cayman</displayName>
@@ -5937,7 +6386,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="LBP">
 				<displayName>Punt Libanus</displayName>
 				<displayName count="zero">punt Libanus</displayName>
-				<displayName count="one">bunt Libanus</displayName>
+				<displayName count="one">punt Libanus</displayName>
 				<displayName count="two">bunt Libanus</displayName>
 				<displayName count="few">punt Libanus</displayName>
 				<displayName count="many">phunt Libanus</displayName>
@@ -6276,7 +6725,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="NAD">
 				<displayName>Doler Namibia</displayName>
 				<displayName count="zero">doler Namibia</displayName>
-				<displayName count="one">ddoler Namibia</displayName>
+				<displayName count="one">doler Namibia</displayName>
 				<displayName count="two">ddoler Namibia</displayName>
 				<displayName count="few">doler Namibia</displayName>
 				<displayName count="many">doler Namibia</displayName>
@@ -6421,12 +6870,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="PHP">
 				<displayName>Peso’r Philipinau</displayName>
-				<displayName count="zero">Peso Pilipinas</displayName>
-				<displayName count="one">Peso Pilipinas</displayName>
-				<displayName count="two">Peso Pilipinas</displayName>
-				<displayName count="few">Peso Pilipinas</displayName>
-				<displayName count="many">Peso Pilipinas</displayName>
-				<displayName count="other">Peso Pilipinas</displayName>
+				<displayName count="zero">peso Philipinas</displayName>
+				<displayName count="one">peso Philipinas</displayName>
+				<displayName count="two">peso Philipinas</displayName>
+				<displayName count="few">peso Philipinas</displayName>
+				<displayName count="many">peso Philipinas</displayName>
+				<displayName count="other">peso Philipinas</displayName>
 				<symbol draft="contributed">PHP</symbol>
 				<symbol alt="narrow" draft="contributed">₱</symbol>
 			</currency>
@@ -6531,7 +6980,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SAR">
 				<displayName>Riyal Saudi Arabia</displayName>
 				<displayName count="zero">riyal Saudi Arabia</displayName>
-				<displayName count="one">Riyal Saudi Arabia</displayName>
+				<displayName count="one">riyal Saudi Arabia</displayName>
 				<displayName count="two">riyal Saudi Arabia</displayName>
 				<displayName count="few">riyal Saudi Arabia</displayName>
 				<displayName count="many">riyal Saudi Arabia</displayName>
@@ -6572,7 +7021,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SDG">
 				<displayName>Punt Sudan</displayName>
 				<displayName count="zero">punt Sudan</displayName>
-				<displayName count="one">bunt Sudan</displayName>
+				<displayName count="one">punt Sudan</displayName>
 				<displayName count="two">bunt Sudan</displayName>
 				<displayName count="few">punt Sudan</displayName>
 				<displayName count="many">phunt Sudan</displayName>
@@ -6614,7 +7063,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SHP">
 				<displayName>Punt Saint Helena</displayName>
 				<displayName count="zero">punt St. Helena</displayName>
-				<displayName count="one">bunt St. Helena</displayName>
+				<displayName count="one">punt St. Helena</displayName>
 				<displayName count="two">bunt St. Helena</displayName>
 				<displayName count="few">punt St. Helena</displayName>
 				<displayName count="many">phunt St. Helena</displayName>
@@ -6648,7 +7097,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SRD">
 				<displayName>Doler Surinam</displayName>
 				<displayName count="zero">doler Surinam</displayName>
-				<displayName count="one">ddoler Surinam</displayName>
+				<displayName count="one">doler Surinam</displayName>
 				<displayName count="two">ddoler Surinam</displayName>
 				<displayName count="few">doler Surinam</displayName>
 				<displayName count="many">doler Surinam</displayName>
@@ -6669,7 +7118,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SSP">
 				<displayName>Punt De Sudan</displayName>
 				<displayName count="zero">punt De Sudan</displayName>
-				<displayName count="one">bunt De Sudan</displayName>
+				<displayName count="one">punt De Sudan</displayName>
 				<displayName count="two">bunt De Sudan</displayName>
 				<displayName count="few">punt De Sudan</displayName>
 				<displayName count="many">phunt De Sudan</displayName>
@@ -6700,12 +7149,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="SYP">
 				<displayName>Punt Syria</displayName>
-				<displayName count="zero">Punt Syria</displayName>
-				<displayName count="one">Punt Syria</displayName>
-				<displayName count="two">Punt Syria</displayName>
-				<displayName count="few">Punt Syria</displayName>
-				<displayName count="many">Punt Syria</displayName>
-				<displayName count="other">Punt Syria</displayName>
+				<displayName count="zero">punt Syria</displayName>
+				<displayName count="one">punt Syria</displayName>
+				<displayName count="two">bunt Syria</displayName>
+				<displayName count="few">punt Syria</displayName>
+				<displayName count="many">punt Syria</displayName>
+				<displayName count="other">punt Syria</displayName>
 				<symbol draft="contributed">SYP</symbol>
 				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
@@ -6813,12 +7262,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="TRY">
 				<displayName>Lira Twrci</displayName>
-				<displayName count="zero">Lira Twrci</displayName>
-				<displayName count="one">Lira Twrci</displayName>
-				<displayName count="two">Lira Twrci</displayName>
-				<displayName count="few">Lira Twrci</displayName>
-				<displayName count="many">Lira Twrci</displayName>
-				<displayName count="other">Lira Twrci</displayName>
+				<displayName count="zero">lira Twrci</displayName>
+				<displayName count="one">lira Twrci</displayName>
+				<displayName count="two">lira Twrci</displayName>
+				<displayName count="few">lira Twrci</displayName>
+				<displayName count="many">lira Twrci</displayName>
+				<displayName count="other">lira Twrci</displayName>
 				<symbol draft="contributed">TRY</symbol>
 				<symbol alt="narrow" draft="contributed">₺</symbol>
 				<symbol alt="variant" draft="contributed">TL</symbol>
@@ -6826,7 +7275,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="TTD">
 				<displayName>Doler Trinidad a Tobago</displayName>
 				<displayName count="zero">doler Trinidad a Tobago</displayName>
-				<displayName count="one">ddoler Trinidad a Tobago</displayName>
+				<displayName count="one">doler Trinidad a Tobago</displayName>
 				<displayName count="two">ddoler Trinidad a Tobago</displayName>
 				<displayName count="few">doler Trinidad a Tobago</displayName>
 				<displayName count="many">doler Trinidad a Tobago</displayName>
@@ -6837,7 +7286,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="TWD">
 				<displayName>Doler Newydd Taiwan</displayName>
 				<displayName count="zero">doler newydd Taiwan</displayName>
-				<displayName count="one">ddoler newydd Taiwan</displayName>
+				<displayName count="one">doler newydd Taiwan</displayName>
 				<displayName count="two">ddoler newydd Taiwan</displayName>
 				<displayName count="few">doler newydd Taiwan</displayName>
 				<displayName count="many">doler newydd Taiwan</displayName>
@@ -6889,7 +7338,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="USD">
 				<displayName>Doler UDA</displayName>
 				<displayName count="zero">doler UDA</displayName>
-				<displayName count="one">ddoler UDA</displayName>
+				<displayName count="one">doler UDA</displayName>
 				<displayName count="two">ddoler UDA</displayName>
 				<displayName count="few">doler UDA</displayName>
 				<displayName count="many">doler UDA</displayName>
@@ -6963,10 +7412,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="VEF">
 				<displayName>Bolívar Venezuela</displayName>
-				<displayName count="zero">Bolívar Venezuela</displayName>
-				<displayName count="one">Bolívar Venezuela</displayName>
-				<displayName count="two">Bolívar Venezuela</displayName>
-				<displayName count="few">Bolívar Venezuela</displayName>
+				<displayName count="zero">bolivar Venezuela</displayName>
+				<displayName count="one">bolivar Venezuela</displayName>
+				<displayName count="two">bolivar Venezuela</displayName>
+				<displayName count="few">bolivar Venezuela</displayName>
 				<displayName count="many">bolivar Venezuela</displayName>
 				<displayName count="other">bolivar Venezuela</displayName>
 				<symbol draft="contributed">VEF</symbol>
@@ -7026,7 +7475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XCD">
 				<displayName>Doler Dwyrain y Caribî</displayName>
 				<displayName count="zero">doler Dwyrain y Caribî</displayName>
-				<displayName count="one">ddoler Dwyrain y Caribî</displayName>
+				<displayName count="one">doler Dwyrain y Caribî</displayName>
 				<displayName count="two">ddoler Dwyrain y Caribî</displayName>
 				<displayName count="few">doler Dwyrain y Caribî</displayName>
 				<displayName count="many">doler Dwyrain y Caribî</displayName>
@@ -7079,12 +7528,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="YER">
 				<displayName>Rial Yemen</displayName>
-				<displayName count="zero">Rial Yemen</displayName>
-				<displayName count="one">Rial Yemen</displayName>
-				<displayName count="two">Rial Yemen</displayName>
-				<displayName count="few">Rial Yemen</displayName>
-				<displayName count="many">Rial Yemen</displayName>
-				<displayName count="other">Rial Yemen</displayName>
+				<displayName count="zero">rial Yemen</displayName>
+				<displayName count="one">rial Yemen</displayName>
+				<displayName count="two">rial Yemen</displayName>
+				<displayName count="few">rial Yemen</displayName>
+				<displayName count="many">rial Yemen</displayName>
+				<displayName count="other">rial Yemen</displayName>
 				<symbol draft="contributed">YER</symbol>
 			</currency>
 			<currency type="YUD">
@@ -7248,22 +7697,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} gradd</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>arcfunudau</displayName>
-				<unitPattern count="zero">{0} arcfunud</unitPattern>
-				<unitPattern count="one">{0} arcfunud</unitPattern>
-				<unitPattern count="two">{0} arcfunud</unitPattern>
-				<unitPattern count="few">{0} arcfunud</unitPattern>
-				<unitPattern count="many">{0} arcfunud</unitPattern>
-				<unitPattern count="other">{0} arcfunud</unitPattern>
+				<displayName>archfunudau</displayName>
+				<unitPattern count="zero">{0} archfunud</unitPattern>
+				<unitPattern count="one">{0} archfunud</unitPattern>
+				<unitPattern count="two">{0} archfunud</unitPattern>
+				<unitPattern count="few">{0} archfunud</unitPattern>
+				<unitPattern count="many">{0} archfunud</unitPattern>
+				<unitPattern count="other">{0} archfunud</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>arceiliadau</displayName>
-				<unitPattern count="zero">{0} arceiliad</unitPattern>
-				<unitPattern count="one">{0} arceiliad</unitPattern>
-				<unitPattern count="two">{0} arceiliad</unitPattern>
-				<unitPattern count="few">{0} arceiliad</unitPattern>
-				<unitPattern count="many">{0} arceiliad</unitPattern>
-				<unitPattern count="other">{0} arceiliad</unitPattern>
+				<displayName>archeiliadau</displayName>
+				<unitPattern count="zero">{0} archeiliad</unitPattern>
+				<unitPattern count="one">{0} archeiliad</unitPattern>
+				<unitPattern count="two">{0} archeiliad</unitPattern>
+				<unitPattern count="few">{0} archeiliad</unitPattern>
+				<unitPattern count="many">{0} archeiliad</unitPattern>
+				<unitPattern count="other">{0} archeiliad</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>cilometrau sgwâr</displayName>
@@ -7273,6 +7722,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} chilometr sgwâr</unitPattern>
 				<unitPattern count="many">{0} chilometr sgwâr</unitPattern>
 				<unitPattern count="other">{0} cilometr sgwâr</unitPattern>
+				<perUnitPattern>{0} y cilometr sgwâr</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>hectarau</displayName>
@@ -7311,9 +7761,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} milltir sgwâr</unitPattern>
 				<unitPattern count="many">{0} milltir sgwâr</unitPattern>
 				<unitPattern count="other">{0} milltir sgwâr</unitPattern>
+				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName draft="provisional">erw</displayName>
+				<displayName>erw</displayName>
 				<unitPattern count="zero">{0} erw</unitPattern>
 				<unitPattern count="one">{0} erw</unitPattern>
 				<unitPattern count="two">{0} erw</unitPattern>
@@ -7358,6 +7809,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} karat</unitPattern>
 				<unitPattern count="other">{0} karat</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>miligramau y declilitr</displayName>
+				<unitPattern count="zero">{0} miligram y decilitr</unitPattern>
+				<unitPattern count="one">{0} miligram y decilitr</unitPattern>
+				<unitPattern count="two">{0} miligram y decilitr</unitPattern>
+				<unitPattern count="few">{0} miligram y decilitr</unitPattern>
+				<unitPattern count="many">{0} miligram y decilitr</unitPattern>
+				<unitPattern count="other">{0} miligram y decilitr</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>milimolau y litr</displayName>
+				<unitPattern count="zero">{0} milimôl y litr</unitPattern>
+				<unitPattern count="one">{0} milimôl y litr</unitPattern>
+				<unitPattern count="two">{0} milimôl y litr</unitPattern>
+				<unitPattern count="few">{0} milimôl y litr</unitPattern>
+				<unitPattern count="many">{0} milimôl y litr</unitPattern>
+				<unitPattern count="other">{0} milimôl y litr</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>rhannau pob miliwn</displayName>
+				<unitPattern count="zero">{0} rhan pob miliwn</unitPattern>
+				<unitPattern count="one">{0} rhan pob miliwn</unitPattern>
+				<unitPattern count="two">{0} rhan pob miliwn</unitPattern>
+				<unitPattern count="few">{0} rhan pob miliwn</unitPattern>
+				<unitPattern count="many">{0} rhan pob miliwn</unitPattern>
+				<unitPattern count="other">{0} rhan pob miliwn</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litrau y cilometr</displayName>
 				<unitPattern count="zero">{0} litr y cilometr</unitPattern>
@@ -7384,6 +7862,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} milltir y galwyn</unitPattern>
 				<unitPattern count="many">{0} milltir y galwyn</unitPattern>
 				<unitPattern count="other">{0} milltir y galwyn</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>milltiroedd y galwyn Imp.</displayName>
+				<unitPattern count="zero">{0} milltir y galwyn Imp.</unitPattern>
+				<unitPattern count="one">{0} milltir y galwyn Imp.</unitPattern>
+				<unitPattern count="two">{0} filltir y galwyn Imp.</unitPattern>
+				<unitPattern count="few">{0} milltir y galwyn Imp.</unitPattern>
+				<unitPattern count="many">{0} milltir y galwyn Imp.</unitPattern>
+				<unitPattern count="other">{0} milltir y galwyn Imp.</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabeitiau</displayName>
@@ -7663,13 +8150,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} joule</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName draft="provisional">cilowat oriau</displayName>
-				<unitPattern count="zero" draft="provisional">{0} cilowat awr</unitPattern>
-				<unitPattern count="one" draft="provisional">{0} cilowat awr</unitPattern>
-				<unitPattern count="two" draft="provisional">{0} gilowat awr</unitPattern>
-				<unitPattern count="few" draft="provisional">{0} chilowat awr</unitPattern>
-				<unitPattern count="many" draft="provisional">{0} chilowat awr</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} cilowat awr</unitPattern>
+				<displayName>cilowat oriau</displayName>
+				<unitPattern count="zero">{0} cilowat awr</unitPattern>
+				<unitPattern count="one">{0} cilowat awr</unitPattern>
+				<unitPattern count="two">{0} gilowat awr</unitPattern>
+				<unitPattern count="few">{0} chilowat awr</unitPattern>
+				<unitPattern count="many">{0} chilowat awr</unitPattern>
+				<unitPattern count="other">{0} cilowat awr</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>gigaherts</displayName>
@@ -7987,13 +8474,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} owns pwysau aur</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<displayName draft="provisional">caratau</displayName>
-				<unitPattern count="zero" draft="provisional">{0} carat</unitPattern>
-				<unitPattern count="one" draft="provisional">{0} carat</unitPattern>
-				<unitPattern count="two" draft="provisional">{0} garat</unitPattern>
-				<unitPattern count="few" draft="provisional">{0} charat</unitPattern>
-				<unitPattern count="many" draft="provisional">{0} charat</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} carat</unitPattern>
+				<displayName>caratau</displayName>
+				<unitPattern count="zero">{0} carat</unitPattern>
+				<unitPattern count="one">{0} carat</unitPattern>
+				<unitPattern count="two">{0} garat</unitPattern>
+				<unitPattern count="few">{0} charat</unitPattern>
+				<unitPattern count="many">{0} charat</unitPattern>
+				<unitPattern count="other">{0} carat</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>gigawatiau</displayName>
@@ -8305,13 +8792,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} cwpanaid metrig</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName draft="provisional">erw-droedfeddi</displayName>
-				<unitPattern count="zero" draft="provisional">{0} erw-droedfedd</unitPattern>
-				<unitPattern count="one" draft="provisional">{0} erw-droedfedd</unitPattern>
-				<unitPattern count="two" draft="provisional">{0} erw-droedfedd</unitPattern>
-				<unitPattern count="few" draft="provisional">{0} erw-droedfedd</unitPattern>
-				<unitPattern count="many" draft="provisional">{0} erw-droedfedd</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} erw-droedfedd</unitPattern>
+				<displayName>erw-droedfeddi</displayName>
+				<unitPattern count="zero">{0} erw-droedfedd</unitPattern>
+				<unitPattern count="one">{0} erw-droedfedd</unitPattern>
+				<unitPattern count="two">{0} erw-droedfedd</unitPattern>
+				<unitPattern count="few">{0} erw-droedfedd</unitPattern>
+				<unitPattern count="many">{0} erw-droedfedd</unitPattern>
+				<unitPattern count="other">{0} erw-droedfedd</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<displayName>bwsielau</displayName>
@@ -8331,6 +8818,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} galwyn</unitPattern>
 				<unitPattern count="other">{0} galwyn</unitPattern>
 				<perUnitPattern>{0} y galwyn</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>Galwyni Imp.</displayName>
+				<unitPattern count="zero">{0} galwyn Imp.</unitPattern>
+				<unitPattern count="one">{0} galwyn Imp.</unitPattern>
+				<unitPattern count="two">{0} galwyn Imp.</unitPattern>
+				<unitPattern count="few">{0} galwyn Imp.</unitPattern>
+				<unitPattern count="many">{0} galwyn Imp.</unitPattern>
+				<unitPattern count="other">{0} galwyn Imp.</unitPattern>
+				<perUnitPattern>{0} y galwyn Imp.</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>chwartiau</displayName>
@@ -8443,22 +8940,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>arcfunudau</displayName>
-				<unitPattern count="zero">{0}′</unitPattern>
-				<unitPattern count="one">{0}′</unitPattern>
-				<unitPattern count="two">{0}′</unitPattern>
-				<unitPattern count="few">{0}′</unitPattern>
-				<unitPattern count="many">{0}′</unitPattern>
-				<unitPattern count="other">{0}′</unitPattern>
+				<displayName>archfunudau</displayName>
+				<unitPattern count="zero">{0} archfun</unitPattern>
+				<unitPattern count="one">{0} archfun</unitPattern>
+				<unitPattern count="two">{0} archfun</unitPattern>
+				<unitPattern count="few">{0} archfun</unitPattern>
+				<unitPattern count="many">{0} archfun</unitPattern>
+				<unitPattern count="other">{0} archfun</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>arceiliadau</displayName>
-				<unitPattern count="zero">{0}″</unitPattern>
-				<unitPattern count="one">{0}″</unitPattern>
-				<unitPattern count="two">{0}″</unitPattern>
-				<unitPattern count="few">{0}″</unitPattern>
-				<unitPattern count="many">{0}″</unitPattern>
-				<unitPattern count="other">{0}″</unitPattern>
+				<displayName>archeiliadau</displayName>
+				<unitPattern count="zero">{0} archeiliad</unitPattern>
+				<unitPattern count="one">{0} archeiliad</unitPattern>
+				<unitPattern count="two">{0} archeiliad</unitPattern>
+				<unitPattern count="few">{0} archeiliad</unitPattern>
+				<unitPattern count="many">{0} archeiliad</unitPattern>
+				<unitPattern count="other">{0} archeiliad</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName>km²</displayName>
@@ -8468,6 +8965,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} km²</unitPattern>
 				<unitPattern count="many">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
+				<perUnitPattern>{0}/km²</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>hectarau</displayName>
@@ -8479,7 +8977,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="provisional">meterau²</displayName>
+				<displayName>meterau²</displayName>
 				<unitPattern count="zero">{0} m²</unitPattern>
 				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="two">{0} m²</unitPattern>
@@ -8506,9 +9004,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mi²</unitPattern>
 				<unitPattern count="many">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
+				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName draft="provisional">erw</displayName>
+				<displayName>erw</displayName>
 				<unitPattern count="zero">{0} erw</unitPattern>
 				<unitPattern count="one">{0} erw</unitPattern>
 				<unitPattern count="two">{0} erw</unitPattern>
@@ -8517,7 +9016,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} erw</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName draft="provisional">llath²</displayName>
+				<displayName>llath²</displayName>
 				<unitPattern count="zero">{0} llath²</unitPattern>
 				<unitPattern count="one">{0} llath²</unitPattern>
 				<unitPattern count="two">{0} llath²</unitPattern>
@@ -8553,6 +9052,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} kt</unitPattern>
 				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>mg/dL</displayName>
+				<unitPattern count="zero">{0} mg/dL</unitPattern>
+				<unitPattern count="one">{0} mg/dL</unitPattern>
+				<unitPattern count="two">{0} mg/dL</unitPattern>
+				<unitPattern count="few">{0} mg/dL</unitPattern>
+				<unitPattern count="many">{0} mg/dL</unitPattern>
+				<unitPattern count="other">{0} mg/dL</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>milimôl/litr</displayName>
+				<unitPattern count="zero">{0} mmol/L</unitPattern>
+				<unitPattern count="one">{0} mmol/L</unitPattern>
+				<unitPattern count="two">{0} mmol/L</unitPattern>
+				<unitPattern count="few">{0} mmol/L</unitPattern>
+				<unitPattern count="many">{0} mmol/L</unitPattern>
+				<unitPattern count="other">{0} mmol/L</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>rhan/miliwn</displayName>
+				<unitPattern count="zero">{0} ppm</unitPattern>
+				<unitPattern count="one">{0} ppm</unitPattern>
+				<unitPattern count="two">{0} ppm</unitPattern>
+				<unitPattern count="few">{0} ppm</unitPattern>
+				<unitPattern count="many">{0} ppm</unitPattern>
+				<unitPattern count="other">{0} ppm</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litrau/km</displayName>
 				<unitPattern count="zero">{0} L/km</unitPattern>
@@ -8579,6 +9105,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mpg</unitPattern>
 				<unitPattern count="many">{0} mpg</unitPattern>
 				<unitPattern count="other">{0} mpg</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>milltir/gal Imp.</displayName>
+				<unitPattern count="zero">{0} mpg Imp.</unitPattern>
+				<unitPattern count="one">{0} mpg Imp.</unitPattern>
+				<unitPattern count="two">{0} mpg Imp.</unitPattern>
+				<unitPattern count="few">{0} mpg Imp.</unitPattern>
+				<unitPattern count="many">{0} mpg Imp.</unitPattern>
+				<unitPattern count="other">{0} mpg Imp.</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TBeit</displayName>
@@ -8665,7 +9200,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>did</displayName>
 				<unitPattern count="zero">{0} did</unitPattern>
 				<unitPattern count="one">{0} did</unitPattern>
-				<unitPattern count="two">{0} ddid</unitPattern>
+				<unitPattern count="two">{0} did</unitPattern>
 				<unitPattern count="few">{0} did</unitPattern>
 				<unitPattern count="many">{0} did</unitPattern>
 				<unitPattern count="other">{0} did</unitPattern>
@@ -8727,7 +9262,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} awr</unitPattern>
 				<unitPattern count="many">{0} awr</unitPattern>
 				<unitPattern count="other">{0} awr</unitPattern>
-				<perUnitPattern draft="provisional">{0} ya</perUnitPattern>
+				<perUnitPattern>{0}/a</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>mun</displayName>
@@ -8777,7 +9312,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName draft="provisional">ampau</displayName>
+				<displayName>ampau</displayName>
 				<unitPattern count="zero">{0} A</unitPattern>
 				<unitPattern count="one">{0} A</unitPattern>
 				<unitPattern count="two">{0} A</unitPattern>
@@ -8786,7 +9321,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} A</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
-				<displayName draft="provisional">miliampau</displayName>
+				<displayName>miliampau</displayName>
 				<unitPattern count="zero">{0} mA</unitPattern>
 				<unitPattern count="one">{0} mA</unitPattern>
 				<unitPattern count="two">{0} mA</unitPattern>
@@ -8858,13 +9393,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} J</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName draft="provisional">kW-awr</displayName>
-				<unitPattern count="zero" draft="provisional">{0} kW-awr</unitPattern>
-				<unitPattern count="one" draft="provisional">{0} kW-awr</unitPattern>
-				<unitPattern count="two" draft="provisional">{0} kW-awr</unitPattern>
-				<unitPattern count="few" draft="provisional">{0} kW-awr</unitPattern>
-				<unitPattern count="many" draft="provisional">{0} kW-awr</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} kW-awr</unitPattern>
+				<displayName>kW-awr</displayName>
+				<unitPattern count="zero">{0} kW-awr</unitPattern>
+				<unitPattern count="one">{0} kW-awr</unitPattern>
+				<unitPattern count="two">{0} kW-awr</unitPattern>
+				<unitPattern count="few">{0} kW-awr</unitPattern>
+				<unitPattern count="many">{0} kW-awr</unitPattern>
+				<unitPattern count="other">{0} kW-awr</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>GHz</displayName>
@@ -9026,12 +9561,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-light-year">
 				<displayName>bl golau</displayName>
-				<unitPattern count="zero">{0} blwyddyn golau</unitPattern>
-				<unitPattern count="one">{0} flwyddyn golau</unitPattern>
-				<unitPattern count="two">{0} flwyddyn golau</unitPattern>
-				<unitPattern count="few">{0} blwyddyn golau</unitPattern>
-				<unitPattern count="many">{0} blwyddyn golau</unitPattern>
-				<unitPattern count="other">{0} blwyddyn golau</unitPattern>
+				<unitPattern count="zero">{0} bg</unitPattern>
+				<unitPattern count="one">{0} bg</unitPattern>
+				<unitPattern count="two">{0} bg</unitPattern>
+				<unitPattern count="few">{0} bg</unitPattern>
+				<unitPattern count="many">{0} bg</unitPattern>
+				<unitPattern count="other">{0} bg</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName>u.s.</displayName>
@@ -9404,12 +9939,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>troedfedd³</displayName>
-				<unitPattern count="zero">{0} troedfedd³</unitPattern>
-				<unitPattern count="one">{0} troedfedd³</unitPattern>
-				<unitPattern count="two">{0} droedfedd³</unitPattern>
-				<unitPattern count="few">{0} troedfedd³</unitPattern>
-				<unitPattern count="many">{0} troedfedd³</unitPattern>
-				<unitPattern count="other">{0} troedfedd³</unitPattern>
+				<unitPattern count="zero">{0} tr³</unitPattern>
+				<unitPattern count="one">{0} tr³</unitPattern>
+				<unitPattern count="two">{0} tr³</unitPattern>
+				<unitPattern count="few">{0} tr³</unitPattern>
+				<unitPattern count="many">{0} tr³</unitPattern>
+				<unitPattern count="other">{0} tr³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>modfeddi³</displayName>
@@ -9521,6 +10056,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} gal</unitPattern>
 				<perUnitPattern>{0}/gal</perUnitPattern>
 			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>Gal Imp.</displayName>
+				<unitPattern count="zero">{0} gal Imp.</unitPattern>
+				<unitPattern count="one">{0} gal Imp.</unitPattern>
+				<unitPattern count="two">{0} gal Imp.</unitPattern>
+				<unitPattern count="few">{0} gal Imp.</unitPattern>
+				<unitPattern count="many">{0} gal Imp.</unitPattern>
+				<unitPattern count="other">{0} gal Imp.</unitPattern>
+				<perUnitPattern>{0}/gal Imp.</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
 				<unitPattern count="zero">{0} qt</unitPattern>
@@ -9576,10 +10121,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east" draft="provisional">{0}dn</coordinateUnitPattern>
-				<coordinateUnitPattern type="north" draft="provisional">{0}g</coordinateUnitPattern>
-				<coordinateUnitPattern type="south" draft="provisional">{0}d</coordinateUnitPattern>
-				<coordinateUnitPattern type="west" draft="provisional">{0}gn</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0}dn</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}g</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}d</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}gn</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -10507,10 +11052,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}pt</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<coordinateUnitPattern type="east" draft="provisional">{0}dn</coordinateUnitPattern>
-				<coordinateUnitPattern type="north" draft="provisional">{0}g</coordinateUnitPattern>
-				<coordinateUnitPattern type="south" draft="provisional">{0}d</coordinateUnitPattern>
-				<coordinateUnitPattern type="west" draft="provisional">{0}gn</coordinateUnitPattern>
+				<coordinateUnitPattern type="east">{0}dn</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}g</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}d</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}gn</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
@@ -10529,6 +11074,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, a {1}</listPatternPart>
+			<listPatternPart type="2">{0} a {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
@@ -10555,5 +11106,90 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr>na:n</nostr>
 		</messages>
 	</posix>
+	<characterLabels>
+		<characterLabelPattern type="all">{0} — Popeth</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} — Cydweddoldeb</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} — Amgaeedig</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} — Estynedig</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} — Hanesyddol</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} — Amrywiol</characterLabelPattern>
+		<characterLabelPattern type="other">{0} — Arall</characterLabelPattern>
+		<characterLabelPattern type="scripts">Sgriptiau — {0}</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="zero">{0} Strôc</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">{0} Strôc</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="two">{0} Strôc</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="few">{0} Strôc</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="many">{0} Strôc</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">{0} Strôc</characterLabelPattern>
+		<characterLabel type="activities">Gweithgareddau</characterLabel>
+		<characterLabel type="african_scripts">Sgriptiau Affricanaidd</characterLabel>
+		<characterLabel type="american_scripts">Sgriptiau Americanaidd</characterLabel>
+		<characterLabel type="animals_nature">Anifeiliad a Natur</characterLabel>
+		<characterLabel type="arrows">Saethau</characterLabel>
+		<characterLabel type="box_drawing">Dylunio Bocs</characterLabel>
+		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="bullets_stars">Bwledi/Sêr</characterLabel>
+		<characterLabel type="consonantal_jamo">Jamo Cytseiniol</characterLabel>
+		<characterLabel type="currency_symbols">Symbolau Arian</characterLabel>
+		<characterLabel type="dash_connector">Llinell Doriad/Cysylltydd</characterLabel>
+		<characterLabel type="digits">Digidau</characterLabel>
+		<characterLabel type="dingbats">Dingbatiaid</characterLabel>
+		<characterLabel type="divination_symbols">Symbolau Darogan</characterLabel>
+		<characterLabel type="downwards_arrows">Saethau i lawr</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">Saethau i fyny ac i lawr</characterLabel>
+		<characterLabel type="east_asian_scripts">Sgriptiau Asia Dwyreiniol</characterLabel>
+		<characterLabel type="emoji">Emoji</characterLabel>
+		<characterLabel type="european_scripts">Sgriptiau Ewropeaidd</characterLabel>
+		<characterLabel type="flags">Baneri</characterLabel>
+		<characterLabel type="food_drink">Bwyd a Diod</characterLabel>
+		<characterLabel type="format">Fformat</characterLabel>
+		<characterLabel type="format_whitespace">Fformat a Bwlch Gwyn</characterLabel>
+		<characterLabel type="full_width_form_variant">Amrywiolion Ffurf Lled Llawn</characterLabel>
+		<characterLabel type="geometric_shapes">Siapau Geometrig</characterLabel>
+		<characterLabel type="half_width_form_variant">Amrywiolion Ffurf Hanner Lled</characterLabel>
+		<characterLabel type="han_characters">Llythrennau Han</characterLabel>
+		<characterLabel type="han_radicals">Gwreiddiau Han</characterLabel>
+		<characterLabel type="hanja">Hanja</characterLabel>
+		<characterLabel type="hanzi_simplified">Hanzi (Symledig)</characterLabel>
+		<characterLabel type="hanzi_traditional">Hanzi (Traddodiadol)</characterLabel>
+		<characterLabel type="historic_scripts">Sgriptiau Hanesyddol</characterLabel>
+		<characterLabel type="ideographic_desc_characters">Llythrennau Disg. Ideograffeg</characterLabel>
+		<characterLabel type="japanese_kana">Kana Japaneaidd</characterLabel>
+		<characterLabel type="kanbun">Kanbun</characterLabel>
+		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="leftwards_arrows">Saethau i’r chwith</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">Saethau i’r chwith ac i’r dde</characterLabel>
+		<characterLabel type="letterlike_symbols">Symbolau Math Llythrennau</characterLabel>
+		<characterLabel type="limited_use">Defnydd Cyfyngedig</characterLabel>
+		<characterLabel type="math_symbols">Symbolau Mathemategol</characterLabel>
+		<characterLabel type="middle_eastern_scripts">Sgriptiau y Dwyrain Canol</characterLabel>
+		<characterLabel type="miscellaneous">Amrywiol</characterLabel>
+		<characterLabel type="modern_scripts">Sgriptiau Modern</characterLabel>
+		<characterLabel type="modifier">Addasydd</characterLabel>
+		<characterLabel type="musical_symbols">Symbolau Cerddorol</characterLabel>
+		<characterLabel type="nonspacing">Heb fylchau</characterLabel>
+		<characterLabel type="numbers">Rhifau</characterLabel>
+		<characterLabel type="objects">Gwrthrychau</characterLabel>
+		<characterLabel type="other">Arall</characterLabel>
+		<characterLabel type="paired">Paredig</characterLabel>
+		<characterLabel type="phonetic_alphabet">Y Wyddor Seinegol</characterLabel>
+		<characterLabel type="pictographs">Pictograffau</characterLabel>
+		<characterLabel type="punctuation">Atalnodi</characterLabel>
+		<characterLabel type="rightwards_arrows">Saethau i’r dde</characterLabel>
+		<characterLabel type="sign_standard_symbols">Symbolau Arwyddo/Safonol</characterLabel>
+		<characterLabel type="small_form_variant">Amrywiolion Ffurf Fach</characterLabel>
+		<characterLabel type="smileys_people">Gwenogluniau a Phobl</characterLabel>
+		<characterLabel type="south_asian_scripts">Sgriptiau Asia Deheuol</characterLabel>
+		<characterLabel type="southeast_asian_scripts">Sgriptiau De-Ddwyrain Asia</characterLabel>
+		<characterLabel type="spacing">Bylchu</characterLabel>
+		<characterLabel type="symbols">Symbolau</characterLabel>
+		<characterLabel type="technical_symbols">Symbolau Technolegol</characterLabel>
+		<characterLabel type="tone_marks">Marciau Tôn</characterLabel>
+		<characterLabel type="travel_places">Teithio a Llefydd</characterLabel>
+		<characterLabel type="upwards_arrows">Saethau i Fyny</characterLabel>
+		<characterLabel type="variant_forms">Ffurfiau Amrywiol</characterLabel>
+		<characterLabel type="vocalic_jamo">Jamo Llafarog</characterLabel>
+		<characterLabel type="western_asian_scripts">Sgriptiau Asia Gorllewinol</characterLabel>
+		<characterLabel type="whitespace">Bwlch gwyn</characterLabel>
+	</characterLabels>
 </ldml>
-

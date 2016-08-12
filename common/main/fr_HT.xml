@@ -12,6 +12,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="HT"/>
 	</identity>
 	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="night1" draft="contributed">de la nuit</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+			</calendar>
+		</calendars>
 		<fields>
 			<field type="day-short">
 				<displayName draft="contributed">jr.</displayName>
@@ -113,4 +124,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 	</units>
 </ldml>
-

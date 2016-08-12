@@ -11,5 +11,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="fr"/>
 		<territory type="SN"/>
 	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+			</calendar>
+		</calendars>
+	</dates>
 </ldml>
-

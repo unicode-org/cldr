@@ -49,6 +49,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="es" draft="contributed">испайнаг</language>
 			<language type="es_419" draft="contributed">латинаг америкаг англисаг</language>
 			<language type="es_ES" draft="contributed">европӕйаг англисаг</language>
+			<language type="es_MX" draft="unconfirmed">мексикӕйаг испайнаг</language>
 			<language type="et" draft="contributed">естойнаг</language>
 			<language type="eu" draft="contributed">баскаг</language>
 			<language type="fa" draft="contributed">персайнаг</language>
@@ -624,6 +625,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="year">
 				<displayName draft="contributed">Аз</displayName>
 			</field>
+			<field type="quarter">
+				<displayName draft="unconfirmed">квартал</displayName>
+			</field>
+			<field type="quarter-short">
+				<displayName draft="unconfirmed">кв.</displayName>
+			</field>
+			<field type="quarter-narrow">
+				<displayName draft="unconfirmed">кв.</displayName>
+			</field>
 			<field type="month">
 				<displayName draft="contributed">Мӕй</displayName>
 			</field>
@@ -931,4 +941,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</messages>
 	</posix>
 </ldml>
-

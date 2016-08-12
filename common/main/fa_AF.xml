@@ -13,7 +13,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="ab" draft="contributed">افریکانس</language>
+			<language type="as" draft="contributed">اسامی</language>
+			<language type="az" draft="contributed">آذربایجانی</language>
+			<language type="ba" draft="contributed">باشقیری</language>
+			<language type="ckb" draft="contributed">کردی سورانی</language>
+			<language type="dv" draft="contributed">مالدیوی</language>
 			<language type="es">هسپانوی</language>
+			<language type="fa_AF" draft="contributed">دری</language>
 			<language type="fi">فنلندی</language>
 			<language type="ga">آیرلندی</language>
 			<language type="hr">کروشیایی</language>
@@ -29,7 +36,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="no">نارویژی</language>
 			<language type="pl">پولندی</language>
 			<language type="pt">پرتگالی</language>
+			<language type="sq" draft="contributed">البانیایی</language>
 			<language type="sv">سویدنی</language>
+			<language type="sw" draft="contributed">سواحلی</language>
 			<language type="tg">تاجکی</language>
 		</languages>
 		<scripts>
@@ -40,6 +49,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="AG">انتیگوا و باربودا</territory>
 			<territory type="AL">البانیا</territory>
 			<territory type="AO">انگولا</territory>
+			<territory type="AQ" draft="contributed">انترکتیکا</territory>
 			<territory type="AR">ارجنتاین</territory>
 			<territory type="AU">آسترالیا</territory>
 			<territory type="BA">بوسنیا و هرزه‌گوینا</territory>
@@ -66,6 +76,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FI">فنلند</territory>
 			<territory type="FM">میکرونزیا</territory>
 			<territory type="GD">گرینادا</territory>
+			<territory type="GH" draft="contributed">گانا</territory>
 			<territory type="GN">گینیا</territory>
 			<territory type="GQ">گینیا استوایی</territory>
 			<territory type="GT">گواتیمالا</territory>
@@ -95,6 +106,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MX">مکسیکو</territory>
 			<territory type="MY">مالیزیا</territory>
 			<territory type="MZ">موزمبیق</territory>
+			<territory type="NE" draft="contributed">نایجر</territory>
 			<territory type="NG">نیجریا</territory>
 			<territory type="NI">نیکاراگوا</territory>
 			<territory type="NL">هالند</territory>
@@ -116,11 +128,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SL">سیرالیون</territory>
 			<territory type="SN">سینیگال</territory>
 			<territory type="SO">سومالیه</territory>
+			<territory type="ST" draft="contributed">سائوتومه و پرینسیپ</territory>
 			<territory type="SV">السلوادور</territory>
 			<territory type="TJ">تاجکستان</territory>
 			<territory type="UA">اکراین</territory>
+			<territory type="UG" draft="contributed">یوگاندا</territory>
 			<territory type="UY">یوروگوای</territory>
+			<territory type="VC" draft="contributed">سنت وینسنت و گرنادین‌ها</territory>
 			<territory type="VE">ونزویلا</territory>
+			<territory type="XK" draft="contributed">کوسوا</territory>
 			<territory type="ZW">زیمبابوی</territory>
 		</territories>
 	</localeDisplayNames>
@@ -146,6 +162,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="11">نومبر</month>
 							<month type="12">دسم</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">ج</month>
+							<month type="4" draft="contributed">ا</month>
+							<month type="6" draft="contributed">ج</month>
+							<month type="7" draft="contributed">ج</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جنوری</month>
 							<month type="2">فبروری</month>
@@ -162,6 +184,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">جنوری</month>
+							<month type="2" draft="contributed">فبروری</month>
+							<month type="3" draft="contributed">مارچ</month>
+							<month type="4" draft="contributed">اپریل</month>
+							<month type="5" draft="contributed">می</month>
+							<month type="6" draft="contributed">جون</month>
+							<month type="7" draft="contributed">جولای</month>
+							<month type="8" draft="contributed">اگست</month>
+							<month type="9" draft="contributed">سپتمبر</month>
+							<month type="10" draft="contributed">اکتوبر</month>
+							<month type="11" draft="contributed">نومبر</month>
+							<month type="12" draft="contributed">دسمبر</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">ج</month>
 							<month type="2">ف</month>
@@ -176,8 +212,107 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="11">ن</month>
 							<month type="12">د</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">جنوری</month>
+							<month type="2" draft="contributed">فبروری</month>
+							<month type="3" draft="contributed">مارچ</month>
+							<month type="4" draft="contributed">اپریل</month>
+							<month type="5" draft="contributed">می</month>
+							<month type="6" draft="contributed">جون</month>
+							<month type="7" draft="contributed">جولای</month>
+							<month type="8" draft="contributed">اگست</month>
+							<month type="9" draft="contributed">سپتمبر</month>
+							<month type="10" draft="contributed">اکتوبر</month>
+							<month type="11" draft="contributed">نومبر</month>
+							<month type="12" draft="contributed">دسمبر</month>
+						</monthWidth>
 					</monthContext>
 				</months>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="contributed">ر۱</quarter>
+							<quarter type="2" draft="contributed">ر۲</quarter>
+							<quarter type="3" draft="contributed">ر۳</quarter>
+							<quarter type="4" draft="contributed">ر۴</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="contributed">ربع اول</quarter>
+							<quarter type="2" draft="contributed">ربع دوم</quarter>
+							<quarter type="3" draft="contributed">ربع سوم</quarter>
+							<quarter type="4" draft="contributed">ربع چهارم</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="contributed">ر۱</quarter>
+							<quarter type="2" draft="contributed">ر۲</quarter>
+							<quarter type="3" draft="contributed">ر۳</quarter>
+							<quarter type="4" draft="contributed">ر۴</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="contributed">ربع اول</quarter>
+							<quarter type="2" draft="contributed">ربع دوم</quarter>
+							<quarter type="3" draft="contributed">ربع سوم</quarter>
+							<quarter type="4" draft="contributed">ربع چهارم</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="evening1" draft="contributed">ش</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">شب</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Ed" draft="contributed">d E</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="GyMMMd" draft="contributed">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">E, M/d</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="contributed">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="contributed">E, MMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
+						<dateFormatItem id="yM" draft="contributed">M/y</dateFormatItem>
+						<dateFormatItem id="yMd" draft="contributed">M/d/y</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="contributed">E, M/d/y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="contributed">MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="contributed">E, MMM d, y</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="contributed">QQQ y</dateFormatItem>
+					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone" draft="contributed">{0} {1}</appendItem>
+					</appendItems>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -218,6 +353,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 	</dates>
 	<numbers>
+		<currencyFormats numberSystem="arabext">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern draft="contributed">¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern draft="contributed">¤ #,##0.00</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern draft="contributed">¤ #,##0.00;‎(¤ #,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="AUD">
 				<displayName>دالر آسترالیا</displayName>
@@ -264,4 +416,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 	</numbers>
 </ldml>
-

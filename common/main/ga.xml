@@ -19,6 +19,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<languages>
 			<language type="aa">Afáiris</language>
 			<language type="ab">Abcáisis</language>
+			<language type="ady">Adaigéis</language>
 			<language type="ae">Aivéistis</language>
 			<language type="af">Afracáinis</language>
 			<language type="ain">Aidhniúis</language>
@@ -65,6 +66,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cv">Suvaisis</language>
 			<language type="cy">Breatnais</language>
 			<language type="da">Danmhairgis</language>
+			<language type="dav">Taita</language>
 			<language type="de">Gearmáinis</language>
 			<language type="de_AT">Gearmáinis Ostarach</language>
 			<language type="de_CH">Ard-Ghearmáinis Eilvéiseach</language>
@@ -145,6 +147,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="it">Iodáilis</language>
 			<language type="iu">Ionúitis</language>
 			<language type="ja">Seapáinis</language>
+			<language type="jbo">Lojban</language>
 			<language type="jut">Iútlainnis</language>
 			<language type="jv">Iáivis</language>
 			<language type="ka">Seoirsis</language>
@@ -193,6 +196,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="mrj">Mairis Iartharach</language>
 			<language type="ms">Malaeis</language>
 			<language type="mt">Máltais</language>
+			<language type="mul">Ilteangacha</language>
 			<language type="mwl">Mioraindéis</language>
 			<language type="mwr">Marmhairis</language>
 			<language type="my">Burmais</language>
@@ -228,6 +232,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pt_BR">Portaingéilis na Brasaíle</language>
 			<language type="pt_PT">Portaingéilis Ibéarach</language>
 			<language type="qu">Ceatsuais</language>
+			<language type="quc">Cuitséis</language>
 			<language type="rm">Rómainis</language>
 			<language type="rn">Rúindis</language>
 			<language type="ro">Rómáinis</language>
@@ -248,6 +253,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sg">Sangóis</language>
 			<language type="sga">Sean-Ghaeilge</language>
 			<language type="sh">Seirbea-Chróitis</language>
+			<language type="shi">Tachelhit</language>
 			<language type="si">Siolóinis</language>
 			<language type="sk">Slóvaicis</language>
 			<language type="sl">Slóivéinis</language>
@@ -310,7 +316,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zxx">Gan ábhar teangeolaíoch</language>
 		</languages>
 		<scripts>
+			<script type="Aghb">Albánach Cugasach</script>
 			<script type="Arab">Arabach</script>
+			<script type="Armi">Aramach Impiriúil</script>
 			<script type="Armn">Airméanach</script>
 			<script type="Avst">Aivéisteach</script>
 			<script type="Bali">Bailíoch</script>
@@ -335,6 +343,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Grek">Gréagach</script>
 			<script type="Gujr">Gúisearátach</script>
 			<script type="Guru">Gurmúcach</script>
+			<script type="Hanb">Han agus Bopomofo</script>
 			<script type="Hang">Hangalach</script>
 			<script type="Hani">Han</script>
 			<script type="Hans">Simplithe</script>
@@ -347,6 +356,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hrkt">Siollabraí Seapánacha</script>
 			<script type="Hung">Sean-Ungárach</script>
 			<script type="Ital">Sean-Iodáilic</script>
+			<script type="Jamo">Seamó</script>
 			<script type="Java">Iávach</script>
 			<script type="Jpan">Seapánach</script>
 			<script type="Kana">Catacánach</script>
@@ -369,12 +379,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Mlym">Mailéalamach</script>
 			<script type="Mong">Mongólach</script>
 			<script type="Mymr">Maenmarach</script>
+			<script type="Narb">Sean-Arabach Thuaidh</script>
 			<script type="Ogam">Ogham</script>
 			<script type="Orya">Oiríseach</script>
 			<script type="Perm">Sean-Pheirmeach</script>
 			<script type="Phnx">Féiníceach</script>
+			<script type="Plrd">Pollard Foghrach</script>
+			<script type="Prti">Pairtiach Inscríbhinniúil</script>
 			<script type="Runr">Rúnach</script>
 			<script type="Samr">Samárach</script>
+			<script type="Sarb">Sean-Arabach Theas</script>
 			<script type="Shaw">Shawach</script>
 			<script type="Sinh">Siolónach</script>
 			<script type="Syrc">Siriceach</script>
@@ -385,9 +399,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Thaa">Tánach</script>
 			<script type="Thai">Téalannach</script>
 			<script type="Tibt">Tibéadach</script>
+			<script type="Ugar">Úgairíteach</script>
 			<script type="Xpeo">Sean-Pheirseach</script>
 			<script type="Xsux">Dingchruthach Suiméar-Acádach</script>
+			<script type="Yiii">Ís</script>
+			<script type="Zinh">Oidhreacht</script>
 			<script type="Zmth">Nodaireacht Mhatamaiticiúil</script>
+			<script type="Zsye">Emoji</script>
 			<script type="Zsym">Siombailí</script>
 			<script type="Zxxx">Gan Scríobh</script>
 			<script type="Zyyy">Coitianta</script>
@@ -471,6 +489,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CG" alt="variant">An Congó (Poblacht)</territory>
 			<territory type="CH">An Eilvéis</territory>
 			<territory type="CI">An Cósta Eabhair</territory>
+			<territory type="CI" alt="variant">An Cósta Eabhair</territory>
 			<territory type="CK">Oileáin Cook</territory>
 			<territory type="CL">An tSile</territory>
 			<territory type="CM">Camarún</territory>
@@ -661,6 +680,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TJ">An Táidsíceastáin</territory>
 			<territory type="TK">Tócalá</territory>
 			<territory type="TL">Tíomór Thoir</territory>
+			<territory type="TL" alt="variant">Tíomór Thoir</territory>
 			<territory type="TM">An Tuircméanastáin</territory>
 			<territory type="TN">An Túinéis</territory>
 			<territory type="TO">Tonga</territory>
@@ -694,17 +714,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZZ">Réigiún Anaithnid</territory>
 		</territories>
 		<variants>
+			<variant type="1901">Litriú Traidisiúnta na Gearmáinise</variant>
 			<variant type="1959ACAD">Acadúil</variant>
 			<variant type="ALALC97">Rómhánú ALA-LC, eagrán 1997</variant>
+			<variant type="AREVELA">Airméinis an Oirthir</variant>
+			<variant type="AREVMDA">Airméinis an Iarthair</variant>
+			<variant type="BASICENG">Bun-Bhéarla</variant>
+			<variant type="BOHORIC">Aibítir Bohorič</variant>
+			<variant type="CORNU">Béarla an Choirn</variant>
+			<variant type="DAJNKO">Aibítir Dajnko</variant>
+			<variant type="FONIPA">Fogharscríobh IPA</variant>
+			<variant type="FONUPA">Fogharscríobh UPA</variant>
 			<variant type="HEPBURN">Rómhánú Hepburn</variant>
+			<variant type="KKCOR">Gnáth-Litriú</variant>
+			<variant type="KSCOR">Litriú Caighdeánach</variant>
+			<variant type="METELKO">Aibítir Metelko</variant>
+			<variant type="MONOTON">Aontonach</variant>
+			<variant type="NEWFOUND">Talamh an Éisc</variant>
+			<variant type="NULIK">Volapük Nua-Aimseartha</variant>
+			<variant type="OXENDICT">Litriú OED</variant>
 			<variant type="PINYIN">Rómhánú Pinyin</variant>
+			<variant type="POLYTON">Iltonach</variant>
 			<variant type="POSIX">Ríomhaire</variant>
+			<variant type="REVISED">Litriú Athbhreithnithe</variant>
+			<variant type="RIGIK">Volapük Clasaiceach</variant>
+			<variant type="SCOTLAND">Béarla Caighdeánach na hAlban</variant>
+			<variant type="SCOUSE">Béarla Learphoill</variant>
+			<variant type="SIMPLE">Simplí</variant>
+			<variant type="UCCOR">Litriú Comhaontaithe</variant>
+			<variant type="UCRCOR">Litriú Comhaontaithe Athbhreithnithe</variant>
 			<variant type="ULSTER">Cúige Uladh</variant>
+			<variant type="UNIFON">Aibítir foghraíochta Unifon</variant>
+			<variant type="VAIDIKA">Véideach</variant>
 			<variant type="VALENCIA">Vaileinsis</variant>
 			<variant type="WADEGILE">Rómhánú Wade-Giles</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Féilire</key>
+			<key type="cf">Formáid Airgeadra</key>
 			<key type="collation">Ord Sórtála</key>
 			<key type="currency">Airgeadra</key>
 			<key type="hc">Timthriall Uaire (12 vs 24)</key>
@@ -720,19 +767,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="ethiopic">Féilire Aetóipice</type>
 			<type key="calendar" type="gregorian">Féilire Ghréagóra</type>
 			<type key="calendar" type="hebrew">Féilire na nEabhrach</type>
-			<type key="calendar" type="islamic">Féilire Ioslámach</type>
+			<type key="calendar" type="indian">Féilire Náisiúnta na hIndia</type>
+			<type key="calendar" type="islamic">Féilire Ioslamach</type>
 			<type key="calendar" type="islamic-civil" draft="unconfirmed">Féilire Ioslamach Sibhialta</type>
 			<type key="calendar" type="iso8601">Féilire ISO-8601</type>
 			<type key="calendar" type="japanese">Féilire Seapánach</type>
 			<type key="calendar" type="persian">Féilire Peirseach</type>
 			<type key="calendar" type="roc">Féilire Téavánach</type>
+			<type key="cf" type="account">Formáid Airgeadra don Chuntasaíocht</type>
+			<type key="cf" type="standard">Formáid Airgeadra Caighdeánach</type>
 			<type key="collation" type="big5han" draft="unconfirmed">Ord sórtála Síneach traidisiúnta - Big5</type>
-			<type key="collation" type="ducet">Ord Réamhshocraithe Sórtála Unicode</type>
+			<type key="collation" type="ducet">Ord Sórtála Réamhshocraithe Unicode</type>
 			<type key="collation" type="gb2312han" draft="unconfirmed">Ord sórtála Síneach simplithe - GB 2312</type>
 			<type key="collation" type="phonebook" draft="unconfirmed">Ord sórtála an eolaire teileafóin</type>
 			<type key="collation" type="pinyin" draft="unconfirmed">Ord sórtála pinyin</type>
 			<type key="collation" type="search">Cuardach Ilfhóinteach</type>
-			<type key="collation" type="standard">Ord Caighdeánach Sórtála</type>
+			<type key="collation" type="standard">Ord Sórtála Caighdeánach</type>
 			<type key="collation" type="stroke" draft="unconfirmed">Ord sórtála stríce</type>
 			<type key="collation" type="traditional" draft="unconfirmed">Ord sórtála traidisiúnta</type>
 			<type key="hc" type="h11">Córas 12 Uair (0–11)</type>
@@ -743,32 +793,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lb" type="normal">Stíl Gnáthbhriseadh Líne</type>
 			<type key="lb" type="strict">Stíl Briseadh Líne Docht</type>
 			<type key="ms" type="metric">Córas Méadrach</type>
-			<type key="ms" type="uksystem">Córas Impiriúil Tomhais</type>
-			<type key="ms" type="ussystem">Córas SAM Tomhais</type>
+			<type key="ms" type="uksystem">Córas Tomhais Reachtúil</type>
+			<type key="ms" type="ussystem">Córas Tomhais SAM</type>
 			<type key="numbers" type="arab">Digití Ind-Arabacha</type>
 			<type key="numbers" type="arabext">Digití Ind-Arabacha Breisithe</type>
 			<type key="numbers" type="armn">Uimhreacha Airméanacha</type>
+			<type key="numbers" type="armnlow">Uimhreacha Cás Íochtair Airméanacha</type>
 			<type key="numbers" type="bali">Digití Bailíocha</type>
 			<type key="numbers" type="beng">Digití Beangálacha</type>
+			<type key="numbers" type="cyrl">Uimhreacha Coireallacha</type>
 			<type key="numbers" type="deva">Digití Déiveanágracha</type>
 			<type key="numbers" type="ethi">Uimhreacha Aetóipice</type>
 			<type key="numbers" type="fullwide">Digití Lánleithid</type>
 			<type key="numbers" type="geor">Uimhreacha Seoirseacha</type>
 			<type key="numbers" type="grek">Uimhreacha Gréagacha</type>
+			<type key="numbers" type="greklow">Uimhreacha Cás Íochtair Gréagacha</type>
 			<type key="numbers" type="gujr">Digití Gúisearátacha</type>
 			<type key="numbers" type="guru">Digití Gurmúcacha</type>
 			<type key="numbers" type="hanidec">Uimhreacha Deachúlacha Síneacha</type>
+			<type key="numbers" type="hans">Uimhreacha sa tSínis Shimplithe</type>
+			<type key="numbers" type="hansfin">Uimhreacha Airgeadúla sa tSínis Shimplithe</type>
+			<type key="numbers" type="hant">Uimhreacha sa tSínis Thraidisiúnta</type>
+			<type key="numbers" type="hantfin">Uimhreacha Airgeadúla sa tSínis Thraidisiúnta</type>
 			<type key="numbers" type="hebr">Uimhreacha Eabhracha</type>
 			<type key="numbers" type="java">Digití Iávacha</type>
 			<type key="numbers" type="jpan">Uimhreacha Seapánacha</type>
+			<type key="numbers" type="jpanfin">Uimhreacha Airgeadúla Seapánacha</type>
 			<type key="numbers" type="khmr">Digití Ciméaracha</type>
 			<type key="numbers" type="knda">Digití Cannadacha</type>
 			<type key="numbers" type="laoo">Digití Laosacha</type>
 			<type key="numbers" type="latn">Digití Iartharacha</type>
 			<type key="numbers" type="mlym">Digití Mailéalamacha</type>
+			<type key="numbers" type="mong">Digití Mongólacha</type>
 			<type key="numbers" type="mymr">Digití Maenmaracha</type>
 			<type key="numbers" type="orya">Digití Oiríseacha</type>
 			<type key="numbers" type="roman">Uimhreacha Rómhánacha</type>
+			<type key="numbers" type="romanlow">Uimhreacha Cás Íochtair Rómhánacha</type>
 			<type key="numbers" type="taml">Uimhreacha Traidisiúnta Tamalacha</type>
 			<type key="numbers" type="tamldec">Digití Tamalacha</type>
 			<type key="numbers" type="telu">Digití Teileagúcha</type>
@@ -806,6 +866,185 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<eras>
+					<eraNames>
+						<era type="0">RB</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">RB</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0">RB</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE d MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/y GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
+						<dateFormatItem id="M">LL</dateFormatItem>
+						<dateFormatItem id="Md">dd/MM</dateFormatItem>
+						<dateFormatItem id="MEd">E dd/MM</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMd">dd/MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E dd/MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d – d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h – h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">HH – HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">HH:mm – HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">HH:mm – HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="h">h – h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">HH – HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">MM – MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E dd/MM – E dd/MM</greatestDifference>
+							<greatestDifference id="M">E dd/MM – E dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM – MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d – d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E d MMM – E d MMM</greatestDifference>
+							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y – y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">MM/y – MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">MM/y – MM/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E dd/MM/y – E dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="M">E dd/MM/y – E dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">E dd/MM/y – E dd/MM/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">MMM – MMM y G</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d – d MMM y G</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
+							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E d MMM – E d MMM y G</greatestDifference>
+							<greatestDifference id="M">E d MMM – E d MMM y G</greatestDifference>
+							<greatestDifference id="y">E d MMM y – E d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">MMMM – MMMM y G</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y G</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -864,6 +1103,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">MM/y GGGGG</dateFormatItem>
@@ -872,6 +1112,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
@@ -879,6 +1120,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">HH – HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">HH:mm – HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">HH:mm – HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="h">h – h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">MM – MM</greatestDifference>
@@ -1295,6 +1568,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">'seachtain' 'a' W 'i' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="two">'seachtain' 'a' W 'i' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="few">'seachtain' 'a' W 'i' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="many">'seachtain' 'a' W 'i' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">'seachtain' 'a' W 'i' MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">MM/y</dateFormatItem>
@@ -1306,6 +1584,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'seachtain' 'a' w 'i' y</dateFormatItem>
+						<dateFormatItem id="yw" count="two">'seachtain' 'a' w 'i' y</dateFormatItem>
+						<dateFormatItem id="yw" count="few">'seachtain' 'a' w 'i' y</dateFormatItem>
+						<dateFormatItem id="yw" count="many">'seachtain' 'a' w 'i' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'seachtain' 'a' w 'i' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1611,6 +1894,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="many">{0} seachtaine ó shin</relativeTimePattern>
 					<relativeTimePattern count="other">{0} seachtain ó shin</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>seachtain {0}</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName>scht.</displayName>
@@ -1631,6 +1915,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="many">{0} scht. ó shin</relativeTimePattern>
 					<relativeTimePattern count="other">{0} scht. ó shin</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>seachtain {0}</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>scht.</displayName>
@@ -1651,6 +1936,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="many">-{0} scht.</relativeTimePattern>
 					<relativeTimePattern count="other">-{0} scht.</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>seachtain {0}</relativePeriod>
 			</field>
 			<field type="day">
 				<displayName>Lá</displayName>
@@ -1725,112 +2011,407 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">an Domhnach seo caite</relative>
 				<relative type="0">an Domhnach seo</relative>
 				<relative type="1">an Domhnach seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Domhnach</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Domhnach</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Domhnach</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Domhnach</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Domhnach</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Domhnaigh {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Domhnaigh {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Domhnaigh {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Domhnaigh {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Domhnaigh {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-short">
 				<relative type="-1">an Domh. seo caite</relative>
 				<relative type="0">an Domh. seo</relative>
 				<relative type="1">an Domh. seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Domh.</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Domh.</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Domh.</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Domh.</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Domh.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Domh. {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Domh. {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Domh. {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Domh. {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Domh. {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1">an Domh seo caite</relative>
 				<relative type="0">an Domh seo</relative>
 				<relative type="1">an Domh seo chug.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Domh.</relativeTimePattern>
+					<relativeTimePattern count="two">+{0} Dhomh.</relativeTimePattern>
+					<relativeTimePattern count="few">+{0} Dhomh.</relativeTimePattern>
+					<relativeTimePattern count="many">+{0} nDomh.</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Domh.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Domh. ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Dhomh. ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Dhomh. ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} nDomh. ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Domh. ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon">
 				<relative type="-1">an Luan seo caite</relative>
 				<relative type="0">an Luan seo</relative>
 				<relative type="1">an Luan seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Luan</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Luan</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Luan</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Luan</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Luan</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Luain {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Luain {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Luain {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Luain {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Luain {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-short">
 				<relative type="-1">an Luan seo caite</relative>
 				<relative type="0">an Luan seo</relative>
 				<relative type="1">an Luan seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Luan</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Luan</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Luan</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Luan</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Luan</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Luain {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Luain {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Luain {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Luain {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Luain {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1">an Luan seo caite</relative>
 				<relative type="0">an Luan seo</relative>
 				<relative type="1">an Luan seo chug.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Luan</relativeTimePattern>
+					<relativeTimePattern count="two">+{0} Luan</relativeTimePattern>
+					<relativeTimePattern count="few">+{0} Luan</relativeTimePattern>
+					<relativeTimePattern count="many">+{0} Luan</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Luan</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Luan ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Luan ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Luan ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} Luan ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Luan ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue">
 				<relative type="-1">an Mháirt seo caite</relative>
 				<relative type="0">an Mháirt seo</relative>
 				<relative type="1">an Mháirt seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Máirt</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Máirt</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Máirt</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Máirt</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Máirt</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Máirt {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Máirt {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Máirt {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Máirt {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Máirt {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-short">
 				<relative type="-1">an Mháirt seo caite</relative>
 				<relative type="0">an Mháirt seo</relative>
 				<relative type="1">an Mháirt seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Máirt</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Máirt</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Máirt</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Máirt</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Máirt</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Máirt {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Máirt {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Máirt {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Máirt {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Máirt {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-narrow">
 				<relative type="-1">an Mháirt seo caite</relative>
 				<relative type="0">an Mháirt seo</relative>
 				<relative type="1">an Mháirt seo chug.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Mháirt</relativeTimePattern>
+					<relativeTimePattern count="two">+{0} Mháirt</relativeTimePattern>
+					<relativeTimePattern count="few">+{0} Mháirt</relativeTimePattern>
+					<relativeTimePattern count="many">+{0} Máirt</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Máirt</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Mháirt ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Mháirt ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Mháirt ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} Máirt ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Máirt ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed">
 				<relative type="-1">an Chéadaoin seo caite</relative>
 				<relative type="0">an Chéadaoin seo</relative>
 				<relative type="1">an Chéadaoin seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Chéadaoin</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Céadaoin {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Céadaoin {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Céadaoin {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Céadaoin {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Céadaoin {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-short">
 				<relative type="-1">an Chéad. seo caite</relative>
 				<relative type="0">an Chéad. seo</relative>
 				<relative type="1">an Chéad. seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Chéadaoin</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Céadaoin {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Céadaoin {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Céadaoin {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Céadaoin {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Céadaoin {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-narrow">
 				<relative type="-1">an Chéad. seo caite</relative>
 				<relative type="0">an Chéad. seo</relative>
 				<relative type="1">an Chéad seo chug.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="two">+{0} Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="few">+{0} Chéadaoin</relativeTimePattern>
+					<relativeTimePattern count="many">+{0} gCéadaoin</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Céadaoin</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Chéadaoin ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Chéadaoin ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Chéadaoin ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} gCéadaoin ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Céadaoin ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu">
 				<relative type="-1">an Déardaoin seo caite</relative>
 				<relative type="0">an Déardaoin seo</relative>
 				<relative type="1">an Déardaoin seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Déardaoin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Déardaoin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Déardaoin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Déardaoin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Déardaoin</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Déardaoin {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Déardaoin {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Déardaoin {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Déardaoin {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Déardaoin {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-short">
 				<relative type="-1">an Déar. seo caite</relative>
 				<relative type="0">an Déar. seo</relative>
 				<relative type="1">an Déar. seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Déardaoin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Déardaoin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Déardaoin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Déardaoin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Déardaoin</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Déardaoin {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Déardaoin {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Déardaoin {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Déardaoin {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Déardaoin {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-narrow">
 				<relative type="-1">an Déar. seo caite</relative>
 				<relative type="0">an Déar. seo</relative>
 				<relative type="1">an Déar. seo chug.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Déardaoin</relativeTimePattern>
+					<relativeTimePattern count="two">+{0} Dhéardaoin</relativeTimePattern>
+					<relativeTimePattern count="few">+{0} Dhéardaoin</relativeTimePattern>
+					<relativeTimePattern count="many">+{0} nDéardaoin</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Déardaoin</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Déardaoin ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Dhéardaoin ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Dhéardaoin ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} nDéardaoin ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Déardaoin ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri">
 				<relative type="-1">an Aoine seo caite</relative>
 				<relative type="0">an Aoine seo</relative>
 				<relative type="1">an Aoine seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Aoine</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Aoine</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Aoine</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Aoine</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Aoine</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé hAoine {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé hAoine {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé hAoine {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé hAoine {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé hAoine {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-short">
 				<relative type="-1">an Aoine seo caite</relative>
 				<relative type="0">an Aoine seo</relative>
 				<relative type="1">an Aoine seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Aoine</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Aoine</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Aoine</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Aoine</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Aoine</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé hAoine {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé hAoine {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé hAoine {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé hAoine {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé hAoine {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1">an Aoine seo caite</relative>
 				<relative type="0">an Aoine seo</relative>
 				<relative type="1">an Aoine seo chug.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Aoine</relativeTimePattern>
+					<relativeTimePattern count="two">+{0} Aoine</relativeTimePattern>
+					<relativeTimePattern count="few">+{0} Aoine</relativeTimePattern>
+					<relativeTimePattern count="many">+{0} Aoine</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Aoine</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Aoine ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Aoine ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Aoine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} Aoine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Aoine ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat">
 				<relative type="-1">an Satharn seo caite</relative>
 				<relative type="0">an Satharn seo</relative>
 				<relative type="1">an Satharn seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Satharn</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Satharn</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Satharn</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Satharn</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Satharn</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Sathairn {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Sathairn {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Sathairn {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Sathairn {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Sathairn {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-short">
 				<relative type="-1">an Sath. seo caite</relative>
 				<relative type="0">an Sath. seo</relative>
 				<relative type="1">an Sath. seo chugainn</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} seachtain ón Satharn</relativeTimePattern>
+					<relativeTimePattern count="two">{0} sheachtain ón Satharn</relativeTimePattern>
+					<relativeTimePattern count="few">{0} seachtaine ón Satharn</relativeTimePattern>
+					<relativeTimePattern count="many">{0} seachtaine ón Satharn</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seachtain ón Satharn</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Dé Sathairn {0} seachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">Dé Sathairn {0} sheachtain ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">Dé Sathairn {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">Dé Sathairn {0} seachtaine ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">Dé Sathairn {0} seachtain ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-narrow">
 				<relative type="-1">an Sath seo caite</relative>
 				<relative type="0">an Sath seo</relative>
 				<relative type="1">an Sath seo chug.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Satharn</relativeTimePattern>
+					<relativeTimePattern count="two">+{0} Shatharn</relativeTimePattern>
+					<relativeTimePattern count="few">+{0} Shatharn</relativeTimePattern>
+					<relativeTimePattern count="many">+{0} Satharn</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Satharn</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} Satharn ó shin</relativeTimePattern>
+					<relativeTimePattern count="two">{0} Shatharn ó shin</relativeTimePattern>
+					<relativeTimePattern count="few">{0} Shatharn ó shin</relativeTimePattern>
+					<relativeTimePattern count="many">{0} Satharn ó shin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Satharn ó shin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="dayperiod">
 				<displayName>a.m./p.m.</displayName>
 			</field>
 			<field type="hour">
 				<displayName>Uair</displayName>
+				<relative type="0">an uair seo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} uair an chloig</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} uair an chloig</relativeTimePattern>
@@ -1848,6 +2429,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="hour-short">
 				<displayName>uair</displayName>
+				<relative type="0">an uair seo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} uair</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} uair</relativeTimePattern>
@@ -1865,6 +2447,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="hour-narrow">
 				<displayName>u</displayName>
+				<relative type="0">an uair seo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} u</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} u</relativeTimePattern>
@@ -1882,6 +2465,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute">
 				<displayName>Nóiméad</displayName>
+				<relative type="0">an nóiméad seo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} nóiméad</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} nóiméad</relativeTimePattern>
@@ -1899,6 +2483,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute-short">
 				<displayName>nóim.</displayName>
+				<relative type="0">an nóiméad seo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">i gceann {0} nóim.</relativeTimePattern>
 					<relativeTimePattern count="two">i gceann {0} nóim.</relativeTimePattern>
@@ -1916,6 +2501,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute-narrow">
 				<displayName>n</displayName>
+				<relative type="0">an nóiméad seo</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} n</relativeTimePattern>
 					<relativeTimePattern count="two">+{0} n</relativeTimePattern>
@@ -2263,6 +2849,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity>Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Fort_Nelson">
+				<exemplarCity>Fort Nelson</exemplarCity>
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>Dawson Creek</exemplarCity>
@@ -2936,6 +3525,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
 			</zone>
+			<zone type="Europe/Astrakhan">
+				<exemplarCity>An Astracáin</exemplarCity>
+			</zone>
+			<zone type="Europe/Ulyanovsk">
+				<exemplarCity>Ulyanovsk</exemplarCity>
+			</zone>
+			<zone type="Europe/Kirov">
+				<exemplarCity>Kirov</exemplarCity>
+			</zone>
 			<zone type="Europe/Samara">
 				<exemplarCity>Samara</exemplarCity>
 			</zone>
@@ -2947,6 +3545,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>Novosibirsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Barnaul">
+				<exemplarCity>Barnaul</exemplarCity>
+			</zone>
+			<zone type="Asia/Tomsk">
+				<exemplarCity>Tomsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Novokuznetsk">
 				<exemplarCity>Novokuznetsk</exemplarCity>
@@ -4052,6 +4656,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Am Phohnpei</standard>
 				</long>
 			</metazone>
+			<metazone type="Pyongyang">
+				<long>
+					<standard>Am Pyongyang</standard>
+				</long>
+			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
 					<generic>Am Qyzylorda</generic>
@@ -4645,7 +5254,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
-				<displayName>Dínear Bhoisnia-Heirseagaivéin</displayName>
+				<displayName>Dínear Bhoisnia-Heirseagaivéin (1992–1994)</displayName>
 				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
@@ -5223,6 +5832,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="many">lari na Seoirsia</displayName>
 				<displayName count="other">lari na Seoirsia</displayName>
 				<symbol>GEL</symbol>
+				<symbol alt="narrow" draft="contributed">₾</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Cedi Ghána (1979–2007)</displayName>
@@ -6381,7 +6991,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
 			<currency type="UAK">
-				<displayName>Karbovanetz Úcránach</displayName>
+				<displayName>Karbovanets Úcránach</displayName>
 			</currency>
 			<currency type="UGS">
 				<displayName>Scilling Uganda (1966–1987)</displayName>
@@ -6617,11 +7227,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
-				<displayName>Dínear Crua Iúgslavach</displayName>
+				<displayName>Dínear Crua Iúgslavach (1966–1990)</displayName>
 				<symbol>YUD</symbol>
 			</currency>
 			<currency type="YUM">
-				<displayName>Noviy Dinar Iúgslavach</displayName>
+				<displayName>Dínear Nua Iúgslavach (1994–2002)</displayName>
 				<symbol>YUM</symbol>
 			</currency>
 			<currency type="YUN">
@@ -6665,7 +7275,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
-				<displayName>Dollar Siombábach</displayName>
+				<displayName>Dollar Siombábach (1980–2008)</displayName>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -6741,6 +7351,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} chiliméadar chearnacha</unitPattern>
 				<unitPattern count="many">{0} gciliméadar chearnacha</unitPattern>
 				<unitPattern count="other">{0} ciliméadar cearnach</unitPattern>
+				<perUnitPattern>{0} sa chiliméadar cearnach</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>heicteáir</displayName>
@@ -6775,6 +7386,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mhíle chearnacha</unitPattern>
 				<unitPattern count="many">{0} míle chearnacha</unitPattern>
 				<unitPattern count="other">{0} míle cearnach</unitPattern>
+				<perUnitPattern>{0} sa mhíle cearnach</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>acraí</displayName>
@@ -6817,6 +7429,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} gcarat óir</unitPattern>
 				<unitPattern count="other">{0} carat óir</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>milleagraim sa deicilítear</displayName>
+				<unitPattern count="one">{0} mhilleagram sa deicilítear</unitPattern>
+				<unitPattern count="two">{0} mhilleagram sa deicilítear</unitPattern>
+				<unitPattern count="few">{0} mhilleagram sa deicilítear</unitPattern>
+				<unitPattern count="many">{0} milleagram sa deicilítear</unitPattern>
+				<unitPattern count="other">{0} milleagram sa deicilítear</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>milleamóil sa lítear</displayName>
+				<unitPattern count="one">{0} mhilleamól sa lítear</unitPattern>
+				<unitPattern count="two">{0} mhilleamól sa lítear</unitPattern>
+				<unitPattern count="few">{0} mhilleamól sa lítear</unitPattern>
+				<unitPattern count="many">{0} milleamól sa lítear</unitPattern>
+				<unitPattern count="other">{0} milleamól sa lítear</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>codanna sa mhilliún</displayName>
+				<unitPattern count="one">{0} sa mhilliún</unitPattern>
+				<unitPattern count="two">{0} sa mhilliún</unitPattern>
+				<unitPattern count="few">{0} sa mhilliún</unitPattern>
+				<unitPattern count="many">{0} sa mhilliún</unitPattern>
+				<unitPattern count="other">{0} sa mhilliún</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lítir sa chiliméadar</displayName>
 				<unitPattern count="one">{0} lítear sa chiliméadar</unitPattern>
@@ -6840,6 +7476,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mhíle an galún</unitPattern>
 				<unitPattern count="many">{0} míle an galún</unitPattern>
 				<unitPattern count="other">{0} míle an galún</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>mílte sa ghalún impiriúil</displayName>
+				<unitPattern count="one">{0} mhíle sa ghalún impiriúil</unitPattern>
+				<unitPattern count="two">{0} mhíle sa ghalún impiriúil</unitPattern>
+				<unitPattern count="few">{0} mhíle sa ghalún impiriúil</unitPattern>
+				<unitPattern count="many">{0} míle sa ghalún impiriúil</unitPattern>
+				<unitPattern count="other">{0} míle sa ghalún impiriúil</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>teiribhearta</displayName>
@@ -7685,6 +8329,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} galún</unitPattern>
 				<perUnitPattern>{0} sa ghalún</perUnitPattern>
 			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>galúin impiriúla</displayName>
+				<unitPattern count="one">{0} ghalún impiriúil</unitPattern>
+				<unitPattern count="two">{0} ghalún impiriúla</unitPattern>
+				<unitPattern count="few">{0} ghalún impiriúla</unitPattern>
+				<unitPattern count="many">{0} ngalún impiriúla</unitPattern>
+				<unitPattern count="other">{0} galún impiriúil</unitPattern>
+				<perUnitPattern>{0} sa ghalún impiriúil</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>cáirt</displayName>
 				<unitPattern count="one">{0} chárt</unitPattern>
@@ -7807,6 +8460,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} km²</unitPattern>
 				<unitPattern count="many">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
+				<perUnitPattern>{0}/km²</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>heicteáir</displayName>
@@ -7841,6 +8495,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mhíle²</unitPattern>
 				<unitPattern count="many">{0} míle²</unitPattern>
 				<unitPattern count="other">{0} míle²</unitPattern>
+				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>acraí</displayName>
@@ -7883,6 +8538,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} kt</unitPattern>
 				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>mg/dL</displayName>
+				<unitPattern count="one">{0} mg/dL</unitPattern>
+				<unitPattern count="two">{0} mg/dL</unitPattern>
+				<unitPattern count="few">{0} mg/dL</unitPattern>
+				<unitPattern count="many">{0} mg/dL</unitPattern>
+				<unitPattern count="other">{0} mg/dL</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>milleamól/lítear</displayName>
+				<unitPattern count="one">{0} mmol/L</unitPattern>
+				<unitPattern count="two">{0} mmol/L</unitPattern>
+				<unitPattern count="few">{0} mmol/L</unitPattern>
+				<unitPattern count="many">{0} mmol/L</unitPattern>
+				<unitPattern count="other">{0} mmol/L</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>codanna/milliún</displayName>
+				<unitPattern count="one">{0}/milliún</unitPattern>
+				<unitPattern count="two">{0}/milliún</unitPattern>
+				<unitPattern count="few">{0}/milliún</unitPattern>
+				<unitPattern count="many">{0}/milliún</unitPattern>
+				<unitPattern count="other">{0}/milliún</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>lítir/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
@@ -7906,6 +8585,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} mhíle/gal</unitPattern>
 				<unitPattern count="many">{0} míle/gal</unitPattern>
 				<unitPattern count="other">{0} míle/gal</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>mílte/gal. imp.</displayName>
+				<unitPattern count="one">{0} msg imp</unitPattern>
+				<unitPattern count="two">{0} msg imp</unitPattern>
+				<unitPattern count="few">{0} msg imp</unitPattern>
+				<unitPattern count="many">{0} msg imp</unitPattern>
+				<unitPattern count="other">{0} msg imp</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -8740,6 +9427,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0} ngal.</unitPattern>
 				<unitPattern count="other">{0} gal.</unitPattern>
 				<perUnitPattern>{0}/gal.</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>gal. imp.</displayName>
+				<unitPattern count="one">{0} ghal. imp.</unitPattern>
+				<unitPattern count="two">{0} ghal. imp.</unitPattern>
+				<unitPattern count="few">{0} ghal. imp.</unitPattern>
+				<unitPattern count="many">{0} ngal. imp.</unitPattern>
+				<unitPattern count="other">{0} gal. imp.</unitPattern>
+				<perUnitPattern>{0}/gal. imp.</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>cáirt</displayName>
@@ -9584,6 +10280,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="end">{0}, agus {1}</listPatternPart>
 			<listPatternPart type="2">{0} agus {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, agus {1}</listPatternPart>
+			<listPatternPart type="2">{0} agus {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="unit">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -9609,5 +10311,89 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr>níl:n</nostr>
 		</messages>
 	</posix>
+	<characterLabels>
+		<characterLabelPattern type="all">{0} — Uile</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} — Comhoiriúnacht</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} — Iniata</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} — Breisithe</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} — Stairiúil</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} — Éagsúil</characterLabelPattern>
+		<characterLabelPattern type="other">{0} — Eile</characterLabelPattern>
+		<characterLabelPattern type="scripts">Scripteanna — {0}</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">{0} Stríoc</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="two">{0} Stríoc</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="few">{0} Stríoc</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="many">{0} Stríoc</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">{0} Stríoc</characterLabelPattern>
+		<characterLabel type="activities">Gníomhaíochtaí</characterLabel>
+		<characterLabel type="african_scripts">Scripteanna na hAfraice</characterLabel>
+		<characterLabel type="american_scripts">Scripteanna Meiriceánacha</characterLabel>
+		<characterLabel type="animals_nature">Ainmhithe agus an Nádúr</characterLabel>
+		<characterLabel type="arrows">Saighde</characterLabel>
+		<characterLabel type="box_drawing">Líníocht Boscaí</characterLabel>
+		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="bullets_stars">Urchair/Réaltaí</characterLabel>
+		<characterLabel type="consonantal_jamo">Seamó Consanta</characterLabel>
+		<characterLabel type="currency_symbols">Siombailí Airgeadra</characterLabel>
+		<characterLabel type="dash_connector">Dais/Nascóir</characterLabel>
+		<characterLabel type="digits">Digití</characterLabel>
+		<characterLabel type="dingbats">Smísteoga</characterLabel>
+		<characterLabel type="divination_symbols">Siombailí na Fáistine</characterLabel>
+		<characterLabel type="downwards_arrows">Saighde Síos</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">Saighde Síos Suas</characterLabel>
+		<characterLabel type="east_asian_scripts">Scripteanna na hÁise Thoir</characterLabel>
+		<characterLabel type="emoji">Emoji</characterLabel>
+		<characterLabel type="european_scripts">Scripteanna na hEorpa</characterLabel>
+		<characterLabel type="flags">Bratacha</characterLabel>
+		<characterLabel type="food_drink">Bia agus Deoch</characterLabel>
+		<characterLabel type="format">Formáid</characterLabel>
+		<characterLabel type="format_whitespace">Formáid agus Spás Bán</characterLabel>
+		<characterLabel type="full_width_form_variant">Foirmeacha Malartacha Lánleithid</characterLabel>
+		<characterLabel type="geometric_shapes">Cruthanna Geoiméadracha</characterLabel>
+		<characterLabel type="half_width_form_variant">Foirmeacha Malartacha Leathleithid</characterLabel>
+		<characterLabel type="han_characters">Carachtair Han</characterLabel>
+		<characterLabel type="han_radicals">Fréamhacha Han</characterLabel>
+		<characterLabel type="hanja">Hanaí</characterLabel>
+		<characterLabel type="hanzi_simplified">Hansaí (Simplithe)</characterLabel>
+		<characterLabel type="hanzi_traditional">Hansaí (Traidisiúnta)</characterLabel>
+		<characterLabel type="historic_scripts">Scripteanna Stairiúla</characterLabel>
+		<characterLabel type="ideographic_desc_characters">Carachtair Thuairiscithe Idéagrafacha</characterLabel>
+		<characterLabel type="japanese_kana">Kana Seapánach</characterLabel>
+		<characterLabel type="kanbun">Kanbun</characterLabel>
+		<characterLabel type="kanji">Ceansaí</characterLabel>
+		<characterLabel type="leftwards_arrows">Saighde Clé</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">Saighde Clé-Deas</characterLabel>
+		<characterLabel type="letterlike_symbols">Siombailí Cosúil le Litreacha</characterLabel>
+		<characterLabel type="limited_use">Neamhfhorleathan</characterLabel>
+		<characterLabel type="math_symbols">Siombailí Matamaiticiúla</characterLabel>
+		<characterLabel type="middle_eastern_scripts">Scripteanna an Mheánoirthir</characterLabel>
+		<characterLabel type="miscellaneous">Éagsúil</characterLabel>
+		<characterLabel type="modern_scripts">Scripteanna Nua-Aimseartha</characterLabel>
+		<characterLabel type="modifier">Mionathraitheoir</characterLabel>
+		<characterLabel type="musical_symbols">Siombailí Ceoil</characterLabel>
+		<characterLabel type="nonspacing">Neamhspásáilte</characterLabel>
+		<characterLabel type="numbers">Uimhreacha</characterLabel>
+		<characterLabel type="objects">Nithe</characterLabel>
+		<characterLabel type="other">Eile</characterLabel>
+		<characterLabel type="paired">Péireáilte</characterLabel>
+		<characterLabel type="phonetic_alphabet">Aibítir Foghraíochta</characterLabel>
+		<characterLabel type="pictographs">Picteagraif</characterLabel>
+		<characterLabel type="punctuation">Poncaíocht</characterLabel>
+		<characterLabel type="rightwards_arrows">Saighde Deasa</characterLabel>
+		<characterLabel type="sign_standard_symbols">Comharthaí/Siombailí Coitianta</characterLabel>
+		<characterLabel type="small_form_variant">Foirmeacha Beaga Malartacha</characterLabel>
+		<characterLabel type="smileys_people">Straoiseoga agus Daoine</characterLabel>
+		<characterLabel type="south_asian_scripts">Scripteanna na hÁise Theas</characterLabel>
+		<characterLabel type="southeast_asian_scripts">Scripteanna na hÁise Thoir Theas</characterLabel>
+		<characterLabel type="spacing">Spásáil</characterLabel>
+		<characterLabel type="symbols">Siombailí</characterLabel>
+		<characterLabel type="technical_symbols">Siombailí Teicniúla</characterLabel>
+		<characterLabel type="tone_marks">Comharthaí Toin</characterLabel>
+		<characterLabel type="travel_places">Taisteal agus Áiteanna</characterLabel>
+		<characterLabel type="upwards_arrows">Saighde Suas</characterLabel>
+		<characterLabel type="variant_forms">Foirmeacha Malartacha</characterLabel>
+		<characterLabel type="vocalic_jamo">Seamó Guthach</characterLabel>
+		<characterLabel type="western_asian_scripts">Scripteanna na hÁise Thiar</characterLabel>
+		<characterLabel type="whitespace">Spás Bán</characterLabel>
+	</characterLabels>
 </ldml>
-

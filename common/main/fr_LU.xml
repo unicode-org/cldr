@@ -11,6 +11,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="fr"/>
 		<territory type="LU"/>
 	</identity>
+	<dates>
+		<calendars>
+			<calendar type="generic">
+				<dateFormats>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="contributed">dd/MM/y GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<symbols numberSystem="latn">
 			<group>.</group>
@@ -25,4 +38,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 	</numbers>
 </ldml>
-

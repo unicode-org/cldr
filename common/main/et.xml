@@ -35,7 +35,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ale">aleuudi</language>
 			<language type="aln">geegi</language>
 			<language type="alt">altai</language>
-			<language type="am">amhari</language>
+			<language type="am">amhara</language>
 			<language type="an">aragoni</language>
 			<language type="ang">vanainglise</language>
 			<language type="anp">angika</language>
@@ -122,6 +122,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="cps">kapisnoni</language>
 			<language type="cr">krii</language>
 			<language type="crh">krimmitatari</language>
+			<language type="crs">seišelli</language>
 			<language type="cs">tšehhi</language>
 			<language type="csb">kašuubi</language>
 			<language type="cu">kirikuslaavi</language>
@@ -224,6 +225,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="gwi">gvitšini</language>
 			<language type="ha">hausa</language>
 			<language type="hai">haida</language>
+			<language type="hak">hakka</language>
 			<language type="haw">havai</language>
 			<language type="he">heebrea</language>
 			<language type="hi">hindi</language>
@@ -411,7 +413,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nov">noviaal</language>
 			<language type="nqo">nkoo</language>
 			<language type="nr">lõunandebele</language>
-			<language type="nso">pedi</language>
+			<language type="nso">põhjasotho</language>
 			<language type="nus">nueri</language>
 			<language type="nv">navaho</language>
 			<language type="nwc">vananevari</language>
@@ -420,7 +422,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nyn">nkole</language>
 			<language type="nyo">njoro</language>
 			<language type="nzi">nzima</language>
-			<language type="oc">provansi</language>
+			<language type="oc">oksitaani</language>
 			<language type="oj">odžibvei</language>
 			<language type="om">oromo</language>
 			<language type="or">oria</language>
@@ -434,6 +436,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pap">papiamento</language>
 			<language type="pau">belau</language>
 			<language type="pcd">pikardi</language>
+			<language type="pcm">Nigeeria pidžinkeel</language>
 			<language type="pdc">Pennsylvania saksa</language>
 			<language type="pdt">mennoniidisaksa</language>
 			<language type="peo">vanapärsia</language>
@@ -671,12 +674,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Grek">kreeka</script>
 			<script type="Gujr">gudžarati</script>
 			<script type="Guru">gurmukhi</script>
+			<script type="Hanb">hanbi</script>
 			<script type="Hang">korea</script>
 			<script type="Hani">hani</script>
 			<script type="Hano">hanunoo</script>
-			<script type="Hans">hiina lihtsustatud</script>
+			<script type="Hans">lihtsustatud</script>
 			<script type="Hans" alt="stand-alone">lihtsustatud hani</script>
-			<script type="Hant">hiina traditsiooniline</script>
+			<script type="Hant">traditsiooniline</script>
 			<script type="Hant" alt="stand-alone">traditsiooniline hani</script>
 			<script type="Hatr">Hatra</script>
 			<script type="Hebr">heebrea</script>
@@ -687,7 +691,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hung">vanaungari</script>
 			<script type="Inds">Induse</script>
 			<script type="Ital">vanaitali</script>
-			<script type="Jamo">Jamo</script>
+			<script type="Jamo">jamo</script>
 			<script type="Java">jaava</script>
 			<script type="Jpan">jaapani</script>
 			<script type="Jurc">tšurtšeni</script>
@@ -792,6 +796,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Yiii">jii</script>
 			<script type="Zinh">päritud</script>
 			<script type="Zmth">matemaatiline tähistus</script>
+			<script type="Zsye">emoji</script>
 			<script type="Zsym">sümbolid</script>
 			<script type="Zxxx">kirjakeeleta</script>
 			<script type="Zyyy">üldine</script>
@@ -837,7 +842,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="AL">Albaania</territory>
 			<territory type="AM">Armeenia</territory>
 			<territory type="AO">Angola</territory>
-			<territory type="AQ">Antarktis</territory>
+			<territory type="AQ">Antarktika</territory>
 			<territory type="AR">Argentina</territory>
 			<territory type="AS">Ameerika Samoa</territory>
 			<territory type="AT">Austria</territory>
@@ -889,6 +894,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Jõulusaar</territory>
 			<territory type="CY">Küpros</territory>
 			<territory type="CZ">Tšehhi</territory>
+			<territory type="CZ" alt="variant">Tšehhia</territory>
 			<territory type="DE">Saksamaa</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibouti</territory>
@@ -1141,6 +1147,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</variants>
 		<keys>
 			<key type="calendar">kalender</key>
+			<key type="cf">rahavorming</key>
 			<key type="colAlternate">sümbolite eiramine järjestuses</key>
 			<key type="colBackwards">diakriitikute pöördjärjestus</key>
 			<key type="colCaseFirst">suur- ja väiketähe järjestus</key>
@@ -1174,6 +1181,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="japanese">Jaapani kalender</type>
 			<type key="calendar" type="persian">Pärsia kalender</type>
 			<type key="calendar" type="roc">Hiina Vabariigi kalender</type>
+			<type key="cf" type="account">arvelduse rahavorming</type>
+			<type key="cf" type="standard">standardne rahavorming</type>
 			<type key="colAlternate" type="non-ignorable">järjesta sümbolid</type>
 			<type key="colAlternate" type="shifted">eira järjestuses sümboleid</type>
 			<type key="colBackwards" type="no">diakriitikud tavajärjestuses</type>
@@ -1315,6 +1324,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="chinese">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">esimene kuu</month>
+							<month type="2" draft="contributed">teine kuu</month>
+							<month type="3" draft="contributed">kolmas kuu</month>
+							<month type="4" draft="contributed">neljas kuu</month>
+							<month type="5" draft="contributed">viies kuu</month>
+							<month type="6" draft="contributed">kuues kuu</month>
+							<month type="7" draft="contributed">seitsmes kuu</month>
+							<month type="8" draft="contributed">kaheksas kuu</month>
+							<month type="9" draft="contributed">üheksas kuu</month>
+							<month type="10" draft="contributed">kümnes kuu</month>
+							<month type="11" draft="contributed">üheteistkümnes kuu</month>
+							<month type="12" draft="contributed">kaheteistkümnes kuu</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<cyclicNameSets>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1" draft="contributed">rott</cyclicName>
+								<cyclicName type="2" draft="contributed">härg</cyclicName>
+								<cyclicName type="3" draft="contributed">tiiger</cyclicName>
+								<cyclicName type="4" draft="contributed">küülik</cyclicName>
+								<cyclicName type="5" draft="contributed">draakon</cyclicName>
+								<cyclicName type="6" draft="contributed">madu</cyclicName>
+								<cyclicName type="7" draft="contributed">hobune</cyclicName>
+								<cyclicName type="8" draft="contributed">lammas</cyclicName>
+								<cyclicName type="9" draft="contributed">ahv</cyclicName>
+								<cyclicName type="10" draft="contributed">kukk</cyclicName>
+								<cyclicName type="11" draft="contributed">koer</cyclicName>
+								<cyclicName type="12" draft="contributed">siga</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<cyclicName type="1" draft="contributed">rott</cyclicName>
+								<cyclicName type="2" draft="contributed">härg</cyclicName>
+								<cyclicName type="3" draft="contributed">tiiger</cyclicName>
+								<cyclicName type="4" draft="contributed">küülik</cyclicName>
+								<cyclicName type="5" draft="contributed">draakon</cyclicName>
+								<cyclicName type="6" draft="contributed">madu</cyclicName>
+								<cyclicName type="7" draft="contributed">hobune</cyclicName>
+								<cyclicName type="8" draft="contributed">lammas</cyclicName>
+								<cyclicName type="9" draft="contributed">ahv</cyclicName>
+								<cyclicName type="10" draft="contributed">kukk</cyclicName>
+								<cyclicName type="11" draft="contributed">koer</cyclicName>
+								<cyclicName type="12" draft="contributed">siga</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
+			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1706,14 +1769,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">keskööl</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="noon">keskpäeval</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">hommikul</dayPeriod>
+							<dayPeriod type="afternoon1">pärastlõunal</dayPeriod>
+							<dayPeriod type="evening1">õhtul</dayPeriod>
+							<dayPeriod type="night1">öösel</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">keskööl</dayPeriod>
-							<dayPeriod type="am">a</dayPeriod>
-							<dayPeriod type="noon">n</dayPeriod>
-							<dayPeriod type="pm">p</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="noon">keskpäeval</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">hommikul</dayPeriod>
 							<dayPeriod type="afternoon1">pärastlõunal</dayPeriod>
 							<dayPeriod type="evening1">õhtul</dayPeriod>
@@ -1731,11 +1800,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">kesköö</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="noon">keskpäev</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">hommik</dayPeriod>
+							<dayPeriod type="afternoon1">pärastlõuna</dayPeriod>
+							<dayPeriod type="evening1">õhtu</dayPeriod>
+							<dayPeriod type="night1">öö</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">kesköö</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="noon">keskpäev</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">hommik</dayPeriod>
+							<dayPeriod type="afternoon1">pärastlõuna</dayPeriod>
+							<dayPeriod type="evening1">õhtu</dayPeriod>
+							<dayPeriod type="night1">öö</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">kesköö</dayPeriod>
-							<dayPeriod type="am" draft="provisional">AM</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="noon">keskpäev</dayPeriod>
-							<dayPeriod type="pm" draft="provisional">PM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">hommik</dayPeriod>
 							<dayPeriod type="afternoon1">pärastlõuna</dayPeriod>
 							<dayPeriod type="evening1">õhtu</dayPeriod>
@@ -1788,22 +1877,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>H:mm.ss zzzz</pattern>
+							<pattern>HH:mm:ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>H:mm.ss z</pattern>
+							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>H:mm.ss</pattern>
+							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>H:mm</pattern>
+							<pattern>HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1834,8 +1923,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms">E h:mm.ss a</dateFormatItem>
-						<dateFormatItem id="EHms">E HH:mm.ss</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y G</dateFormatItem>
@@ -1844,10 +1933,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">h:mm.ss a</dateFormatItem>
-						<dateFormatItem id="Hms">H:mm.ss</dateFormatItem>
-						<dateFormatItem id="hmsv">h:mm.ss a v</dateFormatItem>
-						<dateFormatItem id="Hmsv">HH:mm.ss v</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv">HH:mm:ss v</dateFormatItem>
 						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
 						<dateFormatItem id="Hmv">HH:mm v</dateFormatItem>
 						<dateFormatItem id="M">M</dateFormatItem>
@@ -1858,8 +1947,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d. MMMM</dateFormatItem>
-						<dateFormatItem id="mmss">mm.ss</dateFormatItem>
-						<dateFormatItem id="ms">mm.ss</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">MMM (W. 'nädal')</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">MMM (W. 'nädal')</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M.y</dateFormatItem>
 						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
@@ -1870,6 +1961,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">y (w. 'nädal')</dateFormatItem>
+						<dateFormatItem id="yw" count="other">y (w. 'nädal')</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
@@ -1993,19 +2086,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="year-short">
 				<displayName>a</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} aasta pärast</relativeTimePattern>
-					<relativeTimePattern count="other">{0} aasta pärast</relativeTimePattern>
+					<relativeTimePattern count="one">{0} a pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} a pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} aasta eest</relativeTimePattern>
-					<relativeTimePattern count="other">{0} aasta eest</relativeTimePattern>
+					<relativeTimePattern count="one">{0} a eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} a eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
 				<displayName>a</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} aasta pärast</relativeTimePattern>
-					<relativeTimePattern count="other">{0} aasta pärast</relativeTimePattern>
+					<relativeTimePattern count="one">{0} a pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} a pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} aasta eest</relativeTimePattern>
@@ -2082,12 +2175,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="month-narrow">
 				<displayName>k</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} kuu pärast</relativeTimePattern>
-					<relativeTimePattern count="other">{0} kuu pärast</relativeTimePattern>
+					<relativeTimePattern count="one">{0} k pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} k pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} kuu eest</relativeTimePattern>
-					<relativeTimePattern count="other">{0} kuu eest</relativeTimePattern>
+					<relativeTimePattern count="one">{0} k eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} k eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
@@ -2103,28 +2196,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">{0} nädala eest</relativeTimePattern>
 					<relativeTimePattern count="other">{0} nädala eest</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>{0} nädal</relativePeriod>
 			</field>
 			<field type="week-short">
 				<displayName>näd</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} nädala pärast</relativeTimePattern>
-					<relativeTimePattern count="other">{0} nädala pärast</relativeTimePattern>
+					<relativeTimePattern count="one">{0} näd pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} näd pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} nädala eest</relativeTimePattern>
-					<relativeTimePattern count="other">{0} nädala eest</relativeTimePattern>
+					<relativeTimePattern count="one">{0} näd eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} näd eest</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>{0} näd</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>näd</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} nädala pärast</relativeTimePattern>
-					<relativeTimePattern count="other">{0} nädala pärast</relativeTimePattern>
+					<relativeTimePattern count="one">{0} näd pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} näd pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} nädala eest</relativeTimePattern>
-					<relativeTimePattern count="other">{0} nädala eest</relativeTimePattern>
+					<relativeTimePattern count="one">{0} näd eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} näd eest</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod>{0} nädal</relativePeriod>
 			</field>
 			<field type="day">
 				<displayName>päev</displayName>
@@ -2149,8 +2245,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} p pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} p tagasi</relativeTimePattern>
-					<relativeTimePattern count="other">{0} p tagasi</relativeTimePattern>
+					<relativeTimePattern count="one">{0} p eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} p eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
@@ -2160,8 +2256,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} p pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} p tagasi</relativeTimePattern>
-					<relativeTimePattern count="other">{0} p tagasi</relativeTimePattern>
+					<relativeTimePattern count="one">{0} p eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} p eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="weekday">
@@ -2171,112 +2267,281 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">eelmine pühapäev</relative>
 				<relative type="0">käesolev pühapäev</relative>
 				<relative type="1">järgmine pühapäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} pühapäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pühapäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} pühapäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pühapäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-short">
 				<relative type="-1">eelmine pühapäev</relative>
 				<relative type="0">käesolev pühapäev</relative>
 				<relative type="1">järgmine pühapäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} pühapäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pühapäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} pühapäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pühapäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1">eelmine pühapäev</relative>
 				<relative type="0">käesolev pühapäev</relative>
 				<relative type="1">järgmine pühapäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} pühapäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pühapäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} pühapäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} pühapäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon">
 				<relative type="-1">eelmine esmaspäev</relative>
 				<relative type="0">käesolev esmaspäev</relative>
 				<relative type="1">järgmine esmaspäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} esmaspäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} esmaspäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} esmaspäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} esmaspäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-short">
 				<relative type="-1">eelmine esmaspäev</relative>
 				<relative type="0">käesolev esmaspäev</relative>
 				<relative type="1">järgmine esmaspäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} esmaspäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} esmaspäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} esmaspäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} esmaspäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1">eelmine esmaspäev</relative>
 				<relative type="0">käesolev esmaspäev</relative>
 				<relative type="1">järgmine esmaspäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} esmaspäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} esmaspäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} esmaspäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} esmaspäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue">
 				<relative type="-1">eelmine teisipäev</relative>
 				<relative type="0">käesolev teisipäev</relative>
 				<relative type="1">järgmine teisipäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} teisipäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} teisipäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} teisipäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} teisipäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-short">
 				<relative type="-1">eelmine teisipäev</relative>
 				<relative type="0">käesolev teisipäev</relative>
 				<relative type="1">järgmine teisipäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} teisipäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} teisipäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} teisipäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} teisipäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="tue-narrow">
 				<relative type="-1">eelmine teisipäev</relative>
 				<relative type="0">käesolev teisipäev</relative>
 				<relative type="1">järgmine teisipäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} teisipäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} teisipäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} teisipäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} teisipäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed">
 				<relative type="-1">eelmine kolmapäev</relative>
 				<relative type="0">käesolev kolmapäev</relative>
 				<relative type="1">järgmine kolmapäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} kolmapäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} kolmapäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} kolmapäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} kolmapäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-short">
 				<relative type="-1">eelmine kolmapäev</relative>
 				<relative type="0">käesolev kolmapäev</relative>
 				<relative type="1">järgmine kolmapäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} kolmapäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} kolmapäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} kolmapäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} kolmapäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="wed-narrow">
 				<relative type="-1">eelmine kolmapäev</relative>
 				<relative type="0">käesolev kolmapäev</relative>
 				<relative type="1">järgmine kolmapäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} kolmapäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} kolmapäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} kolmapäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} kolmapäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu">
 				<relative type="-1">eelmine neljapäev</relative>
 				<relative type="0">käesolev neljapäev</relative>
 				<relative type="1">järgmine neljapäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} neljapäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} neljapäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} neljapäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} neljapäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-short">
 				<relative type="-1">eelmine neljapäev</relative>
 				<relative type="0">käesolev neljapäev</relative>
 				<relative type="1">järgmine neljapäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} neljapäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} neljapäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} neljapäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} neljapäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="thu-narrow">
 				<relative type="-1">eelmine neljapäev</relative>
 				<relative type="0">käesolev neljapäev</relative>
 				<relative type="1">järgmine neljapäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} neljapäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} neljapäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} neljapäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} neljapäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri">
 				<relative type="-1">eelmine reede</relative>
 				<relative type="0">käesolev reede</relative>
 				<relative type="1">järgmine reede</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} reede pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} reede pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} reede eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} reede eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-short">
 				<relative type="-1">eelmine reede</relative>
 				<relative type="0">käesolev reede</relative>
 				<relative type="1">järgmine reede</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} reede pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} reede pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} reede eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} reede eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1">eelmine reede</relative>
 				<relative type="0">käesolev reede</relative>
 				<relative type="1">järgmine reede</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} reede pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} reede pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} reede eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} reede eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat">
 				<relative type="-1">eelmine laupäev</relative>
 				<relative type="0">käesolev laupäev</relative>
 				<relative type="1">järgmine laupäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} laupäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} laupäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} laupäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} laupäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-short">
 				<relative type="-1">eelmine laupäev</relative>
 				<relative type="0">käesolev laupäev</relative>
 				<relative type="1">järgmine laupäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} laupäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} laupäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} laupäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} laupäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sat-narrow">
 				<relative type="-1">eelmine laupäev</relative>
 				<relative type="0">käesolev laupäev</relative>
 				<relative type="1">järgmine laupäev</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} laupäeva pärast</relativeTimePattern>
+					<relativeTimePattern count="other">{0} laupäeva pärast</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} laupäeva eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} laupäeva eest</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="dayperiod">
 				<displayName>enne/pärast lõunat</displayName>
 			</field>
 			<field type="hour">
 				<displayName>tund</displayName>
+				<relative type="0">praegusel tunnil</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} tunni pärast</relativeTimePattern>
 					<relativeTimePattern count="other">{0} tunni pärast</relativeTimePattern>
@@ -2293,8 +2558,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} t pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} t tagasi</relativeTimePattern>
-					<relativeTimePattern count="other">{0} t tagasi</relativeTimePattern>
+					<relativeTimePattern count="one">{0} t eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} t eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
@@ -2304,12 +2569,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} t pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} t tagasi</relativeTimePattern>
-					<relativeTimePattern count="other">{0} t tagasi</relativeTimePattern>
+					<relativeTimePattern count="one">{0} t eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} t eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>minut</displayName>
+				<relative type="0">praegusel minutil</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} minuti pärast</relativeTimePattern>
 					<relativeTimePattern count="other">{0} minuti pärast</relativeTimePattern>
@@ -2326,8 +2592,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} min pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} min tagasi</relativeTimePattern>
-					<relativeTimePattern count="other">{0} min tagasi</relativeTimePattern>
+					<relativeTimePattern count="one">{0} min eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} min eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
@@ -2337,8 +2603,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} min pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} min tagasi</relativeTimePattern>
-					<relativeTimePattern count="other">{0} min tagasi</relativeTimePattern>
+					<relativeTimePattern count="one">{0} min eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} min eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
@@ -2360,8 +2626,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} sek pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} sek tagasi</relativeTimePattern>
-					<relativeTimePattern count="other">{0} sek tagasi</relativeTimePattern>
+					<relativeTimePattern count="one">{0} sek eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} sek eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second-narrow">
@@ -2371,8 +2637,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} s pärast</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} s tagasi</relativeTimePattern>
-					<relativeTimePattern count="other">{0} s tagasi</relativeTimePattern>
+					<relativeTimePattern count="one">{0} s eest</relativeTimePattern>
+					<relativeTimePattern count="other">{0} s eest</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="zone">
@@ -2653,6 +2919,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Vancouver">
 				<exemplarCity>Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Fort_Nelson">
+				<exemplarCity>Fort Nelson</exemplarCity>
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>Dawson Creek</exemplarCity>
@@ -3320,6 +3589,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograd</exemplarCity>
 			</zone>
+			<zone type="Europe/Astrakhan">
+				<exemplarCity>Astrahan</exemplarCity>
+			</zone>
+			<zone type="Europe/Ulyanovsk">
+				<exemplarCity>Uljanovsk</exemplarCity>
+			</zone>
+			<zone type="Europe/Kirov">
+				<exemplarCity>Kirov</exemplarCity>
+			</zone>
 			<zone type="Europe/Samara">
 				<exemplarCity>Samara</exemplarCity>
 			</zone>
@@ -3331,6 +3609,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>Novosibirsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Barnaul">
+				<exemplarCity>Barnaul</exemplarCity>
+			</zone>
+			<zone type="Asia/Tomsk">
+				<exemplarCity>Tomsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Novokuznetsk">
 				<exemplarCity>Novokuznetsk</exemplarCity>
@@ -3543,13 +3827,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
-				<exemplarCity>Beulah, North Dakota</exemplarCity>
+				<exemplarCity>Beulah, Põhja-Dakota</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity>New Salem, North Dakota</exemplarCity>
+				<exemplarCity>New Salem, Põhja-Dakota</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity>Center, North Dakota</exemplarCity>
+				<exemplarCity>Center, Põhja-Dakota</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<exemplarCity>Chicago</exemplarCity>
@@ -4192,9 +4476,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
-					<generic>Lord Howe aeg</generic>
-					<standard>Lord Howe standardaeg</standard>
-					<daylight>Lord Howe suveaeg</daylight>
+					<generic>Lord Howe’i aeg</generic>
+					<standard>Lord Howe’i standardaeg</standard>
+					<daylight>Lord Howe’i suveaeg</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
@@ -4394,6 +4678,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Ponape">
 				<long>
 					<standard>Pohnpei aeg</standard>
+				</long>
+			</metazone>
+			<metazone type="Pyongyang">
+				<long>
+					<standard>Pyongyangi aeg</standard>
 				</long>
 			</metazone>
 			<metazone type="Qyzylorda">
@@ -4689,30 +4978,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">0 tuh ¤</pattern>
-					<pattern type="1000" count="other" draft="provisional">0 tuh ¤</pattern>
-					<pattern type="10000" count="one" draft="provisional">00 tuh ¤</pattern>
-					<pattern type="10000" count="other" draft="provisional">00 tuh ¤</pattern>
-					<pattern type="100000" count="one" draft="provisional">000 tuh ¤</pattern>
-					<pattern type="100000" count="other" draft="provisional">000 tuh ¤</pattern>
-					<pattern type="1000000" count="one" draft="provisional">0 mln ¤</pattern>
-					<pattern type="1000000" count="other" draft="provisional">0 mln ¤</pattern>
-					<pattern type="10000000" count="one" draft="provisional">00 mln ¤</pattern>
-					<pattern type="10000000" count="other" draft="provisional">00 mln ¤</pattern>
-					<pattern type="100000000" count="one" draft="provisional">000 mln ¤</pattern>
-					<pattern type="100000000" count="other" draft="provisional">000 mln ¤</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">0 mld ¤</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">0 mld ¤</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">00 mld ¤</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">00 mld ¤</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">000 mld ¤</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">000 mld ¤</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">0 trl ¤</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">0 trl ¤</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">00 trl ¤</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">00 trl ¤</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">000 trl ¤</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">000 trl ¤</pattern>
+					<pattern type="1000" count="one">0 tuh ¤</pattern>
+					<pattern type="1000" count="other">0 tuh ¤</pattern>
+					<pattern type="10000" count="one">00 tuh ¤</pattern>
+					<pattern type="10000" count="other">00 tuh ¤</pattern>
+					<pattern type="100000" count="one">000 tuh ¤</pattern>
+					<pattern type="100000" count="other">000 tuh ¤</pattern>
+					<pattern type="1000000" count="one">0 mln ¤</pattern>
+					<pattern type="1000000" count="other">0 mln ¤</pattern>
+					<pattern type="10000000" count="one">00 mln ¤</pattern>
+					<pattern type="10000000" count="other">00 mln ¤</pattern>
+					<pattern type="100000000" count="one">000 mln ¤</pattern>
+					<pattern type="100000000" count="other">000 mln ¤</pattern>
+					<pattern type="1000000000" count="one">0 mld ¤</pattern>
+					<pattern type="1000000000" count="other">0 mld ¤</pattern>
+					<pattern type="10000000000" count="one">00 mld ¤</pattern>
+					<pattern type="10000000000" count="other">00 mld ¤</pattern>
+					<pattern type="100000000000" count="one">000 mld ¤</pattern>
+					<pattern type="100000000000" count="other">000 mld ¤</pattern>
+					<pattern type="1000000000000" count="one">0 trl ¤</pattern>
+					<pattern type="1000000000000" count="other">0 trl ¤</pattern>
+					<pattern type="10000000000000" count="one">00 trl ¤</pattern>
+					<pattern type="10000000000000" count="other">00 trl ¤</pattern>
+					<pattern type="100000000000000" count="one">000 trl ¤</pattern>
+					<pattern type="100000000000000" count="other">000 trl ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
@@ -5112,6 +5401,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Taani kroon</displayName>
 				<displayName count="other">Taani krooni</displayName>
 				<symbol>DKK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominikaani peeso</displayName>
@@ -5359,6 +5649,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">Islandi kroon</displayName>
 				<displayName count="other">Islandi krooni</displayName>
 				<symbol>ISK</symbol>
+				<symbol alt="narrow" draft="contributed">kr</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Itaalia liir</displayName>
@@ -6285,6 +6576,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ruutkilomeetrid</displayName>
 				<unitPattern count="one">{0} ruutkilomeeter</unitPattern>
 				<unitPattern count="other">{0} ruutkilomeetrit</unitPattern>
+				<perUnitPattern>{0} ruutkilomeetri kohta</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>hektarid</displayName>
@@ -6307,6 +6599,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ruutmiilid</displayName>
 				<unitPattern count="one">{0} ruutmiil</unitPattern>
 				<unitPattern count="other">{0} ruutmiili</unitPattern>
+				<perUnitPattern>{0} ruutmiili kohta</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>aakrid</displayName>
@@ -6334,6 +6627,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} karaat</unitPattern>
 				<unitPattern count="other">{0} karaati</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>milligrammid detsiliitri kohta</displayName>
+				<unitPattern count="one">{0} milligramm detsiliitri kohta</unitPattern>
+				<unitPattern count="other">{0} milligrammi detsiliitri kohta</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>millimoolid liitri kohta</displayName>
+				<unitPattern count="one">{0} millimool liitri kohta</unitPattern>
+				<unitPattern count="other">{0} millimooli liitri kohta</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>osa miljoni kohta</displayName>
+				<unitPattern count="one">{0} osa miljoni kohta</unitPattern>
+				<unitPattern count="other">{0} osa miljoni kohta</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liitrid kilomeetri kohta</displayName>
 				<unitPattern count="one">{0} liiter kilomeetri kohta</unitPattern>
@@ -6348,6 +6656,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>miilid galloni kohta</displayName>
 				<unitPattern count="one">{0} miil galloni kohta</unitPattern>
 				<unitPattern count="other">{0} miili galloni kohta</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>miilid inglise galloni kohta</displayName>
+				<unitPattern count="one">{0} miil inglise galloni kohta</unitPattern>
+				<unitPattern count="other">{0} miili inglise galloni kohta</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>terabaidid</displayName>
@@ -6858,6 +7171,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} milliliiter</unitPattern>
 				<unitPattern count="other">{0} milliliitrit</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>meetrilised pindid</displayName>
+				<unitPattern count="one">{0} meetriline pint</unitPattern>
+				<unitPattern count="other">{0} meetrilist pinti</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>meetrilised tassid</displayName>
+				<unitPattern count="one">{0} meetriline tass</unitPattern>
+				<unitPattern count="other">{0} meetrilist tassi</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>aakerjalad</displayName>
 				<unitPattern count="one">{0} aakerjalg</unitPattern>
@@ -6873,6 +7196,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} gallon</unitPattern>
 				<unitPattern count="other">{0} gallonit</unitPattern>
 				<perUnitPattern>{0} galloni kohta</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>inglise gallonid</displayName>
+				<unitPattern count="one">{0} inglise gallon</unitPattern>
+				<unitPattern count="other">{0} inglise gallonit</unitPattern>
+				<perUnitPattern>{0} inglise galloni kohta</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
 				<displayName>kvardid</displayName>
@@ -6925,6 +7254,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} m/s²</unitPattern>
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
+			<unit type="angle-revolution">
+				<displayName>pööre</displayName>
+				<unitPattern count="one">{0} pööre</unitPattern>
+				<unitPattern count="other">{0} pööret</unitPattern>
+			</unit>
 			<unit type="angle-radian">
 				<displayName>radiaanid</displayName>
 				<unitPattern count="one">{0} rad</unitPattern>
@@ -6949,6 +7283,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>km²</displayName>
 				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
+				<perUnitPattern>{0}/km²</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>hektarid</displayName>
@@ -6971,11 +7306,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>mi²</displayName>
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
+				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>aakrid</displayName>
-				<unitPattern count="one">{0} aaker</unitPattern>
-				<unitPattern count="other">{0} aakrit</unitPattern>
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
 				<displayName>ruutjardid</displayName>
@@ -6998,20 +7334,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ct</unitPattern>
 				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName>mg/dl</displayName>
+				<unitPattern count="one">{0} mg/dl</unitPattern>
+				<unitPattern count="other">{0} mg/dl</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName>mmol/l</displayName>
+				<unitPattern count="one">{0} mmol/l</unitPattern>
+				<unitPattern count="other">{0} mmol/l</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName>osa/miljon</displayName>
+				<unitPattern count="one">{0} ppm</unitPattern>
+				<unitPattern count="other">{0} ppm</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
 				<unitPattern count="one">{0} l/km</unitPattern>
 				<unitPattern count="other">{0} l/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
-				<displayName>l/100km</displayName>
-				<unitPattern count="one">{0} l/100km</unitPattern>
-				<unitPattern count="other">{0} l/100km</unitPattern>
+				<displayName>l/100 km</displayName>
+				<unitPattern count="one">{0} l/100 km</unitPattern>
+				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>miil/gallon</displayName>
 				<unitPattern count="one">{0} mpg</unitPattern>
 				<unitPattern count="other">{0} mpg</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>miil/gal imp.</displayName>
+				<unitPattern count="one">{0} mpg imp.</unitPattern>
+				<unitPattern count="other">{0} mpg imp.</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
@@ -7240,23 +7596,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-mile">
 				<displayName>mi</displayName>
-				<unitPattern count="one">{0} miil</unitPattern>
-				<unitPattern count="other">{0} miili</unitPattern>
+				<unitPattern count="one">{0} mi</unitPattern>
+				<unitPattern count="other">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName>jardid</displayName>
-				<unitPattern count="one">{0} jard</unitPattern>
-				<unitPattern count="other">{0} jardi</unitPattern>
+				<unitPattern count="one">{0} yd</unitPattern>
+				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>ft</displayName>
-				<unitPattern count="one">{0} jalg</unitPattern>
-				<unitPattern count="other">{0} jalga</unitPattern>
+				<unitPattern count="one">{0} ft</unitPattern>
+				<unitPattern count="other">{0} ft</unitPattern>
+				<perUnitPattern>{0}/ft</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName>in</displayName>
-				<unitPattern count="one">{0} toll</unitPattern>
-				<unitPattern count="other">{0} tolli</unitPattern>
+				<displayName>tollid</displayName>
+				<unitPattern count="one">{0} in</unitPattern>
+				<unitPattern count="other">{0} in</unitPattern>
+				<perUnitPattern>{0}/in</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>parsekid</displayName>
@@ -7283,6 +7641,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>nmi</displayName>
 				<unitPattern count="one">{0} nmi</unitPattern>
 				<unitPattern count="other">{0} nmi</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>smi</displayName>
+				<unitPattern count="one">{0} smi</unitPattern>
+				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
@@ -7325,7 +7688,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>kivid</displayName>
 			</unit>
 			<unit type="mass-pound">
-				<displayName>lb</displayName>
+				<displayName>naelad</displayName>
 				<unitPattern count="one">{0} lb</unitPattern>
 				<unitPattern count="other">{0} lb</unitPattern>
 				<perUnitPattern>{0}/lb</perUnitPattern>
@@ -7416,6 +7779,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} mi/h</unitPattern>
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
+			<unit type="speed-knot">
+				<displayName>kn</displayName>
+				<unitPattern count="one">{0} kn</unitPattern>
+				<unitPattern count="other">{0} kn</unitPattern>
+			</unit>
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
@@ -7504,6 +7872,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ml</unitPattern>
 				<unitPattern count="other">{0} ml</unitPattern>
 			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>mpt</displayName>
+				<unitPattern count="one">{0} mpt</unitPattern>
+				<unitPattern count="other">{0} mpt</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>mcup</displayName>
+				<unitPattern count="one">{0} mc</unitPattern>
+				<unitPattern count="other">{0} mc</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>aakerjalg</displayName>
 				<unitPattern count="one">{0} ac ft</unitPattern>
@@ -7518,6 +7896,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} gal</unitPattern>
 				<perUnitPattern>{0}/gal</perUnitPattern>
 			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>Imp. gal</displayName>
+				<unitPattern count="one">{0} gal Imp.</unitPattern>
+				<unitPattern count="other">{0} gal Imp.</unitPattern>
+				<perUnitPattern>{0}/gal Imp.</perUnitPattern>
+			</unit>
 			<unit type="volume-quart">
 				<displayName>kvart</displayName>
 				<unitPattern count="one">{0} qt</unitPattern>
@@ -7530,8 +7914,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-cup">
 				<displayName>tass</displayName>
-				<unitPattern count="one">{0} tass</unitPattern>
-				<unitPattern count="other">{0} tassi</unitPattern>
+				<unitPattern count="one">{0} c</unitPattern>
+				<unitPattern count="other">{0} c</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>fl oz</displayName>
@@ -7600,6 +7984,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
+				<displayName>l/100 km</displayName>
 				<unitPattern count="one">{0} l/100km</unitPattern>
 				<unitPattern count="other">{0} l/100km</unitPattern>
 			</unit>
@@ -7782,10 +8167,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<durationUnitPattern>h:mm</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
-			<durationUnitPattern>h:mm.ss</durationUnitPattern>
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
-			<durationUnitPattern>m.ss</durationUnitPattern>
+			<durationUnitPattern>m:ss</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>
@@ -7820,5 +8205,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr>ei:e</nostr>
 		</messages>
 	</posix>
+	<characterLabels>
+		<characterLabelPattern type="all">{0} — Kõik</characterLabelPattern>
+		<characterLabelPattern type="compatibility">{0} — Ühilduvus</characterLabelPattern>
+		<characterLabelPattern type="enclosed">{0} — Suletud</characterLabelPattern>
+		<characterLabelPattern type="extended">{0} — Laiendatud</characterLabelPattern>
+		<characterLabelPattern type="historic">{0} — Ajalooline</characterLabelPattern>
+		<characterLabelPattern type="miscellaneous">{0} — Mitmesugune</characterLabelPattern>
+		<characterLabelPattern type="other">{0} — Muu</characterLabelPattern>
+		<characterLabelPattern type="scripts">Kirjad — {0}</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">{0} Kriipsud</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="other">{0} Kriipsud</characterLabelPattern>
+		<characterLabel type="activities">Tegevused</characterLabel>
+		<characterLabel type="african_scripts">Aafrika kirjad</characterLabel>
+		<characterLabel type="american_scripts">Ameerika kirjad</characterLabel>
+		<characterLabel type="animals_nature">Loomad ja loodus</characterLabel>
+		<characterLabel type="arrows">Nooled</characterLabel>
+		<characterLabel type="box_drawing">Kastide joonistamine</characterLabel>
+		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="bullets_stars">Täpid/tähed</characterLabel>
+		<characterLabel type="consonantal_jamo">Konsonantide märgid</characterLabel>
+		<characterLabel type="currency_symbols">Rahaühikute sümbolid</characterLabel>
+		<characterLabel type="dash_connector">Kriips/liitja</characterLabel>
+		<characterLabel type="digits">Numbrimärgid</characterLabel>
+		<characterLabel type="dingbats">Piltmärgid</characterLabel>
+		<characterLabel type="divination_symbols">Ennustussümbolid</characterLabel>
+		<characterLabel type="downwards_arrows">Allapoole nooled</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">Allapoole ja ülespoole nooled</characterLabel>
+		<characterLabel type="east_asian_scripts">Ida-Aasia kirjad</characterLabel>
+		<characterLabel type="emoji">Emoji</characterLabel>
+		<characterLabel type="european_scripts">Euroopa kirjad</characterLabel>
+		<characterLabel type="flags">Lipud</characterLabel>
+		<characterLabel type="food_drink">Toit ja jook</characterLabel>
+		<characterLabel type="format">Vorming</characterLabel>
+		<characterLabel type="format_whitespace">Vorming ja tühimärgid</characterLabel>
+		<characterLabel type="full_width_form_variant">Täislaiuses märkide valik</characterLabel>
+		<characterLabel type="geometric_shapes">Geomeetrilised kujundid</characterLabel>
+		<characterLabel type="half_width_form_variant">Poollaiuses märkide valik</characterLabel>
+		<characterLabel type="han_characters">Hani kirjamärgid</characterLabel>
+		<characterLabel type="han_radicals">Hani kirja võtmed</characterLabel>
+		<characterLabel type="hanja">Hanja</characterLabel>
+		<characterLabel type="hanzi_simplified">Hani (lihtsustatud)</characterLabel>
+		<characterLabel type="hanzi_traditional">Hani (traditsiooniline)</characterLabel>
+		<characterLabel type="historic_scripts">Ajaloolised kirjad</characterLabel>
+		<characterLabel type="ideographic_desc_characters">Ideogrammide kirjeldusmärgid</characterLabel>
+		<characterLabel type="japanese_kana">Kana</characterLabel>
+		<characterLabel type="kanbun">Kanbun</characterLabel>
+		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="leftwards_arrows">Vasakule suunatud nooled</characterLabel>
+		<characterLabel type="leftwards_rightwards_arrows">Vasakule ja paremale suunatud nooled</characterLabel>
+		<characterLabel type="letterlike_symbols">Tähelaadsed sümbolid</characterLabel>
+		<characterLabel type="limited_use">Piiratud kasutusega</characterLabel>
+		<characterLabel type="math_symbols">Matemaatilised sümbolid</characterLabel>
+		<characterLabel type="middle_eastern_scripts">Lähis-Ida kirjad</characterLabel>
+		<characterLabel type="miscellaneous">Mitmesugune</characterLabel>
+		<characterLabel type="modern_scripts">Nüüdisaegsed kirjad</characterLabel>
+		<characterLabel type="modifier">Täiend</characterLabel>
+		<characterLabel type="musical_symbols">Muusikalised sümbolid</characterLabel>
+		<characterLabel type="nonspacing" draft="contributed">Sammuta märk</characterLabel>
+		<characterLabel type="numbers">Numbrid</characterLabel>
+		<characterLabel type="objects">Objektid</characterLabel>
+		<characterLabel type="other">Muu</characterLabel>
+		<characterLabel type="paired">Paaris</characterLabel>
+		<characterLabel type="phonetic_alphabet">Foneetiline tähestik</characterLabel>
+		<characterLabel type="pictographs">Piktogrammid</characterLabel>
+		<characterLabel type="punctuation">Kirjavahemärgid</characterLabel>
+		<characterLabel type="rightwards_arrows" draft="contributed">Paremale suunatud nooled</characterLabel>
+		<characterLabel type="sign_standard_symbols" draft="contributed">Märgi/standardi sümbolid</characterLabel>
+		<characterLabel type="small_form_variant" draft="contributed">Väike kirjavahemärkide valik</characterLabel>
+		<characterLabel type="smileys_people">Smailid ja inimesed</characterLabel>
+		<characterLabel type="south_asian_scripts">Lõuna-Aasia kirjad</characterLabel>
+		<characterLabel type="southeast_asian_scripts">Kagu-Aasia kirjad</characterLabel>
+		<characterLabel type="spacing">Tühikud</characterLabel>
+		<characterLabel type="symbols">Sümbolid</characterLabel>
+		<characterLabel type="technical_symbols">Tehnilised sümbolid</characterLabel>
+		<characterLabel type="tone_marks">Toonimärgid</characterLabel>
+		<characterLabel type="travel_places">Reisimine ja kohad</characterLabel>
+		<characterLabel type="upwards_arrows" draft="contributed">Ülespoole nooled</characterLabel>
+		<characterLabel type="variant_forms" draft="contributed">Märkide variandid</characterLabel>
+		<characterLabel type="vocalic_jamo" draft="contributed">Vokaalide märgid</characterLabel>
+		<characterLabel type="western_asian_scripts">Lääne-Aasia kirjad</characterLabel>
+		<characterLabel type="whitespace">Tühimärk</characterLabel>
+	</characterLabels>
 </ldml>
-

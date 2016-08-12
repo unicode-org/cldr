@@ -14,6 +14,81 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="narrow">
+							<month type="12">M</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">A</month>
+							<month type="2">G</month>
+							<month type="3">B</month>
+							<month type="4">E</month>
+							<month type="5">C</month>
+							<month type="6">W</month>
+							<month type="7">A</month>
+							<month type="8">H</month>
+							<month type="9">F</month>
+							<month type="10">O</month>
+							<month type="11">S</month>
+							<month type="12">M</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">D</day>
+							<day type="mon">W</day>
+							<day type="tue">Q</day>
+							<day type="wed">R</day>
+							<day type="thu">K</day>
+							<day type="fri">J</day>
+							<day type="sat">S</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">K1</quarter>
+							<quarter type="2">K2</quarter>
+							<quarter type="3">K3</quarter>
+							<quarter type="4">K4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<eras>
+					<eraAbbr>
+						<era type="0">KD</era>
+						<era type="0" alt="variant">BCE</era>
+						<era type="1" alt="variant">KB</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, MMMM d, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>dd MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd-MMM-y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
@@ -47,4 +122,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 	</numbers>
 </ldml>
-

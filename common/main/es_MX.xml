@@ -13,8 +13,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="ace">acehnés</language>
+			<language type="arp">arapaho</language>
 			<language type="ba" draft="contributed">bashkir</language>
+			<language type="bas" draft="contributed">basa</language>
+			<language type="bax" draft="contributed">bamun</language>
+			<language type="bho">bhojpuri</language>
+			<language type="dum" draft="contributed">neerlandés medieval</language>
+			<language type="en_GB" alt="short" draft="contributed">inglés (R. U.)</language>
+			<language type="enm" draft="contributed">inglés medieval</language>
+			<language type="eu">euskera</language>
+			<language type="frm" draft="contributed">francés medieval</language>
+			<language type="gan" draft="contributed">gan (China)</language>
+			<language type="gmh" draft="contributed">alemán de la alta edad media</language>
+			<language type="grc">griego antiguo</language>
+			<language type="hak" draft="contributed">kejia (China)</language>
+			<language type="hsn" draft="contributed">xiang (China)</language>
+			<language type="lo">lao</language>
+			<language type="mga" draft="contributed">irlandés medieval</language>
+			<language type="nan" draft="contributed">min nan (Chino)</language>
+			<language type="nl_BE">flamenco</language>
+			<language type="nso">sotho septentrional</language>
+			<language type="pa">punyabí</language>
+			<language type="rn" draft="contributed">kiroundi</language>
+			<language type="shu" draft="contributed">árabe chadiano</language>
+			<language type="ss">siswati</language>
+			<language type="sw">suajili</language>
+			<language type="sw_CD">suajili del Congo</language>
 			<language type="ug" alt="variant" draft="contributed">uyghur</language>
+			<language type="wo">wolof</language>
+			<language type="zgh">tamazight marroquí estándar</language>
+			<language type="zh_Hans">chino simplificado</language>
+			<language type="zh_Hant">chino tradicional</language>
+			<language type="zun">zuni</language>
 		</languages>
 		<scripts>
 			<script type="Telu" draft="contributed">telugú</script>
@@ -25,7 +56,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="015" draft="contributed">África del Norte</territory>
 			<territory type="017" draft="contributed">África Central</territory>
 			<territory type="018" draft="contributed">África del Sur</territory>
-			<territory type="019" draft="contributed">América</territory>
+			<territory type="019">América</territory>
 			<territory type="030" draft="contributed">Asia Oriental</territory>
 			<territory type="034" draft="contributed">Asia del Sur</territory>
 			<territory type="035" draft="contributed">Sudeste Asiático</territory>
@@ -35,16 +66,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151" draft="contributed">Europa Oriental</territory>
 			<territory type="154" draft="contributed">Europa del Norte</territory>
 			<territory type="155" draft="contributed">Europa Occidental</territory>
-			<territory type="BD" draft="contributed">Bangladesh</territory>
-			<territory type="CC" draft="contributed">Islas Cocos (Keeling)</territory>
-			<territory type="GB" alt="short" draft="contributed">RU</territory>
-			<territory type="GG" draft="contributed">Guernsey</territory>
-			<territory type="HK" draft="contributed">Región Administrativa Especial de Hong Kong de la República Popular China</territory>
+			<territory type="BA">Bosnia y Herzegovina</territory>
+			<territory type="GB" alt="short">RU</territory>
 			<territory type="IC" draft="contributed">Islas Canarias</territory>
-			<territory type="MO" draft="contributed">Región Administrativa Especial de Macao de la República Popular China</territory>
-			<territory type="TA" draft="contributed">Tristán de Acuña</territory>
+			<territory type="TA">Tristán de Acuña</territory>
+			<territory type="TL">Timor-Leste</territory>
 			<territory type="UM" draft="contributed">Islas Ultramarinas Menores de Estados Unidos</territory>
-			<territory type="VI" draft="contributed">Islas Vírgenes de los Estados Unidos</territory>
+			<territory type="US" alt="short">EE. UU.</territory>
+			<territory type="VI">Islas Vírgenes de EE. UU.</territory>
 		</territories>
 		<keys>
 			<key type="calendar" draft="contributed">Calendario</key>
@@ -54,8 +83,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<types>
 			<type key="calendar" type="gregorian" draft="contributed">Calendario gregoriano</type>
 			<type key="calendar" type="roc" draft="contributed">calendario minguo</type>
+			<type key="collation" type="ducet" draft="contributed">orden de clasificación de Unicode predeterminado</type>
 			<type key="collation" type="standard" draft="contributed">Orden estándar</type>
 			<type key="collation" type="traditional" draft="contributed">Orden tradicional</type>
+			<type key="lb" type="normal" draft="contributed">salto de línea normal</type>
+			<type key="ms" type="uksystem" draft="contributed">sistema imperial</type>
 			<type key="numbers" type="arab" draft="contributed">Dígitos en arábigo-índico</type>
 			<type key="numbers" type="arabext" draft="contributed">Dígitos en árabigo-índico extendido</type>
 			<type key="numbers" type="armn" draft="contributed">Números en armenio</type>
@@ -72,6 +104,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="hantfin" draft="contributed">Números financieros en chino tradicional</type>
 			<type key="numbers" type="hebr" draft="contributed">Números en hebreo</type>
 			<type key="numbers" type="jpanfin" draft="contributed">Números financieros en japonés</type>
+			<type key="numbers" type="knda" draft="contributed">números en kannada</type>
 			<type key="numbers" type="laoo" draft="contributed">Dígitos en lao</type>
 			<type key="numbers" type="mlym" draft="contributed">Dígitos en malabar</type>
 			<type key="numbers" type="taml" draft="contributed">Números en tamil</type>
@@ -183,7 +216,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="1">1er. trimestre</quarter>
 							<quarter type="2">2º. trimestre</quarter>
 							<quarter type="3">3er. trimestre</quarter>
-							<quarter type="4">4º trimestre</quarter>
+							<quarter type="4">4o. trimestre</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
@@ -207,6 +240,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="morning2" draft="contributed">mañana</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
@@ -256,6 +318,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="contributed">h a – h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H" draft="contributed">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d" draft="contributed">d/M – d/M</greatestDifference>
@@ -463,6 +528,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">este sábado</relative>
 				<relative type="1">el sábado próximo</relative>
 			</field>
+			<field type="dayperiod">
+				<displayName>a. m./p. m.</displayName>
+			</field>
 			<field type="hour-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="contributed">en {0} h</relativeTimePattern>
@@ -525,6 +593,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Belem">
 				<exemplarCity draft="contributed">Belém</exemplarCity>
 			</zone>
+			<zone type="America/St_Johns">
+				<exemplarCity>San Juan de Terranova</exemplarCity>
+			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity draft="contributed">Curazao</exemplarCity>
+			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity draft="contributed">Navidad</exemplarCity>
 			</zone>
@@ -547,6 +621,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano irlandesa</daylight>
 				</long>
 			</zone>
+			<zone type="America/St_Kitts">
+				<exemplarCity>San Cristóbal</exemplarCity>
+			</zone>
 			<zone type="Asia/Pyongyang">
 				<exemplarCity draft="contributed">Piongyang</exemplarCity>
 			</zone>
@@ -559,14 +636,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Chisinau">
 				<exemplarCity draft="contributed">Chisináu</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="contributed">Choybalsan</exemplarCity>
-			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity draft="contributed">Qatar</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity draft="contributed">Simferópol</exemplarCity>
+			</zone>
+			<zone type="Europe/Kirov">
+				<exemplarCity draft="contributed">Kirov</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity draft="contributed">Ekaterinburgo</exemplarCity>
@@ -595,11 +672,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Tashkent">
 				<exemplarCity draft="contributed">Taskent</exemplarCity>
 			</zone>
-			<metazone type="Afghanistan">
-				<long>
-					<standard draft="contributed">Hora de Afganistán</standard>
-				</long>
-			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard draft="contributed">Hora de África Central</standard>
@@ -622,48 +694,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano de África Occidental</daylight>
 				</long>
 			</metazone>
-			<metazone type="Alaska">
-				<long>
-					<generic draft="contributed">Hora de Alaska</generic>
-					<standard draft="contributed">Hora estándar de Alaska</standard>
-					<daylight draft="contributed">Hora de verano de Alaska</daylight>
-				</long>
-			</metazone>
-			<metazone type="Amazon">
-				<long>
-					<generic draft="contributed">Hora del Amazonas</generic>
-					<standard draft="contributed">Hora estándar del Amazonas</standard>
-					<daylight draft="contributed">Hora de verano del Amazonas</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Central">
-				<long>
-					<generic draft="contributed">Hora del centro de Norteamérica</generic>
-					<standard draft="contributed">Hora estándar del centro de Norteamérica</standard>
-					<daylight draft="contributed">Hora de verano del centro de Norteamérica</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Eastern">
-				<long>
-					<generic draft="contributed">Hora del este de Norteamérica</generic>
-					<standard draft="contributed">Hora estándar del este de Norteamérica</standard>
-					<daylight draft="contributed">Hora de verano del este de Norteamérica</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Mountain">
-				<long>
-					<generic draft="contributed">Hora de la montaña de Norteamérica</generic>
-					<standard draft="contributed">Hora estándar de la montaña de Norteamérica</standard>
-					<daylight draft="contributed">Hora de verano de la montaña de Norteamérica</daylight>
-				</long>
-			</metazone>
-			<metazone type="America_Pacific">
-				<long>
-					<generic draft="contributed">Hora del Pacífico de Norteamérica</generic>
-					<standard draft="contributed">Hora estándar del Pacífico de Norteamérica</standard>
-					<daylight draft="contributed">Hora de verano del Pacífico de Norteamérica</daylight>
-				</long>
-			</metazone>
 			<metazone type="Apia">
 				<long>
 					<generic draft="contributed">Hora de Apia</generic>
@@ -678,32 +708,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano de Arabia</daylight>
 				</long>
 			</metazone>
-			<metazone type="Argentina">
-				<long>
-					<generic draft="contributed">Hora de Argentina</generic>
-					<standard draft="contributed">Hora estándar de Argentina</standard>
-					<daylight draft="contributed">Hora de verano de Argentina</daylight>
-				</long>
-			</metazone>
-			<metazone type="Argentina_Western">
-				<long>
-					<generic draft="contributed">Hora de Argentina Occidental</generic>
-					<standard draft="contributed">Hora estándar de Argentina Occidental</standard>
-					<daylight draft="contributed">Hora de verano de Argentina Occidental</daylight>
-				</long>
-			</metazone>
 			<metazone type="Armenia">
 				<long>
 					<generic draft="contributed">Hora de Armenia</generic>
 					<standard draft="contributed">Hora estándar de Armenia</standard>
 					<daylight draft="contributed">Hora de verano de Armenia</daylight>
-				</long>
-			</metazone>
-			<metazone type="Atlantic">
-				<long>
-					<generic draft="contributed">Hora del Atlántico</generic>
-					<standard draft="contributed">Hora estándar del Atlántico</standard>
-					<daylight draft="contributed">Hora de verano del Atlántico</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -748,35 +757,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano de las Azores</daylight>
 				</long>
 			</metazone>
-			<metazone type="Bangladesh">
-				<long>
-					<generic draft="contributed">Hora de Bangladesh</generic>
-					<standard draft="contributed">Hora estándar de Bangladesh</standard>
-					<daylight draft="contributed">Hora de verano de Bangladesh</daylight>
-				</long>
-			</metazone>
-			<metazone type="Bhutan">
-				<long>
-					<standard draft="contributed">Hora de Bután</standard>
-				</long>
-			</metazone>
-			<metazone type="Bolivia">
-				<long>
-					<standard draft="contributed">Hora de Bolivia</standard>
-				</long>
-			</metazone>
-			<metazone type="Brasilia">
-				<long>
-					<generic draft="contributed">Hora de Brasilia</generic>
-					<standard draft="contributed">Hora estándar de Brasilia</standard>
-					<daylight draft="contributed">Hora de verano de Brasilia</daylight>
-				</long>
-			</metazone>
-			<metazone type="Brunei">
-				<long>
-					<standard draft="contributed">Hora de Brunéi</standard>
-				</long>
-			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<generic draft="contributed">Hora de Cabo Verde</generic>
@@ -796,27 +776,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano de Chatham</daylight>
 				</long>
 			</metazone>
-			<metazone type="Chile">
-				<long>
-					<generic draft="contributed">Hora de Chile</generic>
-					<standard draft="contributed">Hora estándar de Chile</standard>
-					<daylight draft="contributed">Hora de verano de Chile</daylight>
-				</long>
-			</metazone>
-			<metazone type="China">
-				<long>
-					<generic draft="contributed">Hora de China</generic>
-					<standard draft="contributed">Hora estándar de China</standard>
-					<daylight draft="contributed">Hora de verano de China</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="contributed">Hora de Choybalsan</generic>
-					<standard draft="contributed">Hora estándar de Choybalsan</standard>
-					<daylight draft="contributed">Hora de verano de Choybalsan</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard draft="contributed">Hora de la isla de Navidad</standard>
@@ -831,7 +790,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic draft="contributed">Hora de Colombia</generic>
 					<standard draft="contributed">Hora estándar de Colombia</standard>
-					<daylight draft="contributed">Hora de verano de Colombia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cook">
@@ -839,13 +797,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">Hora de las islas Cook</generic>
 					<standard draft="contributed">Hora estándar de las islas Cook</standard>
 					<daylight draft="contributed">Hora de verano media de las islas Cook</daylight>
-				</long>
-			</metazone>
-			<metazone type="Cuba">
-				<long>
-					<generic draft="contributed">Hora de Cuba</generic>
-					<standard draft="contributed">Hora estándar de Cuba</standard>
-					<daylight draft="contributed">Hora de verano de Cuba</daylight>
 				</long>
 			</metazone>
 			<metazone type="Davis">
@@ -858,16 +809,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="contributed">Hora de Dumont-d’Urville</standard>
 				</long>
 			</metazone>
-			<metazone type="East_Timor">
-				<long>
-					<standard draft="contributed">Hora de Timor Oriental</standard>
-				</long>
-			</metazone>
 			<metazone type="Easter">
 				<long>
 					<generic draft="contributed">Hora de la isla de Pascua</generic>
-					<standard draft="contributed">Hora estándar de la isla de Pascua</standard>
-					<daylight draft="contributed">Hora de verano de la isla de Pascua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Ecuador">
@@ -952,20 +896,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="contributed">Hora del meridiano de Greenwich</standard>
 				</long>
 			</metazone>
-			<metazone type="Greenland_Eastern">
-				<long>
-					<generic draft="contributed">Hora de Groenlandia Oriental</generic>
-					<standard draft="contributed">Hora estándar de Groenlandia Oriental</standard>
-					<daylight draft="contributed">Hora de verano de Groenlandia Oriental</daylight>
-				</long>
-			</metazone>
-			<metazone type="Greenland_Western">
-				<long>
-					<generic draft="contributed">Hora de Groenlandia Occidental</generic>
-					<standard draft="contributed">Hora estándar de Groenlandia Occidental</standard>
-					<daylight draft="contributed">Hora de verano de Groenlandia Occidental</daylight>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard draft="contributed">Hora estándar del Golfo</standard>
@@ -976,62 +906,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="contributed">Hora de Guyana</standard>
 				</long>
 			</metazone>
-			<metazone type="Hawaii_Aleutian">
-				<long>
-					<generic draft="contributed">Hora de Hawái-Aleutiano</generic>
-					<standard draft="contributed">Hora estándar de Hawái-Aleutiano</standard>
-					<daylight draft="contributed">Hora de verano de Hawái-Aleutiano</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hong_Kong">
-				<long>
-					<generic draft="contributed">Hora de Hong Kong</generic>
-					<standard draft="contributed">Hora estándar de Hong Kong</standard>
-					<daylight draft="contributed">Hora de verano de Hong Kong</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hovd">
-				<long>
-					<generic draft="contributed">Hora de Hovd</generic>
-					<standard draft="contributed">Hora estándar de Hovd</standard>
-					<daylight draft="contributed">Hora de verano de Hovd</daylight>
-				</long>
-			</metazone>
-			<metazone type="India">
-				<long>
-					<standard draft="contributed">Hora estándar de la India</standard>
-				</long>
-			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
 					<standard draft="contributed">Hora del Océano Índico</standard>
-				</long>
-			</metazone>
-			<metazone type="Indochina">
-				<long>
-					<standard draft="contributed">Hora de Indochina</standard>
-				</long>
-			</metazone>
-			<metazone type="Indonesia_Central">
-				<long>
-					<standard draft="contributed">Hora de Indonesia Central</standard>
-				</long>
-			</metazone>
-			<metazone type="Indonesia_Eastern">
-				<long>
-					<standard draft="contributed">Hora de Indonesia Oriental</standard>
-				</long>
-			</metazone>
-			<metazone type="Indonesia_Western">
-				<long>
-					<standard draft="contributed">Hora de Indonesia Occidental</standard>
-				</long>
-			</metazone>
-			<metazone type="Iran">
-				<long>
-					<generic draft="contributed">Hora de Irán</generic>
-					<standard draft="contributed">Hora estándar de Irán</standard>
-					<daylight draft="contributed">Hora de verano de Irán</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -1048,13 +925,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano de Israel</daylight>
 				</long>
 			</metazone>
-			<metazone type="Japan">
-				<long>
-					<generic draft="contributed">Hora de Japón</generic>
-					<standard draft="contributed">Hora estándar de Japón</standard>
-					<daylight draft="contributed">Hora de verano de Japón</daylight>
-				</long>
-			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard draft="contributed">Hora de Kazajistán Oriental</standard>
@@ -1063,13 +933,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Kazakhstan_Western">
 				<long>
 					<standard draft="contributed">Hora de Kazajistán Occidental</standard>
-				</long>
-			</metazone>
-			<metazone type="Korea">
-				<long>
-					<generic draft="contributed">Hora de Corea</generic>
-					<standard draft="contributed">Hora estándar de Corea</standard>
-					<daylight draft="contributed">Hora de verano de Corea</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kosrae">
@@ -1113,16 +976,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano de Magadán</daylight>
 				</long>
 			</metazone>
-			<metazone type="Malaysia">
-				<long>
-					<standard draft="contributed">Hora de Malasia</standard>
-				</long>
-			</metazone>
-			<metazone type="Maldives">
-				<long>
-					<standard draft="contributed">Hora de Maldivas</standard>
-				</long>
-			</metazone>
 			<metazone type="Marquesas">
 				<long>
 					<standard draft="contributed">Hora de las islas Marquesas</standard>
@@ -1145,27 +998,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="contributed">Hora de Mawson</standard>
 				</long>
 			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>Hora del noroeste</generic>
-					<standard>Hora estándar del noroeste</standard>
-					<daylight>Hora de verano del noroeste</daylight>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Pacific">
-				<long>
-					<generic>Hora del Pacífico</generic>
-					<standard>Hora estándar del Pacífico</standard>
-					<daylight>Hora de verano del Pacífico</daylight>
-				</long>
-			</metazone>
-			<metazone type="Mongolia">
-				<long>
-					<generic draft="contributed">Hora de Ulán Bator</generic>
-					<standard draft="contributed">Hora estándar de Ulán Bator</standard>
-					<daylight draft="contributed">Hora de verano de Ulán Bator</daylight>
-				</long>
-			</metazone>
 			<metazone type="Moscow">
 				<long>
 					<generic draft="contributed">Hora de Moscú</generic>
@@ -1173,19 +1005,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano de Moscú</daylight>
 				</long>
 			</metazone>
-			<metazone type="Myanmar">
-				<long>
-					<standard draft="contributed">Hora de Myanmar</standard>
-				</long>
-			</metazone>
 			<metazone type="Nauru">
 				<long>
 					<standard draft="contributed">Hora de Nauru</standard>
-				</long>
-			</metazone>
-			<metazone type="Nepal">
-				<long>
-					<standard draft="contributed">Hora de Nepal</standard>
 				</long>
 			</metazone>
 			<metazone type="New_Caledonia">
@@ -1200,13 +1022,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">Hora de Nueva Zelanda</generic>
 					<standard draft="contributed">Hora estándar de Nueva Zelanda</standard>
 					<daylight draft="contributed">Hora de verano de Nueva Zelanda</daylight>
-				</long>
-			</metazone>
-			<metazone type="Newfoundland">
-				<long>
-					<generic draft="contributed">Hora de Terranova</generic>
-					<standard draft="contributed">Hora estándar de Terranova</standard>
-					<daylight draft="contributed">Hora de verano de Terranova</daylight>
 				</long>
 			</metazone>
 			<metazone type="Niue">
@@ -1240,13 +1055,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano de Omsk</daylight>
 				</long>
 			</metazone>
-			<metazone type="Pakistan">
-				<long>
-					<generic draft="contributed">Hora de Pakistán</generic>
-					<standard draft="contributed">Hora estándar de Pakistán</standard>
-					<daylight draft="contributed">Hora de verano de Pakistán</daylight>
-				</long>
-			</metazone>
 			<metazone type="Palau">
 				<long>
 					<standard draft="contributed">Hora de Palaos</standard>
@@ -1271,23 +1079,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Hora de verano de Perú</daylight>
 				</long>
 			</metazone>
-			<metazone type="Philippines">
-				<long>
-					<generic draft="contributed">Hora de Filipinas</generic>
-					<standard draft="contributed">Hora estándar de Filipinas</standard>
-					<daylight draft="contributed">Hora de verano de Filipinas</daylight>
-				</long>
-			</metazone>
 			<metazone type="Phoenix_Islands">
 				<long>
 					<standard draft="contributed">Hora de las islas Fénix</standard>
-				</long>
-			</metazone>
-			<metazone type="Pierre_Miquelon">
-				<long>
-					<generic draft="contributed">Hora de San Pedro y Miquelón</generic>
-					<standard draft="contributed">Hora estándar de San Pedro y Miquelón</standard>
-					<daylight draft="contributed">Hora de verano de San Pedro y Miquelón</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">
@@ -1329,11 +1123,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="contributed">Hora de Seychelles</standard>
 				</long>
 			</metazone>
-			<metazone type="Singapore">
-				<long>
-					<standard draft="contributed">Hora de Singapur</standard>
-				</long>
-			</metazone>
 			<metazone type="Solomon">
 				<long>
 					<standard draft="contributed">Hora de las islas Salomón</standard>
@@ -1357,13 +1146,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Tahiti">
 				<long>
 					<standard draft="contributed">Hora de Tahití</standard>
-				</long>
-			</metazone>
-			<metazone type="Taipei">
-				<long>
-					<generic draft="contributed">Hora de Taipéi</generic>
-					<standard draft="contributed">Hora estándar de Taipéi</standard>
-					<daylight draft="contributed">Hora de verano de Taipéi</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -1481,6 +1263,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="10000" count="other" draft="contributed">00k</pattern>
 					<pattern type="100000" count="one" draft="contributed">000k</pattern>
 					<pattern type="100000" count="other" draft="contributed">000k</pattern>
+					<pattern type="1000000000" count="one" draft="contributed">0k M</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -1696,6 +1479,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="RON">
 				<displayName count="one" draft="contributed">leu rumano</displayName>
 				<displayName count="other" draft="contributed">lei rumanos</displayName>
+				<symbol alt="narrow" draft="contributed">lei</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>riyal saudí</displayName>
@@ -1797,10 +1581,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} segundo</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} segundos</unitPattern>
 			</unit>
+			<unit type="concentr-milligram-per-deciliter">
+				<displayName draft="contributed">mg/dL</displayName>
+				<unitPattern count="one" draft="contributed">{0} mg/dL</unitPattern>
+			</unit>
+			<unit type="concentr-millimole-per-liter">
+				<displayName draft="contributed">mmol/L</displayName>
+			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName draft="contributed">ppm</displayName>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName draft="contributed">mpg Imp.</displayName>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName draft="contributed">ohmios</displayName>
+				<unitPattern count="other" draft="contributed">{0} ohmios</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName draft="contributed">voltios</displayName>
+				<unitPattern count="other" draft="contributed">{0} voltios</unitPattern>
+			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName draft="contributed">kilowatt-hora</displayName>
 				<unitPattern count="one" draft="contributed">kilowatt-hora</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilowatts-hora</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<unitPattern count="one" draft="contributed">{0} gigahercio</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} gigahercios</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName draft="contributed">megahercios</displayName>
+				<unitPattern count="one" draft="contributed">{0} megahercio</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} megahercios</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName draft="contributed">kilohercios</displayName>
+				<unitPattern count="one" draft="contributed">{0} kilohercio</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kilohercios</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName draft="contributed">hercios</displayName>
+				<unitPattern count="one" draft="contributed">{0} hercio</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hercios</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName draft="contributed">micrometros</displayName>
@@ -1822,12 +1646,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName draft="contributed">gigawatts</displayName>
+				<unitPattern count="one" draft="contributed">{0} gigavatio</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} gigavatios</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName draft="contributed">megawatts</displayName>
+				<unitPattern count="one" draft="contributed">{0} megavatio</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} megavatios</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="contributed">kilowatts</displayName>
+				<unitPattern count="one" draft="contributed">{0} kilovatio</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kilovatios</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<displayName draft="contributed">vatios</displayName>
+				<unitPattern count="one" draft="contributed">{0} vatio</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} vatios</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName draft="contributed">miliwatts</displayName>
@@ -1843,6 +1678,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">acre-pies</displayName>
 				<unitPattern count="one" draft="contributed">{0} acre-pie</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} acre-pies</unitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName draft="contributed">Imp. gal</displayName>
+				<unitPattern count="one" draft="contributed">{0} gal Imp.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} gal Imp.</unitPattern>
+				<perUnitPattern draft="contributed">{0}/gal Imp.</perUnitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName draft="contributed">onzas líquidas</displayName>
@@ -1867,6 +1708,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">arcseg</displayName>
 				<unitPattern count="one" draft="contributed">{0} s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} s</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName draft="contributed">mpg Imp.</displayName>
+				<unitPattern count="other" draft="contributed">{0} mpg Imp.</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName draft="contributed">byte</displayName>
@@ -1932,8 +1777,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} ozt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ozt</unitPattern>
 			</unit>
+			<unit type="power-horsepower">
+				<displayName draft="contributed">CV</displayName>
+				<unitPattern count="one" draft="contributed">{0} CV</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} CV</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="contributed">km/hora</displayName>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName draft="contributed">Imp. gal</displayName>
+				<unitPattern count="one" draft="contributed">{0} gal Imp.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} gal Imp.</unitPattern>
 			</unit>
 			<unit type="volume-pint">
 				<displayName draft="contributed">pt</displayName>
@@ -1968,4 +1823,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 	</units>
 </ldml>
-

@@ -11,6 +11,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ro"/>
 		<territory type="MD"/>
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="ar_001" draft="contributed">arabă standard modernă</language>
+			<language type="ceb" draft="contributed">cebuană</language>
+			<language type="ckb" draft="contributed">kurdă centrală</language>
+			<language type="dum" draft="contributed">neerlandeză medie</language>
+			<language type="enm" draft="contributed">engleză medie</language>
+			<language type="et" draft="contributed">estonă</language>
+			<language type="frm" draft="contributed">franceză medie</language>
+			<language type="gmh" draft="contributed">germană înaltă medie</language>
+			<language type="goh" draft="contributed">germană înaltă veche</language>
+			<language type="gsw" draft="contributed">germană (Elveția)</language>
+			<language type="kho" draft="contributed">khotaneză</language>
+			<language type="lus" draft="contributed">mizo</language>
+			<language type="mga" draft="contributed">irlandeză medie</language>
+			<language type="mni" draft="contributed">manipuri</language>
+			<language type="mul" draft="contributed">mai multe limbi</language>
+			<language type="my" draft="contributed">birmană</language>
+			<language type="nds_NL" draft="contributed">saxona de jos</language>
+			<language type="nl_BE" draft="contributed">flamandă</language>
+			<language type="si" draft="contributed">singaleză</language>
+			<language type="sw_CD" draft="contributed">swahili (R. D. Congo)</language>
+			<language type="to" draft="contributed">tongană</language>
+			<language type="vot" draft="contributed">votică</language>
+			<language type="wal" draft="contributed">wolaytta</language>
+		</languages>
+		<territories>
+			<territory type="MK" alt="variant" draft="contributed">Republica Macedonia (FRIM)</territory>
+			<territory type="MM" draft="contributed">Myanmar</territory>
+			<territory type="VI" draft="contributed">Insulele Virgine Americane</territory>
+		</territories>
+	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -82,6 +114,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="3" draft="contributed">trim. 3</quarter>
 							<quarter type="4" draft="contributed">trim. 4</quarter>
 						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">I</quarter>
+							<quarter type="2" draft="contributed">II</quarter>
+							<quarter type="3" draft="contributed">III</quarter>
+							<quarter type="4" draft="contributed">IV</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="contributed">trimestrul 1</quarter>
 							<quarter type="2" draft="contributed">trimestrul 2</quarter>
@@ -95,6 +133,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="2" draft="contributed">Trim. 2</quarter>
 							<quarter type="3" draft="contributed">Trim. 3</quarter>
 							<quarter type="4" draft="contributed">Trim. 4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">I</quarter>
+							<quarter type="2" draft="contributed">II</quarter>
+							<quarter type="3" draft="contributed">III</quarter>
+							<quarter type="4" draft="contributed">IV</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="contributed">Trimestrul 1</quarter>
@@ -121,6 +165,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="afternoon1" draft="contributed">după-amiaza</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">seara</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">noaptea</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="morning1" draft="contributed">dimineață</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">după-amiază</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">seară</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">noapte</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight" draft="contributed">miezul nopții</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">amiază</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -182,4 +238,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 	</units>
 </ldml>
-

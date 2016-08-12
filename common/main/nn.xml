@@ -22,7 +22,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ace">achinesisk</language>
 			<language type="ach">acoli</language>
 			<language type="ada">adangme</language>
-			<language type="ady">adyghe</language>
+			<language type="ady">adygeisk</language>
 			<language type="ae">avestisk</language>
 			<language type="af">afrikaans</language>
 			<language type="afh">afrihili</language>
@@ -31,28 +31,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ak">akan</language>
 			<language type="akk">akkadisk</language>
 			<language type="ale">aleutisk</language>
-			<language type="alt">sør-altai</language>
+			<language type="alt">sør-altaj</language>
 			<language type="am">amharisk</language>
 			<language type="an">aragonsk</language>
 			<language type="ang">gammalengelsk</language>
 			<language type="anp">angika</language>
 			<language type="ar">arabisk</language>
+			<language type="ar_001">moderne standardarabisk</language>
 			<language type="arc">arameisk</language>
-			<language type="arn">araukansk</language>
+			<language type="arn">mapudungun</language>
 			<language type="arp">arapaho</language>
 			<language type="arw">arawak</language>
-			<language type="as">assamisk</language>
+			<language type="as">assamesisk</language>
 			<language type="asa">asu (Tanzania)</language>
 			<language type="ast">asturisk</language>
 			<language type="av">avarisk</language>
-			<language type="awa">awadhi</language>
+			<language type="awa">avadhi</language>
 			<language type="ay">aymara</language>
 			<language type="az">aserbajdsjansk</language>
 			<language type="ba">basjkirsk</language>
 			<language type="bal">baluchi</language>
 			<language type="ban">balinesisk</language>
 			<language type="bas">basa</language>
-			<language type="bax" draft="unconfirmed">bamun</language>
+			<language type="bax">bamun</language>
 			<language type="be">kviterussisk</language>
 			<language type="bej">beja</language>
 			<language type="bem">bemba</language>
@@ -70,19 +71,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bra">braj</language>
 			<language type="brx">bodo</language>
 			<language type="bs">bosnisk</language>
-			<language type="bss" draft="unconfirmed">bakossi</language>
+			<language type="bss">bakossi</language>
 			<language type="bua">burjatisk</language>
 			<language type="bug">buginesisk</language>
 			<language type="byn">blin</language>
 			<language type="ca">katalansk</language>
 			<language type="cad">caddo</language>
-			<language type="car">karibisk</language>
+			<language type="car">carib</language>
 			<language type="cch">atsam</language>
 			<language type="ce">tsjetsjensk</language>
-			<language type="ceb">cebuansk</language>
+			<language type="ceb">cebuano</language>
+			<language type="cgg">kiga</language>
 			<language type="ch">chamorro</language>
 			<language type="chb">chibcha</language>
-			<language type="chg">chagatai</language>
+			<language type="chg">tsjagataisk</language>
 			<language type="chk">chuukesisk</language>
 			<language type="chm">mari</language>
 			<language type="chn">chinook</language>
@@ -90,10 +92,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="chp">chipewiansk</language>
 			<language type="chr">cherokee</language>
 			<language type="chy">cheyenne</language>
+			<language type="ckb">sorani</language>
 			<language type="co">korsikansk</language>
 			<language type="cop">koptisk</language>
 			<language type="cr">cree</language>
 			<language type="crh">krimtatarisk</language>
+			<language type="crs">seselwa (fransk-kreolsk)</language>
 			<language type="cs">tsjekkisk</language>
 			<language type="csb">kasjubisk</language>
 			<language type="cu">kyrkjeslavisk</language>
@@ -102,9 +106,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="da">dansk</language>
 			<language type="dak">dakota</language>
 			<language type="dar">dargwa</language>
+			<language type="dav">taita</language>
 			<language type="de">tysk</language>
-			<language type="de_AT">austerriksk tysk</language>
-			<language type="de_CH">sveitsisk høgtysk</language>
+			<language type="de_AT">tysk (Austerrike)</language>
+			<language type="de_CH">tysk (Sveits)</language>
 			<language type="del">delaware</language>
 			<language type="den">slavej</language>
 			<language type="dgr">dogrib</language>
@@ -113,56 +118,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="doi">dogri</language>
 			<language type="dsb">lågsorbisk</language>
 			<language type="dua">duala</language>
-			<language type="dum">mellumnederlandsk</language>
+			<language type="dum">mellomnederlandsk</language>
 			<language type="dv">divehi</language>
 			<language type="dyo">jola-fonyi</language>
 			<language type="dyu">dyula</language>
 			<language type="dz">dzongkha</language>
-			<language type="ebu">kiembu</language>
+			<language type="dzg">dazaga</language>
+			<language type="ebu">embu</language>
 			<language type="ee">ewe</language>
 			<language type="efi">efik</language>
 			<language type="egy">gammalegyptisk</language>
 			<language type="eka">ekajuk</language>
 			<language type="el">gresk</language>
-			<language type="elx">elamittisk</language>
+			<language type="elx">elamite</language>
 			<language type="en">engelsk</language>
-			<language type="en_AU">australisk engelsk</language>
-			<language type="en_CA">kanadisk engelsk</language>
+			<language type="en_AU">engelsk (Australia)</language>
+			<language type="en_CA">engelsk (Canada)</language>
 			<language type="en_GB">britisk engelsk</language>
-			<language type="en_US">engelsk (amerikansk)</language>
+			<language type="en_GB" alt="short">engelsk (Storbritannia)</language>
+			<language type="en_US">engelsk (USA)</language>
+			<language type="en_US" alt="short">engelsk (USA)</language>
 			<language type="enm">mellomengelsk</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spansk</language>
-			<language type="es_419">latinamerikansk spansk</language>
-			<language type="es_ES">iberisk spansk</language>
+			<language type="es_419">spansk (Latin-Amerika)</language>
+			<language type="es_ES">spansk (Spania)</language>
+			<language type="es_MX">spansk (Mexico)</language>
 			<language type="et">estisk</language>
 			<language type="eu">baskisk</language>
 			<language type="ewo">ewondo</language>
 			<language type="fa">persisk</language>
 			<language type="fan">fang</language>
 			<language type="fat">fanti</language>
-			<language type="ff">fulani</language>
+			<language type="ff">fulfulde</language>
 			<language type="fi">finsk</language>
 			<language type="fil">filippinsk</language>
 			<language type="fj">fijiansk</language>
 			<language type="fo">færøysk</language>
 			<language type="fon">fon</language>
 			<language type="fr">fransk</language>
-			<language type="fr_CA">kanadisk fransk</language>
-			<language type="fr_CH">sveitsisk fransk</language>
+			<language type="fr_CA">fransk (Canada)</language>
+			<language type="fr_CH">fransk (Sveits)</language>
 			<language type="frm">mellomfransk</language>
 			<language type="fro">gammalfransk</language>
 			<language type="frr">nordfrisisk</language>
 			<language type="frs">austfrisisk</language>
-			<language type="fur">friuliansk</language>
+			<language type="fur">friulisk</language>
 			<language type="fy">vestfrisisk</language>
 			<language type="ga">irsk</language>
 			<language type="gaa">ga</language>
 			<language type="gay">gayo</language>
 			<language type="gba">gbaya</language>
 			<language type="gd">skotsk-gælisk</language>
-			<language type="gez">ges</language>
-			<language type="gil">kiribatisk</language>
+			<language type="gez">geez</language>
+			<language type="gil">gilbertese</language>
 			<language type="gl">galicisk</language>
 			<language type="gmh">mellomhøgtysk</language>
 			<language type="gn">guarani</language>
@@ -174,6 +183,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="grc">gammalgresk</language>
 			<language type="gsw">sveitsertysk</language>
 			<language type="gu">gujarati</language>
+			<language type="guz">gusii</language>
 			<language type="gv">manx</language>
 			<language type="gwi">gwichin</language>
 			<language type="ha">hausa</language>
@@ -194,7 +204,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="hz">herero</language>
 			<language type="ia">interlingua</language>
 			<language type="iba">iban</language>
-			<language type="ibb" draft="unconfirmed">ibibio</language>
+			<language type="ibb">ibibio</language>
 			<language type="id">indonesisk</language>
 			<language type="ie">interlingue</language>
 			<language type="ig">ibo</language>
@@ -205,31 +215,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="io">ido</language>
 			<language type="is">islandsk</language>
 			<language type="it">italiensk</language>
-			<language type="iu">inuktitut</language>
+			<language type="iu">inuittisk</language>
 			<language type="ja">japansk</language>
 			<language type="jbo">lojban</language>
+			<language type="jgo">ngomba</language>
+			<language type="jmc">machame</language>
 			<language type="jpr">jødepersisk</language>
 			<language type="jrb">jødearabisk</language>
 			<language type="jv">javanesisk</language>
 			<language type="ka">georgisk</language>
 			<language type="kaa">karakalpakisk</language>
-			<language type="kab">kabylsk</language>
+			<language type="kab">kabyle</language>
 			<language type="kac">kachin</language>
 			<language type="kaj">jju</language>
 			<language type="kam">kamba</language>
 			<language type="kaw">kawi</language>
 			<language type="kbd">kabardisk</language>
 			<language type="kcg">tyap</language>
-			<language type="kea">kapverdisk</language>
+			<language type="kde">makonde</language>
+			<language type="kea">kabuverdianu</language>
 			<language type="kfo">koro</language>
 			<language type="kg">kikongo</language>
 			<language type="kha">khasi</language>
 			<language type="kho">khotanesisk</language>
+			<language type="khq">koyra chiini</language>
 			<language type="ki">kikuyu</language>
 			<language type="kj">kuanyama</language>
 			<language type="kk">kasakhisk</language>
-			<language type="kkj" draft="unconfirmed">kako</language>
-			<language type="kl">kalaallisut; grønlandsk</language>
+			<language type="kkj">kako</language>
+			<language type="kl">grønlandsk (kalaallisut)</language>
+			<language type="kln">kalenjin</language>
 			<language type="km">khmer</language>
 			<language type="kmb">kimbundu</language>
 			<language type="kn">kannada</language>
@@ -242,7 +257,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="krl">karelsk</language>
 			<language type="kru">kurukh</language>
 			<language type="ks">kasjmiri</language>
+			<language type="ksb">shambala</language>
 			<language type="ksf">bafia</language>
+			<language type="ksh">kølnsk</language>
 			<language type="ku">kurdisk</language>
 			<language type="kum">kumyk</language>
 			<language type="kut">kutenai</language>
@@ -250,17 +267,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kw">kornisk</language>
 			<language type="ky">kirgisisk</language>
 			<language type="la">latin</language>
-			<language type="lad">ladinsk</language>
+			<language type="lad">ladino</language>
+			<language type="lag">langi</language>
 			<language type="lah">lahnda</language>
 			<language type="lam">lamba</language>
 			<language type="lb">luxemburgsk</language>
 			<language type="lez">lezghian</language>
 			<language type="lg">ganda</language>
 			<language type="li">limburgisk</language>
+			<language type="lkt">lakota</language>
 			<language type="ln">lingala</language>
 			<language type="lo">laotisk</language>
 			<language type="lol">mongo</language>
 			<language type="loz">lozi</language>
+			<language type="lrc">nord-lurisk</language>
 			<language type="lt">litauisk</language>
 			<language type="lu">luba-katanga</language>
 			<language type="lua">luba-lulua</language>
@@ -268,7 +288,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lun">lunda</language>
 			<language type="luo">luo</language>
 			<language type="lus">lushai</language>
-			<language type="luy" draft="unconfirmed">olulujia</language>
+			<language type="luy">olulujia</language>
 			<language type="lv">latvisk</language>
 			<language type="mad">maduresisk</language>
 			<language type="mag">magahi</language>
@@ -279,8 +299,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="mdf">moksha</language>
 			<language type="mdr">mandar</language>
 			<language type="men">mende</language>
+			<language type="mer">meru</language>
+			<language type="mfe">morisyen</language>
 			<language type="mg">madagassisk</language>
 			<language type="mga">mellomirsk</language>
+			<language type="mgh">Makhuwa-Meetto</language>
+			<language type="mgo">meta’</language>
 			<language type="mh">marshallesisk</language>
 			<language type="mi">maori</language>
 			<language type="mic">micmac</language>
@@ -301,21 +325,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="mwl">mirandesisk</language>
 			<language type="mwr">marwari</language>
 			<language type="my">burmesisk</language>
-			<language type="myv">erzya</language>
+			<language type="myv">erzia</language>
+			<language type="mzn">mazanderani</language>
 			<language type="na">nauru</language>
 			<language type="nap">napolitansk</language>
+			<language type="naq">nama</language>
 			<language type="nb">bokmål</language>
 			<language type="nd">nord-ndebele</language>
 			<language type="nds">lågtysk</language>
+			<language type="nds_NL">lågsaksisk</language>
 			<language type="ne">nepalsk</language>
 			<language type="new">newari</language>
 			<language type="ng">ndonga</language>
 			<language type="nia">nias</language>
-			<language type="niu">niueansk</language>
+			<language type="niu">niuisk</language>
 			<language type="nl">nederlandsk</language>
 			<language type="nl_BE">flamsk</language>
 			<language type="nmg">kwasio</language>
 			<language type="nn">nynorsk</language>
+			<language type="nnh">ngiemboon</language>
 			<language type="no">norsk</language>
 			<language type="nog">nogai</language>
 			<language type="non">gammalnorsk</language>
@@ -333,7 +361,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="oc">oksitansk</language>
 			<language type="oj">ojibwa</language>
 			<language type="om">oromo</language>
-			<language type="or">oriya</language>
+			<language type="or">odia</language>
 			<language type="os">ossetisk</language>
 			<language type="osa">osage</language>
 			<language type="ota">ottomansk tyrkisk</language>
@@ -343,17 +371,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pam">pampanga</language>
 			<language type="pap">papiamento</language>
 			<language type="pau">palauisk</language>
+			<language type="pcm">nigeriansk pidgin</language>
 			<language type="peo">gammalpersisk</language>
 			<language type="phn">fønikisk</language>
 			<language type="pi">pali</language>
 			<language type="pl">polsk</language>
 			<language type="pon">ponapisk</language>
+			<language type="prg">prøyssisk</language>
 			<language type="pro">gammalprovençalsk</language>
 			<language type="ps">pashto</language>
 			<language type="pt">portugisisk</language>
-			<language type="pt_BR">brasiliansk portugisisk</language>
-			<language type="pt_PT">europeisk portugisisk</language>
+			<language type="pt_BR">portugisisk (Brasil)</language>
+			<language type="pt_PT">portugisisk (Portugal)</language>
 			<language type="qu">quechua</language>
+			<language type="quc">k’iche</language>
 			<language type="raj">rajasthani</language>
 			<language type="rap">rapanui</language>
 			<language type="rar">rarotongansk</language>
@@ -365,25 +396,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="rom">romani</language>
 			<language type="root">rot</language>
 			<language type="ru">russisk</language>
-			<language type="rup">aromansk</language>
+			<language type="rup">arumensk</language>
 			<language type="rw">kinjarwanda</language>
 			<language type="rwk">rwa</language>
 			<language type="sa">sanskrit</language>
 			<language type="sad">sandawe</language>
-			<language type="sah">jakutsk</language>
+			<language type="sah">sakha</language>
 			<language type="sam">samaritansk arameisk</language>
+			<language type="saq">samburu</language>
 			<language type="sas">sasak</language>
 			<language type="sat">santali</language>
+			<language type="sba">ngambay</language>
 			<language type="sbp">sangu</language>
 			<language type="sc">sardinsk</language>
 			<language type="scn">siciliansk</language>
 			<language type="sco">skotsk</language>
 			<language type="sd">sindhi</language>
 			<language type="se">nordsamisk</language>
+			<language type="seh">sena</language>
 			<language type="sel">selkupisk</language>
+			<language type="ses">Koyraboro Senni</language>
 			<language type="sg">sango</language>
 			<language type="sga">gammalirsk</language>
 			<language type="sh">serbokroatisk</language>
+			<language type="shi">tachelhit</language>
 			<language type="shn">shan</language>
 			<language type="si">singalesisk</language>
 			<language type="sid">sidamo</language>
@@ -403,6 +439,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="srn">sranan tongo</language>
 			<language type="srr">serer</language>
 			<language type="ss">swati</language>
+			<language type="ssy">saho</language>
 			<language type="st">sørsotho</language>
 			<language type="su">sundanesisk</language>
 			<language type="suk">sukuma</language>
@@ -410,15 +447,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sux">sumerisk</language>
 			<language type="sv">svensk</language>
 			<language type="sw">swahili</language>
+			<language type="sw_CD">swahili (Kongo-Kinshasa)</language>
 			<language type="swb">shimaore</language>
 			<language type="syc">klassisk syrisk</language>
 			<language type="syr">syrisk</language>
 			<language type="ta">tamil</language>
 			<language type="te">telugu</language>
 			<language type="tem">temne</language>
+			<language type="teo">teso</language>
 			<language type="ter">tereno</language>
 			<language type="tet">tetum</language>
-			<language type="tg">tatsjikisk</language>
+			<language type="tg">tadsjikisk</language>
 			<language type="th">thai</language>
 			<language type="ti">tigrinja</language>
 			<language type="tig">tigré</language>
@@ -430,10 +469,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tli">tlingit</language>
 			<language type="tmh">tamasjek</language>
 			<language type="tn">tswana</language>
-			<language type="to">tonga (Tonga-øyane)</language>
+			<language type="to">tongansk</language>
 			<language type="tog">tonga (Nyasa)</language>
 			<language type="tpi">tok pisin</language>
 			<language type="tr">tyrkisk</language>
+			<language type="trv">taroko</language>
 			<language type="ts">tsonga</language>
 			<language type="tsi">tsimshian</language>
 			<language type="tt">tatarisk</language>
@@ -443,6 +483,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="twq">tasawaq</language>
 			<language type="ty">tahitisk</language>
 			<language type="tyv">tuvinisk</language>
+			<language type="tzm">sentral-tamazight</language>
 			<language type="udm">udmurt</language>
 			<language type="ug">uigurisk</language>
 			<language type="uga">ugaritisk</language>
@@ -456,16 +497,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="vi">vietnamesisk</language>
 			<language type="vo">volapyk</language>
 			<language type="vot">votisk</language>
+			<language type="vun">vunjo</language>
 			<language type="wa">vallonsk</language>
-			<language type="wal">walamo</language>
+			<language type="wae">walsertysk</language>
+			<language type="wal">wolaytta</language>
 			<language type="war">waray</language>
 			<language type="was">washo</language>
 			<language type="wo">wolof</language>
-			<language type="xal">kalmyk</language>
+			<language type="xal">kalmykisk</language>
 			<language type="xh">xhosa</language>
+			<language type="xog">soga</language>
 			<language type="yao">yao</language>
 			<language type="yap">yapesisk</language>
 			<language type="yav">yangben</language>
+			<language type="ybb">yemba</language>
 			<language type="yi">jiddisk</language>
 			<language type="yo">joruba</language>
 			<language type="yue">kantonesisk</language>
@@ -473,6 +518,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zap">zapotec</language>
 			<language type="zbl">blissymbol</language>
 			<language type="zen">zenaga</language>
+			<language type="zgh">standard marokkansk tamazight</language>
 			<language type="zh">kinesisk</language>
 			<language type="zh_Hans">forenkla kinesisk</language>
 			<language type="zh_Hant">tradisjonell kinesisk</language>
@@ -677,7 +723,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BJ">Benin</territory>
 			<territory type="BL">Saint Barthélemy</territory>
 			<territory type="BM">Bermuda</territory>
-			<territory type="BN">Brunei Darussalam</territory>
+			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolivia</territory>
 			<territory type="BQ" draft="unconfirmed">Karibisk Nederland</territory>
 			<territory type="BR">Brasil</territory>
@@ -690,8 +736,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CA">Canada</territory>
 			<territory type="CC">Kokosøyane</territory>
 			<territory type="CD">Kongo-Kinshasa</territory>
+			<territory type="CD" alt="variant">Den demokratiske republikken Kongo</territory>
 			<territory type="CF">Den sentralafrikanske republikken</territory>
 			<territory type="CG">Kongo-Brazzaville</territory>
+			<territory type="CG" alt="variant">Republikken Kongo</territory>
 			<territory type="CH">Sveits</territory>
 			<territory type="CI">Elfenbeinskysten</territory>
 			<territory type="CK">Cookøyane</territory>
@@ -703,10 +751,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CR">Costa Rica</territory>
 			<territory type="CU">Cuba</territory>
 			<territory type="CV">Kapp Verde</territory>
-			<territory type="CW" draft="unconfirmed">Curaçao</territory>
+			<territory type="CW">Curaçao</territory>
 			<territory type="CX">Christmasøya</territory>
 			<territory type="CY">Kypros</territory>
 			<territory type="CZ">Tsjekkia</territory>
+			<territory type="CZ" alt="variant">Tsjekkia</territory>
 			<territory type="DE">Tyskland</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibouti</territory>
@@ -726,12 +775,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FI">Finland</territory>
 			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Falklandsøyane</territory>
+			<territory type="FK" alt="variant">Falklandsøyane (Islas Malvinas)</territory>
 			<territory type="FM">Mikronesiaføderasjonen</territory>
 			<territory type="FO">Færøyane</territory>
 			<territory type="FR">Frankrike</territory>
 			<territory type="GA">Gabon</territory>
 			<territory type="GB">Storbritannia</territory>
-			<territory type="GB" alt="short" draft="unconfirmed">Storbritannia</territory>
+			<territory type="GB" alt="short">Storbritannia</territory>
 			<territory type="GD">Grenada</territory>
 			<territory type="GE">Georgia</territory>
 			<territory type="GF">Fransk Guyana</territory>
@@ -775,7 +825,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="KG">Kirgisistan</territory>
 			<territory type="KH">Kambodsja</territory>
 			<territory type="KI">Kiribati</territory>
-			<territory type="KM">Komorene</territory>
+			<territory type="KM">Komorane</territory>
 			<territory type="KN">St. Christopher og Nevis</territory>
 			<territory type="KP">Nord-Korea</territory>
 			<territory type="KR">Sør-Korea</territory>
@@ -801,8 +851,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Marshalløyane</territory>
 			<territory type="MK">Makedonia</territory>
+			<territory type="MK" alt="variant">Den tidlegare jugoslaviske republikken Makedonia</territory>
 			<territory type="ML">Mali</territory>
-			<territory type="MM">Myanmar</territory>
+			<territory type="MM">Myanmar (Burma)</territory>
 			<territory type="MN">Mongolia</territory>
 			<territory type="MO">Macao S.A.R. Kina</territory>
 			<territory type="MO" alt="short">Macao</territory>
@@ -852,7 +903,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="RS">Serbia</territory>
 			<territory type="RU">Russland</territory>
 			<territory type="RW">Rwanda</territory>
-			<territory type="SA">Saudi Arabia</territory>
+			<territory type="SA">Saudi-Arabia</territory>
 			<territory type="SB">Salomonøyane</territory>
 			<territory type="SC">Seychellane</territory>
 			<territory type="SD">Sudan</territory>
@@ -867,21 +918,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somalia</territory>
 			<territory type="SR">Surinam</territory>
-			<territory type="SS" draft="unconfirmed">Sør-Sudan</territory>
+			<territory type="SS">Sør-Sudan</territory>
 			<territory type="ST">São Tomé og Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
-			<territory type="SX" draft="unconfirmed">Nederlandsk St. Martin</territory>
+			<territory type="SX">Sint Maarten</territory>
 			<territory type="SY">Syria</territory>
 			<territory type="SZ">Swaziland</territory>
 			<territory type="TA">Tristan da Cunha</territory>
 			<territory type="TC">Turks- og Caicosøyane</territory>
-			<territory type="TD">Tchad</territory>
+			<territory type="TD">Tsjad</territory>
 			<territory type="TF">Franske sørområde</territory>
 			<territory type="TG">Togo</territory>
 			<territory type="TH">Thailand</territory>
 			<territory type="TJ">Tadsjikistan</territory>
 			<territory type="TK">Tokelau</territory>
-			<territory type="TL">Aust-Timor</territory>
+			<territory type="TL">Timor-Leste (Aust-Timor)</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
@@ -894,7 +945,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">USAs ytre småøyar</territory>
 			<territory type="US">USA</territory>
-			<territory type="US" alt="short" draft="unconfirmed">USA</territory>
+			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Usbekistan</territory>
 			<territory type="VA">Vatikanstaten</territory>
@@ -906,8 +957,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="VU">Vanuatu</territory>
 			<territory type="WF">Wallis og Futuna</territory>
 			<territory type="WS">Samoa</territory>
-			<territory type="XK" draft="unconfirmed">Kosovo</territory>
-			<territory type="YE">Yemen</territory>
+			<territory type="XK">Kosovo</territory>
+			<territory type="YE">Jemen</territory>
 			<territory type="YT">Mayotte</territory>
 			<territory type="ZA">Sør-Afrika</territory>
 			<territory type="ZM">Zambia</territory>
@@ -1064,8 +1115,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d.</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
@@ -1084,6 +1156,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
@@ -1212,6 +1285,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="11">nov.</month>
 							<month type="12">des.</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">J</month>
+							<month type="7">J</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januar</month>
 							<month type="2">februar</month>
@@ -1229,18 +1316,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="unconfirmed">jan</month>
-							<month type="2" draft="unconfirmed">feb</month>
-							<month type="3" draft="unconfirmed">mar</month>
-							<month type="4" draft="unconfirmed">apr</month>
-							<month type="5" draft="unconfirmed">mai</month>
-							<month type="6" draft="unconfirmed">jun</month>
-							<month type="7" draft="unconfirmed">jul</month>
-							<month type="8" draft="unconfirmed">aug</month>
-							<month type="9" draft="unconfirmed">sep</month>
-							<month type="10" draft="unconfirmed">okt</month>
-							<month type="11" draft="unconfirmed">nov</month>
-							<month type="12" draft="unconfirmed">des</month>
+							<month type="1">jan</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">apr</month>
+							<month type="5">mai</month>
+							<month type="6">jun</month>
+							<month type="7">jul</month>
+							<month type="8">aug</month>
+							<month type="9">sep</month>
+							<month type="10">okt</month>
+							<month type="11">nov</month>
+							<month type="12">des</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">J</month>
@@ -1256,11 +1343,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="11">N</month>
 							<month type="12">D</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">januar</month>
+							<month type="2">februar</month>
+							<month type="3">mars</month>
+							<month type="4">april</month>
+							<month type="5">mai</month>
+							<month type="6">juni</month>
+							<month type="7">juli</month>
+							<month type="8">august</month>
+							<month type="9">september</month>
+							<month type="10">oktober</month>
+							<month type="11">november</month>
+							<month type="12">desember</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
+							<day type="sun">sø.</day>
+							<day type="mon">må.</day>
+							<day type="tue">ty.</day>
+							<day type="wed">on.</day>
+							<day type="thu">to.</day>
+							<day type="fri">fr.</day>
+							<day type="sat">la.</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">S</day>
+							<day type="mon">M</day>
+							<day type="tue">T</day>
+							<day type="wed">O</day>
+							<day type="thu">T</day>
+							<day type="fri">F</day>
+							<day type="sat">L</day>
+						</dayWidth>
+						<dayWidth type="short">
 							<day type="sun">sø.</day>
 							<day type="mon">må.</day>
 							<day type="tue">ty.</day>
@@ -1281,13 +1400,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">søn</day>
-							<day type="mon" draft="unconfirmed">mån</day>
-							<day type="tue" draft="unconfirmed">tys</day>
-							<day type="wed" draft="unconfirmed">ons</day>
-							<day type="thu" draft="unconfirmed">tor</day>
-							<day type="fri" draft="unconfirmed">fre</day>
-							<day type="sat" draft="unconfirmed">lau</day>
+							<day type="sun">søn</day>
+							<day type="mon">mån</day>
+							<day type="tue">tys</day>
+							<day type="wed">ons</day>
+							<day type="thu">tor</day>
+							<day type="fri">fre</day>
+							<day type="sat">lau</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
@@ -1298,6 +1417,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="fri">F</day>
 							<day type="sat">L</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">sø.</day>
+							<day type="mon">må.</day>
+							<day type="tue">ty.</day>
+							<day type="wed">on.</day>
+							<day type="thu">to.</day>
+							<day type="fri">fr.</day>
+							<day type="sat">la.</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">søndag</day>
+							<day type="mon">måndag</day>
+							<day type="tue">tysdag</day>
+							<day type="wed">onsdag</day>
+							<day type="thu">torsdag</day>
+							<day type="fri">fredag</day>
+							<day type="sat">laurdag</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
@@ -1307,6 +1444,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="2">K2</quarter>
 							<quarter type="3">K3</quarter>
 							<quarter type="4">K4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">1. kvartal</quarter>
+							<quarter type="2">2. kvartal</quarter>
+							<quarter type="3">3. kvartal</quarter>
+							<quarter type="4">4. kvartal</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">K1</quarter>
+							<quarter type="2">K2</quarter>
+							<quarter type="3">K3</quarter>
+							<quarter type="4">K4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1. kvartal</quarter>
@@ -1319,31 +1482,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">e.m.</dayPeriod>
+							<dayPeriod type="am">f.m.</dayPeriod>
+							<dayPeriod type="pm">e.m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
+							<dayPeriod type="am">f.m.</dayPeriod>
+							<dayPeriod type="pm">e.m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">formiddag</dayPeriod>
 							<dayPeriod type="pm">ettermiddag</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">f.m.</dayPeriod>
+							<dayPeriod type="pm">e.m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">f.m.</dayPeriod>
+							<dayPeriod type="pm">e.m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">f.m.</dayPeriod>
+							<dayPeriod type="pm">e.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">f.Kr.</era>
-						<era type="0" alt="variant" draft="unconfirmed">før vesterlandsk tidsrekning</era>
+						<era type="0" alt="variant">f.v.t.</era>
 						<era type="1">e.Kr.</era>
-						<era type="1" alt="variant" draft="unconfirmed">vesterlandsk tidsrekning</era>
+						<era type="1" alt="variant">v.t.</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">f.Kr.</era>
-						<era type="0" alt="variant" draft="unconfirmed">f.v.t.</era>
+						<era type="0" alt="variant">f.v.t.</era>
 						<era type="1">e.Kr.</era>
-						<era type="1" alt="variant" draft="unconfirmed">v.t.</era>
+						<era type="1" alt="variant">v.t.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">f.Kr.</era>
@@ -1377,25 +1554,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>'kl'. HH.mm.ss zzzz</pattern>
+							<pattern>'kl'. HH:mm:ss zzzz</pattern>
 							<pattern alt="variant">'kl'. HH:mm:ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH.mm.ss z</pattern>
+							<pattern>HH:mm:ss z</pattern>
 							<pattern alt="variant">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH.mm.ss</pattern>
+							<pattern>HH:mm:ss</pattern>
 							<pattern alt="variant">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH.mm</pattern>
+							<pattern>HH:mm</pattern>
 							<pattern alt="variant">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
@@ -1423,22 +1600,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d.</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d. MMM y G</dateFormatItem>
-						<dateFormatItem id="hm">h.mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
-						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv">HH:mm:ss v</dateFormatItem>
+						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv">HH:mm v</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d.M.</dateFormatItem>
 						<dateFormatItem id="MEd">E d.M</dateFormatItem>
 						<dateFormatItem id="MMdd">d.M.</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm.ss</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">'veke' W 'i' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">'veke' W 'i' MMM</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M y</dateFormatItem>
 						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
 						<dateFormatItem id="yMEd">E d.M.y</dateFormatItem>
@@ -1449,33 +1642,48 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'veke' w 'i' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'veke' w 'i' y</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d.–d.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a – h a</greatestDifference>
 							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">HH–HH</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="h">h.mm–h.mm a</greatestDifference>
-							<greatestDifference id="m">h.mm–h.mm a</greatestDifference>
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH.mm–HH.mm</greatestDifference>
-							<greatestDifference id="m">HH.mm–HH.mm</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="h">h.mm–h.mm a v</greatestDifference>
-							<greatestDifference id="m">h.mm–h.mm a v</greatestDifference>
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH.mm–HH.mm v</greatestDifference>
-							<greatestDifference id="m">HH.mm–HH.mm v</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M.–M.</greatestDifference>
@@ -1572,9 +1780,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week">
 				<displayName>veke</displayName>
-				<relative type="-1" draft="unconfirmed">forrige veke</relative>
-				<relative type="0" draft="unconfirmed">denne veke</relative>
-				<relative type="1" draft="unconfirmed">neste veke</relative>
+				<relative type="-1" draft="unconfirmed">forrige uke</relative>
+				<relative type="0" draft="unconfirmed">denne uke</relative>
+				<relative type="1" draft="unconfirmed">neste uke</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">om {0} uke</relativeTimePattern>
 					<relativeTimePattern count="other">om {0} uker</relativeTimePattern>
@@ -1583,6 +1791,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">for {0} uke siden</relativeTimePattern>
 					<relativeTimePattern count="other">for {0} uker siden</relativeTimePattern>
 				</relativeTime>
+				<relativePeriod draft="unconfirmed">uken med {0}</relativePeriod>
 			</field>
 			<field type="day">
 				<displayName>dag</displayName>
@@ -1853,6 +2062,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group> </group>
@@ -1861,6 +2071,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<plusSign>+</plusSign>
 			<minusSign>−</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -1947,6 +2158,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
+					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -3233,7 +3447,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="range" draft="unconfirmed">{0}‒{1}</pattern>
+			<pattern type="atLeast">⩾{0}</pattern>
+			<pattern type="range">{0}‒{1}</pattern>
 		</miscPatterns>
 	</numbers>
 	<units>
@@ -3291,60 +3506,95 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} kvadratfot</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kvadratfot</unitPattern>
 			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName draft="unconfirmed">milliondeler</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} milliondel</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} milliondeler</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<displayName draft="unconfirmed">hundreår</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} hundreår</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} hundreår</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName draft="provisional">år</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} år</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} år</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per år</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="provisional">måneder</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} måned</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} måneder</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per måned</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName draft="provisional">uker</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} uke</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} uker</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per uke</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">døgn</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} døgn</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} døgn</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/døgn</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName draft="provisional">timer</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} time</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} timer</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per time</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="provisional">minutter</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} minutt</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} minutter</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per minutt</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">sekunder</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} sekund</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} sekunder</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per sekund</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName draft="provisional">millisekunder</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} millisekund</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} millisekunder</unitPattern>
 			</unit>
+			<unit type="duration-microsecond">
+				<displayName draft="unconfirmed">mikrokunder</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} mikrokund</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} mikrokunder</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="unconfirmed">nanosekunder</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} nanosekund</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} nanosekunder</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="provisional">kilometer</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} kilometer</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kilometer</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per kilometer</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName draft="provisional">meter</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} meter</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} meter</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per meter</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName draft="unconfirmed">decimeter</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} decimeter</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} decimeter</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="provisional">centimeter</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} centimeter</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} centimeter</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0} per centimeter</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="provisional">millimeter</displayName>
@@ -3476,6 +3726,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} liter</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} liter</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="unconfirmed">{0} øst</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="unconfirmed">{0} nord</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="unconfirmed">{0} sør</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="unconfirmed">{0} vest</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
@@ -3531,65 +3787,110 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} kvadratfot</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} kvadratfot</unitPattern>
 			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName draft="unconfirmed">milliondeler</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ppm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ppm</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<displayName draft="unconfirmed">hundreår</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} årh.</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} årh.</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<displayName draft="provisional">år</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} år</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} år</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/år</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="provisional">måneder</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} mån</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} mån</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/mån</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName draft="provisional">uker</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} u</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} u</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/u</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="provisional">døgn</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} d</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} d</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/d</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName draft="provisional">timer</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} h</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} h</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/h</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="provisional">minutter</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} min</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} min</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/min</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="provisional">sekunder</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} s</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} s</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName draft="provisional">millisekunder</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} ms</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ms</unitPattern>
 			</unit>
+			<unit type="duration-microsecond">
+				<displayName draft="unconfirmed">μs</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} μs</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="unconfirmed">ns</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ns</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ns</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="provisional">kilometer</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} km</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} km</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName draft="provisional">meter</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} m</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} m</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/m</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName draft="unconfirmed">dm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} dm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="provisional">centimeter</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} cm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="provisional">millimeter</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} mm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} mm</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="unconfirmed">µm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} µm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} µm</unitPattern>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName draft="unconfirmed">nm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} nm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} nm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName draft="provisional">pikometer</displayName>
@@ -3716,6 +4017,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} l</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} l</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="unconfirmed">{0} Ø</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="unconfirmed">{0} N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="unconfirmed">{0} S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="unconfirmed">{0} V</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -3761,53 +4068,94 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
+			<unit type="concentr-part-per-million">
+				<displayName draft="unconfirmed">ppm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ppm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ppm</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<displayName draft="unconfirmed">hundreår</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} årh.</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} årh.</unitPattern>
+			</unit>
 			<unit type="duration-year">
-				<unitPattern count="one" draft="unconfirmed">{0}å</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}å</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}år</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}år</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/år</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}mån</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}mån</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/mån</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one" draft="unconfirmed">{0}u</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}u</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/u</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one" draft="unconfirmed">{0}d</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}d</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/d</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one" draft="unconfirmed">{0}h</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}h</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/h</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}min</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}min</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/min</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="unconfirmed">{0}s</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}s</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="unconfirmed">{0}ms</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}ms</unitPattern>
 			</unit>
+			<unit type="duration-microsecond">
+				<displayName draft="unconfirmed">μs</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}μs</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName draft="unconfirmed">ns</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}ns</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}ns</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<unitPattern count="one" draft="unconfirmed">{0}km</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}km</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/m</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName draft="unconfirmed">dm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}dm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}dm</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="unconfirmed">{0}cm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}cm</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="one" draft="unconfirmed">{0}mm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}mm</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName draft="unconfirmed">µm</displayName>
+			</unit>
+			<unit type="length-nanometer">
+				<displayName draft="unconfirmed">nm</displayName>
 			</unit>
 			<unit type="length-picometer">
 				<unitPattern count="one" draft="unconfirmed">{0}pm</unitPattern>
@@ -3910,6 +4258,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0}L</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}L</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<coordinateUnitPattern type="east" draft="unconfirmed">{0}Ø</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="unconfirmed">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="unconfirmed">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="unconfirmed">{0}V</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>h.mm</durationUnitPattern>
@@ -3957,4 +4311,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</messages>
 	</posix>
 </ldml>
-

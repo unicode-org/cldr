@@ -12,6 +12,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="AT"/>
 	</identity>
 	<localeDisplayNames>
+		<languages>
+			<language type="ar_001" draft="contributed">modernes Hocharabisch</language>
+			<language type="car" draft="contributed">karibische Sprache</language>
+			<language type="chb" draft="contributed">Chibcha-Sprache</language>
+			<language type="del" draft="contributed">Delawarisch</language>
+			<language type="fur" draft="contributed">Friulanisch</language>
+			<language type="ha" draft="contributed">Hausa</language>
+			<language type="haw" draft="contributed">Hawaiianisch</language>
+			<language type="hmn" draft="contributed">Miao-Sprache</language>
+			<language type="mus" draft="contributed">Muskogee-Sprache</language>
+			<language type="niu" draft="contributed">Niueanisch</language>
+			<language type="pag" draft="contributed">Pangasinensisch</language>
+			<language type="sh" draft="contributed">Serbokroatisch</language>
+			<language type="szl" draft="contributed">Schlesisch</language>
+		</languages>
+		<territories>
+			<territory type="SJ" draft="contributed">Svalbard und Jan Mayen</territory>
+		</territories>
 		<measurementSystemNames>
 			<measurementSystemName type="metric" draft="contributed">Internationales Maßsystem (SI)</measurementSystemName>
 			<measurementSystemName type="UK" draft="contributed">Englisches Maßsystem</measurementSystemName>
@@ -23,6 +41,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</characters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -86,6 +111,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="contributed">vm.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">nm.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="contributed">vm.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">nm.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 			</calendar>
 		</calendars>
 	</dates>
@@ -93,6 +132,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<symbols numberSystem="latn">
 			<group draft="contributed"> </group>
 		</symbols>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="contributed">↑↑↑#</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
@@ -102,4 +148,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencyFormats>
 	</numbers>
 </ldml>
-

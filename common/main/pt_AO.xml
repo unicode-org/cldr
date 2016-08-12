@@ -44,6 +44,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<currencies>
 			<currency type="AOA">
 				<symbol>Kz</symbol>
@@ -51,4 +52,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 	</numbers>
 </ldml>
-

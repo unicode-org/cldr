@@ -11,6 +11,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="de"/>
 		<territory type="LU"/>
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="ar_001" draft="contributed">Modernes Hocharabisch</language>
+			<language type="be" draft="contributed">Belarussisch</language>
+			<language type="dv" draft="contributed">Dhivehi</language>
+			<language type="en_US" draft="contributed">Amerikanisches Englisch</language>
+			<language type="pt_BR" draft="contributed">Brasilianisches Portugiesisch</language>
+			<language type="pt_PT" draft="contributed">Europäisches Portugiesisch</language>
+			<language type="zh_Hans" draft="contributed">Chinesisch (vereinfacht)</language>
+			<language type="zh_Hant" draft="contributed">Chinesisch (traditionell)</language>
+		</languages>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="contributed">vorm.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">nachm.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<currencies>
 			<currency type="LUF">
@@ -21,4 +52,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencies>
 	</numbers>
 </ldml>
-

@@ -316,7 +316,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Wí</displayName>
 				<relative type="-1">Wí kʼuŋ héhaŋ</relative>
 				<relative type="0">Lé wí kiŋ</relative>
-				<relative type="1">Wí kiŋháŋ</relative>
+				<relative type="1">Tȟokáta wí kiŋháŋ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">Letáŋhaŋ wíyawapi {0} kiŋháŋ</relativeTimePattern>
 				</relativeTime>
@@ -338,7 +338,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day">
 				<displayName>Aŋpétu</displayName>
-				<relative type="-1">Lé aŋpétu kiŋ</relative>
+				<relative type="-1">Ȟtálehaŋ</relative>
 				<relative type="0">Lé aŋpétu kiŋ</relative>
 				<relative type="1">Híŋhaŋni kiŋháŋ</relative>
 				<relativeTime type="future">
@@ -397,6 +397,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="minute">
 				<displayName>Owápȟe oȟʼáŋkȟo</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Letáŋhaŋ oȟ’áŋkȟo {0} kiŋháŋ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">Hékta oȟ’áŋkȟo {0} k’uŋ héhaŋ</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Okpí</displayName>
@@ -582,4 +588,3 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 	</units>
 </ldml>
-

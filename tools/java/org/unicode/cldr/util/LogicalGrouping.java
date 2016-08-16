@@ -38,6 +38,8 @@ public class LogicalGrouping {
     public static final ImmutableSet<String> calendarsWith13Months = ImmutableSet.of("coptic", "ethiopic", "hebrew");
     public static final ImmutableSet<String> compactDecimalFormatLengths = ImmutableSet.of("short", "long");
     private static final ImmutableSet<String> ampm = ImmutableSet.of("am", "pm");
+    private static final ImmutableSet<String> nowUnits = ImmutableSet.of("second", "second-short", "second-narrow", 
+        "minute", "minute-short", "minute-narrow", "hour", "hour-short", "hour-narrow");
 
     /**
      * Return the set of paths that are in the same logical set as the given path
@@ -131,7 +133,7 @@ public class LogicalGrouping {
             String relativeType = parts.findAttributeValue("relative", "type");
             Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
             if (relativeValue >= -3 && relativeValue <= 3) { // This is just a quick check to make sure the path is good.
-                if (!(fieldType.startsWith("second") && relativeValue == 0)) { // Workaround for "now"
+                if (!(nowUnits.contains(fieldType) && relativeValue == 0)) { // Workaround for "now", "this hour", "this minute"
                     for (Integer i = -1; i <= 1; i++) {
                         parts.setAttribute("relative", "type", i.toString());
                         result.add(parts.toString());

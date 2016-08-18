@@ -36,6 +36,7 @@
 			<type name="publish" description="map publishing characters, such as “, ”, —, to from vanilla characters" since="29" alias="publishing"/>
 			<type name="hex" description="map characters from hex equivalents, trying all variants, eg 'U+0061' to 'a'; for hex variants see transform.xml" since="29"/>
 			<type name="npinyin" description="map the numeric form of pinyin to the tone format" since="29" alias="numericPinyin"/>
+			<type name="zawgyi" description="map Zawgyi Myanmar encoding to Unicode" since="30"/>
 		</key>
 	</keyword>
 </ldmlBCP47>

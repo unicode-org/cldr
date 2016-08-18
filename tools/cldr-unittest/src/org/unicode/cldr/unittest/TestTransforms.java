@@ -370,6 +370,8 @@ public class TestTransforms extends TestFmwkPlus {
             return Transliterator.getInstance("Any-Publishing");
         } else if (id.equalsIgnoreCase("und-t-s0-publish")) {
             return Transliterator.getInstance("Publishing-Any");
+        } else if (id.equalsIgnoreCase("my-t-my-s0-zawgyi")) {
+            return Transliterator.getInstance("Zawgyi-my");
         }
 
         Matcher rfc6497Matcher = rfc6497Pattern.matcher(id);

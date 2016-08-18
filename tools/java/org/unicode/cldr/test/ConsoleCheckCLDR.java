@@ -918,7 +918,7 @@ public class ConsoleCheckCLDR {
         error,
         disputed,
         warning,
-        posix, minimal, basic, moderate, modern, comprehensive, optional,
+        core, posix, minimal, basic, moderate, modern, comprehensive, optional,
         contributed, provisional, unconfirmed,
         unknown;
         static EnumSet<ErrorType> unapproved = EnumSet.range(ErrorType.contributed, ErrorType.unconfirmed);

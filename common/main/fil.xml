@@ -1344,24 +1344,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">hatinggabi</dayPeriod>
 							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="noon">tanghali</dayPeriod>
+							<dayPeriod type="noon">tanghaling-tapat</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
 							<dayPeriod type="morning1">umaga</dayPeriod>
 							<dayPeriod type="morning2">madaling-araw</dayPeriod>
-							<dayPeriod type="afternoon1">ng hapon</dayPeriod>
-							<dayPeriod type="evening1">ng gabi</dayPeriod>
+							<dayPeriod type="afternoon1">tanghali</dayPeriod>
+							<dayPeriod type="evening1">ng hapon</dayPeriod>
 							<dayPeriod type="night1">gabi</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">hatinggabi</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="noon">tanghali</dayPeriod>
+							<dayPeriod type="noon">tanghaling-tapat</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">nang umaga</dayPeriod>
 							<dayPeriod type="morning2">madaling-araw</dayPeriod>
-							<dayPeriod type="afternoon1">ng hapon</dayPeriod>
-							<dayPeriod type="evening1">ng gabi</dayPeriod>
-							<dayPeriod type="night1">sa gabi</dayPeriod>
+							<dayPeriod type="afternoon1">tanghali</dayPeriod>
+							<dayPeriod type="evening1">ng hapon</dayPeriod>
+							<dayPeriod type="night1">ng gabi</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -1373,18 +1373,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="morning1">umaga</dayPeriod>
 							<dayPeriod type="morning2">madaling-araw</dayPeriod>
 							<dayPeriod type="afternoon1">tanghali</dayPeriod>
-							<dayPeriod type="evening1">ng gabi</dayPeriod>
+							<dayPeriod type="evening1">hapon</dayPeriod>
 							<dayPeriod type="night1">gabi</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">hatinggabi</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="noon">tanghali</dayPeriod>
+							<dayPeriod type="noon">tanghaling-tapat</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">umaga</dayPeriod>
 							<dayPeriod type="morning2">madaling-araw</dayPeriod>
-							<dayPeriod type="afternoon1">ng hapon</dayPeriod>
-							<dayPeriod type="evening1">ng gabi</dayPeriod>
+							<dayPeriod type="afternoon1">tanghali</dayPeriod>
+							<dayPeriod type="evening1">hapon</dayPeriod>
 							<dayPeriod type="night1">gabi</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
@@ -1394,8 +1394,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">umaga</dayPeriod>
 							<dayPeriod type="morning2">madaling-araw</dayPeriod>
-							<dayPeriod type="afternoon1">hapon</dayPeriod>
-							<dayPeriod type="evening1">gabi</dayPeriod>
+							<dayPeriod type="afternoon1">tanghali</dayPeriod>
+							<dayPeriod type="evening1">hapon</dayPeriod>
 							<dayPeriod type="night1">gabi</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -1509,8 +1509,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">'linggo' L 'ng' BBB</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">ika-W 'linggo' 'ng' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">'ika'-W 'linggo ng' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">'linggo' W 'ng' MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
@@ -1523,8 +1523,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="one">ika-w 'linggo' 'ng' y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'linggo' l 'ng' t</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'ika'-w 'linggo ng' y</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'linggo' w 'ng' y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>

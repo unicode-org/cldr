@@ -1290,17 +1290,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="noon">noon</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">a</dayPeriod>
-							<dayPeriod type="noon">n</dayPeriod>
 							<dayPeriod type="pm">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="noon">noon</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -1313,9 +1310,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">midnight</dayPeriod>
-							<dayPeriod type="am" alt="variant" draft="contributed">a</dayPeriod>
 							<dayPeriod type="noon">noon</dayPeriod>
-							<dayPeriod type="pm" alt="variant" draft="contributed">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">am</dayPeriod>
@@ -1926,28 +1921,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="day-short">
-				<relative type="-1" draft="contributed">yesterday</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="day-narrow">
-				<relative type="-1" draft="contributed">yesterday</relative>
-				<relative type="0" draft="contributed">today</relative>
-				<relative type="1" draft="contributed">tomorrow</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} day</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="sun">
 				<relative type="-1">last Sunday</relative>
 				<relative type="0">this Sunday</relative>
@@ -1959,9 +1932,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Sun.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Sunday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Sundays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Sunday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Sundays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
@@ -1970,9 +1945,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Su</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Sunday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Sundays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Sunday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Sundays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -1986,9 +1963,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Mon.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Monday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Mondays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Monday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Mondays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
@@ -1997,9 +1976,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next M</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Monday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Mondays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Monday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Mondays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -2013,9 +1994,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Tue.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Tuesday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Tuesdays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Tuesday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Tuesdays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
@@ -2024,9 +2007,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Tu</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Tuesday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Tuesdays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Tuesday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Tuesdays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -2040,9 +2025,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Wed.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Wednesday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Wednesdays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Wednesday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Wednesdays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
@@ -2051,9 +2038,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next W</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Wednesday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Wednesdays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Wednesday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Wednesdays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -2067,9 +2056,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Thu.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Thursday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Thursdays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Thursday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thursdays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
@@ -2078,9 +2069,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Th</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Thursday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Thursdays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Thursday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Thursdays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -2094,9 +2087,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Fri.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Friday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Fridays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Friday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Fridays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
@@ -2105,9 +2100,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next F</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Friday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Fridays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Friday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Fridays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -2121,9 +2118,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Sat.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Saturday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Saturdays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Saturday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Saturdays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
@@ -2132,9 +2131,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">next Sa</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} Saturday</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Saturdays</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Saturday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Saturdays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod">
@@ -3590,6 +3591,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>Central Australia Time</generic>
 					<standard>Australian Central Standard Time</standard>
+					<daylight>Australian Central Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
@@ -5183,6 +5185,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="MKD">
 				<displayName>Macedonian Denar</displayName>
+				<displayName count="one">Macedonian denar</displayName>
 				<displayName count="other">Macedonian denari</displayName>
 				<symbol draft="contributed">MKD</symbol>
 			</currency>
@@ -5730,6 +5733,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
+				<displayName count="one">West African CFA franc</displayName>
 				<displayName count="other">West African CFA francs</displayName>
 				<symbol draft="contributed">CFA</symbol>
 			</currency>
@@ -6303,6 +6307,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="speed-kilometer-per-hour">
 				<displayName>kilometres per hour</displayName>
 				<unitPattern count="one">{0} kilometre per hour</unitPattern>
+				<unitPattern count="other">{0} kilometres per hour</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>metres per second</displayName>
@@ -6824,6 +6829,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-stone">
 				<displayName>stone</displayName>
+				<unitPattern count="one">{0} st</unitPattern>
 				<unitPattern count="other">{0} st</unitPattern>
 			</unit>
 			<unit type="mass-pound">

@@ -325,35 +325,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<fields>
 			<field type="year-short">
 				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} yr.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} yrs.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} yr. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} yrs. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} yr.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">in {0} yr.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} yr.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} yr. ago</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">{0} yr. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} yr. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} qtr.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} qtr.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} qtr. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} qtr. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month-short">
 				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} mo.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} mos.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} mo. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} mos. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -369,9 +375,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-short">
 				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} wk.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} wks.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} wk. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} wks. ago</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod>the wk. of {0}</relativePeriod>
@@ -379,27 +387,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="week-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} wk.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">in {0} wk.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} wk.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} wk. ago</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">{0} wk. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} wk. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} day</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-short">
 				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} Sunday</relativeTimePattern>
+					<relativeTimePattern count="one">in {0} Sun.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} Sun’s.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} Sunday ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} Sundays ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
@@ -534,56 +546,62 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="hour-short">
 				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} hr.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} hrs.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} hr. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} hrs. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} hr.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">in {0} hr.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} hr.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} hr. ago</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">{0} hr. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} hr. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-short">
 				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} min.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} mins.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} min. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} mins. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} min.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">in {0} min.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} min.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} min. ago</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">{0} min. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} min. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second-short">
 				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} sec.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} secs.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} sec. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} secs. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} sec.</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">in {0} sec.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} sec.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} sec. ago</relativeTimePattern>
-					<relativeTimePattern count="other" draft="provisional">{0} sec. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} sec. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 		</fields>

@@ -121,6 +121,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">midi</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">du mat.</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">de l’ap.m.</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">du soir</dayPeriod>
@@ -128,12 +129,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">midi</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">du mat.</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">de l’ap.m.</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">du soir</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">du mat.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight" draft="contributed">minuit</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">midi</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">du matin</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">de l’après-midi</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">du soir</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">du matin</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>

@@ -284,18 +284,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">janv.</month>
+							<month type="2" draft="contributed">févr.</month>
+							<month type="3" draft="contributed">mars</month>
+							<month type="4" draft="contributed">avr.</month>
+							<month type="5" draft="contributed">mai</month>
+							<month type="6" draft="contributed">juin</month>
 							<month type="7" draft="contributed">juill.</month>
+							<month type="8" draft="contributed">août</month>
+							<month type="9" draft="contributed">sept.</month>
+							<month type="10" draft="contributed">oct.</month>
+							<month type="11" draft="contributed">nov.</month>
+							<month type="12" draft="contributed">déc.</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">janv.</month>
+							<month type="2" draft="contributed">févr.</month>
+							<month type="3" draft="contributed">mars</month>
+							<month type="4" draft="contributed">avr.</month>
+							<month type="5" draft="contributed">mai</month>
+							<month type="6" draft="contributed">juin</month>
 							<month type="7" draft="contributed">juill.</month>
+							<month type="8" draft="contributed">août</month>
+							<month type="9" draft="contributed">sept.</month>
+							<month type="10" draft="contributed">oct.</month>
+							<month type="11" draft="contributed">nov.</month>
+							<month type="12" draft="contributed">déc.</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">minuit</dayPeriod>
 							<dayPeriod type="am">a.m.</dayPeriod>
 							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
@@ -327,12 +350,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">minuit</dayPeriod>
 							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
+							<dayPeriod type="morning1">mat.</dayPeriod>
 							<dayPeriod type="afternoon1">après-midi</dayPeriod>
+							<dayPeriod type="evening1">soir</dayPeriod>
+							<dayPeriod type="night1">nuit</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">minuit</dayPeriod>
+							<dayPeriod type="noon">midi</dayPeriod>
+							<dayPeriod type="morning1">mat.</dayPeriod>
 							<dayPeriod type="afternoon1">après-midi</dayPeriod>
+							<dayPeriod type="evening1">soir</dayPeriod>
+							<dayPeriod type="night1">nuit</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">a.m.</dayPeriod>
@@ -449,47 +482,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="8">chaa.</month>
-							<month type="9">ram.</month>
-							<month type="10">chaw.</month>
-							<month type="11">dhou. qi.</month>
-							<month type="12">dhou. hi.</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<dateFormats>
 					<dateFormatLength type="short">
 						<dateFormat>
@@ -525,11 +517,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName>a</displayName>
-				<relative type="0" draft="contributed">cette année</relative>
 			</field>
 			<field type="year-narrow">
 				<displayName draft="contributed">a</displayName>
-				<relative type="0" draft="contributed">cette année</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one" draft="contributed">+{0} a</relativeTimePattern>
 					<relativeTimePattern count="other" draft="contributed">+{0} a</relativeTimePattern>
@@ -541,7 +531,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter">
 				<displayName draft="contributed">trimestre</displayName>
+				<relative type="-1">le trimestre dernier</relative>
 				<relative type="0">ce trimestre-ci</relative>
+				<relative type="1">le trimestre prochain</relative>
 			</field>
 			<field type="quarter-short">
 				<displayName>trim.</displayName>
@@ -571,6 +563,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="contributed">ce mois-ci</relative>
 				<relative type="1" draft="contributed">le mois prochain</relative>
 				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} m.</relativeTimePattern>
 					<relativeTimePattern count="other">+{0} m.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
@@ -598,13 +591,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day-short">
 				<displayName>j</displayName>
-				<relative type="-2" draft="contributed">avant-hier</relative>
-				<relative type="2" draft="contributed">après-demain</relative>
 			</field>
 			<field type="day-narrow">
 				<displayName>j</displayName>
-				<relative type="-2" draft="contributed">avant-hier</relative>
-				<relative type="2" draft="contributed">après-demain</relative>
 			</field>
 			<field type="weekday">
 				<displayName>jour de la semaine</displayName>
@@ -2759,8 +2748,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0 millier</pattern>
-					<pattern type="1000" count="other" draft="contributed">0 mille</pattern>
+					<pattern type="1000" count="one">0 millier</pattern>
+					<pattern type="1000" count="other">0 mille</pattern>
+					<pattern type="10000" count="one">00 mille</pattern>
+					<pattern type="10000" count="other">00 mille</pattern>
+					<pattern type="100000" count="one">000 mille</pattern>
+					<pattern type="100000" count="other">000 mille</pattern>
+					<pattern type="1000000" count="one">0 million</pattern>
+					<pattern type="1000000" count="other">0 millions</pattern>
+					<pattern type="10000000" count="one">00 million</pattern>
+					<pattern type="10000000" count="other">00 millions</pattern>
+					<pattern type="100000000" count="one">000 million</pattern>
+					<pattern type="100000000" count="other">000 millions</pattern>
 					<pattern type="1000000000" count="one">0 milliard</pattern>
 					<pattern type="1000000000" count="other">0 milliards</pattern>
 					<pattern type="10000000000" count="one">00 milliard</pattern>
@@ -3109,7 +3108,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="GEL">
 				<displayName draft="contributed">lari géorgien</displayName>
-				<displayName count="one" draft="contributed">lari géorgien</displayName>
+				<displayName count="one">lari géorgien</displayName>
+				<displayName count="other">lari géorgiens</displayName>
 				<symbol draft="contributed">GEL</symbol>
 				<symbol alt="narrow" draft="contributed">GEL</symbol>
 				<symbol alt="variant" draft="contributed">GEL</symbol>
@@ -4060,6 +4060,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-microgram">
 				<unitPattern count="one">{0} microgramme</unitPattern>
+				<unitPattern count="other">{0} microgrammes</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>tonnes courtes</displayName>
@@ -4512,6 +4513,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-generic">
 				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>
@@ -4635,6 +4637,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-kilogram">
 				<unitPattern count="one">{0}kg</unitPattern>
+				<unitPattern count="other">{0}kg</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>

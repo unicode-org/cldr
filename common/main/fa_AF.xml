@@ -163,10 +163,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">دسم</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1" draft="contributed">ج</month>
-							<month type="4" draft="contributed">ا</month>
-							<month type="6" draft="contributed">ج</month>
-							<month type="7" draft="contributed">ج</month>
+							<month type="1">ج</month>
+							<month type="2">ف</month>
+							<month type="3">م</month>
+							<month type="4">ا</month>
+							<month type="5">م</month>
+							<month type="6">ج</month>
+							<month type="7">ج</month>
+							<month type="8">ا</month>
+							<month type="9">س</month>
+							<month type="10">ا</month>
+							<month type="11">ن</month>
+							<month type="12">د</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جنوری</month>
@@ -261,27 +269,63 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight" draft="contributed">نیمه‌شب</dayPeriod>
+							<dayPeriod type="am" draft="contributed">ق.ظ.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">ظهر</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">ب.ظ.</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">صبح</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">شب</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight" draft="contributed">ن</dayPeriod>
+							<dayPeriod type="am" draft="contributed">ق</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">ظ</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">ب</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">ص</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">ب.ظ.</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">ش</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">ش</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight" draft="contributed">نیمه‌شب</dayPeriod>
+							<dayPeriod type="am" draft="contributed">قبل‌ازظهر</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">ظهر</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">بعدازظهر</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">صبح</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">شب</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight" draft="contributed">نیمه‌شب</dayPeriod>
+							<dayPeriod type="am" draft="contributed">ق.ظ.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">ظ</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">ب.ظ.</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">صبح</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">شب</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight" draft="contributed">ن</dayPeriod>
+							<dayPeriod type="am" draft="contributed">ق.ظ.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">ظ</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">ب.ظ.</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">ص</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">ش</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight" draft="contributed">نیمه‌شب</dayPeriod>
+							<dayPeriod type="am" draft="contributed">قبل‌ازظهر</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">ظهر</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">بعدازظهر</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">صبح</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">بعد از چاشت</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">شام</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">شب</dayPeriod>

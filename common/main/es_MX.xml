@@ -247,7 +247,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">p. m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="morning2" draft="contributed">mañana</dayPeriod>
+							<dayPeriod type="noon">del mediodía</dayPeriod>
+							<dayPeriod type="morning1">de la madrugada</dayPeriod>
+							<dayPeriod type="morning2">mañana</dayPeriod>
+							<dayPeriod type="evening1">de la tarde</dayPeriod>
+							<dayPeriod type="night1">de la noche</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">a. m.</dayPeriod>
@@ -790,6 +794,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic draft="contributed">Hora de Colombia</generic>
 					<standard draft="contributed">Hora estándar de Colombia</standard>
+					<daylight draft="contributed">Hora de verano de Colombia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cook">
@@ -812,6 +817,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Easter">
 				<long>
 					<generic draft="contributed">Hora de la isla de Pascua</generic>
+					<standard draft="contributed">Hora estándar de la isla de Pascua</standard>
+					<daylight draft="contributed">Hora de verano de la isla de Pascua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Ecuador">
@@ -1254,19 +1261,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<decimalFormats numberSystem="latn">
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0k</pattern>
-					<pattern type="1000" count="other" draft="contributed">0k</pattern>
-					<pattern type="10000" count="one" draft="contributed">00k</pattern>
-					<pattern type="10000" count="other" draft="contributed">00k</pattern>
-					<pattern type="100000" count="one" draft="contributed">000k</pattern>
-					<pattern type="100000" count="other" draft="contributed">000k</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0k M</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -1584,6 +1578,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName draft="contributed">mg/dL</displayName>
 				<unitPattern count="one" draft="contributed">{0} mg/dL</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mg/dL</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName draft="contributed">mmol/L</displayName>
@@ -1596,10 +1591,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="electric-ohm">
 				<displayName draft="contributed">ohmios</displayName>
+				<unitPattern count="one" draft="contributed">{0} ohmio</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ohmios</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="contributed">voltios</displayName>
+				<unitPattern count="one" draft="contributed">{0} voltio</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} voltios</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
@@ -1711,6 +1708,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName draft="contributed">mpg Imp.</displayName>
+				<unitPattern count="one" draft="contributed">{0} mpg Imp.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mpg Imp.</unitPattern>
 			</unit>
 			<unit type="digital-byte">

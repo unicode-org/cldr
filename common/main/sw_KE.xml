@@ -122,10 +122,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="gregorian">
 				<dayPeriods>
 					<dayPeriodContext type="format">
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="morning1">asubuhi</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -133,10 +131,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
-							<dayPeriod type="morning1">asubuhi</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="morning1">asubuhi</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

@@ -277,9 +277,9 @@ public class ChartAnnotations extends Chart {
         CLDRFile root = cldrFactory.make("root", false);
         String rules = root.getStringValue("//ldml/collations/collation[@type=\"emoji\"][@visibility=\"external\"]/cr");
 
-        if (!rules.contains("'#⃣'")) {
-            rules = rules.replace("#⃣", "'#⃣'").replace("*⃣", "'*⃣'"); //hack for 8288
-        }
+//        if (!rules.contains("'#⃣'")) {
+//            rules = rules.replace("#⃣", "'#⃣'").replace("*⃣", "'*⃣'"); //hack for 8288
+//        }
 
         try {
             RBC = new RuleBasedCollator(rules);

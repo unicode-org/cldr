@@ -149,7 +149,7 @@ public class SimpleXMLSource extends XMLSource {
     static final Normalizer2 NFKC = Normalizer2.getNFKCInstance();
 
     // The following includes letters, marks, numbers, currencies, and *selected* symbols/punctuation
-    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:]/+\\-°′″−]").freeze();
+    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:]/+\\-°′″−⍰]").freeze();
 
     public static String normalize(String valueToMatch) {
         return replace(NON_ALPHANUM, NFKCCF.normalize(valueToMatch), "");
@@ -160,11 +160,11 @@ public class SimpleXMLSource extends XMLSource {
     }
 
     public static String replace(UnicodeSet unicodeSet, String valueToMatch, String substitute) {
-        StringBuilder b = null; // delay creating until needed
         // handle patterns
         if (valueToMatch.contains("{")) {
-            valueToMatch = PLACEHOLDER.matcher(valueToMatch).replaceAll("").trim();
+            valueToMatch = PLACEHOLDER.matcher(valueToMatch).replaceAll("⍰").trim();
         }
+        StringBuilder b = null; // delay creating until needed
         for (int i = 0; i < valueToMatch.length(); ++i) {
             int cp = valueToMatch.codePointAt(i);
             if (unicodeSet.contains(cp)) {

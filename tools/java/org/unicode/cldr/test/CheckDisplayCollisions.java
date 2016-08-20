@@ -23,6 +23,7 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
+    private static final String DEBUG_PATH = null; // example: "//ldml/dates/fields/field[@type=\"sun-narrow\"]/relative[@type=\"-1\"]";
     /**
      * Set to true to get verbose logging of path removals
      */
@@ -224,6 +225,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
 
         // get the paths with the same value. If there aren't duplicates, continue;
+        if (path.equals(DEBUG_PATH)) {
+            int debug = 0;
+        }
 
         Matcher matcher = null;
         String message = "Can't have same translation as {0}";
@@ -475,6 +479,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         Matcher currentAttributesToIgnore,
         Equivalence equivalence
         ) {
+
+        if (path.equals(DEBUG_PATH)) {
+            int debug = 0;
+        }
 
         Set<String> retrievedPaths = new HashSet<String>();
         if (myType.matchType == MatchType.PREFIX) {

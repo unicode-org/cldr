@@ -755,13 +755,13 @@ public class ConsoleCheckCLDR {
         }
         System.out.println();
         for (ErrorType type : totalCount.keySet()) {
-            System.out.println("Total " + type + ":\t" + totalCount.getCount(type));
+            System.out.println("# Total " + type + ":\t" + totalCount.getCount(type));
         }
 
         System.out.println();
-        System.out.println("Total elapsed time: " + totalTimer);
+        System.out.println("# Total elapsed time: " + totalTimer);
         if (fatalErrors.size() != 0) {
-            System.out.println("FATAL ERRORS:");
+            System.out.println("# FATAL ERRORS:");
         }
         long errorCount = totalCount.getCount(ErrorType.error) + fatalErrors.size();
         if (errorCount != 0) {

@@ -950,7 +950,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2" draft="contributed">Fäb</month>
 							<month type="3" draft="contributed">Mäz</month>
 							<month type="4" draft="contributed">Apr</month>
-							<month type="5">Mai</month>
+							<month type="5" draft="contributed">Mai</month>
 							<month type="6" draft="contributed">Jun</month>
 							<month type="7" draft="contributed">Jul</month>
 							<month type="8" draft="contributed">Ouj</month>
@@ -959,20 +959,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="11" draft="contributed">Nov</month>
 							<month type="12" draft="contributed">Dez</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="8">O</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">Jannewa</month>
 							<month type="2" draft="contributed">Fäbrowa</month>
 							<month type="3" draft="contributed">Määz</month>
 							<month type="4" draft="contributed">Aprell</month>
-							<month type="5">Mai</month>
+							<month type="5" draft="contributed">Mai</month>
 							<month type="6" draft="contributed">Juuni</month>
 							<month type="7" draft="contributed">Juuli</month>
 							<month type="8" draft="contributed">Oujoß</month>
 							<month type="9" draft="contributed">Septämber</month>
-							<month type="10">Oktohber</month>
+							<month type="10" draft="contributed">Oktohber</month>
 							<month type="11" draft="contributed">Novämber</month>
 							<month type="12" draft="contributed">Dezämber</month>
 						</monthWidth>
@@ -983,7 +980,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2" draft="contributed">Fäb.</month>
 							<month type="3" draft="contributed">Mäz.</month>
 							<month type="4" draft="contributed">Apr.</month>
-							<month type="5">Mai</month>
+							<month type="5" draft="contributed">Mai</month>
 							<month type="6" draft="contributed">Jun.</month>
 							<month type="7" draft="contributed">Jul.</month>
 							<month type="8" draft="contributed">Ouj.</month>
@@ -1000,8 +997,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="5" draft="contributed">M</month>
 							<month type="6" draft="contributed">J</month>
 							<month type="7" draft="contributed">J</month>
-							<month type="8">O</month>
-							<month type="9">S</month>
+							<month type="8" draft="contributed">O</month>
+							<month type="9" draft="contributed">S</month>
 							<month type="10" draft="contributed">O</month>
 							<month type="11" draft="contributed">N</month>
 							<month type="12" draft="contributed">D</month>
@@ -1030,7 +1027,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun" draft="contributed">Sunndaach</day>
-							<day type="mon">Mohndaach</day>
+							<day type="mon" draft="contributed">Mohndaach</day>
 							<day type="tue" draft="contributed">Dinnsdaach</day>
 							<day type="wed" draft="contributed">Metwoch</day>
 							<day type="thu" draft="contributed">Dunnersdaach</day>
@@ -1056,9 +1053,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="thu" draft="contributed">Du</day>
 							<day type="fri" draft="contributed">Fr</day>
 							<day type="sat" draft="contributed">Sa</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="mon">Mohndaach</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1259,7 +1253,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year">
 				<displayName draft="contributed">Johr</displayName>
-				<relative type="-1" draft="contributed">läz Johr</relative>
+				<relative type="-1">läz Johr</relative>
 				<relative type="0">diß Johr</relative>
 				<relative type="1">näx Johr</relative>
 				<relativeTime type="future">
@@ -1278,7 +1272,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-narrow">
 				<displayName>J.</displayName>
-				<relative type="1">näx Johr</relative>
 			</field>
 			<field type="quarter">
 				<displayName>Quattahl</displayName>

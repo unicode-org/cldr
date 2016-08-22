@@ -110,17 +110,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
-				<months>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="7">s</month>
-							<month type="12">m</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="MMMMW" count="one">'wiki' W 'ya' MMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">'wiki' W 'ya' MMM</dateFormatItem>
+						<dateFormatItem id="yw" count="one">'wiki' w 'ya' y</dateFormatItem>
 						<dateFormatItem id="yw" count="other">'wiki' w 'ya' y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>

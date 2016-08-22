@@ -137,7 +137,7 @@ public class CLDRFileTransformer {
      * NOTE: This method does not currently handle nested transliterators.
      *
      * @param input
-     * @return
+     * @return null if the input file was missing, or if there is no new output file.
      */
     public CLDRFile transform(LocaleTransform localeTransform) {
         Transliterator transliterator = loadTransliterator(localeTransform);
@@ -145,7 +145,7 @@ public class CLDRFileTransformer {
         try {
             input = factory.make(localeTransform.getInputLocale(), false);
         } catch (ICUUncheckedIOException e1) {
-            return null; 
+            return null; // input file is missing (or otherwise unavailable)
         }
         boolean hadOutput = true;
         CLDRFile output;

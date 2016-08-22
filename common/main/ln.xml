@@ -812,6 +812,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BSD">
 				<displayName draft="unconfirmed">Dolále ya Bahamas</displayName>
 				<displayName count="one" draft="unconfirmed">Dolále ya Bahamas</displayName>
+				<displayName count="other" draft="unconfirmed">Dolále ya Bahamas</displayName>
 			</currency>
 			<currency type="BWP">
 				<displayName>Pula ya Botswana</displayName>
@@ -905,6 +906,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="FJD">
 				<displayName draft="unconfirmed">Dolále ya Fiji</displayName>
+				<displayName count="one" draft="unconfirmed">Dolále ya Fiji</displayName>
 				<displayName count="other" draft="unconfirmed">Dolále ya Fiji</displayName>
 				<symbol draft="unconfirmed">FJD</symbol>
 				<symbol alt="narrow" draft="unconfirmed">$</symbol>
@@ -1064,6 +1066,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="NZD">
 				<displayName draft="unconfirmed">Dolále ya Zeland ya Sika</displayName>
+				<displayName count="one" draft="unconfirmed">Dolále ya Zeland ya Sika</displayName>
 				<displayName count="other" draft="unconfirmed">Dolále ya Zeland ya Sika</displayName>
 				<symbol draft="unconfirmed">NZ$</symbol>
 				<symbol alt="narrow" draft="unconfirmed">$</symbol>
@@ -1080,6 +1083,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="PGK">
 				<displayName draft="unconfirmed">Kina</displayName>
+				<displayName count="one" draft="unconfirmed">Kina</displayName>
 				<displayName count="other" draft="unconfirmed">Kina</displayName>
 				<symbol draft="unconfirmed">PGK</symbol>
 			</currency>
@@ -1273,14 +1277,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-millisecond">
 				<displayName draft="unconfirmed">millisekundí</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} millisekundí</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} millisekundí</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName draft="unconfirmed">mikrosekundí</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} mikrosekundí</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} mikrosekundí</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName draft="unconfirmed">nanosekundí</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} nanosekundí</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} nanosekundí</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -1336,6 +1343,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-microsecond">
 				<displayName draft="unconfirmed">μs</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} μs</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} μs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName draft="unconfirmed">ns</displayName>
@@ -1377,6 +1385,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-millisecond">
 				<displayName draft="unconfirmed">ms</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ms</unitPattern>
 			</unit>
 		</unitLength>
 		<durationUnit type="hm">

@@ -11,8 +11,13 @@
 # will not break grapheme clusters, words, or lines. It also includes unassigned codepoints that
 # are in blocks intended for use for emoji characters, added to the Unicode 9.0 Linebreak property.
 #
-# =====
-# USAGE: see https://goo.gl/cluFCn (for now)
+# For usage information, see http://unicode.org/reports/tr35/#Property_Data
+# 
+# Format
+#
+# This file follows the format used for UCD files. 
+# Field 1 indicates that the character(s) listed in Field 0 have the value ExtendedPictographic=Yes
+# All other characters have the value ExtendedPictographic=No
 #
 # =====
 # Review Notes 
@@ -38,13 +43,6 @@
 #    The characters can be listed out in detail by using http://unicode.org/cldr/utility/list-unicodeset.jsp
 #    The lines are omitted if empty: for example, Transport_And_Map_Symbols have no "other" characters.
 #    
-# =====
-# Format
-#
-# This file follows the format used for UCD files. 
-# Field 1 indicates that the character(s) listed in Field 0 have the value ExtendedPictographic=Yes
-# All other characters have the value ExtendedPictographic=No
-#
 # =====
 # DATA (generated)
 

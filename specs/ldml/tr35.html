@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2016-04-19</td>
+				<td class="changed">2016-08-22</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -6455,7 +6455,22 @@ decimal?, group?, special*)) &gt;</pre>
 			in the common/properties directory.</p>
 		<p>Each file has a header that explains the format and usage of
 			the data.</p>
-		<h2>
+		<h3 class='changed'><a name="Script_Metadata" href="#Script_Metadata">6.1 Script Metadata</a></h3>
+		<p class='changed'>This file provides general information about scripts that may be useful to implementations processing text. The information is the best currently available, and may change between versions of CLDR.</p>
+		<h3 class='changed'><a name="Script_Metadata" href="#Script_Metadata">6.2 Extended Pictographic</a></h3>
+        <p class='changed'>This file defines the Extended_Pictographic (EP) property,  a binary code point property for characters that are pictographic  (or otherwise similar in kind to characters with the Emoji property) and used to customize segmentation so that possible future emoji zwj sequences will not break grapheme clusters, words, or lines. It also includes unassigned codepoints that are in blocks intended for use for emoji characters, added to the Unicode 9.0 Linebreak property.</p>
+        <p class='changed'>I<span class="changed">t is used in the following customized rules for  UAX #29 and UAX #14: </span></p>
+        <blockquote>
+          <p class="changed">Let Extended_Pictographic be defined as in <strong>ExtendedPictographic.txt</strong> </p>
+          <p class="changed">Let EmojiRK = [\p{GCB=Regional_Indicator}[*#0-9©®™〰〽]]</p>
+          <p class="changed">Let EmojiNRK = [\p{Emoji=Yes}-EmojiRK]</p>
+        </blockquote>
+<p class="changed">The customized rules replacing GB11, WB3c, and LB8a are:</p>
+<p> </p>
+<p class="changed">GB11′  (Extended_Pictographic | EmojiNRK) ZWJ × (Extended_Pictographic |EmojiNRK)</p>
+        <p class="changed">WB3c′  ZWJ × (Extended_Pictographic | EmojiNRK)</p>
+        <p class="changed">LB8a′ ZWJ × (ID | Extended_Pictographic | EmojiNRK)        </p>
+        <h2>
 			<a name="Format_Parse_Issues" href="#Format_Parse_Issues">7
 				Issues in Formatting and Parsing</a>
 		</h2>
@@ -8205,7 +8220,16 @@ decimal?, group?, special*)) &gt;</pre>
 		</p>
 		<ul class="changed">
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
-				</li>
+				<ul>
+				  <li><strong>Section 6 <a href='http://unicode.org/reports/tr35/#Property_Data'>Property_Data</a>
+			      </strong>
+				    <ul>
+				      <li>Described the new property ExtendedPictographic for customizing UAX #14 and #29 [<a
+								href="http://unicode.org/cldr/trac/ticket/9438">#9438</a>]</li>
+			        </ul>
+				  </li>
+			  </ul>
+			</li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
 				</li>

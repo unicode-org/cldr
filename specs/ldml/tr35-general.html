@@ -4066,7 +4066,7 @@ h2, h3, h4, table {
 		<p>Quoting is done using ' characters, as in date or number
 			formats.</p>
 		<h2>
-			14 <a name="Annotations" href="#Annotations">Annotations</a>
+			14 <a name="Annotations" href="#Annotations">Annotations <span class="changed">and Labels</span></a>
 		</h2>
 		<p>Annotations provide information about characters, typically
 			used in input. For example, on a mobile keyboard they can be used to
@@ -4076,39 +4076,64 @@ h2, h3, h4, table {
 		<p class="dtd">&lt;!ELEMENT annotations ( annotation* ) &gt;</p>
 		<p class="dtd">&lt;!ELEMENT annotation ( #PCDATA ) &gt;</p>
 		<p class="dtd">&lt;!ATTLIST annotation cp CDATA #REQUIRED &gt;</p>
-		<p class="dtd">&lt;!ATTLIST annotation tts CDATA #IMPLIED &gt;</p>
-
-		<p>The value of an annotation element is a semicolon-delimited
-			list, such as the following for English and German respectively.</p>
+		<p class="dtd">&lt;!ATTLIST annotation tts CDATA #IMPLIED&gt;		</p>
+      <div class='changed'>  
+		<p>There are two kinds of annotations: <strong>short names</strong>, and <strong>keywords</strong>.</p>
+      <p>With a <strong>tts</strong> attribute value, the value is  a <strong>short name</strong>, such as one that can be used for text-to-speech. It should be treated as one of the element values for other
+          purposes.</p>
+        <p>When there is no<strong> type </strong>attribute, the value is a set of <strong>keywords</strong>, delimited by |. Spaces around each element are to be trimmed. The <strong>keywords</strong> are  words associated with the character(s) that might be used in searching for the character, or in predictive typing on keyboards. The short name itself can be used as a keyword.</p>
+        <p>Here is an example from German:</p>
 
 		<pre class="example">
-			&lt;annotation cp='[👎]'&gt;-1; thumbs down&lt;/annotation&gt;
-&lt;annotation cp='[👎]' tts='Daumen runter'&gt;Hand; Daumen&lt;/annotation&gt;
-		</pre>
+&lt;annotation cp="👎">schlecht | Hand | Daumen | nach unten&lt;/annotation>
+&lt;annotation cp="👎" type="tts">Daumen runter&lt;/annotation>
+</pre>
 
-		<p>The values do not have to match between different languages;
-			they should be the most common values that people using that language
-			would associated with those characters. The tts attribute value, if
-			present, is a value that can be used for text-to-speech, when reading
-			text. It should be treated as one of the element values for other
-			purposes. The Unicode character name can be used for English, when
-			the tts value is not present.</p>
-
-		<p>The cp attribute value is a UnicodeSet, and can thus contain
-			multiple code points. A code point can occur in multiple annotation
-			element cp values, such as the following, which also contains the
+		<p>The cp attribute value has two formats: either a single string, or if contained within […] a UnicodeSet. The latter format can contain 
+			multiple code points or strings. A code point pr string can occur in multiple annotation
+			element <strong>cp</strong> values, such as the following, which also contains the
 			&quot;thumbs down&quot; character.</p>
+		<pre class="example"><span >&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;</span></pre>
+		<p>Both for short names and keywords, values do not have to match between different languages. They should be the most common values that people using <em>that</em> language
+			would associated with those characters. For example, a &quot;black heart&quot; might have the association of &quot;wicked&quot; in English, but not in some other languages.</p>
+		<p>Many emoji are represented by sequences of characters. When there are no annotation elements for that string, the short name can be synthesized as follows:</p>
+		<ol>
+		  <li>Remove all Emoji and Text Variant characters (VS15 &amp; VS16).</li>
+		  <li>If the sequence is an emoji flag sequence, look up the territory name in CLDR for the corresponding ASCII characters and return as the short name. For example, the regional indicator symbols P+F would map to “Französisch-Polynesien” in German.</li>
+		  <li>If the sequence is a keycap sequence or 🔟, use the characterLabelPattern &quot;keycap&quot; to compose a name with the literal characters, such as “keycap 10”, and return it.</li>
+		  <li>If the sequence contain emoji modifiers, extract them from the string. Look up the remaining sequence according to this process, then append the short names of the modifier emoji in order at the end and return it.</li>
+		  <li>If the sequence is a &quot;KISS&quot;, &quot;HEART&quot; or &quot;FAMILY&quot; emoji zwj sequence, prefix the short name of &quot;💏&quot;, &quot;💑&quot;, or &quot;👪&quot; respectively, and append a list of the short names of the characters in the sequence (skipping the ZWJ), and return the result.</li>
+		  <li>Any remaining emoji zwj sequence can be represented by a list of the short names of the characters in the sequence (skipping the ZWJ), although this may not be an ideal representation.</li>
+	    </ol>
+		<p>The &quot;append&quot; process above should use the list patterns, preferably the narrow format. To prefix a string, use the &quot;category-list&quot; characterLabelPattern.</p>
+		<p>The synthesized keywords can follow a similar process.</p>
+		<ol>
+		  <li>For flag sequences, add the short name and the characterLabel for &quot;flag&quot;.</li>
+		  <li>For keycap sequences, add the short name and the characterLabel for &quot;keycap&quot;.</li>
+		  <li>For modifier sequences, add the keywords for the modifiers, and for the remaining sequence.</li>
+		  <li>For zwj sequences, add the keywords for the components, skipping ZWJ, but adding the keywords for any prefix.</li>
+	    </ol>
 
-		<pre class="example">
-			&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;
-		</pre>
 
-		<p>
+	  <p>
 			For more information, see <a href='http://unicode.org/reports/tr51'>Unicode
 				Emoji</a>.
 		</p>
-
-		<hr>
+	  		<h3>
+			14.1 <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a>
+		</h3>
+	  		<p class="dtd">&lt;!ELEMENT characterLabels ( alias | ( characterLabelPattern*, characterLabel*, special* ) ) &gt; </p>
+	  		<p class="dtd">&lt;!ELEMENT characterLabelPattern ( #PCDATA ) &gt; </p>
+	  		<p class="dtd">&lt;!ATTLIST characterLabelPattern type NMTOKEN #REQUIRED &gt;</p>
+	  		<p class="dtd">&lt;!ATTLIST characterLabelPattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED &gt;     &lt;!-- count only used for certain patterns&quot; --&gt;</p>
+	  		<p class="dtd">&lt;!ELEMENT characterLabel ( #PCDATA ) &gt; </p>
+	  		<p class="dtd">&lt;!ATTLIST characterLabel type NMTOKEN #REQUIRED &gt;</p>
+            <p>The character labels can be used for categories in a character picker or keyboard palette. They have the above structure.</p>
+            <p>There are two special patterns. The <span class="example">strokes</span> type takes a count:</p>
+            <p class='example'> &lt;characterLabelPattern type=&quot;strokes&quot; count=&quot;other&quot;&gt;{0} Strokes&lt;/characterLabelPattern&gt;</p>
+                        <p>The category-list has two placeholders; the first is a category (such as person), and the second is one or more items. If more than one, it is formatted with a listPattern.</p>
+      </div>
+	  <hr>
 		<p class="copyright">
 			Copyright © 2001–2016 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied

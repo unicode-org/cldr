@@ -1199,9 +1199,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">meia-noite</dayPeriod>
 							<dayPeriod type="am">a.m.</dayPeriod>
 							<dayPeriod type="noon">meio-dia</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
+							<dayPeriod type="morning1">da manhã</dayPeriod>
+							<dayPeriod type="afternoon1">da tarde</dayPeriod>
+							<dayPeriod type="evening1">da noite</dayPeriod>
+							<dayPeriod type="night1">da madrugada</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">meia-noite</dayPeriod>
@@ -1214,12 +1219,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="night1">madrugada</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">meia-noite</dayPeriod>
 							<dayPeriod type="am">da manhã</dayPeriod>
 							<dayPeriod type="noon">meio-dia</dayPeriod>
 							<dayPeriod type="pm">da tarde</dayPeriod>
 							<dayPeriod type="morning1">da manhã</dayPeriod>
 							<dayPeriod type="afternoon1">da tarde</dayPeriod>
 							<dayPeriod type="evening1">da noite</dayPeriod>
+							<dayPeriod type="night1">da madrugada</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -1235,6 +1242,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">p.m.</dayPeriod>
 							<dayPeriod type="morning1">manhã</dayPeriod>
 							<dayPeriod type="afternoon1">tarde</dayPeriod>
+							<dayPeriod type="evening1">noite</dayPeriod>
+							<dayPeriod type="night1">madrugada</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">manhã</dayPeriod>
@@ -1662,8 +1671,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="day-short">
 				<displayName>dia</displayName>
 				<relative type="-2">anteontem</relative>
-				<relative type="-1" draft="contributed">ontem</relative>
-				<relative type="1" draft="contributed">amanhã</relative>
+				<relative type="-1">ontem</relative>
+				<relative type="0">hoje</relative>
+				<relative type="1">amanhã</relative>
 				<relative type="2">depois de amanhã</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} dia</relativeTimePattern>
@@ -1677,8 +1687,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="day-narrow">
 				<displayName>dia</displayName>
 				<relative type="-2">anteontem</relative>
-				<relative type="-1" draft="contributed">ontem</relative>
-				<relative type="1" draft="contributed">amanhã</relative>
+				<relative type="-1">ontem</relative>
+				<relative type="0">hoje</relative>
+				<relative type="1">amanhã</relative>
 				<relative type="2">depois de amanhã</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} dia</relativeTimePattern>
@@ -1807,6 +1818,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">há {0} quarta-feira</relativeTimePattern>
+					<relativeTimePattern count="other">há {0} quartas-feiras</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-short">
@@ -1819,6 +1831,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">há {0} quarta-feira</relativeTimePattern>
+					<relativeTimePattern count="other">há {0} quartas-feiras</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
@@ -1844,6 +1857,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">há {0} quinta-feira</relativeTimePattern>
+					<relativeTimePattern count="other">há {0} quintas-feiras</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-short">
@@ -1860,6 +1874,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
+				<relative type="-1">qui. passada</relative>
+				<relative type="0">esta qui.</relative>
 				<relative type="1">próxima qui.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} qui.</relativeTimePattern>
@@ -1928,6 +1944,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">há {0} sábado</relativeTimePattern>
+					<relativeTimePattern count="other">há {0} sábados</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
@@ -6044,6 +6061,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} nós</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
+				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
@@ -6532,6 +6550,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<displayName>smi</displayName>
+				<unitPattern count="one">{0} smi</unitPattern>
 				<unitPattern count="other">{0} smi</unitPattern>
 			</unit>
 			<unit type="light-lux">
@@ -6969,7 +6988,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one" draft="contributed">{0} km³</unitPattern>

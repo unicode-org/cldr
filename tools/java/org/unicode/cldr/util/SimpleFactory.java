@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class SimpleFactory extends Factory {
 
@@ -474,6 +475,7 @@ public class SimpleFactory extends Factory {
          *  rather than running into a  NullPointerException when trying to create/store the cache key further down.
          */
         if (parentDir == null) {
+            // changed from IllegalArgumentException, which does't let us filter exceptions.
             throw new IllegalArgumentException("Unable to determine the source directory for locale " + localeName);
         }
         final Object cacheKey;

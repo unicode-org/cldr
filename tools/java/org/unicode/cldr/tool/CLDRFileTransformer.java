@@ -10,13 +10,16 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
  * Transforms the contents of a CLDRFile.
@@ -29,23 +32,35 @@ public class CLDRFileTransformer {
      * needed to convert each locale. Each enum value is named after the locale that results
      * from the conversion.
      */
+    enum PolicyIfExisting {RETAIN, DISCARD, MINIMIZE}
+
     public enum LocaleTransform {
-        sr_Latn("sr", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]"),
-        sr_Latn_BA("sr_Cyrl_BA", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]"),
-        sr_Latn_ME("sr_Cyrl_ME", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]"),
-        sr_Latn_XK("sr_Cyrl_XK", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]"),
-        yo_BJ("yo", "yo-yo_BJ.xml", Transliterator.FORWARD, "[ẹ ọ ṣ Ẹ Ọ Ṣ]");
+        sr_Latn("sr", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]", PolicyIfExisting.DISCARD),
+        sr_Latn_BA("sr_Cyrl_BA", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]", PolicyIfExisting.DISCARD),
+        sr_Latn_ME("sr_Cyrl_ME", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]", PolicyIfExisting.DISCARD),
+        sr_Latn_XK("sr_Cyrl_XK", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]", PolicyIfExisting.DISCARD),
+        yo_BJ("yo", "yo-yo_BJ.xml", Transliterator.FORWARD, "[ẹ ọ ṣ Ẹ Ọ Ṣ]", PolicyIfExisting.DISCARD),
+        de_CH("de", "[ß] Casefold", Transliterator.FORWARD, "[ß]", PolicyIfExisting.MINIMIZE);
 
         private final String inputLocale;
         private final String transformFilename;
         private final int direction;
         private final UnicodeSet inputChars;
+        private final PolicyIfExisting policy;
 
+        /**
+         * @deprecated Use {@link #LocaleTransform(String,String,int,String,PolicyIfExisting)} instead
+         */
         private LocaleTransform(String inputLocale, String transformFilename, int direction, String inputCharPattern) {
+            this(inputLocale, transformFilename, direction, inputCharPattern, PolicyIfExisting.DISCARD);
+        }
+
+        private LocaleTransform(String inputLocale, String transformFilename, int direction, String inputCharPattern, PolicyIfExisting policy) {
             this.inputLocale = inputLocale;
             this.transformFilename = transformFilename;
             this.direction = direction;
             this.inputChars = new UnicodeSet(inputCharPattern);
+            this.policy = policy;
         }
 
         /**
@@ -105,12 +120,16 @@ public class CLDRFileTransformer {
         if (transliterators.containsKey(localeTransform)) {
             return transliterators.get(localeTransform);
         }
-        ParsedTransformID directionInfo = new ParsedTransformID();
-        String ruleString = CLDRTransforms.getIcuRulesFromXmlFile(
-            transformDir, localeTransform.getTransformFilename(), directionInfo);
-        Transliterator transliterator = Transliterator.createFromRules(directionInfo.getId(),
-            ruleString, localeTransform.getDirection());
-        transliterators.put(localeTransform, transliterator);
+        Transliterator transliterator;
+        if (localeTransform.getTransformFilename().contains(".xml")) {
+            ParsedTransformID directionInfo = new ParsedTransformID();
+            String ruleString = CLDRTransforms.getIcuRulesFromXmlFile(transformDir, localeTransform.getTransformFilename(), directionInfo);
+            transliterator = Transliterator.createFromRules(directionInfo.getId(),
+                ruleString, localeTransform.getDirection());
+            transliterators.put(localeTransform, transliterator);
+        } else {
+            transliterator = Transliterator.getInstance(localeTransform.getTransformFilename());
+        }
         return transliterator;
     }
 
@@ -122,25 +141,65 @@ public class CLDRFileTransformer {
      */
     public CLDRFile transform(LocaleTransform localeTransform) {
         Transliterator transliterator = loadTransliterator(localeTransform);
-        CLDRFile input = factory.make(localeTransform.getInputLocale(), false);
-        CLDRFile output = factory.make(localeTransform.getOutputLocale(), false);
+        CLDRFile input;
+        try {
+            input = factory.make(localeTransform.getInputLocale(), false);
+        } catch (ICUUncheckedIOException e1) {
+            return null; 
+        }
+        boolean hadOutput = true;
+        CLDRFile output;
+        try {
+            output = factory.make(localeTransform.getOutputLocale(), false);
+        } catch (ICUUncheckedIOException e) {
+            // if we can't open the file, then just make a new one.
+            XMLSource dataSource = new SimpleXMLSource(localeTransform.getOutputLocale());
+            output = new CLDRFile(dataSource);
+            hadOutput = false;
+        }
+        String outputParentString = LocaleIDParser.getParent(localeTransform.getOutputLocale());
+        CLDRFile outputParent = factory.make(outputParentString, true);
+            
+        outputParent = factory.make(localeTransform.getInputLocale(), false);
         XMLSource outputSource = new SimpleXMLSource(localeTransform.toString());
         for (String xpath : input) {
             String fullPath = input.getFullXPath(xpath);
             String value = input.getStringValue(xpath);
             String oldValue = output.getStringValue(xpath);
-            value = transformValue(transliterator, localeTransform.getInputChars(), xpath, value, oldValue);
-            outputSource.putValueAtPath(fullPath, value);
+            String parentValue = outputParent.getStringValue(xpath);
+            value = transformValue(transliterator, localeTransform, xpath, value, oldValue, parentValue);
+            if (value != null) {
+                outputSource.putValueAtPath(fullPath, value);
+            }
+        }
+        if (!outputSource.iterator().hasNext()) { // empty new output
+            if (!hadOutput) {
+                return null; // don't add file if nothing to add
+            }
         }
         return new CLDRFile(outputSource);
     }
 
     /**
      * Transforms a CLDRFile value into another form.
+     * @param parentValue 
      */
-    private String transformValue(Transliterator transliterator, UnicodeSet inputChars, String path, String value,
-        String oldValue) {
+    private String transformValue(Transliterator transliterator, LocaleTransform localeTransform, String path, String value,
+        String oldValue, String parentValue) {
+        
+        // allows us to change only new values
+        switch (localeTransform.policy) {
+        case RETAIN: 
+        case MINIMIZE:
+            if (oldValue != null) {
+                return oldValue;
+            }
+            break;
+        }
+        
+        UnicodeSet chars = localeTransform.getInputChars();
         String transliterated;
+        
         // TODO: Don't transform dates/patterns.
         // For now, don't try to transliterate the exemplar characters - use the ones from the original locale.
         // In the future, we can probably control this better with a config file - similar to CLDRModify's config file.
@@ -154,26 +213,43 @@ public class CLDRFileTransformer {
             transliterated = transliterator.transliterate(value);
             transliterated = Normalizer.compose(transliterated, false);
         }
-        if (inputChars.containsSome(transliterated)) {
-            unconverted.addAll(new UnicodeSet().addAll(inputChars).retainAll(transliterated));
+        if (localeTransform.policy == PolicyIfExisting.MINIMIZE) {
+            if (transliterated.equals(value)) {
+                return null;
+            }
+        }
+
+        if (chars.containsSome(transliterated)) {
+            unconverted.addAll(new UnicodeSet().addAll(chars).retainAll(transliterated));
         }
         return transliterated;
     }
 
     public static void main(String[] args) throws Exception {
-        Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CLDRPaths.COMMON_DIRECTORY + "transforms" + File.separator);
-        for (LocaleTransform localeTransform : LocaleTransform.values()) {
-            CLDRFile output = transformer.transform(localeTransform);
-            String outputDir = CLDRPaths.GEN_DIRECTORY + "main" + File.separator;
-            String outputFile = output.getLocaleID() + ".xml";
-            PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile);
-            System.out.println("Generating locale file: " + outputDir + outputFile);
-            output.write(out);
-            out.close();
-        }
-        if (!transformer.unconverted.isEmpty()) {
-            System.out.println("Untransformed characters: " + transformer.unconverted);
+        for (String dir : DtdType.ldml.directories) {
+            if (dir.equals("casing") // skip, field contents are keywords, not localizable content
+                || dir.equals("collation") // skip, field contents are complex, and can't be simply remapped
+                ) {
+                continue;
+            }
+            Factory factory = Factory.make(CLDRPaths.COMMON_DIRECTORY + dir + "/", ".*");
+            CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CLDRPaths.COMMON_DIRECTORY + "transforms" + File.separator);
+            for (LocaleTransform localeTransform : LocaleTransform.values()) {
+                CLDRFile output = transformer.transform(localeTransform);
+                if (output == null) {
+                    System.out.println("SKIPPING missing file: " + dir + "/" + localeTransform.inputLocale + ".xml");
+                    continue;
+                }
+                String outputDir = CLDRPaths.GEN_DIRECTORY + "common/" + dir + File.separator;
+                String outputFile = output.getLocaleID() + ".xml";
+                PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile);
+                System.out.println("Generating locale file: " + outputDir + outputFile);
+                output.write(out);
+                out.close();
+            }
+            if (!transformer.unconverted.isEmpty()) {
+                System.out.println("Untransformed characters: " + transformer.unconverted);
+            }
         }
     }
 }

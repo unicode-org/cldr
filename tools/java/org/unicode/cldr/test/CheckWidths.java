@@ -87,7 +87,7 @@ public class CheckWidths extends CheckCLDR {
                 value = PLACEHOLDER_PATTERN.matcher(value).replaceAll("");
                 break;
             case NUMBERSYMBOLS:
-                value = value.replaceAll("[\u200E\u200F]", ""); // don't include LRM/RLM when checking length of number symbols
+                value = value.replaceAll("[\u200E\u200F\u061C]", ""); // don't include LRM/RLM/ALM when checking length of number symbols
                 break;
             }
             double valueMeasure = measure == Measure.CODE_POINTS ? value.codePointCount(0, value.length()) : ApproximateWidth.getWidth(value);

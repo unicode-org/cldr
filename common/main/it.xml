@@ -2539,7 +2539,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">questo ve</relative>
 				<relative type="1">ve prossimo</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">tra {0} ve.</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">tra {0} ve.</relativeTimePattern>
 					<relativeTimePattern count="other" draft="provisional">tra {0} ve.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">

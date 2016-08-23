@@ -885,7 +885,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="wed-short">
 				<relative type="-1">ааспыт сэ.</relative>
 				<relative type="0">бу сэ.</relative>
-				<relative type="1" draft="unconfirmed">кэлэр сэ.</relative>
+				<relative type="1">кэлэр сэ.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other" draft="unconfirmed">{0} сэрэдэнэн</relativeTimePattern>
 				</relativeTime>
@@ -1158,7 +1158,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>Арааб кэмэ</generic>
 					<standard>Арааб сүрүн кэмэ</standard>
-					<daylight draft="unconfirmed">Араап сайыҥҥы кэминэн</daylight>
+					<daylight>Арааб сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -1172,28 +1172,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>Киин Австралия кэмэ</generic>
 					<standard>Киин Австралия сүрүн кэмэ</standard>
-					<daylight draft="unconfirmed">Киин Аа-уустыраал сайыҥҥы кэминэн</daylight>
+					<daylight>Киин Австралия сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic>Илин Австралия кэмэ</generic>
 					<standard>Илин Австралия сүрүн кэмэ</standard>
-					<daylight draft="unconfirmed">Илин Аа-уустыраал сайыҥҥы кэминэн</daylight>
+					<daylight>Илин Австралия сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
 					<generic>Арҕаа Австралия кэмэ</generic>
 					<standard>Арҕаа Австралия сүрүн кэмэ</standard>
-					<daylight draft="unconfirmed">Арҕаа Аа-уустыраал сайыҥҥы кэминэн</daylight>
+					<daylight>Арҕаа Австралия сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
 					<generic>Кытай кэмэ</generic>
 					<standard>Кытай сүрүн кэмэ</standard>
-					<daylight draft="unconfirmed">Кытай сайыҥҥы кэминэн</daylight>
+					<daylight>Кытай сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
@@ -1219,14 +1219,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>Ираан кэмэ</generic>
 					<standard>Ираан сүрүн кэмэ</standard>
-					<daylight draft="unconfirmed">Ыраан сайыҥҥы кэминэн</daylight>
+					<daylight>Ыраан сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
 					<generic>Дьоппуон кэмэ</generic>
 					<standard>Дьоппуон сүрүн кэмэ</standard>
-					<daylight draft="unconfirmed">Дьоппуон сайыҥҥы кэминэн</daylight>
+					<daylight>Дьоппуон сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -1243,7 +1243,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>Кэриэй кэмэ</generic>
 					<standard>Кэриэй сүрүн кэмэ</standard>
-					<daylight draft="unconfirmed">Кэриэй сайыҥҥы кэминэн</daylight>
+					<daylight>Кэриэй сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
@@ -1282,8 +1282,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="New_Zealand">
 				<long>
 					<generic>Саҥа Зеландия кэмэ</generic>
-					<standard draft="unconfirmed">Саҥа Сэйлэнд кыһыҥҥы кэминэн</standard>
-					<daylight draft="unconfirmed">Саҥа Сэйлэнд сайыҥҥы кэминэн</daylight>
+					<standard>Саҥа Сэйлэнд сүрүн кэмэ</standard>
+					<daylight>Саҥа Сэйлэнд сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -1310,15 +1310,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Sakhalin">
 				<long>
 					<generic>Сахалиин кэмэ</generic>
-					<standard draft="unconfirmed">Сахалыын кыһыҥҥы кэминэн</standard>
-					<daylight draft="unconfirmed">Сахалыын сайыҥҥы кэминэн</daylight>
+					<standard>Сахалыын сүрүн кэмэ</standard>
+					<daylight>Сахалыын сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic>Владивосток кэмэ</generic>
-					<standard draft="unconfirmed">Быладьыбастыак кыһыҥҥы кэминэн</standard>
-					<daylight draft="unconfirmed">Быладьыбастыак сайыҥҥы кэминэн</daylight>
+					<standard>Быладьыбастыак сүрүн кэмэ</standard>
+					<daylight>Быладьыбастыак сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">

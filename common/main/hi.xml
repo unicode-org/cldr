@@ -2264,8 +2264,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="quarter">
 				<displayName>तिमाही</displayName>
 				<relative type="-1" draft="contributed">अंतिम तिमाही</relative>
-				<relative type="0">इस तिमाही</relative>
-				<relative type="1">अगली तिमाही</relative>
+				<relative type="0" draft="contributed">इस तिमाही</relative>
+				<relative type="1" draft="contributed">अगली तिमाही</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} तिमाही में</relativeTimePattern>
 					<relativeTimePattern count="other">{0} तिमाहियों में</relativeTimePattern>

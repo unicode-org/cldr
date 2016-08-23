@@ -2841,20 +2841,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الأحد الحالي</relative>
 				<relative type="1">الأحد القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="one">الأحد القادم</relativeTimePattern>
-					<relativeTimePattern count="two">الأحد بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">الأحد القادم</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">الأحد بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} أحد</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="zero" draft="provisional">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="one">الأحد الماضي</relativeTimePattern>
-					<relativeTimePattern count="two">الأحد قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many">قبل {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">الأحد الماضي</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">الأحد قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">قبل {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">قبل {0} أحد</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-short">
@@ -2862,12 +2862,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الأحد الحالي</relative>
 				<relative type="1">الأحد القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} أحد</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">أحد قادم</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">أحد بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} أحد</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="zero" draft="provisional">قبل {0} أحد</relativeTimePattern>
@@ -2883,12 +2883,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الأحد الحالي</relative>
 				<relative type="1">الأحد القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} أحد</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">أحد قادم</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">أحد بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} أحد</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} أحد</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} أحد</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="zero" draft="provisional">قبل {0} أحد</relativeTimePattern>
@@ -2904,17 +2904,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الاثنين الحالي</relative>
 				<relative type="1">الاثنين القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one">الإثنين القادم</relativeTimePattern>
-					<relativeTimePattern count="two">الإثنين بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few">خلال {0} أيام إثنين</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} يوم إثنين</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} يوم إثنين</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">الإثنين القادم</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">الإثنين بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام إثنين</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم إثنين</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم إثنين</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="zero" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one">الإثنين الماضي</relativeTimePattern>
-					<relativeTimePattern count="two">الإثنين قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">الإثنين الماضي</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">الإثنين قبل الماضي</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام إثنين</relativeTimePattern>
 					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم إثنين</relativeTimePattern>
 					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم إثنين</relativeTimePattern>
@@ -2925,17 +2925,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الاثنين الحالي</relative>
 				<relative type="1">الإثنين القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one">الإثنين القادم</relativeTimePattern>
-					<relativeTimePattern count="two">الإثنين بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">الإثنين القادم</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">الإثنين بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} إثنين</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="zero" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one">الإثنين الماضي</relativeTimePattern>
-					<relativeTimePattern count="two">الإثنين قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">الإثنين الماضي</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">الإثنين قبل الماضي</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">قبل {0} إثنين</relativeTimePattern>
 					<relativeTimePattern count="many" draft="provisional">قبل {0} إثنين</relativeTimePattern>
 					<relativeTimePattern count="other" draft="provisional">قبل {0} إثنين</relativeTimePattern>
@@ -2946,16 +2946,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الإثنين الحالي</relative>
 				<relative type="1">الإثنين القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one">إثنين قادم</relativeTimePattern>
-					<relativeTimePattern count="two">إثنين بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">إثنين قادم</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">إثنين بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} إثنين</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} إثنين</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="zero" draft="provisional">قبل {0} إثنين</relativeTimePattern>
-					<relativeTimePattern count="one">إثنين ماضي</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">إثنين ماضي</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">إثنين قبل الماضي</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">قبل {0} إثنين</relativeTimePattern>
 					<relativeTimePattern count="many" draft="provisional">قبل {0} إثنين</relativeTimePattern>
@@ -2967,20 +2967,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الثلاثاء الحالي</relative>
 				<relative type="1">الثلاثاء القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} يوم ثلاثاء</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">الثلاثاء القادم</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">الثلاثاء بعد القادم</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} يوم ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم ثلاثاء</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">قبل {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم ثلاثاء</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">الثلاثاء الماضي</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">الثلاثاء قبل الماضي</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="many">قبل {0} يوم ثلاثاء</relativeTimePattern>
-					<relativeTimePattern count="other">قبل {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم ثلاثاء</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم ثلاثاء</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-short">
@@ -3030,20 +3030,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الأربعاء الحالي</relative>
 				<relative type="1">الأربعاء القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} يوم أربعاء</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">الأربعاء القادم</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">الأربعاء بعد القادم</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام أربعاء</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم أربعاء</relativeTimePattern>
 					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم أربعاء</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">قبل {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم أربعاء</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">الأربعاء الماضي</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">الأربعاء قبل الماضي</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام أربعاء</relativeTimePattern>
-					<relativeTimePattern count="many">قبل {0} يوم أربعاء</relativeTimePattern>
-					<relativeTimePattern count="other">قبل {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم أربعاء</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم أربعاء</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-short">
@@ -3093,20 +3093,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الخميس الحالي</relative>
 				<relative type="1">الخميس القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">الخميس القادم</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">الخميس بعد القادم</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام خميس</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم خميس</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">قبل {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم خميس</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">الخميس الماضي</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">الخميس قبل الماضي</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام خميس</relativeTimePattern>
-					<relativeTimePattern count="many">قبل {0} يوم خميس</relativeTimePattern>
-					<relativeTimePattern count="other">قبل {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم خميس</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم خميس</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-short">
@@ -3156,20 +3156,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الجمعة الحالي</relative>
 				<relative type="1">الجمعة القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} يوم جمعة</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">الجمعة القادم</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">الجمعة بعد القادم</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">خلال {0} أيام جمعة</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} يوم جمعة</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} يوم جمعة</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">قبل {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم جمعة</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">الجمعة الماضي</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">الجمعة قبل الماضي</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">قبل {0} أيام جمعة</relativeTimePattern>
-					<relativeTimePattern count="many">قبل {0} يوم جمعة</relativeTimePattern>
-					<relativeTimePattern count="other">قبل {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم جمعة</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم جمعة</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-short">
@@ -3198,20 +3198,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">الجمعة الحالي</relative>
 				<relative type="1">الجمعة القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="one">جمعة قادم</relativeTimePattern>
-					<relativeTimePattern count="two">جمعة بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few">خلال {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">جمعة قادم</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">جمعة بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} جمعة</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">قبل {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="one">جمعة ماضي</relativeTimePattern>
-					<relativeTimePattern count="two">جمعة قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few">قبل {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="many">قبل {0} جمعة</relativeTimePattern>
-					<relativeTimePattern count="other">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">جمعة ماضي</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">جمعة قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">قبل {0} جمعة</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">قبل {0} جمعة</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -3223,16 +3223,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one" draft="provisional">السبت القادم</relativeTimePattern>
 					<relativeTimePattern count="two" draft="provisional">السبت بعد القادم</relativeTimePattern>
 					<relativeTimePattern count="few" draft="provisional">بعد {0} يوم سبت</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} يوم سبت</relativeTimePattern>
 					<relativeTimePattern count="other" draft="provisional">بعد {0} يوم سبت</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">قبل {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">قبل {0} يوم سبت</relativeTimePattern>
 					<relativeTimePattern count="one" draft="provisional">السبت الماضي</relativeTimePattern>
-					<relativeTimePattern count="two">السبت قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few">قبل {0} يوم سبت</relativeTimePattern>
-					<relativeTimePattern count="many">قبل {0} يوم سبت</relativeTimePattern>
-					<relativeTimePattern count="other">قبل {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">السبت قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">قبل {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">قبل {0} يوم سبت</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">قبل {0} يوم سبت</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-short">
@@ -3240,20 +3240,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">السبت الحالي</relative>
 				<relative type="1">السبت القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="one">سبت قادم</relativeTimePattern>
-					<relativeTimePattern count="two">سبت بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">سبت قادم</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">سبت بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} سبت</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="one">سبت ماضي</relativeTimePattern>
-					<relativeTimePattern count="two">سبت قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="many">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="other">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">سبت ماضي</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">سبت قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">قبل {0} سبت</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
@@ -3261,20 +3261,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">السبت الحالي</relative>
 				<relative type="1">السبت القادم</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="one">سبت قادم</relativeTimePattern>
-					<relativeTimePattern count="two">سبت بعد القادم</relativeTimePattern>
-					<relativeTimePattern count="few">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="many">خلال {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="other">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">سبت قادم</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">سبت بعد القادم</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">خلال {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">خلال {0} سبت</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="one">سبت ماضي</relativeTimePattern>
-					<relativeTimePattern count="two">سبت قبل الماضي</relativeTimePattern>
-					<relativeTimePattern count="few">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="many">قبل {0} سبت</relativeTimePattern>
-					<relativeTimePattern count="other">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="zero" draft="provisional">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="one" draft="provisional">سبت ماضي</relativeTimePattern>
+					<relativeTimePattern count="two" draft="provisional">سبت قبل الماضي</relativeTimePattern>
+					<relativeTimePattern count="few" draft="provisional">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="many" draft="provisional">قبل {0} سبت</relativeTimePattern>
+					<relativeTimePattern count="other" draft="provisional">قبل {0} سبت</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod">

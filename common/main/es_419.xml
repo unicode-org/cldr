@@ -4769,8 +4769,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>amperes</displayName>
-				<unitPattern count="one" draft="provisional">{0} ampere</unitPattern>
-				<unitPattern count="other">{0} amperes</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ampere</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} amperes</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName draft="contributed">miliamperes</displayName>
@@ -4779,12 +4779,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="electric-ohm">
 				<displayName draft="contributed">ohms</displayName>
-				<unitPattern count="one">{0} ohm</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ohm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ohms</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="contributed">volts</displayName>
-				<unitPattern count="one" draft="provisional">{0} volt</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} volt</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} volts</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
@@ -5126,7 +5126,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-pint">
 				<displayName draft="contributed">pintas</displayName>
 				<unitPattern count="one" draft="contributed">{0} pinta</unitPattern>
-				<unitPattern count="other">{0} pintas</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pintas</unitPattern>
 			</unit>
 			<unit type="volume-cup">
 				<displayName draft="contributed">tazas</displayName>
@@ -5727,7 +5727,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-cup">
 				<unitPattern count="one" draft="contributed">{0} tza.</unitPattern>
-				<unitPattern count="other">{0} tza.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} tza.</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName draft="contributed">fl oz</displayName>

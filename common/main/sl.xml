@@ -2330,7 +2330,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="one" draft="contributed">pred {0} četrtkom</relativeTimePattern>
 					<relativeTimePattern count="two" draft="contributed">pred {0} četrtkoma</relativeTimePattern>
-					<relativeTimePattern count="few">pred {0} četrtki</relativeTimePattern>
+					<relativeTimePattern count="few" draft="contributed">pred {0} četrtki</relativeTimePattern>
 					<relativeTimePattern count="other" draft="contributed">pred {0} četrtki</relativeTimePattern>
 				</relativeTime>
 			</field>

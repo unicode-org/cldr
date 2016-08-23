@@ -5663,7 +5663,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<decimal>٫</decimal>
 			<group>٬</group>
 			<list>؛</list>
-			<percentSign>٪</percentSign> <!-- includes RLM after sign -->
+			<percentSign>٪‏</percentSign> <!-- includes RLM after sign -->
 			<plusSign>‏+</plusSign> <!-- includes RLM before sign -->
 			<minusSign>‏-</minusSign> <!-- includes RLM before sign (002D) -->
 			<exponential>اس</exponential>
@@ -5870,7 +5870,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<percentFormats numberSystem="arab">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
+					<pattern>#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -5884,7 +5884,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="arab">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>¤ #,##0.00</pattern>
+					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="zero">{0} {1}</unitPattern>

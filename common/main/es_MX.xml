@@ -32,7 +32,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lo">lao</language>
 			<language type="mga" draft="contributed">irlandés medieval</language>
 			<language type="nan" draft="contributed">min nan (Chino)</language>
-			<language type="nl_BE">flamenco</language>
 			<language type="nso">sotho septentrional</language>
 			<language type="pa">punyabí</language>
 			<language type="rn" draft="contributed">kiroundi</language>
@@ -43,9 +42,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ug" alt="variant" draft="contributed">uyghur</language>
 			<language type="wo">wolof</language>
 			<language type="zgh">tamazight marroquí estándar</language>
-			<language type="zh_Hans">chino simplificado</language>
-			<language type="zh_Hant">chino tradicional</language>
-			<language type="zun">zuni</language>
 		</languages>
 		<scripts>
 			<script type="Telu" draft="contributed">telugú</script>
@@ -56,7 +52,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="015" draft="contributed">África del Norte</territory>
 			<territory type="017" draft="contributed">África Central</territory>
 			<territory type="018" draft="contributed">África del Sur</territory>
-			<territory type="019">América</territory>
 			<territory type="030" draft="contributed">Asia Oriental</territory>
 			<territory type="034" draft="contributed">Asia del Sur</territory>
 			<territory type="035" draft="contributed">Sudeste Asiático</territory>
@@ -68,12 +63,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="155" draft="contributed">Europa Occidental</territory>
 			<territory type="BA">Bosnia y Herzegovina</territory>
 			<territory type="GB" alt="short">RU</territory>
-			<territory type="IC" draft="contributed">Islas Canarias</territory>
 			<territory type="TA">Tristán de Acuña</territory>
 			<territory type="TL">Timor-Leste</territory>
 			<territory type="UM" draft="contributed">Islas Ultramarinas Menores de Estados Unidos</territory>
 			<territory type="US" alt="short">EE. UU.</territory>
-			<territory type="VI">Islas Vírgenes de EE. UU.</territory>
 		</territories>
 		<keys>
 			<key type="calendar" draft="contributed">Calendario</key>
@@ -309,16 +302,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="H">
 							<greatestDifference id="H" draft="contributed">HH–HH</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">H:mm–H:mm</greatestDifference>
-							<greatestDifference id="m">H:mm–H:mm</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">H:mm–H:mm v</greatestDifference>
-							<greatestDifference id="m">H:mm–H:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="contributed">h a – h a v</greatestDifference>
@@ -597,9 +582,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Belem">
 				<exemplarCity draft="contributed">Belém</exemplarCity>
 			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity>San Juan de Terranova</exemplarCity>
-			</zone>
 			<zone type="America/Curacao">
 				<exemplarCity draft="contributed">Curazao</exemplarCity>
 			</zone>
@@ -624,9 +606,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<daylight draft="contributed">Hora de verano irlandesa</daylight>
 				</long>
-			</zone>
-			<zone type="America/St_Kitts">
-				<exemplarCity>San Cristóbal</exemplarCity>
 			</zone>
 			<zone type="Asia/Pyongyang">
 				<exemplarCity draft="contributed">Piongyang</exemplarCity>
@@ -1576,15 +1555,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0} segundos</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
-				<displayName draft="contributed">mg/dL</displayName>
 				<unitPattern count="one" draft="contributed">{0} mg/dL</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mg/dL</unitPattern>
-			</unit>
-			<unit type="concentr-millimole-per-liter">
-				<displayName draft="contributed">mmol/L</displayName>
-			</unit>
-			<unit type="concentr-part-per-million">
-				<displayName draft="contributed">ppm</displayName>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName draft="contributed">mpg Imp.</displayName>
@@ -1642,17 +1614,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">lux</displayName>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName draft="contributed">gigawatts</displayName>
 				<unitPattern count="one" draft="contributed">{0} gigavatio</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} gigavatios</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName draft="contributed">megawatts</displayName>
 				<unitPattern count="one" draft="contributed">{0} megavatio</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} megavatios</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="contributed">kilowatts</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilovatio</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilovatios</unitPattern>
 			</unit>
@@ -1660,11 +1629,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">vatios</displayName>
 				<unitPattern count="one" draft="contributed">{0} vatio</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} vatios</unitPattern>
-			</unit>
-			<unit type="power-milliwatt">
-				<displayName draft="contributed">miliwatts</displayName>
-				<unitPattern count="one" draft="contributed">{0} miliwatt</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} miliwatts</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName draft="contributed">kelvines</displayName>
@@ -1708,8 +1672,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName draft="contributed">mpg Imp.</displayName>
-				<unitPattern count="one" draft="contributed">{0} mpg Imp.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mpg Imp.</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName draft="contributed">byte</displayName>
@@ -1759,11 +1721,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">al</displayName>
 				<unitPattern count="one" draft="contributed">{0} a. l.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} a. l.</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName draft="contributed">ua</displayName>
-				<unitPattern count="one" draft="contributed">{0} ua</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ua</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName draft="contributed">M</displayName>

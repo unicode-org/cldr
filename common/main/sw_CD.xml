@@ -34,7 +34,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="li">Kilimburgi</language>
 			<language type="mak">mak</language>
 			<language type="mdf">Kimoksha</language>
-			<language type="mg">Kimalagasi</language>
 			<language type="mic">Kimikmaki</language>
 			<language type="mk">Kimasedonia</language>
 			<language type="moh">Kimohoki</language>
@@ -61,7 +60,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Kisiwa cha Christmas</territory>
 			<territory type="CY">Saiprasi</territory>
 			<territory type="DK">Denmaki</territory>
-			<territory type="FM">Mikronesia</territory>
 			<territory type="HR">Kroeshia</territory>
 			<territory type="JO">Yordani</territory>
 			<territory type="LB">Lebanoni</territory>
@@ -71,17 +69,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MA">Moroko</territory>
 			<territory type="MM">Myama</territory>
 			<territory type="MV">Maldivi</territory>
-			<territory type="NC">Nyukaledonia</territory>
 			<territory type="NE">Nijeri</territory>
 			<territory type="NG">Nijeria</territory>
 			<territory type="NO">Norwe</territory>
 			<territory type="NP">Nepali</territory>
-			<territory type="NZ">Nyuzilandi</territory>
 			<territory type="OM">Omani</territory>
-			<territory type="PF">Polinesia ya Ufaransa</territory>
 			<territory type="PR">Puetoriko</territory>
 			<territory type="QA">Katari</territory>
-			<territory type="SC">Ushelisheli</territory>
 			<territory type="SD">Sudani</territory>
 			<territory type="ST">Sao Tome na Prinsipe</territory>
 			<territory type="TD">Chadi</territory>
@@ -101,21 +95,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="ms">m:ss</dateFormatItem>
-					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="y">E, d MMM y – E, d MMM y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="gregorian">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MMMMW" count="one">'wiki' W 'ya' MMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">'wiki' W 'ya' MMM</dateFormatItem>
-						<dateFormatItem id="yw" count="one">'wiki' w 'ya' y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">'wiki' w 'ya' y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

@@ -64,29 +64,4 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<group draft="contributed">.</group>
 		</symbols>
 	</numbers>
-	<units>
-		<durationUnit type="hms">
-			<durationUnitPattern draft="contributed">hh:mm:ss</durationUnitPattern>
-		</durationUnit>
-	</units>
-	<listPatterns>
-		<listPattern>
-			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0} et {1}</listPatternPart>
-			<listPatternPart type="2" draft="contributed">{0} et {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit">
-			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit-narrow">
-			<listPatternPart type="start" draft="contributed">{0} {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0} {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit-short">
-			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
-		</listPattern>
-	</listPatterns>
 </ldml>

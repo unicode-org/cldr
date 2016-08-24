@@ -59,7 +59,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="HHmm" draft="contributed">HH:mm</dateFormatItem>
-						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">M月</dateFormatItem>
@@ -227,7 +226,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencyFormats>
 		<currencies>
 			<currency type="AWG">
-				<displayName draft="contributed">阿鲁巴弗罗林</displayName>
 				<displayName count="other" draft="contributed">阿鲁巴弗罗林</displayName>
 			</currency>
 			<currency type="CNY">
@@ -238,7 +236,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="contributed">开曼群岛元</displayName>
 			</currency>
 			<currency type="NIO">
-				<displayName>尼加拉瓜科多巴</displayName>
 				<displayName count="other">尼加拉瓜科多巴</displayName>
 			</currency>
 			<currency type="XAG">
@@ -271,12 +268,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">开</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0}开</unitPattern>
 			</unit>
-			<unit type="length-picometer">
-				<unitPattern count="other" draft="unconfirmed">{0}皮米</unitPattern>
-			</unit>
-			<unit type="length-yard">
-				<unitPattern count="other" draft="unconfirmed">{0}码</unitPattern>
-			</unit>
 			<unit type="temperature-kelvin">
 				<displayName draft="unconfirmed">开氏度</displayName>
 				<unitPattern count="other" draft="contributed">{0}°K</unitPattern>
@@ -300,9 +291,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="other" draft="unconfirmed">{0}光年</unitPattern>
-			</unit>
-			<unit type="temperature-celsius">
-				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

@@ -19,7 +19,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="eu" draft="contributed">euskera</language>
 			<language type="grc" draft="contributed">griego antiguo</language>
 			<language type="lo" draft="contributed">lao</language>
-			<language type="nl_BE" draft="contributed">flamenco</language>
 			<language type="nso" draft="contributed">sotho septentrional</language>
 			<language type="pa" draft="contributed">punyabí</language>
 			<language type="ss" draft="contributed">siswati</language>
@@ -28,9 +27,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tn" draft="contributed">setswana</language>
 			<language type="wo" draft="contributed">wolof</language>
 			<language type="zgh" draft="contributed">tamazight marroquí estándar</language>
-			<language type="zh_Hans" draft="contributed">chino simplificado</language>
-			<language type="zh_Hant" draft="contributed">chino tradicional</language>
-			<language type="zun" draft="contributed">zuni</language>
 		</languages>
 		<territories>
 			<territory type="BA" draft="contributed">Bosnia y Herzegovina</territory>
@@ -41,7 +37,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TL" draft="contributed">Timor-Leste</territory>
 			<territory type="UM" draft="contributed">Islas menores alejadas de EE. UU.</territory>
 			<territory type="US" alt="short" draft="contributed">EE. UU.</territory>
-			<territory type="VI" draft="contributed">Islas Vírgenes de EE. UU.</territory>
 		</territories>
 		<keys>
 			<key type="currency" draft="unconfirmed">divisa</key>
@@ -232,23 +227,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} a el {1}</intervalFormatFallback>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="contributed">H–H</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="h" draft="contributed">h:mm–h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="contributed">h:mm–h:mm a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="contributed">H:mm–H:mm</greatestDifference>
-							<greatestDifference id="m" draft="contributed">H:mm–H:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="contributed">H:mm–H:mm v</greatestDifference>
-							<greatestDifference id="m" draft="contributed">H:mm–H:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="contributed">H–H v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d" draft="contributed">dd-MM – dd-MM</greatestDifference>

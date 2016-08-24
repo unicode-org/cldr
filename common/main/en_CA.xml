@@ -333,16 +333,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} yrs. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="year-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} yr.</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} yr.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} yr. ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} yr. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="quarter-narrow">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} qtr.</relativeTimePattern>
@@ -383,26 +373,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} wks. ago</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod>the wk. of {0}</relativePeriod>
-			</field>
-			<field type="week-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} wk.</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} wk.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} wk. ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} wk. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="day-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} day</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="sun-short">
 				<relativeTime type="future">
@@ -554,16 +524,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} hrs. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="hour-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} hr.</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} hr.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} hr. ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} hr. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="minute-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} min.</relativeTimePattern>
@@ -574,16 +534,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} mins. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="minute-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} min.</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} min.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} min. ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} min. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="second-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} sec.</relativeTimePattern>
@@ -592,16 +542,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} sec. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} secs. ago</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="second-narrow">
-				<relativeTime type="future">
-					<relativeTimePattern count="one">in {0} sec.</relativeTimePattern>
-					<relativeTimePattern count="other">in {0} sec.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} sec. ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} sec. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 		</fields>

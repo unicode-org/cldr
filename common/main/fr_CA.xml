@@ -12,19 +12,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="CA"/>
 	</identity>
 	<localeDisplayNames>
-		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
-			<localeKeyTypePattern>{0} : {1}</localeKeyTypePattern>
-		</localeDisplayPattern>
 		<languages>
 			<language type="ady">adygué</language>
 			<language type="ang">vieil anglais</language>
-			<language type="ar_001">arabe standard moderne</language>
 			<language type="arn">araukan</language>
-			<language type="asa" draft="provisional">assou</language>
 			<language type="az">azerbaïdjanais</language>
-			<language type="az" alt="short">azéri</language>
 			<language type="bez">bena</language>
 			<language type="bik">bicol</language>
 			<language type="byn">bilen</language>
@@ -40,35 +32,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="frc">cajun</language>
 			<language type="frp" draft="provisional">franco-provençal</language>
 			<language type="gbz" draft="provisional">dari</language>
-			<language type="gil">gilbertin</language>
 			<language type="goh">vieux haut-allemand</language>
 			<language type="gu">gujarati</language>
 			<language type="ilo">ilocano</language>
 			<language type="kbd">kabarde</language>
 			<language type="ken">kenyang</language>
-			<language type="kg">kongo</language>
 			<language type="kl">kalaallisut</language>
-			<language type="koi">komi-permiak</language>
 			<language type="ksh">kölsch</language>
-			<language type="ku">kurde</language>
-			<language type="ky">kirghize</language>
-			<language type="la">latin</language>
 			<language type="liv">live</language>
 			<language type="luo">luo</language>
 			<language type="lzh">chinois classique</language>
-			<language type="maf">mafa</language>
-			<language type="mde" draft="contributed">maba</language>
 			<language type="mgo">meta’</language>
-			<language type="mh">marshallais</language>
 			<language type="mwr">marwari</language>
 			<language type="mwv" draft="provisional">mentawai</language>
-			<language type="mye">myènè</language>
-			<language type="mzn" draft="contributed">mazandérani</language>
 			<language type="nds">bas allemand</language>
 			<language type="nds_NL" draft="contributed">bas saxon</language>
-			<language type="niu">niuéen</language>
 			<language type="njo">ao naga</language>
-			<language type="nl_BE">flamand</language>
 			<language type="nwc">newari classique</language>
 			<language type="nyn">nkole</language>
 			<language type="or">odia</language>
@@ -78,12 +57,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="peo">vieux perse</language>
 			<language type="pfl">palatin</language>
 			<language type="pro">ancien occitan</language>
-			<language type="ps" alt="variant">pashto</language>
 			<language type="rar">rarotonga</language>
-			<language type="ro_MD" draft="contributed">moldave</language>
 			<language type="rup">aroumain</language>
 			<language type="sat">santali</language>
-			<language type="sba">ngambay</language>
 			<language type="sdh">kurde méridional</language>
 			<language type="se">same du Nord</language>
 			<language type="sei">seri</language>
@@ -100,70 +76,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="tyv" draft="provisional">touvain</language>
 			<language type="tzm">tamazight</language>
 			<language type="vo">volapük</language>
-			<language type="zh">chinois</language>
-			<language type="zh_Hans" draft="provisional">chinois simplifié</language>
-			<language type="zh_Hant" draft="provisional">chinois traditionnel</language>
-			<language type="zxx">sans contenu linguistique</language>
 		</languages>
 		<scripts>
-			<script type="Arab">arabe</script>
-			<script type="Arab" alt="variant">arabo-persan</script>
-			<script type="Armn">arménien</script>
-			<script type="Beng">bengali</script>
-			<script type="Bopo">bopomofo</script>
-			<script type="Brai">braille</script>
-			<script type="Cyrl">cyrillique</script>
 			<script type="Deva">devanagari</script>
-			<script type="Ethi">éthiopique</script>
-			<script type="Geor">géorgien</script>
-			<script type="Grek">grec</script>
 			<script type="Gujr">gujarati</script>
-			<script type="Guru">gourmoukhî</script>
 			<script type="Hanb">hanb</script>
-			<script type="Hang">hangûl</script>
-			<script type="Hani">sinogrammes</script>
 			<script type="Hans" alt="stand-alone" draft="contributed">caractères chinois simplifiés</script>
 			<script type="Hant" alt="stand-alone" draft="contributed">caractères chinois traditionnels</script>
-			<script type="Hebr">hébreu</script>
-			<script type="Hira">hiragana</script>
 			<script type="Hrkt" draft="contributed">syllabaires japonais</script>
 			<script type="Jamo">jamo</script>
-			<script type="Jpan">japonais</script>
-			<script type="Kana">katakana</script>
-			<script type="Khmr">khmer</script>
-			<script type="Knda">kannara</script>
-			<script type="Kore">coréen</script>
-			<script type="Laoo">lao</script>
-			<script type="Latn">latin</script>
-			<script type="Mong">mongol</script>
-			<script type="Mymr">birman</script>
 			<script type="Orya">odia</script>
-			<script type="Taml">tamoul</script>
-			<script type="Telu">télougou</script>
-			<script type="Thaa">thâna</script>
-			<script type="Thai">thaï</script>
-			<script type="Tibt">tibétain</script>
 			<script type="Zsye">zsye</script>
-			<script type="Zsym">symboles</script>
-			<script type="Zxxx">non écrit</script>
-			<script type="Zyyy">commun</script>
-			<script type="Zzzz">écriture inconnue</script>
 		</scripts>
 		<territories>
-			<territory type="057" draft="contributed">région micronésienne</territory>
 			<territory type="151">Europe orientale</territory>
 			<territory type="AC">île de l’Ascension</territory>
 			<territory type="AX">îles d’Åland</territory>
 			<territory type="BN">Brunei</territory>
-			<territory type="BQ">Pays-Bas caribéens</territory>
 			<territory type="BV">île Bouvet</territory>
 			<territory type="BY">Bélarus</territory>
 			<territory type="CC">îles Cocos (Keeling)</territory>
 			<territory type="CI" alt="variant">Côte d’Ivoire</territory>
 			<territory type="CK">îles Cook</territory>
-			<territory type="CP" draft="provisional">Île Clipperton</territory>
 			<territory type="CX">île Christmas</territory>
-			<territory type="EH">Sahara occidental</territory>
 			<territory type="FK">îles Malouines</territory>
 			<territory type="FK" alt="variant">îles Falkland (Malouines)</territory>
 			<territory type="FM">Micronésie</territory>
@@ -172,15 +107,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IC">îles Canaries</territory>
 			<territory type="IM">île de Man</territory>
 			<territory type="IO" draft="provisional">territoire britannique de l’océan Indien</territory>
-			<territory type="KN">Saint-Christophe-et-Niévès</territory>
 			<territory type="MF">Saint-Martin (France)</territory>
-			<territory type="MK">Macédoine</territory>
 			<territory type="MM">Myanmar</territory>
 			<territory type="MP">Mariannes du Nord</territory>
 			<territory type="NF">île Norfolk</territory>
 			<territory type="PN">îles Pitcairn</territory>
-			<territory type="PS">Territoires palestiniens</territory>
-			<territory type="PS" alt="short">Palestine</territory>
 			<territory type="QO" draft="contributed">Océanie lointaine</territory>
 			<territory type="RE">la Réunion</territory>
 			<territory type="SX">Saint-Martin (Pays-Bas)</territory>
@@ -193,12 +124,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="VG">îles Vierges britanniques</territory>
 			<territory type="VI">îles Vierges américaines</territory>
 		</territories>
-		<keys>
-			<key type="calendar" draft="contributed">calendrier</key>
-			<key type="collation">ordre de tri</key>
-			<key type="currency">devise</key>
-			<key type="numbers">nombres</key>
-		</keys>
 		<types>
 			<type key="calendar" type="ethiopic-amete-alem" draft="contributed">Calendrier éthiopien de l’An de grâce</type>
 			<type key="collation" type="dictionary" draft="contributed">Ordre de tri du dictionnaire</type>
@@ -208,24 +133,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="mong" draft="contributed">Chiffres mongols</type>
 			<type key="numbers" type="taml">chiffres tamouls traditionnels</type>
 		</types>
-		<codePatterns>
-			<codePattern type="language">langue : {0}</codePattern>
-			<codePattern type="script">écriture : {0}</codePattern>
-			<codePattern type="territory">région : {0}</codePattern>
-		</codePatterns>
 	</localeDisplayNames>
-	<characters>
-		<ellipsis type="final">{0}…</ellipsis>
-		<ellipsis type="initial">… {0}</ellipsis>
-		<ellipsis type="medial">{0}… {1}</ellipsis>
-		<ellipsis type="word-final">{0}…</ellipsis>
-		<ellipsis type="word-initial">… {0}</ellipsis>
-		<ellipsis type="word-medial">{0}… {1}</ellipsis>
-		<moreInformation>?</moreInformation>
-	</characters>
 	<delimiters>
-		<quotationStart draft="contributed">«</quotationStart>
-		<quotationEnd draft="contributed">»</quotationEnd>
 		<alternateQuotationStart draft="contributed">”</alternateQuotationStart>
 		<alternateQuotationEnd draft="contributed">“</alternateQuotationEnd>
 	</delimiters>
@@ -261,7 +170,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E d – E d MMM</greatestDifference>
-							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">y-MM – y-MM G</greatestDifference>
@@ -350,9 +258,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">minuit</dayPeriod>
 							<dayPeriod type="am">a.m.</dayPeriod>
-							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
 							<dayPeriod type="morning1">mat.</dayPeriod>
 							<dayPeriod type="afternoon1">après-midi</dayPeriod>
@@ -360,8 +266,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="night1">nuit</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight">minuit</dayPeriod>
-							<dayPeriod type="noon">midi</dayPeriod>
 							<dayPeriod type="morning1">mat.</dayPeriod>
 							<dayPeriod type="afternoon1">après-midi</dayPeriod>
 							<dayPeriod type="evening1">soir</dayPeriod>
@@ -378,9 +282,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="0" alt="variant">avant l’ère chrétienne</era>
 						<era type="1" alt="variant">de l’ère chrétienne</era>
 					</eraNames>
-					<eraAbbr>
-						<era type="1" draft="provisional">ap. J.-C.</era>
-					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="short">
@@ -501,11 +402,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 		</calendars>
 		<fields>
-			<field type="era">
-				<displayName draft="contributed">ère</displayName>
-			</field>
 			<field type="year">
-				<displayName draft="contributed">année</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">Dans {0} an</relativeTimePattern>
 					<relativeTimePattern count="other">Dans {0} ans</relativeTimePattern>
@@ -518,94 +415,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="year-short">
 				<displayName>a</displayName>
 			</field>
-			<field type="year-narrow">
-				<displayName draft="contributed">a</displayName>
-				<relativeTime type="future">
-					<relativeTimePattern count="one" draft="contributed">+{0} a</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">+{0} a</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one" draft="contributed">-{0} a</relativeTimePattern>
-					<relativeTimePattern count="other" draft="contributed">-{0} a</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="quarter">
-				<displayName draft="contributed">trimestre</displayName>
 				<relative type="-1">le trimestre dernier</relative>
 				<relative type="0">ce trimestre-ci</relative>
 				<relative type="1">le trimestre prochain</relative>
 			</field>
-			<field type="quarter-short">
-				<displayName>trim.</displayName>
-			</field>
-			<field type="quarter-narrow">
-				<displayName>trim.</displayName>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} trim.</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} trim.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} trim.</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} trim.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="month">
-				<displayName>mois</displayName>
-			</field>
-			<field type="month-short">
-				<displayName>m.</displayName>
-				<relative type="-1" draft="contributed">le mois dernier</relative>
-				<relative type="0" draft="contributed">ce mois-ci</relative>
-				<relative type="1" draft="contributed">le mois prochain</relative>
-			</field>
-			<field type="month-narrow">
-				<relative type="-1" draft="contributed">le mois dernier</relative>
-				<relative type="0" draft="contributed">ce mois-ci</relative>
-				<relative type="1" draft="contributed">le mois prochain</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} m.</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} m.</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} m.</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} m.</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="week">
-				<displayName>semaine</displayName>
-			</field>
-			<field type="week-short">
-				<displayName>sem.</displayName>
-				<relative type="-1" draft="contributed">la semaine dernière</relative>
-				<relative type="0" draft="contributed">cette semaine</relative>
-				<relative type="1" draft="contributed">la semaine prochaine</relative>
-			</field>
-			<field type="week-narrow">
-				<displayName>sem.</displayName>
-				<relative type="-1" draft="contributed">la semaine dernière</relative>
-				<relative type="0" draft="contributed">cette semaine</relative>
-				<relative type="1" draft="contributed">la semaine prochaine</relative>
-			</field>
-			<field type="day">
-				<displayName>jour</displayName>
-			</field>
-			<field type="day-short">
-				<displayName>j</displayName>
-			</field>
-			<field type="day-narrow">
-				<displayName>j</displayName>
-			</field>
-			<field type="weekday">
-				<displayName>jour de la semaine</displayName>
-			</field>
-			<field type="hour">
-				<displayName>heure</displayName>
-			</field>
-			<field type="hour-short">
-				<displayName>h</displayName>
-			</field>
 			<field type="hour-narrow">
-				<displayName>h</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+{0} h</relativeTimePattern>
 					<relativeTimePattern count="other">+{0} h</relativeTimePattern>
@@ -615,1147 +430,49 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">-{0} h</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="minute">
-				<displayName>minute</displayName>
-			</field>
-			<field type="minute-short">
-				<displayName>min</displayName>
-			</field>
 			<field type="minute-narrow">
-				<displayName>min</displayName>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">-{0} min</relativeTimePattern>
 					<relativeTimePattern count="other">-{0} min</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="second">
-				<displayName>seconde</displayName>
-			</field>
-			<field type="second-short">
-				<displayName>s</displayName>
-			</field>
 			<field type="second-narrow">
-				<displayName>s</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">+ {0} s</relativeTimePattern>
 					<relativeTimePattern count="other">+{0} s</relativeTimePattern>
 				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} s</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} s</relativeTimePattern>
-				</relativeTime>
-			</field>
-			<field type="zone">
-				<displayName>fuseau horaire</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat>+HH:mm;−HH:mm</hourFormat>
-			<gmtFormat>UTC{0}</gmtFormat>
-			<gmtZeroFormat>UTC</gmtZeroFormat>
 			<regionFormat type="daylight">{0} (heure avancée)</regionFormat>
 			<regionFormat type="standard">{0} (heure normale)</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
-			</zone>
-			<zone type="Europe/Andorra">
-				<exemplarCity>Andorre</exemplarCity>
-			</zone>
-			<zone type="Asia/Dubai">
-				<exemplarCity>Dubaï</exemplarCity>
-			</zone>
-			<zone type="Asia/Kabul">
-				<exemplarCity>Kaboul</exemplarCity>
-			</zone>
-			<zone type="America/Antigua">
-				<exemplarCity>Antigua</exemplarCity>
-			</zone>
-			<zone type="America/Anguilla">
-				<exemplarCity>Anguilla</exemplarCity>
-			</zone>
-			<zone type="Europe/Tirane">
-				<exemplarCity>Tirana</exemplarCity>
-			</zone>
-			<zone type="Asia/Yerevan">
-				<exemplarCity>Erevan</exemplarCity>
-			</zone>
-			<zone type="Africa/Luanda">
-				<exemplarCity>Luanda</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity>Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity>Palmer</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Troll">
-				<exemplarCity>Troll</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Syowa">
-				<exemplarCity>Showa</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Mawson">
-				<exemplarCity>Mawson</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Davis">
-				<exemplarCity>Davis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Vostok">
-				<exemplarCity>Vostok</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Casey">
-				<exemplarCity>Casey</exemplarCity>
-			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity>Dumont d’Urville</exemplarCity>
-			</zone>
-			<zone type="Antarctica/McMurdo">
-				<exemplarCity>McMurdo</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity>Río Gallegos</exemplarCity>
-			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity>Mendoza</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Juan">
-				<exemplarCity>San Juan</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity>Ushuaïa</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity>La Rioja</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity>San Luis</exemplarCity>
-			</zone>
-			<zone type="America/Catamarca">
-				<exemplarCity>Catamarca</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity>Salta</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity>Jujuy</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Tucuman">
-				<exemplarCity>Tucumán</exemplarCity>
-			</zone>
-			<zone type="America/Cordoba">
-				<exemplarCity>Córdoba</exemplarCity>
-			</zone>
-			<zone type="America/Buenos_Aires">
-				<exemplarCity>Buenos Aires</exemplarCity>
-			</zone>
-			<zone type="Pacific/Pago_Pago">
-				<exemplarCity>Pago Pago</exemplarCity>
-			</zone>
-			<zone type="Europe/Vienna">
-				<exemplarCity>Vienne</exemplarCity>
-			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity>Perth</exemplarCity>
-			</zone>
-			<zone type="Australia/Eucla">
-				<exemplarCity>Eucla</exemplarCity>
-			</zone>
-			<zone type="Australia/Darwin">
-				<exemplarCity>Darwin</exemplarCity>
-			</zone>
-			<zone type="Australia/Adelaide">
-				<exemplarCity>Adélaïde</exemplarCity>
-			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity>Broken Hill</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
-			</zone>
-			<zone type="Australia/Melbourne">
-				<exemplarCity>Melbourne</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity>Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity>Lindeman</exemplarCity>
-			</zone>
-			<zone type="Australia/Sydney">
-				<exemplarCity>Sydney</exemplarCity>
-			</zone>
-			<zone type="Australia/Brisbane">
-				<exemplarCity>Brisbane</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Macquarie">
-				<exemplarCity>Macquarie</exemplarCity>
-			</zone>
-			<zone type="Australia/Lord_Howe">
-				<exemplarCity>Lord Howe</exemplarCity>
-			</zone>
-			<zone type="America/Aruba">
-				<exemplarCity>Aruba</exemplarCity>
-			</zone>
-			<zone type="Europe/Mariehamn">
-				<exemplarCity>Mariehamn</exemplarCity>
-			</zone>
-			<zone type="Asia/Baku">
-				<exemplarCity>Bakou</exemplarCity>
-			</zone>
-			<zone type="Europe/Sarajevo">
-				<exemplarCity>Sarajevo</exemplarCity>
-			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity>Barbade (La)</exemplarCity>
 			</zone>
-			<zone type="Africa/Ouagadougou">
-				<exemplarCity>Ouagadougou</exemplarCity>
-			</zone>
-			<zone type="Europe/Sofia">
-				<exemplarCity>Sofia</exemplarCity>
-			</zone>
-			<zone type="Asia/Bahrain">
-				<exemplarCity>Bahreïn</exemplarCity>
-			</zone>
-			<zone type="Africa/Bujumbura">
-				<exemplarCity>Bujumbura</exemplarCity>
-			</zone>
-			<zone type="Africa/Porto-Novo">
-				<exemplarCity>Porto-Novo</exemplarCity>
-			</zone>
-			<zone type="America/St_Barthelemy">
-				<exemplarCity>Saint-Barthélemy</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Bermuda">
-				<exemplarCity>Bermudes</exemplarCity>
-			</zone>
-			<zone type="Asia/Brunei">
-				<exemplarCity>Brunei</exemplarCity>
-			</zone>
-			<zone type="America/La_Paz">
-				<exemplarCity>La Paz</exemplarCity>
-			</zone>
-			<zone type="America/Kralendijk">
-				<exemplarCity>Kralendijk</exemplarCity>
-			</zone>
-			<zone type="America/Eirunepe">
-				<exemplarCity>Eirunepé</exemplarCity>
-			</zone>
-			<zone type="America/Rio_Branco">
-				<exemplarCity>Rio Branco</exemplarCity>
-			</zone>
-			<zone type="America/Porto_Velho">
-				<exemplarCity>Porto Velho</exemplarCity>
-			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity>Manaos</exemplarCity>
-			</zone>
-			<zone type="America/Cuiaba">
-				<exemplarCity>Cuiabá</exemplarCity>
-			</zone>
-			<zone type="America/Santarem">
-				<exemplarCity>Santarém</exemplarCity>
-			</zone>
-			<zone type="America/Campo_Grande">
-				<exemplarCity>Campo Grande</exemplarCity>
-			</zone>
-			<zone type="America/Belem">
-				<exemplarCity>Belém</exemplarCity>
-			</zone>
-			<zone type="America/Araguaina">
-				<exemplarCity>Araguaína</exemplarCity>
-			</zone>
-			<zone type="America/Sao_Paulo">
-				<exemplarCity>São Paulo</exemplarCity>
-			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity>Bahia</exemplarCity>
-			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity>Fortaleza</exemplarCity>
-			</zone>
-			<zone type="America/Maceio">
-				<exemplarCity>Maceió</exemplarCity>
-			</zone>
-			<zone type="America/Recife">
-				<exemplarCity>Recife</exemplarCity>
-			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity>Noronha</exemplarCity>
-			</zone>
-			<zone type="America/Nassau">
-				<exemplarCity>Nassau</exemplarCity>
-			</zone>
-			<zone type="Africa/Gaborone">
-				<exemplarCity>Gaborone</exemplarCity>
-			</zone>
-			<zone type="Europe/Minsk">
-				<exemplarCity>Minsk</exemplarCity>
-			</zone>
-			<zone type="America/Belize">
-				<exemplarCity>Belize</exemplarCity>
-			</zone>
-			<zone type="America/Dawson">
-				<exemplarCity>Dawson</exemplarCity>
-			</zone>
-			<zone type="America/Whitehorse">
-				<exemplarCity>Whitehorse</exemplarCity>
-			</zone>
-			<zone type="America/Inuvik">
-				<exemplarCity>Inuvik</exemplarCity>
-			</zone>
-			<zone type="America/Vancouver">
-				<exemplarCity>Vancouver</exemplarCity>
-			</zone>
-			<zone type="America/Dawson_Creek">
-				<exemplarCity>Dawson Creek</exemplarCity>
-			</zone>
-			<zone type="America/Creston">
-				<exemplarCity>Creston</exemplarCity>
-			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>Yellowknife</exemplarCity>
-			</zone>
-			<zone type="America/Edmonton">
-				<exemplarCity>Edmonton</exemplarCity>
-			</zone>
-			<zone type="America/Swift_Current">
-				<exemplarCity>Swift Current</exemplarCity>
-			</zone>
-			<zone type="America/Cambridge_Bay">
-				<exemplarCity>Cambridge Bay</exemplarCity>
-			</zone>
-			<zone type="America/Regina">
-				<exemplarCity>Regina</exemplarCity>
-			</zone>
-			<zone type="America/Winnipeg">
-				<exemplarCity>Winnipeg</exemplarCity>
-			</zone>
-			<zone type="America/Resolute">
-				<exemplarCity>Resolute</exemplarCity>
-			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>Rainy River</exemplarCity>
-			</zone>
-			<zone type="America/Rankin_Inlet">
-				<exemplarCity>Rankin Inlet</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Atikokan</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>Thunder Bay</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>Nipigon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity>Toronto</exemplarCity>
-			</zone>
-			<zone type="America/Iqaluit">
-				<exemplarCity>Iqaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>Pangnirtung</exemplarCity>
-			</zone>
-			<zone type="America/Moncton">
-				<exemplarCity>Moncton</exemplarCity>
-			</zone>
-			<zone type="America/Halifax">
-				<exemplarCity>Halifax</exemplarCity>
-			</zone>
-			<zone type="America/Goose_Bay">
-				<exemplarCity>Goose Bay</exemplarCity>
-			</zone>
-			<zone type="America/Glace_Bay">
-				<exemplarCity>Glace Bay</exemplarCity>
-			</zone>
-			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Blanc-Sablon</exemplarCity>
-			</zone>
-			<zone type="America/St_Johns">
-				<exemplarCity draft="contributed">Saint-Jean de Terre-Neuve</exemplarCity>
-			</zone>
-			<zone type="Africa/Kinshasa">
-				<exemplarCity>Kinshasa</exemplarCity>
-			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity>Lubumbashi</exemplarCity>
-			</zone>
-			<zone type="Africa/Bangui">
-				<exemplarCity>Bangui</exemplarCity>
-			</zone>
-			<zone type="Africa/Brazzaville">
-				<exemplarCity>Brazzaville</exemplarCity>
-			</zone>
-			<zone type="Europe/Zurich">
-				<exemplarCity>Zurich</exemplarCity>
-			</zone>
-			<zone type="Africa/Abidjan">
-				<exemplarCity>Abidjan</exemplarCity>
-			</zone>
-			<zone type="Pacific/Rarotonga">
-				<exemplarCity>Rarotonga</exemplarCity>
-			</zone>
-			<zone type="Pacific/Easter">
-				<exemplarCity>Île de Pâques</exemplarCity>
-			</zone>
-			<zone type="America/Santiago">
-				<exemplarCity>Santiago</exemplarCity>
-			</zone>
-			<zone type="Africa/Douala">
-				<exemplarCity>Douala</exemplarCity>
-			</zone>
-			<zone type="Asia/Urumqi">
-				<exemplarCity>Ürümqi</exemplarCity>
-			</zone>
-			<zone type="Asia/Shanghai">
-				<exemplarCity>Shanghai</exemplarCity>
-			</zone>
-			<zone type="America/Bogota">
-				<exemplarCity>Bogota</exemplarCity>
-			</zone>
-			<zone type="America/Costa_Rica">
-				<exemplarCity>Costa Rica</exemplarCity>
-			</zone>
-			<zone type="America/Havana">
-				<exemplarCity>La Havane</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Cape_Verde">
-				<exemplarCity>Cap-Vert</exemplarCity>
-			</zone>
-			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
-			</zone>
-			<zone type="Asia/Nicosia">
-				<exemplarCity>Nicosie</exemplarCity>
-			</zone>
-			<zone type="Europe/Prague">
-				<exemplarCity>Prague</exemplarCity>
-			</zone>
-			<zone type="Europe/Busingen">
-				<exemplarCity>Büsingen</exemplarCity>
-			</zone>
-			<zone type="Europe/Berlin">
-				<exemplarCity>Berlin</exemplarCity>
-			</zone>
-			<zone type="Africa/Djibouti">
-				<exemplarCity>Djibouti</exemplarCity>
-			</zone>
-			<zone type="Europe/Copenhagen">
-				<exemplarCity>Copenhague</exemplarCity>
-			</zone>
-			<zone type="America/Dominica">
-				<exemplarCity>Dominique</exemplarCity>
-			</zone>
-			<zone type="America/Santo_Domingo">
-				<exemplarCity>Saint-Domingue</exemplarCity>
-			</zone>
-			<zone type="Africa/Algiers">
-				<exemplarCity>Alger</exemplarCity>
-			</zone>
-			<zone type="Pacific/Galapagos">
-				<exemplarCity>Galápagos</exemplarCity>
-			</zone>
-			<zone type="America/Guayaquil">
-				<exemplarCity>Guayaquil</exemplarCity>
-			</zone>
-			<zone type="Europe/Tallinn">
-				<exemplarCity>Tallinn</exemplarCity>
-			</zone>
-			<zone type="Africa/Cairo">
-				<exemplarCity>Le Caire</exemplarCity>
-			</zone>
-			<zone type="Africa/El_Aaiun">
-				<exemplarCity>Laâyoune</exemplarCity>
-			</zone>
-			<zone type="Africa/Asmera">
-				<exemplarCity>Asmara</exemplarCity>
-			</zone>
-			<zone type="Africa/Ceuta">
-				<exemplarCity>Ceuta</exemplarCity>
-			</zone>
-			<zone type="Europe/Madrid">
-				<exemplarCity>Madrid</exemplarCity>
-			</zone>
-			<zone type="Africa/Addis_Ababa">
-				<exemplarCity>Addis-Abeba</exemplarCity>
-			</zone>
-			<zone type="Europe/Helsinki">
-				<exemplarCity>Helsinki</exemplarCity>
-			</zone>
-			<zone type="Pacific/Fiji">
-				<exemplarCity>Fidji</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Stanley">
-				<exemplarCity>Stanley</exemplarCity>
-			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity>Chuuk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity>Pohnpei</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kosrae">
-				<exemplarCity>Kosrae</exemplarCity>
-			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity draft="contributed">Îles Féroé</exemplarCity>
-			</zone>
-			<zone type="Europe/Paris">
-				<exemplarCity>Paris</exemplarCity>
-			</zone>
-			<zone type="Africa/Libreville">
-				<exemplarCity>Libreville</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<long>
 					<daylight>heure avancée britannique</daylight>
 				</long>
-				<exemplarCity>Londres</exemplarCity>
-			</zone>
-			<zone type="America/Grenada">
-				<exemplarCity>Grenade</exemplarCity>
-			</zone>
-			<zone type="Asia/Tbilisi">
-				<exemplarCity>Tbilissi</exemplarCity>
-			</zone>
-			<zone type="America/Cayenne">
-				<exemplarCity>Cayenne</exemplarCity>
-			</zone>
-			<zone type="Europe/Guernsey">
-				<exemplarCity>Guernesey</exemplarCity>
-			</zone>
-			<zone type="Africa/Accra">
-				<exemplarCity>Accra</exemplarCity>
-			</zone>
-			<zone type="Europe/Gibraltar">
-				<exemplarCity>Gibraltar</exemplarCity>
-			</zone>
-			<zone type="America/Thule">
-				<exemplarCity>Thulé</exemplarCity>
-			</zone>
-			<zone type="America/Godthab">
-				<exemplarCity>Nuuk</exemplarCity>
-			</zone>
-			<zone type="America/Scoresbysund">
-				<exemplarCity>Ittoqqortoormiit</exemplarCity>
-			</zone>
-			<zone type="America/Danmarkshavn">
-				<exemplarCity>Danmarkshavn</exemplarCity>
-			</zone>
-			<zone type="Africa/Banjul">
-				<exemplarCity>Banjul</exemplarCity>
-			</zone>
-			<zone type="Africa/Conakry">
-				<exemplarCity>Conakry</exemplarCity>
-			</zone>
-			<zone type="America/Guadeloupe">
-				<exemplarCity>Guadeloupe</exemplarCity>
-			</zone>
-			<zone type="Africa/Malabo">
-				<exemplarCity>Malabo</exemplarCity>
-			</zone>
-			<zone type="Europe/Athens">
-				<exemplarCity>Athènes</exemplarCity>
-			</zone>
-			<zone type="Atlantic/South_Georgia">
-				<exemplarCity>Géorgie du Sud</exemplarCity>
-			</zone>
-			<zone type="America/Guatemala">
-				<exemplarCity>Guatemala</exemplarCity>
-			</zone>
-			<zone type="Pacific/Guam">
-				<exemplarCity>Guam</exemplarCity>
-			</zone>
-			<zone type="Africa/Bissau">
-				<exemplarCity>Bissau</exemplarCity>
-			</zone>
-			<zone type="America/Guyana">
-				<exemplarCity>Guyana</exemplarCity>
-			</zone>
-			<zone type="Asia/Hong_Kong">
-				<exemplarCity>Hong Kong</exemplarCity>
-			</zone>
-			<zone type="America/Tegucigalpa">
-				<exemplarCity>Tégucigalpa</exemplarCity>
-			</zone>
-			<zone type="Europe/Zagreb">
-				<exemplarCity>Zagreb</exemplarCity>
-			</zone>
-			<zone type="America/Port-au-Prince">
-				<exemplarCity>Port-au-Prince</exemplarCity>
-			</zone>
-			<zone type="Europe/Budapest">
-				<exemplarCity>Budapest</exemplarCity>
-			</zone>
-			<zone type="Asia/Jakarta">
-				<exemplarCity>Jakarta</exemplarCity>
-			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity>Pontianak</exemplarCity>
-			</zone>
-			<zone type="Asia/Makassar">
-				<exemplarCity>Macassar</exemplarCity>
-			</zone>
-			<zone type="Asia/Jayapura">
-				<exemplarCity>Jayapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
 					<daylight>heure avancée irlandaise</daylight>
 				</long>
-				<exemplarCity>Dublin</exemplarCity>
-			</zone>
-			<zone type="Asia/Jerusalem">
-				<exemplarCity>Jérusalem</exemplarCity>
-			</zone>
-			<zone type="Asia/Calcutta">
-				<exemplarCity>Calcutta</exemplarCity>
-			</zone>
-			<zone type="Asia/Tehran">
-				<exemplarCity>Téhéran</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Reykjavik">
-				<exemplarCity>Reykjavik</exemplarCity>
-			</zone>
-			<zone type="Europe/Rome">
-				<exemplarCity>Rome</exemplarCity>
-			</zone>
-			<zone type="Europe/Jersey">
-				<exemplarCity>Jersey</exemplarCity>
-			</zone>
-			<zone type="America/Jamaica">
-				<exemplarCity>Jamaïque</exemplarCity>
-			</zone>
-			<zone type="Asia/Amman">
-				<exemplarCity>Amman</exemplarCity>
-			</zone>
-			<zone type="Asia/Tokyo">
-				<exemplarCity>Tokyo</exemplarCity>
-			</zone>
-			<zone type="Africa/Nairobi">
-				<exemplarCity>Nairobi</exemplarCity>
-			</zone>
-			<zone type="Asia/Bishkek">
-				<exemplarCity>Bichkek</exemplarCity>
-			</zone>
-			<zone type="Asia/Phnom_Penh">
-				<exemplarCity>Phnom Penh</exemplarCity>
-			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kiritimati">
-				<exemplarCity>Kiritimati</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tarawa">
-				<exemplarCity>Tarawa</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity>Saint-Christophe-et-Niévès</exemplarCity>
 			</zone>
-			<zone type="Asia/Pyongyang">
-				<exemplarCity>Pyongyang</exemplarCity>
-			</zone>
-			<zone type="Asia/Seoul">
-				<exemplarCity>Séoul</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuwait">
-				<exemplarCity>Koweït</exemplarCity>
-			</zone>
 			<zone type="America/Cayman">
 				<exemplarCity>Îles Caïmans</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtau">
-				<exemplarCity>Aktaou</exemplarCity>
-			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity>Ouralsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity>Aktioubinsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Qyzylorda">
-				<exemplarCity>Kzyl Orda</exemplarCity>
-			</zone>
-			<zone type="Asia/Almaty">
-				<exemplarCity>Alma Ata</exemplarCity>
-			</zone>
-			<zone type="Asia/Vientiane">
-				<exemplarCity>Vientiane</exemplarCity>
-			</zone>
-			<zone type="Asia/Beirut">
-				<exemplarCity>Beyrouth</exemplarCity>
-			</zone>
-			<zone type="America/St_Lucia">
-				<exemplarCity>Sainte-Lucie</exemplarCity>
-			</zone>
-			<zone type="Europe/Vaduz">
-				<exemplarCity>Vaduz</exemplarCity>
-			</zone>
-			<zone type="Asia/Colombo">
-				<exemplarCity>Colombo</exemplarCity>
-			</zone>
-			<zone type="Africa/Monrovia">
-				<exemplarCity>Monrovia</exemplarCity>
-			</zone>
-			<zone type="Africa/Maseru">
-				<exemplarCity>Maseru</exemplarCity>
-			</zone>
-			<zone type="Europe/Vilnius">
-				<exemplarCity>Vilnius</exemplarCity>
-			</zone>
-			<zone type="Europe/Luxembourg">
-				<exemplarCity>Luxembourg</exemplarCity>
-			</zone>
-			<zone type="Europe/Riga">
-				<exemplarCity>Riga</exemplarCity>
 			</zone>
 			<zone type="Africa/Tripoli">
 				<exemplarCity>Tripoli [Libye]</exemplarCity>
 			</zone>
-			<zone type="Africa/Casablanca">
-				<exemplarCity>Casablanca</exemplarCity>
-			</zone>
-			<zone type="Europe/Monaco">
-				<exemplarCity>Monaco</exemplarCity>
-			</zone>
-			<zone type="Europe/Chisinau">
-				<exemplarCity>Chisinau</exemplarCity>
-			</zone>
-			<zone type="Europe/Podgorica">
-				<exemplarCity>Podgorica</exemplarCity>
-			</zone>
-			<zone type="America/Marigot">
-				<exemplarCity>Marigot</exemplarCity>
-			</zone>
-			<zone type="Indian/Antananarivo">
-				<exemplarCity>Antananarivo</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kwajalein">
-				<exemplarCity>Kwajalein</exemplarCity>
-			</zone>
-			<zone type="Pacific/Majuro">
-				<exemplarCity>Majuro</exemplarCity>
-			</zone>
-			<zone type="Europe/Skopje">
-				<exemplarCity>Skopje</exemplarCity>
-			</zone>
-			<zone type="Africa/Bamako">
-				<exemplarCity>Bamako</exemplarCity>
-			</zone>
-			<zone type="Asia/Rangoon">
-				<exemplarCity>Rangoun</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity>Hovd</exemplarCity>
-			</zone>
-			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>Oulan-Bator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Tchoïbalsan</exemplarCity>
-			</zone>
-			<zone type="Asia/Macau">
-				<exemplarCity>Macao</exemplarCity>
-			</zone>
-			<zone type="Pacific/Saipan">
-				<exemplarCity>Saipan</exemplarCity>
-			</zone>
-			<zone type="America/Martinique">
-				<exemplarCity>Martinique</exemplarCity>
-			</zone>
-			<zone type="Africa/Nouakchott">
-				<exemplarCity>Nouakchott</exemplarCity>
-			</zone>
-			<zone type="America/Montserrat">
-				<exemplarCity>Montserrat</exemplarCity>
-			</zone>
-			<zone type="Europe/Malta">
-				<exemplarCity>Malte</exemplarCity>
-			</zone>
-			<zone type="Indian/Mauritius">
-				<exemplarCity>Maurice</exemplarCity>
-			</zone>
-			<zone type="Indian/Maldives">
-				<exemplarCity>Maldives</exemplarCity>
-			</zone>
-			<zone type="Africa/Blantyre">
-				<exemplarCity>Blantyre</exemplarCity>
-			</zone>
-			<zone type="America/Tijuana">
-				<exemplarCity>Tijuana</exemplarCity>
-			</zone>
-			<zone type="America/Hermosillo">
-				<exemplarCity>Hermosillo</exemplarCity>
-			</zone>
-			<zone type="America/Mazatlan">
-				<exemplarCity>Mazatlán</exemplarCity>
-			</zone>
-			<zone type="America/Chihuahua">
-				<exemplarCity>Chihuahua</exemplarCity>
-			</zone>
-			<zone type="America/Bahia_Banderas">
-				<exemplarCity>Bahia de Banderas</exemplarCity>
-			</zone>
-			<zone type="America/Ojinaga">
-				<exemplarCity>Ojinaga</exemplarCity>
-			</zone>
-			<zone type="America/Monterrey">
-				<exemplarCity>Monterrey</exemplarCity>
-			</zone>
-			<zone type="America/Mexico_City">
-				<exemplarCity>Mexico</exemplarCity>
-			</zone>
-			<zone type="America/Matamoros">
-				<exemplarCity>Matamoros</exemplarCity>
-			</zone>
-			<zone type="America/Merida">
-				<exemplarCity>Mérida</exemplarCity>
-			</zone>
-			<zone type="America/Cancun">
-				<exemplarCity>Cancún</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuala_Lumpur">
-				<exemplarCity>Kuala Lumpur</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuching">
-				<exemplarCity>Kuching</exemplarCity>
-			</zone>
-			<zone type="Africa/Maputo">
-				<exemplarCity>Maputo</exemplarCity>
-			</zone>
-			<zone type="Africa/Windhoek">
-				<exemplarCity>Windhoek</exemplarCity>
-			</zone>
-			<zone type="Pacific/Noumea">
-				<exemplarCity>Nouméa</exemplarCity>
-			</zone>
-			<zone type="Africa/Niamey">
-				<exemplarCity>Niamey</exemplarCity>
-			</zone>
-			<zone type="Pacific/Norfolk">
-				<exemplarCity>Norfolk</exemplarCity>
-			</zone>
-			<zone type="Africa/Lagos">
-				<exemplarCity>Lagos</exemplarCity>
-			</zone>
-			<zone type="America/Managua">
-				<exemplarCity>Managua</exemplarCity>
-			</zone>
-			<zone type="Europe/Amsterdam">
-				<exemplarCity>Amsterdam</exemplarCity>
-			</zone>
-			<zone type="Europe/Oslo">
-				<exemplarCity>Oslo</exemplarCity>
-			</zone>
-			<zone type="Asia/Katmandu">
-				<exemplarCity>Katmandou</exemplarCity>
-			</zone>
-			<zone type="Pacific/Nauru">
-				<exemplarCity>Nauru</exemplarCity>
-			</zone>
-			<zone type="Pacific/Niue">
-				<exemplarCity>Niue</exemplarCity>
-			</zone>
-			<zone type="Pacific/Chatham">
-				<exemplarCity>Chatham</exemplarCity>
-			</zone>
-			<zone type="Pacific/Auckland">
-				<exemplarCity>Auckland</exemplarCity>
-			</zone>
-			<zone type="Asia/Muscat">
-				<exemplarCity>Mascate</exemplarCity>
-			</zone>
-			<zone type="America/Panama">
-				<exemplarCity>Panama</exemplarCity>
-			</zone>
-			<zone type="America/Lima">
-				<exemplarCity>Lima</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tahiti">
-				<exemplarCity>Tahiti</exemplarCity>
-			</zone>
-			<zone type="Pacific/Marquesas">
-				<exemplarCity>Marquises</exemplarCity>
-			</zone>
-			<zone type="Pacific/Gambier">
-				<exemplarCity>Gambier</exemplarCity>
-			</zone>
-			<zone type="Pacific/Port_Moresby">
-				<exemplarCity>Port Moresby</exemplarCity>
-			</zone>
-			<zone type="Asia/Manila">
-				<exemplarCity>Manille</exemplarCity>
-			</zone>
-			<zone type="Asia/Karachi">
-				<exemplarCity>Karachi</exemplarCity>
-			</zone>
-			<zone type="Europe/Warsaw">
-				<exemplarCity>Varsovie</exemplarCity>
-			</zone>
-			<zone type="America/Miquelon">
-				<exemplarCity>Miquelon</exemplarCity>
-			</zone>
-			<zone type="America/Puerto_Rico">
-				<exemplarCity>Porto Rico</exemplarCity>
-			</zone>
-			<zone type="Asia/Gaza">
-				<exemplarCity>Gaza</exemplarCity>
-			</zone>
-			<zone type="Asia/Hebron">
-				<exemplarCity>Hébron</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Azores">
-				<exemplarCity>Açores</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Madeira">
-				<exemplarCity>Madère</exemplarCity>
-			</zone>
-			<zone type="Europe/Lisbon">
-				<exemplarCity>Lisbonne</exemplarCity>
-			</zone>
-			<zone type="Pacific/Palau">
-				<exemplarCity>Palau</exemplarCity>
-			</zone>
-			<zone type="America/Asuncion">
-				<exemplarCity>Asunción</exemplarCity>
-			</zone>
-			<zone type="Asia/Qatar">
-				<exemplarCity>Qatar</exemplarCity>
-			</zone>
-			<zone type="Indian/Reunion">
-				<exemplarCity draft="contributed">La Réunion</exemplarCity>
-			</zone>
-			<zone type="Europe/Bucharest">
-				<exemplarCity>Bucarest</exemplarCity>
-			</zone>
-			<zone type="Europe/Belgrade">
-				<exemplarCity>Belgrade</exemplarCity>
-			</zone>
-			<zone type="Europe/Kaliningrad">
-				<exemplarCity>Kaliningrad</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopol</exemplarCity>
-			</zone>
-			<zone type="Europe/Moscow">
-				<exemplarCity>Moscou</exemplarCity>
-			</zone>
-			<zone type="Europe/Volgograd">
-				<exemplarCity>Volgograd</exemplarCity>
-			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity>Samara</exemplarCity>
-			</zone>
-			<zone type="Asia/Yekaterinburg">
-				<exemplarCity>Ekaterinbourg</exemplarCity>
-			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity>Omsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novosibirsk">
-				<exemplarCity>Novossibirsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novokuznetsk">
-				<exemplarCity>Novokuznetsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity>Krasnoïarsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Irkutsk">
-				<exemplarCity>Irkoutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Yakutsk">
-				<exemplarCity>Iakoutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Vladivostok">
-				<exemplarCity>Vladivostok</exemplarCity>
-			</zone>
-			<zone type="Asia/Khandyga">
-				<exemplarCity>Khandyga</exemplarCity>
-			</zone>
-			<zone type="Asia/Sakhalin">
-				<exemplarCity>Sakhaline</exemplarCity>
-			</zone>
-			<zone type="Asia/Ust-Nera">
-				<exemplarCity>Ust-Nera</exemplarCity>
-			</zone>
-			<zone type="Asia/Magadan">
-				<exemplarCity>Magadan</exemplarCity>
-			</zone>
-			<zone type="Asia/Kamchatka">
-				<exemplarCity>Kamtchatka</exemplarCity>
-			</zone>
-			<zone type="Asia/Anadyr">
-				<exemplarCity>Anadyr</exemplarCity>
-			</zone>
-			<zone type="Africa/Kigali">
-				<exemplarCity>Kigali</exemplarCity>
-			</zone>
-			<zone type="Asia/Riyadh">
-				<exemplarCity>Riyad</exemplarCity>
-			</zone>
-			<zone type="Pacific/Guadalcanal">
-				<exemplarCity>Guadalcanal</exemplarCity>
-			</zone>
-			<zone type="Indian/Mahe">
-				<exemplarCity>Mahé</exemplarCity>
-			</zone>
-			<zone type="Africa/Khartoum">
-				<exemplarCity>Khartoum</exemplarCity>
-			</zone>
-			<zone type="Europe/Stockholm">
-				<exemplarCity>Stockholm</exemplarCity>
-			</zone>
-			<zone type="Asia/Singapore">
-				<exemplarCity>Singapour</exemplarCity>
-			</zone>
-			<zone type="Atlantic/St_Helena">
-				<exemplarCity>Sainte-Hélène</exemplarCity>
-			</zone>
-			<zone type="Europe/Ljubljana">
-				<exemplarCity>Ljubljana</exemplarCity>
-			</zone>
-			<zone type="Arctic/Longyearbyen">
-				<exemplarCity>Longyearbyen</exemplarCity>
-			</zone>
-			<zone type="Europe/Bratislava">
-				<exemplarCity>Bratislava</exemplarCity>
-			</zone>
-			<zone type="Africa/Freetown">
-				<exemplarCity>Freetown</exemplarCity>
-			</zone>
-			<zone type="Europe/San_Marino">
-				<exemplarCity>Saint-Marin</exemplarCity>
-			</zone>
-			<zone type="Africa/Dakar">
-				<exemplarCity>Dakar</exemplarCity>
-			</zone>
-			<zone type="Africa/Mogadishu">
-				<exemplarCity>Mogadiscio</exemplarCity>
-			</zone>
-			<zone type="America/Paramaribo">
-				<exemplarCity>Paramaribo</exemplarCity>
-			</zone>
-			<zone type="Africa/Juba">
-				<exemplarCity>Juba</exemplarCity>
-			</zone>
-			<zone type="Africa/Sao_Tome">
-				<exemplarCity>São Tomé</exemplarCity>
-			</zone>
-			<zone type="America/El_Salvador">
-				<exemplarCity>El Salvador</exemplarCity>
-			</zone>
-			<zone type="Asia/Damascus">
-				<exemplarCity>Damas</exemplarCity>
-			</zone>
-			<zone type="Africa/Mbabane">
-				<exemplarCity>Mbabane</exemplarCity>
-			</zone>
-			<zone type="America/Grand_Turk">
-				<exemplarCity>Grand Turk</exemplarCity>
-			</zone>
 			<zone type="Africa/Ndjamena">
 				<exemplarCity>Ndjamena</exemplarCity>
-			</zone>
-			<zone type="Africa/Lome">
-				<exemplarCity>Lomé</exemplarCity>
-			</zone>
-			<zone type="Asia/Bangkok">
-				<exemplarCity>Bangkok</exemplarCity>
-			</zone>
-			<zone type="Asia/Dushanbe">
-				<exemplarCity>Douchanbé</exemplarCity>
-			</zone>
-			<zone type="Pacific/Fakaofo">
-				<exemplarCity>Fakaofo</exemplarCity>
-			</zone>
-			<zone type="Asia/Dili">
-				<exemplarCity>Dili</exemplarCity>
-			</zone>
-			<zone type="Asia/Ashgabat">
-				<exemplarCity>Achgabat</exemplarCity>
-			</zone>
-			<zone type="Africa/Tunis">
-				<exemplarCity>Tunis</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tongatapu">
-				<exemplarCity>Tongatapu</exemplarCity>
-			</zone>
-			<zone type="Europe/Istanbul">
-				<exemplarCity>Istanbul</exemplarCity>
-			</zone>
-			<zone type="Pacific/Funafuti">
-				<exemplarCity>Funafuti</exemplarCity>
-			</zone>
-			<zone type="Asia/Taipei">
-				<exemplarCity>Taipei</exemplarCity>
-			</zone>
-			<zone type="Africa/Dar_es_Salaam">
-				<exemplarCity>Dar es Salaam</exemplarCity>
-			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Oujgorod</exemplarCity>
-			</zone>
-			<zone type="Europe/Kiev">
-				<exemplarCity>Kiev</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>Zaporojie</exemplarCity>
-			</zone>
-			<zone type="Africa/Kampala">
-				<exemplarCity>Kampala</exemplarCity>
-			</zone>
-			<zone type="Pacific/Midway">
-				<exemplarCity>Midway</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Johnston</exemplarCity>
-			</zone>
-			<zone type="Pacific/Wake">
-				<exemplarCity>Wake</exemplarCity>
-			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
-			<zone type="America/Nome">
-				<exemplarCity>Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<exemplarCity>Anchorage</exemplarCity>
-			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity>Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Sitka">
-				<exemplarCity>Sitka</exemplarCity>
-			</zone>
-			<zone type="America/Juneau">
-				<exemplarCity>Juneau</exemplarCity>
-			</zone>
-			<zone type="America/Metlakatla">
-				<exemplarCity>Metlakatla</exemplarCity>
-			</zone>
-			<zone type="America/Los_Angeles">
-				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Boise">
-				<exemplarCity>Boise</exemplarCity>
-			</zone>
-			<zone type="America/Phoenix">
-				<exemplarCity>Phoenix</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah [Dakota du Nord]</exemplarCity>
@@ -1766,95 +483,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Center [Dakota du Nord]</exemplarCity>
 			</zone>
-			<zone type="America/Chicago">
-				<exemplarCity>Chicago</exemplarCity>
-			</zone>
-			<zone type="America/Menominee">
-				<exemplarCity>Menominee</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity>Vincennes [Indiana]</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity>Petersburg [Indiana]</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>Tell City [Indiana]</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity>Knox [Indiana]</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity>Winamac [Indiana]</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity>Marengo [Indiana]</exemplarCity>
-			</zone>
-			<zone type="America/Indianapolis">
-				<exemplarCity>Indianapolis</exemplarCity>
-			</zone>
-			<zone type="America/Louisville">
-				<exemplarCity>Louisville</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity>Vevay [Indiana]</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity>Monticello [Kentucky]</exemplarCity>
-			</zone>
-			<zone type="America/Detroit">
-				<exemplarCity draft="contributed">Détroit</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<exemplarCity>New York</exemplarCity>
-			</zone>
-			<zone type="America/Montevideo">
-				<exemplarCity>Montevideo</exemplarCity>
-			</zone>
-			<zone type="Asia/Samarkand">
-				<exemplarCity>Samarcande</exemplarCity>
-			</zone>
-			<zone type="Asia/Tashkent">
-				<exemplarCity>Tachkent</exemplarCity>
-			</zone>
 			<zone type="Europe/Vatican">
 				<exemplarCity>Vatican</exemplarCity>
 			</zone>
-			<zone type="America/St_Vincent">
-				<exemplarCity>Saint-Vincent</exemplarCity>
-			</zone>
-			<zone type="America/Caracas">
-				<exemplarCity>Caracas</exemplarCity>
-			</zone>
-			<zone type="America/Tortola">
-				<exemplarCity>Tortola</exemplarCity>
-			</zone>
 			<zone type="America/St_Thomas">
 				<exemplarCity>Saint Thomas</exemplarCity>
-			</zone>
-			<zone type="Asia/Saigon">
-				<exemplarCity>Hô-Chi-Minh-Ville</exemplarCity>
-			</zone>
-			<zone type="Pacific/Efate">
-				<exemplarCity>Éfaté</exemplarCity>
-			</zone>
-			<zone type="Pacific/Apia">
-				<exemplarCity>Apia</exemplarCity>
-			</zone>
-			<zone type="Asia/Aden">
-				<exemplarCity>Aden</exemplarCity>
-			</zone>
-			<zone type="Indian/Mayotte">
-				<exemplarCity>Mayotte</exemplarCity>
-			</zone>
-			<zone type="Africa/Johannesburg">
-				<exemplarCity>Johannesburg</exemplarCity>
-			</zone>
-			<zone type="Africa/Lusaka">
-				<exemplarCity>Lusaka</exemplarCity>
-			</zone>
-			<zone type="Africa/Harare">
-				<exemplarCity>Harare</exemplarCity>
 			</zone>
 			<metazone type="Acre">
 				<long>
@@ -2066,16 +699,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée du Bangladesh</daylight>
 				</long>
 			</metazone>
-			<metazone type="Bhutan">
-				<long>
-					<standard>heure du Bhoutan</standard>
-				</long>
-			</metazone>
-			<metazone type="Bolivia">
-				<long>
-					<standard>heure de Bolivie</standard>
-				</long>
-			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<generic>heure de Brasilia</generic>
@@ -2088,11 +711,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>heure du Cap-Vert</generic>
 					<standard>heure normale du Cap-Vert</standard>
 					<daylight>heure avancée du Cap-Vert</daylight>
-				</long>
-			</metazone>
-			<metazone type="Chamorro">
-				<long>
-					<standard>heure des Chamorro</standard>
 				</long>
 			</metazone>
 			<metazone type="Chatham">
@@ -2123,16 +741,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Choibalsan</daylight>
 				</long>
 			</metazone>
-			<metazone type="Christmas">
-				<long>
-					<standard>heure de l’île Christmas</standard>
-				</long>
-			</metazone>
-			<metazone type="Cocos">
-				<long>
-					<standard>heure des îles Cocos</standard>
-				</long>
-			</metazone>
 			<metazone type="Colombia">
 				<long>
 					<generic>heure de Colombie</generic>
@@ -2154,26 +762,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Cuba</daylight>
 				</long>
 			</metazone>
-			<metazone type="Davis">
-				<long>
-					<standard>heure de Davis</standard>
-				</long>
-			</metazone>
-			<metazone type="DumontDUrville">
-				<long>
-					<standard>heure de Dumont-d’Urville</standard>
-				</long>
-			</metazone>
 			<metazone type="Easter">
 				<long>
 					<generic>heure de l’île de Pâques</generic>
 					<standard>heure normale de l’île de Pâques</standard>
 					<daylight>heure avancée de l’île de Pâques</daylight>
-				</long>
-			</metazone>
-			<metazone type="Ecuador">
-				<long>
-					<standard>heure de l’Équateur</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
@@ -2216,31 +809,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>heure de Guyane française</standard>
 				</long>
 			</metazone>
-			<metazone type="French_Southern">
-				<long>
-					<standard>heure des Terres australes et antarctiques françaises</standard>
-				</long>
-			</metazone>
-			<metazone type="Galapagos">
-				<long>
-					<standard>heure des îles Galápagos</standard>
-				</long>
-			</metazone>
-			<metazone type="Gambier">
-				<long>
-					<standard>heure des îles Gambier</standard>
-				</long>
-			</metazone>
 			<metazone type="Georgia">
 				<long>
 					<generic>heure de la Géorgie</generic>
 					<standard>heure normale de la Géorgie</standard>
 					<daylight>heure avancée de Géorgie</daylight>
-				</long>
-			</metazone>
-			<metazone type="Gilbert_Islands">
-				<long>
-					<standard>heure des îles Gilbert</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
@@ -2255,16 +828,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>heure de l’Ouest du Groenland</generic>
 					<standard>heure normale de l’Ouest du Groenland</standard>
 					<daylight>heure avancée de l’Ouest du Groenland</daylight>
-				</long>
-			</metazone>
-			<metazone type="Gulf">
-				<long>
-					<standard>heure du Golfe</standard>
-				</long>
-			</metazone>
-			<metazone type="Guyana">
-				<long>
-					<standard>heure du Guyana</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -2286,11 +849,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>heure de Hovd</generic>
 					<standard>heure normale de Hovd</standard>
 					<daylight>heure avancée de Hovd</daylight>
-				</long>
-			</metazone>
-			<metazone type="India">
-				<long>
-					<standard>heure de l’Inde</standard>
 				</long>
 			</metazone>
 			<metazone type="Iran">
@@ -2328,16 +886,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Petropavlovsk-Kamchatski</daylight>
 				</long>
 			</metazone>
-			<metazone type="Kazakhstan_Eastern">
-				<long>
-					<standard>heure de l’Est du Kazakhstan</standard>
-				</long>
-			</metazone>
-			<metazone type="Kazakhstan_Western">
-				<long>
-					<standard>heure de l’Ouest du Kazakhstan</standard>
-				</long>
-			</metazone>
 			<metazone type="Korea">
 				<long>
 					<generic>heure de la Corée</generic>
@@ -2345,26 +893,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Corée</daylight>
 				</long>
 			</metazone>
-			<metazone type="Kosrae">
-				<long>
-					<standard>heure de Kosrae</standard>
-				</long>
-			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic>heure de Krasnoïarsk</generic>
 					<standard>heure normale de Krasnoïarsk</standard>
 					<daylight>heure avancée de Krasnoïarsk</daylight>
-				</long>
-			</metazone>
-			<metazone type="Kyrgystan">
-				<long>
-					<standard>heure du Kirghizistan</standard>
-				</long>
-			</metazone>
-			<metazone type="Line_Islands">
-				<long>
-					<standard>heure des îles de la Ligne</standard>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -2381,11 +914,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">heure avancée de Macao</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard>heure de l’île Macquarie</standard>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>heure de Magadan</generic>
@@ -2393,31 +921,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Magadan</daylight>
 				</long>
 			</metazone>
-			<metazone type="Maldives">
-				<long>
-					<standard>heure des Maldives</standard>
-				</long>
-			</metazone>
-			<metazone type="Marquesas">
-				<long>
-					<standard>heure des îles Marquises</standard>
-				</long>
-			</metazone>
-			<metazone type="Marshall_Islands">
-				<long>
-					<standard>heure des îles Marshall</standard>
-				</long>
-			</metazone>
 			<metazone type="Mauritius">
 				<long>
 					<generic>heure de Maurice</generic>
 					<standard>heure normale de Maurice</standard>
 					<daylight>heure avancée de Maurice</daylight>
-				</long>
-			</metazone>
-			<metazone type="Mawson">
-				<long>
-					<standard>heure de Mawson</standard>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Northwest">
@@ -2448,16 +956,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Moscou</daylight>
 				</long>
 			</metazone>
-			<metazone type="Nauru">
-				<long>
-					<standard>heure de Nauru</standard>
-				</long>
-			</metazone>
-			<metazone type="Nepal">
-				<long>
-					<standard>heure du Népal</standard>
-				</long>
-			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
 					<generic>heure de la Nouvelle-Calédonie</generic>
@@ -2483,16 +981,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>HNT</standard>
 					<daylight>HAT</daylight>
 				</short>
-			</metazone>
-			<metazone type="Niue">
-				<long>
-					<standard>heure de Nioué</standard>
-				</long>
-			</metazone>
-			<metazone type="Norfolk">
-				<long>
-					<standard>heure de l’île Norfolk</standard>
-				</long>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
@@ -2522,16 +1010,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée du Pakistan</daylight>
 				</long>
 			</metazone>
-			<metazone type="Palau">
-				<long>
-					<standard>heure des Palaos</standard>
-				</long>
-			</metazone>
-			<metazone type="Papua_New_Guinea">
-				<long>
-					<standard>heure de la Papouasie-Nouvelle-Guinée</standard>
-				</long>
-			</metazone>
 			<metazone type="Paraguay">
 				<long>
 					<generic>heure du Paraguay</generic>
@@ -2553,11 +1031,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée des Philippines</daylight>
 				</long>
 			</metazone>
-			<metazone type="Phoenix_Islands">
-				<long>
-					<standard>heure des îles Phoenix</standard>
-				</long>
-			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
 					<generic>heure de Saint-Pierre-et-Miquelon</generic>
@@ -2565,24 +1038,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Saint-Pierre-et-Miquelon</daylight>
 				</long>
 			</metazone>
-			<metazone type="Pitcairn">
-				<long>
-					<standard>heure des îles Pitcairn</standard>
-				</long>
-			</metazone>
-			<metazone type="Ponape">
-				<long>
-					<standard>heure de l’île de Pohnpei</standard>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>heure de la Réunion</standard>
-				</long>
-			</metazone>
-			<metazone type="Rothera">
-				<long>
-					<standard>heure de Rothera</standard>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
@@ -2599,51 +1057,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée des Samoa</daylight>
 				</long>
 			</metazone>
-			<metazone type="Seychelles">
-				<long>
-					<standard>heure des Seychelles</standard>
-				</long>
-			</metazone>
-			<metazone type="Solomon">
-				<long>
-					<standard>heure des îles Salomon</standard>
-				</long>
-			</metazone>
-			<metazone type="South_Georgia">
-				<long>
-					<standard>heure de Géorgie du Sud</standard>
-				</long>
-			</metazone>
-			<metazone type="Suriname">
-				<long>
-					<standard>heure du Suriname</standard>
-				</long>
-			</metazone>
-			<metazone type="Syowa">
-				<long>
-					<standard>heure de Syowa</standard>
-				</long>
-			</metazone>
-			<metazone type="Tahiti">
-				<long>
-					<standard>heure de Tahiti</standard>
-				</long>
-			</metazone>
 			<metazone type="Taipei">
 				<long>
 					<generic>heure de Taipei</generic>
 					<standard>heure normale de Taipei</standard>
 					<daylight>heure avancée de Taipei</daylight>
-				</long>
-			</metazone>
-			<metazone type="Tajikistan">
-				<long>
-					<standard>heure du Tadjikistan</standard>
-				</long>
-			</metazone>
-			<metazone type="Tokelau">
-				<long>
-					<standard>heure de Tokelau</standard>
 				</long>
 			</metazone>
 			<metazone type="Tonga">
@@ -2653,21 +1071,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Tonga</daylight>
 				</long>
 			</metazone>
-			<metazone type="Truk">
-				<long>
-					<standard>heure de Chuuk</standard>
-				</long>
-			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>heure du Turkménistan</generic>
 					<standard>heure normale du Turkménistan</standard>
 					<daylight>heure avancée du Turkménistan</daylight>
-				</long>
-			</metazone>
-			<metazone type="Tuvalu">
-				<long>
-					<standard>heure des Tuvalu</standard>
 				</long>
 			</metazone>
 			<metazone type="Uruguay">
@@ -2691,11 +1099,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Vanuatu</daylight>
 				</long>
 			</metazone>
-			<metazone type="Venezuela">
-				<long>
-					<standard>heure du Venezuela</standard>
-				</long>
-			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic>heure de Vladivostok</generic>
@@ -2708,21 +1111,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>heure de Volgograd</generic>
 					<standard>heure normale de Volgograd</standard>
 					<daylight>heure avancée de Volgograd</daylight>
-				</long>
-			</metazone>
-			<metazone type="Vostok">
-				<long>
-					<standard>heure de Vostok</standard>
-				</long>
-			</metazone>
-			<metazone type="Wake">
-				<long>
-					<standard>heure de l’île Wake</standard>
-				</long>
-			</metazone>
-			<metazone type="Wallis">
-				<long>
-					<standard>heure de Wallis-et-Futuna</standard>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
@@ -2742,24 +1130,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<symbols numberSystem="latn">
-			<timeSeparator draft="contributed">:</timeSeparator>
-		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0 millier</pattern>
-					<pattern type="1000" count="other">0 mille</pattern>
-					<pattern type="10000" count="one">00 mille</pattern>
-					<pattern type="10000" count="other">00 mille</pattern>
-					<pattern type="100000" count="one">000 mille</pattern>
-					<pattern type="100000" count="other">000 mille</pattern>
-					<pattern type="1000000" count="one">0 million</pattern>
-					<pattern type="1000000" count="other">0 millions</pattern>
-					<pattern type="10000000" count="one">00 million</pattern>
-					<pattern type="10000000" count="other">00 millions</pattern>
-					<pattern type="100000000" count="one">000 million</pattern>
-					<pattern type="100000000" count="other">000 millions</pattern>
 					<pattern type="1000000000" count="one">0 milliard</pattern>
 					<pattern type="1000000000" count="other">0 milliards</pattern>
 					<pattern type="10000000000" count="one">00 milliard</pattern>
@@ -2816,282 +1189,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
-			<currency type="AED">
-				<displayName draft="contributed">dirham des Émirats arabes unis</displayName>
-				<displayName count="one" draft="contributed">dirham des Émirats arabes unis</displayName>
-				<displayName count="other" draft="contributed">dirhams des Émirats arabes unis</displayName>
-				<symbol draft="contributed">AED</symbol>
-			</currency>
-			<currency type="AFN">
-				<displayName draft="contributed">afghani afghan</displayName>
-				<displayName count="one" draft="contributed">afghani afghan</displayName>
-				<displayName count="other" draft="contributed">afghanis afghan</displayName>
-				<symbol draft="contributed">AFN</symbol>
-			</currency>
-			<currency type="ALL">
-				<displayName draft="contributed">lek albanais</displayName>
-				<displayName count="one" draft="contributed">lek albanais</displayName>
-				<displayName count="other" draft="contributed">leks albanais</displayName>
-				<symbol draft="contributed">ALL</symbol>
-			</currency>
-			<currency type="AMD">
-				<displayName draft="contributed">dram arménien</displayName>
-				<displayName count="one" draft="contributed">dram arménien</displayName>
-				<displayName count="other" draft="contributed">drams arméniens</displayName>
-				<symbol draft="contributed">AMD</symbol>
-			</currency>
-			<currency type="ANG">
-				<displayName draft="contributed">florin antillais</displayName>
-				<displayName count="one" draft="contributed">florin antillais</displayName>
-				<displayName count="other" draft="contributed">florins antillais</displayName>
-				<symbol draft="contributed">ANG</symbol>
-			</currency>
-			<currency type="AOA">
-				<displayName draft="contributed">kwanza angolais</displayName>
-				<displayName count="one" draft="contributed">kwanza angolais</displayName>
-				<displayName count="other" draft="contributed">kwanzas angolais</displayName>
-				<symbol draft="contributed">AOA</symbol>
-			</currency>
 			<currency type="ARS">
-				<displayName draft="contributed">peso argentin</displayName>
-				<displayName count="one" draft="contributed">peso argentin</displayName>
-				<displayName count="other" draft="contributed">pesos argentins</displayName>
 				<symbol draft="contributed">ARS</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AUD">
-				<displayName draft="contributed">dollar australien</displayName>
-				<displayName count="one" draft="contributed">dollar australien</displayName>
-				<displayName count="other" draft="contributed">dollars australiens</displayName>
 				<symbol draft="contributed">$ AU</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="AWG">
-				<displayName draft="contributed">florin arubais</displayName>
-				<displayName count="one" draft="contributed">florin arubais</displayName>
-				<displayName count="other" draft="contributed">florins arubais</displayName>
-				<symbol draft="contributed">AWG</symbol>
-			</currency>
-			<currency type="BAM">
-				<displayName draft="contributed">mark convertible bosniaque</displayName>
-				<displayName count="one" draft="contributed">mark convertible bosniaque</displayName>
-				<displayName count="other" draft="contributed">marks convertibles bosniaques</displayName>
-				<symbol draft="contributed">BAM</symbol>
-			</currency>
-			<currency type="BBD">
-				<displayName draft="contributed">dollar barbadien</displayName>
-				<displayName count="one" draft="contributed">dollar barbadien</displayName>
-				<displayName count="other" draft="contributed">dollars barbadiens</displayName>
-				<symbol draft="contributed">BBD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="BDT">
-				<displayName draft="contributed">taka bangladeshi</displayName>
-				<displayName count="one" draft="contributed">taka bangladeshi</displayName>
-				<displayName count="other" draft="contributed">takas bangladeshis</displayName>
-				<symbol draft="contributed">BDT</symbol>
-				<symbol alt="narrow" draft="contributed">৳</symbol>
-			</currency>
-			<currency type="BGN">
-				<displayName draft="contributed">lev bulgare</displayName>
-				<displayName count="one" draft="contributed">lev bulgare</displayName>
-				<displayName count="other" draft="contributed">levs bulgares</displayName>
-				<symbol draft="contributed">BGN</symbol>
-			</currency>
-			<currency type="BHD">
-				<displayName draft="contributed">dinar bahreïni</displayName>
-				<displayName count="one" draft="contributed">dinar bahreïni</displayName>
-				<displayName count="other" draft="contributed">dinars bahreïnis</displayName>
-				<symbol draft="contributed">BHD</symbol>
-			</currency>
-			<currency type="BIF">
-				<displayName draft="contributed">franc burundais</displayName>
-				<displayName count="one" draft="contributed">franc burundais</displayName>
-				<displayName count="other" draft="contributed">francs burundais</displayName>
-				<symbol draft="contributed">BIF</symbol>
 			</currency>
 			<currency type="BMD">
-				<displayName>dollar bermudien</displayName>
-				<displayName count="one">dollar bermudien</displayName>
-				<displayName count="other">dollars bermudiens</displayName>
 				<symbol draft="contributed">BMD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BND">
-				<displayName draft="contributed">dollar brunéien</displayName>
-				<displayName count="one" draft="contributed">dollar brunéien</displayName>
-				<displayName count="other" draft="contributed">dollars brunéiens</displayName>
 				<symbol draft="contributed">BND</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="BOB">
-				<displayName draft="contributed">boliviano bolivien</displayName>
-				<displayName count="one" draft="contributed">boliviano bolivien</displayName>
-				<displayName count="other" draft="contributed">bolivianos boliviens</displayName>
-				<symbol draft="contributed">BOB</symbol>
-			</currency>
-			<currency type="BRL">
-				<displayName draft="contributed">réal brésilien</displayName>
-				<displayName count="one" draft="contributed">réal brésilien</displayName>
-				<displayName count="other" draft="contributed">réals brésiliens</displayName>
-				<symbol draft="contributed">R$</symbol>
-				<symbol alt="narrow" draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<symbol draft="contributed">BSD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="BTN">
-				<displayName draft="contributed">ngultrum bouthanais</displayName>
-				<displayName count="one" draft="contributed">ngultrum bouthanais</displayName>
-				<displayName count="other" draft="contributed">ngultrums bouthanais</displayName>
-				<symbol draft="contributed">BTN</symbol>
-			</currency>
-			<currency type="BWP">
-				<displayName draft="contributed">pula botswanais</displayName>
-				<displayName count="one" draft="contributed">pula botswanais</displayName>
-				<displayName count="other" draft="contributed">pulas botswanais</displayName>
-				<symbol draft="contributed">BWP</symbol>
-			</currency>
-			<currency type="BYR">
-				<displayName draft="contributed">rouble biélorusse</displayName>
-				<displayName count="one" draft="contributed">rouble biélorusse</displayName>
-				<displayName count="other" draft="contributed">roubles biélorusses</displayName>
-				<symbol draft="contributed">BYR</symbol>
-				<symbol alt="narrow" draft="contributed">р.</symbol>
 			</currency>
 			<currency type="BZD">
-				<displayName draft="contributed">dollar bélizéen</displayName>
-				<displayName count="one" draft="contributed">dollar bélizéen</displayName>
-				<displayName count="other" draft="contributed">dollars bélizéens</displayName>
 				<symbol draft="contributed">BZD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
-				<displayName>dollar canadien</displayName>
-				<displayName count="one">dollar canadien</displayName>
-				<displayName count="other">dollars canadiens</displayName>
 				<symbol>$</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="CDF">
-				<displayName draft="contributed">franc congolais</displayName>
-				<displayName count="one" draft="contributed">franc congolais</displayName>
-				<displayName count="other" draft="contributed">francs congolais</displayName>
-				<symbol draft="contributed">CDF</symbol>
-			</currency>
-			<currency type="CHF">
-				<displayName draft="contributed">franc suisse</displayName>
-				<displayName count="one" draft="contributed">franc suisse</displayName>
-				<displayName count="other" draft="contributed">francs suisses</displayName>
-				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CLP">
-				<displayName draft="contributed">peso chilien</displayName>
-				<displayName count="one" draft="contributed">peso chilien</displayName>
-				<displayName count="other" draft="contributed">pesos chiliens</displayName>
 				<symbol draft="contributed">CLP</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNY">
-				<displayName draft="contributed">yuan renminbi chinois</displayName>
-				<displayName count="one" draft="contributed">yuan renminbi chinois</displayName>
-				<displayName count="other" draft="contributed">yuans renminbi chinois</displayName>
 				<symbol draft="contributed">CN¥</symbol>
-				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="COP">
-				<displayName draft="contributed">peso colombien</displayName>
-				<displayName count="one" draft="contributed">peso colombien</displayName>
-				<displayName count="other" draft="contributed">pesos colombiens</displayName>
 				<symbol draft="contributed">COP</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="CRC">
-				<displayName draft="contributed">colón costaricain</displayName>
-				<displayName count="one" draft="contributed">colón costaricain</displayName>
-				<displayName count="other" draft="contributed">colóns costaricains</displayName>
-				<symbol draft="contributed">CRC</symbol>
-				<symbol alt="narrow" draft="contributed">₡</symbol>
-			</currency>
-			<currency type="CUC">
-				<displayName draft="contributed">peso cubain convertible</displayName>
-				<displayName count="one" draft="contributed">peso cubain convertible</displayName>
-				<displayName count="other" draft="contributed">pesos cubains convertibles</displayName>
-				<symbol draft="contributed">CUC</symbol>
-			</currency>
-			<currency type="CUP">
-				<displayName draft="contributed">peso cubain</displayName>
-				<displayName count="one" draft="contributed">peso cubain</displayName>
-				<displayName count="other" draft="contributed">pesos cubains</displayName>
-				<symbol draft="contributed">CUP</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="CVE">
-				<symbol draft="contributed">CVE</symbol>
-			</currency>
-			<currency type="CZK">
-				<displayName draft="contributed">couronne tchèque</displayName>
-				<displayName count="one" draft="contributed">couronne tchèque</displayName>
-				<displayName count="other" draft="contributed">couronnes tchèques</displayName>
-				<symbol draft="contributed">CZK</symbol>
-			</currency>
-			<currency type="DJF">
-				<displayName draft="contributed">franc djiboutien</displayName>
-				<displayName count="one" draft="contributed">franc djiboutien</displayName>
-				<displayName count="other" draft="contributed">francs djiboutiens</displayName>
-				<symbol draft="contributed">DJF</symbol>
-			</currency>
-			<currency type="DKK">
-				<displayName draft="contributed">couronne danoise</displayName>
-				<displayName count="one" draft="contributed">couronne danoise</displayName>
-				<displayName count="other" draft="contributed">couronnes danoises</displayName>
-				<symbol draft="contributed">DKK</symbol>
-			</currency>
-			<currency type="DOP">
-				<displayName draft="contributed">peso dominicain</displayName>
-				<displayName count="one" draft="contributed">peso dominicain</displayName>
-				<displayName count="other" draft="contributed">pesos dominicains</displayName>
-				<symbol draft="contributed">DOP</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="DZD">
-				<displayName draft="contributed">dinar algérien</displayName>
-				<displayName count="one" draft="contributed">dinar algérien</displayName>
-				<displayName count="other" draft="contributed">dinars algériens</displayName>
-				<symbol draft="contributed">DZD</symbol>
-			</currency>
-			<currency type="EGP">
-				<displayName draft="contributed">livre égyptienne</displayName>
-				<displayName count="one" draft="contributed">livre égyptienne</displayName>
-				<displayName count="other" draft="contributed">livres égyptiennes</displayName>
-				<symbol draft="contributed">EGP</symbol>
-			</currency>
-			<currency type="ERN">
-				<displayName draft="contributed">nafka érythréen</displayName>
-				<displayName count="one" draft="contributed">nafka érythréen</displayName>
-				<displayName count="other" draft="contributed">nafkas érythréens</displayName>
-				<symbol draft="contributed">ERN</symbol>
-			</currency>
-			<currency type="ETB">
-				<displayName draft="contributed">birr éthiopien</displayName>
-				<displayName count="one" draft="contributed">birr éthiopien</displayName>
-				<displayName count="other" draft="contributed">birrs éthiopiens</displayName>
-				<symbol draft="contributed">ETB</symbol>
-			</currency>
-			<currency type="EUR">
-				<displayName draft="contributed">euro</displayName>
-				<displayName count="one" draft="contributed">euro</displayName>
-				<displayName count="other" draft="contributed">euros</displayName>
-				<symbol draft="contributed">€</symbol>
-				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="FJD">
-				<displayName draft="contributed">dollar fidjien</displayName>
-				<displayName count="one" draft="contributed">dollar fidjien</displayName>
-				<displayName count="other" draft="contributed">dollars fidjiens</displayName>
 				<symbol draft="contributed">FJD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>livre des Îles Malouines</displayName>
@@ -3100,551 +1229,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">FKP</symbol>
 			</currency>
 			<currency type="GBP">
-				<displayName draft="contributed">livre sterling</displayName>
-				<displayName count="one" draft="contributed">livre sterling</displayName>
-				<displayName count="other" draft="contributed">livres sterling</displayName>
 				<symbol draft="contributed">£</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
-				<displayName draft="contributed">lari géorgien</displayName>
-				<displayName count="one">lari géorgien</displayName>
-				<displayName count="other">lari géorgiens</displayName>
-				<symbol draft="contributed">GEL</symbol>
 				<symbol alt="narrow" draft="contributed">GEL</symbol>
 			</currency>
-			<currency type="GHS">
-				<displayName draft="contributed">cédi ghanéen</displayName>
-				<displayName count="one" draft="contributed">cédi ghanéen</displayName>
-				<displayName count="other" draft="contributed">cédis ghanéens</displayName>
-				<symbol draft="contributed">GHS</symbol>
-			</currency>
 			<currency type="GIP">
-				<displayName draft="contributed">livre de Gibraltar</displayName>
-				<displayName count="one" draft="contributed">livre de Gibraltar</displayName>
-				<displayName count="other" draft="contributed">livres de Gibraltar</displayName>
 				<symbol draft="contributed">GIP</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
-			</currency>
-			<currency type="GMD">
-				<displayName draft="contributed">dalasi gambien</displayName>
-				<displayName count="one" draft="contributed">dalasi gambien</displayName>
-				<displayName count="other" draft="contributed">dalasis gambiens</displayName>
-				<symbol draft="contributed">GMD</symbol>
-			</currency>
-			<currency type="GNF">
-				<displayName draft="contributed">franc guinéen</displayName>
-				<displayName count="one" draft="contributed">franc guinéen</displayName>
-				<displayName count="other" draft="contributed">francs guinéens</displayName>
-				<symbol draft="contributed">GNF</symbol>
-			</currency>
-			<currency type="GTQ">
-				<displayName draft="contributed">quetzal guatémaltèque</displayName>
-				<displayName count="one" draft="contributed">quetzal guatémaltèque</displayName>
-				<displayName count="other" draft="contributed">quetzals guatémaltèques</displayName>
-				<symbol draft="contributed">GTQ</symbol>
-			</currency>
-			<currency type="GYD">
-				<displayName draft="contributed">dollar du Guyana</displayName>
-				<symbol draft="contributed">GYD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HKD">
-				<displayName draft="contributed">dollar de Hong Kong</displayName>
-				<displayName count="one" draft="contributed">dollar de Hong Kong</displayName>
-				<displayName count="other" draft="contributed">dollars de Hong Kong</displayName>
 				<symbol draft="contributed">$ HK</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="HNL">
-				<displayName draft="contributed">lempira hondurien</displayName>
-				<displayName count="one" draft="contributed">lempira hondurien</displayName>
-				<displayName count="other" draft="contributed">lempiras honduriens</displayName>
-				<symbol draft="contributed">HNL</symbol>
-			</currency>
-			<currency type="HRK">
-				<displayName draft="contributed">kuna croate</displayName>
-				<displayName count="one" draft="contributed">kuna croate</displayName>
-				<displayName count="other" draft="contributed">kunas croates</displayName>
-				<symbol draft="contributed">HRK</symbol>
-			</currency>
-			<currency type="HTG">
-				<displayName draft="contributed">gourde haïtienne</displayName>
-				<displayName count="one" draft="contributed">gourde haïtienne</displayName>
-				<displayName count="other" draft="contributed">gourdes haïtiennes</displayName>
-				<symbol draft="contributed">HTG</symbol>
-			</currency>
-			<currency type="HUF">
-				<displayName draft="contributed">forint hongrois</displayName>
-				<displayName count="one" draft="contributed">forint hongrois</displayName>
-				<displayName count="other" draft="contributed">forints hongrois</displayName>
-				<symbol draft="contributed">HUF</symbol>
-			</currency>
-			<currency type="IDR">
-				<displayName draft="contributed">roupie indonésienne</displayName>
-				<displayName count="one" draft="contributed">roupie indonésienne</displayName>
-				<displayName count="other" draft="contributed">roupies indonésiennes</displayName>
-				<symbol draft="contributed">IDR</symbol>
 			</currency>
 			<currency type="ILS">
-				<displayName draft="contributed">nouveau shekel israélien</displayName>
-				<displayName count="one" draft="contributed">nouveau shekel israélien</displayName>
-				<displayName count="other" draft="contributed">nouveaux shekels israéliens</displayName>
 				<symbol draft="contributed">ILS</symbol>
 			</currency>
 			<currency type="INR">
-				<displayName draft="contributed">roupie indienne</displayName>
-				<displayName count="one" draft="contributed">roupie indienne</displayName>
-				<displayName count="other" draft="contributed">roupies indiennes</displayName>
 				<symbol draft="contributed">INR</symbol>
-				<symbol alt="narrow" draft="contributed">₹</symbol>
-			</currency>
-			<currency type="IQD">
-				<displayName draft="contributed">dinar irakien</displayName>
-				<displayName count="one" draft="contributed">dinar irakien</displayName>
-				<displayName count="other" draft="contributed">dinars irakiens</displayName>
-				<symbol draft="contributed">IQD</symbol>
-			</currency>
-			<currency type="IRR">
-				<displayName draft="contributed">rial iranien</displayName>
-				<displayName count="one" draft="contributed">rial iranien</displayName>
-				<displayName count="other" draft="contributed">rials iraniens</displayName>
-				<symbol draft="contributed">IRR</symbol>
-			</currency>
-			<currency type="ISK">
-				<displayName draft="contributed">couronne islandaise</displayName>
-				<displayName count="one" draft="contributed">couronne islandaise</displayName>
-				<displayName count="other" draft="contributed">couronnes islandaises</displayName>
-				<symbol draft="contributed">ISK</symbol>
-			</currency>
-			<currency type="JMD">
-				<displayName draft="contributed">dollar jamaïcain</displayName>
-				<displayName count="one" draft="contributed">dollar jamaïcain</displayName>
-				<displayName count="other" draft="contributed">dollars jamaïcains</displayName>
-				<symbol draft="contributed">JMD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="JOD">
-				<displayName draft="contributed">dinar jordanien</displayName>
-				<displayName count="one" draft="contributed">dinar jordanien</displayName>
-				<displayName count="other" draft="contributed">dinars jordaniens</displayName>
-				<symbol draft="contributed">JOD</symbol>
 			</currency>
 			<currency type="JPY">
-				<displayName draft="contributed">yen japonais</displayName>
-				<displayName count="one" draft="contributed">yen japonais</displayName>
-				<displayName count="other" draft="contributed">yens japonais</displayName>
 				<symbol draft="contributed">¥</symbol>
-				<symbol alt="narrow" draft="contributed">¥</symbol>
-			</currency>
-			<currency type="KES">
-				<displayName draft="contributed">shilling kényan</displayName>
-				<displayName count="one" draft="contributed">shilling kényan</displayName>
-				<displayName count="other" draft="contributed">shillings kényans</displayName>
-				<symbol draft="contributed">KES</symbol>
-			</currency>
-			<currency type="KGS">
-				<displayName draft="contributed">som kirghize</displayName>
-				<displayName count="one" draft="contributed">som kirghize</displayName>
-				<displayName count="other" draft="contributed">soms kirghizes</displayName>
-				<symbol draft="contributed">KGS</symbol>
-			</currency>
-			<currency type="KHR">
-				<displayName draft="contributed">riel cambodgien</displayName>
-				<displayName count="one" draft="contributed">riel cambodgien</displayName>
-				<displayName count="other" draft="contributed">riels cambodgiens</displayName>
-				<symbol draft="contributed">KHR</symbol>
-				<symbol alt="narrow" draft="contributed">៛</symbol>
 			</currency>
 			<currency type="KMF">
-				<displayName draft="contributed">franc comorien</displayName>
-				<displayName count="one" draft="contributed">franc comorien</displayName>
-				<displayName count="other" draft="contributed">francs comoriens</displayName>
-				<symbol draft="contributed">KMF</symbol>
 				<symbol alt="narrow" draft="contributed">CF</symbol>
 			</currency>
-			<currency type="KPW">
-				<displayName draft="contributed">won nord-coréen</displayName>
-				<displayName count="one" draft="contributed">won nord-coréen</displayName>
-				<displayName count="other" draft="contributed">wons nord-coréens</displayName>
-				<symbol draft="contributed">KPW</symbol>
-			</currency>
 			<currency type="KRW">
-				<displayName draft="contributed">won sud-coréen</displayName>
-				<displayName count="one" draft="contributed">won sud-coréen</displayName>
-				<displayName count="other" draft="contributed">wons sud-coréens</displayName>
 				<symbol draft="contributed">KRW</symbol>
-				<symbol alt="narrow" draft="contributed">₩</symbol>
-			</currency>
-			<currency type="KWD">
-				<displayName draft="contributed">dinar koweïtien</displayName>
-				<displayName count="one" draft="contributed">dinar koweïtien</displayName>
-				<displayName count="other" draft="contributed">dinar koweïtiens</displayName>
-				<symbol draft="contributed">KWD</symbol>
-			</currency>
-			<currency type="KYD">
-				<displayName draft="contributed">dollar des îles Caïmans</displayName>
-				<displayName count="one" draft="contributed">dollar des îles Caïmans</displayName>
-				<displayName count="other" draft="contributed">dollars des îles Caïmans</displayName>
-				<symbol draft="contributed">KYD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="KZT">
-				<displayName draft="contributed">tenge kazakh</displayName>
-				<displayName count="one" draft="contributed">tenge kazakh</displayName>
-				<displayName count="other" draft="contributed">tenges kazakhs</displayName>
-				<symbol draft="contributed">KZT</symbol>
-				<symbol alt="narrow" draft="contributed">₸</symbol>
-			</currency>
-			<currency type="LAK">
-				<symbol draft="contributed">LAK</symbol>
-				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
 			<currency type="LBP">
-				<displayName draft="contributed">livre libanaise</displayName>
-				<displayName count="one" draft="contributed">livre libanaise</displayName>
-				<displayName count="other" draft="contributed">livres libanaises</displayName>
 				<symbol draft="contributed">LBP</symbol>
 			</currency>
-			<currency type="LKR">
-				<displayName draft="contributed">roupie srilankaise</displayName>
-				<displayName count="one" draft="contributed">roupie srilankaise</displayName>
-				<displayName count="other" draft="contributed">roupies srilankaises</displayName>
-				<symbol draft="contributed">LKR</symbol>
-			</currency>
-			<currency type="LRD">
-				<displayName draft="contributed">dollar libérien</displayName>
-				<displayName count="one" draft="contributed">dollar libérien</displayName>
-				<displayName count="other" draft="contributed">dollars libériens</displayName>
-				<symbol draft="contributed">LRD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="LTL">
-				<displayName draft="contributed">litas lituanien</displayName>
-				<displayName count="one" draft="contributed">litas lituanien</displayName>
-				<displayName count="other" draft="contributed">litas lituaniens</displayName>
-				<symbol draft="contributed">LTL</symbol>
-			</currency>
-			<currency type="LVL">
-				<displayName draft="contributed">lats letton</displayName>
-				<displayName count="one" draft="contributed">lats letton</displayName>
-				<displayName count="other" draft="contributed">lats lettons</displayName>
-				<symbol draft="contributed">LVL</symbol>
-			</currency>
-			<currency type="LYD">
-				<displayName draft="contributed">dinar libyen</displayName>
-				<displayName count="one" draft="contributed">dinar libyen</displayName>
-				<displayName count="other" draft="contributed">dinars libyens</displayName>
-				<symbol draft="contributed">LYD</symbol>
-			</currency>
-			<currency type="MAD">
-				<displayName draft="contributed">dirham marocain</displayName>
-				<displayName count="one" draft="contributed">dirham marocain</displayName>
-				<displayName count="other" draft="contributed">dirhams marocains</displayName>
-				<symbol draft="contributed">MAD</symbol>
-			</currency>
-			<currency type="MDL">
-				<displayName draft="contributed">leu moldave</displayName>
-				<displayName count="one" draft="contributed">leu moldave</displayName>
-				<displayName count="other" draft="contributed">leus moldaves</displayName>
-				<symbol draft="contributed">MDL</symbol>
-			</currency>
-			<currency type="MGA">
-				<displayName draft="contributed">ariary malgache</displayName>
-				<displayName count="one" draft="contributed">ariary malgache</displayName>
-				<displayName count="other" draft="contributed">ariarys malgaches</displayName>
-				<symbol draft="contributed">MGA</symbol>
-			</currency>
-			<currency type="MKD">
-				<displayName draft="contributed">denar macédonien</displayName>
-				<displayName count="one" draft="contributed">denar macédonien</displayName>
-				<displayName count="other" draft="contributed">denars macédoniens</displayName>
-				<symbol draft="contributed">MKD</symbol>
-			</currency>
-			<currency type="MMK">
-				<displayName draft="contributed">kyat myanmarais</displayName>
-				<displayName count="one" draft="contributed">kyat myanmarais</displayName>
-				<displayName count="other" draft="contributed">kyats myanmarais</displayName>
-				<symbol draft="contributed">MMK</symbol>
-			</currency>
-			<currency type="MNT">
-				<displayName draft="contributed">tugrik mongol</displayName>
-				<displayName count="one" draft="contributed">tugrik mongol</displayName>
-				<displayName count="other" draft="contributed">tugriks mongols</displayName>
-				<symbol draft="contributed">MNT</symbol>
-				<symbol alt="narrow" draft="contributed">₮</symbol>
-			</currency>
-			<currency type="MOP">
-				<displayName draft="contributed">pataca macanaise</displayName>
-				<displayName count="one" draft="contributed">pataca macanaise</displayName>
-				<displayName count="other" draft="contributed">patacas macanaises</displayName>
-				<symbol draft="contributed">MOP</symbol>
-			</currency>
-			<currency type="MRO">
-				<displayName draft="contributed">ouguiya mauritanien</displayName>
-				<displayName count="one" draft="contributed">ouguiya mauritanien</displayName>
-				<displayName count="other" draft="contributed">ouguiyas mauritaniens</displayName>
-				<symbol draft="contributed">MRO</symbol>
-			</currency>
-			<currency type="MUR">
-				<displayName draft="contributed">roupie mauricienne</displayName>
-				<displayName count="one" draft="contributed">roupie mauricienne</displayName>
-				<displayName count="other" draft="contributed">roupies mauriciennes</displayName>
-				<symbol draft="contributed">MUR</symbol>
-			</currency>
-			<currency type="MVR">
-				<displayName draft="contributed">rufiyaa maldivien</displayName>
-				<displayName count="one" draft="contributed">rufiyaa maldivienne</displayName>
-				<displayName count="other" draft="contributed">rufiyaas maldiviennes</displayName>
-				<symbol draft="contributed">MVR</symbol>
-			</currency>
-			<currency type="MWK">
-				<displayName draft="contributed">kwacha malawite</displayName>
-				<displayName count="one" draft="contributed">kwacha malawite</displayName>
-				<displayName count="other" draft="contributed">kwachas malawites</displayName>
-				<symbol draft="contributed">MWK</symbol>
-			</currency>
 			<currency type="MXN">
-				<displayName draft="contributed">peso mexicain</displayName>
-				<displayName count="one" draft="contributed">peso mexicain</displayName>
-				<displayName count="other" draft="contributed">pesos mexicains</displayName>
 				<symbol draft="contributed">MXN</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="MYR">
-				<displayName draft="contributed">ringgit malais</displayName>
-				<displayName count="one" draft="contributed">ringgit malais</displayName>
-				<displayName count="other" draft="contributed">ringgits malais</displayName>
-				<symbol draft="contributed">MYR</symbol>
-			</currency>
-			<currency type="MZN">
-				<displayName draft="contributed">metical mozambicain</displayName>
-				<displayName count="one" draft="contributed">metical mozambicain</displayName>
-				<displayName count="other" draft="contributed">meticais mozambicains</displayName>
-				<symbol draft="contributed">MZN</symbol>
 			</currency>
 			<currency type="NAD">
-				<displayName draft="contributed">dollar namibien</displayName>
-				<displayName count="one" draft="contributed">dollar namibien</displayName>
-				<displayName count="other" draft="contributed">dollars namibiens</displayName>
 				<symbol draft="contributed">NAD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="NGN">
-				<displayName draft="contributed">naira nigérian</displayName>
-				<displayName count="one" draft="contributed">naira nigérian</displayName>
-				<displayName count="other" draft="contributed">nairas nigérians</displayName>
-				<symbol draft="contributed">NGN</symbol>
-				<symbol alt="narrow" draft="contributed">₦</symbol>
 			</currency>
 			<currency type="NIO">
-				<displayName draft="contributed">córdoba oro nicaraguayen</displayName>
-				<displayName count="one" draft="contributed">córdoba oro nicaraguayen</displayName>
-				<displayName count="other" draft="contributed">córdobas oro nicaraguayens</displayName>
-				<symbol draft="contributed">NIO</symbol>
 				<symbol alt="narrow" draft="contributed">C$</symbol>
 			</currency>
-			<currency type="NOK">
-				<displayName draft="contributed">couronne norvégienne</displayName>
-				<displayName count="one" draft="contributed">couronne norvégienne</displayName>
-				<displayName count="other" draft="contributed">couronnes norvégiennes</displayName>
-				<symbol draft="contributed">NOK</symbol>
-			</currency>
-			<currency type="NPR">
-				<displayName draft="contributed">roupie népalaise</displayName>
-				<displayName count="one" draft="contributed">roupie népalaise</displayName>
-				<displayName count="other" draft="contributed">roupies népalaises</displayName>
-				<symbol draft="contributed">NPR</symbol>
-			</currency>
 			<currency type="NZD">
-				<displayName draft="contributed">dollar néo-zélandais</displayName>
-				<displayName count="one" draft="contributed">dollar néo-zélandais</displayName>
-				<displayName count="other" draft="contributed">dollars néo-zélandais</displayName>
 				<symbol draft="contributed">$ NZ</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="OMR">
-				<displayName draft="contributed">rial omanais</displayName>
-				<displayName count="one" draft="contributed">rial omanais</displayName>
-				<displayName count="other" draft="contributed">rials omanis</displayName>
-				<symbol draft="contributed">OMR</symbol>
-			</currency>
-			<currency type="PAB">
-				<displayName>balboa panaméen</displayName>
-				<displayName count="one">balboa panaméen</displayName>
-				<displayName count="other">balboas panaméens</displayName>
-				<symbol draft="contributed">PAB</symbol>
-			</currency>
-			<currency type="PEN">
-				<displayName draft="contributed">nouveau sol péruvien</displayName>
-				<displayName count="one" draft="contributed">nouveau sol péruvien</displayName>
-				<displayName count="other" draft="contributed">nouveaux sols péruviens</displayName>
-				<symbol draft="contributed">PEN</symbol>
-			</currency>
-			<currency type="PGK">
-				<symbol draft="contributed">PGK</symbol>
-			</currency>
-			<currency type="PHP">
-				<displayName draft="contributed">peso philippin</displayName>
-				<displayName count="one" draft="contributed">peso philippin</displayName>
-				<displayName count="other" draft="contributed">pesos philippins</displayName>
-				<symbol draft="contributed">PHP</symbol>
-				<symbol alt="narrow" draft="contributed">₱</symbol>
-			</currency>
-			<currency type="PKR">
-				<displayName draft="contributed">roupie pakistanaise</displayName>
-				<displayName count="one" draft="contributed">roupie pakistanaise</displayName>
-				<displayName count="other" draft="contributed">roupies pakistanaises</displayName>
-				<symbol draft="contributed">PKR</symbol>
-			</currency>
-			<currency type="PLN">
-				<displayName draft="contributed">zloty polonais</displayName>
-				<displayName count="one" draft="contributed">zloty polonais</displayName>
-				<displayName count="other" draft="contributed">zlotys polonais</displayName>
-				<symbol draft="contributed">PLN</symbol>
-			</currency>
-			<currency type="PYG">
-				<displayName draft="contributed">guaraní paraguayen</displayName>
-				<displayName count="one" draft="contributed">guaraní paraguayen</displayName>
-				<displayName count="other" draft="contributed">guaranís paraguayens</displayName>
-				<symbol draft="contributed">PYG</symbol>
-				<symbol alt="narrow" draft="contributed">₲</symbol>
-			</currency>
-			<currency type="QAR">
-				<symbol draft="contributed">QAR</symbol>
-			</currency>
-			<currency type="RON">
-				<displayName draft="contributed">leu roumain</displayName>
-				<displayName count="one" draft="contributed">leu roumain</displayName>
-				<displayName count="other" draft="contributed">lei roumains</displayName>
-				<symbol draft="contributed">RON</symbol>
-			</currency>
-			<currency type="RSD">
-				<displayName draft="contributed">dinar serbe</displayName>
-				<displayName count="one" draft="contributed">dinar serbe</displayName>
-				<displayName count="other" draft="contributed">dinars serbes</displayName>
-				<symbol draft="contributed">RSD</symbol>
-			</currency>
-			<currency type="RUB">
-				<displayName draft="contributed">rouble russe</displayName>
-				<displayName count="one" draft="contributed">rouble russe</displayName>
-				<displayName count="other" draft="contributed">roubles russes</displayName>
-				<symbol draft="contributed">RUB</symbol>
-			</currency>
-			<currency type="RWF">
-				<displayName draft="contributed">franc rwandais</displayName>
-				<displayName count="one" draft="contributed">franc rwandais</displayName>
-				<displayName count="other" draft="contributed">francs rwandais</displayName>
-				<symbol draft="contributed">RWF</symbol>
-			</currency>
-			<currency type="SAR">
-				<displayName draft="contributed">rial saoudien</displayName>
-				<displayName count="one" draft="contributed">rial saoudien</displayName>
-				<displayName count="other" draft="contributed">rials saoudiens</displayName>
-				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
-				<displayName draft="contributed">dollar des îles Salomon</displayName>
-				<displayName count="one" draft="contributed">dollar des îles Salomon</displayName>
-				<displayName count="other" draft="contributed">dollars des îles Salomon</displayName>
 				<symbol draft="contributed">SBD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="SCR">
-				<displayName draft="contributed">roupie des Seychelles</displayName>
-				<displayName count="one" draft="contributed">roupie des Seychelles</displayName>
-				<displayName count="other" draft="contributed">roupies des Seychelles</displayName>
-				<symbol draft="contributed">SCR</symbol>
-			</currency>
-			<currency type="SDG">
-				<displayName draft="contributed">livre soudanaise</displayName>
-				<displayName count="one" draft="contributed">livre soudanaise</displayName>
-				<displayName count="other" draft="contributed">livres soudanaises</displayName>
-				<symbol draft="contributed">SDG</symbol>
-			</currency>
-			<currency type="SEK">
-				<displayName draft="contributed">couronne suédoise</displayName>
-				<displayName count="one" draft="contributed">couronne suédoise</displayName>
-				<displayName count="other" draft="contributed">couronnes suédoises</displayName>
-				<symbol draft="contributed">SEK</symbol>
 			</currency>
 			<currency type="SGD">
-				<displayName draft="contributed">dollar de Singapour</displayName>
-				<displayName count="one" draft="contributed">dollar de Singapour</displayName>
-				<displayName count="other" draft="contributed">dollars de Singapour</displayName>
 				<symbol draft="contributed">$ SG</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="SHP">
-				<displayName draft="contributed">livre de Sainte-Hélène</displayName>
-				<displayName count="one" draft="contributed">livre de Sainte-Hélène</displayName>
-				<displayName count="other" draft="contributed">livres de Sainte-Hélène</displayName>
-				<symbol draft="contributed">SHP</symbol>
-			</currency>
-			<currency type="SLL">
-				<displayName draft="contributed">leone sierra-léonais</displayName>
-				<displayName count="one" draft="contributed">leone sierra-léonais</displayName>
-				<displayName count="other" draft="contributed">leones sierra-léonais</displayName>
-				<symbol draft="contributed">SLL</symbol>
-			</currency>
-			<currency type="SOS">
-				<displayName draft="contributed">shilling somalien</displayName>
-				<displayName count="one" draft="contributed">shilling somalien</displayName>
-				<displayName count="other" draft="contributed">shillings somaliens</displayName>
-				<symbol draft="contributed">SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<symbol draft="contributed">SRD</symbol>
-			</currency>
-			<currency type="SSP">
-				<displayName draft="contributed">livre sud-soudanaise</displayName>
-				<displayName count="one" draft="contributed">livre sud-soudanaise</displayName>
-				<displayName count="other" draft="contributed">livres sud-soudanaises</displayName>
-				<symbol draft="contributed">SSP</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
-			</currency>
-			<currency type="STD">
-				<displayName draft="contributed">dobra santoméen</displayName>
-				<displayName count="one" draft="contributed">dobra santoméen</displayName>
-				<displayName count="other" draft="contributed">dobras santoméens</displayName>
-				<symbol draft="contributed">STD</symbol>
-			</currency>
-			<currency type="SYP">
-				<displayName draft="contributed">livre syrienne</displayName>
-				<displayName count="one" draft="contributed">livre syrienne</displayName>
-				<displayName count="other" draft="contributed">livres syriennes</displayName>
-				<symbol draft="contributed">SYP</symbol>
-			</currency>
-			<currency type="SZL">
-				<displayName draft="contributed">lilangeni swazi</displayName>
-				<displayName count="one" draft="contributed">lilangeni swazi</displayName>
-				<displayName count="other" draft="contributed">lilangenis swazis</displayName>
-				<symbol draft="contributed">SZL</symbol>
-			</currency>
-			<currency type="THB">
-				<displayName draft="contributed">baht thaïlandais</displayName>
-				<displayName count="one" draft="contributed">baht thaïlandais</displayName>
-				<displayName count="other" draft="contributed">bahts thaïlandais</displayName>
-				<symbol draft="contributed">THB</symbol>
-				<symbol alt="narrow" draft="contributed">฿</symbol>
-			</currency>
-			<currency type="TJS">
-				<displayName draft="contributed">somoni tadjik</displayName>
-				<displayName count="one" draft="contributed">somoni tadjik</displayName>
-				<displayName count="other" draft="contributed">somonis tadjiks</displayName>
-				<symbol draft="contributed">TJS</symbol>
-			</currency>
-			<currency type="TMT">
-				<displayName draft="contributed">nouveau manat turkmène</displayName>
-				<displayName count="one" draft="contributed">nouveau manat turkmène</displayName>
-				<displayName count="other" draft="contributed">nouveaux manats turkmènes</displayName>
-				<symbol draft="contributed">TMT</symbol>
-			</currency>
-			<currency type="TND">
-				<displayName draft="contributed">dinar tunisien</displayName>
-				<displayName count="one" draft="contributed">dinar tunisien</displayName>
-				<displayName count="other" draft="contributed">dinars tunisiens</displayName>
-				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName draft="contributed">pa’anga</displayName>
@@ -3652,104 +1285,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="contributed">pa’angas</displayName>
 			</currency>
 			<currency type="TRY">
-				<displayName draft="contributed">livre turque</displayName>
-				<displayName count="one" draft="contributed">livre turque</displayName>
-				<displayName count="other" draft="contributed">livres turques</displayName>
-				<symbol draft="contributed">TRY</symbol>
-				<symbol alt="narrow" draft="contributed">₺</symbol>
 				<symbol alt="variant" draft="contributed">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>dollar de Trinité-et-Tobago</displayName>
-				<displayName count="one" draft="contributed">dollar de Trinité-et-Tobago</displayName>
-				<displayName count="other" draft="contributed">dollars de Trinité-et-Tobago</displayName>
 				<symbol draft="contributed">TTD</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="TWD">
-				<displayName draft="contributed">nouveau dollar taïwanais</displayName>
-				<displayName count="one" draft="contributed">nouveau dollar taïwanais</displayName>
-				<displayName count="other" draft="contributed">nouveaux dollars taïwanais</displayName>
-				<symbol draft="contributed">TWD</symbol>
-				<symbol alt="narrow" draft="contributed">NT$</symbol>
-			</currency>
-			<currency type="TZS">
-				<displayName draft="contributed">shilling tanzanien</displayName>
-				<displayName count="one" draft="contributed">shilling tanzanien</displayName>
-				<displayName count="other" draft="contributed">shillings tanzaniens</displayName>
-				<symbol draft="contributed">TZS</symbol>
-			</currency>
-			<currency type="UAH">
-				<displayName draft="contributed">hryvnia ukrainienne</displayName>
-				<displayName count="one" draft="contributed">hryvnia ukrainienne</displayName>
-				<displayName count="other" draft="contributed">hryvnias ukrainiennes</displayName>
-				<symbol draft="contributed">UAH</symbol>
-				<symbol alt="narrow" draft="contributed">₴</symbol>
-			</currency>
-			<currency type="UGX">
-				<displayName draft="contributed">shilling ougandais</displayName>
-				<displayName count="one" draft="contributed">shilling ougandais</displayName>
-				<displayName count="other" draft="contributed">shillings ougandais</displayName>
-				<symbol draft="contributed">UGX</symbol>
 			</currency>
 			<currency type="USD">
-				<displayName draft="contributed">dollar des États-Unis</displayName>
-				<displayName count="one" draft="contributed">dollar des États-Unis</displayName>
-				<displayName count="other" draft="contributed">dollars des États-Unis</displayName>
 				<symbol draft="contributed">$ US</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UYU">
-				<displayName draft="contributed">peso uruguayen</displayName>
-				<displayName count="one" draft="contributed">peso uruguayen</displayName>
-				<displayName count="other" draft="contributed">pesos uruguayens</displayName>
 				<symbol draft="contributed">UYU</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
-			</currency>
-			<currency type="UZS">
-				<displayName draft="contributed">sum ouzbek</displayName>
-				<displayName count="one" draft="contributed">sum ouzbek</displayName>
-				<displayName count="other" draft="contributed">sums ouzbeks</displayName>
-				<symbol draft="contributed">UZS</symbol>
-			</currency>
-			<currency type="VEF">
-				<displayName draft="contributed">bolivar vénézuélien</displayName>
-				<displayName count="one" draft="contributed">bolivar vénézuélien</displayName>
-				<displayName count="other" draft="contributed">bolivars vénézuéliens</displayName>
-				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
-				<displayName draft="contributed">dông vietnamien</displayName>
-				<displayName count="one" draft="contributed">dông vietnamien</displayName>
-				<displayName count="other" draft="contributed">dôngs vietnamiens</displayName>
 				<symbol draft="contributed">VND</symbol>
-				<symbol alt="narrow" draft="contributed">₫</symbol>
-			</currency>
-			<currency type="VUV">
-				<symbol draft="contributed">VUV</symbol>
 			</currency>
 			<currency type="XAF">
-				<displayName draft="contributed">franc CFA (BEAC)</displayName>
-				<displayName count="one" draft="contributed">franc CFA (BEAC)</displayName>
-				<displayName count="other" draft="contributed">francs CFA (BEAC)</displayName>
 				<symbol draft="contributed">XAF</symbol>
 			</currency>
-			<currency type="XCD">
-				<displayName draft="contributed">dollar des Caraïbes orientales</displayName>
-				<displayName count="one" draft="contributed">dollar des Caraïbes orientales</displayName>
-				<displayName count="other" draft="contributed">dollars des Caraïbes orientales</displayName>
-				<symbol draft="contributed">XCD</symbol>
-			</currency>
 			<currency type="XOF">
-				<displayName draft="contributed">franc CFA (BCEAO)</displayName>
-				<displayName count="one" draft="contributed">franc CFA (BCEAO)</displayName>
-				<displayName count="other" draft="contributed">francs CFA (BCEAO)</displayName>
 				<symbol draft="contributed">XOF</symbol>
 			</currency>
 			<currency type="XPF">
-				<displayName draft="contributed">franc CFP</displayName>
-				<displayName count="one" draft="contributed">franc CFP</displayName>
-				<displayName count="other" draft="contributed">francs CFP</displayName>
 				<symbol draft="contributed">XPF</symbol>
 			</currency>
 			<currency type="XXX">
@@ -3757,23 +1314,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">(devise inconnue)</displayName>
 				<displayName count="other">(devise inconnue)</displayName>
 			</currency>
-			<currency type="YER">
-				<displayName draft="contributed">rial yéménite</displayName>
-				<displayName count="one" draft="contributed">rial yéménite</displayName>
-				<displayName count="other" draft="contributed">rials yéménites</displayName>
-				<symbol draft="contributed">YER</symbol>
-			</currency>
-			<currency type="ZAR">
-				<displayName draft="contributed">rand sud-africain</displayName>
-				<displayName count="one" draft="contributed">rand sud-africain</displayName>
-				<displayName count="other" draft="contributed">rands sud-africains</displayName>
-				<symbol draft="contributed">ZAR</symbol>
-			</currency>
 			<currency type="ZMW">
-				<displayName draft="contributed">kwacha zambien</displayName>
-				<displayName count="one" draft="contributed">kwacha zambien</displayName>
-				<displayName count="other" draft="contributed">kwachas zambiens</displayName>
-				<symbol draft="contributed">ZMW</symbol>
 				<symbol alt="narrow" draft="contributed">ZK</symbol>
 			</currency>
 		</currencies>
@@ -3783,42 +1324,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="acceleration-g-force">
 				<displayName draft="contributed">force G</displayName>
 			</unit>
-			<unit type="acceleration-meter-per-second-squared">
-				<displayName draft="contributed">mètres par seconde carrée</displayName>
-				<unitPattern count="one" draft="contributed">{0} mètre par seconde carrée</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mètres par seconde carrée</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<unitPattern count="one">{0} radian</unitPattern>
-				<unitPattern count="other">{0} radians</unitPattern>
-			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} degré</unitPattern>
-				<unitPattern count="other">{0} degrés</unitPattern>
-			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} seconde d’angle</unitPattern>
 				<unitPattern count="other">{0} secondes d’angle</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="contributed">kilomètres carrés</displayName>
-				<unitPattern count="one" draft="contributed">{0} kilomètre carré</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kilomètres carrés</unitPattern>
-			</unit>
-			<unit type="area-hectare">
-				<displayName draft="contributed">hectares</displayName>
-				<unitPattern count="one" draft="contributed">{0} hectare</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} hectares</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName draft="contributed">mètres carrés</displayName>
-				<unitPattern count="one" draft="contributed">{0} mètre carré</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mètres carrés</unitPattern>
-			</unit>
-			<unit type="area-square-centimeter">
-				<displayName draft="contributed">centimètres carrés</displayName>
-				<unitPattern count="one" draft="contributed">{0} centimètre carré</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} centimètres carrés</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName draft="contributed">milles carrés</displayName>
@@ -3836,24 +1344,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} verge carrée</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} verges carrées</unitPattern>
 			</unit>
-			<unit type="area-square-foot">
-				<displayName>pieds carrés</displayName>
-				<unitPattern count="one">{0} pied carré</unitPattern>
-				<unitPattern count="other">{0} pieds carrés</unitPattern>
-			</unit>
-			<unit type="area-square-inch">
-				<displayName>pouces carrés</displayName>
-				<unitPattern count="one">{0} pouce carré</unitPattern>
-				<unitPattern count="other">{0} pouces carrés</unitPattern>
-			</unit>
 			<unit type="concentr-part-per-million">
 				<displayName draft="contributed">parties par million</displayName>
 				<unitPattern count="one" draft="contributed">{0} partie par million</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} parties par million</unitPattern>
-			</unit>
-			<unit type="consumption-liter-per-kilometer">
-				<unitPattern count="one">{0} litre au kilomètre</unitPattern>
-				<unitPattern count="other">{0} litres au kilomètre</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName draft="contributed">litres aux 100 kilomètres</displayName>
@@ -3865,144 +1359,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} mille au gallon</unitPattern>
 				<unitPattern count="other">{0} milles au gallon</unitPattern>
 			</unit>
-			<unit type="digital-terabyte">
-				<unitPattern count="one">{0} téraoctet</unitPattern>
-				<unitPattern count="other">{0} téraoctets</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<unitPattern count="one">{0} térabit</unitPattern>
-				<unitPattern count="other">{0} térabits</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<unitPattern count="one">{0} gigaoctet</unitPattern>
-				<unitPattern count="other">{0} gigaoctets</unitPattern>
-			</unit>
-			<unit type="digital-gigabit">
-				<displayName>gigabits</displayName>
-				<unitPattern count="one">{0} gigabit</unitPattern>
-				<unitPattern count="other">{0} gigabits</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>mégaoctets</displayName>
-				<unitPattern count="one">{0} mégaoctet</unitPattern>
-				<unitPattern count="other">{0} mégaoctets</unitPattern>
-			</unit>
-			<unit type="digital-megabit">
-				<displayName>mégabits</displayName>
-				<unitPattern count="one">{0} mégabit</unitPattern>
-				<unitPattern count="other">{0} mégabits</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>kilooctets</displayName>
-				<unitPattern count="one">{0} kilooctet</unitPattern>
-				<unitPattern count="other">{0} kilooctets</unitPattern>
-			</unit>
-			<unit type="digital-kilobit">
-				<displayName>kilobits</displayName>
-				<unitPattern count="one">{0} kilobit</unitPattern>
-				<unitPattern count="other">{0} kilobits</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<unitPattern count="one">{0} octet</unitPattern>
-				<unitPattern count="other">{0} octets</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<unitPattern count="one">{0} bit</unitPattern>
-				<unitPattern count="other">{0} bits</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="one">{0} an</unitPattern>
-				<unitPattern count="other">{0} ans</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<perUnitPattern draft="contributed">{0} à la seconde</perUnitPattern>
-			</unit>
-			<unit type="electric-ampere">
-				<displayName>ampères</displayName>
-				<unitPattern count="one">{0} ampère</unitPattern>
-				<unitPattern count="other">{0} ampères</unitPattern>
-			</unit>
-			<unit type="electric-milliampere">
-				<displayName>milliampères</displayName>
-				<unitPattern count="one">{0} milliampère</unitPattern>
-				<unitPattern count="other">{0} milliampères</unitPattern>
-			</unit>
-			<unit type="electric-ohm">
-				<displayName>ohms</displayName>
-				<unitPattern count="one">{0} ohm</unitPattern>
-				<unitPattern count="other">{0} ohms</unitPattern>
-			</unit>
-			<unit type="electric-volt">
-				<displayName>volts</displayName>
-				<unitPattern count="one">{0} volt</unitPattern>
-				<unitPattern count="other">{0} volts</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<unitPattern count="one">{0} kilocalorie</unitPattern>
-				<unitPattern count="other">{0} kilocalories</unitPattern>
-			</unit>
-			<unit type="energy-calorie">
-				<unitPattern count="one">{0} calorie</unitPattern>
-				<unitPattern count="other">{0} calories</unitPattern>
-			</unit>
-			<unit type="energy-foodcalorie">
-				<displayName>kilocalories</displayName>
-				<unitPattern count="one">{0} kilocalorie</unitPattern>
-				<unitPattern count="other">{0} kilocalories</unitPattern>
-			</unit>
-			<unit type="energy-kilojoule">
-				<unitPattern count="one">{0} kilojoule</unitPattern>
-				<unitPattern count="other">{0} kilojoules</unitPattern>
-			</unit>
-			<unit type="energy-joule">
-				<displayName>joules</displayName>
-				<unitPattern count="one">{0} joule</unitPattern>
-				<unitPattern count="other">{0} joules</unitPattern>
-			</unit>
-			<unit type="energy-kilowatt-hour">
-				<displayName>kilowattheures</displayName>
-				<unitPattern count="one">{0} kilowattheure</unitPattern>
-				<unitPattern count="other">{0} kilowattheures</unitPattern>
-			</unit>
-			<unit type="frequency-gigahertz">
-				<displayName>gigahertz</displayName>
-				<unitPattern count="one">{0} gigahertz</unitPattern>
-				<unitPattern count="other">{0} gigahertz</unitPattern>
-			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>mégahertz</displayName>
-				<unitPattern count="one">{0} mégahertz</unitPattern>
-				<unitPattern count="other">{0} mégahertz</unitPattern>
-			</unit>
-			<unit type="frequency-kilohertz">
-				<displayName>kilohertz</displayName>
-				<unitPattern count="one">{0} kilohertz</unitPattern>
-				<unitPattern count="other">{0} kilohertz</unitPattern>
-			</unit>
-			<unit type="frequency-hertz">
-				<displayName>hertz</displayName>
-				<unitPattern count="one">{0} hertz</unitPattern>
-				<unitPattern count="other">{0} hertz</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName draft="contributed">millimètres</displayName>
-				<unitPattern count="one" draft="contributed">{0} millimètre</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} millimètres</unitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName draft="contributed">micromètres</displayName>
-				<unitPattern count="one" draft="contributed">{0} micromètre</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} micromètres</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName draft="contributed">nanomètres</displayName>
-				<unitPattern count="one" draft="contributed">{0} nanomètre</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} nanomètres</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName draft="contributed">picomètres</displayName>
-				<unitPattern count="one" draft="contributed">{0} picomètre</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} picomètres</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName>mille</displayName>
@@ -4014,106 +1372,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} verge</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} verges</unitPattern>
 			</unit>
-			<unit type="length-foot">
-				<displayName draft="contributed">pieds</displayName>
-				<unitPattern count="one" draft="contributed">{0} pied</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pieds</unitPattern>
-			</unit>
-			<unit type="length-inch">
-				<displayName draft="contributed">pouces</displayName>
-				<unitPattern count="one" draft="contributed">{0} pouce</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pouces</unitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName draft="contributed">parsecs</displayName>
-				<unitPattern count="one" draft="contributed">{0} parsec</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} parsecs</unitPattern>
-			</unit>
-			<unit type="length-light-year">
-				<displayName draft="contributed">années-lumière</displayName>
-				<unitPattern count="one" draft="contributed">{0} année-lumière</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} années-lumière</unitPattern>
-			</unit>
-			<unit type="length-astronomical-unit">
-				<displayName draft="contributed">unités astronomiques</displayName>
-				<unitPattern count="one" draft="contributed">{0} unité astronomique</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} unités astronomiques</unitPattern>
-			</unit>
-			<unit type="length-nautical-mile">
-				<displayName draft="contributed">milles marins</displayName>
-				<unitPattern count="one" draft="contributed">{0} mille marin</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} milles marins</unitPattern>
-			</unit>
-			<unit type="light-lux">
-				<displayName>lux</displayName>
-				<unitPattern count="one">{0} lux</unitPattern>
-				<unitPattern count="other">{0} lux</unitPattern>
-			</unit>
-			<unit type="mass-metric-ton">
-				<displayName draft="contributed">tonnes</displayName>
-				<unitPattern count="one" draft="contributed">{0} tonne</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} tonnes</unitPattern>
-			</unit>
 			<unit type="mass-kilogram">
 				<perUnitPattern draft="contributed">{0} par kilogramme</perUnitPattern>
 			</unit>
-			<unit type="mass-microgram">
-				<unitPattern count="one">{0} microgramme</unitPattern>
-				<unitPattern count="other">{0} microgrammes</unitPattern>
-			</unit>
-			<unit type="mass-ton">
-				<displayName>tonnes courtes</displayName>
-				<unitPattern count="one">{0} tonne courte</unitPattern>
-				<unitPattern count="other">{0} tonnes courtes</unitPattern>
-			</unit>
-			<unit type="mass-carat">
-				<unitPattern count="one">{0} carat</unitPattern>
-				<unitPattern count="other">{0} carats</unitPattern>
-			</unit>
-			<unit type="power-gigawatt">
-				<displayName>gigawatts</displayName>
-				<unitPattern count="one">{0} gigawatt</unitPattern>
-				<unitPattern count="other">{0} gigawatts</unitPattern>
-			</unit>
-			<unit type="power-megawatt">
-				<displayName>mégawatts</displayName>
-				<unitPattern count="one">{0} mégawatt</unitPattern>
-				<unitPattern count="other">{0} mégawatts</unitPattern>
-			</unit>
-			<unit type="power-kilowatt">
-				<displayName>kilowatts</displayName>
-				<unitPattern count="one">{0} kilowatt</unitPattern>
-				<unitPattern count="other">{0} kilowatts</unitPattern>
-			</unit>
-			<unit type="power-watt">
-				<displayName>watts</displayName>
-				<unitPattern count="one">{0} watt</unitPattern>
-				<unitPattern count="other">{0} watts</unitPattern>
-			</unit>
-			<unit type="power-milliwatt">
-				<displayName>milliwatts</displayName>
-				<unitPattern count="one">{0} milliwatt</unitPattern>
-				<unitPattern count="other">{0} milliwatts</unitPattern>
-			</unit>
-			<unit type="power-horsepower">
-				<displayName>chevaux-vapeur</displayName>
-				<unitPattern count="one">{0} cheval-vapeur</unitPattern>
-				<unitPattern count="other">{0} chevaux-vapeur</unitPattern>
-			</unit>
-			<unit type="pressure-inch-hg">
-				<displayName>pouces de mercure</displayName>
-				<unitPattern count="one">{0} pouce de mercure</unitPattern>
-				<unitPattern count="other">{0} pouces de mercure</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>millibars</displayName>
-				<unitPattern count="one">{0} millibar</unitPattern>
-				<unitPattern count="other">{0} millibars</unitPattern>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="contributed">kilomètres à l’heure</displayName>
-				<unitPattern count="one" draft="contributed">{0} kilomètre par heure</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kilomètres par heure</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName>milles à l’heure</displayName>
@@ -4125,23 +1388,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
-			<unit type="temperature-celsius">
-				<unitPattern count="one">{0} degré Celsius</unitPattern>
-				<unitPattern count="other">{0} degrés Celsius</unitPattern>
-			</unit>
-			<unit type="temperature-fahrenheit">
-				<unitPattern count="one">{0} degré Fahrenheit</unitPattern>
-				<unitPattern count="other">{0} degrés Fahrenheit</unitPattern>
-			</unit>
-			<unit type="temperature-kelvin">
-				<unitPattern count="one">{0} kelvin</unitPattern>
-				<unitPattern count="other">{0} kelvins</unitPattern>
-			</unit>
-			<unit type="volume-cubic-kilometer">
-				<displayName draft="contributed">kilomètres cubes</displayName>
-				<unitPattern count="one" draft="contributed">{0} kilomètre cube</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} kilomètres cubes</unitPattern>
-			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>milles cubes</displayName>
 				<unitPattern count="one">{0} mille cube</unitPattern>
@@ -4151,21 +1397,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>verges cubes</displayName>
 				<unitPattern count="one">{0} verge cube</unitPattern>
 				<unitPattern count="other">{0} verges cubes</unitPattern>
-			</unit>
-			<unit type="volume-hectoliter">
-				<displayName>hectolitres</displayName>
-				<unitPattern count="one">{0} hectolitre</unitPattern>
-				<unitPattern count="other">{0} hectolitres</unitPattern>
-			</unit>
-			<unit type="volume-acre-foot">
-				<displayName>acres-pieds</displayName>
-				<unitPattern count="one">{0} acre-pied</unitPattern>
-				<unitPattern count="other">{0} acres-pieds</unitPattern>
-			</unit>
-			<unit type="volume-gallon">
-				<displayName>gallons</displayName>
-				<unitPattern count="one">{0} gallon</unitPattern>
-				<unitPattern count="other">{0} gallons</unitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName draft="contributed">gallon impérial</displayName>
@@ -4183,246 +1414,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} chopine</unitPattern>
 				<unitPattern count="other">{0} chopines</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<displayName>tasses</displayName>
-				<unitPattern count="one">{0} tasse</unitPattern>
-				<unitPattern count="other">{0} tasses</unitPattern>
-			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>cuillères à thé</displayName>
 				<unitPattern count="one">{0} cuillère à thé</unitPattern>
 				<unitPattern count="other">{0} cuillères à thé</unitPattern>
 			</unit>
-			<coordinateUnit>
-				<coordinateUnitPattern type="west">{0} ouest</coordinateUnitPattern>
-			</coordinateUnit>
 		</unitLength>
 		<unitLength type="short">
-			<unit type="acceleration-meter-per-second-squared">
-				<displayName draft="contributed">m/s²</displayName>
-				<unitPattern count="one" draft="contributed">{0} m/s²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} m/s²</unitPattern>
-			</unit>
-			<unit type="angle-radian">
-				<displayName>rad</displayName>
-				<unitPattern count="one">{0} rad</unitPattern>
-				<unitPattern count="other">{0} rad</unitPattern>
-			</unit>
-			<unit type="angle-degree">
-				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="angle-arc-second">
-				<displayName>″</displayName>
-				<unitPattern count="one">{0}″</unitPattern>
-				<unitPattern count="other">{0}″</unitPattern>
-			</unit>
-			<unit type="area-square-kilometer">
-				<displayName draft="contributed">km²</displayName>
-				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
-			</unit>
-			<unit type="area-hectare">
-				<displayName draft="contributed">ha</displayName>
-				<unitPattern count="one" draft="contributed">{0} ha</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ha</unitPattern>
-			</unit>
-			<unit type="area-square-meter">
-				<displayName draft="contributed">m²</displayName>
-				<unitPattern count="one" draft="contributed">{0} m²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} m²</unitPattern>
-			</unit>
-			<unit type="area-square-centimeter">
-				<displayName draft="contributed">cm²</displayName>
-				<unitPattern count="one" draft="contributed">{0} cm²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cm²</unitPattern>
-			</unit>
-			<unit type="area-square-mile">
-				<displayName draft="contributed">mi²</displayName>
-				<unitPattern count="one" draft="contributed">{0} mi²</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mi²</unitPattern>
-			</unit>
-			<unit type="area-acre">
-				<displayName draft="contributed">ac</displayName>
-				<unitPattern count="one" draft="contributed">{0} ac</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} ac</unitPattern>
-			</unit>
 			<unit type="area-square-yard">
 				<displayName draft="contributed">vg²</displayName>
 				<unitPattern count="one" draft="contributed">{0} vg²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} vg²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>pi²</displayName>
 				<unitPattern count="one">{0} pi²</unitPattern>
 				<unitPattern count="other">{0} pi²</unitPattern>
 			</unit>
-			<unit type="area-square-inch">
-				<displayName>po²</displayName>
-				<unitPattern count="one">{0} po²</unitPattern>
-				<unitPattern count="other">{0} po²</unitPattern>
-				<perUnitPattern>{0}/po²</perUnitPattern>
-			</unit>
 			<unit type="concentr-karat">
 				<displayName>carats</displayName>
-			</unit>
-			<unit type="consumption-mile-per-gallon">
-				<displayName>mi/gal</displayName>
-				<unitPattern count="one">{0} mi/gal</unitPattern>
-				<unitPattern count="other">{0} mi/gal</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName draft="contributed">mi/gal Imp</displayName>
 				<unitPattern count="one" draft="contributed">{0} mi/gal Imp</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mi/gal Imp</unitPattern>
 			</unit>
-			<unit type="digital-terabyte">
-				<unitPattern count="one">{0} To</unitPattern>
-				<unitPattern count="other">{0} To</unitPattern>
-			</unit>
-			<unit type="digital-terabit">
-				<unitPattern count="one">{0} Tb</unitPattern>
-				<unitPattern count="other">{0} Tb</unitPattern>
-			</unit>
-			<unit type="digital-gigabyte">
-				<displayName>Go</displayName>
-				<unitPattern count="one">{0} Go</unitPattern>
-				<unitPattern count="other">{0} Go</unitPattern>
-			</unit>
 			<unit type="digital-gigabit">
 				<displayName>Gb</displayName>
-				<unitPattern count="one">{0} Gb</unitPattern>
-				<unitPattern count="other">{0} Gb</unitPattern>
-			</unit>
-			<unit type="digital-megabyte">
-				<displayName>Mo</displayName>
-				<unitPattern count="one">{0} Mo</unitPattern>
-				<unitPattern count="other">{0} Mo</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
 				<displayName>Mb</displayName>
-				<unitPattern count="one">{0} Mb</unitPattern>
-				<unitPattern count="other">{0} Mb</unitPattern>
-			</unit>
-			<unit type="digital-kilobyte">
-				<displayName>ko</displayName>
-				<unitPattern count="one">{0} ko</unitPattern>
-				<unitPattern count="other">{0} ko</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName>kb</displayName>
-				<unitPattern count="one">{0} kb</unitPattern>
-				<unitPattern count="other">{0} kb</unitPattern>
-			</unit>
-			<unit type="digital-byte">
-				<unitPattern count="one">{0} octet</unitPattern>
-				<unitPattern count="other">{0} octet</unitPattern>
-			</unit>
-			<unit type="digital-bit">
-				<unitPattern count="one">{0} bit</unitPattern>
-				<unitPattern count="other">{0} bit</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="one">{0} an</unitPattern>
-				<unitPattern count="other">{0} ans</unitPattern>
-			</unit>
-			<unit type="electric-ampere">
-				<displayName>A</displayName>
-				<unitPattern count="one">{0} A</unitPattern>
-				<unitPattern count="other">{0} A</unitPattern>
-			</unit>
-			<unit type="electric-milliampere">
-				<displayName>mA</displayName>
-				<unitPattern count="one">{0} mA</unitPattern>
-				<unitPattern count="other">{0} mA</unitPattern>
-			</unit>
-			<unit type="electric-ohm">
-				<displayName>Ω</displayName>
-				<unitPattern count="one">{0} Ω</unitPattern>
-				<unitPattern count="other">{0} Ω</unitPattern>
-			</unit>
-			<unit type="electric-volt">
-				<displayName>V</displayName>
-				<unitPattern count="one">{0} V</unitPattern>
-				<unitPattern count="other">{0} V</unitPattern>
-			</unit>
-			<unit type="energy-kilocalorie">
-				<unitPattern count="one">{0} kcal</unitPattern>
-				<unitPattern count="other">{0} kcal</unitPattern>
-			</unit>
-			<unit type="energy-calorie">
-				<unitPattern count="one">{0} cal</unitPattern>
-				<unitPattern count="other">{0} cal</unitPattern>
-			</unit>
-			<unit type="energy-foodcalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="one">{0} kcal</unitPattern>
-				<unitPattern count="other">{0} kcal</unitPattern>
-			</unit>
-			<unit type="energy-kilojoule">
-				<displayName>kJ</displayName>
-				<unitPattern count="one">{0} kJ</unitPattern>
-				<unitPattern count="other">{0} kJ</unitPattern>
-			</unit>
-			<unit type="energy-joule">
-				<displayName>J</displayName>
-				<unitPattern count="one">{0} J</unitPattern>
-				<unitPattern count="other">{0} J</unitPattern>
-			</unit>
-			<unit type="energy-kilowatt-hour">
-				<displayName>kWh</displayName>
-				<unitPattern count="one">{0} kWh</unitPattern>
-				<unitPattern count="other">{0} kWh</unitPattern>
-			</unit>
-			<unit type="frequency-gigahertz">
-				<displayName>GHz</displayName>
-				<unitPattern count="one">{0} GHz</unitPattern>
-				<unitPattern count="other">{0} GHz</unitPattern>
-			</unit>
-			<unit type="frequency-megahertz">
-				<displayName>MHz</displayName>
-				<unitPattern count="one">{0} MHz</unitPattern>
-				<unitPattern count="other">{0} MHz</unitPattern>
-			</unit>
-			<unit type="frequency-kilohertz">
-				<displayName>kHz</displayName>
-				<unitPattern count="one">{0} kHz</unitPattern>
-				<unitPattern count="other">{0} kHz</unitPattern>
-			</unit>
-			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="one">{0} Hz</unitPattern>
-				<unitPattern count="other">{0} Hz</unitPattern>
-			</unit>
-			<unit type="length-centimeter">
-				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName draft="contributed">mm</displayName>
-				<unitPattern count="one" draft="contributed">{0} mm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mm</unitPattern>
-			</unit>
-			<unit type="length-micrometer">
-				<displayName draft="contributed">µm</displayName>
-				<unitPattern count="one" draft="contributed">{0} µm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} µm</unitPattern>
-			</unit>
-			<unit type="length-nanometer">
-				<displayName draft="contributed">nm</displayName>
-				<unitPattern count="one" draft="contributed">{0} nm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} nm</unitPattern>
-			</unit>
-			<unit type="length-picometer">
-				<displayName draft="contributed">pm</displayName>
-				<unitPattern count="one" draft="contributed">{0} pm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
-			</unit>
-			<unit type="length-mile">
-				<displayName draft="contributed">mi</displayName>
-				<unitPattern count="one" draft="contributed">{0} mi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="contributed">vg</displayName>
@@ -4430,28 +1453,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">{0} vg</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<displayName draft="contributed">pi</displayName>
 				<unitPattern count="one" draft="contributed">{0} pi</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pi</unitPattern>
 			</unit>
-			<unit type="length-inch">
-				<displayName draft="contributed">po</displayName>
-				<unitPattern count="one" draft="contributed">{0} po</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} po</unitPattern>
-				<perUnitPattern draft="contributed">{0}/po</perUnitPattern>
-			</unit>
-			<unit type="length-parsec">
-				<displayName draft="contributed">pc</displayName>
-				<unitPattern count="one" draft="contributed">{0} pc</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} pc</unitPattern>
-			</unit>
-			<unit type="length-light-year">
-				<displayName draft="contributed">al</displayName>
-				<unitPattern count="one" draft="contributed">{0} al</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} al</unitPattern>
-			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName draft="contributed">ua</displayName>
 				<unitPattern count="one" draft="contributed">{0} ua</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ua</unitPattern>
 			</unit>
@@ -4460,78 +1465,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} NM</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} NM</unitPattern>
 			</unit>
-			<unit type="light-lux">
-				<displayName>lx</displayName>
-				<unitPattern count="one">{0} lx</unitPattern>
-				<unitPattern count="other">{0} lx</unitPattern>
-			</unit>
 			<unit type="mass-ton">
 				<displayName>tc</displayName>
 				<unitPattern count="one">{0} tc</unitPattern>
 				<unitPattern count="other">{0} tc</unitPattern>
 			</unit>
-			<unit type="power-gigawatt">
-				<displayName>GW</displayName>
-				<unitPattern count="one">{0} GW</unitPattern>
-				<unitPattern count="other">{0} GW</unitPattern>
-			</unit>
-			<unit type="power-megawatt">
-				<displayName>MW</displayName>
-				<unitPattern count="one">{0} MW</unitPattern>
-				<unitPattern count="other">{0} MW</unitPattern>
-			</unit>
-			<unit type="power-kilowatt">
-				<displayName>kW</displayName>
-				<unitPattern count="one">{0} kW</unitPattern>
-				<unitPattern count="other">{0} kW</unitPattern>
-			</unit>
-			<unit type="power-watt">
-				<displayName>W</displayName>
-				<unitPattern count="one">{0} W</unitPattern>
-				<unitPattern count="other">{0} W</unitPattern>
-			</unit>
-			<unit type="power-milliwatt">
-				<displayName>mW</displayName>
-				<unitPattern count="one">{0} mW</unitPattern>
-				<unitPattern count="other">{0} mW</unitPattern>
-			</unit>
-			<unit type="power-horsepower">
-				<displayName>ch</displayName>
-				<unitPattern count="one">{0} ch</unitPattern>
-				<unitPattern count="other">{0} ch</unitPattern>
-			</unit>
 			<unit type="pressure-pound-per-square-inch">
 				<displayName>psi</displayName>
 				<unitPattern count="one">{0} psi</unitPattern>
 				<unitPattern count="other">{0} psi</unitPattern>
-			</unit>
-			<unit type="pressure-millibar">
-				<displayName>mbar</displayName>
-				<unitPattern count="one">{0} mbar</unitPattern>
-				<unitPattern count="other">{0} mbar</unitPattern>
-			</unit>
-			<unit type="temperature-generic">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
-			<unit type="temperature-celsius">
-				<displayName>°C</displayName>
-				<unitPattern count="one">{0} °C</unitPattern>
-				<unitPattern count="other">{0} °C</unitPattern>
-			</unit>
-			<unit type="temperature-fahrenheit">
-				<displayName>°F</displayName>
-				<unitPattern count="one">{0} °F</unitPattern>
-				<unitPattern count="other">{0} °F</unitPattern>
-			</unit>
-			<unit type="temperature-kelvin">
-				<unitPattern count="one">{0} K</unitPattern>
-				<unitPattern count="other">{0} K</unitPattern>
-			</unit>
-			<unit type="volume-cubic-kilometer">
-				<displayName draft="contributed">km³</displayName>
-				<unitPattern count="one" draft="contributed">{0} km³</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName>vg³</displayName>
@@ -4541,11 +1483,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-cubic-foot">
 				<unitPattern count="one" draft="contributed">{0} pi³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pi³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName draft="contributed">po³</displayName>
-				<unitPattern count="one" draft="contributed">{0} po³</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} po³</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>ML</displayName>
@@ -4577,11 +1514,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="contributed">{0} mL</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mL</unitPattern>
 			</unit>
-			<unit type="volume-gallon">
-				<displayName>gal</displayName>
-				<unitPattern count="one">{0} gal</unitPattern>
-				<unitPattern count="other">{0} gal</unitPattern>
-			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName draft="contributed">gal Imp</displayName>
 				<unitPattern count="one" draft="contributed">{0} gal Imp</unitPattern>
@@ -4598,19 +1530,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} chop</unitPattern>
 				<unitPattern count="other">{0} chop</unitPattern>
 			</unit>
-			<unit type="volume-cup">
-				<unitPattern count="one">{0} tasse</unitPattern>
-				<unitPattern count="other">{0} tasses</unitPattern>
-			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>oz liq.</displayName>
 				<unitPattern count="one">{0} oz liq.</unitPattern>
 				<unitPattern count="other">{0} oz liq.</unitPattern>
-			</unit>
-			<unit type="volume-tablespoon">
-				<displayName>c. à s.</displayName>
-				<unitPattern count="one">{0} c. à s.</unitPattern>
-				<unitPattern count="other">{0} c. à s.</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>c. à t.</displayName>
@@ -4624,22 +1547,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="provisional">{0} L/100 km</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} L/100 km</unitPattern>
 			</unit>
-			<unit type="length-centimeter">
-				<displayName draft="contributed">cm</displayName>
-				<unitPattern count="one" draft="contributed">{0}cm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
-			</unit>
-			<unit type="length-millimeter">
-				<displayName draft="contributed">mm</displayName>
-				<unitPattern count="one" draft="contributed">{0}mm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}mm</unitPattern>
-			</unit>
-			<unit type="mass-kilogram">
-				<unitPattern count="one">{0}kg</unitPattern>
-				<unitPattern count="other">{0}kg</unitPattern>
-			</unit>
 			<unit type="temperature-celsius">
-				<displayName>°C</displayName>
 				<unitPattern count="one">{0} °C</unitPattern>
 				<unitPattern count="other">{0} °C</unitPattern>
 			</unit>
@@ -4659,38 +1567,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<durationUnitPattern>m:ss</durationUnitPattern>
 		</durationUnit>
 	</units>
-	<listPatterns>
-		<listPattern>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} et {1}</listPatternPart>
-			<listPatternPart type="2">{0} et {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} et {1}</listPatternPart>
-			<listPatternPart type="2">{0} et {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit-narrow">
-			<listPatternPart type="start">{0} {1}</listPatternPart>
-			<listPatternPart type="middle">{0} {1}</listPatternPart>
-			<listPatternPart type="end">{0} {1}</listPatternPart>
-			<listPatternPart type="2">{0} {1}</listPatternPart>
-		</listPattern>
-		<listPattern type="unit-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} et {1}</listPatternPart>
-			<listPatternPart type="2">{0} et {1}</listPatternPart>
-		</listPattern>
-	</listPatterns>
-	<posix>
-		<messages>
-			<yesstr>oui:o</yesstr>
-			<nostr>non:n</nostr>
-		</messages>
-	</posix>
 	<characterLabels>
 		<characterLabel type="braille" draft="contributed">braille</characterLabel>
 		<characterLabel type="bullets_stars" draft="contributed">puces/astérisques</characterLabel>

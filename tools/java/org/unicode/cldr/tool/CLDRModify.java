@@ -551,7 +551,7 @@ public class CLDRModify {
                     }
 
                     k.write(pw);
-                    pw.println();
+                    // pw.println();
                     pw.close();
                     if (options[CHECK].doesOccur) {
                         QuickCheck.check(new File(targetDir, test + ".xml"));

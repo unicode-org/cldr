@@ -172,6 +172,7 @@ public class ConvertTransforms extends CLDRConverterTool {
                 }
             } else if (path.indexOf("/tRule") >= 0) {
                 value = fixup.transliterate(value);
+                value = value.replaceAll(CldrUtility.LINE_SEPARATOR, System.lineSeparator());
                 output.println(value);
             } else {
                 throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);

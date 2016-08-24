@@ -182,9 +182,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Md">dd.MM.</dateFormatItem>
 						<dateFormatItem id="MEd">E, dd.MM.</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="contributed">dd.MM</dateFormatItem>
-						<dateFormatItem id="yM">MM.yy</dateFormatItem>
-						<dateFormatItem id="yMd">dd.MM.yy</dateFormatItem>
-						<dateFormatItem id="yMEd">E, dd.MM.yy</dateFormatItem>
+						<dateFormatItem id="yM">MM.y</dateFormatItem>
+						<dateFormatItem id="yMd">dd.MM.y</dateFormatItem>
+						<dateFormatItem id="yMEd">E, dd.MM.y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="Md">
@@ -196,18 +196,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M">E, dd.MM – E, dd.MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM.yy – MM.yy</greatestDifference>
-							<greatestDifference id="y">MM.yy – MM.yy</greatestDifference>
+							<greatestDifference id="M">MM.y – MM.y</greatestDifference>
+							<greatestDifference id="y">MM.y – MM.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd.MM.yy – dd.MM.yy</greatestDifference>
-							<greatestDifference id="M">dd.MM.yy – dd.MM.yy</greatestDifference>
-							<greatestDifference id="y">dd.MM.yy – dd.MM.yy</greatestDifference>
+							<greatestDifference id="d">dd.MM.y – dd.MM.y</greatestDifference>
+							<greatestDifference id="M">dd.MM.y – dd.MM.y</greatestDifference>
+							<greatestDifference id="y">dd.MM.y – dd.MM.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, dd.MM.yy – E, dd.MM.yy</greatestDifference>
-							<greatestDifference id="M">E, dd.MM.yy – E, dd.MM.yy</greatestDifference>
-							<greatestDifference id="y">E, dd.MM.yy – E, dd.MM.yy</greatestDifference>
+							<greatestDifference id="d">E, dd.MM.y – E, dd.MM.y</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.y – E, dd.MM.y</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.y – E, dd.MM.y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

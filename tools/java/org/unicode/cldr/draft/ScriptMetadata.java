@@ -23,6 +23,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.VersionInfo;
 
 public class ScriptMetadata {
+    private static final int MAX_RANK = 33;
     private static final String DATA_FILE = "/org/unicode/cldr/util/data/Script_Metadata.csv";
 
     // To get the data, go do the Script MetaData spreadsheet, and Download As Comma Separated Items into DATA_FILE
@@ -154,7 +155,7 @@ public class ScriptMetadata {
 
         private Info(String[] items) {
             // 3,Han,Hani,1.1,"75,963",字,5B57,China,3,Chinese,zh,Recommended,no,Yes,no,Yes,no
-            rank = Column.WR.getInt(items, 999);
+            rank = Math.min(Column.WR.getInt(items, 999), MAX_RANK);
             age = VersionInfo.getInstance(Column.AGE.getItem(items));
             // Parse the code point of the sample character, rather than the sample character itself.
             // The code point is more reliable, especially when the spreadsheet has a bug

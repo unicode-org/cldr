@@ -1006,8 +1006,12 @@ FDD1 03E2;	[5F 60 02, 05, 05]	# COPTIC first primary (compressible)</pre>
 				scripts and reordering groups. They serve as tailoring boundaries,
 				so that tailoring near the first or last character of a script or
 				group places the tailored item into the same group. Beginning with
-				CLDR 24, each of these is a contraction of U+FDD1 with the script
-				sample character, mapping to the first possible primary weight per
+				CLDR 24, each of these is a contraction of U+FDD1 with
+				<span class="removed">the script sample character</span>
+				<span class="changed">a character of the corresponding script
+				(or of the General_Category [Z, P, S, Sc, Nd]
+				corresponding to a special reordering group)</span>,
+				mapping to the first possible primary weight per
 				script or group. They can be enumerated for implementations of <a
 					href="#Collation_Indexes">Collation Indexes</a>. (Earlier versions
 				mapped contractions with U+FDD0 to the last primary weights of each

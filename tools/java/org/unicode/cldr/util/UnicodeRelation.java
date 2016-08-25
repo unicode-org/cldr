@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -124,7 +125,7 @@ public class UnicodeRelation<T> implements Freezable<UnicodeRelation<T>> {
     }
 
     public UnicodeRelation<T> addAll(UnicodeSet keys, T... values) {
-        return addAll(keys, values);
+        return addAll(keys, Arrays.asList(values));
     }
 
     public UnicodeRelation<T> addAll(UnicodeSet keys, T value) {
@@ -241,7 +242,7 @@ public class UnicodeRelation<T> implements Freezable<UnicodeRelation<T>> {
     }
 
     public UnicodeRelation<T> removeAll(UnicodeSet keys, T... values) {
-        return removeAll(keys, values);
+        return removeAll(keys,  Arrays.asList(values));
     }
 
     public UnicodeRelation<T> removeAll(UnicodeSet keys, T value) {

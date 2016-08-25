@@ -1585,10 +1585,6 @@ public class ConsoleCheckCLDR {
             lastSplitPath = null;
         }
 
-        public void setDisplayInformation(CLDRFile displayInformation) {
-            setDisplayInformation(displayInformation);
-        }
-
         private void showHeader(String path, String value) {
             if (newLocale) {
                 System.out.println("Locale:\t" + getLocaleAndName(localeID));

@@ -11,26 +11,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="cs" /> 
 	</identity>
 		<collations>
-			<collation type="search">
-				<cr><![CDATA[
-					[import und-u-co-search]
-					# Below are the rules specific to cs.
-					# These rules have more primary differences than the standard collation below.
-					&A<á<<<Á
-					&C<č<<<Č
-					&D<ď<<<Ď
-					&E<é<<<É<ě<<<Ě
-					&I<í<<<Í
-					&N<ň<<<Ň
-					&O<ó<<<Ó
-					&R<ř<<<Ř
-					&S<š<<<Š
-					&T<ť<<<Ť
-					&U<ú<<<Ú<ů<<<Ů
-					&Y<ý<<<Ý
-					&Z<ž<<<Ž
-				]]></cr>
-			</collation>
 			<collation type="standard" references="Ivan Poldauf: Velký česko-anglický slovník ISBN 80-902180-3">
 				<cr><![CDATA[
 					&C<č<<<Č

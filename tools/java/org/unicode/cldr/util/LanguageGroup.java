@@ -9,15 +9,17 @@ import java.util.TreeMap;
 
 import org.unicode.cldr.util.ChainedMap.M3;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.ULocale;
 
 public enum LanguageGroup {
-    root("root"),
-    germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"), indic("inc"), other_indo("ine"), dravidian("dra"),
+    root("und"),
+    germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"), indic("inc"), other_indo("ine_001"), dravidian("dra"),
     uralic("urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"), turkic("trk"),
     afroasiatic("afa"), austroasiatic("aav"), niger_congo("nic"), east_sudanic("sdv"),
     songhay("son"), american("und_019"),
-    art("art"), other("und");
+    art("art"), other("und_001");
+    
     public final String iso;
 
     LanguageGroup(String iso) {
@@ -118,4 +120,50 @@ public enum LanguageGroup {
             return diff != 0 ? diff : o1.compareTo(o2);
         }
     };
+
+    public static void main(String[] args) {
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        System.out.print("<supplementalData>\n"
+            + "\t<version number=\"$Revision:$\"/>\n"
+            + "\t<languageGroups>\n");
+        for (LanguageGroup languageGroup : LanguageGroup.values()) {
+            Set<ULocale> locales = LanguageGroup.getLocales(languageGroup);
+            String englishName = languageGroup.getName(english);
+            System.out.print("\t\t<languageGroup id=\"" + languageGroup.iso
+                + "\" code=\"" + CollectionUtilities.join(locales, ", ")
+                + "\"/>\t<!-- " + englishName + " -->\n");
+        }
+        System.out.print("\t</languageGroups>"
+            + "\n<supplementalData>\n");
+    }
+
+    public String getName(CLDRFile cldrFile) {
+        String prefix = "";
+        LanguageTagParser ltp = new LanguageTagParser().set(iso);
+        switch (ltp.getRegion()) {
+        case "001":
+            if (ltp.getLanguage().equals("und")) {
+                return "Other";
+            }
+            prefix = "Other ";
+            break;
+        case "": 
+            break;
+        default: 
+            return cldrFile.getName(CLDRFile.TERRITORY_NAME, ltp.getRegion());
+        }
+        switch (ltp.getScript()) {
+        case "Hani":
+            return "CJK";
+        case "": 
+            break;
+        default: 
+            throw new IllegalArgumentException("Need to fix code: " + ltp.getScript());
+        }
+        return prefix + cldrFile.getName(ltp.getLanguage()).replace(" [Other]", "").replace(" languages", "");
+    }
+    @Override
+    public String toString() {
+        return getName(CLDRConfig.getInstance().getEnglish());
+    }
 }

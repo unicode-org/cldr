@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.CLDRFile;
@@ -28,12 +29,14 @@ import com.ibm.icu.util.ULocale;
 
 public class ChartAnnotations extends Chart {
 
+    private static final String LDML_ANNOTATIONS = "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations'>LDML Annotations</a>";
+    
     private static final String MAIN_HEADER = "<p>Annotations provide names and keywords for Unicode characters, currently focusing on emoji. "
         + "If you see any problems, please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> with the corrected values for the locale. "
-        + "For more information, see: "
-        + "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations'>Annotations</a>. "
-        + "The latest release data for this chart is in "
-        + "<a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>annotations/</a>.</p>";
+        + "For the XML data used for these charts, see "
+        + "<a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>latest-release annotations </a> "
+        + "or <a href='http://unicode.org/repos/cldr/tags/latest/common/annotations/'>beta annotations</a>. "
+        + "For more information, see " + LDML_ANNOTATIONS + ".</p>";
     private static final boolean DEBUG = false;
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "annotations/";
 
@@ -96,7 +99,7 @@ public class ChartAnnotations extends Chart {
             LanguageGroup group = LanguageGroup.get(loc);
             groupToNameAndCodeSorted.put(group, Pair.of(name, locale));
         }
-
+        
         for (Entry<LanguageGroup, Set<Pair<String, String>>> groupPairs : groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
             String ename = ENGLISH.getName("en", true);
@@ -153,7 +156,8 @@ public class ChartAnnotations extends Chart {
                 }
                 tablePrinter.finishRow();
             }
-            new Subchart("Annotations in " + group.toString().replace('_', '-') + " languages", group.toString(), tablePrinter).writeChart(anchors);
+            final String name = group.toString();
+            new Subchart(name + " Annotations", FileUtilities.anchorize(name), tablePrinter).writeChart(anchors);
         }
     }
 
@@ -260,9 +264,11 @@ public class ChartAnnotations extends Chart {
         public String getExplanation() {
             return MAIN_HEADER
                 + "<p>This table shows the annotations for a group of related languages (plus English) for easier comparison. "
-                + "The first item is the name (also the text-to-speech phrase). "
-                + "It is bolded for clarity, and marked with a * for searching. "
-                + "The remaining phrases are keywords (labels), separated by |.<p>";
+                + "The first item is the <b>short name</b> (also the text-to-speech phrase). "
+                + "It is bolded for clarity, and marked with a * for searching on this page. "
+                + "The remaining phrases are <b>keywords</b> (labels), separated by “|”. "
+                + "The keywords plus the words in the short name are typically used for search and predictive typing.<p>\n"
+                + "<p>The mechanism in " + LDML_ANNOTATIONS + " can be used for constructing short names and keywords omitted here.</p>\n";
         }
 
         @Override

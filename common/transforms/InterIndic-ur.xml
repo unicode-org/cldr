@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision: 12137 $"/>
 	<transforms>
-		<transform source="InterIndic" target="Arabic" direction="forward" visibility="internal">
+		<transform source="InterIndic" target="ur" direction="forward" visibility="internal">
 			<tRule><![CDATA[
 $nonword = [^\uE000-\uE0FF];
 \uE015\uE03F\uE02F\uE03E } $nonword→کیا; # किया

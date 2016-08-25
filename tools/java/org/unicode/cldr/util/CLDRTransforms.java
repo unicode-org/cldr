@@ -142,6 +142,7 @@ public class CLDRTransforms {
             addInterIndicDependency("Oriya");
             addInterIndicDependency("Tamil");
             addInterIndicDependency("Telugu");
+            addInterIndicDependency("ur");
 
             addDependency(".*Digit.*", "NumericPinyin-Pinyin", "Pinyin-NumericPinyin");
             addDependency("Latin-NumericPinyin(/.*)?", "Tone-Digit", "Digit-Tone");

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2016 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="uz"/> 
+	</identity>
+	<collations>
+		<collation type="standard"><cr><![CDATA[
+# The following letters sort after z, see
+# https://en.wikipedia.org/wiki/Uzbek_alphabet#Alphabetical_order
+# Native speaker+linguists say that
+# the digraph ⟨ng⟩ and the symbol ⟨ʼ⟩ are not considered separate letters.
+#
+# Reset between the last z-like letter and ezh.
+#
+# U+02BB ʻ MODIFIER LETTER TURNED COMMA is hard to type, so make
+# equivalent contractions with U+2018 ‘ LEFT SINGLE QUOTATION MARK
+# and U+0027 APOSTROPHE.
+# (https://en.wikipedia.org/wiki/Uzbek_alphabet#Distinct_characters)
+# Remember that a pair of apostrophes encodes just one of them.
+&[before 1]ʒ<oʻ=o‘=o''<<<Oʻ=O‘=O''
+<gʻ=g‘=g''<<<Gʻ=G‘=G''
+<sh<<<Sh<<<SH
+<ch<<<Ch<<<CH
+		]]></cr></collation>
+	</collations>
+</ldml>
+

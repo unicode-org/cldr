@@ -19,8 +19,11 @@ public enum Level {
     COMPREHENSIVE(100, "G0", 2);
     //OPTIONAL(101, "optional", 1);
 
+    @Deprecated
     public static final Level POSIX = BASIC;
+    @Deprecated
     public static final Level MINIMAL = BASIC;
+    @Deprecated
     public static final Level OPTIONAL = COMPREHENSIVE;
 
     private final byte level;

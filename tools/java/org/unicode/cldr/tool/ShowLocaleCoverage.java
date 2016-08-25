@@ -97,7 +97,7 @@ public class ShowLocaleCoverage {
         .add("^//ldml/numbers/currencies/currency.*/symbol", true)
         .add("^//ldml/characters/exemplarCharacters", true);
 
-    static org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
+    static org.unicode.cldr.util.Factory factory = testInfo.getFullCldrFactory();
     static DraftStatus minimumDraftStatus = DraftStatus.unconfirmed;
     static final Factory pathHeaderFactory = PathHeader.getFactory(ENGLISH);
 
@@ -390,7 +390,7 @@ public class ShowLocaleCoverage {
 
         System.out.println("# Checking: " + availableLanguages);
         pw.println("<p style='text-align: left'>This chart shows the coverage levels for this release. " +
-            "The UC% figures include unconfirmed values: these values are typically ignored by implementations. " +
+            "The UC figures include unconfirmed values: these values are typically ignored by implementations. " +
             "A high-level summary of the meaning of the coverage values are at " +
             "<a target='_blank' href='http://www.unicode.org/reports/tr35/tr35-info.html#Coverage_Levels'>Coverage Levels</a>. " +
             "The Core values are described on " +
@@ -432,11 +432,7 @@ public class ShowLocaleCoverage {
         reversedLevels.add(Level.MODERN);
         reversedLevels.add(Level.MODERATE);
         reversedLevels.add(Level.BASIC);
-        if (RAW_DATA) {
-            reversedLevels.add(Level.MINIMAL);
-            reversedLevels.add(Level.POSIX);
-            reversedLevels.add(Level.CORE);
-        }
+        reversedLevels.add(Level.CORE);
         PrintWriter out2;
         try {
             out2 = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", "showLocaleCoverage.txt");
@@ -460,7 +456,9 @@ public class ShowLocaleCoverage {
         .addColumn("CLDR target", "class='source'", null, "class='source'", true).setBreakSpans(true)
         .addColumn("Sublocales", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
         .setCellPattern("{0,number}")
-        .addColumn("Confirmed Fields", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
+        .addColumn("Fields", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
+        .setCellPattern("{0,number}")
+        .addColumn("∪ UC", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
         .setCellPattern("{0,number}")
         //.addColumn("Target Level", "class='target'", null, "class='target'", true).setBreakSpans(true)
         ;
@@ -475,22 +473,20 @@ public class ShowLocaleCoverage {
                 tablePrinter.setSortPriority(0).setSortAscending(false);
             }
             tablePrinter
-            .addColumn(UCharacter.toTitleCase(titleLevel, null) + " UC%", "class='target'", null, "class='targetRight'", true)
+            .addColumn("∪ UC%", "class='target'", null, "class='targetRight'", true)
             .setCellPattern("{0,number,0%}")
             .setBreakSpans(true);
         }
-        tablePrinter
-        .addColumn("Core", "class='target'", null, "class='targetRight'", true)
-        .setCellPattern("{0,number,0%}")
-        .setBreakSpans(true);
+//        tablePrinter
+//        .addColumn("Core", "class='target'", null, "class='targetRight'", true)
+//        .setCellPattern("{0,number,0%}")
+//        .setBreakSpans(true);
 
         long start = System.currentTimeMillis();
         LikelySubtags likelySubtags = new LikelySubtags();
 
         EnumMap<Level, Double> targetLevel = new EnumMap<>(Level.class);
         targetLevel.put(Level.CORE, 2 / 100d);
-        targetLevel.put(Level.POSIX, 4 / 100d);
-        targetLevel.put(Level.MINIMAL, 6 / 100d);
         targetLevel.put(Level.BASIC, 16 / 100d);
         targetLevel.put(Level.MODERATE, 33 / 100d);
         targetLevel.put(Level.MODERN, 100 / 100d);
@@ -598,9 +594,11 @@ public class ShowLocaleCoverage {
                 double modernConfirmed = confirmed.get(Level.MODERN);
 
                 tablePrinter
-                .addCell(sumFound);
+                .addCell(sumFound)
+                .addCell(sumFound+sumUnconfirmed);
 
                 header += "\t" + sumFound;
+                header += "\t" + (sumFound+sumUnconfirmed);
 
                 // print the totals
 
@@ -634,8 +632,9 @@ public class ShowLocaleCoverage {
                 missing.removeAll(CoreItems.ONLY_RECOMMENDED);
 
                 double coreValue = coverage.size() / CORE_SIZE;
+//                tablePrinter
+//                .addCell(coreValue);
                 tablePrinter
-                .addCell(coreValue)
                 .finishRow();
 
                 out2.println(header + "\t" + coreValue + "\t" + CollectionUtilities.join(missing, ", "));

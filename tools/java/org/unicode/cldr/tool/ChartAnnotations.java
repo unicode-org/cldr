@@ -121,7 +121,7 @@ public class ChartAnnotations extends Chart {
             }
 
             // now build table with right order for columns
-            double width = 99.0 / (locales.size() + 1);
+            double width = ((int)((99.0 / (locales.size() + 1))*1000))/1000.0;
             //String widthString = "class='source' width='"+ width + "%'";
             String widthStringTarget = "class='target' width='" + width + "%'";
 

@@ -387,6 +387,16 @@ public class TestTransforms extends TestFmwkPlus {
         return Transliterator.getInstance(id);
     }
 
+    public void Test000() {
+      for (int i = 0; i < 10; ++i) {
+        registered = false;
+        register();
+        Transliterator trans = getTransliterator("ur-t-und-orya");
+        assertEquals("Transform.getID", trans.getID(), "orya-ur");
+        assertEquals("Transform.transform", trans.transform("ଅକର୍ଯସୁଟ"), "اکریسوٹ");
+      }
+    }
+
     public void TestData() {
         register();
         try {

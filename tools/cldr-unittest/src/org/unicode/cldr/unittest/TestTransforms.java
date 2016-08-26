@@ -413,7 +413,7 @@ public class TestTransforms extends TestFmwkPlus {
                 logln("Testing file: " + file);
                 String transName = file.substring(0, file.length() - 4);
                 if (transName.startsWith("ur-t-und-")) {
-                  if (!logKnownIssue("cldrbug:9737",
+                  if (logKnownIssue("cldrbug:9737",
                       "CLDR test suite is loading transforms non-deterministically")) {
                     continue;
                   }

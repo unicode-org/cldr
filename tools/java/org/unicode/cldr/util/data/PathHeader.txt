@@ -373,6 +373,8 @@
 //supplementalData/weekData/firstDay[@day="%A"][@alt="%A"]/_territories			; Supplemental ; WeekData ; firstDay-$2 ; $1 ; HIDE
 //supplementalData/weekData/weekendStart[@day="%A"]/_territories			; Supplemental ; WeekData ; weekendStart ; $1 ; HIDE
 //supplementalData/weekData/weekendEnd[@day="%A"]/_territories			; Supplemental ; WeekData ; weekendEnd ; $1 ; HIDE
+//supplementalData/weekData/weekOfPreference[@locales="%A"]/_ordering			; Supplemental ; WeekData ; weekOfPreference ; $1 ; HIDE
+
 //supplementalData/timeData/hours[@allowed="%A"][@preferred="%A"]/_%E			; Supplemental ; WeekData ; hours-$2-$3 ; $1 ; HIDE
 
 //supplementalData/measurementData/measurementSystem[@type="%A"]/_territories			; Supplemental ; Measurement ; default ; $1 ; HIDE

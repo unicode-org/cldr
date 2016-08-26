@@ -221,7 +221,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST calendarPreference ordering NMTOKENS #REQUIRED >
     <!--@VALUE-->
 
-<!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd* ) >
+<!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd*, weekOfPreference* ) >
 
 <!ELEMENT minDays EMPTY >
 <!ATTLIST minDays count (1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED >
@@ -266,6 +266,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST weekendEnd references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST weekendEnd alt NMTOKENS #IMPLIED >
+
+<!ELEMENT weekOfPreference EMPTY >
+<!ATTLIST weekOfPreference locales NMTOKENS #REQUIRED >
+<!ATTLIST weekOfPreference ordering NMTOKENS #REQUIRED >
+    <!--@VALUE-->
 
 <!ELEMENT timeData ( hours* ) >
 

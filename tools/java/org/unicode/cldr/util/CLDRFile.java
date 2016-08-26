@@ -122,6 +122,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     private boolean locked;
     private DtdType dtdType;
+    private DtdData dtdData;
 
     XMLSource dataSource; // TODO(jchye): make private
 
@@ -1833,7 +1834,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 );
             commentStack++;
             target.dtdType = DtdType.valueOf(name);
-            dtdData = DtdData.getInstance(target.dtdType);
+            target.dtdData = dtdData = DtdData.getInstance(target.dtdType);
         }
 
         public void endDTD() throws SAXException {
@@ -3544,6 +3545,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     public Comparator<String> getComparator() {
         return getComparator(dtdType);
+    }
+
+    public DtdType getDtdType() {
+        return dtdType;
+    }
+
+    public DtdData getDtdData() {
+        return dtdData;
     }
 
     public static Comparator<String> getPathComparator(String path) {

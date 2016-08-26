@@ -1783,6 +1783,10 @@ public class PathHeader implements Comparable<PathHeader> {
             lookup.getUnmatchedPatterns(matchersFound, outputUnmatched);
             return outputUnmatched.keySet();
         }
+
+        public String getRegexInfo() {
+            return lookup.toString();
+        }
     }
 
     /**

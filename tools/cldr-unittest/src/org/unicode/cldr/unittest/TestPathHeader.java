@@ -21,6 +21,7 @@ import java.util.regex.Matcher;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -46,10 +47,12 @@ import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -59,7 +62,7 @@ import com.ibm.icu.impl.Row.R2;
 public class TestPathHeader extends TestFmwkPlus {
     private static final DtdType DEBUG_DTD_TYPE = null; // DtdType.supplementalData;
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     public static void main(String[] args) {
         new TestPathHeader().run(args);
@@ -106,10 +109,7 @@ public class TestPathHeader extends TestFmwkPlus {
                 DtdData dtdData = null;
                 CLDRFile cldrFile = factory2.make(file, true);
                 for (String path : cldrFile.fullIterable()) {
-                    if (dtdData == null) {
-                        dtdData = DtdData.getInstance(DtdType.fromPath(path));
-                    }
-                    pathChecker.checkPathHeader(dtdData, path);
+                    pathChecker.checkPathHeader(cldrFile.getDtdData(), path);
                 }
             }
         }
@@ -159,7 +159,7 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
     }
-    
+
     public void Test6170() {
         String p1 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"speed-kilometer-per-hour\"]/unitPattern[@count=\"other\"]";
         String p2 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"other\"]";
@@ -1041,35 +1041,38 @@ public class TestPathHeader extends TestFmwkPlus {
     public void TestCompletenessNonLdmlDtd() {
         PathChecker pathChecker = new PathChecker();
         Set<String> directories = new LinkedHashSet<>();
+        XPathParts parts = new XPathParts();
+        Multimap<String, String> pathValuePairs = LinkedListMultimap.create();
         // get all the directories containing non-Ldml dtd files
         for (DtdType dtdType : DtdType.values()) {
             if (dtdType == DtdType.ldml || dtdType == DtdType.ldmlICU) {
                 continue;
             }
-            directories.addAll(dtdType.directories);
-        }
-        for (String dir : directories) {
-            if (DEBUG_DTD_TYPE != null && !DEBUG_DTD_TYPE.directories.contains(dir)) {
-                continue;
-            }
-            File dir2 = new File(COMMON_DIR + dir);
-            logln(dir2.getName());
-            for (String file : dir2.list()) {
-                // don't need to restrict with getFilesToTest(Arrays.asList(dir2.list()), "root", "en")) {
-                if (!file.endsWith(".xml")) {
+            DtdData dtdData = DtdData.getInstance(dtdType);
+            for (String dir : dtdType.directories) {
+                if (DEBUG_DTD_TYPE != null && !DEBUG_DTD_TYPE.directories.contains(dir)) {
                     continue;
                 }
-                if (DEBUG) warnln(" TestCompletenessNonLdmlDtd: " + dir + ", " + file);
-                logln(" \t" + file);
-                DtdData dtdData = null;
-                for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(
-                    dir2 + "/" + file, new ArrayList<Pair<String, String>>(), true)) {
-                    final String path = pathValue.getFirst();
-                    if (dtdData == null) {
-                        dtdData = DtdData.getInstance(DtdType.fromPath(path));
+                File dir2 = new File(COMMON_DIR + dir);
+                logln(dir2.getName());
+                for (String file : dir2.list()) {
+                    // don't need to restrict with getFilesToTest(Arrays.asList(dir2.list()), "root", "en")) {
+                    if (!file.endsWith(".xml")) {
+                        continue;
                     }
-                    pathChecker.checkPathHeader(dtdData, path);
-                };
+                    if (DEBUG) warnln(" TestCompletenessNonLdmlDtd: " + dir + ", " + file);
+                    logln(" \t" + file);
+                    for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(
+                        dir2 + "/" + file, new ArrayList<Pair<String, String>>(), true)) {
+                        final String path = pathValue.getFirst();
+                        final String value = pathValue.getSecond();
+//                        logln("\t\t" + path);
+                        if (path.startsWith("//supplementalData/weekData/weekOf")) {
+                            int debug = 0;
+                        }
+                        pathChecker.checkPathHeader(dtdData, path);
+                    };
+                }
             }
         }
     }
@@ -1122,14 +1125,38 @@ public class TestPathHeader extends TestFmwkPlus {
                             );
                         seenBad.add(ph);
                     }
-                }
-                return;
+                    return;
+                } 
+                message = ": Unknown path header";
             } catch (Exception e) {
                 message = ": Exception in path header: " + e.getMessage();
             }
             String star = starrer.set(path);
             if (badHeaders.add(star)) {
                 errln(star + message + ", " + ph);
+            }
+        }
+    }
+
+    public void TestSupplementalItems() {
+        //      <weekOfPreference ordering="weekOfYear weekOfMonth" locales="am az bs cs cy da el et hi ky lt mk sk ta th"/>
+        // logln(pathHeaderFactory.getRegexInfo());
+        CLDRFile supplementalFile = CLDRConfig.getInstance().getSupplementalFactory().make("supplementalData", false);
+        List<String> failures = new ArrayList<>();
+        Multimap<String, String> pathValuePairs = LinkedListMultimap.create();
+        XPathParts parts = new XPathParts();
+        for (String test : With.in(supplementalFile.iterator("//supplementalData/weekData"))) {
+            failures.clear();
+            supplementalFile.getDtdData().getRegularizedPaths(parts.set(supplementalFile.getFullXPath(test)), pathValuePairs);
+            for (Entry<String, Collection<String>> entry : pathValuePairs.asMap().entrySet()) {
+                final String normalizedPath = entry.getKey();
+                final Collection<String> normalizedValue = entry.getValue();
+                PathHeader ph = pathHeaderFactory.fromPath(normalizedPath, failures);
+                if (ph == null || ph.getSectionId() == SectionId.Special) {
+                    errln("Failure with " + test + " => " + normalizedPath + " = " + normalizedValue);
+                } else {
+                    logln(ph + "\t" + test + " = " + normalizedValue);
+                }
             }
         }
     }

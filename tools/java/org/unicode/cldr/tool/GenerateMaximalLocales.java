@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.BitSet;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -67,6 +68,8 @@ import com.ibm.icu.util.ULocale;
  */
 public class GenerateMaximalLocales {
 
+    private static final String TEMP_UNKNOWN_REGION = "XZ";
+
     private static final String DEBUG_ADD_KEY = "und_Latn_ZA";
 
     private static final boolean SHOW_ADD = CldrUtility.getProperty("GenerateMaximalLocalesDebug", false);
@@ -95,7 +98,7 @@ public class GenerateMaximalLocales {
     private static StandardCodes standardCodes = StandardCodes.make();
     private static CLDRFile english = factory.make("en", false);
     static Relation<String, String> cldrContainerToLanguages =
-            Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
+        Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
     static {
         for (CLDRLocale locale : ToolConfig.getToolInstance().getCldrFactory().getAvailableCLDRLocales()) {
             String region = locale.getCountry();
@@ -116,15 +119,29 @@ public class GenerateMaximalLocales {
 
         Map<String, String> toMaximized = new TreeMap<String, String>();
 
-        if (tryDifferent) {
-            tryDifferentAlgorithm(toMaximized);
-
-        } else {
-            throw new IllegalArgumentException();
-            // oldAlgorithm(toMaximized);
-        }
+        tryDifferentAlgorithm(toMaximized);
 
         minimize(toMaximized);
+        
+        // HACK TEMP_UNKNOWN_REGION
+        // this is to get around the removal of items with ZZ in minimize.
+        // probably cleaner way to do it, but this provides control over just those we want to retain.
+        Set<String> toRemove = new TreeSet<>();
+        Map<String,String> toFix = new TreeMap<>();
+        for (Entry<String, String> entry : toMaximized.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if (key.contains(TEMP_UNKNOWN_REGION)) {
+                toRemove.add(key);
+            } else if (value.contains(TEMP_UNKNOWN_REGION)) {
+                toFix.put(key, value.replace(TEMP_UNKNOWN_REGION, UNKNOWN_REGION));
+            }
+        }
+        for (String key : toRemove) {
+            toMaximized.remove(key);
+        }
+        toMaximized.putAll(toFix);
+        
         Map<String, String> oldLikely = SupplementalDataInfo.getInstance().getLikelySubtags();
         Set<String> changes = compareMapsAndFixNew("*WARNING* Likely Subtags: ", oldLikely, toMaximized, "ms_Arab",
             "ms_Arab_ID");
@@ -341,6 +358,7 @@ public class GenerateMaximalLocales {
 
         // Specials
         add(languageToReason, "und", "001", OfficialStatus.unknown, 0);
+
 
         // for (String language : Iso639Data.getAvailable()) {
         // Scope scope = Iso639Data.getScope(language);
@@ -811,9 +829,30 @@ public class GenerateMaximalLocales {
             { "gez", "Ethi", "ET" },
             { "ken", "Latn", "CM" },
             { "und", "Arab", "PK" },
-            { "wa", "Latn", "BE" }
+            { "wa", "Latn", "BE" },
+
+            { "fub", "Arab", "CM" },
+            { "fuf", "Latn", "GN" },
+            { "kby", "Arab", "NE" },
+            { "kdh", "Arab", "TG" },
+            { "apd", "Arab", "TG" },
+            { "zlm", "Latn", "TG" },
         }) {
-            maxData.add(additions[0], additions[1], additions[2], 1.0);
+            if (!maxData.languages.containsKey(additions[0])) {
+                maxData.add(additions[0], additions[1], additions[2], 1.0);
+            }
+        }
+
+        for (Entry<String, Collection<String>> entry : DeriveScripts.getLanguageToScript().asMap().entrySet()) {
+            String language = entry.getKey();
+            final Collection<String> values = entry.getValue();
+            if (values.size() != 1) {
+                continue; // skip, no either way 
+            }
+            Set<R3<Double, String, String>> old = maxData.languages.get(language);
+            if (!maxData.languages.containsKey(language)) {
+                maxData.add(language, values.iterator().next(), TEMP_UNKNOWN_REGION, 1.0);
+            }
         }
 
         // add others, with English default

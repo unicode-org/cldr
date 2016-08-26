@@ -14,10 +14,13 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
@@ -28,6 +31,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class DeriveScripts {
     static final CLDRConfig CONFIG = CLDRConfig.getInstance();
+    static final SupplementalDataInfo SUP = CONFIG.getSupplementalDataInfo();
     static final Multimap<String, String> LANG_TO_SCRIPT;
     static final Map<String, String> SUPPRESS;
     
@@ -46,7 +50,7 @@ public class DeriveScripts {
         Multimap<String, String> langToScript = TreeMultimap.create();
         
         Map<String,String> suppress = new TreeMap<>();
-        final Map<String, Map<LstrField, String>> langToInfo = CONFIG.getStandardCodes().getLstregEnumRaw().get(LstrType.language);
+        final Map<String, Map<LstrField, String>> langToInfo = StandardCodes.getLstregEnumRaw().get(LstrType.language);
         for (Entry<String, Map<LstrField, String>> entry : langToInfo.entrySet()) {
             final String suppressValue = entry.getValue().get(LstrField.Suppress_Script);
             if (suppressValue != null) {
@@ -65,6 +69,8 @@ public class DeriveScripts {
         }
         SUPPRESS = ImmutableMap.copyOf(suppress);
 
+        LanguageTagCanonicalizer canon = new LanguageTagCanonicalizer();
+
         for (String file : fullCldrFactory.getAvailable()) {
             String langScript = ltp.set(file).getLanguageScript();
             if (!file.equals(langScript)) {  // skip other variants
@@ -74,7 +80,7 @@ public class DeriveScripts {
 //            if (!seen.add(lang)) { // add if not present
 //                continue;
 //            }
-            String lang = ltp.getLanguage();
+            String lang = canon.transform(ltp.getLanguage());
             if (lang.equals("root")) {
                 continue;
             }
@@ -86,7 +92,7 @@ public class DeriveScripts {
 
             String script = ltp.getScript();
             if (!script.isEmpty()) {
-                langToScript.put(lang, script);
+                add(langToScript, lang, script);
                 continue;
             }
             
@@ -99,13 +105,17 @@ public class DeriveScripts {
                     break;
                 }
             }
-            if (script != null) {
-                if (langToScript.put(lang, script)) {
-                   System.out.println("# Adding from actual exemplars: " + lang + ", " + script);
-                }
-            }
+            add(langToScript, lang, script);
         }
         LANG_TO_SCRIPT = ImmutableMultimap.copyOf(langToScript);
+    }
+
+    private static void add(Multimap<String, String> langToScript, String lang, String script) {
+        if (script != null) {
+            if (langToScript.put(lang, script)) {
+               //System.out.println("# Adding from actual exemplars: " + lang + ", " + script);
+            }
+        }
     }
     
     public static Multimap<String, String> getLanguageToScript() {

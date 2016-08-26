@@ -11,66 +11,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<transform source="InterIndic" target="Arabic" direction="forward" visibility="internal">
 			<tRule><![CDATA[
 $nonword = [^\uE000-\uE0FF];
-\uE015\uE03F\uE02F\uE03E } $nonword→کیا; # किया
+\uE015\uE03F\uE02F\uE03E } $nonword→كیا; # किया
 \uE026\uE03F\uE02F\uE03E } $nonword→دیا; # दिया
-\uE015\uE03F } $nonword→کہ; # कि at word end
-\uE039\uE048→ہے; # है
-\uE001 } $nonword→ں; # chandrabindu at end to noon ghunna
+\uE015\uE03F } $nonword→كہ; # कि at word end
+\uE039\uE048→ہي; # है
+\uE001 } $nonword→ن; # chandrabindu at end to noon ghunna
 \uE001→ن; # chandrabindu not at end to noon
-\uE002 } $nonword→ں; # anusvara to noon ghunna at end
+\uE002 } $nonword→ن; # anusvara to noon ghunna at end
 \uE002→ن; # anusvara to noon ं
 \uE003→ه ا; # viarga to ha + alif  ः
 \uE004→ا; # short a to alif ऄ
 \uE005→ا; # अ
 \uE006→ا ٓ; # alif with mad आ
-\uE007→ا ِ; # इ
-\uE008→ا ِ; # ई
+\uE007→إ; # इ
+\uE008→إ; # ई
 \uE009→و; # उ
 \uE00A→و; # ऊ
 \uE00B→ر; # ऋ
 \uE00C→ل; # ऌ
-\uE00D→ا ے; # ऍ
+\uE00D→ا ي; # ऍ
 \uE00E→ی; # ऎ
-\uE00F  } $nonword→ے; # ए use ے when at end
+\uE00F  } $nonword→ي; # ए use ي when at end
 \uE00F→ی; # ए use ی when not at end
-\uE010  } $nonword→ا ے; # ऐ use ے when at end
+\uE010  } $nonword→ا ي; # ऐ use ي when at end
 \uE010→ا ی; # ऐ use ی when not at end
 \uE011→ا و; # ऑ
 \uE012→ا و; # ऒ
 \uE013→ا و; # ओ
 \uE014→ا و; # औ
-\uE015→ک; # क
-\uE016→ک ھ; # ख
-\uE017→گ; # ग
-\uE018→گ ھ; # घ
+\uE015→ك; # क
+\uE016→كه; # ख
+\uE017→ج; # ग
+\uE018→جه; # घ
 \uE019→ن گ; # ङ
-\uE01A→چ; # च
-\uE01B→چ ھ; # छ
+\uE01A→تش; # च
+\uE01B→تشه; # छ
 \uE01C→ج; # ज
-\uE01D→ج ھ; # झ
+\uE01D→جه; # झ
 \uE01E→ن; # ञ
-\uE01F→ٹ; # ट
-\uE020→ٹ ھ; # ठ
-\uE021→ڈ; # ड
-\uE022→ڈ ھ; # ढ
+\uE01F→ط; # ट
+\uE020→طه; # ठ
+\uE021→د; # ड
+\uE022→ده; # ढ
 \uE023→ن; # ण
 \uE024→ت; # त
-\uE025→ت ھ; # थ
+\uE025→ته; # थ
 \uE026→د; # द
-\uE027→د ھ; # ध
+\uE027→ده; # ध
 \uE028→ن; # न
-\uE029→ں; # ऩ
-\uE02A→پ; # प
-\uE02B→پ ھ; # फ
+\uE029→ن; # ऩ
+\uE02A→ب; # प
+\uE02B→به; # फ
 \uE02C→ب; # ब
-\uE02D→ب ھ; # भ
+\uE02D→به; # भ
 \uE02E→م; # म
 \uE02F→ی; # य
 \uE030→ر; # र
 \uE031→ر; # ऱ
 \uE032→ل; # ल
-\uE033→ڑ; # ळ
-\uE034→ڑ; # ऴ
+\uE033→ر; # ळ
+\uE034→ر; # ऴ
 \uE035→و; # व
 \uE036→ش; # श
 \uE037→ش; # ष
@@ -87,9 +87,9 @@ $nonword = [^\uE000-\uE0FF];
 \uE044→ر; # ॄ
 \uE045→ن; # ॅ
 \uE046→ی; # ॆ
-\uE047 } $nonword→ے; # े use ے when at end
+\uE047 } $nonword→ي; # े use ي when at end
 \uE047→ی; # े use ی when not at end
-\uE048 } $nonword→ا ے; # ै use ے when at end
+\uE048 } $nonword→ا ي; # ै use ي when at end
 \uE048→ا ی; # ै use ی when not at end
 \uE049→و; # ॉ
 \uE04A→ا و; # ॊ
@@ -105,8 +105,8 @@ $nonword = [^\uE000-\uE0FF];
 \uE059→خ; # ख़
 \uE05A→غ; # ग़
 \uE05B→ز; # ज़
-\uE05C→ڑ; # ड़
-\uE05D→ڑ ھ; # ढ़
+\uE05C→ر; # ड़
+\uE05D→ره; # ढ़
 \uE05E→ف; # फ़
 \uE05F→ی; # य़
 \uE060→ر; # ॠ

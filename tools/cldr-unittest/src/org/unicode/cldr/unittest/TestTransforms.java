@@ -387,16 +387,6 @@ public class TestTransforms extends TestFmwkPlus {
         return Transliterator.getInstance(id);
     }
 
-    public void Test000() {
-      for (int i = 0; i < 10; ++i) {
-        registered = false;
-        register();
-        Transliterator trans = getTransliterator("ur-t-und-orya");
-        assertEquals("Transform.getID", trans.getID(), "orya-ur");
-        assertEquals("Transform.transform", trans.transform("ଅକର୍ଯସୁଟ"), "اکریسوٹ");
-      }
-    }
-
     public void TestData() {
         register();
         try {
@@ -422,6 +412,13 @@ public class TestTransforms extends TestFmwkPlus {
                 }
                 logln("Testing file: " + file);
                 String transName = file.substring(0, file.length() - 4);
+                if (transName.startsWith("ur-t-und-")) {
+                  if (!logKnownIssue("cldrbug:9737",
+                      "CLDR test suite is loading transforms non-deterministically")) {
+                    continue;
+                  }
+                }
+
                 Transliterator trans = getTransliterator(transName);
                 BufferedReader in = FileUtilities.openUTF8Reader(fileDirectoryName, file);
                 int counter = 0;

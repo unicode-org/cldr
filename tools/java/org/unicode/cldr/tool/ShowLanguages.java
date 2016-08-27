@@ -798,26 +798,38 @@ public class ShowLanguages {
                     // later, make this a table
                     String key = "count";
                     String display = "Days in week (min)";
-                    if (element.equals("firstDay")) {
+                    boolean useTerritory = true;
+                    switch (element) {
+                    case "firstDay":
                         key = "day";
                         display = "First day of week";
-                    } else if (element.equals("weekendStart")) {
+                        break;
+                    case "weekendStart":
                         key = "day";
                         display = "First day of weekend";
-                    } else if (element.equals("weekendEnd")) {
+                        break;
+                    case "weekendEnd":
                         key = "day";
                         display = "Last day of weekend";
-                    } else if (element.equals("measurementSystem")) {
+                        break;
+                    case "measurementSystem":
                         // <measurementSystem type="metric" territories="001"/>
                         key = "type";
                         display = "Meas. system";
-                    } else if (element.equals("paperSize")) {
+                        break;
+                    case "paperSize":
                         key = "type";
                         display = "Paper Size";
+                        break;
+                    case "weekOfPreference":
+                        useTerritory = false;
+                        break;
                     }
-                    String type = attributes.get(key);
-                    String territories = attributes.get("territories");
-                    addTerritoryInfo(territories, display, type);
+                    if (useTerritory) {
+                        String type = attributes.get(key);
+                        String territories = attributes.get("territories");
+                        addTerritoryInfo(territories, display, type);
+                    }
                 }
                 if (path.indexOf("/territoryInfo") >= 0) {
                     Map<String, String> attributes = parts.getAttributes(2);
@@ -1747,11 +1759,13 @@ public class ShowLanguages {
             for (int i = 0; i < territories.length; ++i) {
                 String territory = getName(CLDRFile.TERRITORY_NAME, territories[i], false);
                 Map<String, Set<String>> s = territoryData.get(territory);
-                if (s == null)
+                if (s == null) {
                     territoryData.put(territory, s = new TreeMap<String, Set<String>>());
+                }
                 Set<String> ss = s.get(type);
-                if (ss == null)
+                if (ss == null) {
                     s.put(type, ss = new TreeSet<String>());
+                }
                 ss.add(info);
             }
         }

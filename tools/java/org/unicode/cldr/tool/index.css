@@ -105,3 +105,25 @@ td.plain {
 	padding-top:0.3em;
 	padding-right:1em;
 }
+
+#chits {
+	display: flex;
+	flex-flow: row wrap;
+}
+.chit {
+	border-collapse: separate;
+	color: black;
+	background-color: #white;
+	display: inline-block;
+	margin: 1px;
+	padding: 1px;
+	width: 200px;
+	height: 40px;
+	border-radius: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	display: flex; 
+	align-items: center;
+	border: 2px solid #ccc;
+}

@@ -30,36 +30,51 @@ public class FormattedFileWriter extends java.io.Writer {
 
         @Override
         public String toString() {
-
-            StringBuffer contents = new StringBuffer("<div align='center'>" + Chart.LS
-                + "<table>" + Chart.LS); //
+            /*
+<div id="chits">
+<div class='chit chGold'>
+    <a name='g002C' title='U+002C &#x002C; COMMA' href='#g002C'>
+        <img class='chitImg' src='/consortium/aacimg/002C.png' alt='&#x002C;'></a>Mark Davis and Anne Gundelfinger
+</div>
+             */
+            //StringBuffer contents = new StringBuffer("<div align='center'>" + Chart.LS + "<table>" + Chart.LS); //
+            StringBuffer contents = new StringBuffer("<div id='chits'>" + Chart.LS); //
             ArrayList<String[]> anchorList = new ArrayList<>(anchors); // flatten
-            int columns = hasExplanations ? 2 : 4;
-            int rows = 1 + (anchorList.size() - 1) / columns;
-            String td = "<td class='plain' style='width:" + (100 / columns) + "%'>";
-            for (int row = 0; row < rows; ++row) {
-                contents.append("<tr>" + Chart.LS);
-                for (int column = 0; column < columns; ++column) {
-                    int index = column * rows + row;
-                    String linkedTitle = "";
-                    String explanation = "";
-                    if (index < anchorList.size()) {
-                        String[] item = anchorList.get(index);
-                        String title = item[0];
-                        String fileName = item[1];
-                        explanation = item[2];
-                        linkedTitle = "<a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a>";
-                    }
-                    contents.append(td + linkedTitle + "</td>" + Chart.LS);
-                    if (hasExplanations) {
-                        contents.append(td + explanation + "</td>" + Chart.LS);
-                    }
+            for (String[] item : anchorList) {
+                String title = item[0];
+                String fileName = item[1];
+                String explanation = item[2];
+                contents.append("\t<div class='chit'><a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a></div>" + Chart.LS);
+                if (hasExplanations) {
+                    contents.append("\t<div class='chit'>" + explanation + "</div>" + Chart.LS);
                 }
-                contents.append("</tr>" + Chart.LS);
-                td = "<td class='plain'>"; // only need width on first row
             }
-            contents.append("</table>" + Chart.LS
-                + "</div>" + Chart.LS);
+//            int columns = hasExplanations ? 2 : 4;
+//            int rows = 1 + (anchorList.size() - 1) / columns;
+//            String td = "<td class='plain' style='width:" + (100 / columns) + "%'>";
+//            for (int row = 0; row < rows; ++row) {
+//                contents.append("<tr>" + Chart.LS);
+//                for (int column = 0; column < columns; ++column) {
+//                    int index = column * rows + row;
+//                    String linkedTitle = "";
+//                    String explanation = "";
+//                    if (index < anchorList.size()) {
+//                        String[] item = anchorList.get(index);
+//                        String title = item[0];
+//                        String fileName = item[1];
+//                        explanation = item[2];
+//                        linkedTitle = "<a name='" + FileUtilities.anchorize(title) + "' href='" + fileName + "'>" + title + "</a>";
+//                    }
+//                    contents.append(td + linkedTitle + "</td>" + Chart.LS);
+//                    if (hasExplanations) {
+//                        contents.append(td + explanation + "</td>" + Chart.LS);
+//                    }
+//                }
+//                contents.append("</tr>" + Chart.LS);
+//                td = "<td class='plain'>"; // only need width on first row
+//            }
+            contents.append("</div>" + Chart.LS);
+            // contents.append("</table>" + Chart.LS + "</div>" + Chart.LS);
             return contents.toString();
         }
 

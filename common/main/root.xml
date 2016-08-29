@@ -4580,6 +4580,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="other">{0} — other</characterLabelPattern>
 		<characterLabelPattern type="scripts">scripts — {0}</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} strokes</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
+		<characterLabelPattern type="emoji">emoji: {0}</characterLabelPattern>
+		<characterLabelPattern type="keycap">keycap: {0}</characterLabelPattern>
 		<!-- regular -->
 		<characterLabel type="activities">activity</characterLabel>
 		<characterLabel type="african_scripts">African script</characterLabel>
@@ -4651,5 +4654,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="vocalic_jamo">vocalic jamo</characterLabel>
 		<characterLabel type="western_asian_scripts">Western Asian script</characterLabel>
 		<characterLabel type="whitespace">whitespace</characterLabel>
+		<characterLabel type="person">person</characterLabel>
+		<characterLabel type="body">body</characterLabel>
+		<characterLabel type="place">place</characterLabel>
+		<characterLabel type="plant">plant</characterLabel>
+		<characterLabel type="nature">nature</characterLabel>
+		<characterLabel type="animal">animal</characterLabel>
+		<characterLabel type="smiley">smiley</characterLabel>
+		<characterLabel type="female">female</characterLabel>
+		<characterLabel type="male">male</characterLabel>
+		<characterLabel type="weather">weather</characterLabel>
+		<characterLabel type="travel">travel</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
+		<characterLabel type="flag">flag</characterLabel>
+		<characterLabel type="building">building</characterLabel>
+		<characterLabel type="heart">heart</characterLabel>
 	</characterLabels>
 </ldml>

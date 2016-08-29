@@ -13,18 +13,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 $nonword = [^\uE000-\uE0FF];
 \uE015\uE03F\uE02F\uE03E } $nonword→كیا; # किया
 \uE026\uE03F\uE02F\uE03E } $nonword→دیا; # दिया
-\uE015\uE03F } $nonword→كہ; # कि at word end
-\uE039\uE048→ہي; # है
-\uE001 } $nonword→ن; # chandrabindu at end to noon ghunna
+\uE015\uE03F } $nonword→كي; # कि at word end
+\uE039\uE048→هي; # है
+\uE001 } $nonword→ن; # chandrabindu at end to noon
 \uE001→ن; # chandrabindu not at end to noon
-\uE002 } $nonword→ن; # anusvara to noon ghunna at end
+\uE002 } $nonword→ن; # anusvara to noon at end
 \uE002→ن; # anusvara to noon ं
 \uE003→ه ا; # viarga to ha + alif  ः
 \uE004→ا; # short a to alif ऄ
 \uE005→ا; # अ
 \uE006→ا ٓ; # alif with mad आ
-\uE007→إ; # इ
-\uE008→إ; # ई
+[[:L:][:M:]] {\uE007}→ي; # इ after another letter or mark
+\uE007→إ; # इ at beginning of word
+[[:L:][:M:]] {\uE008}→ي; # ई after another letter or mark
+\uE008→إ; # ई at beginning of word
 \uE009→و; # उ
 \uE00A→و; # ऊ
 \uE00B→ر; # ऋ
@@ -43,7 +45,7 @@ $nonword = [^\uE000-\uE0FF];
 \uE016→كه; # ख
 \uE017→ج; # ग
 \uE018→جه; # घ
-\uE019→ن گ; # ङ
+\uE019→نج; # ङ
 \uE01A→تش; # च
 \uE01B→تشه; # छ
 \uE01C→ج; # ज
@@ -116,17 +118,20 @@ $nonword = [^\uE000-\uE0FF];
 \uE064→۔; # ।
 \uE065→۔; # ॥
 \uE066→۰; # ०
-\uE067→۱; # १
-\uE068→۲; # २
-\uE069→۳; # ३
-\uE06A→۴; # ४
-\uE06B→۵; # ५
-\uE06C→۶; # ६
-\uE06D→۷; # ७
+\uE067→١; # १
+\uE068→٢; # २
+\uE069→٣; # ३
+\uE06A→٤; # ४
+\uE06B→٥; # ५
+\uE06C→٦; # ६
+\uE06D→٧; # ७
 \uE06E→۸; # ८
 \uE06F→۹; # ९
-\uE070→ء; # ॰
+\uE070→\.; # ॰
 \uE082→; # ॽ
+
+::null;
+اا→ا; # Remove double alif.
 			]]></tRule>
 		</transform>
 	</transforms>

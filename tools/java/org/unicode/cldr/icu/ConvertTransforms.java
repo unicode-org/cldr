@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -21,7 +20,6 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
 
 /**
@@ -321,19 +319,13 @@ public class ConvertTransforms extends CLDRConverterTool {
     }
 
     private void doHeader(PrintWriter output, String quoteSymbol, String filename) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
         output.print('\uFEFF');
-        output.println(quoteSymbol + " ***************************************************************************");
-        output.println(quoteSymbol + " *");
-        output.println(quoteSymbol + " *  Copyright (C) 2004-" + sdf.format(new Date())
-            + ", International Business Machines");
-        output.println(quoteSymbol + " *  Corporation; Unicode, Inc.; and others.  All Rights Reserved.");
-        output.println(quoteSymbol + " *");
-        output.println(quoteSymbol + " ***************************************************************************");
+        output.println(quoteSymbol + " © 2016 and later: Unicode, Inc. and others.");
+        output.println(quoteSymbol + " License & terms of use: http://www.unicode.org/copyright.html#License");
+        output.println(quoteSymbol);
         output.println(quoteSymbol + " File: " + filename);
-        output.println(quoteSymbol + " Generated from CLDR ");
-        output.println(quoteSymbol + "");
-
+        output.println(quoteSymbol + " Generated from CLDR");
+        output.println(quoteSymbol);
     }
 
     public void processArgs(String[] args) {

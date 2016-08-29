@@ -53,11 +53,11 @@ public class TestCheckCLDR extends TestFmwk {
                 throw new IllegalArgumentException("hi");
             } catch (Exception e) {
                 return new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.abbreviatedDateFieldTooWide)
-                    .setMessage("An exception {0}, and a number {1}", e,
-                        1.5);
+                .setCause(this)
+                .setMainType(CheckStatus.warningType)
+                .setSubtype(Subtype.abbreviatedDateFieldTooWide)
+                .setMessage("An exception {0}, and a number {1}", e,
+                    1.5);
             }
         }
 
@@ -152,10 +152,15 @@ public class TestCheckCLDR extends TestFmwk {
                         found.add(messagePlaceholder.group());
                     } while (messagePlaceholder.find());
                     if (!found.equals(placeholderInfo.keySet())) {
-                        errln("Value ("
-                            + value
-                            + ") has different placeholders than placeholder info ("
-                            + placeholderInfo.keySet() + ")\t" + path);
+                        // ^//ldml/characterLabels/characterLabelPattern[@type="category_list"] ; {0}=CATEGORY_TYPE family; {1}=REMAINING_ITEMS man, woman, girl
+                        if (path.equals("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]")) {
+                            logKnownIssue("cldrbug:9534", "commenting out characterLabelPattern[@type=\"category-list\"] for now, pending real fix.");
+                        } else {
+                            errln("Value ("
+                                + value
+                                + ") has different placeholders than placeholder info ("
+                                + placeholderInfo.keySet() + ")\t" + path);
+                        }
                         continue;
                     } else {
                         logln("placeholder info = " + placeholderInfo + "\t"
@@ -266,27 +271,27 @@ public class TestCheckCLDR extends TestFmwk {
             // override.overridePath = path;
             final String resolvedValue = dummyValue == null ? patched
                 .getStringValue(path) : dummyValue;
-            test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
-                options, result);
-            if (result.size() != 0) {
-                for (CheckStatus item : result) {
-                    addExemplars(item, missingCurrencyExemplars,
-                        missingExemplars);
-                    final String mainMessage = StringId.getId(path) + "\t"
-                        + pathHeader + "\t" + english.getStringValue(path)
-                        + "\t" + item.getType() + "\t" + item.getSubtype();
-                    if (unique != null) {
-                        if (unique.contains(mainMessage)) {
-                            continue;
-                        } else {
-                            unique.add(mainMessage);
+                test.handleCheck(path, patched.getFullXPath(path), resolvedValue,
+                    options, result);
+                if (result.size() != 0) {
+                    for (CheckStatus item : result) {
+                        addExemplars(item, missingCurrencyExemplars,
+                            missingExemplars);
+                        final String mainMessage = StringId.getId(path) + "\t"
+                            + pathHeader + "\t" + english.getStringValue(path)
+                            + "\t" + item.getType() + "\t" + item.getSubtype();
+                        if (unique != null) {
+                            if (unique.contains(mainMessage)) {
+                                continue;
+                            } else {
+                                unique.add(mainMessage);
+                            }
                         }
+                        logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
+                            + "\t" + item.getMessage() + "\t"
+                            + pathHeader.getOriginalPath());
                     }
-                    logln(localeID + "\t" + mainMessage + "\t" + resolvedValue
-                        + "\t" + item.getMessage() + "\t"
-                        + pathHeader.getOriginalPath());
                 }
-            }
         }
         if (missingCurrencyExemplars.size() != 0) {
             logln(localeID + "\tMissing Exemplars (Currency):\t"

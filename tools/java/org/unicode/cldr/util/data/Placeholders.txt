@@ -189,9 +189,9 @@
 ^//ldml/localeDisplayNames/annotationPatterns/annotationPattern\[@type="keycap"] ; {0}=KEYCAP_NAME 1, asterisk
 ^//ldml/localeDisplayNames/annotationPatterns/annotationPattern\[@type="combined"] ; {0}=SEQUENCE_OF_NAMES man, woman, boy
 
-^//ldml/characterLabels/characterLabelPattern[@type="category_list"] ; {0}=CATEGORY_TYPE family; {1}=REMAINING_ITEMS man, woman, girl
-^//ldml/characterLabels/characterLabelPattern[@type="%A"] ; {0}=CATEGORY_TYPE animal or nature
-^//ldml/characterLabels/characterLabelPattern[@type="%A"][@count="%A"] ; {0}=COUNT 3
+^//ldml/characterLabels/characterLabelPattern\[@type="category-list"] ; {0}=CATEGORY_TYPE family; {1}=REMAINING_ITEMS man, woman, girl
+^//ldml/characterLabels/characterLabelPattern\[@type="%A"] ; {0}=CATEGORY_TYPE animal or nature
+^//ldml/characterLabels/characterLabelPattern\[@type="%A"][@count="%A"] ; {0}=COUNT 3
 
 ^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 ^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars

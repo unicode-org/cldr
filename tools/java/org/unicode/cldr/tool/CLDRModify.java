@@ -2065,7 +2065,7 @@ public class CLDRModify {
                         for (String linePart : lineParts) {
                             int pos = linePart.indexOf('=');
                             if (pos < 0) {
-                                throw new IllegalArgumentException(lineCount + "No = in command: «" + linePart + "»");
+                                throw new IllegalArgumentException(lineCount + ":\t No = in command: «" + linePart + "» in " + line);
                             }
                             ConfigKeys key = ConfigKeys.valueOf(linePart.substring(0, pos).trim());
                             if (keyValue.containsKey(key)) {

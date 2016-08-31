@@ -1990,15 +1990,12 @@ $Revision$
     <!--@DEPRECATED-->
 
 <!ELEMENT currencyGroup ( #PCDATA ) >
-    <!--@DEPRECATED-->
 <!ATTLIST currencyGroup alt NMTOKENS #IMPLIED >
-    <!--@DEPRECATED-->
 <!ATTLIST currencyGroup draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
+    <!--@DEPRECATED:true, false-->
 <!ATTLIST currencyGroup references CDATA #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED-->
 <!ATTLIST currencyGroup numberSystem CDATA #IMPLIED >
     <!--@DEPRECATED-->
 

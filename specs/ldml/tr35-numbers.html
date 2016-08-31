@@ -582,16 +582,16 @@ h2, h3, h4, table {
 			<dt>
 				<b>currencyDecimal</b>
 			</dt>
-			<dd>- This is used as the decimal separator in currency
-				formatting/parsing, instead of the regular decimal separator. This
-				item is optional in the CLDR.</dd>
+			<dd>- <span class="changed">Optional. If specified, then for currency formatting/parsing</span>
+				this is used as the decimal separator <span class="changed">instead of using the regular decimal
+				separator; otherwise,</span> the regular decimal separator <span class="changed">is used</span>.<span class="removed"> This
+				item is optional in the CLDR.</span></dd>
 			<dt>
 				<b>currencyGroup</b>
 			</dt>
-			<dd>- Deprecated. This was formerly used to indicate an optional
-				grouping separator for currency formatting/parsing that was distinct
-				from the regular grouping separator. However, there was no evidence
-				that it was actually needed in any locale.</dd>
+			<dd>- <span class="removed">Deprecated. </span><span class="changed">Optional. If specified, then for currency formatting/parsing
+				this is used as the group separator instead of using the regular group
+				separator; otherwise, the regular group separator is used.</span></dd>
 			<dt>
 				<b>timeSeparator</b>
 			</dt>

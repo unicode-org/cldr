@@ -11,8 +11,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<transform source="InterIndic" target="Arabic" direction="forward" visibility="internal">
 			<tRule><![CDATA[
 $nonword = [^\uE000-\uE0FF];
-\uE015\uE03F\uE02F\uE03E } $nonword→كیا; # किया
-\uE026\uE03F\uE02F\uE03E } $nonword→دیا; # दिया
+\uE015\uE03F\uE02F\uE03E } $nonword→كيا; # किया
+\uE026\uE03F\uE02F\uE03E } $nonword→ديا; # दिया
 \uE015\uE03F } $nonword→كي; # कि at word end
 \uE039\uE048→هي; # है
 \uE001 } $nonword→ن; # chandrabindu at end to noon
@@ -32,11 +32,11 @@ $nonword = [^\uE000-\uE0FF];
 \uE00B→ر; # ऋ
 \uE00C→ل; # ऌ
 \uE00D→ا ي; # ऍ
-\uE00E→ی; # ऎ
+\uE00E→ي; # ऎ
 \uE00F  } $nonword→ي; # ए use ي when at end
-\uE00F→ی; # ए use ی when not at end
+\uE00F→ي; # ए use ي when not at end
 \uE010  } $nonword→ا ي; # ऐ use ي when at end
-\uE010→ا ی; # ऐ use ی when not at end
+\uE010→ا ي; # ऐ use ي when not at end
 \uE011→ا و; # ऑ
 \uE012→ا و; # ऒ
 \uE013→ا و; # ओ
@@ -67,7 +67,7 @@ $nonword = [^\uE000-\uE0FF];
 \uE02C→ب; # ब
 \uE02D→به; # भ
 \uE02E→م; # म
-\uE02F→ی; # य
+\uE02F→ي; # य
 \uE030→ر; # र
 \uE031→ر; # ऱ
 \uE032→ل; # ल
@@ -81,18 +81,18 @@ $nonword = [^\uE000-\uE0FF];
 \uE03C→; # ़
 \uE03D→; # ऽ
 \uE03E→ا; # ा
-\uE03F→ی; # ि
-\uE040→ی; # ी
+\uE03F→ي; # ि
+\uE040→ي; # ी
 \uE041→و; # ु
 \uE042→و; # ू
 \uE043→ر; # ृ
 \uE044→ر; # ॄ
 \uE045→ن; # ॅ
-\uE046→ی; # ॆ
+\uE046→ي; # ॆ
 \uE047 } $nonword→ي; # े use ي when at end
-\uE047→ی; # े use ی when not at end
+\uE047→ي; # े use ي when not at end
 \uE048 } $nonword→ا ي; # ै use ي when at end
-\uE048→ا ی; # ै use ی when not at end
+\uE048→ا ي; # ै use ي when not at end
 \uE049→و; # ॉ
 \uE04A→ا و; # ॊ
 \uE04B→و; # ो
@@ -110,14 +110,14 @@ $nonword = [^\uE000-\uE0FF];
 \uE05C→ر; # ड़
 \uE05D→ره; # ढ़
 \uE05E→ف; # फ़
-\uE05F→ی; # य़
+\uE05F→ي; # य़
 \uE060→ر; # ॠ
 \uE061→ل; # ॡ
 \uE062→ل; # ॢ
 \uE063→ل; # ॣ
 \uE064→۔; # ।
 \uE065→۔; # ॥
-\uE066→۰; # ०
+\uE066→\.; # ०
 \uE067→١; # १
 \uE068→٢; # २
 \uE069→٣; # ३
@@ -125,8 +125,8 @@ $nonword = [^\uE000-\uE0FF];
 \uE06B→٥; # ५
 \uE06C→٦; # ६
 \uE06D→٧; # ७
-\uE06E→۸; # ८
-\uE06F→۹; # ९
+\uE06E→٨; # ८
+\uE06F→٩; # ९
 \uE070→\.; # ॰
 \uE082→; # ॽ
 

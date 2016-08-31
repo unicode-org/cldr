@@ -130,8 +130,11 @@ $nonword = [^\uE000-\uE0FF];
 \uE070→\.; # ॰
 \uE082→; # ॽ
 
+# Remove sequences of alif characters.
+# For example, transform पाओला → بااولا → باولا.
 ::null;
-اا→ا; # Remove double alif.
+$alif = [أإآا] [:M:]*;
+($alif) $alif+ → $1;
 			]]></tRule>
 		</transform>
 	</transforms>

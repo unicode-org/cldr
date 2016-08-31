@@ -1276,7 +1276,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("territorySection", new Transform<String, String>() {
-                final Set<String> specialRegions = new HashSet<String>(Arrays.asList("EU", "QO", "ZZ"));
+                final Set<String> specialRegions = new HashSet<String>(Arrays.asList("EZ", "EU", "QO", "UN", "ZZ"));
 
                 public String transform(String source0) {
                     // support subdivisions

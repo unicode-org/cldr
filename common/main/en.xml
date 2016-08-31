@@ -2013,21 +2013,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="evening1">in the evening</dayPeriod>
 							<dayPeriod type="night1">at night</dayPeriod>
 						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight">midnight</dayPeriod>
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="am" alt="variant">am</dayPeriod>
-							<dayPeriod type="noon">noon</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
-							<dayPeriod type="pm" alt="variant">pm</dayPeriod>
-							<dayPeriod type="morning1">in the morning</dayPeriod>
-							<dayPeriod type="afternoon1">in the afternoon</dayPeriod>
-							<dayPeriod type="evening1">in the evening</dayPeriod>
-							<dayPeriod type="night1">at night</dayPeriod>
-						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="wide">
+						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">midnight</dayPeriod>
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="noon">noon</dayPeriod>

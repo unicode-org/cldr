@@ -760,6 +760,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">یوکرین</territory>
 			<territory type="UG">یوگنڈا</territory>
 			<territory type="UM">امریکہ سے باہر کے چھوٹے جزائز</territory>
+			<territory type="UN">اقوام متحدہ</territory>
+			<territory type="UN" alt="short">اقوام متحدہ</territory>
 			<territory type="US">ریاستہائے متحدہ</territory>
 			<territory type="US" alt="short">امریکا</territory>
 			<territory type="UY">یوروگوئے</territory>
@@ -7326,6 +7328,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — تمام</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — مطابقت</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — منسکہ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — توسیعی</characterLabelPattern>
@@ -7338,10 +7341,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">سرگرمیاں</characterLabel>
 		<characterLabel type="african_scripts">افریقی سکرپٹس</characterLabel>
 		<characterLabel type="american_scripts">امریکی سکرپٹس</characterLabel>
+		<characterLabel type="animal">جانور</characterLabel>
 		<characterLabel type="animals_nature">حیوانات و فطرت</characterLabel>
 		<characterLabel type="arrows">تیر کے نشانات</characterLabel>
+		<characterLabel type="body">جسم</characterLabel>
 		<characterLabel type="box_drawing">ڈرائنگ باکس</characterLabel>
 		<characterLabel type="braille">بریل</characterLabel>
+		<characterLabel type="building">عمارت</characterLabel>
 		<characterLabel type="bullets_stars">بلیٹس/اسٹار</characterLabel>
 		<characterLabel type="consonantal_jamo">کونسونینٹل جامو</characterLabel>
 		<characterLabel type="currency_symbols">کرنسی کی علامات</characterLabel>
@@ -7354,6 +7360,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">وسطی ایشیائی اسکرپٹس</characterLabel>
 		<characterLabel type="emoji">ایموجی</characterLabel>
 		<characterLabel type="european_scripts">یوروپی اسکرپٹس</characterLabel>
+		<characterLabel type="female">عورت</characterLabel>
+		<characterLabel type="flag">پرچم</characterLabel>
 		<characterLabel type="flags">پرچم</characterLabel>
 		<characterLabel type="food_drink">غذا اور مشروب</characterLabel>
 		<characterLabel type="format">فارمیٹ</characterLabel>
@@ -7366,43 +7374,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">ہنجا</characterLabel>
 		<characterLabel type="hanzi_simplified">ہنزی (آسان کردہ)</characterLabel>
 		<characterLabel type="hanzi_traditional">ہنزی (روایتی)</characterLabel>
+		<characterLabel type="heart">دل</characterLabel>
 		<characterLabel type="historic_scripts">تاریخی اسکرپٹ</characterLabel>
 		<characterLabel type="ideographic_desc_characters">تصور نگاری نزولی حروف</characterLabel>
 		<characterLabel type="japanese_kana">چاپانی کانا</characterLabel>
 		<characterLabel type="kanbun">کانبون</characterLabel>
 		<characterLabel type="kanji">کانجی</characterLabel>
+		<characterLabel type="keycap">کی کیپ</characterLabel>
 		<characterLabel type="leftwards_arrows">بائیں جانب تیر کا نشان</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">بائیں دائیں جانب تیر کا نشان</characterLabel>
 		<characterLabel type="letterlike_symbols">حروف کے جیسی علامات</characterLabel>
 		<characterLabel type="limited_use">محدود استعمال</characterLabel>
+		<characterLabel type="male">مرد</characterLabel>
 		<characterLabel type="math_symbols">ریاضی کی علامات</characterLabel>
 		<characterLabel type="middle_eastern_scripts">مشرقی وسطی اسکرپٹ</characterLabel>
 		<characterLabel type="miscellaneous">متفرق</characterLabel>
 		<characterLabel type="modern_scripts">جدید ترین اسکرپٹ</characterLabel>
 		<characterLabel type="modifier">ترمیم کار</characterLabel>
 		<characterLabel type="musical_symbols">موسیقی کی علامات</characterLabel>
+		<characterLabel type="nature">قدرت</characterLabel>
 		<characterLabel type="nonspacing">غیر فاصلہ کاری</characterLabel>
 		<characterLabel type="numbers">اعداد</characterLabel>
 		<characterLabel type="objects">آبجیکٹس</characterLabel>
 		<characterLabel type="other">دیگر</characterLabel>
 		<characterLabel type="paired">جوڑی</characterLabel>
+		<characterLabel type="person">شخص</characterLabel>
 		<characterLabel type="phonetic_alphabet">صوتیاتی حروف</characterLabel>
 		<characterLabel type="pictographs">پکٹوگراف</characterLabel>
+		<characterLabel type="place">جگہ</characterLabel>
+		<characterLabel type="plant">پلانٹ</characterLabel>
 		<characterLabel type="punctuation">رموز اوقاف</characterLabel>
 		<characterLabel type="rightwards_arrows">دائیں جانب تیر کا نشان</characterLabel>
 		<characterLabel type="sign_standard_symbols">نشان/معیاری علامات</characterLabel>
 		<characterLabel type="small_form_variant">چھوٹی صورت کے متغیرات</characterLabel>
+		<characterLabel type="smiley">مُسکراتا ہوا</characterLabel>
 		<characterLabel type="smileys_people">اسمالیز اور لوگ</characterLabel>
 		<characterLabel type="south_asian_scripts">جنوبی ایشیائی اسکرپٹس</characterLabel>
 		<characterLabel type="southeast_asian_scripts">جنوب مشرقی ایشیائی اسکرپٹس</characterLabel>
 		<characterLabel type="spacing">فاصلہ بندی</characterLabel>
+		<characterLabel type="sport">کھیل</characterLabel>
 		<characterLabel type="symbols">علامات</characterLabel>
 		<characterLabel type="technical_symbols" draft="provisional">تکنکی علامات</characterLabel>
 		<characterLabel type="tone_marks">ٹون مارکس</characterLabel>
+		<characterLabel type="travel">سفر</characterLabel>
 		<characterLabel type="travel_places">سفر اور مقامات</characterLabel>
 		<characterLabel type="upwards_arrows">اوپر کی جانب تیر کا نشان</characterLabel>
 		<characterLabel type="variant_forms">مختلف صورتیں</characterLabel>
 		<characterLabel type="vocalic_jamo">مصوتی جامو</characterLabel>
+		<characterLabel type="weather">موسم</characterLabel>
 		<characterLabel type="western_asian_scripts">مغربی ایشیائی اسکرپٹس</characterLabel>
 		<characterLabel type="whitespace">خالی جگہ</characterLabel>
 	</characterLabels>

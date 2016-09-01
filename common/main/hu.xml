@@ -966,6 +966,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukrajna</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Az Amerikai Egyesült Államok lakatlan külbirtokai</territory>
+			<territory type="UN">ENSZ</territory>
+			<territory type="UN" alt="short">ENSZ</territory>
 			<territory type="US">Egyesült Államok</territory>
 			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Uruguay</territory>
@@ -8542,6 +8544,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Összes</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Kompatibilitás</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Zárt</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Kibővített</characterLabelPattern>
@@ -8554,10 +8557,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Tevékenységek</characterLabel>
 		<characterLabel type="african_scripts">Afrikai írásrendszerek</characterLabel>
 		<characterLabel type="american_scripts">Amerikai írásrendszerek</characterLabel>
+		<characterLabel type="animal">állat</characterLabel>
 		<characterLabel type="animals_nature">Állatok és természet</characterLabel>
 		<characterLabel type="arrows">Nyilak</characterLabel>
+		<characterLabel type="body">test</characterLabel>
 		<characterLabel type="box_drawing">Grafikus karakterek</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">épület</characterLabel>
 		<characterLabel type="bullets_stars">Felsorolásjelek és csillagok</characterLabel>
 		<characterLabel type="consonantal_jamo">Mássalhangzói jamo</characterLabel>
 		<characterLabel type="currency_symbols">Pénznemek szimbólumai</characterLabel>
@@ -8570,6 +8576,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Kelet-ázsiai írásrendszerek</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Európai írásrendszerek</characterLabel>
+		<characterLabel type="female">nő</characterLabel>
+		<characterLabel type="flag">zászló</characterLabel>
 		<characterLabel type="flags">Zászlók</characterLabel>
 		<characterLabel type="food_drink">Étel-ital</characterLabel>
 		<characterLabel type="format">Formátum</characterLabel>
@@ -8582,43 +8590,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Handzsa</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (egyszerűsített)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (hagyományos)</characterLabel>
+		<characterLabel type="heart">szív</characterLabel>
 		<characterLabel type="historic_scripts">Történelmi írásrendszerek</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Ideografikus leíró karakterek</characterLabel>
 		<characterLabel type="japanese_kana" draft="contributed">Japán kana</characterLabel>
 		<characterLabel type="kanbun" draft="contributed">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kandzsi</characterLabel>
+		<characterLabel type="keycap">gombfej</characterLabel>
 		<characterLabel type="leftwards_arrows">Balra mutató nyilak</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Jobbra-balra mutató nyilak</characterLabel>
 		<characterLabel type="letterlike_symbols">Betűszerű szimbólumok</characterLabel>
 		<characterLabel type="limited_use">Korlátozott használat</characterLabel>
+		<characterLabel type="male">férfi</characterLabel>
 		<characterLabel type="math_symbols">Matematikai szimbólumok</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Közel-keleti írásrendszerek</characterLabel>
 		<characterLabel type="miscellaneous">Egyéb</characterLabel>
 		<characterLabel type="modern_scripts">Modern írásrendszerek</characterLabel>
 		<characterLabel type="modifier">Módosító</characterLabel>
 		<characterLabel type="musical_symbols">Zenei szimbólumok</characterLabel>
+		<characterLabel type="nature">természet</characterLabel>
 		<characterLabel type="nonspacing">Szóközt nem alkalmazó</characterLabel>
 		<characterLabel type="numbers">Számok</characterLabel>
 		<characterLabel type="objects">Tárgyak</characterLabel>
 		<characterLabel type="other">Egyéb</characterLabel>
 		<characterLabel type="paired">Párosított</characterLabel>
+		<characterLabel type="person">ember</characterLabel>
 		<characterLabel type="phonetic_alphabet">Fonetikus ábécé</characterLabel>
 		<characterLabel type="pictographs">Piktogramok</characterLabel>
+		<characterLabel type="place">hely</characterLabel>
+		<characterLabel type="plant">növény</characterLabel>
 		<characterLabel type="punctuation">Írásjel</characterLabel>
 		<characterLabel type="rightwards_arrows">Jobbra mutató nyilak</characterLabel>
 		<characterLabel type="sign_standard_symbols">Jelek/normál szimbólumok</characterLabel>
 		<characterLabel type="small_form_variant">Kis formavariánsok</characterLabel>
+		<characterLabel type="smiley">smiley</characterLabel>
 		<characterLabel type="smileys_people">Hangulatjelek és emberek</characterLabel>
 		<characterLabel type="south_asian_scripts">Dél-ázsiai írásrendszerek</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Délkelet-ázsiai írásrendszerek</characterLabel>
 		<characterLabel type="spacing">Szóközt alkalmazó</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols">Szimbólumok</characterLabel>
 		<characterLabel type="technical_symbols" draft="contributed">Műszaki szimbólumok</characterLabel>
 		<characterLabel type="tone_marks">Hangsúlyjelek</characterLabel>
+		<characterLabel type="travel">utazás</characterLabel>
 		<characterLabel type="travel_places">Utazás és helyek</characterLabel>
 		<characterLabel type="upwards_arrows">Felfelé mutató nyilak</characterLabel>
 		<characterLabel type="variant_forms">Variánsformák</characterLabel>
 		<characterLabel type="vocalic_jamo">Magánhangzói jamo</characterLabel>
+		<characterLabel type="weather">időjárás</characterLabel>
 		<characterLabel type="western_asian_scripts">Nyugat-ázsiai írásrendszerek</characterLabel>
 		<characterLabel type="whitespace">Térköz</characterLabel>
 	</characterLabels>

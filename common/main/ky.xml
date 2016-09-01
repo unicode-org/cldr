@@ -745,6 +745,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Украина</territory>
 			<territory type="UG">Уганда</territory>
 			<territory type="UM">АКШнын сырткы аралдары</territory>
+			<territory type="UN">БУ</territory>
 			<territory type="US">Америка Кошмо Штаттары</territory>
 			<territory type="US" alt="short">АКШ</territory>
 			<territory type="UY">Уругвай</territory>
@@ -7141,6 +7142,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Баары</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Ылайыктуулук</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Кашаага/Тырмакчага алынган</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Кеңейтилген</characterLabelPattern>
@@ -7153,10 +7155,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Аракеттер</characterLabel>
 		<characterLabel type="african_scripts">Африка жазуулары</characterLabel>
 		<characterLabel type="american_scripts">Америка жазуулары</characterLabel>
+		<characterLabel type="animal">жаныбар</characterLabel>
 		<characterLabel type="animals_nature">Жаныбарлар жана жаратылыш</characterLabel>
 		<characterLabel type="arrows">Жебелер</characterLabel>
+		<characterLabel type="body">дене</characterLabel>
 		<characterLabel type="box_drawing">Кутуча чийүү</characterLabel>
 		<characterLabel type="braille">Брайль</characterLabel>
+		<characterLabel type="building">имарат</characterLabel>
 		<characterLabel type="bullets_stars">Маркерлер/Жылдызчалар</characterLabel>
 		<characterLabel type="consonantal_jamo">Үнсүз Жамо</characterLabel>
 		<characterLabel type="currency_symbols">Валюта белгилери</characterLabel>
@@ -7169,6 +7174,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Чыгыш Азия өлкөлөрүнүн жазуулары</characterLabel>
 		<characterLabel type="emoji">Быйтыкчалар</characterLabel>
 		<characterLabel type="european_scripts">Европа өлкөлөрүнүн жазуулары</characterLabel>
+		<characterLabel type="female">аял</characterLabel>
+		<characterLabel type="flag">желек</characterLabel>
 		<characterLabel type="flags">Желекчелер</characterLabel>
 		<characterLabel type="food_drink">Тамак-аш жана суусундуктар</characterLabel>
 		<characterLabel type="format">Формат</characterLabel>
@@ -7181,43 +7188,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Ханья</characterLabel>
 		<characterLabel type="hanzi_simplified">Ханьзи (Жөнөкөйлөштүрүлгөн)</characterLabel>
 		<characterLabel type="hanzi_traditional">Ханьзи (Салттуу)</characterLabel>
+		<characterLabel type="heart">жүрөк</characterLabel>
 		<characterLabel type="historic_scripts">Тарыхый жазуулар</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Идеографиялык сүрөттөө белгилери</characterLabel>
 		<characterLabel type="japanese_kana">Жапон Канасы</characterLabel>
 		<characterLabel type="kanbun">Канбун</characterLabel>
 		<characterLabel type="kanji">Кандзи</characterLabel>
+		<characterLabel type="keycap">клавиатура калпакчасы</characterLabel>
 		<characterLabel type="leftwards_arrows">Солго караган жебелер</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Солго жана оңго караган жебелер</characterLabel>
 		<characterLabel type="letterlike_symbols">Тамга сымал белгилер</characterLabel>
 		<characterLabel type="limited_use">Колдонулушу чектелген</characterLabel>
+		<characterLabel type="male">эркек</characterLabel>
 		<characterLabel type="math_symbols">Математикалык белгилер</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Жакынкы Чыгыш өлкөлөрүнүн жазуулары</characterLabel>
 		<characterLabel type="miscellaneous">Башка</characterLabel>
 		<characterLabel type="modern_scripts">Заманбап жазуулар</characterLabel>
 		<characterLabel type="modifier">Өзгөрткүч</characterLabel>
 		<characterLabel type="musical_symbols">Музыкалык белгилер</characterLabel>
+		<characterLabel type="nature">жаратылыш</characterLabel>
 		<characterLabel type="nonspacing">Боштугу жок</characterLabel>
 		<characterLabel type="numbers">Сандар</characterLabel>
 		<characterLabel type="objects">Объекттер</characterLabel>
 		<characterLabel type="other">Башкалар</characterLabel>
 		<characterLabel type="paired">Жупташкан</characterLabel>
+		<characterLabel type="person">адам</characterLabel>
 		<characterLabel type="phonetic_alphabet">Фонетикалык алфавит</characterLabel>
 		<characterLabel type="pictographs">Пиктограмма</characterLabel>
+		<characterLabel type="place">жер</characterLabel>
+		<characterLabel type="plant">өсүмдүк</characterLabel>
 		<characterLabel type="punctuation">Пунктуация</characterLabel>
 		<characterLabel type="rightwards_arrows">Оңго караган жебелер</characterLabel>
 		<characterLabel type="sign_standard_symbols">Белги/Стандарттык символдор</characterLabel>
 		<characterLabel type="small_form_variant">Кичинекей формадагы варианттар</characterLabel>
+		<characterLabel type="smiley">быйтыкча</characterLabel>
 		<characterLabel type="smileys_people">Быйтыкчалар жана адамдар</characterLabel>
 		<characterLabel type="south_asian_scripts">Түштүк Азия өлкөлөрүнүн жазуулары</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Түштүк-Чыгыш Азия өлкөлөрүнүн жазуулары</characterLabel>
 		<characterLabel type="spacing">Боштук калтыруу</characterLabel>
+		<characterLabel type="sport">спорт</characterLabel>
 		<characterLabel type="symbols">Символдор</characterLabel>
 		<characterLabel type="technical_symbols">Техникалык символдор</characterLabel>
 		<characterLabel type="tone_marks">Интонация белгилери</characterLabel>
+		<characterLabel type="travel">саякат</characterLabel>
 		<characterLabel type="travel_places">Саякаттоо</characterLabel>
 		<characterLabel type="upwards_arrows">Жогору караган жебелер</characterLabel>
 		<characterLabel type="variant_forms">Кош формалар</characterLabel>
 		<characterLabel type="vocalic_jamo">Үндүү Жамо</characterLabel>
+		<characterLabel type="weather">аба-ырайы</characterLabel>
 		<characterLabel type="western_asian_scripts">Батыш Азия өлкөлөрүнүн жазуулары</characterLabel>
 		<characterLabel type="whitespace">Боштук</characterLabel>
 	</characterLabels>

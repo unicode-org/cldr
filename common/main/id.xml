@@ -1015,6 +1015,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Kepulauan Terluar A.S.</territory>
+			<territory type="UN">Perserikatan Bangsa-Bangsa</territory>
+			<territory type="UN" alt="short">PBB</territory>
 			<territory type="US">Amerika Serikat</territory>
 			<territory type="US" alt="short">A.S.</territory>
 			<territory type="UY">Uruguay</territory>
@@ -8902,6 +8904,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Semua</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Kompatibilitas</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Terlampir</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Diperluas</characterLabelPattern>
@@ -8913,10 +8916,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Aktivitas</characterLabel>
 		<characterLabel type="african_scripts">Skrip Afrika</characterLabel>
 		<characterLabel type="american_scripts">Skrip Amerika</characterLabel>
+		<characterLabel type="animal">hewan</characterLabel>
 		<characterLabel type="animals_nature">Satwa &amp; Alam</characterLabel>
 		<characterLabel type="arrows">Panah</characterLabel>
+		<characterLabel type="body">badan</characterLabel>
 		<characterLabel type="box_drawing">Gambar Kotak</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">bangunan</characterLabel>
 		<characterLabel type="bullets_stars">Butir/Bintang</characterLabel>
 		<characterLabel type="consonantal_jamo">Jamo Konsonan</characterLabel>
 		<characterLabel type="currency_symbols">Simbol Mata Uang</characterLabel>
@@ -8929,6 +8935,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Skrip Asia Timur</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Skrip Eropa</characterLabel>
+		<characterLabel type="female">wanita</characterLabel>
+		<characterLabel type="flag">bendera</characterLabel>
 		<characterLabel type="flags">Bendera</characterLabel>
 		<characterLabel type="food_drink">Makanan &amp; Minuman</characterLabel>
 		<characterLabel type="format">Format</characterLabel>
@@ -8941,43 +8949,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (Aksara Sederhana)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (Aksara Tradisional)</characterLabel>
+		<characterLabel type="heart">hati</characterLabel>
 		<characterLabel type="historic_scripts">Skrip Historis</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Karakter Desk. Ideografis</characterLabel>
 		<characterLabel type="japanese_kana">Huruf Kana Jepang</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">keycap</characterLabel>
 		<characterLabel type="leftwards_arrows">Panah Kiri</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Panah Kiri Kanan</characterLabel>
 		<characterLabel type="letterlike_symbols">Simbol Seperti Huruf</characterLabel>
 		<characterLabel type="limited_use">Penggunaan Terbatas</characterLabel>
+		<characterLabel type="male">pria</characterLabel>
 		<characterLabel type="math_symbols">Simbol Matematika</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Skrip Timur Tengah</characterLabel>
 		<characterLabel type="miscellaneous">Lain-lain</characterLabel>
 		<characterLabel type="modern_scripts">Skrip Modern</characterLabel>
 		<characterLabel type="modifier">Pengubah</characterLabel>
 		<characterLabel type="musical_symbols">Simbol Musik</characterLabel>
+		<characterLabel type="nature">alam</characterLabel>
 		<characterLabel type="nonspacing">Tanpa Spasi</characterLabel>
 		<characterLabel type="numbers">Angka</characterLabel>
 		<characterLabel type="objects">Objek</characterLabel>
 		<characterLabel type="other">Lainnya</characterLabel>
 		<characterLabel type="paired">Dipasangkan</characterLabel>
+		<characterLabel type="person">orang</characterLabel>
 		<characterLabel type="phonetic_alphabet">Abjad Fonetik</characterLabel>
 		<characterLabel type="pictographs">Piktograf</characterLabel>
+		<characterLabel type="place">tempat</characterLabel>
+		<characterLabel type="plant">tumbuhan</characterLabel>
 		<characterLabel type="punctuation">Tanda Baca</characterLabel>
 		<characterLabel type="rightwards_arrows">Panah Kanan</characterLabel>
 		<characterLabel type="sign_standard_symbols">Simbol Tanda/Standar</characterLabel>
 		<characterLabel type="small_form_variant">Varian Format Kecil</characterLabel>
+		<characterLabel type="smiley">wajah tersenyum</characterLabel>
 		<characterLabel type="smileys_people">Smiley &amp; Orang</characterLabel>
 		<characterLabel type="south_asian_scripts">Skrip Asia Selatan</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Skrip Asia Tenggara</characterLabel>
 		<characterLabel type="spacing">Spasi</characterLabel>
+		<characterLabel type="sport">olahraga</characterLabel>
 		<characterLabel type="symbols">Simbol</characterLabel>
 		<characterLabel type="technical_symbols">Simbol Teknis</characterLabel>
 		<characterLabel type="tone_marks">Tanda Intonasi</characterLabel>
+		<characterLabel type="travel">wisata</characterLabel>
 		<characterLabel type="travel_places">Perjalanan &amp; Lokasi</characterLabel>
 		<characterLabel type="upwards_arrows">Panah Atas</characterLabel>
 		<characterLabel type="variant_forms">Varian Format</characterLabel>
 		<characterLabel type="vocalic_jamo">Jamo Vokal</characterLabel>
+		<characterLabel type="weather">cuaca</characterLabel>
 		<characterLabel type="western_asian_scripts">Skrip Asia Bagian Barat</characterLabel>
 		<characterLabel type="whitespace">Spasi Kosong</characterLabel>
 	</characterLabels>

@@ -754,6 +754,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Oekraïne</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">VS klein omliggende eilande</territory>
+			<territory type="UN">verenigde nasies</territory>
+			<territory type="UN" alt="short">VN</territory>
 			<territory type="US">Verenigde State van Amerika</territory>
 			<territory type="US" alt="short">VSA</territory>
 			<territory type="UY">Uruguay</territory>
@@ -7255,6 +7257,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} – Alle</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} – Versoenbaarheid</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} – Ingesluit</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} – Uitgebreid</characterLabelPattern>
@@ -7267,10 +7270,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Aktiwiteite</characterLabel>
 		<characterLabel type="african_scripts">Afrika-skrifte</characterLabel>
 		<characterLabel type="american_scripts">Amerikaanse skrifte</characterLabel>
+		<characterLabel type="animal">dier</characterLabel>
 		<characterLabel type="animals_nature">Diere en natuur</characterLabel>
 		<characterLabel type="arrows">Pyltjies</characterLabel>
+		<characterLabel type="body">liggaam</characterLabel>
 		<characterLabel type="box_drawing">Bokstekening</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">gebou</characterLabel>
 		<characterLabel type="bullets_stars">Kolpunte/Sterretjies</characterLabel>
 		<characterLabel type="consonantal_jamo">Konsonantale Jamo</characterLabel>
 		<characterLabel type="currency_symbols">Geldeenheidsimbole</characterLabel>
@@ -7283,6 +7289,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Oos-Asiese skrifte</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Europese skrifte</characterLabel>
+		<characterLabel type="female">vroulik</characterLabel>
+		<characterLabel type="flag">vlag</characterLabel>
 		<characterLabel type="flags">Vlae</characterLabel>
 		<characterLabel type="food_drink">Kos en drinkgoed</characterLabel>
 		<characterLabel type="format">Formaat</characterLabel>
@@ -7295,43 +7303,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (vereenvoudig)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (tradisioneel)</characterLabel>
+		<characterLabel type="heart">hart</characterLabel>
 		<characterLabel type="historic_scripts">Historiese skrifte</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Ideografies-beskrywende karakters</characterLabel>
 		<characterLabel type="japanese_kana">Japannese Kana</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">toets</characterLabel>
 		<characterLabel type="leftwards_arrows">Links-pyltjies</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Links-Regs-pyltjies</characterLabel>
 		<characterLabel type="letterlike_symbols">Letterige simbole</characterLabel>
 		<characterLabel type="limited_use">Beperkte gebruik</characterLabel>
+		<characterLabel type="male">manlik</characterLabel>
 		<characterLabel type="math_symbols">Wiskunde simbole</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Midde-Oosterse skrifte</characterLabel>
 		<characterLabel type="miscellaneous">Allerlei</characterLabel>
 		<characterLabel type="modern_scripts">Moderne skrifte</characterLabel>
 		<characterLabel type="modifier">Bepaler</characterLabel>
 		<characterLabel type="musical_symbols">Musikale simbole</characterLabel>
+		<characterLabel type="nature">natuur</characterLabel>
 		<characterLabel type="nonspacing">Niespasiëring</characterLabel>
 		<characterLabel type="numbers">Nommers</characterLabel>
 		<characterLabel type="objects">Voorwerpe</characterLabel>
 		<characterLabel type="other">Ander</characterLabel>
 		<characterLabel type="paired">Saamgevoeg</characterLabel>
+		<characterLabel type="person">persoon</characterLabel>
 		<characterLabel type="phonetic_alphabet">Fonetiese alfabet</characterLabel>
 		<characterLabel type="pictographs">Piktogram</characterLabel>
+		<characterLabel type="place">plek</characterLabel>
+		<characterLabel type="plant">plant</characterLabel>
 		<characterLabel type="punctuation">Leestekens</characterLabel>
 		<characterLabel type="rightwards_arrows">Regs-pyltjies</characterLabel>
 		<characterLabel type="sign_standard_symbols">Teken/Standaard simbool</characterLabel>
 		<characterLabel type="small_form_variant">Kleinvormvariante</characterLabel>
+		<characterLabel type="smiley">gesiggie</characterLabel>
 		<characterLabel type="smileys_people">Emosiekone en mense</characterLabel>
 		<characterLabel type="south_asian_scripts">Suid-Asiese skrifte</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Suidoos-Asiese skrifte</characterLabel>
 		<characterLabel type="spacing">Spasiëring</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols">Simbole</characterLabel>
 		<characterLabel type="technical_symbols">Tegniese simbole</characterLabel>
 		<characterLabel type="tone_marks">Intonasie-klemtekens</characterLabel>
+		<characterLabel type="travel">reis</characterLabel>
 		<characterLabel type="travel_places">Reis en plekke</characterLabel>
 		<characterLabel type="upwards_arrows">Op-pyltjies</characterLabel>
 		<characterLabel type="variant_forms">Variantvorms</characterLabel>
 		<characterLabel type="vocalic_jamo">Vokaliese Jamo</characterLabel>
+		<characterLabel type="weather">weer</characterLabel>
 		<characterLabel type="western_asian_scripts">Wes-Asiese skrifte</characterLabel>
 		<characterLabel type="whitespace">Witspasie</characterLabel>
 	</characterLabels>

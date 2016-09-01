@@ -934,6 +934,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukrajina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Stranski zunanji otoki Združenih držav</territory>
+			<territory type="UN">Združeni narodi</territory>
+			<territory type="UN" alt="short">Združeni narodi</territory>
 			<territory type="US">Združene države Amerike</territory>
 			<territory type="US" alt="short">ZDA</territory>
 			<territory type="UY">Urugvaj</territory>
@@ -8974,6 +8976,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all" draft="contributed">{0} – vse</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility" draft="contributed">{0} – združljivost</characterLabelPattern>
 		<characterLabelPattern type="enclosed" draft="contributed">{0} – vključeno</characterLabelPattern>
 		<characterLabelPattern type="extended" draft="contributed">{0} – razširjeno</characterLabelPattern>
@@ -8988,10 +8991,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities" draft="contributed">dejavnosti</characterLabel>
 		<characterLabel type="african_scripts" draft="contributed">afriške pisave</characterLabel>
 		<characterLabel type="american_scripts" draft="contributed">ameriške pisave</characterLabel>
+		<characterLabel type="animal">žival</characterLabel>
 		<characterLabel type="animals_nature" draft="contributed">živali in narava</characterLabel>
 		<characterLabel type="arrows" draft="contributed">puščice</characterLabel>
+		<characterLabel type="body">telo</characterLabel>
 		<characterLabel type="box_drawing" draft="contributed">risani okviri</characterLabel>
 		<characterLabel type="braille" draft="contributed">braillova pisava</characterLabel>
+		<characterLabel type="building">zgradba</characterLabel>
 		<characterLabel type="bullets_stars" draft="contributed">oznake/zvezdice</characterLabel>
 		<characterLabel type="consonantal_jamo" draft="contributed">soglasniška črka jamo</characterLabel>
 		<characterLabel type="currency_symbols" draft="contributed">valutni simboli</characterLabel>
@@ -9004,6 +9010,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts" draft="contributed">vzhodnoazijske pisave</characterLabel>
 		<characterLabel type="emoji" draft="contributed">čustveni simboli</characterLabel>
 		<characterLabel type="european_scripts" draft="contributed">evropske pisave</characterLabel>
+		<characterLabel type="female">ženska</characterLabel>
+		<characterLabel type="flag">zastava</characterLabel>
 		<characterLabel type="flags" draft="contributed">zastave</characterLabel>
 		<characterLabel type="food_drink" draft="contributed">hrana in pijača</characterLabel>
 		<characterLabel type="format" draft="contributed">oblika</characterLabel>
@@ -9016,43 +9024,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja" draft="contributed">hanja</characterLabel>
 		<characterLabel type="hanzi_simplified" draft="contributed">hanzi (poenostavljeno)</characterLabel>
 		<characterLabel type="hanzi_traditional" draft="contributed">hanzi (tradicionalno)</characterLabel>
+		<characterLabel type="heart">srce</characterLabel>
 		<characterLabel type="historic_scripts" draft="contributed">zgodovinske pisave</characterLabel>
 		<characterLabel type="ideographic_desc_characters" draft="contributed">ideogramski opisni znaki</characterLabel>
 		<characterLabel type="japanese_kana" draft="contributed">japonska kana</characterLabel>
 		<characterLabel type="kanbun" draft="contributed">kanbun</characterLabel>
 		<characterLabel type="kanji" draft="contributed">kandži</characterLabel>
+		<characterLabel type="keycap">keycap</characterLabel>
 		<characterLabel type="leftwards_arrows" draft="contributed">puščice levo</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">puščice levo-desno</characterLabel>
 		<characterLabel type="letterlike_symbols" draft="contributed">simboli kot črke</characterLabel>
 		<characterLabel type="limited_use" draft="contributed">omejena uporaba</characterLabel>
+		<characterLabel type="male">moški</characterLabel>
 		<characterLabel type="math_symbols" draft="contributed">matematični simboli</characterLabel>
 		<characterLabel type="middle_eastern_scripts" draft="contributed">pisave Bližnjega vzhoda</characterLabel>
 		<characterLabel type="miscellaneous" draft="contributed">Razno</characterLabel>
 		<characterLabel type="modern_scripts" draft="contributed">moderne pisave</characterLabel>
 		<characterLabel type="modifier" draft="contributed">modifikator</characterLabel>
 		<characterLabel type="musical_symbols" draft="contributed">glasbeni simboli</characterLabel>
+		<characterLabel type="nature">narava</characterLabel>
 		<characterLabel type="nonspacing" draft="contributed">sestavljiv znak</characterLabel>
 		<characterLabel type="numbers" draft="contributed">številke</characterLabel>
 		<characterLabel type="objects" draft="contributed">predmeti</characterLabel>
 		<characterLabel type="other" draft="contributed">drugo</characterLabel>
 		<characterLabel type="paired" draft="contributed">v paru</characterLabel>
+		<characterLabel type="person">oseba</characterLabel>
 		<characterLabel type="phonetic_alphabet" draft="contributed">fonetična abeceda</characterLabel>
 		<characterLabel type="pictographs" draft="contributed">piktogrami</characterLabel>
+		<characterLabel type="place">kraj</characterLabel>
+		<characterLabel type="plant">rastlina</characterLabel>
 		<characterLabel type="punctuation" draft="contributed">ločila</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="contributed">puščice desno</characterLabel>
 		<characterLabel type="sign_standard_symbols" draft="contributed">znaki/standardni simboli</characterLabel>
 		<characterLabel type="small_form_variant" draft="contributed">male variantne oblike</characterLabel>
+		<characterLabel type="smiley">smeško</characterLabel>
 		<characterLabel type="smileys_people" draft="contributed">smeški in osebe</characterLabel>
 		<characterLabel type="south_asian_scripts" draft="contributed">južnoazijske pisave</characterLabel>
 		<characterLabel type="southeast_asian_scripts" draft="contributed">pisave jugovzhodne Azije</characterLabel>
 		<characterLabel type="spacing" draft="contributed">razmik</characterLabel>
+		<characterLabel type="sport">šport</characterLabel>
 		<characterLabel type="symbols" draft="contributed">simboli</characterLabel>
 		<characterLabel type="technical_symbols" draft="contributed">tehnični simboli</characterLabel>
 		<characterLabel type="tone_marks" draft="contributed">naglasna znamenja</characterLabel>
+		<characterLabel type="travel">potovanje</characterLabel>
 		<characterLabel type="travel_places" draft="contributed">potovanja in kraji</characterLabel>
 		<characterLabel type="upwards_arrows" draft="contributed">puščice navzgor</characterLabel>
 		<characterLabel type="variant_forms" draft="contributed">variantne oblike</characterLabel>
 		<characterLabel type="vocalic_jamo" draft="contributed">samoglasniška črka jamo</characterLabel>
+		<characterLabel type="weather">vreme</characterLabel>
 		<characterLabel type="western_asian_scripts" draft="contributed">zahodnoazijske pisave</characterLabel>
 		<characterLabel type="whitespace" draft="contributed">presledek</characterLabel>
 	</characterLabels>

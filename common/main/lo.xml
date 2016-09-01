@@ -989,6 +989,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">ຢູເຄຣນ</territory>
 			<territory type="UG">ອູການດາ</territory>
 			<territory type="UM">ໝູ່ເກາະຮອບນອກຂອງສະຫະລັດຯ</territory>
+			<territory type="UN">ສະຫະປະຊາຊາດ</territory>
+			<territory type="UN" alt="short">ຢູເອັນ</territory>
 			<territory type="US">ສະຫະລັດ</territory>
 			<territory type="US" alt="short">ສະຫະລັດຯ</territory>
 			<territory type="UY">ອູຣຸກວຍ</territory>
@@ -8451,6 +8453,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — ທັງໝົດ</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — ຄວາມເຂົ້າກັນໄດ້</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — ລ້ອມໄວ້ແລ້ວ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — ຂະຫຍາຍແລ້ວ</characterLabelPattern>
@@ -8462,10 +8465,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">ການເຄື່ອນໄຫວ</characterLabel>
 		<characterLabel type="african_scripts">ແບບຂຽນອາຟຣິກັນ</characterLabel>
 		<characterLabel type="american_scripts">ແບບຂຽນອາເມຣິກັນ</characterLabel>
+		<characterLabel type="animal">ສັດ</characterLabel>
 		<characterLabel type="animals_nature">ສັດ ແລະ ທຳມະຊາດ</characterLabel>
 		<characterLabel type="arrows">ລູກສອນ</characterLabel>
+		<characterLabel type="body">ຮ່າງກາຍ</characterLabel>
 		<characterLabel type="box_drawing">ການແຕ້ມກ່ອງ</characterLabel>
 		<characterLabel type="braille">ອັກສອນເບຣວ</characterLabel>
+		<characterLabel type="building">ຕຶກ</characterLabel>
 		<characterLabel type="bullets_stars">ຈຸດນຳ/ດາວ</characterLabel>
 		<characterLabel type="consonantal_jamo">ພະຍັນຊະນະຈາໂມ</characterLabel>
 		<characterLabel type="currency_symbols">ສັນຍາລັກສະກຸນເງິນ</characterLabel>
@@ -8478,6 +8484,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">ແບບຂຽນຊາວເອເຊຍຕາເວັນອອກ</characterLabel>
 		<characterLabel type="emoji">ອີໂມຈິ</characterLabel>
 		<characterLabel type="european_scripts">ແບບຂຽນຢູໂຣບ</characterLabel>
+		<characterLabel type="female">ຍິງ</characterLabel>
+		<characterLabel type="flag">ທຸງ</characterLabel>
 		<characterLabel type="flags">ທຸງ</characterLabel>
 		<characterLabel type="food_drink">ອາຫານ ແລະ ເຄື່ອງດື່ມ</characterLabel>
 		<characterLabel type="format">ຮູບແບບ</characterLabel>
@@ -8490,43 +8498,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">ຮັນຈາ</characterLabel>
 		<characterLabel type="hanzi_simplified">ຕົວອັກສອນຈີນ (ແບບງ່າຍ)</characterLabel>
 		<characterLabel type="hanzi_traditional">ຕົວອັກສອນຈີນ (ດັ້ງເດີມ)</characterLabel>
+		<characterLabel type="heart">ຫົວໃຈ</characterLabel>
 		<characterLabel type="historic_scripts">ແບບຂຽນປະຫວັດສາດ</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ຕົວອັກສອນຄຳອະທິບາຍພາບສະແດງຄວາມໝາຍ</characterLabel>
 		<characterLabel type="japanese_kana">ຕົວອັກສອນຄານະຍີ່ປຸ່ນ</characterLabel>
 		<characterLabel type="kanbun">ຄັນບຸນ</characterLabel>
 		<characterLabel type="kanji">ຄັນຈິ</characterLabel>
+		<characterLabel type="keycap">ແປ້ນແຄັບ</characterLabel>
 		<characterLabel type="leftwards_arrows">ລູກສອນຊີ້ໄປຊ້າຍ</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">ລູກສອນຊີ້ໄປຊ້າຍຂວາ</characterLabel>
 		<characterLabel type="letterlike_symbols">ສັນຍາລັກແບບຕົວຂຽນ</characterLabel>
 		<characterLabel type="limited_use">ໃຊ້ຈຳກັດ</characterLabel>
+		<characterLabel type="male">ຊາຍ</characterLabel>
 		<characterLabel type="math_symbols">ສັນຍາລັກເລກ</characterLabel>
 		<characterLabel type="middle_eastern_scripts">ແບບຂຽນຕາເວັນອອກກາງ</characterLabel>
 		<characterLabel type="miscellaneous">ເບັດຕະເລັດ</characterLabel>
 		<characterLabel type="modern_scripts">ແບບຂຽນສະໄໝໃໝ່</characterLabel>
 		<characterLabel type="modifier">ຕົວແກ້ໄຂ</characterLabel>
 		<characterLabel type="musical_symbols">ສັນຍາລັກດົນຕີ</characterLabel>
+		<characterLabel type="nature">ທຳມະຊາດ</characterLabel>
 		<characterLabel type="nonspacing">ບໍ່ມີຍະຫວ່າງ</characterLabel>
 		<characterLabel type="numbers">ຕົວເລກ</characterLabel>
 		<characterLabel type="objects">ອອບເຈັກ</characterLabel>
 		<characterLabel type="other">ອື່ນໆ</characterLabel>
 		<characterLabel type="paired">ຈັບຄູ່ແລ້ວ</characterLabel>
+		<characterLabel type="person">ຄົນ</characterLabel>
 		<characterLabel type="phonetic_alphabet">ພະຍັນຊະນະການອອກສຽງ</characterLabel>
 		<characterLabel type="pictographs">ສັນຍາລັກຮູບພາບ</characterLabel>
+		<characterLabel type="place">ສະຖານທີ່</characterLabel>
+		<characterLabel type="plant">ພືດ</characterLabel>
 		<characterLabel type="punctuation">ເຄື່ອງໝາຍວັກຕອນ</characterLabel>
 		<characterLabel type="rightwards_arrows">ລູກສອນຊີ້ໄປຂວາ</characterLabel>
 		<characterLabel type="sign_standard_symbols">ສັນຍາລັກ ປ້າຍ/ມາດຕະຖານ</characterLabel>
 		<characterLabel type="small_form_variant">ຄວາມປ່ຽນຜັນຮູບແບບນ້ອຍ</characterLabel>
+		<characterLabel type="smiley">ຍິ້ມ</characterLabel>
 		<characterLabel type="smileys_people">ຮູບຍິ້ມ ແລະ ຄົນ</characterLabel>
 		<characterLabel type="south_asian_scripts">ແບບຂຽນຊາວເອເຊຍໃຕ້</characterLabel>
 		<characterLabel type="southeast_asian_scripts">ແບບຂຽນຊາວເອເຊຍຕາເວັນອອກສ່ຽງໃຕ້</characterLabel>
 		<characterLabel type="spacing">ຊ່ອງຫວ່າງ</characterLabel>
+		<characterLabel type="sport">ກິລາ</characterLabel>
 		<characterLabel type="symbols">ສັນຍາລັກ</characterLabel>
 		<characterLabel type="technical_symbols">ສັນຍາລັກທາງເທັກນິກ</characterLabel>
 		<characterLabel type="tone_marks">ັວັນນະຍຸດ</characterLabel>
+		<characterLabel type="travel">ທ່ອງທ່ຽວ</characterLabel>
 		<characterLabel type="travel_places">ທ່ອງທ່ຽວ ແລະ ສະຖານທີ່ຕ່າງໆ</characterLabel>
 		<characterLabel type="upwards_arrows">ລູກສອນຊີ້ຂຶ້ນເທິງ</characterLabel>
 		<characterLabel type="variant_forms">ຮູບແບບຄວາມປ່ຽນຜັນ</characterLabel>
 		<characterLabel type="vocalic_jamo">ຈາໂມທີ່ປະກອບດ້ວຍສຽງສະຫລະ</characterLabel>
+		<characterLabel type="weather">ສະພາບອາກາດ</characterLabel>
 		<characterLabel type="western_asian_scripts">ແບບຂຽນຊາວເອເຊຍຕາເວັນຕົກ</characterLabel>
 		<characterLabel type="whitespace">ຊ່ອງຫວ່າງ</characterLabel>
 	</characterLabels>

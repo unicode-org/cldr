@@ -956,6 +956,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">أوكرانيا</territory>
 			<territory type="UG">أوغندا</territory>
 			<territory type="UM">جزر الولايات المتحدة النائية</territory>
+			<territory type="UN">الأمم المتحدة</territory>
+			<territory type="UN" alt="short">أمم</territory>
 			<territory type="US">الولايات المتحدة</territory>
 			<territory type="US" alt="short">الولايات المتحدة</territory>
 			<territory type="UY">أورغواي</territory>
@@ -11103,6 +11105,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} - الكل</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} - التوافق</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} - مقيد</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} - ممتد</characterLabelPattern>
@@ -11119,10 +11122,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">أنشطة</characterLabel>
 		<characterLabel type="african_scripts">أنظمة كتابة إفريقية</characterLabel>
 		<characterLabel type="american_scripts">أنظمة كتابة أمريكية</characterLabel>
+		<characterLabel type="animal">حيوان</characterLabel>
 		<characterLabel type="animals_nature">حيوانات وطبيعة</characterLabel>
 		<characterLabel type="arrows">أسهم</characterLabel>
+		<characterLabel type="body">جسد</characterLabel>
 		<characterLabel type="box_drawing">رسم مربع</characterLabel>
 		<characterLabel type="braille">برايل</characterLabel>
+		<characterLabel type="building">مبنى</characterLabel>
 		<characterLabel type="bullets_stars">نقاط/نجوم</characterLabel>
 		<characterLabel type="consonantal_jamo">جامو ساكن</characterLabel>
 		<characterLabel type="currency_symbols">رموز عملات</characterLabel>
@@ -11135,6 +11141,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">أنظمة كتابة شرق آسيا</characterLabel>
 		<characterLabel type="emoji">إيموجي</characterLabel>
 		<characterLabel type="european_scripts">أنظمة كتابة أوروبية</characterLabel>
+		<characterLabel type="female">أنثى</characterLabel>
+		<characterLabel type="flag">علم</characterLabel>
 		<characterLabel type="flags">أعلام</characterLabel>
 		<characterLabel type="food_drink">طعام وشراب</characterLabel>
 		<characterLabel type="format">تنسيق</characterLabel>
@@ -11147,43 +11155,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">هانجا</characterLabel>
 		<characterLabel type="hanzi_simplified">هانزي (مبسطة)</characterLabel>
 		<characterLabel type="hanzi_traditional">هانزي (تقليدية)</characterLabel>
+		<characterLabel type="heart">قلب</characterLabel>
 		<characterLabel type="historic_scripts">أنظمة كتابة تاريخية</characterLabel>
 		<characterLabel type="ideographic_desc_characters">أحرف الوصف الرمزي</characterLabel>
 		<characterLabel type="japanese_kana">كانا يابانية</characterLabel>
 		<characterLabel type="kanbun">كانبون</characterLabel>
 		<characterLabel type="kanji">كانجي</characterLabel>
+		<characterLabel type="keycap">مفتاح</characterLabel>
 		<characterLabel type="leftwards_arrows">أسهم لليسار</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">أسهم لليمين واليسار</characterLabel>
 		<characterLabel type="letterlike_symbols">رموز على هيئة أحرف</characterLabel>
 		<characterLabel type="limited_use">استخدام محدود</characterLabel>
+		<characterLabel type="male">ذكر</characterLabel>
 		<characterLabel type="math_symbols">رموز الرياضيات</characterLabel>
 		<characterLabel type="middle_eastern_scripts">أنظمة كتابة الشرق الأوسط</characterLabel>
 		<characterLabel type="miscellaneous">متنوع</characterLabel>
 		<characterLabel type="modern_scripts">برامج نصية حديثة</characterLabel>
 		<characterLabel type="modifier">معدل</characterLabel>
 		<characterLabel type="musical_symbols">رموز موسيقية</characterLabel>
+		<characterLabel type="nature">طبيعة</characterLabel>
 		<characterLabel type="nonspacing">بلا مسافات</characterLabel>
 		<characterLabel type="numbers">أعداد</characterLabel>
 		<characterLabel type="objects">كائنات</characterLabel>
 		<characterLabel type="other">أخرى</characterLabel>
 		<characterLabel type="paired">مقترنة</characterLabel>
+		<characterLabel type="person">شخص</characterLabel>
 		<characterLabel type="phonetic_alphabet">أبجدية صوتية</characterLabel>
 		<characterLabel type="pictographs">كتابات بالصور</characterLabel>
+		<characterLabel type="place">مكان</characterLabel>
+		<characterLabel type="plant">نبات</characterLabel>
 		<characterLabel type="punctuation">علامات ترقيم</characterLabel>
 		<characterLabel type="rightwards_arrows">أسهم لليمين</characterLabel>
 		<characterLabel type="sign_standard_symbols">رموز إشارة/قياسية</characterLabel>
 		<characterLabel type="small_form_variant">تنويعات نموذج أحرف صغيرة</characterLabel>
+		<characterLabel type="smiley">ابتسامة</characterLabel>
 		<characterLabel type="smileys_people">أشكال تعبيرية وأشخاص</characterLabel>
 		<characterLabel type="south_asian_scripts">أنظمة كتابة جنوب آسيا</characterLabel>
 		<characterLabel type="southeast_asian_scripts">أنظمة كتابة جنوب شرق آسيا</characterLabel>
 		<characterLabel type="spacing">مسافات</characterLabel>
+		<characterLabel type="sport">رياضة</characterLabel>
 		<characterLabel type="symbols">رموز</characterLabel>
 		<characterLabel type="technical_symbols">رموز تقنية</characterLabel>
 		<characterLabel type="tone_marks">علامات الإعراب</characterLabel>
+		<characterLabel type="travel">سفر</characterLabel>
 		<characterLabel type="travel_places">سفر وأماكن</characterLabel>
 		<characterLabel type="upwards_arrows">أسهم لأعلى</characterLabel>
 		<characterLabel type="variant_forms">نماذج متنوعة</characterLabel>
 		<characterLabel type="vocalic_jamo">جامو حروف العلة</characterLabel>
+		<characterLabel type="weather">طقس</characterLabel>
 		<characterLabel type="western_asian_scripts">أنظمة كتابة غرب آسيا</characterLabel>
 		<characterLabel type="whitespace">مسافة بيضاء</characterLabel>
 	</characterLabels>

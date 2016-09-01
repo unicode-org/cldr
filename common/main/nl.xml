@@ -1124,6 +1124,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Oekraïne</territory>
 			<territory type="UG">Oeganda</territory>
 			<territory type="UM">Kleine afgelegen eilanden van de Verenigde Staten</territory>
+			<territory type="UN">verenigde naties</territory>
+			<territory type="UN" alt="short">vn</territory>
 			<territory type="US">Verenigde Staten</territory>
 			<territory type="US" alt="short">VS</territory>
 			<territory type="UY">Uruguay</territory>
@@ -10685,6 +10687,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — alle</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — compatibiliteit</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — ingebed</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — uitgebreid</characterLabelPattern>
@@ -10697,10 +10700,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">activiteiten</characterLabel>
 		<characterLabel type="african_scripts">Afrikaanse schriften</characterLabel>
 		<characterLabel type="american_scripts">Amerikaanse schriften</characterLabel>
+		<characterLabel type="animal">dier</characterLabel>
 		<characterLabel type="animals_nature">dieren en natuur</characterLabel>
 		<characterLabel type="arrows">pijlen</characterLabel>
+		<characterLabel type="body">lichaam</characterLabel>
 		<characterLabel type="box_drawing">box-drawing</characterLabel>
 		<characterLabel type="braille">braille</characterLabel>
+		<characterLabel type="building">gebouw</characterLabel>
 		<characterLabel type="bullets_stars">bullets/sterren</characterLabel>
 		<characterLabel type="consonantal_jamo">medeklinker-jamo</characterLabel>
 		<characterLabel type="currency_symbols">valutasymbolen</characterLabel>
@@ -10713,6 +10719,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Oost-Aziatische schriften</characterLabel>
 		<characterLabel type="emoji">emoji</characterLabel>
 		<characterLabel type="european_scripts">Europese schriften</characterLabel>
+		<characterLabel type="female">vrouwelijk</characterLabel>
+		<characterLabel type="flag">vlag</characterLabel>
 		<characterLabel type="flags">vlaggen</characterLabel>
 		<characterLabel type="food_drink">eten en drinken</characterLabel>
 		<characterLabel type="format">formaat</characterLabel>
@@ -10725,43 +10733,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (vereenvoudigd)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (traditioneel)</characterLabel>
+		<characterLabel type="heart">hart</characterLabel>
 		<characterLabel type="historic_scripts">historische schriften</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ideografische beschr. karakters</characterLabel>
 		<characterLabel type="japanese_kana">Japanse Kana</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">toets</characterLabel>
 		<characterLabel type="leftwards_arrows">Pijlen naar links</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Pijlen naar links en naar rechts</characterLabel>
 		<characterLabel type="letterlike_symbols">letterachtige symbolen</characterLabel>
 		<characterLabel type="limited_use">beperkt gebruik</characterLabel>
+		<characterLabel type="male">mannelijk</characterLabel>
 		<characterLabel type="math_symbols">mathematische symbolen</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Midden-Oosterse schriften</characterLabel>
 		<characterLabel type="miscellaneous">diverse</characterLabel>
 		<characterLabel type="modern_scripts">moderne schriften</characterLabel>
 		<characterLabel type="modifier">modificator</characterLabel>
 		<characterLabel type="musical_symbols">muzieksymbolen</characterLabel>
+		<characterLabel type="nature">natuur</characterLabel>
 		<characterLabel type="nonspacing">niet-gespatieerd</characterLabel>
 		<characterLabel type="numbers">cijfers</characterLabel>
 		<characterLabel type="objects">objecten</characterLabel>
 		<characterLabel type="other">overige</characterLabel>
 		<characterLabel type="paired">gepaard</characterLabel>
+		<characterLabel type="person">persoon</characterLabel>
 		<characterLabel type="phonetic_alphabet">fonetisch alfabet</characterLabel>
 		<characterLabel type="pictographs">pictogrammen</characterLabel>
+		<characterLabel type="place">plaats</characterLabel>
+		<characterLabel type="plant">plant</characterLabel>
 		<characterLabel type="punctuation">interpunctie</characterLabel>
 		<characterLabel type="rightwards_arrows">pijlen naar rechts</characterLabel>
 		<characterLabel type="sign_standard_symbols">teken-/standaardsymbolen</characterLabel>
 		<characterLabel type="small_form_variant">kleine vormvarianten</characterLabel>
+		<characterLabel type="smiley">smiley</characterLabel>
 		<characterLabel type="smileys_people">smileys en mensen</characterLabel>
 		<characterLabel type="south_asian_scripts">Zuid-Aziatische schriften</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Zuidoost-Aziatische schriften</characterLabel>
 		<characterLabel type="spacing">spatiëring</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols">symbolen</characterLabel>
 		<characterLabel type="technical_symbols">technische symbolen</characterLabel>
 		<characterLabel type="tone_marks">toonmarkeringen</characterLabel>
+		<characterLabel type="travel">reizen</characterLabel>
 		<characterLabel type="travel_places">reizen en plaatsen</characterLabel>
 		<characterLabel type="upwards_arrows">pijlen omhoog</characterLabel>
 		<characterLabel type="variant_forms">variantvormen</characterLabel>
 		<characterLabel type="vocalic_jamo">klinker-jamo</characterLabel>
+		<characterLabel type="weather">weer</characterLabel>
 		<characterLabel type="western_asian_scripts">West-Aziatische schriften</characterLabel>
 		<characterLabel type="whitespace">witruimte</characterLabel>
 	</characterLabels>

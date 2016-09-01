@@ -821,6 +821,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ուկրաինա</territory>
 			<territory type="UG">Ուգանդա</territory>
 			<territory type="UM">Արտաքին կղզիներ (ԱՄՆ)</territory>
+			<territory type="UN">Միավորված ազգերի կազմակերպություն</territory>
+			<territory type="UN" alt="short">ՄԱԿ</territory>
 			<territory type="US">Միացյալ Նահանգներ</territory>
 			<territory type="US" alt="short">ԱՄՆ</territory>
 			<territory type="UY">Ուրուգվայ</territory>
@@ -7215,6 +7217,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — բոլորը</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}՝ {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — համատեղելի</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — ներդրված</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — ընդլայնված</characterLabelPattern>
@@ -7227,10 +7230,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Զբաղմունքներ</characterLabel>
 		<characterLabel type="african_scripts">Աֆրիկյան գրեր</characterLabel>
 		<characterLabel type="american_scripts">Ամերիկյան գրեր</characterLabel>
+		<characterLabel type="animal">կենդանի</characterLabel>
 		<characterLabel type="animals_nature">Կենդանիներ և բնություն</characterLabel>
 		<characterLabel type="arrows">Սլաքներ</characterLabel>
+		<characterLabel type="body">մարմին</characterLabel>
 		<characterLabel type="box_drawing">Կեղծ գրաֆիկա</characterLabel>
 		<characterLabel type="braille">Բրեյլի գիր</characterLabel>
+		<characterLabel type="building">շենք</characterLabel>
 		<characterLabel type="bullets_stars">Պարբերակներ/աստղանիշեր</characterLabel>
 		<characterLabel type="consonantal_jamo">Ջամո բաղաձայններ</characterLabel>
 		<characterLabel type="currency_symbols">Արժույթների նշաններ</characterLabel>
@@ -7243,6 +7249,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Արևելաասիական գրեր</characterLabel>
 		<characterLabel type="emoji">Էմոձի</characterLabel>
 		<characterLabel type="european_scripts">Եվրոպական գրեր</characterLabel>
+		<characterLabel type="female">կին</characterLabel>
+		<characterLabel type="flag">դրոշ</characterLabel>
 		<characterLabel type="flags">Դրոշակներ</characterLabel>
 		<characterLabel type="food_drink">Ուտելիք և ըմպելիք</characterLabel>
 		<characterLabel type="format">Ձևաչափում</characterLabel>
@@ -7255,43 +7263,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Հանջա</characterLabel>
 		<characterLabel type="hanzi_simplified">Չինարենի պարզեցված հիերոգլիֆներ</characterLabel>
 		<characterLabel type="hanzi_traditional">Չինարենի ավանդական հիերոգլիֆներ</characterLabel>
+		<characterLabel type="heart">սիրտ</characterLabel>
 		<characterLabel type="historic_scripts">Պատմական գրեր</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Հիերոգլիֆների նկարագրման նշաններ</characterLabel>
 		<characterLabel type="japanese_kana">Կանա</characterLabel>
 		<characterLabel type="kanbun">Կամբուն</characterLabel>
 		<characterLabel type="kanji">Կանձի</characterLabel>
+		<characterLabel type="keycap">ստեղն</characterLabel>
 		<characterLabel type="leftwards_arrows">Ձախ ուղղված սլաքներ</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Ձախ և աջ ուղղված սլաքներ</characterLabel>
 		<characterLabel type="letterlike_symbols">Տառային նշաններ</characterLabel>
 		<characterLabel type="limited_use">Սահմանափակ գործածում</characterLabel>
+		<characterLabel type="male">տղամարդ</characterLabel>
 		<characterLabel type="math_symbols">Մաթեմատիկական նշաններ</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Միջինարևելյան գրեր</characterLabel>
 		<characterLabel type="miscellaneous">Խառը</characterLabel>
 		<characterLabel type="modern_scripts">ժամանակակից գրեր</characterLabel>
 		<characterLabel type="modifier">Փոխակերպիչ</characterLabel>
 		<characterLabel type="musical_symbols">Երաժշտական գրեր</characterLabel>
+		<characterLabel type="nature">բնություն</characterLabel>
 		<characterLabel type="nonspacing">Առանց բացատի</characterLabel>
 		<characterLabel type="numbers">Թվեր</characterLabel>
 		<characterLabel type="objects">Առարկաներ</characterLabel>
 		<characterLabel type="other">Այլ</characterLabel>
 		<characterLabel type="paired">Զույգ նշաններ</characterLabel>
+		<characterLabel type="person">անձ</characterLabel>
 		<characterLabel type="phonetic_alphabet">Հնչյունային այբուբեն</characterLabel>
 		<characterLabel type="pictographs">Պատկերագրեր</characterLabel>
+		<characterLabel type="place">վայր</characterLabel>
+		<characterLabel type="plant">բույս</characterLabel>
 		<characterLabel type="punctuation">Կետադրական նշաններ</characterLabel>
 		<characterLabel type="rightwards_arrows">Աջ ուղղված սլաքներ</characterLabel>
 		<characterLabel type="sign_standard_symbols">Ստանդարտ նշաններ</characterLabel>
 		<characterLabel type="small_form_variant">Ձևի փոքր տարբերակներ</characterLabel>
+		<characterLabel type="smiley">զմայլիկ</characterLabel>
 		<characterLabel type="smileys_people">Զմայլիկներ և մարդիկ</characterLabel>
 		<characterLabel type="south_asian_scripts">Հարավասիական գրեր</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Հարավարևելյան Ասիայի գրեր</characterLabel>
 		<characterLabel type="spacing">Բացատներ</characterLabel>
+		<characterLabel type="sport">սպորտ</characterLabel>
 		<characterLabel type="symbols">Նշաններ</characterLabel>
 		<characterLabel type="technical_symbols">Տեխնիկական նշաններ</characterLabel>
 		<characterLabel type="tone_marks">Տոնի նշաններ</characterLabel>
+		<characterLabel type="travel">ճամփորդություն</characterLabel>
 		<characterLabel type="travel_places">Ճամփորդություն և վայրեր</characterLabel>
 		<characterLabel type="upwards_arrows">Վեր ուղղված սլաքներ</characterLabel>
 		<characterLabel type="variant_forms">Ձևի տարբերակներ</characterLabel>
 		<characterLabel type="vocalic_jamo">Ջամո ձայնավորներ</characterLabel>
+		<characterLabel type="weather">եղանակ</characterLabel>
 		<characterLabel type="western_asian_scripts">Արևմտաասիական գրեր</characterLabel>
 		<characterLabel type="whitespace">Բացատներ</characterLabel>
 	</characterLabels>

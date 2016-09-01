@@ -1082,6 +1082,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Ühendriikide hajasaared</territory>
+			<territory type="UN">Ühendatud Rahvaste Organisatsioon</territory>
+			<territory type="UN" alt="short">ÜRO</territory>
 			<territory type="US">Ameerika Ühendriigid</territory>
 			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Uruguay</territory>
@@ -8211,6 +8213,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Kõik</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Ühilduvus</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Suletud</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Laiendatud</characterLabelPattern>
@@ -8223,10 +8226,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Tegevused</characterLabel>
 		<characterLabel type="african_scripts">Aafrika kirjad</characterLabel>
 		<characterLabel type="american_scripts">Ameerika kirjad</characterLabel>
+		<characterLabel type="animal">loom</characterLabel>
 		<characterLabel type="animals_nature">Loomad ja loodus</characterLabel>
 		<characterLabel type="arrows">Nooled</characterLabel>
+		<characterLabel type="body">keha</characterLabel>
 		<characterLabel type="box_drawing">Kastide joonistamine</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">hoone</characterLabel>
 		<characterLabel type="bullets_stars">Täpid/tähed</characterLabel>
 		<characterLabel type="consonantal_jamo">Konsonantide märgid</characterLabel>
 		<characterLabel type="currency_symbols">Rahaühikute sümbolid</characterLabel>
@@ -8239,6 +8245,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Ida-Aasia kirjad</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Euroopa kirjad</characterLabel>
+		<characterLabel type="female">naine</characterLabel>
+		<characterLabel type="flag">lipp</characterLabel>
 		<characterLabel type="flags">Lipud</characterLabel>
 		<characterLabel type="food_drink">Toit ja jook</characterLabel>
 		<characterLabel type="format">Vorming</characterLabel>
@@ -8251,43 +8259,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hani (lihtsustatud)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hani (traditsiooniline)</characterLabel>
+		<characterLabel type="heart">süda</characterLabel>
 		<characterLabel type="historic_scripts">Ajaloolised kirjad</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Ideogrammide kirjeldusmärgid</characterLabel>
 		<characterLabel type="japanese_kana">Kana</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">klahv</characterLabel>
 		<characterLabel type="leftwards_arrows">Vasakule suunatud nooled</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Vasakule ja paremale suunatud nooled</characterLabel>
 		<characterLabel type="letterlike_symbols">Tähelaadsed sümbolid</characterLabel>
 		<characterLabel type="limited_use">Piiratud kasutusega</characterLabel>
+		<characterLabel type="male">mees</characterLabel>
 		<characterLabel type="math_symbols">Matemaatilised sümbolid</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Lähis-Ida kirjad</characterLabel>
 		<characterLabel type="miscellaneous">Mitmesugune</characterLabel>
 		<characterLabel type="modern_scripts">Nüüdisaegsed kirjad</characterLabel>
 		<characterLabel type="modifier">Täiend</characterLabel>
 		<characterLabel type="musical_symbols">Muusikalised sümbolid</characterLabel>
+		<characterLabel type="nature">loodus</characterLabel>
 		<characterLabel type="nonspacing" draft="contributed">Sammuta märk</characterLabel>
 		<characterLabel type="numbers">Numbrid</characterLabel>
 		<characterLabel type="objects">Objektid</characterLabel>
 		<characterLabel type="other">Muu</characterLabel>
 		<characterLabel type="paired">Paaris</characterLabel>
+		<characterLabel type="person">isik</characterLabel>
 		<characterLabel type="phonetic_alphabet">Foneetiline tähestik</characterLabel>
 		<characterLabel type="pictographs">Piktogrammid</characterLabel>
+		<characterLabel type="place">koht</characterLabel>
+		<characterLabel type="plant">taim</characterLabel>
 		<characterLabel type="punctuation">Kirjavahemärgid</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="contributed">Paremale suunatud nooled</characterLabel>
 		<characterLabel type="sign_standard_symbols" draft="contributed">Märgi/standardi sümbolid</characterLabel>
 		<characterLabel type="small_form_variant" draft="contributed">Väike kirjavahemärkide valik</characterLabel>
+		<characterLabel type="smiley">smaili</characterLabel>
 		<characterLabel type="smileys_people">Smailid ja inimesed</characterLabel>
 		<characterLabel type="south_asian_scripts">Lõuna-Aasia kirjad</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Kagu-Aasia kirjad</characterLabel>
 		<characterLabel type="spacing">Tühikud</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols">Sümbolid</characterLabel>
 		<characterLabel type="technical_symbols">Tehnilised sümbolid</characterLabel>
 		<characterLabel type="tone_marks">Toonimärgid</characterLabel>
+		<characterLabel type="travel">reisimine</characterLabel>
 		<characterLabel type="travel_places">Reisimine ja kohad</characterLabel>
 		<characterLabel type="upwards_arrows" draft="contributed">Ülespoole nooled</characterLabel>
 		<characterLabel type="variant_forms" draft="contributed">Märkide variandid</characterLabel>
 		<characterLabel type="vocalic_jamo" draft="contributed">Vokaalide märgid</characterLabel>
+		<characterLabel type="weather">ilm</characterLabel>
 		<characterLabel type="western_asian_scripts">Lääne-Aasia kirjad</characterLabel>
 		<characterLabel type="whitespace">Tühimärk</characterLabel>
 	</characterLabels>

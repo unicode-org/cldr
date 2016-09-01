@@ -1083,6 +1083,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Dalekie Wyspy Mniejsze Stanów Zjednoczonych</territory>
+			<territory type="UN">Organizacja Narodów Zjednoczonych</territory>
+			<territory type="UN" alt="short">ONZ</territory>
 			<territory type="US">Stany Zjednoczone</territory>
 			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Urugwaj</territory>
@@ -9817,6 +9819,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all" draft="contributed">{0} — wszystko</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility" draft="contributed">{0} — zgodność</characterLabelPattern>
 		<characterLabelPattern type="enclosed" draft="contributed">{0} — obwiedzione</characterLabelPattern>
 		<characterLabelPattern type="extended" draft="contributed">{0} — rozszerzone</characterLabelPattern>
@@ -9831,10 +9834,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities" draft="contributed">czynności</characterLabel>
 		<characterLabel type="african_scripts" draft="contributed">afrykańskie systemy pisma</characterLabel>
 		<characterLabel type="american_scripts" draft="contributed">amerykańskie systemy pisma</characterLabel>
+		<characterLabel type="animal">zwierzę</characterLabel>
 		<characterLabel type="animals_nature" draft="contributed">zwierzęta i natura</characterLabel>
 		<characterLabel type="arrows" draft="contributed">strzałki</characterLabel>
+		<characterLabel type="body">ciało</characterLabel>
 		<characterLabel type="box_drawing" draft="contributed">rysowanie prostokątne</characterLabel>
 		<characterLabel type="braille" draft="contributed">Braille’a</characterLabel>
+		<characterLabel type="building">budynek</characterLabel>
 		<characterLabel type="bullets_stars" draft="contributed">punktory/gwiazdki</characterLabel>
 		<characterLabel type="consonantal_jamo" draft="contributed">jamo spółgłoskowe</characterLabel>
 		<characterLabel type="currency_symbols" draft="contributed">symbole walut</characterLabel>
@@ -9847,6 +9853,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts" draft="contributed">wschodnioazjatyckie systemy pisma</characterLabel>
 		<characterLabel type="emoji" draft="contributed">emoji</characterLabel>
 		<characterLabel type="european_scripts" draft="contributed">europejskie systemy pisma</characterLabel>
+		<characterLabel type="female">kobieta</characterLabel>
+		<characterLabel type="flag">flaga</characterLabel>
 		<characterLabel type="flags" draft="contributed">flagi</characterLabel>
 		<characterLabel type="food_drink" draft="contributed">żywność i napoje</characterLabel>
 		<characterLabel type="format" draft="contributed">format</characterLabel>
@@ -9859,43 +9867,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja" draft="contributed">hancha</characterLabel>
 		<characterLabel type="hanzi_simplified" draft="contributed">hanzi (uproszczone)</characterLabel>
 		<characterLabel type="hanzi_traditional" draft="contributed">hanzi (tradycyjne)</characterLabel>
+		<characterLabel type="heart">serce</characterLabel>
 		<characterLabel type="historic_scripts" draft="contributed">historyczne systemy pisma</characterLabel>
 		<characterLabel type="ideographic_desc_characters" draft="contributed">ideograficzne znaki opisu</characterLabel>
 		<characterLabel type="japanese_kana" draft="contributed">kana japońska</characterLabel>
 		<characterLabel type="kanbun" draft="contributed">kanbun</characterLabel>
 		<characterLabel type="kanji" draft="contributed">kanji</characterLabel>
+		<characterLabel type="keycap">klawisz</characterLabel>
 		<characterLabel type="leftwards_arrows" draft="contributed">strzałki w lewo</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">strzałki w lewo i w prawo</characterLabel>
 		<characterLabel type="letterlike_symbols" draft="contributed">symbole literopodobne</characterLabel>
 		<characterLabel type="limited_use" draft="contributed">ograniczone użycie</characterLabel>
+		<characterLabel type="male">mężczyzna</characterLabel>
 		<characterLabel type="math_symbols" draft="contributed">symbole matematyczne</characterLabel>
 		<characterLabel type="middle_eastern_scripts" draft="contributed">bliskowschodnie systemy pisma</characterLabel>
 		<characterLabel type="miscellaneous" draft="contributed">różne</characterLabel>
 		<characterLabel type="modern_scripts" draft="contributed">współczesne systemy pisma</characterLabel>
 		<characterLabel type="modifier" draft="contributed">modyfikator</characterLabel>
 		<characterLabel type="musical_symbols" draft="contributed">symbole muzyczne</characterLabel>
+		<characterLabel type="nature">natura</characterLabel>
 		<characterLabel type="nonspacing" draft="contributed">nierozdzielające</characterLabel>
 		<characterLabel type="numbers" draft="contributed">liczbowe</characterLabel>
 		<characterLabel type="objects" draft="contributed">obiekty</characterLabel>
 		<characterLabel type="other" draft="contributed">inne</characterLabel>
 		<characterLabel type="paired" draft="contributed">pary</characterLabel>
+		<characterLabel type="person">osoba</characterLabel>
 		<characterLabel type="phonetic_alphabet" draft="contributed">alfabet fonetyczny</characterLabel>
 		<characterLabel type="pictographs" draft="contributed">piktogramy</characterLabel>
+		<characterLabel type="place">miejsce</characterLabel>
+		<characterLabel type="plant">roślina</characterLabel>
 		<characterLabel type="punctuation" draft="contributed">interpunkcja</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="contributed">strzałki w prawo</characterLabel>
 		<characterLabel type="sign_standard_symbols" draft="contributed">symbole znaków/standardowe</characterLabel>
 		<characterLabel type="small_form_variant" draft="contributed">warianty form małych</characterLabel>
+		<characterLabel type="smiley">buźka</characterLabel>
 		<characterLabel type="smileys_people" draft="contributed">emotikony i osoby</characterLabel>
 		<characterLabel type="south_asian_scripts" draft="contributed">południowoazjatyckie systemy pisma</characterLabel>
 		<characterLabel type="southeast_asian_scripts" draft="contributed">południowo-wschodnioazjatyckie systemy pisma</characterLabel>
 		<characterLabel type="spacing" draft="contributed">odstępy</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols" draft="contributed">symbole</characterLabel>
 		<characterLabel type="technical_symbols" draft="contributed">symbole techniczne</characterLabel>
 		<characterLabel type="tone_marks" draft="contributed">znaczniki tonów</characterLabel>
+		<characterLabel type="travel">podróż</characterLabel>
 		<characterLabel type="travel_places" draft="contributed">podróże i miejsca</characterLabel>
 		<characterLabel type="upwards_arrows" draft="contributed">strzałki w górę</characterLabel>
 		<characterLabel type="variant_forms" draft="contributed">warianty form</characterLabel>
 		<characterLabel type="vocalic_jamo" draft="contributed">jamo samogłoskowe</characterLabel>
+		<characterLabel type="weather">pogoda</characterLabel>
 		<characterLabel type="western_asian_scripts" draft="contributed">zachodnioazjatyckie systemy pisma</characterLabel>
 		<characterLabel type="whitespace" draft="contributed">białe znaki</characterLabel>
 	</characterLabels>

@@ -928,6 +928,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Украйна</territory>
 			<territory type="UG">Уганда</territory>
 			<territory type="UM">Отдалечени острови на САЩ</territory>
+			<territory type="UN">Организация на обединените нации</territory>
 			<territory type="US">Съединени щати</territory>
 			<territory type="US" alt="short">САЩ</territory>
 			<territory type="UY">Уругвай</territory>
@@ -8031,6 +8032,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} – всички</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} – съвместимост</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} – оградени</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} – разширени</characterLabelPattern>
@@ -8043,10 +8045,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Дейности</characterLabel>
 		<characterLabel type="african_scripts">Африкански писмени знаци</characterLabel>
 		<characterLabel type="american_scripts">Американски писмени знаци</characterLabel>
+		<characterLabel type="animal">животно</characterLabel>
 		<characterLabel type="animals_nature">Животни и природа</characterLabel>
 		<characterLabel type="arrows">Стрелки</characterLabel>
+		<characterLabel type="body">тяло</characterLabel>
 		<characterLabel type="box_drawing">Чертаене на линии</characterLabel>
 		<characterLabel type="braille">Брайлово писмо</characterLabel>
+		<characterLabel type="building">сграда</characterLabel>
 		<characterLabel type="bullets_stars">Водещи символи/звезди</characterLabel>
 		<characterLabel type="consonantal_jamo">Джамо за съгласни</characterLabel>
 		<characterLabel type="currency_symbols">Символи на валути</characterLabel>
@@ -8059,6 +8064,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Източноазиатски писмени знаци</characterLabel>
 		<characterLabel type="emoji">Емотикони</characterLabel>
 		<characterLabel type="european_scripts">Европейски писмени знаци</characterLabel>
+		<characterLabel type="female">жена</characterLabel>
+		<characterLabel type="flag">знаме</characterLabel>
 		<characterLabel type="flags">Флагове</characterLabel>
 		<characterLabel type="food_drink">Храна и напитки</characterLabel>
 		<characterLabel type="format">Формат</characterLabel>
@@ -8071,43 +8078,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Ханджа</characterLabel>
 		<characterLabel type="hanzi_simplified">Ханзи (опростен)</characterLabel>
 		<characterLabel type="hanzi_traditional">Ханзи (традиционен)</characterLabel>
+		<characterLabel type="heart">сърце</characterLabel>
 		<characterLabel type="historic_scripts">Исторически писмени знаци</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Идеографски описателни знаци</characterLabel>
 		<characterLabel type="japanese_kana">Японска писменост кана</characterLabel>
 		<characterLabel type="kanbun">Канбун</characterLabel>
 		<characterLabel type="kanji">Канджи</characterLabel>
+		<characterLabel type="keycap">клавиш</characterLabel>
 		<characterLabel type="leftwards_arrows">Сочещи наляво стрелки</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Сочещи наляво и сочещи надясно стрелки</characterLabel>
 		<characterLabel type="letterlike_symbols">Буквоподобни символи</characterLabel>
 		<characterLabel type="limited_use">Ограничена употреба</characterLabel>
+		<characterLabel type="male">мъж</characterLabel>
 		<characterLabel type="math_symbols">Математически символи</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Средноевропейски писмени знаци</characterLabel>
 		<characterLabel type="miscellaneous">Разни</characterLabel>
 		<characterLabel type="modern_scripts">Модерни писмени знаци</characterLabel>
 		<characterLabel type="modifier">Модификатори</characterLabel>
 		<characterLabel type="musical_symbols">Музикални символи</characterLabel>
+		<characterLabel type="nature">природа</characterLabel>
 		<characterLabel type="nonspacing">Знаци с нулева ширина</characterLabel>
 		<characterLabel type="numbers">Числа</characterLabel>
 		<characterLabel type="objects">Предмети</characterLabel>
 		<characterLabel type="other">Други</characterLabel>
 		<characterLabel type="paired">Двойни</characterLabel>
+		<characterLabel type="person">човек</characterLabel>
 		<characterLabel type="phonetic_alphabet">Фонетична азбука</characterLabel>
 		<characterLabel type="pictographs">Пиктограми</characterLabel>
+		<characterLabel type="place">място</characterLabel>
+		<characterLabel type="plant">растение</characterLabel>
 		<characterLabel type="punctuation">Препинателни знаци</characterLabel>
 		<characterLabel type="rightwards_arrows">Сочещи надясно стрелки</characterLabel>
 		<characterLabel type="sign_standard_symbols">Знак/стандартен символ</characterLabel>
 		<characterLabel type="small_form_variant">Варианти на малки форми</characterLabel>
+		<characterLabel type="smiley">усмихнато лице</characterLabel>
 		<characterLabel type="smileys_people">Емотикони и хора</characterLabel>
 		<characterLabel type="south_asian_scripts">Южноазиатски писмености</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Югоизточноазиатски писмени знаци</characterLabel>
 		<characterLabel type="spacing">Знаци с ненулева ширина</characterLabel>
+		<characterLabel type="sport">спорт</characterLabel>
 		<characterLabel type="symbols">Символи</characterLabel>
 		<characterLabel type="technical_symbols">Технически символи</characterLabel>
 		<characterLabel type="tone_marks">Маркирания на тонове</characterLabel>
+		<characterLabel type="travel">пътуване</characterLabel>
 		<characterLabel type="travel_places">Пътувания и места</characterLabel>
 		<characterLabel type="upwards_arrows">Сочещи нагоре стрелки</characterLabel>
 		<characterLabel type="variant_forms">Форми с варианти</characterLabel>
 		<characterLabel type="vocalic_jamo">Джамо за гласни</characterLabel>
+		<characterLabel type="weather">времето</characterLabel>
 		<characterLabel type="western_asian_scripts">Западноазиатски писмени знаци</characterLabel>
 		<characterLabel type="whitespace">Бели полета</characterLabel>
 	</characterLabels>

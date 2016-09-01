@@ -747,6 +747,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Украин</territory>
 			<territory type="UG">Уганда</territory>
 			<territory type="UM">АНУ-ын тойрсон арлууд</territory>
+			<territory type="UN">Нэгдсэн Үндэстний Байгууллага</territory>
+			<territory type="UN" alt="short">НҮБ</territory>
 			<territory type="US">Америкийн Нэгдсэн Улс</territory>
 			<territory type="US" alt="short">АНУ</territory>
 			<territory type="UY">Уругвай</territory>
@@ -7126,6 +7128,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} - Бүгд</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} - нийцэл</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Хавсарсан</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Өргөтгөсөн</characterLabelPattern>
@@ -7138,10 +7141,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Үйл ажиллагаанууд</characterLabel>
 		<characterLabel type="african_scripts">Африк бичвэр</characterLabel>
 		<characterLabel type="american_scripts">Америк бичвэр</characterLabel>
+		<characterLabel type="animal">амьтан</characterLabel>
 		<characterLabel type="animals_nature">Ан амьтан ба байгаль</characterLabel>
 		<characterLabel type="arrows">Сум</characterLabel>
+		<characterLabel type="body">бие</characterLabel>
 		<characterLabel type="box_drawing">Хайрцаг зурах</characterLabel>
 		<characterLabel type="braille">Брайль</characterLabel>
+		<characterLabel type="building">барилга</characterLabel>
 		<characterLabel type="bullets_stars">Сум/од</characterLabel>
 		<characterLabel type="consonantal_jamo">Жамо гийгүүлэгчийн дараалал</characterLabel>
 		<characterLabel type="currency_symbols">Ханшны тэмдэгт</characterLabel>
@@ -7154,6 +7160,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Зүүн Азийн бичвэр</characterLabel>
 		<characterLabel type="emoji">Эможи</characterLabel>
 		<characterLabel type="european_scripts">Европ бичвэр</characterLabel>
+		<characterLabel type="female">эмэгтэй</characterLabel>
+		<characterLabel type="flag">туг</characterLabel>
 		<characterLabel type="flags">Туг</characterLabel>
 		<characterLabel type="food_drink">Хоол, унд</characterLabel>
 		<characterLabel type="format">Формат</characterLabel>
@@ -7166,43 +7174,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Ханжа</characterLabel>
 		<characterLabel type="hanzi_simplified">Ханз (Хялбаршуулсан)</characterLabel>
 		<characterLabel type="hanzi_traditional">Ханз (Уламжлалт)</characterLabel>
+		<characterLabel type="heart">зүрх</characterLabel>
 		<characterLabel type="historic_scripts">Түүхэн бичвэр</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Идеографик буурах тэмдэгтүүд</characterLabel>
 		<characterLabel type="japanese_kana">Япон кана</characterLabel>
 		<characterLabel type="kanbun">Канбун</characterLabel>
 		<characterLabel type="kanji">Канжи</characterLabel>
+		<characterLabel type="keycap">түлхүүрийн гэр</characterLabel>
 		<characterLabel type="leftwards_arrows">Зүүн харсан сум</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Зүүн, баруун харсан сум</characterLabel>
 		<characterLabel type="letterlike_symbols">Үсгэн тэмдэгтүүд</characterLabel>
 		<characterLabel type="limited_use">Хязгаарлагдмал хэрэглээ</characterLabel>
+		<characterLabel type="male">эрэгтэй</characterLabel>
 		<characterLabel type="math_symbols">Математикийн тэмдэгтүүд</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Ойрх дорнодын бичвэр</characterLabel>
 		<characterLabel type="miscellaneous">Бусад</characterLabel>
 		<characterLabel type="modern_scripts">Орчин цагийн бичвэр</characterLabel>
 		<characterLabel type="modifier">Өөрчлөгч</characterLabel>
 		<characterLabel type="musical_symbols">Хөгжмийн тэмдэгтүүд</characterLabel>
+		<characterLabel type="nature">байгаль</characterLabel>
 		<characterLabel type="nonspacing">Зайгүй</characterLabel>
 		<characterLabel type="numbers">Тоонууд</characterLabel>
 		<characterLabel type="objects">Дүрснүүд</characterLabel>
 		<characterLabel type="other">Бусад</characterLabel>
 		<characterLabel type="paired">Хослосон</characterLabel>
+		<characterLabel type="person">хүн</characterLabel>
 		<characterLabel type="phonetic_alphabet">Дуудлагын үсэг</characterLabel>
 		<characterLabel type="pictographs">Пиктограм</characterLabel>
+		<characterLabel type="place">газар</characterLabel>
+		<characterLabel type="plant">ургамал</characterLabel>
 		<characterLabel type="punctuation">Цэг, таслал</characterLabel>
 		<characterLabel type="rightwards_arrows">Баруун заасан сум</characterLabel>
 		<characterLabel type="sign_standard_symbols">Тэмдэг/стандарт тэмдэгт</characterLabel>
 		<characterLabel type="small_form_variant">Жижиг загварын хувилбарууд</characterLabel>
+		<characterLabel type="smiley">инээмсэглэл</characterLabel>
 		<characterLabel type="smileys_people">Инээмсэглэлүүд ба хүмүүс</characterLabel>
 		<characterLabel type="south_asian_scripts">Өмнөд Азийн бичвэр</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Зүүн өмнөд азийн бичвэр</characterLabel>
 		<characterLabel type="spacing">Зай авалт</characterLabel>
+		<characterLabel type="sport">спорт</characterLabel>
 		<characterLabel type="symbols">Тэмдэгүүд</characterLabel>
 		<characterLabel type="technical_symbols">Техникийн тэмдэгүүд</characterLabel>
 		<characterLabel type="tone_marks">Дууны өнгөний тэмдэглэгээ</characterLabel>
+		<characterLabel type="travel">аялал</characterLabel>
 		<characterLabel type="travel_places">Аялал, газар нутгууд</characterLabel>
 		<characterLabel type="upwards_arrows">Дээш заасан сум</characterLabel>
 		<characterLabel type="variant_forms">Хувилбарын хэлбэрүүд</characterLabel>
 		<characterLabel type="vocalic_jamo">Эгшгийн Жамо</characterLabel>
+		<characterLabel type="weather">цаг агаар</characterLabel>
 		<characterLabel type="western_asian_scripts">Баруун азийн бичвэр</characterLabel>
 		<characterLabel type="whitespace">Хоосон зай</characterLabel>
 	</characterLabels>

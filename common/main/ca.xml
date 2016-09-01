@@ -1049,6 +1049,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ucraïna</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Illes Perifèriques Menors dels EUA</territory>
+			<territory type="UN">Nacions Unides</territory>
+			<territory type="UN" alt="short">ONU</territory>
 			<territory type="US">Estats Units</territory>
 			<territory type="US" alt="short">EUA</territory>
 			<territory type="UY">Uruguai</territory>
@@ -8821,6 +8823,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — tot</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — compatibilitat</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — inclosos</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — ampliats</characterLabelPattern>
@@ -8833,10 +8836,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">activitats</characterLabel>
 		<characterLabel type="african_scripts">escriptures africanes</characterLabel>
 		<characterLabel type="american_scripts">escriptures americanes</characterLabel>
+		<characterLabel type="animal">animal</characterLabel>
 		<characterLabel type="animals_nature">animals i natura</characterLabel>
 		<characterLabel type="arrows">fletxes</characterLabel>
+		<characterLabel type="body">cos</characterLabel>
 		<characterLabel type="box_drawing" draft="contributed">escriptura en quadre</characterLabel>
 		<characterLabel type="braille">braille</characterLabel>
+		<characterLabel type="building">edifici</characterLabel>
 		<characterLabel type="bullets_stars">vinyetes/estrelles</characterLabel>
 		<characterLabel type="consonantal_jamo">jamo consonàntic</characterLabel>
 		<characterLabel type="currency_symbols">símbols de moneda</characterLabel>
@@ -8849,6 +8855,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">escriptures de l’Àsia Oriental</characterLabel>
 		<characterLabel type="emoji">emoji</characterLabel>
 		<characterLabel type="european_scripts">escriptures europees</characterLabel>
+		<characterLabel type="female">femení</characterLabel>
+		<characterLabel type="flag">bandera</characterLabel>
 		<characterLabel type="flags">banderes</characterLabel>
 		<characterLabel type="food_drink">menjar i beure</characterLabel>
 		<characterLabel type="format">format</characterLabel>
@@ -8861,43 +8869,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">hanzi (simplificat)</characterLabel>
 		<characterLabel type="hanzi_traditional">hanzi (tradicional)</characterLabel>
+		<characterLabel type="heart">cor</characterLabel>
 		<characterLabel type="historic_scripts">escriptures històriques</characterLabel>
 		<characterLabel type="ideographic_desc_characters">caràcters ideogràfics descriptius</characterLabel>
 		<characterLabel type="japanese_kana">kana japonès</characterLabel>
 		<characterLabel type="kanbun">kanbun</characterLabel>
 		<characterLabel type="kanji">kanji</characterLabel>
+		<characterLabel type="keycap">tecla</characterLabel>
 		<characterLabel type="leftwards_arrows">fletxes a l’esquerra</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">fletxes a esquerra i dreta</characterLabel>
 		<characterLabel type="letterlike_symbols">símbols fets amb lletres</characterLabel>
 		<characterLabel type="limited_use">ús limitat</characterLabel>
+		<characterLabel type="male">masculí</characterLabel>
 		<characterLabel type="math_symbols">símbols matemàtics</characterLabel>
 		<characterLabel type="middle_eastern_scripts">escriptures de l’Orient Mitjà</characterLabel>
 		<characterLabel type="miscellaneous">miscel·lània</characterLabel>
 		<characterLabel type="modern_scripts">escriptures modernes</characterLabel>
 		<characterLabel type="modifier">modificador</characterLabel>
 		<characterLabel type="musical_symbols">símbols musicals</characterLabel>
+		<characterLabel type="nature">natura</characterLabel>
 		<characterLabel type="nonspacing">sense espai</characterLabel>
 		<characterLabel type="numbers">números</characterLabel>
 		<characterLabel type="objects">objectes</characterLabel>
 		<characterLabel type="other">altres</characterLabel>
 		<characterLabel type="paired" draft="contributed">aparellats</characterLabel>
+		<characterLabel type="person">persona</characterLabel>
 		<characterLabel type="phonetic_alphabet">alfabet fonètic</characterLabel>
 		<characterLabel type="pictographs">pictogrames</characterLabel>
+		<characterLabel type="place">lloc</characterLabel>
+		<characterLabel type="plant">planta</characterLabel>
 		<characterLabel type="punctuation">puntuació</characterLabel>
 		<characterLabel type="rightwards_arrows">fletxes a la dreta</characterLabel>
 		<characterLabel type="sign_standard_symbols">signes/símbols estàndard</characterLabel>
 		<characterLabel type="small_form_variant">formes variants petites</characterLabel>
+		<characterLabel type="smiley">emoticona</characterLabel>
 		<characterLabel type="smileys_people">emoticones i gent</characterLabel>
 		<characterLabel type="south_asian_scripts">escriptures de l’Àsia Meridional</characterLabel>
 		<characterLabel type="southeast_asian_scripts">escriptures de l’Àsia Sud-oriental</characterLabel>
 		<characterLabel type="spacing">espaiat</characterLabel>
+		<characterLabel type="sport">esport</characterLabel>
 		<characterLabel type="symbols">símbols</characterLabel>
 		<characterLabel type="technical_symbols">símbols tècnics</characterLabel>
 		<characterLabel type="tone_marks">marques tonals</characterLabel>
+		<characterLabel type="travel">viatge</characterLabel>
 		<characterLabel type="travel_places">viatges i llocs</characterLabel>
 		<characterLabel type="upwards_arrows">fletxes amunt</characterLabel>
 		<characterLabel type="variant_forms">formes variants</characterLabel>
 		<characterLabel type="vocalic_jamo">jamo vocàlic</characterLabel>
+		<characterLabel type="weather">temps</characterLabel>
 		<characterLabel type="western_asian_scripts">escriptures de l’Àsia Sud-occidental</characterLabel>
 		<characterLabel type="whitespace">espai en blanc</characterLabel>
 	</characterLabels>

@@ -1084,6 +1084,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">ウクライナ</territory>
 			<territory type="UG">ウガンダ</territory>
 			<territory type="UM">合衆国領有小離島</territory>
+			<territory type="UN">こくさいれんごう</territory>
+			<territory type="UN" alt="short">こくれん</territory>
 			<territory type="US">アメリカ合衆国</territory>
 			<territory type="US" alt="short">アメリカ</territory>
 			<territory type="UY">ウルグアイ</territory>
@@ -10074,6 +10076,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — すべて</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — 互換文字</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — 囲み</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — 拡張</characterLabelPattern>
@@ -10085,10 +10088,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">アクティビティ</characterLabel>
 		<characterLabel type="african_scripts">アフリカの文字</characterLabel>
 		<characterLabel type="american_scripts">アメリカの文字</characterLabel>
+		<characterLabel type="animal">どうぶつ</characterLabel>
 		<characterLabel type="animals_nature">動物と自然</characterLabel>
 		<characterLabel type="arrows">矢印</characterLabel>
+		<characterLabel type="body">からだ</characterLabel>
 		<characterLabel type="box_drawing">罫線素片</characterLabel>
 		<characterLabel type="braille">点字</characterLabel>
+		<characterLabel type="building">たてもの</characterLabel>
 		<characterLabel type="bullets_stars">行頭文字/星</characterLabel>
 		<characterLabel type="consonantal_jamo">子音字母</characterLabel>
 		<characterLabel type="currency_symbols">通貨記号</characterLabel>
@@ -10101,6 +10107,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">東アジアの文字</characterLabel>
 		<characterLabel type="emoji">絵文字</characterLabel>
 		<characterLabel type="european_scripts">ヨーロッパの文字</characterLabel>
+		<characterLabel type="female">じょせい</characterLabel>
+		<characterLabel type="flag">はた</characterLabel>
 		<characterLabel type="flags">国旗</characterLabel>
 		<characterLabel type="food_drink">食事と飲み物</characterLabel>
 		<characterLabel type="format">書式</characterLabel>
@@ -10113,43 +10121,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">漢字</characterLabel>
 		<characterLabel type="hanzi_simplified">漢字 (簡体字)</characterLabel>
 		<characterLabel type="hanzi_traditional">漢字 (繁体字)</characterLabel>
+		<characterLabel type="heart">はーと</characterLabel>
 		<characterLabel type="historic_scripts">古代文字</characterLabel>
 		<characterLabel type="ideographic_desc_characters">漢字構成記述文字</characterLabel>
 		<characterLabel type="japanese_kana">仮名</characterLabel>
 		<characterLabel type="kanbun">漢文</characterLabel>
 		<characterLabel type="kanji">漢字</characterLabel>
+		<characterLabel type="keycap">かこみすうじ</characterLabel>
 		<characterLabel type="leftwards_arrows">左向矢印</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">左向/右向矢印</characterLabel>
 		<characterLabel type="letterlike_symbols">文字種記号</characterLabel>
 		<characterLabel type="limited_use">限定利用</characterLabel>
+		<characterLabel type="male">だんせい</characterLabel>
 		<characterLabel type="math_symbols">数学記号</characterLabel>
 		<characterLabel type="middle_eastern_scripts">中東の文字</characterLabel>
 		<characterLabel type="miscellaneous">雑多</characterLabel>
 		<characterLabel type="modern_scripts">現代文字</characterLabel>
 		<characterLabel type="modifier">修飾文字</characterLabel>
 		<characterLabel type="musical_symbols">音楽記号</characterLabel>
+		<characterLabel type="nature">しぜん</characterLabel>
 		<characterLabel type="nonspacing">前進を伴わない修飾文字</characterLabel>
 		<characterLabel type="numbers">数字</characterLabel>
 		<characterLabel type="objects">物</characterLabel>
 		<characterLabel type="other">その他</characterLabel>
 		<characterLabel type="paired">対の記号</characterLabel>
+		<characterLabel type="person">ひと</characterLabel>
 		<characterLabel type="phonetic_alphabet">音声記号</characterLabel>
 		<characterLabel type="pictographs">ピクトグラム</characterLabel>
+		<characterLabel type="place">ばしょ</characterLabel>
+		<characterLabel type="plant">しょくぶつ</characterLabel>
 		<characterLabel type="punctuation">句読点</characterLabel>
 		<characterLabel type="rightwards_arrows">右向矢印</characterLabel>
 		<characterLabel type="sign_standard_symbols">標識/標準記号</characterLabel>
 		<characterLabel type="small_form_variant">小字形変種</characterLabel>
+		<characterLabel type="smiley">すまいりー</characterLabel>
 		<characterLabel type="smileys_people">スマイリーと人々</characterLabel>
 		<characterLabel type="south_asian_scripts">南アジアの文字</characterLabel>
 		<characterLabel type="southeast_asian_scripts">東南アジアの文字</characterLabel>
 		<characterLabel type="spacing">前進を伴う修飾文字</characterLabel>
+		<characterLabel type="sport">すぽーつ</characterLabel>
 		<characterLabel type="symbols">記号</characterLabel>
 		<characterLabel type="technical_symbols">技術用記号</characterLabel>
 		<characterLabel type="tone_marks">声調記号</characterLabel>
+		<characterLabel type="travel">りょこう</characterLabel>
 		<characterLabel type="travel_places">旅行と場所</characterLabel>
 		<characterLabel type="upwards_arrows">上向矢印</characterLabel>
 		<characterLabel type="variant_forms">変種</characterLabel>
 		<characterLabel type="vocalic_jamo">母音字母</characterLabel>
+		<characterLabel type="weather">てんき</characterLabel>
 		<characterLabel type="western_asian_scripts">西アジアの文字</characterLabel>
 		<characterLabel type="whitespace">ホワイトスペース</characterLabel>
 	</characterLabels>

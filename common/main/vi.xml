@@ -1020,6 +1020,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Các đảo xa thuộc Hoa Kỳ</territory>
+			<territory type="UN">Liên hiệp quốc</territory>
+			<territory type="UN" alt="short">Liên hiệp quốc</territory>
 			<territory type="US">Hoa Kỳ</territory>
 			<territory type="US" alt="short">Hoa Kỳ</territory>
 			<territory type="UY">Uruguay</territory>
@@ -8246,6 +8248,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all" draft="contributed">{0} — Tất cả</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility" draft="contributed">{0} — Tương thích</characterLabelPattern>
 		<characterLabelPattern type="enclosed" draft="contributed">{0} — Kín</characterLabelPattern>
 		<characterLabelPattern type="extended" draft="contributed">{0} — Mở rộng</characterLabelPattern>
@@ -8257,10 +8260,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities" draft="contributed">Hoạt động</characterLabel>
 		<characterLabel type="african_scripts" draft="contributed">Chữ viết Châu Phi</characterLabel>
 		<characterLabel type="american_scripts" draft="contributed">Chữ viết Châu Mỹ</characterLabel>
+		<characterLabel type="animal">động vật</characterLabel>
 		<characterLabel type="animals_nature" draft="contributed">Động vật &amp; Tự nhiên</characterLabel>
 		<characterLabel type="arrows" draft="contributed">Mũi tên</characterLabel>
+		<characterLabel type="body">vật thể</characterLabel>
 		<characterLabel type="box_drawing" draft="contributed">Vẽ hộp</characterLabel>
 		<characterLabel type="braille" draft="contributed">Chữ nổi Braille</characterLabel>
+		<characterLabel type="building">xây dựng</characterLabel>
 		<characterLabel type="bullets_stars" draft="contributed">Dấu đầu dòng/Sao</characterLabel>
 		<characterLabel type="consonantal_jamo" draft="contributed">Jamo Phụ âm</characterLabel>
 		<characterLabel type="currency_symbols" draft="contributed">Ký hiệu Tiền tệ</characterLabel>
@@ -8273,6 +8279,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts" draft="contributed">Chữ viết Đông Á</characterLabel>
 		<characterLabel type="emoji" draft="contributed">Biểu tượng</characterLabel>
 		<characterLabel type="european_scripts" draft="contributed">Chữ viết Châu Âu</characterLabel>
+		<characterLabel type="female">nữ</characterLabel>
+		<characterLabel type="flag">cờ</characterLabel>
 		<characterLabel type="flags" draft="contributed">Cờ</characterLabel>
 		<characterLabel type="food_drink" draft="contributed">Đồ ăn &amp; Đồ uống</characterLabel>
 		<characterLabel type="format" draft="contributed">Định dạng</characterLabel>
@@ -8285,43 +8293,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja" draft="contributed">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified" draft="contributed">Hán tự (Giản thể)</characterLabel>
 		<characterLabel type="hanzi_traditional" draft="contributed">Hán tự (Phồn thể)</characterLabel>
+		<characterLabel type="heart">trái tim</characterLabel>
 		<characterLabel type="historic_scripts" draft="contributed">Chữ cái Lịch sử</characterLabel>
 		<characterLabel type="ideographic_desc_characters" draft="contributed">Ký tự Mô tả Tượng hình</characterLabel>
 		<characterLabel type="japanese_kana" draft="contributed">Kana Tiếng Nhật</characterLabel>
 		<characterLabel type="kanbun" draft="contributed">Kanbun</characterLabel>
 		<characterLabel type="kanji" draft="contributed">Kanji</characterLabel>
+		<characterLabel type="keycap">mũ phím</characterLabel>
 		<characterLabel type="leftwards_arrows" draft="contributed">Mũi tên Hướng sang trái</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">Mũi tên Hai chiều</characterLabel>
 		<characterLabel type="letterlike_symbols" draft="contributed">Ký hiệu Giống chữ cái</characterLabel>
 		<characterLabel type="limited_use" draft="contributed">Sử dụng Hạn chế</characterLabel>
+		<characterLabel type="male">nam</characterLabel>
 		<characterLabel type="math_symbols" draft="contributed">Ký hiệu Toán học</characterLabel>
 		<characterLabel type="middle_eastern_scripts" draft="contributed">Chữ viết Trung Đông</characterLabel>
 		<characterLabel type="miscellaneous" draft="contributed">Khác</characterLabel>
 		<characterLabel type="modern_scripts" draft="contributed">Chữ viết Hiện đại</characterLabel>
 		<characterLabel type="modifier" draft="contributed">Bổ trợ</characterLabel>
 		<characterLabel type="musical_symbols" draft="contributed">Ký hiệu Âm nhạc</characterLabel>
+		<characterLabel type="nature">tự nhiên</characterLabel>
 		<characterLabel type="nonspacing" draft="contributed">Không giãn cách</characterLabel>
 		<characterLabel type="numbers" draft="contributed">Số</characterLabel>
 		<characterLabel type="objects" draft="contributed">Đồ vật</characterLabel>
 		<characterLabel type="other" draft="contributed">Khác</characterLabel>
 		<characterLabel type="paired" draft="contributed">Được ghép đôi</characterLabel>
+		<characterLabel type="person">người</characterLabel>
 		<characterLabel type="phonetic_alphabet" draft="contributed">Bảng chữ cái Phiên âm</characterLabel>
 		<characterLabel type="pictographs" draft="contributed">Chữ tượng hình</characterLabel>
+		<characterLabel type="place">địa điểm</characterLabel>
+		<characterLabel type="plant">thực vật</characterLabel>
 		<characterLabel type="punctuation" draft="contributed">Dấu câu</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="contributed">Mũi tên Hướng sang phải</characterLabel>
 		<characterLabel type="sign_standard_symbols" draft="contributed">Ký hiệu/Ký hiệu chuẩn</characterLabel>
 		<characterLabel type="small_form_variant" draft="contributed">Biến thể Mẫu nhỏ</characterLabel>
+		<characterLabel type="smiley">mặt cười</characterLabel>
 		<characterLabel type="smileys_people" draft="contributed">Mặt cười &amp; Người</characterLabel>
 		<characterLabel type="south_asian_scripts" draft="contributed">Chữ viết Nam Á</characterLabel>
 		<characterLabel type="southeast_asian_scripts" draft="contributed">Chữ viết Đông Nam Á</characterLabel>
 		<characterLabel type="spacing" draft="contributed">Giãn cách</characterLabel>
+		<characterLabel type="sport">thể thao</characterLabel>
 		<characterLabel type="symbols" draft="contributed">Ký hiệu</characterLabel>
 		<characterLabel type="technical_symbols" draft="contributed">Ký hiệu Kỹ thuật</characterLabel>
 		<characterLabel type="tone_marks" draft="contributed">Dấu thanh</characterLabel>
+		<characterLabel type="travel">du lịch</characterLabel>
 		<characterLabel type="travel_places" draft="contributed">Du lịch &amp; Địa điểm</characterLabel>
 		<characterLabel type="upwards_arrows" draft="contributed">Mũi tên Hướng lên</characterLabel>
 		<characterLabel type="variant_forms" draft="contributed">Mẫu Biến thể</characterLabel>
 		<characterLabel type="vocalic_jamo" draft="contributed">Jamo Nguyên âm</characterLabel>
+		<characterLabel type="weather">thời tiết</characterLabel>
 		<characterLabel type="western_asian_scripts" draft="contributed">Chữ viết Tây Á</characterLabel>
 		<characterLabel type="whitespace" draft="contributed">Dấu cách</characterLabel>
 	</characterLabels>

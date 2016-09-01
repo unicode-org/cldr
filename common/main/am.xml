@@ -843,6 +843,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">ዩክሬን</territory>
 			<territory type="UG">ዩጋንዳ</territory>
 			<territory type="UM">የዩ ኤስ ጠረፍ ላይ ያሉ ደሴቶች</territory>
+			<territory type="UN">የተባበሩት መንግስታት</territory>
+			<territory type="UN" alt="short">የተመ</territory>
 			<territory type="US">ዩናይትድ ስቴትስ</territory>
 			<territory type="US" alt="short">ዩ ኤስ</territory>
 			<territory type="UY">ኡራጓይ</territory>
@@ -7862,6 +7864,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — ሁሉም</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Compatibility</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Enclosed</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Extended</characterLabelPattern>
@@ -7874,10 +7877,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">እንቅስቃሴዎች</characterLabel>
 		<characterLabel type="african_scripts">የአፍሪካ ስክሪፕቶች</characterLabel>
 		<characterLabel type="american_scripts">የአሜሪካ ስክሪፕቶች</characterLabel>
+		<characterLabel type="animal">እንስሳ</characterLabel>
 		<characterLabel type="animals_nature">እንስሳት እና ተፈጥሮ</characterLabel>
 		<characterLabel type="arrows">ቀስቶች</characterLabel>
+		<characterLabel type="body">ሰውነት</characterLabel>
 		<characterLabel type="box_drawing">Box Drawing</characterLabel>
 		<characterLabel type="braille">ብሬይል</characterLabel>
+		<characterLabel type="building">ህንጻ</characterLabel>
 		<characterLabel type="bullets_stars">Bullets/Stars</characterLabel>
 		<characterLabel type="consonantal_jamo">Consonantal Jamo</characterLabel>
 		<characterLabel type="currency_symbols">የምንዛሪ ምልክቶች</characterLabel>
@@ -7890,6 +7896,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">East Asian Scripts</characterLabel>
 		<characterLabel type="emoji">ስሜት ገላጭ ምስሎች</characterLabel>
 		<characterLabel type="european_scripts">European Scripts</characterLabel>
+		<characterLabel type="female">ሴት</characterLabel>
+		<characterLabel type="flag">ባንዲራ</characterLabel>
 		<characterLabel type="flags">Flags</characterLabel>
 		<characterLabel type="food_drink">ምግብ እና መጠጥ</characterLabel>
 		<characterLabel type="format">ቅርጸት</characterLabel>
@@ -7902,43 +7910,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (Simplified)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (Traditional)</characterLabel>
+		<characterLabel type="heart">ልብ</characterLabel>
 		<characterLabel type="historic_scripts">ታሪካዊ ስክሪፕቶች</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Ideographic Desc. Characters</characterLabel>
 		<characterLabel type="japanese_kana">Japanese Kana</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">የአብይ ሆሄ ቁልፍ ማብሪያ</characterLabel>
 		<characterLabel type="leftwards_arrows">Leftwards Arrows</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Leftwards Rightwards Arrows</characterLabel>
 		<characterLabel type="letterlike_symbols">Letterlike Symbols</characterLabel>
 		<characterLabel type="limited_use">Limited Use</characterLabel>
+		<characterLabel type="male">ወንድ</characterLabel>
 		<characterLabel type="math_symbols">Math Symbols</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Middle Eastern Scripts</characterLabel>
 		<characterLabel type="miscellaneous">የተለያዩ</characterLabel>
 		<characterLabel type="modern_scripts">Modern Scripts</characterLabel>
 		<characterLabel type="modifier">Modifier</characterLabel>
 		<characterLabel type="musical_symbols">የሙዚቃ ምልክቶች</characterLabel>
+		<characterLabel type="nature">ተፈጥሮ</characterLabel>
 		<characterLabel type="nonspacing">Nonspacing</characterLabel>
 		<characterLabel type="numbers">ቁጥሮች</characterLabel>
 		<characterLabel type="objects">Objects</characterLabel>
 		<characterLabel type="other">ሌሎች</characterLabel>
 		<characterLabel type="paired">የተጣመረ</characterLabel>
+		<characterLabel type="person">ሰው</characterLabel>
 		<characterLabel type="phonetic_alphabet">Phonetic Alphabet</characterLabel>
 		<characterLabel type="pictographs">Pictographs</characterLabel>
+		<characterLabel type="place">ቦታ</characterLabel>
+		<characterLabel type="plant">አትክልት</characterLabel>
 		<characterLabel type="punctuation">Punctuation</characterLabel>
 		<characterLabel type="rightwards_arrows">Rightwards Arrows</characterLabel>
 		<characterLabel type="sign_standard_symbols">Sign/Standard Symbols</characterLabel>
 		<characterLabel type="small_form_variant">Small Form Variants</characterLabel>
+		<characterLabel type="smiley">ሳቅ</characterLabel>
 		<characterLabel type="smileys_people">Smileys &amp; People</characterLabel>
 		<characterLabel type="south_asian_scripts">South Asian Scripts</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Southeast Asian Scripts</characterLabel>
 		<characterLabel type="spacing">Spacing</characterLabel>
+		<characterLabel type="sport">ስፖርት</characterLabel>
 		<characterLabel type="symbols">ምልክቶች</characterLabel>
 		<characterLabel type="technical_symbols">Technical Symbols</characterLabel>
 		<characterLabel type="tone_marks">Tone Marks</characterLabel>
+		<characterLabel type="travel">ጉዞ</characterLabel>
 		<characterLabel type="travel_places">Travel &amp; Places</characterLabel>
 		<characterLabel type="upwards_arrows">Upwards Arrows</characterLabel>
 		<characterLabel type="variant_forms">Variant Forms</characterLabel>
 		<characterLabel type="vocalic_jamo">Vocalic Jamo</characterLabel>
+		<characterLabel type="weather">የአየር ሁኔታ</characterLabel>
 		<characterLabel type="western_asian_scripts">Western Asian Scripts</characterLabel>
 		<characterLabel type="whitespace">Whitespace</characterLabel>
 	</characterLabels>

@@ -1007,6 +1007,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">乌克兰</territory>
 			<territory type="UG">乌干达</territory>
 			<territory type="UM">美国本土外小岛屿</territory>
+			<territory type="UN">联合国</territory>
+			<territory type="UN" alt="short">联合国</territory>
 			<territory type="US">美国</territory>
 			<territory type="US" alt="short">美国</territory>
 			<territory type="UY">乌拉圭</territory>
@@ -9433,6 +9435,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — 全部</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — 兼容</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — 带圈</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — 扩展</characterLabelPattern>
@@ -9444,10 +9447,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">行为</characterLabel>
 		<characterLabel type="african_scripts">非洲文字</characterLabel>
 		<characterLabel type="american_scripts">美洲文字</characterLabel>
+		<characterLabel type="animal">动物</characterLabel>
 		<characterLabel type="animals_nature">动物与自然</characterLabel>
 		<characterLabel type="arrows">箭头</characterLabel>
+		<characterLabel type="body">身体</characterLabel>
 		<characterLabel type="box_drawing">方框</characterLabel>
 		<characterLabel type="braille">盲文</characterLabel>
+		<characterLabel type="building">建筑</characterLabel>
 		<characterLabel type="bullets_stars">项目符号/星形</characterLabel>
 		<characterLabel type="consonantal_jamo">谚文辅音字母</characterLabel>
 		<characterLabel type="currency_symbols">货币符号</characterLabel>
@@ -9460,6 +9466,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">东亚文字</characterLabel>
 		<characterLabel type="emoji">绘文字</characterLabel>
 		<characterLabel type="european_scripts">欧洲文字</characterLabel>
+		<characterLabel type="female">女</characterLabel>
+		<characterLabel type="flag">旗</characterLabel>
 		<characterLabel type="flags">旗帜</characterLabel>
 		<characterLabel type="food_drink">饮食</characterLabel>
 		<characterLabel type="format">格式</characterLabel>
@@ -9472,43 +9480,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">朝鲜汉字</characterLabel>
 		<characterLabel type="hanzi_simplified">简体字</characterLabel>
 		<characterLabel type="hanzi_traditional">繁体字</characterLabel>
+		<characterLabel type="heart">心</characterLabel>
 		<characterLabel type="historic_scripts">古代文字</characterLabel>
 		<characterLabel type="ideographic_desc_characters">表意文字描述符</characterLabel>
 		<characterLabel type="japanese_kana">日语假名</characterLabel>
 		<characterLabel type="kanbun">汉文训读</characterLabel>
 		<characterLabel type="kanji">日文汉字</characterLabel>
+		<characterLabel type="keycap">按键</characterLabel>
 		<characterLabel type="leftwards_arrows">向左箭头</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">左右箭头</characterLabel>
 		<characterLabel type="letterlike_symbols">类字母符号</characterLabel>
 		<characterLabel type="limited_use">限制使用</characterLabel>
+		<characterLabel type="male">男</characterLabel>
 		<characterLabel type="math_symbols">数学符号</characterLabel>
 		<characterLabel type="middle_eastern_scripts">中东文字</characterLabel>
 		<characterLabel type="miscellaneous">杂项</characterLabel>
 		<characterLabel type="modern_scripts">现代文字</characterLabel>
 		<characterLabel type="modifier">修饰符</characterLabel>
 		<characterLabel type="musical_symbols">音乐符号</characterLabel>
+		<characterLabel type="nature">自然</characterLabel>
 		<characterLabel type="nonspacing">非间距</characterLabel>
 		<characterLabel type="numbers">数字</characterLabel>
 		<characterLabel type="objects">物体</characterLabel>
 		<characterLabel type="other">其它</characterLabel>
 		<characterLabel type="paired">成对</characterLabel>
+		<characterLabel type="person">任务</characterLabel>
 		<characterLabel type="phonetic_alphabet">音标</characterLabel>
 		<characterLabel type="pictographs">象形文字</characterLabel>
+		<characterLabel type="place">地点</characterLabel>
+		<characterLabel type="plant">植物</characterLabel>
 		<characterLabel type="punctuation">标点符号</characterLabel>
 		<characterLabel type="rightwards_arrows">向右箭头</characterLabel>
 		<characterLabel type="sign_standard_symbols">标志/标准符号</characterLabel>
 		<characterLabel type="small_form_variant">小型变体形式</characterLabel>
+		<characterLabel type="smiley">笑脸</characterLabel>
 		<characterLabel type="smileys_people">笑脸与人</characterLabel>
 		<characterLabel type="south_asian_scripts">南亚文字</characterLabel>
 		<characterLabel type="southeast_asian_scripts">东南亚文字</characterLabel>
 		<characterLabel type="spacing">空格</characterLabel>
+		<characterLabel type="sport">运动</characterLabel>
 		<characterLabel type="symbols">符号</characterLabel>
 		<characterLabel type="technical_symbols">技术符号</characterLabel>
 		<characterLabel type="tone_marks">声调标记</characterLabel>
+		<characterLabel type="travel">出行</characterLabel>
 		<characterLabel type="travel_places">出行与地点</characterLabel>
 		<characterLabel type="upwards_arrows">向上箭头</characterLabel>
 		<characterLabel type="variant_forms">变体形式</characterLabel>
 		<characterLabel type="vocalic_jamo">谚文元音符号</characterLabel>
+		<characterLabel type="weather">天气</characterLabel>
 		<characterLabel type="western_asian_scripts">西亚文字</characterLabel>
 		<characterLabel type="whitespace">空白字符</characterLabel>
 	</characterLabels>

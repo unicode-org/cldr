@@ -966,6 +966,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ουκρανία</territory>
 			<territory type="UG">Ουγκάντα</territory>
 			<territory type="UM">Απομακρυσμένες Νησίδες ΗΠΑ</territory>
+			<territory type="UN">Ηνωμένα Έθνη</territory>
+			<territory type="UN" alt="short">ΟΗΕ</territory>
 			<territory type="US">Ηνωμένες Πολιτείες</territory>
 			<territory type="US" alt="short">ΗΠΑ</territory>
 			<territory type="UY">Ουρουγουάη</territory>
@@ -8167,6 +8169,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Όλα</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Συμβατότητα</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Περικλειόμενη</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Εκτεταμένη</characterLabelPattern>
@@ -8179,10 +8182,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Δραστηριότητες</characterLabel>
 		<characterLabel type="african_scripts">Αφρικανικές γραφές</characterLabel>
 		<characterLabel type="american_scripts">Αμερικανικές γραφές</characterLabel>
+		<characterLabel type="animal">ζώο</characterLabel>
 		<characterLabel type="animals_nature">Ζώα και φύση</characterLabel>
 		<characterLabel type="arrows">Βέλη</characterLabel>
+		<characterLabel type="body">σώμα</characterLabel>
 		<characterLabel type="box_drawing">Σχεδίαση πλαισίων</characterLabel>
 		<characterLabel type="braille">Μπράιγ</characterLabel>
+		<characterLabel type="building">κτίριο</characterLabel>
 		<characterLabel type="bullets_stars">Κουκκίδες/Αστέρια</characterLabel>
 		<characterLabel type="consonantal_jamo">Συμφωνογραφικά Τζάμο</characterLabel>
 		<characterLabel type="currency_symbols">Σύμβολα νομισμάτων</characterLabel>
@@ -8195,6 +8201,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Γραφές Ανατολικής Ασίας</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Ευρωπαϊκές γραφές</characterLabel>
+		<characterLabel type="female">γυναίκα</characterLabel>
+		<characterLabel type="flag">σημαία</characterLabel>
 		<characterLabel type="flags">Σημαίες</characterLabel>
 		<characterLabel type="food_drink">Φαγητό και ποτό</characterLabel>
 		<characterLabel type="format">Μορφή</characterLabel>
@@ -8207,43 +8215,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Χαντζά</characterLabel>
 		<characterLabel type="hanzi_simplified">Χάνζι (Απλοποιημένα)</characterLabel>
 		<characterLabel type="hanzi_traditional">Χάνζι (Παραδοσιακά)</characterLabel>
+		<characterLabel type="heart">καρδιά</characterLabel>
 		<characterLabel type="historic_scripts">Ιστορικές γραφές</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Ιδεογραφικοί περιγραφικοί χαρακτήρες</characterLabel>
 		<characterLabel type="japanese_kana">Ιαπωνικά Κάνα</characterLabel>
 		<characterLabel type="kanbun">Κανμπούν</characterLabel>
 		<characterLabel type="kanji">Κάντζι</characterLabel>
+		<characterLabel type="keycap">πλήκτρο</characterLabel>
 		<characterLabel type="leftwards_arrows">Βέλη αριστερά</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Βέλη αριστερά-δεξιά</characterLabel>
 		<characterLabel type="letterlike_symbols">Σύμβολα με μορφή γραμμάτων</characterLabel>
 		<characterLabel type="limited_use">Περιορισμένης χρήσης</characterLabel>
+		<characterLabel type="male">άντρας</characterLabel>
 		<characterLabel type="math_symbols">Μαθηματικά σύμβολα</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Γραφές Μέσης Ανατολής</characterLabel>
 		<characterLabel type="miscellaneous">Διάφορα</characterLabel>
 		<characterLabel type="modern_scripts">Σύγχρονες γραφές</characterLabel>
 		<characterLabel type="modifier">Τροποποιητής</characterLabel>
 		<characterLabel type="musical_symbols">Μουσικά σύμβολα</characterLabel>
+		<characterLabel type="nature">φύση</characterLabel>
 		<characterLabel type="nonspacing">Δεν καταλαμβάνει διάστημα</characterLabel>
 		<characterLabel type="numbers">Αριθμοί</characterLabel>
 		<characterLabel type="objects">Αντικείμενα</characterLabel>
 		<characterLabel type="other">Άλλα</characterLabel>
 		<characterLabel type="paired">Με ζεύξη</characterLabel>
+		<characterLabel type="person">άνθρωπος</characterLabel>
 		<characterLabel type="phonetic_alphabet">Φωνητικό αλφάβητο</characterLabel>
 		<characterLabel type="pictographs">Εικονογράμματα</characterLabel>
+		<characterLabel type="place">τοποθεσία</characterLabel>
+		<characterLabel type="plant">φυτό</characterLabel>
 		<characterLabel type="punctuation">Στίξη</characterLabel>
 		<characterLabel type="rightwards_arrows">Βέλη δεξιά</characterLabel>
 		<characterLabel type="sign_standard_symbols">Σήματα / Τυπικά σύμβολα</characterLabel>
 		<characterLabel type="small_form_variant">Παραλλαγές μικρού μεγέθους</characterLabel>
+		<characterLabel type="smiley">χαμόγελο</characterLabel>
 		<characterLabel type="smileys_people">Φατσούλες και άτομα</characterLabel>
 		<characterLabel type="south_asian_scripts">Γραφές Νότιας Ασίας</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Γραφές Νοτιοανατολικής Ασίας</characterLabel>
 		<characterLabel type="spacing">Διαστήματα</characterLabel>
+		<characterLabel type="sport">άθληση</characterLabel>
 		<characterLabel type="symbols">Σύμβολα</characterLabel>
 		<characterLabel type="technical_symbols">Τεχνικά σύμβολα</characterLabel>
 		<characterLabel type="tone_marks">Σημάδια τόνου</characterLabel>
+		<characterLabel type="travel">ταξίδι</characterLabel>
 		<characterLabel type="travel_places">Ταξίδια και μέρη</characterLabel>
 		<characterLabel type="upwards_arrows">Βέλη πάνω</characterLabel>
 		<characterLabel type="variant_forms">Παραλλαγές</characterLabel>
 		<characterLabel type="vocalic_jamo">Φωνηεντικά Τζάμο</characterLabel>
+		<characterLabel type="weather">καιρός</characterLabel>
 		<characterLabel type="western_asian_scripts">Γραφές Δυτικής Ασίας</characterLabel>
 		<characterLabel type="whitespace">Κενό διάστημα</characterLabel>
 	</characterLabels>

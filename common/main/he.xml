@@ -894,6 +894,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">אוקראינה</territory>
 			<territory type="UG">אוגנדה</territory>
 			<territory type="UM">האיים המרוחקים הקטנים של ארה״ב</territory>
+			<territory type="UN">האומות המאוחדות</territory>
 			<territory type="US">ארצות הברית</territory>
 			<territory type="US" alt="short">ארה״ב</territory>
 			<territory type="UY">אורוגוואי</territory>
@@ -9165,6 +9166,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} - הכל</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} - תאימות</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} - תחום</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} - מורחב</characterLabelPattern>
@@ -9179,10 +9181,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">פעילויות</characterLabel>
 		<characterLabel type="african_scripts">סקריפטים של שפות אפריקאיות</characterLabel>
 		<characterLabel type="american_scripts">סקריפטים של שפות אמריקאיות</characterLabel>
+		<characterLabel type="animal">חיות</characterLabel>
 		<characterLabel type="animals_nature">בעלי חיים וטבע</characterLabel>
 		<characterLabel type="arrows">חצים</characterLabel>
+		<characterLabel type="body">גוף</characterLabel>
 		<characterLabel type="box_drawing">ציור תיבה</characterLabel>
 		<characterLabel type="braille">ברייל</characterLabel>
+		<characterLabel type="building">בניין</characterLabel>
 		<characterLabel type="bullets_stars">תבליטים/כוכבים</characterLabel>
 		<characterLabel type="consonantal_jamo">ג׳אמו עיצורי</characterLabel>
 		<characterLabel type="currency_symbols">סמלי מטבעות</characterLabel>
@@ -9195,6 +9200,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">סקריפטים של מזרח אסיה</characterLabel>
 		<characterLabel type="emoji">אמוג׳י</characterLabel>
 		<characterLabel type="european_scripts">סקריפטים אירופאיים</characterLabel>
+		<characterLabel type="female">אישה</characterLabel>
+		<characterLabel type="flag">דגל בצבעי הקשת</characterLabel>
 		<characterLabel type="flags">דגלים</characterLabel>
 		<characterLabel type="food_drink">מזון ומשקאות</characterLabel>
 		<characterLabel type="format">פורמט</characterLabel>
@@ -9207,43 +9214,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">האנג׳ה</characterLabel>
 		<characterLabel type="hanzi_simplified">האנזי (פשוטה)</characterLabel>
 		<characterLabel type="hanzi_traditional">האנזי (מסורתית)</characterLabel>
+		<characterLabel type="heart">לב</characterLabel>
 		<characterLabel type="historic_scripts">סקריפטים היסטוריים</characterLabel>
 		<characterLabel type="ideographic_desc_characters">תווי תיאור אידיאוגרפי</characterLabel>
 		<characterLabel type="japanese_kana">קאנה יפנית</characterLabel>
 		<characterLabel type="kanbun">קאנבון</characterLabel>
 		<characterLabel type="kanji">קאנג׳י</characterLabel>
+		<characterLabel type="keycap">מקש</characterLabel>
 		<characterLabel type="leftwards_arrows">חצים שמאלה</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">חצים שמאלה וימינה</characterLabel>
 		<characterLabel type="letterlike_symbols">סמלים דמויי אותיות</characterLabel>
 		<characterLabel type="limited_use">לשימוש מוגבל</characterLabel>
+		<characterLabel type="male">גבר</characterLabel>
 		<characterLabel type="math_symbols">סמלים מתמטיים</characterLabel>
 		<characterLabel type="middle_eastern_scripts">סקריפטים של המזרח התיכון</characterLabel>
 		<characterLabel type="miscellaneous">שונות</characterLabel>
 		<characterLabel type="modern_scripts">סקריפטים מודרניים</characterLabel>
 		<characterLabel type="modifier">סימן מחליף</characterLabel>
 		<characterLabel type="musical_symbols">סמלים מוסיקליים</characterLabel>
+		<characterLabel type="nature">טבע</characterLabel>
 		<characterLabel type="nonspacing">ללא ריווח</characterLabel>
 		<characterLabel type="numbers">מספרים</characterLabel>
 		<characterLabel type="objects">אובייקטים</characterLabel>
 		<characterLabel type="other">אחר</characterLabel>
 		<characterLabel type="paired">זוגות תווים</characterLabel>
+		<characterLabel type="person">אנשים</characterLabel>
 		<characterLabel type="phonetic_alphabet">אלפבית פונטי</characterLabel>
 		<characterLabel type="pictographs">כתבי ציורים</characterLabel>
+		<characterLabel type="place">מקום</characterLabel>
+		<characterLabel type="plant">צמח</characterLabel>
 		<characterLabel type="punctuation">סימני פיסוק</characterLabel>
 		<characterLabel type="rightwards_arrows">חצים ימינה</characterLabel>
 		<characterLabel type="sign_standard_symbols">סימנים סטנדרטיים</characterLabel>
 		<characterLabel type="small_form_variant">משתני צורות קטנות</characterLabel>
+		<characterLabel type="smiley">חיוך</characterLabel>
 		<characterLabel type="smileys_people" draft="provisional">הבעות סמיילי ואנשים</characterLabel>
 		<characterLabel type="south_asian_scripts">סוגי כתב דרום אסייתיים</characterLabel>
 		<characterLabel type="southeast_asian_scripts">סוגי כתב מזרח אסייתיים</characterLabel>
 		<characterLabel type="spacing">ריווח</characterLabel>
+		<characterLabel type="sport">ספורט</characterLabel>
 		<characterLabel type="symbols">סמלים</characterLabel>
 		<characterLabel type="technical_symbols">סמלים טכניים</characterLabel>
 		<characterLabel type="tone_marks">סימנים טונאליים</characterLabel>
+		<characterLabel type="travel">טיול</characterLabel>
 		<characterLabel type="travel_places">נסיעות ומקומות</characterLabel>
 		<characterLabel type="upwards_arrows">חצים כלפי מעלה</characterLabel>
 		<characterLabel type="variant_forms">חלופות</characterLabel>
 		<characterLabel type="vocalic_jamo">ג׳אמו ווקאלי</characterLabel>
+		<characterLabel type="weather">מזג אוויר</characterLabel>
 		<characterLabel type="western_asian_scripts" draft="provisional">סוגי כתב מערב אסייתיים</characterLabel>
 		<characterLabel type="whitespace">רווח לבן</characterLabel>
 	</characterLabels>

@@ -996,6 +996,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraine</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Amerikanske oversøiske øer</territory>
+			<territory type="UN">Forenede Nationer</territory>
+			<territory type="UN" alt="short">FN</territory>
 			<territory type="US">USA</territory>
 			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Uruguay</territory>
@@ -8377,6 +8379,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — alle</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — kompatibilitet</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — lukket</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — udvidet</characterLabelPattern>
@@ -8389,10 +8392,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">aktiviteter</characterLabel>
 		<characterLabel type="african_scripts">afrikanske skriftsystemer</characterLabel>
 		<characterLabel type="american_scripts">amerikanske skriftsystemer</characterLabel>
+		<characterLabel type="animal">dyr</characterLabel>
 		<characterLabel type="animals_nature">dyr og natur</characterLabel>
 		<characterLabel type="arrows">pile</characterLabel>
+		<characterLabel type="body">krop</characterLabel>
 		<characterLabel type="box_drawing">indramning</characterLabel>
 		<characterLabel type="braille">braille</characterLabel>
+		<characterLabel type="building">bygning</characterLabel>
 		<characterLabel type="bullets_stars">punkttegn/stjerner</characterLabel>
 		<characterLabel type="consonantal_jamo">konsonantisk jamo</characterLabel>
 		<characterLabel type="currency_symbols">valutategn</characterLabel>
@@ -8405,6 +8411,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">østasiatiske skriftsystemer</characterLabel>
 		<characterLabel type="emoji">emoji</characterLabel>
 		<characterLabel type="european_scripts">europæiske skriftsystemer</characterLabel>
+		<characterLabel type="female">kvinde</characterLabel>
+		<characterLabel type="flag">flag</characterLabel>
 		<characterLabel type="flags">flag</characterLabel>
 		<characterLabel type="food_drink" draft="contributed">mad og drikke</characterLabel>
 		<characterLabel type="format">format</characterLabel>
@@ -8417,43 +8425,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">hanzi (forenklet)</characterLabel>
 		<characterLabel type="hanzi_traditional">hanzi (traditionel)</characterLabel>
+		<characterLabel type="heart">hjerte</characterLabel>
 		<characterLabel type="historic_scripts">historiske skriftsystemer</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ideografiske tegn</characterLabel>
 		<characterLabel type="japanese_kana">japanske kana</characterLabel>
 		<characterLabel type="kanbun">kanbun</characterLabel>
 		<characterLabel type="kanji">kanji</characterLabel>
+		<characterLabel type="keycap">keycap</characterLabel>
 		<characterLabel type="leftwards_arrows">pile, der peger mod venstre</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">pile, der peger mod venstre og højre</characterLabel>
 		<characterLabel type="letterlike_symbols">bogstavlignende symboler</characterLabel>
 		<characterLabel type="limited_use">begrænset brug</characterLabel>
+		<characterLabel type="male">mand</characterLabel>
 		<characterLabel type="math_symbols">matematiske symboler</characterLabel>
 		<characterLabel type="middle_eastern_scripts">mellemøstlige skriftsystemer</characterLabel>
 		<characterLabel type="miscellaneous">diverse</characterLabel>
 		<characterLabel type="modern_scripts">moderne skriftsystemer</characterLabel>
 		<characterLabel type="modifier">bestemmelse</characterLabel>
 		<characterLabel type="musical_symbols">musiksymboler</characterLabel>
+		<characterLabel type="nature">natur</characterLabel>
 		<characterLabel type="nonspacing">uden mellemrum</characterLabel>
 		<characterLabel type="numbers">tal</characterLabel>
 		<characterLabel type="objects">objekter</characterLabel>
 		<characterLabel type="other">andet</characterLabel>
 		<characterLabel type="paired">parvis</characterLabel>
+		<characterLabel type="person">person</characterLabel>
 		<characterLabel type="phonetic_alphabet">fonetisk alfabet</characterLabel>
 		<characterLabel type="pictographs">piktogram</characterLabel>
+		<characterLabel type="place">sted</characterLabel>
+		<characterLabel type="plant">plante</characterLabel>
 		<characterLabel type="punctuation">tegnsætning</characterLabel>
 		<characterLabel type="rightwards_arrows">pile, der peger mod højre</characterLabel>
 		<characterLabel type="sign_standard_symbols">tegn/standardsymboler</characterLabel>
 		<characterLabel type="small_form_variant">varianter i lille format</characterLabel>
+		<characterLabel type="smiley">smiley</characterLabel>
 		<characterLabel type="smileys_people">smileys og personer</characterLabel>
 		<characterLabel type="south_asian_scripts">sydasiatiske skriftsystemer</characterLabel>
 		<characterLabel type="southeast_asian_scripts">sydøstasiatiske skriftsystemer</characterLabel>
 		<characterLabel type="spacing">mellemrum</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols">symboler</characterLabel>
 		<characterLabel type="technical_symbols">tekniske symboler</characterLabel>
 		<characterLabel type="tone_marks">tonemarkør</characterLabel>
+		<characterLabel type="travel">rejse</characterLabel>
 		<characterLabel type="travel_places">rejser og seværdigheder</characterLabel>
 		<characterLabel type="upwards_arrows">pile, der peger opad</characterLabel>
 		<characterLabel type="variant_forms">variantformer</characterLabel>
 		<characterLabel type="vocalic_jamo">vokalisk jamo</characterLabel>
+		<characterLabel type="weather">vejr</characterLabel>
 		<characterLabel type="western_asian_scripts">vestasiatiske skriftsystemer</characterLabel>
 		<characterLabel type="whitespace">blanktegn</characterLabel>
 	</characterLabels>

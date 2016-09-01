@@ -948,6 +948,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukrayna</territory>
 			<territory type="UG">Uqanda</territory>
 			<territory type="UM">ABŞ-a bağlı kiçik adacıqlar</territory>
+			<territory type="UN">Birləşmiş Millətlər Təşkilatı</territory>
+			<territory type="UN" alt="short">BMT</territory>
 			<territory type="US">Amerika Birləşmiş Ştatları</territory>
 			<territory type="US" alt="short">ABŞ</territory>
 			<territory type="UY">Uruqvay</territory>
@@ -7847,6 +7849,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Bütün</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Uyğunluq</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Qapalı</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Artırılmış</characterLabelPattern>
@@ -7859,10 +7862,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Aktivitələr</characterLabel>
 		<characterLabel type="african_scripts">Afrika Yazıları</characterLabel>
 		<characterLabel type="american_scripts">Amerika Yazıları</characterLabel>
+		<characterLabel type="animal">heyvan</characterLabel>
 		<characterLabel type="animals_nature">Heyvanlar və Təbiət</characterLabel>
 		<characterLabel type="arrows">Oxlar</characterLabel>
+		<characterLabel type="body">bədən</characterLabel>
 		<characterLabel type="box_drawing">Qutu Çəkmək</characterLabel>
 		<characterLabel type="braille">Brayl</characterLabel>
+		<characterLabel type="building">bina</characterLabel>
 		<characterLabel type="bullets_stars">Marker/Ulduz</characterLabel>
 		<characterLabel type="consonantal_jamo">Samit Jamo</characterLabel>
 		<characterLabel type="currency_symbols">Valyuta Simvolları</characterLabel>
@@ -7875,6 +7881,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Şərqi Asiya Yazıları</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Avropa Yazıları</characterLabel>
+		<characterLabel type="female">qadın</characterLabel>
+		<characterLabel type="flag">bayraq</characterLabel>
 		<characterLabel type="flags">Bayraqlar</characterLabel>
 		<characterLabel type="food_drink">Yemək-içmək</characterLabel>
 		<characterLabel type="format">Format</characterLabel>
@@ -7887,43 +7895,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (Sadələşmiş)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (Ənənəvi)</characterLabel>
+		<characterLabel type="heart">ürək</characterLabel>
 		<characterLabel type="historic_scripts">Tarixi Yazılar</characterLabel>
 		<characterLabel type="ideographic_desc_characters">İdeoqrafik Simvollar</characterLabel>
 		<characterLabel type="japanese_kana">Yapon Kanası</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">klaviatura qapağı</characterLabel>
 		<characterLabel type="leftwards_arrows">Sola Oxlar</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Sola Sağa Oxlar</characterLabel>
 		<characterLabel type="letterlike_symbols">Hərfəbənzər Simvollar</characterLabel>
 		<characterLabel type="limited_use">Limitli İstifadə</characterLabel>
+		<characterLabel type="male">kişi</characterLabel>
 		<characterLabel type="math_symbols">Riyazi Simvollar</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Yaxın Şərq Yazıları</characterLabel>
 		<characterLabel type="miscellaneous">Qarışıq</characterLabel>
 		<characterLabel type="modern_scripts">Çağdaş Yazılar</characterLabel>
 		<characterLabel type="modifier">Modifikator</characterLabel>
 		<characterLabel type="musical_symbols">Musiqi Simvolları</characterLabel>
+		<characterLabel type="nature">təbiət</characterLabel>
 		<characterLabel type="nonspacing">Boşluqsuz</characterLabel>
 		<characterLabel type="numbers">Saylar</characterLabel>
 		<characterLabel type="objects">Obyektlər</characterLabel>
 		<characterLabel type="other">Digər</characterLabel>
 		<characterLabel type="paired">Cüt</characterLabel>
+		<characterLabel type="person">şəxs</characterLabel>
 		<characterLabel type="phonetic_alphabet">Fonetik Əlifba</characterLabel>
 		<characterLabel type="pictographs">Piktoqram</characterLabel>
+		<characterLabel type="place">yer</characterLabel>
+		<characterLabel type="plant">bitki</characterLabel>
 		<characterLabel type="punctuation">Durğu</characterLabel>
 		<characterLabel type="rightwards_arrows">Sağa Oxlar</characterLabel>
 		<characterLabel type="sign_standard_symbols">İşarə/Standart Simvollar</characterLabel>
 		<characterLabel type="small_form_variant">Kiçik Forma Variantları</characterLabel>
+		<characterLabel type="smiley">smayli</characterLabel>
 		<characterLabel type="smileys_people">Gülüş və Camaat</characterLabel>
 		<characterLabel type="south_asian_scripts">Cənubi Asiya Yazıları</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Cənub-Şərqi Asiya Yazıları</characterLabel>
 		<characterLabel type="spacing">Boşluq</characterLabel>
+		<characterLabel type="sport">idman</characterLabel>
 		<characterLabel type="symbols">Simvollar</characterLabel>
 		<characterLabel type="technical_symbols">Texniki Simvollar</characterLabel>
 		<characterLabel type="tone_marks">Ton Qeydləri</characterLabel>
+		<characterLabel type="travel">səyahət</characterLabel>
 		<characterLabel type="travel_places">Səyahət və Yerlər</characterLabel>
 		<characterLabel type="upwards_arrows">Yuxarıya Oxlar</characterLabel>
 		<characterLabel type="variant_forms">Variant Formaları</characterLabel>
 		<characterLabel type="vocalic_jamo">Vokal Jamo</characterLabel>
+		<characterLabel type="weather">hava</characterLabel>
 		<characterLabel type="western_asian_scripts">Qərbi Asiya Yazıları</characterLabel>
 		<characterLabel type="whitespace">Boşluq</characterLabel>
 	</characterLabels>

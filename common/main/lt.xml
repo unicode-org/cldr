@@ -1087,6 +1087,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Jungtinių Valstijų Mažosios Tolimosios Salos</territory>
+			<territory type="UN">Jungtinės Tautos</territory>
+			<territory type="UN" alt="short">JT</territory>
 			<territory type="US">Jungtinės Valstijos</territory>
 			<territory type="US" alt="short">JAV</territory>
 			<territory type="UY">Urugvajus</territory>
@@ -11616,6 +11618,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} – visi</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} – suderinamumas</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} – pridedamas</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} – išplėstas</characterLabelPattern>
@@ -11630,10 +11633,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">veikla</characterLabel>
 		<characterLabel type="african_scripts">afrikietiški raštai</characterLabel>
 		<characterLabel type="american_scripts">amerikietiški raštai</characterLabel>
+		<characterLabel type="animal">gyvūnas</characterLabel>
 		<characterLabel type="animals_nature">gyvūnai ir gamta</characterLabel>
 		<characterLabel type="arrows">rodyklės</characterLabel>
+		<characterLabel type="body">kūnas</characterLabel>
 		<characterLabel type="box_drawing">laukelių piešimas</characterLabel>
 		<characterLabel type="braille">Brailis</characterLabel>
+		<characterLabel type="building">statymas</characterLabel>
 		<characterLabel type="bullets_stars">punktuacija / žvaigždutės</characterLabel>
 		<characterLabel type="consonantal_jamo">priebalsė, balsė</characterLabel>
 		<characterLabel type="currency_symbols">valiutos simboliai</characterLabel>
@@ -11646,6 +11652,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Rytų Azijos raštai</characterLabel>
 		<characterLabel type="emoji">jaustukas</characterLabel>
 		<characterLabel type="european_scripts">europietiški raštai</characterLabel>
+		<characterLabel type="female">moteris</characterLabel>
+		<characterLabel type="flag">vėliava</characterLabel>
 		<characterLabel type="flags">vėliavėlės</characterLabel>
 		<characterLabel type="food_drink">maistas ir gėrimai</characterLabel>
 		<characterLabel type="format">formatas</characterLabel>
@@ -11658,43 +11666,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">handža</characterLabel>
 		<characterLabel type="hanzi_simplified">hanzi (supaprastinta)</characterLabel>
 		<characterLabel type="hanzi_traditional">hanzi (tradicinė)</characterLabel>
+		<characterLabel type="heart">širdelė</characterLabel>
 		<characterLabel type="historic_scripts">istoriniai raštai</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ideografiniai apr. ženklai</characterLabel>
 		<characterLabel type="japanese_kana">japonų kalba</characterLabel>
 		<characterLabel type="kanbun">kanbun</characterLabel>
 		<characterLabel type="kanji">kanji</characterLabel>
+		<characterLabel type="keycap">mygtukas</characterLabel>
 		<characterLabel type="leftwards_arrows">rodyklės į kairę</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">rodyklės į kairę ir dešinę</characterLabel>
 		<characterLabel type="letterlike_symbols">raidiniai simboliai</characterLabel>
 		<characterLabel type="limited_use">riboto naudojimo</characterLabel>
+		<characterLabel type="male">vyras</characterLabel>
 		<characterLabel type="math_symbols">matematiniai simboliai</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Artimųjų Rytų raštai</characterLabel>
 		<characterLabel type="miscellaneous">įvairūs</characterLabel>
 		<characterLabel type="modern_scripts">modernieji raštai</characterLabel>
 		<characterLabel type="modifier">modifikatorius</characterLabel>
 		<characterLabel type="musical_symbols">muzikiniai simboliai</characterLabel>
+		<characterLabel type="nature">gamta</characterLabel>
 		<characterLabel type="nonspacing">be tarpų</characterLabel>
 		<characterLabel type="numbers">skaičiai</characterLabel>
 		<characterLabel type="objects">objektai</characterLabel>
 		<characterLabel type="other">kita</characterLabel>
 		<characterLabel type="paired">suporuoti</characterLabel>
+		<characterLabel type="person">asmuo</characterLabel>
 		<characterLabel type="phonetic_alphabet">fonetinis alfabetas</characterLabel>
 		<characterLabel type="pictographs">ženklai</characterLabel>
+		<characterLabel type="place">vieta</characterLabel>
+		<characterLabel type="plant">augalas</characterLabel>
 		<characterLabel type="punctuation">skyryba</characterLabel>
 		<characterLabel type="rightwards_arrows">rodyklės į dešinę</characterLabel>
 		<characterLabel type="sign_standard_symbols">ženklas / standartiniai simboliai</characterLabel>
 		<characterLabel type="small_form_variant">mažos formos variantai</characterLabel>
+		<characterLabel type="smiley">šypsenėlė</characterLabel>
 		<characterLabel type="smileys_people">veidukai ir žmonės</characterLabel>
 		<characterLabel type="south_asian_scripts">Pietų Azijos raštai</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Pietryčių Azijos raštai</characterLabel>
 		<characterLabel type="spacing">tarpai</characterLabel>
+		<characterLabel type="sport">sportas</characterLabel>
 		<characterLabel type="symbols">simboliai</characterLabel>
 		<characterLabel type="technical_symbols">techniniai simboliai</characterLabel>
 		<characterLabel type="tone_marks">toniniai ženklai</characterLabel>
+		<characterLabel type="travel">kelionė</characterLabel>
 		<characterLabel type="travel_places">kelionės ir vietovės</characterLabel>
 		<characterLabel type="upwards_arrows">rodyklės į viršų</characterLabel>
 		<characterLabel type="variant_forms">įvairios formos</characterLabel>
 		<characterLabel type="vocalic_jamo">vokalinė balsė</characterLabel>
+		<characterLabel type="weather">oras</characterLabel>
 		<characterLabel type="western_asian_scripts">Vakarų Azijos raštai</characterLabel>
 		<characterLabel type="whitespace">tarpas</characterLabel>
 	</characterLabels>

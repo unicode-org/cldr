@@ -1092,6 +1092,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">USA:s yttre öar</territory>
+			<territory type="UN">Förenta Nationerna</territory>
+			<territory type="UN" alt="short">FN</territory>
 			<territory type="US">USA</territory>
 			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Uruguay</territory>
@@ -9887,6 +9889,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — alla</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — kompatibilitet</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — omringande</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — utvidgat</characterLabelPattern>
@@ -9899,10 +9902,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">aktiviteter</characterLabel>
 		<characterLabel type="african_scripts">afrikanska skriftsystem</characterLabel>
 		<characterLabel type="american_scripts">amerikanska skriftsystem</characterLabel>
+		<characterLabel type="animal">djur</characterLabel>
 		<characterLabel type="animals_nature">djur och natur</characterLabel>
 		<characterLabel type="arrows">pilar</characterLabel>
+		<characterLabel type="body">kropp</characterLabel>
 		<characterLabel type="box_drawing">boxritning</characterLabel>
 		<characterLabel type="braille">blindskrift</characterLabel>
+		<characterLabel type="building">byggnad</characterLabel>
 		<characterLabel type="bullets_stars">punkter/stjärnor</characterLabel>
 		<characterLabel type="consonantal_jamo">jamokonsonanter</characterLabel>
 		<characterLabel type="currency_symbols">valutasymboler</characterLabel>
@@ -9915,6 +9921,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">östasiatiska skriftsystem</characterLabel>
 		<characterLabel type="emoji">emoji</characterLabel>
 		<characterLabel type="european_scripts">europeiska skriftsystem</characterLabel>
+		<characterLabel type="female">kvinnlig</characterLabel>
+		<characterLabel type="flag">flagga</characterLabel>
 		<characterLabel type="flags">flaggor</characterLabel>
 		<characterLabel type="food_drink">mat och dryck</characterLabel>
 		<characterLabel type="format">formattecken</characterLabel>
@@ -9927,43 +9935,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">kinesiska hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">hanzi (förenklade)</characterLabel>
 		<characterLabel type="hanzi_traditional">hanzi (traditionella)</characterLabel>
+		<characterLabel type="heart">hjärta</characterLabel>
 		<characterLabel type="historic_scripts">historiska skriftsystem</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ideografiska beskrivningstecken</characterLabel>
 		<characterLabel type="japanese_kana">japanska kana</characterLabel>
 		<characterLabel type="kanbun">kanbun-tecken</characterLabel>
 		<characterLabel type="kanji">japanska kanji</characterLabel>
+		<characterLabel type="keycap">keycap</characterLabel>
 		<characterLabel type="leftwards_arrows" draft="provisional">vänsteråtpilar</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows" draft="provisional">vänster/höger-pilar</characterLabel>
 		<characterLabel type="letterlike_symbols">bokstavsliknande symboler</characterLabel>
 		<characterLabel type="limited_use">begränsad användning</characterLabel>
+		<characterLabel type="male">manlig</characterLabel>
 		<characterLabel type="math_symbols">matematiska symboler</characterLabel>
 		<characterLabel type="middle_eastern_scripts">mellanösternskriftsystem</characterLabel>
 		<characterLabel type="miscellaneous">diverse</characterLabel>
 		<characterLabel type="modern_scripts">moderna skriftsystem</characterLabel>
 		<characterLabel type="modifier">modifierare</characterLabel>
 		<characterLabel type="musical_symbols">musiksymboler</characterLabel>
+		<characterLabel type="nature">natur</characterLabel>
 		<characterLabel type="nonspacing">icke-stegande tecken</characterLabel>
 		<characterLabel type="numbers" draft="contributed">numeralsymboler</characterLabel>
 		<characterLabel type="objects">objekt</characterLabel>
 		<characterLabel type="other">annat</characterLabel>
 		<characterLabel type="paired">tecken i par</characterLabel>
+		<characterLabel type="person">person</characterLabel>
 		<characterLabel type="phonetic_alphabet">fonetiskt alfabet</characterLabel>
 		<characterLabel type="pictographs">piktografiska tecken</characterLabel>
+		<characterLabel type="place">plats</characterLabel>
+		<characterLabel type="plant">växt</characterLabel>
 		<characterLabel type="punctuation">interpunktion</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="provisional">högerpilar</characterLabel>
 		<characterLabel type="sign_standard_symbols">vanliga symboler</characterLabel>
 		<characterLabel type="small_form_variant">småformvarianter</characterLabel>
+		<characterLabel type="smiley">smiley</characterLabel>
 		<characterLabel type="smileys_people">smileys och människor</characterLabel>
 		<characterLabel type="south_asian_scripts">sydasiatiska skriftsystem</characterLabel>
 		<characterLabel type="southeast_asian_scripts">sydöstasiatiska skriftsystem</characterLabel>
 		<characterLabel type="spacing">stegande tecken</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols">symboler</characterLabel>
 		<characterLabel type="technical_symbols">tekniska symboler</characterLabel>
 		<characterLabel type="tone_marks">tonmarkeringar</characterLabel>
+		<characterLabel type="travel">resa</characterLabel>
 		<characterLabel type="travel_places">resor och platser</characterLabel>
 		<characterLabel type="upwards_arrows">uppåtpilar</characterLabel>
 		<characterLabel type="variant_forms">formvarianter</characterLabel>
 		<characterLabel type="vocalic_jamo">jamovokaler</characterLabel>
+		<characterLabel type="weather">väder</characterLabel>
 		<characterLabel type="western_asian_scripts">västasiatiska skriftsystem</characterLabel>
 		<characterLabel type="whitespace">blanka tecken</characterLabel>
 	</characterLabels>

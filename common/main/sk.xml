@@ -880,6 +880,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukrajina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Menšie odľahlé ostrovy USA</territory>
+			<territory type="UN">OSN</territory>
+			<territory type="UN" alt="short">OSN</territory>
 			<territory type="US">Spojené štáty</territory>
 			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Uruguaj</territory>
@@ -9204,6 +9206,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} – všetko</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} – kompatibilné</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} – uzavreté</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} – rozšírené</characterLabelPattern>
@@ -9218,10 +9221,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">aktivity</characterLabel>
 		<characterLabel type="african_scripts">africké písma</characterLabel>
 		<characterLabel type="american_scripts">americké písma</characterLabel>
+		<characterLabel type="animal">zviera</characterLabel>
 		<characterLabel type="animals_nature">zvieratá a príroda</characterLabel>
 		<characterLabel type="arrows">šípky</characterLabel>
+		<characterLabel type="body">teleso</characterLabel>
 		<characterLabel type="box_drawing">kreslenie rámčekov</characterLabel>
 		<characterLabel type="braille">Braillovo písmo</characterLabel>
+		<characterLabel type="building">budova</characterLabel>
 		<characterLabel type="bullets_stars">odrážky a hviezdičky</characterLabel>
 		<characterLabel type="consonantal_jamo">kórejské spoluhlásky</characterLabel>
 		<characterLabel type="currency_symbols">symboly meny</characterLabel>
@@ -9234,6 +9240,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">východoázijské písma</characterLabel>
 		<characterLabel type="emoji">emodži</characterLabel>
 		<characterLabel type="european_scripts">európske písma</characterLabel>
+		<characterLabel type="female">žena</characterLabel>
+		<characterLabel type="flag">zástava</characterLabel>
 		<characterLabel type="flags">vlajky</characterLabel>
 		<characterLabel type="food_drink">jedlo a pitie</characterLabel>
 		<characterLabel type="format">formát</characterLabel>
@@ -9246,43 +9254,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">hanča</characterLabel>
 		<characterLabel type="hanzi_simplified">čínske písmo (zjednodušené)</characterLabel>
 		<characterLabel type="hanzi_traditional">čínske písmo (tradičné)</characterLabel>
+		<characterLabel type="heart">srdce</characterLabel>
 		<characterLabel type="historic_scripts">historické písma</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ideografické popisné znaky</characterLabel>
 		<characterLabel type="japanese_kana">japonská kana</characterLabel>
 		<characterLabel type="kanbun">kanbun</characterLabel>
 		<characterLabel type="kanji">kandži</characterLabel>
+		<characterLabel type="keycap">kláves</characterLabel>
 		<characterLabel type="leftwards_arrows">šípky doľava</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">šípky doľava a doprava</characterLabel>
 		<characterLabel type="letterlike_symbols">symboly podobné písmu</characterLabel>
 		<characterLabel type="limited_use">obmedzené použitie</characterLabel>
+		<characterLabel type="male">muž</characterLabel>
 		<characterLabel type="math_symbols">matematické operátory</characterLabel>
 		<characterLabel type="middle_eastern_scripts">blízkovýchodné písma</characterLabel>
 		<characterLabel type="miscellaneous">rôzne</characterLabel>
 		<characterLabel type="modern_scripts">moderné písma</characterLabel>
 		<characterLabel type="modifier">modifikátory</characterLabel>
 		<characterLabel type="musical_symbols">hudobné symboly</characterLabel>
+		<characterLabel type="nature">príroda</characterLabel>
 		<characterLabel type="nonspacing">kombinované diakritické znaky</characterLabel>
 		<characterLabel type="numbers">čísla</characterLabel>
 		<characterLabel type="objects">objekty</characterLabel>
 		<characterLabel type="other">ostatné</characterLabel>
 		<characterLabel type="paired">párové</characterLabel>
+		<characterLabel type="person">osoba</characterLabel>
 		<characterLabel type="phonetic_alphabet">fonetická abeceda</characterLabel>
 		<characterLabel type="pictographs">piktogramy</characterLabel>
+		<characterLabel type="place">miesto</characterLabel>
+		<characterLabel type="plant">rastlina</characterLabel>
 		<characterLabel type="punctuation">interpunkcia</characterLabel>
 		<characterLabel type="rightwards_arrows">šípky doprava</characterLabel>
 		<characterLabel type="sign_standard_symbols">znakové a štandardné symboly</characterLabel>
 		<characterLabel type="small_form_variant">varianty malých formátov</characterLabel>
+		<characterLabel type="smiley">smajlík</characterLabel>
 		<characterLabel type="smileys_people">emotikony a ľudia</characterLabel>
 		<characterLabel type="south_asian_scripts">juhoázijské písma</characterLabel>
 		<characterLabel type="southeast_asian_scripts">juhovýchodoázijské písma</characterLabel>
 		<characterLabel type="spacing">medzery</characterLabel>
+		<characterLabel type="sport">šport</characterLabel>
 		<characterLabel type="symbols">symboly</characterLabel>
 		<characterLabel type="technical_symbols">technické symboly</characterLabel>
 		<characterLabel type="tone_marks">značky tónov</characterLabel>
+		<characterLabel type="travel">cestovanie</characterLabel>
 		<characterLabel type="travel_places">cestovanie a miesta</characterLabel>
 		<characterLabel type="upwards_arrows">šípky nahor</characterLabel>
 		<characterLabel type="variant_forms">variantné formáty</characterLabel>
 		<characterLabel type="vocalic_jamo">kórejské samohlásky</characterLabel>
+		<characterLabel type="weather">počasie</characterLabel>
 		<characterLabel type="western_asian_scripts">západoázijské písma</characterLabel>
 		<characterLabel type="whitespace">prázdne znaky</characterLabel>
 	</characterLabels>

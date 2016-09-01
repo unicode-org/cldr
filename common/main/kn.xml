@@ -958,6 +958,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">ಉಕ್ರೈನ್</territory>
 			<territory type="UG">ಉಗಾಂಡಾ</territory>
 			<territory type="UM">ಯುಎಸ್‌. ಔಟ್‌ಲೇಯಿಂಗ್ ದ್ವೀಪಗಳು</territory>
+			<territory type="UN">ಸಂಯುಕ್ತ ಸಂಸ್ಥಾನಗಳು</territory>
+			<territory type="UN" alt="short">ಯುಎನ್</territory>
 			<territory type="US">ಅಮೇರಿಕಾ ಸಂಯುಕ್ತ ಸಂಸ್ಥಾನ</territory>
 			<territory type="US" alt="short">ಯು.ಎಸ್</territory>
 			<territory type="UY">ಉರುಗ್ವೇ</territory>
@@ -7533,6 +7535,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — ಎಲ್ಲ</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — ಹೊಂದಾಣಿಕೆ</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — ಲಗತ್ತಿಸಲಾಗಿದೆ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — ವಿಸ್ತೃತ</characterLabelPattern>
@@ -7545,10 +7548,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">ಚಟುವಟಿಕೆಗಳು</characterLabel>
 		<characterLabel type="african_scripts">ಆಫ್ರಿಕಾದ ಲಿಪಿಗಳು</characterLabel>
 		<characterLabel type="american_scripts">ಅಮೇರಿಕಾದ ಲಿಪಿಗಳು</characterLabel>
+		<characterLabel type="animal">ಪ್ರಾಣಿ</characterLabel>
 		<characterLabel type="animals_nature">ಪ್ರಾಣಿಗಳು ಮತ್ತು ಪ್ರಕೃತಿ</characterLabel>
 		<characterLabel type="arrows">ಬಾಣಗಳು</characterLabel>
+		<characterLabel type="body">ದೇಹ</characterLabel>
 		<characterLabel type="box_drawing">ಬಾಕ್ಸ್ ಡ್ರಾಯಿಂಗ್</characterLabel>
 		<characterLabel type="braille">ಬ್ರೈಲ್</characterLabel>
+		<characterLabel type="building">ಕಟ್ಟಡ</characterLabel>
 		<characterLabel type="bullets_stars">ಬುಲೆಟ್ಸ್ / ಸ್ಟಾರ್ಸ್</characterLabel>
 		<characterLabel type="consonantal_jamo">ವ್ಯಂಜನಗಳ ಜಮೊ</characterLabel>
 		<characterLabel type="currency_symbols">ಕರೆನ್ಸಿ ಚಿಹ್ನೆಗಳು</characterLabel>
@@ -7561,6 +7567,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">ಪೂರ್ವ ಏಷಿಯಾದ ಲಿಪಿಗಳು</characterLabel>
 		<characterLabel type="emoji">ಎಮೋಜಿ</characterLabel>
 		<characterLabel type="european_scripts">ಯುರೋಪಿಯನ್ ಲಿಪಿಗಳು</characterLabel>
+		<characterLabel type="female">ಮಹಿಳೆ</characterLabel>
+		<characterLabel type="flag">ಬಾವುಟ</characterLabel>
 		<characterLabel type="flags">ಧ್ವಜಗಳು</characterLabel>
 		<characterLabel type="food_drink">ಆಹಾರ ಮತ್ತು ಪಾನೀಯ</characterLabel>
 		<characterLabel type="format">ಸ್ವರೂಪ</characterLabel>
@@ -7573,43 +7581,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">ಹಂಜಾ</characterLabel>
 		<characterLabel type="hanzi_simplified">ಹಂಜಿ (ಸರಳೀಕೃತ)</characterLabel>
 		<characterLabel type="hanzi_traditional">ಹಂಜಿ (ಸಾಂಪ್ರದಾಯಿಕ)</characterLabel>
+		<characterLabel type="heart">ಹೃದಯ</characterLabel>
 		<characterLabel type="historic_scripts">ಐತಿಹಾಸಿಕ ಲಿಪಿಗಳು</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ಇಡಿಯೊಗ್ರಾಫಿಕ್ Desc. ಅಕ್ಷರಗಳು</characterLabel>
 		<characterLabel type="japanese_kana">ಜಪಾನೀ ಭಾಷೆಗಾಗಿ ಬರವಣಿಗೆ</characterLabel>
 		<characterLabel type="kanbun">ಕಾನ್‌ಬನ್</characterLabel>
 		<characterLabel type="kanji">ಕಾಂಜಿ</characterLabel>
+		<characterLabel type="keycap">ಕೀಕ್ಯಾಪ್</characterLabel>
 		<characterLabel type="leftwards_arrows">ಎಡಮುಖವಾಗಿರುವ ಬಾಣಗಳು</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">ಎಡಮುಖವಾಗಿರುವ ಬಲಬದಿಯ ಬಾಣಗಳು</characterLabel>
 		<characterLabel type="letterlike_symbols">ಅಕ್ಷರದತರಹದ ಚಿಹ್ನೆಗಳು</characterLabel>
 		<characterLabel type="limited_use">ನಿಯಮಿತ ಬಳಕೆ</characterLabel>
+		<characterLabel type="male">ಪುರುಷ</characterLabel>
 		<characterLabel type="math_symbols">ಗಣಿತದ ಸಂಕೇತಗಳು</characterLabel>
 		<characterLabel type="middle_eastern_scripts">ಮಧ್ಯ ಪೌರಾತ್ಯ ಲಿಪಿಗಳು</characterLabel>
 		<characterLabel type="miscellaneous">ವಿವಿಧ</characterLabel>
 		<characterLabel type="modern_scripts">ಆಧುನಿಕ ಲಿಪಿಗಳು</characterLabel>
 		<characterLabel type="modifier">ಮಾಡಿಫೈಯರ್</characterLabel>
 		<characterLabel type="musical_symbols">ಸಂಗೀತದ ಚಿಹ್ನೆಗಳು</characterLabel>
+		<characterLabel type="nature">ಪ್ರಕೃತಿ</characterLabel>
 		<characterLabel type="nonspacing">ನಾನ್‌ಸ್ಪೇಸಿಂಗ್</characterLabel>
 		<characterLabel type="numbers">ಸಂಖ್ಯೆಗಳು</characterLabel>
 		<characterLabel type="objects">ವಸ್ತುಗಳು</characterLabel>
 		<characterLabel type="other">ಇತರೆ</characterLabel>
 		<characterLabel type="paired">ಜೋಡಿಯಾದ</characterLabel>
+		<characterLabel type="person">ವ್ಯಕ್ತಿ</characterLabel>
 		<characterLabel type="phonetic_alphabet">ಫೋನೆಟಿಕ್ ಆಲ್ಫಾಬೆಟ್</characterLabel>
 		<characterLabel type="pictographs">ಚಿತ್ರಲಿಪಿಗಳು</characterLabel>
+		<characterLabel type="place">ಸ್ಥಳ</characterLabel>
+		<characterLabel type="plant">ಗಿಡ</characterLabel>
 		<characterLabel type="punctuation">ವಿರಾಮಚಿಹ್ನೆ</characterLabel>
 		<characterLabel type="rightwards_arrows">ಬಲಭಾಗದ ಬಾಣಗಳು</characterLabel>
 		<characterLabel type="sign_standard_symbols">ಸೈನ್ / ಸ್ಟ್ಯಾಂಡರ್ಡ್ ಚಿಹ್ನೆಗಳು</characterLabel>
 		<characterLabel type="small_form_variant">ಸ್ಮಾಲ್ ಫಾರ್ಮ್ ವೇರಿಯಂಟ್ಸ್</characterLabel>
+		<characterLabel type="smiley">ಸ್ಮೈಲೀ</characterLabel>
 		<characterLabel type="smileys_people">ಸ್ಮೈಲಿಗಳು ಮತ್ತು ಜನರು</characterLabel>
 		<characterLabel type="south_asian_scripts">ದಕ್ಷಿಣ ಏಷಿಯಾದ ಲಿಪಿಗಳು</characterLabel>
 		<characterLabel type="southeast_asian_scripts">ಆಗ್ನೇಯ ಏಷಿಯಾದ ಲಿಪಿಗಳು</characterLabel>
 		<characterLabel type="spacing">ಸ್ಪೇಸಿಂಗ್</characterLabel>
+		<characterLabel type="sport">ಕ್ರೀಡೆ</characterLabel>
 		<characterLabel type="symbols">ಚಿಹ್ನೆಗಳು</characterLabel>
 		<characterLabel type="technical_symbols">ತಾಂತ್ರಿಕ ಸಂಕೇತಗಳು</characterLabel>
 		<characterLabel type="tone_marks">ಟೋನ್ ಮಾರ್ಕ್ಸ್</characterLabel>
+		<characterLabel type="travel">ಪ್ರಯಾಣ</characterLabel>
 		<characterLabel type="travel_places">ಪ್ರವಾಸ ಮತ್ತು ಸ್ಥಳಗಳು</characterLabel>
 		<characterLabel type="upwards_arrows">ಮೇಲ್ಮುಖವಾಗಿರುವ ಬಾಣಗಳು</characterLabel>
 		<characterLabel type="variant_forms">ಭಿನ್ನ ರೂಪಗಳು</characterLabel>
 		<characterLabel type="vocalic_jamo">ವೊಕ್ಯಾಲಿಕ್ ಜಮೊ</characterLabel>
+		<characterLabel type="weather">ಹವಾಮಾನ</characterLabel>
 		<characterLabel type="western_asian_scripts">ಪಶ್ಚಿಮ ಏಷಿಯಾದ ಲಿಪಿಗಳು</characterLabel>
 		<characterLabel type="whitespace">ವೈಟ್‌ಸ್ಪೇಸ್</characterLabel>
 	</characterLabels>

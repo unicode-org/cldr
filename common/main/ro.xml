@@ -898,6 +898,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ucraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Insulele Îndepărtate ale S.U.A.</territory>
+			<territory type="UN">Națiunile Unite</territory>
+			<territory type="UN" alt="short">NU</territory>
 			<territory type="US">Statele Unite ale Americii</territory>
 			<territory type="US" alt="short">S.U.A.</territory>
 			<territory type="UY">Uruguay</territory>
@@ -8670,6 +8672,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} – toate</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} – compatibilitate</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} – încadrate</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} – set extins</characterLabelPattern>
@@ -8683,10 +8686,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Activități</characterLabel>
 		<characterLabel type="african_scripts">Scrieri africane</characterLabel>
 		<characterLabel type="american_scripts">Scrieri americane</characterLabel>
+		<characterLabel type="animal">animal</characterLabel>
 		<characterLabel type="animals_nature">Animale și natură</characterLabel>
 		<characterLabel type="arrows">Săgeți</characterLabel>
+		<characterLabel type="body">corp</characterLabel>
 		<characterLabel type="box_drawing">Desen casetă</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">construcție</characterLabel>
 		<characterLabel type="bullets_stars">Marcatori/stele</characterLabel>
 		<characterLabel type="consonantal_jamo">Jamo consonantic</characterLabel>
 		<characterLabel type="currency_symbols">Simboluri monetare</characterLabel>
@@ -8699,6 +8705,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Scrieri est-asiatice</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Scrieri europene</characterLabel>
+		<characterLabel type="female">femeie</characterLabel>
+		<characterLabel type="flag">steag</characterLabel>
 		<characterLabel type="flags">Steaguri</characterLabel>
 		<characterLabel type="food_drink">Mâncare și băutură</characterLabel>
 		<characterLabel type="format">Formatare</characterLabel>
@@ -8711,43 +8719,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (simplificată)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (tradițională)</characterLabel>
+		<characterLabel type="heart">inimă</characterLabel>
 		<characterLabel type="historic_scripts">Scrieri istorice</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Caractere desc. ideografice</characterLabel>
 		<characterLabel type="japanese_kana">Kana japoneză</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">tastă</characterLabel>
 		<characterLabel type="leftwards_arrows">Săgeți spre stânga</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Săgeți spre stânga și spre dreapta</characterLabel>
 		<characterLabel type="letterlike_symbols">Simboluri asemănătoare literelor</characterLabel>
 		<characterLabel type="limited_use">Utilizare limitată</characterLabel>
+		<characterLabel type="male">bărbat</characterLabel>
 		<characterLabel type="math_symbols">Simboluri matematice</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Scrieri mijlociu-orientale</characterLabel>
 		<characterLabel type="miscellaneous">Diverse</characterLabel>
 		<characterLabel type="modern_scripts">Scrieri moderne</characterLabel>
 		<characterLabel type="modifier">Modificator</characterLabel>
 		<characterLabel type="musical_symbols">Simboluri muzicale</characterLabel>
+		<characterLabel type="nature">natură</characterLabel>
 		<characterLabel type="nonspacing">Fără spațiere</characterLabel>
 		<characterLabel type="numbers">Numere</characterLabel>
 		<characterLabel type="objects">Obiecte</characterLabel>
 		<characterLabel type="other">Altele</characterLabel>
 		<characterLabel type="paired">Asociate</characterLabel>
+		<characterLabel type="person">persoană</characterLabel>
 		<characterLabel type="phonetic_alphabet">Alfabet fonetic</characterLabel>
 		<characterLabel type="pictographs">Pictografe</characterLabel>
+		<characterLabel type="place">loc</characterLabel>
+		<characterLabel type="plant">plantă</characterLabel>
 		<characterLabel type="punctuation">Punctuație</characterLabel>
 		<characterLabel type="rightwards_arrows">Săgeți spre dreapta</characterLabel>
 		<characterLabel type="sign_standard_symbols">Semne/simboluri standard</characterLabel>
 		<characterLabel type="small_form_variant">Variante de forme mici</characterLabel>
+		<characterLabel type="smiley">smiley</characterLabel>
 		<characterLabel type="smileys_people">Emoticoane și persoane</characterLabel>
 		<characterLabel type="south_asian_scripts">Scrieri sud-asiatice</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Scrieri sud-est asiatice</characterLabel>
 		<characterLabel type="spacing">Spațiere</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols">Simboluri</characterLabel>
 		<characterLabel type="technical_symbols">Simboluri tehnice</characterLabel>
 		<characterLabel type="tone_marks">Marcaje de ton</characterLabel>
+		<characterLabel type="travel">călătorii</characterLabel>
 		<characterLabel type="travel_places">Călătorii și locuri</characterLabel>
 		<characterLabel type="upwards_arrows">Săgeți în sus</characterLabel>
 		<characterLabel type="variant_forms">Variante de forme</characterLabel>
 		<characterLabel type="vocalic_jamo">Jamo vocalic</characterLabel>
+		<characterLabel type="weather">vreme</characterLabel>
 		<characterLabel type="western_asian_scripts">Scrieri vest-asiatice</characterLabel>
 		<characterLabel type="whitespace">Spațiu alb</characterLabel>
 	</characterLabels>

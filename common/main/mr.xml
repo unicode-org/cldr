@@ -956,6 +956,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">युक्रेन</territory>
 			<territory type="UG">युगांडा</territory>
 			<territory type="UM">यू.एस. आउटलाइंग बेटे</territory>
+			<territory type="UN">संयुक्त राष्ट्र</territory>
+			<territory type="UN" alt="short">यूएन</territory>
 			<territory type="US">युनायटेड स्टेट्स</territory>
 			<territory type="US" alt="short">यू.एस.</territory>
 			<territory type="UY">उरुग्वे</territory>
@@ -7548,6 +7550,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — सर्व</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — सुसंगतपणा</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — समाविष्ट</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — विस्तारित</characterLabelPattern>
@@ -7560,10 +7563,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">क्रियाकलाप</characterLabel>
 		<characterLabel type="african_scripts">आफ्रिकी लिपि</characterLabel>
 		<characterLabel type="american_scripts">अमेरिकन लिपि</characterLabel>
+		<characterLabel type="animal">प्राणी</characterLabel>
 		<characterLabel type="animals_nature">प्राणि आणि निसर्ग</characterLabel>
 		<characterLabel type="arrows">बाण</characterLabel>
+		<characterLabel type="body">शरीर</characterLabel>
 		<characterLabel type="box_drawing">बॉक्सचे रेखाचित्र</characterLabel>
 		<characterLabel type="braille">ब्रेल</characterLabel>
+		<characterLabel type="building">इमारत</characterLabel>
 		<characterLabel type="bullets_stars">बुलेट/स्टार्स</characterLabel>
 		<characterLabel type="consonantal_jamo">व्यंजनात्मक जामो</characterLabel>
 		<characterLabel type="currency_symbols">चलन चिन्ह</characterLabel>
@@ -7576,6 +7582,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">पूर्व आशियाई लिपि</characterLabel>
 		<characterLabel type="emoji">इमोजी</characterLabel>
 		<characterLabel type="european_scripts">युरोपियन लिपि</characterLabel>
+		<characterLabel type="female">महिला</characterLabel>
+		<characterLabel type="flag">ध्वज</characterLabel>
 		<characterLabel type="flags">ध्वज</characterLabel>
 		<characterLabel type="food_drink">खाद्य आणि पेय</characterLabel>
 		<characterLabel type="format">फॉर्मेट</characterLabel>
@@ -7588,43 +7596,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">हान्जा</characterLabel>
 		<characterLabel type="hanzi_simplified">हान्झी (सरलीकृत)</characterLabel>
 		<characterLabel type="hanzi_traditional">हान्झी (पारंपारिक)</characterLabel>
+		<characterLabel type="heart">हृदय</characterLabel>
 		<characterLabel type="historic_scripts">ऐतिहासिक लिपि</characterLabel>
 		<characterLabel type="ideographic_desc_characters">चित्रलिपि वर्णन वर्ण</characterLabel>
 		<characterLabel type="japanese_kana">जपानी काना</characterLabel>
 		<characterLabel type="kanbun">कॅनबॅन</characterLabel>
 		<characterLabel type="kanji">कांजी</characterLabel>
+		<characterLabel type="keycap">कीकॅप</characterLabel>
 		<characterLabel type="leftwards_arrows">डावीकडील बाण</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">डावीकडील उजवीकडील बाण</characterLabel>
 		<characterLabel type="letterlike_symbols">अक्षरांसारखे चिन्ह</characterLabel>
 		<characterLabel type="limited_use">मर्यादित वापर</characterLabel>
+		<characterLabel type="male">पुरुष</characterLabel>
 		<characterLabel type="math_symbols">गणित चिन्ह</characterLabel>
 		<characterLabel type="middle_eastern_scripts">मध्यपूर्वी लिपि</characterLabel>
 		<characterLabel type="miscellaneous">नानाविध</characterLabel>
 		<characterLabel type="modern_scripts">आधुनिक लिपि</characterLabel>
 		<characterLabel type="modifier">सुधारक</characterLabel>
 		<characterLabel type="musical_symbols">संगीत चिन्ह</characterLabel>
+		<characterLabel type="nature">निसर्ग</characterLabel>
 		<characterLabel type="nonspacing">विनाअंतर</characterLabel>
 		<characterLabel type="numbers">अंक</characterLabel>
 		<characterLabel type="objects">वस्तु</characterLabel>
 		<characterLabel type="other">अन्य</characterLabel>
 		<characterLabel type="paired">जोडलेले</characterLabel>
+		<characterLabel type="person">व्यक्ति</characterLabel>
 		<characterLabel type="phonetic_alphabet">ध्वन्यात्मक अक्षर</characterLabel>
 		<characterLabel type="pictographs">चित्रलेख</characterLabel>
+		<characterLabel type="place">स्थान</characterLabel>
+		<characterLabel type="plant">झाड</characterLabel>
 		<characterLabel type="punctuation">विरामचिन्ह</characterLabel>
 		<characterLabel type="rightwards_arrows">उजवीकडील बाण</characterLabel>
 		<characterLabel type="sign_standard_symbols">चिन्ह/मानक चिन्ह</characterLabel>
 		<characterLabel type="small_form_variant">लहान प्रकारचे व्हेरियंट</characterLabel>
+		<characterLabel type="smiley">स्मायली</characterLabel>
 		<characterLabel type="smileys_people">हसरा चेहरा आणि लोक</characterLabel>
 		<characterLabel type="south_asian_scripts">दक्षिण आशियायी लिपि</characterLabel>
 		<characterLabel type="southeast_asian_scripts">दक्षिणपूर्व आशियायी लिपि</characterLabel>
 		<characterLabel type="spacing">अंतर</characterLabel>
+		<characterLabel type="sport">खेळ</characterLabel>
 		<characterLabel type="symbols">चिन्ह</characterLabel>
 		<characterLabel type="technical_symbols">तांत्रिक चिन्ह</characterLabel>
 		<characterLabel type="tone_marks">टोन मार्क</characterLabel>
+		<characterLabel type="travel">प्रवास</characterLabel>
 		<characterLabel type="travel_places">प्रवास आणि ठिकाणे</characterLabel>
 		<characterLabel type="upwards_arrows">वरील बाण</characterLabel>
 		<characterLabel type="variant_forms">व्हेरियंट फॉर्म</characterLabel>
 		<characterLabel type="vocalic_jamo">स्वरयुक्त जामो</characterLabel>
+		<characterLabel type="weather">हवामान</characterLabel>
 		<characterLabel type="western_asian_scripts">पश्चिमी आशियायी लिपि</characterLabel>
 		<characterLabel type="whitespace">व्हाईटस्पेस</characterLabel>
 	</characterLabels>

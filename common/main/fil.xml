@@ -757,6 +757,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraine</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">U.S. Outlying Islands</territory>
+			<territory type="UN">Nagkakaisang Bansa</territory>
+			<territory type="UN" alt="short">UN</territory>
 			<territory type="US">Estados Unidos</territory>
 			<territory type="US" alt="short">U.S.</territory>
 			<territory type="UY">Uruguay</territory>
@@ -7272,6 +7274,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Lahat</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Pagiging Nababagay</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Enclosed</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Extended</characterLabelPattern>
@@ -7284,10 +7287,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Mga Aktibidad</characterLabel>
 		<characterLabel type="african_scripts">Mga African Script</characterLabel>
 		<characterLabel type="american_scripts">Mga American Script</characterLabel>
+		<characterLabel type="animal">hayop</characterLabel>
 		<characterLabel type="animals_nature">Mga Hayop at Kalikasan</characterLabel>
 		<characterLabel type="arrows">Mga Arrow</characterLabel>
+		<characterLabel type="body">katawan</characterLabel>
 		<characterLabel type="box_drawing">Box Drawing</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">gusali</characterLabel>
 		<characterLabel type="bullets_stars">Mga Bullet/Bituin</characterLabel>
 		<characterLabel type="consonantal_jamo">Consonantal Jamo</characterLabel>
 		<characterLabel type="currency_symbols">Mga Simbolo ng Pera</characterLabel>
@@ -7300,6 +7306,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Mga Script sa Silangang Asya</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Mga Script sa Europa</characterLabel>
+		<characterLabel type="female">babae</characterLabel>
+		<characterLabel type="flag">bandila</characterLabel>
 		<characterLabel type="flags">Mga Watawat</characterLabel>
 		<characterLabel type="food_drink">Pagkain at Inumin</characterLabel>
 		<characterLabel type="format">Format</characterLabel>
@@ -7312,43 +7320,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (Pinasimple)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (Tradisyonal)</characterLabel>
+		<characterLabel type="heart">puso</characterLabel>
 		<characterLabel type="historic_scripts">Mga Makasaysayang Script</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Mga Character ng Ideographic Description</characterLabel>
 		<characterLabel type="japanese_kana">Japanese Kana</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">keycap</characterLabel>
 		<characterLabel type="leftwards_arrows">Mga Pakaliwang Arrow</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Mga Pakaliwa at Pakanang Arrow</characterLabel>
 		<characterLabel type="letterlike_symbols">Mga Simbolo na Katulad ng Letra</characterLabel>
 		<characterLabel type="limited_use">Limitadong Paggamit</characterLabel>
+		<characterLabel type="male">lalaki</characterLabel>
 		<characterLabel type="math_symbols">Mga Simbolo na Pangmatematika</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Mga Script sa Gitnang-silangan</characterLabel>
 		<characterLabel type="miscellaneous">Sari-sari</characterLabel>
 		<characterLabel type="modern_scripts">Mga Modernong Script</characterLabel>
 		<characterLabel type="modifier">Modifier</characterLabel>
 		<characterLabel type="musical_symbols">Mga Simbolo ng Musika</characterLabel>
+		<characterLabel type="nature">kalikasan</characterLabel>
 		<characterLabel type="nonspacing">Walang puwang</characterLabel>
 		<characterLabel type="numbers">Mga Numero</characterLabel>
 		<characterLabel type="objects">Mga Bagay</characterLabel>
 		<characterLabel type="other">Iba pa</characterLabel>
 		<characterLabel type="paired">Nakapares</characterLabel>
+		<characterLabel type="person">tao</characterLabel>
 		<characterLabel type="phonetic_alphabet">Ponetikong Alpabeto</characterLabel>
 		<characterLabel type="pictographs">Mga Pictograph</characterLabel>
+		<characterLabel type="place">lugar</characterLabel>
+		<characterLabel type="plant">halaman</characterLabel>
 		<characterLabel type="punctuation">Bantas</characterLabel>
 		<characterLabel type="rightwards_arrows">Mga Pakanang Arrow</characterLabel>
 		<characterLabel type="sign_standard_symbols">Tanda/Mga Karaniwang Simbolo</characterLabel>
 		<characterLabel type="small_form_variant">Mga Baryante ng Maliit na Anyo</characterLabel>
+		<characterLabel type="smiley">smiley</characterLabel>
 		<characterLabel type="smileys_people">Mga Smiley at Tao</characterLabel>
 		<characterLabel type="south_asian_scripts">Mga Script ng Timog Asya</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Mga Script ng Timog-silangang Asya</characterLabel>
 		<characterLabel type="spacing">Pagitan</characterLabel>
+		<characterLabel type="sport">isport</characterLabel>
 		<characterLabel type="symbols">Mga simbolo</characterLabel>
 		<characterLabel type="technical_symbols">Mga Simbolo na Teknikal</characterLabel>
 		<characterLabel type="tone_marks">Mga Marka ng Tono</characterLabel>
+		<characterLabel type="travel">paglalakbay</characterLabel>
 		<characterLabel type="travel_places">Paglalakbay at Mga Lugar</characterLabel>
 		<characterLabel type="upwards_arrows">Mga Arrow na Paitaas</characterLabel>
 		<characterLabel type="variant_forms">Mga Anyo ng Baryante</characterLabel>
 		<characterLabel type="vocalic_jamo">Vocalic Jamo</characterLabel>
+		<characterLabel type="weather">lagay ng panahon</characterLabel>
 		<characterLabel type="western_asian_scripts">Mga Script sa Kanlurang Asya</characterLabel>
 		<characterLabel type="whitespace">Whitespace</characterLabel>
 	</characterLabels>

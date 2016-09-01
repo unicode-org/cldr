@@ -1088,6 +1088,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraine</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Amerikanische Überseeinseln</territory>
+			<territory type="UN">Vereinte Nationen</territory>
+			<territory type="UN" alt="short">UN</territory>
 			<territory type="US">Vereinigte Staaten</territory>
 			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Uruguay</territory>
@@ -9068,6 +9070,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Alle</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Kompatibilität</characterLabelPattern>
 		<characterLabelPattern type="enclosed" draft="contributed">{0} — Verschachtelt</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Erweitert</characterLabelPattern>
@@ -9080,10 +9083,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Aktivitäten</characterLabel>
 		<characterLabel type="african_scripts">Afrikanische Schriften</characterLabel>
 		<characterLabel type="american_scripts">Amerikanische Schriften</characterLabel>
+		<characterLabel type="animal">Tier</characterLabel>
 		<characterLabel type="animals_nature">Flora und Fauna</characterLabel>
 		<characterLabel type="arrows">Pfeile</characterLabel>
+		<characterLabel type="body">Körper</characterLabel>
 		<characterLabel type="box_drawing">Rahmenzeichen</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">Gebäude</characterLabel>
 		<characterLabel type="bullets_stars">Aufzählungszeichen/Sterne</characterLabel>
 		<characterLabel type="consonantal_jamo">Jamo-Konsonanten</characterLabel>
 		<characterLabel type="currency_symbols">Währungssymbole</characterLabel>
@@ -9096,6 +9102,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Ostasiatische Schriften</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Europäische Schriften</characterLabel>
+		<characterLabel type="female">Frau</characterLabel>
+		<characterLabel type="flag">Fahne</characterLabel>
 		<characterLabel type="flags">Flaggen</characterLabel>
 		<characterLabel type="food_drink">Essen &amp; Trinken</characterLabel>
 		<characterLabel type="format">Format</characterLabel>
@@ -9108,43 +9116,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (vereinfacht)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (traditionell)</characterLabel>
+		<characterLabel type="heart">Herz</characterLabel>
 		<characterLabel type="historic_scripts">Historische Schriften</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Ideografische beschreibende Zeichen</characterLabel>
 		<characterLabel type="japanese_kana">Kana</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">Taste</characterLabel>
 		<characterLabel type="leftwards_arrows">Linkspfeile</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Links-Rechtspfeile</characterLabel>
 		<characterLabel type="letterlike_symbols">Buchstabenähnliche Zeichen</characterLabel>
 		<characterLabel type="limited_use">Eingeschränkte Verwendung</characterLabel>
+		<characterLabel type="male">Mann</characterLabel>
 		<characterLabel type="math_symbols">Mathematische Zeichen</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Vorderasiatische Schriften</characterLabel>
 		<characterLabel type="miscellaneous">Verschiedenes</characterLabel>
 		<characterLabel type="modern_scripts">Moderne Schriften</characterLabel>
 		<characterLabel type="modifier">Bestimmung</characterLabel>
 		<characterLabel type="musical_symbols">Musikalische Zeichen</characterLabel>
+		<characterLabel type="nature">Natur</characterLabel>
 		<characterLabel type="nonspacing">Geschützte Zeichen</characterLabel>
 		<characterLabel type="numbers">Ziffern</characterLabel>
 		<characterLabel type="objects">Objekte</characterLabel>
 		<characterLabel type="other">Andere</characterLabel>
 		<characterLabel type="paired" draft="contributed">Gepaart</characterLabel>
+		<characterLabel type="person">Mensch</characterLabel>
 		<characterLabel type="phonetic_alphabet">Phonetisches Alphabet</characterLabel>
 		<characterLabel type="pictographs">Piktogramme</characterLabel>
+		<characterLabel type="place">Ort</characterLabel>
+		<characterLabel type="plant">Pflanze</characterLabel>
 		<characterLabel type="punctuation">Zeichensetzung</characterLabel>
 		<characterLabel type="rightwards_arrows">Rechtspfeile</characterLabel>
 		<characterLabel type="sign_standard_symbols">Zeichen/Standardzeichen</characterLabel>
 		<characterLabel type="small_form_variant">Kleine Formvarianten</characterLabel>
+		<characterLabel type="smiley">Smiley</characterLabel>
 		<characterLabel type="smileys_people">Smileys und Leute</characterLabel>
 		<characterLabel type="south_asian_scripts">Südasiatische Schriften</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Südostasiatische Schriften</characterLabel>
 		<characterLabel type="spacing">Sperrsatz</characterLabel>
+		<characterLabel type="sport">Sport</characterLabel>
 		<characterLabel type="symbols">Zeichen</characterLabel>
 		<characterLabel type="technical_symbols">Technische Zeichen</characterLabel>
 		<characterLabel type="tone_marks" draft="contributed">Tonzeichen</characterLabel>
+		<characterLabel type="travel">Reisen</characterLabel>
 		<characterLabel type="travel_places">Reisen und Orte</characterLabel>
 		<characterLabel type="upwards_arrows">Aufwärtspfeile</characterLabel>
 		<characterLabel type="variant_forms">Variantenform</characterLabel>
 		<characterLabel type="vocalic_jamo" draft="contributed">Jamo-Vokale</characterLabel>
+		<characterLabel type="weather">Wetter</characterLabel>
 		<characterLabel type="western_asian_scripts">Westasiatische Schriften</characterLabel>
 		<characterLabel type="whitespace">Leerzeichen</characterLabel>
 	</characterLabels>

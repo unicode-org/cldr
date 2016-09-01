@@ -944,6 +944,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">უკრაინა</territory>
 			<territory type="UG">უგანდა</territory>
 			<territory type="UM">აშშ-ის შორეული კუნძულები</territory>
+			<territory type="UN">გაერო</territory>
+			<territory type="UN" alt="short">გაერო</territory>
 			<territory type="US">ამერიკის შეერთებული შტატები</territory>
 			<territory type="US" alt="short">აშშ</territory>
 			<territory type="UY">ურუგვაი</territory>
@@ -7965,6 +7967,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — ყველა</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — თავსებადობა</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — ჩართული</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — გაფართოებული</characterLabelPattern>
@@ -7977,10 +7980,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">აქტივობები</characterLabel>
 		<characterLabel type="african_scripts">აფრიკული დამწერლობები</characterLabel>
 		<characterLabel type="american_scripts">ამერიკული დამწერლობები</characterLabel>
+		<characterLabel type="animal">ცხოველი</characterLabel>
 		<characterLabel type="animals_nature">ფლორა და ფაუნა</characterLabel>
 		<characterLabel type="arrows">ისრები</characterLabel>
+		<characterLabel type="body">სხეული</characterLabel>
 		<characterLabel type="box_drawing">ჩარჩოების სიმბოლოები</characterLabel>
 		<characterLabel type="braille">ბრაილი</characterLabel>
+		<characterLabel type="building">შენობა</characterLabel>
 		<characterLabel type="bullets_stars">ბურთულები/ვარსკვლავები</characterLabel>
 		<characterLabel type="consonantal_jamo">Jamo-თანხმოვნები</characterLabel>
 		<characterLabel type="currency_symbols">ვალუტის სიმბოლოები</characterLabel>
@@ -7993,6 +7999,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">აღმოსავლეთ აზიური დამწერლობები</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">ევროპული დამწერლობები</characterLabel>
+		<characterLabel type="female">ქალი</characterLabel>
+		<characterLabel type="flag">დროშა</characterLabel>
 		<characterLabel type="flags">დროშები</characterLabel>
 		<characterLabel type="food_drink">სასმელი და საჭმელი</characterLabel>
 		<characterLabel type="format">ფორმატირება</characterLabel>
@@ -8005,6 +8013,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">ჰანჯა</characterLabel>
 		<characterLabel type="hanzi_simplified">გამარტივებული ჩინური იეროგლიფები</characterLabel>
 		<characterLabel type="hanzi_traditional">ტრადიციული ჩინური იეროგლიფები</characterLabel>
+		<characterLabel type="heart">გული</characterLabel>
 		<characterLabel type="historic_scripts">ისტორიული დამწერლობები</characterLabel>
 		<characterLabel type="ideographic_desc_characters">იეროგლიფების აღმწერი სიმბოლოები</characterLabel>
 		<characterLabel type="japanese_kana">კანა</characterLabel>
@@ -8014,34 +8023,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="leftwards_rightwards_arrows">მარცხნივ და მარჯვნივ მიმართული ისრები</characterLabel>
 		<characterLabel type="letterlike_symbols">ასოების მაგვარი ნიშნები</characterLabel>
 		<characterLabel type="limited_use">შეზღუდული გამოყენების</characterLabel>
+		<characterLabel type="male">კაცი</characterLabel>
 		<characterLabel type="math_symbols">მათემატიკური ნიშნები</characterLabel>
 		<characterLabel type="middle_eastern_scripts">ახლო აღმოსავლეთის დამწერლობები</characterLabel>
 		<characterLabel type="miscellaneous">სხვადასხვა</characterLabel>
 		<characterLabel type="modern_scripts">თანამედროვე დამწერლობები</characterLabel>
 		<characterLabel type="modifier">მოდიფიკატორი</characterLabel>
 		<characterLabel type="musical_symbols">მუსიკალური სიმბოლოები</characterLabel>
+		<characterLabel type="nature">ბუნება</characterLabel>
 		<characterLabel type="nonspacing">დაცული შორისები</characterLabel>
 		<characterLabel type="numbers">ციფრები</characterLabel>
 		<characterLabel type="objects">ობიექტები</characterLabel>
 		<characterLabel type="other">სხვა</characterLabel>
 		<characterLabel type="paired">დაწყვილებული</characterLabel>
+		<characterLabel type="person">ადამიანი</characterLabel>
 		<characterLabel type="phonetic_alphabet">ფონეტიკური ანბანი</characterLabel>
 		<characterLabel type="pictographs">პიკტოგრამები</characterLabel>
+		<characterLabel type="place">ადგილი</characterLabel>
+		<characterLabel type="plant">მცენარე</characterLabel>
 		<characterLabel type="punctuation">სასვენი ნიშები</characterLabel>
 		<characterLabel type="rightwards_arrows">მერჯვნივ მიმართული ისრები</characterLabel>
 		<characterLabel type="sign_standard_symbols">ნიშნები/სტანდარტული სიმბოლოები</characterLabel>
 		<characterLabel type="small_form_variant">პატარა ფორმის ვარიანტები</characterLabel>
+		<characterLabel type="smiley">სიცილაკი</characterLabel>
 		<characterLabel type="smileys_people">სიცილაკები და ხალხი</characterLabel>
 		<characterLabel type="south_asian_scripts">სამხრეთ აზიური დამწერლობები</characterLabel>
 		<characterLabel type="southeast_asian_scripts">სამხრეთ-აღმოსავლეთ აზიური დამწერლობები</characterLabel>
 		<characterLabel type="spacing">დაშორება</characterLabel>
+		<characterLabel type="sport">სპორტი</characterLabel>
 		<characterLabel type="symbols">სიმბოლოები</characterLabel>
 		<characterLabel type="technical_symbols">ტექნიკური სიმბოლოები</characterLabel>
 		<characterLabel type="tone_marks">ტონის ნიშნები</characterLabel>
+		<characterLabel type="travel">მოგზაურობა</characterLabel>
 		<characterLabel type="travel_places">მოგზაურობა და ადგილები</characterLabel>
 		<characterLabel type="upwards_arrows">ზემოთ მიმართული ისრები</characterLabel>
 		<characterLabel type="variant_forms">ფორმის ვარიანტები</characterLabel>
 		<characterLabel type="vocalic_jamo">Jamo-ხმოვნები</characterLabel>
+		<characterLabel type="weather">ამინდი</characterLabel>
 		<characterLabel type="western_asian_scripts">დასავლეთ აზიური დამწერლობები</characterLabel>
 		<characterLabel type="whitespace">შორისები</characterLabel>
 	</characterLabels>

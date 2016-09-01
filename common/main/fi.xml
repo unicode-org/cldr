@@ -1106,6 +1106,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Yhdysvaltain erillissaaret</territory>
+			<territory type="UN">Yhdistyneet kansakunnat</territory>
+			<territory type="UN" alt="short">YK</territory>
 			<territory type="US">Yhdysvallat</territory>
 			<territory type="US" alt="short">USA</territory>
 			<territory type="UY">Uruguay</territory>
@@ -9423,6 +9425,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} – Kaikki</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} – Yhteensopivuus</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} – Ympäröity</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} – Laajennettu</characterLabelPattern>
@@ -9435,10 +9438,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Toiminnot</characterLabel>
 		<characterLabel type="african_scripts">Afrikkalaiset kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="american_scripts">Amerikkalaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="animal">eläin</characterLabel>
 		<characterLabel type="animals_nature">Eläimet ja luonto</characterLabel>
 		<characterLabel type="arrows">Nuolet</characterLabel>
+		<characterLabel type="body">keho</characterLabel>
 		<characterLabel type="box_drawing">Viivapiirrosmerkit</characterLabel>
 		<characterLabel type="braille">Pistekirjoitus</characterLabel>
+		<characterLabel type="building">rakennus</characterLabel>
 		<characterLabel type="bullets_stars">Luettelomerkit/tähdet</characterLabel>
 		<characterLabel type="consonantal_jamo">Jamo-konsonanttielementit</characterLabel>
 		<characterLabel type="currency_symbols">Valuuttamerkit</characterLabel>
@@ -9451,6 +9457,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Itäaasialaiset kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="emoji">Emojit</characterLabel>
 		<characterLabel type="european_scripts">Eurooppalaiset kirjoitusjärjestelmät</characterLabel>
+		<characterLabel type="female">naissukupuolinen</characterLabel>
+		<characterLabel type="flag">lippu</characterLabel>
 		<characterLabel type="flags">Liput</characterLabel>
 		<characterLabel type="food_drink">Ruoka ja juoma</characterLabel>
 		<characterLabel type="format">Muotoilu</characterLabel>
@@ -9463,43 +9471,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (yksinkertaistettu)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (perinteinen)</characterLabel>
+		<characterLabel type="heart">sydän</characterLabel>
 		<characterLabel type="historic_scripts">Historialliset kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Ideogrammien kuvausmerkit</characterLabel>
 		<characterLabel type="japanese_kana">Japanilainen Kana-kirjoitusjärjestelmä</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">näppäin</characterLabel>
 		<characterLabel type="leftwards_arrows">Vasemmalle osoittavat nuolet</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Vasemmalle ja oikealle osoittavat nuolet</characterLabel>
 		<characterLabel type="letterlike_symbols">Kirjainsymbolit</characterLabel>
 		<characterLabel type="limited_use">Rajoitettu käyttö</characterLabel>
+		<characterLabel type="male">miessukupuolinen</characterLabel>
 		<characterLabel type="math_symbols">Matemaattiset symbolit</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Lähi-idän kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="miscellaneous">Sekalaiset</characterLabel>
 		<characterLabel type="modern_scripts">Nykyaikaiset kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="modifier">Tarkkeenomaiset merkit</characterLabel>
 		<characterLabel type="musical_symbols">Musiikkisymbolit</characterLabel>
+		<characterLabel type="nature">luonto</characterLabel>
 		<characterLabel type="nonspacing">Välittömästi yhdistyvät merkit</characterLabel>
 		<characterLabel type="numbers">Numerot</characterLabel>
 		<characterLabel type="objects">Objektit</characterLabel>
 		<characterLabel type="other">Muu</characterLabel>
 		<characterLabel type="paired">Merkkiparit</characterLabel>
+		<characterLabel type="person">henkilö</characterLabel>
 		<characterLabel type="phonetic_alphabet">Foneettinen aakkosto</characterLabel>
 		<characterLabel type="pictographs">Kuvakirjoitus</characterLabel>
+		<characterLabel type="place">paikka</characterLabel>
+		<characterLabel type="plant">kasvi</characterLabel>
 		<characterLabel type="punctuation">Välimerkit</characterLabel>
 		<characterLabel type="rightwards_arrows">Oikealle osoittavat nuolet</characterLabel>
 		<characterLabel type="sign_standard_symbols">Vakiosymbolit</characterLabel>
 		<characterLabel type="small_form_variant">Vähäiset muotovariantit</characterLabel>
+		<characterLabel type="smiley">hymiö</characterLabel>
 		<characterLabel type="smileys_people">Hymiöt ja ihmiset</characterLabel>
 		<characterLabel type="south_asian_scripts">Etelä-Aasian kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Kaakkois-Aasian kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="spacing">Välistys</characterLabel>
+		<characterLabel type="sport">urheilu</characterLabel>
 		<characterLabel type="symbols">Symbolit</characterLabel>
 		<characterLabel type="technical_symbols">Tekniset symbolit</characterLabel>
 		<characterLabel type="tone_marks">Toonimerkit</characterLabel>
+		<characterLabel type="travel">matka</characterLabel>
 		<characterLabel type="travel_places">Matkustus ja paikat</characterLabel>
 		<characterLabel type="upwards_arrows">Ylöspäin osoittavat nuolet</characterLabel>
 		<characterLabel type="variant_forms">Varianttimuodot</characterLabel>
 		<characterLabel type="vocalic_jamo">Jamo-vokaalilementit</characterLabel>
+		<characterLabel type="weather">sää</characterLabel>
 		<characterLabel type="western_asian_scripts">Länsiaasialaiset kirjoitusjärjestelmät</characterLabel>
 		<characterLabel type="whitespace">Tyhjämerkit</characterLabel>
 	</characterLabels>

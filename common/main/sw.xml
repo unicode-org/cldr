@@ -778,6 +778,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraine</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Visiwa Vidogo vya Nje vya Marekani</territory>
+			<territory type="UN">Umoja wa Mataifa</territory>
+			<territory type="UN" alt="short">umoja wa mataifa</territory>
 			<territory type="US">Marekani</territory>
 			<territory type="US" alt="short">US</territory>
 			<territory type="UY">Urugwai</territory>
@@ -7260,6 +7262,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Zote</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Uwiano</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Finyu</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Pana</characterLabelPattern>
@@ -7272,10 +7275,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Shughuli</characterLabel>
 		<characterLabel type="african_scripts">Hati za Afrika</characterLabel>
 		<characterLabel type="american_scripts">Hati za Marekani</characterLabel>
+		<characterLabel type="animal">mnyama</characterLabel>
 		<characterLabel type="animals_nature">Wanyama na Asili</characterLabel>
 		<characterLabel type="arrows">Mishale</characterLabel>
+		<characterLabel type="body">mwili</characterLabel>
 		<characterLabel type="box_drawing">Mchoro wa Kisanduku</characterLabel>
 		<characterLabel type="braille">Nukta Vinundu</characterLabel>
+		<characterLabel type="building">jengo</characterLabel>
 		<characterLabel type="bullets_stars">Nukta/Nyota</characterLabel>
 		<characterLabel type="consonantal_jamo">Alama za Konsonanti</characterLabel>
 		<characterLabel type="currency_symbols">Alama za Sarafu</characterLabel>
@@ -7288,6 +7294,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Hati za Mashariki wa Asia</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Hati za Ulaya</characterLabel>
+		<characterLabel type="female">mwanamke</characterLabel>
+		<characterLabel type="flag">bendera</characterLabel>
 		<characterLabel type="flags">Bendera</characterLabel>
 		<characterLabel type="food_drink">Vyakula na Vinywaji</characterLabel>
 		<characterLabel type="format">Miundo</characterLabel>
@@ -7300,43 +7308,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (Iliyosanifishwa)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (ya Jadi)</characterLabel>
+		<characterLabel type="heart">moyo</characterLabel>
 		<characterLabel type="historic_scripts">Hati za Kihistoria</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Herufi za Maelezo ya Idiografia</characterLabel>
 		<characterLabel type="japanese_kana">Herufi za Kijapani</characterLabel>
 		<characterLabel type="kanbun">Herufi za Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">kitufe</characterLabel>
 		<characterLabel type="leftwards_arrows">Mishale Inayoelekea Kushoto</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Mishale Inayoelekea Kulia na Kushoto</characterLabel>
 		<characterLabel type="letterlike_symbols">Alama Zinazofanana na Herufi</characterLabel>
 		<characterLabel type="limited_use">Matumizi Machache</characterLabel>
+		<characterLabel type="male">mwanamume</characterLabel>
 		<characterLabel type="math_symbols">Alama za Hesabu</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Hati za Mashariki ya Kati</characterLabel>
 		<characterLabel type="miscellaneous" draft="provisional">Kumba</characterLabel>
 		<characterLabel type="modern_scripts">Hati ya Kisasa</characterLabel>
 		<characterLabel type="modifier">Kibadilisha Hati</characterLabel>
 		<characterLabel type="musical_symbols">Alama za Muziki</characterLabel>
+		<characterLabel type="nature">asili</characterLabel>
 		<characterLabel type="nonspacing">Bila Nafasi</characterLabel>
 		<characterLabel type="numbers">Nambari</characterLabel>
 		<characterLabel type="objects">Vitu</characterLabel>
 		<characterLabel type="other">Nyingine</characterLabel>
 		<characterLabel type="paired">Imeoanishwa</characterLabel>
+		<characterLabel type="person">mtu</characterLabel>
 		<characterLabel type="phonetic_alphabet">Abjadi za Fonetiki</characterLabel>
 		<characterLabel type="pictographs">Picha</characterLabel>
+		<characterLabel type="place">mahali</characterLabel>
+		<characterLabel type="plant">mmea</characterLabel>
 		<characterLabel type="punctuation">Uakifishaji</characterLabel>
 		<characterLabel type="rightwards_arrows">Mishale Inayoelekea Kulia</characterLabel>
 		<characterLabel type="sign_standard_symbols">Ishara/Alama za Kawaida</characterLabel>
 		<characterLabel type="small_form_variant">Aina za Fomu Ndogo</characterLabel>
+		<characterLabel type="smiley">tabasamu</characterLabel>
 		<characterLabel type="smileys_people">Tabasamu na Watu</characterLabel>
 		<characterLabel type="south_asian_scripts">Hati za Kusini mwa Asia</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Hati za Kusini Mashariki mwa Asia</characterLabel>
 		<characterLabel type="spacing">Kuacha Nafasi</characterLabel>
+		<characterLabel type="sport">michezo</characterLabel>
 		<characterLabel type="symbols">Alama</characterLabel>
 		<characterLabel type="technical_symbols">Alama za Kiufundi</characterLabel>
 		<characterLabel type="tone_marks">Alama za Toni</characterLabel>
+		<characterLabel type="travel">kusafiri</characterLabel>
 		<characterLabel type="travel_places">Safari na Miji</characterLabel>
 		<characterLabel type="upwards_arrows">Mishale Inayoelekea Juu</characterLabel>
 		<characterLabel type="variant_forms">Maumbo Mbalimbali</characterLabel>
 		<characterLabel type="vocalic_jamo">Vibambo vya Jamo vya Sauti</characterLabel>
+		<characterLabel type="weather">hali ya hewa</characterLabel>
 		<characterLabel type="western_asian_scripts">Hati za Magharibi wa Asia</characterLabel>
 		<characterLabel type="whitespace">Sehemu Wazi</characterLabel>
 	</characterLabels>

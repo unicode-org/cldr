@@ -1,11 +1,1427 @@
-locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="BGN"]; new_path=//ldml/localeDisplayNames/types/type[@key="m0"][@type="bgn"]
-locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="UNGEGN"]; new_path=//ldml/localeDisplayNames/types/type[@key="m0"][@type="ungegn"]
-locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="Numeric"]; new_path=//ldml/localeDisplayNames/types/type[@key="d0"][@type="npinyin"]
-locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Fullwidth"]; new_path=//ldml/localeDisplayNames/types/type[@key="d0"][@type="fwidth"]
-locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Halfwidth"]; new_path=//ldml/localeDisplayNames/types/type[@key="d0"][@type="hwidth"]
-locale=/.*/; action=replace; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Jamo"]; new_path=//ldml/localeDisplayNames/scripts/script[@type="Jamo"]
-
-locale=/.*/; action=delete; path=//ldml/localeDisplayNames/transformNames/transformName[@type="Tone"]
-locale=/.*/; action=delete; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Pinyin"]
-locale=/.*/; action=delete; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Accents"]
-locale=/.*/; action=delete; path=//ldml/localeDisplayNames/transformNames/transformName[@type="x-Publishing"]
+locale=af ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=VN
+locale=af ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=verenigde nasies
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=dier
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=liggaam
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=gebou
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=vroulik
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=vlag
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=hart
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=toets
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=manlik
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natuur
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=persoon
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=plek
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=plant
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=gesiggie
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=reis
+locale=af ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=weer
+locale=am ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=የተመ
+locale=am ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=የተባበሩት መንግስታት
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=እንስሳ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ሰውነት
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=ህንጻ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ስሜት ገላጭ ምስል
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=ሴት
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ባንዲራ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=ልብ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=ወንድ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=ተፈጥሮ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=ሰው
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=ቦታ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=አትክልት
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=ሳቅ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=ስፖርት
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ጉዞ
+locale=am ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=የአየር ሁኔታ
+locale=ar ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=أمم
+locale=ar ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=الأمم المتحدة
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=حيوان
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=جسد
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=مبنى
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=رسم معبر
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=أنثى
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=علم
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=قلب
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=مفتاح
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=ذكر
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=طبيعة
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=شخص
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=مكان
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=نبات
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=ابتسامة
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=رياضة
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=سفر
+locale=ar ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=طقس
+locale=az ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=BMT
+locale=az ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Birləşmiş Millətlər Təşkilatı
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=heyvan
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=bədən
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=bina
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=qadın
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bayraq
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=ürək
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=klaviatura qapağı
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=kişi
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=təbiət
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=şəxs
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=yer
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=bitki
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smayli
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=idman
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=səyahət
+locale=az ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=hava
+locale=be ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=цела смак
+locale=be ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=будынак прамысловасць вытворчасць
+locale=be ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=сэрца
+locale=be ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=расліна
+locale=bg ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Организация на обединените нации
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=животно
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=тяло
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=сграда
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=емоджи
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=жена
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=знаме
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=сърце
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=клавиш
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=мъж
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=природа
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=човек
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=място
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=растение
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=усмихнато лице
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=спорт
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=пътуване
+locale=bg ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=времето
+locale=bn ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ইউএন
+locale=bn ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=জাতিসংঘ
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=পশু
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=শারীর
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=বিলডিং
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ইমোজি
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=মহিলা
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=পাতাক
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=হার্ট
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=কিক্যাপ
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=পুরুষ
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=প্রকৃতি
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=ব্যক্তি
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=স্থান
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=চারাগাছ
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=স্মাইলি
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=খেলাধুলা
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ভ্রমণ
+locale=bn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=আবহাওয়া
+locale=bs ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=UN
+locale=bs ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Ujedinjene Nacije
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=životinja
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=tijelo
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=zgrada
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=žensko
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=zastava
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=srce
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=kapica za tipku
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=muško
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=priroda
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=osoba
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=mjesto
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=biljka
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smajli
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=putovanja
+locale=bs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=vrijeme
+locale=ca ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ONU
+locale=ca ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Nacions Unides
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=animal
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=cos
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=edifici
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=femení
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bandera
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=cor
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=tecla
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=masculí
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natura
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=persona
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=lloc
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=planta
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=emoticona
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=esport
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=viatge
+locale=ca ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=temps
+locale=cs ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=OSN
+locale=cs ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=OSN
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=zvíře
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=tělo
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=budova
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emodži
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=žena
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=vlajka
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=srdce
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=klávesa
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=muž
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=příroda
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=osoba
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=místo
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=rostlina
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smajlík
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=cestování
+locale=cs ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=počasí
+locale=cy ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=UN
+locale=cy ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Cenhedloedd Unedig
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=anifail
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=corff
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=adeilad
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=benywaidd
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=banner
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=calon
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=bysell
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=gwrywaidd
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natur
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=person
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=lle
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=planhigyn
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=gwên
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=chwaraeon
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=teithio
+locale=cy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=tywydd
+locale=da ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=FN
+locale=da ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Forenede Nationer
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=dyr
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=krop
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=bygning
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=kvinde
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=flag
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=hjerte
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=mand
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natur
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=person
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=sted
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=plante
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=rejse
+locale=da ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=vejr
+locale=de ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=UN
+locale=de ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Vereinte Nationen
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=Tier
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=Körper
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=Gebäude
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=Emoji
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=Frau
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=Fahne
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=Herz
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=Taste
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=Mann
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=Natur
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=Mensch
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=Ort
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=Pflanze
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=Smiley
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=Sport
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=Reisen
+locale=de ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=Wetter
+locale=el ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ΟΗΕ
+locale=el ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Ηνωμένα Έθνη
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=ζώο
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=σώμα
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=κτίριο
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=εικονίδιο
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=γυναίκα
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=σημαία
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=καρδιά
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=πλήκτρο
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=άντρας
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=φύση
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=άνθρωπος
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=τοποθεσία
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=φυτό
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=χαμόγελο
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=άθληση
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ταξίδι
+locale=el ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=καιρός
+locale=es ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=EE. UU.
+locale=es ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Estados Unidos
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=animal
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=cuerpo
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=edificio
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoticono
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=mujer
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bandera
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=corazón
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=tecla 10
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=hombre
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=naturaleza
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=persona
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=lugar
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=planta
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=cara sonriente
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=deporte
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=viaje
+locale=es ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=tiempo
+locale=et ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ÜRO
+locale=et ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Ühendatud Rahvaste Organisatsioon
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=loom
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=keha
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=hoone
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=naine
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=lipp
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=süda
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=klahv
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=mees
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=loodus
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=isik
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=koht
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=taim
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smaili
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=reisimine
+locale=et ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=ilm
+locale=fa ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=سازمان ملل
+locale=fa ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=سازمان ملل متحد
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=حیوان
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=جسم
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=ساختمان
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=اموجی
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=زن
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=پرچم
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=قلب
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=جلد کلید
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=مرد
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=طبیعت
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=شخص
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=جا
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=گیاه
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=شکلک
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=ورزش
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=مسافرت
+locale=fa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=هوا
+locale=fi ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=YK
+locale=fi ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Yhdistyneet kansakunnat
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=eläin
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=keho
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=rakennus
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=naissukupuolinen
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=lippu
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=sydän
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=näppäin
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=miessukupuolinen
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=luonto
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=henkilö
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=paikka
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=kasvi
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=hymiö
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=urheilu
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=matka
+locale=fi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=sää
+locale=fil ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=UN
+locale=fil ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Nagkakaisang Bansa
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=hayop
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=katawan
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=gusali
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=babae
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bandila
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=puso
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=lalaki
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=kalikasan
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=tao
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=lugar
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=halaman
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=isport
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=paglalakbay
+locale=fil ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=lagay ng panahon
+locale=fr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=NU
+locale=fr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Nations Unies
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=animal
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=corps
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=immeuble
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=féminin
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=drapeau
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=cœur
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=masculin
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=nature
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=personne
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=lieu
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=plante
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=voyage
+locale=fr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=météo
+locale=ga ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=NA
+locale=ga ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Náisiúin Aontaithe
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}:
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=ainmhí
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=corp
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=foirgneamh
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=baineann
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bratach
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=croí
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=eochair caidhpe
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=fearann
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=nádúr
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=duine
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=áit
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=planda
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=aghaidh
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=spórt
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=taisteal
+locale=ga ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=aimsir
+locale=gl ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ONU
+locale=gl ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Nacións Unidas
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=animal
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=corpo
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=edificio
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=muller
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bandeira
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=corazón
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=tecla
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=home
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natureza
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=persoa
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=lugar
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=planta
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=cara riseira
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=deporte
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=viaxar
+locale=gl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=meteoroloxía
+locale=gu ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=યૂએન
+locale=gu ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=સંયુક્ત રાષ્ટ્ર
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=પ્રાણી
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=શરીર
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=બિલ્ડિંગ
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ઇમોજી
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=સ્ત્રી
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ઝંડો
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=હૃદય
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=કીકેપ
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=પુરુષ
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=પ્રકૃતિ
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=માણસ
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=સ્થાન
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=ઝાડ
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=સ્માઇલી
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=સ્પૉર્ટ
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=મુસાફરી
+locale=gu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=હવામાન
+locale=he ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=האומות המאוחדות
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=חיות
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=גוף
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=בניין
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=אמוג׳י
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=אישה
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=דגל בצבעי הקשת
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=לב
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=מקש
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=גבר
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=טבע
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=אנשים
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=מקום
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=צמח
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=חיוך
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=ספורט
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=טיול
+locale=he ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=מזג אוויר
+locale=hi ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=संयुक्त राष्ट्र
+locale=hi ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=संयुक्त राष्ट्र
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=जानवर
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=शरीर
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=भवन निर्माण
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=इमोजी
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=महिला
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=झंडा
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=दिल
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=कीकैप
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=पुरुष
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=प्रकृति
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=व्यक्ति
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=जगह
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=पौधा
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=स्माइली
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=खेल
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=यात्रा
+locale=hi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=मौसम
+locale=hr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=UN
+locale=hr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Ujedinjeni narodi
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=životinja
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=tijelo
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=zgrada
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=žena
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=zastava
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=srce
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=muškarac
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=priroda
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=osoba
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=mjesto
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=biljka
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smajlić
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=putovanje
+locale=hr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=vrijeme
+locale=hu ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ENSZ
+locale=hu ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=ENSZ
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=állat
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=test
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=épület
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=hangulatjel
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=nő
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=zászló
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=szív
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=gombfej
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=férfi
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=természet
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=ember
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=hely
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=növény
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=utazás
+locale=hu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=időjárás
+locale=hy ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ՄԱԿ
+locale=hy ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Միավորված ազգերի կազմակերպություն
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}՝ {1}
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=կենդանի
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=մարմին
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=շենք
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=հուզապատկերակ
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=կին
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=դրոշ
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=սիրտ
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=ստեղն
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=տղամարդ
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=բնություն
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=անձ
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=վայր
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=բույս
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=զմայլիկ
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=սպորտ
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ճամփորդություն
+locale=hy ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=եղանակ
+locale=id ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=PBB
+locale=id ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Perserikatan Bangsa-Bangsa
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=hewan
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=badan
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=bangunan
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=wanita
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bendera
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=hati
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=pria
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=alam
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=orang
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=tempat
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=tumbuhan
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=wajah tersenyum
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=olahraga
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=wisata
+locale=id ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=cuaca
+locale=is ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=Sameinuðu þjóðirnar
+locale=is ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Sameinuðu þjóðirnar
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=dýr
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=líkami
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=bygging
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=kona
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=fáni
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=hjarta
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=takki
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=karl
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=náttúra
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=manneskja
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=staður
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=planta
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=broskarl
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=íþróttir
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ferðalög
+locale=is ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=veður
+locale=it ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=nazioni unite
+locale=it ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=nazioni unite
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=animale
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=corpo
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=edificio
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=femmina
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bandiera
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=cuore
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=tasto
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=maschio
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natura
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=persona
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=posto
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=pianta
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=viaggio
+locale=it ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=meteo
+locale=ja ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=こくれん
+locale=ja ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=こくさいれんごう
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=どうぶつ
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=からだ
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=たてもの
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=えもじ
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=じょせい
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=はた
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=はーと
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=かこみすうじ
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=だんせい
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=しぜん
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=ひと
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=ばしょ
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=しょくぶつ
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=すまいりー
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=すぽーつ
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=りょこう
+locale=ja ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=てんき
+locale=ka ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=გაერო
+locale=ka ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=გაერო
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=ცხოველი
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=სხეული
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=შენობა
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=ქალი
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=დროშა
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=გული
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=კაცი
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=ბუნება
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=ადამიანი
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=ადგილი
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=მცენარე
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=სიცილაკი
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=სპორტი
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=მოგზაურობა
+locale=ka ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=ამინდი
+locale=kk ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=БҰҰ
+locale=kk ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Біріккен Ұлттар Ұйымы
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=жануар
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=дене
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=ғимарат
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=эмодзи
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=әйел
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ту
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=жүрек
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=перне
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=ер
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=табиғат
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=адам
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=орын
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=өсімдік
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=смайл
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=спорт
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=саяхат
+locale=kk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=ауа райы
+locale=km ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=អង្គការ
+locale=km ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=អង្គការសហប្រជាជាតិ
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=សត្វពាហនៈ
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ខ្លួប្រាណ
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=អាគារ
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=សញ្ញាអារម្មណ៍
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=នារី
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ទីង់
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=បេះដូង
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=គម្របគ្រាប់ចុច
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=បុរស
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=ធម្មជាតិ
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=មនុស្ស
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=ទីកន្លែង
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=រុក្ខជាតិ
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=ញញឺម
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=កីឡា
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ធ្វើដំណើរ
+locale=km ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=អាកាសធាតុ
+locale=kn ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ಯುಎನ್
+locale=kn ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=ಸಂಯುಕ್ತ ಸಂಸ್ಥಾನಗಳು
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=ಪ್ರಾಣಿ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ದೇಹ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=ಕಟ್ಟಡ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ಎಮೋಜಿ:{0
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=ಮಹಿಳೆ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ಬಾವುಟ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=ಹೃದಯ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=ಕೀಕ್ಯಾಪ್
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=ಪುರುಷ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=ಪ್ರಕೃತಿ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=ವ್ಯಕ್ತಿ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=ಸ್ಥಳ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=ಗಿಡ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=ಸ್ಮೈಲೀ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=ಕ್ರೀಡೆ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ಪ್ರಯಾಣ
+locale=kn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=ಹವಾಮಾನ
+locale=ko ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=유엔
+locale=ko ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=유엔
+locale=ky ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=БУ
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=жаныбар
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=дене
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=имарат
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=эмоджи
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=аял
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=желек
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=жүрөк
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=клавиатура калпакчасы
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=эркек
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=жаратылыш
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=адам
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=жер
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=өсүмдүк
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=быйтыкча
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=спорт
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=саякат
+locale=ky ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=аба-ырайы
+locale=lo ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ຢູເອັນ
+locale=lo ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=ສະຫະປະຊາຊາດ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=ສັດ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ຮ່າງກາຍ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=ຕຶກ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ອີໂມຈິ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=ຍິງ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ທຸງ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=ຫົວໃຈ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=ແປ້ນແຄັບ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=ຊາຍ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=ທຳມະຊາດ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=ຄົນ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=ສະຖານທີ່
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=ພືດ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=ຍິ້ມ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=ກິລາ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ທ່ອງທ່ຽວ
+locale=lo ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=ສະພາບອາກາດ
+locale=lt ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=JT
+locale=lt ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Jungtinės Tautos
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=gyvūnas
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=kūnas
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=statymas
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=jaustukas
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=moteris
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=vėliava
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=širdelė
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=mygtukas
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=vyras
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=gamta
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=asmuo
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=vieta
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=augalas
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=šypsenėlė
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sportas
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=kelionė
+locale=lt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=oras
+locale=lv ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ANO
+locale=lv ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Apvienoto Nāciju Organizācija
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=dzīvnieks
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ķermenis
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=ēka
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emocijzīme
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=sieviete
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=karogs
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=sirds
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=taustiņš
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=vīrietis
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=daba
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=persona
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=vieta
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=augs
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smailijs
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sports
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ceļojums
+locale=lv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=laiks
+locale=mk ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ОН
+locale=mk ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=обединети нации
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=животно
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=тело
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=зграда
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=емотикона
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=женско
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=знаме
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=срце
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=копче
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=машко
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=природа
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=личност
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=место
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=растение
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=смешко
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=спорт
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=патување
+locale=mk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=временска прогноза
+locale=ml ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=യുഎൻ
+locale=ml ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=ഐക്യരാഷ്ട്രസഭ
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=മൃഗം
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ബോഡി
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=കെട്ടിടം
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ഇമോജി
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=സ്ത്രീ
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=പതാക
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=ഹൃദയം
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=കീക്യാപ്പ്
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=പുരുഷൻ
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=പ്രകൃതി
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=വ്യക്തി
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=സ്ഥലം
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=സസ്യം
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=മുഖഭാവം
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=സ്പോർട്സ്
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=യാത്ര
+locale=ml ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=കാലാവസ്ഥ
+locale=mn ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=НҮБ
+locale=mn ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Нэгдсэн Үндэстний Байгууллага
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=амьтан
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=бие
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=барилга
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=эможи
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=эмэгтэй
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=туг
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=зүрх
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=түлхүүрийн гэр
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=эрэгтэй
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=байгаль
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=хүн
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=газар
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=ургамал
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=инээмсэглэл
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=спорт
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=аялал
+locale=mn ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=цаг агаар
+locale=mr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=यूएन
+locale=mr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=संयुक्त राष्ट्र
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=प्राणी
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=शरीर
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=इमारत
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=इमोजी
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=महिला
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ध्वज
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=हृदय
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=कीकॅप
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=पुरुष
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=निसर्ग
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=व्यक्ति
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=स्थान
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=झाड
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=स्मायली
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=खेळ
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=प्रवास
+locale=mr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=हवामान
+locale=ms ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=PBB
+locale=ms ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Bangsa-bangsa Bersatu
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=haiwan
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=tubuh
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=bangunan
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=perempuan
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bendera
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=hati
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=lelaki
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=alam semula jadi
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=orang
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=tempat
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=tumbuh-tumbuhan
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sukan
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=perjalanan
+locale=ms ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=cuaca
+locale=my ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ကုလသမဂ္ဂ
+locale=my ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=ကုလသမဂ္ဂ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0} − {1}
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=တိရိစ္ဆာန်
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ကိုယ်ခန္ဓာ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=အဆောက်အအုံ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ခံစားမှုသရုပ်ပြပုံ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=အမ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=အလံ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=အသည်းနှလုံး
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=ခလုတ်
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=အဖို
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=သဘာဝ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=လူ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=နေရာ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=အပင်
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=အပြုံးပုံ
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=အားကစား
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ခရီးသွား
+locale=my ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=မိုးလေဝသ
+locale=nb ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=FN
+locale=nb ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=FN
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=dyr
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=kropp
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=bygning
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=kvinnelig
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=flagg
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=hjerte
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=mannlig
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natur
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=person
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=sted
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=plante
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=reise
+locale=nb ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=vær
+locale=ne ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=यूएन
+locale=ne ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=संयुक्त राष्ट्र संघ
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=जनावर
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=शरीर
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=भवन
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=इमोजी
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=महिला
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=झण्डा
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=मुटु
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=पुरूष
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=प्रकृति
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=व्यक्ति
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=ठाउँ
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=बिरूवा
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=स्माइली
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=खेलकुुद
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=यात्रा
+locale=ne ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=मौंसम
+locale=nl ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=vn
+locale=nl ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=verenigde naties
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=dier
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=lichaam
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=gebouw
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=vrouwelijk
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=vlag
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=hart
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=toets
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=mannelijk
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natuur
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=persoon
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=plaats
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=plant
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=reizen
+locale=nl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=weer
+locale=pa ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ਯੂ.ਐੱਨ.
+locale=pa ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=ਸੰਯੁਕਤ ਰਾਸ਼ਟਰ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=ਜਾਨਵਰ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ਸਰੀਰ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=ਇਮਾਰਤ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ਈਮੋਜੀ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=ਔਰਤ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ਝੰਡਾ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=ਦਿਲ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=ਕੀਕੈਪ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=ਪੁਰਸ਼
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=ਕੁਦਰਤ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=ਵਿਅਕਤੀ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=ਸਥਾਨ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=ਪੌਦਾ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=ਸਮਾਈਲੀ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=ਖੇਡ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ਯਾਤਰਾ
+locale=pa ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=ਮੌਸਮ
+locale=pl ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ONZ
+locale=pl ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Organizacja Narodów Zjednoczonych
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=zwierzę
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ciało
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=budynek
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emotikon
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=kobieta
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=flaga
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=serce
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=klawisz
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=mężczyzna
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natura
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=osoba
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=miejsce
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=roślina
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=buźka
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=podróż
+locale=pl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=pogoda
+locale=pt ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=NU
+locale=pt ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Nações Unidas
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=animal
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=corpo
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=edifício
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=mulher
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bandeira
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=coração
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=homem
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natureza
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=pessoa
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=lugar
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=planta
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=sorridente
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=esporte
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=viagem
+locale=pt ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=clima
+locale=pt_PT ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ONU
+locale=pt_PT ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Nações Unidas
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=animal
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=corpo
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=edifício
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=feminino
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bandeira
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=coração
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=tecla
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=masculino
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natureza
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=pessoa
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=lugar
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=planta
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=cara sorridente
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=desporto
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=viajar
+locale=pt_PT ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=tempo
+locale=ro ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=NU
+locale=ro ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Națiunile Unite
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=animal
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=corp
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=construcție
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoticon
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=femeie
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=steag
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=inimă
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=tastă
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=bărbat
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natură
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=persoană
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=loc
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=plantă
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=călătorii
+locale=ro ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=vreme
+locale=ru ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ООН
+locale=ru ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Организация Объединенных Наций
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=животное
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=тело
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=здание
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=женщина
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=флаг
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=сердце
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=клавиша
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=мужчина
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=природа
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=человек
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=место
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=ростение
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=спорт
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=путешествие
+locale=ru ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=погода
+locale=si ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=එක්සත් ජාතීන්
+locale=si ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=එක්සත් ජාතීන්
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=සතා
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ශරීරය
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=ගොඩනැඟිල්ල
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ඉමොජි
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=ගැහැණු
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=කොඩිය
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=හදවත
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=පියන
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=පිරිමි
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=සොබාදහම
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=පුද්ගලයා
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=තැන
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=පැලය
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=හිනාව
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=ක්‍රීඩාව
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=සංචාරය
+locale=si ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=කාලගුණය
+locale=sk ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=OSN
+locale=sk ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=OSN
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=zviera
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=teleso
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=budova
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emodži
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=žena
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=zástava
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=srdce
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=kláves
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=muž
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=príroda
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=osoba
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=miesto
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=rastlina
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smajlík
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=šport
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=cestovanie
+locale=sk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=počasie
+locale=sl ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=Združeni narodi
+locale=sl ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Združeni narodi
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=žival
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=telo
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=zgradba
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=ženska
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=zastava
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=srce
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=moški
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=narava
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=oseba
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=kraj
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=rastlina
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smeško
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=šport
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=potovanje
+locale=sl ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=vreme
+locale=sq ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=kombet e bashkuara
+locale=sq ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=kombet e bashkuara
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=kafshë
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=trup
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=ndërtesë
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=femër
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=flamur
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=zemër
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=tast
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=mashkull
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natyrë
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=person
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=vend
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=bimë
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=buzëqeshje
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=udhëtim
+locale=sq ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=mot
+locale=sr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=УН
+locale=sr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Уједињене нације
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=животиња
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=тело
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=зграда
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=емоџи
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=женско
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=застава
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=срце
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=тастер
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=мушко
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=природа
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=особа
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=место
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=биљка
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=смајли
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=спорт
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=путовање
+locale=sr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=време
+locale=sv ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=FN
+locale=sv ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Förenta Nationerna
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=djur
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=kropp
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=byggnad
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=kvinnlig
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=flagga
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=hjärta
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=keycap
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=manlig
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=natur
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=person
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=plats
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=växt
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=smiley
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=resa
+locale=sv ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=väder
+locale=sw ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=umoja wa mataifa
+locale=sw ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Umoja wa Mataifa
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=mnyama
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=mwili
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=jengo
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=mwanamke
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bendera
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=moyo
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=kitufe
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=mwanamume
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=asili
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=mtu
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=mahali
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=mmea
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=tabasamu
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=michezo
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=kusafiri
+locale=sw ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=hali ya hewa
+locale=ta ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ஐநா
+locale=ta ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=ஐக்கிய நாடுகள்
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=விலங்கு
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=உடல்
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=கட்டிடம்
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ஈமோஜி
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=பெண்
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=கொடி
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=இதயம்
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=விசை
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=ஆண்
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=இயற்கை
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=நபர்
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=இடம்
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=செடி
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=ஸ்மைலி
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=விளையாட்டு
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=பயணம்
+locale=ta ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=வானிலை
+locale=te ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=యుఎన్
+locale=te ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=యునైటెడ్ నేషన్స్
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=జంతువు
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=శరీరం
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=భవనం
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ఎమోజీ
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=మహిళ
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=పతాకం
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=హృదయం
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=కీక్యాప్
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=పురుషుడు
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=ప్రకృతి
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=వ్యక్తి
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=స్థలం
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=మొక్క
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=స్మైలీ
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=క్రీడ
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ప్రయాణం
+locale=te ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=వాతావరణం
+locale=th ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=สหประชาชาติ
+locale=th ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=สหประชาชาติ
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=สัตว์
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=ร่างกาย
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=อาคาร
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=อีโมจิ
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=ผู้หญิง
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ธง
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=หัวใจ
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=ปุ่มกดเลข
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=ผู้ชาย
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=ธรรมชาติ
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=คน
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=สถานที่
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=พืช
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=หน้ายิ้ม
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=กีฬา
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=การเดินทาง
+locale=th ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=สภาพอากาศ
+locale=tr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=BM
+locale=tr ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Birleşmiş Milletler
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=hayvan
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=beden
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=bina
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=kadın
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bayrak
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=kalp
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=tuş
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=erkek
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=doğa
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=kişi
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=yer
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=bitki
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=gülen yüz
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=spor
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=seyahat
+locale=tr ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=hava durumu
+locale=uk ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ООН
+locale=uk ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Організація Об’єднаних Націй
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=тварина
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=тіло
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=будівля
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=жінка
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=прапор
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=серце
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=клавіша
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=чоловік
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=природа
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=людина
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=місце
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=рослина
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=спорт
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=подорож
+locale=uk ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=погода
+locale=ur ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=اقوام متحدہ
+locale=ur ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=اقوام متحدہ
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=جانور
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=جسم
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=عمارت
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=ایموجی
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=عورت
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=پرچم
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=دل
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=کی کیپ
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=مرد
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=قدرت
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=شخص
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=جگہ
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=پلانٹ
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=مُسکراتا ہوا
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=کھیل
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=سفر
+locale=ur ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=موسم
+locale=uz ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=BMT
+locale=uz ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Birlashgan Millatlar Tashkiloti
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=hayvon
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=tana
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=bino
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=emoji
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=ayol
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=bayroq
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=yurak
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=tugma qalpog‘i
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=erkak
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=tabiat
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=shaxs
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=joy
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=o‘simlik
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=kulgich
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=sport
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=sayohat
+locale=uz ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=ob-havo
+locale=vi ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=Liên hiệp quốc
+locale=vi ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=Liên hiệp quốc
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=động vật
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=vật thể
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=xây dựng
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=nữ
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=cờ
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=trái tim
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=mũ phím
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=nam
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=tự nhiên
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=người
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=địa điểm
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=thực vật
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=mặt cười
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=thể thao
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=du lịch
+locale=vi ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=thời tiết
+locale=zh ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=联合国
+locale=zh ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=联合国
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=动物
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=身体
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=建筑
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=表情符号
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=女
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=旗
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=心
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=按键
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=男
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=自然
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=任务
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=地点
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=植物
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=笑脸
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=运动
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=出行
+locale=zh ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=天气
+locale=zh_Hant ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=聯合國
+locale=zh_Hant ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=聯合國
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabelPattern[@type="category-list"] ; new_value={0}: {1}
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=動物
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=身體
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=建築
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="emoji"] ; new_value=表情符號
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=女性
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=旗子
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=心
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="keycap"] ; new_value=按鍵
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=男性
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=自然
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=人物
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=地點
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=植物
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=微笑
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=運動
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=旅遊
+locale=zh_Hant ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=天氣
+locale=zu ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"] ; new_value=ifulegi
+locale=zu ; action=addNew ; new_path=//ldml/localeDisplayNames/territories/territory[@type="UN"] ; new_value=I-United Nations
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="animal"] ; new_value=isilwane
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="body"] ; new_value=umzimba
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="building"] ; new_value=isakhiwo
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="female"] ; new_value=owesfazane
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="flag"] ; new_value=ifulegi
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="heart"] ; new_value=inhliziyo
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="male"] ; new_value=owesilisa
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="nature"] ; new_value=imvelo
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="person"] ; new_value=umuntu
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="place"] ; new_value=indawo
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="plant"] ; new_value=isitshalo
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="smiley"] ; new_value=okumoyizelayo
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="sport"] ; new_value=umdlalo
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="travel"] ; new_value=ukuvakasha
+locale=zu ; action=addNew ; new_path=//ldml/characterLabels/characterLabel[@type="weather"] ; new_value=isimo sezulu

@@ -960,6 +960,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">اوکراین</territory>
 			<territory type="UG">اوگاندا</territory>
 			<territory type="UM">جزایر دورافتادهٔ ایالات متحده</territory>
+			<territory type="UN">سازمان ملل متحد</territory>
+			<territory type="UN" alt="short">سازمان ملل</territory>
 			<territory type="US">ایالات متحده</territory>
 			<territory type="US" alt="short">ایالات متحده</territory>
 			<territory type="UY">اروگوئه</territory>
@@ -8229,6 +8231,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — همه</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — سازگاری</characterLabelPattern>
 		<characterLabelPattern type="enclosed" draft="contributed">{0} — محصور</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — گسترش‌یافته</characterLabelPattern>
@@ -8241,10 +8244,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">فعالیت</characterLabel>
 		<characterLabel type="african_scripts" draft="contributed">دبیره‌های افریقایی</characterLabel>
 		<characterLabel type="american_scripts" draft="contributed">دبیره‌های امریکایی</characterLabel>
+		<characterLabel type="animal">حیوان</characterLabel>
 		<characterLabel type="animals_nature">حیوانات و طبیعت</characterLabel>
 		<characterLabel type="arrows">پیکان‌ها</characterLabel>
+		<characterLabel type="body">جسم</characterLabel>
 		<characterLabel type="box_drawing">رسم جعبه</characterLabel>
 		<characterLabel type="braille">بریل</characterLabel>
+		<characterLabel type="building">ساختمان</characterLabel>
 		<characterLabel type="bullets_stars" draft="contributed">گلوله‌ها/ستاره‌ها</characterLabel>
 		<characterLabel type="consonantal_jamo" draft="contributed">جاموی بی‌صدا</characterLabel>
 		<characterLabel type="currency_symbols">علائم واحد پول</characterLabel>
@@ -8257,6 +8263,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts" draft="contributed">دبیره‌های آسیای شرقی</characterLabel>
 		<characterLabel type="emoji">اموجی</characterLabel>
 		<characterLabel type="european_scripts" draft="contributed">دبیره‌های اروپایی</characterLabel>
+		<characterLabel type="female">زن</characterLabel>
+		<characterLabel type="flag">پرچم</characterLabel>
 		<characterLabel type="flags">پرچم‌ها</characterLabel>
 		<characterLabel type="food_drink">غذا و نوشیدنی</characterLabel>
 		<characterLabel type="format">قالب</characterLabel>
@@ -8269,43 +8277,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">هانجا</characterLabel>
 		<characterLabel type="hanzi_simplified">هانزی (ساده‌شده)</characterLabel>
 		<characterLabel type="hanzi_traditional">هانزی (سنتی)</characterLabel>
+		<characterLabel type="heart">قلب</characterLabel>
 		<characterLabel type="historic_scripts" draft="contributed">دبیره‌های تاریخی</characterLabel>
 		<characterLabel type="ideographic_desc_characters" draft="contributed">نویسه‌های توصیفی اندیش‌نگاری</characterLabel>
 		<characterLabel type="japanese_kana">کانای ژاپنی</characterLabel>
 		<characterLabel type="kanbun">کانبوم</characterLabel>
 		<characterLabel type="kanji">کانجی</characterLabel>
+		<characterLabel type="keycap">جلد کلید</characterLabel>
 		<characterLabel type="leftwards_arrows">پیکان‌های رو به چپ</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">پیکان‌های رو به راست رو به چپ</characterLabel>
 		<characterLabel type="letterlike_symbols">علائم حروف‌مانند</characterLabel>
 		<characterLabel type="limited_use">استفادهٔ محدود</characterLabel>
+		<characterLabel type="male">مرد</characterLabel>
 		<characterLabel type="math_symbols">علائم ریاضی</characterLabel>
 		<characterLabel type="middle_eastern_scripts" draft="contributed">دبیره‌های آسیای میانه</characterLabel>
 		<characterLabel type="miscellaneous">متفرقه</characterLabel>
 		<characterLabel type="modern_scripts" draft="contributed">دبیره‌های مدرن</characterLabel>
 		<characterLabel type="modifier">توصیف‌کننده</characterLabel>
 		<characterLabel type="musical_symbols">علائم موسیقی</characterLabel>
+		<characterLabel type="nature">طبیعت</characterLabel>
 		<characterLabel type="nonspacing" draft="contributed">بدون فاصله</characterLabel>
 		<characterLabel type="numbers">اعداد</characterLabel>
 		<characterLabel type="objects" draft="contributed">اشیاء</characterLabel>
 		<characterLabel type="other" draft="contributed">دیگر</characterLabel>
 		<characterLabel type="paired">جفتی</characterLabel>
+		<characterLabel type="person">شخص</characterLabel>
 		<characterLabel type="phonetic_alphabet">الفبای آوانگاری</characterLabel>
 		<characterLabel type="pictographs">تصویرنگاشت</characterLabel>
+		<characterLabel type="place">جا</characterLabel>
+		<characterLabel type="plant">گیاه</characterLabel>
 		<characterLabel type="punctuation">سجاوندی</characterLabel>
 		<characterLabel type="rightwards_arrows">پیکان‌های رو به راست</characterLabel>
 		<characterLabel type="sign_standard_symbols" draft="contributed">نمادهای استاندارد/نشان</characterLabel>
 		<characterLabel type="small_form_variant" draft="contributed">گونه‌های کوچک</characterLabel>
+		<characterLabel type="smiley">شکلک</characterLabel>
 		<characterLabel type="smileys_people">صورتک‌ها و افراد</characterLabel>
 		<characterLabel type="south_asian_scripts" draft="contributed">دبیره‌های آسیای جنوبی</characterLabel>
 		<characterLabel type="southeast_asian_scripts" draft="contributed">دبیره‌های آسیای جنوب شرقی</characterLabel>
 		<characterLabel type="spacing">فاصله‌گذاری</characterLabel>
+		<characterLabel type="sport">ورزش</characterLabel>
 		<characterLabel type="symbols">علائم</characterLabel>
 		<characterLabel type="technical_symbols">علائم فنی</characterLabel>
 		<characterLabel type="tone_marks">نشانه‌های نواخت</characterLabel>
+		<characterLabel type="travel">مسافرت</characterLabel>
 		<characterLabel type="travel_places">سفر و جای‌ها</characterLabel>
 		<characterLabel type="upwards_arrows">پیکان‌های رو به بالا</characterLabel>
 		<characterLabel type="variant_forms" draft="contributed">گونه‌ها</characterLabel>
 		<characterLabel type="vocalic_jamo" draft="contributed">جاموی آوایی</characterLabel>
+		<characterLabel type="weather">هوا</characterLabel>
 		<characterLabel type="western_asian_scripts" draft="contributed">دبیره‌های آسیای غربی</characterLabel>
 		<characterLabel type="whitespace">فضای سفید</characterLabel>
 	</characterLabels>

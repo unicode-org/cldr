@@ -963,6 +963,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">உக்ரைன்</territory>
 			<territory type="UG">உகாண்டா</territory>
 			<territory type="UM">யூ.எஸ். வெளிப்புறத் தீவுகள்</territory>
+			<territory type="UN">ஐக்கிய நாடுகள்</territory>
+			<territory type="UN" alt="short">ஐநா</territory>
 			<territory type="US">அமெரிக்கா</territory>
 			<territory type="US" alt="short">யூஎஸ்</territory>
 			<territory type="UY">உருகுவே</territory>
@@ -7680,6 +7682,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — அனைத்தும்</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — இணக்கத்தன்மை</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — உள்ளடங்கியவை</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — நீட்டிக்கப்பட்டவை</characterLabelPattern>
@@ -7692,10 +7695,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">செயல்பாடுகள்</characterLabel>
 		<characterLabel type="african_scripts">ஆப்பிரிக்க ஸ்கிரிப்டுகள்</characterLabel>
 		<characterLabel type="american_scripts">அமெரிக்க ஸ்கிரிப்டுகள்</characterLabel>
+		<characterLabel type="animal">விலங்கு</characterLabel>
 		<characterLabel type="animals_nature">விலங்குகள் &amp; இயற்கை</characterLabel>
 		<characterLabel type="arrows">அம்புகள்</characterLabel>
+		<characterLabel type="body">உடல்</characterLabel>
 		<characterLabel type="box_drawing">பெட்டி வரைபடம்</characterLabel>
 		<characterLabel type="braille">பிரெய்லி</characterLabel>
+		<characterLabel type="building">கட்டிடம்</characterLabel>
 		<characterLabel type="bullets_stars">புல்லட்கள்/நட்சத்திரங்கள்</characterLabel>
 		<characterLabel type="consonantal_jamo">மெய்யெழுத்து ஜாமோ</characterLabel>
 		<characterLabel type="currency_symbols">நாணயச் சின்னங்கள்</characterLabel>
@@ -7708,6 +7714,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">கிழக்காசிய ஸ்கிரிப்டுகள்</characterLabel>
 		<characterLabel type="emoji">எமோஜி</characterLabel>
 		<characterLabel type="european_scripts">ஐரோப்பிய ஸ்கிரிப்டுகள்</characterLabel>
+		<characterLabel type="female">பெண்</characterLabel>
+		<characterLabel type="flag">கொடி</characterLabel>
 		<characterLabel type="flags">கொடிகள்</characterLabel>
 		<characterLabel type="food_drink">உணவு &amp; பானம்</characterLabel>
 		<characterLabel type="format">வடிவமைப்பு</characterLabel>
@@ -7720,43 +7728,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">ஹன்ஜா</characterLabel>
 		<characterLabel type="hanzi_simplified">ஹன்சி (எளிதாக்கப்பட்டது)</characterLabel>
 		<characterLabel type="hanzi_traditional">ஹன்சி (பாரம்பரியமானது)</characterLabel>
+		<characterLabel type="heart">இதயம்</characterLabel>
 		<characterLabel type="historic_scripts">வரலாற்று ஸ்கிரிப்டுகள்</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ஐடியோகிராஃபிக் விளக்க. எழுத்துருக்கள்</characterLabel>
 		<characterLabel type="japanese_kana">ஜப்பானிய கானா</characterLabel>
 		<characterLabel type="kanbun">கன்புன்</characterLabel>
 		<characterLabel type="kanji">காஞ்சி</characterLabel>
+		<characterLabel type="keycap">விசை</characterLabel>
 		<characterLabel type="leftwards_arrows">இடதுபுறம் நோக்கிய அம்புகள்</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">இடதுபுறம் வலதுபுறம் நோக்கிய அம்புகள்</characterLabel>
 		<characterLabel type="letterlike_symbols">எழுத்துக்களைப் போன்ற சின்னங்கள்</characterLabel>
 		<characterLabel type="limited_use">குறிப்பிட்ட பயன்பாட்டுக்கானவை</characterLabel>
+		<characterLabel type="male">ஆண்</characterLabel>
 		<characterLabel type="math_symbols">கணிதச் சின்னங்கள்</characterLabel>
 		<characterLabel type="middle_eastern_scripts">மத்திய கிழக்கு ஸ்கிரிப்டுகள்</characterLabel>
 		<characterLabel type="miscellaneous">மற்றவை</characterLabel>
 		<characterLabel type="modern_scripts">நவீன ஸ்கிரிப்டுகள்</characterLabel>
 		<characterLabel type="modifier">உருமாற்றி</characterLabel>
 		<characterLabel type="musical_symbols">இசைச் சின்னங்கள்</characterLabel>
+		<characterLabel type="nature">இயற்கை</characterLabel>
 		<characterLabel type="nonspacing">இடைவெளியற்ற</characterLabel>
 		<characterLabel type="numbers">எண்கள்</characterLabel>
 		<characterLabel type="objects">பொருட்கள்</characterLabel>
 		<characterLabel type="other">பிற</characterLabel>
 		<characterLabel type="paired">இணைக்கப்பட்டவை</characterLabel>
+		<characterLabel type="person">நபர்</characterLabel>
 		<characterLabel type="phonetic_alphabet">ஒலி அகர வரிசை</characterLabel>
 		<characterLabel type="pictographs">சொற்படங்கள்</characterLabel>
+		<characterLabel type="place">இடம்</characterLabel>
+		<characterLabel type="plant">செடி</characterLabel>
 		<characterLabel type="punctuation">நிறுத்தக்குறி</characterLabel>
 		<characterLabel type="rightwards_arrows">வலதுபுறம் நோக்கிய அம்புகள்</characterLabel>
 		<characterLabel type="sign_standard_symbols">சைகை/நிலையான சின்னங்கள்</characterLabel>
 		<characterLabel type="small_form_variant">சிறு வடிவ மாறிகள்</characterLabel>
+		<characterLabel type="smiley">ஸ்மைலி</characterLabel>
 		<characterLabel type="smileys_people">ஸ்மைலிகள் &amp; மக்கள்</characterLabel>
 		<characterLabel type="south_asian_scripts">தெற்காசிய ஸ்கிரிப்டுகள்</characterLabel>
 		<characterLabel type="southeast_asian_scripts">தென்கிழக்காசிய ஸ்கிரிப்டுகள்</characterLabel>
 		<characterLabel type="spacing">இடைவெளி</characterLabel>
+		<characterLabel type="sport">விளையாட்டு</characterLabel>
 		<characterLabel type="symbols">சின்னங்கள்</characterLabel>
 		<characterLabel type="technical_symbols">தொழில்நுட்பச் சின்னங்கள்</characterLabel>
 		<characterLabel type="tone_marks">தொனிக் குறியீடுகள்</characterLabel>
+		<characterLabel type="travel">பயணம்</characterLabel>
 		<characterLabel type="travel_places">பயணம் &amp; இடங்கள்</characterLabel>
 		<characterLabel type="upwards_arrows">மேல்நோக்கிய அம்புகள்</characterLabel>
 		<characterLabel type="variant_forms">மாறி வடிவங்கள்</characterLabel>
 		<characterLabel type="vocalic_jamo">உயிரெழுத்து ஜாமோ</characterLabel>
+		<characterLabel type="weather">வானிலை</characterLabel>
 		<characterLabel type="western_asian_scripts">மேற்காசிய ஸ்கிரிப்டுகள்</characterLabel>
 		<characterLabel type="whitespace">வெள்ளை இடைவெளி</characterLabel>
 	</characterLabels>

@@ -152,7 +152,7 @@ public class ChartAnnotations extends Chart {
                     UnicodeMap<Annotations> annotations = Annotations.getData(locale);
                     Annotations values = annotations.get(cp);
                     if (DEBUG) System.out.println(name + ":" + values);
-                    tablePrinter.addCell(values == null ? "" : values.toString(true));
+                    tablePrinter.addCell(values == null ? "——" : values.toString(true));
                 }
                 tablePrinter.finishRow();
             }

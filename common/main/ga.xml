@@ -690,6 +690,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">An Úcráin</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Oileáin Imeallacha S.A.M.</territory>
+			<territory type="UN">Náisiúin Aontaithe</territory>
+			<territory type="UN" alt="short">NA</territory>
 			<territory type="US">Stáit Aontaithe Mheiriceá</territory>
 			<territory type="US" alt="short">SAM</territory>
 			<territory type="UY">Urugua</territory>
@@ -10320,6 +10322,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Uile</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}:</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Comhoiriúnacht</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Iniata</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Breisithe</characterLabelPattern>
@@ -10335,10 +10338,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Gníomhaíochtaí</characterLabel>
 		<characterLabel type="african_scripts">Scripteanna na hAfraice</characterLabel>
 		<characterLabel type="american_scripts">Scripteanna Meiriceánacha</characterLabel>
+		<characterLabel type="animal">ainmhí</characterLabel>
 		<characterLabel type="animals_nature">Ainmhithe agus an Nádúr</characterLabel>
 		<characterLabel type="arrows">Saighde</characterLabel>
+		<characterLabel type="body">corp</characterLabel>
 		<characterLabel type="box_drawing">Líníocht Boscaí</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">foirgneamh</characterLabel>
 		<characterLabel type="bullets_stars">Urchair/Réaltaí</characterLabel>
 		<characterLabel type="consonantal_jamo">Seamó Consanta</characterLabel>
 		<characterLabel type="currency_symbols">Siombailí Airgeadra</characterLabel>
@@ -10351,6 +10357,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Scripteanna na hÁise Thoir</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Scripteanna na hEorpa</characterLabel>
+		<characterLabel type="female">baineann</characterLabel>
+		<characterLabel type="flag">bratach</characterLabel>
 		<characterLabel type="flags">Bratacha</characterLabel>
 		<characterLabel type="food_drink">Bia agus Deoch</characterLabel>
 		<characterLabel type="format">Formáid</characterLabel>
@@ -10363,43 +10371,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanaí</characterLabel>
 		<characterLabel type="hanzi_simplified">Hansaí (Simplithe)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hansaí (Traidisiúnta)</characterLabel>
+		<characterLabel type="heart">croí</characterLabel>
 		<characterLabel type="historic_scripts">Scripteanna Stairiúla</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Carachtair Thuairiscithe Idéagrafacha</characterLabel>
 		<characterLabel type="japanese_kana">Kana Seapánach</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Ceansaí</characterLabel>
+		<characterLabel type="keycap">eochair caidhpe</characterLabel>
 		<characterLabel type="leftwards_arrows">Saighde Clé</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Saighde Clé-Deas</characterLabel>
 		<characterLabel type="letterlike_symbols">Siombailí Cosúil le Litreacha</characterLabel>
 		<characterLabel type="limited_use">Neamhfhorleathan</characterLabel>
+		<characterLabel type="male">fearann</characterLabel>
 		<characterLabel type="math_symbols">Siombailí Matamaiticiúla</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Scripteanna an Mheánoirthir</characterLabel>
 		<characterLabel type="miscellaneous">Éagsúil</characterLabel>
 		<characterLabel type="modern_scripts">Scripteanna Nua-Aimseartha</characterLabel>
 		<characterLabel type="modifier">Mionathraitheoir</characterLabel>
 		<characterLabel type="musical_symbols">Siombailí Ceoil</characterLabel>
+		<characterLabel type="nature">nádúr</characterLabel>
 		<characterLabel type="nonspacing">Neamhspásáilte</characterLabel>
 		<characterLabel type="numbers">Uimhreacha</characterLabel>
 		<characterLabel type="objects">Nithe</characterLabel>
 		<characterLabel type="other">Eile</characterLabel>
 		<characterLabel type="paired">Péireáilte</characterLabel>
+		<characterLabel type="person">duine</characterLabel>
 		<characterLabel type="phonetic_alphabet">Aibítir Foghraíochta</characterLabel>
 		<characterLabel type="pictographs">Picteagraif</characterLabel>
+		<characterLabel type="place">áit</characterLabel>
+		<characterLabel type="plant">planda</characterLabel>
 		<characterLabel type="punctuation">Poncaíocht</characterLabel>
 		<characterLabel type="rightwards_arrows">Saighde Deasa</characterLabel>
 		<characterLabel type="sign_standard_symbols">Comharthaí/Siombailí Coitianta</characterLabel>
 		<characterLabel type="small_form_variant">Foirmeacha Beaga Malartacha</characterLabel>
+		<characterLabel type="smiley">aghaidh</characterLabel>
 		<characterLabel type="smileys_people">Straoiseoga agus Daoine</characterLabel>
 		<characterLabel type="south_asian_scripts">Scripteanna na hÁise Theas</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Scripteanna na hÁise Thoir Theas</characterLabel>
 		<characterLabel type="spacing">Spásáil</characterLabel>
+		<characterLabel type="sport">spórt</characterLabel>
 		<characterLabel type="symbols">Siombailí</characterLabel>
 		<characterLabel type="technical_symbols">Siombailí Teicniúla</characterLabel>
 		<characterLabel type="tone_marks">Comharthaí Toin</characterLabel>
+		<characterLabel type="travel">taisteal</characterLabel>
 		<characterLabel type="travel_places">Taisteal agus Áiteanna</characterLabel>
 		<characterLabel type="upwards_arrows">Saighde Suas</characterLabel>
 		<characterLabel type="variant_forms">Foirmeacha Malartacha</characterLabel>
 		<characterLabel type="vocalic_jamo">Seamó Guthach</characterLabel>
+		<characterLabel type="weather">aimsir</characterLabel>
 		<characterLabel type="western_asian_scripts">Scripteanna na hÁise Thiar</characterLabel>
 		<characterLabel type="whitespace">Spás Bán</characterLabel>
 	</characterLabels>

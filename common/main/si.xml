@@ -752,6 +752,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">යුක්රේනය</territory>
 			<territory type="UG">උගන්ඩාව</territory>
 			<territory type="UM">එක්සත් ජනපද ඈත දූපත්</territory>
+			<territory type="UN">එක්සත් ජාතීන්</territory>
+			<territory type="UN" alt="short">එක්සත් ජාතීන්</territory>
 			<territory type="US">එක්සත් ජනපදය</territory>
 			<territory type="US" alt="short">එ.ජ</territory>
 			<territory type="UY">උරුගුවේ</territory>
@@ -7163,6 +7165,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — සියල්ල</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — අනුකූලතාව</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — අඩංගුවූ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — විස්තෘත</characterLabelPattern>
@@ -7175,10 +7178,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">කාර්යය</characterLabel>
 		<characterLabel type="african_scripts">අප්රිකානු සිද්ධි මාලා</characterLabel>
 		<characterLabel type="american_scripts">ඇමරිකානු සිද්ධි මාලා</characterLabel>
+		<characterLabel type="animal">සතා</characterLabel>
 		<characterLabel type="animals_nature">සත්වයින් සහ ස්වභාවදර්මය</characterLabel>
 		<characterLabel type="arrows">ඊතල</characterLabel>
+		<characterLabel type="body">ශරීරය</characterLabel>
 		<characterLabel type="box_drawing">පෙට්ටි ඇදීම</characterLabel>
 		<characterLabel type="braille">බ්‍රේල්</characterLabel>
+		<characterLabel type="building">ගොඩනැඟිල්ල</characterLabel>
 		<characterLabel type="bullets_stars">උන්ඩ/තරු</characterLabel>
 		<characterLabel type="consonantal_jamo">ව්‍යංජනාක්ෂර සම්බන්ධී ජාමො</characterLabel>
 		<characterLabel type="currency_symbols">මුදල් සංකේත</characterLabel>
@@ -7191,6 +7197,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">නැගෙනහිර ආසියානු පිටපත්</characterLabel>
 		<characterLabel type="emoji">එමෝටිකොන්</characterLabel>
 		<characterLabel type="european_scripts">යුරෝපීය</characterLabel>
+		<characterLabel type="female">ගැහැණු</characterLabel>
+		<characterLabel type="flag">කොඩිය</characterLabel>
 		<characterLabel type="flags">කොඩි</characterLabel>
 		<characterLabel type="food_drink">කෑම සහ බීම</characterLabel>
 		<characterLabel type="format">ආකෘතිය</characterLabel>
@@ -7203,43 +7211,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">හන්ජා</characterLabel>
 		<characterLabel type="hanzi_simplified">හන්සි (සුළු කළ)</characterLabel>
 		<characterLabel type="hanzi_traditional">හන්සි (සාම්ප්‍රදායික)</characterLabel>
+		<characterLabel type="heart">හදවත</characterLabel>
 		<characterLabel type="historic_scripts">ඵෙතිහාසික පිටපත්</characterLabel>
 		<characterLabel type="ideographic_desc_characters">රූපමය විස්තරාත්මක අක්ෂර</characterLabel>
 		<characterLabel type="japanese_kana">ජපාන කානා</characterLabel>
 		<characterLabel type="kanbun">කන්බුන්</characterLabel>
 		<characterLabel type="kanji">කන්ජි</characterLabel>
+		<characterLabel type="keycap">පියන</characterLabel>
 		<characterLabel type="leftwards_arrows">වම් ඊතල</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">වම් දකුනු ඊතල</characterLabel>
 		<characterLabel type="letterlike_symbols">අකුරු වැනි සංකේත</characterLabel>
 		<characterLabel type="limited_use">සීමිත භාවිතය</characterLabel>
+		<characterLabel type="male">පිරිමි</characterLabel>
 		<characterLabel type="math_symbols">ගණිත සංකේත</characterLabel>
 		<characterLabel type="middle_eastern_scripts">මධ්‍යම නැගෙනහිර පිටපත්</characterLabel>
 		<characterLabel type="miscellaneous">විවිධ</characterLabel>
 		<characterLabel type="modern_scripts">නව පිටපත්</characterLabel>
 		<characterLabel type="modifier">විකරණකාරකය</characterLabel>
 		<characterLabel type="musical_symbols">සංගීත සංකේත</characterLabel>
+		<characterLabel type="nature">සොබාදහම</characterLabel>
 		<characterLabel type="nonspacing">ඉඩ නොතැබීම</characterLabel>
 		<characterLabel type="numbers">සංඛ්‍යා</characterLabel>
 		<characterLabel type="objects">වස්තු</characterLabel>
 		<characterLabel type="other">වෙනත්</characterLabel>
 		<characterLabel type="paired">යුගලවූ</characterLabel>
+		<characterLabel type="person">පුද්ගලයා</characterLabel>
 		<characterLabel type="phonetic_alphabet">ශ්රව්යඅක්ශර වින්‍යාසය</characterLabel>
 		<characterLabel type="pictographs">පින්තූරමය සංකේත</characterLabel>
+		<characterLabel type="place">තැන</characterLabel>
+		<characterLabel type="plant">පැලය</characterLabel>
 		<characterLabel type="punctuation">විරාම ලක්ෂණ</characterLabel>
 		<characterLabel type="rightwards_arrows">දකුනු ඊතල</characterLabel>
 		<characterLabel type="sign_standard_symbols">සලකුණ/සම්මත සංකේත</characterLabel>
 		<characterLabel type="small_form_variant">කුඩා වෙනස් පෝරම්</characterLabel>
+		<characterLabel type="smiley">හිනාව</characterLabel>
 		<characterLabel type="smileys_people">සිනහවන් සහ මිනිසුන්</characterLabel>
 		<characterLabel type="south_asian_scripts">දකුණු ආසියානු පිටපත්</characterLabel>
 		<characterLabel type="southeast_asian_scripts">ගිනිකොන් ආසියානු පිටපත්</characterLabel>
 		<characterLabel type="spacing">ඉඩ තබනවා</characterLabel>
+		<characterLabel type="sport">ක්‍රීඩාව</characterLabel>
 		<characterLabel type="symbols">සංකේත</characterLabel>
 		<characterLabel type="technical_symbols">තාක්ෂණික සංකේත</characterLabel>
 		<characterLabel type="tone_marks">නාද සලකුණු</characterLabel>
+		<characterLabel type="travel">සංචාරය</characterLabel>
 		<characterLabel type="travel_places" draft="provisional">ගම්න් කිරීම් සහ ස්තාන</characterLabel>
 		<characterLabel type="upwards_arrows">උඩු ඊතල</characterLabel>
 		<characterLabel type="variant_forms" draft="provisional">වෙනස් පෝරම</characterLabel>
 		<characterLabel type="vocalic_jamo">වොකාලික් ජාමො</characterLabel>
+		<characterLabel type="weather">කාලගුණය</characterLabel>
 		<characterLabel type="western_asian_scripts">බටහිර ආසියානු පිටපත්</characterLabel>
 		<characterLabel type="whitespace">සුදු ඉඩ</characterLabel>
 	</characterLabels>

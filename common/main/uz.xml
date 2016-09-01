@@ -752,6 +752,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">AQSH yondosh orollari</territory>
+			<territory type="UN">Birlashgan Millatlar Tashkiloti</territory>
+			<territory type="UN" alt="short">BMT</territory>
 			<territory type="US">Amerika Qo‘shma Shtatlari</territory>
 			<territory type="US" alt="short">AQSH</territory>
 			<territory type="UY">Urugvay</territory>
@@ -7145,6 +7147,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — hammasi</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — mos</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — biriktirilgan</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — kengaytirilgan</characterLabelPattern>
@@ -7157,10 +7160,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">mashg‘ulotlar</characterLabel>
 		<characterLabel type="african_scripts">Afrika yozuvlari</characterLabel>
 		<characterLabel type="american_scripts">Amerika yozuvlari</characterLabel>
+		<characterLabel type="animal">hayvon</characterLabel>
 		<characterLabel type="animals_nature">hayvonlar va tabiat</characterLabel>
 		<characterLabel type="arrows">strelkalar</characterLabel>
+		<characterLabel type="body">tana</characterLabel>
 		<characterLabel type="box_drawing">soxta grafika</characterLabel>
 		<characterLabel type="braille">Brayl yozuvi</characterLabel>
+		<characterLabel type="building">bino</characterLabel>
 		<characterLabel type="bullets_stars">ro‘yxat belgilari/yulduzchalar</characterLabel>
 		<characterLabel type="consonantal_jamo">undosh jamo</characterLabel>
 		<characterLabel type="currency_symbols">valyuta belgilari</characterLabel>
@@ -7173,6 +7179,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Sharqiy Osiyo yozuvlari</characterLabel>
 		<characterLabel type="emoji">emoji</characterLabel>
 		<characterLabel type="european_scripts">Yevropa yozuvlari</characterLabel>
+		<characterLabel type="female">ayol</characterLabel>
+		<characterLabel type="flag">bayroq</characterLabel>
 		<characterLabel type="flags">bayroqlar</characterLabel>
 		<characterLabel type="food_drink">taom va ichimliklar</characterLabel>
 		<characterLabel type="format">formatlash</characterLabel>
@@ -7185,43 +7193,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">hancha</characterLabel>
 		<characterLabel type="hanzi_simplified">xitoycha iyerogliflar (soddalashgan)</characterLabel>
 		<characterLabel type="hanzi_traditional">xitoycha iyerogliflar (an’anaviy)</characterLabel>
+		<characterLabel type="heart">yurak</characterLabel>
 		<characterLabel type="historic_scripts">tarixiy yozuvlar</characterLabel>
 		<characterLabel type="ideographic_desc_characters">iyeroglif tavsifi belgilari</characterLabel>
 		<characterLabel type="japanese_kana">yaponcha kana</characterLabel>
 		<characterLabel type="kanbun">kambun</characterLabel>
 		<characterLabel type="kanji">kanji</characterLabel>
+		<characterLabel type="keycap">tugma qalpog‘i</characterLabel>
 		<characterLabel type="leftwards_arrows">chapga qaragan strelkalar</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">chapga va o‘ngga qaragan strelkalar</characterLabel>
 		<characterLabel type="letterlike_symbols">harfsimon belgilar</characterLabel>
 		<characterLabel type="limited_use">foydalanish cheklangan</characterLabel>
+		<characterLabel type="male">erkak</characterLabel>
 		<characterLabel type="math_symbols">matematik belgilar</characterLabel>
 		<characterLabel type="middle_eastern_scripts">O‘rta Sharq yozuvlari</characterLabel>
 		<characterLabel type="miscellaneous">har xil</characterLabel>
 		<characterLabel type="modern_scripts">zamonaviy yozuvlar</characterLabel>
 		<characterLabel type="modifier">modifikator</characterLabel>
 		<characterLabel type="musical_symbols">musiqiy belgilar</characterLabel>
+		<characterLabel type="nature">tabiat</characterLabel>
 		<characterLabel type="nonspacing">cho‘zilmagan belgilar</characterLabel>
 		<characterLabel type="numbers">sonlar</characterLabel>
 		<characterLabel type="objects">obyektlar</characterLabel>
 		<characterLabel type="other">boshqa</characterLabel>
 		<characterLabel type="paired">juft belgilar</characterLabel>
+		<characterLabel type="person">shaxs</characterLabel>
 		<characterLabel type="phonetic_alphabet">fonetik alifbo</characterLabel>
 		<characterLabel type="pictographs">piktogrammalar</characterLabel>
+		<characterLabel type="place">joy</characterLabel>
+		<characterLabel type="plant">o‘simlik</characterLabel>
 		<characterLabel type="punctuation">tinish belgilari</characterLabel>
 		<characterLabel type="rightwards_arrows">o‘ngga qaragan strelkalar</characterLabel>
 		<characterLabel type="sign_standard_symbols">nishon/standart belgilar</characterLabel>
 		<characterLabel type="small_form_variant">kichik shakldagi variantlar</characterLabel>
+		<characterLabel type="smiley">kulgich</characterLabel>
 		<characterLabel type="smileys_people">kulgichlar va odamlar</characterLabel>
 		<characterLabel type="south_asian_scripts">Janubiy Osiyo yozuvlari</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Janubi-sharqiy Osiyo yozuvlari</characterLabel>
 		<characterLabel type="spacing">oraliq</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols">maxsus belgilar</characterLabel>
 		<characterLabel type="technical_symbols">texnik belgilar</characterLabel>
 		<characterLabel type="tone_marks">ohang belgilari</characterLabel>
+		<characterLabel type="travel">sayohat</characterLabel>
 		<characterLabel type="travel_places">sayohat va joylar</characterLabel>
 		<characterLabel type="upwards_arrows">tepaga qaragan strelkalar</characterLabel>
 		<characterLabel type="variant_forms">variant shakllari</characterLabel>
 		<characterLabel type="vocalic_jamo">unli jamo</characterLabel>
+		<characterLabel type="weather">ob-havo</characterLabel>
 		<characterLabel type="western_asian_scripts">G‘arbiy Osiyo yozuvlari</characterLabel>
 		<characterLabel type="whitespace">probellar</characterLabel>
 	</characterLabels>

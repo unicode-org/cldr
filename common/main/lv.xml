@@ -908,6 +908,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">ASV Mazās Aizjūras salas</territory>
+			<territory type="UN">Apvienoto Nāciju Organizācija</territory>
+			<territory type="UN" alt="short">ANO</territory>
 			<territory type="US">Amerikas Savienotās Valstis</territory>
 			<territory type="US" alt="short">ASV</territory>
 			<territory type="UY">Urugvaja</territory>
@@ -8223,6 +8225,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — visas</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — saderība</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — noslēgtās</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — paplašinātās</characterLabelPattern>
@@ -8236,10 +8239,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">aktivitātes</characterLabel>
 		<characterLabel type="african_scripts">Āfrikas rakstības</characterLabel>
 		<characterLabel type="american_scripts">Amerikas rakstības</characterLabel>
+		<characterLabel type="animal">dzīvnieks</characterLabel>
 		<characterLabel type="animals_nature">dzīvnieki un daba</characterLabel>
 		<characterLabel type="arrows">bultiņas</characterLabel>
+		<characterLabel type="body">ķermenis</characterLabel>
 		<characterLabel type="box_drawing">pseidografika</characterLabel>
 		<characterLabel type="braille">Braila raksts</characterLabel>
+		<characterLabel type="building">ēka</characterLabel>
 		<characterLabel type="bullets_stars">aizzīmes/zvaigznītes</characterLabel>
 		<characterLabel type="consonantal_jamo">džamo līdzskaņi</characterLabel>
 		<characterLabel type="currency_symbols">valūtu simboli</characterLabel>
@@ -8252,6 +8258,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Austrumāzijas rakstības</characterLabel>
 		<characterLabel type="emoji">emocijzīmes</characterLabel>
 		<characterLabel type="european_scripts">Eiropas rakstības</characterLabel>
+		<characterLabel type="female">sieviete</characterLabel>
+		<characterLabel type="flag">karogs</characterLabel>
 		<characterLabel type="flags">karogi</characterLabel>
 		<characterLabel type="food_drink">ēdieni un dzērieni</characterLabel>
 		<characterLabel type="format">formāts</characterLabel>
@@ -8264,43 +8272,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">handža</characterLabel>
 		<characterLabel type="hanzi_simplified">vienkāršotie ķīniešu hieroglifi</characterLabel>
 		<characterLabel type="hanzi_traditional">tradicionālie ķīniešu hieroglifi</characterLabel>
+		<characterLabel type="heart">sirds</characterLabel>
 		<characterLabel type="historic_scripts">vēsturiskās rakstības</characterLabel>
 		<characterLabel type="ideographic_desc_characters">hieroglifus aprakstošie simboli</characterLabel>
 		<characterLabel type="japanese_kana">japāņu hana</characterLabel>
 		<characterLabel type="kanbun">kambuns</characterLabel>
 		<characterLabel type="kanji">kandži</characterLabel>
+		<characterLabel type="keycap">taustiņš</characterLabel>
 		<characterLabel type="leftwards_arrows">pa kreisi vērstās bultiņas</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">pa kreisi un pa labi vērstās bultiņas</characterLabel>
 		<characterLabel type="letterlike_symbols">burtsimboli</characterLabel>
 		<characterLabel type="limited_use">ierobežots lietojums</characterLabel>
+		<characterLabel type="male">vīrietis</characterLabel>
 		<characterLabel type="math_symbols">matemātiskie simboli</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Tuvo Austrumu rakstības</characterLabel>
 		<characterLabel type="miscellaneous">dažādi</characterLabel>
 		<characterLabel type="modern_scripts">mūsdienu rakstības</characterLabel>
 		<characterLabel type="modifier">modifikators</characterLabel>
 		<characterLabel type="musical_symbols">mūzikas simboli</characterLabel>
+		<characterLabel type="nature">daba</characterLabel>
 		<characterLabel type="nonspacing">bezplatuma</characterLabel>
 		<characterLabel type="numbers">skaitļi</characterLabel>
 		<characterLabel type="objects">objekti</characterLabel>
 		<characterLabel type="other">citas</characterLabel>
 		<characterLabel type="paired">pāru rakstzīmes</characterLabel>
+		<characterLabel type="person">persona</characterLabel>
 		<characterLabel type="phonetic_alphabet">fonētiskais alfabēts</characterLabel>
 		<characterLabel type="pictographs">piktogrammas</characterLabel>
+		<characterLabel type="place">vieta</characterLabel>
+		<characterLabel type="plant">augs</characterLabel>
 		<characterLabel type="punctuation">pieturzīmes</characterLabel>
 		<characterLabel type="rightwards_arrows">pa labi vērstās bultiņas</characterLabel>
 		<characterLabel type="sign_standard_symbols">zīmes/standarta simboli</characterLabel>
 		<characterLabel type="small_form_variant">mazo formu varianti</characterLabel>
+		<characterLabel type="smiley">smailijs</characterLabel>
 		<characterLabel type="smileys_people">smaidiņi un cilvēki</characterLabel>
 		<characterLabel type="south_asian_scripts">Dienvidāzijas rakstības</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Dienvidaustrumāzijas rakstības</characterLabel>
 		<characterLabel type="spacing">atstarpes</characterLabel>
+		<characterLabel type="sport">sports</characterLabel>
 		<characterLabel type="symbols">simboli</characterLabel>
 		<characterLabel type="technical_symbols">tehniskie simboli</characterLabel>
 		<characterLabel type="tone_marks">toņa atzīmes</characterLabel>
+		<characterLabel type="travel">ceļojums</characterLabel>
 		<characterLabel type="travel_places">ceļojumi un vietas</characterLabel>
 		<characterLabel type="upwards_arrows">augšupvērstās bultiņas</characterLabel>
 		<characterLabel type="variant_forms">variantu formas</characterLabel>
 		<characterLabel type="vocalic_jamo">skanīgie džamo</characterLabel>
+		<characterLabel type="weather">laiks</characterLabel>
 		<characterLabel type="western_asian_scripts">Rietumāzijas rakstības</characterLabel>
 		<characterLabel type="whitespace">baltstarpa</characterLabel>
 	</characterLabels>

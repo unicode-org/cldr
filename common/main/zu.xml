@@ -760,6 +760,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">i-Ukraine</territory>
 			<territory type="UG">i-Uganda</territory>
 			<territory type="UM">i-U.S. Minor Outlying Islands</territory>
+			<territory type="UN">I-United Nations</territory>
+			<territory type="UN" alt="short">ifulegi</territory>
 			<territory type="US">i-United States</territory>
 			<territory type="US" alt="short">i-U.S</territory>
 			<territory type="UY">i-Uruguay</territory>
@@ -7120,10 +7122,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Activities</characterLabel>
 		<characterLabel type="african_scripts">amaskripthi ase-Africa</characterLabel>
 		<characterLabel type="american_scripts">amaskripthi ase-America</characterLabel>
+		<characterLabel type="animal">isilwane</characterLabel>
 		<characterLabel type="animals_nature">izilwane nemvelo</characterLabel>
 		<characterLabel type="arrows">imicibisholo</characterLabel>
+		<characterLabel type="body">umzimba</characterLabel>
 		<characterLabel type="box_drawing">i-Box Drawing</characterLabel>
 		<characterLabel type="braille">i-Braille</characterLabel>
+		<characterLabel type="building">isakhiwo</characterLabel>
 		<characterLabel type="bullets_stars">Amabhulethi/izinkanyezi</characterLabel>
 		<characterLabel type="consonantal_jamo">i-Consonantal Jamo</characterLabel>
 		<characterLabel type="currency_symbols">Amasimbuli emali</characterLabel>
@@ -7136,6 +7141,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Amaskripthi ase-East Asia</characterLabel>
 		<characterLabel type="emoji">Ama-Emoji</characterLabel>
 		<characterLabel type="european_scripts">Amaskripthi ase-Europe</characterLabel>
+		<characterLabel type="female">owesfazane</characterLabel>
+		<characterLabel type="flag">ifulegi</characterLabel>
 		<characterLabel type="flags">Amafulegi</characterLabel>
 		<characterLabel type="food_drink">Ukudla neziphuzo</characterLabel>
 		<characterLabel type="format">Ifomethi</characterLabel>
@@ -7148,6 +7155,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">i-Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">i-Hanzi (Eyenziwe lula)</characterLabel>
 		<characterLabel type="hanzi_traditional">i-Hanzi (Yendabuko)</characterLabel>
+		<characterLabel type="heart">inhliziyo</characterLabel>
 		<characterLabel type="historic_scripts">Amaskripthi omlando</characterLabel>
 		<characterLabel type="ideographic_desc_characters">i-Ideographic Desc. Characters</characterLabel>
 		<characterLabel type="japanese_kana">i-Japanese Kana</characterLabel>
@@ -7157,34 +7165,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="leftwards_rightwards_arrows">Imicibisholo eya ngakwesokunxele nangakwesokudla</characterLabel>
 		<characterLabel type="letterlike_symbols">Amasimbuli ayizinhlamvu</characterLabel>
 		<characterLabel type="limited_use">ukusetshenziswa kwesikhashana</characterLabel>
+		<characterLabel type="male">owesilisa</characterLabel>
 		<characterLabel type="math_symbols">Amasimbuli ezibalo</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Amaskripthi ase-Midlle East</characterLabel>
 		<characterLabel type="miscellaneous">Okuxubile</characterLabel>
 		<characterLabel type="modern_scripts">Amaskripthi esimanje</characterLabel>
 		<characterLabel type="modifier">Okwewashi</characterLabel>
 		<characterLabel type="musical_symbols">Amasimbuli omculo</characterLabel>
+		<characterLabel type="nature">imvelo</characterLabel>
 		<characterLabel type="nonspacing">kungashiyi sikhala</characterLabel>
 		<characterLabel type="numbers">Izinombolo</characterLabel>
 		<characterLabel type="objects">Izinto</characterLabel>
 		<characterLabel type="other">Okunye</characterLabel>
 		<characterLabel type="paired">bhanqiwe</characterLabel>
+		<characterLabel type="person">umuntu</characterLabel>
 		<characterLabel type="phonetic_alphabet">izinhlamvu zefonetiki</characterLabel>
 		<characterLabel type="pictographs">amagrafu ezithombe</characterLabel>
+		<characterLabel type="place">indawo</characterLabel>
+		<characterLabel type="plant">isitshalo</characterLabel>
 		<characterLabel type="punctuation">izimpawu zokubhala</characterLabel>
 		<characterLabel type="rightwards_arrows">Imicibisholo eya ngakwesokudla</characterLabel>
 		<characterLabel type="sign_standard_symbols">Ngena ngemvume/Izimpawu ezivamile</characterLabel>
 		<characterLabel type="small_form_variant">okuncane okwahlukile</characterLabel>
+		<characterLabel type="smiley">okumoyizelayo</characterLabel>
 		<characterLabel type="smileys_people">ukumoyizela nabantu</characterLabel>
 		<characterLabel type="south_asian_scripts">Amaskripthi ase-South Asia</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Amaskripthi ase-South East Asia</characterLabel>
 		<characterLabel type="spacing">ukushiya izikhala</characterLabel>
+		<characterLabel type="sport">umdlalo</characterLabel>
 		<characterLabel type="symbols">Amasimbuli</characterLabel>
 		<characterLabel type="technical_symbols">Amasimbuli okobuchwepheshe</characterLabel>
 		<characterLabel type="tone_marks">Amamaki e-Tone</characterLabel>
+		<characterLabel type="travel">ukuvakasha</characterLabel>
 		<characterLabel type="travel_places">Ukuhamba nezindawo</characterLabel>
 		<characterLabel type="upwards_arrows">Imicibisholo ebheke phezulu</characterLabel>
 		<characterLabel type="variant_forms">Okwehlukahlukene</characterLabel>
 		<characterLabel type="vocalic_jamo">i-Vocalic Jamo</characterLabel>
+		<characterLabel type="weather">isimo sezulu</characterLabel>
 		<characterLabel type="western_asian_scripts">Amaskripthi ase-Western Asia</characterLabel>
 		<characterLabel type="whitespace">i-Whitespace</characterLabel>
 	</characterLabels>

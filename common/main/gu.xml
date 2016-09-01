@@ -970,6 +970,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">યુક્રેન</territory>
 			<territory type="UG">યુગાંડા</territory>
 			<territory type="UM">સંયુક્ત રાજ્ય આઉટલાઇંગ આયલેન્ડ્સ</territory>
+			<territory type="UN">સંયુક્ત રાષ્ટ્ર</territory>
+			<territory type="UN" alt="short">યૂએન</territory>
 			<territory type="US">સંયુકત રાજ્ય અમેરિકા</territory>
 			<territory type="US" alt="short">યુ.એસ.</territory>
 			<territory type="UY">ઉરુગ્વે</territory>
@@ -7569,6 +7571,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — તમામ</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — સુસંગતતા</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — બંધ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — વિસ્તૃત</characterLabelPattern>
@@ -7581,10 +7584,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">પ્રવૃત્તિઓ</characterLabel>
 		<characterLabel type="african_scripts">આફ્રિકન સ્ક્રિપ્ટ</characterLabel>
 		<characterLabel type="american_scripts">અમેરિકન સ્ક્રિપ્ટ</characterLabel>
+		<characterLabel type="animal">પ્રાણી</characterLabel>
 		<characterLabel type="animals_nature">પ્રાણીઓ અને કુદરત</characterLabel>
 		<characterLabel type="arrows">એરોઝ</characterLabel>
+		<characterLabel type="body">શરીર</characterLabel>
 		<characterLabel type="box_drawing">બોક્સ ડ્રોઈંગ</characterLabel>
 		<characterLabel type="braille">બ્રેઈલ</characterLabel>
+		<characterLabel type="building">બિલ્ડિંગ</characterLabel>
 		<characterLabel type="bullets_stars">બુલેટ્સ/સ્ટાર્સ</characterLabel>
 		<characterLabel type="consonantal_jamo">કોન્સોનન્ટલ જેમો</characterLabel>
 		<characterLabel type="currency_symbols">ચલણી ચિહ્નો</characterLabel>
@@ -7597,6 +7603,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">પૂર્વ એશિયન સ્ક્રિપ્ટ</characterLabel>
 		<characterLabel type="emoji">ઈમોજી</characterLabel>
 		<characterLabel type="european_scripts">યુરોપીયન સ્ક્રિપ્ટ</characterLabel>
+		<characterLabel type="female">સ્ત્રી</characterLabel>
+		<characterLabel type="flag">ઝંડો</characterLabel>
 		<characterLabel type="flags">ધ્વજ</characterLabel>
 		<characterLabel type="food_drink">આહાર અને પીણાં</characterLabel>
 		<characterLabel type="format">ફોર્મેટ</characterLabel>
@@ -7609,43 +7617,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">હાન્જા</characterLabel>
 		<characterLabel type="hanzi_simplified">હાન્ઝી (સિમ્લીફાય્ડ)</characterLabel>
 		<characterLabel type="hanzi_traditional">હાન્ઝી (ટ્રેડિશનલ)</characterLabel>
+		<characterLabel type="heart">હૃદય</characterLabel>
 		<characterLabel type="historic_scripts">ઐતિહાસિક સ્ક્રિપ્ટ</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ઈન્ડિયોગ્રાફિક દશાંશ અક્ષરો</characterLabel>
 		<characterLabel type="japanese_kana">જાપાનીઝ કાના</characterLabel>
 		<characterLabel type="kanbun">કાનબુન</characterLabel>
 		<characterLabel type="kanji">કાન્જી</characterLabel>
+		<characterLabel type="keycap">કીકેપ</characterLabel>
 		<characterLabel type="leftwards_arrows">ડાબી તરફનો એરો</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">ડાબી તરફ જમણી તરફનો એરો</characterLabel>
 		<characterLabel type="letterlike_symbols">અક્ષર આકારના ચિહ્નો</characterLabel>
 		<characterLabel type="limited_use">મર્યાદિત ઉપયોગ</characterLabel>
+		<characterLabel type="male">પુરુષ</characterLabel>
 		<characterLabel type="math_symbols">ગાણિતીક ચિહ્નો</characterLabel>
 		<characterLabel type="middle_eastern_scripts">મધ્ય પૂર્વીય સ્ક્રિપ્ટ</characterLabel>
 		<characterLabel type="miscellaneous">મિશ્ર</characterLabel>
 		<characterLabel type="modern_scripts">મોર્ડન સ્ક્રિપ્ટ</characterLabel>
 		<characterLabel type="modifier">રૂપાંતરકારી</characterLabel>
 		<characterLabel type="musical_symbols">સંગીતસંજ્ઞાઓ</characterLabel>
+		<characterLabel type="nature">પ્રકૃતિ</characterLabel>
 		<characterLabel type="nonspacing">નોનસ્પેસીંગ</characterLabel>
 		<characterLabel type="numbers">સંખ્યાઓ</characterLabel>
 		<characterLabel type="objects">વસ્તુઓ</characterLabel>
 		<characterLabel type="other">અન્ય</characterLabel>
 		<characterLabel type="paired">જોડી</characterLabel>
+		<characterLabel type="person">માણસ</characterLabel>
 		<characterLabel type="phonetic_alphabet">ફોનેટીક આલ્ફાબેટ</characterLabel>
 		<characterLabel type="pictographs">ચિત્રમયઅક્ષરો</characterLabel>
+		<characterLabel type="place">સ્થાન</characterLabel>
+		<characterLabel type="plant">ઝાડ</characterLabel>
 		<characterLabel type="punctuation">વિરામચિહ્ન</characterLabel>
 		<characterLabel type="rightwards_arrows">જમણી તરફનો એરો</characterLabel>
 		<characterLabel type="sign_standard_symbols">સહીૂ/પ્રમાણભૂત ચિહ્નો</characterLabel>
 		<characterLabel type="small_form_variant">નાના નમૂનારૂપ વેરિયન્ટ</characterLabel>
+		<characterLabel type="smiley">સ્માઇલી</characterLabel>
 		<characterLabel type="smileys_people">સ્માઈલીઝ અને લોકો</characterLabel>
 		<characterLabel type="south_asian_scripts">દક્ષિણ એશિયન સ્ક્રિપ્ટ</characterLabel>
 		<characterLabel type="southeast_asian_scripts">દક્ષિણપૂર્વીય એશિયન સ્ક્રિપ્ટ</characterLabel>
 		<characterLabel type="spacing">સ્પેસીંગ</characterLabel>
+		<characterLabel type="sport">સ્પૉર્ટ</characterLabel>
 		<characterLabel type="symbols">ચિહ્નો</characterLabel>
 		<characterLabel type="technical_symbols">ટેક્નિકલ ચિહ્નો</characterLabel>
 		<characterLabel type="tone_marks">ટોન માર્ક્સ</characterLabel>
+		<characterLabel type="travel">મુસાફરી</characterLabel>
 		<characterLabel type="travel_places">પ્રવાસ અને સ્થળો</characterLabel>
 		<characterLabel type="upwards_arrows">ઉપરની તરફનો એરો</characterLabel>
 		<characterLabel type="variant_forms">વેરિએન્ટ સ્વરૂપે</characterLabel>
 		<characterLabel type="vocalic_jamo">વોકેલિક જેમો</characterLabel>
+		<characterLabel type="weather">હવામાન</characterLabel>
 		<characterLabel type="western_asian_scripts">પશ્ચિમી એશિયન સ્ક્રિપ્ટ</characterLabel>
 		<characterLabel type="whitespace">રિક્ત સ્થાન</characterLabel>
 	</characterLabels>

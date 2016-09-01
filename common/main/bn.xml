@@ -957,6 +957,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">ইউক্রেন</territory>
 			<territory type="UG">উগান্ডা</territory>
 			<territory type="UM">যুক্তরাষ্ট্রের পার্শ্ববর্তী দ্বীপপুঞ্জ</territory>
+			<territory type="UN">জাতিসংঘ</territory>
+			<territory type="UN" alt="short">ইউএন</territory>
 			<territory type="US">মার্কিন যুক্তরাষ্ট্র</territory>
 			<territory type="US" alt="short">ইউ এস</territory>
 			<territory type="UY">উরুগুয়ে</territory>
@@ -7945,6 +7947,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — সমস্ত</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — সঙ্গতি</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — আবদ্ধ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — প্রসারিত</characterLabelPattern>
@@ -7957,10 +7960,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">কার্যকলাপ</characterLabel>
 		<characterLabel type="african_scripts">আফ্রিকান লিপি</characterLabel>
 		<characterLabel type="american_scripts">আমেরিকান লিপি</characterLabel>
+		<characterLabel type="animal">পশু</characterLabel>
 		<characterLabel type="animals_nature">জীবজন্তু ও প্রকৃতি</characterLabel>
 		<characterLabel type="arrows">তীরচিহ্ন</characterLabel>
+		<characterLabel type="body">শারীর</characterLabel>
 		<characterLabel type="box_drawing">বাক্স অঙ্কন</characterLabel>
 		<characterLabel type="braille">ব্রেইল</characterLabel>
+		<characterLabel type="building">বিলডিং</characterLabel>
 		<characterLabel type="bullets_stars">বুলেট/তারা</characterLabel>
 		<characterLabel type="consonantal_jamo">ব্যাঞ্জনবর্ণসংক্রান্ত জ্যামো</characterLabel>
 		<characterLabel type="currency_symbols">মুদ্রা প্রতীক</characterLabel>
@@ -7973,6 +7979,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">পূর্ব এশীয় লিপি</characterLabel>
 		<characterLabel type="emoji">ইমোজি</characterLabel>
 		<characterLabel type="european_scripts">ইউরোপীয় লিপি</characterLabel>
+		<characterLabel type="female">মহিলা</characterLabel>
+		<characterLabel type="flag">পাতাক</characterLabel>
 		<characterLabel type="flags">পতাকা</characterLabel>
 		<characterLabel type="food_drink">খাদ্য ও পানীয়</characterLabel>
 		<characterLabel type="format">ফর্ম্যাট</characterLabel>
@@ -7985,43 +7993,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">হানজা</characterLabel>
 		<characterLabel type="hanzi_simplified">হানজি (সরলীকৃত)</characterLabel>
 		<characterLabel type="hanzi_traditional">হানজি (চিরাচরিত)</characterLabel>
+		<characterLabel type="heart">হার্ট</characterLabel>
 		<characterLabel type="historic_scripts">ঐতিহাসিক লিপি</characterLabel>
 		<characterLabel type="ideographic_desc_characters">চিত্রলিপি বর্ণনার অক্ষর</characterLabel>
 		<characterLabel type="japanese_kana">জাপানি কানা</characterLabel>
 		<characterLabel type="kanbun">কানবান</characterLabel>
 		<characterLabel type="kanji">কানজি</characterLabel>
+		<characterLabel type="keycap">কিক্যাপ</characterLabel>
 		<characterLabel type="leftwards_arrows">বামমুখী তীর</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">বামমুখী ডানমুখী তীর</characterLabel>
 		<characterLabel type="letterlike_symbols">বর্ণের মত প্রতীক</characterLabel>
 		<characterLabel type="limited_use">সীমিত ব্যবহার</characterLabel>
+		<characterLabel type="male">পুরুষ</characterLabel>
 		<characterLabel type="math_symbols">গণিতের প্রতীক</characterLabel>
 		<characterLabel type="middle_eastern_scripts">মধ্যপ্রাচ্যের লিপি</characterLabel>
 		<characterLabel type="miscellaneous">বিবিধ</characterLabel>
 		<characterLabel type="modern_scripts">আধুনিক লিপি</characterLabel>
 		<characterLabel type="modifier">সংশোধক</characterLabel>
 		<characterLabel type="musical_symbols">সঙ্গীত বিষয়ক প্রতীক</characterLabel>
+		<characterLabel type="nature">প্রকৃতি</characterLabel>
 		<characterLabel type="nonspacing">অ-ব্যবধান</characterLabel>
 		<characterLabel type="numbers">নম্বর</characterLabel>
 		<characterLabel type="objects">বস্তু</characterLabel>
 		<characterLabel type="other">অন্য</characterLabel>
 		<characterLabel type="paired">জোড় বাঁধা</characterLabel>
+		<characterLabel type="person">ব্যক্তি</characterLabel>
 		<characterLabel type="phonetic_alphabet">ফোনেটিক বর্ণমালা</characterLabel>
 		<characterLabel type="pictographs">পিকটোগ্রাফ</characterLabel>
+		<characterLabel type="place">স্থান</characterLabel>
+		<characterLabel type="plant">চারাগাছ</characterLabel>
 		<characterLabel type="punctuation">যতিচিহ্ন</characterLabel>
 		<characterLabel type="rightwards_arrows">ডানমুখী তীর</characterLabel>
 		<characterLabel type="sign_standard_symbols">স্বাক্ষর/মানক প্রতীক</characterLabel>
 		<characterLabel type="small_form_variant">ছোট ফর্ম বিকল্প</characterLabel>
+		<characterLabel type="smiley">স্মাইলি</characterLabel>
 		<characterLabel type="smileys_people">স্মাইলি ও জনগণ</characterLabel>
 		<characterLabel type="south_asian_scripts">দক্ষিণ এশিয়ার লিপি</characterLabel>
 		<characterLabel type="southeast_asian_scripts">দক্ষিণ-পূর্ব এশিয়ার লিপি</characterLabel>
 		<characterLabel type="spacing">ব্যবধান</characterLabel>
+		<characterLabel type="sport">খেলাধুলা</characterLabel>
 		<characterLabel type="symbols">প্রতীক</characterLabel>
 		<characterLabel type="technical_symbols">প্রযুক্তিক প্রতীক</characterLabel>
 		<characterLabel type="tone_marks">টোন মার্কস</characterLabel>
+		<characterLabel type="travel">ভ্রমণ</characterLabel>
 		<characterLabel type="travel_places">ভ্রমন ও স্থান</characterLabel>
 		<characterLabel type="upwards_arrows">ঊর্ধ্বমুখী তীর</characterLabel>
 		<characterLabel type="variant_forms">বিকল্প ফর্ম</characterLabel>
 		<characterLabel type="vocalic_jamo">স্বরবর্ণসম্পর্কিত জ্যামো</characterLabel>
+		<characterLabel type="weather">আবহাওয়া</characterLabel>
 		<characterLabel type="western_asian_scripts">পশ্চিম এশিয়ার লিপি</characterLabel>
 		<characterLabel type="whitespace">হোয়াইটস্পেস</characterLabel>
 	</characterLabels>

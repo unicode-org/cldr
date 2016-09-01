@@ -972,6 +972,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">ഉക്രെയ്‌ൻ</territory>
 			<territory type="UG">ഉഗാണ്ട</territory>
 			<territory type="UM">യു.എസ്. ദ്വീപസമൂഹങ്ങൾ</territory>
+			<territory type="UN">ഐക്യരാഷ്ട്രസഭ</territory>
+			<territory type="UN" alt="short">യുഎൻ</territory>
 			<territory type="US">അമേരിക്കൻ ഐക്യനാടുകൾ</territory>
 			<territory type="US" alt="short">യു.എസ്</territory>
 			<territory type="UY">ഉറുഗ്വേ</territory>
@@ -8207,6 +8209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — എല്ലാം</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — അനുയോജ്യത</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — ഉൾപ്പെടുത്തിയവ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — വിപുലീകൃതം</characterLabelPattern>
@@ -8219,10 +8222,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">ആക്‌റ്റിവിറ്റികൾ</characterLabel>
 		<characterLabel type="african_scripts">ആഫ്രിക്കൻ ലിപികൾ</characterLabel>
 		<characterLabel type="american_scripts">അമേരിക്കൻ ലിപികൾ</characterLabel>
+		<characterLabel type="animal">മൃഗം</characterLabel>
 		<characterLabel type="animals_nature">മൃഗങ്ങളും പ്രകൃതിയും</characterLabel>
 		<characterLabel type="arrows">അമ്പടയാളങ്ങൾ</characterLabel>
+		<characterLabel type="body">ബോഡി</characterLabel>
 		<characterLabel type="box_drawing">ബോക്‌സ് ഡ്രോയിംഗ്</characterLabel>
 		<characterLabel type="braille">ബ്രെയിൽ</characterLabel>
+		<characterLabel type="building">കെട്ടിടം</characterLabel>
 		<characterLabel type="bullets_stars">ബുള്ളറ്റുകൾ/നക്ഷത്രങ്ങൾ</characterLabel>
 		<characterLabel type="consonantal_jamo">കൺസോണന്റൽ ജാമോ</characterLabel>
 		<characterLabel type="currency_symbols">നാണയ മുദ്രകൾ</characterLabel>
@@ -8235,6 +8241,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">കിഴക്കനേഷ്യൻ ലിപികൾ</characterLabel>
 		<characterLabel type="emoji">ഇമോജി</characterLabel>
 		<characterLabel type="european_scripts">യൂറോപ്യൻ ലിപികൾ</characterLabel>
+		<characterLabel type="female">സ്ത്രീ</characterLabel>
+		<characterLabel type="flag">പതാക</characterLabel>
 		<characterLabel type="flags">പതാകകൾ</characterLabel>
 		<characterLabel type="food_drink">ഭക്ഷണപാനീയങ്ങൾ</characterLabel>
 		<characterLabel type="format">ഫോർമാറ്റ്</characterLabel>
@@ -8247,43 +8255,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">ഹഞ്ഞ</characterLabel>
 		<characterLabel type="hanzi_simplified">ഹൻസി (ലളിതമാക്കിയത്)</characterLabel>
 		<characterLabel type="hanzi_traditional">ഹൻസി (പരമ്പരാഗതം)</characterLabel>
+		<characterLabel type="heart">ഹൃദയം</characterLabel>
 		<characterLabel type="historic_scripts">ചരിത്രപരമായ ലിപികൾ</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ആശയലിപി വിവരണ പ്രതീകങ്ങൾ</characterLabel>
 		<characterLabel type="japanese_kana">ജാപ്പനീസ് കാന</characterLabel>
 		<characterLabel type="kanbun">കാൻബുൺ</characterLabel>
 		<characterLabel type="kanji">കാഞ്ചി</characterLabel>
+		<characterLabel type="keycap">കീക്യാപ്പ്</characterLabel>
 		<characterLabel type="leftwards_arrows">ഇടത്തേക്ക് ചൂണ്ടുന്ന അമ്പടയാളങ്ങൾ</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">ഇടത്തേക്കും വലത്തേക്കും ചൂണ്ടുന്ന അമ്പടയാളങ്ങൾ</characterLabel>
 		<characterLabel type="letterlike_symbols">അക്ഷരസമാനമായ ചിഹ്നങ്ങൾ</characterLabel>
 		<characterLabel type="limited_use">പരിമിത ഉപയോഗം</characterLabel>
+		<characterLabel type="male">പുരുഷൻ</characterLabel>
 		<characterLabel type="math_symbols">ഗണിത ചിഹ്നങ്ങൾ</characterLabel>
 		<characterLabel type="middle_eastern_scripts">പശ്ചിമേഷ്യൻ ലിപികൾ</characterLabel>
 		<characterLabel type="miscellaneous">പലവക</characterLabel>
 		<characterLabel type="modern_scripts">ആധുനിക ലിപികൾ</characterLabel>
 		<characterLabel type="modifier">മോഡിഫയർ</characterLabel>
 		<characterLabel type="musical_symbols">മ്യൂസിക്കൽ സിംബലുകൾ</characterLabel>
+		<characterLabel type="nature">പ്രകൃതി</characterLabel>
 		<characterLabel type="nonspacing">നോൺസ്പെയ്‌സിംഗ്</characterLabel>
 		<characterLabel type="numbers">അക്കങ്ങൾ</characterLabel>
 		<characterLabel type="objects">വസ്‌തുക്കൾ</characterLabel>
 		<characterLabel type="other">മറ്റുള്ളവ</characterLabel>
 		<characterLabel type="paired">ജോടിയാക്കിയവ</characterLabel>
+		<characterLabel type="person">വ്യക്തി</characterLabel>
 		<characterLabel type="phonetic_alphabet">സ്വരസൂചക അക്ഷരമാല</characterLabel>
 		<characterLabel type="pictographs">ചിത്രലേഖകൾ</characterLabel>
+		<characterLabel type="place">സ്ഥലം</characterLabel>
+		<characterLabel type="plant">സസ്യം</characterLabel>
 		<characterLabel type="punctuation">വിരാമചിഹ്നം</characterLabel>
 		<characterLabel type="rightwards_arrows">വലത്തേക്ക് ചൂണ്ടുന്ന അമ്പടയാളങ്ങൾ</characterLabel>
 		<characterLabel type="sign_standard_symbols">അടയാള/സ്റ്റാൻഡേർഡ് ചിഹ്നങ്ങൾ</characterLabel>
 		<characterLabel type="small_form_variant">സ്മോൾ ഫോം വേരിയന്റുകൾ</characterLabel>
+		<characterLabel type="smiley">മുഖഭാവം</characterLabel>
 		<characterLabel type="smileys_people">സ്മൈലികളും ആളുകളും</characterLabel>
 		<characterLabel type="south_asian_scripts">ദക്ഷിണേഷ്യൻ ലിപികൾ</characterLabel>
 		<characterLabel type="southeast_asian_scripts">തെക്കുകിഴക്കനേഷ്യൻ ലിപികൾ</characterLabel>
 		<characterLabel type="spacing">സ്പെയ്‌സിംഗ്</characterLabel>
+		<characterLabel type="sport">സ്പോർട്സ്</characterLabel>
 		<characterLabel type="symbols">ചിഹ്നങ്ങൾ</characterLabel>
 		<characterLabel type="technical_symbols">സാങ്കേതിക ചിഹ്നങ്ങൾ</characterLabel>
 		<characterLabel type="tone_marks">ടോൺ മാർക്കുകൾ</characterLabel>
+		<characterLabel type="travel">യാത്ര</characterLabel>
 		<characterLabel type="travel_places">യാത്രയും സ്ഥലങ്ങളും</characterLabel>
 		<characterLabel type="upwards_arrows">മുകളിലേക്ക് ചൂണ്ടുന്ന അമ്പടയാളങ്ങൾ</characterLabel>
 		<characterLabel type="variant_forms">വേരിയന്റ് ഫോമുകൾ</characterLabel>
 		<characterLabel type="vocalic_jamo">വൊക്കാലിക് ജാമോ</characterLabel>
+		<characterLabel type="weather">കാലാവസ്ഥ</characterLabel>
 		<characterLabel type="western_asian_scripts">പശ്ചിമേഷ്യൻ ലിപികൾ</characterLabel>
 		<characterLabel type="whitespace">വൈറ്റ്സ്പെയ്‌സ്</characterLabel>
 	</characterLabels>

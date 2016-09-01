@@ -741,6 +741,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">អ៊ុយក្រែន</territory>
 			<territory type="UG">អ៊ូហ្គង់ដា</territory>
 			<territory type="UM">កោះ​អៅឡាយីង​អាមេរិក</territory>
+			<territory type="UN">អង្គការសហប្រជាជាតិ</territory>
+			<territory type="UN" alt="short">អង្គការ</territory>
 			<territory type="US">សហរដ្ឋអាមេរិក</territory>
 			<territory type="US" alt="short">ស.រ.អ</territory>
 			<territory type="UY">អ៊ុយរ៉ាហ្គាយ</territory>
@@ -6547,6 +6549,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — ទាំងអស់</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — ភាពត្រូវគ្នា</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — បិទជិត</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — ពង្រីក</characterLabelPattern>
@@ -6558,10 +6561,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">សកម្មភាព</characterLabel>
 		<characterLabel type="african_scripts">ក្រុមអក្សរអាហ្វ្រិក</characterLabel>
 		<characterLabel type="american_scripts">ក្រុមអក្សរអាមេរិក</characterLabel>
+		<characterLabel type="animal">សត្វពាហនៈ</characterLabel>
 		<characterLabel type="animals_nature">សត្វ និងធម្មជាតិ</characterLabel>
 		<characterLabel type="arrows">ព្រួញ</characterLabel>
+		<characterLabel type="body">ខ្លួប្រាណ</characterLabel>
 		<characterLabel type="box_drawing">ការគូរប្រអប់</characterLabel>
 		<characterLabel type="braille">ប្រែល</characterLabel>
+		<characterLabel type="building">អាគារ</characterLabel>
 		<characterLabel type="bullets_stars">ចំណុច/ផ្កាយ</characterLabel>
 		<characterLabel type="consonantal_jamo">ព្យញ្ជនៈចាម៉ូ</characterLabel>
 		<characterLabel type="currency_symbols">និមិត្តសញ្ញារូបិយប័ណ្ណ</characterLabel>
@@ -6574,6 +6580,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">ក្រុមអក្សរអាស៊ីខាងកើត</characterLabel>
 		<characterLabel type="emoji">សញ្ញាអារម្មណ៍</characterLabel>
 		<characterLabel type="european_scripts">ក្រុមអក្សរអឺរ៉ុប</characterLabel>
+		<characterLabel type="female">នារី</characterLabel>
+		<characterLabel type="flag">ទីង់</characterLabel>
 		<characterLabel type="flags">ទង់ជាតិ</characterLabel>
 		<characterLabel type="food_drink">អាហារ និងភេសជ្ជៈ</characterLabel>
 		<characterLabel type="format">ទម្រង់</characterLabel>
@@ -6586,43 +6594,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">ហានយ៉ា</characterLabel>
 		<characterLabel type="hanzi_simplified">ហានហ្ស៊ី (សាមញ្ញ)</characterLabel>
 		<characterLabel type="hanzi_traditional">ហានហ្ស៊ី (ប្រពៃណី)</characterLabel>
+		<characterLabel type="heart">បេះដូង</characterLabel>
 		<characterLabel type="historic_scripts">អក្សរជាប្រវត្តិសាស្ត្រ</characterLabel>
 		<characterLabel type="ideographic_desc_characters">តួអក្សរពិពណ៌នារូបសញ្ញា</characterLabel>
 		<characterLabel type="japanese_kana">អក្សរខាណាជប៉ុន</characterLabel>
 		<characterLabel type="kanbun">កានប៊ុន</characterLabel>
 		<characterLabel type="kanji">កានជី</characterLabel>
+		<characterLabel type="keycap">គម្របគ្រាប់ចុច</characterLabel>
 		<characterLabel type="leftwards_arrows">ព្រួញទៅឆ្វេង</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">ព្រួញទៅឆ្វេងស្តាំ</characterLabel>
 		<characterLabel type="letterlike_symbols">និមិត្តសញ្ញាដូចតួអក្សរ</characterLabel>
 		<characterLabel type="limited_use">ប្រើមានកំណត់</characterLabel>
+		<characterLabel type="male">បុរស</characterLabel>
 		<characterLabel type="math_symbols">និមិត្តសញ្ញាគណិតវិទ្យា</characterLabel>
 		<characterLabel type="middle_eastern_scripts">ក្រុមអក្សរមជ្ឈិមបូព៌ា</characterLabel>
 		<characterLabel type="miscellaneous">ផ្សេងៗ</characterLabel>
 		<characterLabel type="modern_scripts">អក្សរសម័យទំនើប</characterLabel>
 		<characterLabel type="modifier">អង្គបញ្ជាក់ន័យ</characterLabel>
 		<characterLabel type="musical_symbols">និមិត្តសញ្ញាតន្ត្រី</characterLabel>
+		<characterLabel type="nature">ធម្មជាតិ</characterLabel>
 		<characterLabel type="nonspacing">មិនដកឃ្លា</characterLabel>
 		<characterLabel type="numbers">លេខ</characterLabel>
 		<characterLabel type="objects">កម្មបទ</characterLabel>
 		<characterLabel type="other">ផ្សេងទៀត</characterLabel>
 		<characterLabel type="paired">ផ្គូផ្គង</characterLabel>
+		<characterLabel type="person">មនុស្ស</characterLabel>
 		<characterLabel type="phonetic_alphabet">អក្ខរក្រមសូរសព្ទ</characterLabel>
 		<characterLabel type="pictographs">អក្សររូប</characterLabel>
+		<characterLabel type="place">ទីកន្លែង</characterLabel>
+		<characterLabel type="plant">រុក្ខជាតិ</characterLabel>
 		<characterLabel type="punctuation">វិធីប្រើវណ្ណយុត្ដ</characterLabel>
 		<characterLabel type="rightwards_arrows">ព្រួញទៅស្តាំ</characterLabel>
 		<characterLabel type="sign_standard_symbols">សញ្ញា/និមិត្តសញ្ញាបទដ្ឋាន</characterLabel>
 		<characterLabel type="small_form_variant">វ៉ារ្យ៉ង់ទម្រង់តូច</characterLabel>
+		<characterLabel type="smiley">ញញឺម</characterLabel>
 		<characterLabel type="smileys_people">រូបសញ្ញាសើច និងមនុស្ស</characterLabel>
 		<characterLabel type="south_asian_scripts">ក្រុមអក្សរអាស៊ីអាគ្នេយ៍ខាងត្បូង</characterLabel>
 		<characterLabel type="southeast_asian_scripts">ក្រុមអក្សរអាស៊ីអាគ្នេយ៍</characterLabel>
 		<characterLabel type="spacing">ដកឃ្លា</characterLabel>
+		<characterLabel type="sport">កីឡា</characterLabel>
 		<characterLabel type="symbols">និមិត្តសញ្ញា</characterLabel>
 		<characterLabel type="technical_symbols">និមិត្តសញ្ញាបច្ចេកទេស</characterLabel>
 		<characterLabel type="tone_marks">សញ្ញាសំឡេង</characterLabel>
+		<characterLabel type="travel">ធ្វើដំណើរ</characterLabel>
 		<characterLabel type="travel_places">ដំណើរកម្សាន្ត និងទីកន្លែង</characterLabel>
 		<characterLabel type="upwards_arrows">ព្រួញឡើងលើ</characterLabel>
 		<characterLabel type="variant_forms">ទម្រង់វ៉ារ្យ៉ង់</characterLabel>
 		<characterLabel type="vocalic_jamo">ស្រៈចាម៉ូ</characterLabel>
+		<characterLabel type="weather">អាកាសធាតុ</characterLabel>
 		<characterLabel type="western_asian_scripts">ក្រុមអក្សរអាស៊ីខាងលិច</characterLabel>
 		<characterLabel type="whitespace">ចន្លោះ</characterLabel>
 	</characterLabels>

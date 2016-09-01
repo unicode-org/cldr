@@ -977,6 +977,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Україна</territory>
 			<territory type="UG">Уганда</territory>
 			<territory type="UM">Віддалені острови США</territory>
+			<territory type="UN">Організація Об’єднаних Націй</territory>
+			<territory type="UN" alt="short">ООН</territory>
 			<territory type="US">США</territory>
 			<territory type="US" alt="short">США</territory>
 			<territory type="UY">Уругвай</territory>
@@ -9801,6 +9803,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — усі</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — сумісні</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — вкладені</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — розширені</characterLabelPattern>
@@ -9815,10 +9818,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Заняття</characterLabel>
 		<characterLabel type="african_scripts">Африканські шрифти</characterLabel>
 		<characterLabel type="american_scripts">Американські шрифти</characterLabel>
+		<characterLabel type="animal">тварина</characterLabel>
 		<characterLabel type="animals_nature" draft="provisional">Тварини й природа</characterLabel>
 		<characterLabel type="arrows">Стрілки</characterLabel>
+		<characterLabel type="body">тіло</characterLabel>
 		<characterLabel type="box_drawing">Псевдографіка</characterLabel>
 		<characterLabel type="braille">Шрифт Брайля</characterLabel>
+		<characterLabel type="building">будівля</characterLabel>
 		<characterLabel type="bullets_stars">Маркери/зірочки</characterLabel>
 		<characterLabel type="consonantal_jamo">Корейські приголосні</characterLabel>
 		<characterLabel type="currency_symbols">Символи валют</characterLabel>
@@ -9831,6 +9837,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Східноазіатські шрифти</characterLabel>
 		<characterLabel type="emoji">Емодзі</characterLabel>
 		<characterLabel type="european_scripts">Європейські шрифти</characterLabel>
+		<characterLabel type="female">жінка</characterLabel>
+		<characterLabel type="flag">прапор</characterLabel>
 		<characterLabel type="flags">Прапори</characterLabel>
 		<characterLabel type="food_drink">Їжа і напої</characterLabel>
 		<characterLabel type="format">Форматування</characterLabel>
@@ -9843,28 +9851,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Ханча</characterLabel>
 		<characterLabel type="hanzi_simplified">Китайська (спрощена)</characterLabel>
 		<characterLabel type="hanzi_traditional">Китайська (традиційна)</characterLabel>
+		<characterLabel type="heart">серце</characterLabel>
 		<characterLabel type="historic_scripts">Історичні шрифти</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Символи опису ієрогліфів</characterLabel>
 		<characterLabel type="japanese_kana">Японська кана</characterLabel>
 		<characterLabel type="kanbun">Камбун</characterLabel>
 		<characterLabel type="kanji">Кандзі</characterLabel>
+		<characterLabel type="keycap">клавіша</characterLabel>
 		<characterLabel type="leftwards_arrows">Стрілки вліво</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Стрілки вправо-вліво</characterLabel>
 		<characterLabel type="letterlike_symbols">Буквоподібні символи</characterLabel>
 		<characterLabel type="limited_use">Обмежене використання</characterLabel>
+		<characterLabel type="male">чоловік</characterLabel>
 		<characterLabel type="math_symbols">Математичні символи</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Шрифти Середнього Сходу</characterLabel>
 		<characterLabel type="miscellaneous">Різне</characterLabel>
 		<characterLabel type="modern_scripts">Сучасні шрифти</characterLabel>
 		<characterLabel type="modifier">Модифікатор</characterLabel>
 		<characterLabel type="musical_symbols">Музичні символи</characterLabel>
+		<characterLabel type="nature">природа</characterLabel>
 		<characterLabel type="nonspacing">Нерозривні</characterLabel>
 		<characterLabel type="numbers">Числа</characterLabel>
 		<characterLabel type="objects">Обʼєкти</characterLabel>
 		<characterLabel type="other">Інше</characterLabel>
 		<characterLabel type="paired">Парні</characterLabel>
+		<characterLabel type="person">людина</characterLabel>
 		<characterLabel type="phonetic_alphabet">Фонетичний алфавіт</characterLabel>
 		<characterLabel type="pictographs">Піктограми</characterLabel>
+		<characterLabel type="place">місце</characterLabel>
+		<characterLabel type="plant">рослина</characterLabel>
 		<characterLabel type="punctuation">Пунктуаційні знаки</characterLabel>
 		<characterLabel type="rightwards_arrows">Стрілки вправо</characterLabel>
 		<characterLabel type="sign_standard_symbols">Знаки/стандартні символи</characterLabel>
@@ -9873,13 +9888,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="south_asian_scripts">Південноазіатські шрифти</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Південносхідні азіатські шрифти</characterLabel>
 		<characterLabel type="spacing">Пробіли</characterLabel>
+		<characterLabel type="sport">спорт</characterLabel>
 		<characterLabel type="symbols">Символи</characterLabel>
 		<characterLabel type="technical_symbols">Технічні символи</characterLabel>
 		<characterLabel type="tone_marks">Діактричні знаки</characterLabel>
+		<characterLabel type="travel">подорож</characterLabel>
 		<characterLabel type="travel_places">Подорожі й місця</characterLabel>
 		<characterLabel type="upwards_arrows">Стрілки вгору</characterLabel>
 		<characterLabel type="variant_forms">Варіантні форми</characterLabel>
 		<characterLabel type="vocalic_jamo">Корейські голосні</characterLabel>
+		<characterLabel type="weather">погода</characterLabel>
 		<characterLabel type="western_asian_scripts">Західноазіатські шрифти</characterLabel>
 		<characterLabel type="whitespace">Пробіл</characterLabel>
 	</characterLabels>

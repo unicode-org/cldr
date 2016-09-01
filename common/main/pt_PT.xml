@@ -170,6 +170,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TM">Turquemenistão</territory>
 			<territory type="TT">Trindade e Tobago</territory>
 			<territory type="UM">Ilhas Menores Afastadas dos EUA</territory>
+			<territory type="UN">Nações Unidas</territory>
+			<territory type="UN" alt="short">ONU</territory>
 			<territory type="UZ">Usbequistão</territory>
 			<territory type="VN">Vietname</territory>
 			<territory type="YE">Iémen</territory>
@@ -2983,6 +2985,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</units>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} – tudo</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} – compatibilidade</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} – incluso</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} – estendido</characterLabelPattern>
@@ -2990,8 +2993,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="miscellaneous">{0} – diversos</characterLabelPattern>
 		<characterLabelPattern type="other">{0} – outro</characterLabelPattern>
 		<characterLabelPattern type="scripts">{0} – escritas</characterLabelPattern>
+		<characterLabel type="animal">animal</characterLabel>
+		<characterLabel type="body">corpo</characterLabel>
+		<characterLabel type="building">edifício</characterLabel>
+		<characterLabel type="emoji">emoji</characterLabel>
+		<characterLabel type="female">feminino</characterLabel>
+		<characterLabel type="flag">bandeira</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (simplificado)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (tradicional)</characterLabel>
+		<characterLabel type="heart">coração</characterLabel>
+		<characterLabel type="keycap">tecla</characterLabel>
+		<characterLabel type="male">masculino</characterLabel>
+		<characterLabel type="nature">natureza</characterLabel>
+		<characterLabel type="person">pessoa</characterLabel>
+		<characterLabel type="place">lugar</characterLabel>
+		<characterLabel type="plant">planta</characterLabel>
 		<characterLabel type="sign_standard_symbols">Símbolos de sinalização</characterLabel>
+		<characterLabel type="smiley">cara sorridente</characterLabel>
+		<characterLabel type="sport">desporto</characterLabel>
+		<characterLabel type="travel">viajar</characterLabel>
+		<characterLabel type="weather">tempo</characterLabel>
 	</characterLabels>
 </ldml>

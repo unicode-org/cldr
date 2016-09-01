@@ -754,6 +754,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">ਯੂਕਰੇਨ</territory>
 			<territory type="UG">ਯੂਗਾਂਡਾ</territory>
 			<territory type="UM">ਯੂ.ਐੱਸ. ਦੂਰ-ਦੁਰਾਡੇ ਟਾਪੂ</territory>
+			<territory type="UN">ਸੰਯੁਕਤ ਰਾਸ਼ਟਰ</territory>
+			<territory type="UN" alt="short">ਯੂ.ਐੱਨ.</territory>
 			<territory type="US">ਸੰਯੁਕਤ ਰਾਜ</territory>
 			<territory type="US" alt="short">ਯੂ.ਐੱਸ.</territory>
 			<territory type="UY">ਉਰੂਗਵੇ</territory>
@@ -7823,6 +7825,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — ਸਭ</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — ਅਨੁਰੂਪਤਾ</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — ਨੱਥੀ ਕੀਤਾ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — ਵਿਸਤ੍ਰਿਤ</characterLabelPattern>
@@ -7835,10 +7838,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">ਸਰਗਰਮੀਆਂ</characterLabel>
 		<characterLabel type="african_scripts">ਅਫਰੀਕਨ ਲਿੱਪੀਆਂ</characterLabel>
 		<characterLabel type="american_scripts">ਅਮਰੀਕੀ ਲਿੱਪੀਆਂ</characterLabel>
+		<characterLabel type="animal">ਜਾਨਵਰ</characterLabel>
 		<characterLabel type="animals_nature">ਪਸ਼ੂ ਅਤੇ ਕੁਦਰਤ</characterLabel>
 		<characterLabel type="arrows">ਤੀਰ</characterLabel>
+		<characterLabel type="body">ਸਰੀਰ</characterLabel>
 		<characterLabel type="box_drawing">ਬਾਕਸ ਡਰਾਇੰਗ</characterLabel>
 		<characterLabel type="braille">ਬ੍ਰੇਲ</characterLabel>
+		<characterLabel type="building">ਇਮਾਰਤ</characterLabel>
 		<characterLabel type="bullets_stars">ਬਿੰਦੀਆਂ/ਤਾਰੇ</characterLabel>
 		<characterLabel type="consonantal_jamo">ਵਿਅੰਜਨਾਤਮਕ ਜਾਮੋ</characterLabel>
 		<characterLabel type="currency_symbols">ਮੁਦਰਾ ਚਿੰਨ੍ਹ</characterLabel>
@@ -7851,6 +7857,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">ਪੂਰਬੀ ਏਸ਼ੀਆਈ ਲਿੱਪੀਆਂ</characterLabel>
 		<characterLabel type="emoji">ਇਮੋਜੀ</characterLabel>
 		<characterLabel type="european_scripts">ਯੂਰਪੀ ਲਿੱਪੀਆਂ</characterLabel>
+		<characterLabel type="female">ਔਰਤ</characterLabel>
+		<characterLabel type="flag">ਝੰਡਾ</characterLabel>
 		<characterLabel type="flags">ਝੰਡੇ</characterLabel>
 		<characterLabel type="food_drink">ਭੋਜਨ ਅਤੇ ਪੇਅ ਪਦਾਰਥ</characterLabel>
 		<characterLabel type="format">ਬਣਤਰ</characterLabel>
@@ -7863,43 +7871,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">ਹਾਂਜਾ</characterLabel>
 		<characterLabel type="hanzi_simplified">ਹਾਂਜ਼ੀ (ਸਰਲ)</characterLabel>
 		<characterLabel type="hanzi_traditional">ਹਾਂਜ਼ੀ (ਰਿਵਾਇਤੀ)</characterLabel>
+		<characterLabel type="heart">ਦਿਲ</characterLabel>
 		<characterLabel type="historic_scripts">ਇਤਿਹਾਸਕ ਲਿੱਪੀਆਂ</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ਇਡਿਓਗ੍ਰਾਫਿਕ ਵੇਰਵਾ ਅੱਖਰ</characterLabel>
 		<characterLabel type="japanese_kana">ਜਪਾਨੀ ਕਾਨਾ</characterLabel>
 		<characterLabel type="kanbun">ਕਾਨਬੁਨ (ਚੀਨੀ ਕਲਾਸਿਕ)</characterLabel>
 		<characterLabel type="kanji">ਕਾਂਜੀ</characterLabel>
+		<characterLabel type="keycap">ਕੀਕੈਪ</characterLabel>
 		<characterLabel type="leftwards_arrows">ਖੱਬੇ ਪਾਸੇ ਵੱਲ ਤੀਰ</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">ਖੱਬੇ ਪਾਸੇ ਅਤੇ ਸੱਜੇ ਪਾਸੇ ਵੱਲ ਤੀਰ</characterLabel>
 		<characterLabel type="letterlike_symbols">ਸ਼ਾਬਦਿਕ ਚਿੰਨ੍ਹ</characterLabel>
 		<characterLabel type="limited_use">ਸੀਮਿਤ ਵਰਤੋਂ</characterLabel>
+		<characterLabel type="male">ਪੁਰਸ਼</characterLabel>
 		<characterLabel type="math_symbols">ਗਣਿਤ ਚਿੰਨ੍ਹ</characterLabel>
 		<characterLabel type="middle_eastern_scripts">ਮੱਧ ਪੂਰਬੀ ਲਿੱਪੀਆਂ</characterLabel>
 		<characterLabel type="miscellaneous">ਫੁਟਕਲ</characterLabel>
 		<characterLabel type="modern_scripts">ਆਧੁਨਿਕ ਲਿੱਪੀਆਂ</characterLabel>
 		<characterLabel type="modifier">ਵਿਸ਼ੇਸ਼ਕ</characterLabel>
 		<characterLabel type="musical_symbols">ਸੰਗੀਤ ਚਿੰਨ੍ਹ</characterLabel>
+		<characterLabel type="nature">ਕੁਦਰਤ</characterLabel>
 		<characterLabel type="nonspacing">ਵਿੱਥ ਰਹਿਤ</characterLabel>
 		<characterLabel type="numbers">ਸੰਖਿਆਵਾਂ</characterLabel>
 		<characterLabel type="objects">ਔਬਜੈਕਟ</characterLabel>
 		<characterLabel type="other">ਹੋਰ</characterLabel>
 		<characterLabel type="paired">ਜੋੜਾ ਬਣਾਏ ਗਏ</characterLabel>
+		<characterLabel type="person">ਵਿਅਕਤੀ</characterLabel>
 		<characterLabel type="phonetic_alphabet">ਧੁਨੀਆਤਮਿਕ ਵਰਣਮਾਲਾ</characterLabel>
 		<characterLabel type="pictographs">ਚਿੱਤਰ-ਸੰਕੇਤ</characterLabel>
+		<characterLabel type="place">ਸਥਾਨ</characterLabel>
+		<characterLabel type="plant">ਪੌਦਾ</characterLabel>
 		<characterLabel type="punctuation">ਵਿਸ਼ਰਾਮ ਚਿੰਨ੍ਹ</characterLabel>
 		<characterLabel type="rightwards_arrows">ਸੱਜੇ ਪਾਸੇ ਵੱਲ ਤੀਰ</characterLabel>
 		<characterLabel type="sign_standard_symbols">ਪ੍ਰਤੀਕ/ਮਿਆਰੀ ਚਿੰਨ੍ਹ</characterLabel>
 		<characterLabel type="small_form_variant">ਛੋਟੇ ਰੂਪ ਦੇ ਰੂਪਾਂਤਰ</characterLabel>
+		<characterLabel type="smiley">ਸਮਾਈਲੀ</characterLabel>
 		<characterLabel type="smileys_people">ਸਮਾਇਲੀ ਅਤੇ ਲੋਕ</characterLabel>
 		<characterLabel type="south_asian_scripts">ਦੱਖਣੀ ਏਸ਼ੀਆਈ ਲਿੱਪੀਆਂ</characterLabel>
 		<characterLabel type="southeast_asian_scripts">ਦੱਖਣ-ਪੂਰਬੀ ਏਸ਼ੀਆਈ ਲਿੱਪੀਆਂ</characterLabel>
 		<characterLabel type="spacing">ਵਿੱਥ</characterLabel>
+		<characterLabel type="sport">ਖੇਡ</characterLabel>
 		<characterLabel type="symbols">ਚਿੰਨ੍ਹ</characterLabel>
 		<characterLabel type="technical_symbols">ਤਕਨੀਕੀ ਚਿੰਨ੍ਹ</characterLabel>
 		<characterLabel type="tone_marks">ਧੁਨੀ ਨਿਸ਼ਾਨ</characterLabel>
+		<characterLabel type="travel">ਯਾਤਰਾ</characterLabel>
 		<characterLabel type="travel_places">ਯਾਤਰਾ ਅਤੇ ਸਥਾਨ</characterLabel>
 		<characterLabel type="upwards_arrows">ਉੱਪਰ ਵੱਲ ਤੀਰ</characterLabel>
 		<characterLabel type="variant_forms">ਭਿੰਨ ਰੂਪ</characterLabel>
 		<characterLabel type="vocalic_jamo">ਵੋਕੈਲਿਕ ਜਾਮੋ</characterLabel>
+		<characterLabel type="weather">ਮੌਸਮ</characterLabel>
 		<characterLabel type="western_asian_scripts">ਪੱਛਮੀ ਏਸ਼ੀਆਈ ਲਿੱਪੀਆਂ</characterLabel>
 		<characterLabel type="whitespace">ਵ੍ਹਾਈਟ ਸਪੇਸ</characterLabel>
 	</characterLabels>

@@ -921,6 +921,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Úkraína</territory>
 			<territory type="UG">Úganda</territory>
 			<territory type="UM">Smáeyjar Bandaríkjanna</territory>
+			<territory type="UN">Sameinuðu þjóðirnar</territory>
+			<territory type="UN" alt="short">Sameinuðu þjóðirnar</territory>
 			<territory type="US">Bandaríkin</territory>
 			<territory type="US" alt="short">BNA</territory>
 			<territory type="UY">Úrúgvæ</territory>
@@ -7403,4 +7405,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr>nei:n</nostr>
 		</messages>
 	</posix>
+	<characterLabels>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
+		<characterLabel type="animal">dýr</characterLabel>
+		<characterLabel type="body">líkami</characterLabel>
+		<characterLabel type="building">bygging</characterLabel>
+		<characterLabel type="emoji">emoji</characterLabel>
+		<characterLabel type="female">kona</characterLabel>
+		<characterLabel type="flag">fáni</characterLabel>
+		<characterLabel type="heart">hjarta</characterLabel>
+		<characterLabel type="keycap">takki</characterLabel>
+		<characterLabel type="male">karl</characterLabel>
+		<characterLabel type="nature">náttúra</characterLabel>
+		<characterLabel type="person">manneskja</characterLabel>
+		<characterLabel type="place">staður</characterLabel>
+		<characterLabel type="plant">planta</characterLabel>
+		<characterLabel type="smiley">broskarl</characterLabel>
+		<characterLabel type="sport">íþróttir</characterLabel>
+		<characterLabel type="travel">ferðalög</characterLabel>
+		<characterLabel type="weather">veður</characterLabel>
+	</characterLabels>
 </ldml>

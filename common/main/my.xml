@@ -769,6 +769,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">ယူကရိန်း</territory>
 			<territory type="UG">ယူဂန်းဒါး</territory>
 			<territory type="UM">ယူနိုက်တက်စတိတ် ကျွန်းနိုင်ငံများ</territory>
+			<territory type="UN">ကုလသမဂ္ဂ</territory>
+			<territory type="UN" alt="short">ကုလသမဂ္ဂ</territory>
 			<territory type="US">ယူနိုက်တက်စတိတ်</territory>
 			<territory type="US" alt="short">ယူအက်စ်</territory>
 			<territory type="UY">ဥရုဂွေး</territory>
@@ -6683,6 +6685,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — အားလုံး</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0} − {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — တွဲဖက်သုံးနိုင်သော</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — ပူးတွဲပါ</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — နောက်တိုး</characterLabelPattern>
@@ -6694,10 +6697,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">လုပ်ဆောင်ချက်</characterLabel>
 		<characterLabel type="african_scripts">အာဖရိက လက်ရေးမူ</characterLabel>
 		<characterLabel type="american_scripts">အမေရိကန် လက်ရေးမူ</characterLabel>
+		<characterLabel type="animal">တိရိစ္ဆာန်</characterLabel>
 		<characterLabel type="animals_nature">တိရစ္ဆာန်နှင့် သဘာဝ</characterLabel>
 		<characterLabel type="arrows">မြား</characterLabel>
+		<characterLabel type="body">ကိုယ်ခန္ဓာ</characterLabel>
 		<characterLabel type="box_drawing">ကွန်ပျူတာလက်ရေးမူ</characterLabel>
 		<characterLabel type="braille">မျက်မမြင်စာ</characterLabel>
+		<characterLabel type="building">အဆောက်အအုံ</characterLabel>
 		<characterLabel type="bullets_stars">ဘူးလက်/စတား</characterLabel>
 		<characterLabel type="consonantal_jamo">ဗျည်းသံ</characterLabel>
 		<characterLabel type="currency_symbols">ငွေကြေးသင်္ကေတ</characterLabel>
@@ -6710,6 +6716,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">အရှေ့အာရှ လက်ရေးမူ</characterLabel>
 		<characterLabel type="emoji">အီမို</characterLabel>
 		<characterLabel type="european_scripts">ဥရောပ လက်ရေးမူ</characterLabel>
+		<characterLabel type="female">အမ</characterLabel>
+		<characterLabel type="flag">အလံ</characterLabel>
 		<characterLabel type="flags">အလံ</characterLabel>
 		<characterLabel type="food_drink">အစားအသောက်</characterLabel>
 		<characterLabel type="format">ဖော်မက်</characterLabel>
@@ -6722,43 +6730,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">ဟန်ဂျ</characterLabel>
 		<characterLabel type="hanzi_simplified">ဟန်ဇီ (ရိုးရှင်း)</characterLabel>
 		<characterLabel type="hanzi_traditional">ဟန်ဇီ (ရိုးရာ)</characterLabel>
+		<characterLabel type="heart">အသည်းနှလုံး</characterLabel>
 		<characterLabel type="historic_scripts">ရှေးဟောင်း လက်ရေးမူ</characterLabel>
 		<characterLabel type="ideographic_desc_characters">ယူနီကုတ် အက္ခရာ</characterLabel>
 		<characterLabel type="japanese_kana">ဂျပန် ခန အက္ခရာ</characterLabel>
 		<characterLabel type="kanbun">တရုတ်ရိုးရာ ရေးဟန်</characterLabel>
 		<characterLabel type="kanji">ဂျပန် လက်ရေးမူ</characterLabel>
+		<characterLabel type="keycap">ခလုတ်</characterLabel>
 		<characterLabel type="leftwards_arrows">ဘယ်ညွှန်မြား</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">ဘယ်ညာ ညွှန်မြား</characterLabel>
 		<characterLabel type="letterlike_symbols">စာသုံးသင်္ကေတ</characterLabel>
 		<characterLabel type="limited_use">အသုံးနည်း</characterLabel>
+		<characterLabel type="male">အဖို</characterLabel>
 		<characterLabel type="math_symbols">ဂဏန်းသင်္ကေတ</characterLabel>
 		<characterLabel type="middle_eastern_scripts">အရှေ့အလယ်ပိုင်း လက်ရေးမူ</characterLabel>
 		<characterLabel type="miscellaneous">အထွေထွေ</characterLabel>
 		<characterLabel type="modern_scripts">ခေတ်သစ်လက်ရေးမူ</characterLabel>
 		<characterLabel type="modifier">အထူးပြု</characterLabel>
 		<characterLabel type="musical_symbols">ဂီတသင်္ကေတ</characterLabel>
+		<characterLabel type="nature">သဘာဝ</characterLabel>
 		<characterLabel type="nonspacing">စာလုံးမခြား</characterLabel>
 		<characterLabel type="numbers">နံပါတ်</characterLabel>
 		<characterLabel type="objects">အရာ</characterLabel>
 		<characterLabel type="other">အခြား</characterLabel>
 		<characterLabel type="paired">အတွဲ</characterLabel>
+		<characterLabel type="person">လူ</characterLabel>
 		<characterLabel type="phonetic_alphabet">အသံထွက်အညွှန်းပြအက္ခရာ</characterLabel>
 		<characterLabel type="pictographs">ပုံပြဂရပ်ဖ်</characterLabel>
+		<characterLabel type="place">နေရာ</characterLabel>
+		<characterLabel type="plant">အပင်</characterLabel>
 		<characterLabel type="punctuation">ပုဒ်ဖြတ်ပုဒ်ရပ်</characterLabel>
 		<characterLabel type="rightwards_arrows">ညာညွှန်မြား</characterLabel>
 		<characterLabel type="sign_standard_symbols">စံထားသော ဆိုင်းသင်္ကေတ</characterLabel>
 		<characterLabel type="small_form_variant">ယူနီကုတ်သုံး အက္ခရာအသေးမူကွဲပုံစံ</characterLabel>
+		<characterLabel type="smiley">အပြုံးပုံ</characterLabel>
 		<characterLabel type="smileys_people">လူရုပ်ပြအီမို</characterLabel>
 		<characterLabel type="south_asian_scripts">တောင်အာရှ လက်ရေးမူ</characterLabel>
 		<characterLabel type="southeast_asian_scripts">အရှေ့တောင်အာရှ လက်ရေးမူ</characterLabel>
 		<characterLabel type="spacing">စာလုံးခြား</characterLabel>
+		<characterLabel type="sport">အားကစား</characterLabel>
 		<characterLabel type="symbols">သင်္ကေတ</characterLabel>
 		<characterLabel type="technical_symbols">စက်သုံးသင်္ကေတ</characterLabel>
 		<characterLabel type="tone_marks">အသံနိမ့်မြင့်အမှတ်အသား</characterLabel>
+		<characterLabel type="travel">ခရီးသွား</characterLabel>
 		<characterLabel type="travel_places">ခရီးသွားခြင်းနှင့်နေရာများ</characterLabel>
 		<characterLabel type="upwards_arrows">အပေါ်ညွှန်မြား</characterLabel>
 		<characterLabel type="variant_forms">မူကွဲများ</characterLabel>
 		<characterLabel type="vocalic_jamo">သရသံ</characterLabel>
+		<characterLabel type="weather">မိုးလေဝသ</characterLabel>
 		<characterLabel type="western_asian_scripts">အနောက်အာရှ လက်ရေးမူ</characterLabel>
 		<characterLabel type="whitespace">စာလုံးခြားကွက်လပ်</characterLabel>
 	</characterLabels>

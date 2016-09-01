@@ -1088,6 +1088,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukrayna</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">ABD Uzak Adaları</territory>
+			<territory type="UN">Birleşmiş Milletler</territory>
+			<territory type="UN" alt="short">BM</territory>
 			<territory type="US">Amerika Birleşik Devletleri</territory>
 			<territory type="US" alt="short">ABD</territory>
 			<territory type="UY">Uruguay</territory>
@@ -8969,6 +8971,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Tümü</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Uyumluluk</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Etrafı Çevrilmiş</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Genişletilmiş</characterLabelPattern>
@@ -8981,10 +8984,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Aktivite</characterLabel>
 		<characterLabel type="african_scripts">Afrika Alfabeleri</characterLabel>
 		<characterLabel type="american_scripts">Amerikan Alfabeleri</characterLabel>
+		<characterLabel type="animal">hayvan</characterLabel>
 		<characterLabel type="animals_nature">Hayvanlar ve Doğa</characterLabel>
 		<characterLabel type="arrows">Oklar</characterLabel>
+		<characterLabel type="body">beden</characterLabel>
 		<characterLabel type="box_drawing">Kutu Çizimi</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">bina</characterLabel>
 		<characterLabel type="bullets_stars">Madde İmleri/Yıldızlar</characterLabel>
 		<characterLabel type="consonantal_jamo">Sessiz Jamo</characterLabel>
 		<characterLabel type="currency_symbols">Para Birimleri</characterLabel>
@@ -8997,6 +9003,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Doğu Asya Alfabeleri</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Avrupa Alfabeleri</characterLabel>
+		<characterLabel type="female">kadın</characterLabel>
+		<characterLabel type="flag">bayrak</characterLabel>
 		<characterLabel type="flags">Bayraklar</characterLabel>
 		<characterLabel type="food_drink">Yiyecek ve İçecek</characterLabel>
 		<characterLabel type="format">Biçim</characterLabel>
@@ -9009,43 +9017,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (Basitleştirilmiş)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (Geleneksel)</characterLabel>
+		<characterLabel type="heart">kalp</characterLabel>
 		<characterLabel type="historic_scripts">Tarihi Alfabeler</characterLabel>
 		<characterLabel type="ideographic_desc_characters">İdeo Grafik Tanımlı Karakterler</characterLabel>
 		<characterLabel type="japanese_kana">Japonca Kana</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">tuş</characterLabel>
 		<characterLabel type="leftwards_arrows">Sola Oklar</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Sola Sağa Oklar</characterLabel>
 		<characterLabel type="letterlike_symbols">Harf Gibi Semboller</characterLabel>
 		<characterLabel type="limited_use">Sınırlı Kullanım</characterLabel>
+		<characterLabel type="male">erkek</characterLabel>
 		<characterLabel type="math_symbols">Matematik Sembolleri</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Orta Doğu Alfabeleri</characterLabel>
 		<characterLabel type="miscellaneous">Çeşitli</characterLabel>
 		<characterLabel type="modern_scripts">Modern Alfabeler</characterLabel>
 		<characterLabel type="modifier">Değiştirici</characterLabel>
 		<characterLabel type="musical_symbols">Müzik Sembolleri</characterLabel>
+		<characterLabel type="nature">doğa</characterLabel>
 		<characterLabel type="nonspacing">Boşluksuz</characterLabel>
 		<characterLabel type="numbers">Rakamlar</characterLabel>
 		<characterLabel type="objects">Nesneler</characterLabel>
 		<characterLabel type="other">Diğer</characterLabel>
 		<characterLabel type="paired">Eşli</characterLabel>
+		<characterLabel type="person">kişi</characterLabel>
 		<characterLabel type="phonetic_alphabet">Fonetik Alfabe</characterLabel>
 		<characterLabel type="pictographs">Piktograflar</characterLabel>
+		<characterLabel type="place">yer</characterLabel>
+		<characterLabel type="plant">bitki</characterLabel>
 		<characterLabel type="punctuation">Noktalama</characterLabel>
 		<characterLabel type="rightwards_arrows">Sağa Oklar</characterLabel>
 		<characterLabel type="sign_standard_symbols">İşaretler/Standart Semboller</characterLabel>
 		<characterLabel type="small_form_variant">Küçük Form Varyantları</characterLabel>
+		<characterLabel type="smiley">gülen yüz</characterLabel>
 		<characterLabel type="smileys_people">Yüz İfadeleri ve Kişiler</characterLabel>
 		<characterLabel type="south_asian_scripts">Güney Asya Alfabeleri</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Güneydoğu Asya Alfabeleri</characterLabel>
 		<characterLabel type="spacing">Boşluk</characterLabel>
+		<characterLabel type="sport">spor</characterLabel>
 		<characterLabel type="symbols">Simgeler</characterLabel>
 		<characterLabel type="technical_symbols">Teknik Simgeler</characterLabel>
 		<characterLabel type="tone_marks">Ton İşaretleri</characterLabel>
+		<characterLabel type="travel">seyahat</characterLabel>
 		<characterLabel type="travel_places">Seyahat ve Yerler</characterLabel>
 		<characterLabel type="upwards_arrows">Yukarıya Oklar</characterLabel>
 		<characterLabel type="variant_forms">Varyant Formları</characterLabel>
 		<characterLabel type="vocalic_jamo">Sesli Jamo</characterLabel>
+		<characterLabel type="weather">hava durumu</characterLabel>
 		<characterLabel type="western_asian_scripts">Batı Asya Alfabeleri</characterLabel>
 		<characterLabel type="whitespace">Boşluk</characterLabel>
 	</characterLabels>

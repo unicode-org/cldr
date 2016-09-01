@@ -1091,6 +1091,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">ยูเครน</territory>
 			<territory type="UG">ยูกันดา</territory>
 			<territory type="UM">หมู่เกาะรอบนอกของสหรัฐอเมริกา</territory>
+			<territory type="UN">สหประชาชาติ</territory>
+			<territory type="UN" alt="short">สหประชาชาติ</territory>
 			<territory type="US">สหรัฐอเมริกา</territory>
 			<territory type="US" alt="short">สหรัฐฯ</territory>
 			<territory type="UY">อุรุกวัย</territory>
@@ -9395,6 +9397,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — ทั้งหมด</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility" draft="contributed">{0} — ความเข้ากันได้</characterLabelPattern>
 		<characterLabelPattern type="enclosed" draft="contributed">{0} — ล้อมรอบ</characterLabelPattern>
 		<characterLabelPattern type="extended" draft="contributed">{0} — ขยาย</characterLabelPattern>
@@ -9406,10 +9409,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">กิจกรรม</characterLabel>
 		<characterLabel type="african_scripts" draft="contributed">สคริปต์แอฟริกัน</characterLabel>
 		<characterLabel type="american_scripts" draft="contributed">สคริปต์อเมริกัน</characterLabel>
+		<characterLabel type="animal">สัตว์</characterLabel>
 		<characterLabel type="animals_nature">สัตว์และธรรมชาติ</characterLabel>
 		<characterLabel type="arrows" draft="contributed">ลูกศร</characterLabel>
+		<characterLabel type="body">ร่างกาย</characterLabel>
 		<characterLabel type="box_drawing" draft="contributed">การวาดกล่อง</characterLabel>
 		<characterLabel type="braille" draft="contributed">อักษรเบรลล์</characterLabel>
+		<characterLabel type="building">อาคาร</characterLabel>
 		<characterLabel type="bullets_stars" draft="contributed">จุดนำ/ดาว</characterLabel>
 		<characterLabel type="consonantal_jamo" draft="contributed">พยัญชนะเกาหลี</characterLabel>
 		<characterLabel type="currency_symbols" draft="contributed">สัญลักษณ์สกุลเงิน</characterLabel>
@@ -9422,6 +9428,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts" draft="contributed">สคริปต์เอเชียตะวันออก</characterLabel>
 		<characterLabel type="emoji">อิโมจิ</characterLabel>
 		<characterLabel type="european_scripts" draft="contributed">สคริปต์ยุโรป</characterLabel>
+		<characterLabel type="female">ผู้หญิง</characterLabel>
+		<characterLabel type="flag">ธง</characterLabel>
 		<characterLabel type="flags">ธง</characterLabel>
 		<characterLabel type="food_drink">อาหารและเครื่องดื่ม</characterLabel>
 		<characterLabel type="format" draft="contributed">รูปแบบ</characterLabel>
@@ -9434,43 +9442,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja" draft="contributed">อักษรฮันจา</characterLabel>
 		<characterLabel type="hanzi_simplified" draft="contributed">อักษรจีน (ตัวย่อ)</characterLabel>
 		<characterLabel type="hanzi_traditional" draft="contributed">อักษรจีน (ตัวเต็ม)</characterLabel>
+		<characterLabel type="heart">หัวใจ</characterLabel>
 		<characterLabel type="historic_scripts" draft="contributed">สคริปต์โบราณ</characterLabel>
 		<characterLabel type="ideographic_desc_characters" draft="contributed">อักขระเป็นภาพที่แสดงความหมาย</characterLabel>
 		<characterLabel type="japanese_kana" draft="contributed">คะนะญี่ปุ่น</characterLabel>
 		<characterLabel type="kanbun" draft="contributed">อักษรจีน</characterLabel>
 		<characterLabel type="kanji">คันจิ</characterLabel>
+		<characterLabel type="keycap">ปุ่มกดเลข</characterLabel>
 		<characterLabel type="leftwards_arrows" draft="contributed">ลูกศรซ้าย</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">ลูกศรชี้ซ้ายและขวา</characterLabel>
 		<characterLabel type="letterlike_symbols" draft="contributed">สัญลักษณ์ที่เหมือนตัวอักษร</characterLabel>
 		<characterLabel type="limited_use" draft="contributed">ใช้งานแบบจำกัด</characterLabel>
+		<characterLabel type="male">ผู้ชาย</characterLabel>
 		<characterLabel type="math_symbols">สัญลักษณ์ทางคณิตศาสตร์</characterLabel>
 		<characterLabel type="middle_eastern_scripts" draft="contributed">สคริปต์ตะวันออกกลาง</characterLabel>
 		<characterLabel type="miscellaneous" draft="contributed">อื่นๆ</characterLabel>
 		<characterLabel type="modern_scripts" draft="contributed">สคริปต์ปัจจุบัน</characterLabel>
 		<characterLabel type="modifier" draft="contributed">ตัวขยาย</characterLabel>
 		<characterLabel type="musical_symbols" draft="contributed">สัญลักษณ์ทางดนตรี</characterLabel>
+		<characterLabel type="nature">ธรรมชาติ</characterLabel>
 		<characterLabel type="nonspacing" draft="contributed">ไม่มีช่องว่าง</characterLabel>
 		<characterLabel type="numbers" draft="contributed">ตัวเลข</characterLabel>
 		<characterLabel type="objects" draft="contributed">วัตถุ</characterLabel>
 		<characterLabel type="other" draft="contributed">อื่นๆ</characterLabel>
 		<characterLabel type="paired" draft="contributed">จับคู่</characterLabel>
+		<characterLabel type="person">คน</characterLabel>
 		<characterLabel type="phonetic_alphabet">ตัวอักษรสัทศาสตร์</characterLabel>
 		<characterLabel type="pictographs" draft="contributed">ภาพสัญลักษณ์</characterLabel>
+		<characterLabel type="place">สถานที่</characterLabel>
+		<characterLabel type="plant">พืช</characterLabel>
 		<characterLabel type="punctuation" draft="contributed">เครื่องหมายวรรคตอน</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="contributed">ลูกศรขวา</characterLabel>
 		<characterLabel type="sign_standard_symbols" draft="contributed">เครื่องหมาย/สัญลักษณ์มาตรฐาน</characterLabel>
 		<characterLabel type="small_form_variant" draft="contributed">รูปแบบขนาดเล็ก</characterLabel>
+		<characterLabel type="smiley">หน้ายิ้ม</characterLabel>
 		<characterLabel type="smileys_people" draft="contributed">หน้ายิ้มและรูปคน</characterLabel>
 		<characterLabel type="south_asian_scripts" draft="contributed">สคริปต์เอเชียใต้</characterLabel>
 		<characterLabel type="southeast_asian_scripts" draft="contributed">สคริปต์เอเชียตะวันออกเฉียงใต้</characterLabel>
 		<characterLabel type="spacing" draft="contributed">การเว้นวรรค</characterLabel>
+		<characterLabel type="sport">กีฬา</characterLabel>
 		<characterLabel type="symbols">สัญลักษณ์</characterLabel>
 		<characterLabel type="technical_symbols" draft="contributed">สัญลักษณ์ทางเทคนิค</characterLabel>
 		<characterLabel type="tone_marks">วรรณยุกต์</characterLabel>
+		<characterLabel type="travel">การเดินทาง</characterLabel>
 		<characterLabel type="travel_places" draft="contributed">การเดินทางและสถานที่</characterLabel>
 		<characterLabel type="upwards_arrows" draft="contributed">ลูกศรขึ้น</characterLabel>
 		<characterLabel type="variant_forms" draft="contributed">รูปแบบที่เปลี่ยนแปลง</characterLabel>
 		<characterLabel type="vocalic_jamo" draft="contributed">สระภาษาเกาหลี</characterLabel>
+		<characterLabel type="weather">สภาพอากาศ</characterLabel>
 		<characterLabel type="western_asian_scripts" draft="contributed">สคริปต์เอเชียตะวันตก</characterLabel>
 		<characterLabel type="whitespace" draft="contributed">ช่องว่าง</characterLabel>
 	</characterLabels>

@@ -749,6 +749,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukrainë</territory>
 			<territory type="UG">Ugandë</territory>
 			<territory type="UM">Ishujt periferikë të SHBA-së</territory>
+			<territory type="UN">kombet e bashkuara</territory>
+			<territory type="UN" alt="short">kombet e bashkuara</territory>
 			<territory type="US">Shtetet e Bashkuara të Amerikës</territory>
 			<territory type="US" alt="short">SHBA</territory>
 			<territory type="UY">Uruguai</territory>
@@ -7013,6 +7015,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Të gjitha</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Të përputhshme</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Të mbyllura</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Të shtuara</characterLabelPattern>
@@ -7025,10 +7028,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">aktivitete</characterLabel>
 		<characterLabel type="african_scripts">shkrime afrikane</characterLabel>
 		<characterLabel type="american_scripts">shkrime amerikane</characterLabel>
+		<characterLabel type="animal">kafshë</characterLabel>
 		<characterLabel type="animals_nature">kafshë dhe natyrë</characterLabel>
 		<characterLabel type="arrows">shigjeta</characterLabel>
+		<characterLabel type="body">trup</characterLabel>
 		<characterLabel type="box_drawing">Kuti e vizatuar</characterLabel>
 		<characterLabel type="braille" draft="provisional">brailisht</characterLabel>
+		<characterLabel type="building">ndërtesë</characterLabel>
 		<characterLabel type="bullets_stars" draft="provisional">pika/yje</characterLabel>
 		<characterLabel type="consonantal_jamo">jamo bashkëtingëllore</characterLabel>
 		<characterLabel type="currency_symbols">simbole monedhash/valutash</characterLabel>
@@ -7041,6 +7047,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">shkrime të Azisë Lindore</characterLabel>
 		<characterLabel type="emoji">emoji</characterLabel>
 		<characterLabel type="european_scripts">shkrime evropiane</characterLabel>
+		<characterLabel type="female">femër</characterLabel>
+		<characterLabel type="flag">flamur</characterLabel>
 		<characterLabel type="flags">flamuj</characterLabel>
 		<characterLabel type="food_drink">ushqim dhe pije</characterLabel>
 		<characterLabel type="format">format</characterLabel>
@@ -7053,43 +7061,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">shkrim korean hanja (me karaktere kineze)</characterLabel>
 		<characterLabel type="hanzi_simplified">shkrim hanzi (i thjeshtuar)</characterLabel>
 		<characterLabel type="hanzi_traditional">shkrim hanzi (tradicional)</characterLabel>
+		<characterLabel type="heart">zemër</characterLabel>
 		<characterLabel type="historic_scripts">shkrime historike</characterLabel>
 		<characterLabel type="ideographic_desc_characters">karaktere ideografike përshkruese</characterLabel>
 		<characterLabel type="japanese_kana">shkrim japonez kana</characterLabel>
 		<characterLabel type="kanbun">shkrim kinez kanbun</characterLabel>
 		<characterLabel type="kanji">shkrim japonez kanxhi</characterLabel>
+		<characterLabel type="keycap">tast</characterLabel>
 		<characterLabel type="leftwards_arrows">shigjeta për së majti</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">shigjeta majtas-djathtas</characterLabel>
 		<characterLabel type="letterlike_symbols">simbole të ngjashme me germat</characterLabel>
 		<characterLabel type="limited_use">përdorim i kufizuar</characterLabel>
+		<characterLabel type="male">mashkull</characterLabel>
 		<characterLabel type="math_symbols">simbole matematikore</characterLabel>
 		<characterLabel type="middle_eastern_scripts">shkrime të Lindjes së Mesme</characterLabel>
 		<characterLabel type="miscellaneous">të llojllojshme</characterLabel>
 		<characterLabel type="modern_scripts">shkrime moderne</characterLabel>
 		<characterLabel type="modifier">modifikuesi</characterLabel>
 		<characterLabel type="musical_symbols">simbole muzikore</characterLabel>
+		<characterLabel type="nature">natyrë</characterLabel>
 		<characterLabel type="nonspacing">hapësirë e pathyeshme</characterLabel>
 		<characterLabel type="numbers">numra</characterLabel>
 		<characterLabel type="objects">objekte</characterLabel>
 		<characterLabel type="other">tjetër</characterLabel>
 		<characterLabel type="paired">i çiftuar</characterLabel>
+		<characterLabel type="person">person</characterLabel>
 		<characterLabel type="phonetic_alphabet">alfabet fonetik</characterLabel>
 		<characterLabel type="pictographs">piktografi</characterLabel>
+		<characterLabel type="place">vend</characterLabel>
+		<characterLabel type="plant">bimë</characterLabel>
 		<characterLabel type="punctuation">shenjë pikësimi</characterLabel>
 		<characterLabel type="rightwards_arrows">shigjeta për së djathti</characterLabel>
 		<characterLabel type="sign_standard_symbols">shenja/simbole standarde</characterLabel>
 		<characterLabel type="small_form_variant">variante formash të vogla</characterLabel>
+		<characterLabel type="smiley">buzëqeshje</characterLabel>
 		<characterLabel type="smileys_people">buzëqeshje dhe njerëz</characterLabel>
 		<characterLabel type="south_asian_scripts">shkrime të Azisë Jugore</characterLabel>
 		<characterLabel type="southeast_asian_scripts">shkrime të Azisë Juglindore</characterLabel>
 		<characterLabel type="spacing">hapësirë</characterLabel>
+		<characterLabel type="sport">sport</characterLabel>
 		<characterLabel type="symbols">simbole</characterLabel>
 		<characterLabel type="technical_symbols">simbole teknike</characterLabel>
 		<characterLabel type="tone_marks">tregues tonaliteti</characterLabel>
+		<characterLabel type="travel">udhëtim</characterLabel>
 		<characterLabel type="travel_places">udhëtime dhe vende</characterLabel>
 		<characterLabel type="upwards_arrows">shigjeta për së larti</characterLabel>
 		<characterLabel type="variant_forms">forma variantesh</characterLabel>
 		<characterLabel type="vocalic_jamo">jamo zanore</characterLabel>
+		<characterLabel type="weather">mot</characterLabel>
 		<characterLabel type="western_asian_scripts">shkrime të Azisë Perëndimore</characterLabel>
 		<characterLabel type="whitespace">hapësirë e bardhë</characterLabel>
 	</characterLabels>

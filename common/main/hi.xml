@@ -954,6 +954,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">यूक्रेन</territory>
 			<territory type="UG">युगांडा</territory>
 			<territory type="UM">यू.एस. आउटलाइंग द्वीपसमूह</territory>
+			<territory type="UN">संयुक्त राष्ट्र</territory>
+			<territory type="UN" alt="short">संयुक्त राष्ट्र</territory>
 			<territory type="US">संयुक्त राज्य</territory>
 			<territory type="US" alt="short">अमेरिका</territory>
 			<territory type="UY">उरूग्वे</territory>
@@ -7906,6 +7908,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all" draft="contributed">{0} - सभी</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility" draft="contributed">{0} - अनुकूलता</characterLabelPattern>
 		<characterLabelPattern type="enclosed" draft="contributed">{0} - संलग्न</characterLabelPattern>
 		<characterLabelPattern type="extended" draft="contributed">{0} - विस्तारित</characterLabelPattern>
@@ -7918,10 +7921,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities" draft="contributed">क्रियाएं</characterLabel>
 		<characterLabel type="african_scripts" draft="contributed">अफ्रीकी लिपियां</characterLabel>
 		<characterLabel type="american_scripts" draft="contributed">अमेरिकी लिपियां</characterLabel>
+		<characterLabel type="animal">जानवर</characterLabel>
 		<characterLabel type="animals_nature" draft="contributed">पशु और प्रकृति</characterLabel>
 		<characterLabel type="arrows" draft="contributed">तीर</characterLabel>
+		<characterLabel type="body">शरीर</characterLabel>
 		<characterLabel type="box_drawing" draft="contributed">बॉक्स ड्राइंग</characterLabel>
 		<characterLabel type="braille" draft="contributed">ब्रेल</characterLabel>
+		<characterLabel type="building">भवन निर्माण</characterLabel>
 		<characterLabel type="bullets_stars" draft="contributed">गोलियां / तारे</characterLabel>
 		<characterLabel type="consonantal_jamo" draft="contributed">Consonantal Jamo</characterLabel>
 		<characterLabel type="currency_symbols" draft="contributed">मुद्रा प्रतीक</characterLabel>
@@ -7934,6 +7940,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts" draft="contributed">पूर्व एशियाई स्क्रिप्‍ट</characterLabel>
 		<characterLabel type="emoji" draft="contributed">इमोजी</characterLabel>
 		<characterLabel type="european_scripts" draft="contributed">यूरोपीय स्क्रिप्‍ट</characterLabel>
+		<characterLabel type="female">महिला</characterLabel>
+		<characterLabel type="flag">झंडा</characterLabel>
 		<characterLabel type="flags" draft="contributed">फ़्लैग</characterLabel>
 		<characterLabel type="food_drink" draft="contributed">खाना पीना</characterLabel>
 		<characterLabel type="format" draft="contributed">प्रारूप</characterLabel>
@@ -7946,43 +7954,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja" draft="contributed">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified" draft="contributed">Hanzi (Simplified)</characterLabel>
 		<characterLabel type="hanzi_traditional" draft="contributed">Hanzi (Traditional)</characterLabel>
+		<characterLabel type="heart">दिल</characterLabel>
 		<characterLabel type="historic_scripts" draft="contributed">ऐतिहासिक स्क्रिप्ट</characterLabel>
 		<characterLabel type="ideographic_desc_characters" draft="contributed">Ideographic Desc. Characters</characterLabel>
 		<characterLabel type="japanese_kana" draft="contributed">जापानी काना</characterLabel>
 		<characterLabel type="kanbun" draft="contributed">Kanbun</characterLabel>
 		<characterLabel type="kanji" draft="contributed">कांजी</characterLabel>
+		<characterLabel type="keycap">कीकैप</characterLabel>
 		<characterLabel type="leftwards_arrows" draft="contributed">बाईं ओर तीर</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">दाएं ओर बाई ओर तीर</characterLabel>
 		<characterLabel type="letterlike_symbols" draft="contributed">पत्र-जैसे प्रतीक</characterLabel>
 		<characterLabel type="limited_use" draft="contributed">सीमित उपयोग</characterLabel>
+		<characterLabel type="male">पुरुष</characterLabel>
 		<characterLabel type="math_symbols" draft="contributed">गणित प्रतीक</characterLabel>
 		<characterLabel type="middle_eastern_scripts" draft="contributed">मध्य पूर्वी स्क्रिप्ट</characterLabel>
 		<characterLabel type="miscellaneous" draft="contributed">विविध</characterLabel>
 		<characterLabel type="modern_scripts" draft="contributed">आधुनिक स्क्रिप्ट</characterLabel>
 		<characterLabel type="modifier" draft="contributed">Modifier</characterLabel>
 		<characterLabel type="musical_symbols" draft="contributed">संगीत चिह्न</characterLabel>
+		<characterLabel type="nature">प्रकृति</characterLabel>
 		<characterLabel type="nonspacing" draft="contributed">गैर रिक्ति</characterLabel>
 		<characterLabel type="numbers" draft="contributed">संख्या</characterLabel>
 		<characterLabel type="objects" draft="contributed">वस्तुएं</characterLabel>
 		<characterLabel type="other" draft="contributed">अन्य</characterLabel>
 		<characterLabel type="paired" draft="contributed">युग्म</characterLabel>
+		<characterLabel type="person">व्यक्ति</characterLabel>
 		<characterLabel type="phonetic_alphabet" draft="contributed">फोनेटिक वर्णमाला</characterLabel>
 		<characterLabel type="pictographs" draft="contributed">Pictographs</characterLabel>
+		<characterLabel type="place">जगह</characterLabel>
+		<characterLabel type="plant">पौधा</characterLabel>
 		<characterLabel type="punctuation" draft="contributed">विराम चिह्न</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="contributed">बाई ओर तीर</characterLabel>
 		<characterLabel type="sign_standard_symbols" draft="contributed">संकेत/मानक चिह्न</characterLabel>
 		<characterLabel type="small_form_variant" draft="contributed">छोटे फार्म वेरिएंट</characterLabel>
+		<characterLabel type="smiley">स्माइली</characterLabel>
 		<characterLabel type="smileys_people" draft="contributed">स्माइलीज और लोग</characterLabel>
 		<characterLabel type="south_asian_scripts" draft="contributed">दक्षिण एशियाई स्क्रिप्ट</characterLabel>
 		<characterLabel type="southeast_asian_scripts" draft="contributed">दक्षिण एशियाई स्क्रिप्ट</characterLabel>
 		<characterLabel type="spacing" draft="contributed">अंतर रखना</characterLabel>
+		<characterLabel type="sport">खेल</characterLabel>
 		<characterLabel type="symbols" draft="contributed">चिह्न</characterLabel>
 		<characterLabel type="technical_symbols" draft="contributed">तकनीकी चिह्न</characterLabel>
 		<characterLabel type="tone_marks" draft="contributed">टोन चिह्न</characterLabel>
+		<characterLabel type="travel">यात्रा</characterLabel>
 		<characterLabel type="travel_places" draft="contributed">यात्रा और स्थान</characterLabel>
 		<characterLabel type="upwards_arrows" draft="contributed">ऊपर की ओर तीर</characterLabel>
 		<characterLabel type="variant_forms" draft="contributed">विविध रूप</characterLabel>
 		<characterLabel type="vocalic_jamo" draft="contributed">Vocalic Jamo</characterLabel>
+		<characterLabel type="weather">मौसम</characterLabel>
 		<characterLabel type="western_asian_scripts" draft="contributed">पश्चिमी एशियाई स्क्रिप्ट</characterLabel>
 		<characterLabel type="whitespace" draft="contributed">व्हाइटस्‍पेस</characterLabel>
 	</characterLabels>

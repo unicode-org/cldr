@@ -885,6 +885,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Wcráin</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Ynysoedd Pellennig UDA</territory>
+			<territory type="UN">Cenhedloedd Unedig</territory>
+			<territory type="UN" alt="short">UN</territory>
 			<territory type="US">Yr Unol Daleithiau</territory>
 			<territory type="US" alt="short">UDA</territory>
 			<territory type="UY">Uruguay</territory>
@@ -11116,6 +11118,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Popeth</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Cydweddoldeb</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Amgaeedig</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Estynedig</characterLabelPattern>
@@ -11132,10 +11135,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Gweithgareddau</characterLabel>
 		<characterLabel type="african_scripts">Sgriptiau Affricanaidd</characterLabel>
 		<characterLabel type="american_scripts">Sgriptiau Americanaidd</characterLabel>
+		<characterLabel type="animal">anifail</characterLabel>
 		<characterLabel type="animals_nature">Anifeiliad a Natur</characterLabel>
 		<characterLabel type="arrows">Saethau</characterLabel>
+		<characterLabel type="body">corff</characterLabel>
 		<characterLabel type="box_drawing">Dylunio Bocs</characterLabel>
 		<characterLabel type="braille">Braille</characterLabel>
+		<characterLabel type="building">adeilad</characterLabel>
 		<characterLabel type="bullets_stars">Bwledi/Sêr</characterLabel>
 		<characterLabel type="consonantal_jamo">Jamo Cytseiniol</characterLabel>
 		<characterLabel type="currency_symbols">Symbolau Arian</characterLabel>
@@ -11148,6 +11154,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Sgriptiau Asia Dwyreiniol</characterLabel>
 		<characterLabel type="emoji">Emoji</characterLabel>
 		<characterLabel type="european_scripts">Sgriptiau Ewropeaidd</characterLabel>
+		<characterLabel type="female">benywaidd</characterLabel>
+		<characterLabel type="flag">banner</characterLabel>
 		<characterLabel type="flags">Baneri</characterLabel>
 		<characterLabel type="food_drink">Bwyd a Diod</characterLabel>
 		<characterLabel type="format">Fformat</characterLabel>
@@ -11160,43 +11168,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">Hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">Hanzi (Symledig)</characterLabel>
 		<characterLabel type="hanzi_traditional">Hanzi (Traddodiadol)</characterLabel>
+		<characterLabel type="heart">calon</characterLabel>
 		<characterLabel type="historic_scripts">Sgriptiau Hanesyddol</characterLabel>
 		<characterLabel type="ideographic_desc_characters">Llythrennau Disg. Ideograffeg</characterLabel>
 		<characterLabel type="japanese_kana">Kana Japaneaidd</characterLabel>
 		<characterLabel type="kanbun">Kanbun</characterLabel>
 		<characterLabel type="kanji">Kanji</characterLabel>
+		<characterLabel type="keycap">bysell</characterLabel>
 		<characterLabel type="leftwards_arrows">Saethau i’r chwith</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Saethau i’r chwith ac i’r dde</characterLabel>
 		<characterLabel type="letterlike_symbols">Symbolau Math Llythrennau</characterLabel>
 		<characterLabel type="limited_use">Defnydd Cyfyngedig</characterLabel>
+		<characterLabel type="male">gwrywaidd</characterLabel>
 		<characterLabel type="math_symbols">Symbolau Mathemategol</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Sgriptiau y Dwyrain Canol</characterLabel>
 		<characterLabel type="miscellaneous">Amrywiol</characterLabel>
 		<characterLabel type="modern_scripts">Sgriptiau Modern</characterLabel>
 		<characterLabel type="modifier">Addasydd</characterLabel>
 		<characterLabel type="musical_symbols">Symbolau Cerddorol</characterLabel>
+		<characterLabel type="nature">natur</characterLabel>
 		<characterLabel type="nonspacing">Heb fylchau</characterLabel>
 		<characterLabel type="numbers">Rhifau</characterLabel>
 		<characterLabel type="objects">Gwrthrychau</characterLabel>
 		<characterLabel type="other">Arall</characterLabel>
 		<characterLabel type="paired">Paredig</characterLabel>
+		<characterLabel type="person">person</characterLabel>
 		<characterLabel type="phonetic_alphabet">Y Wyddor Seinegol</characterLabel>
 		<characterLabel type="pictographs">Pictograffau</characterLabel>
+		<characterLabel type="place">lle</characterLabel>
+		<characterLabel type="plant">planhigyn</characterLabel>
 		<characterLabel type="punctuation">Atalnodi</characterLabel>
 		<characterLabel type="rightwards_arrows">Saethau i’r dde</characterLabel>
 		<characterLabel type="sign_standard_symbols">Symbolau Arwyddo/Safonol</characterLabel>
 		<characterLabel type="small_form_variant">Amrywiolion Ffurf Fach</characterLabel>
+		<characterLabel type="smiley">gwên</characterLabel>
 		<characterLabel type="smileys_people">Gwenogluniau a Phobl</characterLabel>
 		<characterLabel type="south_asian_scripts">Sgriptiau Asia Deheuol</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Sgriptiau De-Ddwyrain Asia</characterLabel>
 		<characterLabel type="spacing">Bylchu</characterLabel>
+		<characterLabel type="sport">chwaraeon</characterLabel>
 		<characterLabel type="symbols">Symbolau</characterLabel>
 		<characterLabel type="technical_symbols">Symbolau Technolegol</characterLabel>
 		<characterLabel type="tone_marks">Marciau Tôn</characterLabel>
+		<characterLabel type="travel">teithio</characterLabel>
 		<characterLabel type="travel_places">Teithio a Llefydd</characterLabel>
 		<characterLabel type="upwards_arrows">Saethau i Fyny</characterLabel>
 		<characterLabel type="variant_forms">Ffurfiau Amrywiol</characterLabel>
 		<characterLabel type="vocalic_jamo">Jamo Llafarog</characterLabel>
+		<characterLabel type="weather">tywydd</characterLabel>
 		<characterLabel type="western_asian_scripts">Sgriptiau Asia Gorllewinol</characterLabel>
 		<characterLabel type="whitespace">Bwlch gwyn</characterLabel>
 	</characterLabels>

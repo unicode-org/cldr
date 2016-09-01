@@ -547,11 +547,12 @@
 		</dayPeriodRules>
 		<dayPeriodRules locales="he">
 			<dayPeriodRule type="midnight" at="00:00"/>	<!-- חצות -->
-			<dayPeriodRule type="morning1" from="05:00" before="11:00"/>	<!-- בוקר -->
-			<dayPeriodRule type="afternoon1" from="11:00" before="15:00"/>	<!-- צהריים -->
-			<dayPeriodRule type="afternoon2" from="15:00" before="18:00"/>	<!-- אחר הצהריים -->
+			<dayPeriodRule type="morning1" from="06:00" before="12:00"/>	<!-- בוקר -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="16:00"/>	<!-- צהריים -->
+			<dayPeriodRule type="afternoon2" from="16:00" before="18:00"/>	<!-- אחר הצהריים -->
 			<dayPeriodRule type="evening1" from="18:00" before="22:00"/>	<!-- ערב -->
-			<dayPeriodRule type="night1" from="22:00" before="05:00"/>	<!-- לילה -->
+			<dayPeriodRule type="night1" from="22:00" before="03:00"/>	<!-- לילה -->
+			<dayPeriodRule type="night2" from="03:00" before="06:00"/>	<!-- לפנות בוקר -->
 		</dayPeriodRules>
 		<dayPeriodRules locales="am">
 			<dayPeriodRule type="midnight" at="00:00"/>	<!-- እኩለ ሌሊት -->
@@ -1050,11 +1051,12 @@
 			<dayPeriodRule type="night2" from="01:00" before="03:00"/>	<!-- ليلاً -->
 		</dayPeriodRules>
 		<dayPeriodRules locales="he">
-			<dayPeriodRule type="morning1" from="05:00" before="11:00"/>	<!-- בוקר -->
-			<dayPeriodRule type="afternoon1" from="11:00" before="15:00"/>	<!-- צהריים -->
-			<dayPeriodRule type="afternoon2" from="15:00" before="18:00"/>	<!-- אחר הצהריים -->
+			<dayPeriodRule type="morning1" from="06:00" before="12:00"/>	<!-- בוקר -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="16:00"/>	<!-- צהריים -->
+			<dayPeriodRule type="afternoon2" from="16:00" before="18:00"/>	<!-- אחר הצהריים -->
 			<dayPeriodRule type="evening1" from="18:00" before="22:00"/>	<!-- ערב -->
-			<dayPeriodRule type="night1" from="22:00" before="05:00"/>	<!-- לילה -->
+			<dayPeriodRule type="night1" from="22:00" before="03:00"/>	<!-- לילה -->
+			<dayPeriodRule type="night2" from="03:00" before="06:00"/>	<!-- לפנות בוקר -->
 		</dayPeriodRules>
 		<dayPeriodRules locales="id">
 			<dayPeriodRule type="morning1" from="00:00" before="10:00"/>	<!-- pagi -->

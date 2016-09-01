@@ -74,10 +74,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
-			<currency type="BYR">
+			<currency type="BYN">
 				<displayName>Weissrussischer Rubel</displayName>
 				<displayName count="one">Weissrussischer Rubel</displayName>
 				<displayName count="other">Weissrussische Rubel</displayName>
+			</currency>
+			<currency type="BYR">
+				<displayName>Weissrussischer Rubel (2000–2016)</displayName>
+				<displayName count="one">Weissrussischer Rubel (2000–2016)</displayName>
+				<displayName count="other">Weissrussische Rubel (2000–2016)</displayName>
 			</currency>
 		</currencies>
 	</numbers>

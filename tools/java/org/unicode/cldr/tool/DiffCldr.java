@@ -1,6 +1,9 @@
 package org.unicode.cldr.tool;
 
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -13,72 +16,122 @@ import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.base.Splitter;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.util.Output;
 
 public class DiffCldr {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
 
     // ADD OPTIONS LATER
-    final static Options myOptions = new Options()
-    .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
-//    .add("file", ".*", ".*", "regex to filter files/locales.")
-//    .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
-//    .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
-//    .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
-//    .add("count", null, null, "only count items")
-//    .add("organization", ".*", null, "show level for organization")
-//    .add("z-showPath", null, null, "show paths")
-//    .add("resolved", null, null, "use resolved locales")
-//    .add("q-showParent", null, null, "show parent value")
-//    .add("english", null, null, "show english value")
-//    .add("Verbose", null, null, "verbose output")
-//    .add("PathHeader", null, null, "show path header and string ID")
-    ;
-
-//    private static String fileMatcher;
-//    private static Matcher pathMatcher;
-//    private static boolean countOnly;
-//    private static boolean showPath;
-    private static PathHeader.Factory PATH_HEADER_FACTORY = null;
-
-    private static String organization;
+    
+    enum MyOptions {
+        //organization(".*", "CLDR", "organization"),
+        filter(".*", "en", "locale filter (regex)");
+        
+        // BOILERPLATE TO COPY
+        final Option option;
+        private MyOptions(String argumentPattern, String defaultArgument, String helpText) {
+            option = new Option(this, argumentPattern, defaultArgument, helpText);
+        }
+        static Options myOptions = new Options();
+        static {
+            for (MyOptions option : MyOptions.values()) {
+                myOptions.add(option, option.option);
+            }
+        }
+        private static Set<String> parse(String[] args, boolean showArguments) {
+            return myOptions.parse(MyOptions.values()[0], args, true);
+        }
+    }
 
     public static void main(String[] args) {
-        myOptions.parse(args, true);
+        MyOptions.parse(args, true);
+        String localeFilter = MyOptions.filter.option.getValue();
+        
         String dirBase = CLDRPaths.COMMON_DIRECTORY;
         PathHeader.Factory phf = PathHeader.getFactory(CONFIG.getEnglish());
-        String localeBase = "en";
 
         // load data
         
         M3<PathHeader, String, String> data = ChainedMap.of(new TreeMap<PathHeader,Object>(), new TreeMap<String,Object>(), String.class);
-        Counter<String> locales = new Counter<>();
+        Counter<String> localeCounter = new Counter<>();
+        Counter<PathHeader> pathHeaderCounter = new Counter<>();
+        int total = 0;
+        Output<String> pathWhereFound = new Output<>();
+        Output<String> localeWhereFound = new Output<>();
+//        Output<String> reformattedValue = new Output<String>();
+//        Output<Boolean> hasReformattedValue = new Output<Boolean>();
+        Multimap<String, String> extras = TreeMultimap.create();
+
         for (String dir :DtdType.ldml.directories) {
-            Factory factory = SimpleFactory.make(dirBase + dir, localeBase + "(_.*)?");
+            Factory factory = SimpleFactory.make(dirBase + dir, localeFilter + "(_.*)?");
             for (String locale : factory.getAvailable()) {
                 CLDRFile cldrFile = factory.make(locale, false);
-                for (String path : With.in(cldrFile.iterator())) {
-                    PathHeader ph = phf.fromPath(path);
-                    String value = cldrFile.getStringValue(path);
-                    data.put(ph, locale, value);
-                    locales.add(locale, 1); // count of items in locale
+                DtdData dtdData = cldrFile.getDtdData();
+                CLDRFile cldrFileResolved = factory.make(locale, true);
+                for (String distinguishedPath : With.in(cldrFile.iterator())) {
+                    String path = cldrFile.getFullXPath(distinguishedPath);
+                    String value = cldrFile.getStringValue(distinguishedPath);
+                    String bailey = cldrFile.getBaileyValue(distinguishedPath, pathWhereFound, localeWhereFound);
+                    
+                    XPathParts pathPlain = XPathParts.getFrozenInstance(path);
+                    if (dtdData.isMetadata(pathPlain)) {
+                        continue;
+                    }
+                    
+                    // one of the attributes might be a value (ugg)
+                    // so check for that, and extract the value
+                    
+                    String pathForValue = dtdData.getRegularizedPaths(pathPlain, extras);
+                    if (pathForValue != null) {
+                        PathHeader ph = phf.fromPath(pathForValue);
+                        Splitter splitter = DtdData.getValueSplitter(pathPlain);
+                        String cleanedValue = joinValues(pathPlain, splitter.splitToList(value));
+                        total = addValue(data, locale, ph, cleanedValue, total, localeCounter, pathHeaderCounter);
+                    }
+                    
+                    // there are value attributes, so do them
+                    
+                    for (Entry<String, Collection<String>> entry : extras.asMap().entrySet()) {
+                        final String extraPath = entry.getKey();
+                        final PathHeader ph = phf.fromPath(extraPath);
+                        final Collection<String> extraValues = entry.getValue();
+                        String cleanedValue = joinValues(pathPlain, extraValues);
+                        total = addValue(data, locale, ph, cleanedValue, total, localeCounter, pathHeaderCounter);
+                    }
+                    if (pathForValue == null && !value.isEmpty()) {
+                        System.err.println("Shouldn't happen");
+                    }
                 }
             }
         }
-        Set<String> localeList = locales.getKeysetSortedByCount(false);
+        Set<String> localeList = localeCounter.getKeysetSortedByCount(false);
 
         // now print differences
         Set<String> currentValues = new TreeSet<>();
-        System.out.print("Section\tPage\tHeader\tCode");
+        System.out.print("№\tSection\tPage\tHeader\tCode\tCount");
         for (String locale : localeList) {
             System.out.print("\t" + locale);
         }
         System.out.println();
+        System.out.print("\t\t\t\tCount\t" + total);
+        for (String locale : localeList) {
+            System.out.print("\t" + localeCounter.get(locale));
+        }
+        System.out.println();
 
+        int sort = 0;
         for (PathHeader ph : data.keySet()) {
             String firstValue = null;
             currentValues.clear();
@@ -90,13 +143,44 @@ public class DiffCldr {
             
             // have difference, so print
             
-            System.out.print(ph);
+            System.out.print(++sort + "\t" + ph + "\t" + pathHeaderCounter.get(ph));
             for (String locale : localeList) {
                 System.out.print("\t" + CldrUtility.ifNull(localeToValue.get(locale),""));
             }
             System.out.println();
-
-        
         }
+    }
+
+    /**
+     * Add <ph,value) line, recording extra info.
+     */
+    private static int addValue(M3<PathHeader, String, String> data, String locale, PathHeader ph, String value,
+        int total, Counter<String> localeCounter, Counter<PathHeader> pathHeaderCounter) {
+        if (value.isEmpty()) {
+            return 0;
+        }
+        String old = data.get(ph, locale);
+        if (old != null) {
+            return 0; // suppress duplicates
+        }
+        data.put(ph, locale, value);
+        // add to counts
+        ++total;
+        localeCounter.add(locale, 1); // count of items in locale
+        pathHeaderCounter.add(ph, 1); // count of items with same pathHeader, across locales
+        return total;
+    }
+
+    /**
+     * Fix values that are multiple lines or multiple items
+     */
+    private static String joinValues(XPathParts pathPlain, Collection<String> values) {
+        Set<String> cleanedValues = new LinkedHashSet<>();
+        for (String item : values) {
+            if (!DtdData.isComment(pathPlain, item)) {
+                cleanedValues.add(item);
+            }
+        }
+        return CollectionUtilities.join(DtdData.CR_SPLITTER.split(CollectionUtilities.join(values, " ␍ ")), " ␍ ");
     }
 }

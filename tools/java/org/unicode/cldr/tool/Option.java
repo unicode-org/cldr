@@ -11,7 +11,7 @@ import org.unicode.cldr.util.CLDRTool;
 
 /**
  * Simpler mechanism for handling options, where everything can be defined in one place.
- *
+ * For an example, see {@link org.unicode.cldr.tool.DiffCldr.java}
  * @author markdavis
  */
 public class Option {
@@ -56,8 +56,11 @@ public class Option {
         return doesOccur;
     }
 
-    private Option(Enum<?> enumOption, String tag, Character flag, Pattern argumentPattern, String defaultArgument,
-        String helpString) {
+    public Option(Enum<?> optionEnumValue, String argumentPattern, String defaultArgument, String helpText) {
+        this(optionEnumValue, optionEnumValue.name(), (Character)(optionEnumValue.name().charAt(0)), Pattern.compile(argumentPattern), defaultArgument, helpText);
+    }
+
+    public Option(Enum<?> enumOption, String tag, Character flag, Pattern argumentPattern, String defaultArgument, String helpString) {
         if (defaultArgument != null && argumentPattern != null) {
             if (!argumentPattern.matcher(defaultArgument).matches()) {
                 throw new IllegalArgumentException("Default argument doesn't match pattern: " + defaultArgument + ", "
@@ -157,19 +160,25 @@ public class Option {
 
         public Options add(Enum<?> optionEnumValue, String string, Character flag, String argumentPattern,
             String defaultArgument, String helpText) {
-            if (stringToValues.containsKey(string)) {
-                throw new IllegalArgumentException("Duplicate tag <" + string + "> with " + stringToValues.get(string));
-            }
-            if (charToValues.containsKey(flag)) {
-                throw new IllegalArgumentException("Duplicate tag <" + string + ", " + flag + "> with "
-                    + charToValues.get(flag));
-            }
             Option option = new Option(optionEnumValue, string, flag,
                 argumentPattern == null ? null : Pattern.compile(argumentPattern, Pattern.COMMENTS),
                     defaultArgument, helpText);
-            stringToValues.put(string, option);
-            enumToValues.put(optionEnumValue, option);
-            charToValues.put(flag, option);
+            return add(optionEnumValue, option);
+        }
+
+        public Options add(Enum<?> optionEnumValue, Option option) {
+            if (stringToValues.containsKey(option.tag)) {
+                throw new IllegalArgumentException("Duplicate tag <" + option.tag + "> with " + stringToValues.get(option.tag));
+            }
+            if (charToValues.containsKey(option.flag)) {
+                throw new IllegalArgumentException("Duplicate tag <" + option.tag + ", " + option.flag + "> with "
+                    + charToValues.get(option.flag));
+            }
+            stringToValues.put(option.tag, option);
+            charToValues.put(option.flag, option);        
+            if (optionEnumValue != null) {
+                enumToValues.put(optionEnumValue, option);
+            }
             return this;
         }
 
@@ -253,7 +262,7 @@ public class Option {
                     if (!option.doesOccur && option.value == null) {
                         continue;
                     }
-                    System.out.println(option.tag + "\t=\t" + option.value);
+                    System.out.println(option.tag + "\t≔\t" + option.value);
                 }
             }
             return results;
@@ -293,6 +302,7 @@ public class Option {
             }
             return result;
         }
+
     }
 
     final static Options myOptions = new Options()

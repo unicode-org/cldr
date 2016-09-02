@@ -21,7 +21,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -1684,7 +1686,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return false;
     }
 
-    public final static Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults();
+    public final static Splitter SPACE_SPLITTER = Splitter.on(CharMatcher.WHITESPACE).trimResults().omitEmptyStrings();
+    public final static Splitter CR_SPLITTER = Splitter.on(CharMatcher.anyOf("\n\r")).trimResults().omitEmptyStrings();
 
     public String getRegularizedPaths(XPathParts pathPlain, Multimap<String,String> extras) {
         extras.clear();
@@ -1761,6 +1764,36 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         return attr.type;
     }
+    
+    // TODO: add support for following to DTD annotations, and rework API
+    
+    static final Set<String> SPACED_VALUES = ImmutableSet.of(
+        "idValidity"
+        );
+
+    public static Splitter getValueSplitter(XPathParts pathPlain) {
+        if (!Collections.disjoint(pathPlain.getElements(), SPACED_VALUES)) {
+            return SPACE_SPLITTER;
+        }
+        return CR_SPLITTER;
+    }
+    
+    public static boolean isComment(XPathParts pathPlain, String line) {
+        if (pathPlain.contains("transform")) {
+            if (line.startsWith("#")) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static boolean isExtraSplit(String extraPath) {
+        if (extraPath.endsWith("/_type") && extraPath.startsWith("//supplementalData/metaZones/mapTimezones")) {
+            return true;
+        }
+        return false;
+    }
+
 
     // ALWAYS KEEP AT END, FOR STATIC INIT ORDER
     private static final Map<DtdType, DtdData> CACHE;

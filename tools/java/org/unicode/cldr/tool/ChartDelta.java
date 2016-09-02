@@ -44,9 +44,7 @@ import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -470,8 +468,8 @@ public class ChartDelta extends Chart {
         // handle stuff with lines specially
         if (!Objects.equals(valueCurrent, valueOld)) {
             if (valueOld != null && valueCurrent != null && (valueOld.contains("\n") || valueCurrent.contains("\n"))) {
-                List<String> setOld = CR_SPLITTER.splitToList(valueOld);
-                List<String> setNew = CR_SPLITTER.splitToList(valueCurrent);
+                List<String> setOld = DtdData.CR_SPLITTER.splitToList(valueOld);
+                List<String> setNew = DtdData.CR_SPLITTER.splitToList(valueCurrent);
                 valueOld = getFilteredValue(setOld, setNew);
                 valueCurrent = getFilteredValue(setNew, setOld);
             }
@@ -858,7 +856,7 @@ public class ChartDelta extends Chart {
                 final Collection<String> extraValue = entry.getValue();
                 if (isExtraSplit(extraPath)) {
                     for (String items : extraValue) {
-                        results.putAll(pathHeaderExtra, SPACE_SPLITTER.splitToList(items));
+                        results.putAll(pathHeaderExtra, DtdData.SPACE_SPLITTER.splitToList(items));
                     }
                 } else {
                     results.putAll(pathHeaderExtra, extraValue);
@@ -878,18 +876,8 @@ public class ChartDelta extends Chart {
         return false;
     }
 
-    final static Splitter CR_SPLITTER = Splitter.on(CharMatcher.anyOf("\n\r")).trimResults().omitEmptyStrings();
-    final static Splitter SPACE_SPLITTER = Splitter.on(CharMatcher.WHITESPACE).trimResults().omitEmptyStrings();
-    // TODO: add to DTD annotations
-    static final Set<String> SPACED_VALUES = ImmutableSet.of(
-        "idValidity"
-        );
-
-    private Splitter getValueSplitter(XPathParts pathPlain) {
-        if (!Collections.disjoint(pathPlain.getElements(), SPACED_VALUES)) {
-            return SPACE_SPLITTER;
-        }
-        return CR_SPLITTER;
+    public Splitter getValueSplitter(XPathParts pathPlain) {
+        return DtdData.getValueSplitter(pathPlain);
     }
 
     public static boolean isComment(XPathParts pathPlain, String line) {

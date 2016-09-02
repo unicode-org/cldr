@@ -1416,11 +1416,22 @@ public class StandardCodes {
 
     static UnicodeSet COUNTRY = new UnicodeSet("[a-zA-Z]").freeze();
 
+    /**
+     * Quick check for whether valid country. Not complete: should use Validity
+     * @param territory
+     * @return
+     */
     public static boolean isCountry(String territory) {
-        if (territory.length() != 2) return false;
-        if (territory.equals("ZZ") || territory.equals("QO") || territory.equals("EU")) return false;
-        if (COUNTRY.containsAll(territory)) return true;
-        return false;
+        switch(territory) {
+        case "ZZ": 
+        case "QO": 
+        case "EU": 
+        case "UN": 
+        case "EZ":
+            return false;
+            default: 
+                return territory.length() == 2 && COUNTRY.containsAll(territory);
+        }
     }
 
     public boolean isLstregPrivateUse(String type, String code) {

@@ -33,7 +33,7 @@ public class FindPluralDifferences {
             //            "22.1",
             //            "23.1",
             //              "24.0",
-            "28.0",
+            "29.0",
             "trunk"
         };
 

@@ -539,7 +539,7 @@ public class GeneratedPluralSamples {
     private static boolean CHECK_VALUE = false;
 
     enum MyOptions {
-        output(".*", CLDRPaths.GEN_DIRECTORY + "plurals/", "output data directory"),
+        output(".*", CLDRPaths.GEN_DIRECTORY + "supplemental/", "output data directory"),
         filter(".*", null, "filter locales"),
         //xml(null, null, "xml file format"),
         multiline(null, null, "multiple lines in file"),

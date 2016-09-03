@@ -451,7 +451,9 @@ public class ConvertLanguageData {
             String locale = ltp.getLanguage() + (ltp.getRegion().length() == 0 ? "" : "_" + ltp.getRegion());
             population.add(locale);
             RowData rowData = localeToRowData.get(rawLocale);
-            if (rowData.getLanguagePopulation() / rowData.countryPopulation >= 0.2) {
+            if (rowData.getLanguagePopulation() / rowData.countryPopulation >= 0.2 
+                //|| rowData.getLanguagePopulation() > 900000
+                ) {
                 populationOver20.add(locale);
             } else {
                 PopulationData popData = supplementalData.getLanguageAndTerritoryPopulationData(
@@ -817,7 +819,20 @@ public class ConvertLanguageData {
             return languageCode;
         }
 
+        static Map<String,String> oldToFixed = new HashMap<>();
+        
         public String getRickLanguageName() {
+            String cldrResult = getExcelQuote(english.getName(languageCode, true));
+//            String result = getRickLanguageName2();
+//            if (!result.equalsIgnoreCase(cldrResult)) {
+//                if (null == oldToFixed.put(result, cldrResult)) {
+//                    System.out.println("## " + result + "!=" + cldrResult);
+//                }
+//            }
+            return cldrResult;
+        }
+        
+        public String getRickLanguageName2() {
             String result = new ULocale(languageCode).getDisplayName();
             if (!result.equals(languageCode)) return getExcelQuote(result);
             Set<String> names = Iso639Data.getNames(languageCode);
@@ -982,7 +997,7 @@ public class ConvertLanguageData {
     }
 
     private static String getDisplayCountry(String countryCode) {
-        String result = ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH);
+        String result = getULocaleCountryName(countryCode);
         if (!result.equals(countryCode)) {
             return result;
         }
@@ -995,7 +1010,7 @@ public class ConvertLanguageData {
     }
 
     private static String getDisplayScript(String scriptCode) {
-        String result = ULocale.getDisplayScript("und_" + scriptCode, ULocale.ENGLISH);
+        String result = getULocaleScriptName(scriptCode);
         if (!result.equals(scriptCode)) {
             return result;
         }
@@ -1008,7 +1023,7 @@ public class ConvertLanguageData {
     }
 
     private static String getLanguageName(String languageCode) {
-        String result = new ULocale(languageCode).getDisplayName();
+        String result = getULocaleLocaleName(languageCode);
         if (!result.equals(languageCode)) return result;
         Set<String> names = Iso639Data.getNames(languageCode);
         if (names != null && names.size() != 0) {
@@ -1805,9 +1820,9 @@ public class ConvertLanguageData {
                     IdUsage idUsage = scriptInfo.idUsage;
                     if (status == BasicLanguageData.Type.primary && idUsage != IdUsage.RECOMMENDED) {
                         if (idUsage == IdUsage.ASPIRATIONAL || idUsage == IdUsage.LIMITED_USE) {
-                            BadItem.WARNING.toString("Script has unexpected usage; make secondary if a Recommended script is used widely for the langauge", idUsage + ", " + script + "=" + ULocale.getDisplayScript("und-" + script, ULocale.ENGLISH), row);
+                            BadItem.WARNING.toString("Script has unexpected usage; make secondary if a Recommended script is used widely for the langauge", idUsage + ", " + script + "=" + getULocaleScriptName(script), row);
                         } else {
-                            BadItem.ERROR.toString("Script is not modern; make secondary", idUsage + ", " + script + "=" + ULocale.getDisplayScript("und-" + script, ULocale.ENGLISH), row);
+                            BadItem.ERROR.toString("Script is not modern; make secondary", idUsage + ", " + script + "=" + getULocaleScriptName(script), row);
                             status = BasicLanguageData.Type.secondary;
                         }
                     }
@@ -2239,4 +2254,16 @@ public class ConvertLanguageData {
         return countryCode;
     }
 
+    private static String getULocaleLocaleName(String languageCode) {
+        return english.getName(languageCode, true);
+        //return new ULocale(languageCode).getDisplayName();
+    }
+    private static String getULocaleScriptName(String scriptCode) {
+        return english.getName(CLDRFile.SCRIPT_NAME, scriptCode);
+        // return ULocale.getDisplayScript("und_" + scriptCode, ULocale.ENGLISH);
+    }
+    private static String getULocaleCountryName(String countryCode) {
+        return english.getName(CLDRFile.TERRITORY_NAME, countryCode);
+        //return ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH);
+    }
 }

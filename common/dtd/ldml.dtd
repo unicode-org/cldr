@@ -270,15 +270,20 @@ $Revision$
     <!--@DEPRECATED-->
 <!ATTLIST transformNames references CDATA #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT transformName ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST transformName type NMTOKEN #REQUIRED >
+    <!--@DEPRECATED-->
 <!ATTLIST transformName alt NMTOKENS #IMPLIED >
+    <!--@DEPRECATED-->
 <!ATTLIST transformName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST transformName references CDATA #IMPLIED >
     <!--@METADATA-->
+    <!--@DEPRECATED-->
 
 <!-- # Either 1 alias OR any specials, any order, zero or more measurementSystemName -->
 
@@ -2373,22 +2378,6 @@ $Revision$
 <!ATTLIST listPatternPart validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
-    
-<!ELEMENT characterLabels ( alias | ( characterLabelPattern*, characterLabel*, special* ) ) >
-
-<!ELEMENT characterLabelPattern ( #PCDATA ) >
-<!ATTLIST characterLabelPattern type NMTOKEN #REQUIRED >
-<!ATTLIST characterLabelPattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
-    <!-- count only used for certain patterns" -->
-<!ATTLIST characterLabelPattern alt NMTOKENS #IMPLIED >
-<!ATTLIST characterLabelPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
-    <!--@METADATA-->
-    
-<!ELEMENT characterLabel ( #PCDATA ) >
-<!ATTLIST characterLabel type NMTOKEN #REQUIRED >
-<!ATTLIST characterLabel alt NMTOKENS #IMPLIED >
-<!ATTLIST characterLabel draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
-    <!--@METADATA-->
 
 <!-- ######################################################### -->
 
@@ -2396,8 +2385,9 @@ $Revision$
 <!ATTLIST collations version NMTOKEN #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST collations draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
-    <!--@METADATA-->
     <!-- should be DEPRECATED, but needs some cleanup first -->
+    <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
@@ -2666,6 +2656,22 @@ $Revision$
 <!ATTLIST noexpr references CDATA #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
+
+<!ELEMENT characterLabels ( alias | ( characterLabelPattern*, characterLabel*, special* ) ) >
+
+<!ELEMENT characterLabelPattern ( #PCDATA ) >
+<!ATTLIST characterLabelPattern type NMTOKEN #REQUIRED >
+<!ATTLIST characterLabelPattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
+    <!-- count only used for certain patterns" -->
+<!ATTLIST characterLabelPattern alt NMTOKENS #IMPLIED >
+<!ATTLIST characterLabelPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT characterLabel ( #PCDATA ) >
+<!ATTLIST characterLabel type NMTOKEN #REQUIRED >
+<!ATTLIST characterLabel alt NMTOKENS #IMPLIED >
+<!ATTLIST characterLabel draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT segmentations ( alias | ( segmentation*, special* ) ) >
 <!ATTLIST segmentations alt NMTOKENS #IMPLIED >

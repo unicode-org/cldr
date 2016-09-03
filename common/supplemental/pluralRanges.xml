@@ -7,7 +7,7 @@
 	<plurals> <!-- Format with GeneratePluralRanges.java -->
 
 <!-- other -->
-		<pluralRanges locales="id ja km ko lo ms my th vi zh yue">
+		<pluralRanges locales="id ja km ko lo ms my th vi yue zh">
 			<pluralRange start="other" end="other" result="other"/>
 		</pluralRanges>
 
@@ -143,7 +143,7 @@
 			<pluralRange start="other" end="many"  result="many"/>
 			<pluralRange start="other" end="other" result="other"/>
 		</pluralRanges>
-		<pluralRanges locales="lt ru uk be">
+		<pluralRanges locales="be lt ru uk">
 			<pluralRange start="one"   end="one"   result="one"/>
 			<pluralRange start="one"   end="few"   result="few"/>
 			<pluralRange start="one"   end="many"  result="many"/>
@@ -157,6 +157,27 @@
 			<pluralRange start="many"  end="many"  result="many"/>
 			<pluralRange start="many"  end="other" result="other"/>
 			<pluralRange start="other" end="one"   result="one"/>
+			<pluralRange start="other" end="few"   result="few"/>
+			<pluralRange start="other" end="many"  result="many"/>
+			<pluralRange start="other" end="other" result="other"/>
+		</pluralRanges>
+
+<!-- one, two, few, many, other -->
+		<pluralRanges locales="ga">
+			<pluralRange start="one"   end="two"   result="two"/>
+			<pluralRange start="one"   end="few"   result="few"/>
+			<pluralRange start="one"   end="many"  result="many"/>
+			<pluralRange start="one"   end="other" result="other"/>
+			<pluralRange start="two"   end="few"   result="few"/>
+			<pluralRange start="two"   end="many"  result="many"/>
+			<pluralRange start="two"   end="other" result="other"/>
+			<pluralRange start="few"   end="few"   result="few"/>
+			<pluralRange start="few"   end="many"  result="many"/>
+			<pluralRange start="few"   end="other" result="other"/>
+			<pluralRange start="many"  end="many"  result="many"/>
+			<pluralRange start="many"  end="other" result="other"/>
+			<pluralRange start="other" end="one"   result="one"/>
+			<pluralRange start="other" end="two"   result="two"/>
 			<pluralRange start="other" end="few"   result="few"/>
 			<pluralRange start="other" end="many"  result="many"/>
 			<pluralRange start="other" end="other" result="other"/>
@@ -185,25 +206,6 @@
 			<pluralRange start="other" end="many"  result="many"/>
 			<pluralRange start="other" end="other" result="other"/>
 		</pluralRanges>
-		<pluralRanges locales="ga">
-			<pluralRange start="one" end="two"  result="two"/>
-			<pluralRange start="one" end="few"  result="few"/>
-			<pluralRange start="one" end="many"  result="many"/>
-			<pluralRange start="one" end="other"  result="other"/>
-			<pluralRange start="two" end="few"  result="few"/>
-			<pluralRange start="two" end="many"  result="many"/>
-			<pluralRange start="two" end="other"  result="other"/>
-			<pluralRange start="few" end="few"  result="few"/>
-			<pluralRange start="few" end="many"  result="many"/>
-			<pluralRange start="few" end="other"  result="other"/>
-			<pluralRange start="many" end="many"  result="many"/>
-			<pluralRange start="many" end="other"  result="other"/>
-			<pluralRange start="other" end="one"  result="one"/>
-			<pluralRange start="other" end="two"  result="two"/>
-			<pluralRange start="other" end="few"  result="few"/>
-			<pluralRange start="other" end="many"  result="many"/>
-			<pluralRange start="other" end="other"  result="other"/>
-		</pluralRanges>
 		<pluralRanges locales="ar">
 			<pluralRange start="zero"  end="one"   result="zero"/>
 			<pluralRange start="zero"  end="two"   result="zero"/>
@@ -229,5 +231,6 @@
 			<pluralRange start="other" end="many"  result="many"/>
 			<pluralRange start="other" end="other" result="other"/>
 		</pluralRanges>
+
 	</plurals>
 </supplementalData>

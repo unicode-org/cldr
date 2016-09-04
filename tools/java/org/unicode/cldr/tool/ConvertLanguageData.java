@@ -34,6 +34,7 @@ import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Source;
 import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleIDParser.Level;
@@ -144,9 +145,10 @@ public class ConvertLanguageData {
 
             final LanguageTagParser languageTagParser = new LanguageTagParser();
 
-            for (String locale : available) {
+            for (String localeRaw : available) {
+                String locale = languageTagCanonicalizer.transform(localeRaw);
                 if (!localesWithData.contains(locale)) {
-                    CLDRFile locFile = cldrFactory.make(locale, false);
+                    CLDRFile locFile = cldrFactory.make(localeRaw, false);
                     if (locFile.isAliasedAtTopLevel()) {
                         continue;
                     }
@@ -164,8 +166,8 @@ public class ConvertLanguageData {
                             BadItem.ERROR.show("missing language/population data for CLDR locale", locale + " = " + getLanguageCodeAndName(locale));
                         }
                     } else {
-                        BadItem.ERROR.show("missing language/population data for CLDR locale", locale + " = " + getLanguageCodeAndName(locale) + " but have data for "
-                            + getLanguageCodeAndName(withoutScript));
+                        BadItem.ERROR.show("missing language/population data for CLDR locale", locale + " = " + getLanguageCodeAndName(locale)
+                            + " but have data for " + getLanguageCodeAndName(withoutScript));
                     }
                 }
             }
@@ -2196,7 +2198,12 @@ public class ConvertLanguageData {
         return pf.format(d);
     }
 
-    private static String fixLanguageCode(String languageCode, List<String> row) {
+    static final LanguageTagCanonicalizer languageTagCanonicalizer = new LanguageTagCanonicalizer();
+    private static String fixLanguageCode(String languageCodeRaw, List<String> row) {
+        String languageCode = languageTagCanonicalizer.transform(languageCodeRaw);
+        if (!languageCode.equals(languageCodeRaw)) {
+            System.out.println("## " + languageCodeRaw + " => " + languageCode);
+        }
         int bar = languageCode.indexOf('_');
         String script = "";
         if (bar >= 0) {

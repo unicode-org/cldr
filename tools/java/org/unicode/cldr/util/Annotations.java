@@ -26,6 +26,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 public class Annotations {
     private static final boolean DEBUG = false;
 
+    public static final String BADMARKER = "✖︎";
     static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
     static final Splitter dotSplitter = Splitter.on(".").trimResults();
 
@@ -127,7 +128,9 @@ public class Annotations {
 
     public Annotations(Set<String> attributes, String tts2) {
         annotations = attributes == null ? Collections.<String>emptySet() : Collections.unmodifiableSet(attributes);
-        tts = tts2;
+        tts = (tts2 != null && tts2.startsWith(BADMARKER)) 
+            ? BADMARKER + tts2.replace(BADMARKER,"") 
+                : tts2;
     }
 
     public Annotations add(Set<String> attributes, String tts2) {
@@ -175,8 +178,6 @@ public class Annotations {
 
     public static final class AnnotationSet {
         private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
-
-        private static final String BADMARKER = "¿";
 
         static Factory factory = CONFIG.getCldrFactory();
         static CLDRFile ENGLISH = CONFIG.getEnglish();
@@ -254,6 +255,9 @@ public class Annotations {
                 }
                 return new Annotations(Collections.singleton(flagLabel), shortName);
             } else if (code.contains(EmojiConstants.KEYCAP_MARK_STRING) || code.equals("🔟")) {
+                if (locale.equals("ga")) {
+                    int debug = 0;
+                }
                 final String rem = code.equals("🔟") ? "10" : UTF16.valueOf(code.charAt(0));
                 shortName = initialPattern.format(keycapLabel, rem);
                 return new Annotations(Collections.singleton(keycapLabel), shortName);

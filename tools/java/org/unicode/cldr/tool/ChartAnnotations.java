@@ -77,6 +77,7 @@ public class ChartAnnotations extends Chart {
 
     static final UnicodeSet EXTRAS = new UnicodeSet()
     .add("🇪🇺")
+    .add("🔟")
     .add("#️⃣")
     .add("👶🏽")
     .add("👩‍❤️‍💋‍👩")
@@ -283,7 +284,8 @@ public class ChartAnnotations extends Chart {
                 + "The keywords plus the words in the short name are typically used for search and predictive typing.<p>\n"
                 + "<p>Most short names and keywords that can be constructed with the mechanism in " + LDML_ANNOTATIONS + " are omitted. A few are included for comparison: "
                     + CollectionUtilities.join(EXTRAS.addAllTo(new TreeSet<>()), ", ") + ". "
-                + "In this chart, names are marked with “¿” where a short name is unavailable and uses a fallback construction and/or an English short name “[en]”. </p>\n";
+                + "In this chart, constructed names are marked with “¿” if they use a ‘fallback‘ construction. "
+                + "Such names include “[en]” where a English short name is substituted. </p>\n";
         }
 
         @Override

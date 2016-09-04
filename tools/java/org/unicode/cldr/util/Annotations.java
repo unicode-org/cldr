@@ -253,8 +253,9 @@ public class Annotations {
                     shortName = BADMARKER + ENGLISH.getStringValue(path) + "[en]";
                 }
                 return new Annotations(Collections.singleton(flagLabel), shortName);
-            } else if (code.contains(EmojiConstants.KEYCAP_MARK_STRING)) {
-                shortName = initialPattern.format(keycapLabel, UTF16.valueOf(code.charAt(0)));
+            } else if (code.contains(EmojiConstants.KEYCAP_MARK_STRING) || code.equals("🔟")) {
+                final String rem = code.equals("🔟") ? "10" : UTF16.valueOf(code.charAt(0));
+                shortName = initialPattern.format(keycapLabel, rem);
                 return new Annotations(Collections.singleton(keycapLabel), shortName);
             } else if (EmojiConstants.MODIFIERS.containsSome(code)) {
                 String rem = EmojiConstants.MODIFIERS.stripFrom(code, false);

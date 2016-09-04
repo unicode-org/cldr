@@ -35,7 +35,7 @@ public class TestAnnotations extends TestFmwk {
                 annotations.add(test[i]);
             }
             for (String s : us) {
-                Set<String> set = data.get(s).annotations;
+                Set<String> set = data.get(s).getKeywords();
                 if (set == null) {
                     set = Collections.emptySet();
                 }

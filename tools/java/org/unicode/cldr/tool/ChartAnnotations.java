@@ -13,6 +13,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.Annotations;
+import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -20,6 +21,7 @@ import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.Pair;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
@@ -30,7 +32,7 @@ import com.ibm.icu.util.ULocale;
 public class ChartAnnotations extends Chart {
 
     private static final String LDML_ANNOTATIONS = "<a href='http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations'>LDML Annotations</a>";
-    
+
     private static final String MAIN_HEADER = "<p>Annotations provide names and keywords for Unicode characters, currently focusing on emoji. "
         + "If you see any problems, please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> with the corrected values for the locale. "
         + "For the XML data used for these charts, see "
@@ -73,11 +75,23 @@ public class ChartAnnotations extends Chart {
         pw.write(anchors.toString());
     }
 
+    static final UnicodeSet EXTRAS = new UnicodeSet()
+    .add("🇪🇺")
+    .add("#️⃣")
+    .add("👶🏽")
+    .add("👩‍❤️‍💋‍👩")
+    .add("👩‍❤️‍👩")
+    .add("👩‍👩‍👧")
+    .add("👨🏻‍⚕️")
+    .add("👮🏿‍♂️")
+    .add("👮🏽‍♀️")
+    .freeze();
+
     public void writeSubcharts(Anchors anchors) throws IOException {
         Set<String> locales = Annotations.getAvailableLocales();
 
-        UnicodeMap<Annotations> english = Annotations.getData("en");
-        UnicodeSet s = english.keySet();
+        AnnotationSet english = Annotations.getDataSet("en");
+        UnicodeSet s = new UnicodeSet(english.keySet()).addAll(EXTRAS).freeze();
 
         // set up right order for columns
 
@@ -99,7 +113,7 @@ public class ChartAnnotations extends Chart {
             LanguageGroup group = LanguageGroup.get(loc);
             groupToNameAndCodeSorted.put(group, Pair.of(name, locale));
         }
-        
+
         for (Entry<LanguageGroup, Set<Pair<String, String>>> groupPairs : groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
             String ename = ENGLISH.getName("en", true);
@@ -149,10 +163,9 @@ public class ChartAnnotations extends Chart {
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {
                     String name = nameAndLocale.getKey();
                     String locale = nameAndLocale.getValue();
-                    UnicodeMap<Annotations> annotations = Annotations.getData(locale);
-                    Annotations values = annotations.get(cp);
-                    if (DEBUG) System.out.println(name + ":" + values);
-                    tablePrinter.addCell(values == null ? "——" : values.toString(true));
+                    AnnotationSet annotations = Annotations.getDataSet(locale);
+                    if (DEBUG) System.out.println(name + ":" + annotations.toString(cp, false));
+                    tablePrinter.addCell(annotations.toString(cp, true));
                 }
                 tablePrinter.finishRow();
             }
@@ -268,7 +281,9 @@ public class ChartAnnotations extends Chart {
                 + "It is bolded for clarity, and marked with a * for searching on this page. "
                 + "The remaining phrases are <b>keywords</b> (labels), separated by “|”. "
                 + "The keywords plus the words in the short name are typically used for search and predictive typing.<p>\n"
-                + "<p>The mechanism in " + LDML_ANNOTATIONS + " can be used for constructing short names and keywords omitted here.</p>\n";
+                + "<p>Most short names and keywords that can be constructed with the mechanism in " + LDML_ANNOTATIONS + " are omitted. A few are included for comparison: "
+                    + CollectionUtilities.join(EXTRAS.addAllTo(new TreeSet<>()), ", ") + ". "
+                + "In this chart, names are marked with “¿” where a short name is unavailable and uses a fallback construction and/or an English short name “[en]”. </p>\n";
         }
 
         @Override

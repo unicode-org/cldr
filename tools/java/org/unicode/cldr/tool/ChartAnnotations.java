@@ -282,10 +282,12 @@ public class ChartAnnotations extends Chart {
                 + "It is bolded for clarity, and marked with a * for searching on this page. "
                 + "The remaining phrases are <b>keywords</b> (labels), separated by “|”. "
                 + "The keywords plus the words in the short name are typically used for search and predictive typing.<p>\n"
-                + "<p>Most short names and keywords that can be constructed with the mechanism in " + LDML_ANNOTATIONS + " are omitted. A few are included for comparison: "
+                + "<p>Most short names and keywords that can be constructed with the mechanism in " + LDML_ANNOTATIONS + " are omitted. "
+                    + "However, a few are included for comparison: "
                     + CollectionUtilities.join(EXTRAS.addAllTo(new TreeSet<>()), ", ") + ". "
-                + "In this chart, constructed names are marked with “¿” if they use a ‘fallback‘ construction. "
-                + "Such names include “[en]” where a English short name is substituted. </p>\n";
+                + "In this chart, missing items are marked with “" + Annotations.MISSING_MARKER + "”, "
+                    + "‘fallback’ constructed items with “" + Annotations.BAD_MARKER + "”, "
+                    + "and substituted English values with “" + Annotations.ENGLISH_MARKER + "” . </p>\n";
         }
 
         @Override

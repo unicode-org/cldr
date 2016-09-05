@@ -26,7 +26,10 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 public class Annotations {
     private static final boolean DEBUG = false;
 
-    public static final String BADMARKER = "✖︎";
+    public static final String BAD_MARKER = "⊗";
+    public static final String MISSING_MARKER = "⊖";
+    public static final String ENGLISH_MARKER = "⊕";
+    
     static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
     static final Splitter dotSplitter = Splitter.on(".").trimResults();
 
@@ -128,9 +131,7 @@ public class Annotations {
 
     public Annotations(Set<String> attributes, String tts2) {
         annotations = attributes == null ? Collections.<String>emptySet() : Collections.unmodifiableSet(attributes);
-        tts = (tts2 != null && tts2.startsWith(BADMARKER)) 
-            ? BADMARKER + tts2.replace(BADMARKER,"") 
-                : tts2;
+        tts = tts2;
     }
 
     public Annotations add(Set<String> attributes, String tts2) {
@@ -177,6 +178,7 @@ public class Annotations {
     }
 
     public static final class AnnotationSet {
+
         private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
 
         static Factory factory = CONFIG.getCldrFactory();
@@ -195,10 +197,21 @@ public class Annotations {
             this.locale = locale;
             baseData = source;
             cldrFile = factory.make(locale, true);
-            initialPattern = SimpleFormatter.compile(cldrFile.getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
-            listPattern = SimpleFormatter.compile(cldrFile.getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
-            keycapLabel = cldrFile.getStringValue("//ldml/characterLabels/characterLabel[@type=\"keycap\"]");
-            flagLabel = cldrFile.getStringValue("//ldml/characterLabels/characterLabel[@type=\"flag\"]");
+            initialPattern = SimpleFormatter.compile(getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
+            listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
+            keycapLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"keycap\"]");
+            flagLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"flag\"]");
+        }
+        private String getStringValue(String xpath) {
+            String result = cldrFile.getStringValue(xpath);
+            if (result == null) {
+                return BAD_MARKER + ENGLISH_MARKER + ENGLISH.getStringValue(xpath);
+            }
+            String sourceLocale = cldrFile.getSourceLocaleID(xpath, null);
+            if (sourceLocale.equals(XMLSource.CODE_FALLBACK_ID) || sourceLocale.equals(XMLSource.ROOT_ID)) {
+                return BAD_MARKER + result;
+            }
+            return result;
         }
         public String getShortName(String code) {
             code = code.replace(EmojiConstants.EMOJI_VARIANT_STRING,"");
@@ -243,17 +256,11 @@ public class Annotations {
             Set<String> annotations = null;
             int len = code.codePointCount(0, code.length());
             if (len == 1) {
-                return new Annotations(Collections.<String>emptySet(), BADMARKER + getDataSet("en").getShortName(code) + "[en]");
+                return new Annotations(Collections.<String>emptySet(), BAD_MARKER + getDataSet("en").getShortName(code) + "[en]");
             } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
                 String countryCode = EmojiConstants.getFlagCode(code);
                 String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
-                final String sourceLocaleID = cldrFile.getSourceLocaleID(path, null);
-                if (!sourceLocaleID.equals("root") && !sourceLocaleID.equals(XMLSource.CODE_FALLBACK_ID)) {
-                    shortName = cldrFile.getStringValue(path);
-                } else {
-                    shortName = BADMARKER + ENGLISH.getStringValue(path) + "[en]";
-                }
-                return new Annotations(Collections.singleton(flagLabel), shortName);
+                return new Annotations(Collections.singleton(flagLabel), getStringValue(path));
             } else if (code.contains(EmojiConstants.KEYCAP_MARK_STRING) || code.equals("🔟")) {
                 if (locale.equals("ga")) {
                     int debug = 0;
@@ -274,12 +281,12 @@ public class Annotations {
                 } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
                     return getBasePlusRemainder(cldrFile, "👪", code, UnicodeSet.EMPTY);
                 } else if (code.contains(EmojiConstants.MALE_SIGN)){
-                    return getBasePlusRemainder(cldrFile, BADMARKER, "👨", code, EmojiConstants.SKIP_SET);
+                    return getBasePlusRemainder(cldrFile, BAD_MARKER, "👨", code, EmojiConstants.SKIP_SET);
                 } else if (code.contains(EmojiConstants.FEMALE_SIGN)){
-                    return getBasePlusRemainder(cldrFile, BADMARKER, "👩", code, EmojiConstants.SKIP_SET);
+                    return getBasePlusRemainder(cldrFile, BAD_MARKER, "👩", code, EmojiConstants.SKIP_SET);
                 }
             }
-            return getBasePlusRemainder(cldrFile, BADMARKER, null, code, UnicodeSet.EMPTY);
+            return getBasePlusRemainder(cldrFile, BAD_MARKER, null, code, UnicodeSet.EMPTY);
         }
 
         private Annotations getBasePlusRemainder(CLDRFile cldrFile, String base, String rem, UnicodeSet ignore) {
@@ -310,8 +317,8 @@ public class Annotations {
 
         public String toString(String code, boolean html) {
             final String shortName = getShortName(code);
-            if (shortName == null) {
-                return "——";
+            if (shortName == null || shortName.startsWith(BAD_MARKER)) {
+                return MISSING_MARKER;
             }
             Set<String> keywords = getKeywords(code);
             if (shortName != null && keywords.contains(shortName)) {

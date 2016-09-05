@@ -108,6 +108,9 @@ public class ChartAnnotations extends Chart {
             if (locale.equals("en")) { // make first
                 continue;
             }
+            if (locale.startsWith("en")) {
+                int debug = 0;
+            }
             String name = ENGLISH.getName(locale, true);
             int baseEnd = locale.indexOf('_');
             ULocale loc = new ULocale(baseEnd < 0 ? locale : locale.substring(0, baseEnd));

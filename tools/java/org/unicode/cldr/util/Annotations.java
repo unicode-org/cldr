@@ -29,7 +29,7 @@ public class Annotations {
     public static final String BAD_MARKER = "⊗";
     public static final String MISSING_MARKER = "⊖";
     public static final String ENGLISH_MARKER = "⊕";
-    
+
     static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
     static final Splitter dotSplitter = Splitter.on(".").trimResults();
 
@@ -62,8 +62,8 @@ public class Annotations {
             String shortName = file.getName();
             if (!shortName.endsWith(".xml") || // skip non-XML
                 shortName.startsWith("#") || // skip other junk files
-                shortName.startsWith(".") ||
-                shortName.contains("001") // skip world english for now
+                shortName.startsWith(".")
+//                || shortName.contains("001") // skip world english for now
                 ) continue; // skip dot files (backups, etc)
             temp.add(dotSplitter.split(shortName).iterator().next());
         }
@@ -71,32 +71,46 @@ public class Annotations {
     }
 
     static class MyHandler extends SimpleHandler {
-        String locale;
-        UnicodeMap<Annotations> localeData = new UnicodeMap<>();
-        XPathParts parts = new XPathParts();
+        private final String locale;
+        private final UnicodeMap<Annotations> localeData = new UnicodeMap<>();
+        private final AnnotationSet parentData;
 
-        public MyHandler(String locale) {
+        public MyHandler(String locale, AnnotationSet parentData) {
             this.locale = locale;
+            this.parentData = parentData;
         }
 
         public AnnotationSet cleanup() {
-            final AnnotationSet result = new AnnotationSet(locale, localeData.freeze());
+            // add parent data (may be overridden)
+            UnicodeMap<Annotations> templocaleData = localeData;
+            if (parentData != null) {
+                templocaleData = new UnicodeMap<>();
+                UnicodeSet keys = new UnicodeSet(parentData.baseData.keySet()).addAll(localeData.keySet());
+                for (String key : keys) {
+                    Annotations parentValue = parentData.baseData.get(key);
+                    Annotations myValue = localeData.get(key);
+                    if (parentValue == null) {
+                        templocaleData.put(key, myValue);
+                    } else if (myValue == null) {
+                        templocaleData.put(key, parentValue);
+                    } else { // need to combine
+                        String tts = myValue.tts == null 
+                            ? parentValue.tts : myValue.tts;
+                        Set<String> annotations = myValue.annotations == null || myValue.annotations.isEmpty() 
+                            ? parentValue.annotations : myValue.annotations;
+                        templocaleData.put(key, new Annotations(annotations, tts));
+                    }
+                }
+            }
+
+            final AnnotationSet result = new AnnotationSet(locale, templocaleData.freeze());
             cache.put(locale, result);
             return result;
         }
 
         @Override
         public void handlePathValue(String path, String value) {
-            parts.set(path);
-//  <ldml>
-//    <annotations>
-//      <annotation cp='[🐦🕊]'>bird</annotation>
-//             or
-//      <annotation cp="😀">gesig; grinnik</annotation>
-//      <annotation cp="😀" type="tts">grinnikende gesig</annotation>
-//             or
-//      <annotation cp="[😁]" tts="grinnikende gesig met glimlaggende oë">oog; gesig; grinnik; glimlag</annotation>
-
+            XPathParts parts = XPathParts.getFrozenInstance(path);
             String lastElement = parts.getElement(-1);
             if (!lastElement.equals("annotation")) {
                 if (!"identity".equals(parts.getElement(1))) {
@@ -119,12 +133,16 @@ public class Annotations {
 
         private void addItems(UnicodeMap<Annotations> unicodeMap, UnicodeSet us, Set<String> attributes, String tts) {
             for (String entry : us) {
-                Annotations annotations = unicodeMap.get(entry);
-                if (annotations == null) {
-                    unicodeMap.put(entry, new Annotations(attributes, tts));
-                } else {
-                    unicodeMap.put(entry, annotations.add(attributes, tts)); // creates new item
-                }
+                addItems(unicodeMap, entry, attributes, tts);
+            }
+        }
+
+        private void addItems(UnicodeMap<Annotations> unicodeMap, String entry, Set<String> attributes, String tts) {
+            Annotations annotations = unicodeMap.get(entry);
+            if (annotations == null) {
+                unicodeMap.put(entry, new Annotations(attributes, tts));
+            } else {
+                unicodeMap.put(entry, annotations.add(attributes, tts)); // creates new item
             }
         }
     }
@@ -191,16 +209,20 @@ public class Annotations {
         private final SimpleFormatter listPattern;
         private final String flagLabel;
         private final String keycapLabel;
+        private final String maleLabel;
+        private final String femaleLabel;
         private final Map<String, Annotations> localeCache = new ConcurrentHashMap<>();
 
         public AnnotationSet(String locale, UnicodeMap<Annotations> source) {
             this.locale = locale;
             baseData = source;
             cldrFile = factory.make(locale, true);
-            initialPattern = SimpleFormatter.compile(getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
             listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
+            initialPattern = SimpleFormatter.compile(getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
             keycapLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"keycap\"]");
             flagLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"flag\"]");
+            maleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"male\"]");
+            femaleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"female\"]");
         }
         private String getStringValue(String xpath) {
             String result = cldrFile.getStringValue(xpath);
@@ -281,9 +303,9 @@ public class Annotations {
                 } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
                     return getBasePlusRemainder(cldrFile, "👪", code, UnicodeSet.EMPTY);
                 } else if (code.contains(EmojiConstants.MALE_SIGN)){
-                    return getBasePlusRemainder(cldrFile, BAD_MARKER, "👨", code, EmojiConstants.SKIP_SET);
+                    return getBasePlusRemainder(cldrFile, BAD_MARKER, maleLabel, code, EmojiConstants.SKIP_SET);
                 } else if (code.contains(EmojiConstants.FEMALE_SIGN)){
-                    return getBasePlusRemainder(cldrFile, BAD_MARKER, "👩", code, EmojiConstants.SKIP_SET);
+                    return getBasePlusRemainder(cldrFile, BAD_MARKER, femaleLabel, code, EmojiConstants.SKIP_SET);
                 }
             }
             return getBasePlusRemainder(cldrFile, BAD_MARKER, null, code, UnicodeSet.EMPTY);
@@ -298,8 +320,13 @@ public class Annotations {
             SimpleFormatter pattern = listPattern;
             if (base != null) {
                 pattern = initialPattern;
-                shortName = getShortName(base);
-                annotations.addAll(getKeywords(base));
+                if (marker.isEmpty()) {
+                    shortName = getShortName(base);
+                    annotations.addAll(getKeywords(base));
+                } else {
+                    shortName = base;
+                    annotations.add(base);
+                }
             }
             for (int mod : CharSequences.codePoints(rem)) {
                 if (ignore.contains(mod)) {
@@ -317,7 +344,7 @@ public class Annotations {
 
         public String toString(String code, boolean html) {
             final String shortName = getShortName(code);
-            if (shortName == null || shortName.startsWith(BAD_MARKER) || shortName.startsWith(MISSING_MARKER)) {
+            if (shortName == null || shortName.startsWith(BAD_MARKER) || shortName.startsWith(ENGLISH_MARKER)) {
                 return MISSING_MARKER;
             }
             Set<String> keywords = getKeywords(code);
@@ -350,7 +377,12 @@ public class Annotations {
         if (!LOCALES.contains(locale)) {
             return null;
         }
-        MyHandler myHandler = new MyHandler(locale);
+        String parentString = LocaleIDParser.getSimpleParent(locale);
+        AnnotationSet parentData = null;
+        if (parentString != null && !parentString.equals("root")) {
+            parentData = getDataSet(parentString);
+        }
+        MyHandler myHandler = new MyHandler(locale, parentData);
         XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
         xfr.read(DIR + "/" + locale + ".xml", -1, true);
         return myHandler.cleanup();

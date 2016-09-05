@@ -205,7 +205,7 @@ public class Annotations {
         private String getStringValue(String xpath) {
             String result = cldrFile.getStringValue(xpath);
             if (result == null) {
-                return BAD_MARKER + ENGLISH_MARKER + ENGLISH.getStringValue(xpath);
+                return ENGLISH_MARKER + ENGLISH.getStringValue(xpath);
             }
             String sourceLocale = cldrFile.getSourceLocaleID(xpath, null);
             if (sourceLocale.equals(XMLSource.CODE_FALLBACK_ID) || sourceLocale.equals(XMLSource.ROOT_ID)) {
@@ -256,7 +256,7 @@ public class Annotations {
             Set<String> annotations = null;
             int len = code.codePointCount(0, code.length());
             if (len == 1) {
-                return new Annotations(Collections.<String>emptySet(), BAD_MARKER + getDataSet("en").getShortName(code) + "[en]");
+                return new Annotations(Collections.<String>emptySet(), ENGLISH_MARKER + getDataSet("en").getShortName(code));
             } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
                 String countryCode = EmojiConstants.getFlagCode(code);
                 String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
@@ -317,7 +317,7 @@ public class Annotations {
 
         public String toString(String code, boolean html) {
             final String shortName = getShortName(code);
-            if (shortName == null || shortName.startsWith(BAD_MARKER)) {
+            if (shortName == null || shortName.startsWith(BAD_MARKER) || shortName.startsWith(MISSING_MARKER)) {
                 return MISSING_MARKER;
             }
             Set<String> keywords = getKeywords(code);
@@ -335,6 +335,9 @@ public class Annotations {
                 }
             }
             return result;
+        }
+        public UnicodeMap<Annotations> getExplicitValues() {
+            return baseData;
         }
     }
 

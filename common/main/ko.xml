@@ -8513,6 +8513,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all" draft="contributed">{0} — 모두</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility" draft="contributed">{0} — 호환</characterLabelPattern>
 		<characterLabelPattern type="enclosed" draft="contributed">{0} — 닫힘</characterLabelPattern>
 		<characterLabelPattern type="extended" draft="contributed">{0} — 확장</characterLabelPattern>
@@ -8524,10 +8525,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities" draft="contributed">활동</characterLabel>
 		<characterLabel type="african_scripts">아프리카 문자</characterLabel>
 		<characterLabel type="american_scripts">아메리카 문자</characterLabel>
+		<characterLabel type="animal">동물</characterLabel>
 		<characterLabel type="animals_nature" draft="provisional">동물 및 자연</characterLabel>
 		<characterLabel type="arrows" draft="contributed">화살표</characterLabel>
+		<characterLabel type="body">몸</characterLabel>
 		<characterLabel type="box_drawing" draft="contributed">상자 그림</characterLabel>
 		<characterLabel type="braille" draft="contributed">점자</characterLabel>
+		<characterLabel type="building">건물</characterLabel>
 		<characterLabel type="bullets_stars" draft="contributed">구분점/별</characterLabel>
 		<characterLabel type="consonantal_jamo" draft="contributed">닿소리 자모</characterLabel>
 		<characterLabel type="currency_symbols" draft="contributed">통화 기호</characterLabel>
@@ -8540,6 +8544,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">동아시아 문자</characterLabel>
 		<characterLabel type="emoji">이모티콘</characterLabel>
 		<characterLabel type="european_scripts">유럽 문자</characterLabel>
+		<characterLabel type="female">여</characterLabel>
+		<characterLabel type="flag">깃발</characterLabel>
 		<characterLabel type="flags">깃발</characterLabel>
 		<characterLabel type="food_drink">음식 및 음료</characterLabel>
 		<characterLabel type="format" draft="contributed">포맷</characterLabel>
@@ -8552,6 +8558,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="hanja">한자</characterLabel>
 		<characterLabel type="hanzi_simplified">한자(간체)</characterLabel>
 		<characterLabel type="hanzi_traditional">한자(번체)</characterLabel>
+		<characterLabel type="heart">하트</characterLabel>
 		<characterLabel type="historic_scripts" draft="contributed">고전 문자</characterLabel>
 		<characterLabel type="ideographic_desc_characters" draft="contributed">상형 설명 문자</characterLabel>
 		<characterLabel type="japanese_kana" draft="provisional">가나</characterLabel>
@@ -8561,34 +8568,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="leftwards_rightwards_arrows" draft="contributed">좌우 양방향 화살표</characterLabel>
 		<characterLabel type="letterlike_symbols" draft="contributed">문자형 기호</characterLabel>
 		<characterLabel type="limited_use" draft="contributed">제한적 사용</characterLabel>
+		<characterLabel type="male">남</characterLabel>
 		<characterLabel type="math_symbols">수학 기호</characterLabel>
 		<characterLabel type="middle_eastern_scripts" draft="contributed">중동 문자</characterLabel>
 		<characterLabel type="miscellaneous">기타</characterLabel>
 		<characterLabel type="modern_scripts" draft="contributed">근대 문자</characterLabel>
 		<characterLabel type="modifier">수식어</characterLabel>
 		<characterLabel type="musical_symbols" draft="contributed">음악 기호</characterLabel>
+		<characterLabel type="nature">자연</characterLabel>
 		<characterLabel type="nonspacing">공백 없음</characterLabel>
 		<characterLabel type="numbers" draft="contributed">숫자</characterLabel>
 		<characterLabel type="objects" draft="contributed">사물</characterLabel>
 		<characterLabel type="other" draft="contributed">기타</characterLabel>
 		<characterLabel type="paired" draft="provisional">쌍 기호</characterLabel>
+		<characterLabel type="person">사람</characterLabel>
 		<characterLabel type="phonetic_alphabet" draft="contributed">음성 기호 알파벳</characterLabel>
 		<characterLabel type="pictographs" draft="contributed">그림 문자</characterLabel>
+		<characterLabel type="place">장소</characterLabel>
+		<characterLabel type="plant">식물</characterLabel>
 		<characterLabel type="punctuation" draft="contributed">구두점</characterLabel>
 		<characterLabel type="rightwards_arrows" draft="contributed">오른쪽 방향 화살표</characterLabel>
 		<characterLabel type="sign_standard_symbols" draft="contributed">상징/표준 기호</characterLabel>
 		<characterLabel type="small_form_variant" draft="contributed">작은 부호 변형</characterLabel>
+		<characterLabel type="smiley">스마일</characterLabel>
 		<characterLabel type="smileys_people" draft="contributed">스마일리 및 사람</characterLabel>
 		<characterLabel type="south_asian_scripts" draft="contributed">남아시아 문자</characterLabel>
 		<characterLabel type="southeast_asian_scripts" draft="contributed">동남아시아 문자</characterLabel>
 		<characterLabel type="spacing" draft="contributed">간격</characterLabel>
+		<characterLabel type="sport">스포츠</characterLabel>
 		<characterLabel type="symbols">기호</characterLabel>
 		<characterLabel type="technical_symbols" draft="contributed">기술 기호</characterLabel>
 		<characterLabel type="tone_marks" draft="contributed">성조 표시</characterLabel>
+		<characterLabel type="travel">여행</characterLabel>
 		<characterLabel type="travel_places" draft="contributed">여행 및 장소</characterLabel>
 		<characterLabel type="upwards_arrows" draft="contributed">위쪽 방향 화살표</characterLabel>
 		<characterLabel type="variant_forms" draft="contributed">부호 변형</characterLabel>
 		<characterLabel type="vocalic_jamo" draft="contributed">홀소리 자모</characterLabel>
+		<characterLabel type="weather">날씨</characterLabel>
 		<characterLabel type="western_asian_scripts" draft="contributed">동서양 문자</characterLabel>
 		<characterLabel type="whitespace" draft="contributed">공백</characterLabel>
 	</characterLabels>

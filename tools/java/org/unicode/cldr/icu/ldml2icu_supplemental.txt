@@ -52,17 +52,17 @@
 
 //supplementalData/codeMappings/currencyCodes[@type="(%W)"][@numeric="(%N)"].* ; /codeMappingsCurrency/<$1> ; values=$1 $2
 
-//supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"] ; /languageData/$1/primary/scripts ; values=$2
-//supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"][@territories="(%W)"]
-     ; /languageData/$1/primary/scripts ; values=$2
-     ; /languageData/$1/primary/territories; values=$3
-//supplementalData/languageData/language[@type="(%W)"][@territories="(%W)"] ; /languageData/$1/primary/territories ; values=$2
-
-//supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"][@alt="secondary"] ; /languageData/$1/secondary/scripts ; values=$2
-//supplementalData/languageData/language[@type="(%W)"][@territories="(%G)"][@alt="secondary"] ; /languageData/$1/secondary/territories ; values=$2
 //supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"][@territories="(%W)"][@alt="secondary"]
      ; /languageData/$1/secondary/scripts ; values=$2
      ; /languageData/$1/secondary/territories ; values=$3
+//supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"][@alt="secondary"] ; /languageData/$1/secondary/scripts ; values=$2
+//supplementalData/languageData/language[@type="(%W)"][@territories="(%G)"][@alt="secondary"] ; /languageData/$1/secondary/territories ; values=$2
+
+//supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"][@territories="(%W)"]
+     ; /languageData/$1/primary/scripts ; values=$2
+     ; /languageData/$1/primary/territories; values=$3
+//supplementalData/languageData/language[@type="(%W)"][@scripts="(%W)"] ; /languageData/$1/primary/scripts ; values=$2
+//supplementalData/languageData/language[@type="(%W)"][@territories="(%W)"] ; /languageData/$1/primary/territories ; values=$2
 
 //supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@status="deprecated"] ; /territoryContainment/deprecated/$1 ; values=$2
 //supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@status="grouping"] ; /territoryContainment/containedGroupings/$1 ; values=$2

@@ -4,19 +4,23 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.ChartAnnotations;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 
+import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.UTF16;
@@ -29,6 +33,7 @@ public class Annotations {
     public static final String BAD_MARKER = "⊗";
     public static final String MISSING_MARKER = "⊖";
     public static final String ENGLISH_MARKER = "⊕";
+    public static final String EQUIVALENT = "≣";
 
     static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
     static final Splitter dotSplitter = Splitter.on(".").trimResults();
@@ -82,7 +87,7 @@ public class Annotations {
 
         public AnnotationSet cleanup() {
             // add parent data (may be overridden)
-            UnicodeMap<Annotations> templocaleData = localeData;
+            UnicodeMap<Annotations> templocaleData = null;
             if (parentData != null) {
                 templocaleData = new UnicodeMap<>();
                 UnicodeSet keys = new UnicodeSet(parentData.baseData.keySet()).addAll(localeData.keySet());
@@ -103,7 +108,7 @@ public class Annotations {
                 }
             }
 
-            final AnnotationSet result = new AnnotationSet(locale, templocaleData.freeze());
+            final AnnotationSet result = new AnnotationSet(locale, localeData, templocaleData);
             cache.put(locale, result);
             return result;
         }
@@ -204,6 +209,7 @@ public class Annotations {
 
         private final String locale;
         private final UnicodeMap<Annotations> baseData;
+        private final UnicodeMap<Annotations> unresolvedData;
         private final CLDRFile cldrFile;
         private final SimpleFormatter initialPattern;
         private final SimpleFormatter listPattern;
@@ -213,9 +219,10 @@ public class Annotations {
         private final String femaleLabel;
         private final Map<String, Annotations> localeCache = new ConcurrentHashMap<>();
 
-        public AnnotationSet(String locale, UnicodeMap<Annotations> source) {
+        public AnnotationSet(String locale, UnicodeMap<Annotations> source, UnicodeMap<Annotations> resolvedSource) {
             this.locale = locale;
-            baseData = source;
+            unresolvedData = source.freeze();
+            this.baseData = resolvedSource == null ? unresolvedData : resolvedSource.freeze();
             cldrFile = factory.make(locale, true);
             listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
             initialPattern = SimpleFormatter.compile(getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
@@ -342,16 +349,29 @@ public class Annotations {
             return result;
         }
 
+        /**
+         * @deprecated Use {@link #toString(String,boolean,AnnotationSet)} instead
+         */
         public String toString(String code, boolean html) {
-            final String shortName = getShortName(code);
+            return toString(code, html, null);
+        }
+        public String toString(String code, boolean html, AnnotationSet parentAnnotations) {
+            String shortName = getShortName(code);
             if (shortName == null || shortName.startsWith(BAD_MARKER) || shortName.startsWith(ENGLISH_MARKER)) {
                 return MISSING_MARKER;
             }
-            Set<String> keywords = getKeywords(code);
-            if (shortName != null && keywords.contains(shortName)) {
-                keywords = new LinkedHashSet<String>(keywords);
-                keywords.remove(shortName);
+
+            String parentShortName = parentAnnotations == null ? null : parentAnnotations.getShortName(code);
+            if (shortName != null && Objects.equal(shortName, parentShortName)) {
+                shortName = EQUIVALENT;
             }
+
+            Set<String> keywords = getKeywordsMinus(code);
+            Set<String> parentKeywords = parentAnnotations == null ? null : parentAnnotations.getKeywordsMinus(code);
+            if (keywords != null && Objects.equal(keywords, parentKeywords)) {
+                keywords = Collections.singleton(EQUIVALENT);
+            }
+
             String result = CollectionUtilities.join(keywords, " |\u00a0");
             if (shortName != null) {
                 String ttsString = (html ? "*<b>" : "*") + shortName + (html ? "</b>" : "*");
@@ -365,6 +385,19 @@ public class Annotations {
         }
         public UnicodeMap<Annotations> getExplicitValues() {
             return baseData;
+        }
+        public UnicodeMap<Annotations> getUnresolvedExplicitValues() {
+            return unresolvedData;
+        }
+
+        public Set<String> getKeywordsMinus(String code) {
+            String shortName = getShortName(code);
+            Set<String> keywords = getKeywords(code);
+            if (shortName != null && keywords.contains(shortName)) {
+                keywords = new LinkedHashSet<String>(keywords);
+                keywords.remove(shortName);
+            }
+            return keywords;
         }
     }
 
@@ -428,5 +461,47 @@ public class Annotations {
      */
     public String getShortName() {
         return tts;
+    }
+    public static void main(String[] args) {
+        if (true) {
+            writeList();
+        } else {
+            writeEnglish();
+        }
+    }
+
+    private static void writeList() {
+        AnnotationSet eng = Annotations.getDataSet("en");
+        final UnicodeMap<Annotations> map = eng.getUnresolvedExplicitValues();
+        Set<String> keys = new TreeSet<>(ChartAnnotations.RBC);
+        map.keySet().addAllTo(keys);
+        for (String key : keys) {
+            System.out.println(Utility.hex(key, 4, "_").toLowerCase(Locale.ROOT)
+                + "\t" + key
+                + "\t" + map.get(key).getShortName()
+                + "\t" + CollectionUtilities.join(map.get(key).getKeywords(), " | ")
+                );
+        }
+    }
+
+    private static void writeEnglish() {
+        AnnotationSet eng = Annotations.getDataSet("en");
+        System.out.println(Annotations.getAvailable());
+        AnnotationSet eng100 = Annotations.getDataSet("en_001");
+        UnicodeMap<Annotations> map100 = eng100.getUnresolvedExplicitValues();
+        final UnicodeMap<Annotations> map = eng.getUnresolvedExplicitValues();
+        Set<String> keys = new TreeSet<>(ChartAnnotations.RBC);
+        map.keySet().addAllTo(keys);
+        for (String key : keys) {
+            Annotations value = map.get(key);
+            Annotations value100 = map100.get(key);
+            Set<String>  keywords100 = (value100 == null ? null : value100.getKeywords());
+            System.out.println(key + "\tname\t"
+                + "\t" + value.getShortName() 
+                + "\t" + (value100 == null ? "" : value100.getShortName())
+                + "\t" + CollectionUtilities.join(value.getKeywords(), " | ")
+                + "\t" + (keywords100 == null ? "" : CollectionUtilities.join(keywords100, " | "))
+                );
+        }
     }
 }

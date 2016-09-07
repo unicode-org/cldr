@@ -19,12 +19,11 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageGroup;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -168,8 +167,9 @@ public class ChartAnnotations extends Chart {
                     String name = nameAndLocale.getKey();
                     String locale = nameAndLocale.getValue();
                     AnnotationSet annotations = Annotations.getDataSet(locale);
-                    if (DEBUG) System.out.println(name + ":" + annotations.toString(cp, false));
-                    tablePrinter.addCell(annotations.toString(cp, true));
+                    AnnotationSet parentAnnotations = Annotations.getDataSet(LocaleIDParser.getParent(locale));
+                    if (DEBUG) System.out.println(name + ":" + annotations.toString(cp, false, null));
+                    tablePrinter.addCell(annotations.toString(cp, true, parentAnnotations));
                 }
                 tablePrinter.finishRow();
             }
@@ -185,65 +185,65 @@ public class ChartAnnotations extends Chart {
         return FIRST_REGIONAL <= firstCodepoint && firstCodepoint <= LAST_REGIONAL ? firstCodepoint - FIRST_REGIONAL + 'A' : -1;
     }
 
-    private String getName(String cp) {
-        int ri1 = getRegionalIndicator(cp.codePointAt(0));
-        if (ri1 >= 0) {
-            int ri2 = getRegionalIndicator(cp.codePointAt(2));
-            return ENGLISH.getName(CLDRFile.TERRITORY_NAME, String.valueOf((char) ri1) + String.valueOf((char) ri2));
-        }
-        String result = NAMES80.get(cp);
-        return result != null ? result : UCharacter.getName(cp, ", ");
-    }
-
-    static UnicodeMap<String> NAMES80 = new UnicodeMap<>();
-    static {
-        String[][] data = {
-            { "🏻", "EMOJI MODIFIER FITZPATRICK TYPE-1-2" },
-            { "🏼", "EMOJI MODIFIER FITZPATRICK TYPE-3" },
-            { "🏽", "EMOJI MODIFIER FITZPATRICK TYPE-4" },
-            { "🏾", "EMOJI MODIFIER FITZPATRICK TYPE-5" },
-            { "🏿", "EMOJI MODIFIER FITZPATRICK TYPE-6" },
-            { "🤐", "ZIPPER-MOUTH FACE" },
-            { "🤑", "MONEY-MOUTH FACE" },
-            { "🤒", "FACE WITH THERMOMETER" },
-            { "🤓", "NERD FACE" },
-            { "🤔", "THINKING FACE" },
-            { "🙄", "FACE WITH ROLLING EYES" },
-            { "🙃", "UPSIDE-DOWN FACE" },
-            { "🤕", "FACE WITH HEAD-BANDAGE" },
-            { "🤖", "ROBOT FACE" },
-            { "🤗", "HUGGING FACE" },
-            { "🤘", "SIGN OF THE HORNS" },
-            { "🦀", "CRAB (also Cancer)" },
-            { "🦂", "SCORPION (also Scorpio)" },
-            { "🦁", "LION FACE (also Leo)" },
-            { "🏹", "BOW AND ARROW (also Sagittarius)" },
-            { "🏺", "AMPHORA (also Aquarius)" },
-            { "🛐", "PLACE OF WORSHIP" },
-            { "🕋", "KAABA" },
-            { "🕌", "MOSQUE" },
-            { "🕍", "SYNAGOGUE" },
-            { "🕎", "MENORAH WITH NINE BRANCHES" },
-            { "📿", "PRAYER BEADS" },
-            { "🌭", "HOT DOG" },
-            { "🌮", "TACO" },
-            { "🌯", "BURRITO" },
-            { "🧀", "CHEESE WEDGE" },
-            { "🍿", "POPCORN" },
-            { "🍾", "BOTTLE WITH POPPING CORK" },
-            { "🦃", "TURKEY" },
-            { "🦄", "UNICORN FACE" },
-            { "🏏", "CRICKET BAT AND BALL" },
-            { "🏐", "VOLLEYBALL" },
-            { "🏑", "FIELD HOCKEY STICK AND BALL" },
-            { "🏒", "ICE HOCKEY STICK AND PUCK" },
-            { "🏓", "TABLE TENNIS PADDLE AND BALL" },
-            { "🏸", "BADMINTON RACQUET AND SHUTTLECOCK" } };
-        for (String[] pair : data) {
-            NAMES80.put(pair[0], pair[1]);
-        }
-        NAMES80.freeze();
-    }
+//    private String getName(String cp) {
+//        int ri1 = getRegionalIndicator(cp.codePointAt(0));
+//        if (ri1 >= 0) {
+//            int ri2 = getRegionalIndicator(cp.codePointAt(2));
+//            return ENGLISH.getName(CLDRFile.TERRITORY_NAME, String.valueOf((char) ri1) + String.valueOf((char) ri2));
+//        }
+//        String result = NAMES80.get(cp);
+//        return result != null ? result : UCharacter.getName(cp, ", ");
+//    }
+//
+//    private static UnicodeMap<String> NAMES80 = new UnicodeMap<>();
+//    static {
+//        String[][] data = {
+//            { "🏻", "EMOJI MODIFIER FITZPATRICK TYPE-1-2" },
+//            { "🏼", "EMOJI MODIFIER FITZPATRICK TYPE-3" },
+//            { "🏽", "EMOJI MODIFIER FITZPATRICK TYPE-4" },
+//            { "🏾", "EMOJI MODIFIER FITZPATRICK TYPE-5" },
+//            { "🏿", "EMOJI MODIFIER FITZPATRICK TYPE-6" },
+//            { "🤐", "ZIPPER-MOUTH FACE" },
+//            { "🤑", "MONEY-MOUTH FACE" },
+//            { "🤒", "FACE WITH THERMOMETER" },
+//            { "🤓", "NERD FACE" },
+//            { "🤔", "THINKING FACE" },
+//            { "🙄", "FACE WITH ROLLING EYES" },
+//            { "🙃", "UPSIDE-DOWN FACE" },
+//            { "🤕", "FACE WITH HEAD-BANDAGE" },
+//            { "🤖", "ROBOT FACE" },
+//            { "🤗", "HUGGING FACE" },
+//            { "🤘", "SIGN OF THE HORNS" },
+//            { "🦀", "CRAB (also Cancer)" },
+//            { "🦂", "SCORPION (also Scorpio)" },
+//            { "🦁", "LION FACE (also Leo)" },
+//            { "🏹", "BOW AND ARROW (also Sagittarius)" },
+//            { "🏺", "AMPHORA (also Aquarius)" },
+//            { "🛐", "PLACE OF WORSHIP" },
+//            { "🕋", "KAABA" },
+//            { "🕌", "MOSQUE" },
+//            { "🕍", "SYNAGOGUE" },
+//            { "🕎", "MENORAH WITH NINE BRANCHES" },
+//            { "📿", "PRAYER BEADS" },
+//            { "🌭", "HOT DOG" },
+//            { "🌮", "TACO" },
+//            { "🌯", "BURRITO" },
+//            { "🧀", "CHEESE WEDGE" },
+//            { "🍿", "POPCORN" },
+//            { "🍾", "BOTTLE WITH POPPING CORK" },
+//            { "🦃", "TURKEY" },
+//            { "🦄", "UNICORN FACE" },
+//            { "🏏", "CRICKET BAT AND BALL" },
+//            { "🏐", "VOLLEYBALL" },
+//            { "🏑", "FIELD HOCKEY STICK AND BALL" },
+//            { "🏒", "ICE HOCKEY STICK AND PUCK" },
+//            { "🏓", "TABLE TENNIS PADDLE AND BALL" },
+//            { "🏸", "BADMINTON RACQUET AND SHUTTLECOCK" } };
+//        for (String[] pair : data) {
+//            NAMES80.put(pair[0], pair[1]);
+//        }
+//        NAMES80.freeze();
+//    }
 
     private class Subchart extends Chart {
         String title;
@@ -286,11 +286,12 @@ public class ChartAnnotations extends Chart {
                 + "The remaining phrases are <b>keywords</b> (labels), separated by “|”. "
                 + "The keywords plus the words in the short name are typically used for search and predictive typing.<p>\n"
                 + "<p>Most short names and keywords that can be constructed with the mechanism in " + LDML_ANNOTATIONS + " are omitted. "
-                    + "However, a few are included for comparison: "
-                    + CollectionUtilities.join(EXTRAS.addAllTo(new TreeSet<>()), ", ") + ". "
+                + "However, a few are included for comparison: "
+                + CollectionUtilities.join(EXTRAS.addAllTo(new TreeSet<>()), ", ") + ". "
                 + "In this chart, missing items are marked with “" + Annotations.MISSING_MARKER + "”, "
-                    + "‘fallback’ constructed items with “" + Annotations.BAD_MARKER + "”, "
-                    + "and substituted English values with “" + Annotations.ENGLISH_MARKER + "” . </p>\n";
+                + "‘fallback’ constructed items with “" + Annotations.BAD_MARKER + "”, "
+                + "substituted English values with “" + Annotations.ENGLISH_MARKER + "”, and "
+                + "values equal to their parent locale’s values are replaced with " + Annotations.EQUIVALENT + ".</p>\n";
         }
 
         @Override
@@ -299,7 +300,7 @@ public class ChartAnnotations extends Chart {
         }
     }
 
-    static RuleBasedCollator RBC;
+    public static RuleBasedCollator RBC;
     static {
         Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "collation/", ".*");
         CLDRFile root = cldrFactory.make("root", false);

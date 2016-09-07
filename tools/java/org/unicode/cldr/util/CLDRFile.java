@@ -3548,11 +3548,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     public DtdType getDtdType() {
-        return dtdType;
+        return dtdType != null ? dtdType
+            : dataSource.getDtdType();
     }
 
     public DtdData getDtdData() {
-        return dtdData;
+        return dtdData != null ? dtdData 
+            : DtdData.getInstance(getDtdType());
     }
 
     public static Comparator<String> getPathComparator(String path) {

@@ -19,6 +19,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.With;
@@ -34,11 +35,11 @@ public class DiffCldr {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
 
     // ADD OPTIONS LATER
-    
+
     enum MyOptions {
         //organization(".*", "CLDR", "organization"),
-        filter(".*", "en", "locale filter (regex)");
-        
+        filter(".*", "en_001", "locale ancestor");
+
         // BOILERPLATE TO COPY
         final Option option;
         private MyOptions(String argumentPattern, String defaultArgument, String helpText) {
@@ -57,13 +58,13 @@ public class DiffCldr {
 
     public static void main(String[] args) {
         MyOptions.parse(args, true);
-        String localeFilter = MyOptions.filter.option.getValue();
-        
+        String localeBase = MyOptions.filter.option.getValue();
+
         String dirBase = CLDRPaths.COMMON_DIRECTORY;
         PathHeader.Factory phf = PathHeader.getFactory(CONFIG.getEnglish());
 
         // load data
-        
+
         M3<PathHeader, String, String> data = ChainedMap.of(new TreeMap<PathHeader,Object>(), new TreeMap<String,Object>(), String.class);
         Counter<String> localeCounter = new Counter<>();
         Counter<PathHeader> pathHeaderCounter = new Counter<>();
@@ -75,34 +76,52 @@ public class DiffCldr {
         Multimap<String, String> extras = TreeMultimap.create();
 
         for (String dir :DtdType.ldml.directories) {
-            Factory factory = SimpleFactory.make(dirBase + dir, localeFilter + "(_.*)?");
-            for (String locale : factory.getAvailable()) {
-                CLDRFile cldrFile = factory.make(locale, false);
+            Factory factory = SimpleFactory.make(dirBase + dir, ".*");
+            Set<String> available = factory.getAvailable();
+            Set<String> locales = new LinkedHashSet<>();
+            if (!available.contains(localeBase)) {
+                continue;
+            }
+            locales.add(localeBase);
+            for (String locale : available) {
+                if (hasAncestor(locale, localeBase)) {
+                    locales.add(locale);
+                }
+            }
+            for (String locale : locales) {
+                if (locale.equals("en_WS")) {
+                    int debug = 0;
+                }
+                boolean isBase = locale.equals(localeBase);
+                CLDRFile cldrFile = factory.make(locale, isBase);
                 DtdData dtdData = cldrFile.getDtdData();
                 CLDRFile cldrFileResolved = factory.make(locale, true);
                 for (String distinguishedPath : With.in(cldrFile.iterator())) {
                     String path = cldrFile.getFullXPath(distinguishedPath);
-                    String value = cldrFile.getStringValue(distinguishedPath);
-                    String bailey = cldrFile.getBaileyValue(distinguishedPath, pathWhereFound, localeWhereFound);
-                    
+
                     XPathParts pathPlain = XPathParts.getFrozenInstance(path);
                     if (dtdData.isMetadata(pathPlain)) {
                         continue;
                     }
-                    
+                    if (pathPlain.getElement(1).equals("identity")) {
+                        continue;
+                    }
+                    String value = cldrFile.getStringValue(distinguishedPath);
+                    String bailey = cldrFileResolved.getBaileyValue(distinguishedPath, pathWhereFound, localeWhereFound);
+
                     // one of the attributes might be a value (ugg)
                     // so check for that, and extract the value
-                    
+
                     String pathForValue = dtdData.getRegularizedPaths(pathPlain, extras);
-                    if (pathForValue != null) {
+                    if (pathForValue != null && (isBase || !value.equals(bailey))) {
                         PathHeader ph = phf.fromPath(pathForValue);
                         Splitter splitter = DtdData.getValueSplitter(pathPlain);
                         String cleanedValue = joinValues(pathPlain, splitter.splitToList(value));
                         total = addValue(data, locale, ph, cleanedValue, total, localeCounter, pathHeaderCounter);
                     }
-                    
+
                     // there are value attributes, so do them
-                    
+
                     for (Entry<String, Collection<String>> entry : extras.asMap().entrySet()) {
                         final String extraPath = entry.getKey();
                         final PathHeader ph = phf.fromPath(extraPath);
@@ -140,14 +159,25 @@ public class DiffCldr {
             if (currentValues.size() <= 1) {
                 continue;            
             }
-            
+
             // have difference, so print
-            
+
             System.out.print(++sort + "\t" + ph + "\t" + pathHeaderCounter.get(ph));
             for (String locale : localeList) {
                 System.out.print("\t" + CldrUtility.ifNull(localeToValue.get(locale),""));
             }
             System.out.println();
+        }
+    }
+
+    private static boolean hasAncestor(String locale, String localeBase) {
+        while (true) {
+            if (locale == null) {
+                return false;
+            } else if (locale.equals(localeBase)) {
+                return true;
+            }
+            locale = LocaleIDParser.getParent(locale);
         }
     }
 

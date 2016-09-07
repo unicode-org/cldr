@@ -1625,4 +1625,14 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public String getBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
         return null; // only a resolving xmlsource will return a value
     }
+
+    // HACK, should be field on XMLSource
+    public DtdType getDtdType() {
+        final Iterator<String> it = iterator();
+        if (it.hasNext()) {
+            String path = it.next();
+            return DtdType.fromPath(path);
+        }
+        return null;
+    }
 }

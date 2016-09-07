@@ -1,10 +1,8 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -16,6 +14,7 @@ import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageGroup;
@@ -146,7 +145,7 @@ public class ChartAnnotations extends Chart {
             String widthStringTarget = "class='target' width='" + width + "%'";
 
             TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Char", "class='source' width='1%'", null, "class='source-image'", true)
+            .addColumn("Char", "class='source' width='1%'", CldrUtility.getDoubleLinkMsg(), "class='source-image'", true)
             //.addColumn("Formal Name", "class='source' width='" + width + "%'", null, "class='source'", true)
             ;
 
@@ -317,11 +316,11 @@ public class ChartAnnotations extends Chart {
         }
     }
 
-    static final Set<String> ENGLISH_LABELS = new LinkedHashSet<>(Arrays.asList(
-        "flag", "nature", "objects", "people", "places", "symbols", "travel", "animal",
-        "office", "sign", "word", "time", "food", "person", "weather", "activity",
-        "vehicle", "restaurant", "communication", "emotion", "geometric", "mark",
-        "education", "gesture", "japanese", "symbol", "congratulation", "body", "clothing"));
+//    static final Set<String> ENGLISH_LABELS = new LinkedHashSet<>(Arrays.asList(
+//        "flag", "nature", "objects", "people", "places", "symbols", "travel", "animal",
+//        "office", "sign", "word", "time", "food", "person", "weather", "activity",
+//        "vehicle", "restaurant", "communication", "emotion", "geometric", "mark",
+//        "education", "gesture", "japanese", "symbol", "congratulation", "body", "clothing"));
 
 //    static class Annotations {
 //

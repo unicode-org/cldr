@@ -460,9 +460,11 @@ For  details about the format and other information, see:
 		<annotation cp="👱‍♂">plava kosa | muškarac</annotation>
 		<annotation cp="👱‍♂" type="tts">plavušan</annotation>
 		<annotation cp="👮">policija | policajac | muškarac</annotation>
+		<annotation cp="👮" type="tts">policajac</annotation>
 		<annotation cp="👮‍♀">policija | policajac | žena</annotation>
 		<annotation cp="👮‍♀" type="tts">žena policajac</annotation>
 		<annotation cp="👮‍♂">policija | policajac | muškarac</annotation>
+		<annotation cp="👮‍♂" type="tts">muškarac policajac</annotation>
 		<annotation cp="👲">gua pi mao | kačket | muškarac</annotation>
 		<annotation cp="👲" type="tts">muškarac s kineskom kapom</annotation>
 		<annotation cp="👳">turban</annotation>
@@ -472,17 +474,21 @@ For  details about the format and other information, see:
 		<annotation cp="👳‍♂">turban | muškarac</annotation>
 		<annotation cp="👳‍♂" type="tts">čovjek sa turbanom</annotation>
 		<annotation cp="👷">građevina | građevinski radovi | zemljište | šljem | radnik | muškarac</annotation>
+		<annotation cp="👷" type="tts">građevinski radnik</annotation>
 		<annotation cp="👷‍♀">građevina | građevinski radovi | zemljište | šljem | radnik | žena</annotation>
 		<annotation cp="👷‍♀" type="tts">građevinska radnica</annotation>
 		<annotation cp="👷‍♂">građevina | građevinski radovi | zemljište | šljem | radnik | muškarac</annotation>
+		<annotation cp="👷‍♂" type="tts">građevinski radnik muško</annotation>
 		<annotation cp="⛑">pomoć | prva pomoć | krst | šljem</annotation>
 		<annotation cp="⛑" type="tts">šljem s bijelim krstom</annotation>
 		<annotation cp="👸">bajka</annotation>
 		<annotation cp="👸" type="tts">princeza</annotation>
 		<annotation cp="💂">straža</annotation>
+		<annotation cp="💂" type="tts">stražar</annotation>
 		<annotation cp="💂‍♀">straža | žena</annotation>
 		<annotation cp="💂‍♀" type="tts">stražarka</annotation>
 		<annotation cp="💂‍♂">straža | muškarac</annotation>
+		<annotation cp="💂‍♂" type="tts">muškarac stražar</annotation>
 		<annotation cp="🕵">detektiv | špijun | muškarac</annotation>
 		<annotation cp="🕵" type="tts">detektiv</annotation>
 		<annotation cp="🕵‍♀">detektiv | špijun | žena</annotation>
@@ -633,6 +639,16 @@ For  details about the format and other information, see:
 		<annotation cp="👬" type="tts">dva muškarca se drže za ruke</annotation>
 		<annotation cp="👭">par | blizanci | žena</annotation>
 		<annotation cp="👭" type="tts">dvije žene se drže za ruke</annotation>
+		<annotation cp="🏻">boja kože</annotation>
+		<annotation cp="🏻" type="tts">tip-1-2</annotation>
+		<annotation cp="🏼">boja kože</annotation>
+		<annotation cp="🏼" type="tts">tip-3</annotation>
+		<annotation cp="🏽">boja kože</annotation>
+		<annotation cp="🏽" type="tts">tip-4</annotation>
+		<annotation cp="🏾">boja kože</annotation>
+		<annotation cp="🏾" type="tts">tip-5</annotation>
+		<annotation cp="🏿">boja kože</annotation>
+		<annotation cp="🏿" type="tts">tip-6</annotation>
 		<annotation cp="💪">bicepsi | mišići | stripovi</annotation>
 		<annotation cp="💪" type="tts">pokazivanje bicepsa</annotation>
 		<annotation cp="👈">nadlanica | kažiprst | pokazivanje | lijevo</annotation>
@@ -1628,15 +1644,19 @@ For  details about the format and other information, see:
 		<annotation cp="🏂">snijeg | daska | daskanje</annotation>
 		<annotation cp="🏂" type="tts">daskanje na snijegu</annotation>
 		<annotation cp="🏄">surfanje</annotation>
+		<annotation cp="🏄" type="tts">osoba surfa</annotation>
 		<annotation cp="🏄‍♀">surfanje | žena</annotation>
 		<annotation cp="🏄‍♀" type="tts">surferka</annotation>
 		<annotation cp="🏄‍♂">surfanje | muškarac</annotation>
+		<annotation cp="🏄‍♂" type="tts">surfer</annotation>
 		<annotation cp="🏇">konj | trka | trkaći konj | jahanje</annotation>
 		<annotation cp="🏇" type="tts">jahanje konja</annotation>
 		<annotation cp="🏊">plivanje</annotation>
+		<annotation cp="🏊" type="tts">osoba pliva</annotation>
 		<annotation cp="🏊‍♀">plivanje | žena</annotation>
 		<annotation cp="🏊‍♀" type="tts">plivačica</annotation>
 		<annotation cp="🏊‍♂">plivanje | muškarac</annotation>
+		<annotation cp="🏊‍♂" type="tts">plivač</annotation>
 		<annotation cp="⛹">lopta</annotation>
 		<annotation cp="⛹" type="tts">osoba s loptom</annotation>
 		<annotation cp="⛹‍♀">lopta | žena</annotation>
@@ -1962,6 +1982,7 @@ For  details about the format and other information, see:
 		<annotation cp="🔐">zatvoren | ključ | katanac | sigurno</annotation>
 		<annotation cp="🔐" type="tts">zatvoren katanac sa ključem</annotation>
 		<annotation cp="🔑">zaključan | šifra | lozinka</annotation>
+		<annotation cp="🔑" type="tts">ključ</annotation>
 		<annotation cp="🗝">trag | ključ | katanac | star</annotation>
 		<annotation cp="🗝" type="tts">stari ključ</annotation>
 		<annotation cp="🔨">alat</annotation>
@@ -1973,6 +1994,7 @@ For  details about the format and other information, see:
 		<annotation cp="🛠">čekić | alat | ključ</annotation>
 		<annotation cp="🛠" type="tts">čekić i ključ</annotation>
 		<annotation cp="🔧">alat</annotation>
+		<annotation cp="🔧" type="tts">ključ viljuškasti</annotation>
 		<annotation cp="🔩">vijak | alat | matica | šaraf</annotation>
 		<annotation cp="🔩" type="tts">šaraf i matica</annotation>
 		<annotation cp="⚙">alat</annotation>

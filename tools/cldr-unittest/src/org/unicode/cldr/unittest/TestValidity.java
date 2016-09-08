@@ -106,6 +106,9 @@ public class TestValidity extends TestFmwkPlus {
                     if (oldStatus == newStatus) {
                         continue;
                     }
+                    if (oldStatus == Status.regular && newStatus != Status.deprecated) {
+                        errln(type + ":" + code + ":" + oldStatus + " — regular item changed, and didn't become deprecated");
+                    }
                     if (newStatus == null && !ALLOWED_MISSING.contains(code)) {
                         errln(type + ":" + code + ":" + oldStatus + " — missing in new data");
                     } 

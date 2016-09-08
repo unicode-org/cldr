@@ -663,6 +663,7 @@ public class ChartDelta extends Chart {
     public void writeNonLdmlPlain(Anchors anchors, String directory) {
         SortedMap<PathHeader, String> bcp = new TreeMap<>();
         SortedMap<PathHeader, String> supplemental = new TreeMap<>();
+        SortedMap<PathHeader, String> transforms = new TreeMap<>();
 
         for (String dir : new File(CLDRPaths.BASE_DIRECTORY + "common/").list()) {
             if (CLDRPaths.LDML_DIRECTORIES.contains(dir)
@@ -698,13 +699,13 @@ public class ChartDelta extends Chart {
                 keys.addAll(CldrUtility.ifNull(contents2.keySet(), Collections.<PathHeader> emptySet()));
                 DtdType dtdType = null;
                 for (PathHeader key : keys) {
-                    if (key.getOriginalPath().contains("/tRule")) {
-                        int debug = 0;
-                    }
+                    boolean isTransform = key.getOriginalPath().contains("/tRule");
                     if (dtdType == null) {
                         dtdType = DtdType.fromPath(key.getOriginalPath());
                     }
-                    Map<PathHeader, String> target = dtdType == DtdType.supplementalData ? supplemental : bcp;
+                    Map<PathHeader, String> target = dtdType == DtdType.ldmlBCP47 ? bcp
+                        : isTransform ? transforms
+                            : supplemental ;
                     Set<String> set1 = contents1.get(key);
                     Set<String> set2 = contents2.get(key);
 
@@ -759,6 +760,7 @@ public class ChartDelta extends Chart {
 
         writeDiffs(anchors, "bcp47", "¤¤BCP47 Delta", bcp);
         writeDiffs(anchors, "supplemental-data", "¤¤Supplemental Delta", supplemental);
+        writeDiffs(anchors, "transforms", "¤¤Transforms Delta", transforms);
     }
 
     private void addRow(Map<PathHeader, String> target, PathHeader key, String oldItem, String newItem) {

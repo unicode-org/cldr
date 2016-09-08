@@ -62,7 +62,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="contributed">#,##0%</pattern>
+					<pattern>#,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -94,7 +94,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} Quadratfuss</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
-				<displayName draft="contributed">mg/dL</displayName>
+				<displayName>mg/dL</displayName>
 			</unit>
 			<unit type="length-foot">
 				<displayName>Fuss</displayName>
@@ -113,9 +113,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Fuss</displayName>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<unitPattern count="one" draft="contributed">{0} gal Imp.</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} gal Imp.</unitPattern>
-				<perUnitPattern draft="contributed">{0}/gal Imp.</perUnitPattern>
+				<unitPattern count="one">{0} gal Imp.</unitPattern>
+				<unitPattern count="other">{0} gal Imp.</unitPattern>
+				<perUnitPattern>{0}/gal Imp.</perUnitPattern>
 			</unit>
 		</unitLength>
 	</units>

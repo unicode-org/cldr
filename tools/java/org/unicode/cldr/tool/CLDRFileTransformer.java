@@ -13,6 +13,7 @@ import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.SimpleFactory.NoSourceDirectoryException;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
@@ -151,7 +152,7 @@ public class CLDRFileTransformer {
         CLDRFile output;
         try {
             output = factory.make(localeTransform.getOutputLocale(), false);
-        } catch (ICUUncheckedIOException e) {
+        } catch (NoSourceDirectoryException e) {
             // if we can't open the file, then just make a new one.
             XMLSource dataSource = new SimpleXMLSource(localeTransform.getOutputLocale());
             output = new CLDRFile(dataSource);

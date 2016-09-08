@@ -340,7 +340,7 @@ public class LikelySubtagsTest extends TestFmwk {
             "territory")) {
             String likelyExpansion = likely.get("und_" + region);
             if (likelyExpansion == null) {
-                if (region.equals("ZZ") || region.equals("001")
+                if (region.equals("ZZ") || region.equals("001") || region.equals("UN")
                     || SUPPLEMENTAL_DATA_INFO.getContained(region) == null) { // not
                     // container
                     String likelyTag = LikelySubtags.maximize("und_" + region,

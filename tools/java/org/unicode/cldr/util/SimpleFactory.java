@@ -461,6 +461,17 @@ public class SimpleFactory extends Factory {
         return localeList;
     }
 
+    public static class NoSourceDirectoryException extends ICUUncheckedIOException {
+        private static final long serialVersionUID = 1L;
+        private final String localeName;
+        public NoSourceDirectoryException(String localeName) {
+            this.localeName = localeName;
+        }
+        @Override
+        public String getMessage() {
+            return "Unable to determine the source directory for locale " + localeName;
+        }
+    }
     /**
      * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
      * use clone().
@@ -476,7 +487,7 @@ public class SimpleFactory extends Factory {
          */
         if (parentDir == null) {
             // changed from IllegalArgumentException, which does't let us filter exceptions.
-            throw new IllegalArgumentException("Unable to determine the source directory for locale " + localeName);
+            throw new NoSourceDirectoryException(localeName);
         }
         final Object cacheKey;
         CLDRFile result; // result of the lookup / generation

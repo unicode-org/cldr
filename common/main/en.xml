@@ -1282,9 +1282,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colStrength" type="quaternary">Sort Accents/Case/Width/Kana</type>
 			<type key="colStrength" type="secondary">Sort Accents</type>
 			<type key="colStrength" type="tertiary">Sort Accents/Case/Width</type>
-			<type key="d0" type="fwidth">Fullwidth</type>
-			<type key="d0" type="hwidth">Halfwidth</type>
-			<type key="d0" type="npinyin">Numeric</type>
+			<type key="d0" type="ascii">To ASCII</type>
+			<type key="d0" type="charname">To Unicode Character Names</type>
+			<type key="d0" type="fwidth">To Fullwidth</type>
+			<type key="d0" type="hex">To Hexadecimal Codes</type>
+			<type key="d0" type="hwidth">To Halfwidth</type>
+			<type key="d0" type="lower">To Lowercase</type>
+			<type key="d0" type="nfc">To Unicode NFC</type>
+			<type key="d0" type="nfd">To Unicode NFD</type>
+			<type key="d0" type="nfkc">To Unicode NFKC</type>
+			<type key="d0" type="nfkd">To Unicode NFKD</type>
+			<type key="d0" type="npinyin">To Pinyin With Numeric Tones</type>
+			<type key="d0" type="title">To Titlecase</type>
+			<type key="d0" type="upper">To Uppercase</type>
 			<type key="em" type="default">Use Default Presentation For Emoji Characters</type>
 			<type key="em" type="emoji">Prefer Emoji Presentation For Emoji Characters</type>
 			<type key="em" type="text">Prefer Text Presentation For Emoji Characters</type>
@@ -1304,6 +1314,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="kr" type="punct">Punctuation</type>
 			<type key="kr" type="space">Whitespace</type>
 			<type key="kr" type="symbol">Symbol</type>
+			<type key="kv" type="currency">Ignore Symbols affects spaces, punctuation, all symbols</type>
+			<type key="kv" type="punct">Ignore Symbols affects spaces and punctuation only</type>
+			<type key="kv" type="space">Ignore Symbols affects spaces only</type>
+			<type key="kv" type="symbol">Ignore Symbols affects spaces, punctuation, non-currency symbols</type>
 			<type key="lb" type="loose">Loose Line Break Style</type>
 			<type key="lb" type="normal">Normal Line Break Style</type>
 			<type key="lb" type="strict">Strict Line Break Style</type>
@@ -1315,6 +1329,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ms" type="metric">Metric System</type>
 			<type key="ms" type="uksystem">Imperial Measurement System</type>
 			<type key="ms" type="ussystem">US Measurement System</type>
+			<type key="numbers" type="adlm">Adlam Digits</type>
 			<type key="numbers" type="ahom">Ahom Digits</type>
 			<type key="numbers" type="arab">Arabic-Indic Digits</type>
 			<type key="numbers" type="arabext">Extended Arabic-Indic Digits</type>
@@ -1323,6 +1338,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="armnlow">Armenian Lowercase Numerals</type>
 			<type key="numbers" type="bali">Balinese Digits</type>
 			<type key="numbers" type="beng">Bangla Digits</type>
+			<type key="numbers" type="bhks">Bhaiksuki Digits</type>
 			<type key="numbers" type="brah">Brahmi Digits</type>
 			<type key="numbers" type="cakm">Chakma Digits</type>
 			<type key="numbers" type="cham">Cham Digits</type>
@@ -1370,6 +1386,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="mymrshan">Myanmar Shan Digits</type>
 			<type key="numbers" type="mymrtlng">Myanmar Tai Laing Digits</type>
 			<type key="numbers" type="native">Native Digits</type>
+			<type key="numbers" type="newa">Newa Digits</type>
 			<type key="numbers" type="nkoo">N’Ko Digits</type>
 			<type key="numbers" type="olck">Ol Chiki Digits</type>
 			<type key="numbers" type="orya">Odia Digits</type>

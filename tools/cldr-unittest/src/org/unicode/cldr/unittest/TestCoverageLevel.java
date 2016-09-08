@@ -348,8 +348,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "Normalization|Numeric|Reorder|Strength)|kv|sd|timezone|va|variableTop|x|d0|m0)");
 
         final Pattern numberingSystem100 = PatternCache.get("("
-            + "finance|native|traditional|ahom|bali|brah|cakm|cham|cyrl|hanidays|hmng|java|kali|lana(tham)?|lepc|limb|"
-            + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(shan|tlng)|nkoo|olck|osma|saur|shrd|sin[dh]|sora|sund|takr|talu|tirh|vaii|wara)");
+            + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|hanidays|hmng|java|kali|lana(tham)?|lepc|limb|"
+            + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(shan|tlng)|newa|nkoo|olck|osma|saur|shrd|sin[dh]|sora|sund|takr|talu|tirh|vaii|wara)");
 
         final Pattern collation100 = PatternCache.get("("
             + "big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|reformed|searchjl|stroke|traditional|unihan|zhuyin)");

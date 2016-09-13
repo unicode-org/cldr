@@ -4098,33 +4098,51 @@ h2, h3, h4, table {
 			would associated with those characters. For example, a &quot;black heart&quot; might have the association of &quot;wicked&quot; in English, but not in some other languages.</p>
 		<p>Many emoji are represented by sequences of characters. When there are no annotation elements for that string, the short name can be synthesized as follows. This process may change in the future if other types of sequences are added.</p>
 		<ol>
-		  <li>Record whether or not the sequence is an emoji zwj sequence. Remove all Emoji and Text Variant  (VS15 &amp; VS16) and ZWJ characters.</li>
-		  <li>If the sequence is an emoji flag sequence, look up the territory name in CLDR for the corresponding ASCII characters and return as the short name. For example, the regional indicator symbols P+F would map to “Französisch-Polynesien” in German.</li>
-		  <li>If the sequence is a keycap sequence or 🔟, use the characterLabel for &quot;keycap&quot; as the prefix and  compose a name with the literal characters, such as “keycap: 10”, and return it.</li>
-		  <li>If the sequence contain any emoji modifiers, move them as as far down the string as possible, but stopping before other emoji modifier base and the end of the string. Thus
+		  <li>Record whether or not the sequence is an emoji zwj sequence. Remove all Emoji and Text
+		  		Variant (VS15 &amp; VS16) and ZWJ characters.</li>
+		  <li>If the sequence is an emoji flag sequence, look up the territory name in CLDR for the
+		  		corresponding ASCII characters and return as the short name. For example, the regional
+		  		indicator symbols P+F would map to “Französisch-Polynesien” in German.</li>
+		  <li>If the sequence is a keycap sequence or 🔟, use the characterLabel for &quot;keycap&quot;
+		  		as the prefix and  compose a name with the literal characters, such as “keycap: 10”,
+		  		and return it.</li>
+		  <li>If the sequence contain any emoji modifiers, move them as as far down the string as
+		  		possible, but stopping before other emoji modifier base and the end of the string. Thus
 		    <ul>
 		      <li><strong>&lt;EB1&gt;&lt;EM1&gt;</strong>&lt;other&gt;&lt;other&gt;<strong>&lt;EB2&gt;&lt;EM2&gt;</strong>&lt;other&gt; →</li>
 		      <li><strong>&lt;EB1&gt;</strong>&lt;other&gt;&lt;other&gt;<strong>&lt;EM1&gt;&lt;EB2&gt;</strong>&lt;other&gt;<strong>&lt;EM2&gt;</strong></li>
 	        </ul>
 		  </li>
-		  <li>If the sequence is a &quot;KISS&quot;, &quot;HEART&quot; or &quot;FAMILY&quot; emoji zwj sequence, prefix the short name of &quot;💏&quot;, &quot;💑&quot;, or &quot;👪&quot; respectively, then append a list of the short names of the characters in the sequence (possibly skipping some), and return the result.
+		  <li>If the sequence is a &quot;KISS&quot;, &quot;HEART&quot; or &quot;FAMILY&quot; emoji
+		  		zwj sequence, prefix the short name of &quot;💏&quot;, &quot;💑&quot;, or &quot;👪&quot;
+		  		respectively, then append a list of the short names of the characters in the sequence
+		  		(possibly skipping some), and return the result. See description of the append process
+		  		below.
 		    <ol>
-		      <li>A KISS sequence contains &quot;💋&quot; and &quot;❤&quot;, which are skipped in the appended list.</li>
+		      <li>A KISS sequence contains &quot;💋&quot; and &quot;❤&quot;, which are skipped in the
+		      		appended list.</li>
 		      <li>A HEART sequence contains &quot;❤&quot;, which is skipped in the appended list.</li>
-		      <li>A FAMILY sequence contains only characters from the set {👦, 👧, 👨, 👩, 👴, 👵, 👶}. Nothing is skipped in the appended list.</li>
+		      <li>A FAMILY sequence contains only characters from the set {👦, 👧, 👨, 👩, 👴, 👵, 👶}.
+		      		Nothing is skipped in the appended list.</li>
 	        </ol>
 		  </li>
-		  <li>If the emoji zwj sequence ends with ♂ or ♀, prefix the character labels for &quot;male&quot; or &quot;female&quot; respectively, then append a list of the other characters’ short names.</li>
-		  <li>Any remaining sequence uses a list of the short names of the characters in the sequence (skipping the ZWJ).		</li>
+		  <li>If the emoji zwj sequence ends with ♂ or ♀, append the short name for &quot;👨&quot; or
+		  		&quot;👩&quot; respectively to a prefix list consisting of the other characters’ short
+		  		names. See description of the append process below.</li>
+		  <li>Any remaining sequence uses a list of the short names of the characters in the sequence
+		  		(skipping the ZWJ).</li>
 		</ol>
 		<p>Steps #5 and #6 are for fallback construction, and often may not produce optimal results.</p>
-		<p>The &quot;append&quot; process above should use the list patterns, preferably the narrow format. To prefix a string, use the &quot;category-list&quot; characterLabelPattern. To form a list for the remainder, use the unit-short listPattern type=2. </p>
+		<p>The &quot;append&quot; process above should use the list patterns, preferably the narrow format.
+			To prefix a string, use the &quot;category-list&quot; characterLabelPattern. When forming a
+			list of items, use the unit-short listPattern type=2.</p>
 		<p>The synthesized keywords can follow a similar process.</p>
 		<ol>
 		  <li>For flag sequences, add the short name and the characterLabel for &quot;flag&quot;.</li>
 		  <li>For keycap sequences, add the short name and the characterLabel for &quot;keycap&quot;.</li>
 		  <li>For modifier sequences, add the keywords for the modifiers, and for the remaining sequence.</li>
-		  <li>For other sequences, add the keywords for the components of the list, and the keywords for any prefix (or the characterLabel).</li>
+		  <li>For other sequences, add the keywords for the components of the list, and the keywords for
+		  		any prefix (or the characterLabel).</li>
 	    </ol>
 
 

@@ -200,6 +200,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT calendarSystem EMPTY >
 <!ATTLIST calendarSystem type (solar | lunar | lunisolar | other) #REQUIRED >
+    <!--@VALUE-->
 <!ATTLIST calendarSystem references CDATA #IMPLIED >
     <!--@METADATA-->
 
@@ -477,8 +478,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT variable ( #PCDATA ) >
     <!--@ORDERED-->
 <!ATTLIST variable type NMTOKEN #IMPLIED >
-<!ATTLIST variable id CDATA #REQUIRED >
     <!--@VALUE-->
+<!ATTLIST variable id CDATA #REQUIRED >
 <!ATTLIST variable draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -545,11 +546,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     <!--@VALUE-->
 
 <!ELEMENT deprecated ( deprecatedItems* ) >
+    <!--@DEPRECATED-->
 <!ATTLIST deprecated draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
 <!ELEMENT deprecatedItems EMPTY >
+    <!--@DEPRECATED-->
 <!ATTLIST deprecatedItems type (standard | supplemental | ldml | supplementalData | ldmlBCP47) #IMPLIED >
     <!--@DEPRECATED:standard, supplemental-->
 <!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED >
@@ -743,7 +746,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST pluralRanges references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT pluralRange ( #PCDATA ) >
+<!ELEMENT pluralRange EMPTY >
 <!ATTLIST pluralRange start (zero | one | two | few | many | other) #IMPLIED >
     <!-- if missing, means *all* -->
 <!ATTLIST pluralRange end (zero | one | two | few | many | other) #IMPLIED >

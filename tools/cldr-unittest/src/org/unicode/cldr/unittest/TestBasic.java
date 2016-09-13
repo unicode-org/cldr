@@ -1289,7 +1289,7 @@ public class TestBasic extends TestFmwkPlus {
             "//supplementalData/territoryContainment/group[@type=\"419\"][@contains=\"013 029 005\"][@grouping=\"true\"]",
             "//supplementalData/territoryContainment/group[@type=\"003\"][@contains=\"021 013 029\"][@grouping=\"true\"]");
 
-        checkDtdComparatorForResource("TestBasic_ja.xml", DtdType.ldmlICU);
+        //checkDtdComparatorForResource("TestBasic_ja.xml", DtdType.ldmlICU);
     }
 
     public void TestDtdComparisonsAll() {

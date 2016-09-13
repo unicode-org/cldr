@@ -1097,9 +1097,11 @@ public class TestPathHeader extends TestFmwkPlus {
                 return;
             }
             Multimap<String, String> extras = HashMultimap.create();
-            String fixedPath = dtdData.getRegularizedPaths(pathPlain, extras);
-            if (fixedPath != null) {
-                checkSubpath(fixedPath);
+            Set<String> fixedPaths = dtdData.getRegularizedPaths(pathPlain, extras);
+            if (fixedPaths != null) {
+                for (String fixedPath : fixedPaths) {
+                    checkSubpath(fixedPath);
+                }
             }
             for (String path : extras.keySet()) {
                 checkSubpath(path);

@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
@@ -262,6 +263,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public boolean isDeprecatedValue(String value) {
             return deprecatedValues.contains(value);
+        }
+
+        public AttributeStatus getStatus() {
+            return attributeStatus;
         }
 
     }
@@ -1236,7 +1241,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 || attribute.equals("iso4217")
                 || attribute.equals("iso3166")
                 || attribute.equals("code")
-                || (attribute.equals("type") && !elementName.equals("mapZone") && !elementName.equals("numberingSystem"))
+                || (attribute.equals("type") && !elementName.equals("calendarSystem") && !elementName.equals("mapZone") && !elementName.equals("numberingSystem") && !elementName.equals("variable"))
+                || attribute.equals("id") && elementName.equals("variable")
                 || attribute.equals("alt")
                 || attribute.equals("dtds")
                 || attribute.equals("idStatus")
@@ -1319,6 +1325,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 && attribute.equals("type")
                 || elementName.equals("approvalRequirement")
                 && (attribute.equals("locales") || attribute.equals("paths"))
+                || elementName.equals("weekOfPreference")
+                && attribute.equals("locales")
                 || elementName.equals("coverageVariable")
                 && attribute.equals("key")
                 || elementName.equals("coverageLevel")
@@ -1535,7 +1543,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     static MapComparator<String> currencyFormatOrder = new MapComparator<String>().add(
         "standard", "accounting").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
-    
+
     static final Comparator<String> COMP = (Comparator) CLDRConfig.getInstance().getCollator();
 
     // Hack for US
@@ -1550,7 +1558,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             return COMP.compare(o1, o2);
         }
-        
+
     };
 
     public static Comparator<String> getAttributeValueComparator(String element, String attribute) {
@@ -1689,10 +1697,77 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public final static Splitter SPACE_SPLITTER = Splitter.on(CharMatcher.WHITESPACE).trimResults().omitEmptyStrings();
     public final static Splitter CR_SPLITTER = Splitter.on(CharMatcher.anyOf("\n\r")).trimResults().omitEmptyStrings();
 
-    public String getRegularizedPaths(XPathParts pathPlain, Multimap<String,String> extras) {
+    private static class XPathPartsSet {
+        private final Set<XPathParts> list = new LinkedHashSet<>();
+
+        private void addElement(String element) {
+            if (list.isEmpty()) {
+                list.add(new XPathParts().addElement(element));
+            } else {
+                for (XPathParts item : list) {
+                    item.addElement(element);
+                }
+            }
+        }
+
+        private void addAttribute(String attribute, String attributeValue) {
+            for (XPathParts item : list) {
+                item.addAttribute(attribute, attributeValue);
+            }
+        }
+
+        private void setElement(int i, String string) {
+            for (XPathParts item : list) {
+                item.setElement(i, string);
+            }
+        }
+
+//        private int size() {
+//            return list.iterator().next().size();
+//        }
+//
+//        private void removeElement(int i) {
+//            for (XPathParts item : list) {
+//                item.removeElement(i);
+//            }
+//        }
+
+        private void addAttributes(String attribute, List<String> attributeValues) {
+            if (attributeValues.size() == 1) {
+                addAttribute(attribute, attributeValues.iterator().next());
+            } else {
+                // duplicate all the items in the list with the given values 
+                Set<XPathParts> newList = new LinkedHashSet<>();
+                for (XPathParts item : list) {
+                    for (String attributeValue : attributeValues) {
+                        XPathParts newItem = item.cloneAsThawed();
+                        newItem.addAttribute(attribute, attributeValue);
+                        newList.add(newItem);
+                    }
+                }
+                list.clear();
+                list.addAll(newList);
+            }
+        }
+
+        private ImmutableSet<String> toStrings() {
+            Builder<String> result = new ImmutableSet.Builder<>();
+
+            for (XPathParts item : list) {
+                result.add(item.toString());
+            }
+            return result.build();
+        }
+        @Override
+        public String toString() {
+            return list.toString();
+        }
+    }
+
+    public Set<String> getRegularizedPaths(XPathParts pathPlain, Multimap<String,String> extras) {
         extras.clear();
         Map<String,String> valueAttributes = new HashMap<>();
-        XPathParts pathResult = new XPathParts();
+        XPathPartsSet pathResult = new XPathPartsSet();
         String element = null;
         for (int i = 0; i < pathPlain.size(); ++i) {
             element = pathPlain.getElement(i);
@@ -1703,7 +1778,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 final String attributeValue = pathPlain.getAttributeValue(i, attribute);
                 switch (status) {
                 case distinguished: 
-                    pathResult.addAttribute(attribute, attributeValue);
+                    AttributeType attrType = getAttributeType(element, attribute);
+                    if (attrType == AttributeType.NMTOKENS) {
+                        pathResult.addAttributes(attribute, SPACE_SPLITTER.splitToList(attributeValue));
+                    } else {
+                        pathResult.addAttribute(attribute, attributeValue);
+                    }
                     break;
                 case value:
                     valueAttributes.put(attribute, attributeValue);
@@ -1727,17 +1807,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     final String attribute = attributeAndValue.getKey();
                     final String attributeValue = attributeAndValue.getValue();
 
-                    pathResult.addElement("_" + attribute);
-                    String pathShort = pathResult.toString();
-                    pathResult.removeElement(pathResult.size()-1); // restore
-
+                    Set<String> pathsShort = pathResult.toStrings();
                     AttributeType attrType = getAttributeType(element, attribute);
-                    if (attrType == AttributeType.NMTOKENS) {
-                        for (String valuePart : SPACE_SPLITTER.split(attributeValue)) {
-                            extras.put(pathShort, valuePart);
+                    for (String pathShort : pathsShort) {
+                        pathShort += "/_" + attribute;
+                        if (attrType == AttributeType.NMTOKENS) {
+                            for (String valuePart : SPACE_SPLITTER.split(attributeValue)) {
+                                extras.put(pathShort, valuePart);
+                            }
+                        } else {
+                            extras.put(pathShort, attributeValue);
                         }
-                    } else {
-                        extras.put(pathShort, attributeValue);
                     }
                 }
                 if (hasValue) {
@@ -1746,11 +1826,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
         }
         // Only add the path if it could have a value, looking at the last element
-        if (hasValue(element)) {
-            return pathResult.toString();
-        } else {
+        if (!hasValue(element)) {
             return null;
         }
+        return pathResult.toStrings();
     }
 
     public AttributeType getAttributeType(String elementName, String attributeName) {
@@ -1764,9 +1843,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         return attr.type;
     }
-    
+
     // TODO: add support for following to DTD annotations, and rework API
-    
+
     static final Set<String> SPACED_VALUES = ImmutableSet.of(
         "idValidity"
         );
@@ -1777,7 +1856,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         return CR_SPLITTER;
     }
-    
+
     public static boolean isComment(XPathParts pathPlain, String line) {
         if (pathPlain.contains("transform")) {
             if (line.startsWith("#")) {
@@ -1786,7 +1865,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         return false;
     }
-    
+
     public static boolean isExtraSplit(String extraPath) {
         if (extraPath.endsWith("/_type") && extraPath.startsWith("//supplementalData/metaZones/mapTimezones")) {
             return true;

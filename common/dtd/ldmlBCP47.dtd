@@ -51,7 +51,7 @@ $Revision$
 
 <!ELEMENT type EMPTY >
 <!ATTLIST type name NMTOKEN #REQUIRED >
-<!ATTLIST type description CDATA #IMPLIED >
+<!ATTLIST type description CDATA #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST type deprecated (true | false) "false" >
     <!--@METADATA-->
@@ -64,7 +64,7 @@ $Revision$
 
 <!ELEMENT attribute EMPTY >
 <!ATTLIST attribute name NMTOKEN #REQUIRED >
-<!ATTLIST attribute description CDATA #IMPLIED >
+<!ATTLIST attribute description CDATA #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST attribute deprecated (true | false) "false" >
     <!--@METADATA-->

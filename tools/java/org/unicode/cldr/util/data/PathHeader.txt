@@ -350,6 +350,8 @@
 //supplementalData/plurals[@type="%A"]/pluralRules[@locales="%A"]/pluralRule[@count="%A"]			; Supplemental ; Plural ; $1-$2 ; $3 ; HIDE
 //supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange[@start="%A"][@end="%A"]			; Supplemental ; PluralRange ; $1 ; $2–$3 ; HIDE
 //supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange_[@start="%A"][@end="%A"]/_result			; Supplemental ; PluralRange ; $1 ;  $2–$3-result ; HIDE
+//supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange[@end="%A"][@start="%A"]			; Supplemental ; PluralRange ; $1 ; $3–$2 ; HIDE
+//supplementalData/plurals/pluralRanges[@locales="%A"]/pluralRange_[@end="%A"][@start="%A"]/_result			; Supplemental ; PluralRange ; $1 ;  $3–$2-result ; HIDE
 
 //supplementalData/territoryContainment/group[@type="%A"]/_%E			; Supplemental ; Containment ; $1 ; $2 ; HIDE
 //supplementalData/territoryContainment/group[@type="%A"][@status="%A"]/_contains			; Supplemental ; Containment ; $1 ; $2 ; HIDE
@@ -365,6 +367,7 @@
 //supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $2–-∞..∞; HIDE
 
 //supplementalData/calendarData/calendar[@type="%A"]/eras/era[@type="%A"]/_%E			; Supplemental ; Calendar ; $1 ; $2-$3 ; HIDE
+//supplementalData/calendarData/calendar[@type="%A"]/calendarSystem/_type			; Supplemental ; Calendar ; $1 ; calendar_type ; HIDE
 
 //supplementalData/calendarPreferenceData/calendarPreference[@territories="%A"]/_ordering			; Supplemental ; Calendar ; Preference ; $1 ; HIDE
 

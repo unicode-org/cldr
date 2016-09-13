@@ -24,6 +24,7 @@ import org.unicode.cldr.util.ChainedMap.M5;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
@@ -91,10 +92,10 @@ public class TestPaths extends TestFmwkPlus {
         StringBuilder b = new StringBuilder();
         for (PathHeader path : altPaths) {
             b.append("\n\t\t")
-                .append(path)
-                .append(":\t")
-                .append(testInfo.getEnglish().getStringValue(
-                    path.getOriginalPath()));
+            .append(path)
+            .append(":\t")
+            .append(testInfo.getEnglish().getStringValue(
+                path.getOriginalPath()));
         }
         return b.toString();
     }
@@ -318,13 +319,14 @@ public class TestPaths extends TestFmwkPlus {
 //                    || fileName.equals("dtd")  // TODO as flat files
 //                    || fileName.equals(".project")  // TODO as flat files
 //                    //|| dir.equals("uca") // TODO as flat files
-                ) {
+                    ) {
                     continue;
                 }
 
                 Set<Pair<String, String>> seen = new HashSet<>();
                 Set<String> seenStarred = new HashSet<>();
                 int count = 0;
+                Set<Element> haveErrorsAlready = new HashSet<>();
                 for (String file : dir2.list()) {
                     if (!file.endsWith(".xml")) {
                         continue;
@@ -338,11 +340,43 @@ public class TestPaths extends TestFmwkPlus {
                     //logln(fullName);
                     for (Pair<String, String> pathValue : XMLFileReader.loadPathValues(fullName, new ArrayList<Pair<String, String>>(), true)) {
                         String path = pathValue.getFirst();
+                        final String value = pathValue.getSecond();
                         parts.set(path);
                         if (dtdData == null) {
                             type = DtdType.valueOf(parts.getElement(0));
                             dtdData = DtdData.getInstance(type);
                         }
+
+                        XPathParts pathParts = XPathParts.getFrozenInstance(path);
+                        String finalElementString = pathParts.getElement(-1);
+                        Element finalElement = dtdData.getElementFromName().get(finalElementString);
+                        if (!haveErrorsAlready.contains(finalElement)) {
+                            ElementType elementType = finalElement.getType();
+                            // HACK!!
+                            if (pathParts.size() > 1 && "identity".equals(pathParts.getElement(1))) {
+                                elementType = ElementType.EMPTY;
+                                logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
+                            } else if (pathParts.size() > 2 
+                                && "validity".equals(pathParts.getElement(2)) 
+                                && value.isEmpty()
+                                ) {
+                                String typeValue = pathParts.getAttributeValue(-1, "type");
+                                if ("TODO".equals(typeValue)
+                                    || "locale".equals(typeValue)) {
+                                    elementType = ElementType.EMPTY;
+                                    logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
+                                }
+                            }
+                            if ((elementType==ElementType.PCDATA) == (value.isEmpty())) {
+                                errln("Inconsistency:"
+                                    + "\tfile="+fileName+"/"+file
+                                    +"\telementType=" + elementType 
+                                    + "\tvalue=«" + value + "»"
+                                    + "\tpath=" + path);
+                                haveErrorsAlready.add(finalElement); // suppress all but first error
+                            }
+                        }
+
                         if (checkDeprecated.check(dtdData, parts, fullName)) {
                             break;
                         }
@@ -364,7 +398,7 @@ public class TestPaths extends TestFmwkPlus {
                         if (seen.contains(pair)) {
 //                        parts.set(path);
 //                        removeNonDistinguishing(parts, dtdData, counter, removed, nonFinalValues);
-                            errln("Duplicate: " + file + ", " + path + ", " + cleaned + ", " + pathValue.getSecond());
+                            errln("Duplicate: " + file + ", " + path + ", " + cleaned + ", " + value);
                         } else {
                             seen.add(pair);
                             if (!nonFinalValues.isEmpty()) {

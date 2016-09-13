@@ -294,7 +294,6 @@ public class ChartDelta extends Chart {
                         if (path.startsWith("//ldml/identity")
                             || path.endsWith("/alias")
                             || path.startsWith("//ldml/segmentations") // do later
-                            //|| path.startsWith("//ldml/annotations") // do later
                             || path.startsWith("//ldml/rbnf") // do later
                             ) {
                             continue;
@@ -812,7 +811,7 @@ public class ChartDelta extends Chart {
 //        return key;
 //    }
 //
-    private Relation<PathHeader, String> fillData(String directory, String file) {
+    public Relation<PathHeader, String> fillData(String directory, String file) {
         Relation<PathHeader, String> results = Relation.of(new TreeMap<PathHeader, Set<String>>(), TreeSet.class);
 
         List<Pair<String, String>> contents1;
@@ -840,16 +839,18 @@ public class ChartDelta extends Chart {
             if (dtdData.isMetadata(pathPlain)) {
                 continue;
             }
-            String pathForValue = dtdData.getRegularizedPaths(pathPlain, extras);
-            if (pathForValue != null) {
-                PathHeader pathHeader = phf.fromPath(pathForValue);
-                Splitter splitter = getValueSplitter(pathPlain);
-                for (String line : splitter.split(value)) {
-                    // special case # in transforms
-                    if (isComment(pathPlain, line)) {
-                        continue;
+            Set<String> pathForValues = dtdData.getRegularizedPaths(pathPlain, extras);
+            if (pathForValues != null) {
+                for (String pathForValue : pathForValues) {
+                    PathHeader pathHeader = phf.fromPath(pathForValue);
+                    Splitter splitter = getValueSplitter(pathPlain);
+                    for (String line : splitter.split(value)) {
+                        // special case # in transforms
+                        if (isComment(pathPlain, line)) {
+                            continue;
+                        }
+                        results.put(pathHeader, line);
                     }
-                    results.put(pathHeader, line);
                 }
             }
             for (Entry<String, Collection<String>> entry : extras.asMap().entrySet()) {
@@ -864,7 +865,7 @@ public class ChartDelta extends Chart {
                     results.putAll(pathHeaderExtra, extraValue);
                 }
             }
-            if (pathForValue == null && !value.isEmpty()) {
+            if (pathForValues == null && !value.isEmpty()) {
                 System.err.println("Shouldn't happen");
             }
         }

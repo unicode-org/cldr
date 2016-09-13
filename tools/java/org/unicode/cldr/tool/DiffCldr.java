@@ -38,7 +38,8 @@ public class DiffCldr {
 
     enum MyOptions {
         //organization(".*", "CLDR", "organization"),
-        filter(".*", "en_001", "locale ancestor");
+        filter(".*", "en_001", "locale ancestor"),
+        ;
 
         // BOILERPLATE TO COPY
         final Option option;
@@ -112,12 +113,14 @@ public class DiffCldr {
                     // one of the attributes might be a value (ugg)
                     // so check for that, and extract the value
 
-                    String pathForValue = dtdData.getRegularizedPaths(pathPlain, extras);
-                    if (pathForValue != null && (isBase || !value.equals(bailey))) {
-                        PathHeader ph = phf.fromPath(pathForValue);
-                        Splitter splitter = DtdData.getValueSplitter(pathPlain);
-                        String cleanedValue = joinValues(pathPlain, splitter.splitToList(value));
-                        total = addValue(data, locale, ph, cleanedValue, total, localeCounter, pathHeaderCounter);
+                    Set<String> pathForValues = dtdData.getRegularizedPaths(pathPlain, extras);
+                    if (pathForValues != null && (isBase || !value.equals(bailey))) {
+                        for (String pathForValue : pathForValues) {
+                            PathHeader ph = phf.fromPath(pathForValue);
+                            Splitter splitter = DtdData.getValueSplitter(pathPlain);
+                            String cleanedValue = joinValues(pathPlain, splitter.splitToList(value));
+                            total = addValue(data, locale, ph, cleanedValue, total, localeCounter, pathHeaderCounter);
+                        }
                     }
 
                     // there are value attributes, so do them
@@ -129,7 +132,7 @@ public class DiffCldr {
                         String cleanedValue = joinValues(pathPlain, extraValues);
                         total = addValue(data, locale, ph, cleanedValue, total, localeCounter, pathHeaderCounter);
                     }
-                    if (pathForValue == null && !value.isEmpty()) {
+                    if (pathForValues == null && !value.isEmpty()) {
                         System.err.println("Shouldn't happen");
                     }
                 }

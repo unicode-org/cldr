@@ -38,15 +38,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<measurementSystemName type="US">US</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
-	<characters>
-		<ellipsis type="final">{0}…</ellipsis>
-		<ellipsis type="initial">…{0}</ellipsis>
-		<ellipsis type="medial">{0}…{1}</ellipsis>
-		<ellipsis type="word-final">{0} …</ellipsis>
-		<ellipsis type="word-initial">… {0}</ellipsis>
-		<ellipsis type="word-medial">{0} … {1}</ellipsis>
-		<moreInformation>?</moreInformation>
-	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>
 		<quotationEnd>”</quotationEnd>
@@ -420,10 +411,4 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
-	<posix>
-		<messages>
-			<yesstr>yes:y</yesstr>
-			<nostr>no:n</nostr>
-		</messages>
-	</posix>
 </ldml>

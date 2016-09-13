@@ -169,19 +169,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="noon">midday</dayPeriod>
-							<dayPeriod type="morning1">morning</dayPeriod>
-							<dayPeriod type="afternoon1">afternoon</dayPeriod>
-							<dayPeriod type="evening1">evening</dayPeriod>
-							<dayPeriod type="night1">night</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">am</dayPeriod>
 							<dayPeriod type="noon">midday</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
-							<dayPeriod type="morning1">morning</dayPeriod>
-							<dayPeriod type="afternoon1">afternoon</dayPeriod>
-							<dayPeriod type="evening1">evening</dayPeriod>
-							<dayPeriod type="night1">night</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">am</dayPeriod>
@@ -210,9 +202,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">in {0} qtr. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} qtrs. ago</relativeTimePattern>
 				</relativeTime>
-			</field>
-			<field type="dayperiod">
-				<displayName>am/pm</displayName>
 			</field>
 			<field type="hour-short">
 				<displayName>h</displayName>
@@ -548,9 +537,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} arcsec.</unitPattern>
 				<unitPattern count="other">{0} arcsec.</unitPattern>
 			</unit>
-			<unit type="area-square-meter">
-				<displayName>metres²</displayName>
-			</unit>
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName>mg/dL</displayName>
 				<unitPattern count="one">{0} mg/dL</unitPattern>
@@ -671,6 +657,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-liter">
 				<unitPattern count="one">{0} L</unitPattern>
 				<unitPattern count="other">{0} L</unitPattern>
+				<perUnitPattern>{0}/L</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dL</displayName>
@@ -690,9 +677,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-bushel">
 				<unitPattern count="one">{0} bus.</unitPattern>
 				<unitPattern count="other">{0} bus.</unitPattern>
-			</unit>
-			<unit type="volume-gallon-imperial">
-				<perUnitPattern draft="provisional">{0}/gal</perUnitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -731,9 +715,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
-			<unit type="length-meter">
-				<displayName>metre</displayName>
-			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
@@ -757,6 +738,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>hL</displayName>
 				<unitPattern count="one">{0}hL</unitPattern>
 				<unitPattern count="other">{0}hL</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0}L</unitPattern>
+				<unitPattern count="other">{0}L</unitPattern>
+				<perUnitPattern>{0}/L</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dL</displayName>

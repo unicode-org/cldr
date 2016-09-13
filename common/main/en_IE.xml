@@ -121,18 +121,4 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 		</timeZoneNames>
 	</dates>
-	<units>
-		<unitLength type="long">
-			<unit type="mass-stone">
-				<displayName>stone</displayName>
-				<unitPattern count="one">{0} stone</unitPattern>
-				<unitPattern count="other">{0} stone</unitPattern>
-			</unit>
-		</unitLength>
-		<unitLength type="short">
-			<unit type="mass-stone">
-				<displayName>stone</displayName>
-			</unit>
-		</unitLength>
-	</units>
 </ldml>

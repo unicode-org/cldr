@@ -379,10 +379,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="one">in {0} Sun.</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} Sun’s.</relativeTimePattern>
 				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} Sunday ago</relativeTimePattern>
-					<relativeTimePattern count="other">{0} Sundays ago</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="sun-narrow">
 				<relativeTime type="future">
@@ -655,6 +651,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-liter">
 				<unitPattern count="one">{0} L</unitPattern>
 				<unitPattern count="other">{0} L</unitPattern>
+				<perUnitPattern>{0}/L</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dL</displayName>

@@ -886,23 +886,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName>mg/dl</displayName>
-				<unitPattern count="one">{0} mg/dL</unitPattern>
-				<unitPattern count="other">{0} mg/dL</unitPattern>
+				<unitPattern count="one">{0} mg/dl</unitPattern>
+				<unitPattern count="other">{0} mg/dl</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName>millimol/litre</displayName>
-				<unitPattern count="one">{0} mmol/L</unitPattern>
-				<unitPattern count="other">{0} mmol/L</unitPattern>
+				<unitPattern count="one">{0} mmol/l</unitPattern>
+				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litres/km</displayName>
-				<unitPattern count="one">{0} L/km</unitPattern>
-				<unitPattern count="other">{0} L/km</unitPattern>
+				<unitPattern count="one">{0} l/km</unitPattern>
+				<unitPattern count="other">{0} l/km</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100kilometers">
 				<displayName>l/100 km</displayName>
-				<unitPattern count="one">{0} L/100 km</unitPattern>
-				<unitPattern count="other">{0} L/100 km</unitPattern>
+				<unitPattern count="one">{0} l/100 km</unitPattern>
+				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>miles/gal US</displayName>
@@ -948,30 +948,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="speed-meter-per-second">
 				<displayName>metres/sec</displayName>
 			</unit>
+			<unit type="volume-megaliter">
+				<displayName>Ml</displayName>
+				<unitPattern count="one">{0} Ml</unitPattern>
+				<unitPattern count="other">{0} MLl</unitPattern>
+			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hl</displayName>
-				<unitPattern count="one">{0} hL</unitPattern>
-				<unitPattern count="other">{0} hL</unitPattern>
+				<unitPattern count="one">{0} hl</unitPattern>
+				<unitPattern count="other">{0} hl</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>litres</displayName>
-				<unitPattern count="one">{0} L</unitPattern>
-				<unitPattern count="other">{0} L</unitPattern>
+				<unitPattern count="one">{0} l</unitPattern>
+				<unitPattern count="other">{0} l</unitPattern>
+				<perUnitPattern>{0}/l</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dl</displayName>
-				<unitPattern count="one">{0} dL</unitPattern>
-				<unitPattern count="other">{0} dL</unitPattern>
+				<unitPattern count="one">{0} dl</unitPattern>
+				<unitPattern count="other">{0} dl</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName>cl</displayName>
-				<unitPattern count="one">{0} cL</unitPattern>
-				<unitPattern count="other">{0} cL</unitPattern>
+				<unitPattern count="one">{0} cl</unitPattern>
+				<unitPattern count="other">{0} cl</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ml</displayName>
-				<unitPattern count="one">{0} mL</unitPattern>
-				<unitPattern count="other">{0} mL</unitPattern>
+				<unitPattern count="one">{0} ml</unitPattern>
+				<unitPattern count="other">{0} ml</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>US gal</displayName>
@@ -991,13 +997,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-milligram-per-deciliter">
 				<displayName>mg/dl</displayName>
-				<unitPattern count="one">{0}mg/dL</unitPattern>
-				<unitPattern count="other">{0}mg/dL</unitPattern>
+				<unitPattern count="one">{0}mg/dl</unitPattern>
+				<unitPattern count="other">{0}mg/dl</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName>mmol/l</displayName>
-				<unitPattern count="one">{0}mmol/L</unitPattern>
-				<unitPattern count="other">{0}mmol/L</unitPattern>
+				<unitPattern count="one">{0}mmol/l</unitPattern>
+				<unitPattern count="other">{0}mmol/l</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -1034,31 +1040,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
+			<unit type="volume-megaliter">
+				<displayName>Ml</displayName>
+				<unitPattern count="one">{0}Ml</unitPattern>
+				<unitPattern count="other">{0}Ml</unitPattern>
+			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>hl</displayName>
-				<unitPattern count="one">{0}hL</unitPattern>
-				<unitPattern count="other">{0}hL</unitPattern>
+				<unitPattern count="one">{0}hl</unitPattern>
+				<unitPattern count="other">{0}hl</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>litre</displayName>
-				<unitPattern count="one">{0}L</unitPattern>
-				<unitPattern count="other">{0}L</unitPattern>
+				<unitPattern count="one">{0}l</unitPattern>
+				<unitPattern count="other">{0}l</unitPattern>
 				<perUnitPattern>{0}/l</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dl</displayName>
-				<unitPattern count="one">{0}dL</unitPattern>
-				<unitPattern count="other">{0}dL</unitPattern>
+				<unitPattern count="one">{0}dl</unitPattern>
+				<unitPattern count="other">{0}dl</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName>cl</displayName>
-				<unitPattern count="one">{0}cL</unitPattern>
-				<unitPattern count="other">{0}cL</unitPattern>
+				<unitPattern count="one">{0}cl</unitPattern>
+				<unitPattern count="other">{0}cl</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>ml</displayName>
-				<unitPattern count="one">{0}mL</unitPattern>
-				<unitPattern count="other">{0}mL</unitPattern>
+				<unitPattern count="one">{0}ml</unitPattern>
+				<unitPattern count="other">{0}ml</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>US gal</displayName>

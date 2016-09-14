@@ -554,13 +554,16 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT deprecatedItems EMPTY >
     <!--@DEPRECATED-->
 <!ATTLIST deprecatedItems type (standard | supplemental | ldml | supplementalData | ldmlBCP47) #IMPLIED >
-    <!--@DEPRECATED:standard, supplemental-->
+    <!--@DEPRECATED-->
 <!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED >
+    <!--@DEPRECATED-->
 <!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED >
+    <!--@DEPRECATED-->
 <!ATTLIST deprecatedItems values CDATA #IMPLIED >
+    <!--@DEPRECATED-->
 <!ATTLIST deprecatedItems draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
+    <!--@DEPRECATED-->
 
 <!ELEMENT distinguishing ( distinguishingItems* ) >
     <!--@METADATA-->

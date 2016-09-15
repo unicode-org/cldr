@@ -16,7 +16,11 @@ For  details about the format and other information, see:
 	</identity>
 	<annotations>
 		<annotation cp="♀">жанчына</annotation>
+		<annotation cp="♀" type="tts">жаночы сімвал</annotation>
 		<annotation cp="♂">мужчына</annotation>
+		<annotation cp="♂" type="tts">мужчынскі сімвал</annotation>
+		<annotation cp="⚕">эскулап | медыцына | Асклепій | посах</annotation>
+		<annotation cp="⚕" type="tts">медыцынскі сімвал</annotation>
 		<annotation cp="🕺">танцор</annotation>
 		<annotation cp="🕺" type="tts">танцор</annotation>
 		<annotation cp="🖤">чорнае | сэрца | злосць</annotation>
@@ -71,16 +75,34 @@ For  details about the format and other information, see:
 		<annotation cp="🤷‍♂" type="tts">мужчына паціскае плячыма</annotation>
 		<annotation cp="🤸">кола | гімнастыка | акрабатыка | чалавек | спорт</annotation>
 		<annotation cp="🤸" type="tts">ходзіць колам</annotation>
+		<annotation cp="🤸‍♀">кола | гімнастыка | акрабатыка | жанчына | спорт</annotation>
+		<annotation cp="🤸‍♀" type="tts">жанчына ходзіць колам</annotation>
+		<annotation cp="🤸‍♂">кола | гімнастыка | акрабатыка | мужчына | спорт</annotation>
+		<annotation cp="🤸‍♂" type="tts">мужчына ходзіць колам</annotation>
 		<annotation cp="🤹">жанглёр | шматзадачнасць | раўнавага | умельства</annotation>
 		<annotation cp="🤹" type="tts">жанглёр</annotation>
+		<annotation cp="🤹‍♀">жанчына | жангліраванне | умельства | шматзадачнасць</annotation>
+		<annotation cp="🤹‍♀" type="tts">жанглёрка</annotation>
+		<annotation cp="🤹‍♂">жангліраванне | мужчына | умельства | шматзадачнасць</annotation>
 		<annotation cp="🤺">фехтавальшчык | фехтаванне | рапіра | спорт | чалавек</annotation>
 		<annotation cp="🤺" type="tts">фехтавальшчык</annotation>
 		<annotation cp="🤼">барцы | барацьба | спорт | чалавек</annotation>
 		<annotation cp="🤼" type="tts">барцы</annotation>
+		<annotation cp="🤼‍♀">жанчына | спорт | барацьба</annotation>
+		<annotation cp="🤼‍♀" type="tts">жанчыны-барцы</annotation>
+		<annotation cp="🤼‍♂">мужчына | спорт | барацьба</annotation>
 		<annotation cp="🤽">пола | воднае | чалавек | спорт</annotation>
 		<annotation cp="🤽" type="tts">воднае пола</annotation>
+		<annotation cp="🤽‍♀">воднае | пола | спорт | жанчына</annotation>
+		<annotation cp="🤽‍♀" type="tts">жанчына гуляе ў воднае пола</annotation>
+		<annotation cp="🤽‍♂">воднае | пола | спорт | мужчына</annotation>
+		<annotation cp="🤽‍♂" type="tts">мужчына гуляе ў воднае пола</annotation>
 		<annotation cp="🤾">гандбол | мяч | спорт | чалавек</annotation>
 		<annotation cp="🤾" type="tts">гандбол</annotation>
+		<annotation cp="🤾‍♀">гандбол | жанчына | спорт</annotation>
+		<annotation cp="🤾‍♀" type="tts">гандбалістка</annotation>
+		<annotation cp="🤾‍♂">гандбол | мужчына | спорт</annotation>
+		<annotation cp="🤾‍♂" type="tts">гандбаліст</annotation>
 		<annotation cp="🥀">завялая | кветка</annotation>
 		<annotation cp="🥀" type="tts">завялая кветка</annotation>
 		<annotation cp="🥁">барабан | палачкі | музыка</annotation>
@@ -102,7 +124,7 @@ For  details about the format and other information, see:
 		<annotation cp="🥊">бокс | пальчатка | спорт</annotation>
 		<annotation cp="🥊" type="tts">баксёрская пальчатка</annotation>
 		<annotation cp="🥋">дзюдо | каратэ | тхэквандо | баявыя мастацтвы | спартыўная форма | спорт | адзінаборствы | кімано</annotation>
-		<annotation cp="🥋" type="tts">кімано</annotation>
+		<annotation cp="🥋" type="tts">уніформа для адзінаборстваў</annotation>
 		<annotation cp="🥐">круасан | рагалік | французскі | ежа | хлеб</annotation>
 		<annotation cp="🥐" type="tts">круасан</annotation>
 		<annotation cp="🥑">авакада | фрукт | садавіна</annotation>
@@ -196,6 +218,7 @@ For  details about the format and other information, see:
 		<annotation cp="🙂">усмешка</annotation>
 		<annotation cp="🙂" type="tts">злёгку ўсміхаецца</annotation>
 		<annotation cp="🤗">абдымкі</annotation>
+		<annotation cp="🤗" type="tts">абдымкі</annotation>
 		<annotation cp="😇">анёл | казачны | нявінны | аўра | усмешка</annotation>
 		<annotation cp="😇" type="tts">німб</annotation>
 		<annotation cp="🤔">гм | роздум | развага</annotation>
@@ -445,9 +468,11 @@ For  details about the format and other information, see:
 		<annotation cp="👱‍♂">бялявы | мужчына | бландзін</annotation>
 		<annotation cp="👱‍♂" type="tts">бялявы мужчына</annotation>
 		<annotation cp="👮">паліцыянт | афіцэр | паліцыя</annotation>
+		<annotation cp="👮" type="tts">паліцыянт</annotation>
 		<annotation cp="👮‍♀">паліцыянт | жанчына | афіцэр | паліцыя</annotation>
 		<annotation cp="👮‍♀" type="tts">жанчына-паліцыянт</annotation>
 		<annotation cp="👮‍♂">паліцыянт | мужчына | афіцэр | паліцыя</annotation>
+		<annotation cp="👮‍♂" type="tts">паліцэйскі</annotation>
 		<annotation cp="👲">цюбецейка | шапка | мужчына | цын</annotation>
 		<annotation cp="👲" type="tts">мужчына ў кітайскай шапачцы</annotation>
 		<annotation cp="👳">турбан</annotation>
@@ -457,17 +482,21 @@ For  details about the format and other information, see:
 		<annotation cp="👳‍♂">мужчына | турбан</annotation>
 		<annotation cp="👳‍♂" type="tts">мужчына ў турбане</annotation>
 		<annotation cp="👷">будаўніцтва | каска | рабочы</annotation>
+		<annotation cp="👷" type="tts">будаўнік</annotation>
 		<annotation cp="👷‍♀">будаўніцтва | жанчына | работніца</annotation>
 		<annotation cp="👷‍♀" type="tts">будаўніца</annotation>
 		<annotation cp="👷‍♂">будаўніцтва | мужчына | рабочы</annotation>
+		<annotation cp="👷‍♂" type="tts">мужчына-будаўнік</annotation>
 		<annotation cp="⛑">дапамога | крыж | каска | шлем</annotation>
 		<annotation cp="⛑" type="tts">каска з белым крыжам</annotation>
 		<annotation cp="👸">казачны | фантазія | карона</annotation>
 		<annotation cp="👸" type="tts">прынцэса</annotation>
 		<annotation cp="💂">ахоўнік | гвардыя | ганаровая варта</annotation>
+		<annotation cp="💂" type="tts">варта</annotation>
 		<annotation cp="💂‍♀">жанчына | ахоўніца | гвардыя | ганаровая варта</annotation>
 		<annotation cp="💂‍♀" type="tts">ахоўніца</annotation>
 		<annotation cp="💂‍♂">ахоўнік | мужчына | гвардыя | ганаровая варта</annotation>
+		<annotation cp="💂‍♂" type="tts">каравульны</annotation>
 		<annotation cp="🕵">дэтэктыў | сышчык | шпіён</annotation>
 		<annotation cp="🕵" type="tts">дэтэктыў</annotation>
 		<annotation cp="🕵‍♀">дэтэктыў | жанчына | сышчыца | шпіёнка</annotation>
@@ -620,6 +649,16 @@ For  details about the format and other information, see:
 		<annotation cp="👬" type="tts">мужчыны трымаюцца за рукі</annotation>
 		<annotation cp="👭">пара | рука | трымаць | жанчына</annotation>
 		<annotation cp="👭" type="tts">жанчыны трымаюцца за рукі</annotation>
+		<annotation cp="🏻">колер скуры</annotation>
+		<annotation cp="🏻" type="tts">тып 1-2</annotation>
+		<annotation cp="🏼">колер скуры</annotation>
+		<annotation cp="🏼" type="tts">тып 3</annotation>
+		<annotation cp="🏽">колер скуры</annotation>
+		<annotation cp="🏽" type="tts">тып 4</annotation>
+		<annotation cp="🏾">колер скуры</annotation>
+		<annotation cp="🏾" type="tts">тып 5</annotation>
+		<annotation cp="🏿">колер скуры</annotation>
+		<annotation cp="🏿" type="tts">тып 6</annotation>
 		<annotation cp="💪">біцэпс | цела | спорт | мышцы</annotation>
 		<annotation cp="💪" type="tts">дэманстрацыя біцэпса</annotation>
 		<annotation cp="👈">цела | палец | рука | улева</annotation>
@@ -627,15 +666,19 @@ For  details about the format and other information, see:
 		<annotation cp="👉">цела | палец | рука | управа</annotation>
 		<annotation cp="👉" type="tts">указальны палец управа</annotation>
 		<annotation cp="☝">цела | палец | рука | уверх</annotation>
+		<annotation cp="☝" type="tts">указальны палец уверх</annotation>
 		<annotation cp="👆">цела | палец | рука | уверх</annotation>
+		<annotation cp="👆" type="tts">далонь тылам з указальным пальцам уверх</annotation>
 		<annotation cp="🖕">цела | палец | рука</annotation>
 		<annotation cp="🖕" type="tts">сярэдні палец</annotation>
 		<annotation cp="👇">цела | палец | уніз | рука</annotation>
 		<annotation cp="👇" type="tts">указальны палец уніз</annotation>
 		<annotation cp="✌">жэст | рука</annotation>
+		<annotation cp="✌" type="tts">жэст перамогі</annotation>
 		<annotation cp="🖖">вулканскі салют | спок | стартрэк | жэст</annotation>
 		<annotation cp="🖖" type="tts">вулканскі салют</annotation>
 		<annotation cp="🤘">цела | пальцы | жыве рок | рогі</annotation>
+		<annotation cp="🤘" type="tts">жэст «каза»</annotation>
 		<annotation cp="🖐">рука | пальцы | растапырванне</annotation>
 		<annotation cp="🖐" type="tts">паднятая рука з растапыранымі пальцамі</annotation>
 		<annotation cp="✊">кулак | удар | рука | рэвалюцыя</annotation>
@@ -645,6 +688,7 @@ For  details about the format and other information, see:
 		<annotation cp="👊">кулак | удар | рука | небяспека</annotation>
 		<annotation cp="👊" type="tts">ляціць кулак</annotation>
 		<annotation cp="👌">жэст | рука | добра | ок</annotation>
+		<annotation cp="👌" type="tts">жэст «ОК»</annotation>
 		<annotation cp="👍">+1 | палец | уверх | лайк | падабайка</annotation>
 		<annotation cp="👍" type="tts">вялікі палец уверх</annotation>
 		<annotation cp="👎">-1 | палец | уніз | дызлайк</annotation>
@@ -746,6 +790,7 @@ For  details about the format and other information, see:
 		<annotation cp="👗">адзенне</annotation>
 		<annotation cp="👗" type="tts">сукенка</annotation>
 		<annotation cp="👘">адзенне</annotation>
+		<annotation cp="👘" type="tts">кімано</annotation>
 		<annotation cp="👙">адзенне | купальнік</annotation>
 		<annotation cp="👙" type="tts">бікіні</annotation>
 		<annotation cp="👚">адзенне | жанчына</annotation>
@@ -1318,6 +1363,12 @@ For  details about the format and other information, see:
 		<annotation cp="⚓" type="tts">якар</annotation>
 		<annotation cp="⛵">лодка | курорт | ветразь | мора | яхта</annotation>
 		<annotation cp="⛵" type="tts">паруснік</annotation>
+		<annotation cp="🚣">лодка | човен | вёслы</annotation>
+		<annotation cp="🚣" type="tts">веславанне</annotation>
+		<annotation cp="🚣‍♀">лодка | човен | веславанне | жанчына</annotation>
+		<annotation cp="🚣‍♀" type="tts">вяслярка</annotation>
+		<annotation cp="🚣‍♂">лодка | човен | веславанне | мужчына</annotation>
+		<annotation cp="🚣‍♂" type="tts">вясляр</annotation>
 		<annotation cp="🚤">лодка | хуткасць | вада</annotation>
 		<annotation cp="🚤" type="tts">быстраходны катар</annotation>
 		<annotation cp="🛳">круіз | падарожжа | карабель | судна</annotation>
@@ -1430,28 +1481,961 @@ For  details about the format and other information, see:
 		<annotation cp="🕚" type="tts">адзінаццаць гадзін</annotation>
 		<annotation cp="🕦">11:30 | 23:30 | палова | гадзіна | вечара | раніцы</annotation>
 		<annotation cp="🕦" type="tts">палова на дванаццатую</annotation>
+		<annotation cp="🌑">новы месяц | маладзік | космас | ноч | перакрой | пусты месяц</annotation>
+		<annotation cp="🌑" type="tts">маладзік</annotation>
+		<annotation cp="🌒">серп | месяц | маладзік | неаменія | ноч | космас</annotation>
+		<annotation cp="🌒" type="tts">рост сярпа</annotation>
+		<annotation cp="🌓">месяц | квадра | космас | ноч | чвэрць | маладзік | палова</annotation>
+		<annotation cp="🌓" type="tts">першая чвэрць</annotation>
+		<annotation cp="🌔">горб | месяц | космас | рост | ноч | падпоўня</annotation>
+		<annotation cp="🌔" type="tts">рост гарба</annotation>
+		<annotation cp="🌕">поўны месяц | космас | ноч | поўня</annotation>
+		<annotation cp="🌕" type="tts">поўня</annotation>
+		<annotation cp="🌖">убыванне | месяц | горб | космас | ноч | сход</annotation>
+		<annotation cp="🌖" type="tts">змяншэнне гарба</annotation>
+		<annotation cp="🌗">месяц | квадра | космас | ноч | чвэрць | сход | апошняя | трэцяя | палова</annotation>
+		<annotation cp="🌗" type="tts">апошняя чвэрць</annotation>
+		<annotation cp="🌘">серп | месяц | ветах | убыванне | ноч | космас | стары</annotation>
+		<annotation cp="🌘" type="tts">змяншэнне сярпа</annotation>
+		<annotation cp="🌙">паўмесяц | месяц | космас | ноч</annotation>
+		<annotation cp="🌙" type="tts">паўмесяц</annotation>
+		<annotation cp="🌚">твар | месяц | космас | ноч | маладзік</annotation>
+		<annotation cp="🌚" type="tts">маладзік з тварам</annotation>
+		<annotation cp="🌛">твар | месяц | квадра | чвэрць | космас | першая</annotation>
+		<annotation cp="🌛" type="tts">месяц у першай чвэрці з тварам</annotation>
+		<annotation cp="🌜">твар | месяц | квадра | чвэрць | космас | апошняя</annotation>
+		<annotation cp="🌜" type="tts">месяц у апошняй чвэрці з тварам</annotation>
+		<annotation cp="🌡">надвор’е | тэмпература</annotation>
+		<annotation cp="🌡" type="tts">тэрмометр</annotation>
+		<annotation cp="☀">промні | космас | надвор’е</annotation>
+		<annotation cp="☀" type="tts">сонца</annotation>
+		<annotation cp="🌝">яркі | месяц | поўня | космас | ноч</annotation>
+		<annotation cp="🌝" type="tts">поўня з тварам</annotation>
+		<annotation cp="🌞">твар | космас | яркае | сонца | надвор’е</annotation>
+		<annotation cp="🌞" type="tts">сонца з тварам</annotation>
+		<annotation cp="⭐">зорка</annotation>
+		<annotation cp="⭐" type="tts">звычайная зорка</annotation>
+		<annotation cp="🌟">бліскучы | ззянне | зорка | іскра</annotation>
+		<annotation cp="🌟" type="tts">бліскучая зорка</annotation>
+		<annotation cp="🌠">космас | зорка | метэор | мара</annotation>
+		<annotation cp="🌠" type="tts">знічка</annotation>
+		<annotation cp="☁">надвор’е | пахмурна | неба</annotation>
+		<annotation cp="☁" type="tts">воблака</annotation>
+		<annotation cp="⛅">воблака | сонца | надвор’е | неба</annotation>
+		<annotation cp="⛅" type="tts">сонца за воблакам</annotation>
+		<annotation cp="⛈">хмара | дождж | навальніца | гром</annotation>
+		<annotation cp="⛈" type="tts">хмара з маланкай і дажджом</annotation>
+		<annotation cp="🌤">воблака | сонца | надвор’е | неба</annotation>
+		<annotation cp="🌤" type="tts">сонца за маленькім воблакам</annotation>
+		<annotation cp="🌥">воблака | сонца | надвор’е | неба</annotation>
+		<annotation cp="🌥" type="tts">сонца за вялікім воблакам</annotation>
+		<annotation cp="🌦">хмара | дождж | сонца | надвор’е</annotation>
+		<annotation cp="🌦" type="tts">сонца за дажджавой хмарай</annotation>
+		<annotation cp="🌧">хмара | дождж | надвор’е | ападкі</annotation>
+		<annotation cp="🌧" type="tts">дождж</annotation>
+		<annotation cp="🌨">хмара | снег | надвор’е | ападкі</annotation>
+		<annotation cp="🌨" type="tts">снег</annotation>
+		<annotation cp="🌩">хмара | бліскавіца | надвор’е</annotation>
+		<annotation cp="🌩" type="tts">маланка</annotation>
+		<annotation cp="🌪">хмара | надвор’е | віхор | смерч</annotation>
+		<annotation cp="🌪" type="tts">тарнада</annotation>
+		<annotation cp="🌫">надвор’е | воблака | нізкая | бачнасць</annotation>
+		<annotation cp="🌫" type="tts">туман</annotation>
+		<annotation cp="🌬">твар | надвор’е | вецер</annotation>
+		<annotation cp="🌬" type="tts">твар ветру</annotation>
+		<annotation cp="🌀">ураган | тайфун | надвор’е | завіхрэнне</annotation>
+		<annotation cp="🌀" type="tts">цыклон</annotation>
+		<annotation cp="🌈">дождж | надвор’е</annotation>
+		<annotation cp="🌈" type="tts">вясёлка</annotation>
+		<annotation cp="🌂">аксесуар | дождж | парасон | надвор’е</annotation>
+		<annotation cp="🌂" type="tts">закрыты парасон</annotation>
+		<annotation cp="☂">аксесуар | дождж | надвор’е</annotation>
+		<annotation cp="☂" type="tts">парасон</annotation>
+		<annotation cp="☔">аксесуар | кропля | дождж | парасон | надвор’е</annotation>
+		<annotation cp="☔" type="tts">парасон з кроплямі дажджу</annotation>
+		<annotation cp="⛱">дождж | сонца | парасон | надвор’е</annotation>
+		<annotation cp="⛱" type="tts">пляжны парасон</annotation>
+		<annotation cp="⚡">небяспека | электрычнасць | маланка | напружанне</annotation>
+		<annotation cp="⚡" type="tts">высокае напружанне</annotation>
+		<annotation cp="❄">халодны | снег | надвор’е</annotation>
+		<annotation cp="❄" type="tts">сняжынка</annotation>
+		<annotation cp="☃">халодны | снег | надвор’е | снегавы балван</annotation>
+		<annotation cp="☃" type="tts">снегавая баба</annotation>
+		<annotation cp="⛄">халодны | снегавік | надвор’е | снегавы балван</annotation>
+		<annotation cp="⛄" type="tts">снегавая баба без снегападу</annotation>
+		<annotation cp="☄">космас</annotation>
+		<annotation cp="☄" type="tts">камета</annotation>
+		<annotation cp="🔥">полымя | інструмент</annotation>
+		<annotation cp="🔥" type="tts">агонь</annotation>
+		<annotation cp="💧">халодны | пот | вада | надвор’е</annotation>
+		<annotation cp="💧" type="tts">кропелька</annotation>
+		<annotation cp="🌊">акіян | вада | хваля | надвор’е</annotation>
+		<annotation cp="🌊" type="tts">хваля</annotation>
+		<annotation cp="🎃">свята | Хэлаўін | гарбуз | ліхтар</annotation>
+		<annotation cp="🎃" type="tts">гарбузны ліхтар</annotation>
+		<annotation cp="🎄">свята | Раство | Каляды | Новы год | ёлка</annotation>
+		<annotation cp="🎄" type="tts">навагодняя ёлка</annotation>
+		<annotation cp="🎆">свята | святкаванне</annotation>
+		<annotation cp="🎆" type="tts">феерверк</annotation>
+		<annotation cp="🎇">свята | святкаванне | феерверк | іскра</annotation>
+		<annotation cp="🎇" type="tts">бенгальскі агонь</annotation>
+		<annotation cp="✨">іскра | зорка</annotation>
+		<annotation cp="✨" type="tts">іскры</annotation>
+		<annotation cp="🎈">свята | святкаванне</annotation>
+		<annotation cp="🎈" type="tts">паветраны шарык</annotation>
+		<annotation cp="🎉">свята | вечарына | віншую</annotation>
+		<annotation cp="🎉" type="tts">хлапушка</annotation>
+		<annotation cp="🎊">шар | свята | канфеці</annotation>
+		<annotation cp="🎊" type="tts">шарык з канфеці</annotation>
+		<annotation cp="🎋">японскае | свята | дрэва | тандзаку</annotation>
+		<annotation cp="🎋" type="tts">дрэва танабата</annotation>
+		<annotation cp="🎌">свята | скрыжаванне | японскі | сцяг</annotation>
+		<annotation cp="🎌" type="tts">скрыжаваныя сцягі</annotation>
+		<annotation cp="🎍">бамбук | японскае | свята | хвоя | бамбукавае ўпрыгожванне</annotation>
+		<annotation cp="🎍" type="tts">кадомацу</annotation>
+		<annotation cp="🎎">свята | лялька | фестываль | японскі</annotation>
+		<annotation cp="🎎" type="tts">японскія лялькі</annotation>
+		<annotation cp="🎏">карп | японскае | свята | вымпел</annotation>
+		<annotation cp="🎏" type="tts">коіноборы</annotation>
+		<annotation cp="🎐">званок | свята | звон | вецер</annotation>
+		<annotation cp="🎐" type="tts">музычная падвеска</annotation>
+		<annotation cp="🎑">японскае | свята | цырымонія | месяц | любаванне</annotation>
+		<annotation cp="🎑" type="tts">цукімі</annotation>
+		<annotation cp="🎀">свята | святкаванне</annotation>
+		<annotation cp="🎀" type="tts">стужка</annotation>
+		<annotation cp="🎁">каробка | свята | загорнуты | падарунак</annotation>
+		<annotation cp="🎁" type="tts">запакаваны падарунак</annotation>
+		<annotation cp="🎖">свята | ваенны | медаль | ордэн</annotation>
+		<annotation cp="🎖" type="tts">ваенны медаль</annotation>
+		<annotation cp="🎗">свята | напамін | стужка | памяць</annotation>
+		<annotation cp="🎗" type="tts">памятная стужка</annotation>
+		<annotation cp="🎞">кіно | фільм | плёнка | кадры</annotation>
+		<annotation cp="🎞" type="tts">кінаплёнка</annotation>
+		<annotation cp="🎟">уваход | білет | квіток | кіно | тэатр</annotation>
+		<annotation cp="🎟" type="tts">уваходныя білеты</annotation>
+		<annotation cp="🎫">уваход | тэатр | канцэрт</annotation>
+		<annotation cp="🎫" type="tts">білет</annotation>
+		<annotation cp="🏷">ярлык | цэтлік</annotation>
+		<annotation cp="🏷" type="tts">бірка</annotation>
+		<annotation cp="⚽">мяч | футбол</annotation>
+		<annotation cp="⚽" type="tts">футбольны мяч</annotation>
+		<annotation cp="⚾">мяч | бейсбол</annotation>
+		<annotation cp="⚾" type="tts">бейсбольны мяч</annotation>
+		<annotation cp="🏀">мяч | кальцо | гульня</annotation>
+		<annotation cp="🏀" type="tts">баскетбол</annotation>
+		<annotation cp="🏈">амерыканскі | мяч | футбол</annotation>
+		<annotation cp="🏈" type="tts">амерыканскі футбол</annotation>
+		<annotation cp="🏉">мяч | футбол | рэгбі</annotation>
+		<annotation cp="🏉" type="tts">рэгбі</annotation>
+		<annotation cp="🎾">мяч | ракетка</annotation>
+		<annotation cp="🎾" type="tts">тэніс</annotation>
+		<annotation cp="🎱">8 | шар | восем | гульня | кій</annotation>
+		<annotation cp="🎱" type="tts">більярд</annotation>
+		<annotation cp="🎳">шар | гульня</annotation>
+		<annotation cp="🎳" type="tts">боўлінг</annotation>
+		<annotation cp="⛳">гольф | лунка | флажок</annotation>
+		<annotation cp="⛳" type="tts">флажок у лунцы</annotation>
+		<annotation cp="🏌">мяч | гольф</annotation>
+		<annotation cp="🏌" type="tts">чалавек гуляе ў гольф</annotation>
+		<annotation cp="🏌‍♀">гольф | жанчына</annotation>
+		<annotation cp="🏌‍♀" type="tts">жанчына гуляе ў гольф</annotation>
+		<annotation cp="🏌‍♂">гольф | мужчына</annotation>
+		<annotation cp="🏌‍♂" type="tts">мужчына гуляе ў гольф</annotation>
+		<annotation cp="⛸">лёд | канёк | спорт</annotation>
+		<annotation cp="⛸" type="tts">канёк</annotation>
+		<annotation cp="🎣">рыба | рыбалка</annotation>
+		<annotation cp="🎣" type="tts">вуда для рыбалкі</annotation>
+		<annotation cp="🎽">бег | атлетыка | саколка | спорт | майка</annotation>
+		<annotation cp="🎽" type="tts">саколка для бегу</annotation>
+		<annotation cp="🎿">снег | лыжныя палкі | спорт</annotation>
+		<annotation cp="🎿" type="tts">лыжы</annotation>
+		<annotation cp="⛷">снег | лыжныя палкі | спорт | лыжы</annotation>
+		<annotation cp="⛷" type="tts">лыжнік</annotation>
+		<annotation cp="🏂">снаўборд | снег | спорт</annotation>
+		<annotation cp="🏂" type="tts">снаўбардыст</annotation>
+		<annotation cp="🏄">хвалі | дошка</annotation>
+		<annotation cp="🏄" type="tts">сёрфінг</annotation>
+		<annotation cp="🏄‍♀">сёрфінг | жанчына</annotation>
+		<annotation cp="🏄‍♀" type="tts">серфінгістка</annotation>
+		<annotation cp="🏄‍♂">сёрфінг | мужчына</annotation>
+		<annotation cp="🏄‍♂" type="tts">серфінгіст</annotation>
+		<annotation cp="🏇">конь | жакей | бегавы конь | гонкі</annotation>
+		<annotation cp="🏇" type="tts">скачкі</annotation>
+		<annotation cp="🏊">плаванне</annotation>
+		<annotation cp="🏊" type="tts">чалавек плыве</annotation>
+		<annotation cp="🏊‍♀">жанчына | плаванне</annotation>
+		<annotation cp="🏊‍♀" type="tts">плыўчыха</annotation>
+		<annotation cp="🏊‍♂">мужчына | плаванне</annotation>
+		<annotation cp="🏊‍♂" type="tts">плывец</annotation>
+		<annotation cp="⛹">мяч | гульня</annotation>
+		<annotation cp="⛹" type="tts">чалавек з мячом</annotation>
+		<annotation cp="⛹‍♀">мяч | жанчына | гульня</annotation>
+		<annotation cp="⛹‍♀" type="tts">жанчына з мячом</annotation>
+		<annotation cp="⛹‍♂">мяч | мужчына | гульня</annotation>
+		<annotation cp="⛹‍♂" type="tts">мужчына з мячом</annotation>
+		<annotation cp="🏋">цяжкая | атлетыка | штанга</annotation>
+		<annotation cp="🏋" type="tts">чалавек са штангай</annotation>
+		<annotation cp="🏋‍♀">жанчына | цяжкая | атлетыка | штанга</annotation>
+		<annotation cp="🏋‍♀" type="tts">цяжкаатлетка</annotation>
+		<annotation cp="🏋‍♂">мужчына | цяжкая | атлетыка | штанга</annotation>
+		<annotation cp="🏋‍♂" type="tts">цяжкаатлет</annotation>
+		<annotation cp="🚴">веласіпед | ровар | педалі</annotation>
+		<annotation cp="🚴" type="tts">чалавек на веласіпедзе</annotation>
+		<annotation cp="🚴‍♀">веласіпед | ровар | педалі | жанчына</annotation>
+		<annotation cp="🚴‍♀" type="tts">веласіпедыстка</annotation>
+		<annotation cp="🚴‍♂">веласіпед | ровар | педалі | мужчына</annotation>
+		<annotation cp="🚴‍♂" type="tts">веласіпедыст</annotation>
+		<annotation cp="🚵">веласіпед | ровар | горнік | гара</annotation>
+		<annotation cp="🚵" type="tts">чалавек на горным веласіпедзе</annotation>
+		<annotation cp="🚵‍♀">веласіпед | ровар | горнік | гара | жанчына</annotation>
+		<annotation cp="🚵‍♀" type="tts">жанчына на горным веласіпедзе</annotation>
+		<annotation cp="🚵‍♂">веласіпед | ровар | горнік | гара | мужчына</annotation>
+		<annotation cp="🚵‍♂" type="tts">мужчына на горным веласіпедзе</annotation>
 		<annotation cp="🏎">аўтамабіль | гонкі | формула | балід</annotation>
 		<annotation cp="🏎" type="tts">гоначны аўтамабіль</annotation>
 		<annotation cp="🏍">байк | гонкі | хуткасць</annotation>
 		<annotation cp="🏍" type="tts">матацыкл</annotation>
+		<annotation cp="🏅">медаль</annotation>
+		<annotation cp="🏅" type="tts">спартыўны медаль</annotation>
+		<annotation cp="🏆">прыз</annotation>
+		<annotation cp="🏆" type="tts">кубак</annotation>
+		<annotation cp="🏏">мяч | біта | гульня</annotation>
+		<annotation cp="🏏" type="tts">крыкет</annotation>
+		<annotation cp="🏐">мяч | гульня</annotation>
+		<annotation cp="🏐" type="tts">валейбол</annotation>
+		<annotation cp="🏑">мяч | поле | гульня | клюшка | хакей</annotation>
+		<annotation cp="🏑" type="tts">хакей на траве</annotation>
+		<annotation cp="🏒">гульня | хакей | шайба | клюшка | лёд</annotation>
+		<annotation cp="🏒" type="tts">хакейная клюшка з шайбай</annotation>
+		<annotation cp="🏓">мяч | ракетка | гульня | настольны | тэніс</annotation>
+		<annotation cp="🏓" type="tts">пінг-понг</annotation>
+		<annotation cp="🏸">валан | гульня | ракетка | валанчык</annotation>
+		<annotation cp="🏸" type="tts">бадмінтон</annotation>
+		<annotation cp="🎯">мішэнь | дартс | гульня | цэль | дроцік | у яблычак</annotation>
+		<annotation cp="🎯" type="tts">прамое пападанне</annotation>
+		<annotation cp="🎮">геймпад | кантролер | гульня</annotation>
+		<annotation cp="🎮" type="tts">відэагульня</annotation>
+		<annotation cp="🕹">гульня | відэагульня | кантролер</annotation>
+		<annotation cp="🕹" type="tts">джойстык</annotation>
+		<annotation cp="🎲">косць | гульня | азарт</annotation>
+		<annotation cp="🎲" type="tts">ігральная косць</annotation>
+		<annotation cp="♠">карты | гульня | азарт | масць | пікі</annotation>
+		<annotation cp="♠" type="tts">віны</annotation>
+		<annotation cp="♥">карты | гульня | азарт | масць | чырвы</annotation>
+		<annotation cp="♥" type="tts">чырвы</annotation>
+		<annotation cp="♦">карта | гульня | азарт | масць | звонкі</annotation>
+		<annotation cp="♦" type="tts">звонкі</annotation>
+		<annotation cp="♣">карта | гульня | азарт | масць | хрэсці | трэфы</annotation>
+		<annotation cp="♣" type="tts">трэфы</annotation>
+		<annotation cp="🃏">карта | гульня | азарт</annotation>
+		<annotation cp="🃏" type="tts">джокер</annotation>
+		<annotation cp="🀄">гульня | маджонг | чырвоны | цмок</annotation>
+		<annotation cp="🀄" type="tts">чырвоны цмок у маджонгу</annotation>
+		<annotation cp="🎴">карты | кветка | японская | гульня | ханафуда</annotation>
+		<annotation cp="🎴" type="tts">ігральныя карты ханафуда</annotation>
+		<annotation cp="🔇">ціха | бязгучнасць | дынамік | гучнасць</annotation>
+		<annotation cp="🔇" type="tts">без гуку</annotation>
+		<annotation cp="🔈">гучнасць</annotation>
+		<annotation cp="🔈" type="tts">дынамік</annotation>
+		<annotation cp="🔉">нізкая | гучнасць | дынамік</annotation>
+		<annotation cp="🔉" type="tts">ціха</annotation>
+		<annotation cp="🔊">высокая | гучнасць | дынамік</annotation>
+		<annotation cp="🔊" type="tts">гучна</annotation>
+		<annotation cp="📢">гучны | публічны зварот | вяшчанне | рупар</annotation>
+		<annotation cp="📢" type="tts">гучнагаварыцель</annotation>
+		<annotation cp="📣">мітынг | падбадзёрванне</annotation>
+		<annotation cp="📣" type="tts">мегафон</annotation>
+		<annotation cp="📯">труба | пошта | паштовы</annotation>
+		<annotation cp="📯" type="tts">паштовая труба</annotation>
+		<annotation cp="🔔">званочак</annotation>
+		<annotation cp="🔔" type="tts">званочак</annotation>
+		<annotation cp="🔕">званочак | забаронена | ціха | бязгучны | без гуку</annotation>
+		<annotation cp="🔕" type="tts">перакрэслены званочак</annotation>
+		<annotation cp="🎼">музычны | запіс | музыка | нота</annotation>
+		<annotation cp="🎼" type="tts">партытура</annotation>
+		<annotation cp="🎵">музычны | нота | музыка</annotation>
+		<annotation cp="🎵" type="tts">музычная нота</annotation>
+		<annotation cp="🎶">музычны | музыка | ноты</annotation>
+		<annotation cp="🎶" type="tts">музычныя ноты</annotation>
+		<annotation cp="🎙">мікрафон | музыка | музычная | студыя</annotation>
+		<annotation cp="🎙" type="tts">студыйны мікрафон</annotation>
+		<annotation cp="🎚">узровень | музыка</annotation>
+		<annotation cp="🎚" type="tts">паўзунок</annotation>
+		<annotation cp="🎛">рэгуляванне | рэгулятар | музыка</annotation>
+		<annotation cp="🎛" type="tts">рэгулятары</annotation>
+		<annotation cp="🎤">караоке | музыка</annotation>
+		<annotation cp="🎤" type="tts">мікрафон</annotation>
+		<annotation cp="🎧">гук | музыка | вушы</annotation>
+		<annotation cp="🎧" type="tts">навушнікі</annotation>
+		<annotation cp="🎷">музычны | музыка | духавы | інструмент</annotation>
+		<annotation cp="🎷" type="tts">саксафон</annotation>
+		<annotation cp="🎸">музычны | музыка | шчыпковы | інструмент</annotation>
+		<annotation cp="🎸" type="tts">гітара</annotation>
+		<annotation cp="🎹">клавішны | інструмент | клавіятура | музыка | піяніна</annotation>
+		<annotation cp="🎹" type="tts">музычная клавіятура</annotation>
+		<annotation cp="🎺">музычны | музыка | духавы | інструмент</annotation>
+		<annotation cp="🎺" type="tts">труба</annotation>
+		<annotation cp="🎻">музычны | музыка | смычковы | інструмент</annotation>
+		<annotation cp="🎻" type="tts">скрыпка</annotation>
+		<annotation cp="📻">прыёмнік | хваля | перадача | радыёстанцыя</annotation>
+		<annotation cp="📻" type="tts">радыё</annotation>
+		<annotation cp="📱">сотавы | мабільны | тэлефон | мабільнік | смартфон</annotation>
+		<annotation cp="📱" type="tts">мабільны тэлефон</annotation>
+		<annotation cp="📲">стрэлка | выклік | сотавы | мабільны | тэлефон | прыём | мабільнік | смартфон</annotation>
+		<annotation cp="📲" type="tts">мабільны тэлефон са стрэлкай</annotation>
+		<annotation cp="☎">тэлефон</annotation>
+		<annotation cp="☎" type="tts">хатні тэлефон</annotation>
+		<annotation cp="📞">тэлефон | трубка</annotation>
+		<annotation cp="📞" type="tts">тэлефонная трубка</annotation>
+		<annotation cp="📟">пэйджар | паведамленне | радок</annotation>
+		<annotation cp="📟" type="tts">пэйджар</annotation>
+		<annotation cp="📠">факс</annotation>
+		<annotation cp="📠" type="tts">факсімільны апарат</annotation>
+		<annotation cp="🔋">акумулятар | батарэя</annotation>
+		<annotation cp="🔋" type="tts">батарэйка</annotation>
+		<annotation cp="🔌">электрычнасць | разетка | штэкер</annotation>
+		<annotation cp="🔌" type="tts">вілка</annotation>
+		<annotation cp="💻">камп’ютар | ПК | персанальны</annotation>
+		<annotation cp="💻" type="tts">ноўтбук</annotation>
+		<annotation cp="🖥">камп’ютар | стацыянарны</annotation>
+		<annotation cp="🖥" type="tts">стацыянарны камп’ютар</annotation>
+		<annotation cp="🖨">друк | папера | камп’ютар | перыферыя</annotation>
+		<annotation cp="🖨" type="tts">прынтар</annotation>
+		<annotation cp="⌨">камп’ютар | перыферыя | клавішы</annotation>
+		<annotation cp="⌨" type="tts">клавіятура</annotation>
+		<annotation cp="🖱">тры | кнопкі | камп’ютар | мыш | перыферыя</annotation>
+		<annotation cp="🖱" type="tts">камп’ютарная мыш</annotation>
+		<annotation cp="🖲">камп’ютар | перыферыя | шар</annotation>
+		<annotation cp="🖲" type="tts">трэкбол</annotation>
+		<annotation cp="💽">камп’ютар | дыск | аптычны | носьбіт</annotation>
+		<annotation cp="💽" type="tts">міні-дыск</annotation>
+		<annotation cp="💾">камп’ютар | дыск | носьбіт | гібкі</annotation>
+		<annotation cp="💾" type="tts">дыскета</annotation>
+		<annotation cp="💿">кампакт-дыск | камп’ютар | аптычны | носьбіт | CD</annotation>
+		<annotation cp="💿" type="tts">аптычны дыск</annotation>
+		<annotation cp="📀">кампакт-дыск | камп’ютар | аптычны | носьбіт</annotation>
+		<annotation cp="📀" type="tts">DVD</annotation>
+		<annotation cp="🎥">камера | кіно | фільм</annotation>
+		<annotation cp="🎥" type="tts">кінакамера</annotation>
+		<annotation cp="🎬">хлапушка | фільм | здымка</annotation>
+		<annotation cp="🎬" type="tts">нумаратар з хлапушкай</annotation>
+		<annotation cp="📽">кіно | фільм | праектар | відэа</annotation>
+		<annotation cp="📽" type="tts">кінапраектар</annotation>
+		<annotation cp="📺">тэлебачанне | ТБ | відэа</annotation>
+		<annotation cp="📺" type="tts">тэлевізар</annotation>
+		<annotation cp="📷">відэа | фота | здымка</annotation>
+		<annotation cp="📷" type="tts">камера</annotation>
+		<annotation cp="📸">камера | фота | успышка | здымка</annotation>
+		<annotation cp="📸" type="tts">камера з успышкай</annotation>
+		<annotation cp="📹">камера | відэа | здымка</annotation>
+		<annotation cp="📹" type="tts">відэакамера</annotation>
+		<annotation cp="📼">касета | відэа | плёнка</annotation>
+		<annotation cp="📼" type="tts">відэакасета</annotation>
+		<annotation cp="🔍">шкло | павелічэнне | пошук | інструмент</annotation>
+		<annotation cp="🔍" type="tts">лупа павернута ўлева</annotation>
+		<annotation cp="🔎">шкло | павелічэнне | пошук | інструмент</annotation>
+		<annotation cp="🔎" type="tts">лупа павернута ўправа</annotation>
+		<annotation cp="🔬">інструмент | прыбор</annotation>
+		<annotation cp="🔬" type="tts">мікраскоп</annotation>
+		<annotation cp="🔭">інструмент | прыбор</annotation>
+		<annotation cp="🔭" type="tts">тэлескоп</annotation>
+		<annotation cp="📡">талерка | антэна | спадарожнік</annotation>
+		<annotation cp="📡" type="tts">спадарожнікавая антэна</annotation>
+		<annotation cp="🕯">святло | агонь</annotation>
+		<annotation cp="🕯" type="tts">свечка</annotation>
+		<annotation cp="💡">лямпа | эўрыка | ідэя | электрычнасць | святло | комікс</annotation>
+		<annotation cp="💡" type="tts">лямпачка</annotation>
+		<annotation cp="🔦">электрычнасць | святло | інструмент</annotation>
+		<annotation cp="🔦" type="tts">ліхтарык</annotation>
+		<annotation cp="🏮">чырвоны | святло | японскі | ідзакая</annotation>
+		<annotation cp="🏮" type="tts">чырвоны папяровы ліхтар</annotation>
+		<annotation cp="📔">кніга | вокладка | дэкаратыўны | нататнік</annotation>
+		<annotation cp="📔" type="tts">нататнік з дэкаратыўнай вокладкай</annotation>
+		<annotation cp="📕">закрытая | кніга</annotation>
+		<annotation cp="📕" type="tts">закрытая кніга</annotation>
+		<annotation cp="📖">адкрытая | кніга</annotation>
+		<annotation cp="📖" type="tts">адкрытая кніга</annotation>
+		<annotation cp="📗">зялёная | кніга</annotation>
+		<annotation cp="📗" type="tts">зялёная кніга</annotation>
+		<annotation cp="📘">сіняя | кніга</annotation>
+		<annotation cp="📘" type="tts">сіняя кніга</annotation>
+		<annotation cp="📙">аранжавая | кніга</annotation>
+		<annotation cp="📙" type="tts">аранжавая кніга</annotation>
+		<annotation cp="📚">кніга</annotation>
+		<annotation cp="📚" type="tts">кнігі</annotation>
+		<annotation cp="📓">запіс | блакнот | нататка</annotation>
+		<annotation cp="📓" type="tts">нататнік</annotation>
+		<annotation cp="📒">запіс | справаводства | улік</annotation>
+		<annotation cp="📒" type="tts">бухгалтарская кніга</annotation>
+		<annotation cp="📃">завіток | загіб | дакумент | старонка</annotation>
+		<annotation cp="📃" type="tts">старонка з загібам</annotation>
+		<annotation cp="📜">папера | пергамент</annotation>
+		<annotation cp="📜" type="tts">скрутак</annotation>
+		<annotation cp="📄">дакумент | ліст | аркуш</annotation>
+		<annotation cp="📄" type="tts">старонка</annotation>
+		<annotation cp="📰">навіны | папера | прэса</annotation>
+		<annotation cp="📰" type="tts">газета</annotation>
+		<annotation cp="🗞">навіны | скручаная | газета | папера</annotation>
+		<annotation cp="🗞" type="tts">скручаная газета</annotation>
+		<annotation cp="📑">укладка | маркер | метка | закладка</annotation>
+		<annotation cp="📑" type="tts">закладкі</annotation>
+		<annotation cp="🔖">маркер | метка</annotation>
+		<annotation cp="🔖" type="tts">закладка</annotation>
+		<annotation cp="💰">мяшок | долар | грошы</annotation>
+		<annotation cp="💰" type="tts">мяшок з грашыма</annotation>
+		<annotation cp="💴">Японія | купюра | валюта | грошы | іена</annotation>
+		<annotation cp="💴" type="tts">банкнот іены</annotation>
+		<annotation cp="💵">ЗША | Канада | Аўстралія | купюра | валюта | грошы | долар</annotation>
+		<annotation cp="💵" type="tts">банкнот долара</annotation>
+		<annotation cp="💶">купюра | валюта | грошы | еўра</annotation>
+		<annotation cp="💶" type="tts">банкнот еўра</annotation>
+		<annotation cp="💷">Вялікабрытанія | купюра | валюта | грошы | фунт</annotation>
+		<annotation cp="💷" type="tts">банкнот фунта</annotation>
+		<annotation cp="💸">купюра | долар | палёт | грошы | крылы</annotation>
+		<annotation cp="💸" type="tts">грошы з крыламі</annotation>
+		<annotation cp="💳">банк | картка | крэдыт | грошы | крэдытка</annotation>
+		<annotation cp="💳" type="tts">крэдытная карта</annotation>
+		<annotation cp="💹">рынак | дыяграма | валюта | графік | рост | грошы | тэндэнцыя | іена</annotation>
+		<annotation cp="💹" type="tts">дыяграма росту са знакам іены</annotation>
+		<annotation cp="✉">электронная пошта | пошта | ліст</annotation>
+		<annotation cp="✉" type="tts">канверт</annotation>
+		<annotation cp="📧">электронная пошта | ліст | пошта</annotation>
+		<annotation cp="📧" type="tts">электронны ліст</annotation>
+		<annotation cp="📨">электронная пошта | пошта | канверт | уваходны | атрыманы</annotation>
+		<annotation cp="📨" type="tts">уваходны ліст</annotation>
+		<annotation cp="📩">стрэлка | электронная пошта | канверт | ліст | выходная | адпраўленая | пошта</annotation>
+		<annotation cp="📩" type="tts">выходны ліст</annotation>
+		<annotation cp="📤">латок | ліст | пошта | выходныя | адпраўленыя</annotation>
+		<annotation cp="📤" type="tts">латок для выходнай пошты</annotation>
+		<annotation cp="📥">латок | уваходныя | ліст | пошта | атрыманыя</annotation>
+		<annotation cp="📥" type="tts">латок для ўваходнай пошты</annotation>
+		<annotation cp="📦">каробка | пакет</annotation>
+		<annotation cp="📦" type="tts">пасылка</annotation>
+		<annotation cp="📫">пошта | закрытая | скрынка | флажок</annotation>
+		<annotation cp="📫" type="tts">закрытая паштовая скрынка з паднятым флажком</annotation>
+		<annotation cp="📪">закрытая | скрынка | апушчаны | флажок | пошта</annotation>
+		<annotation cp="📪" type="tts">закрытая паштовая скрынка з апушчаным флажком</annotation>
+		<annotation cp="📬">пошта | адкрытая | скрынка | флажок</annotation>
+		<annotation cp="📬" type="tts">адкрытая паштовая скрынка з паднятым флажком</annotation>
+		<annotation cp="📭">апушчаны | флажок | пошта | адкрытая | скрынка</annotation>
+		<annotation cp="📭" type="tts">адкрытая паштовая скрынка з апушчаным флажком</annotation>
+		<annotation cp="📮">пошта | скрынка</annotation>
+		<annotation cp="📮" type="tts">паштовая скрынка</annotation>
+		<annotation cp="🗳">выбары | галасаванне | урна</annotation>
+		<annotation cp="🗳" type="tts">урна для галасавання</annotation>
+		<annotation cp="✏">карандаш</annotation>
+		<annotation cp="✏" type="tts">аловак</annotation>
+		<annotation cp="✒">вастрыё | пяро | пісьмо | асадка</annotation>
+		<annotation cp="✒" type="tts">чорнае пяро</annotation>
+		<annotation cp="🖋">пёравая | ручка | пяро | асадка</annotation>
+		<annotation cp="🖋" type="tts">пёравая ручка</annotation>
+		<annotation cp="🖊">шарыкавая | ручка | асадка</annotation>
+		<annotation cp="🖊" type="tts">аўтаручка</annotation>
+		<annotation cp="🖌">жывапіс | маляванне</annotation>
+		<annotation cp="🖌" type="tts">пэндзаль</annotation>
+		<annotation cp="🖍">мяккі | аловак | жывапіс | маляванне</annotation>
+		<annotation cp="🖍" type="tts">пастэль</annotation>
+		<annotation cp="📝">аловак | запіс | нататка | папера</annotation>
+		<annotation cp="📝" type="tts">памятка</annotation>
+		<annotation cp="💼">дакументы | паперы</annotation>
+		<annotation cp="💼" type="tts">партфель</annotation>
+		<annotation cp="📁">файл | папка</annotation>
+		<annotation cp="📁" type="tts">папка для файлаў</annotation>
+		<annotation cp="📂">файл | адкрытая | папка</annotation>
+		<annotation cp="📂" type="tts">адкрытая папка для файлаў</annotation>
+		<annotation cp="🗂">карта | раздзяляльнікі | картатэка | сартаванне</annotation>
+		<annotation cp="🗂" type="tts">раздзяляльнікі для картатэкі</annotation>
+		<annotation cp="📅">дата | чысло</annotation>
+		<annotation cp="📅" type="tts">каляндар</annotation>
+		<annotation cp="📆">каляндар | адрыўны</annotation>
+		<annotation cp="📆" type="tts">адрыўны каляндар</annotation>
+		<annotation cp="🗒">нататнік | перакідны | лісты | блакнот</annotation>
+		<annotation cp="🗒" type="tts">перакідны нататнік</annotation>
+		<annotation cp="🗓">каляндар | перакідны | лісты</annotation>
+		<annotation cp="🗓" type="tts">перакідны каляндар</annotation>
+		<annotation cp="📇">паказальнік | каталог | картка</annotation>
+		<annotation cp="📇" type="tts">картатэка</annotation>
+		<annotation cp="📈">дыяграма | графік | рост | тэндэнцыя</annotation>
+		<annotation cp="📈" type="tts">дыяграма росту</annotation>
+		<annotation cp="📉">дыяграма | зніжэнне | графік | тэндэнцыя</annotation>
+		<annotation cp="📉" type="tts">дыяграма зніжэння</annotation>
+		<annotation cp="📊">лінейчастая | дыяграма | слупок | графік</annotation>
+		<annotation cp="📊" type="tts">лінейчастая дыяграма</annotation>
+		<annotation cp="📋">планшэт | заціск | папера</annotation>
+		<annotation cp="📋" type="tts">планшэт з заціскам</annotation>
+		<annotation cp="📌">кнопка</annotation>
+		<annotation cp="📌" type="tts">канцылярская кнопка</annotation>
+		<annotation cp="📍">круглая | кнопка</annotation>
+		<annotation cp="📍" type="tts">круглая канцылярская кнопка</annotation>
+		<annotation cp="📎">папера | канцылярыя</annotation>
+		<annotation cp="📎" type="tts">сашчэпка</annotation>
+		<annotation cp="🖇">сашчэпка | папера</annotation>
+		<annotation cp="🖇" type="tts">злучаныя сашчэпкі</annotation>
+		<annotation cp="📏">прамы | край | вымярэнне</annotation>
+		<annotation cp="📏" type="tts">лінейка</annotation>
+		<annotation cp="📐">трохвугольнік | лінейка | вымярэнне</annotation>
+		<annotation cp="📐" type="tts">трохвугольная лінейка</annotation>
+		<annotation cp="✂">інструмент | выразанне</annotation>
+		<annotation cp="✂" type="tts">нажніцы</annotation>
+		<annotation cp="🗃">каробка | карта | файл</annotation>
+		<annotation cp="🗃" type="tts">каробка для картатэкі</annotation>
+		<annotation cp="🗄">файл | архіў | шафа</annotation>
+		<annotation cp="🗄" type="tts">архіўная шафа</annotation>
+		<annotation cp="🗑">кошык | смецце | сметніца</annotation>
+		<annotation cp="🗑" type="tts">кошык для смецця</annotation>
+		<annotation cp="🔒">закрыта | замок | заблакіравана</annotation>
+		<annotation cp="🔒" type="tts">замкнёны замок</annotation>
+		<annotation cp="🔓">адкрыта | замок | разблакіравана</annotation>
+		<annotation cp="🔓" type="tts">адамкнёны замок</annotation>
+		<annotation cp="🔏">пяро | замок | бяспека | канфідэнцыяльнасць</annotation>
+		<annotation cp="🔏" type="tts">замкнёны замок з пяром</annotation>
+		<annotation cp="🔐">закрыта | замок | ключ | бяспека</annotation>
+		<annotation cp="🔐" type="tts">замкнёны замок з ключом</annotation>
+		<annotation cp="🔑">замок | пароль</annotation>
+		<annotation cp="🔑" type="tts">ключ</annotation>
+		<annotation cp="🗝">замок | стары | ключ</annotation>
+		<annotation cp="🗝" type="tts">стары ключ</annotation>
+		<annotation cp="🔨">інструмент</annotation>
+		<annotation cp="🔨" type="tts">малаток</annotation>
+		<annotation cp="⛏">здабыча | інструмент | шахта</annotation>
+		<annotation cp="⛏" type="tts">кірка</annotation>
+		<annotation cp="⚒">малаток | кірка | інструмент | шахта</annotation>
+		<annotation cp="⚒" type="tts">малаток і кірка</annotation>
+		<annotation cp="🛠">малаток | інструмент | гаечны | ключ</annotation>
+		<annotation cp="🛠" type="tts">малаток і гаечны ключ</annotation>
+		<annotation cp="🔧">інструмент</annotation>
+		<annotation cp="🔧" type="tts">гаечны ключ</annotation>
+		<annotation cp="🔩">болт | гайка | інструмент | шруба</annotation>
+		<annotation cp="🔩" type="tts">ніт і гайка</annotation>
+		<annotation cp="⚙">інструмент | шасцярэнька | дэталь</annotation>
+		<annotation cp="⚙" type="tts">шасцярня</annotation>
+		<annotation cp="🗜">інструмент | ціскі</annotation>
+		<annotation cp="🗜" type="tts">сцісканне</annotation>
+		<annotation cp="⚗">хімія | алхімія | інструмент | пасудзіна</annotation>
+		<annotation cp="⚗" type="tts">перагонны куб</annotation>
 		<annotation cp="⚖">шалі | задыяк</annotation>
+		<annotation cp="⚖" type="tts">шалі</annotation>
+		<annotation cp="🔗">сувязь | ланцуг</annotation>
+		<annotation cp="🔗" type="tts">злучаныя звёны</annotation>
+		<annotation cp="⛓">ланцуг</annotation>
+		<annotation cp="⛓" type="tts">ланцугі</annotation>
+		<annotation cp="💉">доктар | лекі | іголка | укол | ін’екцыя</annotation>
+		<annotation cp="💉" type="tts">шпрыц</annotation>
+		<annotation cp="💊">доктар | лекі | хворы</annotation>
+		<annotation cp="💊" type="tts">таблетка</annotation>
+		<annotation cp="🗡">нож | зброя | корцік</annotation>
+		<annotation cp="🗡" type="tts">кінжал</annotation>
 		<annotation cp="🔪">гатаванне | нож | інструмент | зброя</annotation>
 		<annotation cp="🔪" type="tts">кухонны нож</annotation>
+		<annotation cp="⚔">скрыжаваныя | мячы | зброя</annotation>
+		<annotation cp="⚔" type="tts">скрыжаваныя мячы</annotation>
+		<annotation cp="🔫">зброя | пушка | рэвальвер</annotation>
+		<annotation cp="🔫" type="tts">пісталет</annotation>
+		<annotation cp="🛡">зброя | абарона | рыштунак</annotation>
+		<annotation cp="🛡" type="tts">шчыт</annotation>
 		<annotation cp="🏹">стралец | задыяк</annotation>
+		<annotation cp="🏹" type="tts">лук са стралой</annotation>
+		<annotation cp="🏁">гонкі | фініш | у клетку | Формула-1 | Формула адзін</annotation>
+		<annotation cp="🏁" type="tts">клятчасты сцяг</annotation>
+		<annotation cp="🏳">развяванне | сцяг | белы</annotation>
+		<annotation cp="🏳" type="tts">белы сцяг развяваецца</annotation>
+		<annotation cp="🏳‍🌈">сцяг | вясёлка</annotation>
+		<annotation cp="🏳‍🌈" type="tts">вясёлкавы сцяг</annotation>
+		<annotation cp="🏴">развяванне | сцяг | чорны</annotation>
+		<annotation cp="🏴" type="tts">чорны сцяг развяваецца</annotation>
+		<annotation cp="🚩">поле | лунка | гольф</annotation>
+		<annotation cp="🚩" type="tts">трохвугольны сцяг</annotation>
+		<annotation cp="🚬">цыгарэта | дым</annotation>
+		<annotation cp="🚬" type="tts">курэнне</annotation>
+		<annotation cp="⚰">смерць | дамавіна</annotation>
+		<annotation cp="⚰" type="tts">труна</annotation>
+		<annotation cp="⚱">смерць | прах | урна</annotation>
+		<annotation cp="⚱" type="tts">урна з прахам</annotation>
+		<annotation cp="🗿">твар | востраў | Рапануі | Пасхі | статуя</annotation>
+		<annotation cp="🗿" type="tts">мааі</annotation>
+		<annotation cp="🛢">бочка | нафта</annotation>
+		<annotation cp="🛢" type="tts">бочка з нафтай</annotation>
+		<annotation cp="🔮">крыштальны | шар | казачны | прадказанне | магія</annotation>
+		<annotation cp="🔮" type="tts">крыштальны шар</annotation>
+		<annotation cp="🏧">знак | банкамат | наяўныя | тэрмінал | гатоўка</annotation>
+		<annotation cp="🏧" type="tts">знак банкамата</annotation>
+		<annotation cp="🚮">знак | урна | сметніца</annotation>
+		<annotation cp="🚮" type="tts">знак «кідайце смецце ў урну»</annotation>
+		<annotation cp="🚰">піццё | пітная | вада</annotation>
+		<annotation cp="🚰" type="tts">пітная вада</annotation>
+		<annotation cp="♿">доступ | інвалід | каляска</annotation>
+		<annotation cp="♿" type="tts">знак «для інвалідаў»</annotation>
+		<annotation cp="🚹">туалет | мужчына | прыбіральня</annotation>
+		<annotation cp="🚹" type="tts">мужчынскі туалет</annotation>
+		<annotation cp="🚺">туалет | жанчына | прыбіральня</annotation>
+		<annotation cp="🚺" type="tts">жаночы туалет</annotation>
+		<annotation cp="🚻">туалет</annotation>
+		<annotation cp="🚻" type="tts">прыбіральня</annotation>
+		<annotation cp="🚼">дзіця | спавіванне</annotation>
+		<annotation cp="🚼" type="tts">знак «немаўля»</annotation>
+		<annotation cp="🚾">грамадская | прыбіральня</annotation>
+		<annotation cp="🚾" type="tts">туалет</annotation>
+		<annotation cp="🛂">кантроль | пашпарт | праверка</annotation>
+		<annotation cp="🛂" type="tts">пашпартны кантроль</annotation>
+		<annotation cp="🛃">мытнік | праверка | кантроль</annotation>
+		<annotation cp="🛃" type="tts">мытня</annotation>
+		<annotation cp="🛄">багаж | атрыманне</annotation>
+		<annotation cp="🛄" type="tts">атрыманне багажу</annotation>
+		<annotation cp="🛅">багаж | шафа | камера | хаванне</annotation>
+		<annotation cp="🛅" type="tts">камера для хавання</annotation>
+		<annotation cp="⚠">увага</annotation>
+		<annotation cp="⚠" type="tts">папярэджанне</annotation>
+		<annotation cp="🚸">дзеці | дарожны рух | пешаход | дарожны | знак</annotation>
+		<annotation cp="🚸" type="tts">дзеці на дарозе</annotation>
+		<annotation cp="⛔">уезд | забаронены | дарожны | рух | знак</annotation>
+		<annotation cp="⛔" type="tts">уезд забаронены</annotation>
+		<annotation cp="🚫">няма ўваходу | забаронена | знак | нельга</annotation>
+		<annotation cp="🚫" type="tts">забаронена</annotation>
+		<annotation cp="🚳">веласіпед | ровар | забаронена | дарожны | знак | рух</annotation>
+		<annotation cp="🚳" type="tts">рух на веласіпедзе забаронены</annotation>
+		<annotation cp="🚭">не курыць | забаронена | курэнне</annotation>
+		<annotation cp="🚭" type="tts">курэнне забаронена</annotation>
+		<annotation cp="🚯">забаронена | смецце | нельга</annotation>
+		<annotation cp="🚯" type="tts">смеціць забаронена</annotation>
+		<annotation cp="🚱">піццё | забаронена | непрыдатная | вада</annotation>
+		<annotation cp="🚱" type="tts">непрыдатная для піцця вада</annotation>
+		<annotation cp="🚷">забаронена | нельга | пешаход | дарожны | знак | рух</annotation>
+		<annotation cp="🚷" type="tts">рух пешаходаў забаронены</annotation>
+		<annotation cp="☢">радыеактыўны | знак | небяспека</annotation>
+		<annotation cp="☢" type="tts">радыяцыя</annotation>
+		<annotation cp="☣">біялагічны | небяспека | знак</annotation>
+		<annotation cp="☣" type="tts">біялагічная небяспека</annotation>
+		<annotation cp="⬆">стрэлка | уверх | кірунак | поўнач</annotation>
+		<annotation cp="⬆" type="tts">стрэлка ўверх</annotation>
+		<annotation cp="↗">стрэлка | кірунак | паўночны ўсход | уверх-управа</annotation>
+		<annotation cp="↗" type="tts">стрэлка ўверх-управа</annotation>
+		<annotation cp="➡">стрэлка | кірунак | усход | управа</annotation>
+		<annotation cp="➡" type="tts">стрэлка ўправа</annotation>
+		<annotation cp="↘">стрэлка | кірунак | уніз-управа | паўднёвы ўсход</annotation>
+		<annotation cp="↘" type="tts">стрэлка ўніз-управа</annotation>
+		<annotation cp="⬇">стрэлка | кірунак | уніз | поўдзень</annotation>
+		<annotation cp="⬇" type="tts">стрэлка ўніз</annotation>
+		<annotation cp="↙">стрэлка | кірунак | уніз-улева | паўднёвы захад</annotation>
+		<annotation cp="↙" type="tts">стрэлка ўніз-улева</annotation>
+		<annotation cp="⬅">стрэлка | кірунак | улева | захад</annotation>
+		<annotation cp="⬅" type="tts">стрэлка ўлева</annotation>
+		<annotation cp="↖">стрэлка | кірунак | уверх-улева | паўночны захад</annotation>
+		<annotation cp="↖" type="tts">стрэлка ўверх-улева</annotation>
+		<annotation cp="↕">падвоеная | стрэлка</annotation>
+		<annotation cp="↕" type="tts">стрэлка ўверх-уніз</annotation>
+		<annotation cp="↔">падвоеная | стрэлка</annotation>
+		<annotation cp="↔" type="tts">стрэлка ўлева-ўправа</annotation>
+		<annotation cp="↩">стрэлка | рух | кірунак</annotation>
+		<annotation cp="↩" type="tts">стрэлка ўправа з паваротам улева</annotation>
+		<annotation cp="↪">стрэлка | рух | кірунак</annotation>
+		<annotation cp="↪" type="tts">стрэлка ўлева з паваротам управа</annotation>
+		<annotation cp="⤴">стрэлка | уверх | кірунак</annotation>
+		<annotation cp="⤴" type="tts">стрэлка ўправа з паваротам уверх</annotation>
+		<annotation cp="⤵">стрэлка | уніз | кірунак</annotation>
+		<annotation cp="⤵" type="tts">стрэлка ўправа з паваротам уніз</annotation>
+		<annotation cp="🔃">стрэлка | па гадзіннікавай стрэлцы | перазагрузіць</annotation>
+		<annotation cp="🔃" type="tts">вертыкальныя стрэлкі па гадзіннікавай стрэлцы</annotation>
+		<annotation cp="🔄">супраць гадзіннікавай стрэлкі | стрэлка | абнавіць | кнопка</annotation>
+		<annotation cp="🔄" type="tts">кнопка са стрэлкамі супраць гадзіннікавай стрэлкі</annotation>
+		<annotation cp="🔙">стрэлка | назад</annotation>
+		<annotation cp="🔙" type="tts">стрэлка «назад»</annotation>
+		<annotation cp="🔚">канец | стрэлка</annotation>
+		<annotation cp="🔚" type="tts">стрэлка «канец»</annotation>
+		<annotation cp="🔛">стрэлка | уключана | актыўна</annotation>
+		<annotation cp="🔛" type="tts">стрэлка «уключана!»</annotation>
+		<annotation cp="🔜">неўзабаве | стрэлка</annotation>
+		<annotation cp="🔜" type="tts">стрэлка «неўзабаве»</annotation>
+		<annotation cp="🔝">стрэлка | дагары | уверх | угару</annotation>
+		<annotation cp="🔝" type="tts">стрэлка «верх»</annotation>
+		<annotation cp="🛐">рэлігія | культ | пакланенне</annotation>
+		<annotation cp="🛐" type="tts">культавае памяшканне</annotation>
+		<annotation cp="⚛">атэізм | атам | фізіка</annotation>
+		<annotation cp="⚛" type="tts">сімвал атама</annotation>
+		<annotation cp="🕉">індуізм | рэлігія | мантра</annotation>
+		<annotation cp="🕉" type="tts">ом</annotation>
+		<annotation cp="✡">Давід | яўрэй | рэлігія | зорка | іудаізм</annotation>
+		<annotation cp="✡" type="tts">зорка Давіда</annotation>
+		<annotation cp="☸">будызм | дхарма | рэлігія | кола</annotation>
+		<annotation cp="☸" type="tts">кола дхармы</annotation>
+		<annotation cp="☯">рэлігія | даасізм | ян | інь</annotation>
+		<annotation cp="☯" type="tts">інь і ян</annotation>
+		<annotation cp="✝">хрысціянства | крыж | рэлігія | каталіцтва</annotation>
+		<annotation cp="✝" type="tts">каталіцкі крыж</annotation>
+		<annotation cp="☦">хрысціянства | крыж | рэлігія | праваслаўе</annotation>
+		<annotation cp="☦" type="tts">праваслаўны крыж</annotation>
 		<annotation cp="☪">іслам | рэлігія | мусульманскі</annotation>
+		<annotation cp="☪" type="tts">зорка і паўмесяц</annotation>
+		<annotation cp="☮">мір | сімвал</annotation>
+		<annotation cp="☮" type="tts">пацыфік</annotation>
+		<annotation cp="🕎">рэлігія | падсвечнік | свечка | Ханука</annotation>
+		<annotation cp="🕎" type="tts">сямісвечнік</annotation>
+		<annotation cp="🔯">шасціканцовая | зорка | Давід</annotation>
+		<annotation cp="🔯" type="tts">шасціканцовая зорка з кропкай</annotation>
+		<annotation cp="♻">перапрацоўка | утылізацыя</annotation>
+		<annotation cp="♻" type="tts">сімвал перапрацоўкі</annotation>
+		<annotation cp="📛">бірка | бэйдж | імя</annotation>
+		<annotation cp="📛" type="tts">бэйдж з імем</annotation>
+		<annotation cp="⚜">эмблема | лілея | Францыя | флёр-дэ-ліс</annotation>
+		<annotation cp="⚜" type="tts">геральдычная лілея</annotation>
+		<annotation cp="🔰">пачатковец | зялёны | жоўты | японскі | шаўрон | навічок</annotation>
+		<annotation cp="🔰" type="tts">японскі сімвал «пачатковец»</annotation>
+		<annotation cp="🔱">якар | эмблема | сімвал | карабель</annotation>
+		<annotation cp="🔱" type="tts">трызубец</annotation>
+		<annotation cp="⭕">круг | кола | о</annotation>
+		<annotation cp="⭕" type="tts">вялікі круг</annotation>
+		<annotation cp="✅">птушка | белая | знак</annotation>
+		<annotation cp="✅" type="tts">вялікая белая птушка</annotation>
+		<annotation cp="☑">выбары | галасаванне | урна | птушка | бюлетэнь</annotation>
+		<annotation cp="☑" type="tts">выбарчы бюлетэнь з птушкай</annotation>
+		<annotation cp="✔">птушка | знак</annotation>
+		<annotation cp="✖">скасаванне | множанне | х</annotation>
+		<annotation cp="✖" type="tts">знак множання</annotation>
+		<annotation cp="❌">скасаванне | знак | множанне | х</annotation>
+		<annotation cp="❌" type="tts">крыжык</annotation>
+		<annotation cp="❎">знак | квадрат | крыжык</annotation>
+		<annotation cp="❎" type="tts">кнопка з крыжыкам</annotation>
+		<annotation cp="➕">матэматыка | плюс | складанне</annotation>
+		<annotation cp="➕" type="tts">знак складання</annotation>
+		<annotation cp="➖">матэматыка | мінус | адніманне</annotation>
+		<annotation cp="➖" type="tts">знак аднімання</annotation>
+		<annotation cp="➗">матэматыка | дзяленне</annotation>
+		<annotation cp="➗" type="tts">знак дзялення</annotation>
+		<annotation cp="➰">сагнуты | пятля</annotation>
+		<annotation cp="➰" type="tts">сагнутая пятля</annotation>
+		<annotation cp="➿">сагнутая | падвойная | пятля</annotation>
+		<annotation cp="➿" type="tts">падвойная сагнутая пятля</annotation>
+		<annotation cp="〽">знак | японскі | іорытэн | песенны</annotation>
+		<annotation cp="〽" type="tts">знак змены партыі</annotation>
+		<annotation cp="✳">зорачка | васьміканцовая | астэрыск</annotation>
+		<annotation cp="✳" type="tts">васьміканцовая зорачка</annotation>
+		<annotation cp="✴">зорка</annotation>
+		<annotation cp="✴" type="tts">васьміканцовая зорка</annotation>
+		<annotation cp="❇">іскра</annotation>
+		<annotation cp="❇" type="tts">іскра</annotation>
+		<annotation cp="💱">банк | валюта | абмен | грошы</annotation>
+		<annotation cp="💱" type="tts">абмен валют</annotation>
+		<annotation cp="💲">валюта | долар | грошы</annotation>
+		<annotation cp="💲" type="tts">знак долара</annotation>
+		<annotation cp="‼">знак | пунктуацыя | вокліч | клічнікі</annotation>
+		<annotation cp="‼" type="tts">два клічнікі</annotation>
+		<annotation cp="⁉">знак | пунктуацыя | пытальнік | клічнік</annotation>
+		<annotation cp="⁉" type="tts">клічнік з пытальнікам</annotation>
+		<annotation cp="❓">знак | пунктуацыя | пытанне</annotation>
+		<annotation cp="❓" type="tts">пытальнік</annotation>
+		<annotation cp="❔">знак | контур | пунктуацыя | пытанне</annotation>
+		<annotation cp="❔" type="tts">белы пытальнік</annotation>
+		<annotation cp="❕">вокліч | знак | контур | пунктуацыя</annotation>
+		<annotation cp="❕" type="tts">белы клічнік</annotation>
+		<annotation cp="❗">вокліч | знак | пунктуацыя</annotation>
+		<annotation cp="❗" type="tts">клічнік</annotation>
+		<annotation cp="〰">хвалісты | працяжнік | японская | пунктуацыя</annotation>
+		<annotation cp="〰" type="tts">хвалісты працяжнік</annotation>
+		<annotation cp="©">аўтарскае права</annotation>
+		<annotation cp="©" type="tts">значок аўтарскага права</annotation>
+		<annotation cp="®">зарэгістраваны</annotation>
+		<annotation cp="®" type="tts">зарэгістраваны таварны знак</annotation>
+		<annotation cp="™">знак | таварны | ТМ</annotation>
+		<annotation cp="™" type="tts">таварны знак</annotation>
 		<annotation cp="♈">авен | задыяк</annotation>
+		<annotation cp="♈" type="tts">знак задыяка Авен</annotation>
 		<annotation cp="♉">бык | цялец | задыяк</annotation>
+		<annotation cp="♉" type="tts">знак задыяка Цялец</annotation>
 		<annotation cp="♊">блізняты | задыяк</annotation>
+		<annotation cp="♊" type="tts">знак задыяка Блізняты</annotation>
 		<annotation cp="♋">краб | задыяк | рак</annotation>
+		<annotation cp="♋" type="tts">знак задыяка Рак</annotation>
 		<annotation cp="♌">леў | задыяк</annotation>
+		<annotation cp="♌" type="tts">знак задыяка Леў</annotation>
 		<annotation cp="♍">дзева | задыяк</annotation>
+		<annotation cp="♍" type="tts">знак задыяка Дзева</annotation>
 		<annotation cp="♎">баланс | правасуддзе | шалі | задыяк</annotation>
+		<annotation cp="♎" type="tts">знак задыяка Шалі</annotation>
 		<annotation cp="♏">скарпіён | задыяк</annotation>
+		<annotation cp="♏" type="tts">знак задыяка Скарпіён</annotation>
 		<annotation cp="♐">стралец | задыяк</annotation>
+		<annotation cp="♐" type="tts">знак задыяка Стралец</annotation>
 		<annotation cp="♑">казёл | казярог | задыяк</annotation>
+		<annotation cp="♑" type="tts">знак задыяка Казярог</annotation>
 		<annotation cp="♒">вадаліў | вада | задыяк</annotation>
+		<annotation cp="♒" type="tts">знак задыяка Вадалей</annotation>
 		<annotation cp="♓">рыба | рыбы | задыяк</annotation>
+		<annotation cp="♓" type="tts">знак задыяка Рыбы</annotation>
 		<annotation cp="⛎">змеяносец | спакушальнік | змяя | задыяк</annotation>
+		<annotation cp="⛎" type="tts">знак задыяка Змеяносец</annotation>
+		<annotation cp="🔀">кнопка | перакрыжаваныя | стрэлкі</annotation>
+		<annotation cp="🔀" type="tts">кнопка «перамяшаць трэкі»</annotation>
+		<annotation cp="🔁">кнопка | стрэлкі | па гадзіннікавай стрэлцы | паўтарэнне</annotation>
+		<annotation cp="🔁" type="tts">кнопка «паўтарыць»</annotation>
+		<annotation cp="🔂">кнопка | па гадзіннікавай стрэлцы | трэк | паўтор | стрэлка</annotation>
+		<annotation cp="🔂" type="tts">кнопка «паўтараць адзін трэк»</annotation>
+		<annotation cp="▶">кнопка | управа | трохвугольнік | прайграванне</annotation>
+		<annotation cp="▶" type="tts">кнопка «прайграць»</annotation>
+		<annotation cp="⏩">кнопка | падвоены | трохвугольнік | перамотка</annotation>
+		<annotation cp="⏩" type="tts">кнопка перамоткі наперад</annotation>
+		<annotation cp="⏭">кнопка | наступны | трэк | трохвугольнік</annotation>
+		<annotation cp="⏭" type="tts">кнопка «наступны трэк»</annotation>
+		<annotation cp="⏯">кнопка | паўза | прайграванне | управа | трохвугольнік</annotation>
+		<annotation cp="◀">кнопка | улева | назад | трохвугольнік | прайграць</annotation>
+		<annotation cp="◀" type="tts">кнопка «прайграць назад»</annotation>
+		<annotation cp="⏪">кнопка | перамотка | падвоеная | стрэлка</annotation>
+		<annotation cp="⏪" type="tts">кнопка перамоткі назад</annotation>
+		<annotation cp="⏮">кнопка | папярэдні | трэк | трохвугольнік</annotation>
+		<annotation cp="⏮" type="tts">кнопка «папярэдні трэк»</annotation>
+		<annotation cp="🔼">чырвоная | стрэлка | кнопка | уверх</annotation>
+		<annotation cp="🔼" type="tts">кнопка «уверх»</annotation>
+		<annotation cp="⏫">падвоеная | стрэлка | уверх</annotation>
+		<annotation cp="⏫" type="tts">кнопка «хутка ўверх»</annotation>
+		<annotation cp="🔽">чырвоная | стрэлка | кнопка | уніз</annotation>
+		<annotation cp="🔽" type="tts">кнопка «ўніз»</annotation>
+		<annotation cp="⏬">падвоеная | стрэлка | уніз</annotation>
+		<annotation cp="⏬" type="tts">кнопка «хутка ўніз»</annotation>
+		<annotation cp="⏸">вертыкальная | падвоеная | палоска | паўза | прыпыненне</annotation>
+		<annotation cp="⏸" type="tts">кнопка «прыпыніць»</annotation>
+		<annotation cp="⏹">квадрат | стоп | кнопка | спыненне</annotation>
+		<annotation cp="⏹" type="tts">кнопка «спыніць»</annotation>
+		<annotation cp="⏺">круг | запіс | кнопка</annotation>
+		<annotation cp="⏺" type="tts">кнопка «запіс»</annotation>
+		<annotation cp="⏏">выманне | кнопка</annotation>
+		<annotation cp="⏏" type="tts">кнопка «выняць»</annotation>
+		<annotation cp="🎦">камера | фільм | стужка | зала</annotation>
+		<annotation cp="🎦" type="tts">кіно</annotation>
+		<annotation cp="🔅">яркасць | нізкі | узровень | цёмна</annotation>
+		<annotation cp="🔅" type="tts">кнопка змяншэння яркасці</annotation>
+		<annotation cp="🔆">яркасць | высокі | узровень | ярка</annotation>
+		<annotation cp="🔆" type="tts">кнопка павелічэння яркасці</annotation>
+		<annotation cp="📶">антэна | палоска | мабільны | тэлефон | сотавы | сігнал | сетка</annotation>
+		<annotation cp="📶" type="tts">узровень сігналу сеткі</annotation>
+		<annotation cp="📵">сотавы | мабільны | тэлефон | забаронена | мабільнік</annotation>
+		<annotation cp="📵" type="tts">карыстацца мабільнымі тэлефонамі забаронена</annotation>
+		<annotation cp="📳">мабільны | тэлефон | рэжым | вібрацыя | сотавы</annotation>
+		<annotation cp="📳" type="tts">рэжым вібрацыі</annotation>
+		<annotation cp="📴">сотавы | мабільны | тэлефон | выключаны</annotation>
+		<annotation cp="📴" type="tts">мабільны тэлефон выключаны</annotation>
+		<annotation cp="💯">100 | сто | ачкоў | максімум</annotation>
+		<annotation cp="💯" type="tts">сто ачкоў</annotation>
+		<annotation cp="🔞">18 | узроставае абмежаванне | забаронена | паўналетнія</annotation>
+		<annotation cp="🔞" type="tts">толькі для паўналетніх</annotation>
+		<annotation cp="🔠">увод | лацінскі | літары | верхні рэгістр | вялікі</annotation>
+		<annotation cp="🔠" type="tts">увод лацінскіх літар верхнім рэгістрам</annotation>
+		<annotation cp="🔡">увод | лацінскі | літары | ніжні рэгістр | малы</annotation>
+		<annotation cp="🔡" type="tts">увод лацінскіх літар ніжнім рэгістрам</annotation>
+		<annotation cp="🔢">1234 | увод | лічбы</annotation>
+		<annotation cp="🔢" type="tts">увод лічбаў</annotation>
+		<annotation cp="🔣">увод | сімвалы</annotation>
+		<annotation cp="🔣" type="tts">увод сімвалаў</annotation>
+		<annotation cp="🔤">алфавіт | увод | лацінскі | літары</annotation>
+		<annotation cp="🔤" type="tts">увод лацінскіх літар</annotation>
+		<annotation cp="🅰">кроў | група | A | другая</annotation>
+		<annotation cp="🅰" type="tts">значок «група крыві A»</annotation>
+		<annotation cp="🆎">кроў | група | AB</annotation>
+		<annotation cp="🅱">кроў | група | B | трэцяя</annotation>
+		<annotation cp="🅱" type="tts">значок «група крыві B»</annotation>
+		<annotation cp="🆑">кнопка | ачыстка</annotation>
+		<annotation cp="🆑" type="tts">кнопка «ачысціць»</annotation>
+		<annotation cp="🆒">файна</annotation>
+		<annotation cp="🆒" type="tts">слова «файна» ў квадраце</annotation>
+		<annotation cp="🆓">бясплатна</annotation>
+		<annotation cp="🆓" type="tts">слова «бясплатна» ў квадраце</annotation>
+		<annotation cp="ℹ">інфармацыя | даведка</annotation>
+		<annotation cp="ℹ" type="tts">крыніца інфармацыі</annotation>
+		<annotation cp="🆔">ідэнтычнасць | асоба | ідэнтыфікацыя | пасведчанне</annotation>
+		<annotation cp="🆔" type="tts">слова «ідэнтыфікацыя» ў квадраце</annotation>
+		<annotation cp="Ⓜ">кола | літара | круг | M</annotation>
+		<annotation cp="Ⓜ" type="tts">літара «M» у коле</annotation>
+		<annotation cp="🆕">новы</annotation>
+		<annotation cp="🆕" type="tts">слова «новы» ў квадраце</annotation>
+		<annotation cp="🆖">нічога добрага | дрэнна | блага</annotation>
+		<annotation cp="🆖" type="tts">скарачэнне «нічога добрага» ў квадраце</annotation>
+		<annotation cp="🅾">кроў | група | 0 | першая</annotation>
+		<annotation cp="🅾" type="tts">значок «група крыві 0»</annotation>
+		<annotation cp="🆗">добра | ОК</annotation>
+		<annotation cp="🆗" type="tts">ОК у квадраце</annotation>
+		<annotation cp="🅿">паркоўка | паркінг | знак | стаянка</annotation>
+		<annotation cp="🅿" type="tts">знак «паркоўка»</annotation>
+		<annotation cp="🆘">дапамажыце | СОС | SOS</annotation>
+		<annotation cp="🆘" type="tts">знак «SOS»</annotation>
+		<annotation cp="🆙">знак | новы | узровень | гульня</annotation>
+		<annotation cp="🆙" type="tts">слова «новы ўзровень!»</annotation>
+		<annotation cp="🆚">супраць | гульня</annotation>
+		<annotation cp="🆚" type="tts">слова «супраць»</annotation>
+		<annotation cp="🈁">японскае | пісьмо</annotation>
+		<annotation cp="🈁" type="tts">ідэаграма «тут» у квадраце</annotation>
+		<annotation cp="🈂">японскае | пісьмо | бясплатна</annotation>
+		<annotation cp="🈂" type="tts">ідэаграма «сэрвіс» у квадраце</annotation>
+		<annotation cp="🈷">японскае | пісьмо | штомесяц</annotation>
+		<annotation cp="🈷" type="tts">ідэаграма «месяц» у квадраце</annotation>
+		<annotation cp="🈶">японскае | пісьмо</annotation>
+		<annotation cp="🈶" type="tts">ідэаграма «ў наяўнасці» ў квадраце</annotation>
+		<annotation cp="🈯">японскае | кітайскае | пісьмо | кірунак</annotation>
+		<annotation cp="🈯" type="tts">ідэаграма «паказванне пальцам» у квадраце</annotation>
+		<annotation cp="🉐">японскае | пісьмо</annotation>
+		<annotation cp="🉐" type="tts">ідэаграма «выгадная здзелка» ў крузе</annotation>
+		<annotation cp="🈹">японскае | пісьмо | дыскаўнт</annotation>
+		<annotation cp="🈹" type="tts">ідэаграма «скідка» ў квадраце</annotation>
+		<annotation cp="🈚">японскае | кітайскае | пісьмо | няма</annotation>
+		<annotation cp="🈚" type="tts">ідэаграма «адсутнасць» у квадраце</annotation>
+		<annotation cp="🈲">японскае | пісьмо | забарона</annotation>
+		<annotation cp="🈲" type="tts">ідэаграма «забаронена» ў квадраце</annotation>
+		<annotation cp="🉑">кітайскае | пісьмо</annotation>
+		<annotation cp="🉑" type="tts">ідэаграма «прыняць» ў крузе</annotation>
+		<annotation cp="🈸">кітайскае | пісьмо | запыт | заява</annotation>
+		<annotation cp="🈸" type="tts">ідэаграма «заяўка» у квадраце</annotation>
+		<annotation cp="🈴">японскае | кітайскае | пісьмо | згода</annotation>
+		<annotation cp="🈴" type="tts">ідэаграма «пагадненне» ў квадраце</annotation>
+		<annotation cp="🈳">японскае | кітайскае | пісьмо</annotation>
+		<annotation cp="🈳" type="tts">ідэаграма «свабодна» ў квадраце</annotation>
+		<annotation cp="㊗">японскае | кітайскае | пісьмо | ідэаграма | вітанні | віншаванні | віншую</annotation>
+		<annotation cp="㊗" type="tts">ідэаграма «віншаванні» ў квадраце</annotation>
+		<annotation cp="㊙">японскае | кітайскае | пісьмо | ідэаграма | сакрэт | сакрэтна</annotation>
+		<annotation cp="㊙" type="tts">ідэаграма «сакрэтна» ў крузе</annotation>
+		<annotation cp="🈺">японскае | кітайскае | пісьмо | адкрыта | час працы</annotation>
+		<annotation cp="🈺" type="tts">ідэаграма «працуе» ў квадраце</annotation>
+		<annotation cp="🈵">японскае | пісьмо | сто працэнтаў | поўны бак</annotation>
+		<annotation cp="🈵" type="tts">ідэаграма «поўны» ў квадраце</annotation>
+		<annotation cp="▪">геаметрычны | аб’ект | квадрат</annotation>
+		<annotation cp="▪" type="tts">малы чорны квадрат</annotation>
+		<annotation cp="▫">геаметрычны | аб’ект | квадрат</annotation>
+		<annotation cp="▫" type="tts">малы белы квадрат</annotation>
+		<annotation cp="◻">геаметрычны | аб’ект | квадрат</annotation>
+		<annotation cp="◻" type="tts">белы сярэдні квадрат</annotation>
+		<annotation cp="◼">геаметрычны | аб’ект | квадрат</annotation>
+		<annotation cp="◼" type="tts">чорны сярэдні квадрат</annotation>
+		<annotation cp="◽">геаметрычны | аб’ект | квадрат</annotation>
+		<annotation cp="◽" type="tts">невялікі белы квадрат</annotation>
+		<annotation cp="◾">геаметрычны | аб’ект | квадрат</annotation>
+		<annotation cp="◾" type="tts">невялікі чорны квадрат</annotation>
+		<annotation cp="⬛">геаметрычны | аб’ект | квадрат</annotation>
+		<annotation cp="⬛" type="tts">вялікі чорны квадрат</annotation>
+		<annotation cp="⬜">геаметрычны | аб’ект | квадрат</annotation>
+		<annotation cp="⬜" type="tts">вялікі белы квадрат</annotation>
+		<annotation cp="🔶">геаметрычны | аб’ект | ромб</annotation>
+		<annotation cp="🔶" type="tts">вялікі аранжавы ромб</annotation>
+		<annotation cp="🔷">сіні | ромб | геаметрычны | аб’ект</annotation>
+		<annotation cp="🔷" type="tts">вялікі сіні ромб</annotation>
+		<annotation cp="🔸">геаметрычны | аб’ект | ромб</annotation>
+		<annotation cp="🔸" type="tts">малы аранжавы ромб</annotation>
+		<annotation cp="🔹">геаметрычны | аб’ект | ромб</annotation>
+		<annotation cp="🔹" type="tts">малы сіні ромб</annotation>
+		<annotation cp="🔺">геаметрычны | аб’ект | чырвоны</annotation>
+		<annotation cp="🔺" type="tts">чырвоны трохвугольнік вяршыняй уверх</annotation>
+		<annotation cp="🔻">геаметрычны | аб’ект | чырвоны</annotation>
+		<annotation cp="🔻" type="tts">чырвоны трохвугольнік вяршыняй уніз</annotation>
+		<annotation cp="💠">ромб | геаметрычны | аб’ект | кропка</annotation>
+		<annotation cp="💠" type="tts">ромб з кропкай</annotation>
+		<annotation cp="🔘">кнопка | геаметрычны | аб’ект | выбар</annotation>
+		<annotation cp="🔘" type="tts">пераключальнік</annotation>
+		<annotation cp="🔲">кнопка | геаметрычны | аб’ект | чорны | квадрат</annotation>
+		<annotation cp="🔲" type="tts">чорная квадратная кнопка</annotation>
+		<annotation cp="🔳">кнопка | геаметрычны | аб’ект | белы | квадрат</annotation>
+		<annotation cp="🔳" type="tts">белая квадратная кнопка</annotation>
+		<annotation cp="⚪">белы | круг | геаметрычны | аб’ект</annotation>
+		<annotation cp="⚪" type="tts">белы круг</annotation>
+		<annotation cp="⚫">чорны | круг | геаметрычны | аб’ект</annotation>
+		<annotation cp="⚫" type="tts">чорны круг</annotation>
+		<annotation cp="🔴">чырвоны | круг | геаметрычны | аб’ект</annotation>
+		<annotation cp="🔴" type="tts">чырвоны круг</annotation>
+		<annotation cp="🔵">сіні | круг | геаметрычны | аб’ект</annotation>
+		<annotation cp="🔵" type="tts">сіні круг</annotation>
 		<annotation cp="🛑">васьмівугольнік | знак | стоп</annotation>
 		<annotation cp="🛑" type="tts">знак “стоп”</annotation>
 		<annotation cp="🛒">каляска | тавары | пакупкі</annotation>

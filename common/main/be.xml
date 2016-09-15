@@ -879,6 +879,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[а б в г д {дж} {дз} е ё ж з і й к л м н о п р с т у ў ф х ц ч ш ы ь э ю я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[{а\u0301} {е\u0301} {ё\u0301} {і\u0301} {о\u0301} {у\u0301} {ы\u0301} {э\u0301} {ю\u0301} {я\u0301}]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[А Б В Г Д Е Ж З І Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Ы Э Ю Я]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- , ; \: ! ? . ( ) \[ \] \{ \} « »]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -8140,6 +8141,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — Усё</characterLabelPattern>
+		<characterLabelPattern type="category-list">{0}: {1}</characterLabelPattern>
 		<characterLabelPattern type="compatibility">{0} — Сумяшчальнасць</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — Уключаны</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — Пашыраны</characterLabelPattern>
@@ -8154,6 +8156,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="activities">Віды дзейнасці</characterLabel>
 		<characterLabel type="african_scripts">Афрыканскія пісьмы</characterLabel>
 		<characterLabel type="american_scripts">Амерыканскія пісьмы</characterLabel>
+		<characterLabel type="animal">жывёліна</characterLabel>
 		<characterLabel type="animals_nature">Жывёлы і прырода</characterLabel>
 		<characterLabel type="arrows">Стрэлкі</characterLabel>
 		<characterLabel type="body">цела смак</characterLabel>
@@ -8172,6 +8175,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="east_asian_scripts">Усходнеазіяцкія пісьмы</characterLabel>
 		<characterLabel type="emoji">Эмодзі</characterLabel>
 		<characterLabel type="european_scripts">Еўрапейскія пісьмы</characterLabel>
+		<characterLabel type="female">жанчына</characterLabel>
+		<characterLabel type="flag">сцяг</characterLabel>
 		<characterLabel type="flags">Сцягі</characterLabel>
 		<characterLabel type="food_drink">Ежа і напоі</characterLabel>
 		<characterLabel type="format">Фарматаванне</characterLabel>
@@ -8190,39 +8195,48 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="japanese_kana">Японская кана</characterLabel>
 		<characterLabel type="kanbun">Камбун</characterLabel>
 		<characterLabel type="kanji">Кандзі</characterLabel>
+		<characterLabel type="keycap">клавіша</characterLabel>
 		<characterLabel type="leftwards_arrows">Стрэлкі ўлева</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">Стрэлкі ўлева і ўправа</characterLabel>
 		<characterLabel type="letterlike_symbols">Сімвалы з падабенствам літар</characterLabel>
 		<characterLabel type="limited_use">Абмежаванае выкарыстанне</characterLabel>
+		<characterLabel type="male">мужчына</characterLabel>
 		<characterLabel type="math_symbols">Матэматычныя сімвалы</characterLabel>
 		<characterLabel type="middle_eastern_scripts">Блізкаўсходнія пісьмы</characterLabel>
 		<characterLabel type="miscellaneous">Рознае</characterLabel>
 		<characterLabel type="modern_scripts">Сучасныя пісьмы</characterLabel>
 		<characterLabel type="modifier">Знак-мадыфікатар</characterLabel>
 		<characterLabel type="musical_symbols">Музычныя сімвалы</characterLabel>
+		<characterLabel type="nature">прырода</characterLabel>
 		<characterLabel type="nonspacing">Знак без шырыні</characterLabel>
 		<characterLabel type="numbers">Лікі</characterLabel>
 		<characterLabel type="objects">Аб’екты</characterLabel>
 		<characterLabel type="other">Іншае</characterLabel>
 		<characterLabel type="paired">Парныя</characterLabel>
+		<characterLabel type="person">чалавек</characterLabel>
 		<characterLabel type="phonetic_alphabet">Знак з шырынёй</characterLabel>
 		<characterLabel type="pictographs">Піктаграмы</characterLabel>
+		<characterLabel type="place">месца</characterLabel>
 		<characterLabel type="plant">расліна</characterLabel>
 		<characterLabel type="punctuation">Пунктуацыя</characterLabel>
 		<characterLabel type="rightwards_arrows">Стрэлкі ўправа</characterLabel>
 		<characterLabel type="sign_standard_symbols">Шыльды/Знакі/Стандартныя сімвалы</characterLabel>
 		<characterLabel type="small_form_variant">Варыянты малых формаў</characterLabel>
+		<characterLabel type="smiley">смайлік</characterLabel>
 		<characterLabel type="smileys_people">Смайлікі і людзі</characterLabel>
 		<characterLabel type="south_asian_scripts">Усходнеазіяцкія пісьмы</characterLabel>
 		<characterLabel type="southeast_asian_scripts">Паўднёваўсходнеазіяцкія пісьмы</characterLabel>
 		<characterLabel type="spacing">Знакі з шырынёй</characterLabel>
+		<characterLabel type="sport">спорт</characterLabel>
 		<characterLabel type="symbols">Спецыяльныя сімвалы</characterLabel>
 		<characterLabel type="technical_symbols">Тэхнічныя сімвалы</characterLabel>
 		<characterLabel type="tone_marks">Знакі тонаў</characterLabel>
+		<characterLabel type="travel">падарожжа</characterLabel>
 		<characterLabel type="travel_places">Падарожжы і месцы</characterLabel>
 		<characterLabel type="upwards_arrows">Стрэлкі ўверх</characterLabel>
 		<characterLabel type="variant_forms">Варыянтныя формы</characterLabel>
 		<characterLabel type="vocalic_jamo">Вакалічнае чамо</characterLabel>
+		<characterLabel type="weather">надвор’е</characterLabel>
 		<characterLabel type="western_asian_scripts">Заходнеазіяцкія пісьмы</characterLabel>
 		<characterLabel type="whitespace">Недрукаваны знак</characterLabel>
 	</characterLabels>

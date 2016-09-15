@@ -1514,4 +1514,26 @@ public class CldrUtility {
         String prefix = javaStyle ? "\\u" : "U+";
         return prefix + "000".substring(0, gap) + hexString;
     }
+    
+    /**
+     * get string format for debugging, since Java has a useless display for many items
+     * @param item
+     * @return
+     */
+    public static String toString(Object item) {
+        if (item instanceof Object[]) {
+            return toString(Arrays.asList((Object[]) item));
+        } else if (item instanceof Entry) {
+            return toString(((Entry) item).getKey()) + "≔" + toString(((Entry) item).getValue());
+        } else if (item instanceof Map) {
+            return "{" + toString(((Map) item).entrySet()) + "}";
+        } else if (item instanceof Collection) {
+            List<String> result = new ArrayList<>();
+            for (Object subitem : (Collection)item) {
+                result.add(toString(subitem));
+            }
+            return result.toString();
+        }
+        return item.toString();
+    }
 }

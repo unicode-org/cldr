@@ -11,6 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -127,8 +128,13 @@ public class BuildIcuCompactDecimalFormat {
             }
 
             // HACK '.' just in case.
-            affix[typeZeroCount] = new String[] { patternMatcher.group(1).replace("'.'", "."),
-                patternMatcher.group(4).replace("'.'", ".") };
+            affix[typeZeroCount] = new String[] { 
+                escape(patternMatcher.group(1).replace("'.'", ".")),
+                escape(patternMatcher.group(4).replace("'.'", "."))
+
+//                patternMatcher.group(1).replace("'.'", "."),
+//                patternMatcher.group(4).replace("'.'", ".")
+                };
             if (DEBUG && key.equals("one")) {
                 System.out.println(key + ", " + typeZeroCount + ", " + Arrays.asList(affix[typeZeroCount]));
             }
@@ -157,9 +163,9 @@ public class BuildIcuCompactDecimalFormat {
                     String prefixUnit = unitPattern.substring(0, pos);
                     String suffixUnit = unitPattern.substring(pos + 3);
                     String currencyName = names.getCurrencyName(count);
-                    unitPrefixes.put(count, new String[] {
+                    addPrefixSuffixInfo(unitPrefixes, count, 
                         MessageFormat.format(prefixUnit, null, currencyName),
-                        MessageFormat.format(suffixUnit, null, currencyName) });
+                        MessageFormat.format(suffixUnit, null, currencyName));
                 }
                 break;
             }
@@ -169,7 +175,7 @@ public class BuildIcuCompactDecimalFormat {
             String prefix1 = format2.getPositivePrefix();
             String suffix2 = format2.getPositiveSuffix();
             for (String count : canonicalKeywords) {
-                unitPrefixes.put(count, new String[] { prefix1, suffix2 });
+                addPrefixSuffixInfo(unitPrefixes, count, prefix1, suffix2);
             }
             break;
         case ISO_CURRENCY:
@@ -183,7 +189,7 @@ public class BuildIcuCompactDecimalFormat {
                     value = otherValue;
                 }
                 int pos = value.indexOf("{0}");
-                unitPrefixes.put(count, new String[] { value.substring(0, pos), value.substring(pos + 3) });
+                addPrefixSuffixInfo(unitPrefixes, count, value.substring(0, pos), value.substring(pos + 3));
             }
             break;
         }
@@ -211,7 +217,7 @@ public class BuildIcuCompactDecimalFormat {
         //
         if (DEBUG) {
             for (Entry<String, String[][]> keyList : affixes.entrySet()) {
-                System.out.println("*\t" + keyList.getKey() + "\t" + Arrays.asList(keyList.getValue()));
+                System.out.println("*\t" + keyList.getKey() + "\t" + CldrUtility.toString(keyList));
             }
         }
 
@@ -241,6 +247,15 @@ public class BuildIcuCompactDecimalFormat {
         //                debugCreationErrors
         //                );
 
+    }
+
+    private static String[] addPrefixSuffixInfo(Map<String, String[]> unitPrefixes, String count, 
+        final String prefix, final String suffix) {
+        return unitPrefixes.put(count, new String[]{escape(prefix), escape(suffix)});
+    }
+
+    private static String escape(String prefix) {
+        return prefix.isEmpty() ? prefix : "'" + prefix.replace("'", "''") + "'";
     }
 
     private static String getUnitString(CLDRFile resolvedCldrFile, String unit, String count) {

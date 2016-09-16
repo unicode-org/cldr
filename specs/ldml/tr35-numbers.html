@@ -2110,6 +2110,15 @@ h2, h3, h4, table {
 			pluralized message APIs should also offer the ability to specify at
 			least the 0 and 1 cases explicitly; developers can use that ability
 			whenever these values might occur in a placeholder.</p>
+		<div class='changed'>
+		<p>The CLDR plural rules are not expected to cover all cases. For example, strictly speaking, there could be more plural and ordinal forms for English.  Formally, we have a different plural form where a change in digits forces a change in the rest of the sentence. There is an edge case  in English because of the behavior of &quot;a/an&quot;.</p>
+		<p>For example, in changing from 3 to 8:</p>
+		<ul>
+		  <li>&quot;a 3rd of a loaf&quot; should result in &quot;an 8th of a loaf&quot;, not &quot;a 8th of a loaf&quot;</li>
+		  <li>&quot;a 3 foot stick&quot; should result in &quot;an 8 foot stick&quot;, not &quot;a 8 foot stick&quot;</li>
+	  </ul>
+		<p>So numbers of the following forms could have a special plural category and special ordinal category: 8(X), 11(X), 18(X), 8x(X), where x is 0..9 and the optional X is 00, 000, 00000, and so on.</p>
+		<p>On the other hand, the above constructions are relatively rare in messages  constructed using numeric placeholders, so the disruption for implementations currently using CLDR plural categories wouldn't be worth the small gain.</p></div>
 		<p>This section defines the types of plural forms that exist in a
 			language—namely, the cardinal and ordinal plural forms. Cardinal
 			plural forms express units such as time, currency or distance, used

@@ -192,6 +192,11 @@ public class Annotations {
         public static final String HEART = "❤";
         public static final String MALE_SIGN = "♂";
         public static final String FEMALE_SIGN = "♀";
+        public static final String MAN = "👨";
+        public static final String WOMAN = "👩";
+        public static final String JOINER_MALE_SIGN = JOINER_STRING + MALE_SIGN;
+        public static final String JOINER_FEMALE_SIGN = JOINER_STRING + FEMALE_SIGN;
+        //public static final UnicodeSet MODIFIERS_GENDER_SIGNS = new UnicodeSet(0x1F3FB, 0x1F3FF).add(MALE_SIGN).add(FEMALE_SIGN).freeze();
         public static String getFlagCode(String s) {
             return String.valueOf((char)(s.codePointAt(0) - FIRST_REGIONAL + 'A')) + (char) (s.codePointAt(2) - FIRST_REGIONAL + 'A');
         }
@@ -213,10 +218,11 @@ public class Annotations {
         private final CLDRFile cldrFile;
         private final SimpleFormatter initialPattern;
         private final SimpleFormatter listPattern;
-        private final String flagLabel;
+        private final Set<String> flagLabelSet;
+        private final Set<String> keycapLabelSet;
         private final String keycapLabel;
-        private final String maleLabel;
-        private final String femaleLabel;
+//        private final String maleLabel;
+//        private final String femaleLabel;
         private final Map<String, Annotations> localeCache = new ConcurrentHashMap<>();
 
         public AnnotationSet(String locale, UnicodeMap<Annotations> source, UnicodeMap<Annotations> resolvedSource) {
@@ -226,10 +232,21 @@ public class Annotations {
             cldrFile = factory.make(locale, true);
             listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
             initialPattern = SimpleFormatter.compile(getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
-            keycapLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"keycap\"]");
-            flagLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"flag\"]");
-            maleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"male\"]");
-            femaleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"female\"]");
+            flagLabelSet = getLabelSet("flag");
+            keycapLabelSet = getLabelSet("keycap");
+            keycapLabel = keycapLabelSet.isEmpty() ? null : keycapLabelSet.iterator().next();
+//            maleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"male\"]");
+//            femaleLabel = getStringValue("//ldml/characterLabels/characterLabel[@type=\"female\"]");
+        }
+        /**
+         * @deprecated Use {@link #getLabelSet(String)} instead
+         */
+        private Set<String> getLabelSet() {
+            return getLabelSet("flag");
+        }
+        private Set<String> getLabelSet(String typeAttributeValue) {
+            String label = getStringValue("//ldml/characterLabels/characterLabel[@type=\"" + typeAttributeValue + "\"]");
+            return label == null ? Collections.<String>emptySet() : Collections.singleton(label);
         }
         private String getStringValue(String xpath) {
             String result = cldrFile.getStringValue(xpath);
@@ -243,6 +260,10 @@ public class Annotations {
             return result;
         }
         public String getShortName(String code) {
+            if (locale.equals("by") && code.equals("🤗")) {
+                int debug = 0;
+            }
+
             code = code.replace(EmojiConstants.EMOJI_VARIANT_STRING,"");
             Annotations stock = baseData.get(code);
             if (stock != null && stock.tts != null) {
@@ -282,26 +303,31 @@ public class Annotations {
 
         private Annotations synthesize(String code) {
             String shortName = null;
-            Set<String> annotations = null;
             int len = code.codePointCount(0, code.length());
-            if (len == 1) {
+            boolean hasJoiner = code.contains(EmojiConstants.JOINER_STRING);
+            boolean isKeycap10 = code.equals("🔟");
+            if (len == 1 && !isKeycap10) {
                 return new Annotations(Collections.<String>emptySet(), ENGLISH_MARKER + getDataSet("en").getShortName(code));
             } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
                 String countryCode = EmojiConstants.getFlagCode(code);
                 String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
-                return new Annotations(Collections.singleton(flagLabel), getStringValue(path));
-            } else if (code.contains(EmojiConstants.KEYCAP_MARK_STRING) || code.equals("🔟")) {
-                if (locale.equals("ga")) {
-                    int debug = 0;
-                }
+                return new Annotations(flagLabelSet, getStringValue(path));
+            } else if (isKeycap10 || code.contains(EmojiConstants.KEYCAP_MARK_STRING)) {
                 final String rem = code.equals("🔟") ? "10" : UTF16.valueOf(code.charAt(0));
                 shortName = initialPattern.format(keycapLabel, rem);
-                return new Annotations(Collections.singleton(keycapLabel), shortName);
+                return new Annotations(keycapLabelSet, shortName);
             } else if (EmojiConstants.MODIFIERS.containsSome(code)) {
                 String rem = EmojiConstants.MODIFIERS.stripFrom(code, false);
                 code = EmojiConstants.MODIFIERS.stripFrom(code, true);
+                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
+                    rem = EmojiConstants.MAN + rem;
+                    code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
+                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
+                    rem = EmojiConstants.WOMAN + rem;
+                    code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
+                }
                 return getBasePlusRemainder(cldrFile, code, rem, UnicodeSet.EMPTY);
-            } else if (code.contains(EmojiConstants.JOINER_STRING)) {
+            } else if (hasJoiner) {
                 code = code.replace(EmojiConstants.JOINER_STRING,"");
                 if (code.contains(EmojiConstants.KISS)) {
                     return getBasePlusRemainder(cldrFile, "💏", code, EmojiConstants.SKIP_SET);
@@ -309,10 +335,10 @@ public class Annotations {
                     return getBasePlusRemainder(cldrFile, "💑", code, EmojiConstants.SKIP_SET);
                 } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
                     return getBasePlusRemainder(cldrFile, "👪", code, UnicodeSet.EMPTY);
-                } else if (code.contains(EmojiConstants.MALE_SIGN)){
-                    return getBasePlusRemainder(cldrFile, BAD_MARKER, maleLabel, code, EmojiConstants.SKIP_SET);
-                } else if (code.contains(EmojiConstants.FEMALE_SIGN)){
-                    return getBasePlusRemainder(cldrFile, BAD_MARKER, femaleLabel, code, EmojiConstants.SKIP_SET);
+                } else if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
+                    return getBasePlusRemainder(cldrFile, BAD_MARKER, EmojiConstants.MAN, code, EmojiConstants.SKIP_SET);
+                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
+                    return getBasePlusRemainder(cldrFile, BAD_MARKER, EmojiConstants.WOMAN, code, EmojiConstants.SKIP_SET);
                 }
             }
             return getBasePlusRemainder(cldrFile, BAD_MARKER, null, code, UnicodeSet.EMPTY);
@@ -342,7 +368,7 @@ public class Annotations {
                 final String modStr = UTF16.valueOf(mod);
                 String modName = getShortName(modStr);
                 shortName = shortName == null ? modName : pattern.format(shortName, modName);
-                annotations.addAll(getKeywords(modStr));
+                if (modName != null) annotations.add(modName);
                 pattern = listPattern;
             }
             Annotations result = new Annotations(annotations, marker + shortName);
@@ -356,6 +382,9 @@ public class Annotations {
             return toString(code, html, null);
         }
         public String toString(String code, boolean html, AnnotationSet parentAnnotations) {
+            if (locale.equals("be") && code.equals("🤗")) {
+                int debug = 0;
+            }
             String shortName = getShortName(code);
             if (shortName == null || shortName.startsWith(BAD_MARKER) || shortName.startsWith(ENGLISH_MARKER)) {
                 return MISSING_MARKER;
@@ -368,7 +397,7 @@ public class Annotations {
 
             Set<String> keywords = getKeywordsMinus(code);
             Set<String> parentKeywords = parentAnnotations == null ? null : parentAnnotations.getKeywordsMinus(code);
-            if (keywords != null && Objects.equal(keywords, parentKeywords)) {
+            if (keywords != null && !keywords.isEmpty() && Objects.equal(keywords, parentKeywords)) {
                 keywords = Collections.singleton(EQUIVALENT);
             }
 
@@ -475,6 +504,7 @@ public class Annotations {
         final UnicodeMap<Annotations> map = eng.getUnresolvedExplicitValues();
         Set<String> keys = new TreeSet<>(ChartAnnotations.RBC);
         map.keySet().addAllTo(keys);
+//        keys.add("👩🏻‍⚖");
         for (String key : keys) {
             System.out.println(Utility.hex(key, 4, "_").toLowerCase(Locale.ROOT)
                 + "\t" + key

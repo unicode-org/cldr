@@ -1411,7 +1411,7 @@ h5 {
 						</tr>
 					</table>
 					<p>
-						Unicode identifiers give specific semantics to six Unicode Script values [<a
+						Unicode identifiers give specific semantics to six Unicode Script values<span class="changed">. For more information, see also</span> [<a
 							href="http://www.unicode.org/reports/tr41/#UAX24">UAX24</a>]:
 					</p>
 					<table cellspacing="0" cellpadding="2" border="1"
@@ -1419,40 +1419,69 @@ h5 {
 						<tr>
 							<td><code>Qaai</code></td>
 							<td>Inherited</td>
-							<td><strong>deprecated</strong>: the <em>canonicalized</em>
+							<td colspan="2"><strong>deprecated</strong>: the <em>canonicalized</em>
 								form is Zinh</td>
 						</tr>
 						<tr>
 							<td><code>Zinh</code></td>
 							<td>Inherited</td>
-							<td>&nbsp;</td>
+							<td colspan="2">&nbsp;</td>
 						</tr>
 						<tr>
 							<td><code>Zsye</code></td>
 							<td>Emoji Style</td>
-							<td>Prefer emoji style for characters that have both text
+							<td colspan="2">Prefer emoji style for characters that have both text
 								and emoji styles available.</td>
 						</tr>
 						<tr>
 							<td><code>Zsym</code></td>
 							<td>Text Style</td>
-							<td>Prefer text style for characters that have both text and
+							<td colspan="2">Prefer text style for characters that have both text and
 								emoji styles available.</td>
 						</tr>
+						<tr class='changed'>
+						  <td rowspan="7"><code>Zxxx</code></td>
+						  <td rowspan="7">Unwritten</td>
+						  <td colspan="2">Indicates spoken or otherwise unwritten content. For example:</td>
+					  </tr>
+						<tr class='changed'>
+						  <th>Sample(s)</th>
+						  <th>Description</th>
+				      </tr>
+						<tr class='changed'>
+						  <td>uz</td>
+						  <td>either written or spoken content</td>
+				      </tr>
+						<tr class='changed'>
+						  <td>uz-Latn <em>or</em> uz-Arab</td>
+						  <td>written-only content (particular script)</td>
+				      </tr>
+						<tr class='changed'>
+						  <td>uz-Zyyy</td>
+						  <td>written-only content (unspecified script)</td>
+				      </tr>
+						<tr class='changed'>
+						  <td>uz-Zxxx</td>
+						  <td>spoken-only content</td>
+				      </tr>
+						<tr class='changed'>
+						  <td>uz-Latn, uz-Zxxx</td>
+						  <td>both specific written and spoken content (using a <em>language list</em>)</td>
+				      </tr>
 						<tr>
 							<td><code>Zyyy</code></td>
 							<td>Common</td>
-							<td>&nbsp;</td>
+							<td colspan="2">&nbsp;</td>
 						</tr>
 						<tr>
 							<td><code>Zzzz</code></td>
 							<td>Unknown</td>
-							<td>&nbsp;</td>
+							<td colspan="2">&nbsp;</td>
 						</tr>
 					</table>
 					<p>The private use subtags from Qaaq..Qabx will never be given
 						specific semantics in Unicode identifiers, and are thus safe for
-						use for other purposes by other applications.</p></td>
+			  use for other purposes by other applications.</p></td>
 			</tr>
 			<tr>
 				<td><a href="#unicode_region_subtag_validity"
@@ -8221,14 +8250,21 @@ decimal?, group?, special*)) &gt;</pre>
 		<ul class="changed">
 			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
 				<ul>
+				  <li><strong>Section Table: <a href="#Language_Locale_Field_Definitions">Language
+				  Identifier Field Definitions</a></strong>
+				    <ul>
+				      <li>Added Zzzz (spoken content) [<a
+								href="http://unicode.org/cldr/trac/ticket/9595">#9595</a>]</li>
+			        </ul>
+				  </li>
 				  <li><strong>Section 6 <a href='http://unicode.org/reports/tr35/#Property_Data'>Property_Data</a>
 			      </strong>
 				    <ul>
 				      <li>Described the new property ExtendedPictographic for customizing UAX #14 and #29 [<a
 								href="http://unicode.org/cldr/trac/ticket/9438">#9438</a>]</li>
 			        </ul>
-				  </li>
-			  </ul>
+			      </li>
+		      </ul>
 			</li>
 			<li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>

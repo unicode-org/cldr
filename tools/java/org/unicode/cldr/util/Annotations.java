@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Locale;
@@ -200,9 +201,17 @@ public class Annotations {
         public static String getFlagCode(String s) {
             return String.valueOf((char)(s.codePointAt(0) - FIRST_REGIONAL + 'A')) + (char) (s.codePointAt(2) - FIRST_REGIONAL + 'A');
         }
-        public static final UnicodeSet FAMILY_MARKERS = new UnicodeSet().add(0x1F466, 0x1F469).add(0x1F476).freeze(); // boy, girl, man, woman, baby
-        public static final UnicodeSet SKIP_SET = new UnicodeSet().add(EmojiConstants.HEART).add(EmojiConstants.KISS).add(MALE_SIGN).add(FEMALE_SIGN)
-            .freeze();
+        public static final UnicodeSet FAMILY_MARKERS = new UnicodeSet()
+        .add(0x1F466, 0x1F469).add(0x1F476)
+        .add(JOINER_STRING)
+        .freeze(); // boy, girl, man, woman, baby
+        public static final UnicodeSet REM_SKIP_SET = new UnicodeSet()
+        .add(JOINER_STRING)
+        .freeze();
+        public static final UnicodeSet REM_GROUP_SKIP_SET = new UnicodeSet(REM_SKIP_SET)
+        .add(EmojiConstants.HEART).add(EmojiConstants.KISS)
+        .add(MALE_SIGN).add(FEMALE_SIGN)
+        .freeze();
     }
 
     public static final class AnnotationSet {
@@ -260,7 +269,7 @@ public class Annotations {
             return result;
         }
         public String getShortName(String code) {
-            if (locale.equals("by") && code.equals("🤗")) {
+            if (code.equals("👩🏼‍⚖")) {
                 int debug = 0;
             }
 
@@ -304,7 +313,6 @@ public class Annotations {
         private Annotations synthesize(String code) {
             String shortName = null;
             int len = code.codePointCount(0, code.length());
-            boolean hasJoiner = code.contains(EmojiConstants.JOINER_STRING);
             boolean isKeycap10 = code.equals("🔟");
             if (len == 1 && !isKeycap10) {
                 return new Annotations(Collections.<String>emptySet(), ENGLISH_MARKER + getDataSet("en").getShortName(code));
@@ -316,62 +324,74 @@ public class Annotations {
                 final String rem = code.equals("🔟") ? "10" : UTF16.valueOf(code.charAt(0));
                 shortName = initialPattern.format(keycapLabel, rem);
                 return new Annotations(keycapLabelSet, shortName);
-            } else if (EmojiConstants.MODIFIERS.containsSome(code)) {
-                String rem = EmojiConstants.MODIFIERS.stripFrom(code, false);
+            }
+            UnicodeSet skipSet = EmojiConstants.REM_SKIP_SET;
+            String rem = "";
+            if (EmojiConstants.MODIFIERS.containsSome(code)) {
+                rem = EmojiConstants.MODIFIERS.stripFrom(code, false);
                 code = EmojiConstants.MODIFIERS.stripFrom(code, true);
-                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
-                    rem = EmojiConstants.MAN + rem;
-                    code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
-                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
-                    rem = EmojiConstants.WOMAN + rem;
-                    code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
-                }
-                return getBasePlusRemainder(cldrFile, code, rem, UnicodeSet.EMPTY);
-            } else if (hasJoiner) {
-                code = code.replace(EmojiConstants.JOINER_STRING,"");
+            }
+            if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
+                rem = EmojiConstants.MAN + rem;
+                code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
+            } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
+                rem = EmojiConstants.WOMAN + rem;
+                code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
+            }
+            if (code.contains(EmojiConstants.JOINER_STRING)) {
                 if (code.contains(EmojiConstants.KISS)) {
-                    return getBasePlusRemainder(cldrFile, "💏", code, EmojiConstants.SKIP_SET);
+                    rem = code + rem;
+                    code = "💏";
+                    skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 } else if (code.contains(EmojiConstants.HEART)) {
-                    return getBasePlusRemainder(cldrFile, "💑", code, EmojiConstants.SKIP_SET);
+                    rem = code + rem;
+                    code = "💑";
+                    skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
-                    return getBasePlusRemainder(cldrFile, "👪", code, UnicodeSet.EMPTY);
-                } else if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
-                    return getBasePlusRemainder(cldrFile, BAD_MARKER, EmojiConstants.MAN, code, EmojiConstants.SKIP_SET);
-                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
-                    return getBasePlusRemainder(cldrFile, BAD_MARKER, EmojiConstants.WOMAN, code, EmojiConstants.SKIP_SET);
+                    rem = code + rem;
+                    code = "👪";
+                    skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 }
             }
-            return getBasePlusRemainder(cldrFile, BAD_MARKER, null, code, UnicodeSet.EMPTY);
+            return getBasePlusRemainder(cldrFile, code, rem, skipSet);
         }
 
         private Annotations getBasePlusRemainder(CLDRFile cldrFile, String base, String rem, UnicodeSet ignore) {
-            return getBasePlusRemainder(cldrFile, "", base, rem, ignore);
-        }
-        private Annotations getBasePlusRemainder(CLDRFile cldrFile, String marker, String base, String rem, UnicodeSet ignore) {
             String shortName = null;
             Set<String> annotations = new LinkedHashSet<>();
             SimpleFormatter pattern = listPattern;
+            boolean needMarker = true;
+
             if (base != null) {
-                pattern = initialPattern;
-                if (marker.isEmpty()) {
-                    shortName = getShortName(base);
-                    annotations.addAll(getKeywords(base));
+                needMarker = false;
+                if (!base.contains(EmojiConstants.JOINER_STRING)) { // HACK to prevent health worker: woman: light skin tone
+                    pattern = initialPattern;
+                }
+                Annotations stock = baseData.get(base);
+                if (stock != null) {
+                    shortName = stock.getShortName();
+                    annotations.addAll(stock.getKeywords());
                 } else {
-                    shortName = base;
-                    annotations.add(base);
+                    return null;
                 }
             }
             for (int mod : CharSequences.codePoints(rem)) {
                 if (ignore.contains(mod)) {
                     continue;
                 }
-                final String modStr = UTF16.valueOf(mod);
-                String modName = getShortName(modStr);
+                Annotations stock = baseData.get(mod);
+                String modName = null;
+                if (stock != null) {
+                    modName = stock.getShortName();
+                } else {
+                    needMarker = true;
+                    continue;
+                }
                 shortName = shortName == null ? modName : pattern.format(shortName, modName);
                 if (modName != null) annotations.add(modName);
                 pattern = listPattern;
             }
-            Annotations result = new Annotations(annotations, marker + shortName);
+            Annotations result = new Annotations(annotations, (needMarker ? BAD_MARKER : "") + shortName);
             return result;
         }
 
@@ -511,6 +531,20 @@ public class Annotations {
                 + "\t" + map.get(key).getShortName()
                 + "\t" + CollectionUtilities.join(map.get(key).getKeywords(), " | ")
                 );
+        }
+        for (String s : Arrays.asList(
+            "👩‍👩‍👧",
+
+            "💏", "👩‍❤️‍💋‍👩",
+            "💑", "👩‍❤️‍👩",
+            "👪", "👩‍👩‍👧",
+            "👨🏿‍⚖",
+            "👦🏻", "👩🏿",
+            "👨‍⚖", "👨🏿‍⚖", "👩‍⚖","👩🏼‍⚖",
+            "👮", "👮‍♂️", "👮🏼‍♂️", "👮‍♀️", "👮🏿‍♀️")) {
+            final String shortName = eng.getShortName(s);
+            final Set<String> keywords = eng.getKeywords(s);
+            System.out.println(s + "\t" + shortName + "\t" + keywords);
         }
     }
 

@@ -4159,10 +4159,103 @@ h2, h3, h4, table {
 	  		<p class="dtd">&lt;!ATTLIST characterLabelPattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED &gt;     &lt;!-- count only used for certain patterns&quot; --&gt;</p>
 	  		<p class="dtd">&lt;!ELEMENT characterLabel ( #PCDATA ) &gt; </p>
 	  		<p class="dtd">&lt;!ATTLIST characterLabel type NMTOKEN #REQUIRED &gt;</p>
-            <p>The character labels can be used for categories in a character picker or keyboard palette. They have the above structure.</p>
-            <p>There are two special patterns. The <span class="example">strokes</span> type takes a count:</p>
-            <p class='example'> &lt;characterLabelPattern type=&quot;strokes&quot; count=&quot;other&quot;&gt;{0} Strokes&lt;/characterLabelPattern&gt;</p>
-                        <p>The category-list has two placeholders; the first is a category (such as person), and the second is one or more items. If more than one, it is formatted with a listPattern.</p>
+            <p>The character labels can be used for categories or groups of characters in a character picker or keyboard palette. They have the above structure. Items with special meanings are explained below. Many of the categories are based on terms used in Unicode. Consult the <a href='http://www.unicode.org/glossary/'>Unicode Glossary</a> where the meaning is not clear.</p>
+<p>The following are special patterns used in composing labels.</p>
+<table>
+<caption>characterLabelPattern</caption>
+<tr>
+  <th>Type</th>
+  <th>English</th>
+  <th>Description of the group specified.</th>
+</tr>
+<tr><th>all</th><td>{0} — all</td>
+<td>Used where the title {0} is just a subset. For example, {0} might be &quot;Latin&quot;, and contain the most common Latin characters. Then &quot;Latin — all&quot; would be all of them.</td></tr>
+<tr><th>category-list</th><td>{0}: {1}</td>
+<td>Use for a name, where {0} is the main item like &quot;Family&quot;, and {1} is a list of one or more components or subcategories. The list is formatted using a list pattern.</td></tr>
+<tr><th>compatibility</th><td>{0} — compatibility</td>
+<td>For grouping Unicode compatibility characters separately, such as &quot;Arabic — compatibility&quot;.</td></tr>
+<tr><th>enclosed</th><td>{0} — enclosed</td>
+<td>For indicating enclosed forms, such as &quot;digits — enclosed&quot;</td></tr>
+<tr><th>extended</th><td>{0} — extended</td>
+<td>For indicating a group of &quot;extended&quot; characters (special use, technical, etc.)</td></tr>
+<tr><th>historic</th><td>{0} — historic</td>
+  <td>For indicating a group of &quot;historic&quot; characters (no longer in common use).</td></tr>
+<tr><th>miscellaneous</th><td>{0} — miscellaneous</td>
+  <td>For indicating a group of &quot;miscellaneous&quot; characters (typically that don't fall into a broader class).</td></tr>
+<tr><th>other</th><td>{0} — other</td>
+  <td>Used where the title {0} is just a subset. For example, {0} might be &quot;Latin&quot;, and contain the most common Latin characters. Then &quot;Latin — other&quot; would be the rest of them.</td></tr>
+<tr><th>scripts</th><td>scripts — {0}</td>
+<td>For indicating a group of &quot;scripts&quot; characters matching {0}. The value for {0} may be a geographic indicator, like &quot;Africa&quot; (although there are specific combinations listed below), or some other designation, like &quot;other&quot; (from below).</td></tr>
+<tr>
+  <th>strokes</th><td>{0} strokes</td>
+  <td>Used as an index title for CJK characters. It takes a &quot;count&quot; value, which allows the right plural form to be specified for the language.</td></tr>
+</table>
+<p>The following are character labels. Where the meaning of the label is fairly clear (like "animal") or is in the Unicode glossary, it is omitted.</p>
+<table>
+<caption>characterLabel</caption>
+<tr><th>activities</th><td>activity</td>
+<td>Human activities, such as running.</td></tr>
+<tr><th>african_scripts</th><td>African script</td>
+<td>Scripts associated with the continent of Africa.</td></tr>
+<tr><th>american_scripts</th><td>American script</td>
+<td>Scripts associated with the continents of North and South America.</td></tr>
+<tr><th>animals_nature</th><td>animal or nature</td>
+  <td>A broad category uses for </td></tr>
+<tr><th>arrows</th><td>arrow</td>
+<td>Arrow symbols</td></tr>
+<tr><th>body</th><td>body</td>
+<td>Symbols for body parts, such as an arm.</td></tr>
+<tr><th>box_drawing</th><td>box drawing</td>
+<td>Unicode box-drawing characters (geometric shapes)</td></tr>
+<tr><th>bullets_stars</th><td>bullet or star</td>
+<td>Unicode bullets (such as • or ‣ or ⁍) or stars (★✩✪✵...)</td></tr>
+<tr><th>consonantal_jamo</th><td>consonantal jamo</td>
+  <td>Korean Jamo consonants.</td></tr>
+<tr><th>currency_symbols</th><td>currency symbol</td>
+  <td>Symbols such as $, ¥, £</td></tr>
+<tr><th>dash_connector</th><td>dash or connector</td>
+  <td>Characters like _ or ⁓</td></tr>
+<tr><th>dingbats</th><td>dingbat</td>
+<td>Font dingbat characters, such as ❿ or ♜.</td></tr>
+<tr><th>downwards_upwards_arrows</th><td>downwards upwards arrow</td>
+  <td>⇕,...</td></tr>
+<tr><th>female</th><td>female</td>
+<td>Indicates that a character is female or feminine in appearance.</td></tr>
+<tr><th>format</th><td>format</td>
+<td>A Unicode format character.</td></tr>
+<tr><th>format_whitespace</th><td>format &amp; whitespace</td>
+  <td>A Unicode format character or whitespace.</td></tr>
+<tr><th>full_width_form_variant</th><td>full-width variant</td>
+  <td>Full width variant, such as a wide A.</td></tr>
+<tr><th>half_width_form_variant</th><td>half-width variant</td>
+<td>Narrow width variant, such as a half-width katakana character.</td></tr>
+<tr><th>han_characters</th><td>Han character</td>
+  <td>Han (aka CJK: Chinese, Japanese, or Korean) ideograph</td></tr>
+<tr><th>han_radicals</th><td>Han radical</td>
+  <td>Radical (component) used in Han characters.</td></tr>
+<tr><th>hanja</th><td>hanja</td>
+  <td>Korean name for Han character.</td></tr>
+<tr><th>hanzi_simplified</th><td>Hanzi (simplified)</td>
+  <td>Simplified Chinese ideograph</td></tr>
+<tr><th>hanzi_traditional</th><td>Hanzi (traditional)</td>
+  <td>Traditional Chinese ideograph</td></tr>
+<tr><th>historic_scripts</th><td>historic script</td>
+  <td>Script no longer in common modern usage, such as Runes or Hieroglyphs.</td></tr>
+<tr><th>ideographic_desc_characters</th><td>ideographic desc. character</td>
+  <td>Special Unicode characters (see the glossary).</td></tr>
+<tr><th>kanji</th><td>kanji</td>
+  <td>Japanese Han ideograph</td></tr>
+<tr><th>keycap</th><td>keycap</td>
+  <td>A key on a computer keyboard or phone. For example, the &quot;3&quot; key on a phone or laptop would be &quot;keycap: 3&quot;</td></tr>
+<tr><th>limited_use</th><td>limited-use</td>
+<td>Not in common modern use.</td></tr>
+<tr><th>male</th><td>male</td>
+  <td>Indicates that a character is male or masculine in appearance.</td></tr>
+<tr><th>modifier</th><td>modifier</td>
+<td>A Unicode modifier letter or symbol.</td></tr>
+<tr><th>nonspacing</th><td>nonspacing</td>
+  <td>Uses for characters that occupy no width by themselves, such as the ¨ over the a in ä.</td></tr>
+</table>
       </div>
 	  <hr>
 		<p class="copyright">

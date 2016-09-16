@@ -904,6 +904,6 @@ public class ICUServiceBuilder {
     }
 
     public String getMinusSign(String numberSystem) {
-        return _getDecimalFormatSymbols(numberSystem).getMinusString();
+        return _getDecimalFormatSymbols(numberSystem).getMinusSignString();
     }
 }

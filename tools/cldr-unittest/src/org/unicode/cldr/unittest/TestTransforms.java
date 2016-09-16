@@ -457,7 +457,7 @@ public class TestTransforms extends TestFmwkPlus {
         Transliterator elLower = checkString("el", Casing.Lower,
             "οδός οδός σο σο oς ος σ ἕξ", greekSource, true);
         Transliterator elUpper = checkString("el", Casing.Upper,
-            "ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ", greekSource, false);
+            "ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ", greekSource, true); // now true due to ICU #5456
 
         String turkishSource = "Isiİ İsıI";
         Transliterator trTitle = checkString("tr", Casing.Title, "Isii İsıı",

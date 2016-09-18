@@ -453,6 +453,8 @@ h5 {
 							<li>5.6.3 <a href="#Comments">Comments</a></li>
 						</ul>
 					</li>
+                    	<li class='changed'>5.7 <a href="#DTD_Annotations">DTD Annotations</a></li>
+
 				</ul>
 			</li>
 			<li>6 <a href="#Property_Data">Property Data</a></li>
@@ -3052,7 +3054,7 @@ zh-Hant-HK</pre>
 				of them). Any indirect type names are
 					listed in 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files">U
 						Extension Data Files</a>.
-				</dd>
+		  </dd>
 			<dt>
 				<b>description</b>
 			</dt>
@@ -4225,7 +4227,7 @@ root</pre>
 			the structure of LDML, including that it does not allow mixed
 			content.) The ordering is the ordering that the element chains are
 			found in the file, and thus determined by the DTD.
-		</p>
+	  </p>
 		<p>For example, some of those pairs would be the following. Notice
 			that the first has the null string as element contents.</p>
 		<ul>
@@ -6473,8 +6475,38 @@ decimal?, group?, special*)) &gt;</pre>
 	&lt;!-- Note: the following is known to be sparse,
 		and needs to be improved in the future --&gt;
 	&lt;zone type=&quot;Asia/Jerusalem&quot;&gt;</pre>
-
-		<h2>
+<div class='changed'>
+    <h3>
+			<a name="dtd-annotations" href="#dtd-annotations">5.7 DTD Annotations</a>
+	  </h3>
+				<p>The information in a standard DTD is insufficient for use in CLDR. To make up for that, DTD annotations are added. These are of the form &lt;!--@...--&gt;, and are included below the !ELEMENT or !ATTLIST line that they apply to. The current annotations are:</p>
+				<table>
+                <tr><th>Type</th><th>Description</th></tr>
+                <tr>
+                  <td>&lt;!--@VALUE--&gt;</td>
+                  <td>The attribute is not distinguishing, and is treated like an element value</td></tr>
+                <tr>
+                  <td>&lt;!--@METADATA--&gt;</td>
+                  <td>The attribute is a &quot;comment&quot; on the data, like the draft status. It is not typically used in implementations.</td>
+                </tr>
+                <tr>
+                  <td>&lt;!--@ORDERED--&gt;</td>
+                  <td>The element's children are ordered, and do not inherit.</td>
+                </tr>
+                <tr>
+                  <td>&lt;!--@DEPRECATED--&gt;</td>
+                  <td>The element or attribute is deprecated, and should not be used.</td>
+                </tr>
+                <tr>
+                  <td>&lt;!--@DEPRECATED: attribute-value1, attribute-value2--&gt;</td>
+                  <td>The attribute values are deprecated, and should not be used. Spaces between tokens are not significant.</td>
+                </tr>
+                </table>
+				<p> There is additional information in the attributeValueValidity.xml file that is used internally for testing. For example, the following line indicates that the 'currency' element in the ldml dtd must have values from the bcp47 'cu' type.</p>
+				<p class='example'> &lt;attributeValues dtds='ldml' elements='currency' attributes='type'&gt;$_bcp47_cu&lt;/attributeValues&gt;</p>
+				<p>The element values may be literals, regular expressions, or variables (some of which are set programmatically according to other CLDR data, such as the above. However, the information as this point does not cover all attribute values, is used only for testing, and should not be used in implementations since the structure may change without notice.</p>
+                </div>
+<h2>
 			<a name="Property_Data" href="#Property_Data">6 Property Data</a>
 		</h2>
 		<p>Some data in CLDR does not use an XML format, but rather a
@@ -8239,7 +8271,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<h2>
 			<a name="Modifications" href="#Modifications">Modifications</a>
 		</h2>
-		<p>
+	  <p>
 			The following summarizes modifications from the previous version of
 			this document. Some of the modification notes have an associated bug
 			ticket number, which may be used to look up additional information
@@ -8255,6 +8287,12 @@ decimal?, group?, special*)) &gt;</pre>
 				    <ul>
 				      <li>Added Zzzz (spoken content) [<a
 								href="http://unicode.org/cldr/trac/ticket/9595">#9595</a>]</li>
+			        </ul>
+				  </li>
+				  <li><strong>Section 5.7 <a href="#DTD_Annotations">DTD Annotations</a> 
+			      </strong>
+				    <ul>
+				      <li>Added description of the DTD annotations used in CLDR. [<a href="http://unicode.org/cldr/trac/ticket/9723">#9723</a>]</li>
 			        </ul>
 				  </li>
 				  <li><strong>Section 6 <a href='http://unicode.org/reports/tr35/#Property_Data'>Property_Data</a>
@@ -8282,15 +8320,16 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 3: <a
 					href="tr35-numbers.html#Contents">Numbers</a></strong>
 				<ul>
-				  <li><em>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number Symbols</a></em>
+				  <li><em><strong>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number Symbols</a></strong></em>
 				    <ul>
 				      <li>Un-deprecated the currencyGroup symbol. [<a
 								href="http://unicode.org/cldr/trac/ticket/9644">#9644</a>]</li>
 			        </ul>
 				  </li>
-				  <li>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">
+				  <li><strong>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">
 				Language Plural Rules</a>
-                    <ul>
+                  </strong>
+				    <ul>
                       <li>Described some limitations of the plural and ordinal rules. [<a
 								href="http://unicode.org/cldr/trac/ticket/9658">#9658</a>]</li>
                     </ul>
@@ -8299,8 +8338,8 @@ decimal?, group?, special*)) &gt;</pre>
 			</li>
 			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
 				<ul>
-					<li><em>Section 3 <a
-							href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>
+					<li><em><strong>Section 3 <a
+							href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></strong></em>
 						<ul>
 							<li>Add &lt;relativeTime&gt; entries for sun..sat;
 								add &lt;relative type="0"&gt; entries for hour, min. [<a
@@ -8308,7 +8347,8 @@ decimal?, group?, special*)) &gt;</pre>
 							</li>
 						</ul>
 					</li>
-					<li>Table <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>
+					<li><strong>Table <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>
+				    </strong>
 					  <ul>
 					    <li>Added &quot;double links&quot; to the fields, so that people can easily get links to a section of the table. [<a
 								href="http://unicode.org/cldr/trac/ticket/9359">#9359</a>]</li>
@@ -8317,7 +8357,7 @@ decimal?, group?, special*)) &gt;</pre>
 				</ul>
 			</li>
 			<li><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong>
-				</li>
+		  </li>
 		</ul>
 		<p>Modifications in previous versions are listed in those
 			respective versions:</p>

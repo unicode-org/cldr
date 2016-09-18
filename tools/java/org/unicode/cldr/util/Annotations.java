@@ -128,8 +128,11 @@ public class Annotations {
             UnicodeSet us = usString.startsWith("[") && usString.endsWith("]") ? new UnicodeSet(usString) : new UnicodeSet().add(usString);
             String tts = parts.getAttributeValue(-1, "tts");
             String type = parts.getAttributeValue(-1, "type");
-
-            if ("tts".equals(type)) {
+            String alt = parts.getAttributeValue(-1, "alt");
+            
+            if (alt != null) {
+                // do nothing for now
+            } else if ("tts".equals(type)) {
                 addItems(localeData, us, Collections.<String>emptySet(), value);
             } else {
                 Set<String> attributes = new TreeSet<>(splitter.splitToList(value));

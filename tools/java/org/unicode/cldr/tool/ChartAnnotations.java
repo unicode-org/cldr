@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -74,17 +75,12 @@ public class ChartAnnotations extends Chart {
     }
 
     static final UnicodeSet EXTRAS = new UnicodeSet()
-    .add("🇪🇺")
-    .add("🔟")
-    .add("#️⃣")
-    .add("👶🏽")
-    .add("👩‍❤️‍💋‍👩")
-    .add("👩‍❤️‍👩")
-    .add("👩‍👩‍👧")
-    .add("👨🏻‍⚕️")
-    .add("👮🏿‍♂️")
-    .add("👮🏽‍♀️")
-    .freeze();
+    .addAll(Arrays.asList(
+        "🇪🇺", "🔟", "#️⃣", "👶🏽", "👩‍❤️‍💋‍👩", "👩‍❤️‍👩", "👩‍👩‍👧", "👨🏻‍⚕️", "👮🏿‍♂️", "👮🏽‍♀️", "👩‍❤️‍💋‍👩", "👮🏽‍♀️", 
+        "💏","👩‍❤️‍💋‍👩","💑","👩‍❤️‍👩","👪","👩‍👩‍👧",
+        "👦🏻","👩🏿","👨‍⚖","👨🏿‍⚖","👩‍⚖","👩🏼‍⚖","👮","👮‍♂️","👮🏼‍♂️","👮‍♀️","👮🏿‍♀️",
+        "🚴","🚴🏿","🚴‍♂️","🚴🏿‍♂️","🚴‍♀️","🚴🏿‍♀️"))
+        .freeze();
 
     public void writeSubcharts(Anchors anchors) throws IOException {
         Set<String> locales = Annotations.getAvailableLocales();

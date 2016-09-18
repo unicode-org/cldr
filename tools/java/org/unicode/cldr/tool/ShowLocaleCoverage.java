@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +52,7 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 
 public class ShowLocaleCoverage {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private static final char DEBUG_FILTER = 0; // use letter to only load locales starting with that letter
 
     private static final String LATEST = ToolConstants.CHART_VERSION;
@@ -170,22 +171,25 @@ public class ShowLocaleCoverage {
 
     private static void doGrowth(Matcher matcher, PrintWriter out) {
         TreeMap<String, List<Double>> growthData = new TreeMap<>(Ordering.natural().reverse()); // sort by version, descending
-        if (DEBUG) {
-            for (String dir : new File(CLDRPaths.ARCHIVE_DIRECTORY).list()) {
-                if (!dir.startsWith("cldr")) {
-                    continue;
-                }
-                String version = getNormalizedVersion(dir);
-                org.unicode.cldr.util.Factory newFactory = org.unicode.cldr.util.Factory.make(
-                    CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/main/", ".*");
-                System.out.println("Reading: " + version);
-                Map<String, FoundAndTotal> currentData = addGrowth(newFactory, matcher);
-                System.out.println("Read: " + version + "\t" + currentData);
-                break;
-            }
-        }
+//        if (DEBUG) {
+//            for (String dir : new File(CLDRPaths.ARCHIVE_DIRECTORY).list()) {
+//                if (!dir.startsWith("cldr")) {
+//                    continue;
+//                }
+//                String version = getNormalizedVersion(dir);
+//                if (version == null) {
+//                    continue;
+//                }
+//                org.unicode.cldr.util.Factory newFactory = org.unicode.cldr.util.Factory.make(
+//                    CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/main/", ".*");
+//                System.out.println("Reading: " + version);
+//                Map<String, FoundAndTotal> currentData = addGrowth(newFactory, matcher);
+//                System.out.println("Read: " + version + "\t" + currentData);
+//                break;
+//            }
+//        }
         Map<String, FoundAndTotal> latestData = addGrowth(factory, matcher);
-        addCompletionList(versionToYear.get(LATEST), getCompletion(latestData, latestData), growthData);
+        addCompletionList(getYearFromVersion(LATEST, false), getCompletion(latestData, latestData), growthData);
         if (DEBUG) System.out.println(latestData);
         //System.out.println(growthData);
         for (String dir : new File(CLDRPaths.ARCHIVE_DIRECTORY).list()) {
@@ -225,6 +229,8 @@ public class ShowLocaleCoverage {
     static final Map<String, String> versionToYear = new HashMap<>();
     static {
         int[][] mapping = {
+            { 30, 2016 },
+            { 29, 2016 },
             { 28, 2015 },
             { 26, 2014 },
             { 24, 2013 },
@@ -253,12 +259,20 @@ public class ShowLocaleCoverage {
         } else {
             rawVersion = rawVersion.substring(0, firstDot);
         }
-        String result = versionToYear.get(rawVersion);
+        String result = getYearFromVersion(rawVersion, true);
         return result == null ? null : result.toString();
     }
 
+    private static String getYearFromVersion(String version, boolean allowNull) {
+        String result = versionToYear.get(version);
+        if (!allowNull && result == null) {
+            throw new IllegalArgumentException("No year for version: " + version);
+        }
+        return result;
+    }
+
     public static void addCompletionList(String version, Counter2<String> completionData, TreeMap<String, List<Double>> growthData) {
-        List x = new ArrayList();
+        List<Double> x = new ArrayList<>();
         for (String key : completionData.getKeysetSortedByCount(false)) {
             x.add(completionData.getCount(key));
         }
@@ -333,9 +347,25 @@ public class ShowLocaleCoverage {
             Counter<Level> foundCounter = new Counter<Level>();
             Counter<Level> unconfirmedCounter = new Counter<Level>();
             Counter<Level> missingCounter = new Counter<Level>();
+            Set<String> unconfirmedPaths = null;
+            Relation<MissingStatus, String> missingPaths = null;
+            if (DEBUG) {
+                unconfirmedPaths = new LinkedHashSet<>();
+                missingPaths = Relation.of(new LinkedHashMap(), LinkedHashSet.class);
+            }
             VettingViewer.getStatus(ENGLISH.fullIterable(), file,
                 pathHeaderFactory, foundCounter, unconfirmedCounter,
-                missingCounter, null, null);
+                missingCounter, missingPaths, unconfirmedPaths);
+            if (DEBUG) {
+                int count = 0;
+                for (String s : unconfirmedPaths) {
+                    System.out.println(++count + "\t" + locale + "\tunconfirmed\t" + s);
+                }
+                for (Entry<MissingStatus, String> e : missingPaths.keyValueSet()) {
+                    System.out.println(++count + "\t" + locale + "\t" + CldrUtility.toString(e));
+                }
+                int debug = 0;
+            }
             data.put(locale, new FoundAndTotal(foundCounter, unconfirmedCounter, missingCounter));
         }
         return Collections.unmodifiableMap(data);

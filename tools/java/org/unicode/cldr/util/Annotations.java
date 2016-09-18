@@ -315,7 +315,15 @@ public class Annotations {
             int len = code.codePointCount(0, code.length());
             boolean isKeycap10 = code.equals("🔟");
             if (len == 1 && !isKeycap10) {
-                return new Annotations(Collections.<String>emptySet(), ENGLISH_MARKER + getDataSet("en").getShortName(code));
+                if (locale.equals("en")) {
+                    return null;
+                } else { 
+                    String tempName = getDataSet("en").getShortName(code);
+                    if (tempName == null) {
+                        return null;
+                    }
+                    return new Annotations(Collections.<String>emptySet(), ENGLISH_MARKER + tempName);
+                }
             } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
                 String countryCode = EmojiConstants.getFlagCode(code);
                 String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
@@ -521,6 +529,7 @@ public class Annotations {
 
     private static void writeList() {
         AnnotationSet eng = Annotations.getDataSet("en");
+        Annotations an = eng.baseData.get("❤");
         final UnicodeMap<Annotations> map = eng.getUnresolvedExplicitValues();
         Set<String> keys = new TreeSet<>(ChartAnnotations.RBC);
         map.keySet().addAllTo(keys);

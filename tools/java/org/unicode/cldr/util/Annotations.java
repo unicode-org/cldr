@@ -226,6 +226,7 @@ public class Annotations {
         private final UnicodeMap<Annotations> unresolvedData;
         private final CLDRFile cldrFile;
         private final SimpleFormatter initialPattern;
+        private final Pattern initialRegexPattern;
         private final SimpleFormatter listPattern;
         private final Set<String> flagLabelSet;
         private final Set<String> keycapLabelSet;
@@ -240,7 +241,11 @@ public class Annotations {
             this.baseData = resolvedSource == null ? unresolvedData : resolvedSource.freeze();
             cldrFile = factory.make(locale, true);
             listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
-            initialPattern = SimpleFormatter.compile(getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]"));
+            final String initialPatternString = getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
+            initialPattern = SimpleFormatter.compile(initialPatternString);
+            final String regexPattern = ("\\Q"+initialPatternString.replace("{0}","\\E.*\\Q").replace("{1}","\\E.*\\Q")+"\\E")
+                .replace("\\Q\\E",""); // HACK to detect use of prefix pattern
+            initialRegexPattern = Pattern.compile(regexPattern);
             flagLabelSet = getLabelSet("flag");
             keycapLabelSet = getLabelSet("keycap");
             keycapLabel = keycapLabelSet.isEmpty() ? null : keycapLabelSet.iterator().next();
@@ -317,7 +322,7 @@ public class Annotations {
             if (len == 1 && !isKeycap10) {
                 if (locale.equals("en")) {
                     return null;
-                } else { 
+                } else { // fall back to English if possible, but mark it.
                     String tempName = getDataSet("en").getShortName(code);
                     if (tempName == null) {
                         return null;
@@ -335,19 +340,24 @@ public class Annotations {
             }
             UnicodeSet skipSet = EmojiConstants.REM_SKIP_SET;
             String rem = "";
+            SimpleFormatter startPattern = initialPattern;
+
             if (EmojiConstants.MODIFIERS.containsSome(code)) {
                 rem = EmojiConstants.MODIFIERS.stripFrom(code, false);
                 code = EmojiConstants.MODIFIERS.stripFrom(code, true);
             }
-            if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
-                rem = EmojiConstants.MAN + rem;
-                code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
-            } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
-                rem = EmojiConstants.WOMAN + rem;
-                code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
-            }
             if (code.contains(EmojiConstants.JOINER_STRING)) {
-                if (code.contains(EmojiConstants.KISS)) {
+                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
+                    if (matchesInitialPattern(code)) { // "👮🏼‍♂️","police officer: man, medium-light skin tone"
+                        rem = EmojiConstants.MAN + rem;
+                        code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
+                    } // otherwise "🚴🏿‍♂️","man biking: dark skin tone"
+                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
+                    if (matchesInitialPattern(code)) { // 
+                        rem = EmojiConstants.WOMAN + rem;
+                        code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
+                    }
+                } else if (code.contains(EmojiConstants.KISS)) {
                     rem = code + rem;
                     code = "💏";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
@@ -359,22 +369,27 @@ public class Annotations {
                     rem = code + rem;
                     code = "👪";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
+                } else {
+                    startPattern = listPattern;
                 }
+                // left over is "👨🏿‍⚖","judge: man, dark skin tone"
             }
-            return getBasePlusRemainder(cldrFile, code, rem, skipSet);
+            return getBasePlusRemainder(cldrFile, code, rem, skipSet, startPattern);
         }
 
-        private Annotations getBasePlusRemainder(CLDRFile cldrFile, String base, String rem, UnicodeSet ignore) {
+        private boolean matchesInitialPattern(String code) {
+            Annotations baseAnnotation = baseData.get(code);
+            String baseName = baseAnnotation == null ? null : baseAnnotation.getShortName();
+            return baseName != null && initialRegexPattern.matcher(baseName).matches();
+        }
+
+        private Annotations getBasePlusRemainder(CLDRFile cldrFile, String base, String rem, UnicodeSet ignore, SimpleFormatter pattern) {
             String shortName = null;
             Set<String> annotations = new LinkedHashSet<>();
-            SimpleFormatter pattern = listPattern;
             boolean needMarker = true;
 
             if (base != null) {
                 needMarker = false;
-                if (!base.contains(EmojiConstants.JOINER_STRING)) { // HACK to prevent health worker: woman: light skin tone
-                    pattern = initialPattern;
-                }
                 Annotations stock = baseData.get(base);
                 if (stock != null) {
                     shortName = stock.getShortName();
@@ -542,18 +557,17 @@ public class Annotations {
                 );
         }
         for (String s : Arrays.asList(
-            "👩‍👩‍👧",
-
             "💏", "👩‍❤️‍💋‍👩",
             "💑", "👩‍❤️‍👩",
             "👪", "👩‍👩‍👧",
-            "👨🏿‍⚖",
             "👦🏻", "👩🏿",
             "👨‍⚖", "👨🏿‍⚖", "👩‍⚖","👩🏼‍⚖",
-            "👮", "👮‍♂️", "👮🏼‍♂️", "👮‍♀️", "👮🏿‍♀️")) {
+            "👮", "👮‍♂️", "👮🏼‍♂️", "👮‍♀️", "👮🏿‍♀️",
+            "🚴", "🚴🏿", "🚴‍♂️", "🚴🏿‍♂️", "🚴‍♀️", "🚴🏿‍♀️"
+            )) {
             final String shortName = eng.getShortName(s);
             final Set<String> keywords = eng.getKeywords(s);
-            System.out.println(s + "\t" + shortName + "\t" + keywords);
+            System.out.println("{\"" + s + "\",\"" + shortName + "\",\"" + CollectionUtilities.join(keywords,"|") + "\"},");
         }
     }
 

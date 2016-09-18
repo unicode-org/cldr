@@ -1,11 +1,14 @@
 package org.unicode.cldr.unittest;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.unicode.cldr.util.Annotations;
+import org.unicode.cldr.util.Annotations.AnnotationSet;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMap.EntryRange;
@@ -69,6 +72,48 @@ public class TestAnnotations extends TestFmwk {
                     logln(s.toString());
                 }
             }
+        }
+    }
+
+    public void TestNames() {
+        AnnotationSet eng = Annotations.getDataSet("en");
+        String[][] tests = {
+            {"🚴🏿‍♂️","man biking: dark skin tone","bicycle|biking|cyclist|man|dark skin tone"},
+
+            {"💏","kiss","couple"},
+            {"👩‍❤️‍💋‍👩","kiss: woman, woman","couple|woman"},
+            {"💑","couple with heart","couple|love"},
+            {"👩‍❤️‍👩","couple with heart: woman, woman","couple|love|woman"},
+            {"👪","family","family"},
+            {"👩‍👩‍👧","family: woman, woman, girl","family|woman|girl"},
+            {"👦🏻","boy: light skin tone","boy|young|light skin tone"},
+            {"👩🏿","woman: dark skin tone","woman|dark skin tone"},
+            {"👨‍⚖","judge: man","justice|man|scales"},
+            {"👨🏿‍⚖","judge: man, dark skin tone","justice|man|scales|dark skin tone"},
+            {"👩‍⚖","judge: woman","judge|scales|woman"},
+            {"👩🏼‍⚖","judge: woman, medium-light skin tone","judge|scales|woman|medium-light skin tone"},
+            {"👮","police officer","cop|officer|police"},
+            {"👮‍♂️","police officer: man","cop|man|officer|police"},
+            {"👮🏼‍♂️","police officer: man, medium-light skin tone","cop|officer|police|man|medium-light skin tone"},
+            {"👮‍♀️","police officer: woman","cop|officer|police|woman"},
+            {"👮🏿‍♀️","police officer: woman, dark skin tone","cop|officer|police|woman|dark skin tone"},
+            {"🚴","person biking","bicycle|biking|cyclist"},
+            {"🚴🏿","person biking: dark skin tone","bicycle|biking|cyclist|dark skin tone"},
+            {"🚴‍♂️","man biking","bicycle|biking|cyclist|man"},
+            {"🚴🏿‍♂️","man biking: dark skin tone","bicycle|biking|cyclist|man|dark skin tone"},
+            {"🚴‍♀️","woman biking","bicycle|biking|cyclist|woman"},
+            {"🚴🏿‍♀️","woman biking: dark skin tone","bicycle|biking|cyclist|woman|dark skin tone"},
+        };
+
+        Splitter BAR = Splitter.on('|').trimResults();
+        for (String[] test : tests) {
+            String emoji = test[0];
+            String expectedName = test[1];
+            Set<String> expectedKeywords = new HashSet<>(BAR.splitToList(test[2]));
+            final String shortName = eng.getShortName(emoji);
+            final Set<String> keywords = eng.getKeywords(emoji);
+            assertEquals("short name for " + emoji, expectedName, shortName);
+            assertEquals("keywords for " + emoji, expectedKeywords, keywords);
         }
     }
 }

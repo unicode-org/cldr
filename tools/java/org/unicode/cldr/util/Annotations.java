@@ -350,17 +350,18 @@ public class Annotations {
                 code = EmojiConstants.MODIFIERS.stripFrom(code, true);
             }
             if (code.contains(EmojiConstants.JOINER_STRING)) {
-                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
-                    if (matchesInitialPattern(code)) { // "👮🏼‍♂️","police officer: man, medium-light skin tone"
-                        rem = EmojiConstants.MAN + rem;
-                        code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
-                    } // otherwise "🚴🏿‍♂️","man biking: dark skin tone"
-                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
-                    if (matchesInitialPattern(code)) { // 
-                        rem = EmojiConstants.WOMAN + rem;
-                        code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
-                    }
-                } else if (code.contains(EmojiConstants.KISS)) {
+//                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
+//                    if (matchesInitialPattern(code)) { // "👮🏼‍♂️","police officer: man, medium-light skin tone"
+//                        rem = EmojiConstants.MAN + rem;
+//                        code = code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
+//                    } // otherwise "🚴🏿‍♂️","man biking: dark skin tone"
+//                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
+//                    if (matchesInitialPattern(code)) { // 
+//                        rem = EmojiConstants.WOMAN + rem;
+//                        code = code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
+//                    }
+//                } else 
+                    if (code.contains(EmojiConstants.KISS)) {
                     rem = code + rem;
                     code = "💏";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
@@ -372,8 +373,8 @@ public class Annotations {
                     rem = code + rem;
                     code = "👪";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
-                } else {
-                    startPattern = listPattern;
+//                } else {
+//                    startPattern = listPattern;
                 }
                 // left over is "👨🏿‍⚖","judge: man, dark skin tone"
             }

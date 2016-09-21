@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2016-09-12</td>
+				<td class="changed">2016-09-21</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -2123,6 +2123,34 @@ zh-Hant-HK</pre>
 						The XXX code is given a broader interpretation as <em>Unknown
 							or Invalid Currency</em>.
 					</p></td>
+			</tr>
+
+			<tr class="changed">
+				<td colspan="4"><strong>A <a
+						href="#UnicodeEmojiPresentationStyleIdentifier" name="UnicodeEmojiPresentationStyleIdentifier">Unicode
+							Emoji Presentation Style Identifier</a> specifies a request for
+						the preferred emoji presentation style. This can be used as part of
+						the value for an HTML lang attribute, for example
+						<code>&lt;html lang=&quot;sr-Latn-u-em-emoji&quot;&gt;</code>.
+						The valid values are those <em>name</em> attribute values
+						in the <em>type</em> elements of key name="em" in bcp47/<a
+						target="_blank"
+						href="http://www.unicode.org/repos/cldr/tags/latest/common/bcp47/variant.xml">variant.xml</a></strong>.</td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="3">"em"</td>
+				<td rowspan="3">First day of week</td>
+				<td>"emoji"</td>
+				<td>Use an emoji presentation for emoji characters if possible.</td>
+			</tr>
+			<tr class="changed">
+				<td>"text"</td>
+				<td>Use a text presentation for emoji characters if possible.</td>
+			</tr>
+			<tr class="changed">
+				<td>"default"</td>
+				<td>Use the default presentation for emoji characters as specified in UTR #51 Section 4,
+					<a href="http://www.unicode.org/reports/tr51/#Presentation_Style">Presentation Style</a>.</td>
 			</tr>
 
 			<tr>
@@ -8289,6 +8317,15 @@ decimal?, group?, special*)) &gt;</pre>
 								href="http://unicode.org/cldr/trac/ticket/9595">#9595</a>]</li>
 			        </ul>
 				  </li>
+
+				  <li><strong>Table: <a href="#Key_Type_Definitions">Key/Type
+				  Definitions</a></strong>
+				    <ul>
+				      <li>Added "em" (emoji presentation) [<a
+								href="http://unicode.org/cldr/trac/ticket/9383">#9383</a>]</li>
+			        </ul>
+				  </li>
+
 				  <li><strong>Section 5.7 <a href="#DTD_Annotations">DTD Annotations</a> 
 			      </strong>
 				    <ul>

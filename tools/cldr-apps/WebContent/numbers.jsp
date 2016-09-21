@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%@ page language="java"
- import="java.util.*,java.util.regex.*,java.io.IOException,java.text.ParsePosition,com.ibm.icu.impl.ICUResourceBundle,com.ibm.icu.text.*,com.ibm.icu.util.*"
+ import="java.util.*,java.util.regex.*,java.io.IOException,java.text.ParsePosition,com.ibm.icu.impl.ICUResourceBundle,com.ibm.icu.text.*,com.ibm.icu.util.*,com.ibm.icu.impl.ICUData"
  contentType="text/html;charset=UTF-8"
  pageEncoding="UTF-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -215,7 +215,7 @@ private static String getNumberStyle(String ruleName, double val, boolean isRTL)
 private static String getRules(ULocale selectedLocale, String ruleType) {
     // We are doing this silliness because the Java compiler likes to hard code the string during initial compilation (javac).
     // This is a problem when the ICU4J jar is upgraded, and this JSP is not recompiled.
-    ICUResourceBundle rbnfBundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICUResourceBundle.ICU_RBNF_BASE_NAME.replaceFirst("[0-9]+", Integer.toString(VersionInfo.ICU_VERSION.getMajor())), selectedLocale);
+    ICUResourceBundle rbnfBundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICUData.ICU_RBNF_BASE_NAME.replaceFirst("[0-9]+", Integer.toString(VersionInfo.ICU_VERSION.getMajor())), selectedLocale);
     UResourceBundle ruleTypeBundle;
     try {
         ruleTypeBundle = rbnfBundle.getWithFallback("RBNFRules/" + ruleType);

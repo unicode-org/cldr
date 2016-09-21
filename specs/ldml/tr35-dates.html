@@ -1276,8 +1276,15 @@ h2, h3, h4, table {
 
 				</ol>
 			</li>
-			<li>Missing or extra fields cause a match to fail. (But see <strong>Missing
-					Skeleton Fields</strong>).
+			<li class="changed">A requested skeleton that includes both seconds and fractional seconds
+				(e.g. “mmssSSS”) is allowed to match a dateFormatItem skeleton that
+				includes seconds but not fractional seconds (e.g. “ms”). In this case
+				the requested sequence of ‘S’ characters (or its length) should be retained
+				separately and used when adjusting the pattern, as described below.
+			</li>
+			<li><span class="changed">Otherwise, </span>missing or extra fields cause a match to fail. (But see
+				<strong><a href="#Missing_Skeleton_Fields">Missing Skeleton Fields</a></strong><span class="changed">
+				below</span>).
 			</li>
 		</ol>
 		<p>Once a skeleton match is found, the corresponding pattern is
@@ -1294,6 +1301,13 @@ h2, h3, h4, table {
 		</p>
 		<pre>    &lt;dateFormatItem id="yMMMMd"&gt;<span
 				style="color: blue">d 'de' MMMM 'de' y</span>&lt;/dateFormatItem&gt;</pre>
+		<p class="changed">
+			If the requested skeleton included both seconds and fractional seconds and
+			the dateFormatItem skeleton included seconds but not fractional seconds, then
+			the seconds field of the corresponding pattern should be adjusted by appending
+			the locale’s decimal separator, followed by the sequence of ‘S’ characters from
+			the requested skeleton.
+		</p>
 		<h5>
 			<a name="Missing_Skeleton_Fields" href="#Missing_Skeleton_Fields">2.6.2.2
 				Missing Skeleton Fields</a>

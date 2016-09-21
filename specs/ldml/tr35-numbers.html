@@ -920,10 +920,16 @@ h2, h3, h4, table {
 			in the above chart, with the difference between Yen and Euro
 			formatting.
 		</p>
+		<p class="changed">
+			To ensure correct layout, especially in currency patterns in which a
+			a variety of symbols may be used, number patterns may contain (invisible)
+			bidirectional text format characters such as LRM, RLM, and ALM.
+		</p>
 		<p>
 			<i>When parsing using a pattern, a lenient parse should be used;
-				see <a href="tr35.html#Lenient_Parsing">Lenient Parsing</a>.
-			</i>
+				see <a href="tr35.html#Lenient_Parsing">Lenient Parsing</a>.</i>
+				<span class="changed">As noted there, lenient parsing should ignore bidi format
+				characters.</span>
 		</p>
 		<h3>
 			3.2 <a name="Special_Pattern_Characters"

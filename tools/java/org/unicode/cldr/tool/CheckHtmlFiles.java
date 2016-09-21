@@ -41,8 +41,8 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
-import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
+import org.unicode.cldr.util.TransliteratorUtilities;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;

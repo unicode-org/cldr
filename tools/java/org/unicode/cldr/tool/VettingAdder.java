@@ -22,9 +22,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SimpleFactory;

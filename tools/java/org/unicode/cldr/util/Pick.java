@@ -12,8 +12,6 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-import org.unicode.cldr.util.Quoter.RuleQuoter;
-
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 

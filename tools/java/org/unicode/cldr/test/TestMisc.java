@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.util.BagFormatter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -28,7 +29,6 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
-import org.unicode.cldr.util.BagFormatter;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;

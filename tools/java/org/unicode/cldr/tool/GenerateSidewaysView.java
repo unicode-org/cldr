@@ -34,7 +34,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.LanguageTagParser.Fields;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
@@ -42,6 +41,7 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.SAXException;
 

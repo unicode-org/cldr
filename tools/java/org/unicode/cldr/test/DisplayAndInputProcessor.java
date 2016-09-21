@@ -18,11 +18,11 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
-import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.MyanmarZawgyiConverter;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 

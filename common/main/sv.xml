@@ -5834,8 +5834,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<symbols numberSystem="arabext">
-			<plusSign draft="contributed">‎+‎</plusSign>
-			<minusSign>‏−</minusSign>
+			<plusSign draft="contributed">‎+‎</plusSign> <!-- includes LRM before and after sign -->
+			<minusSign draft="contributed">‎−‎</minusSign> <!-- includes LRM before and after sign (2212) -->
 			<nan draft="contributed">¤¤¤</nan>
 			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>

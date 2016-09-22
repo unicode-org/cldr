@@ -5828,7 +5828,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="arab">
-			<minusSign>‏−</minusSign>
+			<minusSign>؜−</minusSign> <!-- includes ALM before sign (2212) -->
 			<perMille draft="contributed">؉‏</perMille>
 			<nan draft="contributed">¤¤¤</nan>
 			<timeSeparator draft="contributed">:</timeSeparator>

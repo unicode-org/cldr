@@ -1469,7 +1469,8 @@ h2, h3, h4, table {
 		<p class="dtd">
 			&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
 			&lt;!ELEMENT field ( alias | (displayName*, relative*, relativeTime*,
-			special*)) &gt;<br> &lt;!ATTLIST field type ( era | year |
+			<span class="changed">relativePeriod*, </span>special*)) &gt;<br>
+			&lt;!ATTLIST field type ( era | year |
 			year-short | year-narrow | quarter | quarter-short | quarter-narrow |
 			month | month-short | month-narrow | week | week-short | week-narrow
 			| day | day-short | day-narrow | weekday | sun | sun-short |
@@ -1493,11 +1494,14 @@ h2, h3, h4, table {
 			&lt;!ATTLIST relativeTimePattern count ( zero | one | two | few |
 			many | other ) #REQUIRED &gt;
 		</p>
+		<p class="dtd"><span class="changed">
+			&lt;!ELEMENT relativePeriod (#PCDATA) &gt;
+		</span></p>
 
 		<p>Translations may be supplied for names of calendar fields
 			(elements of a calendar, such as Day, Month, Year, Hour, and so on),
 			and for relative values for those fields (for example, the day with
-			relative value -1 is &quot;Yesterday&quot;). There are three types of
+			relative value -1 is &quot;Yesterday&quot;). There are <span class="changed">four</span> types of
 			translations; some are only relevant or useful for certain types of
 			fields:</p>
 		<ul>
@@ -1519,6 +1523,12 @@ h2, h3, h4, table {
 				<span class="changed">quarter, </span>month, week, day, 
 				<span class="changed">specific days of the week, </span>,hour, minute,
 				and second.</li>
+			<li class="changed">&lt;relativePeriod&gt; Pattern for designating an
+				instance of the specified field in relation to some other date
+				reference. This is currently only used for weeks, and provides a
+				pattern such as “the week of {0}” which can be used to generate
+				designations such as “the week of April 11, 2016” or
+				“the week of April 11–15”.</li>
 		</ul>
 		<p>Where there is not a convenient, customary word or phrase in a
 			particular language for a particular type of relative value, it
@@ -1709,7 +1719,7 @@ h2, h3, h4, table {
 		</h3>
 
 		<p class="dtd">&lt;!ELEMENT weekData ( minDays*, firstDay*,
-			weekendStart*, weekendEnd* )&gt;</p>
+			weekendStart*, weekendEnd*<span class="changed">, weekOfPreference*</span> )&gt;</p>
 		<p class="dtd">
 			&lt;!ELEMENT minDays EMPTY&gt;<br> &lt;!ATTLIST minDays count (1
 			| 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED&gt;<br> &lt;!ATTLIST minDays
@@ -1731,12 +1741,20 @@ h2, h3, h4, table {
 			day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;<br>
 			&lt;!ATTLIST weekendEnd territories NMTOKENS #REQUIRED&gt;
 		</p>
+		<p class="dtd"><span class="changed">
+			&lt;!ELEMENT weekOfPreference EMPTY&gt;<br>
+			&lt;!ATTLIST weekOfPreference locales NMTOKENS #REQUIRED&gt;<br>
+			&lt;!ATTLIST weekOfPreference ordering NMTOKENS #REQUIRED&gt;
+		</span></p>
 
 		<p>These values provide territory-specific information needed for
 			week-of-year and week-of-month calculations, as well as information
-			on conventions for first day of the week and for weekends. In each
-			case, the default is provided by the element with
-			territories=&quot;001&quot;.</p>
+			on conventions for first day of the week, for weekends<span class="changed">,
+			and for week designations. For most elements,</span>
+			the default is provided by the element with
+			territories=&quot;001&quot;<span class="changed">; for weekOfPreference
+			elements the default is provided by the element with
+			locales=&quot;und&quot;</span>.</p>
 
 		<pre>&lt;weekData&gt;
   &lt;minDays count=&quot;1&quot; territories=&quot;001&quot;/&gt;
@@ -1750,6 +1768,11 @@ h2, h3, h4, table {
   &lt;weekendStart day=&quot;thu&quot; territories=&quot;AF DZ IR OM SA YE&quot;/&gt;
   &lt;weekendStart day=&quot;fri&quot; territories=&quot;AE BH EG IL IQ JO KW …&quot;/&gt;
   …
+<span class="changed">  &lt;weekOfPreference ordering=&quot;weekOfYear&quot; locales=&quot;und&quot;/&gt;
+  &lt;weekOfPreference ordering=&quot;weekOfYear weekOfMonth&quot; locales=&quot;am az bs cs cy da el et hi ky lt mk sk ta th&quot;/&gt;
+  &lt;weekOfPreference ordering=&quot;weekOfYear weekOfMonth weekOfInterval&quot; locales=&quot;is mn no sv vi&quot;/&gt;
+  &lt;weekOfPreference ordering=&quot;weekOfYear weekOfDate weekOfMonth&quot; locales=&quot;fi zh-TW&quot;/&gt;
+  …</span>
 </pre>
 
 		<p>In order for a week to count as the first week of a new year
@@ -1775,6 +1798,53 @@ h2, h3, h4, table {
 			defaults to &quot;sun&quot;. For more information, see <i><a
 				href="tr35.html#Date_Ranges">Dates and Date Ranges</a></i>.
 		</p>
+
+		<p class="changed">
+			Each weekOfPreference element provides, for its specified locales, an
+			ordered list of the preferred types of week designations for that set
+			of locales. There are four types of week designations, each of which
+			makes use of date patterns available in the locale, as follows:
+		</p>
+
+		<table cellspacing="0" cellpadding="4" border="1">
+			<caption class="changed">
+				<a name="Week_Designation_Types"
+					href="#Week_Designation_Types">Week Designation Types</a>
+			</caption>
+			<tr class="changed">
+				<th width="10%">Type</th>
+				<th width="20%">Examples</th>
+				<th width="30%">Date Pattern</th>
+				<th width="40%">Comments</th>
+			</tr>
+			<tr class="changed">
+				<td width="10">weekOfYear</td>
+				<td width="20%">week 15 of 2016</td>
+				<td width="30%">&lt;dateFormatItem id='yw'&gt;<br>
+					e.g. "'week' w 'of' y"</td>
+				<td width="40%"></td>
+			</tr>
+			<tr class="changed">
+				<td width="10%">weekOfMonth</td>
+				<td width="20%">week 2 of April<br>2nd week of April</td>
+				<td width="30%">&lt;dateFormatItem id='MMMMW'&gt;<br>
+					e.g. "'week' W 'of' MMM"</td>
+				<td width="40%"></td>
+			</tr>
+			<tr class="changed">
+				<td width="10%">weekOfDate</td>
+				<td width="20%">the week of April 11, 2016</td>
+				<td width="30%" rowspan="2">&lt;field type="week"&gt;&lt;relativePeriod&gt;<br>
+					e.g. "the week of {0}"</td>
+				<td width="40%" rowspan="2">The date pattern that replaces {0} is determined
+					separately and may use the first day or workday of the week,
+					the range of the full week or work week, etc.</td>
+			</tr>
+			<tr class="changed">
+				<td width="10%">weekOfInterval</td>
+				<td width="20%">the week of April 11–15</td>
+			</tr>
+		</table>
 
 		<h3>
 			4.4 <a name="Time_Data" href="#Time_Data">Time Data</a>

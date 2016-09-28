@@ -3307,9 +3307,9 @@ public class SupplementalDataInfo {
 
             // Now do double examples (previously unused & not working).
             // Currently a bit of a hack, we should enhance SampleList to make this easier
-            // and then use SampleList directly.
+            // and then use SampleList directly, see http://unicode.org/cldr/trac/ticket/9813
             for (Count type : countToStringExampleRaw.keySet()) {
-                Set<Double> doublesSet = new HashSet<Double>(0);
+                Set<Double> doublesSet = new LinkedHashSet<Double>(0);
                 String examples = countToStringExampleRaw.get(type);
                 if (examples == null) {
                     examples = "";

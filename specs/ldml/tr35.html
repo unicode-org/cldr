@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2016-09-21</td>
+				<td class="changed">2016-09-28</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -457,7 +457,12 @@ h5 {
 
 				</ul>
 			</li>
-			<li>6 <a href="#Property_Data">Property Data</a></li>
+			<li>6 <a href="#Property_Data">Property Data</a>
+				<ul class="toc">
+					<li class="changed">6.1 <a href="#Script_Metadata">Script Metadata</a></li>
+					<li class="changed">6.2 <a href="#Extended_Pictographic">Extended Pictographic</a></li>
+				</ul>
+			</li>
 			<li>7 <a href="#Format_Parse_Issues">Issues in Formatting
 					and Parsing</a>
 				<ul class="toc">
@@ -6546,7 +6551,7 @@ decimal?, group?, special*)) &gt;</pre>
 			the data.</p>
 		<h3 class='changed'><a name="Script_Metadata" href="#Script_Metadata">6.1 Script Metadata</a></h3>
 		<p class='changed'>This file provides general information about scripts that may be useful to implementations processing text. The information is the best currently available, and may change between versions of CLDR.</p>
-		<h3 class='changed'><a name="Script_Metadata" href="#Script_Metadata">6.2 Extended Pictographic</a></h3>
+		<h3 class='changed'><a name="Extended_Pictographic" href="#Extended_Pictographic">6.2 Extended Pictographic</a></h3>
         <p class='changed'>This file defines the Extended_Pictographic (EP) property,  a binary code point property for characters that are pictographic  (or otherwise similar in kind to characters with the Emoji property) and used to customize segmentation so that possible future emoji zwj sequences will not break grapheme clusters, words, or lines. It also includes unassigned codepoints that are in blocks intended for use for emoji characters, added to the Unicode 9.0 Linebreak property.</p>
         <p class='changed'>I<span class="changed">t is used in the following customized rules for  UAX #29 and UAX #14: </span></p>
         <blockquote>
@@ -8332,7 +8337,7 @@ decimal?, group?, special*)) &gt;</pre>
 				      <li>Added description of the DTD annotations used in CLDR. [<a href="http://unicode.org/cldr/trac/ticket/9723">#9723</a>]</li>
 			        </ul>
 				  </li>
-				  <li><strong>Section 6 <a href='http://unicode.org/reports/tr35/#Property_Data'>Property_Data</a>
+				  <li><strong>Section 6 <a href="#Property_Data">Property_Data</a>
 			      </strong>
 				    <ul>
 				      <li>Described the new property ExtendedPictographic for customizing UAX #14 and #29 [<a

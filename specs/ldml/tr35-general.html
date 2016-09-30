@@ -4099,8 +4099,14 @@ h2, h3, h4, table {
 			&quot;thumbs down&quot; character.</p>
 		<pre class="example"><span >&lt;annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'&gt;hand&lt;/annotation&gt;</span></pre>
 		<p>Both for short names and keywords, values do not have to match between different languages. They should be the most common values that people using <em>that</em> language
-			would associated with those characters. For example, a &quot;black heart&quot; might have the association of &quot;wicked&quot; in English, but not in some other languages.</p>
-		<p>Many emoji are represented by sequences of characters. When there are no annotation elements for that string, the short name can be synthesized as follows. This process may change in the future if other types of sequences are added.</p>
+			would associated with those characters. For example, a &quot;black heart&quot; might
+			have the association of &quot;wicked&quot; in English, but not in some other languages.</p>
+		<p>Many emoji are represented by sequences of characters. When there are no annotation
+			elements for that string, the short name can be synthesized as follows.
+			<strong>Note:</strong> The process details may change after the release of this
+			specification, and may further change in the future if other sequences are added.
+			Please see the <a href='https://sites.google.com/site/cldr/index/downloads/cldr-30#TOC-Known-Issues'>Known
+			Issues</a> section of the CLDR download page for the latest updates.</p>
 		<ol>
 		  <li>Record whether or not the sequence is an emoji ZWJ sequence. Remove all Emoji and Text
 		  		Variant (VS15 &amp; VS16) and ZWJ characters.</li>

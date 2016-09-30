@@ -609,9 +609,13 @@ h2, h3, h4, table {
 
 		<p class="element2">&lt;transformNames&gt;</p>
 
-		<p>This contains a list of elements that provide the
-			user-translated names for transforms that are not script or
-			locale-based, such as FULLWIDTH.</p>
+		<p><span class="changed">(deprecated)</span> This contain<span class="changed">ed</span>
+			a list of elements that provide<span class="changed">d</span> the
+			user-translated names for transforms that are not script or locale-based, such
+			as FULLWIDTH.<span class="changed"> Now that transform IDs are compatible
+			with BCP47, the corresponding display names are provided in the &lt;types&gt;
+			element of &lt;localeDisplayNames&gt;, in the display names for transform
+			keys such as "d0".</span></p>
 
 		<blockquote>
 			<pre>&lt;transformName type="<span style="color: blue">Numeric</span>"&gt;<span

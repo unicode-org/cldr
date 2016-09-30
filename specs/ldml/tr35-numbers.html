@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">30</td>
+				<td>30</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED --> 
+		<!-- NOT YET APPROVED
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -582,16 +582,15 @@ h2, h3, h4, table {
 			<dt>
 				<b>currencyDecimal</b>
 			</dt>
-			<dd>- <span class="changed">Optional. If specified, then for currency formatting/parsing</span>
-				this is used as the decimal separator <span class="changed">instead of using the regular decimal
-				separator; otherwise,</span> the regular decimal separator <span class="changed">is used</span>.<span class="removed"> This
-				item is optional in the CLDR.</span></dd>
+			<dd>- Optional. If specified, then for currency formatting/parsing
+				this is used as the decimal separator instead of using the regular decimal
+				separator; otherwise, the regular decimal separator is used.</dd>
 			<dt>
 				<b>currencyGroup</b>
 			</dt>
-			<dd>- <span class="removed">Deprecated. </span><span class="changed">Optional. If specified, then for currency formatting/parsing
+			<dd>- Optional. If specified, then for currency formatting/parsing
 				this is used as the group separator instead of using the regular group
-				separator; otherwise, the regular group separator is used.</span></dd>
+				separator; otherwise, the regular group separator is used.</dd>
 			<dt>
 				<b>timeSeparator</b>
 			</dt>
@@ -920,16 +919,15 @@ h2, h3, h4, table {
 			in the above chart, with the difference between Yen and Euro
 			formatting.
 		</p>
-		<p class="changed">
+		<p>
 			To ensure correct layout, especially in currency patterns in which a
 			a variety of symbols may be used, number patterns may contain (invisible)
 			bidirectional text format characters such as LRM, RLM, and ALM.
 		</p>
 		<p>
 			<i>When parsing using a pattern, a lenient parse should be used;
-				see <a href="tr35.html#Lenient_Parsing">Lenient Parsing</a>.</i>
-				<span class="changed">As noted there, lenient parsing should ignore bidi format
-				characters.</span>
+				see <a href="tr35.html#Lenient_Parsing">Lenient Parsing</a>.</i> As noted there, lenient parsing should ignore bidi format
+				characters.
 		</p>
 		<h3>
 			3.2 <a name="Special_Pattern_Characters"
@@ -2116,7 +2114,7 @@ h2, h3, h4, table {
 			pluralized message APIs should also offer the ability to specify at
 			least the 0 and 1 cases explicitly; developers can use that ability
 			whenever these values might occur in a placeholder.</p>
-		<div class='changed'>
+
 		<p>The CLDR plural rules are not expected to cover all cases. For example, strictly speaking, there could be more plural and ordinal forms for English.  Formally, we have a different plural form where a change in digits forces a change in the rest of the sentence. There is an edge case  in English because of the behavior of &quot;a/an&quot;.</p>
 		<p>For example, in changing from 3 to 8:</p>
 		<ul>
@@ -2124,7 +2122,7 @@ h2, h3, h4, table {
 		  <li>&quot;a 3 foot stick&quot; should result in &quot;an 8 foot stick&quot;, not &quot;a 8 foot stick&quot;</li>
 	  </ul>
 		<p>So numbers of the following forms could have a special plural category and special ordinal category: 8(X), 11(X), 18(X), 8x(X), where x is 0..9 and the optional X is 00, 000, 00000, and so on.</p>
-		<p>On the other hand, the above constructions are relatively rare in messages  constructed using numeric placeholders, so the disruption for implementations currently using CLDR plural categories wouldn't be worth the small gain.</p></div>
+		<p>On the other hand, the above constructions are relatively rare in messages  constructed using numeric placeholders, so the disruption for implementations currently using CLDR plural categories wouldn't be worth the small gain.</p>
 		<p>This section defines the types of plural forms that exist in a
 			language—namely, the cardinal and ordinal plural forms. Cardinal
 			plural forms express units such as time, currency or distance, used

@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">30</td>
+				<td>30</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,7 +130,7 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED --> 
+		<!-- NOT YET APPROVED
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -140,8 +140,8 @@ h2, h3, h4, table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -290,7 +290,7 @@ h2, h3, h4, table {
 				</ul>
 			</li>
 			<li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
-			<li>14 <a href="#Annotations">Annotations <span class="changed">and Labels</span></a></li>
+			<li>14 <a href="#Annotations">Annotations and Labels</a></li>
 		</ul>
 		<!-- END Generated TOC: CheckHtmlFiles -->
 		<h2>
@@ -609,13 +609,7 @@ h2, h3, h4, table {
 
 		<p class="element2">&lt;transformNames&gt;</p>
 
-		<p><span class="changed">(deprecated)</span> This contain<span class="changed">ed</span>
-			a list of elements that provide<span class="changed">d</span> the
-			user-translated names for transforms that are not script or locale-based, such
-			as FULLWIDTH.<span class="changed"> Now that transform IDs are compatible
-			with BCP47, the corresponding display names are provided in the &lt;types&gt;
-			element of &lt;localeDisplayNames&gt;, in the display names for transform
-			keys such as "d0".</span></p>
+		<p>&nbsp; </p>
 
 		<blockquote>
 			<pre>&lt;transformName type="<span style="color: blue">Numeric</span>"&gt;<span
@@ -4070,7 +4064,7 @@ h2, h3, h4, table {
 		<p>Quoting is done using ' characters, as in date or number
 			formats.</p>
 		<h2>
-			14 <a name="Annotations" href="#Annotations">Annotations <span class="changed">and Labels</span></a>
+			14 <a name="Annotations" href="#Annotations">Annotations and Labels</a>
 		</h2>
 		<p>Annotations provide information about characters, typically
 			used in input. For example, on a mobile keyboard they can be used to
@@ -4080,8 +4074,8 @@ h2, h3, h4, table {
 		<p class="dtd">&lt;!ELEMENT annotations ( annotation* ) &gt;</p>
 		<p class="dtd">&lt;!ELEMENT annotation ( #PCDATA ) &gt;</p>
 		<p class="dtd">&lt;!ATTLIST annotation cp CDATA #REQUIRED &gt;</p>
-		<p class="dtd">&lt;!ATTLIST annotation <span class="changed">type (tts)</span> #IMPLIED&gt;		</p>
-      <div class='changed'>  
+		<p class="dtd">&lt;!ATTLIST annotation type (tts) #IMPLIED &gt;</p>
+
 		<p>There are two kinds of annotations: <strong>short names</strong>, and <strong>keywords</strong>.</p>
       <p>With an attribute <strong>type="tts"</strong>, the value is  a <strong>short name</strong>, such as one that can be used for text-to-speech. It should be treated as one of the element values for other
           purposes.</p>
@@ -4089,8 +4083,8 @@ h2, h3, h4, table {
         <p>Here is an example from German:</p>
 
 		<pre class="example">
-&lt;annotation cp="👎">schlecht | Hand | Daumen | nach unten&lt;/annotation>
-&lt;annotation cp="👎" type="tts">Daumen runter&lt;/annotation>
+&lt;annotation cp="👎"&gt;schlecht | Hand | Daumen | nach unten&lt;/annotation&gt;
+&lt;annotation cp="👎" type="tts"&gt;Daumen runter&lt;/annotation&gt;
 </pre>
 
 		<p>The cp attribute value has two formats: either a single string, or if contained within […] a UnicodeSet. The latter format can contain 
@@ -4266,7 +4260,7 @@ h2, h3, h4, table {
 <tr><th>nonspacing</th><td>nonspacing</td>
   <td>Uses for characters that occupy no width by themselves, such as the ¨ over the a in ä.</td></tr>
 </table>
-      </div>
+
 	  <hr>
 		<p class="copyright">
 			Copyright © 2001–2016 Unicode, Inc. All

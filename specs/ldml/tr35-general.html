@@ -290,7 +290,7 @@ h2, h3, h4, table {
 				</ul>
 			</li>
 			<li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
-			<li>14 <a href="#Annotations">Annotations</a></li>
+			<li>14 <a href="#Annotations">Annotations <span class="changed">and Labels</span></a></li>
 		</ul>
 		<!-- END Generated TOC: CheckHtmlFiles -->
 		<h2>
@@ -4076,10 +4076,10 @@ h2, h3, h4, table {
 		<p class="dtd">&lt;!ELEMENT annotations ( annotation* ) &gt;</p>
 		<p class="dtd">&lt;!ELEMENT annotation ( #PCDATA ) &gt;</p>
 		<p class="dtd">&lt;!ATTLIST annotation cp CDATA #REQUIRED &gt;</p>
-		<p class="dtd">&lt;!ATTLIST annotation tts CDATA #IMPLIED&gt;		</p>
+		<p class="dtd">&lt;!ATTLIST annotation <span class="changed">type (tts)</span> #IMPLIED&gt;		</p>
       <div class='changed'>  
 		<p>There are two kinds of annotations: <strong>short names</strong>, and <strong>keywords</strong>.</p>
-      <p>With a <strong>tts</strong> attribute value, the value is  a <strong>short name</strong>, such as one that can be used for text-to-speech. It should be treated as one of the element values for other
+      <p>With an attribute <strong>type="tts"</strong>, the value is  a <strong>short name</strong>, such as one that can be used for text-to-speech. It should be treated as one of the element values for other
           purposes.</p>
         <p>When there is no<strong> type </strong>attribute, the value is a set of <strong>keywords</strong>, delimited by |. Spaces around each element are to be trimmed. The <strong>keywords</strong> are  words associated with the character(s) that might be used in searching for the character, or in predictive typing on keyboards. The short name itself can be used as a keyword.</p>
         <p>Here is an example from German:</p>
@@ -4098,7 +4098,7 @@ h2, h3, h4, table {
 			would associated with those characters. For example, a &quot;black heart&quot; might have the association of &quot;wicked&quot; in English, but not in some other languages.</p>
 		<p>Many emoji are represented by sequences of characters. When there are no annotation elements for that string, the short name can be synthesized as follows. This process may change in the future if other types of sequences are added.</p>
 		<ol>
-		  <li>Record whether or not the sequence is an emoji zwj sequence. Remove all Emoji and Text
+		  <li>Record whether or not the sequence is an emoji ZWJ sequence. Remove all Emoji and Text
 		  		Variant (VS15 &amp; VS16) and ZWJ characters.</li>
 		  <li>If the sequence is an emoji flag sequence, look up the territory name in CLDR for the
 		  		corresponding ASCII characters and return as the short name. For example, the regional
@@ -4114,7 +4114,7 @@ h2, h3, h4, table {
 	        </ul>
 		  </li>
 		  <li>If the sequence is a &quot;KISS&quot;, &quot;HEART&quot; or &quot;FAMILY&quot; emoji
-		  		zwj sequence, prefix the short name of &quot;💏&quot;, &quot;💑&quot;, or &quot;👪&quot;
+		  		ZWJ sequence, prefix the short name of &quot;💏&quot;, &quot;💑&quot;, or &quot;👪&quot;
 		  		respectively, then append a list of the short names of the characters in the sequence
 		  		(possibly skipping some), and return the result. See description of the append process
 		  		below.
@@ -4126,14 +4126,14 @@ h2, h3, h4, table {
 		      		Nothing is skipped in the appended list.</li>
 	        </ol>
 		  </li>
-		  <li>If the emoji zwj sequence ends with ♂ or ♀, append the short name for &quot;👨&quot; or
-		  		&quot;👩&quot; respectively to a prefix list consisting of the other characters’ short
+		  <li>If the emoji ZWJ sequence ends with ♂ or ♀, prefix the short name for &quot;👨&quot; or
+		  		&quot;👩&quot; respectively, then append a list consisting of the other characters’ short
 		  		names. See description of the append process below.</li>
 		  <li>Any remaining sequence uses a list of the short names of the characters in the sequence
 		  		(skipping the ZWJ).</li>
 		</ol>
 		<p>Steps #5 and #6 are for fallback construction, and often may not produce optimal results.</p>
-		<p>The &quot;append&quot; process above should use the list patterns, preferably the narrow format.
+		<p>The “append” process above should use the list patterns, preferably the narrow format.
 			To prefix a string, use the &quot;category-list&quot; characterLabelPattern. When forming a
 			list of items, use the unit-short listPattern type=2.</p>
 		<p>The synthesized keywords can follow a similar process.</p>

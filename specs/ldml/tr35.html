@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2016-09-28</td>
+				<td class="changed">2016-09-29</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -6510,9 +6510,11 @@ decimal?, group?, special*)) &gt;</pre>
 	&lt;zone type=&quot;Asia/Jerusalem&quot;&gt;</pre>
 <div class='changed'>
     <h3>
-			<a name="dtd-annotations" href="#dtd-annotations">5.7 DTD Annotations</a>
+			<a name="DTD_Annotations" href="#DTD_Annotations">5.7 DTD Annotations</a>
 	  </h3>
-				<p>The information in a standard DTD is insufficient for use in CLDR. To make up for that, DTD annotations are added. These are of the form &lt;!--@...--&gt;, and are included below the !ELEMENT or !ATTLIST line that they apply to. The current annotations are:</p>
+				<p>The information in a standard DTD is insufficient for use in CLDR. To make up for that, DTD annotations are added. These are of the form<br>
+				&lt;!--@...--&gt;<br>
+				and are included below the !ELEMENT or !ATTLIST line that they apply to. The current annotations are:</p>
 				<table>
                 <tr><th>Type</th><th>Description</th></tr>
                 <tr>
@@ -6520,7 +6522,7 @@ decimal?, group?, special*)) &gt;</pre>
                   <td>The attribute is not distinguishing, and is treated like an element value</td></tr>
                 <tr>
                   <td>&lt;!--@METADATA--&gt;</td>
-                  <td>The attribute is a &quot;comment&quot; on the data, like the draft status. It is not typically used in implementations.</td>
+                  <td>The attribute is a “comment” on the data, like the draft status. It is not typically used in implementations.</td>
                 </tr>
                 <tr>
                   <td>&lt;!--@ORDERED--&gt;</td>
@@ -6532,14 +6534,25 @@ decimal?, group?, special*)) &gt;</pre>
                 </tr>
                 <tr>
                   <td>&lt;!--@DEPRECATED: attribute-value1, attribute-value2--&gt;</td>
-                  <td>The attribute values are deprecated, and should not be used. Spaces between tokens are not significant.</td>
+                  <td>The attribute values are deprecated, and should not be used. Spaces
+                  	between tokens are not significant.</td>
                 </tr>
                 </table>
-				<p> There is additional information in the attributeValueValidity.xml file that is used internally for testing. For example, the following line indicates that the 'currency' element in the ldml dtd must have values from the bcp47 'cu' type.</p>
-				<p class='example'> &lt;attributeValues dtds='ldml' elements='currency' attributes='type'&gt;$_bcp47_cu&lt;/attributeValues&gt;</p>
-				<p>The element values may be literals, regular expressions, or variables (some of which are set programmatically according to other CLDR data, such as the above. However, the information as this point does not cover all attribute values, is used only for testing, and should not be used in implementations since the structure may change without notice.</p>
+
+				<p> There is additional information in the attributeValueValidity.xml
+					file that is used internally for testing. For example, the following
+					line indicates that the 'currency' element in the ldml dtd must have
+					values from the bcp47 'cu' type.</p>
+				<p class='example'> &lt;attributeValues dtds='ldml' elements='currency'
+					attributes='type'&gt;$_bcp47_cu&lt;/attributeValues&gt;</p>
+				<p>The element values may be literals, regular expressions, or variables
+					(some of which are set programmatically according to other CLDR data,
+					such as the above. However, the information as this point does not
+					cover all attribute values, is used only for testing, and should not
+					be used in implementations since the structure may change without
+					notice.</p>
                 </div>
-<h2>
+		<h2>
 			<a name="Property_Data" href="#Property_Data">6 Property Data</a>
 		</h2>
 		<p>Some data in CLDR does not use an XML format, but rather a
@@ -6550,9 +6563,9 @@ decimal?, group?, special*)) &gt;</pre>
 		<p>Each file has a header that explains the format and usage of
 			the data.</p>
 		<h3 class='changed'><a name="Script_Metadata" href="#Script_Metadata">6.1 Script Metadata</a></h3>
-		<p class='changed'>This file provides general information about scripts that may be useful to implementations processing text. The information is the best currently available, and may change between versions of CLDR.</p>
+		<p class='changed'><code>scriptMetadata.txt</code>: This file provides general information about scripts that may be useful to implementations processing text. The information is the best currently available, and may change between versions of CLDR.</p>
 		<h3 class='changed'><a name="Extended_Pictographic" href="#Extended_Pictographic">6.2 Extended Pictographic</a></h3>
-        <p class='changed'>This file defines the Extended_Pictographic (EP) property,  a binary code point property for characters that are pictographic  (or otherwise similar in kind to characters with the Emoji property) and used to customize segmentation so that possible future emoji zwj sequences will not break grapheme clusters, words, or lines. It also includes unassigned codepoints that are in blocks intended for use for emoji characters, added to the Unicode 9.0 Linebreak property.</p>
+        <p class='changed'><code>ExtendedPictographic.txt</code>: This file defines the Extended_Pictographic (EP) property,  a binary code point property for characters that are pictographic  (or otherwise similar in kind to characters with the Emoji property) and used to customize segmentation so that possible future emoji zwj sequences will not break grapheme clusters, words, or lines. It also includes unassigned codepoints that are in blocks intended for use for emoji characters, added to the Unicode 9.0 Linebreak property.</p>
         <p class='changed'>I<span class="changed">t is used in the following customized rules for  UAX #29 and UAX #14: </span></p>
         <blockquote>
           <p class="changed">Let Extended_Pictographic be defined as in <strong>ExtendedPictographic.txt</strong> </p>
@@ -8362,16 +8375,16 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 3: <a
 					href="tr35-numbers.html#Contents">Numbers</a></strong>
 				<ul>
-				  <li><em><strong>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number
-				  	Symbols</a></strong></em>
+				  <li><strong>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number
+				  	Symbols</a></strong>
 				    <ul>
 				      <li>Un-deprecated the currencyGroup symbol. [<a
 								href="http://unicode.org/cldr/trac/ticket/9644">#9644</a>]</li>
 			        </ul>
 				  </li>
 
-				  <li><em><strong>Section 3.1 <a href="tr35-numbers.html#Number_Patterns">Number
-				  	Patterns</a></strong></em>
+				  <li><strong>Section 3.1 <a href="tr35-numbers.html#Number_Patterns">Number
+				  	Patterns</a></strong>
 				    <ul>
 				      <li>Noted that number patterns may contain bidi controls. [<a
 								href="http://unicode.org/cldr/trac/ticket/9319">#9319</a>]</li>
@@ -8390,8 +8403,8 @@ decimal?, group?, special*)) &gt;</pre>
 			</li>
 			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
 				<ul>
-				  <li><em><strong>Section 2.6.2.1 <a href="tr35-dates.html#Matching_Skeletons">Matching
-				  	Skeletons</a></strong></em>
+				  <li><strong>Section 2.6.2.1 <a href="tr35-dates.html#Matching_Skeletons">Matching
+				  	Skeletons</a></strong>
 				    <ul>
 				      <li>Described how to handle fractional seconds S when matching skeletons
 				      	and adjusting corresponding patterns. [<a
@@ -8399,8 +8412,8 @@ decimal?, group?, special*)) &gt;</pre>
 			        </ul>
 				  </li>
 
-					<li><em><strong>Section 3 <a
-							href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></strong></em>
+					<li><strong>Section 3 <a
+							href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></strong>
 						<ul>
 							<li>Add &lt;relativeTime&gt; entries for sun..sat;
 								add &lt;relative type="0"&gt; entries for hour, min. [<a
@@ -8413,8 +8426,8 @@ decimal?, group?, special*)) &gt;</pre>
 						</ul>
 					</li>
 
-					<li><em><strong>Section 4.3 <a
-							href="tr35-dates.html#Week_Data">Week Data</a></strong></em>
+					<li><strong>Section 4.3 <a
+							href="tr35-dates.html#Week_Data">Week Data</a></strong>
 						<ul>
 							<li>Described new &lt;weekOfPreference&gt; element and related week
 								designation types. [<a
@@ -8433,8 +8446,6 @@ decimal?, group?, special*)) &gt;</pre>
 					</li>
 				</ul>
 			</li>
-			<li><strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong>
-		  </li>
 		</ul>
 		<p>Modifications in previous versions are listed in those
 			respective versions:</p>

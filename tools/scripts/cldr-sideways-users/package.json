@@ -1,0 +1,18 @@
+{
+  "name": "cldr-sideways-users",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [ "cldr" ],
+  "author": "Steven R. Loomis <srloomis@us.ibm.com> (https://srl295.github.io)",
+  "license": "Unicode-TOU",
+  "dependencies": {
+    "csv-write-stream": "^2.0.0",
+    "minimist": "^1.2.0",
+    "xml2js": "^0.4.17"
+  },
+  "private": true
+}

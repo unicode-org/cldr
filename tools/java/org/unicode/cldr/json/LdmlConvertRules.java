@@ -14,7 +14,7 @@ class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
     public static final ImmutableSet<String> IGNORE_FILE_SET =
-        ImmutableSet.of("attributeValueValidity", "coverageLevels", "dayPeriods", "postalCodeData", "pluralRanges", "subdivisions");
+        ImmutableSet.of("attributeValueValidity", "coverageLevels", "postalCodeData", "pluralRanges", "subdivisions");
 
     /**
      * The attribute list that should become part of the name in form of

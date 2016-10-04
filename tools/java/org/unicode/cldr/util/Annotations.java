@@ -39,7 +39,7 @@ public class Annotations {
     static final Splitter splitter = Splitter.on(Pattern.compile("[|;]")).trimResults().omitEmptyStrings();
     static final Splitter dotSplitter = Splitter.on(".").trimResults();
 
-    static final Map<String, AnnotationSet> cache = new ConcurrentHashMap<>();
+    static final Map<String, Map<String, AnnotationSet>> cache = new ConcurrentHashMap<>();
     static final Set<String> LOCALES;
     static final String DIR;
 
@@ -80,10 +80,12 @@ public class Annotations {
         private final String locale;
         private final UnicodeMap<Annotations> localeData = new UnicodeMap<>();
         private final AnnotationSet parentData;
+        private final Map<String, AnnotationSet> dirCache;
 
-        public MyHandler(String locale, AnnotationSet parentData) {
+        public MyHandler(Map<String, AnnotationSet> dirCache, String locale, AnnotationSet parentData) {
             this.locale = locale;
             this.parentData = parentData;
+            this.dirCache = dirCache;
         }
 
         public AnnotationSet cleanup() {
@@ -110,7 +112,7 @@ public class Annotations {
             }
 
             final AnnotationSet result = new AnnotationSet(locale, localeData, templocaleData);
-            cache.put(locale, result);
+            dirCache.put(locale, result);
             return result;
         }
 
@@ -479,7 +481,18 @@ public class Annotations {
 
 
     public static AnnotationSet getDataSet(String locale) {
-        AnnotationSet result = cache.get(locale);
+        return getDataSet(DIR, locale);
+    }
+
+    public static AnnotationSet getDataSet(String dir, String locale) {
+        if (dir == null) {
+            dir = DIR;
+        }
+        Map<String, AnnotationSet> dirCache = cache.get(dir);
+        if (dirCache == null) {
+            cache.put(dir, dirCache = new ConcurrentHashMap<>());
+        }
+        AnnotationSet result = dirCache.get(locale);
         if (result != null) {
             return result;
         }
@@ -489,16 +502,20 @@ public class Annotations {
         String parentString = LocaleIDParser.getSimpleParent(locale);
         AnnotationSet parentData = null;
         if (parentString != null && !parentString.equals("root")) {
-            parentData = getDataSet(parentString);
+            parentData = getDataSet(dir, parentString);
         }
-        MyHandler myHandler = new MyHandler(locale, parentData);
+        MyHandler myHandler = new MyHandler(dirCache, locale, parentData);
         XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
-        xfr.read(DIR + "/" + locale + ".xml", -1, true);
+        xfr.read(dir + "/" + locale + ".xml", -1, true);
         return myHandler.cleanup();
     }
 
     public static UnicodeMap<Annotations> getData(String locale) {
-        AnnotationSet result = getDataSet(locale);
+        return getData(DIR, locale);
+    }
+
+    public static UnicodeMap<Annotations> getData(String dir, String locale) {
+        AnnotationSet result = getDataSet(dir, locale);
         return result == null ? null : result.baseData;
     }
 

@@ -1283,17 +1283,22 @@ public class PathHeader implements Comparable<PathHeader> {
                     int dashPos = source0.indexOf('-');
                     String theTerritory = dashPos < 0 ? source0 : source0.substring(0,dashPos);
                     try {
-                        if (specialRegions.contains(theTerritory) || Integer.valueOf(theTerritory) > 0) {
+                        if (specialRegions.contains(theTerritory) 
+                            || theTerritory.charAt(0) < 'A' && Integer.valueOf(theTerritory) > 0) {
                             return "Geographic Regions";
                         }
                     } catch (NumberFormatException ex) {
                     }
                     String theContinent = Containment.getContinent(theTerritory);
                     String theSubContinent;
-                    switch (Integer.valueOf(theContinent)) {
-                    case 19: // Americas - For the territorySection, we just group North America & South America
-                        theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
+                    switch (theContinent) { // was Integer.valueOf
+                    case "019": // Americas - For the territorySection, we just group North America & South America
+                        final String subcontinent = Containment.getSubcontinent(theTerritory);
+                        theSubContinent = subcontinent.equals("005") ? "005" : "003"; // was Integer.valueOf(subcontinent) == 5 
                         return "Territories (" + englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent) + ")";
+                    case "001":
+                    case "ZZ":
+                        return "Geographic Regions"; // not in containment
                     default:
                         return "Territories (" + englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent) + ")";
                     }
@@ -1321,20 +1326,21 @@ public class PathHeader implements Comparable<PathHeader> {
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, theTerritory);
                     }
                     String theContinent = Containment.getContinent(theTerritory);
+                    final String subcontinent = Containment.getSubcontinent(theTerritory);
                     String theSubContinent;
                     switch (Integer.valueOf(theContinent)) {
                     case 9: // Oceania - For the timeZonePage, we group Australasia on one page, and the rest of Oceania on the other.
                         try {
-                            theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 53 ? "053" : "009";
+                            theSubContinent = subcontinent.equals("053") ? "053" : "009"; // was Integer.valueOf(subcontinent) == 53
                         } catch (NumberFormatException ex) {
                             theSubContinent = "009";
                         }
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
                     case 19: // Americas - For the timeZonePage, we just group North America & South America
-                        theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
+                        theSubContinent = Integer.valueOf(subcontinent) == 5 ? "005" : "003";
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
                     case 142: // Asia
-                        return englishFile.getName(CLDRFile.TERRITORY_NAME, Containment.getSubcontinent(theTerritory));
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, subcontinent);
                     default:
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent);
                     }
@@ -1480,6 +1486,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     { "Southeast Asia", "Southeast Asia (C)" },
                     { "Australasia", "Oceania (C)" },
                     { "Melanesia", "Oceania (C)" },
+                    { "Micronesian Region", "Oceania (C)" }, // HACK
                     { "Polynesia", "Oceania (C)" },
                     { "Unknown Region", "Unknown Region (C)" },
             };
@@ -1735,6 +1742,7 @@ public class PathHeader implements Comparable<PathHeader> {
          * @return
          */
         private static String fix(String input, int orderIn) {
+            String oldInput = input;
             input = RegexLookup.replace(input, args.value);
             order = orderIn;
             suborder = null;
@@ -1748,7 +1756,12 @@ public class PathHeader implements Comparable<PathHeader> {
                 int argEnd = input.indexOf(')', functionEnd);
                 Transform<String, String> func = functionMap.get(input.substring(functionStart + 1,
                         functionEnd));
-                String temp = func.transform(input.substring(functionEnd + 1, argEnd));
+                final String arg = input.substring(functionEnd + 1, argEnd);
+                String temp = func.transform(arg);
+                if (temp == null) {
+                    func.transform(arg);
+                    throw new IllegalArgumentException("Function returns invalid results for «" + arg + "».");
+                }
                 input = input.substring(0, functionStart) + temp + input.substring(argEnd + 1);
                 pos = functionStart + temp.length();
             }

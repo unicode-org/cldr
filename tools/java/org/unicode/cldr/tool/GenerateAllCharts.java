@@ -13,6 +13,7 @@ public class GenerateAllCharts {
         GenerateTransformCharts.main(args);
         ShowKeyboards.main(args);
         ChartDelta.main(args);
+        ChartCollation.main(args);
         DateTimeFormats.main(args);
         VerifyCompactNumbers.main(args);
         VerifyZones.main(args);

@@ -4,10 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -20,9 +22,11 @@ import java.util.regex.Matcher;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRURLS;
@@ -40,6 +44,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.RegexLookup.LookupType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -48,11 +53,13 @@ import org.unicode.cldr.util.VettingViewer.MissingStatus;
 
 import com.google.common.collect.Ordering;
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UnicodeSet;
 
 public class ShowLocaleCoverage {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final char DEBUG_FILTER = 0; // use letter to only load locales starting with that letter
 
     private static final String LATEST = ToolConstants.CHART_VERSION;
@@ -62,7 +69,18 @@ public class ShowLocaleCoverage {
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     private static final CLDRFile ENGLISH = testInfo.getEnglish();
     private static final StandardCodes STANDARD_CODES = SC;
+    private static UnicodeSet ENG_ANN = Annotations.getData("en").keySet();
+
     // added info using pattern in VettingViewer.
+
+    static final RegexLookup<Boolean> HACK = RegexLookup.<Boolean>of(LookupType.STANDARD, RegexLookup.RegexFinderTransformPath)
+        .add("//ldml/localeDisplayNames/keys/key[@type=\"(d0|em|fw|i0|k0|lw|m0|rg|s0|ss|t0|x0)\"]", true)
+        .add("//ldml/localeDisplayNames/types/type[@key=\"(em|fw|kr|lw|ss)\"].*", true)
+        .add("//ldml/localeDisplayNames/languages/language[@type=\".*_.*\"]", true)
+        .add("//ldml/localeDisplayNames/languages/language[@type=\".*\"][@alt=\".*\"]", true)
+        .add("//ldml/localeDisplayNames/territories/territory[@type=\".*\"][@alt=\".*\"]", true)
+        .add("//ldml/localeDisplayNames/territories/territory[@type=\"EZ\"]", true)
+        ;
 
     //private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
 
@@ -188,11 +206,13 @@ public class ShowLocaleCoverage {
 //                break;
 //            }
 //        }
-        Map<String, FoundAndTotal> latestData = addGrowth(factory, matcher);
+        Map<String, FoundAndTotal> latestData = addGrowth(factory, null, matcher, DEBUG);
         addCompletionList(getYearFromVersion(LATEST, false), getCompletion(latestData, latestData), growthData);
         if (DEBUG) System.out.println(latestData);
         //System.out.println(growthData);
-        for (String dir : new File(CLDRPaths.ARCHIVE_DIRECTORY).list()) {
+        List<String> dirs = new ArrayList<>(Arrays.asList(new File(CLDRPaths.ARCHIVE_DIRECTORY).list()));
+        Collections.reverse(dirs);
+        for (String dir : dirs) {
             if (!dir.startsWith("cldr")) {
                 continue;
             }
@@ -203,10 +223,11 @@ public class ShowLocaleCoverage {
 //            if (version.compareTo("12") < 0) {
 //                continue;
 //            }
-            org.unicode.cldr.util.Factory newFactory = org.unicode.cldr.util.Factory.make(
-                CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/main/", ".*");
             System.out.println("Reading: " + version);
-            Map<String, FoundAndTotal> currentData = addGrowth(newFactory, matcher);
+            if (version.equals("2008")) {
+                int debug = 0;
+            }
+            Map<String, FoundAndTotal> currentData = addGrowth(factory, dir, matcher, false);
             System.out.println("Read: " + version + "\t" + currentData);
             Counter2<String> completionData = getCompletion(latestData, currentData);
             //System.out.println(version + "\t" + completionData);
@@ -230,7 +251,6 @@ public class ShowLocaleCoverage {
     static {
         int[][] mapping = {
             { 30, 2016 },
-            { 29, 2016 },
             { 28, 2015 },
             { 26, 2014 },
             { 24, 2013 },
@@ -323,11 +343,18 @@ public class ShowLocaleCoverage {
         }
     }
 
-    private static Map<String, FoundAndTotal> addGrowth(org.unicode.cldr.util.Factory newFactory, Matcher matcher) {
+    private static Map<String, FoundAndTotal> addGrowth(org.unicode.cldr.util.Factory latestFactory, String dir, Matcher matcher, boolean showMissing) {
+        org.unicode.cldr.util.Factory newFactory = dir == null ? factory 
+            : org.unicode.cldr.util.Factory.make(
+                CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/main/", ".*");
         Map<String, FoundAndTotal> data = new HashMap<>();
         char c = 0;
+        Set<String> latestAvailable = newFactory.getAvailableLanguages();
         for (String locale : newFactory.getAvailableLanguages()) {
             if (!matcher.reset(locale).matches()) {
+                continue;
+            }
+            if (!latestAvailable.contains(locale)) {
                 continue;
             }
             if (SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales().contains(locale)
@@ -343,29 +370,93 @@ public class ShowLocaleCoverage {
             if (DEBUG_FILTER != 0 && DEBUG_FILTER != nc) {
                 continue;
             }
+            CLDRFile latestFile = null;
+            try {
+                latestFile = latestFactory.make(locale, true);
+            } catch (Exception e2) {
+                continue;
+            }
             final CLDRFile file = newFactory.make(locale, true);
+            // HACK check bogus
+//            Collection<String> extra = file.getExtraPaths();
+//
+//            final Iterable<String> fullIterable = file.fullIterable();
+//            for (String path : fullIterable) {
+//                if (path.contains("\"one[@")) {
+//                    boolean inside = extra.contains(path);
+//                    Status status = new Status();
+//                    String loc = file.getSourceLocaleID(path, status );
+//                    int debug = 0;
+//                }
+//            }
+            // END HACK
             Counter<Level> foundCounter = new Counter<Level>();
             Counter<Level> unconfirmedCounter = new Counter<Level>();
             Counter<Level> missingCounter = new Counter<Level>();
             Set<String> unconfirmedPaths = null;
             Relation<MissingStatus, String> missingPaths = null;
-            if (DEBUG) {
-                unconfirmedPaths = new LinkedHashSet<>();
-                missingPaths = Relation.of(new LinkedHashMap(), LinkedHashSet.class);
-            }
-            VettingViewer.getStatus(ENGLISH.fullIterable(), file,
+            unconfirmedPaths = new LinkedHashSet<>();
+            missingPaths = Relation.of(new LinkedHashMap(), LinkedHashSet.class);
+            VettingViewer.getStatus(latestFile.fullIterable(), file,
                 pathHeaderFactory, foundCounter, unconfirmedCounter,
                 missingCounter, missingPaths, unconfirmedPaths);
-            if (DEBUG) {
+
+            // HACK
+            Set<Entry<MissingStatus, String>> missingRemovals = new HashSet<>();
+            for (Entry<MissingStatus, String> e : missingPaths.keyValueSet()) {
+                if (e.getKey() == MissingStatus.ABSENT) {
+                    final String path = e.getValue();
+                    if (HACK.get(path) != null) {
+                        missingRemovals.add(e);
+                        missingCounter.add(Level.MODERN, -1);
+                        foundCounter.add(Level.MODERN, 1);
+                    } else {
+                        Status status = new Status();
+                        String loc = file.getSourceLocaleID(path, status );
+                        int debug = 0;
+                    }
+                }
+            }
+            for (Entry<MissingStatus, String> e :missingRemovals) {
+                missingPaths.remove(e.getKey(), e.getValue());
+            }
+            // END HACK
+
+            if (showMissing) {
                 int count = 0;
                 for (String s : unconfirmedPaths) {
                     System.out.println(++count + "\t" + locale + "\tunconfirmed\t" + s);
                 }
                 for (Entry<MissingStatus, String> e : missingPaths.keyValueSet()) {
+                    String path = e.getValue();
+                    Status status = new Status();
+                    String loc = file.getSourceLocaleID(path, status );
+                    int debug = 0;
+
                     System.out.println(++count + "\t" + locale + "\t" + CldrUtility.toString(e));
                 }
                 int debug = 0;
             }
+
+            // add annotations
+            System.out.println(locale + " annotations");
+            try {
+                UnicodeMap<Annotations> annotations = dir == null ? Annotations.getData(locale) 
+                    : Annotations.getData(CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/annotations/", locale);
+                for (String cp : ENG_ANN) {
+                    Annotations annotation = annotations.get(cp);
+                    if (annotation == null) {
+                        missingCounter.add(Level.MODERN, 1);
+                    } else if (annotation.getShortName() == null) {
+                        missingCounter.add(Level.MODERN, 1);
+                    } else {
+                        foundCounter.add(Level.MODERN, 1);
+                    }
+                }
+            } catch (Exception e1) {
+                missingCounter.add(Level.MODERN, ENG_ANN.size());
+            }
+
             data.put(locale, new FoundAndTotal(foundCounter, unconfirmedCounter, missingCounter));
         }
         return Collections.unmodifiableMap(data);

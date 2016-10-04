@@ -3321,7 +3321,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 continue;
             }
             String start = path.substring(0, countPos) + "[@count=\"";
-            String end = path.substring(countPos + countAttr.length()) + "\"]";
+            String end =  "\"]" + path.substring(countPos + countAttr.length());
             for (Count count : pluralCounts) {
                 if (count == Count.other) {
                     continue;

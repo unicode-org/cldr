@@ -78,7 +78,9 @@ public class TestAnnotations extends TestFmwk {
     public void TestNames() {
         AnnotationSet eng = Annotations.getDataSet("en");
         String[][] tests = {
-            {"🚴🏿‍♂️","man biking: dark skin tone","bicycle|biking|cyclist|man|dark skin tone"},
+            {"🇪🇺","European Union","flag"},
+            {"#️⃣","keycap: #","keycap"},
+            {"9️⃣","keycap: 9","keycap"},
 
             {"💏","kiss","couple"},
             {"👩‍❤️‍💋‍👩","kiss: woman, woman","couple|woman"},
@@ -93,6 +95,7 @@ public class TestAnnotations extends TestFmwk {
             {"👩‍⚖","woman judge","judge|scales|woman"},
             {"👩🏼‍⚖","woman judge: medium-light skin tone","judge|scales|woman|medium-light skin tone"},
             {"👮","police officer","cop|officer|police"},
+            {"👮🏿","police officer: dark skin tone","cop|officer|police|dark skin tone"},
             {"👮‍♂️","man police officer","cop|man|officer|police"},
             {"👮🏼‍♂️","man police officer: medium-light skin tone","cop|officer|police|man|medium-light skin tone"},
             {"👮‍♀️","woman police officer","cop|officer|police|woman"},

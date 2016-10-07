@@ -192,7 +192,7 @@ public class XMLFileReader {
             tempPath.setLength(0);
             tempPath.append(startElements.peek()).append('/').append(qName);
             for (int i = 0; i < atts.getLength(); ++i) {
-                tempPath.append("[@").append(atts.getQName(i)).append("=\"").append(atts.getValue(i)).append("\"]");
+                tempPath.append("[@").append(atts.getQName(i)).append("=\"").append(atts.getValue(i).replace('"', '\'')).append("\"]");
             }
             startElements.push(tempPath.toString());
             chars.setLength(0); // clear garbage

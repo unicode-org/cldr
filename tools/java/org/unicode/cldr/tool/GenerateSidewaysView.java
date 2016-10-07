@@ -165,6 +165,7 @@ public class GenerateSidewaysView {
         english = cldrFactory.make("en", true);
         pathHeaderFactory = PathHeader.getFactory(english);
 
+        FileCopier.ensureDirectoryExists(options[DESTDIR].value);
         FileCopier.copy(GenerateSidewaysView.class, "bytype-index.css", options[DESTDIR].value, "index.css");
 
         // now get the info

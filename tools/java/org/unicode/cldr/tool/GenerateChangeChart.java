@@ -54,6 +54,7 @@ public class GenerateChangeChart {
         String dir = CLDRPaths.CHART_DIRECTORY + "changes/";
         CoverageInfo coverage = CONFIG.getCoverageInfo();
         EnumSet<SectionId> sections = EnumSet.noneOf(SectionId.class);
+        FileCopier.ensureDirectoryExists(dir);
         FileCopier.copy(ShowLanguages.class, "index.css", dir);
 
         try (PrintWriter out = org.unicode.cldr.draft.FileUtilities.openUTF8Writer(dir, "summary.txt");) {

@@ -80,6 +80,7 @@ public class GenerateTransformCharts {
         String filter = CldrUtility.getProperty("filter", null);
         System.out.println("Start");
 
+        FileCopier.ensureDirectoryExists(TRANSFORM_DIRECTORY);
         FileCopier.copy(ShowData.class, "transforms-index.css", TRANSFORM_DIRECTORY, "index.css");
 
         // PrintWriter out = new PrintWriter(System.out);

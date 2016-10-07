@@ -1356,6 +1356,10 @@ public class CldrUtility {
     public static String getDoubleLinkMsg() {
         return "<a name=''{0}'' href=''#{0}''>{0}</a>";
     }
+    
+    public static String getDoubleLinkMsg2() {
+        return "<a name=''{0}{1}'' href=''#{0}{1}''>{0}</a>";
+    }
 
     public static String getCopyrightString() {
         // now do the rest

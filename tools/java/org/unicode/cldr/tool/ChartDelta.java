@@ -510,9 +510,9 @@ public class ChartDelta extends Chart {
 
     private void writeDiffs(Anchors anchors, String file, String title, SortedMap<PathHeader, String> bcp) {
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Section", "class='source'", null, "class='source'", true)
-        .addColumn("Page", "class='source'", null, "class='source'", true).setRepeatDivider(true)
-        .addColumn("Header", "class='source'", null, "class='source'", true)
+        .addColumn("Section", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true).setRepeatDivider(true)
+        .addColumn("Header", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
         .addColumn("Code", "class='source'", null, "class='source'", false)
         .addColumn("Old", "class='target'", null, "class='target'", false) //  width='20%'
         .addColumn("New", "class='target'", null, "class='target'", false); //  width='20%'
@@ -539,9 +539,9 @@ public class ChartDelta extends Chart {
 
     private void writeDiffs(Anchors anchors, Relation<PathHeader, String> diffAll) {
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Section", "class='source'", null, "class='source'", true)
-        .addColumn("Page", "class='source'", null, "class='source'", true)
-        .addColumn("Header", "class='source'", null, "class='source'", true)
+        .addColumn("Section", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .addColumn("Header", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
         .addColumn("Code", "class='source'", null, "class='source'", true)
         .addColumn("Locales where different", "class='target'", null, "class='target'", true);
         for (Entry<PathHeader, Set<String>> row : diffAll.keyValuesSet()) {
@@ -562,9 +562,9 @@ public class ChartDelta extends Chart {
             return;
         }
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Section", "class='source'", null, "class='source'", true)
-        .addColumn("Page", "class='source'", null, "class='source'", true)
-        .addColumn("Header", "class='source'", null, "class='source'", true)
+        .addColumn("Section", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .addColumn("Page", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .addColumn("Header", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
         .addColumn("Code", "class='source'", null, "class='source'", true)
         .addColumn("Locale", "class='source'", null, "class='source'", true)
         .addColumn("Old", "class='target'", null, "class='target'", true) //  width='20%'

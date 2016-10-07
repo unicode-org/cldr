@@ -112,6 +112,7 @@ public class ShowData {
                 return;
             }
 
+            FileCopier.ensureDirectoryExists(options[DESTDIR].value);
             FileCopier.copy(ShowData.class, "summary-index.css", options[DESTDIR].value, "index.css");
             FileCopier.copy(ShowData.class, "summary-index.html", options[DESTDIR].value, "index.html");
 

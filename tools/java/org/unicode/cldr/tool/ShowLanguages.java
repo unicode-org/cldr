@@ -93,6 +93,7 @@ public class ShowLanguages {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Writing into " + FormattedFileWriter.CHART_TARGET_DIR);
+        FileCopier.ensureDirectoryExists(FormattedFileWriter.CHART_TARGET_DIR);
         FileCopier.copy(ShowLanguages.class, "index.css", FormattedFileWriter.CHART_TARGET_DIR);
         printLanguageData(cldrFactory, "index.html");
         // cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");

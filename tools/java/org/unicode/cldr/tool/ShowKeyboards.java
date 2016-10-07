@@ -96,6 +96,7 @@ public class ShowKeyboards {
         keyboardChartDir = MyOptions.targetDirectory.option.getValue();
         keyboardChartLayoutsDir = keyboardChartDir + "/layouts/";
 
+        FileCopier.ensureDirectoryExists(keyboardChartDir);
         FileCopier.copy(ShowKeyboards.class, "keyboards-index.html", keyboardChartDir, "index.html");
 
         Matcher idMatcher = PatternCache.get(idPattern).matcher("");
@@ -223,6 +224,7 @@ public class ShowKeyboards {
             }
         }
 
+        FileCopier.ensureDirectoryExists(keyboardChartLayoutsDir);
         FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartLayoutsDir, "index.css");
         PrintWriter index = FileUtilities.openUTF8Writer(keyboardChartLayoutsDir, "index.html");
         String[] headerAndFooter = new String[2];

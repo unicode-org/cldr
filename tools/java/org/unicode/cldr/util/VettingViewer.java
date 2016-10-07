@@ -2146,6 +2146,7 @@ public class VettingViewer<T> {
             // http: // unicode.org/cldr-apps/survey?_=ur
 
             if (!repeat) {
+                FileCopier.ensureDirectoryExists(myOutputDir);                
                 FileCopier.copy(VettingViewer.class, "vettingView.css", myOutputDir);
                 FileCopier.copy(VettingViewer.class, "vettingView.js", myOutputDir);
             }

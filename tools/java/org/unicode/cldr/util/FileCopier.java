@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -153,6 +154,16 @@ public class FileCopier {
      */
     public static void copy(Class<?> cls, String sourceFile, String targetDirectory) throws IOException {
         copy(cls, sourceFile, targetDirectory, sourceFile);
+    }
+
+    /**
+     * Ensure that directory exists
+     */
+    public static void ensureDirectoryExists(String targetDirectory) {
+        final File targetDir = new File(targetDirectory);
+        if (!targetDir.exists()) {
+            targetDir.mkdirs();
+        }
     }
 
     public static void copyAndReplace(Class<?> cls, String srcFile, String destDir, String destFile, Map<String, String> replacements) throws IOException {

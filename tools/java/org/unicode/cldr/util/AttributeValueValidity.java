@@ -393,6 +393,7 @@ public class AttributeValueValidity {
         choice,
         list,
         unicodeSet,
+        unicodeSetOrString,
         regex,
         locale,
         bcp47,
@@ -423,6 +424,9 @@ public class AttributeValueValidity {
             break;
         case unicodeSet:
             result = new UnicodeSetMatcher(new UnicodeSet(value));
+            break;
+        case unicodeSetOrString:
+            result = new UnicodeSetOrStringMatcher(new UnicodeSet(value));
             break;
 //        case bcp47:
 //            return getBcp47MatcherPattern(value);
@@ -571,10 +575,15 @@ public class AttributeValueValidity {
 
         @Override
         public boolean matches(String value, Output<String> reason) {
-            final UnicodeSet valueSet = new UnicodeSet(value);
-            boolean result = collection.containsAll(valueSet);
-            if (!result && reason != null) {
-                reason.value = "∉ " + getPattern();
+            boolean result = false;
+            try {
+                UnicodeSet valueSet = new UnicodeSet(value);
+                result = collection.containsAll(valueSet);
+                if (!result && reason != null) {
+                    reason.value = "∉ " + getPattern();
+                }
+            } catch (Exception e) {
+                reason.value = " illegal pattern " + getPattern() + ": " + value;
             }
             return result;
         }
@@ -584,6 +593,42 @@ public class AttributeValueValidity {
             return collection.toPattern(false);
         }
     }
+    
+    public static class UnicodeSetOrStringMatcher extends MatcherPattern {
+        private final UnicodeSet collection;
+
+        public UnicodeSetOrStringMatcher(UnicodeSet collection) {
+            this.collection = collection.freeze();
+        }
+
+        @Override
+        public boolean matches(String value, Output<String> reason) {
+            boolean result = false;
+            if (UnicodeSet.resemblesPattern(value, 0)) {
+                try {
+                    UnicodeSet valueSet = new UnicodeSet(value);
+                    result = collection.containsAll(valueSet);
+                    if (!result && reason != null) {
+                        reason.value = "∉ " + getPattern();
+                    }
+                } catch (Exception e) {
+                    reason.value = " illegal pattern " + getPattern() + ": " + value;
+                }
+            } else {
+                result = collection.contains(value);
+                if (!result && reason != null) {
+                    reason.value = "∉ " + getPattern();
+                }
+            }
+            return result;
+        }
+
+        @Override
+        public String _getPattern() {
+            return collection.toPattern(false);
+        }
+    }
+
 
     public static class OrMatcher extends MatcherPattern {
         private final MatcherPattern[] operands;
@@ -845,5 +890,14 @@ public class AttributeValueValidity {
 
     public static Set<String> getMatcherPatternIds() {
         return Collections.unmodifiableSet(variables.keySet());
+    }
+    
+    public static void main(String[] args) {
+        for (DtdType type : DtdType.values()) {
+            Relation<String, String> missing = getAllPossibleMissing(type);
+            for (Entry<String, String> x : missing.keyValueSet()) {
+                System.out.println(type + "\t" + CldrUtility.toString(x));
+            }
+        }
     }
 }

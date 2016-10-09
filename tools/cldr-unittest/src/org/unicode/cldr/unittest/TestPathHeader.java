@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
@@ -54,6 +55,7 @@ import org.unicode.cldr.util.XPathParts;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -140,6 +142,8 @@ public class TestPathHeader extends TestFmwkPlus {
         PathHeader.Factory pathHeaderFactory2 = PathHeader.getFactory(english);
         // List<String> failures = null;
         pathHeaderFactory2.clearCache();
+        Multimap<PathHeader.PageId, PathHeader.SectionId> pageUniqueness = TreeMultimap.create();
+        Multimap<String, Pair<PathHeader.SectionId, PathHeader.PageId>> headerUniqueness = TreeMultimap.create();
         for (String p : english.fullIterable()) {
             // if (p.contains("symbol[@alt") && failures == null) {
             // PathHeader result = pathHeaderFactory2.fromPath(p, failures = new
@@ -150,12 +154,31 @@ public class TestPathHeader extends TestFmwkPlus {
             // logln("\t" + failure);
             // }
             // }
-            pathHeaderFactory2.fromPath(p);
+            PathHeader ph = pathHeaderFactory2.fromPath(p);
+            final SectionId sectionId = ph.getSectionId();
+            if (sectionId != SectionId.Special) {
+                pageUniqueness.put(ph.getPageId(), sectionId);
+                headerUniqueness.put(ph.getHeader(), new Pair<>(sectionId,ph.getPageId()));
+            }
         }
         Set<String> missing = pathHeaderFactory2.getUnmatchedRegexes();
         if (missing.size() != 0) {
             for (String e : missing) {
                 logln("Path Regex never matched:\t" + e);
+            }
+        }
+
+        for (Entry<PageId, Collection<SectionId>> e : pageUniqueness.asMap().entrySet()) {
+            Collection<SectionId> values = e.getValue();
+            if (values.size() != 1) {
+                warnln("Duplicate page in section: " + CldrUtility.toString(e));
+            }
+        }
+
+        for (Entry<String, Collection<Pair<SectionId, PageId>>> e : headerUniqueness.asMap().entrySet()) {
+            Collection<Pair<SectionId, PageId>> values = e.getValue();
+            if (values.size() != 1) {
+                warnln("Duplicate header in (section,page): " + CldrUtility.toString(e));
             }
         }
     }

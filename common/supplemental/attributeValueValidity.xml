@@ -92,7 +92,7 @@
 			<variable id='$variableID' type='regex'>[$][a-zA-Z0-9_]+</variable>
 			<variable id='$version' type='regex'>\$.*\$</variable>
 			<variable id='$versionDotted' type='regex'>[0-9]+(\.[0-9]+(\.[0-9]+)?)?</variable>
-			<variable id='$emoji' type='unicodeSet'>[©®‼⁉™ℹ↔-↙↩↪⌚⌛⌨⏏⏩-⏳⏸-⏺ Ⓜ▪▫▶◀◻-◾☀-☄☎☑☔☕☘☝☠☢☣☦ ☪☮☯☸-☺♈-♓♠♣♥♦♨♻♿⚒-⚔⚖⚗ ⚙⚛⚜⚠⚡⚪⚫⚰⚱⚽⚾⛄⛅⛈⛎⛏⛑⛓⛔⛩⛪ ⛰-⛵⛷-⛺⛽✂✅✈-✍✏✒✔✖✝✡✨✳✴
+			<variable id='$emoji' type='unicodeSetOrString'>[©®‼⁉™ℹ↔-↙↩↪⌚⌛⌨⏏⏩-⏳⏸-⏺ Ⓜ▪▫▶◀◻-◾☀-☄☎☑☔☕☘☝☠☢☣☦ ☪☮☯☸-☺♈-♓♠♣♥♦♨♻♿⚒-⚔⚖⚗ ⚙⚛⚜⚠⚡⚪⚫⚰⚱⚽⚾⛄⛅⛈⛎⛏⛑⛓⛔⛩⛪ ⛰-⛵⛷-⛺⛽✂✅✈-✍✏✒✔✖✝✡✨✳✴
 				❄❇❌❎❓-❕❗❣❤➕-➗➡➰➿⤴⤵⬅-⬇ ⬛⬜⭐⭕〰〽㊗㊙🀄🃏🅰🅱🅾🅿🆎🆑-🆚🈁🈂🈚 🈯🈲-🈺🉐🉑🌀-🌡🌤-🎓🎖🎗🎙-🎛🎞-🏰🏳-🏵 🏷-📽📿-🔽🕉-🕎🕐-🕧🕯🕰🕳-🕹🖇🖊-🖍
 				🖐🖕🖖🖥🖨🖱🖲🖼🗂-🗄🗑-🗓🗜-🗞🗡🗣🗯🗳 🗺-🙏🚀-🛅🛋-🛐🛠-🛥🛩🛫🛬🛰🛳🤐-🤘🦀-🦄
 				🧀{#⃣}{*⃣}{0⃣}{1⃣}{2⃣}{3⃣}{4⃣}{5⃣}{6⃣}{7⃣}{8⃣}{9⃣}{☝🏻}{☝🏼}{☝🏽}{☝🏾}{☝🏿}{✊🏻}{✊🏼}{✊🏽}{✊🏾}{✊🏿}{✋🏻}{✋🏼}{✋🏽}{✋🏾}{✋🏿}{✌🏻}{✌🏼}{✌🏽}{✌🏾}{✌🏿}{✍🏻}{✍🏼}{✍🏽}{✍🏾}{✍🏿}{🇦🇨}{🇦🇩}{🇦🇪}{🇦🇫}{🇦🇬}{🇦🇮}{🇦🇱}{🇦🇲}{🇦🇴}{🇦🇶}{🇦🇷}{🇦🇸}{🇦🇹}{🇦🇺}{🇦🇼}{🇦🇽}{🇦🇿}{🇧🇦}{🇧🇧}{🇧🇩}{🇧🇪}{🇧🇫}{🇧🇬}{🇧🇭}{🇧🇮}{🇧🇯}{🇧🇱}{🇧🇲}{🇧🇳}{🇧🇴}{🇧🇶}{🇧🇷}{🇧🇸}{🇧🇹}{🇧🇻}{🇧🇼}{🇧🇾}{🇧🇿}{🇨🇦}{🇨🇨}{🇨🇩}{🇨🇫}{🇨🇬}{🇨🇭}{🇨🇮}{🇨🇰}{🇨🇱}{🇨🇲}{🇨🇳}{🇨🇴}{🇨🇵}{🇨🇷}{🇨🇺}{🇨🇻}{🇨🇼}{🇨🇽}{🇨🇾}{🇨🇿}{🇩🇪}{🇩🇬}{🇩🇯}{🇩🇰}{🇩🇲}{🇩🇴}{🇩🇿}{🇪🇦}{🇪🇨}{🇪🇪}{🇪🇬}{🇪🇭}{🇪🇷}{🇪🇸}{🇪🇹}{🇪🇺}{🇫🇮}{🇫🇯}{🇫🇰}{🇫🇲}{🇫🇴}{🇫🇷}{🇬🇦}{🇬🇧}{🇬🇩}{🇬🇪}{🇬🇫}{🇬🇬}{🇬🇭}{🇬🇮}{🇬🇱}{🇬🇲}{🇬🇳}{🇬🇵}{🇬🇶}{🇬🇷}{🇬🇸}{🇬🇹}{🇬🇺}{🇬🇼}{🇬🇾}{🇭🇰}{🇭🇲}{🇭🇳}{🇭🇷}{🇭🇹}{🇭🇺}{🇮🇨}{🇮🇩}{🇮🇪}{🇮🇱}{🇮🇲}{🇮🇳}{🇮🇴}{🇮🇶}{🇮🇷}{🇮🇸}{🇮🇹}{🇯🇪}{🇯🇲}{🇯🇴}{🇯🇵}{🇰🇪}{🇰🇬}{🇰🇭}{🇰🇮}{🇰🇲}{🇰🇳}{🇰🇵}{🇰🇷}{🇰🇼}{🇰🇾}{🇰🇿}{🇱🇦}{🇱🇧}{🇱🇨}{🇱🇮}{🇱🇰}{🇱🇷}{🇱🇸}{🇱🇹}{🇱🇺}{🇱🇻}{🇱🇾}{🇲🇦}{🇲🇨}{🇲🇩}{🇲🇪}{🇲🇫}{🇲🇬}{🇲🇭}{🇲🇰}{🇲🇱}{🇲🇲}{🇲🇳}{🇲🇴}{🇲🇵}{🇲🇶}{🇲🇷}{🇲🇸}{🇲🇹}{🇲🇺}{🇲🇻}{🇲🇼}{🇲🇽}{🇲🇾}{🇲🇿}{🇳🇦}{🇳🇨}{🇳🇪}{🇳🇫}{🇳🇬}{🇳🇮}{🇳🇱}{🇳🇴}{🇳🇵}{🇳🇷}{🇳🇺}{🇳🇿}{🇴🇲}{🇵🇦}{🇵🇪}{🇵🇫}{🇵🇬}{🇵🇭}{🇵🇰}{🇵🇱}{🇵🇲}{🇵🇳}{🇵🇷}{🇵🇸}{🇵🇹}{🇵🇼}{🇵🇾}{🇶🇦}{🇷🇪}{🇷🇴}{🇷🇸}{🇷🇺}{🇷🇼}{🇸🇦}{🇸🇧}{🇸🇨}{🇸🇩}{🇸🇪}{🇸🇬}{🇸🇭}{🇸🇮}{🇸🇯}{🇸🇰}{🇸🇱}{🇸🇲}{🇸🇳}{🇸🇴}{🇸🇷}{🇸🇸}{🇸🇹}{🇸🇻}{🇸🇽}{🇸🇾}{🇸🇿}{🇹🇦}{🇹🇨}{🇹🇩}{🇹🇫}{🇹🇬}{🇹🇭}{🇹🇯}{🇹🇰}{🇹🇱}{🇹🇲}{🇹🇳}{🇹🇴}{🇹🇷}{🇹🇹}{🇹🇻}{🇹🇼}{🇹🇿}{🇺🇦}{🇺🇬}{🇺🇲}{🇺🇸}{🇺🇾}{🇺🇿}{🇻🇦}{🇻🇨}{🇻🇪}{🇻🇬}{🇻🇮}{🇻🇳}{🇻🇺}{🇼🇫}{🇼🇸}{🇽🇰}{🇾🇪}{🇾🇹}{🇿🇦}{🇿🇲}{🇿🇼}{🎅🏻}{🎅🏼}{🎅🏽}{🎅🏾}{🎅🏿}{🏂🏻}{🏂🏼}{🏂🏽}{🏂🏾}{🏂🏿}{🏃🏻}{🏃🏼}{🏃🏽}{🏃🏾}{🏃🏿}{🏄🏻}{🏄🏼}{🏄🏽}{🏄🏾}{🏄🏿}{🏇🏻}{🏇🏼}{🏇🏽}{🏇🏾}{🏇🏿}{🏊🏻}{🏊🏼}{🏊🏽}{🏊🏾}{🏊🏿}{👂🏻}{👂🏼}{👂🏽}{👂🏾}{👂🏿}{👃🏻}{👃🏼}{👃🏽}{👃🏾}{👃🏿}{👆🏻}{👆🏼}{👆🏽}{👆🏾}{👆🏿}{👇🏻}{👇🏼}{👇🏽}{👇🏾}{👇🏿}{👈🏻}{👈🏼}{👈🏽}{👈🏾}{👈🏿}{👉🏻}{👉🏼}{👉🏽}{👉🏾}{👉🏿}{👊🏻}{👊🏼}{👊🏽}{👊🏾}{👊🏿}{👋🏻}{👋🏼}{👋🏽}{👋🏾}{👋🏿}{👌🏻}{👌🏼}{👌🏽}{👌🏾}{👌🏿}{👍🏻}{👍🏼}{👍🏽}{👍🏾}{👍🏿}{👎🏻}{👎🏼}{👎🏽}{👎🏾}{👎🏿}{👏🏻}{👏🏼}{👏🏽}{👏🏾}{👏🏿}{👐🏻}{👐🏼}{👐🏽}{👐🏾}{👐🏿}{👦🏻}{👦🏼}{👦🏽}{👦🏾}{👦🏿}{👧🏻}{👧🏼}{👧🏽}{👧🏾}{👧🏿}{👨
@@ -216,7 +216,7 @@
 			<attributeValues dtds='supplementalData' elements='zoneItem' attributes='aliases' type='list'>$_bcp47_timezone</attributeValues>
 			<attributeValues dtds='supplementalData' elements='zoneItem' attributes='territory'>$_region</attributeValues>
 			<attributeValues dtds='supplementalData' elements='zoneItem' attributes='type'>$_bcp47_timezone</attributeValues>
-			<attributeValues dtds='ldml' elements='annotation' attributes='cp' type='unicodeSet'>$emoji</attributeValues>
+			<attributeValues dtds='ldml' elements='annotation' attributes='cp' type='unicodeSetOrString'>$emoji</attributeValues>
 			<attributeValues dtds='ldml' elements='annotation' attributes='tts' type='TODO'>$exemplar</attributeValues>
 			<attributeValues dtds='ldml' elements='casingItem' attributes='type' type='choice'>calendar_field currencyName currencyName_count
 				day_format_except_narrow day_narrow day_standalone_except_narrow era_abbr era_name era_narrow key keyValue language metazone_long
@@ -393,7 +393,9 @@
 			<attributeValues dtds='ldmlBCP47' elements='type' attributes='since' type='choice'>$versionDotted</attributeValues>
 			<attributeValues dtds='ldmlBCP47' elements='version' attributes='cldrVersion' type='choice'>$double</attributeValues>
 			<attributeValues dtds='ldmlBCP47' elements='version' attributes='number' type='regex'>\$Revision.*\$</attributeValues>
-			<attributeValues dtds='ldml' elements='subdivision' attributes='type' type='single'>$_subdivision</attributeValues>
+			<!--  
+			<attributeValues dtds='ldml' elements='subdivision' attributes='type' type='single'>$_subdivisionIso</attributeValues>
+			-->
 			<attributeValues dtds='supplementalData' elements='group' attributes='type' type='list'>$_region</attributeValues>
 			<attributeValues dtds='supplementalData' elements='personList' attributes='locales' type='list'>$localeOrDeprecated</attributeValues>
 			<attributeValues dtds='supplementalData' elements='subgroup' attributes='subtype' type='TODO'></attributeValues>

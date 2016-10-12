@@ -45,7 +45,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="10"> ($E_Base | $E_Base_GAZ) $Extend* × $E_Modifier </rule>
 				<rule id="11"> ($Extended_Pict | $EmojiNRK) $ZWJ × ($Extended_Pict | $EmojiNRK) </rule>
 				<rule id="12"> ^$Prepend* $Regional_Indicator $Regional_Indicator ÷ $Regional_Indicator </rule>
-				<rule id="13"> ^$Prepend* $Regional_Indicator $Regional_Indicator </rule>
+				<rule id="13"> ^$Prepend* $Regional_Indicator × $Regional_Indicator </rule>
 			</segmentRules>
 		</segmentation>
 		<segmentation type="LineBreak">
@@ -251,8 +251,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB 30  Do not break between letters, numbers or ordinary symbols and opening or closing punctuation. -->
 				<rule id="30.01"> ($AL | $HL | $NU) × $OP </rule>
 				<rule id="30.02"> $CP × ($AL | $HL | $NU) </rule>
-				<!-- LB 30a  Do not break between Regional Indicators. -->
-				<rule id="30.11"> $RI × $RI </rule>
+				<!-- LB 30a Do not break between two regional indicator symbols if there is an odd number of regional indicators preceding the break position. -->
+				<rule id="30.11"> sot ($RI $RI)* $RI × $RI </rule>
+				<rule id="30.12"> [^$RI] ($RI $RI)* $RI × $RI </rule>
 				<!-- LB 30b  Do not break between an emoji base and an emoji modifier.. -->
 				<rule id="30.21"> $EB × $EM </rule>
 			</segmentRules>

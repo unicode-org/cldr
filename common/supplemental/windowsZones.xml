@@ -9,7 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <supplementalData>
 	<version number="$Revision$"/>
 	<windowsZones>
-		<mapTimezones otherVersion="7e00401" typeVersion="2016f">
+		<mapTimezones otherVersion="7e00402" typeVersion="2016g">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -451,7 +451,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+03:00) Moscow, St. Petersburg, Volgograd -->
 			<mapZone other="Russian Standard Time" territory="001" type="Europe/Moscow"/>
-			<mapZone other="Russian Standard Time" territory="RU" type="Europe/Moscow Europe/Kirov Europe/Simferopol Europe/Volgograd"/>
+			<mapZone other="Russian Standard Time" territory="RU" type="Europe/Moscow Europe/Kirov Europe/Volgograd"/>
+			<mapZone other="Russian Standard Time" territory="UA" type="Europe/Simferopol"/>
 
 			<!-- (UTC+03:00) Nairobi -->
 			<mapZone other="E. Africa Standard Time" territory="001" type="Africa/Nairobi"/>
@@ -555,9 +556,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Bangladesh Standard Time" territory="BD" type="Asia/Dhaka"/>
 			<mapZone other="Bangladesh Standard Time" territory="BT" type="Asia/Thimphu"/>
 
-			<!-- (UTC+06:00) Novosibirsk -->
-			<mapZone other="N. Central Asia Standard Time" territory="001" type="Asia/Novosibirsk"/>
-			<mapZone other="N. Central Asia Standard Time" territory="RU" type="Asia/Novosibirsk Asia/Omsk"/>
+			<!-- (UTC+06:00) Omsk -->
+			<mapZone other="Omsk Standard Time" territory="001" type="Asia/Omsk"/>
+			<mapZone other="Omsk Standard Time" territory="RU" type="Asia/Omsk"/>
 
 			<!-- (UTC+06:30) Yangon (Rangoon) -->
 			<mapZone other="Myanmar Standard Time" territory="001" type="Asia/Rangoon"/>
@@ -586,6 +587,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+07:00) Krasnoyarsk -->
 			<mapZone other="North Asia Standard Time" territory="001" type="Asia/Krasnoyarsk"/>
 			<mapZone other="North Asia Standard Time" territory="RU" type="Asia/Krasnoyarsk Asia/Novokuznetsk"/>
+
+			<!-- (UTC+07:00) Novosibirsk -->
+			<mapZone other="N. Central Asia Standard Time" territory="001" type="Asia/Novosibirsk"/>
+			<mapZone other="N. Central Asia Standard Time" territory="RU" type="Asia/Novosibirsk"/>
 
 			<!-- (UTC+07:00) Tomsk -->
 			<mapZone other="Tomsk Standard Time" territory="001" type="Asia/Tomsk"/>
@@ -761,5 +766,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Line Islands Standard Time" territory="ZZ" type="Etc/GMT-14"/>
 		</mapTimezones>
 	</windowsZones>
-
 </supplementalData>

@@ -1,7 +1,5 @@
-# DRAFT
-#
 # ExtendedPictographic.txt
-# Date: 2016-07-01
+# Date: 2016-10-12
 # © 2016 Unicode®, Inc.
 # For terms of use, see http://www.unicode.org/terms_of_use.html
 #
@@ -21,7 +19,7 @@
 #
 # =====
 # Review Notes 
-# The files contain additional comments to aid with review of the draft property.
+# The files contain additional comments to aid in understanding the context of the property values.
 #
 # 1. Blocks are included if they contain any emoji characters, even if there are no EP characters.
 #
@@ -40,11 +38,11 @@
 #    • other:   the number of other characters in the block (non-Emoji, non-EP),
 #    • otherCn: the number of other code points in the block (non-Emoji, non-EP, not characters).
 #
-#    The characters can be listed out in detail by using http://unicode.org/cldr/utility/list-unicodeset.jsp
+#    The characters can be listed out in detail by using any implementation that supports UnicodeSet,
+#    such as ​http://unicode.org/cldr/utility/list-unicodeset.jsp.
 #    The lines are omitted if empty: for example, Transport_And_Map_Symbols have no "other" characters.
 #    
 # =====
-# DATA (generated)
 
 # Alchemical_Symbols
 # EP=12	: [🝴-🝿]

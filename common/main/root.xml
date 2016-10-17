@@ -3326,9 +3326,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencyFormats numberSystem="arab">
+			<currencySpacing>
+				<alias source="locale" path="../../currencyFormats[@numberSystem='latn']/currencySpacing"/> 
+			</currencySpacing>
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<alias source="locale" path="../currencyFormat[@type='standard']"/>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

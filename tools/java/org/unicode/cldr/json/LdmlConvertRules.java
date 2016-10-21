@@ -40,6 +40,7 @@ class LdmlConvertRules {
         "field:relative:type",
         "field:relativeTime:type",
         "relativeTime:relativeTimePattern:count",
+        "availableFormats:dateFormatItem:count",
         "listPatterns:listPattern:type",
         "timeZoneNames:regionFormat:type",
         "units:durationUnit:type",

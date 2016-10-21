@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2016 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -59,21 +59,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="700">сімсот[ →→];</rbnfrule>
                 <rbnfrule value="800">вісімсот[ →→];</rbnfrule>
                 <rbnfrule value="900">девʼятсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← тисяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-feminine← тисячі[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← тисяч[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← мільйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← мільйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← мільйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← мільярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← мільярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← мільярдів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← більйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← більйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← більйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← більярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← більярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← більярдів[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тисяча}few{тисячі}other{тисяч})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{мільйон}few{мільйони}other{мільйонів})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{мільярд}few{мільярди}other{мільярдів})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{більйон}few{більйони}other{більйонів})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{більярд}few{більярди}other{більярдів})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-neuter">
@@ -100,21 +90,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="700">сімсот[ →→];</rbnfrule>
                 <rbnfrule value="800">вісімсот[ →→];</rbnfrule>
                 <rbnfrule value="900">девʼятсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← тисяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-feminine← тисячі[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← тисяч[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← мільйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← мільйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← мільйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← мільярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← мільярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← мільярдів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← більйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← більйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← більйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← більярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← більярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← більярдів[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тисяча}few{тисячі}other{тисяч})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{мільйон}few{мільйони}other{мільйонів})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{мільярд}few{мільярди}other{мільярдів})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{більйон}few{більйони}other{більйонів})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{більярд}few{більярди}other{більярдів})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine">
@@ -141,21 +121,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="700">сімсот[ →→];</rbnfrule>
                 <rbnfrule value="800">вісімсот[ →→];</rbnfrule>
                 <rbnfrule value="900">девʼятсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← тисяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-feminine← тисячі[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← тисяч[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← мільйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← мільйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← мільйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← мільярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← мільярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← мільярдів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← більйон[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← більйони[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← більйонів[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← більярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← більярди[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← більярдів[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тисяча}few{тисячі}other{тисяч})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{мільйон}few{мільйони}other{мільйонів})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{мільярд}few{мільярди}other{мільярдів})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{більйон}few{більйони}other{більйонів})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{більярд}few{більярди}other{більярдів})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>

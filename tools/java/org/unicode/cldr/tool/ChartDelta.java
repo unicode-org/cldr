@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -66,13 +67,23 @@ public class ChartDelta extends Chart {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        fileFilter(".*", ".*", "filter by dir/locale, eg: ^main/en$ or .*/en"),
-        verbose(null, null, "verbose debugging messages");
-        // boilerplate
-        final Option option;
+        fileFilter(new Params().setHelp("filter by dir/locale, eg: ^main/en$ or .*/en").setDefault(".*").setMatch(".*")),
+        verbose(new Params().setHelp("verbose debugging messages")),
+        ;
 
-        MyOptions(String argumentPattern, String defaultArgument, String helpText) {
-            option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
+        // BOILERPLATE TO COPY
+        final Option option;
+        private MyOptions(Params params) {
+            option = new Option(this, params);
+        }
+        private static Options myOptions = new Options();
+        static {
+            for (MyOptions option : MyOptions.values()) {
+                myOptions.add(option, option.option);
+            }
+        }
+        private static Set<String> parse(String[] args, boolean showArguments) {
+            return myOptions.parse(MyOptions.values()[0], args, true);
         }
     }
 
@@ -86,7 +97,7 @@ public class ChartDelta extends Chart {
 
     public static void main(String[] args) {
         System.out.println("use -DCHART_VERSION=28 to generate version 28.");
-        myOptions.parse(MyOptions.fileFilter, args, true);
+        myOptions.parse(args, true);
         Matcher fileFilter = !MyOptions.fileFilter.option.doesOccur() ? null : PatternCache.get(MyOptions.fileFilter.option.getValue()).matcher("");
         boolean verbose = MyOptions.verbose.option.doesOccur();
         ChartDelta temp = new ChartDelta(fileFilter, verbose);

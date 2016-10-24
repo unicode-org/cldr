@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.HelpMessages;
 import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -130,7 +131,7 @@ public class FormattedFileWriter extends java.io.Writer {
             return; // skip writing if there are no contents
         }
         if (explanation == null) {
-            explanation = ShowLanguages.getHelpHtml(filename);
+            explanation = HelpMessages.getChartMessages(filename);
         }
         if (explanation != null) {
             contents = explanation + contents;

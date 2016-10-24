@@ -33,7 +33,6 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -2596,23 +2595,6 @@ public class ShowLanguages {
             s.addAll(Arrays.asList(values.split(value_delimiter)));
         }
     }
-
-    public static String getHelpHtml(String xpath) {
-        synchronized (ShowLanguages.class) {
-            if (helpMessages == null) {
-                helpMessages = new HelpMessages("chart_messages.html");
-            }
-        }
-        return helpMessages.find(xpath);
-        // if (xpath.contains("/exemplarCharacters")) {
-        // result = "The standard exemplar characters are those used in customary writing ([a-z] for English; "
-        // + "the auxiliary characters are used in foreign words found in typical magazines, newspapers, &c.; "
-        // + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'. ";
-        // }
-        // return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
-    }
-
-    static HelpMessages helpMessages;
 
     public static void showContents(Appendable pw, String... items) {
         try {

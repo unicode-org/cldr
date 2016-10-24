@@ -35,7 +35,7 @@ import javax.servlet.http.HttpSession;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
+import org.unicode.cldr.test.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;

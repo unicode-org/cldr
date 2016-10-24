@@ -1301,7 +1301,7 @@ public class ConsoleCheckCLDR {
                 "<p>The following errors have been detected in the locale"
                 +
                 (notLocaleSpecific
-                    ? "s. " + org.unicode.cldr.tool.ShowLanguages.getHelpHtml("error_index_header")
+                    ? "s. " + org.unicode.cldr.test.HelpMessages.getChartMessages("error_index_header")
                         : " " + ConsoleCheckCLDR.getNameAndLocale(localeID, false) + ". "
                         + ErrorFile.ERROR_CHART_HEADER
                     ));
@@ -1348,8 +1348,8 @@ public class ConsoleCheckCLDR {
         static PrintWriter errorFileWriter = null;
         private static String htmlOpenedFileLanguage = null;
         private static String htmlOpenedFileLocale = null;
-        private static final String ERROR_CHART_HEADER = org.unicode.cldr.tool.ShowLanguages
-            .getHelpHtml("error_locale_header");
+        private static final String ERROR_CHART_HEADER = org.unicode.cldr.test.HelpMessages
+            .getChartMessages("error_locale_header");
         // "Please review and correct them. " +
         // "Note that errors in <i>sublocales</i> are often fixed by fixing the main locale.</p>" +
         // Utility.LINE_SEPARATOR +

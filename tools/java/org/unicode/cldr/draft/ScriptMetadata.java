@@ -12,9 +12,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.ScriptCategories2.RegionFilter;
 import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.SemiFileReader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.With;
@@ -319,7 +319,31 @@ public class ScriptMetadata {
         private Groupings(String... regions) {
             scripts = With
                 .in(getScripts())
-                .toUnmodifiableCollection(new ScriptCategories2.RegionFilter(regions), new TreeSet());
+                .toUnmodifiableCollection(new ScriptMetadata.RegionFilter(regions), new TreeSet());
+        }
+    }
+
+    static class RegionFilter implements com.ibm.icu.text.Transform<String, String> {
+        final String[] containingRegion;
+    
+        RegionFilter(String... containingRegion) {
+            this.containingRegion = containingRegion;
+        }
+    
+        @Override
+        public String transform(String script) {
+            String currentRegion = getInfo(script).originCountry;
+            while (true) {
+                for (String s : containingRegion) {
+                    if (s.equals(currentRegion)) {
+                        return script;
+                    }
+                }
+                if (currentRegion.equals("001") || currentRegion.equals("ZZ")) {
+                    return null;
+                }
+                currentRegion = Containment.getContainer(currentRegion);
+            }
         }
     }
 

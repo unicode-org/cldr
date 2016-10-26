@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.ScriptCategories.RemapType;
+import org.unicode.cldr.draft.ScriptCategories2.RemapType;
 import org.unicode.cldr.util.BagFormatter;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility.CollectionComparator;
@@ -25,7 +25,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.UnicodeSet;
 
-public class FormatSpecialData {
+public class FormatSpecialData2 {
     private static final UnicodeSet UNASSIGNED = new UnicodeSet("[:cn:]").freeze();
     public static final UnicodeSet simpOnly = new UnicodeSet(
         "[㑩㓥㔉㖊㖞㛟㛠㛿㟆㧑㧟㨫㱩㱮㲿㶉㶶㶽㺍㻏㻘䁖䅉䇲䌶-䌺䌼-䌾䍀䍁䓕䗖䘛䙊䙓䜣䜥䜧䝙䞌䞍䞐䢂䥿-䦁䩄䯃-䯅䲝䲞䴓-䴙万与丑专业-丝丢两严丧个丰临为丽举么义乌乐乔习乡书买乱争于亏云亚产亩亲亵亸亿仅仆从仑仓仪们价众优会伛伞-传伣-伧伪伫体佣佥侠侣侥-侪侬俣俦俨-俫俭债倾偬偻偾偿傥傧-傩儿克兑兖党兰关兴兹养兽冁内冈册写军农冯冲决况冻净准凉减凑凛几凤凫凭凯击凿刍划刘-创删别-刮制刹刽刿剀剂剐剑剥剧劝办务劢动励-劳势勋勚匀匦匮区医华协单卖卜卢卤卫却厂厅历厉压-厍厐厕厘厢厣厦厨厩厮县叁参双发变叙叠只叶号叹叽同向吓吕吗吣吨听启吴呐呒呓呕-呙呛呜咏咙咛咝咤咸响哑-哕哗哙哜哝哟唛唝唠-唢唤啧啬-啮啴啸喷喽喾嗫嗳嘘嘤嘱噜嚣团园困囱围囵国图圆圣圹场坂坏块坚-坠垄-垆垒垦垩垫垭垱垲垴埘-埚埯堑堕墙壮声壳壶壸处备复够头夸-夺奁奂奋奖奥奸妆-妈妩-妫姗姹娄-娈娱娲娴婳-婶媪嫒嫔嫱嬷孙学孪宁宝实宠审宪宫宽宾寝对寻导寿将尔尘尝尧尴尸尽层屃屉届属屡屦屿岁岂岖-岛岭岽岿峄峡峣-峦崂-崄崭嵘嵚嵝巅巩巯币帅师帏帐帘帜带帧帮帱帻帼幂干并广庄庆庐庑库应庙庞废廪开异弃弑张弥弪弯弹强归当录彝彦彻征径徕御忆忏忧忾怀-怆怜总怼怿恋恒恳恶恸-恽悦悫-悯惊惧-惩惫-惯愠愤愦愿慑懑懒懔戆戋戏戗战戬戯户扑执扩-扬扰抚抛抟-抢护报担拟拢拣拥-择挂挚-挦挽捝-损捡-捣据掳掴掷掸掺掼揽-搂搅携摄-摈摊撄撑撵撷撸撺擞攒敌敛数斋斓斗斩断无旧时-旸昙昼-显晋晒-晖暂暧术朴机杀杂权杆条来杨杩杰松板构枞枢枣枥枧枨枪枫枭柜柠柽栀栅标-栌栎栏树栖栗样栾桠-桩梦梼梾-棂椁椟椠椤椭楼榄榅榇-榉槚槛槟槠横樯樱橥橱橹橼檩欢欤欧歼殁殇残殒殓殚殡殴毁毂毕毙毡毵氇气氢氩氲汇汉汤汹沈沟没沣-沧沩沪泞注泪泶-泸泺-泾洁洒洼浃浅-浈浊测浍-浔涂涛涝-涡涣涤润-涩淀渊渌-渎渐渑渔渖渗温湾湿溃溅溆滗滚滞-滢滤-滦滨-滪漓漤潆潇潋潍潜潴澜濑濒灏灭灯灵灶灾-炀炉炖炜炝点炼炽烁-烃烛烟烦-烩烫-热焕焖焘煴爱爷牍牦牵牺犊状-犹狈狝狞独-狲猃猎猕猡猪-猬献獭玑玚玛玮-玱玺珐珑珰珲琏琐琼瑶瑷璎瓒瓯电画畅畴疖疗疟-疡疬-疯疱疴症-痉痒痖痨痪痫瘅瘆瘗瘘瘪瘫瘾瘿癞癣癫皑皱皲盏-监盖-盘眍眦眬着睁睐睑瞆瞒瞩矫矶矾-码砖砗砚砜砺砻砾础硁硕-硗硙确硷碍碛碜碱礼祃祎祢祯祷祸禀禄禅离秃秆种积称秽秾稆税稣稳穑穷窃窍窎窑窜窝窥窦窭竖竞笃笋笔笕笺笼笾筑筚-筝筹筼签简箓箦-箫篑篓篮篱簖籁籴类籼粜粝粤粪粮糁糇系紧累絷纟-缏缑-缵罂网罗罚罢罴羁羟翘耢耧耸耻聂聋-聍联聩聪肃肠肤肮肴肾-胁胆胜胡胧胨胪胫胶脉脍脏-脑脓脔脚脱脶脸腊腭腻-腾膑臜致舆舍舣舰舱舻艰艳艺节芈芗芜芦芸苁苇苈苋-苏苹范茎茏茑茔茕茧荆荐荙-荜荞-荡荣-药莅莱-莴莶-莺莼萝萤-萨葱蒇蒉蒋蒌蓝蓟蓠蓣蓥蓦蔂蔷蔹蔺蔼蕰蕲蕴薮藓蘖虏虑虚虫虬虮虽-蚂蚕蚬蛊蛎蛏蛮蛰-蛴蜕蜗蝇-蝉蝼蝾螀螨蟏衅衔补表衬衮袄-袆袜袭袯装裆裈裢-裥褛褴见-觑觞触觯訚誉誊讠-谈谊-谷豮贝-赣赪赵赶趋趱趸跃跄跞践-跹跻踊踌踪踬踯蹑蹒蹰蹿躏躜躯车-辚辞辩辫边辽达迁过迈运还这进-迟迩迳迹适选逊递逦逻遗遥邓邝邬邮邹-邻郁郏-郑郓郦郧郸酂酝酦酱酽-酿采释里鉴銮錾钅-镶长门-阛队阳-阶际-陉陕陧-险随隐隶隽难雏雠雳雾霁霡霭靓静面靥鞑鞒鞯韦-韬韵页-颢颤-颧风-飚飞飨餍饣-馕马-骧髅髋髌鬓魇魉鱼-鳣鸟-鹭鹯-鹴鹾麦麸黄黉黡黩黪黾鼋鼍鼗鼹齐齑齿-龌龙-龛龟𡒄𨱏]")
@@ -38,11 +38,11 @@ public class FormatSpecialData {
     public static final UnicodeSet specialIPA = new UnicodeSet("[βΒ θΘ χΧ]");
 
     public static void main(String[] args) throws IOException {
-        String resource = FileReaders.getRelativeFileName(FormatSpecialData.class, "ScriptData.txt");
+        String resource = FileReaders.getRelativeFileName(FormatSpecialData2.class, "ScriptData.txt");
         final UnicodeMap<Set<String>> pivot = new UnicodeMap<Set<String>>();
         ;
 
-        Map<RemapType, Map<String, UnicodeSet>> data = ScriptCategories.getRemapData(resource);
+        Map<RemapType, Map<String, UnicodeSet>> data = ScriptCategories2.getRemapData(resource);
         for (RemapType type : RemapType.values()) {
             System.out.println(type);
             Map<String, UnicodeSet> string2uset = data.get(type);
@@ -55,7 +55,7 @@ public class FormatSpecialData {
             pivot.clear();
             addDataToPivot(string2uset, pivot);
             if (type == RemapType.SCRIPT) {
-                addDataToPivot(ScriptCategories.SCRIPT_NEW, pivot);
+                addDataToPivot(ScriptCategories2.SCRIPT_NEW, pivot);
                 add("Hans", simpOnly, pivot);
                 add("Hant", tradOnly, pivot);
                 // add("Hans", bothSimpTrad, pivot);

@@ -37,7 +37,8 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.VersionInfo;
 
-public class GenerateNormalizeForMatch {
+@Deprecated
+public class GenerateNormalizeForMatch2 {
     static boolean TABLE = true;
 
     // Command choices
@@ -130,7 +131,7 @@ public class GenerateNormalizeForMatch {
             fixOld(sourceFile, targetFile);
         } else {
             if (frequencyFile != null) {
-                frequencies = new FrequencyData(frequencyFile, true);
+                frequencies = new FrequencyData2(frequencyFile, true);
             }
             generateMappings(sourceFile, targetFile, oldMappingFile, frequencyFile);
         }
@@ -662,7 +663,7 @@ public class GenerateNormalizeForMatch {
     public static final Transliterator toHTMLControl = Transliterator.createFromRules(
         "any-html", RULES, Transliterator.FORWARD);
 
-    private static FrequencyData frequencies;
+    private static FrequencyData2 frequencies;
 
     private static String quote(String input) {
         String source = input;

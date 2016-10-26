@@ -29,7 +29,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
-public class FrequencyData {
+public class FrequencyData2 {
 
     private static final boolean MARKUP = false;
     private static final boolean MAP_CASE = true;
@@ -75,8 +75,8 @@ public class FrequencyData {
     static final int postFrequencyIndex = 2 + 4 + 1;
     static final int preFrequencyIndex = 2 + 4 + 0;
 
-    public FrequencyData(String frequencyFile, boolean showProgress) throws IOException {
-        BufferedReader in = GenerateNormalizeForMatch.openUTF8Reader(frequencyFile);
+    public FrequencyData2(String frequencyFile, boolean showProgress) throws IOException {
+        BufferedReader in = GenerateNormalizeForMatch2.openUTF8Reader(frequencyFile);
         for (int lineCount = 0;; ++lineCount) {
             String line = in.readLine();
             if (line == null) break;
@@ -350,7 +350,7 @@ public class FrequencyData {
         String frequencyFile = args[0];
         System.out.println("IICoreSet\t" + getIICore().size() + "\t" + getIICore().toPattern(false));
 
-        FrequencyData data = new FrequencyData(frequencyFile, true);
+        FrequencyData2 data = new FrequencyData2(frequencyFile, true);
         showHan(data);
         writeSummary(data);
 
@@ -377,7 +377,7 @@ public class FrequencyData {
         // }
     }
 
-    private static void showHan(FrequencyData data) {
+    private static void showHan(FrequencyData2 data) {
         UnicodeSet han = new UnicodeSet("\\p{sc=han}").freeze();
         UnicodeSet tranche = new UnicodeSet();
         UnicodeSet iiCore2 = new UnicodeSet(getIICore());
@@ -416,7 +416,7 @@ public class FrequencyData {
         }
     }
 
-    private static void writeSummary(FrequencyData data) throws IOException {
+    private static void writeSummary(FrequencyData2 data) throws IOException {
         PrintWriter log = new PrintWriter(System.out);
         // mul 101 1380717913 0.000529173715836 U+0026 & Po AMPERSAND
 

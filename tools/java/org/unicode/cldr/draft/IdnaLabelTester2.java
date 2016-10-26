@@ -50,7 +50,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 
-public class IdnaLabelTester {
+public class IdnaLabelTester2 {
 
     private static boolean VERBOSE = false;
 
@@ -128,7 +128,7 @@ public class IdnaLabelTester {
     private static final UnicodeSet NOT_NFKC_CASE_FOLD = computeNotNfkcCaseFold();
     VariableReplacer variables = new VariableReplacer();
 
-    public IdnaLabelTester(String file) throws IOException {
+    public IdnaLabelTester2(String file) throws IOException {
 
         BufferedReader in = openFile(file);
 
@@ -277,7 +277,7 @@ public class IdnaLabelTester {
     static String removals = new UnicodeSet("[\u1806[:di:]-[:cn:]]").complement().complement().toPattern(false);
     static Matcher rem = Pattern.compile(removals).matcher("");
 
-    private static FrequencyData frequencies;
+    private static FrequencyData2 frequencies;
 
     private static String NFKC_CaseFold(int i, Normalizer.Mode mode, boolean onlyLower, boolean keepDI) {
         String nfkc = Normalizer.normalize(i, mode);
@@ -428,7 +428,7 @@ public class IdnaLabelTester {
         System.out.println("weltfussball\t" + Punycode.encode(new StringBuffer("weltfussball"), null));
 
         String dir = CLDRPaths.BASE_DIRECTORY + "tools/java/org/unicode/cldr/draft/";
-        IdnaLabelTester tester = new IdnaLabelTester(dir + "idnaContextRules.txt");
+        IdnaLabelTester2 tester = new IdnaLabelTester2(dir + "idnaContextRules.txt");
         BufferedReader in = openFile(dir + "idnaTestCases.txt");
         frequencyFile = org.unicode.cldr.util.CldrUtility.getProperty("frequency");
 
@@ -1020,7 +1020,7 @@ public class IdnaLabelTester {
     private void loadFrequencies() {
         if (frequencies == null && frequencyFile != null) {
             try {
-                frequencies = new FrequencyData(frequencyFile, false);
+                frequencies = new FrequencyData2(frequencyFile, false);
             } catch (IOException e) {
                 throw new IllegalArgumentException(e);
             }

@@ -31,7 +31,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
-public abstract class Ids implements Comparable<Ids> {
+public abstract class Ids2 implements Comparable<Ids2> {
 
     static final UnicodeSet ALLOWED = new UnicodeSet("[[:Unified_Ideograph:]]").freeze(); // [:Block=CJK Radicals
                                                                                           // Supplement:][:Block=Kangxi
@@ -101,7 +101,7 @@ public abstract class Ids implements Comparable<Ids> {
         public void atRelation(int codepoint) {
         }
 
-        public void atComponent(Ids first) {
+        public void atComponent(Ids2 first) {
         }
     }
 
@@ -109,16 +109,16 @@ public abstract class Ids implements Comparable<Ids> {
         if (getClass() != other.getClass()) {
             return false;
         }
-        return codepoint == ((Ids) other).codepoint;
+        return codepoint == ((Ids2) other).codepoint;
     }
 
     public int hashCode() {
         return codepoint;
     }
 
-    public static Ids parse(CharSequence s) {
+    public static Ids2 parse(CharSequence s) {
         CodePoints codePoints = new CodePoints(s);
-        Ids result = parse(codePoints);
+        Ids2 result = parse(codePoints);
         if (codePoints.next()) {
             hacks.addProblem("Superfluous chars at " + charAndHex(codePoints.getCodePoint()));
         }
@@ -129,10 +129,10 @@ public abstract class Ids implements Comparable<Ids> {
         visitor.atCodePoint(codepoint);
     }
 
-    public UnicodeSet addChars(UnicodeSet results, UnicodeMap<Ids> data) {
+    public UnicodeSet addChars(UnicodeSet results, UnicodeMap<Ids2> data) {
         results.add(codepoint);
         if (data != null) {
-            Ids other = data.get(this.codepoint);
+            Ids2 other = data.get(this.codepoint);
             if (other != null && !(other instanceof Leaf)) {
                 return other.addChars(results, data);
             }
@@ -140,9 +140,9 @@ public abstract class Ids implements Comparable<Ids> {
         return results;
     }
 
-    public boolean contains(int codepoint, UnicodeMap<Ids> data) {
+    public boolean contains(int codepoint, UnicodeMap<Ids2> data) {
         if (data != null) {
-            Ids other = data.get(this.codepoint);
+            Ids2 other = data.get(this.codepoint);
             if (other != null && !(other instanceof Leaf)) {
                 return other.contains(codepoint, data);
             }
@@ -154,12 +154,12 @@ public abstract class Ids implements Comparable<Ids> {
         return 1;
     }
 
-    abstract boolean minimize(Map<Ids, Integer> reverseData);
+    abstract boolean minimize(Map<Ids2, Integer> reverseData);
 
-    abstract String toString(UnicodeMap<Ids> data, boolean replace, int maxLevel);
+    abstract String toString(UnicodeMap<Ids2> data, boolean replace, int maxLevel);
 
-    protected String showCodepoint(UnicodeMap<Ids> data, boolean replace, int maxLevel) {
-        Ids result = data.get(codepoint);
+    protected String showCodepoint(UnicodeMap<Ids2> data, boolean replace, int maxLevel) {
+        Ids2 result = data.get(codepoint);
         if (result instanceof Leaf) {
             result = null;
         }
@@ -169,7 +169,7 @@ public abstract class Ids implements Comparable<Ids> {
                     : result.toString(data, replace, maxLevel - 1);
     }
 
-    protected static Ids parse(CodePoints codePoints) {
+    protected static Ids2 parse(CodePoints codePoints) {
         codePoints.next();
         int cp = codePoints.getCodePoint();
         switch (cp) {
@@ -205,7 +205,7 @@ public abstract class Ids implements Comparable<Ids> {
     }
 
     static class LeafCounter extends Visitor {
-        UnicodeMap<Ids> data;
+        UnicodeMap<Ids2> data;
         Counter<Integer> counter = new Counter<Integer>();
         Counter<Integer> relationCounter = new Counter<Integer>();
 
@@ -215,7 +215,7 @@ public abstract class Ids implements Comparable<Ids> {
 
         public void atCodePoint(int codepoint) {
             if (data != null) {
-                Ids result = data.get(codepoint);
+                Ids2 result = data.get(codepoint);
                 if (result != null) {
                     result.visit(this);
                     return;
@@ -224,7 +224,7 @@ public abstract class Ids implements Comparable<Ids> {
             counter.add(codepoint, 1);
         }
 
-        public void atComponent(Ids first) {
+        public void atComponent(Ids2 first) {
 
         }
 
@@ -233,7 +233,7 @@ public abstract class Ids implements Comparable<Ids> {
         }
     }
 
-    static final class Leaf extends Ids {
+    static final class Leaf extends Ids2 {
         Leaf(int cp) {
             String nfcForm = nfc.normalize(UTF16.valueOf(cp));
             if (nfcForm.codePointCount(0, nfcForm.length()) != 1) {
@@ -262,7 +262,7 @@ public abstract class Ids implements Comparable<Ids> {
             return UTF16.valueOf(codepoint);
         }
 
-        public int compareTo(Ids o) {
+        public int compareTo(Ids2 o) {
             if (o instanceof Leaf) {
                 return codepoint - o.codepoint;
             } else {
@@ -270,23 +270,23 @@ public abstract class Ids implements Comparable<Ids> {
             }
         }
 
-        String toString(UnicodeMap<Ids> data, boolean replace, int maxLevel) {
+        String toString(UnicodeMap<Ids2> data, boolean replace, int maxLevel) {
             return showCodepoint(data, replace, maxLevel);
         }
 
-        boolean minimize(Map<Ids, Integer> reverseData) {
+        boolean minimize(Map<Ids2, Integer> reverseData) {
             return false;
         }
     }
 
-    static class Dual extends Ids {
-        Ids first;
-        Ids second;
+    static class Dual extends Ids2 {
+        Ids2 first;
+        Ids2 second;
 
         Dual(int cp, CodePoints codePoints) {
             codepoint = cp;
-            first = Ids.parse(codePoints);
-            second = Ids.parse(codePoints);
+            first = Ids2.parse(codePoints);
+            second = Ids2.parse(codePoints);
         }
 
         public boolean equals(Object other) {
@@ -311,12 +311,12 @@ public abstract class Ids implements Comparable<Ids> {
             return "{" + UTF16.valueOf(codepoint) + first.toString() + second.toString() + "}";
         }
 
-        public String toString(UnicodeMap<Ids> data, boolean replace, int maxLevel) {
+        public String toString(UnicodeMap<Ids2> data, boolean replace, int maxLevel) {
             return "{" + showCodepoint(data, replace, maxLevel - 1) + first.toString(data, replace, maxLevel - 1)
                 + second.toString(data, replace, maxLevel - 1) + "}";
         }
 
-        public int compareTo(Ids o) {
+        public int compareTo(Ids2 o) {
             if (o instanceof Dual) {
                 int diff = codepoint - o.codepoint;
                 if (diff != 0) return diff;
@@ -330,13 +330,13 @@ public abstract class Ids implements Comparable<Ids> {
             }
         }
 
-        public UnicodeSet addChars(UnicodeSet results, UnicodeMap<Ids> data) {
+        public UnicodeSet addChars(UnicodeSet results, UnicodeMap<Ids2> data) {
             super.addChars(results, data);
             first.addChars(results, data);
             return second.addChars(results, data);
         }
 
-        public boolean contains(int codepoint, UnicodeMap<Ids> data) {
+        public boolean contains(int codepoint, UnicodeMap<Ids2> data) {
             return super.contains(codepoint, data) || first.contains(codepoint, data)
                 || second.contains(codepoint, data);
         }
@@ -345,7 +345,7 @@ public abstract class Ids implements Comparable<Ids> {
             return 1 + first.size() + second.size();
         }
 
-        boolean minimize(Map<Ids, Integer> reverseData) {
+        boolean minimize(Map<Ids2, Integer> reverseData) {
             boolean result = false;
             if (!(first instanceof Leaf)) {
                 Integer replacement = reverseData.get(first);
@@ -366,11 +366,11 @@ public abstract class Ids implements Comparable<Ids> {
     }
 
     static final class Trial extends Dual {
-        Ids third;
+        Ids2 third;
 
         Trial(int cp, CodePoints codePoints) {
             super(cp, codePoints);
-            third = Ids.parse(codePoints);
+            third = Ids2.parse(codePoints);
         }
 
         public boolean equals(Object other) {
@@ -397,12 +397,12 @@ public abstract class Ids implements Comparable<Ids> {
             return "{" + UTF16.valueOf(codepoint) + first.toString() + second.toString() + third.toString() + "}";
         }
 
-        public String toString(UnicodeMap<Ids> data, boolean replace, int maxLevel) {
+        public String toString(UnicodeMap<Ids2> data, boolean replace, int maxLevel) {
             return "{" + showCodepoint(data, replace, maxLevel - 1) + first.toString(data, replace, maxLevel - 1)
                 + second.toString(data, replace, maxLevel - 1) + third.toString(data, replace, maxLevel - 1) + "}";
         }
 
-        public int compareTo(Ids o) {
+        public int compareTo(Ids2 o) {
             if (o instanceof Trial) {
                 int diff = codepoint - o.codepoint;
                 if (diff != 0) return diff;
@@ -418,12 +418,12 @@ public abstract class Ids implements Comparable<Ids> {
             }
         }
 
-        public UnicodeSet addChars(UnicodeSet results, UnicodeMap<Ids> data) {
+        public UnicodeSet addChars(UnicodeSet results, UnicodeMap<Ids2> data) {
             super.addChars(results, data);
             return third.addChars(results, data);
         }
 
-        public boolean contains(int codepoint, UnicodeMap<Ids> data) {
+        public boolean contains(int codepoint, UnicodeMap<Ids2> data) {
             return super.contains(codepoint, data) || third.contains(codepoint, data);
         }
 
@@ -431,7 +431,7 @@ public abstract class Ids implements Comparable<Ids> {
             return super.size() + third.size();
         }
 
-        boolean minimize(Map<Ids, Integer> reverseData) {
+        boolean minimize(Map<Ids2, Integer> reverseData) {
             boolean result = super.minimize(reverseData);
             if (!(third instanceof Leaf)) {
                 Integer replacement = reverseData.get(third);
@@ -444,8 +444,8 @@ public abstract class Ids implements Comparable<Ids> {
         }
     }
 
-    static Comparator<Ids> IdsComparator = new Comparator<Ids>() {
-        public int compare(Ids o1, Ids o2) {
+    static Comparator<Ids2> IdsComparator = new Comparator<Ids2>() {
+        public int compare(Ids2 o1, Ids2 o2) {
             int diff = o1.size() - o2.size();
             if (diff != 0) return diff;
             return o1.compareTo(o2);
@@ -466,12 +466,12 @@ public abstract class Ids implements Comparable<Ids> {
      * U+2FFB ( ⿻ ) IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID
      */
 
-    static UnicodeSetPrettyPrinter pp = new UnicodeSetPrettyPrinter().setOrdering(RadicalStroke.RadicalStrokeComparator).setCompressRanges(
+    static UnicodeSetPrettyPrinter pp = new UnicodeSetPrettyPrinter().setOrdering(RadicalStroke2.RadicalStrokeComparator).setCompressRanges(
         false);
 
     public static void main(String[] args) throws IOException {
 
-        TreeSet<String> sortedByRadicalStroke = new TreeSet<String>(RadicalStroke.RadicalStrokeComparator);
+        TreeSet<String> sortedByRadicalStroke = new TreeSet<String>(RadicalStroke2.RadicalStrokeComparator);
         for (String s : ALLOWED) {
             sortedByRadicalStroke.add(s);
         }
@@ -480,7 +480,7 @@ public abstract class Ids implements Comparable<Ids> {
         // System.out.println(Ids.parse("⿹&CDP-8BBF;一"));
         String dirString = CLDRPaths.DATA_DIRECTORY + "ids/";
         File dir = new File(dirString);
-        UnicodeMap<Ids> data = new UnicodeMap<Ids>();
+        UnicodeMap<Ids2> data = new UnicodeMap<Ids2>();
         UnicodeSet mapsToSelf = new UnicodeSet();
         UnicodeSet charsInIds = new UnicodeSet();
 
@@ -541,9 +541,9 @@ public abstract class Ids implements Comparable<Ids> {
                 hacks.line = line;
                 String[] split = line.split("\\s+");
                 Integer key = split[1].codePointAt(0);
-                Ids ids;
+                Ids2 ids;
                 try {
-                    ids = Ids.parse(split[2]);
+                    ids = Ids2.parse(split[2]);
                 } catch (Exception e) {
                     out.println(nf.format(counter) + ")\t" + line + "\tERROR:\t" + e.getMessage());
                     continue;
@@ -553,7 +553,7 @@ public abstract class Ids implements Comparable<Ids> {
                     continue;
                 }
                 if (!corrections) {
-                    Ids oldIds = data.get(key);
+                    Ids2 oldIds = data.get(key);
                     if (oldIds != null) {
                         out.println("Conflicting value for: " + key + "\t" + oldIds + "\t" + ids);
                     }
@@ -592,9 +592,9 @@ public abstract class Ids implements Comparable<Ids> {
         out.println(tempStr);
 
         // Get data for minimizing
-        Map<Ids, Integer> reverseData2 = new HashMap<Ids, Integer>();
+        Map<Ids2, Integer> reverseData2 = new HashMap<Ids2, Integer>();
         for (String key : data) {
-            Ids value = data.get(key);
+            Ids2 value = data.get(key);
             Integer oldKey = reverseData2.get(value);
             if (oldKey == null || betterThan(key.codePointAt(0), oldKey)) {
                 reverseData2.put(value, key.codePointAt(0));
@@ -607,9 +607,9 @@ public abstract class Ids implements Comparable<Ids> {
         out.println(";line-number ; char ; (hex) ; radical ; set-with-no-extra-strokes\n");
         UnicodeMap<Integer> sameRadical = new UnicodeMap<Integer>();
         for (String s : sortedByRadicalStroke) {
-            Integer strokes = RadicalStroke.SINGLETON.charToRemainingStrokes.get(s);
+            Integer strokes = RadicalStroke2.SINGLETON.charToRemainingStrokes.get(s);
             if (strokes != null && strokes == 0) {
-                Integer radical = RadicalStroke.SINGLETON.charToRadical.get(s);
+                Integer radical = RadicalStroke2.SINGLETON.charToRadical.get(s);
                 sameRadical.put(s, radical);
                 if (!data.containsKey(s) && radical != s.codePointAt(0)) {
                     data.put(s, new Leaf(radical));
@@ -625,7 +625,7 @@ public abstract class Ids implements Comparable<Ids> {
         out.println("; Replacing any subcomponent of an IDS by a character with that IDS.");
         out.println(";line-number ; char ; (hex) ; minimized-ids ; old-ids\n");
         counter = 0;
-        for (Ids ids : reverseData2.keySet()) {
+        for (Ids2 ids : reverseData2.keySet()) {
             if (ids.size() < 3) continue;
             Integer cp = reverseData2.get(ids);
             String old = ids.toString();
@@ -641,13 +641,13 @@ public abstract class Ids implements Comparable<Ids> {
         // hacks.hackStringSample.get(s));
         // }
 
-        Relation<Ids, Integer> reverseData = Relation.of(new HashMap<Ids, Set<Integer>>(), LinkedHashSet.class);
+        Relation<Ids2, Integer> reverseData = Relation.of(new HashMap<Ids2, Set<Integer>>(), LinkedHashSet.class);
         UnicodeMap<UnicodeSet> charsToContainingChars = new UnicodeMap<UnicodeSet>();
 
         // get other data
 
         for (String key : data) {
-            Ids value = data.get(key);
+            Ids2 value = data.get(key);
             reverseData.put(value, key.codePointAt(0));
 
             value.addChars(charsInIds.clear(), null);
@@ -665,7 +665,7 @@ public abstract class Ids implements Comparable<Ids> {
         openFile("same-ids.txt", ";@ Characters with same IDS");
         out.println(";line-number ; charset ; (hex) ; ids\n");
         counter = 0;
-        for (Ids ids : reverseData.keySet()) {
+        for (Ids2 ids : reverseData.keySet()) {
             Set<Integer> set = reverseData.getAll(ids);
             if (set.size() == 1) continue;
             UnicodeSet uset = new UnicodeSet();
@@ -685,14 +685,14 @@ public abstract class Ids implements Comparable<Ids> {
         int oldStrokes = 0;
         int oldRadical = 0;
         for (String containingChar : sortedByRadicalStroke) {
-            Ids ids = data.get(containingChar);
+            Ids2 ids = data.get(containingChar);
             if (ids == null) {
                 missingInfo.add(containingChar);
                 continue;
             }
-            Integer radical = RadicalStroke.SINGLETON.charToRadical.get(containingChar);
+            Integer radical = RadicalStroke2.SINGLETON.charToRadical.get(containingChar);
             if (radical == null) radical = (int) '?';
-            Integer strokes = RadicalStroke.SINGLETON.charToTotalStrokes.get(containingChar);
+            Integer strokes = RadicalStroke2.SINGLETON.charToTotalStrokes.get(containingChar);
             if (strokes == null) strokes = 0;
             if (radical != oldRadical || strokes != oldStrokes) {
                 out.println();
@@ -714,18 +714,18 @@ public abstract class Ids implements Comparable<Ids> {
         counter = 0;
         oldStrokes = 0;
         oldRadical = 0;
-        TreeSet<String> sortedByRadicalStroke2 = new TreeSet<String>(RadicalStroke.RadicalStrokeComparator);
+        TreeSet<String> sortedByRadicalStroke2 = new TreeSet<String>(RadicalStroke2.RadicalStrokeComparator);
         for (String s : missingInfo) {
             sortedByRadicalStroke2.add(s);
         }
         UnicodeSet temp = new UnicodeSet();
         for (String containingChar : sortedByRadicalStroke2) {
-            Integer radical = RadicalStroke.SINGLETON.charToRadical.get(containingChar);
+            Integer radical = RadicalStroke2.SINGLETON.charToRadical.get(containingChar);
             if (radical == containingChar.codePointAt(0)) {
                 continue; // skip radicals
             }
             if (radical == null) radical = (int) '?';
-            Integer strokes = RadicalStroke.SINGLETON.charToTotalStrokes.get(containingChar);
+            Integer strokes = RadicalStroke2.SINGLETON.charToTotalStrokes.get(containingChar);
             if (strokes == null) strokes = 0;
             if (radical != oldRadical || strokes != oldStrokes) {
                 if (temp.size() != 0) {
@@ -746,13 +746,13 @@ public abstract class Ids implements Comparable<Ids> {
         openFile("expanded-ids.txt", ";@ Characters to IDS-Expansion");
         out.println("; Shows the recursive expansion of IDS, if different");
         out.println(";line-number ; char ; (hex) ; ids ; expanded-ids\n");
-        TreeSet<Ids> sortedIds = new TreeSet<Ids>(IdsComparator);
+        TreeSet<Ids2> sortedIds = new TreeSet<Ids2>(IdsComparator);
         sortedIds.addAll(data.getAvailableValues());
         LeafCounter leafCounter = new LeafCounter();
         leafCounter.data = data;
         counter = 0;
         for (String containingChar : sortedByRadicalStroke) {
-            Ids ids = data.get(containingChar);
+            Ids2 ids = data.get(containingChar);
             if (ids == null) continue;
             ids.visit(leafCounter);
             String idsSimple = ids.toString();

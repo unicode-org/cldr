@@ -22,12 +22,11 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.VersionInfo;
 
-public class ScriptCategories {
+public class ScriptCategories2 {
 
     private static final boolean DEBUG = false;
     private static final boolean DEBUG_MAIN = false;
@@ -130,7 +129,7 @@ public class ScriptCategories {
     .removeAll(IPA_EXTENSIONS)
     .freeze();
     static {
-        UnicodeSet knownOk = new UnicodeSet("[\u0392\u0398\u03A0\u03A6\u03B2\u03B8\u03C0\u03C6[\u10C7\u10CD]]");
+        UnicodeSet knownOk = new UnicodeSet("[\u0392\u0398\u03A0\u03A6\u03B2\u03B8\u03C0\u03C6[\u10C7\u10CD]\u1C88]");
         final UnicodeSet caseProblems = new UnicodeSet(ARCHAIC).closeOver(UnicodeSet.CASE).removeAll(ARCHAIC)
             .removeAll(knownOk);
         if (caseProblems.size() != 0) {
@@ -620,45 +619,14 @@ public class ScriptCategories {
         }
     }
 
-    public static Transform<String, String> TO_SHORT_SCRIPT = new Transform<String, String>() {
-        @Override
-        public String transform(String source) {
-            return UScript.getShortName(UScript.getCodeFromName(source));
-        }
-    };
-
-    public static Transform<String, String> TO_LONG_SCRIPT = new Transform<String, String>() {
-        @Override
-        public String transform(String source) {
-            return UScript.getName(UScript.getCodeFromName(source));
-        }
-    };
-
-    public enum Groupings {
-        EUROPEAN("150"),
-        MIDDLE_EASTERN("145"),
-        SOUTH_ASIAN("034"),
-        SOUTHEAST_ASIAN("035"),
-        EAST_ASIAN("030"),
-        AFRICAN("002"),
-        AMERICAN("019"), ;
-        public final Set<String> scripts;
-
-        private Groupings(String... regions) {
-            scripts = With
-                .in(ScriptMetadata.getScripts())
-                .toUnmodifiableCollection(new RegionFilter(regions), new TreeSet());
-        }
-    }
-
     // Standard items
-    public static final Set<String> EUROPEAN = Groupings.EUROPEAN.scripts;
-    public static final Set<String> MIDDLE_EASTERN = Groupings.MIDDLE_EASTERN.scripts;
-    public static final Set<String> SOUTH_ASIAN = Groupings.SOUTH_ASIAN.scripts;
-    public static final Set<String> SOUTHEAST_ASIAN = Groupings.SOUTHEAST_ASIAN.scripts;
-    public static final Set<String> EAST_ASIAN = Groupings.EAST_ASIAN.scripts;
-    public static final Set<String> AFRICAN = Groupings.AFRICAN.scripts;
-    public static final Set<String> AMERICAN = Groupings.AMERICAN.scripts;
+    public static final Set<String> EUROPEAN = ScriptMetadata.Groupings.EUROPEAN.scripts;
+    public static final Set<String> MIDDLE_EASTERN = ScriptMetadata.Groupings.MIDDLE_EASTERN.scripts;
+    public static final Set<String> SOUTH_ASIAN = ScriptMetadata.Groupings.SOUTH_ASIAN.scripts;
+    public static final Set<String> SOUTHEAST_ASIAN = ScriptMetadata.Groupings.SOUTHEAST_ASIAN.scripts;
+    public static final Set<String> EAST_ASIAN = ScriptMetadata.Groupings.EAST_ASIAN.scripts;
+    public static final Set<String> AFRICAN = ScriptMetadata.Groupings.AFRICAN.scripts;
+    public static final Set<String> AMERICAN = ScriptMetadata.Groupings.AMERICAN.scripts;
     public static final Set<String> HISTORIC_SCRIPTS = With
         .in(ScriptMetadata.getScripts())
         .toUnmodifiableCollection(new UsageFilter(IdUsage.EXCLUSION, IdUsage.LIMITED_USE),

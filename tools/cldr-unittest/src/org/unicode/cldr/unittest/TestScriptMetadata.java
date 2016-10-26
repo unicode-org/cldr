@@ -12,9 +12,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.EnumLookup;
-import org.unicode.cldr.draft.ScriptCategories;
-import org.unicode.cldr.draft.ScriptCategories.Groupings;
 import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Groupings;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Shaping;
@@ -212,7 +211,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
         Set<String> scripts = new TreeSet<String>(ScriptMetadata.getScripts());
         scripts.removeAll(Arrays.asList("Zinh", "Zyyy", "Zzzz"));
         logln("All: " + scripts);
-        for (Groupings x : ScriptCategories.Groupings.values()) {
+        for (ScriptMetadata.Groupings x : ScriptMetadata.Groupings.values()) {
             logln(x + ": " + x.scripts.toString());
             scripts.removeAll(x.scripts);
         }
@@ -220,8 +219,8 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
         // test no overlap
         assertEquals("Overlap", Collections.EMPTY_SET, scripts);
-        for (Groupings x : ScriptCategories.Groupings.values()) {
-            for (Groupings y : ScriptCategories.Groupings.values()) {
+        for (ScriptMetadata.Groupings x : ScriptMetadata.Groupings.values()) {
+            for (ScriptMetadata.Groupings y : ScriptMetadata.Groupings.values()) {
                 if (y == x)
                     continue;
                 assertTrue("overlap",
@@ -251,7 +250,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     public void assertEqualsX(String title, Set<String> a, Set<String> bRaw) {
         TreeSet<String> b = With.in(bRaw).toCollection(
-            ScriptCategories.TO_SHORT_SCRIPT, new TreeSet<String>());
+            ScriptMetadata.TO_SHORT_SCRIPT, new TreeSet<String>());
 
         Set<String> a_b = new TreeSet<String>(a);
         a_b.removeAll(b);

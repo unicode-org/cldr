@@ -15,14 +15,14 @@ import org.unicode.cldr.util.PatternCache;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
 
-public class RadicalStroke {
+public class RadicalStroke2 {
     // U+3433 kRSUnicode 9.3
     private static Pattern RAD_STROKE = PatternCache.get("U\\+([A-Z0-9]+)\\s+kRSUnicode\\s+(.*)");
     private static Pattern RAD_DATA = PatternCache.get("([0-9]{1,3}\\'?)\\.([0-9]{1,2})\\s*");
 
     private static Pattern IICORE = PatternCache.get("U\\+([A-Z0-9]+)\\s+kIICore\\s+(.*)");
 
-    public static RadicalStroke SINGLETON = new RadicalStroke();
+    public static RadicalStroke2 SINGLETON = new RadicalStroke2();
 
     Map<Integer, Map<String, Map<Integer, UnicodeSet>>> radStrokesToRadToRemainingStrokes;
     UnicodeSet remainder;
@@ -31,22 +31,22 @@ public class RadicalStroke {
     UnicodeMap<Integer> charToRemainingStrokes = new UnicodeMap<Integer>();
     UnicodeMap<Integer> charToRadical = new UnicodeMap<Integer>();
 
-    private RadicalStroke() {
+    private RadicalStroke2() {
         try {
             // load the radicals
-            for (Integer cjk : ScriptCategories.RADICAL_CHAR2STROKES.keySet()) {
-                charToTotalStrokes.put(cjk, ScriptCategories.RADICAL_CHAR2STROKES.get(cjk));
+            for (Integer cjk : ScriptCategories2.RADICAL_CHAR2STROKES.keySet()) {
+                charToTotalStrokes.put(cjk, ScriptCategories2.RADICAL_CHAR2STROKES.get(cjk));
             }
             Matcher radStrokeMatcher = RAD_STROKE.matcher("");
             Matcher radDataMatcher = RAD_DATA.matcher("");
             Matcher iiCore = IICORE.matcher("");
             radStrokesToRadToRemainingStrokes = new TreeMap<Integer, Map<String, Map<Integer, UnicodeSet>>>();
-            remainder = ScriptCategories.parseUnicodeSet("[:script=Han:]").removeAll(GeneratePickerData.SKIP);
+            remainder = ScriptCategories2.parseUnicodeSet("[:script=Han:]").removeAll(GeneratePickerData2.SKIP);
             String dataDir = DraftUtils.UCD_DIRECTORY + "/Unihan/";
 
             BufferedReader in = new BufferedReader(
                 new FileReader(
-                    Subheader.getFileNameFromPattern(
+                    Subheader2.getFileNameFromPattern(
                         dataDir, "Unihan_RadicalStrokeCounts.*\\.txt")));
 
             while (true) {
@@ -64,13 +64,13 @@ public class RadicalStroke {
                             throw new IllegalArgumentException("Bad line: " + line);
                         }
                         String radical = radDataMatcher.group(1);
-                        Integer radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
+                        Integer radicalChar = ScriptCategories2.RADICAL_NUM2CHAR.get(radical);
                         if (radicalChar == null) {
                             in.close();
                             throw new IllegalArgumentException("No radical value for <" + radical + ">");
                         }
                         charToRadical.put(cp, radicalChar);
-                        int radicalStrokes = ScriptCategories.RADICAL_CHAR2STROKES.get(radicalChar);
+                        int radicalStrokes = ScriptCategories2.RADICAL_CHAR2STROKES.get(radicalChar);
                         int remainingStrokes = Integer.parseInt(radDataMatcher.group(2));
                         charToTotalStrokes.put(cp, radicalStrokes + remainingStrokes);
                         charToRemainingStrokes.put(cp, remainingStrokes);
@@ -80,7 +80,7 @@ public class RadicalStroke {
                         // }
                         // String baseRadical = radical.endsWith("'") ? radical.substring(0, radical.length()-1) :
                         // radical;
-                        RadicalStroke.mapToUnicodeSetAdd(radStrokesToRadToRemainingStrokes, radicalStrokes, radical,
+                        RadicalStroke2.mapToUnicodeSetAdd(radStrokesToRadToRemainingStrokes, radicalStrokes, radical,
                             remainingStrokes, cp);
                         remainder.remove(cp);
                         // if (radDataMatcher.group(2).equals("0") && radical.endsWith("'")) {
@@ -98,7 +98,7 @@ public class RadicalStroke {
             in.close();
 
             // fix the compat characters that didn't have strokes
-            remainder.retainAll(GeneratePickerData.COMPATIBILITY);
+            remainder.retainAll(GeneratePickerData2.COMPATIBILITY);
 
             remainder.freeze();
             charToTotalStrokes.freeze();
@@ -130,7 +130,7 @@ public class RadicalStroke {
         int radicalStrokes, String radicalChar, int remainingStrokes, int cp) {
         Map<String, Map<Integer, UnicodeSet>> subIndex = index.get(radicalStrokes);
         if (subIndex == null) {
-            index.put(radicalStrokes, subIndex = new TreeMap<String, Map<Integer, UnicodeSet>>(GeneratePickerData.UCA));
+            index.put(radicalStrokes, subIndex = new TreeMap<String, Map<Integer, UnicodeSet>>(GeneratePickerData2.UCA));
         }
         Map<Integer, UnicodeSet> uset = subIndex.get(radicalChar);
         if (uset == null) {

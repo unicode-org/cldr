@@ -10,15 +10,19 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeSet;
 
+import org.unicode.cldr.draft.ScriptCategories2.RegionFilter;
 import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SemiFileReader;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.With;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.VersionInfo;
 
@@ -302,6 +306,23 @@ public class ScriptMetadata {
         }
     }
 
+    public enum Groupings {
+        EUROPEAN("150"),
+        MIDDLE_EASTERN("145"),
+        SOUTH_ASIAN("034"),
+        SOUTHEAST_ASIAN("035"),
+        EAST_ASIAN("030"),
+        AFRICAN("002"),
+        AMERICAN("019"), ;
+        public final Set<String> scripts;
+    
+        private Groupings(String... regions) {
+            scripts = With
+                .in(getScripts())
+                .toUnmodifiableCollection(new ScriptCategories2.RegionFilter(regions), new TreeSet());
+        }
+    }
+
     static Relation<String, String> EXTRAS = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
     static {
         EXTRAS.put("Hani", "Hans");
@@ -346,4 +367,17 @@ public class ScriptMetadata {
     public static Set<String> getExtras() {
         return EXTRAS.values();
     }
+
+    public static Transform<String, String> TO_SHORT_SCRIPT = new Transform<String, String>() {
+        @Override
+        public String transform(String source) {
+            return UScript.getShortName(UScript.getCodeFromName(source));
+        }
+    };
+    public static Transform<String, String> TO_LONG_SCRIPT = new Transform<String, String>() {
+        @Override
+        public String transform(String source) {
+            return UScript.getName(UScript.getCodeFromName(source));
+        }
+    };
 }

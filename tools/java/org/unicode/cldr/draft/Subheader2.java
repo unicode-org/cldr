@@ -27,8 +27,8 @@ import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
-class Subheader {
-    Matcher isArchaic = GeneratePickerData.IS_ARCHAIC.matcher("");
+class Subheader2 {
+    Matcher isArchaic = GeneratePickerData2.IS_ARCHAIC.matcher("");
     Matcher subheadMatcher = PatternCache.get("(@+)\\s+(.*)").matcher("");
     Matcher hexMatcher = PatternCache.get("([A-Z0-9]+).*").matcher("");
     Map<Integer, String> codePoint2Subblock = new HashMap<Integer, String>();
@@ -36,7 +36,7 @@ class Subheader {
     Map<String, Set<String>> block2subblock = new TreeMap<String, Set<String>>();
     Map<String, Set<String>> subblock2block = new TreeMap<String, Set<String>>();
 
-    Subheader(String unicodeDataDirectory, String outputDirectory) throws IOException {
+    Subheader2(String unicodeDataDirectory, String outputDirectory) throws IOException {
         UnicodeSet archaicSubblock = new UnicodeSet();
 
         getDataFromFile(unicodeDataDirectory, "NamesList.*\\.txt");
@@ -92,7 +92,7 @@ class Subheader {
 
     private void writeBlockInfo(String outputDirectory) throws IOException, FileNotFoundException {
         System.out.println("***Block/Subblock start");
-        PrintWriter out = GeneratePickerData.getFileWriter(outputDirectory, "blocks_subblocks.html");
+        PrintWriter out = GeneratePickerData2.getFileWriter(outputDirectory, "blocks_subblocks.html");
 
         htmlHeader(out);
         out.println("<tr><th>" + "Block" + "</th><th>" + "Notes" + "</th><th>" + "Subblock" + "</th></tr>");
@@ -111,7 +111,7 @@ class Subheader {
         out.close();
         System.out.println("***By subblocks");
 
-        out = GeneratePickerData.getFileWriter(outputDirectory, "subblocks_blocks.html");
+        out = GeneratePickerData2.getFileWriter(outputDirectory, "subblocks_blocks.html");
 
         htmlHeader(out);
         out.println("<tr><th>" + "Subblock" + "</th><th>" + "Notes" + "</th><th>" + "Blocks" + "</th></tr>");

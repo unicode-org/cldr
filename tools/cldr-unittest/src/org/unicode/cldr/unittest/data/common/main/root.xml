@@ -22,9 +22,9 @@
 							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
-                    <dayPeriodContext type="stand-alone">
-                        <alias source="locale" path="../dayPeriodContext[@type='format']"/>
-                    </dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<alias source="locale" path="../dayPeriodContext[@type='format']" />
+					</dayPeriodContext>
 				</dayPeriods>
 			</calendar>
 		</calendars>

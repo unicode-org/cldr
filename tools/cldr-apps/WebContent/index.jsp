@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/2001/REC-xhtml11-20010531/DTD/xhtml11-flat.dtd">
-<%@page import="org.unicode.cldr.test.ExampleGenerator.HelpMessages"%>
+<%@page import="org.unicode.cldr.test.HelpMessages"%>
 <%@page import="com.ibm.icu.text.NumberFormat"%>
 <%@page import="com.ibm.icu.text.CompactDecimalFormat"%>
 <%@ page contentType="text/html; charset=UTF-8" import="org.unicode.cldr.web.*" %>

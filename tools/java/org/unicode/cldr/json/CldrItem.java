@@ -321,6 +321,28 @@ public class CldrItem implements Comparable<CldrItem> {
                 return result;
             }
         }
+        if (thisxpp.getElement(1).equals("measurementData") && thisxpp.getElement(2).equals(otherxpp.getElement(2))) {
+            String thisCategory = thisxpp.findAttributeValue("measurementSystem", "category");
+            if (thisCategory == null) {
+                thisCategory = "";
+            }
+            String otherCategory = otherxpp.findAttributeValue("measurementSystem", "category");
+            if (otherCategory == null) {
+                otherCategory = "";
+            }
+            if (!thisCategory.equals(otherCategory)) {
+                result = thisCategory.compareTo(otherCategory);
+                return result;
+            }
+            String thisTerritory = thisxpp.findFirstAttributeValue("territories");
+            String otherTerritory = otherxpp.findFirstAttributeValue("territories");
+            if (thisTerritory != null && otherTerritory != null) {
+                result = thisTerritory.compareTo(otherTerritory);
+            }
+            if (result != 0) {
+                return result;
+            }
+        }
         result = DtdData.getInstance(fileDtdType).getDtdComparator(null).compare(untransformedPath, otherItem.untransformedPath);
         return result;
         //return CLDRFile.getLdmlComparator().compare(path, otherItem.path);

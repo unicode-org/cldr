@@ -61,6 +61,10 @@ public class DisplayAndInputProcessor {
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
+
+    public static final Pattern NUMBER_SEPARATOR_PATTERN = Pattern
+        .compile("//ldml/numbers/symbols.*/(decimal|group)");
+
     private static final Pattern APOSTROPHE_SKIP_PATHS = PatternCache.get("//ldml/("
         + "localeDisplayNames/languages/language\\[@type=\"mic\"].*|"
         + "characters/.*|"
@@ -250,6 +254,10 @@ public class DisplayAndInputProcessor {
                 }
             }
         }
+        // Fix up any apostrophes in number symbols
+        if (NUMBER_SEPARATOR_PATTERN.matcher(path).matches()) {
+            value = value.replace('\'', '\u2019');
+        }
         // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
         if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
             value = normalizeApostrophes(value);
@@ -414,7 +422,10 @@ public class DisplayAndInputProcessor {
             if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
                 value = normalizeApostrophes(value);
             }
-
+            // Fix up any apostrophes in number symbols
+            if (NUMBER_SEPARATOR_PATTERN.matcher(path).matches()) {
+                value = value.replace('\'', '\u2019');
+            }
             // Fix up hyphens, replacing with N-dash as appropriate
             if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
                 value = normalizeIntervalHyphens(value);

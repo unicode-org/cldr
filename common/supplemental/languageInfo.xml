@@ -151,8 +151,8 @@
 			<languageMatch desired="zu" supported="en" percent="90" oneway="true"/>
 			<!-- Script Matches -->
 			<languageMatch desired="sr_Latn" supported="sr_Cyrl" percent="95"/> <!-- Most serbs can read either script. -->
-			<languageMatch desired="*_Hans" supported="*_Hant" percent="85" oneway="true"/> <!-- Readers of simplified can read traditional much better than reverse. -->
-			<languageMatch desired="*_Hant" supported="*_Hans" percent="81" oneway="true"/>
+			<languageMatch desired="zh_Hans" supported="zh_Hant" percent="85" oneway="true"/> <!-- Readers of simplified can read traditional much better than reverse. -->
+			<languageMatch desired="zh_Hant" supported="zh_Hans" percent="81" oneway="true"/>
 			<!-- Region Matches -->
 			<!-- MO and HK are close -->
 			<languageMatch desired="zh_Hant_HK" supported="zh_Hant_MO" percent="97"/>

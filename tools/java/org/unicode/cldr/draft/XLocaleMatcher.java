@@ -22,16 +22,17 @@ import com.ibm.icu.util.ULocale;
 
 public class XLocaleMatcher {
 
-    LocaleDistance langDistance;
+    DistanceTable languageDesired2Supported;
+    private final int threshold = 40;
 
-    interface BaseDistanceTable {
-        int getDistance(String desiredLang, String supportedlang, Output<BaseDistanceTable> table);
+    interface DistanceTable {
+        int getDistance(String desiredLang, String supportedlang, Output<DistanceTable> table);
     }
 
-    static class LeafDistanceNode {
+    static class DistanceNode {
         final int distance;
 
-        public LeafDistanceNode(int distance) {
+        public DistanceNode(int distance) {
             this.distance = distance;
         }
 
@@ -41,7 +42,7 @@ public class XLocaleMatcher {
 
         @Override
         public boolean equals(Object obj) {
-            LeafDistanceNode other = (LeafDistanceNode) obj;
+            DistanceNode other = (DistanceNode) obj;
             return distance == other.distance;
         }
         @Override
@@ -54,7 +55,7 @@ public class XLocaleMatcher {
         }
     }
 
-    static final class IntDistanceNode extends LeafDistanceNode {
+    static final class IntDistanceNode extends DistanceNode {
         final IntDistanceTable distanceTable;
 
         public IntDistanceNode(int distance, IntDistanceTable distanceTable) {
@@ -80,29 +81,29 @@ public class XLocaleMatcher {
             return "\ndistance: " + distance + ", " + distanceTable;
         }
 
-        public static LeafDistanceNode from(int distance, IntDistanceTable otherTable) {
-            return otherTable == null ? new LeafDistanceNode(distance) : new IntDistanceNode(distance, otherTable);
+        public static DistanceNode from(int distance, IntDistanceTable otherTable) {
+            return otherTable == null ? new DistanceNode(distance) : new IntDistanceNode(distance, otherTable);
         }
     }
 
-    static class IntDistanceTable implements BaseDistanceTable {
+    static class IntDistanceTable implements DistanceTable {
         private static final Id[] ids = {new Id<String>("lang", "*"), new Id<String>("script", "*"), new Id<String>("region", "*")};
         private static final Id<IntDistanceTable> cache = new Id<>("table");
 
         private final Id<String> id;
-        private final LeafDistanceNode[][] distanceNodes; // map from desired, supported => node
+        private final DistanceNode[][] distanceNodes; // map from desired, supported => node
 
-        public IntDistanceTable(DistanceTable source) {
+        public IntDistanceTable(StringDistanceTable source) {
             this(source, loadIds(source, 0));
         }
 
-        private static int loadIds(DistanceTable source, int idNumber) {
+        private static int loadIds(StringDistanceTable source, int idNumber) {
             Id id = ids[idNumber]; // use different Id for language, script, region
-            for (Entry<String, Map<String, DistanceNode>> e1 : source.subtables.entrySet()) {
+            for (Entry<String, Map<String, StringDistanceNode>> e1 : source.subtables.entrySet()) {
                 int desired = id.add(e1.getKey());
-                for (Entry<String, DistanceNode> e2 : e1.getValue().entrySet()) {
+                for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
                     int supported = id.add(e2.getKey());
-                    DistanceNode oldNode = e2.getValue();
+                    StringDistanceNode oldNode = e2.getValue();
                     if (oldNode.distanceTable != null) {
                         loadIds(oldNode.distanceTable, idNumber+1);
                     }
@@ -111,20 +112,20 @@ public class XLocaleMatcher {
             return 0;
         }
 
-        private IntDistanceTable(DistanceTable source, int idNumber) { // move construction out later
+        private IntDistanceTable(StringDistanceTable source, int idNumber) { // move construction out later
             id = ids[idNumber]; // use different Id for language, script, region
             int size = id.size();
-            distanceNodes = new LeafDistanceNode[size][size];
+            distanceNodes = new DistanceNode[size][size];
 
             // fill in the values in the table
-            for (Entry<String, Map<String, DistanceNode>> e1 : source.subtables.entrySet()) {
+            for (Entry<String, Map<String, StringDistanceNode>> e1 : source.subtables.entrySet()) {
                 int desired = id.add(e1.getKey());
-                for (Entry<String, DistanceNode> e2 : e1.getValue().entrySet()) {
+                for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
                     int supported = id.add(e2.getKey());
-                    DistanceNode oldNode = e2.getValue();
+                    StringDistanceNode oldNode = e2.getValue();
                     IntDistanceTable otherTable = oldNode.distanceTable == null ? null 
                         : cache.intern(new IntDistanceTable(oldNode.distanceTable, idNumber+1));
-                    LeafDistanceNode node = IntDistanceNode.from(oldNode.distance, otherTable);
+                    DistanceNode node = IntDistanceNode.from(oldNode.distance, otherTable);
                     distanceNodes[desired][supported] = node;
                 }
             }
@@ -132,7 +133,7 @@ public class XLocaleMatcher {
             // copy all the zero columns/rows down to any null value
             for (int row = 0; row < size; ++row) {
                 for (int column = 0; column < size; ++column) {
-                    LeafDistanceNode value = distanceNodes[row][column];
+                    DistanceNode value = distanceNodes[row][column];
                     if (value != null) {
                         continue;
                     }
@@ -149,10 +150,10 @@ public class XLocaleMatcher {
         }
 
         @Override
-        public int getDistance(String desired, String supported, Output<BaseDistanceTable> distanceTable) {
+        public int getDistance(String desired, String supported, Output<DistanceTable> distanceTable) {
             final int desiredId = id.from(desired);
             final int supportedId = id.from(supported); // can optimize later
-            LeafDistanceNode value = distanceNodes[desiredId][supportedId];
+            DistanceNode value = distanceNodes[desiredId][supportedId];
             distanceTable.value = value.getDistanceTable();
             return desiredId == supportedId && (desiredId != 0 || desired.equals(supported)) ? 0 
                 : value.distance;
@@ -173,14 +174,14 @@ public class XLocaleMatcher {
 
         @Override
         public String toString() {
-            return abbreviate("\t", new HashMap<LeafDistanceNode,Integer>(), new StringBuilder(id.name + ": ")).toString();
+            return abbreviate("\t", new HashMap<DistanceNode,Integer>(), new StringBuilder(id.name + ": ")).toString();
         }
 
-        private StringBuilder abbreviate(String indent, Map<LeafDistanceNode,Integer> cache, StringBuilder result) {
+        private StringBuilder abbreviate(String indent, Map<DistanceNode,Integer> cache, StringBuilder result) {
             for (int i = 0; i < distanceNodes.length; ++i) {
-                LeafDistanceNode[] row = distanceNodes[i];
+                DistanceNode[] row = distanceNodes[i];
                 for (int j = 0; j < row.length; ++j) {
-                    LeafDistanceNode value = row[j];
+                    DistanceNode value = row[j];
                     if (value == null) {
                         continue;
                     }
@@ -264,13 +265,13 @@ public class XLocaleMatcher {
         }
     }
 
-    private static class DistanceNode {
+    private static class StringDistanceNode {
         private final int distance;
-        private DistanceTable distanceTable;
+        private StringDistanceTable distanceTable;
 
         @Override
         public boolean equals(Object obj) {
-            DistanceNode other = (DistanceNode) obj;
+            StringDistanceNode other = (StringDistanceNode) obj;
             return distance == other.distance && Objects.equal(distanceTable, other.distanceTable);
         }
         @Override
@@ -278,13 +279,13 @@ public class XLocaleMatcher {
             return distance ^ Objects.hashCode(distanceTable);
         }
 
-        DistanceNode(int distance) {
+        StringDistanceNode(int distance) {
             this.distance = distance;
         }
 
         public void addSubtables(String desiredSub, String supportedSub, Reset r) {
             if (distanceTable == null) {
-                distanceTable = new DistanceTable();
+                distanceTable = new StringDistanceTable();
             }
             distanceTable.addSubtables(desiredSub, supportedSub, r);
         }
@@ -293,24 +294,28 @@ public class XLocaleMatcher {
             return "distance: " + distance + "\n" + distanceTable;
         }
 
-        public void copyTables(DistanceTable value) {
+        public void copyTables(StringDistanceTable value) {
             if (value != null) {
-                distanceTable = new DistanceTable();
+                distanceTable = new StringDistanceTable();
                 distanceTable.copy(value);
             }
         }
+    }
+
+    public XLocaleMatcher(DistanceTable datadistancetable2) {
+        languageDesired2Supported = dataDistanceTable;
     }
 
     private static Map newMap() {
         return new TreeMap();
     }
 
-    private static class DistanceTable implements BaseDistanceTable {
-        private final Map<String, Map<String, DistanceNode>> subtables = newMap();
+    private static class StringDistanceTable implements DistanceTable {
+        private final Map<String, Map<String, StringDistanceNode>> subtables = newMap();
 
         @Override
         public boolean equals(Object obj) {
-            DistanceTable other = (DistanceTable) obj;
+            StringDistanceTable other = (StringDistanceTable) obj;
             return subtables.equals(other.subtables);
         }
         @Override
@@ -318,14 +323,14 @@ public class XLocaleMatcher {
             return subtables.hashCode();
         }
 
-        public int getDistance(String desired, String supported, Output<BaseDistanceTable> distanceTable) {
+        public int getDistance(String desired, String supported, Output<DistanceTable> distanceTable) {
             boolean star = false;
-            Map<String, DistanceNode> sub2 = subtables.get(desired);
+            Map<String, StringDistanceNode> sub2 = subtables.get(desired);
             if (sub2 == null) {
                 sub2 = subtables.get("*"); // <*, supported>
                 star = true;
             }
-            DistanceNode value = sub2.get(supported);   // <*/desired, supported>
+            StringDistanceNode value = sub2.get(supported);   // <*/desired, supported>
             if (value == null) {
                 value = sub2.get("*");  // <*/desired, *>
                 if (value == null && !star) {
@@ -341,21 +346,21 @@ public class XLocaleMatcher {
             return star & desired.equals(supported) ? 0 : value.distance;
         }
 
-        public void copy(DistanceTable other) {
-            for (Entry<String, Map<String, DistanceNode>> e1 : other.subtables.entrySet()) {
-                for (Entry<String, DistanceNode> e2 : e1.getValue().entrySet()) {
-                    DistanceNode value = e2.getValue();
-                    DistanceNode subNode = addSubtable(e1.getKey(), e2.getKey(), value.distance, false);
+        public void copy(StringDistanceTable other) {
+            for (Entry<String, Map<String, StringDistanceNode>> e1 : other.subtables.entrySet()) {
+                for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
+                    StringDistanceNode value = e2.getValue();
+                    StringDistanceNode subNode = addSubtable(e1.getKey(), e2.getKey(), value.distance, false);
                 }
             }
         }
 
-        DistanceNode addSubtable(String desired, String supported, int distance, boolean skipIfSet) {
-            Map<String, DistanceNode> sub2 = subtables.get(desired);
+        StringDistanceNode addSubtable(String desired, String supported, int distance, boolean skipIfSet) {
+            Map<String, StringDistanceNode> sub2 = subtables.get(desired);
             if (sub2 == null) {
                 subtables.put(desired, sub2 = newMap());
             }
-            DistanceNode oldNode = sub2.get(supported);
+            StringDistanceNode oldNode = sub2.get(supported);
             if (oldNode != null) {
                 if (oldNode.distance == distance || skipIfSet) {
                     return oldNode;
@@ -365,13 +370,13 @@ public class XLocaleMatcher {
                 }
             }
 
-            final DistanceNode newNode = new DistanceNode(distance);
+            final StringDistanceNode newNode = new StringDistanceNode(distance);
             sub2.put(supported, newNode);
             return newNode;
         }
 
-        private DistanceNode getNode(String desired, String supported) {
-            Map<String, DistanceNode> sub2 = subtables.get(desired);
+        private StringDistanceNode getNode(String desired, String supported) {
+            Map<String, StringDistanceNode> sub2 = subtables.get(desired);
             if (sub2 == null) {
                 return null;
             }
@@ -383,17 +388,17 @@ public class XLocaleMatcher {
          */
         public void addSubtables(
             String desired, String supported, 
-            Predicate<DistanceNode> action) {
+            Predicate<StringDistanceNode> action) {
             int count = 0;
-            DistanceNode node = getNode(desired, supported);
+            StringDistanceNode node = getNode(desired, supported);
             if (node == null) {
                 // get the distance it would have
-                Output<BaseDistanceTable> node2 = new Output<>();
+                Output<DistanceTable> node2 = new Output<>();
                 int distance = getDistance(desired, supported, node2);
                 // now add it
                 node = addSubtable(desired, supported, distance, true);
                 if (node2.value != null) {
-                    node.copyTables((DistanceTable)(node2.value));
+                    node.copyTables((StringDistanceTable)(node2.value));
                 }
             }
             action.apply(node);
@@ -405,18 +410,18 @@ public class XLocaleMatcher {
 
             // add to all the values that have the matching desiredLang and supportedLang
             boolean haveKeys = false;
-            for (Entry<String, Map<String, DistanceNode>> e1 : subtables.entrySet()) {
+            for (Entry<String, Map<String, StringDistanceNode>> e1 : subtables.entrySet()) {
                 String key1 = e1.getKey();
                 final boolean desiredIsKey = desiredLang.equals(key1);
                 if (desiredIsKey || desiredLang.equals("*")) {
-                    for (Entry<String, DistanceNode> e2 : e1.getValue().entrySet()) {
+                    for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
                         String key2 = e2.getKey();
                         final boolean supportedIsKey = supportedLang.equals(key2);
                         haveKeys |= (desiredIsKey && supportedIsKey);
                         if (supportedIsKey || supportedLang.equals("*")) {
-                            DistanceNode value = e2.getValue();
+                            StringDistanceNode value = e2.getValue();
                             if (value.distanceTable == null) {
-                                value.distanceTable = new DistanceTable();
+                                value.distanceTable = new StringDistanceTable();
                             }
                             value.distanceTable.addSubtable(desiredScript, supportedScript, percentage, true);
                         }
@@ -424,7 +429,7 @@ public class XLocaleMatcher {
                 }
             }
             // now add the sequence explicitly
-            DistanceTable dt = new DistanceTable();
+            StringDistanceTable dt = new StringDistanceTable();
             dt.addSubtable(desiredScript, supportedScript, percentage, false);
             Reset r = new Reset(dt);
             addSubtables(desiredLang, supportedLang, r);
@@ -437,18 +442,18 @@ public class XLocaleMatcher {
 
             // add to all the values that have the matching desiredLang and supportedLang
             boolean haveKeys = false;
-            for (Entry<String, Map<String, DistanceNode>> e1 : subtables.entrySet()) {
+            for (Entry<String, Map<String, StringDistanceNode>> e1 : subtables.entrySet()) {
                 String key1 = e1.getKey();
                 final boolean desiredIsKey = desiredLang.equals(key1);
                 if (desiredIsKey || desiredLang.equals("*")) {
-                    for (Entry<String, DistanceNode> e2 : e1.getValue().entrySet()) {
+                    for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
                         String key2 = e2.getKey();
                         final boolean supportedIsKey = supportedLang.equals(key2);
                         haveKeys |= (desiredIsKey && supportedIsKey);
                         if (supportedIsKey || supportedLang.equals("*")) {
-                            DistanceNode value = e2.getValue();
+                            StringDistanceNode value = e2.getValue();
                             if (value.distanceTable == null) {
-                                value.distanceTable = new DistanceTable();
+                                value.distanceTable = new StringDistanceTable();
                             }
                             value.distanceTable.addSubtables(desiredScript, supportedScript, desiredRegion, supportedRegion, percentage);
                         }
@@ -457,7 +462,7 @@ public class XLocaleMatcher {
             }
             // now add the sequence explicitly
 
-            DistanceTable dt = new DistanceTable();
+            StringDistanceTable dt = new StringDistanceTable();
             dt.addSubtable(desiredRegion, supportedRegion, percentage, false);
             AddSub r = new AddSub(desiredScript, supportedScript, dt);
             addSubtables(desiredLang,  supportedLang,  r);  
@@ -469,9 +474,9 @@ public class XLocaleMatcher {
         }
 
         public StringBuilder toString(String indent, StringBuilder buffer) {
-            for (Entry<String, Map<String, DistanceNode>> e1 : subtables.entrySet()) {
-                for (Entry<String, DistanceNode> e2 : e1.getValue().entrySet()) {
-                    DistanceNode value = e2.getValue();
+            for (Entry<String, Map<String, StringDistanceNode>> e1 : subtables.entrySet()) {
+                for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
+                    StringDistanceNode value = e2.getValue();
                     buffer.append("\n" + indent + "\t<" + e1.getKey() + ", " + e2.getKey() + "> => " + value.distance);
                     if (value.distanceTable != null) {
                         value.distanceTable.toString(indent+"\t", buffer);
@@ -482,13 +487,13 @@ public class XLocaleMatcher {
         }
     }
 
-    static class Reset implements Predicate<DistanceNode> {
-        private final DistanceTable resetIfNotNull;
-        Reset(DistanceTable resetIfNotNull) {
+    static class Reset implements Predicate<StringDistanceNode> {
+        private final StringDistanceTable resetIfNotNull;
+        Reset(StringDistanceTable resetIfNotNull) {
             this.resetIfNotNull = resetIfNotNull;
         }
         @Override
-        public boolean apply(DistanceNode node) {
+        public boolean apply(StringDistanceNode node) {
             if (node.distanceTable == null) {
                 node.distanceTable = resetIfNotNull;
             }
@@ -496,18 +501,18 @@ public class XLocaleMatcher {
         }
     }
 
-    static class AddSub implements Predicate<DistanceNode> {
+    static class AddSub implements Predicate<StringDistanceNode> {
         private final String desiredSub;
         private final String supportedSub;
         private final Reset r;
 
-        AddSub(String desiredSub, String supportedSub, DistanceTable newSubsubtable) {
+        AddSub(String desiredSub, String supportedSub, StringDistanceTable newSubsubtable) {
             this.r = new Reset(newSubsubtable);
             this.desiredSub = desiredSub;
             this.supportedSub = supportedSub;
         }
         @Override
-        public boolean apply(DistanceNode node) {
+        public boolean apply(StringDistanceNode node) {
             if (node == null) {
                 throw new IllegalArgumentException("bad structure");
             } else {
@@ -517,57 +522,40 @@ public class XLocaleMatcher {
         }
     }
 
-    private static class LocaleDistance {
-        private final BaseDistanceTable languageDesired2Supported;
-        private final int threshold = 40;
-
-        public LocaleDistance(BaseDistanceTable languageDesired2Supported) {
-            this.languageDesired2Supported = languageDesired2Supported;
-        }
-
-        double distance(ULocale desired, ULocale supported) {
-            String desiredLang = desired.getLanguage();
-            String supportedlang = supported.getLanguage();
-            String desiredScript = desired.getScript();
-            String supportedScript = supported.getScript();
-            String desiredRegion = desired.getCountry();
-            String supportedRegion = supported.getCountry();
-            Output<BaseDistanceTable> table = new Output<>();
-
-            int distance = languageDesired2Supported.getDistance(desiredLang, supportedlang, table);
-            if (distance > threshold) {
-                return 666;
-            }
-
-            distance += table.value.getDistance(desiredScript, supportedScript, table);
-            if (distance > threshold) {
-                return 666;
-            }
-
-            distance += table.value.getDistance(desiredRegion, supportedRegion, table);
-            return distance;
-        }
-
-        @Override
-        public String toString() {
-            return languageDesired2Supported.toString();
-        }
-    }
 
     public double distance(ULocale desired, ULocale supported) {
-        return langDistance.distance(desired, supported);
+        String desiredLang = desired.getLanguage();
+        String supportedlang = supported.getLanguage();
+        String desiredScript = desired.getScript();
+        String supportedScript = supported.getScript();
+        String desiredRegion = desired.getCountry();
+        String supportedRegion = supported.getCountry();
+
+        return distance(desiredLang, supportedlang, desiredScript, supportedScript, desiredRegion, supportedRegion);
     }
 
-    @Override
-    public String toString() {
-        return langDistance.toString();
+    public double distance(
+        String desiredLang, String supportedlang, 
+        String desiredScript, String supportedScript, 
+        String desiredRegion, String supportedRegion) {
+        
+        Output<DistanceTable> subtable = new Output<>();
+
+        int distance = languageDesired2Supported.getDistance(desiredLang, supportedlang, subtable);
+        if (distance > threshold) {
+            return 666;
+        }
+
+        distance += subtable.value.getDistance(desiredScript, supportedScript, subtable);
+        if (distance > threshold) {
+            return 666;
+        }
+
+        distance += subtable.value.getDistance(desiredRegion, supportedRegion, subtable);
+        return distance;
     }
 
-    private XLocaleMatcher(BaseDistanceTable langDistance) {
-        this.langDistance = new LocaleDistance(langDistance);
-    }
-
-    public static final DistanceTable dataDistanceTable = new DistanceTable();
+    public static final StringDistanceTable dataDistanceTable = new StringDistanceTable();
     static {
         Splitter bar = Splitter.on('_');
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -606,8 +594,8 @@ public class XLocaleMatcher {
             }
         }
     }
-    
-    static public void add(DistanceTable languageDesired2Supported, List<String> desired, List<String> supported, int percentage) {
+
+    static public void add(StringDistanceTable languageDesired2Supported, List<String> desired, List<String> supported, int percentage) {
         int size = desired.size();
         if (size != supported.size() || size < 1 || size > 3) {
             throw new IllegalArgumentException();
@@ -632,7 +620,7 @@ public class XLocaleMatcher {
     public static void main(String[] args) {
         XLocaleMatcher localeMatcher = new XLocaleMatcher(dataDistanceTable);
         System.out.println(localeMatcher.toString());
-        
+
         IntDistanceTable d = new IntDistanceTable(dataDistanceTable);
         XLocaleMatcher intLocaleMatcher = new XLocaleMatcher(d);
         System.out.println(localeMatcher.toString());
@@ -650,10 +638,11 @@ public class XLocaleMatcher {
         LocaleMatcher oldLocaleMatcher = new LocaleMatcher("");
 
         long likelyTime = 0;
+        long extractTime = 0;
         long newTime = 0;
         long intTime = 0;
         long oldTime = 0;
-        final int maxIterations = 1;
+        final int maxIterations = 1000;
         for (int iterations = maxIterations; iterations > 0; --iterations) {
             ULocale desired = last;
             int count=0;
@@ -662,17 +651,29 @@ public class XLocaleMatcher {
 
                 long temp = System.nanoTime();
                 final ULocale desiredMax = ULocale.addLikelySubtags(desired);
-                final ULocale supportedMax = ULocale.addLikelySubtags(supported);
                 likelyTime += System.nanoTime()-temp;
+                
+                final ULocale supportedMax = ULocale.addLikelySubtags(supported);
+                
+                temp = System.nanoTime();
+                String desiredLang = desired.getLanguage();
+                String desiredScript = desired.getScript();
+                String desiredRegion = desired.getCountry();
+                extractTime += System.nanoTime()-temp;
+                
+                String supportedlang = supported.getLanguage();
+                String supportedScript = supported.getScript();
+                String supportedRegion = supported.getCountry();
+
 
                 temp = System.nanoTime();
-                double dist1 = localeMatcher.distance(desiredMax, supportedMax);
-                double dist2 = localeMatcher.distance(supportedMax, desiredMax);
+                double dist1 = localeMatcher.distance(desiredLang, supportedlang, desiredScript, supportedScript, desiredRegion, supportedRegion);
+                double dist2 = localeMatcher.distance(supportedlang, desiredLang, supportedScript, desiredScript, supportedRegion, desiredRegion);
                 newTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
-                double distInt1 = intLocaleMatcher.distance(desiredMax, supportedMax);
-                double distInt2 = intLocaleMatcher.distance(supportedMax, desiredMax);
+                double distInt1 = intLocaleMatcher.distance(desiredLang, supportedlang, desiredScript, supportedScript, desiredRegion, supportedRegion);
+                double distInt2 = intLocaleMatcher.distance(supportedlang, desiredLang, supportedScript, desiredScript, supportedRegion, desiredRegion);
                 intTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
@@ -697,9 +698,10 @@ public class XLocaleMatcher {
                 desired = supported;
             }
         }
-        System.out.println("likelyTime:\t" + likelyTime/maxIterations);
         System.out.println("oldTime:\t" + oldTime/maxIterations);
         System.out.println("newTime:\t" + newTime/maxIterations);
         System.out.println("newIntTime:\t" + intTime/maxIterations);
+        System.out.println("likelyTime:\t" + likelyTime/maxIterations);
+        System.out.println("extractTime:\t" + extractTime/maxIterations);
     }
 }

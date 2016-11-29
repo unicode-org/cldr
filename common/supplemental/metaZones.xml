@@ -820,6 +820,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone to="1991-10-26 20:00" mzone="Ashkhabad"/>
 				<usesMetazone from="1991-10-26 20:00" mzone="Turkmenistan"/>
 			</timezone>
+			<timezone type="Asia/Atyrau">
+				<usesMetazone from="2004-10-30 22:00" mzone="Kazakhstan_Western"/>
+			</timezone>
 			<timezone type="Asia/Baghdad">
 				<usesMetazone mzone="Arabian"/>
 			</timezone>
@@ -1309,6 +1312,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Europe/Sarajevo">
 				<usesMetazone mzone="Europe_Central"/>
+			</timezone>
+			<timezone type="Europe/Saratov">
+				<usesMetazone to="2016-12-03 23:00" from="1992-03-28 22:00" mzone="Moscow"/>
 			</timezone>
 			<timezone type="Europe/Simferopol">
 				<usesMetazone to="1990-06-30 23:00" mzone="Moscow"/>

@@ -3,9 +3,11 @@ package org.unicode.cldr.draft;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
@@ -23,11 +25,13 @@ import com.ibm.icu.util.ULocale;
 
 public class XLocaleMatcher {
 
-    DistanceTable languageDesired2Supported;
+    private final DistanceTable languageDesired2Supported;
     private final int threshold = 40;
+    private final Set<String> closerLanguages;
 
     interface DistanceTable {
         int getDistance(String desiredLang, String supportedlang, Output<DistanceTable> table);
+        Set<String> getCloser(int threshold);
     }
 
     static class DistanceNode {
@@ -206,6 +210,21 @@ public class XLocaleMatcher {
             }
             return result;
         }
+        @Override
+        public Set<String> getCloser(int threshold) {
+            Set<String> result = new HashSet<>();
+            for (int i = 0; i < distanceNodes.length; ++i) {
+                DistanceNode[] row = distanceNodes[i];
+                for (int j = 0; j < row.length; ++j) {
+                    DistanceNode value = row[j];
+                    if (value.distance < threshold) {
+                        result.add(id.to(i));
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
     }
 
     private static class Id<T> {
@@ -304,7 +323,8 @@ public class XLocaleMatcher {
     }
 
     public XLocaleMatcher(DistanceTable datadistancetable2) {
-        languageDesired2Supported = dataDistanceTable;
+        languageDesired2Supported = datadistancetable2;
+        closerLanguages = languageDesired2Supported.getCloser(threshold);
     }
 
     private static Map newMap() {
@@ -486,6 +506,20 @@ public class XLocaleMatcher {
             }
             return buffer;
         }
+        @Override
+        public Set<String> getCloser(int threshold) {
+            Set<String> result = new HashSet<>();
+            for (Entry<String, Map<String, StringDistanceNode>> e1 : subtables.entrySet()) {
+                String desired = e1.getKey();
+                for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
+                    if (e2.getValue().distance < threshold) {
+                        result.add(desired);
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
     }
 
     static class Reset implements Predicate<StringDistanceNode> {
@@ -557,6 +591,7 @@ public class XLocaleMatcher {
     }
 
     public static final StringDistanceTable dataDistanceTable = new StringDistanceTable();
+
     static {
         Splitter bar = Splitter.on('_');
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -625,10 +660,12 @@ public class XLocaleMatcher {
     public static void main(String[] args) {
         XLocaleMatcher localeMatcher = new XLocaleMatcher(dataDistanceTable);
         System.out.println(localeMatcher.toString());
+        System.out.println("closer: " + localeMatcher.closerLanguages);
 
         IntDistanceTable d = new IntDistanceTable(dataDistanceTable);
         XLocaleMatcher intLocaleMatcher = new XLocaleMatcher(d);
         System.out.println(intLocaleMatcher.toString());
+        System.out.println("closer: " + localeMatcher.closerLanguages);
 
         String lastRaw = "no";
         String[] testsRaw = {"no_DE", "nb", "no", "no", "da", "zh_Hant", "zh_Hans", "en", "en_GB", "en_Cyrl", "fr"};

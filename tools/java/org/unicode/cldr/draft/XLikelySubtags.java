@@ -3,19 +3,23 @@ package org.unicode.cldr.draft;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.ULocale.Minimize;
 
 public class XLikelySubtags {
+    private static final boolean SHORT = false;
 
     static abstract class Maker {
         abstract <V> V make();
@@ -71,6 +75,17 @@ public class XLikelySubtags {
                 language2 == null ? language: language2, 
                     script2 == null ? script : script2, 
                         region2 == null ? region : region2);
+        }
+        @Override
+        public boolean equals(Object obj) {
+            LSR other = (LSR) obj;
+            return language.equals(other.language) 
+                && script.equals(other.script) 
+                && region.equals(other.region);
+        }
+        @Override
+        public int hashCode() {
+            return Objects.hash(language, script, region);
         }
     }
     final Map<String, Map<String, Map<String, LSR>>> langTable;
@@ -215,6 +230,42 @@ public class XLikelySubtags {
         }
     }
 
+    private LSR minimizeSubtags(String languageIn, String scriptIn, String regionIn, Minimize fieldToFavor) {
+        LSR result = addLikelySubtags(languageIn, scriptIn, regionIn);
+        
+        // We could try just a series of checks, like:
+        // LSR result2 = addLikelySubtags(languageIn, "", "");
+        // if result.equals(result2) return result2;
+        // However, we can optimize 2 of the cases:
+        //   (languageIn, "", "")
+        //   (languageIn, "", regionIn)
+        
+        Map<String, Map<String, LSR>> scriptTable = langTable.get(result.language);
+        
+        Map<String, LSR> regionTable0 = scriptTable.get("");
+        LSR value00 = regionTable0.get("");
+        boolean favorRegionOk = false;
+        if (result.script.equals(value00.script)) { //script is default
+            if (result.region.equals(value00.region)) {
+                return result.replace(null, "", "");
+            } else if (fieldToFavor == fieldToFavor.FAVOR_REGION) {
+                return result.replace(null, "", null);
+            } else {
+                favorRegionOk = true;
+            }
+        }
+        
+        // The last case is not as easy to optimize.
+        // Maybe do later, but for now use the straightforward code.
+        LSR result2 = addLikelySubtags(languageIn, scriptIn, "");
+        if (result2.equals(result)) {
+            return result.replace(null, null, "");
+        } else if (favorRegionOk) {
+            return result.replace(null, "", null);
+        }
+        return result;
+    }
+
     private static <V> StringBuilder show(Map<String,V> map, String indent, StringBuilder output) {
         String first = indent.isEmpty() ? "" : "\t";
         for (Entry<String,V> e : map.entrySet()) {
@@ -276,6 +327,9 @@ public class XLikelySubtags {
         Set<String> languages = new TreeSet<String>();
         Set<String> scripts = new TreeSet<String>();
         Set<String> regions = new TreeSet<String>();
+        Counter<String> languageCounter = new Counter<>();
+        Counter<String> scriptCounter = new Counter<>();
+        Counter<String> regionCounter = new Counter<>();
         
         for (Entry<String, String> sourceTarget : rawData.entrySet()) {
             final String source = sourceTarget.getKey();
@@ -283,70 +337,148 @@ public class XLikelySubtags {
             languages.add(ltp.getLanguage());
             scripts.add(ltp.getScript());
             regions.add(ltp.getRegion());
-            ltp.set(sourceTarget.getValue());
-            languages.add(ltp.getLanguage());
-            scripts.add(ltp.getScript());
-            regions.add(ltp.getRegion());
+            final String target = sourceTarget.getValue();
+            ltp.set(target);
+            add(target, languageCounter, ltp.getLanguage(), 1);
+            add(target, scriptCounter, ltp.getScript(), 1);
+            add(target, regionCounter, ltp.getRegion(), 1);
         }
         ltp.set("und-Zzzz-ZZ");
-        languages.add(ltp.getLanguage());
-        scripts.add(ltp.getScript());
-        regions.add(ltp.getRegion());
+        languageCounter.add(ltp.getLanguage(), 1);
+        scriptCounter.add(ltp.getScript(), 1);
+        regionCounter.add(ltp.getRegion(), 1);
         
-        System.out.println("languages: " + languages.size() + "\t" + languages);
-        System.out.println("scripts: " + scripts.size() + "\t" + scripts);
-        System.out.println("regions: " + regions.size() + "\t" + regions);
+        if (SHORT) {
+        removeSingletons(languages, languageCounter);
+        removeSingletons(scripts, scriptCounter);
+        removeSingletons(regions, regionCounter);
+        }
         
-        int maxCount = 1000000;
+        System.out.println("languages: " + languages.size() + "\n\t" + languages + "\n\t" + languageCounter);
+        System.out.println("scripts: " + scripts.size() + "\n\t" + scripts + "\n\t" + scriptCounter);
+        System.out.println("regions: " + regions.size() + "\n\t" + regions + "\n\t" + regionCounter);
+        
+        int maxCount = Integer.MAX_VALUE;
+        
         int counter = maxCount;
         long tempTime = System.nanoTime();
-        newMain:
+        newMax:
         for (String language : languages) {
             for (String script : scripts) {
                 for (String region : regions) {
+                    if (--counter < 0) break newMax;
                     LSR result = ls.addLikelySubtags(language, script, region);
-                    if (--counter < 0) break newMain;
                 }
             }
         }
-        long newTime = System.nanoTime() - tempTime;
-        System.out.println("newTime: " + newTime);
+        long newMaxTime = System.nanoTime() - tempTime;
+        System.out.println("newMaxTime: " + newMaxTime);
+        
+        counter = maxCount;
+        tempTime = System.nanoTime();
+        newMin:
+        for (String language : languages) {
+            for (String script : scripts) {
+                for (String region : regions) {
+                    if (--counter < 0) break newMin;
+                    LSR minNewS = ls.minimizeSubtags(language, script, region, Minimize.FAVOR_SCRIPT);
+                }
+            }
+        }
+        long newMinTime = System.nanoTime() - tempTime;
+        System.out.println("newMinTime: " + newMinTime);
+
+        // *****
 
         tempTime = System.nanoTime();
         counter = maxCount;
-        oldMain:
+        oldMax:
         for (String language : languages) {
             for (String script : scripts) {
                 for (String region : regions) {
+                    if (--counter < 0) break oldMax;
                     ULocale tempLocale = new ULocale(language, script, region);
                     ULocale max = ULocale.addLikelySubtags(tempLocale);
-                    if (--counter < 0) break oldMain;
                 }
             }
         }
-        long oldTime = System.nanoTime() - tempTime;
-        System.out.println("oldTime: " + oldTime + "\t" + oldTime/newTime + "x");
+        long oldMaxTime = System.nanoTime() - tempTime;
+        System.out.println("oldMaxTime: " + oldMaxTime + "\t" + oldMaxTime/newMaxTime + "x");
        
+        counter = maxCount;
+        tempTime = System.nanoTime();
+        oldMin:
+        for (String language : languages) {
+            for (String script : scripts) {
+                for (String region : regions) {
+                    if (--counter < 0) break oldMin;
+                    ULocale tempLocale = new ULocale(language, script, region);
+                    ULocale minOldS = ULocale.minimizeSubtags(tempLocale, Minimize.FAVOR_SCRIPT);
+                }
+            }
+        }
+        long oldMinTime = System.nanoTime() - tempTime;
+        System.out.println("oldMinTime: " + oldMinTime + "\t" + oldMinTime/newMinTime + "x");
+
         counter = maxCount;
         testMain:
         for (String language : languages) {
+            System.out.println(language);
             int tests = 0;
             for (String script : scripts) {
                 for (String region : regions) {
                     ++tests;
                     if (--counter < 0) break testMain;
-                    LSR result = ls.addLikelySubtags(language, script, region);
+                    LSR maxNew = ls.addLikelySubtags(language, script, region);
+                    LSR minNewS = ls.minimizeSubtags(language, script, region, Minimize.FAVOR_SCRIPT);
+                    LSR minNewR = ls.minimizeSubtags(language, script, region, Minimize.FAVOR_REGION);
+
                     ULocale tempLocale = new ULocale(language, script, region);
-                    ULocale max = ULocale.addLikelySubtags(tempLocale);
-                    final String resultString = String.valueOf(result);
-                    final String maxString = max.toLanguageTag();
-                    boolean same = maxString.equals(resultString);
-                    if (same) continue;
-                    System.out.println(language + "\t" + script + "\t" + region + "\t" + result + (same ? "" : "\t≠" + maxString));        
-                    result = ls.addLikelySubtags(language, script, region);
+                    ULocale maxOld = ULocale.addLikelySubtags(tempLocale);
+                    ULocale minOldS = ULocale.minimizeSubtags(tempLocale, Minimize.FAVOR_SCRIPT);
+                    ULocale minOldR = ULocale.minimizeSubtags(tempLocale, Minimize.FAVOR_REGION);
+                    
+                    // check values
+                    final String maxNewS = String.valueOf(maxNew);
+                    final String maxOldS = maxOld.toLanguageTag();
+                    boolean sameMax = maxOldS.equals(maxNewS);
+                    
+                    final String minNewSS = String.valueOf(minNewS);
+                    final String minOldSS = minOldS.toLanguageTag();
+                    boolean sameMinS = minNewSS.equals(minOldSS);
+
+                    final String minNewRS = String.valueOf(minNewR);
+                    final String minOldRS = minOldS.toLanguageTag();
+                    boolean sameMinR = minNewRS.equals(minOldRS);
+
+                    if (sameMax && sameMinS && sameMinR) continue;
+                    System.out.println(new LSR(language, script, region) 
+                        + "\tmax: " + maxNew
+                        + (sameMax ? "" : "≠" + maxOldS)
+                        + "\tminS: " + minNewS
+                        + (sameMinS ? "" : "≠" + minOldS)
+                        + "\tminR: " + minNewR
+                        + (sameMinR ? "" : "≠" + minOldR)
+                        );        
                 }
             }
             System.out.println(language + ": " + tests);
+        }
+    }
+
+    private static void add(String target, Counter<String> languageCounter, String language, int count) {
+        if (language.equals("aa")) {
+            int debug = 0;
+        }
+        languageCounter.add(language, count);
+    }
+
+    private static void removeSingletons(Set<String> languages, Counter<String> languageCounter) {
+        for (String s : languageCounter) {
+            final long count = languageCounter.get(s);
+            if (count <= 1) {
+                languages.remove(s);
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
@@ -590,7 +591,6 @@ public class XLocaleMatcher {
                     add(dataDistanceTable, item2.get0(), item2.get1(), item2.get2());
                     System.out.println(s + "\t" + item2);
                 }
-                System.out.println(dataDistanceTable);
             }
         }
     }
@@ -617,13 +617,18 @@ public class XLocaleMatcher {
         }
     }
 
+    @Override
+    public String toString() {
+        return languageDesired2Supported.toString();
+    }
+    
     public static void main(String[] args) {
         XLocaleMatcher localeMatcher = new XLocaleMatcher(dataDistanceTable);
         System.out.println(localeMatcher.toString());
 
         IntDistanceTable d = new IntDistanceTable(dataDistanceTable);
         XLocaleMatcher intLocaleMatcher = new XLocaleMatcher(d);
-        System.out.println(localeMatcher.toString());
+        System.out.println(intLocaleMatcher.toString());
 
         String lastRaw = "no";
         String[] testsRaw = {"no_DE", "nb", "no", "no", "da", "zh_Hant", "zh_Hans", "en", "en_GB", "en_Cyrl", "fr"};
@@ -638,11 +643,14 @@ public class XLocaleMatcher {
         LocaleMatcher oldLocaleMatcher = new LocaleMatcher("");
 
         long likelyTime = 0;
+        long newLikelyTime = 0;
         long extractTime = 0;
         long newTime = 0;
         long intTime = 0;
         long oldTime = 0;
-        final int maxIterations = 1000;
+        final int maxIterations = 10000;
+        XLikelySubtags newLikely = new XLikelySubtags();
+        
         for (int iterations = maxIterations; iterations > 0; --iterations) {
             ULocale desired = last;
             int count=0;
@@ -651,9 +659,8 @@ public class XLocaleMatcher {
 
                 long temp = System.nanoTime();
                 final ULocale desiredMax = ULocale.addLikelySubtags(desired);
-                likelyTime += System.nanoTime()-temp;
-                
                 final ULocale supportedMax = ULocale.addLikelySubtags(supported);
+                likelyTime += System.nanoTime()-temp;
                 
                 temp = System.nanoTime();
                 String desiredLang = desired.getLanguage();
@@ -661,19 +668,23 @@ public class XLocaleMatcher {
                 String desiredRegion = desired.getCountry();
                 extractTime += System.nanoTime()-temp;
                 
-                String supportedlang = supported.getLanguage();
+                String supportedLang = supported.getLanguage();
                 String supportedScript = supported.getScript();
                 String supportedRegion = supported.getCountry();
 
+                temp = System.nanoTime();
+                final LSR desiredLSR = newLikely.addLikelySubtags(desiredLang, desiredScript, desiredRegion);
+                final LSR supportedLSR = newLikely.addLikelySubtags(supportedLang, supportedScript, supportedRegion);
+                newLikelyTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
-                double dist1 = localeMatcher.distance(desiredLang, supportedlang, desiredScript, supportedScript, desiredRegion, supportedRegion);
-                double dist2 = localeMatcher.distance(supportedlang, desiredLang, supportedScript, desiredScript, supportedRegion, desiredRegion);
+                double dist1 = localeMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region);
+                double dist2 = localeMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
                 newTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
-                double distInt1 = intLocaleMatcher.distance(desiredLang, supportedlang, desiredScript, supportedScript, desiredRegion, supportedRegion);
-                double distInt2 = intLocaleMatcher.distance(supportedlang, desiredLang, supportedScript, desiredScript, supportedRegion, desiredRegion);
+                double distInt1 = intLocaleMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region);
+                double distInt2 = intLocaleMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
                 intTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
@@ -698,10 +709,12 @@ public class XLocaleMatcher {
                 desired = supported;
             }
         }
+        System.out.println();
         System.out.println("oldTime:\t" + oldTime/maxIterations);
         System.out.println("newTime:\t" + newTime/maxIterations);
         System.out.println("newIntTime:\t" + intTime/maxIterations);
         System.out.println("likelyTime:\t" + likelyTime/maxIterations);
         System.out.println("extractTime:\t" + extractTime/maxIterations);
+        System.out.println("newLikelyTime:\t" + newLikelyTime/maxIterations);
     }
 }

@@ -573,4 +573,10 @@ public class TestTransforms extends TestFmwkPlus {
     private void showTransliterator(Transliterator t) {
         org.unicode.cldr.test.TestTransforms.showTransliterator("", t, 999);
     }
+    
+    public void Test9925() {
+        register();
+        Transliterator pinyin = getTransliterator("und-Latn-t-und-hani");
+        assertEquals("賈 bug", "jiǎ", pinyin.transform("賈"));
+    }
 }

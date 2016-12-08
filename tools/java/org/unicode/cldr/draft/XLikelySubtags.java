@@ -48,10 +48,10 @@ public class XLikelySubtags {
         };
     }
 
-    static class LSR {
-        final String language;
-        final String script;
-        final String region;
+    public static class LSR {
+        public final String language;
+        public final String script;
+        public final String region;
 
         public LSR(String language, String script, String region) {
             this.language = language;
@@ -88,6 +88,7 @@ public class XLikelySubtags {
             return Objects.hash(language, script, region);
         }
     }
+    
     final Map<String, Map<String, Map<String, LSR>>> langTable;
 
     public XLikelySubtags(Map<String, String> rawData) {

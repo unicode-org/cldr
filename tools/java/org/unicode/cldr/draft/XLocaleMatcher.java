@@ -2,6 +2,7 @@ package org.unicode.cldr.draft;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -9,29 +10,56 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
-import org.unicode.cldr.draft.XLikelySubtags.LSR;
+import org.unicode.cldr.draft.XLocaleMatcher.RegionMapper.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSetMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.util.LocaleMatcher;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class XLocaleMatcher {
 
+    private static final String ANY = "�"; // make * into a large character for debugging
+    private static String fixAny(String string) {
+        return "*".equals(string) ? ANY : string;
+    }
+    
+    // For now, get data directly from CLDR
+    
+    static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
+    
+    private static List<R4<String, String, Integer, Boolean>> xGetLanguageMatcherData(String languageMatcherKey) {
+        return SDI.getLanguageMatcherData(languageMatcherKey);
+    }
+    private static Set<String> xGetLanguageMatcherKeys() {
+        return SDI.getLanguageMatcherKeys();
+    }
+    private static Set<String> xGetContained(String region) {
+        return SDI.getContained(region);
+    }
+
     private final DistanceTable languageDesired2Supported;
+    private final RegionMapper regionMapper;
     private final int threshold = 40;
     private final Set<String> closerLanguages;
 
-    interface DistanceTable {
-        int getDistance(String desiredLang, String supportedlang, Output<DistanceTable> table);
-        Set<String> getCloser(int threshold);
+    static abstract class DistanceTable {
+        abstract int getDistance(String desiredLang, String supportedlang, Output<DistanceTable> table);
+        abstract Set<String> getCloser(int threshold);
     }
 
     static class DistanceNode {
@@ -91,11 +119,12 @@ public class XLocaleMatcher {
         }
     }
 
-    static class IntDistanceTable implements DistanceTable {
-        private static final Id[] ids = {new Id<String>("lang", "*"), new Id<String>("script", "*"), new Id<String>("region", "*")};
-        private static final Id<IntDistanceTable> cache = new Id<>("table");
 
-        private final Id<String> id;
+    static class IntDistanceTable extends DistanceTable {
+        private static final IdMakerFull[] ids = {new IdMakerFull<String>("lang", ANY), new IdMakerFull<String>("script", ANY), new IdMakerFull<String>("region", ANY)};
+        private static final IdMakerFull<IntDistanceTable> cache = new IdMakerFull<>("table");
+
+        private final IdMakerFull<String> id;
         private final DistanceNode[][] distanceNodes; // map from desired, supported => node
 
         public IntDistanceTable(StringDistanceTable source) {
@@ -103,7 +132,7 @@ public class XLocaleMatcher {
         }
 
         private static int loadIds(StringDistanceTable source, int idNumber) {
-            Id id = ids[idNumber]; // use different Id for language, script, region
+            IdMakerFull id = ids[idNumber]; // use different Id for language, script, region
             for (Entry<String, Map<String, StringDistanceNode>> e1 : source.subtables.entrySet()) {
                 int desired = id.add(e1.getKey());
                 for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
@@ -156,8 +185,8 @@ public class XLocaleMatcher {
 
         @Override
         public int getDistance(String desired, String supported, Output<DistanceTable> distanceTable) {
-            final int desiredId = id.from(desired);
-            final int supportedId = id.from(supported); // can optimize later
+            final int desiredId = id.toId(desired);
+            final int supportedId = id.toId(supported); // can optimize later
             DistanceNode value = distanceNodes[desiredId][supportedId];
             distanceTable.value = value.getDistanceTable();
             return desiredId == supportedId && (desiredId != 0 || desired.equals(supported)) ? 0 
@@ -218,7 +247,7 @@ public class XLocaleMatcher {
                 for (int j = 0; j < row.length; ++j) {
                     DistanceNode value = row[j];
                     if (value.distance < threshold) {
-                        result.add(id.to(i));
+                        result.add(id.fromId(i));
                         break;
                     }
                 }
@@ -226,25 +255,29 @@ public class XLocaleMatcher {
             return result;
         }
     }
+    
+    private interface IdMapper<K,V> {
+        public V toId(K source);
+    }
 
-    private static class Id<T> {
+    private static class IdMakerFull<T> implements IdMapper<T,Integer> {
         private final Map<T, Integer> objectToInt = new HashMap<>();
         private final List<T> intToObject = new ArrayList<>();
-        private final String name;
+        private final String name; // for debugging
 
-        Id(String name) {
+        IdMakerFull(String name) {
             this.name = name;
         }
 
-        Id(String name, T zeroValue) {
+        IdMakerFull(String name, T zeroValue) {
             this(name);
             add(zeroValue);
         }
 
-        public int add(T source) {
+        public Integer add(T source) {
             Integer result = objectToInt.get(source);
             if (result == null) {
-                final int newResult = intToObject.size();
+                Integer newResult = intToObject.size();
                 objectToInt.put(source, newResult);
                 intToObject.add(source);
                 return newResult;
@@ -253,17 +286,17 @@ public class XLocaleMatcher {
             }
         }
 
-        public int from(T source) {
+        public Integer toId(T source) {
             Integer value = objectToInt.get(source); 
             return value == null ? 0 : value; 
         }
 
-        public T to(int id) {
+        public T fromId(int id) {
             return intToObject.get(id); 
         }
 
         public T intern(T source) {
-            return to(add(source));
+            return fromId(add(source));
         }
 
         public int size() {
@@ -276,7 +309,7 @@ public class XLocaleMatcher {
         }
         @Override
         public boolean equals(Object obj) {
-            Id other = (Id) obj;
+            IdMakerFull other = (IdMakerFull) obj;
             return intToObject.equals(other.intToObject);
         }
         @Override
@@ -322,16 +355,17 @@ public class XLocaleMatcher {
         }
     }
 
-    public XLocaleMatcher(DistanceTable datadistancetable2) {
+    public XLocaleMatcher(DistanceTable datadistancetable2, RegionMapper regionMapper) {
         languageDesired2Supported = datadistancetable2;
         closerLanguages = languageDesired2Supported.getCloser(threshold);
+        this.regionMapper = regionMapper;
     }
 
-    private static Map newMap() {
+    private static Map newMap() { // for debugging
         return new TreeMap();
     }
 
-    private static class StringDistanceTable implements DistanceTable {
+    private static class StringDistanceTable extends DistanceTable {
         private final Map<String, Map<String, StringDistanceNode>> subtables = newMap();
 
         @Override
@@ -348,17 +382,17 @@ public class XLocaleMatcher {
             boolean star = false;
             Map<String, StringDistanceNode> sub2 = subtables.get(desired);
             if (sub2 == null) {
-                sub2 = subtables.get("*"); // <*, supported>
+                sub2 = subtables.get(ANY); // <*, supported>
                 star = true;
             }
             StringDistanceNode value = sub2.get(supported);   // <*/desired, supported>
             if (value == null) {
-                value = sub2.get("*");  // <*/desired, *>
+                value = sub2.get(ANY);  // <*/desired, *>
                 if (value == null && !star) {
-                    sub2 = subtables.get("*");   // <*, supported>
+                    sub2 = subtables.get(ANY);   // <*, supported>
                     value = sub2.get(supported);
                     if (value == null) {
-                        value = sub2.get("*");   // <*, *>
+                        value = sub2.get(ANY);   // <*, *>
                     }
                 }
                 star = true;
@@ -434,12 +468,12 @@ public class XLocaleMatcher {
             for (Entry<String, Map<String, StringDistanceNode>> e1 : subtables.entrySet()) {
                 String key1 = e1.getKey();
                 final boolean desiredIsKey = desiredLang.equals(key1);
-                if (desiredIsKey || desiredLang.equals("*")) {
+                if (desiredIsKey || desiredLang.equals(ANY)) {
                     for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
                         String key2 = e2.getKey();
                         final boolean supportedIsKey = supportedLang.equals(key2);
                         haveKeys |= (desiredIsKey && supportedIsKey);
-                        if (supportedIsKey || supportedLang.equals("*")) {
+                        if (supportedIsKey || supportedLang.equals(ANY)) {
                             StringDistanceNode value = e2.getValue();
                             if (value.distanceTable == null) {
                                 value.distanceTable = new StringDistanceTable();
@@ -466,12 +500,12 @@ public class XLocaleMatcher {
             for (Entry<String, Map<String, StringDistanceNode>> e1 : subtables.entrySet()) {
                 String key1 = e1.getKey();
                 final boolean desiredIsKey = desiredLang.equals(key1);
-                if (desiredIsKey || desiredLang.equals("*")) {
+                if (desiredIsKey || desiredLang.equals(ANY)) {
                     for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
                         String key2 = e2.getKey();
                         final boolean supportedIsKey = supportedLang.equals(key2);
                         haveKeys |= (desiredIsKey && supportedIsKey);
-                        if (supportedIsKey || supportedLang.equals("*")) {
+                        if (supportedIsKey || supportedLang.equals(ANY)) {
                             StringDistanceNode value = e2.getValue();
                             if (value.distanceTable == null) {
                                 value.distanceTable = new StringDistanceTable();
@@ -498,7 +532,7 @@ public class XLocaleMatcher {
             for (Entry<String, Map<String, StringDistanceNode>> e1 : subtables.entrySet()) {
                 for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
                     StringDistanceNode value = e2.getValue();
-                    buffer.append("\n" + indent + "\t<" + e1.getKey() + ", " + e2.getKey() + "> => " + value.distance);
+                    buffer.append("\n" + indent + "<" + e1.getKey() + ", " + e2.getKey() + "> => " + value.distance);
                     if (value.distanceTable != null) {
                         value.distanceTable.toString(indent+"\t", buffer);
                     }
@@ -559,21 +593,16 @@ public class XLocaleMatcher {
 
 
     public double distance(ULocale desired, ULocale supported) {
-        String desiredLang = desired.getLanguage();
-        String supportedlang = supported.getLanguage();
-        String desiredScript = desired.getScript();
-        String supportedScript = supported.getScript();
-        String desiredRegion = desired.getCountry();
-        String supportedRegion = supported.getCountry();
-
-        return distance(desiredLang, supportedlang, desiredScript, supportedScript, desiredRegion, supportedRegion);
+        return distance(desired.getLanguage(), supported.getLanguage(), 
+            desired.getScript(), supported.getScript(), 
+            desired.getCountry(), supported.getCountry());
     }
 
-    public double distance(
+    public int distance(
         String desiredLang, String supportedlang, 
         String desiredScript, String supportedScript, 
         String desiredRegion, String supportedRegion) {
-        
+
         Output<DistanceTable> subtable = new Output<>();
 
         int distance = languageDesired2Supported.getDistance(desiredLang, supportedlang, subtable);
@@ -586,35 +615,73 @@ public class XLocaleMatcher {
             return 666;
         }
 
-        distance += subtable.value.getDistance(desiredRegion, supportedRegion, subtable);
+        final String desiredPartition = regionMapper.toId(desiredRegion);
+        final String supportedPartition = regionMapper.toId(supportedRegion);
+
+        int subdistance = subtable.value.getDistance(desiredPartition.toString(), supportedPartition.toString(), subtable);
+        if (subdistance == 0 && !desiredRegion.equals(supportedRegion)) { // HACK
+            subdistance = 4;
+        }
+        distance += subdistance;
         return distance;
     }
 
-    public static final StringDistanceTable dataDistanceTable = new StringDistanceTable();
-
+    public static final StringDistanceTable DEFAULT_DISTANCE_TABLE;
+    public static final RegionMapper DEFAULT_REGION_MAPPER;
+    
+    static final boolean PRINT_OVERRIDES = false;
     static {
-        Splitter bar = Splitter.on('_');
-        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
-        int last = -1;
-        for (String s : sdi.getLanguageMatcherKeys()) {
-            /*
-            <languageMatch desired="hy" supported="ru" percent="90" oneway="true"/>
+        String[][] variableOverrides = {
+            {"$enUS", "AS|GU|MH|MP|PR|UM|US|VI"},
 
-            written  [am_*_*, en_*_GB, 90, true]
-            written [ay, es, 90, true]
-            written [az, ru, 90, true]
-            written [az_Latn, ru_Cyrl, 90, true]
-             */
+            {"$cnsar", "HK|MO"},
+
+            {"$americas", "019"},
+
+            {"$maghreb", "MA|DZ|TN|LY|MR|EH"},
+        };
+        String[][] regionRuleOverrides = {
+            {"ar_*_$maghreb", "ar_*_$!maghreb", "95"},
+
+            {"en_*_$enUS", "en_*_$!enUS", "95"},
+
+            {"es_*_$americas", "es_*_$!americas", "95"},
+
+            {"pt_*_$americas", "pt_*_$!americas", "95"},
+
+            {"zh_Hant_$cnsar", "zh_Hant_$!cnsar", "95"},
+        };
+
+        Builder rmb = new RegionMapper.Builder();
+        for (String[] variableRule : variableOverrides) {
+            rmb.add(variableRule[0], variableRule[1]);
+            if (PRINT_OVERRIDES) System.out.println("<matchVariable groupVariable=\"" + variableRule[0]
+                + "\" groupValue=\""
+                + variableRule[1]
+                + "\"/>");
+        }
+        
+        Splitter bar = Splitter.on('_');
+
+        DEFAULT_REGION_MAPPER = rmb.build();
+        DEFAULT_DISTANCE_TABLE = new StringDistanceTable();
+
+        for (String s : xGetLanguageMatcherKeys()) {
             List<Row.R3<List<String>, List<String>, Integer>>[] sorted = new ArrayList[3];
             sorted[0] = new ArrayList<>();
             sorted[1] = new ArrayList<>();
             sorted[2] = new ArrayList<>();
 
-            for (R4<String, String, Integer, Boolean> info : sdi.getLanguageMatcherData(s)) {
+            // sort the rules so that the language-only are first, then the language-script, and finally the language-script-region.
+            for (R4<String, String, Integer, Boolean> info : xGetLanguageMatcherData(s)) {
                 List<String> desired = bar.splitToList(info.get0());
                 List<String> supported = bar.splitToList(info.get1());
                 final int distance = 100-info.get2();
                 int size = desired.size();
+
+                // for now, skip size == 3
+                if (size == 3) continue;
+
                 sorted[size-1].add(Row.of(desired, supported, distance));
                 if (info.get3() != Boolean.TRUE && !desired.equals(supported)) {
                     sorted[size-1].add(Row.of(supported, desired, distance));
@@ -623,10 +690,46 @@ public class XLocaleMatcher {
             for (List<Row.R3<List<String>, List<String>, Integer>> item1 : sorted) {
                 int debug = 0;
                 for (Row.R3<List<String>, List<String>, Integer> item2 : item1) {
-                    add(dataDistanceTable, item2.get0(), item2.get1(), item2.get2());
-                    System.out.println(s + "\t" + item2);
+                    add(DEFAULT_DISTANCE_TABLE, item2.get0(), item2.get1(), item2.get2());
                 }
             }
+
+            // add new size=3
+            for (String[] rule : regionRuleOverrides) {
+                if (PRINT_OVERRIDES) System.out.println("<languageMatch  desired=\""
+                    + rule[0]
+                    + "\" supported=\""
+                    + rule[1]
+                    + "\"   percent=\""
+                    + rule[2]
+                    + "\"/>");
+
+                List<String> desiredBase = new ArrayList<>(bar.splitToList(rule[0]));
+                List<String> supportedBase = new ArrayList<>(bar.splitToList(rule[1]));
+                Integer distance = 100-Integer.parseInt(rule[2]);
+
+                Collection<String> desiredRegions = DEFAULT_REGION_MAPPER.getIdsFromVariable(desiredBase.get(2));
+                if (desiredRegions == null) {
+                    throw new IllegalArgumentException("Bad region variable: " + desiredBase.get(2));
+                }
+                Collection<String> supportedRegions = DEFAULT_REGION_MAPPER.getIdsFromVariable(supportedBase.get(2));
+                if (supportedRegions == null) {
+                    throw new IllegalArgumentException("Bad region variable: " + supportedBase.get(2));
+                }
+                for (String desiredRegion : desiredRegions) {
+                    desiredBase.set(2, desiredRegion.toString()); // fix later
+                    for (String supportedRegion : supportedRegions) {
+                        supportedBase.set(2, supportedRegion.toString()); // fix later
+                        add(DEFAULT_DISTANCE_TABLE, desiredBase, supportedBase, distance);
+                        add(DEFAULT_DISTANCE_TABLE, supportedBase, desiredBase, distance);
+                    }
+                }
+            }
+            add(DEFAULT_DISTANCE_TABLE, new ArrayList<>(bar.splitToList("*_*_*")), new ArrayList<>(bar.splitToList("*_*_*")), 4);
+        }
+        if (PRINT_OVERRIDES) {
+            System.out.println(DEFAULT_REGION_MAPPER);
+            System.out.println(DEFAULT_DISTANCE_TABLE);
         }
     }
 
@@ -635,18 +738,18 @@ public class XLocaleMatcher {
         if (size != supported.size() || size < 1 || size > 3) {
             throw new IllegalArgumentException();
         }
-        final String desiredLang = desired.get(0);
-        final String supportedLang = supported.get(0);
+        final String desiredLang = fixAny(desired.get(0));
+        final String supportedLang = fixAny(supported.get(0));
         if (size == 1) {
             languageDesired2Supported.addSubtable(desiredLang, supportedLang, percentage, false);
         } else {
-            final String desiredScript = desired.get(1);
-            final String supportedScript = supported.get(1);
+            final String desiredScript = fixAny(desired.get(1));
+            final String supportedScript = fixAny(supported.get(1));
             if (size == 2) {
                 languageDesired2Supported.addSubtables(desiredLang, supportedLang, desiredScript, supportedScript, percentage);
             } else {
-                final String desiredRegion = desired.get(2);
-                final String supportedRegion = supported.get(2);
+                final String desiredRegion = fixAny(desired.get(2));
+                final String supportedRegion = fixAny(supported.get(2));
                 languageDesired2Supported.addSubtables(desiredLang, supportedLang, desiredScript, supportedScript, desiredRegion, supportedRegion, percentage);
             }
         }
@@ -657,101 +760,181 @@ public class XLocaleMatcher {
         return languageDesired2Supported.toString();
     }
     
-    public static void main(String[] args) {
-        XLocaleMatcher localeMatcher = new XLocaleMatcher(dataDistanceTable);
-        System.out.println(localeMatcher.toString());
-        System.out.println("closer: " + localeMatcher.closerLanguages);
+    public static XLocaleMatcher createDefault() {
+        return new XLocaleMatcher(DEFAULT_DISTANCE_TABLE, DEFAULT_REGION_MAPPER);
+    }
+    
+    public static XLocaleMatcher createDefaultInt() {
+        IntDistanceTable d = new IntDistanceTable(DEFAULT_DISTANCE_TABLE);
+        return new XLocaleMatcher(d, DEFAULT_REGION_MAPPER);
+    }
 
-        IntDistanceTable d = new IntDistanceTable(dataDistanceTable);
-        XLocaleMatcher intLocaleMatcher = new XLocaleMatcher(d);
-        System.out.println(intLocaleMatcher.toString());
-        System.out.println("closer: " + localeMatcher.closerLanguages);
+    /**
+     * @return the closerLanguages
+     */
+    public Set<String> getCloserLanguages() {
+        return closerLanguages;
+    }
 
-        String lastRaw = "no";
-        String[] testsRaw = {"no_DE", "nb", "no", "no", "da", "zh_Hant", "zh_Hans", "en", "en_GB", "en_Cyrl", "fr"};
-        ULocale last = new ULocale(lastRaw);
-        final int testCount = testsRaw.length;
-        ULocale[] tests = new ULocale[testCount];
-        int i = 0;
-        for (String testRaw : testsRaw) {
-            tests[i++] = new ULocale(testRaw);
+    static class RegionMapper implements IdMapper<String,String> { 
+        /**
+         * Used for processing rules. At the start we have a variable setting like $A1=US|CA|MX. We generate a mapping from $A1 to a set of partitions {P1, P2}
+         * When we hit a rule that contains a variable, we replace that rule by multiple rules for the partitions.
+         */
+        final Multimap<String,String> variableToPartition;
+        /**
+         * Used for executing the rules. We map a region to a partition before processing.
+         */
+        final Map<String,String> regionToPartition;
+
+        private RegionMapper(Multimap<String, String> variableToPartitionIn,
+            Map<String, String> regionToPartitionIn) {
+            variableToPartition = variableToPartitionIn;
+            regionToPartition = regionToPartitionIn;
         }
 
-        LocaleMatcher oldLocaleMatcher = new LocaleMatcher("");
+        public String toId(String region) {
+            return regionToPartition.get(region);
+        }
 
-        long likelyTime = 0;
-        long newLikelyTime = 0;
-        long extractTime = 0;
-        long newTime = 0;
-        long intTime = 0;
-        long oldTime = 0;
-        final int maxIterations = 10000;
-        XLikelySubtags newLikely = new XLikelySubtags();
+        public Collection<String> getIdsFromVariable(String variable) {
+            return variableToPartition.get(variable);
+        }
+
+        public Set<String> regions() {
+            return regionToPartition.keySet();
+        }
+
+        public Set<String> variables() {
+            return variableToPartition.keySet();
+        }
         
-        for (int iterations = maxIterations; iterations > 0; --iterations) {
-            ULocale desired = last;
-            int count=0;
-            for (ULocale test : tests) {
-                final ULocale supported = test;
+        @Override
+        public String toString() {
+            TreeMultimap<String, String> partitionToVariables = Multimaps.invertFrom(variableToPartition, TreeMultimap.create());
+            TreeMultimap<String, String> partitionToRegions = TreeMultimap.create();
+            for (Entry<String, String> e : regionToPartition.entrySet()) {
+                partitionToRegions.put(e.getValue(), e.getKey());
+            }
+            StringBuilder buffer = new StringBuilder();
+            for (Entry<String, Collection<String>> e : partitionToVariables.asMap().entrySet()) {
+                if (buffer.length() > 0) {
+                    buffer.append('\n');
+                }
+                buffer.append(e.getKey() + "\t" + e.getValue() + "\t" + partitionToRegions.get(e.getKey()));
+            }
+            return buffer.toString();
+        }
 
-                long temp = System.nanoTime();
-                final ULocale desiredMax = ULocale.addLikelySubtags(desired);
-                final ULocale supportedMax = ULocale.addLikelySubtags(supported);
-                likelyTime += System.nanoTime()-temp;
-                
-                temp = System.nanoTime();
-                String desiredLang = desired.getLanguage();
-                String desiredScript = desired.getScript();
-                String desiredRegion = desired.getCountry();
-                extractTime += System.nanoTime()-temp;
-                
-                String supportedLang = supported.getLanguage();
-                String supportedScript = supported.getScript();
-                String supportedRegion = supported.getCountry();
+        static class Builder {
+            final private Multimap<String, String> regionToPartitionTemp = TreeMultimap.create();
+            final private RegionSet regionSet = new RegionSet();
 
-                temp = System.nanoTime();
-                final LSR desiredLSR = newLikely.addLikelySubtags(desiredLang, desiredScript, desiredRegion);
-                final LSR supportedLSR = newLikely.addLikelySubtags(supportedLang, supportedScript, supportedRegion);
-                newLikelyTime += System.nanoTime()-temp;
+            void add(String variable, String barString) {
+                Set<String> tempRegions = regionSet.parseSet(barString);
 
-                temp = System.nanoTime();
-                double dist1 = localeMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region);
-                double dist2 = localeMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
-                newTime += System.nanoTime()-temp;
+                for (String region : tempRegions) {
+                    regionToPartitionTemp.put(region, variable);
+                }
 
-                temp = System.nanoTime();
-                double distInt1 = intLocaleMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region);
-                double distInt2 = intLocaleMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
-                intTime += System.nanoTime()-temp;
+                // now add the inverse variable
 
-                temp = System.nanoTime();
-                double distOld1 = oldLocaleMatcher.match(desired, desiredMax, supported, supportedMax);
-                double distOld2 = oldLocaleMatcher.match(supported, supportedMax, desired, desiredMax);
-                oldTime += System.nanoTime()-temp;
 
-                if (iterations == 1) {
-                    System.out.println(desired + (dist1 != dist2 ? "\t => \t" : "\t <=> \t") + test
-                        + "\t = \t" + dist1 
-                        + "; \t" + distInt1
-                        + "; \t" + 100*(1-distOld1)
-                        );
-                    if (dist1 != dist2) {
-                        System.out.println(supported + "\t => \t" + desired
-                            + "\t = \t" + dist2 
-                            + "; \t" + distInt2
-                            + "; \t" + 100*(1-distOld2));
+                Set<String> inverse = regionSet.inverse();
+                String inverseVariable = "$!" + variable.substring(1);
+                for (String region : inverse) {
+                    regionToPartitionTemp.put(region, inverseVariable);
+                }
+            }
+
+            RegionMapper build() {
+                final IdMakerFull<Collection<String>> id = new IdMakerFull<>("partition");
+                ImmutableMultimap.Builder<String,String> variableToPartitionBuilder = ImmutableSetMultimap.builder(); 
+                ImmutableMap.Builder<String,String> regionToPartitionBuilder = ImmutableMap.builder();
+
+                for (Entry<String, Collection<String>> e : regionToPartitionTemp.asMap().entrySet()) {
+                    final String region = e.getKey();
+                    final Collection<String> partitionRaw = e.getValue();
+                    String partition = String.valueOf((char)('α' + id.add(partitionRaw)));
+
+                    regionToPartitionBuilder.put(region, partition);
+
+                    for (String variable : partitionRaw) {
+                        variableToPartitionBuilder.put(variable, partition);
                     }
                 }
 
-                desired = supported;
+                return new RegionMapper(
+                    variableToPartitionBuilder.build(),
+                    regionToPartitionBuilder.build());
             }
         }
-        System.out.println();
-        System.out.println("oldTime:\t" + oldTime/maxIterations);
-        System.out.println("newTime:\t" + newTime/maxIterations);
-        System.out.println("newIntTime:\t" + intTime/maxIterations);
-        System.out.println("likelyTime:\t" + likelyTime/maxIterations);
-        System.out.println("extractTime:\t" + extractTime/maxIterations);
-        System.out.println("newLikelyTime:\t" + newLikelyTime/maxIterations);
+    }
+    
+    /**
+     * Parses a string of regions like "US|005-BR" and produces a set of resolved regions. 
+     * That is, all macroregions are fully resolved to sets of non-macro regions.
+     * <br>Syntax is simple for now:
+     * <pre>regionSet := region ([-|] region)*</pre>
+     * No precedence, so "x|y-y|z" is (((x union y) minus y) union z) = x union z, NOT x
+     */
+    private static class RegionSet {
+        private enum Operation {add, remove}
+        private Operation operation = null;
+        final private Set<String> tempRegions = new TreeSet<>();
+        final private Set<String> allRegions;
+        {
+            changeSet(Operation.add, "001");
+            allRegions = ImmutableSet.copyOf(tempRegions);
+        }
+        private Set<String> parseSet(String barString) {
+            operation = Operation.add;
+            int last = 0;
+            tempRegions.clear();
+            int i = 0;
+            for (; i < barString.length(); ++i) {
+                char c = barString.charAt(i); // UTF16 is ok, since syntax is only ascii
+                switch(c) {
+                case '|':
+                    add(barString, last, i);
+                    last = i+1;
+                    operation = Operation.add; 
+                    break;
+                case '-': 
+                    add(barString, last, i);
+                    last = i+1;
+                    operation = Operation.remove; 
+                    break;
+                }
+            }
+            add(barString, last, i);
+            return tempRegions;
+        }
+
+        private Set<String> inverse() {
+            TreeSet<String> result = new TreeSet<>(allRegions);
+            result.removeAll(tempRegions);
+            return result;
+        }
+
+        private void add(String barString, int last, int i) {
+            if (i > last) {
+                String region = barString.substring(last,i);
+                changeSet(operation, region);
+            }
+        }
+
+        private void changeSet(Operation operation, String region) {
+            Set<String> contained = xGetContained(region);
+            if (contained != null) {
+                for (String subregion : contained) {
+                    changeSet(operation, subregion);
+                }
+            } else if (Operation.add == operation) {
+                tempRegions.add(region);
+            } else {
+                tempRegions.remove(region);
+            }
+        }
     }
 }

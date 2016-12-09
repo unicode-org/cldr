@@ -3,17 +3,18 @@ package org.unicode.cldr.unittest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
-import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -57,39 +58,65 @@ public class TestSubdivisions extends TestFmwkPlus {
         final Validity VALIDITY = Validity.getInstance();
         Set<String> deprecated = VALIDITY.getStatusToCodes(LstrType.subdivision).get(Status.deprecated);
 
-        // <subdivision type="AL-DI">Dibër</subdivision>   <!-- in AL-09 : Dibër -->
-
         List<Pair<String, String>> data = new ArrayList<>();
         XMLFileReader.loadPathValues(CLDRPaths.COMMON_DIRECTORY + "subdivisions/en.xml", data, true);
-        M3<String, String, String> countryToNameToSubdivision = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
+        ChainedMap.M4<String, String, String, Boolean> countryToNameToSubdivisions = ChainedMap.of(
+            new TreeMap<String, Object>(), new TreeMap<String, Object>(), new TreeMap<String, Object>(), Boolean.class);
+        
         for (Pair<String, String> entry : data) {
+            // <subdivision type="AD-02">Canillo</subdivision>
             XPathParts parts = XPathParts.getFrozenInstance(entry.getFirst());
             if (!parts.getElement(-1).equals("subdivision")) {
                 continue;
             }
-            String value = entry.getSecond();
+            String name = entry.getSecond();
             final String subdivision = parts.getAttributeValue(-1, "type");
-            if (deprecated.contains(subdivision.replace("-","").toLowerCase(Locale.ROOT))) {
-                continue; // skip deprecated names
-            }
+            String country = subdivision.substring(0, 2);
+            
+            // if there is an alias, we're ok, don't bother with it
             R2<List<String>, String> subdivisionAlias = subdivisionAliases.get(subdivision);
             if (subdivisionAlias != null) {
-                String country = subdivisionAlias.get0().get(0);
-                String countryName = CLDRConfig.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, country);
-                assertEquals("country " + country
-                    + " = subdivision " + subdivision, countryName, value);
+                // String countryName = CLDRConfig.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, country);
+                // assertEquals("country " + country + " = subdivision " + subdivision, countryName, value);
+                continue;
             }
-            String country = subdivision.substring(0, 2);
-            String old = countryToNameToSubdivision.get(country, value);
-            if (old == null) {
-                countryToNameToSubdivision.put(country, value, subdivision);
-            } else {
-                Set<String> oldContained = SDI.getContainedSubdivisions(old);
-                Set<String> newContained = SDI.getContainedSubdivisions(subdivision);
+            countryToNameToSubdivisions.put(country, name, subdivision, deprecated.contains(subdivision.replace("-","").toLowerCase(Locale.ROOT)));
+        }
+        // now look for uniqueness
+        LinkedHashSet<String> problemSet = new LinkedHashSet<>();
+        for (Entry<String, Map<String, Map<String, Boolean>>> entry1 : countryToNameToSubdivisions) {
+            String country = entry1.getKey();
+            for (Entry<String, Map<String, Boolean>> entry2 : entry1.getValue().entrySet()) {
+                String name = entry2.getKey();
+                Map<String, Boolean> subdivisionMap = entry2.getValue();
+                if (subdivisionMap.size() == 1) {
+                    continue;
+                }
+                logln("Name «" + name + "» for "+ subdivisionMap.keySet());
+                // we have multiple names.
+                // remove the deprecated ones, but generate aliases
+                problemSet.clear();
+                for (Iterator<Entry<String, Boolean>> it = subdivisionMap.entrySet().iterator(); it.hasNext();) {
+                    Entry<String, Boolean> entry = it.next();
+                    if (!entry.getValue()) { // if not deprecated
+                        problemSet.add(entry.getKey());
+                        it.remove();
+                    }
+                }
+                if (problemSet.size() < 2) {
+                    continue;
+                }
+                // warn about collisions
+                errln("Name collision for «" + name + "» in "+ problemSet);
 
-                errln("Collision between " + old + " and " + subdivision + ": «" + value + "»"
-                    + (oldContained == null ? "" : !oldContained.contains(subdivision) ? "" : "\t" + old + " ∋ " + subdivision)
-                    + (newContained == null ? "" : !newContained.contains(old) ? "" : "\t" + subdivision + " ∋ " + old));
+                // show the possible aliases to add
+                String first = problemSet.iterator().next();
+                for (String deprecatedItem : subdivisionMap.keySet()) {
+                    warnln("Consider adding: "
+                        + "<subdivisionAlias type=\"" + deprecatedItem
+                        + "\" replacement=\"" + first
+                        + "\" reason=\"deprecated\"/>");
+                }
             }
         }
         // <subdivisionAlias type="CN-71" replacement="TW" reason="overlong"/>

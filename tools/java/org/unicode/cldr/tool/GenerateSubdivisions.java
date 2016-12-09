@@ -62,10 +62,34 @@ public class GenerateSubdivisions {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final CLDRFile ENGLISH_CLDR = CLDR_CONFIG.getEnglish();
     private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
-
-    private static final Validity VALIDITY_FORMER = Validity.getInstance();
+    
+    // TODO: consider whether to use the last archive directory to generate
+    // There are pros and cons. 
+    // Pros are that we don't introduce "fake" deprecated elements that are introduced and deprecated during the 6 month CLDR cycle
+    // Cons are that we may have to repeat work
+    
     private static final Map<String, R2<List<String>, String>> SUBDIVISION_ALIASES_FORMER = SDI.getLocaleAliasInfo().get("subdivision");
+    
     private static final SubdivisionNames SUBDIVISION_NAMES_ENGLISH_FORMER = new SubdivisionNames("en");
+    
+    private static final Validity VALIDITY_FORMER = Validity.getInstance();
+    
+    private static final Relation<String,String> regionToFormer_IsoFormat = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class, ROOT_COL);
+    static {
+        Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getStatusToCodes(LstrType.subdivision);
+        for (Entry<Status, Set<String>> e : oldSubdivisionData.entrySet()) {
+            final Status status = e.getKey();
+            if (status != Status.unknown) { // special is a hack
+                for (String sdCode : e.getValue()) {
+                    final String region = sdCode.substring(0,2).toUpperCase();
+                    final String subregion = sdCode.substring(2).toUpperCase();
+                    regionToFormer_IsoFormat.put(region, region+"-"+subregion);
+                }
+            }
+        }
+        regionToFormer_IsoFormat.freeze();
+    }
+
 
     static Map<String, String> NAME_CORRECTIONS = new HashMap<>();
     static {
@@ -325,19 +349,9 @@ public class GenerateSubdivisions {
         }
 
         public static void printEnglish(Appendable output) throws IOException {
-            Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getStatusToCodes(LstrType.subdivision);
-            Relation<String,String> regionToOld = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class, ROOT_COL);
-            for (Entry<Status, Set<String>> e : oldSubdivisionData.entrySet()) {
-                final Status status = e.getKey();
-                if (status != Status.unknown) { // special is a hack
-                    for (String sdCode : e.getValue()) {
-                        int pos = sdCode.indexOf('-');
-                        if (pos > 0) {
-                            regionToOld.put(sdCode.substring(0,pos), sdCode);
-                        }
-                    }
-                }
-            }
+            TreeSet<String> allRegions = new TreeSet<>();
+            allRegions.addAll(codeToData.keySet());
+            allRegions.addAll(regionToFormer_IsoFormat.keySet());
 
             // <subdivisions>
             // <subdivisiontype="NZ-AUK">Auckland</territory>
@@ -351,7 +365,7 @@ public class GenerateSubdivisions {
                 + "\t\t<subdivisions>\n");
             Set<String> skipped = new LinkedHashSet<>();
 
-            for (String regionCode : codeToData.keySet()) {
+            for (String regionCode : allRegions) {
                 if (!isKosher(regionCode)) {
                     if (regionCode.length() != 3) {
                         skipped.add(regionCode);
@@ -359,7 +373,7 @@ public class GenerateSubdivisions {
                     continue;
                 }
                 Set<String> codesIncluded = new HashSet<>(); // record the ones we did, so we can add others
-                Set<String> remainder = regionToOld.get(regionCode);
+                Set<String> remainder = regionToFormer_IsoFormat.get(regionCode);
                 remainder = remainder == null ? Collections.EMPTY_SET : new LinkedHashSet<>(remainder);
 
                 SubdivisionNode regionNode = ID_TO_NODE.get(regionCode);

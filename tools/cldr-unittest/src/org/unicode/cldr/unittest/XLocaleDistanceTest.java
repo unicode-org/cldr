@@ -2,7 +2,7 @@ package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.draft.XLikelySubtags;
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
-import org.unicode.cldr.draft.XLocaleMatcher;
+import org.unicode.cldr.draft.XLocaleDistance;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.LocaleMatcher;
@@ -15,11 +15,11 @@ public class XLocaleDistanceTest extends TestFmwk {
     
     public void TestMain() {
         
-        XLocaleMatcher localeMatcher = XLocaleMatcher.createDefault();
-//        logln(localeMatcher.toString());
-//        logln("closer: " + localeMatcher.getCloserLanguages());
+        XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
+        logln(localeMatcher.toString());
+        logln("closer: " + localeMatcher.getCloserLanguages());
 
-        XLocaleMatcher intLocaleMatcher = XLocaleMatcher.createDefaultInt();
+        XLocaleDistance intLocaleMatcher = XLocaleDistance.createDefaultInt();
 //        logln(intLocaleMatcher.toString());
 //        logln("closer: " + localeMatcher.getCloserLanguages());
 
@@ -61,7 +61,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         long intTime = 0;
         long oldTime = 0;
         final int maxIterations = 10000;
-        final XLikelySubtags newLikely = new XLikelySubtags();
+        final XLikelySubtags newLikely = XLikelySubtags.getDefault();
 
         for (int iterations = maxIterations; iterations > 0; --iterations) {
             int count=0;

@@ -53,6 +53,10 @@ public class XLikelySubtags {
         public final String script;
         public final String region;
 
+        public LSR(ULocale locale) {
+            this(locale.getLanguage(), locale.getScript(), locale.getCountry());
+        }
+        
         public LSR(String language, String script, String region) {
             this.language = language;
             this.script = script;
@@ -95,8 +99,10 @@ public class XLikelySubtags {
         this.langTable = init(rawData);
     }
 
-    public XLikelySubtags() {
-        this(CLDRConfig.getInstance().getSupplementalDataInfo().getLikelySubtags());
+    private static final XLikelySubtags DEFAULT = new XLikelySubtags(CLDRConfig.getInstance().getSupplementalDataInfo().getLikelySubtags());
+    
+    public static final XLikelySubtags getDefault() {
+        return DEFAULT;
     }
 
     private Map<String, Map<String, Map<String, LSR>>> init(final Map<String, String> rawData) {
@@ -178,6 +184,10 @@ public class XLikelySubtags {
             int debug = 0;
         }
         regionTable.put(region, newValue);
+    }
+    
+    public LSR addLikelySubtags(ULocale source) {
+        return addLikelySubtags(source.getLanguage(), source.getScript(), source.getCountry());
     }
 
     /**
@@ -291,7 +301,7 @@ public class XLikelySubtags {
     public static void main(String[] args) {
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
         final Map<String, String> rawData = sdi.getLikelySubtags();
-        XLikelySubtags ls = new XLikelySubtags();
+        XLikelySubtags ls = XLikelySubtags.getDefault();
         System.out.println(ls);
 
         LanguageTagParser ltp = new LanguageTagParser();

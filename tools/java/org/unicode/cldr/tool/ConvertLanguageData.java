@@ -98,15 +98,15 @@ public class ConvertLanguageData {
     private static final ImmutableSet<String> scriptAssumedLocales = ImmutableSet.of(
         "bm_ML", "ha_GH", "ha_NE", "ha_NG", "kk_KZ", "ks_IN", "ky_KG", "mn_MN", "ms_BN", "ms_MY", "ms_SG", "tk_TM", "tzm_MA", "ug_CN");
 
-    static Map<String, String> defaultContent = new TreeMap<String, String>();
-
-    static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-    static CLDRFile english = cldrFactory.make("en", true);
-
     static Set<String> skipLocales = new HashSet<String>(
         Arrays
         .asList("sh sh_BA sh_CS sh_YU characters supplementalData supplementalData-old supplementalData-old2 supplementalData-old3 supplementalMetadata root"
             .split("\\s")));
+
+    static Map<String, String> defaultContent = new TreeMap<String, String>();
+
+    static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+    static CLDRFile english = cldrFactory.make("en", true);
 
     static SupplementalDataInfo supplementalData = SupplementalDataInfo
         .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
@@ -2199,6 +2199,7 @@ public class ConvertLanguageData {
     }
 
     static final LanguageTagCanonicalizer languageTagCanonicalizer = new LanguageTagCanonicalizer();
+    
     private static String fixLanguageCode(String languageCodeRaw, List<String> row) {
         String languageCode = languageTagCanonicalizer.transform(languageCodeRaw);
         if (!languageCode.equals(languageCodeRaw)) {

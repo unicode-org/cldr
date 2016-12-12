@@ -24,6 +24,8 @@ public class XLocaleDistanceTest extends TestFmwk {
 //        logln("closer: " + localeMatcher.getCloserLanguages());
 
         Object[][] tests = {
+            {"en", "en_GB", 5},
+
             {"to", "en", 14, 666}, // fallback languages get closer distances, between script (40) and region (4)
             {"no", "no_DE", 4},
             {"no_DE", "nb", 5},
@@ -38,9 +40,27 @@ public class XLocaleDistanceTest extends TestFmwk {
             {"en_GB", "en_CA", 4},
             {"en_CA", "en_Cyrl", 666},
             {"en_Cyrl", "es_MX", 666},
+            
             {"es_MX", "es_AR", 4},
-            {"es_AR", "es_ES", 5},
+            {"es_MX", "es_419", 4},
+            {"es_MX", "es_MX", 0},
+            {"es_MX", "es_ES", 5},
+            {"es_MX", "es_PT", 5},
+            {"es_MX", "es_150", 5},
+            
+            {"es_419", "es_AR", 4},
+            {"es_419", "es_419", 0},
+            {"es_419", "es_MX", 4},
+            {"es_419", "es_ES", 5},
+            {"es_419", "es_PT", 5},
+            {"es_419", "es_150", 5},
+            
+            {"es_ES", "es_AR", 5},
+            {"es_ES", "es_419", 5},
+            {"es_ES", "es_MX", 5},
+            {"es_ES", "es_ES", 0},
             {"es_ES", "es_PT", 4},
+            {"es_419", "es_150", 4},
         };
         // fix, so that it doesn't affect the timing below.
         for (int i = 0; i < tests.length; ++i) {

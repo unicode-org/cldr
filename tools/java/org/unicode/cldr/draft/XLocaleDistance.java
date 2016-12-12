@@ -3,6 +3,7 @@ package org.unicode.cldr.draft;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -20,11 +21,10 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
-import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
@@ -53,46 +53,66 @@ public class XLocaleDistance {
     private static Set<String> xGetContained(String region) {
         return SDI.getContained(region);
     }
-    static final Multimap<String,String> macroRegionToFinalRegions = fill(ImmutableMultimap.builder(), "001").build();
+
+    static final Multimap<String,String> containerToContained;
+    static final Multimap<String,String> containerToFinalContained;
+    static {
+        TreeMultimap<String, String> containerToContainedTemp = TreeMultimap.create();
+        fill("001", containerToContainedTemp);
+        containerToContained = ImmutableMultimap.copyOf(containerToContainedTemp);
+        ImmutableMultimap.Builder<String, String> containerToFinalContainedBuilder = new ImmutableMultimap.Builder<>();
+        for (Entry<String, Collection<String>> entry : containerToContained.asMap().entrySet()) {
+            String container = entry.getKey();
+            for (String contained : entry.getValue()) {
+                if (SDI.getContained(contained) == null) {
+                    containerToFinalContainedBuilder.put(container, contained);
+                }
+            }
+        }
+        containerToFinalContained = containerToFinalContainedBuilder.build();
+    }
     // TODO make this a single pass
-    private static com.google.common.collect.ImmutableMultimap.Builder<String, String> fill(ImmutableMultimap.Builder<String, String> builder, String region) {
+    private static Collection<String> fill(String region, Multimap<String, String> toAddTo) {
         Set<String> contained = SDI.getContained(region);
         if (contained != null) {
-            builder.putAll(region, addAll(region, new TreeSet<>()));
+            toAddTo.putAll(region, contained);
             for (String subregion : contained) {
-                fill(builder, subregion);
+                toAddTo.putAll(region, fill(subregion, toAddTo));
             }
+            return toAddTo.get(region);
         }
-        return builder;
+        return Collections.emptySet();
     }
 
-    private static Set<String> addAll(String region, Set<String> toAddTo) {
-        Set<String> contained = SDI.getContained(region);
-        if (contained == null) {
-            toAddTo.add(region);
-        } else {
-            for (String subregion : contained) {
-                addAll(subregion, toAddTo);
-            }
-        }
-        return toAddTo;
-    }
 
-    private static void getRecursiveContained(String region, Set<String> contents) {
-        Set<String> contained = SDI.getContained(region);
-        if (contained == null) {
-            contents.add(region); // only add leaf nodes
-        } else {
-            for (String subregion : contained) {
-                getRecursiveContained(subregion, contents);
-            }
-        }
-    }
+//    private static Set<String> addAll(String region, Set<String> toAddTo) {
+//        Set<String> contained = SDI.getContained(region);
+//        if (contained == null) {
+//            toAddTo.add(region);
+//        } else {
+//            for (String subregion : contained) {
+//                addAll(subregion, toAddTo);
+//            }
+//        }
+//        return toAddTo;
+//    }
+//
+//    private static void getRecursiveContained(String region, Set<String> contents) {
+//        Set<String> contained = SDI.getContained(region);
+//        if (contained == null) {
+//            contents.add(region); // only add leaf nodes
+//        } else {
+//            for (String subregion : contained) {
+//                getRecursiveContained(subregion, contents);
+//            }
+//        }
+//    }
 
     private final DistanceTable languageDesired2Supported;
     private final RegionMapper regionMapper;
     private final int threshold = 40;
     private final Set<String> closerLanguages;
+    final static private Set<String> allFinalRegions = ImmutableSet.copyOf(containerToFinalContained.get("001"));
 
     static abstract class DistanceTable {
         abstract int getDistance(String desiredLang, String supportedlang, Output<DistanceTable> table);
@@ -454,12 +474,7 @@ public class XLocaleDistance {
             }
             StringDistanceNode oldNode = sub2.get(supported);
             if (oldNode != null) {
-                if (oldNode.distance == distance || skipIfSet) {
-                    return oldNode;
-                } else {
-                    throw new IllegalArgumentException("Overriding values for " + desired + ", " + supported
-                        + ", old distance: " + oldNode.distance + ", new distance: " + distance);
-                }
+                return oldNode;
             }
 
             final StringDistanceNode newNode = new StringDistanceNode(distance);
@@ -658,13 +673,28 @@ public class XLocaleDistance {
             return 666;
         }
 
+        if (desiredRegion.equals(supportedRegion)) {
+            return distance;
+        }
+
         final String desiredPartition = regionMapper.toId(desiredRegion);
         final String supportedPartition = regionMapper.toId(supportedRegion);
 
         int subdistance = subtable.value.getDistance(desiredPartition.toString(), supportedPartition.toString(), subtable);
-        if (subdistance == 0 && !desiredRegion.equals(supportedRegion)) { // HACK
-            subdistance = 4;
-        }
+        zeroCase:
+            if (subdistance == 0) { // HACK — we know the regions are not equal
+                // handle desired = 419 and supported ∈ 419, or reverse; and similar cases
+                Collection<String> containedInDesired = containerToContained.get(desiredRegion);
+                if (containedInDesired != null && containedInDesired.contains(supportedRegion)) {
+                    break zeroCase;
+                }
+                Collection<String> containedInSupported = containerToContained.get(supportedRegion);
+                if (containedInSupported != null && containedInSupported.contains(desiredRegion)) {
+                    break zeroCase;
+                }
+                // passed gauntlet
+                subdistance = 4;
+            }
         distance += subdistance;
         return distance;
     }
@@ -684,15 +714,27 @@ public class XLocaleDistance {
             {"$maghreb", "MA|DZ|TN|LY|MR|EH"},
         };
         String[][] regionRuleOverrides = {
-            {"ar_*_$maghreb", "ar_*_$!maghreb", "95"},
+            {"ar_*_$maghreb", "ar_*_$maghreb", "96"},
+            {"ar_*_$!maghreb", "ar_*_$!maghreb", "96"},
+            {"ar_*_*", "ar_*_*", "95"},
 
-            {"en_*_$enUS", "en_*_$!enUS", "95"},
+            {"en_*_$enUS", "en_*_$enUS", "96"},
+            {"en_*_$!enUS", "en_*_$!enUS", "96"},
+            {"en_*_*", "en_*_*", "95"},
 
-            {"es_*_$americas", "es_*_$!americas", "95"},
+            {"es_*_$americas", "es_*_$americas", "96"},
+            {"es_*_$!americas", "es_*_$!americas", "96"},
+            {"es_*_*", "es_*_*", "95"},
 
-            {"pt_*_$americas", "pt_*_$!americas", "95"},
+            {"pt_*_$americas", "pt_*_$americas", "96"},
+            {"pt_*_$!americas", "pt_*_$!americas", "96"},
+            {"pt_*_*", "pt_*_*", "95"},
 
-            {"zh_Hant_$cnsar", "zh_Hant_$!cnsar", "95"},
+            {"zh_Hant_$cnsar", "zh_Hant_$cnsar", "96"},
+            {"zh_Hant_$!cnsar", "zh_Hant_$!cnsar", "96"},
+            {"zh_Hant_*", "zh_Hant_*", "95"},
+
+            {"*_*_*", "*_*_*", "96"},
         };
 
         Builder rmb = new RegionMapper.Builder();
@@ -731,6 +773,7 @@ public class XLocaleDistance {
                     sorted[size-1].add(Row.of(supported, desired, distance));
                 }
             }
+
             for (List<Row.R3<List<String>, List<String>, Integer>> item1 : sorted) {
                 int debug = 0;
                 for (Row.R3<List<String>, List<String>, Integer> item2 : item1) {
@@ -747,29 +790,31 @@ public class XLocaleDistance {
                             + "\"   percent=\""
                             + rule[2]
                                 + "\"/>");
-
+                if (rule[0].equals("en_*_*") || rule[1].equals("*_*_*")) {
+                    int debug = 0;
+                }
                 List<String> desiredBase = new ArrayList<>(bar.splitToList(rule[0]));
                 List<String> supportedBase = new ArrayList<>(bar.splitToList(rule[1]));
                 Integer distance = 100-Integer.parseInt(rule[2]);
 
                 Collection<String> desiredRegions = DEFAULT_REGION_MAPPER.getIdsFromVariable(desiredBase.get(2));
-                if (desiredRegions == null) {
+                if (desiredRegions.isEmpty()) {
                     throw new IllegalArgumentException("Bad region variable: " + desiredBase.get(2));
                 }
                 Collection<String> supportedRegions = DEFAULT_REGION_MAPPER.getIdsFromVariable(supportedBase.get(2));
-                if (supportedRegions == null) {
+                if (supportedRegions.isEmpty()) {
                     throw new IllegalArgumentException("Bad region variable: " + supportedBase.get(2));
                 }
-                for (String desiredRegion : desiredRegions) {
-                    desiredBase.set(2, desiredRegion.toString()); // fix later
-                    for (String supportedRegion : supportedRegions) {
-                        supportedBase.set(2, supportedRegion.toString()); // fix later
+                for (String desiredRegion2 : desiredRegions) {
+                    desiredBase.set(2, desiredRegion2.toString()); // fix later
+                    for (String supportedRegion2 : supportedRegions) {
+                        supportedBase.set(2, supportedRegion2.toString()); // fix later
                         add(DEFAULT_DISTANCE_TABLE, desiredBase, supportedBase, distance);
                         add(DEFAULT_DISTANCE_TABLE, supportedBase, desiredBase, distance);
                     }
                 }
             }
-            add(DEFAULT_DISTANCE_TABLE, new ArrayList<>(bar.splitToList("*_*_*")), new ArrayList<>(bar.splitToList("*_*_*")), 4);
+            //add(DEFAULT_DISTANCE_TABLE, new ArrayList<>(bar.splitToList("*_*_*")), new ArrayList<>(bar.splitToList("*_*_*")), 4);
         }
         if (PRINT_OVERRIDES) {
             System.out.println(DEFAULT_REGION_MAPPER);
@@ -822,6 +867,16 @@ public class XLocaleDistance {
         return closerLanguages;
     }
 
+    static Set<String> getContainingMacrosFor(Collection<String> input, Set<String> output) {
+        output.clear();
+        for (Entry<String, Collection<String>> entry : containerToContained.asMap().entrySet()) {
+            if (input.containsAll(entry.getValue())) { // example; if all southern Europe are contained, then add S. Europe
+                output.add(entry.getKey());
+            }
+        }
+        return output;
+    }
+
     static class RegionMapper implements IdMapper<String,String> { 
         /**
          * Used for processing rules. At the start we have a variable setting like $A1=US|CA|MX. We generate a mapping from $A1 to a set of partitions {P1, P2}
@@ -833,10 +888,11 @@ public class XLocaleDistance {
          */
         final Map<String,String> regionToPartition;
 
-        private RegionMapper(Multimap<String, String> variableToPartitionIn,
+        private RegionMapper(
+            Multimap<String, String> variableToPartitionIn,
             Map<String, String> regionToPartitionIn) {
-            variableToPartition = variableToPartitionIn;
-            regionToPartition = regionToPartitionIn;
+            variableToPartition = ImmutableMultimap.copyOf(variableToPartitionIn);
+            regionToPartition = ImmutableMap.copyOf(regionToPartitionIn);
         }
 
         public String toId(String region) {
@@ -845,7 +901,14 @@ public class XLocaleDistance {
         }
 
         public Collection<String> getIdsFromVariable(String variable) {
-            return variableToPartition.get(variable);
+            if (variable.equals("*")) {
+                return Collections.singleton("*");
+            }
+            Collection<String> result = variableToPartition.get(variable);
+            if (result == null || result.isEmpty()) {
+                throw new IllegalArgumentException("Variable not defined: " + variable);
+            }
+            return result;
         }
 
         public Set<String> regions() {
@@ -874,85 +937,100 @@ public class XLocaleDistance {
         }
 
         static class Builder {
-            final private Multimap<String, String> regionToPartitionTemp = TreeMultimap.create();
+            private static final ImmutableSet<String> REGIONS_SUPPORTED_IN_LOCALES = ImmutableSet.copyOf(Arrays.asList("019","150","419"));
+            final private Multimap<String, String> regionToRawPartition = TreeMultimap.create();
             final private RegionSet regionSet = new RegionSet();
 
             void add(String variable, String barString) {
                 Set<String> tempRegions = regionSet.parseSet(barString);
 
                 for (String region : tempRegions) {
-                    regionToPartitionTemp.put(region, variable);
+                    regionToRawPartition.put(region, variable);
                 }
 
                 // now add the inverse variable
 
-
                 Set<String> inverse = regionSet.inverse();
                 String inverseVariable = "$!" + variable.substring(1);
                 for (String region : inverse) {
-                    regionToPartitionTemp.put(region, inverseVariable);
+                    regionToRawPartition.put(region, inverseVariable);
                 }
             }
 
             RegionMapper build() {
                 final IdMakerFull<Collection<String>> id = new IdMakerFull<>("partition");
-                ImmutableMultimap.Builder<String,String> variableToPartitionBuilder = ImmutableSetMultimap.builder(); 
-                ImmutableMap.Builder<String,String> regionToPartitionBuilder = ImmutableMap.builder();
-                Multimap<String,String> partitionToRegions = HashMultimap.create();
-                
-                for (Entry<String, Collection<String>> e : regionToPartitionTemp.asMap().entrySet()) {
-                    final String region = e.getKey();
-                    final Collection<String> partitionRaw = e.getValue();
-                    String partition = String.valueOf((char)('α' + id.add(partitionRaw)));
+                Multimap<String,String> variableToPartitions = TreeMultimap.create(); 
+                Map<String,String> regionToPartition = new TreeMap<>();
+                Multimap<String,String> partitionToRegions = TreeMultimap.create();
 
-                    regionToPartitionBuilder.put(region, partition);
+                for (Entry<String, Collection<String>> e : regionToRawPartition.asMap().entrySet()) {
+                    final String region = e.getKey();
+                    final Collection<String> rawPartition = e.getValue();
+                    String partition = String.valueOf((char)('α' + id.add(rawPartition)));
+
+                    regionToPartition.put(region, partition);
                     partitionToRegions.put(partition, region);
 
-                    for (String variable : partitionRaw) {
-                        variableToPartitionBuilder.put(variable, partition);
+                    for (String variable : rawPartition) {
+                        variableToPartitions.put(variable, partition);
                     }
-                }
-                // now add the macroregions
-                Multimap<String,String> partitionToRegionsExtra = HashMultimap.create();
-                for (Entry<String, Collection<String>> partitionAndRegions : partitionToRegions.asMap().entrySet()) {
-                    for (Entry<String, Collection<String>> macroAndRegions : macroRegionToFinalRegions.asMap().entrySet()) {
-                        if (partitionAndRegions.getValue().containsAll(macroAndRegions.getValue())) {
-                            partitionToRegionsExtra.put(partitionAndRegions.getKey(), macroAndRegions.getKey());
-                        }
-                    }
-                }
-                for (Entry<String, Collection<String>> partitionAndRegionsExtra : partitionToRegionsExtra.asMap().entrySet()) {
-                    String partition = partitionAndRegionsExtra.getKey();
-                    Collection<String> regions = partitionAndRegionsExtra.getValue();
-                    for (String region : regions) {
-                        regionToPartitionBuilder.put(region, partition);
-                    }
-                    partitionToRegions.putAll(partition, regions);
                 }
 
+//                // now add the macroregions
+//                Multimap<String,String> partitionToRegionsExtra = HashMultimap.create();
+//                Set<String> missing = new LinkedHashSet<>(containerToFinalContained.keys());
+//                for (Entry<String, Collection<String>> macroAndRegions : containerToFinalContained.asMap().entrySet()) {
+//                    final String macro = macroAndRegions.getKey();
+//                    final Collection<String> regionsForMacro = macroAndRegions.getValue();
+//                    for (Entry<String, Collection<String>> partitionAndRegions : partitionToRegions.asMap().entrySet()) {
+//                        final String partition = partitionAndRegions.getKey();
+//                        final Collection<String> regionsForPartition = partitionAndRegions.getValue();
+//                        if (regionsForPartition.containsAll(regionsForMacro)) {
+//                            partitionToRegionsExtra.put(partition, macro);
+//                            missing.remove(macro);
+//                        } else if (REGIONS_SUPPORTED_IN_LOCALES.contains(macro) && Collections.disjoint(regionsForPartition, regionsForMacro)){
+//                            System.out.println("Must Break: " + partition + " " + macro);
+//                        }
+//                    }
+//                }
+//
+//                // add all the partitions we can, where they fit
+//                System.out.println("Missing: " + missing);
+//                LinkedHashSet<String> missingThatWeCareAbout = new LinkedHashSet<>(missing);
+//                missingThatWeCareAbout.retainAll(REGIONS_SUPPORTED_IN_LOCALES);
+//                System.out.println("MissingThatWeCareAbout: " + missingThatWeCareAbout);
+//                
+//                for (Entry<String, Collection<String>> partitionAndRegionsExtra : partitionToRegionsExtra.asMap().entrySet()) {
+//                    String partition = partitionAndRegionsExtra.getKey();
+//                    Collection<String> regions = partitionAndRegionsExtra.getValue();
+//                    for (String region : regions) {
+//                        regionToPartition.put(region, partition);
+//                    }
+//                    partitionToRegions.putAll(partition, regions);
+//                }
+
                 return new RegionMapper(
-                    variableToPartitionBuilder.build(),
-                    regionToPartitionBuilder.build());
+                    variableToPartitions,
+                    regionToPartition);
             }
         }
     }
 
     /**
      * Parses a string of regions like "US|005-BR" and produces a set of resolved regions. 
-     * That is, all macroregions are fully resolved to sets of non-macro regions.
+     * All macroregions are fully resolved to sets of non-macro regions, but then any containing macro regions are added.
+     * So "019" turns into "resolved(019)|019|419..."
      * <br>Syntax is simple for now:
      * <pre>regionSet := region ([-|] region)*</pre>
      * No precedence, so "x|y-y|z" is (((x union y) minus y) union z) = x union z, NOT x
      */
     private static class RegionSet {
         private enum Operation {add, remove}
-        private Operation operation = null;
+        // temporaries used in processing
         final private Set<String> tempRegions = new TreeSet<>();
-        final private Set<String> allRegions;
-        {
-            changeSet(Operation.add, "001");
-            allRegions = ImmutableSet.copyOf(tempRegions);
-        }
+        final private Set<String> tempRegions2 = new TreeSet<>();
+        private Operation operation = null;
+
         private Set<String> parseSet(String barString) {
             operation = Operation.add;
             int last = 0;
@@ -978,7 +1056,7 @@ public class XLocaleDistance {
         }
 
         private Set<String> inverse() {
-            TreeSet<String> result = new TreeSet<>(allRegions);
+            TreeSet<String> result = new TreeSet<>(XLocaleDistance.allFinalRegions);
             result.removeAll(tempRegions);
             return result;
         }
@@ -991,16 +1069,32 @@ public class XLocaleDistance {
         }
 
         private void changeSet(Operation operation, String region) {
-            Set<String> contained = xGetContained(region);
-            if (contained != null) {
-                for (String subregion : contained) {
-                    changeSet(operation, subregion);
+            Collection<String> contained = containerToFinalContained.get(region);
+            if (contained != null && !contained.isEmpty()) {
+                if (Operation.add == operation) {
+                    tempRegions.addAll(contained);
+                } else {
+                    tempRegions.removeAll(contained);
                 }
             } else if (Operation.add == operation) {
                 tempRegions.add(region);
             } else {
                 tempRegions.remove(region);
             }
+        }
+    }
+
+    public static <K,V> Multimap<K,V> invertMap(Map<V,K> map) {
+        return Multimaps.invertFrom(Multimaps.forMap(map), ArrayListMultimap.create());
+    }
+
+    public static void main(String[] args) {
+        for (Entry<String, Collection<String>> entry : containerToContained.asMap().entrySet()) {
+            System.out.println(entry.getKey() + "\t⥢" + entry.getValue() + "; " + containerToFinalContained.get(entry.getKey()));
+        }
+        final Multimap<String,String> regionToMacros = ImmutableMultimap.copyOf(Multimaps.invertFrom(containerToContained, TreeMultimap.create()));
+        for (Entry<String, Collection<String>> entry : regionToMacros.asMap().entrySet()) {
+            System.out.println(entry.getKey() + "\t⥤ " + entry.getValue());
         }
     }
 }

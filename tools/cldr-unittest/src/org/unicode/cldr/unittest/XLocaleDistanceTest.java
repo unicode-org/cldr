@@ -24,8 +24,9 @@ public class XLocaleDistanceTest extends TestFmwk {
 //        logln("closer: " + localeMatcher.getCloserLanguages());
 
         Object[][] tests = {
-            {"en", "en_GB", 5},
+            {"no", "no_DE", 4},
 
+            
             {"to", "en", 14, 666}, // fallback languages get closer distances, between script (40) and region (4)
             {"no", "no_DE", 4},
             {"no_DE", "nb", 5},
@@ -36,21 +37,21 @@ public class XLocaleDistanceTest extends TestFmwk {
             {"zh_Hant", "zh_Hans", 23, 19},
             {"zh_Hans", "en", 666},
             {"en", "en_GB", 5},
-            {"en", "en_GU", 4},
-            {"en_GB", "en_CA", 4},
+            {"en", "en_GU", 3},
+            {"en_GB", "en_CA", 3},
             {"en_CA", "en_Cyrl", 666},
             {"en_Cyrl", "es_MX", 666},
             
-            {"es_MX", "es_AR", 4},
-            {"es_MX", "es_419", 4},
+            {"es_MX", "es_AR", 3},
+            {"es_MX", "es_419", 3},
             {"es_MX", "es_MX", 0},
             {"es_MX", "es_ES", 5},
             {"es_MX", "es_PT", 5},
             {"es_MX", "es_150", 5},
             
-            {"es_419", "es_AR", 4},
+            {"es_419", "es_AR", 3},
             {"es_419", "es_419", 0},
-            {"es_419", "es_MX", 4},
+            {"es_419", "es_MX", 3},
             {"es_419", "es_ES", 5},
             {"es_419", "es_PT", 5},
             {"es_419", "es_150", 5},
@@ -59,8 +60,8 @@ public class XLocaleDistanceTest extends TestFmwk {
             {"es_ES", "es_419", 5},
             {"es_ES", "es_MX", 5},
             {"es_ES", "es_ES", 0},
-            {"es_ES", "es_PT", 4},
-            {"es_419", "es_150", 4},
+            {"es_ES", "es_PT", 3},
+            {"es_419", "es_150", 5},
         };
         // fix, so that it doesn't affect the timing below.
         for (int i = 0; i < tests.length; ++i) {
@@ -133,10 +134,10 @@ public class XLocaleDistanceTest extends TestFmwk {
 //                    assertEquals("old: " + desired + "\t ← \t" + supported, supportedToDesired, pinToDistance(distOld2));
                     
                     if (assertEquals("new: " + desired + "\t ⇒ \t" + supported, desiredToSupported, pin(dist1))) {
-                        assertEquals("int: " + desired + "\t ⇒ \t" + supported, dist1, distInt1);
+                        //assertEquals("int: " + desired + "\t ⇒ \t" + supported, dist1, distInt1);
                     }
                     if (assertEquals("new: " + desired + "\t ← \t" + supported, supportedToDesired, pin(dist2))) {
-                        assertEquals("int: " + desired + "\t ← \t" + supported, dist2, distInt2);
+                        //assertEquals("int: " + desired + "\t ← \t" + supported, dist2, distInt2);
                     }
                 }
             }

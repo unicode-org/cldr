@@ -35,6 +35,7 @@ import com.ibm.icu.util.ULocale;
 
 public class XLocaleDistance {
 
+    private static final int ABOVE_THRESHOLD = 99;
     private static final String ANY = "�"; // make * into a large character for debugging
     private static String fixAny(String string) {
         return "*".equals(string) ? ANY : string;
@@ -672,12 +673,12 @@ public class XLocaleDistance {
 
         int distance = languageDesired2Supported.getDistance(desiredLang, supportedlang, subtable, true);
         if (distance > threshold) {
-            return 666;
+            return ABOVE_THRESHOLD;
         }
 
         distance += subtable.value.getDistance(desiredScript, supportedScript, subtable, true);
         if (distance > threshold) {
-            return 666;
+            return ABOVE_THRESHOLD;
         }
 
         if (desiredRegion.equals(supportedRegion)) {
@@ -723,7 +724,7 @@ public class XLocaleDistance {
     public static final StringDistanceTable DEFAULT_DISTANCE_TABLE;
     public static final RegionMapper DEFAULT_REGION_MAPPER;
 
-    static final boolean PRINT_OVERRIDES = true;
+    static final boolean PRINT_OVERRIDES = false;
     
     static {
         String[][] variableOverrides = {

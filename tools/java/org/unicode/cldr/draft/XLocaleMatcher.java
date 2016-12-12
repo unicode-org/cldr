@@ -8,9 +8,9 @@ import java.util.Set;
 
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
 
-import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.util.LocalePriorityList;
 import com.ibm.icu.util.ULocale;
@@ -23,9 +23,10 @@ public class XLocaleMatcher {
     private final XLikelySubtags likelySubtags = XLikelySubtags.getDefault();
     private final ULocale defaultLanguage;
     private final LSR UND = new LSR("und","","");
-    private final ULocale UND_LOCALE = new ULocale("und","","");
+    private final ULocale UND_LOCALE = new ULocale("und");
 
     private static final double DEFAULT_THRESHOLD = 0.5;
+    private static final int DEMOTION_PER_ADDITIONAL_USER_LANGUAGE = 5;
 
     public XLocaleMatcher(String languagePriorityList) {
         this(LocalePriorityList.add(languagePriorityList).build(), XLocaleDistance.getDefault());
@@ -57,9 +58,10 @@ public class XLocaleMatcher {
     }
 
     private Multimap<LSR,ULocale> extractLsrMap(LocalePriorityList languagePriorityList) {
-        HashMultimap<LSR, ULocale> builder = HashMultimap.create();
+        Multimap<LSR, ULocale> builder = LinkedHashMultimap.create();
         for (ULocale item : languagePriorityList) {
-            final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.addLikelySubtags(item);
+            LSR canonical = LSR.canonicalize(item);
+            final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.addLikelySubtags(canonical);
             builder.put(max, item);
         }
         return ImmutableMultimap.copyOf(builder);
@@ -70,20 +72,24 @@ public class XLocaleMatcher {
         int bestDistance = Integer.MAX_VALUE;
         ULocale bestDesiredLocale = null;
         Collection<ULocale> bestSupportedLocales = null;
+        int delta = 0;
         mainLoop:
-            for (final ULocale desiredLocale : desiredLanguages) {
+            for (final Entry<LSR, ULocale> desiredLsrAndLocale : desiredLSRs.entries()) {
                 // quick check for exact match
-                if (exactSupportedLocales.contains(desiredLocale)) {
-                    return desiredLocale;
-                }
-                LSR desiredLSR = likelySubtags.addLikelySubtags(desiredLocale);
-                // quick check for maximized locale
-                Collection<ULocale> found = supportedLanguages.get(desiredLSR);
-                if (found != null) {
-                    return found.iterator().next(); // if so, return first (lowest). We already know the exact one isn't there.
+                ULocale desiredLocale = desiredLsrAndLocale.getValue();
+                LSR desiredLSR = desiredLsrAndLocale.getKey();
+                if (delta < bestDistance) {
+                    if (exactSupportedLocales.contains(desiredLocale)) {
+                        return desiredLocale;
+                    }
+                    // quick check for maximized locale
+                    Collection<ULocale> found = supportedLanguages.get(desiredLSR);
+                    if (found != null) {
+                        return found.iterator().next(); // if so, return first (lowest). We already know the exact one isn't there.
+                    }
                 }
                 for (final Entry<LSR, Collection<ULocale>> supportedLsrAndLocale : supportedLanguages.entrySet()) {
-                    int distance = localeDistance.distance(desiredLSR, supportedLsrAndLocale.getKey());
+                    int distance = delta + localeDistance.distance(desiredLSR, supportedLsrAndLocale.getKey());
                     if (distance < bestDistance) {
                         bestDistance = distance;
                         bestDesiredLocale = desiredLocale;
@@ -93,6 +99,7 @@ public class XLocaleMatcher {
                         }
                     }
                 }
+                delta += DEMOTION_PER_ADDITIONAL_USER_LANGUAGE;
             }
         if (bestDistance > threshold) {
             return defaultLanguage;
@@ -121,5 +128,13 @@ public class XLocaleMatcher {
 
     public double distance(ULocale desired, ULocale supported) {
         return localeDistance.distance(likelySubtags.addLikelySubtags(desired), likelySubtags.addLikelySubtags(supported));
+    }
+
+    public double distance(String desired, String supported) {
+        return distance(new ULocale(desired), new ULocale(supported));
+    }
+    @Override
+    public String toString() {
+        return exactSupportedLocales.toString();
     }
 }

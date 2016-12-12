@@ -1,6 +1,9 @@
 package org.unicode.cldr.draft;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -15,10 +18,18 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.ULocale.Minimize;
 
 public class XLikelySubtags {
+    private static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
+    private static final Map<String, Map<String, R2<List<String>, String>>> aliasInfo = SDI.getLocaleAliasInfo();
+    private static final Map<String, R2<List<String>, String>> REGION_ALIASES = aliasInfo.get("territory");
+    private static final Map<String, R2<List<String>, String>> LANGUAGE_ALIASES = aliasInfo.get("language");
+
     private static final boolean SHORT = false;
 
     static abstract class Maker {
@@ -91,21 +102,46 @@ public class XLikelySubtags {
         public int hashCode() {
             return Objects.hash(language, script, region);
         }
+
+        public static LSR canonicalize(ULocale item) {
+            String language2 = item.getLanguage();
+            String canonicalLanguage = getCanonical(LANGUAGE_ALIASES.get(language2));
+            // hack
+            if (language2.equals("mo")) {
+                canonicalLanguage = "ro";
+            }
+
+            String region2 = item.getCountry();
+            String canonicalRegion = getCanonical(REGION_ALIASES.get(language2));
+            return new LSR(canonicalLanguage == null ? language2 : canonicalLanguage, 
+                item.getScript(), 
+                canonicalRegion == null ? region2 : canonicalRegion);
+        }
     }
     
     final Map<String, Map<String, Map<String, LSR>>> langTable;
 
-    public XLikelySubtags(Map<String, String> rawData) {
-        this.langTable = init(rawData);
+    public XLikelySubtags(Map<String, String> rawData, boolean skipNoncanonical) {
+        this.langTable = init(rawData, skipNoncanonical);
     }
 
-    private static final XLikelySubtags DEFAULT = new XLikelySubtags(CLDRConfig.getInstance().getSupplementalDataInfo().getLikelySubtags());
+    private static final XLikelySubtags DEFAULT = new XLikelySubtags(SDI.getLikelySubtags(), true);
     
     public static final XLikelySubtags getDefault() {
         return DEFAULT;
     }
 
-    private Map<String, Map<String, Map<String, LSR>>> init(final Map<String, String> rawData) {
+    private Map<String, Map<String, Map<String, LSR>>> init(final Map<String, String> rawData, boolean skipNoncanonical) {
+        // prepare alias info. We want a mapping from the canonical form to all aliases
+        
+        Multimap<String,String> canonicalToAliasLanguage = HashMultimap.create();
+        getAliasInfo(LANGUAGE_ALIASES, canonicalToAliasLanguage);
+
+        // Don't bother with script; there are none
+        
+        Multimap<String,String> canonicalToAliasRegion = HashMultimap.create();
+        getAliasInfo(REGION_ALIASES, canonicalToAliasRegion);
+
         Maker maker = Maker.TREEMAP;
         Map<String, Map<String, Map<String, LSR>>> result = maker.make();
         LanguageTagParser ltp = new LanguageTagParser();
@@ -120,11 +156,28 @@ public class XLikelySubtags {
             final String region = ltp.getRegion();
 
             ltp.set(sourceTarget.getValue());
-            final String languageTarget = ltp.getLanguage();
+            String languageTarget = ltp.getLanguage();
             final String scriptTarget = ltp.getScript();
             final String regionTarget = ltp.getRegion();
 
             set(result, language, script, region, languageTarget, scriptTarget, regionTarget, internCache);
+            // now add aliases
+            Collection<String> languageAliases = canonicalToAliasLanguage.get(language);
+            if (languageAliases.isEmpty()) {
+                languageAliases = Collections.singleton(language);
+            }
+            Collection<String> regionAliases = canonicalToAliasRegion.get(region);
+            if (regionAliases.isEmpty()) {
+                regionAliases = Collections.singleton(region);
+            }
+            for (String languageAlias : languageAliases) {
+                for (String regionAlias : regionAliases) {
+                    if (languageAlias.equals(language) && regionAlias.equals(region)) {
+                        continue;
+                    }
+                    set(result, languageAlias, script, regionAlias, languageTarget, scriptTarget, regionTarget, internCache);
+                }                
+            }
         }
         // hack
         set(result, "und", "Latn", "", "en", "Latn", "US", internCache);
@@ -165,6 +218,35 @@ public class XLikelySubtags {
         return result;
     }
 
+    private void getAliasInfo(Map<String, R2<List<String>, String>> aliasInfo, Multimap<String, String> canonicalToAlias) {
+        for (Entry<String, R2<List<String>, String>> e : aliasInfo.entrySet()) {
+            final String alias = e.getKey();
+            if (alias.contains("_")) {
+                continue; // only do simple aliasing
+            }
+            String canonical = getCanonical(e.getValue());
+            canonicalToAlias.put(canonical, alias);
+        }
+    }
+
+    private static String getCanonical(R2<List<String>, String> aliasAndReason) {
+        if (aliasAndReason == null) {
+            return null;
+        }
+        if (aliasAndReason.get1().equals("overlong")) {
+            return null;
+        }
+        List<String> value = aliasAndReason.get0();
+        if (value.size() != 1) {
+            return null;
+        }
+        final String canonical = value.iterator().next();
+        if (canonical.contains("_")) {
+            return null; // only do simple aliasing
+        }
+        return canonical;
+    }
+
     private void set(Map<String, Map<String, Map<String, LSR>>> langTable, final String language, final String script, final String region,
         final String languageTarget, final String scriptTarget, final String regionTarget, Map<LSR, LSR> internCache) {
         LSR newValue = new LSR(languageTarget, scriptTarget, regionTarget);
@@ -186,6 +268,10 @@ public class XLikelySubtags {
         regionTable.put(region, newValue);
     }
     
+    public LSR addLikelySubtags(LSR source) {
+        return addLikelySubtags(source.language, source.script, source.region);
+    }
+
     public LSR addLikelySubtags(ULocale source) {
         return addLikelySubtags(source.getLanguage(), source.getScript(), source.getCountry());
     }
@@ -299,10 +385,11 @@ public class XLikelySubtags {
     }
 
     public static void main(String[] args) {
-        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+        SupplementalDataInfo sdi = SDI;
         final Map<String, String> rawData = sdi.getLikelySubtags();
         XLikelySubtags ls = XLikelySubtags.getDefault();
         System.out.println(ls);
+        ls.addLikelySubtags(new ULocale("iw"));
 
         LanguageTagParser ltp = new LanguageTagParser();
 //        String[][] tests = {

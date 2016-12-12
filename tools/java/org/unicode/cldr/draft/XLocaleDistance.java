@@ -734,6 +734,8 @@ public class XLocaleDistance {
             {"$americas", "019"},
 
             {"$maghreb", "MA|DZ|TN|LY|MR|EH"},
+            {"$US", "US"},
+            {"$GB", "GB"},
         };
         String[][] regionRuleOverrides = {
             {"ar_*_$maghreb", "ar_*_$maghreb", "97"},

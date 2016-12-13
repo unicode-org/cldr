@@ -47,6 +47,7 @@ class LdmlConvertRules {
         "weekData:firstDay:territories",
         "weekData:weekendStart:territories",
         "weekData:weekendEnd:territories",
+        "measurementData:measurementSystem:category",
         "supplemental:plurals:type",
         "pluralRules:pluralRule:count",
         "languageMatches:languageMatch:desired");
@@ -257,6 +258,7 @@ class LdmlConvertRules {
         new SplittableAttributeSpec("weekendStart", "territories", "day"),
         new SplittableAttributeSpec("weekendEnd", "territories", "day"),
         new SplittableAttributeSpec("measurementSystem", "territories", "type"),
+        new SplittableAttributeSpec("measurementSystem-category-temperature", "territories", "type"),
         new SplittableAttributeSpec("paperSize", "territories", "type"),
         new SplittableAttributeSpec("parentLocale", "locales", "parent"),
         new SplittableAttributeSpec("hours", "regions", null),
@@ -291,7 +293,7 @@ class LdmlConvertRules {
     public static final String[] ELEMENT_NEED_SORT = {
         "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
         "pluralRules", "personList", "calendarPreferenceData", "character-fallback", "types", "timeData", "minDays",
-        "firstDay", "weekendStart", "weekendEnd"
+        "firstDay", "weekendStart", "weekendEnd", "measurementData", "measurementSystem"
     };
 
     /**

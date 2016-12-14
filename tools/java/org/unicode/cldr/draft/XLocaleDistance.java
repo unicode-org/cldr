@@ -1,11 +1,11 @@
 package org.unicode.cldr.draft;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.IntDistanceNode.IntDistanceTable;
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.draft.XLocaleDistance.RegionMapper.Builder;
 import org.unicode.cldr.util.CLDRConfig;
@@ -36,7 +37,7 @@ import com.ibm.icu.util.ULocale;
 public class XLocaleDistance {
 
     private static final int ABOVE_THRESHOLD = 99;
-    private static final String ANY = "�"; // make * into a large character for debugging
+    static final String ANY = "�"; // make * into a large character for debugging
     private static String fixAny(String string) {
         return "*".equals(string) ? ANY : string;
     }
@@ -55,14 +56,14 @@ public class XLocaleDistance {
         return SDI.getContained(region);
     }
 
-    static final Multimap<String,String> containerToContained;
-    static final Multimap<String,String> containerToFinalContained;
+    static final Multimap<String,String> CONTAINER_TO_CONTAINED;
+    static final Multimap<String,String> CONTAINER_TO_CONTAINED_FINAL;
     static {
         TreeMultimap<String, String> containerToContainedTemp = TreeMultimap.create();
         fill("001", containerToContainedTemp);
-        containerToContained = ImmutableMultimap.copyOf(containerToContainedTemp);
+        CONTAINER_TO_CONTAINED = ImmutableMultimap.copyOf(containerToContainedTemp);
         ImmutableMultimap.Builder<String, String> containerToFinalContainedBuilder = new ImmutableMultimap.Builder<>();
-        for (Entry<String, Collection<String>> entry : containerToContained.asMap().entrySet()) {
+        for (Entry<String, Collection<String>> entry : CONTAINER_TO_CONTAINED.asMap().entrySet()) {
             String container = entry.getKey();
             for (String contained : entry.getValue()) {
                 if (SDI.getContained(contained) == null) {
@@ -70,7 +71,7 @@ public class XLocaleDistance {
                 }
             }
         }
-        containerToFinalContained = containerToFinalContainedBuilder.build();
+        CONTAINER_TO_CONTAINED_FINAL = containerToFinalContainedBuilder.build();
     }
     // TODO make this a single pass
     private static Collection<String> fill(String region, Multimap<String, String> toAddTo) {
@@ -85,35 +86,11 @@ public class XLocaleDistance {
         return Collections.emptySet();
     }
 
-
-//    private static Set<String> addAll(String region, Set<String> toAddTo) {
-//        Set<String> contained = SDI.getContained(region);
-//        if (contained == null) {
-//            toAddTo.add(region);
-//        } else {
-//            for (String subregion : contained) {
-//                addAll(subregion, toAddTo);
-//            }
-//        }
-//        return toAddTo;
-//    }
-//
-//    private static void getRecursiveContained(String region, Set<String> contents) {
-//        Set<String> contained = SDI.getContained(region);
-//        if (contained == null) {
-//            contents.add(region); // only add leaf nodes
-//        } else {
-//            for (String subregion : contained) {
-//                getRecursiveContained(subregion, contents);
-//            }
-//        }
-//    }
+    final static private Set<String> ALL_FINAL_REGIONS = ImmutableSet.copyOf(CONTAINER_TO_CONTAINED_FINAL.get("001"));
 
     private final DistanceTable languageDesired2Supported;
     private final RegionMapper regionMapper;
     private final int threshold = 40;
-    private final Set<String> closerLanguages;
-    final static private Set<String> allFinalRegions = ImmutableSet.copyOf(containerToFinalContained.get("001"));
 
     static abstract class DistanceTable {
         abstract int getDistance(String desiredLang, String supportedlang, Output<DistanceTable> table, boolean starEquals);
@@ -127,7 +104,7 @@ public class XLocaleDistance {
             this.distance = distance;
         }
 
-        public IntDistanceTable getDistanceTable() {
+        public DistanceTable getDistanceTable() {
             return null;
         }
 
@@ -146,184 +123,14 @@ public class XLocaleDistance {
         }
     }
 
-    static final class IntDistanceNode extends DistanceNode {
-        final IntDistanceTable distanceTable;
-
-        public IntDistanceNode(int distance, IntDistanceTable distanceTable) {
-            super(distance);
-            this.distanceTable = distanceTable;
-        }
-
-        public IntDistanceTable getDistanceTable() {
-            return distanceTable;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            IntDistanceNode other = (IntDistanceNode) obj;
-            return distance == other.distance && Objects.equal(distanceTable, other.distanceTable);
-        }
-        @Override
-        public int hashCode() {
-            return distance ^ Objects.hashCode(distanceTable);
-        }
-        @Override
-        public String toString() {
-            return "\ndistance: " + distance + ", " + distanceTable;
-        }
-
-        public static DistanceNode from(int distance, IntDistanceTable otherTable) {
-            return otherTable == null ? new DistanceNode(distance) : new IntDistanceNode(distance, otherTable);
-        }
-    }
-
-
-    static class IntDistanceTable extends DistanceTable {
-        private static final IdMakerFull[] ids = {new IdMakerFull<String>("lang", ANY), new IdMakerFull<String>("script", ANY), new IdMakerFull<String>("region", ANY)};
-        private static final IdMakerFull<IntDistanceTable> cache = new IdMakerFull<>("table");
-
-        private final IdMakerFull<String> id;
-        private final DistanceNode[][] distanceNodes; // map from desired, supported => node
-
-        public IntDistanceTable(StringDistanceTable source) {
-            this(source, loadIds(source, 0));
-        }
-
-        private static int loadIds(StringDistanceTable source, int idNumber) {
-            IdMakerFull id = ids[idNumber]; // use different Id for language, script, region
-            for (Entry<String, Map<String, StringDistanceNode>> e1 : source.subtables.entrySet()) {
-                int desired = id.add(e1.getKey());
-                for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
-                    int supported = id.add(e2.getKey());
-                    StringDistanceNode oldNode = e2.getValue();
-                    if (oldNode.distanceTable != null) {
-                        loadIds(oldNode.distanceTable, idNumber+1);
-                    }
-                }
-            }
-            return 0;
-        }
-
-        private IntDistanceTable(StringDistanceTable source, int idNumber) { // move construction out later
-            id = ids[idNumber]; // use different Id for language, script, region
-            int size = id.size();
-            distanceNodes = new DistanceNode[size][size];
-
-            // fill in the values in the table
-            for (Entry<String, Map<String, StringDistanceNode>> e1 : source.subtables.entrySet()) {
-                int desired = id.add(e1.getKey());
-                for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
-                    int supported = id.add(e2.getKey());
-                    StringDistanceNode oldNode = e2.getValue();
-                    IntDistanceTable otherTable = oldNode.distanceTable == null ? null 
-                        : cache.intern(new IntDistanceTable(oldNode.distanceTable, idNumber+1));
-                    DistanceNode node = IntDistanceNode.from(oldNode.distance, otherTable);
-                    distanceNodes[desired][supported] = node;
-                }
-            }
-            // now, to make star work, 
-            // copy all the zero columns/rows down to any null value
-            for (int row = 0; row < size; ++row) {
-                for (int column = 0; column < size; ++column) {
-                    DistanceNode value = distanceNodes[row][column];
-                    if (value != null) {
-                        continue;
-                    }
-                    value = distanceNodes[0][column];
-                    if (value == null) {
-                        value = distanceNodes[row][0];
-                        if (value == null) {
-                            value = distanceNodes[0][0];
-                        }
-                    }
-                    distanceNodes[row][column] = value;
-                }
-            }
-        }
-
-        @Override
-        public int getDistance(String desired, String supported, Output<DistanceTable> distanceTable, boolean starEquals) {
-            final int desiredId = id.toId(desired);
-            final int supportedId = id.toId(supported); // can optimize later
-            DistanceNode value = distanceNodes[desiredId][supportedId];
-            if (distanceTable != null) {
-                distanceTable.value = value.getDistanceTable();
-            }
-            return starEquals && desiredId == supportedId && (desiredId != 0 || desired.equals(supported)) ? 0 
-                : value.distance;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            IntDistanceTable other = (IntDistanceTable) obj;
-            if (!id.equals(other.id)) {
-                return false;
-            };
-            return Arrays.deepEquals(distanceNodes, other.distanceNodes);
-        }
-        @Override
-        public int hashCode() {
-            return id.hashCode() ^ Arrays.deepHashCode(distanceNodes);
-        }
-
-        @Override
-        public String toString() {
-            return abbreviate("\t", new HashMap<DistanceNode,Integer>(), new StringBuilder(id.name + ": ")).toString();
-        }
-
-        private StringBuilder abbreviate(String indent, Map<DistanceNode,Integer> cache, StringBuilder result) {
-            for (int i = 0; i < distanceNodes.length; ++i) {
-                DistanceNode[] row = distanceNodes[i];
-                for (int j = 0; j < row.length; ++j) {
-                    DistanceNode value = row[j];
-                    if (value == null) {
-                        continue;
-                    }
-                    result.append(value.distance);
-                    IntDistanceTable dt = value.getDistanceTable();
-                    if (dt == null) {
-                        result.append(";");
-                        continue;
-                    }
-                    Integer old = cache.get(value);
-                    result.append("/");
-                    if (old != null) {
-                        result.append(old + ";");
-                    } else {
-                        final int table = cache.size();
-                        cache.put(value, table);
-                        result.append("\n" + indent + table + "=" + dt.id.name + ": ");
-                        dt.abbreviate(indent+"\t", cache, result);
-                    }
-                }
-            }
-            return result;
-        }
-        @Override
-        public Set<String> getCloser(int threshold) {
-            Set<String> result = new HashSet<>();
-            for (int i = 0; i < distanceNodes.length; ++i) {
-                DistanceNode[] row = distanceNodes[i];
-                for (int j = 0; j < row.length; ++j) {
-                    DistanceNode value = row[j];
-                    if (value.distance < threshold) {
-                        result.add(id.fromId(i));
-                        break;
-                    }
-                }
-            }
-            return result;
-        }
-    }
-
     private interface IdMapper<K,V> {
         public V toId(K source);
     }
 
-    private static class IdMakerFull<T> implements IdMapper<T,Integer> {
+    static class IdMakerFull<T> implements IdMapper<T,Integer> {
         private final Map<T, Integer> objectToInt = new HashMap<>();
         private final List<T> intToObject = new ArrayList<>();
-        private final String name; // for debugging
+        final String name; // for debugging
 
         IdMakerFull(String name) {
             this.name = name;
@@ -369,7 +176,7 @@ public class XLocaleDistance {
         }
         @Override
         public boolean equals(Object obj) {
-            IdMakerFull other = (IdMakerFull) obj;
+            IdMakerFull<T> other = (IdMakerFull) obj;
             return intToObject.equals(other.intToObject);
         }
         @Override
@@ -378,9 +185,9 @@ public class XLocaleDistance {
         }
     }
 
-    private static class StringDistanceNode {
-        private final int distance;
-        private StringDistanceTable distanceTable;
+    static class StringDistanceNode {
+        final int distance;
+        StringDistanceTable distanceTable;
 
         @Override
         public boolean equals(Object obj) {
@@ -417,7 +224,6 @@ public class XLocaleDistance {
 
     public XLocaleDistance(DistanceTable datadistancetable2, RegionMapper regionMapper) {
         languageDesired2Supported = datadistancetable2;
-        closerLanguages = languageDesired2Supported.getCloser(threshold);
         this.regionMapper = regionMapper;
     }
 
@@ -425,8 +231,8 @@ public class XLocaleDistance {
         return new TreeMap();
     }
 
-    private static class StringDistanceTable extends DistanceTable {
-        private final Map<String, Map<String, StringDistanceNode>> subtables = newMap();
+    static class StringDistanceTable extends DistanceTable {
+        final Map<String, Map<String, StringDistanceNode>> subtables = newMap();
 
         @Override
         public boolean equals(Object obj) {
@@ -735,34 +541,35 @@ public class XLocaleDistance {
             {"$americas", "019"},
 
             {"$maghreb", "MA|DZ|TN|LY|MR|EH"},
-            {"$US", "US"},
-            {"$GB", "GB"},
+        };
+        String[] paradigmRegions = {
+            "en-GB", "en", "es-419", "pt-BR", "pt-PT"
         };
         String[][] regionRuleOverrides = {
-            {"ar_*_$maghreb", "ar_*_$maghreb", "97"},
-            {"ar_*_$!maghreb", "ar_*_$!maghreb", "97"},
+            {"ar_*_$maghreb", "ar_*_$maghreb", "96"},
+            {"ar_*_$!maghreb", "ar_*_$!maghreb", "96"},
             {"ar_*_*", "ar_*_*", "95"},
 
-            {"en_*_$enUS", "en_*_$enUS", "97"},
-            {"en_*_$!enUS", "en_*_$!enUS", "97"},
+            {"en_*_$enUS", "en_*_$enUS", "96"},
+            {"en_*_$!enUS", "en_*_$!enUS", "96"},
             {"en_*_*", "en_*_*", "95"},
 
-            {"es_*_$americas", "es_*_$americas", "97"},
-            {"es_*_$!americas", "es_*_$!americas", "97"},
+            {"es_*_$americas", "es_*_$americas", "96"},
+            {"es_*_$!americas", "es_*_$!americas", "96"},
             {"es_*_*", "es_*_*", "95"},
 
-            {"pt_*_$americas", "pt_*_$americas", "97"},
-            {"pt_*_$!americas", "pt_*_$!americas", "97"},
+            {"pt_*_$americas", "pt_*_$americas", "96"},
+            {"pt_*_$!americas", "pt_*_$!americas", "96"},
             {"pt_*_*", "pt_*_*", "95"},
 
-            {"zh_Hant_$cnsar", "zh_Hant_$cnsar", "97"},
-            {"zh_Hant_$!cnsar", "zh_Hant_$!cnsar", "97"},
+            {"zh_Hant_$cnsar", "zh_Hant_$cnsar", "96"},
+            {"zh_Hant_$!cnsar", "zh_Hant_$!cnsar", "96"},
             {"zh_Hant_*", "zh_Hant_*", "95"},
 
             {"*_*_*", "*_*_*", "96"},
         };
 
-        Builder rmb = new RegionMapper.Builder();
+        Builder rmb = new RegionMapper.Builder().addParadigms(paradigmRegions);
         for (String[] variableRule : variableOverrides) {
             rmb.add(variableRule[0], variableRule[1]);
             if (PRINT_OVERRIDES) System.out.println("<matchVariable groupVariable=\"" + variableRule[0]
@@ -885,16 +692,9 @@ public class XLocaleDistance {
         return new XLocaleDistance(d, DEFAULT_REGION_MAPPER);
     }
 
-    /**
-     * @return the closerLanguages
-     */
-    public Set<String> getCloserLanguages() {
-        return closerLanguages;
-    }
-
     static Set<String> getContainingMacrosFor(Collection<String> input, Set<String> output) {
         output.clear();
-        for (Entry<String, Collection<String>> entry : containerToContained.asMap().entrySet()) {
+        for (Entry<String, Collection<String>> entry : CONTAINER_TO_CONTAINED.asMap().entrySet()) {
             if (input.containsAll(entry.getValue())) { // example; if all southern Europe are contained, then add S. Europe
                 output.add(entry.getKey());
             }
@@ -918,14 +718,20 @@ public class XLocaleDistance {
          * @param regionToPartitionIn
          */
         final Multimap<String,String> macroToPartitions;
+        /**
+         * Used to get the paradigm region for a cluster, if there is one
+         */
+        final ImmutableMap<String, String> paradigms;
 
         private RegionMapper(
             Multimap<String, String> variableToPartitionIn,
             Map<String, String> regionToPartitionIn,
-            Multimap<String,String> macroToPartitionsIn) {
+            Multimap<String,String> macroToPartitionsIn,
+            Set<ULocale> paradigmsIn) {
             variableToPartition = ImmutableMultimap.copyOf(variableToPartitionIn);
             regionToPartition = ImmutableMap.copyOf(regionToPartitionIn);
             macroToPartitions = ImmutableMultimap.copyOf(macroToPartitionsIn);
+            paradigms = ImmutableMap.copyOf(regionToPartitionIn);
         }
 
         public String toId(String region) {
@@ -975,10 +781,10 @@ public class XLocaleDistance {
         }
 
         static class Builder {
-            private static final ImmutableSet<String> REGIONS_SUPPORTED_IN_LOCALES = ImmutableSet.copyOf(Arrays.asList("019","150","419"));
             final private Multimap<String, String> regionToRawPartition = TreeMultimap.create();
             final private RegionSet regionSet = new RegionSet();
-
+            final private Set<ULocale> paradigms = new LinkedHashSet<>();
+            
             void add(String variable, String barString) {
                 Set<String> tempRegions = regionSet.parseSet(barString);
 
@@ -993,6 +799,13 @@ public class XLocaleDistance {
                 for (String region : inverse) {
                     regionToRawPartition.put(region, inverseVariable);
                 }
+            }
+
+            public Builder addParadigms(String... paradigmRegions) {
+                for (String paradigm : paradigmRegions) {
+                    paradigms.add(new ULocale(paradigm));
+                }
+                return this;
             }
 
             RegionMapper build() {
@@ -1016,7 +829,7 @@ public class XLocaleDistance {
 
                 // we get a mapping of each macro to the partitions it intersects with
                 Multimap<String,String> macroToPartitions = TreeMultimap.create();
-                for (Entry<String, Collection<String>> e : containerToContained.asMap().entrySet()) {
+                for (Entry<String, Collection<String>> e : CONTAINER_TO_CONTAINED.asMap().entrySet()) {
                     String macro = e.getKey();
                     for (Entry<String, Collection<String>> e2 : partitionToRegions.asMap().entrySet()) {
                         String partition = e2.getKey();
@@ -1029,15 +842,15 @@ public class XLocaleDistance {
                 return new RegionMapper(
                     variableToPartitions,
                     regionToPartition,
-                    macroToPartitions);
+                    macroToPartitions,
+                    paradigms);
             }
         }
     }
 
     /**
      * Parses a string of regions like "US|005-BR" and produces a set of resolved regions. 
-     * All macroregions are fully resolved to sets of non-macro regions, but then any containing macro regions are added.
-     * So "019" turns into "resolved(019)|019|419..."
+     * All macroregions are fully resolved to sets of non-macro regions.
      * <br>Syntax is simple for now:
      * <pre>regionSet := region ([-|] region)*</pre>
      * No precedence, so "x|y-y|z" is (((x union y) minus y) union z) = x union z, NOT x
@@ -1046,7 +859,6 @@ public class XLocaleDistance {
         private enum Operation {add, remove}
         // temporaries used in processing
         final private Set<String> tempRegions = new TreeSet<>();
-        final private Set<String> tempRegions2 = new TreeSet<>();
         private Operation operation = null;
 
         private Set<String> parseSet(String barString) {
@@ -1074,7 +886,7 @@ public class XLocaleDistance {
         }
 
         private Set<String> inverse() {
-            TreeSet<String> result = new TreeSet<>(XLocaleDistance.allFinalRegions);
+            TreeSet<String> result = new TreeSet<>(ALL_FINAL_REGIONS);
             result.removeAll(tempRegions);
             return result;
         }
@@ -1087,7 +899,7 @@ public class XLocaleDistance {
         }
 
         private void changeSet(Operation operation, String region) {
-            Collection<String> contained = containerToFinalContained.get(region);
+            Collection<String> contained = CONTAINER_TO_CONTAINED_FINAL.get(region);
             if (contained != null && !contained.isEmpty()) {
                 if (Operation.add == operation) {
                     tempRegions.addAll(contained);

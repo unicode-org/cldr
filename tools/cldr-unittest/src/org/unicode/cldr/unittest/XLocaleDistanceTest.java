@@ -12,12 +12,12 @@ public class XLocaleDistanceTest extends TestFmwk {
     public static void main(String[] args) {
         new XLocaleDistanceTest().run(args);
     }
+    public static final int FAIL = 99;
     
     public void TestMain() {
         
         XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
-        logln(localeMatcher.toString());
-        logln("closer: " + localeMatcher.getCloserLanguages());
+        logln("\n" + localeMatcher.toString());
 
         XLocaleDistance intLocaleMatcher = XLocaleDistance.createDefaultInt();
 //        logln(intLocaleMatcher.toString());
@@ -27,31 +27,36 @@ public class XLocaleDistanceTest extends TestFmwk {
             {"no", "no_DE", 4},
 
             
-            {"to", "en", 14, 666}, // fallback languages get closer distances, between script (40) and region (4)
+            {"to", "en", 14, FAIL}, // fallback languages get closer distances, between script (40) and region (4)
             {"no", "no_DE", 4},
             {"no_DE", "nb", 5},
             {"nb", "no", 1},
             {"no", "no", 0},
             {"no", "da", 12},
-            {"da", "zh_Hant", 666},
+            {"da", "zh_Hant", FAIL},
             {"zh_Hant", "zh_Hans", 23, 19},
-            {"zh_Hans", "en", 666},
-            {"en", "en_GB", 5},
-            {"en", "en_GU", 3},
-            {"en_GB", "en_CA", 3},
-            {"en_CA", "en_Cyrl", 666},
-            {"en_Cyrl", "es_MX", 666},
+            {"zh_Hans", "en", FAIL},
             
-            {"es_MX", "es_AR", 3},
-            {"es_MX", "es_419", 3},
+            {"en", "en_GB", 5},
+            {"en", "en_GU", 4},
+            {"en_GB", "en_CA", 4},
+            {"en_CA", "en_Cyrl", FAIL},
+            {"en_Cyrl", "es_MX", FAIL},
+            
+            {"hr", "sr", FAIL},
+            {"hr", "sr-Latn", 8},
+            {"sr", "sr-Latn", 5},
+            
+            {"es_MX", "es_AR", 4},
+            {"es_MX", "es_419", 4},
             {"es_MX", "es_MX", 0},
             {"es_MX", "es_ES", 5},
             {"es_MX", "es_PT", 5},
             {"es_MX", "es_150", 5},
             
-            {"es_419", "es_AR", 3},
+            {"es_419", "es_AR", 4},
             {"es_419", "es_419", 0},
-            {"es_419", "es_MX", 3},
+            {"es_419", "es_MX", 4},
             {"es_419", "es_ES", 5},
             {"es_419", "es_PT", 5},
             {"es_419", "es_150", 5},
@@ -60,10 +65,10 @@ public class XLocaleDistanceTest extends TestFmwk {
             {"es_ES", "es_419", 5},
             {"es_ES", "es_MX", 5},
             {"es_ES", "es_ES", 0},
-            {"es_ES", "es_PT", 3},
+            {"es_ES", "es_PT", 4},
             {"es_419", "es_150", 5},
         };
-        // fix, so that it doesn't affect the timing below.
+        // pre-process the data, so that it doesn't affect the timing below.
         for (int i = 0; i < tests.length; ++i) {
             Object[] row = tests[i];
             if (row.length < 4) {
@@ -156,11 +161,10 @@ public class XLocaleDistanceTest extends TestFmwk {
 
     private int pinToDistance(double original) {
         long distance = Math.round((100*(1-original)));
-        return distance >= 40 ? 666 : (int)distance;
+        return distance >= 40 ? FAIL : (int)distance;
     }
 
     private int pin(int original) {
-        return original >= 40 ? 666 : original;
+        return original >= 40 ? FAIL : original;
     }
-
 }

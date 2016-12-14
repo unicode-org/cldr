@@ -10,6 +10,7 @@ import org.unicode.cldr.draft.XLocaleMatcher;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.LocalePriorityList;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -234,7 +235,7 @@ public class XLocaleMatcherTest extends TestFmwk {
     }
 
     static final ULocale ENGLISH_CANADA = new ULocale("en_CA");
-    
+
     public void testMatch_exact() {
         assertEquals(1.0, match(ENGLISH_CANADA, ENGLISH_CANADA));
     }
@@ -694,5 +695,30 @@ public class XLocaleMatcherTest extends TestFmwk {
     public void testEcEu() {
         XLocaleMatcher lm = newXLocaleMatcher();
         assertTrue("xx-EC to xx-EU", lm.distance("xx-Xxxx-EC", "xx-Xxxx-EU") <= 4);
+    }
+
+    public void testVariantsAndExtensions() {
+        // examples from
+        // http://unicode.org/repos/cldr/tags/latest/common/bcp47/
+        // http://unicode.org/repos/cldr/tags/latest/common/validity/variant.xml
+        isVerbose();
+        String[][] tests = {
+            // format: supported, desired, expected
+            {"en-GB-u-sd-gbsct, fr-fonupa", "en-fonipa-u-nu-Arab-ca-buddhist-t-m0-iso-i0-pinyin", "en-GB-fonipa-u-nu-Arab-ca-buddhist-t-m0-iso-i0-pinyin"},
+            {"en-GB-u-sd-gbsct, fr-fonupa", "fr-BE-fonipa", "fr-BE-fonipa"},
+        };
+
+        for (String[] supportedDesiredExpected : tests) {
+            checkFull(supportedDesiredExpected[0], supportedDesiredExpected[1], supportedDesiredExpected[2]);
+        }
+    }
+
+    private void checkFull(final String supported, final String desired, final String expected) {
+        XLocaleMatcher matcher = newXLocaleMatcher(supported);
+        Output<ULocale> bestDesired = new Output<>();
+        ULocale bestMatch = matcher.getBestMatch(LocalePriorityList.add(desired).build(), bestDesired);
+        ULocale bestFixed = XLocaleMatcher.combine(bestMatch, bestDesired.value);
+        logln("matcher: " + matcher + "; desired: " + desired + "; bestMatch: " + bestMatch + "; bestDesired: " + bestDesired + "; bestFixed: " + bestFixed);
+        assertEquals(ULocale.forLanguageTag(expected), bestFixed);
     }
 }

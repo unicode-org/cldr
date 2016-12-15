@@ -46,14 +46,8 @@ public class XLocaleDistance {
 
     static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
 
-    private static List<R4<String, String, Integer, Boolean>> xGetLanguageMatcherData(String languageMatcherKey) {
-        return SDI.getLanguageMatcherData(languageMatcherKey);
-    }
-    private static Set<String> xGetLanguageMatcherKeys() {
-        return SDI.getLanguageMatcherKeys();
-    }
-    private static Set<String> xGetContained(String region) {
-        return SDI.getContained(region);
+    private static List<R4<String, String, Integer, Boolean>> xGetLanguageMatcherData() {
+        return SDI.getLanguageMatcherData("written");
     }
 
     static final Multimap<String,String> CONTAINER_TO_CONTAINED;
@@ -87,6 +81,8 @@ public class XLocaleDistance {
     }
 
     final static private Set<String> ALL_FINAL_REGIONS = ImmutableSet.copyOf(CONTAINER_TO_CONTAINED_FINAL.get("001"));
+
+    // end of data from CLDR
 
     private final DistanceTable languageDesired2Supported;
     private final RegionMapper regionMapper;
@@ -496,10 +492,10 @@ public class XLocaleDistance {
         final String desiredPartition = regionMapper.toId(desiredRegion);
         final String supportedPartition = regionMapper.toId(supportedRegion);
         int subdistance;
-        
+
         // check for macros. If one is found, we take the maximum distance
         // this could be optimized by adding some more structure, but probably not worth it.
-        
+
         Collection<String> desiredPartitions = desiredPartition.isEmpty() ? regionMapper.macroToPartitions.get(desiredRegion) : null;
         Collection<String> supportedPartitions = supportedPartition.isEmpty() ? regionMapper.macroToPartitions.get(supportedRegion) : null;
         if (desiredPartitions != null || supportedPartitions != null) {
@@ -531,7 +527,7 @@ public class XLocaleDistance {
     public static final RegionMapper DEFAULT_REGION_MAPPER;
 
     static final boolean PRINT_OVERRIDES = false;
-    
+
     static {
         String[][] variableOverrides = {
             {"$enUS", "AS|GU|MH|MP|PR|UM|US|VI"},
@@ -543,7 +539,7 @@ public class XLocaleDistance {
             {"$maghreb", "MA|DZ|TN|LY|MR|EH"},
         };
         String[] paradigmRegions = {
-            "en-GB", "en", "es-419", "pt-BR", "pt-PT"
+            "en", "en-GB", "es", "es-419", "pt-BR", "pt-PT"
         };
         String[][] regionRuleOverrides = {
             {"ar_*_$maghreb", "ar_*_$maghreb", "96"},
@@ -584,70 +580,69 @@ public class XLocaleDistance {
 
         Splitter bar = Splitter.on('_');
 
-        for (String s : xGetLanguageMatcherKeys()) {
-            List<Row.R3<List<String>, List<String>, Integer>>[] sorted = new ArrayList[3];
-            sorted[0] = new ArrayList<>();
-            sorted[1] = new ArrayList<>();
-            sorted[2] = new ArrayList<>();
+        List<Row.R3<List<String>, List<String>, Integer>>[] sorted = new ArrayList[3];
+        sorted[0] = new ArrayList<>();
+        sorted[1] = new ArrayList<>();
+        sorted[2] = new ArrayList<>();
 
-            // sort the rules so that the language-only are first, then the language-script, and finally the language-script-region.
-            for (R4<String, String, Integer, Boolean> info : xGetLanguageMatcherData(s)) {
-                List<String> desired = bar.splitToList(info.get0());
-                List<String> supported = bar.splitToList(info.get1());
-                final int distance = 100-info.get2();
-                int size = desired.size();
+        // sort the rules so that the language-only are first, then the language-script, and finally the language-script-region.
+        for (R4<String, String, Integer, Boolean> info : xGetLanguageMatcherData()) {
+            List<String> desired = bar.splitToList(info.get0());
+            List<String> supported = bar.splitToList(info.get1());
+            final int distance = 100-info.get2();
+            int size = desired.size();
 
-                // for now, skip size == 3
-                if (size == 3) continue;
+            // for now, skip size == 3
+            if (size == 3) continue;
 
-                sorted[size-1].add(Row.of(desired, supported, distance));
-                if (info.get3() != Boolean.TRUE && !desired.equals(supported)) {
-                    sorted[size-1].add(Row.of(supported, desired, distance));
-                }
+            sorted[size-1].add(Row.of(desired, supported, distance));
+            if (info.get3() != Boolean.TRUE && !desired.equals(supported)) {
+                sorted[size-1].add(Row.of(supported, desired, distance));
             }
-
-            for (List<Row.R3<List<String>, List<String>, Integer>> item1 : sorted) {
-                int debug = 0;
-                for (Row.R3<List<String>, List<String>, Integer> item2 : item1) {
-                    add(DEFAULT_DISTANCE_TABLE, item2.get0(), item2.get1(), item2.get2());
-                }
-            }
-
-            // add new size=3
-            for (String[] rule : regionRuleOverrides) {
-                if (PRINT_OVERRIDES) System.out.println("<languageMatch  desired=\""
-                    + rule[0]
-                        + "\" supported=\""
-                        + rule[1]
-                            + "\"   percent=\""
-                            + rule[2]
-                                + "\"/>");
-                if (rule[0].equals("en_*_*") || rule[1].equals("*_*_*")) {
-                    int debug = 0;
-                }
-                List<String> desiredBase = new ArrayList<>(bar.splitToList(rule[0]));
-                List<String> supportedBase = new ArrayList<>(bar.splitToList(rule[1]));
-                Integer distance = 100-Integer.parseInt(rule[2]);
-
-                Collection<String> desiredRegions = DEFAULT_REGION_MAPPER.getIdsFromVariable(desiredBase.get(2));
-                if (desiredRegions.isEmpty()) {
-                    throw new IllegalArgumentException("Bad region variable: " + desiredBase.get(2));
-                }
-                Collection<String> supportedRegions = DEFAULT_REGION_MAPPER.getIdsFromVariable(supportedBase.get(2));
-                if (supportedRegions.isEmpty()) {
-                    throw new IllegalArgumentException("Bad region variable: " + supportedBase.get(2));
-                }
-                for (String desiredRegion2 : desiredRegions) {
-                    desiredBase.set(2, desiredRegion2.toString()); // fix later
-                    for (String supportedRegion2 : supportedRegions) {
-                        supportedBase.set(2, supportedRegion2.toString()); // fix later
-                        add(DEFAULT_DISTANCE_TABLE, desiredBase, supportedBase, distance);
-                        add(DEFAULT_DISTANCE_TABLE, supportedBase, desiredBase, distance);
-                    }
-                }
-            }
-            //add(DEFAULT_DISTANCE_TABLE, new ArrayList<>(bar.splitToList("*_*_*")), new ArrayList<>(bar.splitToList("*_*_*")), 4);
         }
+
+        for (List<Row.R3<List<String>, List<String>, Integer>> item1 : sorted) {
+            int debug = 0;
+            for (Row.R3<List<String>, List<String>, Integer> item2 : item1) {
+                add(DEFAULT_DISTANCE_TABLE, item2.get0(), item2.get1(), item2.get2());
+            }
+        }
+
+        // add new size=3
+        for (String[] rule : regionRuleOverrides) {
+            if (PRINT_OVERRIDES) System.out.println("<languageMatch  desired=\""
+                + rule[0]
+                    + "\" supported=\""
+                    + rule[1]
+                        + "\"   percent=\""
+                        + rule[2]
+                            + "\"/>");
+            if (rule[0].equals("en_*_*") || rule[1].equals("*_*_*")) {
+                int debug = 0;
+            }
+            List<String> desiredBase = new ArrayList<>(bar.splitToList(rule[0]));
+            List<String> supportedBase = new ArrayList<>(bar.splitToList(rule[1]));
+            Integer distance = 100-Integer.parseInt(rule[2]);
+
+            Collection<String> desiredRegions = DEFAULT_REGION_MAPPER.getIdsFromVariable(desiredBase.get(2));
+            if (desiredRegions.isEmpty()) {
+                throw new IllegalArgumentException("Bad region variable: " + desiredBase.get(2));
+            }
+            Collection<String> supportedRegions = DEFAULT_REGION_MAPPER.getIdsFromVariable(supportedBase.get(2));
+            if (supportedRegions.isEmpty()) {
+                throw new IllegalArgumentException("Bad region variable: " + supportedBase.get(2));
+            }
+            for (String desiredRegion2 : desiredRegions) {
+                desiredBase.set(2, desiredRegion2.toString()); // fix later
+                for (String supportedRegion2 : supportedRegions) {
+                    supportedBase.set(2, supportedRegion2.toString()); // fix later
+                    add(DEFAULT_DISTANCE_TABLE, desiredBase, supportedBase, distance);
+                    add(DEFAULT_DISTANCE_TABLE, supportedBase, desiredBase, distance);
+                }
+            }
+        }
+        //add(DEFAULT_DISTANCE_TABLE, new ArrayList<>(bar.splitToList("*_*_*")), new ArrayList<>(bar.splitToList("*_*_*")), 4);
+
         if (PRINT_OVERRIDES) {
             System.out.println(DEFAULT_REGION_MAPPER);
             System.out.println(DEFAULT_DISTANCE_TABLE);
@@ -721,7 +716,7 @@ public class XLocaleDistance {
         /**
          * Used to get the paradigm region for a cluster, if there is one
          */
-        final ImmutableMap<String, String> paradigms;
+        final ImmutableSet<ULocale> paradigms;
 
         private RegionMapper(
             Multimap<String, String> variableToPartitionIn,
@@ -731,7 +726,7 @@ public class XLocaleDistance {
             variableToPartition = ImmutableMultimap.copyOf(variableToPartitionIn);
             regionToPartition = ImmutableMap.copyOf(regionToPartitionIn);
             macroToPartitions = ImmutableMultimap.copyOf(macroToPartitionsIn);
-            paradigms = ImmutableMap.copyOf(regionToPartitionIn);
+            paradigms = ImmutableSet.copyOf(paradigmsIn);
         }
 
         public String toId(String region) {
@@ -784,7 +779,7 @@ public class XLocaleDistance {
             final private Multimap<String, String> regionToRawPartition = TreeMultimap.create();
             final private RegionSet regionSet = new RegionSet();
             final private Set<ULocale> paradigms = new LinkedHashSet<>();
-            
+
             void add(String variable, String barString) {
                 Set<String> tempRegions = regionSet.parseSet(barString);
 
@@ -927,5 +922,9 @@ public class XLocaleDistance {
 //            System.out.println(entry.getKey() + "\t⥤ " + entry.getValue());
 //        }
         System.out.println(getDefault().toString());
+    }
+
+    public Set<ULocale> getParadigms() {
+        return regionMapper.paradigms;
     }
 }

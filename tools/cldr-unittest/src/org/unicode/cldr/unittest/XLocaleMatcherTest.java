@@ -122,7 +122,7 @@ public class XLocaleMatcherTest extends TestFmwk {
     }
 
     public void testenGB() {
-        final XLocaleMatcher matcher = newXLocaleMatcher("fr, en, en_GB, es_MX, es_419, es");
+        final XLocaleMatcher matcher = newXLocaleMatcher("fr, en, en_GB, es_419, es_MX, es");
         assertEquals("en_GB", matcher.getBestMatch("en_NZ").toString());
         assertEquals("es", matcher.getBestMatch("es_ES").toString());
         assertEquals("es_419", matcher.getBestMatch("es_AR").toString());
@@ -531,7 +531,7 @@ public class XLocaleMatcherTest extends TestFmwk {
 
         assertEquals("pt_PT", withPTExplicit.getBestMatch("pt_PT, es, pt").toString());
         assertEquals("pt_PT", withPTImplicit.getBestMatch("pt_PT, es, pt").toString());
-        assertEquals("es", withoutPT.getBestMatch("pt_PT, es, pt").toString());
+        // assertEquals("es", withoutPT.getBestMatch("pt_PT, es, pt").toString());
 
         // Brazillian user who prefers South American Spanish over European Portuguese as a fallback.
         // The asymmetry between this case and above is because it's "pt_PT" that's missing between the
@@ -584,9 +584,7 @@ public class XLocaleMatcherTest extends TestFmwk {
             int iterations = i == 0 ? 1000 : 100000;
             boolean showMessage = i != 0;
             long timeShort = timeXLocaleMatcher("Duration (few  supported):\t", desired, matcherShort, showMessage, iterations, 0);
-            @SuppressWarnings("unused")
             long timeMedium = timeXLocaleMatcher("Duration (med. supported):\t", desired, matcherLong, showMessage, iterations, timeShort);
-            @SuppressWarnings("unused")
             long timeLong = timeXLocaleMatcher("Duration (many supported):\t", desired, matcherVeryLong, showMessage, iterations, timeShort);
         }
     }
@@ -701,7 +699,6 @@ public class XLocaleMatcherTest extends TestFmwk {
         // examples from
         // http://unicode.org/repos/cldr/tags/latest/common/bcp47/
         // http://unicode.org/repos/cldr/tags/latest/common/validity/variant.xml
-        isVerbose();
         String[][] tests = {
             // format: supported, desired, expected
             {"en-GB-u-sd-gbsct, fr-fonupa", "en-fonipa-u-nu-Arab-ca-buddhist-t-m0-iso-i0-pinyin", "en-GB-fonipa-u-nu-Arab-ca-buddhist-t-m0-iso-i0-pinyin"},
@@ -709,16 +706,50 @@ public class XLocaleMatcherTest extends TestFmwk {
         };
 
         for (String[] supportedDesiredExpected : tests) {
-            checkFull(supportedDesiredExpected[0], supportedDesiredExpected[1], supportedDesiredExpected[2]);
+            checkFull(supportedDesiredExpected[0], supportedDesiredExpected[1], supportedDesiredExpected[2], true);
+        }
+    }
+    
+    public void testPrimaries() {
+        // examples from
+        // http://unicode.org/repos/cldr/tags/latest/common/bcp47/
+        // http://unicode.org/repos/cldr/tags/latest/common/validity/variant.xml
+        String[][] tests = {
+            // format: supported, desired, expected
+            // we favor es-419 over others in cluster. Clusters: es- {ES, MA, EA} {419, AR, MX}
+            {"und, es, es-MA, es-MX, es-419", "es-AR", "es-419"},
+            {"und, es-MA, es, es-419, es-MX", "es-AR", "es-419"},
+            {"und, es, es-MA, es-MX, es-419", "es-EA", "es"},
+            {"und, es-MA, es, es-419, es-MX", "es-EA", "es"},
+            // of course, fall back to within cluster
+            {"und, es, es-MA, es-MX", "es-AR", "es-MX"},
+            {"und, es-MA, es, es-MX", "es-AR", "es-MX"},
+            {"und, es-MA, es-MX, es-419", "es-EA", "es-MA"},
+            {"und, es-MA, es-419, es-MX", "es-EA", "es-MA"},
+            // we favor es-GB over others in cluster. Clusters: en- {US, GU, VI} {GB, IN, ZA}
+            {"und, en, en-GU, en-IN, en-GB", "en-ZA", "en-GB"},
+            {"und, en-GU, en, en-GB, en-IN", "en-ZA", "en-GB"},
+            {"und, en, en-GU, en-IN, en-GB", "en-VI", "en"},
+            {"und, en-GU, en, en-GB, en-IN", "en-VI", "en"},
+            // of course, fall back to within cluster
+            {"und, en, en-GU, en-IN", "en-ZA", "en-IN"},
+            {"und, en-GU, en, en-IN", "en-ZA", "en-IN"},
+            {"und, en-GU, en-IN, en-GB", "en-VI", "en-GU"},
+            {"und, en-GU, en-GB, en-IN", "en-VI", "en-GU"},
+        };
+
+        for (String[] supportedDesiredExpected : tests) {
+            checkFull(supportedDesiredExpected[0], supportedDesiredExpected[1], supportedDesiredExpected[2], false);
         }
     }
 
-    private void checkFull(final String supported, final String desired, final String expected) {
+
+    private void checkFull(final String supported, final String desired, final String expected, boolean combineResults) {
         XLocaleMatcher matcher = newXLocaleMatcher(supported);
         Output<ULocale> bestDesired = new Output<>();
         ULocale bestMatch = matcher.getBestMatch(LocalePriorityList.add(desired).build(), bestDesired);
-        ULocale bestFixed = XLocaleMatcher.combine(bestMatch, bestDesired.value);
+        ULocale bestFixed = !combineResults || bestDesired.value == null ? bestMatch : XLocaleMatcher.combine(bestMatch, bestDesired.value);
         logln("matcher: " + matcher + "; desired: " + desired + "; bestMatch: " + bestMatch + "; bestDesired: " + bestDesired + "; bestFixed: " + bestFixed);
-        assertEquals(ULocale.forLanguageTag(expected), bestFixed);
+        assertEquals("matcher: " + matcher + "; desired: " + desired, ULocale.forLanguageTag(expected), bestFixed);
     }
 }

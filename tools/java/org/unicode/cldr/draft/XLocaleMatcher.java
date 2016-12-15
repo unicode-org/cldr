@@ -1,6 +1,8 @@
 package org.unicode.cldr.draft;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -41,57 +43,109 @@ public class XLocaleMatcher {
 
 
     public XLocaleMatcher(String languagePriorityList) {
-        this(LocalePriorityList.add(languagePriorityList).build(), XLocaleDistance.getDefault(), DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
+        this(asSet(LocalePriorityList.add(languagePriorityList).build()), XLocaleDistance.getDefault(), DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
     }
-
     public XLocaleMatcher(LocalePriorityList languagePriorityList) {
+        this(asSet(languagePriorityList), XLocaleDistance.getDefault(), DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
+    }
+    public XLocaleMatcher(Set<ULocale> languagePriorityList) {
         this(languagePriorityList, XLocaleDistance.getDefault(), DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
     }
 
+    public XLocaleMatcher(Set<ULocale> languagePriorityList, XLocaleDistance localeDistance) {
+        this(languagePriorityList, localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
+    }
     public XLocaleMatcher(LocalePriorityList languagePriorityList, XLocaleDistance localeDistance) {
-        this(languagePriorityList, localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
+        this(asSet(languagePriorityList), localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
     }
 
+    public XLocaleMatcher(Set<ULocale> languagePriorityList, XLocaleDistance localeDistance, double thresholdMatch) {
+        this(languagePriorityList, localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
+    }
     public XLocaleMatcher(LocalePriorityList languagePriorityList, XLocaleDistance localeDistance, double thresholdMatch) {
-        this(languagePriorityList, localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
+        this(asSet(languagePriorityList), localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
     }
 
-    public XLocaleMatcher(LocalePriorityList languagePriorityList, XLocaleDistance localeDistance, double thresholdMatch, XLikelySubtags likelySubtags) {
+    public XLocaleMatcher(Set<ULocale> languagePriorityList, XLocaleDistance localeDistance, double thresholdMatch, XLikelySubtags likelySubtags) {
         this.localeDistance = localeDistance;
         this.threshold = (int)(100*(1-thresholdMatch));
         this.likelySubtags = likelySubtags;
         // only do after above are set
-        final Multimap<LSR, ULocale> temp2 = extractLsrMap(languagePriorityList);
+        Set<LSR> paradigms = extractLsrSet(localeDistance.getParadigms());
+        final Multimap<LSR, ULocale> temp2 = extractLsrMap(languagePriorityList, paradigms);
         supportedLanguages = temp2.asMap();
         exactSupportedLocales = ImmutableSet.copyOf(temp2.values());
         defaultLanguage = supportedLanguages.isEmpty() ? null : supportedLanguages.entrySet().iterator().next().getValue().iterator().next(); // first language
     }
 
-    private Set<LSR> extractLsrSet(LocalePriorityList languagePriorityList) {
-        Set<LSR> builder = new LinkedHashSet<>();
+    // Result is not immutable!
+    private Set<LSR> extractLsrSet(Set<ULocale> languagePriorityList) {
+        Set<LSR> result = new LinkedHashSet<>();
         for (ULocale item : languagePriorityList) {
-            builder.add(item.equals(UND_LOCALE) ? UND : likelySubtags.addLikelySubtags(item));
+            LSR canonical = LSR.canonicalize(item);
+            final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.addLikelySubtags(canonical);
+            result.add(max);
         }
-        return ImmutableSet.copyOf(builder);
+        return result;
     }
-
-    private Multimap<LSR,ULocale> extractLsrMap(LocalePriorityList languagePriorityList) {
+    private Multimap<LSR,ULocale> extractLsrMap(Set<ULocale> languagePriorityList, Set<LSR> priorities) {
         Multimap<LSR, ULocale> builder = LinkedHashMultimap.create();
         for (ULocale item : languagePriorityList) {
             LSR canonical = LSR.canonicalize(item);
             final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.addLikelySubtags(canonical);
             builder.put(max, item);
         }
+        if (builder.size() > 1 && priorities != null) {
+            // for the supported list, we put any priorities before all others, except for the first.
+            Multimap<LSR, ULocale> builder2 = LinkedHashMultimap.create();
+            Map<LSR, Collection<ULocale>> asMap = builder.asMap();
+            Iterator<Entry<LSR, Collection<ULocale>>> it = asMap.entrySet().iterator();
+            Entry<LSR, Collection<ULocale>> first = it.next();
+            builder2.putAll(first.getKey(), first.getValue());
+            for (LSR priority : priorities) {
+                Collection<ULocale> matchingItem = asMap.get(priority);
+                if (matchingItem != null) {
+                    builder2.putAll(priority, matchingItem);
+                }
+            }
+            // now copy the rest
+            builder2.putAll(builder);
+            if (!builder2.equals(builder)) {
+                int debug = 0;
+            }
+            builder = builder2;
+        }
         return ImmutableMultimap.copyOf(builder);
     }
 
-    public ULocale getBestMatch(LocalePriorityList desiredLanguages) {
+    public ULocale getBestMatch(String languageList) {
+        return getBestMatch(LocalePriorityList.add(languageList).build());
+    }
+    public ULocale getBestMatch(ULocale... locales) {
+        return getBestMatch(new LinkedHashSet<>(Arrays.asList(locales)));
+    }
+    public ULocale getBestMatch(Set<ULocale> desiredLanguages) {
         return getBestMatch(desiredLanguages, null);
     }
-    
-    public ULocale getBestMatch(LocalePriorityList desiredLanguages, Output<ULocale> outputBestDesired) {
+    public ULocale getBestMatch(LocalePriorityList languageList) {
+        return getBestMatch(languageList, null);
+    }
+    public ULocale getBestMatch(LocalePriorityList languageList, Output<ULocale> outputBestDesired) {
+        return getBestMatch(asSet(languageList), outputBestDesired);
+    }
+
+    // TODO add LocalePriorityList method asSet() for ordered Set view backed by LocalePriorityList
+    private static Set<ULocale> asSet(LocalePriorityList languageList) {
+        Set<ULocale> temp = new LinkedHashSet<>(); // maintain order
+        for (ULocale locale : languageList) {
+            temp.add(locale);
+        };
+        return temp;
+    }
+
+    public ULocale getBestMatch(Set<ULocale> desiredLanguages, Output<ULocale> outputBestDesired) {
         // TODO produce optimized version for single desired ULocale
-        Multimap<LSR, ULocale> desiredLSRs = extractLsrMap(desiredLanguages);
+        Multimap<LSR, ULocale> desiredLSRs = extractLsrMap(desiredLanguages,null);
         int bestDistance = Integer.MAX_VALUE;
         ULocale bestDesiredLocale = null;
         Collection<ULocale> bestSupportedLocales = null;
@@ -131,7 +185,7 @@ public class XLocaleMatcher {
                 }
                 delta += DEMOTION_PER_ADDITIONAL_USER_LANGUAGE;
             }
-        if (bestDistance > threshold) {
+        if (bestDistance >= threshold) {
             if (outputBestDesired != null) {
                 outputBestDesired.value = null;
             }
@@ -157,20 +211,20 @@ public class XLocaleMatcher {
         if (!bestSupported.equals(bestDesired)) {
             // add region, variants, extensions
             ULocale.Builder b = new ULocale.Builder().setLocale(bestSupported);
-            
+
             // copy the region from the desired, if there is one
             String region = bestDesired.getCountry();
             if (!region.isEmpty()) {
                 b.setRegion(region);
             }
-            
+
             // copy the variants from desired, if there is one
             // note that this will override any subvariants. Eg "sco-ulster-fonipa" + "…-fonupa" => "sco-fonupa" (nuking ulster)
             String variants = bestDesired.getVariant();
             if (!variants.isEmpty()) {
                 b.setVariant(variants);
             }
-            
+
             // copy the extensions from desired, if there are any
             // note that this will override any subkeys. Eg "th-u-nu-latn-ca-buddhist" + "…-u-nu-native" => "th-u-nu-native" (nuking calendar)
             for (char extensionKey : bestDesired.getExtensionKeys()) {
@@ -179,16 +233,6 @@ public class XLocaleMatcher {
             bestSupported = b.build();
         }
         return bestSupported;
-    }
-
-    public ULocale getBestMatch(String languageList) {
-        return getBestMatch(LocalePriorityList.add(languageList).build());
-    }
-    public ULocale getBestMatch(ULocale... locales) {
-        return getBestMatch(LocalePriorityList.add(locales).build());
-    }
-    public ULocale getBestMatch(ULocale locale) {
-        return getBestMatch(LocalePriorityList.add(locale).build());
     }
 
     public double match(ULocale desired, ULocale supported) {

@@ -19,7 +19,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
         logln("\n" + localeMatcher.toString());
 
-        XLocaleDistance intLocaleMatcher = XLocaleDistance.createDefaultInt();
+//        XLocaleDistance intLocaleMatcher = XLocaleDistance.createDefaultInt();
 //        logln(intLocaleMatcher.toString());
 //        logln("closer: " + localeMatcher.getCloserLanguages());
 
@@ -37,9 +37,10 @@ public class XLocaleDistanceTest extends TestFmwk {
             {"zh_Hant", "zh_Hans", 23, 19},
             {"zh_Hans", "en", FAIL},
             
-            {"en", "en_GB", 5},
-            {"en", "en_GU", 4},
-            {"en_GB", "en_CA", 4},
+            {"en-US", "en_AU", 5}, // across clusters
+            {"en-VI", "en_GU", 4}, // within cluster
+            {"en_AU", "en_CA", 4}, // within cluster
+            
             {"en_CA", "en_Cyrl", FAIL},
             {"en_Cyrl", "es_MX", FAIL},
             
@@ -47,6 +48,7 @@ public class XLocaleDistanceTest extends TestFmwk {
             {"hr", "sr-Latn", 8},
             {"sr", "sr-Latn", 5},
             
+            // check 419 behavior. Should be as good as any in cluster
             {"es_MX", "es_AR", 4},
             {"es_MX", "es_419", 4},
             {"es_MX", "es_MX", 0},
@@ -127,10 +129,10 @@ public class XLocaleDistanceTest extends TestFmwk {
                 int dist2 = localeMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
                 newTime += System.nanoTime()-temp;
 
-                temp = System.nanoTime();
-                int distInt1 = intLocaleMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region);
-                int distInt2 = intLocaleMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
-                intTime += System.nanoTime()-temp;
+//                temp = System.nanoTime();
+//                int distInt1 = intLocaleMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region);
+//                int distInt2 = intLocaleMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
+//                intTime += System.nanoTime()-temp;
 
                 if (iterations == 1) {
                     int ds = pinToDistance(distOld1);

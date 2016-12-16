@@ -2,8 +2,6 @@ package org.unicode.cldr.draft;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -100,45 +98,44 @@ public class XLocaleMatcher {
     private Multimap<LSR,ULocale> extractLsrMap(Set<ULocale> languagePriorityList, Set<LSR> priorities) {
         Multimap<LSR, ULocale> builder = LinkedHashMultimap.create();
         for (ULocale item : languagePriorityList) {
-            LSR canonical = LSR.canonicalize(item);
-            final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.maximize(canonical);
+            final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.maximize(LSR.canonicalize(item));
             builder.put(max, item);
         }
         if (builder.size() > 1 && priorities != null) {
             // for the supported list, we put any priorities before all others, except for the first.
             Multimap<LSR, ULocale> builder2 = LinkedHashMultimap.create();
-            Map<LSR, Collection<ULocale>> asMap = builder.asMap();
-            Iterator<Entry<LSR, Collection<ULocale>>> it = asMap.entrySet().iterator();
-            Entry<LSR, Collection<ULocale>> first = it.next();
-            builder2.putAll(first.getKey(), first.getValue());
-            for (LSR priority : priorities) {
-                Collection<ULocale> matchingItem = asMap.get(priority);
-                if (matchingItem != null) {
-                    builder2.putAll(priority, matchingItem);
+
+            // copy the long way so the priorities are in the same order as in the original
+            boolean first = true;
+            for (Entry<LSR, Collection<ULocale>> entry : builder.asMap().entrySet()) {
+                final LSR key = entry.getKey();
+                if (first || priorities.contains(key)) {
+                    builder2.putAll(key, entry.getValue());
+                    first = false;
                 }
             }
             // now copy the rest
             builder2.putAll(builder);
             if (!builder2.equals(builder)) {
-                int debug = 0;
+                throw new IllegalArgumentException();
             }
             builder = builder2;
         }
         return ImmutableMultimap.copyOf(builder);
     }
-    
+
 
     /** Convenience method */
     public ULocale getBestMatch(ULocale ulocale) {
-        return getBestMatch(Collections.singleton(ulocale));
+        return getBestMatch(ulocale, null);
     }
     /** Convenience method */
     public ULocale getBestMatch(String languageList) {
-        return getBestMatch(LocalePriorityList.add(languageList).build());
+        return getBestMatch(LocalePriorityList.add(languageList).build(), null);
     }
     /** Convenience method */
     public ULocale getBestMatch(ULocale... locales) {
-        return getBestMatch(new LinkedHashSet<>(Arrays.asList(locales)));
+        return getBestMatch(new LinkedHashSet<>(Arrays.asList(locales)), null);
     }
     /** Convenience method */
     public ULocale getBestMatch(Set<ULocale> desiredLanguages) {
@@ -170,6 +167,10 @@ public class XLocaleMatcher {
      * @return
      */
     public ULocale getBestMatch(Set<ULocale> desiredLanguages, Output<ULocale> outputBestDesired) {
+        // fast path for singleton
+        if (desiredLanguages.size() == 1) {
+            return getBestMatch(desiredLanguages.iterator().next());
+        }
         // TODO produce optimized version for single desired ULocale
         Multimap<LSR, ULocale> desiredLSRs = extractLsrMap(desiredLanguages,null);
         int bestDistance = Integer.MAX_VALUE;
@@ -211,6 +212,65 @@ public class XLocaleMatcher {
                 }
                 delta += demotionPerAdditionalUserLanguage;
             }
+        if (bestDistance >= thresholdDistance) {
+            if (outputBestDesired != null) {
+                outputBestDesired.value = null;
+            }
+            return defaultLanguage;
+        }
+        if (outputBestDesired != null) {
+            outputBestDesired.value = bestDesiredLocale;
+        }
+        // pick exact match if there is one
+        if (bestSupportedLocales.contains(bestDesiredLocale)) {
+            return bestDesiredLocale;
+        }
+        // otherwise return first supported, combining variants and extensions from bestDesired
+        return bestSupportedLocales.iterator().next();
+    }
+
+    /** 
+     * Get the best match between the desired languages and supported languages
+     * @param desiredLanguages Typically the supplied user's languages, in order of preference, with best first.
+     * @param outputBestDesired The one of the desired languages that matched best.
+     * Set to null if the best match was not below the threshold distance.
+     * @return
+     */
+    public ULocale getBestMatch(ULocale desiredLocale, Output<ULocale> outputBestDesired) {
+        int bestDistance = Integer.MAX_VALUE;
+        ULocale bestDesiredLocale = null;
+        Collection<ULocale> bestSupportedLocales = null;
+        
+        // quick check for exact match, with hack for und
+        final LSR desiredLSR = desiredLocale.equals(UND_LOCALE) ? UND 
+            : likelySubtags.maximize(LSR.canonicalize(desiredLocale));
+
+        if (exactSupportedLocales.contains(desiredLocale)) {
+            if (outputBestDesired != null) {
+                outputBestDesired.value = desiredLocale;
+            }
+            return desiredLocale;
+        }
+        // quick check for maximized locale
+        Collection<ULocale> found = supportedLanguages.get(desiredLSR);
+        if (found != null) {
+            // if we find one in the set, return first (lowest). We already know the exact one isn't there.
+            if (outputBestDesired != null) {
+                outputBestDesired.value = desiredLocale;
+            }
+            return found.iterator().next();
+        }
+        for (final Entry<LSR, Collection<ULocale>> supportedLsrAndLocale : supportedLanguages.entrySet()) {
+            int distance = localeDistance.distance(desiredLSR, supportedLsrAndLocale.getKey(), thresholdDistance);
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                bestDesiredLocale = desiredLocale;
+                bestSupportedLocales = supportedLsrAndLocale.getValue();
+                if (distance == 0) {
+                    break;
+                }
+            }
+        }
         if (bestDistance >= thresholdDistance) {
             if (outputBestDesired != null) {
                 outputBestDesired.value = null;
@@ -307,7 +367,7 @@ public class XLocaleMatcher {
     public double match(ULocale desired, ULocale desiredMax, ULocale supported, ULocale supportedMax) {
         return match(desired, supported);
     }
-    
+
     /**
      * Canonicalize a locale (language). Note that for now, it is canonicalizing
      * according to CLDR conventions (he vs iw, etc), since that is what is needed
@@ -320,7 +380,7 @@ public class XLocaleMatcher {
         // TODO
         return null;
     }
-    
+
     /**
      * @return the thresholdDistance. Any distance above this value is treated as a match failure.
      */

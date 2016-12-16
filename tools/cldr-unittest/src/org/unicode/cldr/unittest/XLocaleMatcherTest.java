@@ -18,7 +18,6 @@ import com.ibm.icu.util.ULocale;
  * 
  * @author markdavis
  */
-@SuppressWarnings("deprecation")
 public class XLocaleMatcherTest extends TestFmwk {
     private static final int REGION_DISTANCE = 4;
 
@@ -32,19 +31,15 @@ public class XLocaleMatcherTest extends TestFmwk {
     }
 
     private XLocaleMatcher newXLocaleMatcher(LocalePriorityList build) {
-        return new XLocaleMatcher(build, LANGUAGE_MATCHER_DATA);
+        return new XLocaleMatcher(build);
     }
 
-    private XLocaleMatcher newXLocaleMatcher(LocalePriorityList build, XLocaleDistance data) {
-        return new XLocaleMatcher(build, data == null ? LANGUAGE_MATCHER_DATA : data);
-    }
-
-    private XLocaleMatcher newXLocaleMatcher(LocalePriorityList lpl, XLocaleDistance data, double d) {
-        return new XLocaleMatcher(lpl, data == null ? LANGUAGE_MATCHER_DATA : data, d);
+    private XLocaleMatcher newXLocaleMatcher(String string, int d) {
+        return new XLocaleMatcher(string, d);
     }
 
     private XLocaleMatcher newXLocaleMatcher(String string) {
-        return new XLocaleMatcher(LocalePriorityList.add(string).build(), LANGUAGE_MATCHER_DATA);
+        return new XLocaleMatcher(LocalePriorityList.add(string).build());
     }
 
     // public XLocaleMatcher(LocalePriorityList LocalePriorityList,
@@ -130,8 +125,7 @@ public class XLocaleMatcherTest extends TestFmwk {
     }
 
     public void testFallbacks() {
-        LocalePriorityList lpl = LocalePriorityList.add("en, hi").build();
-        final XLocaleMatcher matcher = newXLocaleMatcher(lpl, null, 0.09);
+        final XLocaleMatcher matcher = newXLocaleMatcher("en, hi", 91);
         assertEquals("hi", matcher.getBestMatch("sa").toString());
     }
 
@@ -414,7 +408,7 @@ public class XLocaleMatcherTest extends TestFmwk {
     private void showDistance(XLocaleMatcher matcher, String desired, String supported) {
         ULocale desired2 = new ULocale(desired);
         ULocale supported2 = new ULocale(supported);
-        double distance = matcher.match(desired2, supported2);
+        int distance = matcher.distance(desired2, supported2);
         logln(desired + " to " + supported + " :\t" + distance);
     }
 
@@ -481,7 +475,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         for (int i = 0; i < 1000; ++i) {
             String x = codes[random.nextInt(codes.length)];
             String y = codes[random.nextInt(codes.length)];
-            double d = lm.distance("xx-Xxxx-"+x, "xx-Xxxx-"+y);
+            double d = lm.distance(ULocale.forLanguageTag("xx-Xxxx-"+x), ULocale.forLanguageTag("xx-Xxxx-"+y));
             if (x.equals("ZZ") || y.equals("ZZ")) {
                 assertEquals("dist(regionDistance," + x + ") = 0", REGION_DISTANCE, d);
             } else if (x.equals(y)) {
@@ -692,7 +686,7 @@ public class XLocaleMatcherTest extends TestFmwk {
 
     public void testEcEu() {
         XLocaleMatcher lm = newXLocaleMatcher();
-        assertTrue("xx-EC to xx-EU", lm.distance("xx-Xxxx-EC", "xx-Xxxx-EU") <= 4);
+        assertTrue("xx-EC to xx-EU", lm.distance(ULocale.forLanguageTag("xx-Xxxx-EC"), ULocale.forLanguageTag("xx-Xxxx-EU")) <= 4);
     }
 
     public void testVariantsAndExtensions() {

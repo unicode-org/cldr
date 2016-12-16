@@ -2,6 +2,7 @@ package org.unicode.cldr.draft;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -26,14 +27,12 @@ public class XLocaleMatcher {
     private static final LSR UND = new LSR("und","","");
     private static final ULocale UND_LOCALE = new ULocale("und");
 
-    private static final double DEFAULT_THRESHOLD = 0.5;
-    private static final int DEMOTION_PER_ADDITIONAL_USER_LANGUAGE = 5;
-
     // normally the default values, but can be set via constructor
 
     private final XLikelySubtags likelySubtags;
     private final XLocaleDistance localeDistance;
-    private final int threshold;
+    private final int thresholdDistance;
+    private final int demotionPerAdditionalUserLanguage = 5;
 
     // built based on application's supported languages in constructor
 
@@ -42,33 +41,43 @@ public class XLocaleMatcher {
     private final ULocale defaultLanguage; 
 
 
+    /** Convenience method */
     public XLocaleMatcher(String languagePriorityList) {
-        this(asSet(LocalePriorityList.add(languagePriorityList).build()), XLocaleDistance.getDefault(), DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
+        this(asSet(LocalePriorityList.add(languagePriorityList).build()), XLocaleDistance.getDefault().getDefaultScriptDistance(), 5);
     }
+    /** Convenience method */
     public XLocaleMatcher(LocalePriorityList languagePriorityList) {
-        this(asSet(languagePriorityList), XLocaleDistance.getDefault(), DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
+        this(asSet(languagePriorityList), XLocaleDistance.getDefault().getDefaultScriptDistance(), 5);
     }
+    /** Convenience method */
     public XLocaleMatcher(Set<ULocale> languagePriorityList) {
-        this(languagePriorityList, XLocaleDistance.getDefault(), DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
+        this(languagePriorityList, XLocaleDistance.getDefault().getDefaultScriptDistance(), 5);
+    }
+    /** Convenience method */
+    public XLocaleMatcher(Set<ULocale> languagePriorityList, int thresholdDistance) {
+        this(languagePriorityList, thresholdDistance, 5);
+    }
+    /** Convenience method */
+    public XLocaleMatcher(String languagePriorityList, int thresholdDistance) {
+        this(asSet(LocalePriorityList.add(languagePriorityList).build()), thresholdDistance, 5);
+    }
+    /** Convenience method */
+    public XLocaleMatcher(Set<ULocale> languagePriorityList, int thresholdDistance, int demotionPerAdditionalDesiredLocale) {
+        this(languagePriorityList, thresholdDistance, demotionPerAdditionalDesiredLocale, XLocaleDistance.getDefault(), XLikelySubtags.getDefault());
     }
 
-    public XLocaleMatcher(Set<ULocale> languagePriorityList, XLocaleDistance localeDistance) {
-        this(languagePriorityList, localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
-    }
-    public XLocaleMatcher(LocalePriorityList languagePriorityList, XLocaleDistance localeDistance) {
-        this(asSet(languagePriorityList), localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
-    }
-
-    public XLocaleMatcher(Set<ULocale> languagePriorityList, XLocaleDistance localeDistance, double thresholdMatch) {
-        this(languagePriorityList, localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
-    }
-    public XLocaleMatcher(LocalePriorityList languagePriorityList, XLocaleDistance localeDistance, double thresholdMatch) {
-        this(asSet(languagePriorityList), localeDistance, DEFAULT_THRESHOLD, XLikelySubtags.getDefault());
-    }
-
-    public XLocaleMatcher(Set<ULocale> languagePriorityList, XLocaleDistance localeDistance, double thresholdMatch, XLikelySubtags likelySubtags) {
+    /**
+     * Create a locale matcher with the given parameters.
+     * @param languagePriorityList
+     * @param thresholdDistance
+     * @param demotionPerAdditionalDesiredLocale
+     * @param localeDistance
+     * @param likelySubtags
+     */
+    public XLocaleMatcher(Set<ULocale> languagePriorityList, int thresholdDistance, 
+        int demotionPerAdditionalDesiredLocale, XLocaleDistance localeDistance, XLikelySubtags likelySubtags) {
         this.localeDistance = localeDistance;
-        this.threshold = (int)(100*(1-thresholdMatch));
+        this.thresholdDistance = thresholdDistance;
         this.likelySubtags = likelySubtags;
         // only do after above are set
         Set<LSR> paradigms = extractLsrSet(localeDistance.getParadigms());
@@ -83,7 +92,7 @@ public class XLocaleMatcher {
         Set<LSR> result = new LinkedHashSet<>();
         for (ULocale item : languagePriorityList) {
             LSR canonical = LSR.canonicalize(item);
-            final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.addLikelySubtags(canonical);
+            final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.maximize(canonical);
             result.add(max);
         }
         return result;
@@ -92,7 +101,7 @@ public class XLocaleMatcher {
         Multimap<LSR, ULocale> builder = LinkedHashMultimap.create();
         for (ULocale item : languagePriorityList) {
             LSR canonical = LSR.canonicalize(item);
-            final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.addLikelySubtags(canonical);
+            final LSR max = item.equals(UND_LOCALE) ? UND : likelySubtags.maximize(canonical);
             builder.put(max, item);
         }
         if (builder.size() > 1 && priorities != null) {
@@ -117,19 +126,29 @@ public class XLocaleMatcher {
         }
         return ImmutableMultimap.copyOf(builder);
     }
+    
 
+    /** Convenience method */
+    public ULocale getBestMatch(ULocale ulocale) {
+        return getBestMatch(Collections.singleton(ulocale));
+    }
+    /** Convenience method */
     public ULocale getBestMatch(String languageList) {
         return getBestMatch(LocalePriorityList.add(languageList).build());
     }
+    /** Convenience method */
     public ULocale getBestMatch(ULocale... locales) {
         return getBestMatch(new LinkedHashSet<>(Arrays.asList(locales)));
     }
+    /** Convenience method */
     public ULocale getBestMatch(Set<ULocale> desiredLanguages) {
         return getBestMatch(desiredLanguages, null);
     }
+    /** Convenience method */
     public ULocale getBestMatch(LocalePriorityList languageList) {
         return getBestMatch(languageList, null);
     }
+    /** Convenience method */
     public ULocale getBestMatch(LocalePriorityList languageList, Output<ULocale> outputBestDesired) {
         return getBestMatch(asSet(languageList), outputBestDesired);
     }
@@ -143,6 +162,13 @@ public class XLocaleMatcher {
         return temp;
     }
 
+    /** 
+     * Get the best match between the desired languages and supported languages
+     * @param desiredLanguages Typically the supplied user's languages, in order of preference, with best first.
+     * @param outputBestDesired The one of the desired languages that matched best.
+     * Set to null if the best match was not below the threshold distance.
+     * @return
+     */
     public ULocale getBestMatch(Set<ULocale> desiredLanguages, Output<ULocale> outputBestDesired) {
         // TODO produce optimized version for single desired ULocale
         Multimap<LSR, ULocale> desiredLSRs = extractLsrMap(desiredLanguages,null);
@@ -173,7 +199,7 @@ public class XLocaleMatcher {
                     }
                 }
                 for (final Entry<LSR, Collection<ULocale>> supportedLsrAndLocale : supportedLanguages.entrySet()) {
-                    int distance = delta + localeDistance.distance(desiredLSR, supportedLsrAndLocale.getKey());
+                    int distance = delta + localeDistance.distance(desiredLSR, supportedLsrAndLocale.getKey(), thresholdDistance);
                     if (distance < bestDistance) {
                         bestDistance = distance;
                         bestDesiredLocale = desiredLocale;
@@ -183,9 +209,9 @@ public class XLocaleMatcher {
                         }
                     }
                 }
-                delta += DEMOTION_PER_ADDITIONAL_USER_LANGUAGE;
+                delta += demotionPerAdditionalUserLanguage;
             }
-        if (bestDistance >= threshold) {
+        if (bestDistance >= thresholdDistance) {
             if (outputBestDesired != null) {
                 outputBestDesired.value = null;
             }
@@ -235,20 +261,70 @@ public class XLocaleMatcher {
         return bestSupported;
     }
 
-    public double match(ULocale desired, ULocale supported) {
-        return (100-distance(desired, supported))/100.0;
+    /** Returns the distance between the two languages. The values are not necessarily symmetric.
+     * @param desired
+     * @param supported
+     * @return A return of 0 is a complete match, and 100 is a failure case (above the thresholdDistance).
+     * A language is first maximized with add likely subtags, then compared.
+     */
+    public int distance(ULocale desired, ULocale supported) {
+        return localeDistance.distance(
+            likelySubtags.maximize(desired), 
+            likelySubtags.maximize(supported), thresholdDistance);
     }
 
-    public double distance(ULocale desired, ULocale supported) {
-        return localeDistance.distance(likelySubtags.addLikelySubtags(desired), likelySubtags.addLikelySubtags(supported));
-    }
-
-    public double distance(String desired, String supported) {
-        return localeDistance.distance(likelySubtags.addLikelySubtags(new ULocale(desired)), likelySubtags.addLikelySubtags(new ULocale(supported)));
+    /** Convenience method */
+    public int distance(String desiredLanguage, String supportedLanguage) {
+        return localeDistance.distance(
+            likelySubtags.maximize(new ULocale(desiredLanguage)), 
+            likelySubtags.maximize(new ULocale(supportedLanguage)), 
+            thresholdDistance);
     }
 
     @Override
     public String toString() {
         return exactSupportedLocales.toString();
+    }
+
+    /** Return the inverse of the distance: that is, 1-distance(desired, supported) */
+    public double match(ULocale desired, ULocale supported) {
+        return (100-distance(desired, supported))/100.0;
+    }
+
+    /**
+     * Returns a fraction between 0 and 1, where 1 means that the languages are a
+     * perfect match, and 0 means that they are completely different. This is (100-distance(desired, supported))/100.0.
+     * <br>Note that
+     * the precise values may change over time; no code should be made dependent
+     * on the values remaining constant.
+     * @param desired Desired locale
+     * @param desiredMax Maximized locale (using likely subtags)
+     * @param supported Supported locale
+     * @param supportedMax Maximized locale (using likely subtags)
+     * @return value between 0 and 1, inclusive.
+     * @deprecated Use the form with 2 parameters instead.
+     */
+    public double match(ULocale desired, ULocale desiredMax, ULocale supported, ULocale supportedMax) {
+        return match(desired, supported);
+    }
+    
+    /**
+     * Canonicalize a locale (language). Note that for now, it is canonicalizing
+     * according to CLDR conventions (he vs iw, etc), since that is what is needed
+     * for likelySubtags.
+     * @param ulocale language/locale code
+     * @return ULocale with remapped subtags.
+     * @stable ICU 4.4
+     */
+    public ULocale canonicalize(ULocale ulocale) {
+        // TODO
+        return null;
+    }
+    
+    /**
+     * @return the thresholdDistance. Any distance above this value is treated as a match failure.
+     */
+    public int getThresholdDistance() {
+        return thresholdDistance;
     }
 }

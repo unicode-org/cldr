@@ -1,8 +1,14 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
 import org.unicode.cldr.draft.XLikelySubtags;
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.draft.XLocaleDistance;
+import org.unicode.cldr.draft.XLocaleDistance.DistanceNode;
+import org.unicode.cldr.draft.XLocaleDistance.DistanceTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.LocaleMatcher;
@@ -12,12 +18,13 @@ public class XLocaleDistanceTest extends TestFmwk {
     public static void main(String[] args) {
         new XLocaleDistanceTest().run(args);
     }
-    public static final int FAIL = 99;
     
-    public void TestMain() {
+    public static final int FAIL = XLocaleDistance.ABOVE_THRESHOLD;
+    XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
+
+    public void testMain() {
         
-        XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
-        logln("\n" + localeMatcher.toString());
+        logln("\n" + localeMatcher.toString(true));
 
 //        XLocaleDistance intLocaleMatcher = XLocaleDistance.createDefaultInt();
 //        logln(intLocaleMatcher.toString());
@@ -26,7 +33,6 @@ public class XLocaleDistanceTest extends TestFmwk {
         Object[][] tests = {
             {"no", "no_DE", 4},
 
-            
             {"to", "en", 14, FAIL}, // fallback languages get closer distances, between script (40) and region (4)
             {"no", "no_DE", 4},
             {"no_DE", "nb", 5},
@@ -120,13 +126,13 @@ public class XLocaleDistanceTest extends TestFmwk {
                 extractTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
-                final LSR desiredLSR = newLikely.addLikelySubtags(desiredLang, desiredScript, desiredRegion);
-                final LSR supportedLSR = newLikely.addLikelySubtags(supportedLang, supportedScript, supportedRegion);
+                final LSR desiredLSR = newLikely.maximize(desiredLang, desiredScript, desiredRegion);
+                final LSR supportedLSR = newLikely.maximize(supportedLang, supportedScript, supportedRegion);
                 newLikelyTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
-                int dist1 = localeMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region);
-                int dist2 = localeMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
+                int dist1 = localeMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region, 1000);
+                int dist2 = localeMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region, 1000);
                 newTime += System.nanoTime()-temp;
 
 //                temp = System.nanoTime();
@@ -168,5 +174,47 @@ public class XLocaleDistanceTest extends TestFmwk {
 
     private int pin(int original) {
         return original >= 40 ? FAIL : original;
+    }
+    
+    @SuppressWarnings("deprecation")
+    public void testInternalTable() {
+        checkTables(localeMatcher.internalGetDistanceTable(), "", 1);
+    }
+
+    @SuppressWarnings("deprecation")
+    private void checkTables(DistanceTable internalGetDistanceTable, String title, int depth) {
+        // Check that ANY, ANY is always present, and that the table has a depth of exactly 3 everyplace.
+        Map<String, Set<String>> matches = internalGetDistanceTable.getInternalMatches();
+        
+        // must have ANY,ANY
+        boolean haveANYANY = false;
+        for (Entry<String, Set<String>> entry : matches.entrySet()) {
+            String first = entry.getKey();
+            boolean haveANYfirst = first.equals(XLocaleDistance.ANY);
+            for (String second : entry.getValue()) {
+                haveANYANY |= haveANYfirst && second.equals(XLocaleDistance.ANY);
+                DistanceNode distanceNode = internalGetDistanceTable.getInternalNode(first, second);
+                DistanceTable subDistanceTable = distanceNode.getDistanceTable();
+                if (subDistanceTable == null || subDistanceTable.isEmpty()) {
+                    if (depth != 3) {
+                        logln("depth should be 3");
+                    }
+                    if (distanceNode.getClass() != DistanceNode.class) {
+                        logln("should be plain DistanceNode");
+                    }
+                } else {
+                    if (depth >= 3) {
+                        logln("depth should be ≤ 3");
+                    }
+                    if (distanceNode.getClass() == DistanceNode.class) {
+                        logln("should NOT be plain DistanceNode");
+                    }
+                    checkTables(subDistanceTable, first + "," + second + ",", depth+1);
+                }
+            }
+        }
+        if (!haveANYANY) {
+            logln("ANY-ANY not in" + matches);
+        }
     }
 }

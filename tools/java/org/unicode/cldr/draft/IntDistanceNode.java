@@ -59,13 +59,13 @@ final class IntDistanceNode extends DistanceNode {
 
         private static int loadIds(StringDistanceTable source, int idNumber) {
             IdMakerFull id = ids[idNumber]; // use different Id for language, script, region
-            for (Entry<String, Map<String, StringDistanceNode>> e1 : source.subtables.entrySet()) {
+            for (Entry<String, Map<String, DistanceNode>> e1 : source.subtables.entrySet()) {
                 int desired = id.add(e1.getKey());
-                for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
+                for (Entry<String, DistanceNode> e2 : e1.getValue().entrySet()) {
                     int supported = id.add(e2.getKey());
-                    StringDistanceNode oldNode = e2.getValue();
+                    StringDistanceNode oldNode = (StringDistanceNode) e2.getValue();
                     if (oldNode.distanceTable != null) {
-                        loadIds(oldNode.distanceTable, idNumber+1);
+                        loadIds((StringDistanceTable)oldNode.distanceTable, idNumber+1);
                     }
                 }
             }
@@ -78,13 +78,14 @@ final class IntDistanceNode extends DistanceNode {
             distanceNodes = new DistanceNode[size][size];
 
             // fill in the values in the table
-            for (Entry<String, Map<String, StringDistanceNode>> e1 : source.subtables.entrySet()) {
+            for (Entry<String, Map<String, DistanceNode>> e1 : source.subtables.entrySet()) {
                 int desired = id.add(e1.getKey());
-                for (Entry<String, StringDistanceNode> e2 : e1.getValue().entrySet()) {
+                for (Entry<String, DistanceNode> e2 : e1.getValue().entrySet()) {
                     int supported = id.add(e2.getKey());
-                    StringDistanceNode oldNode = e2.getValue();
-                    IntDistanceNode.IntDistanceTable otherTable = oldNode.distanceTable == null ? null 
-                        : cache.intern(new IntDistanceTable(oldNode.distanceTable, idNumber+1));
+                    DistanceNode oldNode = e2.getValue();
+                    final StringDistanceTable oldDistanceTable = (StringDistanceTable) oldNode.getDistanceTable();
+                    IntDistanceNode.IntDistanceTable otherTable = oldDistanceTable == null ? null 
+                        : cache.intern(new IntDistanceTable(oldDistanceTable, idNumber+1));
                     DistanceNode node = IntDistanceNode.from(oldNode.distance, otherTable);
                     distanceNodes[desired][supported] = node;
                 }
@@ -181,6 +182,11 @@ final class IntDistanceNode extends DistanceNode {
                 }
             }
             return result;
+        }
+
+        @Override
+        String toString(boolean abbreviate) {
+            return toString();
         }
     }
 }

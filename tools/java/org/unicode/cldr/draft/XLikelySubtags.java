@@ -104,18 +104,21 @@ public class XLikelySubtags {
         }
 
         public static LSR canonicalize(ULocale item) {
-            String language2 = item.getLanguage();
-            String canonicalLanguage = getCanonical(LANGUAGE_ALIASES.get(language2));
+            return new LSR(item).canonicalize();
+        }
+        
+        public LSR canonicalize() {
+            String canonicalLanguage = getCanonical(LANGUAGE_ALIASES.get(this.language));
             // hack
-            if (language2.equals("mo")) {
+            if (this.language.equals("mo")) {
                 canonicalLanguage = "ro";
             }
-
-            String region2 = item.getCountry();
-            String canonicalRegion = getCanonical(REGION_ALIASES.get(language2));
-            return new LSR(canonicalLanguage == null ? language2 : canonicalLanguage, 
-                item.getScript(), 
-                canonicalRegion == null ? region2 : canonicalRegion);
+            String canonicalRegion = getCanonical(REGION_ALIASES.get(this.language));
+            
+            return new LSR(
+                canonicalLanguage == null ? this.language : canonicalLanguage, 
+                this.script, 
+                canonicalRegion == null ? this.region : canonicalRegion);
         }
     }
     
@@ -268,18 +271,31 @@ public class XLikelySubtags {
         regionTable.put(region, newValue);
     }
     
-    public LSR addLikelySubtags(LSR source) {
-        return addLikelySubtags(source.language, source.script, source.region);
+    /**
+     * Convenience methods
+     * @param source
+     * @return
+     */
+    public LSR maximize(String source) {
+        return maximize(ULocale.forLanguageTag(source));
     }
 
-    public LSR addLikelySubtags(ULocale source) {
-        return addLikelySubtags(source.getLanguage(), source.getScript(), source.getCountry());
+    public LSR maximize(ULocale source) {
+        return maximize(source.getLanguage(), source.getScript(), source.getCountry());
     }
+
+    public LSR maximize(LSR source) {
+        return maximize(source.language, source.script, source.region);
+    }
+
+//    public static ULocale addLikelySubtags(ULocale loc) {
+//        
+//    }
 
     /**
      * Raw access to addLikelySubtags. Input must be in canonical format, eg "en", not "eng" or "EN".
      */
-    public LSR addLikelySubtags(String language, String script, String region) {
+    public LSR maximize(String language, String script, String region) {
         int retainOldMask = 0;
         Map<String, Map<String, LSR>> scriptTable = langTable.get(language);
         if (scriptTable == null) { // cannot happen if language == "und"
@@ -328,7 +344,7 @@ public class XLikelySubtags {
     }
 
     private LSR minimizeSubtags(String languageIn, String scriptIn, String regionIn, Minimize fieldToFavor) {
-        LSR result = addLikelySubtags(languageIn, scriptIn, regionIn);
+        LSR result = maximize(languageIn, scriptIn, regionIn);
         
         // We could try just a series of checks, like:
         // LSR result2 = addLikelySubtags(languageIn, "", "");
@@ -354,7 +370,7 @@ public class XLikelySubtags {
         
         // The last case is not as easy to optimize.
         // Maybe do later, but for now use the straightforward code.
-        LSR result2 = addLikelySubtags(languageIn, scriptIn, "");
+        LSR result2 = maximize(languageIn, scriptIn, "");
         if (result2.equals(result)) {
             return result.replace(null, null, "");
         } else if (favorRegionOk) {
@@ -389,7 +405,7 @@ public class XLikelySubtags {
         final Map<String, String> rawData = sdi.getLikelySubtags();
         XLikelySubtags ls = XLikelySubtags.getDefault();
         System.out.println(ls);
-        ls.addLikelySubtags(new ULocale("iw"));
+        ls.maximize(new ULocale("iw"));
 
         LanguageTagParser ltp = new LanguageTagParser();
 //        String[][] tests = {
@@ -465,7 +481,7 @@ public class XLikelySubtags {
             for (String script : scripts) {
                 for (String region : regions) {
                     if (--counter < 0) break newMax;
-                    LSR result = ls.addLikelySubtags(language, script, region);
+                    LSR result = ls.maximize(language, script, region);
                 }
             }
         }
@@ -527,7 +543,7 @@ public class XLikelySubtags {
                 for (String region : regions) {
                     ++tests;
                     if (--counter < 0) break testMain;
-                    LSR maxNew = ls.addLikelySubtags(language, script, region);
+                    LSR maxNew = ls.maximize(language, script, region);
                     LSR minNewS = ls.minimizeSubtags(language, script, region, Minimize.FAVOR_SCRIPT);
                     LSR minNewR = ls.minimizeSubtags(language, script, region, Minimize.FAVOR_REGION);
 

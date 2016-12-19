@@ -29,6 +29,11 @@ public class XLikelySubtags {
     private static final Map<String, Map<String, R2<List<String>, String>>> aliasInfo = SDI.getLocaleAliasInfo();
     private static final Map<String, R2<List<String>, String>> REGION_ALIASES = aliasInfo.get("territory");
     private static final Map<String, R2<List<String>, String>> LANGUAGE_ALIASES = aliasInfo.get("language");
+    private static final XLikelySubtags DEFAULT = new XLikelySubtags(SDI.getLikelySubtags(), true);
+    
+    public static final XLikelySubtags getDefault() {
+        return DEFAULT;
+    }
 
     private static final boolean SHORT = false;
 
@@ -63,16 +68,39 @@ public class XLikelySubtags {
         public final String language;
         public final String script;
         public final String region;
-
-        public LSR(ULocale locale) {
-            this(locale.getLanguage(), locale.getScript(), locale.getCountry());
+        
+        public static LSR from(String language, String script, String region) {
+            return new LSR(language, script, region);
         }
         
+        public static LSR from(ULocale locale) {
+            return new LSR(locale.getLanguage(), locale.getScript(), locale.getCountry());
+        }
+        
+        public static LSR fromMaximalized(ULocale locale) {
+            return fromMaximalized(locale.getLanguage(), locale.getScript(), locale.getCountry());
+        }
+
+        public static LSR fromMaximalized(String language, String script, String region) {
+            String canonicalLanguage = getCanonical(LANGUAGE_ALIASES.get(language));
+            // hack
+            if (language.equals("mo")) {
+                canonicalLanguage = "ro";
+            }
+            String canonicalRegion = getCanonical(REGION_ALIASES.get(region));
+            
+            return DEFAULT.maximize(
+                canonicalLanguage == null ? language : canonicalLanguage, 
+                script, 
+                canonicalRegion == null ? region : canonicalRegion);
+        }
+
         public LSR(String language, String script, String region) {
             this.language = language;
             this.script = script;
             this.region = region;
         }
+        
         @Override
         public String toString() {
             StringBuilder result = new StringBuilder(language);
@@ -102,36 +130,12 @@ public class XLikelySubtags {
         public int hashCode() {
             return Objects.hash(language, script, region);
         }
-
-        public static LSR canonicalize(ULocale item) {
-            return new LSR(item).canonicalize();
-        }
-        
-        public LSR canonicalize() {
-            String canonicalLanguage = getCanonical(LANGUAGE_ALIASES.get(this.language));
-            // hack
-            if (this.language.equals("mo")) {
-                canonicalLanguage = "ro";
-            }
-            String canonicalRegion = getCanonical(REGION_ALIASES.get(this.language));
-            
-            return new LSR(
-                canonicalLanguage == null ? this.language : canonicalLanguage, 
-                this.script, 
-                canonicalRegion == null ? this.region : canonicalRegion);
-        }
     }
     
     final Map<String, Map<String, Map<String, LSR>>> langTable;
 
     public XLikelySubtags(Map<String, String> rawData, boolean skipNoncanonical) {
         this.langTable = init(rawData, skipNoncanonical);
-    }
-
-    private static final XLikelySubtags DEFAULT = new XLikelySubtags(SDI.getLikelySubtags(), true);
-    
-    public static final XLikelySubtags getDefault() {
-        return DEFAULT;
     }
 
     private Map<String, Map<String, Map<String, LSR>>> init(final Map<String, String> rawData, boolean skipNoncanonical) {
@@ -401,6 +405,8 @@ public class XLikelySubtags {
     }
 
     public static void main(String[] args) {
+        System.out.println(LSR.fromMaximalized(ULocale.ENGLISH));
+
         SupplementalDataInfo sdi = SDI;
         final Map<String, String> rawData = sdi.getLikelySubtags();
         XLikelySubtags ls = XLikelySubtags.getDefault();

@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.unicode.cldr.draft.XLikelySubtags;
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.draft.XLocaleDistance;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceNode;
@@ -31,12 +30,13 @@ public class XLocaleDistanceTest extends TestFmwk {
 //        logln("closer: " + localeMatcher.getCloserLanguages());
 
         Object[][] tests = {
-            {"no", "no_DE", 4},
+            {"iw", "he", 0}, // canonicals
+            {"zh", "cmn", 0}, // canonicals
 
             {"to", "en", 14, FAIL}, // fallback languages get closer distances, between script (40) and region (4)
             {"no", "no_DE", 4},
-            {"no_DE", "nb", 5},
-            {"nb", "no", 1},
+            {"nn", "no", 10},
+            {"no_DE", "nn", 14},
             {"no", "no", 0},
             {"no", "da", 12},
             {"da", "zh_Hant", FAIL},
@@ -90,12 +90,10 @@ public class XLocaleDistanceTest extends TestFmwk {
 
         long likelyTime = 0;
         long newLikelyTime = 0;
-        long extractTime = 0;
         long newTime = 0;
         long intTime = 0;
         long oldTime = 0;
         final int maxIterations = 10000;
-        final XLikelySubtags newLikely = XLikelySubtags.getDefault();
 
         for (int iterations = maxIterations; iterations > 0; --iterations) {
             int count=0;
@@ -116,23 +114,13 @@ public class XLocaleDistanceTest extends TestFmwk {
                 oldTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
-                String desiredLang = desired.getLanguage();
-                String desiredScript = desired.getScript();
-                String desiredRegion = desired.getCountry();
-
-                String supportedLang = supported.getLanguage();
-                String supportedScript = supported.getScript();
-                String supportedRegion = supported.getCountry();
-                extractTime += System.nanoTime()-temp;
-
-                temp = System.nanoTime();
-                final LSR desiredLSR = newLikely.maximize(desiredLang, desiredScript, desiredRegion);
-                final LSR supportedLSR = newLikely.maximize(supportedLang, supportedScript, supportedRegion);
+                final LSR desiredLSR = LSR.fromMaximalized(desired);
+                final LSR supportedLSR = LSR.fromMaximalized(supported);
                 newLikelyTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
-                int dist1 = localeMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region, 1000);
-                int dist2 = localeMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region, 1000);
+                int dist1 = localeMatcher.distance(desiredLSR, supportedLSR, 1000);
+                int dist2 = localeMatcher.distance(supportedLSR, desiredLSR, 1000);
                 newTime += System.nanoTime()-temp;
 
 //                temp = System.nanoTime();
@@ -140,7 +128,7 @@ public class XLocaleDistanceTest extends TestFmwk {
 //                int distInt2 = intLocaleMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
 //                intTime += System.nanoTime()-temp;
 
-                if (iterations == 1) {
+                if (iterations == maxIterations) {
                     int ds = pinToDistance(distOld1);
                     int sd = pinToDistance(distOld2);
 //                    assertEquals("old: " + desired + "\t ⇒ \t" + supported, desiredToSupported, pinToDistance(distOld1));
@@ -160,11 +148,9 @@ public class XLocaleDistanceTest extends TestFmwk {
         logln("\toldTime-likelyTime:\t" + oldTime/maxIterations);
         logln("totalOld:\t" + (oldTime+likelyTime)/maxIterations);
         logln("\tnewLikelyTime:\t" + newLikelyTime/maxIterations);
-        logln("\textractTime:\t" + extractTime/maxIterations);
-        logln("\tnewTime-newLikelyTime-extractTime:\t" + newTime/maxIterations);
-        logln("totalNew:\t" + (newLikelyTime+extractTime+newTime)/maxIterations);
-        logln("\tnewIntTime-newLikelyTime-extractTime:\t" + intTime/maxIterations);
-        logln("totalInt:\t" + (newLikelyTime+extractTime+intTime)/maxIterations);
+        logln("totalNew:\t" + newTime/maxIterations);
+        //logln("\tnewIntTime-newLikelyTime-extractTime:\t" + intTime/maxIterations);
+        //logln("totalInt:\t" + (intTime)/maxIterations);
     }
 
     private int pinToDistance(double original) {

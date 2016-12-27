@@ -197,7 +197,7 @@ public class XLocaleMatcher {
                     }
                 }
                 for (final Entry<LSR, Collection<ULocale>> supportedLsrAndLocale : supportedLanguages.entrySet()) {
-                    int distance = delta + localeDistance.distance(desiredLSR, supportedLsrAndLocale.getKey(), thresholdDistance);
+                    int distance = delta + localeDistance.distanceRaw(desiredLSR, supportedLsrAndLocale.getKey(), thresholdDistance);
                     if (distance < bestDistance) {
                         bestDistance = distance;
                         bestDesiredLocale = desiredLocale;
@@ -257,7 +257,7 @@ public class XLocaleMatcher {
             return found.iterator().next();
         }
         for (final Entry<LSR, Collection<ULocale>> supportedLsrAndLocale : supportedLanguages.entrySet()) {
-            int distance = localeDistance.distance(desiredLSR, supportedLsrAndLocale.getKey(), thresholdDistance);
+            int distance = localeDistance.distanceRaw(desiredLSR, supportedLsrAndLocale.getKey(), thresholdDistance);
             if (distance < bestDistance) {
                 bestDistance = distance;
                 bestDesiredLocale = desiredLocale;
@@ -324,14 +324,14 @@ public class XLocaleMatcher {
      * A language is first maximized with add likely subtags, then compared.
      */
     public int distance(ULocale desired, ULocale supported) {
-        return localeDistance.distance(
+        return localeDistance.distanceRaw(
             LSR.fromMaximalized(desired), 
             LSR.fromMaximalized(supported), thresholdDistance);
     }
 
     /** Convenience method */
     public int distance(String desiredLanguage, String supportedLanguage) {
-        return localeDistance.distance(
+        return localeDistance.distanceRaw(
             LSR.fromMaximalized(new ULocale(desiredLanguage)), 
             LSR.fromMaximalized(new ULocale(supportedLanguage)), 
             thresholdDistance);

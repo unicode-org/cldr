@@ -23,7 +23,7 @@ public class XLocaleDistanceTest extends TestFmwk {
 
     public void testMain() {
         
-        logln("\n" + localeMatcher.toString(true));
+        logln("\n" + localeMatcher.toString(false));
 
 //        XLocaleDistance intLocaleMatcher = XLocaleDistance.createDefaultInt();
 //        logln(intLocaleMatcher.toString());
@@ -119,8 +119,8 @@ public class XLocaleDistanceTest extends TestFmwk {
                 newLikelyTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
-                int dist1 = localeMatcher.distance(desiredLSR, supportedLSR, 1000);
-                int dist2 = localeMatcher.distance(supportedLSR, desiredLSR, 1000);
+                int dist1 = localeMatcher.distanceRaw(desiredLSR, supportedLSR, 1000);
+                int dist2 = localeMatcher.distanceRaw(supportedLSR, desiredLSR, 1000);
                 newTime += System.nanoTime()-temp;
 
 //                temp = System.nanoTime();

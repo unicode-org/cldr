@@ -29,6 +29,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.Output;
@@ -601,7 +602,7 @@ public class XLocaleDistance {
      * @param supported
      * @return
      */
-    public int distance(LSR desired, LSR supported, int threshold) {
+    public int distanceRaw(LSR desired, LSR supported, int threshold) {
         return distance(desired.language, supported.language, 
             desired.script, supported.script, 
             desired.region, supported.region,
@@ -660,14 +661,14 @@ public class XLocaleDistance {
                 }
             }
         } else {
-            subdistance = subtable.value.getDistance(desiredPartition.toString(), supportedPartition.toString(), null, false);
+            subdistance = subtable.value.getDistance(desiredPartition, supportedPartition, null, false);
         }
         distance += subdistance;
         return distance >= threshold ? ABOVE_THRESHOLD : distance;
     }
 
 
-    static final boolean PRINT_OVERRIDES = false;
+    static final boolean PRINT_OVERRIDES = true;
 
     private static final XLocaleDistance DEFAULT;
 
@@ -677,13 +678,13 @@ public class XLocaleDistance {
 
     static {
         String[][] variableOverrides = {
-            {"$enUS", "AS|GU|MH|MP|PR|UM|US|VI"},
+            {"$enUS", "AS+GU+MH+MP+PR+UM+US+VI"},
 
-            {"$cnsar", "HK|MO"},
+            {"$cnsar", "HK+MO"},
 
             {"$americas", "019"},
 
-            {"$maghreb", "MA|DZ|TN|LY|MR|EH"},
+            {"$maghreb", "MA+DZ+TN+LY+MR+EH"},
         };
         String[] paradigmRegions = {
             "en", "en-GB", "es", "es-419", "pt-BR", "pt-PT"
@@ -715,10 +716,14 @@ public class XLocaleDistance {
         Builder rmb = new RegionMapper.Builder().addParadigms(paradigmRegions);
         for (String[] variableRule : variableOverrides) {
             rmb.add(variableRule[0], variableRule[1]);
-            if (PRINT_OVERRIDES) System.out.println("<matchVariable groupVariable=\"" + variableRule[0]
+            if (PRINT_OVERRIDES) {
+                System.out.println("<paradigms paradigmLocales=\"" + CollectionUtilities.join(paradigmRegions, " ")
+                    + "\"/>");
+                System.out.println("<matchVariable groupVariable=\"" + variableRule[0]
                 + "\" groupValue=\""
                 + variableRule[1]
                     + "\"/>");
+            }
         }
 
         final StringDistanceTable defaultDistanceTable = new StringDistanceTable();
@@ -845,7 +850,7 @@ public class XLocaleDistance {
 
     static class RegionMapper implements IdMapper<String,String> { 
         /**
-         * Used for processing rules. At the start we have a variable setting like $A1=US|CA|MX. We generate a mapping from $A1 to a set of partitions {P1, P2}
+         * Used for processing rules. At the start we have a variable setting like $A1=US+CA+MX. We generate a mapping from $A1 to a set of partitions {P1, P2}
          * When we hit a rule that contains a variable, we replace that rule by multiple rules for the partitions.
          */
         final Multimap<String,String> variableToPartition;
@@ -990,11 +995,11 @@ public class XLocaleDistance {
     }
 
     /**
-     * Parses a string of regions like "US|005-BR" and produces a set of resolved regions. 
+     * Parses a string of regions like "US+005-BR" and produces a set of resolved regions. 
      * All macroregions are fully resolved to sets of non-macro regions.
      * <br>Syntax is simple for now:
-     * <pre>regionSet := region ([-|] region)*</pre>
-     * No precedence, so "x|y-y|z" is (((x union y) minus y) union z) = x union z, NOT x
+     * <pre>regionSet := region ([-+] region)*</pre>
+     * No precedence, so "x+y-y+z" is (((x+y)-y)+z) NOT (x+y)-(y+z)
      */
     private static class RegionSet {
         private enum Operation {add, remove}
@@ -1010,7 +1015,7 @@ public class XLocaleDistance {
             for (; i < barString.length(); ++i) {
                 char c = barString.charAt(i); // UTF16 is ok, since syntax is only ascii
                 switch(c) {
-                case '|':
+                case '+':
                     add(barString, last, i);
                     last = i+1;
                     operation = Operation.add; 

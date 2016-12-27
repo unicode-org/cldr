@@ -388,11 +388,11 @@ public class XLikelySubtags {
         for (Entry<String,V> e : map.entrySet()) {
             String key = e.getKey();
             V value = e.getValue();
-            output.append(first + (key.isEmpty() ? "∅" : key) + " →");
+            output.append(first + (key.isEmpty() ? "∅" : key));
             if (value instanceof Map) {
                 show((Map)value, indent+"\t", output);
             } else {
-                output.append(" " + CldrUtility.toString(value)).append("\n");
+                output.append("\t" + CldrUtility.toString(value)).append("\n");
             }
             first = indent;
         }
@@ -412,6 +412,7 @@ public class XLikelySubtags {
         XLikelySubtags ls = XLikelySubtags.getDefault();
         System.out.println(ls);
         ls.maximize(new ULocale("iw"));
+if (true) return;
 
         LanguageTagParser ltp = new LanguageTagParser();
 //        String[][] tests = {

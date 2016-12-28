@@ -1077,7 +1077,7 @@ public class XLocaleDistance {
     int getDefaultRegionDistance() {
         StringDistanceNode languageNode = (StringDistanceNode) ((StringDistanceTable) languageDesired2Supported).subtables.get(ANY).get(ANY);
         StringDistanceNode scriptNode = (StringDistanceNode) ((StringDistanceTable)languageNode.distanceTable).subtables.get(ANY).get(ANY);
-        DistanceNode regionNode = ((StringDistanceTable)languageNode.distanceTable).subtables.get(ANY).get(ANY);
+        DistanceNode regionNode = ((StringDistanceTable)scriptNode.distanceTable).subtables.get(ANY).get(ANY);
         return regionNode.distance;
     }
 

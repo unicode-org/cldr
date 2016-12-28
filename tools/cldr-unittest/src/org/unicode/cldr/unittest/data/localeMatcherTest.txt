@@ -10,68 +10,68 @@
 ##################################################
 # testParentLocales
 
-# es_419, es_AR, and es_MX are in a cluster; es is in a different one
+# es-419, es-AR, and es-MX are in a cluster; es is in a different one
 
-es-419, es-ES ; 	es-AR ; 	es_419
-es-ES, es-419 ; 	es-AR ; 	es_419
+es-419, es-ES ; 	es-AR ; 	es-419
+es-ES, es-419 ; 	es-AR ; 	es-419
 
-es-419, es ; 	es-AR ; 	es_419
-es, es-419 ; 	es-AR ; 	es_419
+es-419, es ; 	es-AR ; 	es-419
+es, es-419 ; 	es-AR ; 	es-419
 
-es-MX, es ; 	es-AR ; 	es_MX
-es, es-MX ; 	es-AR ; 	es_MX
+es-MX, es ; 	es-AR ; 	es-MX
+es, es-MX ; 	es-AR ; 	es-MX
 
-# en_GB, en_AU, and en_NZ are in a cluster; en in a different one
+# en-GB, en-AU, and en-NZ are in a cluster; en in a different one
 
-en-GB, en-US ; 	en-AU ; 	en_GB
-en-US, en-GB ; 	en-AU ; 	en_GB
+en-GB, en-US ; 	en-AU ; 	en-GB
+en-US, en-GB ; 	en-AU ; 	en-GB
 
-en-GB, en ; 	en-AU ; 	en_GB
-en, en-GB ; 	en-AU ; 	en_GB
+en-GB, en ; 	en-AU ; 	en-GB
+en, en-GB ; 	en-AU ; 	en-GB
 
-en-NZ, en-US ; 	en-AU ; 	en_NZ
-en-US, en-NZ ; 	en-AU ; 	en_NZ
+en-NZ, en-US ; 	en-AU ; 	en-NZ
+en-US, en-NZ ; 	en-AU ; 	en-NZ
 
-en-NZ, en ; 	en-AU ; 	en_NZ
-en, en-NZ ; 	en-AU ; 	en_NZ
+en-NZ, en ; 	en-AU ; 	en-NZ
+en, en-NZ ; 	en-AU ; 	en-NZ
 
-# pt_AU and pt_PT in one cluster; pt_BR in another
+# pt-AU and pt-PT in one cluster; pt-BR in another
 
-pt-PT, pt-BR ; 	pt-AO ; 	pt_PT
-pt-BR, pt-PT ; 	pt-AO ; 	pt_PT
+pt-PT, pt-BR ; 	pt-AO ; 	pt-PT
+pt-BR, pt-PT ; 	pt-AO ; 	pt-PT
 
-pt-PT, pt ; 	pt-AO ; 	pt_PT
-pt, pt-PT ; 	pt-AO ; 	pt_PT
+pt-PT, pt ; 	pt-AO ; 	pt-PT
+pt, pt-PT ; 	pt-AO ; 	pt-PT
 
-zh-MO, zh-TW ; 	zh-HK ; 	zh_MO
-zh-TW, zh-MO ; 	zh-HK ; 	zh_MO
+zh-MO, zh-TW ; 	zh-HK ; 	zh-MO
+zh-TW, zh-MO ; 	zh-HK ; 	zh-MO
 
-zh-MO, zh-TW ; 	zh-HK ; 	zh_MO
-zh-TW, zh-MO ; 	zh-HK ; 	zh_MO
+zh-MO, zh-TW ; 	zh-HK ; 	zh-MO
+zh-TW, zh-MO ; 	zh-HK ; 	zh-MO
 
-zh-MO, zh-CN ; 	zh-HK ; 	zh_MO
-zh-CN, zh-MO ; 	zh-HK ; 	zh_MO
+zh-MO, zh-CN ; 	zh-HK ; 	zh-MO
+zh-CN, zh-MO ; 	zh-HK ; 	zh-MO
 
-zh-MO, zh ; 	zh-HK ; 	zh_MO
-zh, zh-MO ; 	zh-HK ; 	zh_MO
+zh-MO, zh ; 	zh-HK ; 	zh-MO
+zh, zh-MO ; 	zh-HK ; 	zh-MO
 
 ##################################################
 # testChinese
 
-zh-CN, zh-TW, iw ; 	zh-Hant-TW ; 	zh_TW
-zh-CN, zh-TW, iw ; 	zh-Hant ; 	zh_TW
-zh-CN, zh-TW, iw ; 	zh-TW ; 	zh_TW
-zh-CN, zh-TW, iw ; 	zh-Hans-CN ; 	zh_CN
-zh-CN, zh-TW, iw ; 	zh-CN ; 	zh_CN
-zh-CN, zh-TW, iw ; 	zh ; 	zh_CN
+zh-CN, zh-TW, iw ; 	zh-Hant-TW ; 	zh-TW
+zh-CN, zh-TW, iw ; 	zh-Hant ; 	zh-TW
+zh-CN, zh-TW, iw ; 	zh-TW ; 	zh-TW
+zh-CN, zh-TW, iw ; 	zh-Hans-CN ; 	zh-CN
+zh-CN, zh-TW, iw ; 	zh-CN ; 	zh-CN
+zh-CN, zh-TW, iw ; 	zh ; 	zh-CN
 
 ##################################################
 # testenGB
 
-fr, en, en-GB, es-419, es-MX, es ; 	en-NZ ; 	en_GB
+fr, en, en-GB, es-419, es-MX, es ; 	en-NZ ; 	en-GB
 fr, en, en-GB, es-419, es-MX, es ; 	es-ES ; 	es
-fr, en, en-GB, es-419, es-MX, es ; 	es-AR ; 	es_419
-fr, en, en-GB, es-419, es-MX, es ; 	es-MX ; 	es_MX
+fr, en, en-GB, es-419, es-MX, es ; 	es-AR ; 	es-419
+fr, en, en-GB, es-419, es-MX, es ; 	es-MX ; 	es-MX
 
 ##################################################
 # testFallbacks
@@ -81,7 +81,7 @@ fr, en, en-GB, es-419, es-MX, es ; 	es-MX ; 	es_MX
 ##################################################
 # testBasics
 
-fr, en-GB, en ; 	en-GB ; 	en_GB
+fr, en-GB, en ; 	en-GB ; 	en-GB
 fr, en-GB, en ; 	en ; 	en
 fr, en-GB, en ; 	fr ; 	fr
 fr, en-GB, en ; 	ja ; 	fr	# return first if no match
@@ -91,10 +91,10 @@ fr, en-GB, en ; 	ja ; 	fr	# return first if no match
 
 # check that script fallbacks are handled right
 
-zh-CN, zh-TW, iw ; 	zh-Hant ; 	zh_TW
-zh-CN, zh-TW, iw ; 	zh ; 	zh_CN
-zh-CN, zh-TW, iw ; 	zh-Hans-CN ; 	zh_CN
-zh-CN, zh-TW, iw ; 	zh-Hant-HK ; 	zh_TW
+zh-CN, zh-TW, iw ; 	zh-Hant ; 	zh-TW
+zh-CN, zh-TW, iw ; 	zh ; 	zh-CN
+zh-CN, zh-TW, iw ; 	zh-Hans-CN ; 	zh-CN
+zh-CN, zh-TW, iw ; 	zh-Hant-HK ; 	zh-TW
 zh-CN, zh-TW, iw ; 	he-IT ; 	iw
 
 ##################################################
@@ -113,10 +113,10 @@ en, fil, ro, nn ; 	ja ; 	en
 ##################################################
 # testRegionalSpecials
 
-# verify that en_AU is closer to en_GB than to en (which is en_US)
+# verify that en-AU is closer to en-GB than to en (which is en-US)
 
-en, en-GB, es, es-419 ; 	es-MX ; 	es_419
-en, en-GB, es, es-419 ; 	en-AU ; 	en_GB
+en, en-GB, es, es-419 ; 	es-MX ; 	es-419
+en, en-GB, es, es-419 ; 	en-AU ; 	en-GB
 en, en-GB, es, es-419 ; 	es-ES ; 	es
 
 ##################################################
@@ -124,86 +124,86 @@ en, en-GB, es, es-419 ; 	es-ES ; 	es
 
 # HK and MO are closer to each other for Hant than to TW
 
-zh, zh-TW, zh-MO ; 	zh-HK ; 	zh_MO
-zh, zh-TW, zh-HK ; 	zh-MO ; 	zh_HK
+zh, zh-TW, zh-MO ; 	zh-HK ; 	zh-MO
+zh, zh-TW, zh-HK ; 	zh-MO ; 	zh-HK
 
 ##################################################
-# testMatch_exact
+# testMatch-exact
 
 # see localeDistance.txt
 
 ##################################################
-# testMatch_none
+# testMatch-none
 
 # see localeDistance.txt
 
 ##################################################
-# testMatch_matchOnMazimized
+# testMatch-matchOnMazimized
 
-zh, zh-Hant ; 	und-TW ; 	zh-Hant	# und_TW should be closer to zh_Hant than to zh
-en-Hant-TW, und-TW ; 	zh-Hant ; 	und_TW	# zh_Hant should be closer to und_TW than to en_Hant_TW
-en-Hant-TW, und-TW ; 	zh ; 	und_TW	# zh should be closer to und_TW than to en_Hant_TW
+zh, zh-Hant ; 	und-TW ; 	zh-Hant	# und-TW should be closer to zh-Hant than to zh
+en-Hant-TW, und-TW ; 	zh-Hant ; 	und-TW	# zh-Hant should be closer to und-TW than to en-Hant-TW
+en-Hant-TW, und-TW ; 	zh ; 	und-TW	# zh should be closer to und-TW than to en-Hant-TW
 
 ##################################################
 # testMatchGrandfatheredCode
 
-fr, i-klingon, en-Latn-US ; 	en-GB-oed ; 	en_Latn_US
+fr, i-klingon, en-Latn-US ; 	en-GB-oed ; 	en-Latn-US
 
 ##################################################
-# testGetBestMatchForList_exactMatch
+# testGetBestMatchForList-exactMatch
 fr, en-GB, ja, es-ES, es-MX ; 	ja, de ; 	ja
 
 ##################################################
-# testGetBestMatchForList_simpleVariantMatch
+# testGetBestMatchForList-simpleVariantMatch
 @debug
-fr, en-GB, ja, es-ES, es-MX ; 	de, en-US ; 	en_GB	# Intentionally avoiding a perfect_match or two candidates for variant matches.
+fr, en-GB, ja, es-ES, es-MX ; 	de, en-US ; 	en-GB	# Intentionally avoiding a perfect-match or two candidates for variant matches.
 
 # Fallback.
 
 fr, en-GB, ja, es-ES, es-MX ; 	de, zh ; 	fr
 
 ##################################################
-# testGetBestMatchForList_matchOnMaximized
+# testGetBestMatchForList-matchOnMaximized
 # Check that if the preference is maximized already, it works as well.
 
-en, ja ; 	ja-Jpan-JP, en-AU ; 	ja	# Match for ja_Jpan_JP (maximized already)
+en, ja ; 	ja-Jpan-JP, en-AU ; 	ja	# Match for ja-Jpan-JP (maximized already)
 
-# ja_JP matches ja on likely subtags, and it's listed first, thus it wins over the second preference en_GB.
+# ja-JP matches ja on likely subtags, and it's listed first, thus it wins over the second preference en-GB.
 
-en, ja ; 	ja-JP, en-US ; 	ja	# Match for ja_Jpan_JP (maximized already)
+en, ja ; 	ja-JP, en-US ; 	ja	# Match for ja-Jpan-JP (maximized already)
 
 # Check that if the preference is maximized already, it works as well.
 
-en, ja ; 	ja-Jpan-JP, en-US ; 	ja	# Match for ja_Jpan_JP (maximized already)
+en, ja ; 	ja-Jpan-JP, en-US ; 	ja	# Match for ja-Jpan-JP (maximized already)
 
 ##################################################
-# testGetBestMatchForList_noMatchOnMaximized
+# testGetBestMatchForList-noMatchOnMaximized
 # Regression test for http://b/5714572 .
-# de maximizes to de_DE. Pick the exact match for the secondary language instead.
+# de maximizes to de-DE. Pick the exact match for the secondary language instead.
 en, de, fr, ja ; 	de-CH, fr ; 	de
 
 ##################################################
 # testBestMatchForTraditionalChinese
 
 # Scenario: An application that only supports Simplified Chinese (and some other languages),
-# but does not support Traditional Chinese. zh_Hans_CN could be replaced with zh_CN, zh, or
-# zh_Hans, it wouldn't make much of a difference.
+# but does not support Traditional Chinese. zh-Hans-CN could be replaced with zh-CN, zh, or
+# zh-Hans, it wouldn't make much of a difference.
 
 # The script distance (simplified vs. traditional Han) is considered small enough
 # to be an acceptable match. The regional difference is considered almost insignificant.
 
-fr, zh-Hans-CN, en-US ; 	zh-TW ; 	zh_Hans_CN
-fr, zh-Hans-CN, en-US ; 	zh-Hant ; 	zh_Hans_CN
+fr, zh-Hans-CN, en-US ; 	zh-TW ; 	zh-Hans-CN
+fr, zh-Hans-CN, en-US ; 	zh-Hant ; 	zh-Hans-CN
 
-# For geo_political reasons, you might want to avoid a zh_Hant -> zh_Hans match.
-# In this case, if zh_TW, zh_HK or a tag starting with zh_Hant is requested, you can
+# For geo-political reasons, you might want to avoid a zh-Hant -> zh-Hans match.
+# In this case, if zh-TW, zh-HK or a tag starting with zh-Hant is requested, you can
 # change your call to getBestMatch to include a 2nd language preference.
-# "en" is a better match since its distance to "en_US" is closer than the distance
-# from "zh_TW" to "zh_CN" (script distance).
+# "en" is a better match since its distance to "en-US" is closer than the distance
+# from "zh-TW" to "zh-CN" (script distance).
 
-fr, zh-Hans-CN, en-US ; 	zh-TW, en ; 	en_US
-fr, zh-Hans-CN, en-US ; 	zh-Hant-CN, en, en ; 	en_US
-fr, zh-Hans-CN, en-US ; 	zh-Hans, en ; 	zh_Hans_CN
+fr, zh-Hans-CN, en-US ; 	zh-TW, en ; 	en-US
+fr, zh-Hans-CN, en-US ; 	zh-Hant-CN, en, en ; 	en-US
+fr, zh-Hans-CN, en-US ; 	zh-Hans, en ; 	zh-Hans-CN
 
 ##################################################
 # testUndefined
@@ -215,7 +215,7 @@ it, fr ; 	und ; 	it
 # When it *does* occur in the list, bestMatch returns it, as expected.
 it, und ; 	und ; 	und
 
-# The unusual part: max("und") = "en_Latn_US", and since matching is based on maximized
+# The unusual part: max("und") = "en-Latn-US", and since matching is based on maximized
 # tags, the undefined language would normally match English. But that would produce the
 # counterintuitive results that getBestMatch("und", XLocaleMatcher("it,en")) would be "en", and
 # getBestMatch("en", XLocaleMatcher("it,und")) would be "und".
@@ -228,11 +228,11 @@ it, en ; 	und ; 	it
 it, und ; 	en ; 	it
 
 ##################################################
-# testGetBestMatch_regionDistance
+# testGetBestMatch-regionDistance
 
-es-AR, es ; 	es-MX ; 	es_AR
-fr, en, en-GB ; 	en-CA ; 	en_GB
-de-AT, de-DE, de-CH ; 	de ; 	de_DE
+es-AR, es ; 	es-MX ; 	es-AR
+fr, en, en-GB ; 	en-CA ; 	en-GB
+de-AT, de-DE, de-CH ; 	de ; 	de-DE
 
 ##################################################
 # testAsymmetry
@@ -241,7 +241,7 @@ mul, nl ; 	af ; 	nl	# af => nl
 mul, af ; 	nl ; 	mul	# but nl !=> af
 
 ##################################################
-# testGetBestMatchForList_matchOnMaximized2
+# testGetBestMatchForList-matchOnMaximized2
 
 # ja-JP matches ja on likely subtags, and it's listed first, thus it wins over the second preference en-GB.
 
@@ -252,7 +252,7 @@ fr, en-GB, ja, es-ES, es-MX ; 	ja-JP, en-GB ; 	ja	# Match for ja-JP, with likely
 fr, en-GB, ja, es-ES, es-MX ; 	ja-Jpan-JP, en-GB ; 	ja	# Match for ja-Jpan-JP (maximized already)
 
 ##################################################
-# testGetBestMatchForList_closeEnoughMatchOnMaximized
+# testGetBestMatchForList-closeEnoughMatchOnMaximized
 
 en-GB, en, de, fr, ja ; 	de-CH, fr ; 	de
 en-GB, en, de, fr, ja ; 	en-US, ar, nl, de, ja ; 	en
@@ -260,28 +260,28 @@ en-GB, en, de, fr, ja ; 	en-US, ar, nl, de, ja ; 	en
 ##################################################
 # testGetBestMatchForPortuguese
 
-# pt might be supported and not pt_PT
+# pt might be supported and not pt-PT
 
 # European user who prefers Spanish over Brazillian Portuguese as a fallback.
 
-pt-PT, pt-BR, es, es-419 ; 	pt-PT, es, pt ; 	pt_PT
-pt-PT, pt, es, es-419 ; 	pt-PT, es, pt ; 	pt_PT	# pt implicit
+pt-PT, pt-BR, es, es-419 ; 	pt-PT, es, pt ; 	pt-PT
+pt-PT, pt, es, es-419 ; 	pt-PT, es, pt ; 	pt-PT	# pt implicit
 
 # Brazillian user who prefers South American Spanish over European Portuguese as a fallback.
-# The asymmetry between this case and above is because it's "pt_PT" that's missing between the
-# matchers as "pt_BR" is a much more common language.
+# The asymmetry between this case and above is because it's "pt-PT" that's missing between the
+# matchers as "pt-BR" is a much more common language.
 
-pt-PT, pt-BR, es, es-419 ; 	pt, es-419, pt-PT ; 	pt_BR
-pt-PT, pt-BR, es, es-419 ; 	pt-PT, es, pt ; 	pt_PT
-pt-PT, pt, es, es-419 ; 	pt-PT, es, pt ; 	pt_PT
+pt-PT, pt-BR, es, es-419 ; 	pt, es-419, pt-PT ; 	pt-BR
+pt-PT, pt-BR, es, es-419 ; 	pt-PT, es, pt ; 	pt-PT
+pt-PT, pt, es, es-419 ; 	pt-PT, es, pt ; 	pt-PT
 pt-PT, pt, es, es-419 ; 	pt, es-419, pt-PT ; 	pt
 
-pt-BR, es, es-419 ; 	pt, es-419, pt-PT ; 	pt_BR
+pt-BR, es, es-419 ; 	pt, es-419, pt-PT ; 	pt-BR
 
-# Code that adds the user's country can get "pt_US" for a user's language.
-# That should fall back to "pt_BR".
+# Code that adds the user's country can get "pt-US" for a user's language.
+# That should fall back to "pt-BR".
 
-pt-PT, pt-BR, es, es-419 ; 	pt-US, pt-PT ; 	pt_BR
+pt-PT, pt-BR, es, es-419 ; 	pt-US, pt-PT ; 	pt-BR
 pt-PT, pt, es, es-419 ; 	pt-US, pt-PT, pt ; 	pt	# pt-BR implicit
 
 ##################################################

@@ -32,7 +32,7 @@ public class XLocaleDistanceTest extends TestFmwk {
     public static final int FAIL = XLocaleDistance.ABOVE_THRESHOLD;
 
     private XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
-    TestFileHander tfh = new MyTestFileHandler()
+    DataDrivenTestHelper tfh = new MyTestFileHandler()
     .setFramework(this)
     .load(XLocaleDistanceTest.class, "data/localeDistanceTest.txt");
 
@@ -159,7 +159,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         }
     }
 
-    class MyTestFileHandler extends TestFileHander {
+    class MyTestFileHandler extends DataDrivenTestHelper {
         final XLocaleDistance distance = XLocaleDistance.getDefault();
         Output<ULocale> bestDesired = new Output<ULocale>();
 

@@ -14,7 +14,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
-abstract public class TestFileHander {
+abstract public class DataDrivenTestHelper {
 
     public static final List<String> DEBUG_LINE = Collections.singletonList("@debug");
     public static final Splitter SEMICOLON = Splitter.on(';').trimResults();
@@ -26,7 +26,7 @@ abstract public class TestFileHander {
     private List<List<String>> lines = new ArrayList<>();
     private List<String> comments = new ArrayList<>();
 
-    public TestFileHander setFramework(TestFmwk testFramework) {
+    public DataDrivenTestHelper setFramework(TestFmwk testFramework) {
         this.framework = testFramework;
         return this;
     }
@@ -54,13 +54,13 @@ abstract public class TestFileHander {
         }
     }
 
-    protected TestFileHander addLine(List<String> arguments, String commentBase) {
+    protected DataDrivenTestHelper addLine(List<String> arguments, String commentBase) {
         lines.add(Collections.unmodifiableList(arguments));
         comments.add(commentBase);
         return this;
     }
     
-    public TestFileHander run(Class<?> classFileIsRelativeTo, String file) {
+    public DataDrivenTestHelper run(Class<?> classFileIsRelativeTo, String file) {
         return load(classFileIsRelativeTo, file)
             .test();
     }
@@ -69,7 +69,7 @@ abstract public class TestFileHander {
         return !arguments.isEmpty() && !arguments.equals(DEBUG_LINE);
     }
     
-    public TestFileHander test() {
+    public DataDrivenTestHelper test() {
         boolean breakpoint = false;
         for (int i = 0; i < lines.size(); ++i) {
             List<String> arguments = lines.get(i);
@@ -93,7 +93,7 @@ abstract public class TestFileHander {
         return this;
     }
 
-    public TestFileHander load(Class<?> classFileIsRelativeTo, String file) {
+    public DataDrivenTestHelper load(Class<?> classFileIsRelativeTo, String file) {
         try (BufferedReader in = FileUtilities.openFile(classFileIsRelativeTo, file)) {
             boolean breakpoint = false;
 

@@ -251,7 +251,7 @@ public class XLocaleMatcherTest extends TestFmwk {
     }
 
     public void testDataDriven() throws IOException {
-        TestFileHander tfh = new MyTestFileHandler()
+        DataDrivenTestHelper tfh = new MyTestFileHandler()
         .setFramework(this)
         .run(XLocaleMatcherTest.class, "data/localeMatcherTest.txt");
         if (REFORMAT) {
@@ -263,7 +263,7 @@ public class XLocaleMatcherTest extends TestFmwk {
     private static final Joiner JOIN_COMMA_SPACE = Joiner.on(", ");
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
-    class MyTestFileHandler extends TestFileHander {
+    class MyTestFileHandler extends DataDrivenTestHelper {
 
         Output<ULocale> bestDesired = new Output<ULocale>();
 

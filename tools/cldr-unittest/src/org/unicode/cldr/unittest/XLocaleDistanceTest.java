@@ -10,6 +10,7 @@ import org.unicode.cldr.draft.XLocaleDistance.DistanceNode;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.LocaleMatcher;
 import com.ibm.icu.util.ULocale;
 
@@ -23,12 +24,6 @@ public class XLocaleDistanceTest extends TestFmwk {
 
     public void testMain() {
         
-        logln("\n" + localeMatcher.toString(false));
-
-//        XLocaleDistance intLocaleMatcher = XLocaleDistance.createDefaultInt();
-//        logln(intLocaleMatcher.toString());
-//        logln("closer: " + localeMatcher.getCloserLanguages());
-
         Object[][] tests = {
             {"iw", "he", 0}, // canonicals
             {"zh", "cmn", 0}, // canonicals
@@ -79,6 +74,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         // pre-process the data, so that it doesn't affect the timing below.
         for (int i = 0; i < tests.length; ++i) {
             Object[] row = tests[i];
+            System.out.println(CollectionUtilities.join(row, " ; \t"));
             if (row.length < 4) {
                 tests[i] = row = new Object[]{row[0], row[1], row[2], row[2]};
             }

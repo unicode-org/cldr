@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -9,7 +8,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.XLocaleDistance;
 import org.unicode.cldr.draft.XLocaleMatcher;
 
@@ -787,110 +785,79 @@ public class XLocaleMatcherTest extends TestFmwk {
         assertEquals("matcher: " + matcher + "; desired: " + desired, ULocale.forLanguageTag(expected), bestFixed);
     }
 
-    private static final Splitter SEMICOLON = Splitter.on(';').trimResults();
+    public void testzData() throws IOException {
+        StringBuilder format = new StringBuilder(); // use null for no output, otherwise new StringBuilder();
+        new MyTestFileHandler()
+        .setFramework(this)
+        .setPrinter(format)
+        .run(XLocaleMatcherTest.class, "data/localeMatcherTest.txt");
+        if (format != null) {
+            System.out.println(format);
+        }
+    }
+
     private static final Splitter COMMA_SPACE = Splitter.on(Pattern.compile(",\\s*|\\s+")).trimResults();
     private static final String SEPARATOR = " ; \t";
     private static final Joiner JOIN_COMMA_SPACE = Joiner.on(", ");
-    private static final boolean REFORMAT = true;
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
-    public void testzData() throws IOException {
-        try (BufferedReader in = FileUtilities.openFile(XLocaleMatcherTest.class, "data/localeMatcherTest.txt")) {
-            if (REFORMAT) {
-                System.out.println();
+    class MyTestFileHandler extends TestFileHander {
+
+        Output<ULocale> bestDesired = new Output<ULocale>();
+
+        @Override
+        public boolean handle(boolean breakpoint, String commentBase, List<String> arguments) {
+            List<String> supported = COMMA_SPACE.splitToList(arguments.get(0));
+            int threshold = -1;
+            String first = supported.get(0);
+            if (!first.isEmpty() && DIGITS.containsAll(first)) {
+                threshold = Integer.parseInt(first);
+                supported = supported.subList(1, supported.size());
             }
-            boolean breakpoint = false;
-            Output<ULocale> bestDesired = new Output<ULocale>();
 
-            while (true) {
-                String line = in.readLine();
-                if (line == null) {
-                    break;
-                }
-                line = line.trim();
-                if (line.isEmpty()) {
-                    if (REFORMAT) {
-                        System.out.println();
-                    }
-                    continue;
-                }
-                int hash = line.indexOf('#');
-                String comment = "";
-                String commentBase = "";
-                if (hash >= 0) {
-                    commentBase = line.substring(hash+1).trim();
-                    comment = "# " + commentBase;
-                    line = line.substring(0,hash).trim();
-                    if (!line.isEmpty()) {
-                        comment = "\t" + comment;
-                    }
-                }
-                if (line.isEmpty()) {
-                    if (REFORMAT) {
-                        if (commentBase.startsWith("test")) {
-                            System.out.println("##################################################");                        
-                        }
-                        System.out.println(comment);
-                    }
-                    continue;
-                }
-                if (line.startsWith("@debug")) {
-                    if (REFORMAT) {
-                        System.out.println("@debug" + comment);
-                    }
-                    breakpoint = true;
-                    continue;
-                }
-                List<String> arguments = SEMICOLON.splitToList(line);
-                if (arguments.size() < 3 || arguments.size() > 4) {
-                    errln("Malformed data line:" + line + comment);
-                    continue;
-                }
-                List<String> supported = COMMA_SPACE.splitToList(arguments.get(0));
-                int threshold = -1;
-                String first = supported.get(0);
-                if (!first.isEmpty() && DIGITS.containsAll(first)) {
-                    threshold = Integer.parseInt(first);
-                }
-                
-                final String supportedReformatted = JOIN_COMMA_SPACE.join(supported);
-                LocalePriorityList supportedList = LocalePriorityList.add(supportedReformatted).build();
+            final String supportedReformatted = JOIN_COMMA_SPACE.join(supported);
+            LocalePriorityList supportedList = LocalePriorityList.add(supportedReformatted).build();
 
-                Iterable<String> desired = COMMA_SPACE.split(arguments.get(1));
-                final String desiredReformatted = JOIN_COMMA_SPACE.join(desired);
-                LocalePriorityList desiredList = LocalePriorityList.add(desiredReformatted).build();
+            Iterable<String> desired = COMMA_SPACE.split(arguments.get(1));
+            final String desiredReformatted = JOIN_COMMA_SPACE.join(desired);
+            LocalePriorityList desiredList = LocalePriorityList.add(desiredReformatted).build();
 
-                String expected = arguments.get(2);
-                String expectedLanguageTag = expected.equals("null") ? null : new ULocale(expected).toLanguageTag();
+            String expected = arguments.get(2);
+            String expectedLanguageTag = expected.equals("null") ? null : new ULocale(expected).toLanguageTag();
 
-                String expectedUi = arguments.size() < 4 ? null : arguments.get(3);
-                String expectedUiLanguageTag = expectedUi == null || expectedUi.equals("null") ? null 
-                    : new ULocale(expectedUi).toLanguageTag();
+            String expectedUi = arguments.size() < 4 ? null : arguments.get(3);
+            String expectedUiLanguageTag = expectedUi == null || expectedUi.equals("null") ? null 
+                : new ULocale(expectedUi).toLanguageTag();
 
-                if (breakpoint) {
-                    breakpoint = false; // put debugger breakpoint here to break at @debug in test file
-                }
-
-                XLocaleMatcher matcher = threshold < 0 ? newXLocaleMatcher(supportedList) : newXLocaleMatcher(supportedList, threshold);
-                ULocale bestSupported;
-                if (expectedUi != null) {
-                    bestSupported = matcher.getBestMatch(desiredList, bestDesired);
-                    ULocale bestUI = XLocaleMatcher.combine(bestSupported, bestDesired.value);
-                    assertEquals(commentBase + " (UI)", expectedUiLanguageTag, bestUI == null ? null : bestUI.toLanguageTag());
-                } else {
-                    bestSupported = matcher.getBestMatch(desiredList);
-                }
-                String bestMatchLanguageTag = bestSupported == null ? null : bestSupported.toLanguageTag();
-                assertEquals(commentBase, expectedLanguageTag, bestMatchLanguageTag);
-
-                if (REFORMAT) {
-                    System.out.println(supportedReformatted.replace('_', '-') 
-                        + SEPARATOR + desiredReformatted.replace('_', '-') 
-                        + SEPARATOR + expected 
-                        + (expectedUi == null ? "" : SEPARATOR + expectedUi) 
-                        + comment);
-                }
+            if (breakpoint) {
+                breakpoint = false; // put debugger breakpoint here to break at @debug in test file
             }
+
+            XLocaleMatcher matcher = threshold < 0 ? newXLocaleMatcher(supportedList) : newXLocaleMatcher(supportedList, threshold);
+            ULocale bestSupported;
+            if (expectedUi != null) {
+                bestSupported = matcher.getBestMatch(desiredList, bestDesired);
+                ULocale bestUI = XLocaleMatcher.combine(bestSupported, bestDesired.value);
+                assertEquals(commentBase + " (UI)", expectedUiLanguageTag, bestUI == null ? null : bestUI.toLanguageTag());
+            } else {
+                bestSupported = matcher.getBestMatch(desiredList);
+            }
+            String bestMatchLanguageTag = bestSupported == null ? null : bestSupported.toLanguageTag();
+            assertEquals(commentBase, expectedLanguageTag, bestMatchLanguageTag);
+
+            if (isPrinting()) {
+                println(fixUnderbar(supportedReformatted)
+                    + SEPARATOR + fixUnderbar(desiredReformatted)
+                    + SEPARATOR + fixUnderbar(expectedLanguageTag)
+                    + (expectedUi == null ? "" : SEPARATOR + fixUnderbar(expectedUi)) 
+                    + "\t# " + commentBase);
+            }
+
+            return breakpoint;
+        }
+
+        private String fixUnderbar(String languageTag) {
+            return languageTag == null ? null : languageTag.replace('_', '-');
         }
     }
 }

@@ -26,13 +26,10 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  */
 public class XLocaleMatcherTest extends TestFmwk {
-
+    private static final boolean REFORMAT = false; // set to true to get a reformatted data file listed
 
     private static final int REGION_DISTANCE = 4;
 
-
-    private static final ULocale ZH_MO = new ULocale("zh_MO");
-    private static final ULocale ZH_HK = new ULocale("zh_HK");
     private static final XLocaleDistance LANGUAGE_MATCHER_DATA = XLocaleDistance.getDefault();
 
     private XLocaleMatcher newXLocaleMatcher() {
@@ -51,41 +48,11 @@ public class XLocaleMatcherTest extends TestFmwk {
         return XLocaleMatcher.start().setSupportedLocales(string).setThresholdDistance(d).build();
     }
 
-    private XLocaleMatcher newXLocaleMatcher(String string, int d) {
-        return XLocaleMatcher.start().setSupportedLocales(string).setThresholdDistance(d).build();
-    }
-
     public static void main(String[] args) throws Exception {
         new XLocaleMatcherTest().run(args);
     }
 
-    public void testParentLocales() {
-        assertCloser("es_AR", "es_419", "es_ES");
-        assertCloser("es_AR", "es_419", "es");
 
-        assertCloser("es_AR", "es_MX", "es");
-        assertCloser("es_AR", "es_MX", "es");
-
-        assertCloser("en_AU", "en_GB", "en_US");
-        assertCloser("en_AU", "en_GB", "en");
-
-        assertCloser("en_AU", "en_NZ", "en_US");
-        assertCloser("en_AU", "en_NZ", "en");
-
-        assertCloser("pt_AO", "pt_PT", "pt_BR");
-        assertCloser("pt_AO", "pt_PT", "pt");
-
-        assertCloser("zh_HK", "zh_MO", "zh_TW");
-        assertCloser("zh_HK", "zh_MO", "zh_CN");
-        assertCloser("zh_HK", "zh_MO", "zh");
-    }
-
-    private void assertCloser(String a, String closer, String further) {
-        XLocaleMatcher matcher = newXLocaleMatcher(further + ", " + closer);
-        assertEquals("test " + a + " is closer to " + closer + " than to " + further, new ULocale(closer), matcher.getBestMatch(a));
-        matcher = newXLocaleMatcher(closer + ", " + further);
-        assertEquals("test " + a + " is closer to " + closer + " than to " + further, new ULocale(closer), matcher.getBestMatch(a));
-    }
 
     //    public void testParentLocales() {
     //        // find all the regions that have a closer relation because of an explicit parent
@@ -113,33 +80,8 @@ public class XLocaleMatcherTest extends TestFmwk {
     //        }
     //    }
 
-    public void testChinese() {
-        XLocaleMatcher matcher = newXLocaleMatcher("zh_CN, zh_TW, iw");
-        ULocale taiwanChinese = new ULocale("zh_TW");
-        ULocale chinaChinese = new ULocale("zh_CN");
-        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_TW"));
-        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant"));
-        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_TW"));
-        assertEquals("zh_CN, zh_TW, iw;", chinaChinese, matcher.getBestMatch("zh_Hans_CN"));
-        assertEquals("zh_CN, zh_TW, iw;", chinaChinese, matcher.getBestMatch("zh_CN"));
-        assertEquals("zh_CN, zh_TW, iw;", chinaChinese, matcher.getBestMatch("zh"));
-        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_HK"));
-    }
 
-    public void testenGB() {
-        final XLocaleMatcher matcher = newXLocaleMatcher("fr, en, en_GB, es_419, es_MX, es");
-        assertEquals("en_GB", matcher.getBestMatch("en_NZ").toString());
-        assertEquals("es", matcher.getBestMatch("es_ES").toString());
-        assertEquals("es_419", matcher.getBestMatch("es_AR").toString());
-        assertEquals("es_MX", matcher.getBestMatch("es_MX").toString());
-    }
-
-    public void testFallbacks() {
-        final XLocaleMatcher matcher = newXLocaleMatcher("en, hi", 91);
-        assertEquals("hi", matcher.getBestMatch("sa").toString());
-    }
-
-// TBD reenable
+// TBD reenable with override data
 //    public void testOverrideData() {
 //        double threshold = 0.05;
 //        XLocaleDistance XLocaleMatcherData = new XLocaleDistance()
@@ -160,266 +102,9 @@ public class XLocaleMatcherTest extends TestFmwk {
 //        // way
 //    }
 
-    public void testBasics() {
-        final XLocaleMatcher matcher = newXLocaleMatcher(LocalePriorityList.add(ULocale.FRENCH).add(ULocale.UK)
-            .add(ULocale.ENGLISH).build());
-        logln(matcher.toString());
-
-        assertEquals(ULocale.UK, matcher.getBestMatch(ULocale.UK));
-        assertEquals(ULocale.ENGLISH, matcher.getBestMatch(ULocale.US));
-        assertEquals(ULocale.FRENCH, matcher.getBestMatch(ULocale.FRANCE));
-        assertEquals(ULocale.FRENCH, matcher.getBestMatch(ULocale.JAPAN));
-    }
-
-    public void testFallback() {
-        // check that script fallbacks are handled right
-        final XLocaleMatcher matcher = newXLocaleMatcher("zh_CN, zh_TW, iw");
-        assertEquals(new ULocale("zh_TW"), matcher.getBestMatch("zh_Hant"));
-        assertEquals(new ULocale("zh_CN"), matcher.getBestMatch("zh"));
-        assertEquals(new ULocale("zh_CN"), matcher.getBestMatch("zh_Hans_CN"));
-        assertEquals(new ULocale("zh_TW"), matcher.getBestMatch("zh_Hant_HK"));
-        assertEquals(new ULocale("iw"), matcher.getBestMatch("he_IT"));
-    }
-
-    public void testSpecials() {
-        // check that nearby languages are handled
-        final XLocaleMatcher matcher = newXLocaleMatcher("en, fil, ro, nn");
-        assertEquals(new ULocale("fil"), matcher.getBestMatch("tl"));
-        assertEquals(new ULocale("ro"), matcher.getBestMatch("mo"));
-        assertEquals(new ULocale("nn"), matcher.getBestMatch("nb"));
-        // make sure default works
-        assertEquals(new ULocale("en"), matcher.getBestMatch("ja"));
-    }
-
-    public void testRegionalSpecials() {
-        // verify that en_AU is closer to en_GB than to en (which is en_US)
-        final XLocaleMatcher matcher = newXLocaleMatcher("en, en_GB, es, es_419");
-        assertEquals("es_MX in {en, en_GB, es, es_419}", new ULocale("es_419"), matcher.getBestMatch("es_MX"));
-        assertEquals("en_AU in {en, en_GB, es, es_419}", new ULocale("en_GB"), matcher.getBestMatch("en_AU"));
-        assertEquals("es_ES in {en, en_GB, es, es_419}", new ULocale("es"), matcher.getBestMatch("es_ES"));
-    }
-
-    public void testHK() {
-        // HK and MO are closer to each other for Hant than to TW
-        final XLocaleMatcher matcher = newXLocaleMatcher("zh, zh_TW, zh_MO");
-        assertEquals("zh_HK in {zh, zh_TW, zh_MO}", ZH_MO, matcher.getBestMatch("zh_HK"));
-        final XLocaleMatcher matcher2 = newXLocaleMatcher("zh, zh_TW, zh_HK");
-        assertEquals("zh_MO in {zh, zh_TW, zh_HK}", ZH_HK, matcher2.getBestMatch("zh_MO"));
-    }
-
-//    public void TestXLocaleMatcherCoverage() {
-//        // Add tests for better code coverage
-//        XLocaleMatcher matcher = newXLocaleMatcher(LocalePriorityList.add(null, 0).build(), null);
-//        logln(matcher.toString());
-//
-//        XLocaleMatcherData data = new XLocaleMatcherData();
-//
-//        XLocaleMatcherData clone = data.cloneAsThawed();
-//
-//        if (clone.equals(data)) {
-//            errln("Error cloneAsThawed() is equal.");
-//        }
-//
-//        if (data.isFrozen()) {
-//            errln("Error XLocaleMatcherData is frozen!");
-//        }
-//    }
 
     private void assertEquals(Object expected, Object string) {
         assertEquals("", expected, string);
-    }
-
-    private void assertNull(Object bestMatch) {
-        assertNull("", bestMatch);
-    }
-
-    public void testEmpty() {
-        final XLocaleMatcher matcher = newXLocaleMatcher("");
-        assertNull(matcher.getBestMatch(ULocale.FRENCH));
-    }
-
-    static final ULocale ENGLISH_CANADA = new ULocale("en_CA");
-
-    public void testMatch_exact() {
-        assertEquals(1.0, match(ENGLISH_CANADA, ENGLISH_CANADA));
-    }
-
-    private double match(ULocale desired, ULocale supported) {
-        return newXLocaleMatcher().match(desired, supported);
-    }
-
-    public void testMatch_none() {
-        double match = match(new ULocale("ar_MK"), ENGLISH_CANADA);
-        assertTrue("Actual < 0: " + match, 0 <= match);
-        assertTrue("Actual > 0.15 (~ language + script distance): " + match, 0.2 > match);
-    }
-
-    public void testMatch_matchOnMazimized() {
-        ULocale undTw = new ULocale("und_TW");
-        ULocale zhHant = new ULocale("zh_Hant");
-        double matchZh = match(undTw, new ULocale("zh"));
-        double matchZhHant = match(undTw, zhHant);
-        assertTrue("und_TW should be closer to zh_Hant (" + matchZhHant +
-            ") than to zh (" + matchZh + ")",
-            matchZh < matchZhHant);
-        double matchEnHantTw = match(new ULocale("en_Hant_TW"),
-            zhHant);
-        assertTrue("zh_Hant should be closer to und_TW (" + matchZhHant +
-            ") than to en_Hant_TW (" + matchEnHantTw + ")",
-            matchEnHantTw < matchZhHant);
-        assertTrue("zh should be closer to und_TW (" + matchZh +
-            ") than to en_Hant_TW (" + matchEnHantTw + ")",
-            matchEnHantTw < matchZh);
-    }
-
-    public void testMatchGrandfatheredCode() {
-        final XLocaleMatcher matcher = newXLocaleMatcher("fr, i_klingon, en_Latn_US");
-        assertEquals("en_Latn_US", matcher.getBestMatch("en_GB_oed").toString());
-        // assertEquals("tlh", matcher.getBestMatch("i_klingon").toString());
-    }
-
-    public void testGetBestMatchForList_exactMatch() {
-        final XLocaleMatcher matcher = newXLocaleMatcher("fr, en_GB, ja, es_ES, es_MX");
-        assertEquals("ja", matcher.getBestMatch("ja, de").toString());
-    }
-
-    public void testGetBestMatchForList_simpleVariantMatch() {
-        final XLocaleMatcher matcher = newXLocaleMatcher("fr, en_GB, ja, es_ES, es_MX");
-        // Intentionally avoiding a perfect_match or two candidates for variant
-        // matches.
-        assertEquals("en_GB", matcher.getBestMatch("de, en_US").toString());
-        // Fall back.
-        assertEquals("fr", matcher.getBestMatch("de, zh").toString());
-    }
-
-    public void testGetBestMatchForList_matchOnMaximized() {
-        final XLocaleMatcher matcher = newXLocaleMatcher("en, ja");
-        // final XLocaleMatcher matcher =
-        // newXLocaleMatcher("fr, en, ja, es_ES, es_MX");
-        // Check that if the preference is maximized already, it works as well.
-        assertEquals("Match for ja_Jpan_JP (maximized already)",
-            "ja", matcher.getBestMatch("ja_Jpan_JP, en-AU").toString());
-        if (true)
-            return;
-        // ja_JP matches ja on likely subtags, and it's listed first, thus it
-        // wins over
-        // thus it wins over the second preference en_GB.
-        assertEquals("Match for ja_JP, with likely region subtag",
-            "ja", matcher.getBestMatch("ja_JP, en_US").toString());
-        // Check that if the preference is maximized already, it works as well.
-        assertEquals("Match for ja_Jpan_JP (maximized already)",
-            "ja", matcher.getBestMatch("ja_Jpan_JP, en_US").toString());
-    }
-
-    public void testGetBestMatchForList_noMatchOnMaximized() {
-        // Regression test for http://b/5714572 .
-        final XLocaleMatcher matcher = newXLocaleMatcher("en, de, fr, ja");
-        // de maximizes to de_DE. Pick the exact match for the secondary
-        // language instead.
-        assertEquals("de", matcher.getBestMatch("de_CH, fr").toString());
-    }
-
-    public void testBestMatchForTraditionalChinese() {
-        // Scenario: An application that only supports Simplified Chinese (and
-        // some other languages),
-        // but does not support Traditional Chinese. zh_Hans_CN could be
-        // replaced with zh_CN, zh, or
-        // zh_Hans, it wouldn't make much of a difference.
-        final XLocaleMatcher matcher = newXLocaleMatcher("fr, zh_Hans_CN, en_US");
-
-        // The script distance (simplified vs. traditional Han) is considered
-        // small enough
-        // to be an acceptable match. The regional difference is considered
-        // almost insignificant.
-        assertEquals("zh_Hans_CN", matcher.getBestMatch("zh_TW").toString());
-        assertEquals("zh_Hans_CN", matcher.getBestMatch("zh_Hant").toString());
-
-        // For geo_political reasons, you might want to avoid a zh_Hant ->
-        // zh_Hans match.
-        // In this case, if zh_TW, zh_HK or a tag starting with zh_Hant is
-        // requested, you can
-        // change your call to getBestMatch to include a 2nd language
-        // preference.
-        // "en" is a better match since its distance to "en_US" is closer than
-        // the distance
-        // from "zh_TW" to "zh_CN" (script distance).
-        assertEquals("en_US", matcher.getBestMatch("zh_TW, en").toString());
-        assertEquals("en_US", matcher.getBestMatch("zh_Hant_CN, en").toString());
-        assertEquals("zh_Hans_CN", matcher.getBestMatch("zh_Hans, en").toString());
-    }
-
-    public void testUndefined() {
-        // When the undefined language doesn't match anything in the list,
-        // getBestMatch returns
-        // the default, as usual.
-        XLocaleMatcher matcher = newXLocaleMatcher("it,fr");
-        assertEquals("it", matcher.getBestMatch("und").toString());
-
-        // When it *does* occur in the list, BestMatch returns it, as expected.
-        matcher = newXLocaleMatcher("it,und");
-        assertEquals("und", matcher.getBestMatch("und").toString());
-
-        // The unusual part:
-        // max("und") = "en_Latn_US", and since matching is based on maximized
-        // tags, the undefined
-        // language would normally match English. But that would produce the
-        // counterintuitive results
-        // that getBestMatch("und", XLocaleMatcher("it,en")) would be "en", and
-        // getBestMatch("en", XLocaleMatcher("it,und")) would be "und".
-        //
-        // To avoid that, we change the matcher's definitions of max
-        // (AddLikelySubtagsWithDefaults)
-        // so that max("und")="und". That produces the following, more desirable
-        // results:
-        matcher = newXLocaleMatcher("it,en");
-        assertEquals("it", matcher.getBestMatch("und").toString());
-        matcher = newXLocaleMatcher("it,und");
-        assertEquals("it", matcher.getBestMatch("en").toString());
-    }
-
-    // public void testGetBestMatch_emptyList() {
-    // final XLocaleMatcher matcher = newXLocaleMatcher(
-    // new LocalePriorityList(new HashMap()));
-    // assertNull(matcher.getBestMatch(ULocale.ENGLISH));
-    // }
-
-//    public void testGetBestMatch_googlePseudoLocales() {
-//        // Google pseudo locales are primarily based on variant subtags.
-//        // See http://sites/intl_eng/pseudo_locales.
-//        // (See below for the region code based fall back options.)
-//        final XLocaleMatcher matcher = newXLocaleMatcher(
-//            "fr, pt");
-//        assertEquals("fr", matcher.getBestMatch("de").toString());
-//        assertEquals("fr", matcher.getBestMatch("en_US").toString());
-//        assertEquals("fr", matcher.getBestMatch("en").toString());
-//        assertEquals("pt", matcher.getBestMatch("pt_BR").toString());
-//    }
-
-    public void testGetBestMatch_regionDistance() {
-        XLocaleMatcher matcher = newXLocaleMatcher("es_AR, es");
-        assertEquals("es_AR", matcher.getBestMatch("es_MX").toString());
-
-        matcher = newXLocaleMatcher("fr, en, en_GB");
-        assertEquals("en_GB", matcher.getBestMatch("en_CA").toString());
-
-        matcher = newXLocaleMatcher("de_AT, de_DE, de_CH");
-        assertEquals("de_DE", matcher.getBestMatch("de").toString());
-
-        showDistance(matcher, "en", "en_CA");
-        showDistance(matcher, "en_CA", "en");
-        showDistance(matcher, "en_US", "en_CA");
-        showDistance(matcher, "en_CA", "en_US");
-        showDistance(matcher, "en_GB", "en_CA");
-        showDistance(matcher, "en_CA", "en_GB");
-        showDistance(matcher, "en", "en_UM");
-        showDistance(matcher, "en_UM", "en");
-    }
-
-    private void showDistance(XLocaleMatcher matcher, String desired, String supported) {
-        ULocale desired2 = new ULocale(desired);
-        ULocale supported2 = new ULocale(supported);
-        int distance = matcher.distance(desired2, supported2);
-        logln(desired + " to " + supported + " :\t" + distance);
     }
 
     /**
@@ -468,16 +153,6 @@ public class XLocaleMatcherTest extends TestFmwk {
         }
     }
 
-    public void testAsymmetry() {
-        XLocaleMatcher matcher;
-        matcher = new XLocaleMatcher("mul, nl");
-        assertEquals("nl", matcher.getBestMatch("af").toString()); // af => nl
-
-        matcher = new XLocaleMatcher("mul, af");
-        assertEquals("mul", matcher.getBestMatch("nl").toString()); // but nl !=> af
-    }
-
-
     public void testComputeDistance_monkeyTest() {
         String[] codes = ULocale.getISOCountries();
         Random random = new Random();
@@ -497,75 +172,6 @@ public class XLocaleMatcherTest extends TestFmwk {
         }
     }
 
-    public void testGetBestMatchForList_matchOnMaximized2() {
-//        if (logKnownIssue("Cldrbug:8811", "Problems with XLocaleMatcher test")) {
-//            return;
-//        }
-        final XLocaleMatcher matcher = newXLocaleMatcher("fr, en-GB, ja, es-ES, es-MX");
-        // ja-JP matches ja on likely subtags, and it's listed first, thus it wins over
-        // thus it wins over the second preference en-GB.
-        assertEquals("Match for ja-JP, with likely region subtag",
-            "ja", matcher.getBestMatch("ja-JP, en-GB").toString());
-        // Check that if the preference is maximized already, it works as well.
-        assertEquals("Match for ja-Jpan-JP (maximized already)",
-            "ja", matcher.getBestMatch("ja-Jpan-JP, en-GB").toString());
-    }
-
-    public void testGetBestMatchForList_closeEnoughMatchOnMaximized() {
-//        if (logKnownIssue("Cldrbug:8811", "Problems with XLocaleMatcher test")) {
-//            return;
-//        }
-        final XLocaleMatcher matcher = newXLocaleMatcher("en-GB, en, de, fr, ja");
-        assertEquals("de", matcher.getBestMatch("de-CH, fr").toString());
-        assertEquals("en", matcher.getBestMatch("en-US, ar, nl, de, ja").toString());
-    }
-
-    public void testGetBestMatchForPortuguese() {
-
-//        if (logKnownIssue("Cldrbug:8811", "Problems with XLocaleMatcher test")) {
-//            return;
-//        }
-
-        final XLocaleMatcher withPTExplicit = newXLocaleMatcher("pt_PT, pt_BR, es, es_419");
-        final XLocaleMatcher withPTImplicit = newXLocaleMatcher("pt_PT, pt, es, es_419");
-        // Could happen because "pt_BR" is a tier_1 language and "pt_PT" is tier_2.
-
-        final XLocaleMatcher withoutPT = newXLocaleMatcher("pt_BR, es, es_419");
-        // European user who prefers Spanish over Brazillian Portuguese as a fallback.
-
-        assertEquals("pt_PT", withPTExplicit.getBestMatch("pt_PT, es, pt").toString());
-        assertEquals("pt_PT", withPTImplicit.getBestMatch("pt_PT, es, pt").toString());
-        // assertEquals("es", withoutPT.getBestMatch("pt_PT, es, pt").toString());
-
-        // Brazillian user who prefers South American Spanish over European Portuguese as a fallback.
-        // The asymmetry between this case and above is because it's "pt_PT" that's missing between the
-        // matchers as "pt_BR" is a much more common language.
-        assertEquals("pt_BR", withPTExplicit.getBestMatch("pt, es_419, pt_PT").toString());
-        assertEquals("pt", withPTImplicit.getBestMatch("pt, es_419, pt_PT").toString());
-        assertEquals("pt_BR", withoutPT.getBestMatch("pt, es_419, pt_PT").toString());
-
-        // Code that adds the user's country can get "pt_US" for a user's language.
-        // That should fall back to "pt_BR".
-        assertEquals("pt_BR", withPTExplicit.getBestMatch("pt_US, pt_PT").toString());
-        assertEquals("pt", withPTImplicit.getBestMatch("pt_US, pt_PT").toString());
-    }
-
-    public void testVariantWithScriptMatch() {
-//        if (logKnownIssue("Cldrbug:8811", "Problems with XLocaleMatcher test")) {
-//            return;
-//        }
-        final XLocaleMatcher matcher = newXLocaleMatcher("fr, en, sv");
-        assertEquals("en", matcher.getBestMatch("en-GB").toString());
-        assertEquals("en", matcher.getBestMatch("en-GB, sv").toString());
-    }
-
-    public void testVariantWithScriptMatch2() {
-//        if (logKnownIssue("Cldrbug:8811", "Problems with XLocaleMatcher test")) {
-//            return;
-//        }
-        final XLocaleMatcher matcher = newXLocaleMatcher("en, sv");
-        assertEquals("en", matcher.getBestMatch("en-GB, sv").toString());
-    }
 
     public void testPerf() {
         if (LANGUAGE_MATCHER_DATA == null) {
@@ -592,212 +198,68 @@ public class XLocaleMatcherTest extends TestFmwk {
         assertEquals(expected, matcherVeryLong.getBestMatch(desired));
         //XLocaleMatcher.DEBUG = false;
 
+        long timeShortNew=0;
+        long timeMediumNew=0;
+        long timeLongNew=0;
+        
         for (int i = 0; i < 2; ++i) {
             int iterations = i == 0 ? 1000 : 100000;
             boolean showMessage = i != 0;
-            long timeShort = timeXLocaleMatcher("Duration (few  supported):\t", desired, matcherShort, showMessage, iterations, 0);
-            long timeMedium = timeXLocaleMatcher("Duration (med. supported):\t", desired, matcherLong, showMessage, iterations, timeShort);
-            long timeLong = timeXLocaleMatcher("Duration (many supported):\t", desired, matcherVeryLong, showMessage, iterations, timeShort);
+            timeShortNew = timeXLocaleMatcher("Duration (few  supported):\t", desired, matcherShort, showMessage, iterations);
+            timeMediumNew = timeXLocaleMatcher("Duration (med. supported):\t", desired, matcherLong, showMessage, iterations);
+            timeLongNew = timeXLocaleMatcher("Duration (many supported):\t", desired, matcherVeryLong, showMessage, iterations);
         }
+
+        long timeShortOld=0;
+        long timeMediumOld=0;
+        long timeLongOld=0;
 
         for (int i = 0; i < 2; ++i) {
             int iterations = i == 0 ? 1000 : 100000;
             boolean showMessage = i != 0;
-            long timeShort = timeLocaleMatcher("Old Duration (few  supported):\t", desired, matcherShortOld, showMessage, iterations, 0);
-            long timeMedium = timeLocaleMatcher("Old Duration (med. supported):\t", desired, matcherLongOld, showMessage, iterations, timeShort);
-            long timeLong = timeLocaleMatcher("Old Duration (many supported):\t", desired, matcherVeryLongOld, showMessage, iterations, timeShort);
+            timeShortOld = timeLocaleMatcher("Old Duration (few  supported):\t", desired, matcherShortOld, showMessage, iterations);
+            timeMediumOld = timeLocaleMatcher("Old Duration (med. supported):\t", desired, matcherLongOld, showMessage, iterations);
+            timeLongOld = timeLocaleMatcher("Old Duration (many supported):\t", desired, matcherVeryLongOld, showMessage, iterations);
         }
+        
+        assertTrue("timeShortNew < 20% of timeShortOld", timeShortNew * 5 < timeShortOld);
+        assertTrue("timeMediumNew < 20% of timeMediumOld", timeMediumNew * 5 < timeMediumOld);
+        assertTrue("timeLongNew < 20% of timeLongOld", timeLongNew * 5 < timeLongOld);
+
     }
 
     private long timeXLocaleMatcher(String title, ULocale desired, XLocaleMatcher matcher, 
-        boolean showmessage, int iterations, long comparisonTime) {
+        boolean showmessage, int iterations) {
         long start = System.nanoTime();
         for (int i = iterations; i > 0; --i) {
             matcher.getBestMatch(desired);
         }
         long delta = System.nanoTime() - start;
-        if (showmessage) warnln(title + (delta / iterations) + " nanos, "
-            + (comparisonTime > 0 ? (delta * 100 / comparisonTime - 100) + "% longer" : ""));
+        if (showmessage) warnln(title + (delta / iterations) + " nanos");
         return delta;
     }
 
     private long timeLocaleMatcher(String title, ULocale desired, LocaleMatcher matcher, 
-        boolean showmessage, int iterations, long comparisonTime) {
+        boolean showmessage, int iterations) {
         long start = System.nanoTime();
         for (int i = iterations; i > 0; --i) {
             matcher.getBestMatch(desired);
         }
         long delta = System.nanoTime() - start;
-        if (showmessage) warnln(title + (delta / iterations) + " nanos, "
-            + (comparisonTime > 0 ? (delta * 100 / comparisonTime - 100) + "% longer" : ""));
+        if (showmessage) warnln(title + (delta / iterations) + " nanos");
         return delta;
     }
 
-    public void Test8288() {
-        final XLocaleMatcher matcher = newXLocaleMatcher("it, en");
-        assertEquals(new ULocale("it"), matcher.getBestMatch("und"));
-        assertEquals(new ULocale("en"), matcher.getBestMatch("und, en"));
-    }
-
-    public void testEuHack() {
-        // Verify that the EU-hack (cl/105138489) prevents breakage.
-        // The region-distance is currently based on the number of edges in
-        // the shortest path in the region-containment graph. For example,
-        // the distance between US and NZ is 6 (+ is "up"; - is "down"):
-        //     US + 021 + 019 + 001 - 009 - 053 - NZ
-        // Before CLDR 28, the distance from US to IT was also 6:
-        //     US + 021 + 019 + 001 - 150 - EU - IT
-        // So given a priority list with those two regions, whichever one
-        // came first would be considered the better match.  But with CLDR
-        // 28, which put EU into 001, the distance from US to IT got
-        // shortened to 5:
-        //     US + 021 + 019 + 001 - EU - IT
-        // This would break any unit test that assumed that they were
-        // the same, so the EU-hack changes the StandardXLocaleMatcher to
-        // restore the previous behavior. A major overhaul of the
-        // StandardXLocaleMatcher is planned, but the hack will allow us
-        // to release CLDR 28 (and ICU) before that is fixed.
-        final XLocaleMatcher matcher = newXLocaleMatcher("en-NZ, en-IT");
-        assertEquals(new ULocale("en-NZ"), matcher.getBestMatch("en-US"));
-    }
-
-
-//    public void testMatchGooglePrivateUseSubtag() {
-//        final XLocaleMatcher matcher = newXLocaleMatcher("fr, en-GB, x-bork, es-ES, es-419");
-//        assertEquals("fr", matcher.getBestMatch("x-piglatin").toString());
-//        assertEquals("x-bork", matcher.getBestMatch("x-bork").toString());
-//    }
-
-
-
-    public void testGetBestMatch_emptyList() {
-        XLocaleMatcher lm = newXLocaleMatcher();
-        assertNull(lm.getBestMatch(ULocale.ENGLISH));
-    }
-
-
-//    public void testGetBestMatch_googlePseudoLocaleWithFallbacks() {
-//        // Pseudo locales based on the fall back option (XA..XC region codes).
-//        final XLocaleMatcher matcher = newXLocaleMatcher(
-//            "fr, en-XA, ar-XB, en-XC, zh-Hans-XC, pt");
-//        assertEquals("fr", matcher.getBestMatch("de").toString());
-//        assertEquals("fr", matcher.getBestMatch("en-US").toString());
-//        assertEquals("fr", matcher.getBestMatch("en").toString());
-//        assertEquals("ar-XB", matcher.getBestMatch("ar-XB").toString());
-//        assertEquals("en-XA", matcher.getBestMatch("en-XA").toString());
-//        assertEquals("en-XC", matcher.getBestMatch("en-XC").toString());
-//        assertEquals("pt", matcher.getBestMatch("pt-BR").toString());
-//        assertEquals("zh-Hans-XC", matcher.getBestMatch("zh-Hans-XC").toString());
-//    }
-
-//    public void testGetBestMatch_doNotMatchGooglePseudoLocale() {
-//        final XLocaleMatcher matcher = newXLocaleMatcher(
-//            "fr, en-XA, ar-XB, en-PSACCENT, ar-PSBIDI, en-DE, pt, ar-SY, ar-PSCRACK");
-//        assertEquals("fr", matcher.getBestMatch("de").toString());
-//        // We wouldn't want to return pseudo locales when there's a good match for an
-//        // ordinary locale.
-//        // Note: If XLocaleMatcher was not aware of PSACCENT, it would consider the
-//        // distance from "en" to "en-PSACCENT" smaller than to "en-DE" (the standard
-//        // variant distance is smaller than a region distance).
-//        assertEquals(new ULocale("en-DE"), matcher.getBestMatch("en"));
-//        assertEquals(new ULocale("ar-SY"), matcher.getBestMatch("ar-EG"));
-//        // No competition here.
-//        assertEquals(new ULocale("pt"), matcher.getBestMatch("pt-BR"));
-//        // Pseudo locales match pseudo locales.
-//        assertEquals(new ULocale("ar-XB"), matcher.getBestMatch("ar-XB"));
-//        assertEquals(new ULocale("ar-PSBIDI"), matcher.getBestMatch("ar-PSBIDI"));
-//        assertEquals(new ULocale("en-XA"), matcher.getBestMatch("en-XA"));
-//        assertEquals(new ULocale("en-PSACCENT"), matcher.getBestMatch("en-PSACCENT"));
-//        assertEquals(new ULocale("ar-PSCRACK"), matcher.getBestMatch("ar-PSCRACK"));
-//    }
-
-    public void testGetBestMatch_bestMatchCrackedLocale() {
-        // Given an application which has cracked locales only.
-        // A request for "fr" should match "fr-PSCRACK" rather than
-        // falling through to the default locale "en-PSCRACK".
-        final XLocaleMatcher matcher =
-            newXLocaleMatcher("en-PSCRACK, de-PSCRACK, fr-PSCRACK, pt-PT-PSCRACK");
-        assertEquals(new ULocale("fr-PSCRACK"), matcher.getBestMatch("fr-PSCRACK"));
-        assertEquals(new ULocale("fr-PSCRACK"), matcher.getBestMatch("fr"));
-        assertEquals(new ULocale("de-PSCRACK"), matcher.getBestMatch("de-CH"));
-    }
-
-    public void testEcEu() {
-        XLocaleMatcher lm = newXLocaleMatcher();
-        assertTrue("xx-EC to xx-EU", lm.distance(ULocale.forLanguageTag("xx-Xxxx-EC"), ULocale.forLanguageTag("xx-Xxxx-EU")) <= 4);
-    }
-
-    public void testVariantsAndExtensions() {
-        // examples from
-        // http://unicode.org/repos/cldr/tags/latest/common/bcp47/
-        // http://unicode.org/repos/cldr/tags/latest/common/validity/variant.xml
-        String[][] tests = {
-            // format: supported, desired, expected
-            {"en-GB-u-sd-gbsct, fr-fonupa", "en-fonipa-u-nu-Arab-ca-buddhist-t-m0-iso-i0-pinyin", "en-GB-fonipa-u-nu-Arab-ca-buddhist-t-m0-iso-i0-pinyin"},
-            {"en-GB-u-sd-gbsct, fr-fonupa", "fr-BE-fonipa", "fr-BE-fonipa"},
-        };
-
-        for (String[] supportedDesiredExpected : tests) {
-            checkFull(supportedDesiredExpected[0], supportedDesiredExpected[1], supportedDesiredExpected[2], true);
-        }
-    }
-
-    public void testPrimaries() {
-        // examples from
-        // http://unicode.org/repos/cldr/tags/latest/common/bcp47/
-        // http://unicode.org/repos/cldr/tags/latest/common/validity/variant.xml
-        String[][] tests = {
-            // format: supported, desired, expected
-            // we favor es-419 over others in cluster. Clusters: es- {ES, MA, EA} {419, AR, MX}
-            {"und, es, es-MA, es-MX, es-419", "es-AR", "es-419"},
-            {"und, es-MA, es, es-419, es-MX", "es-AR", "es-419"},
-            {"und, es, es-MA, es-MX, es-419", "es-EA", "es"},
-            {"und, es-MA, es, es-419, es-MX", "es-EA", "es"},
-            // of course, fall back to within cluster
-            {"und, es, es-MA, es-MX", "es-AR", "es-MX"},
-            {"und, es-MA, es, es-MX", "es-AR", "es-MX"},
-            {"und, es-MA, es-MX, es-419", "es-EA", "es-MA"},
-            {"und, es-MA, es-419, es-MX", "es-EA", "es-MA"},
-            // we favor es-GB over others in cluster. Clusters: en- {US, GU, VI} {GB, IN, ZA}
-            {"und, en, en-GU, en-IN, en-GB", "en-ZA", "en-GB"},
-            {"und, en-GU, en, en-GB, en-IN", "en-ZA", "en-GB"},
-            {"und, en, en-GU, en-IN, en-GB", "en-VI", "en"},
-            {"und, en-GU, en, en-GB, en-IN", "en-VI", "en"},
-            // of course, fall back to within cluster
-            {"und, en, en-GU, en-IN", "en-ZA", "en-IN"},
-            {"und, en-GU, en, en-IN", "en-ZA", "en-IN"},
-            {"und, en-GU, en-IN, en-GB", "en-VI", "en-GU"},
-            {"und, en-GU, en-GB, en-IN", "en-VI", "en-GU"},
-        };
-
-        for (String[] supportedDesiredExpected : tests) {
-            checkFull(supportedDesiredExpected[0], supportedDesiredExpected[1], supportedDesiredExpected[2], false);
-        }
-    }
-
-
-    private void checkFull(final String supported, final String desired, final String expected, boolean combineResults) {
-        XLocaleMatcher matcher = newXLocaleMatcher(supported);
-        Output<ULocale> bestDesired = new Output<>();
-        ULocale bestMatch = matcher.getBestMatch(LocalePriorityList.add(desired).build(), bestDesired);
-        ULocale bestFixed = !combineResults || bestDesired.value == null ? bestMatch : XLocaleMatcher.combine(bestMatch, bestDesired.value);
-        logln("matcher: " + matcher + "; desired: " + desired + "; bestMatch: " + bestMatch + "; bestDesired: " + bestDesired + "; bestFixed: " + bestFixed);
-        assertEquals("matcher: " + matcher + "; desired: " + desired, ULocale.forLanguageTag(expected), bestFixed);
-    }
-
-    public void testzData() throws IOException {
-        StringBuilder format = new StringBuilder(); // use null for no output, otherwise new StringBuilder();
-        new MyTestFileHandler()
+    public void testDataDriven() throws IOException {
+        TestFileHander tfh = new MyTestFileHandler()
         .setFramework(this)
-        .setPrinter(format)
         .run(XLocaleMatcherTest.class, "data/localeMatcherTest.txt");
-        if (format != null) {
-            System.out.println(format);
+        if (REFORMAT) {
+            System.out.println(tfh.appendLines(new StringBuilder()));
         }
     }
 
     private static final Splitter COMMA_SPACE = Splitter.on(Pattern.compile(",\\s*|\\s+")).trimResults();
-    private static final String SEPARATOR = " ; \t";
     private static final Joiner JOIN_COMMA_SPACE = Joiner.on(", ");
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
@@ -806,7 +268,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         Output<ULocale> bestDesired = new Output<ULocale>();
 
         @Override
-        public boolean handle(boolean breakpoint, String commentBase, List<String> arguments) {
+        public void handle(boolean breakpoint, String commentBase, List<String> arguments) {
             List<String> supported = COMMA_SPACE.splitToList(arguments.get(0));
             int threshold = -1;
             String first = supported.get(0);
@@ -844,20 +306,6 @@ public class XLocaleMatcherTest extends TestFmwk {
             }
             String bestMatchLanguageTag = bestSupported == null ? null : bestSupported.toLanguageTag();
             assertEquals(commentBase, expectedLanguageTag, bestMatchLanguageTag);
-
-            if (isPrinting()) {
-                println(fixUnderbar(supportedReformatted)
-                    + SEPARATOR + fixUnderbar(desiredReformatted)
-                    + SEPARATOR + fixUnderbar(expectedLanguageTag)
-                    + (expectedUi == null ? "" : SEPARATOR + fixUnderbar(expectedUi)) 
-                    + "\t# " + commentBase);
-            }
-
-            return breakpoint;
-        }
-
-        private String fixUnderbar(String languageTag) {
-            return languageTag == null ? null : languageTag.replace('_', '-');
         }
     }
 }

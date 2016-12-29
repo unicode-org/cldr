@@ -1,5 +1,8 @@
 package org.unicode.cldr.unittest;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -10,94 +13,68 @@ import org.unicode.cldr.draft.XLocaleDistance.DistanceNode;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.LocaleMatcher;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
+/**
+ * Test the XLocaleDistance.
+ * 
+ * @author markdavis
+ */
 public class XLocaleDistanceTest extends TestFmwk {
+    private static final boolean REFORMAT = false; // set to true to get a reformatted data file listed
+
     public static void main(String[] args) {
         new XLocaleDistanceTest().run(args);
     }
-    
+
     public static final int FAIL = XLocaleDistance.ABOVE_THRESHOLD;
-    XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
 
-    public void testMain() {
-        
-        Object[][] tests = {
-            {"iw", "he", 0}, // canonicals
-            {"zh", "cmn", 0}, // canonicals
+    private XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
+    TestFileHander tfh = new MyTestFileHandler()
+    .setFramework(this)
+    .load(XLocaleDistanceTest.class, "data/localeDistanceTest.txt");
 
-            {"to", "en", 14, FAIL}, // fallback languages get closer distances, between script (40) and region (4)
-            {"no", "no_DE", 4},
-            {"nn", "no", 10},
-            {"no_DE", "nn", 14},
-            {"no", "no", 0},
-            {"no", "da", 12},
-            {"da", "zh_Hant", FAIL},
-            {"zh_Hant", "zh_Hans", 23, 19},
-            {"zh_Hans", "en", FAIL},
-            
-            {"en-US", "en_AU", 5}, // across clusters
-            {"en-VI", "en_GU", 4}, // within cluster
-            {"en_AU", "en_CA", 4}, // within cluster
-            
-            {"en_CA", "en_Cyrl", FAIL},
-            {"en_Cyrl", "es_MX", FAIL},
-            
-            {"hr", "sr", FAIL},
-            {"hr", "sr-Latn", 8},
-            {"sr", "sr-Latn", 5},
-            
-            // check 419 behavior. Should be as good as any in cluster
-            {"es_MX", "es_AR", 4},
-            {"es_MX", "es_419", 4},
-            {"es_MX", "es_MX", 0},
-            {"es_MX", "es_ES", 5},
-            {"es_MX", "es_PT", 5},
-            {"es_MX", "es_150", 5},
-            
-            {"es_419", "es_AR", 4},
-            {"es_419", "es_419", 0},
-            {"es_419", "es_MX", 4},
-            {"es_419", "es_ES", 5},
-            {"es_419", "es_PT", 5},
-            {"es_419", "es_150", 5},
-            
-            {"es_ES", "es_AR", 5},
-            {"es_ES", "es_419", 5},
-            {"es_ES", "es_MX", 5},
-            {"es_ES", "es_ES", 0},
-            {"es_ES", "es_PT", 4},
-            {"es_419", "es_150", 5},
-        };
-        // pre-process the data, so that it doesn't affect the timing below.
-        for (int i = 0; i < tests.length; ++i) {
-            Object[] row = tests[i];
-            System.out.println(CollectionUtilities.join(row, " ; \t"));
-            if (row.length < 4) {
-                tests[i] = row = new Object[]{row[0], row[1], row[2], row[2]};
-            }
-            row[0] = new ULocale((String)row[0]);
-            row[1] = new ULocale((String)row[1]);
+    static class Arguments {
+        final ULocale desired;
+        final ULocale supported;
+        final int desiredToSupported;
+        final int supportedToDesired;
+
+        public Arguments(List<String> args) {
+            this.desired = new ULocale.Builder().setLanguageTag(args.get(0)).build(); // use more complicated expression to check syntax
+            this.supported = new ULocale.Builder().setLanguageTag(args.get(1)).build();
+            this.desiredToSupported = Integer.parseInt(args.get(2));
+            this.supportedToDesired = args.size() < 4 ? this.desiredToSupported : Integer.parseInt(args.get(3));
         }
+    }
+
+    public void testTiming() {
+        List<Arguments> testArgs = new ArrayList<>();
+        for (List<String> line : tfh.getLines()) {
+            if (tfh.isTestLine(line)) {
+                testArgs.add(new Arguments(line));
+            }
+        }
+        Arguments[] tests = testArgs.toArray(new Arguments[testArgs.size()]);
 
         final LocaleMatcher oldLocaleMatcher = new LocaleMatcher("");
 
         long likelyTime = 0;
         long newLikelyTime = 0;
-        long newTime = 0;
+        long newTimeMinusLikely = 0;
         long intTime = 0;
-        long oldTime = 0;
+        long oldTimeMinusLikely = 0;
         final int maxIterations = 10000;
 
         for (int iterations = maxIterations; iterations > 0; --iterations) {
             int count=0;
-            for (Object[] test : tests) {
-                final ULocale desired = (ULocale) test[0];
-                final ULocale supported = (ULocale) test[1];
-                final int desiredToSupported = (Integer) test[2];
-                final int supportedToDesired = (Integer) test[3];
+            for (Arguments test : tests) {
+                final ULocale desired = test.desired;
+                final ULocale supported = test.supported;
+                final int desiredToSupported = test.desiredToSupported;
+                final int supportedToDesired = test.supportedToDesired;
 
                 long temp = System.nanoTime();
                 final ULocale desiredMax = ULocale.addLikelySubtags(desired);
@@ -107,7 +84,7 @@ public class XLocaleDistanceTest extends TestFmwk {
                 temp = System.nanoTime();
                 double distOld1 = oldLocaleMatcher.match(desired, desiredMax, supported, supportedMax);
                 double distOld2 = oldLocaleMatcher.match(supported, supportedMax, desired, desiredMax);
-                oldTime += System.nanoTime()-temp;
+                oldTimeMinusLikely += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
                 final LSR desiredLSR = LSR.fromMaximalized(desired);
@@ -117,47 +94,22 @@ public class XLocaleDistanceTest extends TestFmwk {
                 temp = System.nanoTime();
                 int dist1 = localeMatcher.distanceRaw(desiredLSR, supportedLSR, 1000);
                 int dist2 = localeMatcher.distanceRaw(supportedLSR, desiredLSR, 1000);
-                newTime += System.nanoTime()-temp;
-
-//                temp = System.nanoTime();
-//                int distInt1 = intLocaleMatcher.distance(desiredLSR.language, supportedLSR.language, desiredLSR.script, supportedLSR.script, desiredLSR.region, supportedLSR.region);
-//                int distInt2 = intLocaleMatcher.distance(supportedLSR.language, desiredLSR.language, supportedLSR.script, desiredLSR.script, supportedLSR.region, desiredLSR.region);
-//                intTime += System.nanoTime()-temp;
-
-                if (iterations == maxIterations) {
-                    int ds = pinToDistance(distOld1);
-                    int sd = pinToDistance(distOld2);
-//                    assertEquals("old: " + desired + "\t ⇒ \t" + supported, desiredToSupported, pinToDistance(distOld1));
-//                    assertEquals("old: " + desired + "\t ← \t" + supported, supportedToDesired, pinToDistance(distOld2));
-                    
-                    if (assertEquals("new: " + desired + "\t ⇒ \t" + supported, desiredToSupported, pin(dist1))) {
-                        //assertEquals("int: " + desired + "\t ⇒ \t" + supported, dist1, distInt1);
-                    }
-                    if (assertEquals("new: " + desired + "\t ← \t" + supported, supportedToDesired, pin(dist2))) {
-                        //assertEquals("int: " + desired + "\t ← \t" + supported, dist2, distInt2);
-                    }
-                }
+                newTimeMinusLikely += System.nanoTime()-temp;
             }
         }
+        final long oldTime = oldTimeMinusLikely+likelyTime;
+        final long newTime = newLikelyTime+newTimeMinusLikely;
         logln("\n");
         logln("\tlikelyTime:\t" + likelyTime/maxIterations);
-        logln("\toldTime-likelyTime:\t" + oldTime/maxIterations);
-        logln("totalOld:\t" + (oldTime+likelyTime)/maxIterations);
+        logln("\toldTime-likelyTime:\t" + oldTimeMinusLikely/maxIterations);
+        logln("totalOld:\t" + oldTime/maxIterations);
         logln("\tnewLikelyTime:\t" + newLikelyTime/maxIterations);
         logln("totalNew:\t" + newTime/maxIterations);
+        assertTrue("newTime < 20% of oldTime", newTime * 5 < oldTime);
         //logln("\tnewIntTime-newLikelyTime-extractTime:\t" + intTime/maxIterations);
         //logln("totalInt:\t" + (intTime)/maxIterations);
     }
 
-    private int pinToDistance(double original) {
-        long distance = Math.round((100*(1-original)));
-        return distance >= 40 ? FAIL : (int)distance;
-    }
-
-    private int pin(int original) {
-        return original >= 40 ? FAIL : original;
-    }
-    
     @SuppressWarnings("deprecation")
     public void testInternalTable() {
         checkTables(localeMatcher.internalGetDistanceTable(), "", 1);
@@ -167,7 +119,7 @@ public class XLocaleDistanceTest extends TestFmwk {
     private void checkTables(DistanceTable internalGetDistanceTable, String title, int depth) {
         // Check that ANY, ANY is always present, and that the table has a depth of exactly 3 everyplace.
         Map<String, Set<String>> matches = internalGetDistanceTable.getInternalMatches();
-        
+
         // must have ANY,ANY
         boolean haveANYANY = false;
         for (Entry<String, Set<String>> entry : matches.entrySet()) {
@@ -199,4 +151,33 @@ public class XLocaleDistanceTest extends TestFmwk {
             logln("ANY-ANY not in" + matches);
         }
     }
+
+    public void testDataDriven() throws IOException {
+        tfh.test();
+        if (REFORMAT) {
+            System.out.println(tfh.appendLines(new StringBuffer()));
+        }
+    }
+
+    class MyTestFileHandler extends TestFileHander {
+        final XLocaleDistance distance = XLocaleDistance.getDefault();
+        Output<ULocale> bestDesired = new Output<ULocale>();
+
+        @Override
+        public void handle(boolean breakpoint, String commentBase, List<String> arguments) {
+            if (breakpoint) {
+                breakpoint = false; // put debugger breakpoint here to break at @debug in test file
+            }
+            Arguments args = new Arguments(arguments);
+            int supportedToDesiredActual = distance.distance(args.supported, args.desired, 30);
+            int desiredToSupportedActual = distance.distance(args.desired, args.supported, 30);
+            String desiredTag = args.desired.toLanguageTag();
+            String supportedTag = args.supported.toLanguageTag();
+            final String comment = commentBase.isEmpty() ? "" : "\t# " + commentBase;
+            if (assertEquals(desiredTag + " to " + supportedTag + comment, args.desiredToSupported, desiredToSupportedActual)) {
+                assertEquals(supportedTag + " to " + desiredTag + comment, args.supportedToDesired, supportedToDesiredActual);
+            }
+        }
+    }
+
 }

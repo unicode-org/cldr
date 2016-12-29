@@ -2,6 +2,8 @@ package org.unicode.cldr.unittest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -9,54 +11,90 @@ import org.unicode.cldr.draft.FileUtilities;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 abstract public class TestFileHander {
-    
+
+    public static final List<String> DEBUG_LINE = Collections.singletonList("@debug");
     public static final Splitter SEMICOLON = Splitter.on(';').trimResults();
-    
+    public static final String SEPARATOR = " ; \t";
+
     protected TestFmwk framework = null;
-    protected Appendable out = null;
-    
-    public TestFileHander setPrinter(Appendable reformat) {
-        this.out = reformat;
-        return this;
-    }
+    protected int minArgumentCount = 3;
+    protected int maxArgumentCount = 4;
+    private List<List<String>> lines = new ArrayList<>();
+    private List<String> comments = new ArrayList<>();
 
     public TestFileHander setFramework(TestFmwk testFramework) {
         this.framework = testFramework;
         return this;
     }
-    
-    public boolean isPrinting() {
-        return out != null;
+
+    public <T extends Appendable> T appendLines(T out) {
+        try {
+            for (int i = 0; i < lines.size(); ++i) {
+                List<String> components = lines.get(i);
+                String comment = comments.get(i);
+                if (components.isEmpty()) {
+                    if(!comment.isEmpty()) {
+                        out.append("# ").append(comment);
+                    }
+                } else {
+                    out.append(CollectionUtilities.join(components, SEPARATOR));
+                    if (!comment.isEmpty()) {
+                        out.append("\t# ").append(comment);
+                    }
+                }
+                out.append('\n');
+            }
+            return out;
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException(e);
+        }
     }
 
-    public void print(String s) {
-        try {
-            out.append(s);
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException(e);
-        }
+    protected TestFileHander addLine(List<String> arguments, String commentBase) {
+        lines.add(Collections.unmodifiableList(arguments));
+        comments.add(commentBase);
+        return this;
     }
     
-    public void println(String s) {
-        try {
-            out.append(s).append('\n');
-        } catch (IOException e) {
-            throw new ICUUncheckedIOException(e);
-        }
+    public TestFileHander run(Class<?> classFileIsRelativeTo, String file) {
+        return load(classFileIsRelativeTo, file)
+            .test();
+    }
+
+    public boolean isTestLine(List<String> arguments) {
+        return !arguments.isEmpty() && !arguments.equals(DEBUG_LINE);
     }
     
-    public void println() {
-        println("");
-    }
-    
-    public void run(Class<XLocaleMatcherTest> classFileIsRelativeTo, String file) {
-        try (BufferedReader in = FileUtilities.openFile(classFileIsRelativeTo, file)) {
-            if (isPrinting()) {
-                println();
+    public TestFileHander test() {
+        boolean breakpoint = false;
+        for (int i = 0; i < lines.size(); ++i) {
+            List<String> arguments = lines.get(i);
+            String comment = comments.get(i);
+            if (arguments.isEmpty()) {
+                if (!comment.isEmpty()) {
+                    framework.logln(comment);
+                }
+                continue;
+            } else if (arguments.equals(DEBUG_LINE)) {
+                breakpoint = true;
+                continue;
             }
+            try {
+                handle(breakpoint, comment, arguments);
+            } catch (Exception e) {
+                framework.errln("Illegal data test file entry: " + arguments + " # " + comment);
+            }
+            breakpoint = false;
+        }
+        return this;
+    }
+
+    public TestFileHander load(Class<?> classFileIsRelativeTo, String file) {
+        try (BufferedReader in = FileUtilities.openFile(classFileIsRelativeTo, file)) {
             boolean breakpoint = false;
 
             while (true) {
@@ -66,9 +104,7 @@ abstract public class TestFileHander {
                 }
                 line = line.trim();
                 if (line.isEmpty()) {
-                    if (isPrinting()) {
-                        println();
-                    }
+                    addLine(Collections.emptyList(), "");
                     continue;
                 }
                 int hash = line.indexOf('#');
@@ -83,43 +119,42 @@ abstract public class TestFileHander {
                     }
                 }
                 if (line.isEmpty()) {
-                    if (isPrinting()) {
-                        if (commentBase.startsWith("test")) {
-                            println("##################################################\n");                        
-                        }
-                        println(comment + "\n");
-                    } else {
-                        framework.logln(comment);
-                    }
+                    addLine(Collections.emptyList(), commentBase);
                     continue;
                 }
                 if (line.startsWith("@debug")) {
-                    if (isPrinting()) {
-                        println("@debug" + comment + "\n");
-                    }
-                    breakpoint = true;
+                    addLine(DEBUG_LINE, "");
                     continue;
                 }
                 List<String> arguments = SEMICOLON.splitToList(line);
-                if (arguments.size() < 3 || arguments.size() > 4) {
+                if (arguments.size() < minArgumentCount || arguments.size() > maxArgumentCount) {
                     framework.errln("Malformed data line:" + line + comment);
                     continue;
                 }
-                breakpoint = handle(breakpoint, commentBase, arguments);
+                addLine(arguments, commentBase);
             }
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
+        lines = Collections.unmodifiableList(lines); // should do deep unmodifiable...
+        comments = Collections.unmodifiableList(comments);
+        return this;
     }
+
     protected boolean assertEquals(String message, Object expected, Object actual) {
         return framework.handleAssert(Objects.equal(expected, actual), message, stringFor(expected), stringFor(actual), null, false);
     }
-    
+
     private final String stringFor(Object obj) {
         return obj == null ? "null" 
             : obj instanceof String ? "\"" + obj + '"' 
-                : obj.getClass().getName() + "<" + obj + ">";
+                : obj instanceof Number ? String.valueOf(obj)
+                    : obj.getClass().getName() + "<" + obj + ">";
     }
-    
-    abstract public boolean handle(boolean breakpoint, String commentBase, List<String> arguments);
+
+    abstract public void handle(boolean breakpoint, String commentBase, List<String> arguments);
+
+    public List<List<String>> getLines() {
+        return lines;
+    }
 }

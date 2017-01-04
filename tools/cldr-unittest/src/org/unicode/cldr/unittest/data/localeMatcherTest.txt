@@ -325,8 +325,6 @@ en-NZ, en-IT ; 	en-US ; 	en-NZ
 und, fr ; 	fr-BE-fonipa ; 	fr ; 	fr-BE-fonipa
 und, fr-CA ; 	fr-BE-fonipa ; 	fr-CA ; 	fr-BE-fonipa
 und, fr-fonupa ; 	fr-BE-fonipa ; 	fr-fonupa ; 	fr-BE-fonipa
-50, und, fr-CA-fonupa ; 	fr-BE-fonipa ; 	fr-CA-fonupa ; 	fr-BE-fonipa
-50, und, fr-Cyrl-CA-fonupa ; 	fr-BE-fonipa ; 	fr-Cyrl-CA-fonupa ; 	fr-Cyrl-BE-fonipa
 und, no ; 	nn-BE-fonipa ; 	no ; 	no-BE-fonipa
 und, en-GB-u-sd-gbsct ; 	en-fonipa-u-nu-Arab-ca-buddhist-t-m0-iso-i0-pinyin ; 	en-GB-u-sd-gbsct ; 	en-GB-fonipa-u-nu-Arab-ca-buddhist-t-m0-iso-i0-pinyin
 
@@ -363,3 +361,19 @@ und, en, en-GU, en-IN ; 	en-ZA ; 	en-IN
 und, en-GU, en, en-IN ; 	en-ZA ; 	en-IN
 und, en-GU, en-IN, en-GB ; 	en-VI ; 	en-GU
 und, en-GU, en-GB, en-IN ; 	en-VI ; 	en-GU
+
+##################################################
+# testThreshold
+@threshold=60
+
+50, und, fr-CA-fonupa ; 	fr-BE-fonipa ; 	fr-CA-fonupa ; 	fr-BE-fonipa
+50, und, fr-Cyrl-CA-fonupa ; 	fr-BE-fonipa ; 	fr-Cyrl-CA-fonupa ; 	fr-Cyrl-BE-fonipa
+
+@threshold=-1 # restore
+
+##################################################
+# testScriptBelowLanguage
+@scriptBelowLanguage=true
+@debug
+
+hr, en-Cyrl; sr ; en-Cyrl

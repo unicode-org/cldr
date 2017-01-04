@@ -48,6 +48,15 @@ public class XLocaleMatcherTest extends TestFmwk {
         return XLocaleMatcher.start().setSupportedLocales(string).setThresholdDistance(d).build();
     }
 
+    private XLocaleMatcher newXLocaleMatcher(LocalePriorityList string, int d, boolean scriptBeforeLang) {
+        return XLocaleMatcher
+            .start()
+            .setSupportedLocales(string)
+            .setThresholdDistance(d)
+            .setLanguageBelowScript(scriptBeforeLang)
+            .build();
+    }
+
     public static void main(String[] args) throws Exception {
         new XLocaleMatcherTest().run(args);
     }
@@ -146,7 +155,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         XLocaleMatcher matcher = newXLocaleMatcher(
             LocalePriorityList.add(
                 sorted.toArray(new ULocale[sorted.size()]))
-                .build());
+            .build());
         for (ULocale loc : sorted) {
             String stringLoc = loc.toString();
             assertEquals(stringLoc, matcher.getBestMatch(stringLoc).toString());
@@ -201,9 +210,9 @@ public class XLocaleMatcherTest extends TestFmwk {
         long timeShortNew=0;
         long timeMediumNew=0;
         long timeLongNew=0;
-        
+
         for (int i = 0; i < 2; ++i) {
-            int iterations = i == 0 ? 1000 : 100000;
+            int iterations = i == 0 ? 1000 : 1000000;
             boolean showMessage = i != 0;
             timeShortNew = timeXLocaleMatcher("Duration (few  supported):\t", desired, matcherShort, showMessage, iterations);
             timeMediumNew = timeXLocaleMatcher("Duration (med. supported):\t", desired, matcherLong, showMessage, iterations);
@@ -221,10 +230,10 @@ public class XLocaleMatcherTest extends TestFmwk {
             timeMediumOld = timeLocaleMatcher("Old Duration (med. supported):\t", desired, matcherLongOld, showMessage, iterations);
             timeLongOld = timeLocaleMatcher("Old Duration (many supported):\t", desired, matcherVeryLongOld, showMessage, iterations);
         }
-        
-        assertTrue("timeShortNew < 20% of timeShortOld", timeShortNew * 5 < timeShortOld);
-        assertTrue("timeMediumNew < 20% of timeMediumOld", timeMediumNew * 5 < timeMediumOld);
-        assertTrue("timeLongNew < 20% of timeLongOld", timeLongNew * 5 < timeLongOld);
+
+        assertTrue("timeShortNew (=" + timeShortNew + ") < 25% of timeShortOld (=" + timeShortOld + ")", timeShortNew * 4 < timeShortOld);
+        assertTrue("timeMediumNew (=" + timeMediumNew + ") < 25% of timeMediumOld (=" + timeMediumOld + ")", timeMediumNew * 4 < timeMediumOld);
+        assertTrue("timeLongNew (=" + timeLongNew + ") < 25% of timeLongOld (=" + timeLongOld + ")", timeLongNew * 4 < timeLongOld);
 
     }
 
@@ -236,7 +245,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         }
         long delta = System.nanoTime() - start;
         if (showmessage) warnln(title + (delta / iterations) + " nanos");
-        return delta;
+        return (delta / iterations);
     }
 
     private long timeLocaleMatcher(String title, ULocale desired, LocaleMatcher matcher, 
@@ -247,13 +256,13 @@ public class XLocaleMatcherTest extends TestFmwk {
         }
         long delta = System.nanoTime() - start;
         if (showmessage) warnln(title + (delta / iterations) + " nanos");
-        return delta;
+        return (delta / iterations);
     }
 
     public void testDataDriven() throws IOException {
         DataDrivenTestHelper tfh = new MyTestFileHandler()
-        .setFramework(this)
-        .run(XLocaleMatcherTest.class, "data/localeMatcherTest.txt");
+            .setFramework(this)
+            .run(XLocaleMatcherTest.class, "data/localeMatcherTest.txt");
         if (REFORMAT) {
             System.out.println(tfh.appendLines(new StringBuilder()));
         }
@@ -266,17 +275,12 @@ public class XLocaleMatcherTest extends TestFmwk {
     class MyTestFileHandler extends DataDrivenTestHelper {
 
         Output<ULocale> bestDesired = new Output<ULocale>();
+        boolean scriptBelowLanguage = false;
+        int threshold = -1;
 
         @Override
         public void handle(boolean breakpoint, String commentBase, List<String> arguments) {
             List<String> supported = COMMA_SPACE.splitToList(arguments.get(0));
-            int threshold = -1;
-            String first = supported.get(0);
-            if (!first.isEmpty() && DIGITS.containsAll(first)) {
-                threshold = Integer.parseInt(first);
-                supported = supported.subList(1, supported.size());
-            }
-
             final String supportedReformatted = JOIN_COMMA_SPACE.join(supported);
             LocalePriorityList supportedList = LocalePriorityList.add(supportedReformatted).build();
 
@@ -295,7 +299,8 @@ public class XLocaleMatcherTest extends TestFmwk {
                 breakpoint = false; // put debugger breakpoint here to break at @debug in test file
             }
 
-            XLocaleMatcher matcher = threshold < 0 ? newXLocaleMatcher(supportedList) : newXLocaleMatcher(supportedList, threshold);
+            XLocaleMatcher matcher = threshold < 0 && !scriptBelowLanguage ? newXLocaleMatcher(supportedList) 
+                : newXLocaleMatcher(supportedList, threshold, scriptBelowLanguage);
             ULocale bestSupported;
             if (expectedUi != null) {
                 bestSupported = matcher.getBestMatch(desiredList, bestDesired);
@@ -306,6 +311,22 @@ public class XLocaleMatcherTest extends TestFmwk {
             }
             String bestMatchLanguageTag = bestSupported == null ? null : bestSupported.toLanguageTag();
             assertEquals(commentBase, expectedLanguageTag, bestMatchLanguageTag);
+        }
+
+        @Override
+        public void handleParams(String comment, List<String> arguments) {
+            switch(arguments.get(0)) {
+            case "@scriptBelowLanguage": 
+                scriptBelowLanguage = Boolean.valueOf(arguments.get(1)); 
+                break;
+            case "@threshold": 
+                threshold = Integer.valueOf(arguments.get(1)); 
+                break;
+            default: 
+                super.handleParams(comment, arguments);
+                break;
+            }
+            return;         
         }
     }
 }

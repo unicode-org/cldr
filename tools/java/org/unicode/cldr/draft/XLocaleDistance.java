@@ -91,6 +91,9 @@ public class XLocaleDistance {
 
     private final DistanceTable languageDesired2Supported;
     private final RegionMapper regionMapper;
+    private final int defaultLanguageDistance;
+    private final int defaultScriptDistance;
+    private final int defaultRegionDistance;
 
     @Deprecated
     public static abstract class DistanceTable {
@@ -284,6 +287,13 @@ public class XLocaleDistance {
     public XLocaleDistance(DistanceTable datadistancetable2, RegionMapper regionMapper) {
         languageDesired2Supported = datadistancetable2;
         this.regionMapper = regionMapper;
+        
+        StringDistanceNode languageNode = (StringDistanceNode) ((StringDistanceTable) languageDesired2Supported).subtables.get(ANY).get(ANY);
+        defaultLanguageDistance = languageNode.distance;
+        StringDistanceNode scriptNode = (StringDistanceNode) ((StringDistanceTable)languageNode.distanceTable).subtables.get(ANY).get(ANY);
+        defaultScriptDistance = scriptNode.distance;
+        DistanceNode regionNode = ((StringDistanceTable)scriptNode.distanceTable).subtables.get(ANY).get(ANY);
+        defaultRegionDistance = regionNode.distance;
     }
 
     private static Map newMap() { // for debugging
@@ -589,10 +599,10 @@ public class XLocaleDistance {
         }
     }
 
-    public int distance(ULocale desired, ULocale supported, int threshold) {
+    public int distance(ULocale desired, ULocale supported, int threshold, int languageScriptOffset) {
         LSR supportedLSR = LSR.fromMaximalized(supported);
         LSR desiredLSR = LSR.fromMaximalized(desired);
-        return distanceRaw(desiredLSR, supportedLSR, threshold);
+        return distanceRaw(desiredLSR, supportedLSR, threshold, languageScriptOffset);
     }
 
     /**
@@ -600,13 +610,14 @@ public class XLocaleDistance {
      * ULocales must be in canonical, addLikelySubtags format. Returns distance
      * @param desired
      * @param supported
+     * @param languageScriptOffset 
      * @return
      */
-    public int distanceRaw(LSR desired, LSR supported, int threshold) {
+    public int distanceRaw(LSR desired, LSR supported, int threshold, int languageScriptOffset) {
         return distanceRaw(desired.language, supported.language, 
             desired.script, supported.script, 
             desired.region, supported.region,
-            threshold);
+            threshold, languageScriptOffset);
     }
 
     /**
@@ -617,12 +628,15 @@ public class XLocaleDistance {
         String desiredLang, String supportedlang, 
         String desiredScript, String supportedScript, 
         String desiredRegion, String supportedRegion,
-        int threshold) {
+        int threshold,
+        int languageScriptOffset) {
 
         Output<DistanceTable> subtable = new Output<>();
 
-        int distance = languageDesired2Supported.getDistance(desiredLang, supportedlang, subtable, true);
-        if (distance >= threshold) {
+        int distance = languageDesired2Supported.getDistance(desiredLang, supportedlang, subtable, true) - languageScriptOffset;
+        if (distance < 0) {
+            distance = 0;
+        } else if (distance >= threshold) {
             return ABOVE_THRESHOLD;
         }
 
@@ -1070,17 +1084,16 @@ public class XLocaleDistance {
         return regionMapper.paradigms;
     }
 
+    public int getDefaultLanguageDistance() {
+        return defaultLanguageDistance;
+    }
+
     public int getDefaultScriptDistance() {
-        StringDistanceNode languageNode = (StringDistanceNode) ((StringDistanceTable) languageDesired2Supported).subtables.get(ANY).get(ANY);
-        DistanceNode scriptNode = ((StringDistanceTable)languageNode.distanceTable).subtables.get(ANY).get(ANY);
-        return scriptNode.distance;
+        return defaultScriptDistance;
     }
 
     public int getDefaultRegionDistance() {
-        StringDistanceNode languageNode = (StringDistanceNode) ((StringDistanceTable) languageDesired2Supported).subtables.get(ANY).get(ANY);
-        StringDistanceNode scriptNode = (StringDistanceNode) ((StringDistanceTable)languageNode.distanceTable).subtables.get(ANY).get(ANY);
-        DistanceNode regionNode = ((StringDistanceTable)scriptNode.distanceTable).subtables.get(ANY).get(ANY);
-        return regionNode.distance;
+        return defaultRegionDistance;
     }
 
     static class CompactAndImmutablizer extends IdMakerFull<Object> {

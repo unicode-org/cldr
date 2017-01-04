@@ -18,6 +18,7 @@ abstract public class DataDrivenTestHelper {
 
     public static final List<String> DEBUG_LINE = Collections.singletonList("@debug");
     public static final Splitter SEMICOLON = Splitter.on(';').trimResults();
+    public static final Splitter EQUAL_SPLIT = Splitter.on('=').trimResults();
     public static final String SEPARATOR = " ; \t";
 
     protected TestFmwk framework = null;
@@ -41,7 +42,9 @@ abstract public class DataDrivenTestHelper {
                         out.append("# ").append(comment);
                     }
                 } else {
-                    out.append(CollectionUtilities.join(components, SEPARATOR));
+                    String first = components.iterator().next();
+                    String sep = first.startsWith("@") ? "=" : SEPARATOR;
+                    out.append(CollectionUtilities.join(components, sep));
                     if (!comment.isEmpty()) {
                         out.append("\t# ").append(comment);
                     }
@@ -82,6 +85,12 @@ abstract public class DataDrivenTestHelper {
             } else if (arguments.equals(DEBUG_LINE)) {
                 breakpoint = true;
                 continue;
+            } else {
+                String first = arguments.get(0);
+                if (first.startsWith("@")) {
+                    handleParams(comment, arguments);
+                    continue;
+                }
             }
             try {
                 handle(breakpoint, comment, arguments);
@@ -122,8 +131,9 @@ abstract public class DataDrivenTestHelper {
                     addLine(Collections.emptyList(), commentBase);
                     continue;
                 }
-                if (line.startsWith("@debug")) {
-                    addLine(DEBUG_LINE, "");
+                if (line.startsWith("@")) {
+                    List<String> keyValue = EQUAL_SPLIT.splitToList(line);             
+                    addLine(keyValue, comment);
                     continue;
                 }
                 List<String> arguments = SEMICOLON.splitToList(line);
@@ -153,6 +163,10 @@ abstract public class DataDrivenTestHelper {
     }
 
     abstract public void handle(boolean breakpoint, String commentBase, List<String> arguments);
+    
+    public void handleParams(String comment, List<String> arguments) {
+        throw new IllegalArgumentException("Unrecognized parameter: " + arguments);
+    }
 
     public List<List<String>> getLines() {
         return lines;

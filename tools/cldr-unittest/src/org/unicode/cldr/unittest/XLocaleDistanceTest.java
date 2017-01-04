@@ -31,6 +31,7 @@ public class XLocaleDistanceTest extends TestFmwk {
 
     public static final int FAIL = XLocaleDistance.ABOVE_THRESHOLD;
 
+    
     private XLocaleDistance localeMatcher = XLocaleDistance.getDefault();
     DataDrivenTestHelper tfh = new MyTestFileHandler()
     .setFramework(this)
@@ -92,8 +93,8 @@ public class XLocaleDistanceTest extends TestFmwk {
                 newLikelyTime += System.nanoTime()-temp;
 
                 temp = System.nanoTime();
-                int dist1 = localeMatcher.distanceRaw(desiredLSR, supportedLSR, 1000);
-                int dist2 = localeMatcher.distanceRaw(supportedLSR, desiredLSR, 1000);
+                int dist1 = localeMatcher.distanceRaw(desiredLSR, supportedLSR, 1000, 0);
+                int dist2 = localeMatcher.distanceRaw(supportedLSR, desiredLSR, 1000, 0);
                 newTimeMinusLikely += System.nanoTime()-temp;
             }
         }
@@ -169,8 +170,8 @@ public class XLocaleDistanceTest extends TestFmwk {
                 breakpoint = false; // put debugger breakpoint here to break at @debug in test file
             }
             Arguments args = new Arguments(arguments);
-            int supportedToDesiredActual = distance.distance(args.supported, args.desired, 30);
-            int desiredToSupportedActual = distance.distance(args.desired, args.supported, 30);
+            int supportedToDesiredActual = distance.distance(args.supported, args.desired, 30, 0);
+            int desiredToSupportedActual = distance.distance(args.desired, args.supported, 30, 0);
             String desiredTag = args.desired.toLanguageTag();
             String supportedTag = args.supported.toLanguageTag();
             final String comment = commentBase.isEmpty() ? "" : "\t# " + commentBase;

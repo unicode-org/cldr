@@ -733,7 +733,8 @@ abstract public class CheckCLDR {
             inheritanceMarkerNotAllowed,
             invalidDurationUnitPattern,
             invalidDelimiter,
-            illegalCharactersInPattern;
+            illegalCharactersInPattern,
+            badParseLenient;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

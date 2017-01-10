@@ -145,9 +145,13 @@ public class CheckExemplars extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
-        if (path.indexOf("/exemplarCharacters") < 0) return this;
-        XPathParts oparts = new XPathParts(null, null);
-        oparts.set(path);
+        if (path.indexOf("/exemplarCharacters") < 0) {
+            if (path.contains("parseLenient")) {
+                checkParse(path, fullPath, value, options, result);
+            }
+            return this;
+        }
+        XPathParts oparts = XPathParts.getFrozenInstance(path);
         final String exemplarString = oparts.findAttributeValue("exemplarCharacters", "type");
         ExemplarType type = exemplarString == null ? ExemplarType.main : ExemplarType.valueOf(exemplarString);
         checkExemplar(value, result, type);
@@ -251,6 +255,28 @@ public class CheckExemplars extends FactoryCheckCLDR {
         } catch (Exception e) {
         } // if these didn't parse, checkExemplar will be called anyway at some point
         return this;
+    }
+
+    private void checkParse(String path, String fullPath, String value, Options options, List<CheckStatus> result) {
+        try {
+            XPathParts oparts = XPathParts.getFrozenInstance(path);
+            // only thing we do is make sure that the sample is in the value
+            UnicodeSet us = new UnicodeSet(value);
+            String sampleValue = oparts.getAttributeValue(-1, "sample");
+            if (!us.contains(sampleValue)) {
+                CheckStatus message = new CheckStatus().setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.badParseLenient)
+                    .setMessage("ParseLenient sample not in value: {0} ∌ {1}", us, sampleValue);
+                result.add(message);            
+            }
+        } catch (Exception e) {
+            CheckStatus message = new CheckStatus().setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.badParseLenient)
+                .setMessage(e.getMessage());
+            result.add(message);            
+        }
     }
 
     static final BitSet Japn = new BitSet();

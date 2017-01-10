@@ -11,7 +11,7 @@ public class CheckPlaceHolders extends CheckCLDR {
 
     private static final Pattern PLACEHOLDER_PATTERN = PatternCache.get("([0-9]|[1-9][0-9]+)");
     private static final Pattern SKIP_PATH_LIST = Pattern
-        .compile("//ldml/characters/exemplarCharacters.*");
+        .compile("//ldml/characters/(exemplarCharacters|parseLenient).*");
 
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,

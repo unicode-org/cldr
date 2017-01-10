@@ -415,10 +415,20 @@ $Revision$
 
 <!-- ######################################################### -->
 
-<!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, special* ) ) >
+<!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, parseLenients*, special* ) ) >
 <!ATTLIST characters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
+    
+<!ELEMENT parseLenients ( alias | (parseLenient*, special*) ) >
+<!ATTLIST parseLenients scope (general | number | date) #REQUIRED >
+<!ATTLIST parseLenients level (lenient | stricter) #REQUIRED >    
+
+<!ELEMENT parseLenient (#PCDATA) >
+<!ATTLIST parseLenient sample CDATA #REQUIRED >
+<!ATTLIST parseLenient alt NMTOKENS #IMPLIED >
+<!ATTLIST parseLenient draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
 <!ATTLIST exemplarCharacters type (auxiliary | standard | punctuation | currencySymbol | index) #IMPLIED >

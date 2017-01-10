@@ -1230,7 +1230,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     && !elementName.equals("measurementSystem")
                     && !elementName.equals("mapping")
                     && !elementName.equals("abbreviationFallback")
-                    && !elementName.equals("preferenceOrdering"));
+                    && !elementName.equals("preferenceOrdering"))
+                || (elementName.equals("parseLenients") && (attribute.equals("scope") || attribute.equals("level")))
+                || (elementName.equals("parseLenient") && attribute.equals("sample"))
+                    ;
         case ldmlBCP47:
             return attribute.equals("_q")
                 //|| attribute.equals("alias")

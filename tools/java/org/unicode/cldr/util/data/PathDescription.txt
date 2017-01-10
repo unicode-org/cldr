@@ -32,6 +32,8 @@
 ^//ldml/characters/exemplarCharacters$   ;   Defines the set of characters used in your language. You may not edit or vote on this item at this time. Before filing any tickets to request changes, be sure to read http://cldr.org/translation/characters#TOC-Exemplar-Characters.
 ^//ldml/characters/exemplarCharacters\[@type="([^"]*)"] ;   Defines the set of characters used in your language for the “{1}” category.  You may not edit or vote on this item at this time. Before filing any tickets to request changes, be sure to read http://cldr.org/translation/characters#TOC-Exemplar-Characters.
 
+^//ldml/characters/parseLenients ;   Defines sets of characters that are treated as equivalent in parsing.  You may not edit or vote on this item at this time. Before filing any tickets to request changes, be sure to read http://cldr.org/translation/characters#TOC-Lenient-Parsing.
+
 ^//ldml/characters/ellipsis\[@type="([^"]*)"]  ;   Supply the ellipsis pattern for when the {1} part of a string is omitted. Note: before translating, be sure to read http://cldr.org/translation/characters.
 ^//ldml/characters/moreInformation  ;   The character or short string used to indicate that more information is available. Note: before translating, be sure to read http://cldr.org/translation/characters.
 

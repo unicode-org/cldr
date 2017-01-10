@@ -46,6 +46,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
+    	<parseLenients scope='general' level='lenient'>
+	        <parseLenient sample='$'>[﹩＄$]</parseLenient>
+	        <parseLenient sample='₹'>[₨₹{Rs}{Rp}]</parseLenient>
+	        <parseLenient sample='£'>[£₤]</parseLenient>
+	     	<parseLenient sample='.' >[.．․﹒ 。︒｡]</parseLenient>
+    	</parseLenients>
+    	<parseLenients scope='number' level='lenient'>
+			<parseLenient sample=',' >[,，﹐︐ ، ٫ 、﹑︑､]</parseLenient>
+			<parseLenient sample='-' >[\-－﹣ −⁻₋ ➖‒]</parseLenient>
+			<parseLenient sample='+' >[+＋﬩﹢⁺₊ ➕]</parseLenient>
+    	</parseLenients>
+    	<parseLenients scope='number' level='stricter'>
+			<parseLenient sample='.'>[.．․﹒ ｡]</parseLenient>
+			<parseLenient sample=','>[,，﹐︐ ٫]</parseLenient>
+    	</parseLenients>
+    	<parseLenients scope='date' level='lenient'>
+			<parseLenient sample='-'>[\-./]</parseLenient>
+    	</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>

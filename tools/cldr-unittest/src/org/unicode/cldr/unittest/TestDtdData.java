@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -17,7 +19,6 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeStatus;
-import org.unicode.cldr.util.DtdData.AttributeType;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
@@ -29,6 +30,7 @@ import org.unicode.cldr.util.XPathParts;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestDtdData  extends TestFmwk {
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
@@ -146,7 +148,7 @@ public class TestDtdData  extends TestFmwk {
                     DtdType dtdTypeFromPath = DtdType.fromPath(pathValue.getFirst());
                     if (!dtdTypeFromPath.directories.contains(dir.getName())) {
                         errln("Mismatch in " + file.toString() 
-                            + ": " + dtdTypeFromPath + ", " + dtdTypeFromPath.directories);
+                        + ": " + dtdTypeFromPath + ", " + dtdTypeFromPath.directories);
                     }
                     logln("\t" + file.getName() + "\t" + dtdTypeFromPath);
                     break;
@@ -157,20 +159,45 @@ public class TestDtdData  extends TestFmwk {
     }
 
     public void TestEmpty() {
+        Multimap<String,String> m = TreeMultimap.create();
         for (DtdType type : DtdType.values()) {
             if (type == DtdType.ldmlICU) {
                 continue;
             }
             DtdData dtdData = DtdData.getInstance(type);
-            checkEmpty(type, dtdData.ROOT, new HashSet<Attribute>(), new HashSet<Element>());
+            Element special = dtdData.getElementFromName().get("special");
+            checkEmpty(m, type, dtdData.ROOT, special, new HashSet<Element>(), 
+                new ArrayList<Element>(Arrays.asList(dtdData.ROOT)));
+        }
+        Collection<String> items = m.get("error");
+        if (items != null) {
+            if (logKnownIssue("cldrbug:7902", "problems with attributes")) {
+                for (String item : items) {
+                    warnln(item);
+                }
+            } else {
+                for (String item : items) {
+                    errln(item);
+                }
+            }
+        }
+        if (isVerbose()) {
+            items = m.get("warn");
+            if (items != null) {
+                for (String item : items) {
+                    warnln(item);
+                }
+            }
         }
     }
 
     /** make sure that if the final element is empty, there is a value attribute required somewhere in the path
+     * @param m 
      * @param type 
      * @param seen 
      */
-    private void checkEmpty(DtdType type, Element element, HashSet<Attribute> parentAttributes, HashSet<Element> seen) {
+    private void checkEmpty(Multimap<String,String> m, DtdType type, Element element, Element special, HashSet<Element> seen,
+        List<Element> parents) {
         if (seen.contains(element)) {
             return;
         }
@@ -179,9 +206,8 @@ public class TestDtdData  extends TestFmwk {
             return;
         }
 
-        HashSet<Attribute> attributes = new HashSet<>(parentAttributes);
+        HashSet<Attribute> attributes = new LinkedHashSet<>();
         for (Attribute attribute : element.getAttributes().keySet()) {
-            AttributeType x;
             if (!attribute.isDeprecated() 
                 && attribute.getStatus() == AttributeStatus.value
                 // && (attribute.mode == Mode.REQUIRED || attribute.mode == Mode.FIXED) strong test
@@ -193,25 +219,53 @@ public class TestDtdData  extends TestFmwk {
         switch (elementType) {
         case EMPTY: 
             if (attributes.isEmpty()) {
-                if (type == DtdType.supplementalData && element.name.equals("rgPath")) {
-                    warnln(type + " - " + element + " path has neither value nor value attributes");
-                    break;
-                }
-                errln(type + " - " + element + " path has neither value nor value attributes");
+//                if (type == DtdType.supplementalData && element.name.equals("rgPath")) {
+//                    m.put("warn", type + "\t||" + showPath(parents) + "||path has neither value NOR value attributes||");
+//                    break;
+//                }
+                m.put("error", "\t||" + showPath(parents) + "||path has neither value NOR value attributes||");
             }
             break;
         case ANY:
         case PCDATA:
             if (!attributes.isEmpty()) {
-                warnln(type + " - " + element + " path has both value and value attributes: " + attributes);
+                m.put("warn", "\t||" + showPath(parents) + "||path has both value AND value attributes||" + attributes + "||");
             }
             break;
         case CHILDREN:
-            for (Element child : element.getChildren().keySet()) {
-                checkEmpty(type, child, attributes, seen);
+            // first remove deprecateds, and special
+            List<Element> children = new ArrayList<>(element.getChildren().keySet());
+            for (Iterator<Element> it = children.iterator(); it.hasNext();) {
+                Element child = it.next();
+                if (child.equals(special) || child.isDeprecated()) {
+                    it.remove();
+                }
+            }
+
+            // if no children left, treat like EMPTY
+            if (children.isEmpty()) {
+                if (attributes.isEmpty()) {
+                    errln(type + "\t|| " + showPath(parents) + "||path has neither value NOR value attributes||");
+                }
+                break;
+            }
+            if (!attributes.isEmpty()) {
+                m.put("error", "\t||" + showPath(parents) + "||path has both children AND value attributes"
+                    + "||" + attributes
+                    + "||" + children + "||"
+                    );
+            }
+            for (Element child : children) {
+                parents.add(child);
+                checkEmpty(m, type, child, special, seen, parents);
+                parents.remove(parents.size()-1);
             }
             break;
         }
+    }
+
+    private String showPath(List<Element> parents) {
+        return "!//" + CollectionUtilities.join(parents, "/");
     }
 
     public void TestNewDtdData() {
@@ -244,4 +298,33 @@ public class TestDtdData  extends TestFmwk {
             }
         }
     }
+
+//    public void TestNonLeafValues() {
+//        for (DtdType type : DtdType.values()) {
+//            if (type == DtdType.ldmlICU) {
+//                continue;
+//            }
+//            DtdData dtdData = DtdData.getInstance(type);
+//            for (Element element : dtdData.getElements()) {
+//                if (element.isDeprecated()) {
+//                    continue;
+//                }
+//                switch (element.getType()) {
+//                case PCDATA:
+//                case EMPTY: continue;
+//                case ANY:
+//                }
+//                for (Attribute attribute : element.getAttributes().keySet()) {
+//                    if (attribute.isDeprecated()) {
+//                        continue;
+//                    }
+//                    switch (attribute.getStatus()) {
+//                    case value: 
+//                        errln(type + "\t" + element + "\t" + attribute + "\t");
+//                    }
+//                }
+//            }
+//        }
+//        
+//    }
 }

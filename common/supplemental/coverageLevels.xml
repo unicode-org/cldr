@@ -15,6 +15,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<approvalRequirement votes="20" locales="Cldr:modern" paths="//ldml/numbers/decimalFormats[^/]++/decimalFormatLength/decimalFormat\[@type=.standard.\]/pattern\[@type=.standard.\]"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/(defaultNumberingSystem|otherNumberingSystems.*)"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/characters/exemplarCharacters(\[@type=.(auxiliary|index).\])?"/>
+			<approvalRequirement votes="20" locales="*" paths="//ldml/characters/characters/parseLenients"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/minimumGroupingDigits"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/symbols[^/]++/timeSeparator"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/currencies/currency\[@type=.([A-Z]{3}).\]/symbol(\[@alt=.(narrow|variant).\])?"/>
@@ -760,6 +761,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="characterLabels/characterLabel[@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="characterLabels/characterLabelPattern[@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="characterLabels/characterLabelPattern[@type='%anyAttribute'][@count='%allPlurals']"/>
+		<coverageLevel value="modern" match="characters/parseLenients[@scope='%anyAttribute'][@level='%anyAttribute']/parseLenient[@sample='%anyAttribute']"/>
 
 		<!--
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='narrow']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>

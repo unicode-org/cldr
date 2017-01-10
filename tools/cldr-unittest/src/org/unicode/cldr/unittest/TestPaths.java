@@ -296,7 +296,7 @@ public class TestPaths extends TestFmwkPlus {
             }
         }
     }
-
+    
     public void TestNonLdml() {
         int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
         CheckDeprecated checkDeprecated = new CheckDeprecated(this);

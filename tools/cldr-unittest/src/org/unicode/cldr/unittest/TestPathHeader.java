@@ -596,6 +596,13 @@ public class TestPathHeader extends TestFmwkPlus {
             if (old == null) {
                 headerToPath.put(p, path);
             } else if (!old.equals(path)) {
+                if (true) { // for debugging
+                    pathHeaderFactory.clearCache();
+                    List<String> failuresOld = new ArrayList<>();
+                    pathHeaderFactory.fromPath(old, failuresOld);
+                    List<String> failuresPath = new ArrayList<>();
+                    pathHeaderFactory.fromPath(path, failuresPath);
+                }
                 errln("Collision with path " + p + "\t" + old + "\t" + path);
             }
             final String visible = p.toString();

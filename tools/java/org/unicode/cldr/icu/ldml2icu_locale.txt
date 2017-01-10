@@ -85,6 +85,13 @@
 //ldml/characters/moreInformation      ;   /MoreInformation
 //ldml/characters/special/icu:scripts/icu:script[@type="%N"]      ;   /LocaleScript
 
+//ldml/characters/parseLenients[@scope="(%A)"][@level="(%A)"]/parseLenient[@sample="(%A)"] ; /parse/$1/$2
+
+characters/parseLenients/parseLenient[@sample='%anyAttribute'][@scope='%anyAttribute']"/>
+characters/parseLenients/parseLenient[@sample='%anyAttribute'][@level='%anyAttribute']"/>
+characters/parseLenients/parseLenient[@sample='%anyAttribute'][@scope='%anyAttribute'][@level='%anyAttribute']"/>
+
+
 # Defaults
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/(monthPattern)s/\2Context[@type="(%W)"]/\2Width[@type="(%W)"]/\2[@type="(%W)"]   ; /calendar/$1/$2s/$3/$4/$5

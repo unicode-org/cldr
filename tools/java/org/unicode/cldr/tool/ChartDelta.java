@@ -219,6 +219,7 @@ public class ChartDelta extends Chart {
             try {
                 oldFactories.add(Factory.make(past, ".*"));
             } catch (Exception e) {
+                System.out.println("Couldn't open factory: " + past);
                 past = null;
                 oldFactories.add(null);
             }

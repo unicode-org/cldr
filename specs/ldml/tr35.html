@@ -348,6 +348,7 @@ h5 {
 							Language and Locale IDs</a>
 						<ul class="toc">
 							<li>3.10.1 <a href="#Written_Language">Written Language</a></li>
+							<li class='changed'>3.10.2 <a href="#Hybrid_Locale">Hybrid Locale Identifiers</a></li>
 						</ul>
 					</li>
 					<li>3.11 <a href="#Validity_Data">Validity Data</a></li>
@@ -3030,7 +3031,8 @@ zh-Hant-HK</pre>
 			extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>].
 			The Unicode BCP 47 extension data defines the complete list of valid
 			subtags.
-		</p>
+		<span class='changed'>While the title of the RFC is &ldquo;Transformed Content&rdquo;, the abstract makes it clear that the scope is broader than the term "transformed" might indicate to a casual reader: “including content that has been transliterated, transcribed, or 
+        translated, or <em>in some other way influenced by the source. It also provides for additional information used for identification.</em>”</span></p>
 		<p>
 			<strong>The -t- Extension.</strong> The syntax of 't' extension
 			subtags is defined by the rule
@@ -3585,6 +3587,82 @@ zh-Hant-HK</pre>
 			the kind of incongruous juxtapositions described above may well
 			appear, but this situation is usually preferable to forcing
 			unfamiliar date or number formats on the user as well.</p>
+	  <h4 class='changed'>
+			<a name="Hybrid_Locale" href="#Hybrid_Locale">3.10.2
+				Hybrid Locale Identifiers</a>
+		</h4>
+        <p class='changed'>Hybrid locales have intermixed content from 2 (or more) languages, often with one language's grammatical structure applied to words in another. See also <a href="https://en.oxforddictionaries.com/definition/spanglish">​spanglish in the OED</a> for the use of the term &ldquo;hybrid&rdquo;. This is <em>not</em> simply content that has two languages in it, such as a book of parallel text containing English and Spanish:<br>
+        </p>
+      <table class='changed'>
+          <tbody>
+            <tr>
+              <td>On the 24th of May, 1863, my uncle, Professor Liedenbrock, rushed into his little house, No. 19 Königstrasse, one of the oldest streets in the oldest portion of the city of Hamburg…</td>
+              <td>El domingo 24 de mayo de 1863, mi tío, el profesor Lidenbrock, regresó precipitadamente a su casa, situada en el número 19 de la König-strasse, una de las calles más antiguas del barrio viejo de Hamburgo…</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class='changed'>While text in a document can be tagged as partly in one language and partly in another, that is not the same having a hybrid locale. There is a difference between having a Spanish document that has some passages quoted in English and a Spanglish document. And fine-grained tagging doesn't work handle combinations like Denglisch "<a href="http://www.duden.de/rechtschreibung/downloaden">​gedownloadet</a>" or the Franglais "downloadé", cf <a href="http://www.duden.de/rechtschreibung/downloaden"></a>) which are in neither language.<br>
+      </p>
+      <p class='changed'>More importantly, it doesn't work for a very common use case: locale selection. To communicate requests for localized content and internationalization services, locales are used, which are an extension of language tags. When people pick a language from a menu, internally they are picking a locale (en-GB, es-419, etc). To allow an application to support Spanglish or Hinglish, unicode locale identifers provide for hybrid locales.</p>
+        <p class='changed'>The hybrid locales use the  T extension keys 'h0' and 'h1' for identification.<br>
+      </p>
+      <p class='changed'>Examples:</p>
+      <table class='changed simple'>
+          <tbody>
+            <tr>
+              <td>es-t-<strong>h0-en</strong></td>
+              <td>Spanglish</td>
+              <td>Spanish with an admixture of English</td>
+            </tr>
+            <tr>
+              <td>en-t-<strong>h0-es</strong></td>
+              <td>Spanglish</td>
+              <td>English with an admixture of Spanish</td>
+            </tr>
+          </tbody>
+        </table>
+        <blockquote>
+          <p class='changed'><em>Note: es-t-h0-en should be used unless English clearly predominates.</em><br>
+          </p>
+        </blockquote>
+      <p class='changed'>One could then also have</p>
+      <table class='changed simple'>
+          <tbody>
+            <tr>
+              <td>es-t-hi-<strong>h0-en</strong></td>
+              <td>Spanglish translated from Hindi</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class='changed'>A second key 'h1' is defined indicating that the <em>source</em> language for transform is a hybrid, much has with the transliteration s0 and d0 keys. The value of h1 is a language tag for the language mixed into the the source language for -t-, allowing formulations like</p>
+      <table class='changed simple'>
+          <tbody>
+            <tr>
+              <td>es-t-hi-<strong>h1-en</strong></td>
+              <td>Spanish translated from Hinglish</td>
+            </tr>
+            <tr>
+              <td>es-t-hi-<strong>h0-en</strong>-<strong>h1-en</strong></td>
+              <td>Spanglish translated from Hinglish</td>
+            </tr>
+          </tbody>
+        </table>
+      <p class='changed'>If needed, one could even indicate what the script of the "mixed-in" language is:</p>
+      <table class='changed simple'>
+          <tbody>
+            <tr>
+              <td>ru-t-<strong>h0-en-latn</strong></td>
+              <td>Runglish</td>
+              <td>Russian with an admixture of English in Latin script</td>
+            </tr>
+            <tr>
+              <td>ru-t-<strong>h0-en-cyrl</strong></td>
+              <td>Runglish</td>
+              <td>Russian with an admixture of English in Cyrillic script</td>
+            </tr>
+          </tbody>
+        </table>
+      <p class='changed'>Should there ever be need for hybrids of more than two languages, corresponding pairs of keywords such as h2 and h3 can be defined as well.</p>
 		<h3>
 			<a name="Validity_Data" href="#Validity_Data">3.11 Validity Data</a>
 		</h3>
@@ -8325,145 +8403,157 @@ decimal?, group?, special*)) &gt;</pre>
 				href="http://www.unicode.org/cldr/filing_bug_reports.html">Filing
 				Bug Reports</a>.
 		</p>
-		<ul>
-			<li><strong>Part 1: <a href="#Contents">Core</a></strong>
-				<ul>
-				  <li><strong>Table: <a href="#Language_Locale_Field_Definitions">Language
+	  <blockquote>
+	    <p><strong>Part 1: <a href="#Contents">Core</a></strong> </p>
+	    <ul>
+	      <li><strong>Section <a name="Hybrid_Locale" href="#Hybrid_Locale">3.10.2
+				Hybrid Locale Identifiers</a>
+          </strong>
+	        <ul>
+	          <li>Added description of hybrid locale identifiers. [<a href="http://unicode.org/cldr/trac/ticket/9723">#9723</a>]	      </li>
+	        </ul>
+	      </li>
+        </ul>
+      </blockquote>
+	  <ul class='removed'>
+		  <li><strong>Part 1: <a href="#Contents">Core</a></strong>
+			  <ul>
+			    <li><strong>Table: <a href="#Language_Locale_Field_Definitions">Language
 				  Identifier Field Definitions</a></strong>
-				    <ul>
-				      <li>Added Zxxx (spoken content) [<a
+			      <ul>
+			        <li>Added Zxxx (spoken content) [<a
 								href="http://unicode.org/cldr/trac/ticket/9595">#9595</a>]</li>
-			        </ul>
-				  </li>
+		          </ul>
+			    </li>
 
-				  <li><strong>Table: <a href="#Key_Type_Definitions">Key/Type
+			    <li><strong>Table: <a href="#Key_Type_Definitions">Key/Type
 				  Definitions</a></strong>
-				    <ul>
-				      <li>Added "em" (emoji presentation) [<a
+			      <ul>
+			        <li>Added "em" (emoji presentation) [<a
 								href="http://unicode.org/cldr/trac/ticket/9383">#9383</a>]</li>
-			        </ul>
-				  </li>
+		          </ul>
+			    </li>
 
-				  <li><strong>Section 5.7 <a href="#DTD_Annotations">DTD Annotations</a> 
-			      </strong>
-				    <ul>
-				      <li>Added description of the DTD annotations used in CLDR. [<a href="http://unicode.org/cldr/trac/ticket/9723">#9723</a>]</li>
-			        </ul>
-				  </li>
-				  <li><strong>Section 6 <a href="#Property_Data">Property_Data</a>
-			      </strong>
-				    <ul>
-				      <li>Described the new property ExtendedPictographic for customizing UAX #14 and #29 [<a
+			    <li><strong>Section 5.7 <a href="#DTD_Annotations">DTD Annotations</a> 
+		        </strong>
+			      <ul>
+			        <li>Added description of the DTD annotations used in CLDR. [<a href="http://unicode.org/cldr/trac/ticket/9723">#9723</a>]</li>
+		          </ul>
+			    </li>
+			    <li><strong>Section 6 <a href="#Property_Data">Property_Data</a>
+		        </strong>
+			      <ul>
+			        <li>Described the new property ExtendedPictographic for customizing UAX #14 and #29 [<a
 								href="http://unicode.org/cldr/trac/ticket/9438">#9438</a>]</li>
-			        </ul>
-			      </li>
-		      </ul>
-			</li>
-			<li><strong>Part 2: <a
+		          </ul>
+		        </li>
+	        </ul>
+		  </li>
+		  <li><strong>Part 2: <a
 					href="tr35-general.html#Contents">General</a></strong>
-				<ul>
-				  <li><strong>Section 1</strong> <a href="tr35-general.html#Display_Name_Elements">Display Name Elements</a>
-				    <ul>
-				      <li>Deprecated &lt;transformNames&gt;.</li>
-			        </ul>
-				  </li>
+			  <ul>
+			    <li><strong>Section 1</strong> <a href="tr35-general.html#Display_Name_Elements">Display Name Elements</a>
+			      <ul>
+			        <li>Deprecated &lt;transformNames&gt;.</li>
+		          </ul>
+			    </li>
 
-				  <li><strong>Section 14</strong> <a href="tr35-general.html#Annotations">Annotations</a>
-				    <ul>
-				      <li>Added clarifications for the differences between the short name annotations and the keyword annotations. [<a
+			    <li><strong>Section 14</strong> <a href="tr35-general.html#Annotations">Annotations</a>
+			      <ul>
+			        <li>Added clarifications for the differences between the short name annotations and the keyword annotations. [<a
 								href="http://unicode.org/cldr/trac/ticket/9534">#9534</a>]</li>
-				      <li>Added descriptions for the new character labels and label patterns. [<a
+			        <li>Added descriptions for the new character labels and label patterns. [<a
 								href="http://unicode.org/cldr/trac/ticket/9534">#9534</a>]</li>
-			        </ul>
-				  </li>
-			  </ul>
-			</li>
-			<li><strong>Part 3: <a
+		          </ul>
+			    </li>
+		    </ul>
+		  </li>
+		  <li><strong>Part 3: <a
 					href="tr35-numbers.html#Contents">Numbers</a></strong>
-				<ul>
-				  <li><strong>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number
+			  <ul>
+			    <li><strong>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number
 				  	Symbols</a></strong>
-				    <ul>
-				      <li>Un-deprecated the currencyGroup symbol. [<a
+			      <ul>
+			        <li>Un-deprecated the currencyGroup symbol. [<a
 								href="http://unicode.org/cldr/trac/ticket/9644">#9644</a>]</li>
-			        </ul>
-				  </li>
+		          </ul>
+			    </li>
 
-				  <li><strong>Section 3.1 <a href="tr35-numbers.html#Number_Patterns">Number
+			    <li><strong>Section 3.1 <a href="tr35-numbers.html#Number_Patterns">Number
 				  	Patterns</a></strong>
-				    <ul>
-				      <li>Noted that number patterns may contain bidi controls. [<a
+			      <ul>
+			        <li>Noted that number patterns may contain bidi controls. [<a
 								href="http://unicode.org/cldr/trac/ticket/9319">#9319</a>]</li>
-			        </ul>
-				  </li>
+		          </ul>
+			    </li>
 
-				  <li><strong>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">
+			    <li><strong>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">
 				Language Plural Rules</a>
-                  </strong>
-				    <ul>
-                      <li>Described some limitations of the plural and ordinal rules. [<a
+                </strong>
+			      <ul>
+                    <li>Described some limitations of the plural and ordinal rules. [<a
 								href="http://unicode.org/cldr/trac/ticket/9658">#9658</a>]</li>
-                    </ul>
-				  </li>
-			    </ul>
-			</li>
-			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
-				<ul>
-				  <li><strong>Section 2.6.2.1 <a href="tr35-dates.html#Matching_Skeletons">Matching
+                  </ul>
+			    </li>
+		      </ul>
+		  </li>
+		  <li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
+			  <ul>
+			    <li><strong>Section 2.6.2.1 <a href="tr35-dates.html#Matching_Skeletons">Matching
 				  	Skeletons</a></strong>
-				    <ul>
-				      <li>Described how to handle fractional seconds S when matching skeletons
-				      	and adjusting corresponding patterns. [<a
+			      <ul>
+			        <li>Described how to handle fractional seconds S when matching skeletons
+			      	  and adjusting corresponding patterns. [<a
 								href="http://unicode.org/cldr/trac/ticket/9352">#9352</a>]</li>
-			        </ul>
-				  </li>
+		          </ul>
+			    </li>
 
-					<li><strong>Section 3 <a
+				  <li><strong>Section 3 <a
 							href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></strong>
-						<ul>
-							<li>Add &lt;relativeTime&gt; entries for sun..sat;
+					  <ul>
+						  <li>Add &lt;relativeTime&gt; entries for sun..sat;
 								add &lt;relative type="0"&gt; entries for hour, min. [<a
 								href="http://unicode.org/cldr/trac/ticket/9165">#9165</a>]
-							</li>
-							<li>Described new &lt;relativePeriod&gt; element. [<a
+						  </li>
+						  <li>Described new &lt;relativePeriod&gt; element. [<a
 								href="http://unicode.org/cldr/trac/ticket/9792">#9792</a>, <a
 								href="http://unicode.org/cldr/trac/ticket/8330">#8330</a>]
-							</li>
-						</ul>
-					</li>
+						  </li>
+					  </ul>
+				  </li>
 
-					<li><strong>Section 4.3 <a
+				  <li><strong>Section 4.3 <a
 							href="tr35-dates.html#Week_Data">Week Data</a></strong>
-						<ul>
-							<li>Described new &lt;weekOfPreference&gt; element and related week
+					  <ul>
+						  <li>Described new &lt;weekOfPreference&gt; element and related week
 								designation types. [<a
 								href="http://unicode.org/cldr/trac/ticket/9792">#9792</a>, <a
 								href="http://unicode.org/cldr/trac/ticket/9391">#9391</a>]
-							</li>
-						</ul>
-					</li>
+						  </li>
+					  </ul>
+				  </li>
 
-					<li><strong>Table <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>
-				    </strong>
-					  <ul>
-					    <li>Added &quot;double links&quot; to the fields, so that people can easily get links to a section of the table. [<a
-								href="http://unicode.org/cldr/trac/ticket/9359">#9359</a>]</li>
-				      </ul>
-					</li>
-				</ul>
-			</li>
-			<li><strong>Part 6: <a
-					href="tr35-info.html#Contents">Supplemental</a></strong>
-				<ul>
-				  <li><strong>Section 9.2 <a href="tr35-info.html#Supplemental_Deprecated_Information">Supplemental
-				  	Deprecated Information</a></strong>
+				  <li><strong>Table <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>
+			      </strong>
 				    <ul>
-				      <li>Deprecated the &lt;deprecated&gt; element and its subelements in
-				      	favor of <a href="#DTD_Annotations">DTD Annotations</a>.</li>
+				      <li>Added &quot;double links&quot; to the fields, so that people can easily get links to a section of the table. [<a
+								href="http://unicode.org/cldr/trac/ticket/9359">#9359</a>]</li>
 			        </ul>
 				  </li>
-				</ul>
-			</li>
+			  </ul>
+		  </li>
+		  <li><strong>Part 6: <a
+					href="tr35-info.html#Contents">Supplemental</a></strong>
+			  <ul>
+			    <li><strong>Section 9.2 <a href="tr35-info.html#Supplemental_Deprecated_Information">Supplemental
+				  	Deprecated Information</a></strong>
+			      <ul>
+			        <li>Deprecated the &lt;deprecated&gt; element and its subelements in
+			      	  favor of <a href="#DTD_Annotations">DTD Annotations</a>.</li>
+		          </ul>
+			    </li>
+			  </ul>
+		  </li>
 		</ul>
 		<p>Modifications in previous versions are listed in those
 			respective versions:</p>
@@ -8477,7 +8567,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<tr>
 				<td><a
 					href='http://www.unicode.org/reports/tr35/tr35-43/tr35.html#Modifications'>Version
-						29</a></td>
+			  29</a></td>
 			</tr>
 			<tr>
 				<td><a

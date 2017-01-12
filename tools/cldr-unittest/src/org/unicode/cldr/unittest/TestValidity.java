@@ -14,7 +14,10 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.text.UnicodeSet;
 
 public class TestValidity extends TestFmwkPlus {
 
@@ -70,7 +73,7 @@ public class TestValidity extends TestFmwkPlus {
             }
         }
         if (isVerbose()) {
-            
+
             for (LstrType lstrType : LstrType.values()) { 
                 logln(lstrType.toString());
                 final Map<Status, Set<String>> statusToCodes = validity.getStatusToCodes(lstrType);
@@ -155,4 +158,95 @@ public class TestValidity extends TestFmwkPlus {
             }
         }
     }
+
+    public void TestUnits() {
+        Splitter HYPHEN_SPLITTER = Splitter.on('-');
+        UnicodeSet allowed = new UnicodeSet("[a-z0-9A-Z]").freeze();
+        Validity validity = Validity.getInstance(CLDRPaths.COMMON_DIRECTORY);
+        Map<String,String> shortened = ImmutableMap.<String,String>builder()
+            .put("acceleration", "accel")
+            .put("revolution", "revol")
+            .put("centimeter", "cmeter")
+            .put("kilometer", "kmeter")
+            .put("milligram", "mgram")
+            .put("deciliter", "dliter")
+            .put("millimole", "mmole")
+            .put("consumption", "consumpt")
+            .put("100kilometers", "100km")
+            .put("microsecond", "microsec")
+            .put("millisecond", "millisec")
+            .put("nanosecond", "nanosec")
+            .put("milliampere", "milliamp")
+            .put("foodcalorie", "foodcal")
+            .put("kilocalorie", "kilocal")
+            .put("kilojoule", "kjoule")
+            .put("frequency", "freq")
+            .put("gigahertz", "gigahertz")
+            .put("kilohertz", "khertz")
+            .put("megahertz", "megahertz")
+            .put("astronomical", "astro")
+            .put("decimeter", "dmeter")
+            .put("micrometer", "micmeter")
+            .put("scandinavian", "scand")
+            .put("millimeter", "mmeter")
+            .put("nanometer", "nanomete")
+            .put("picometer", "pmeter")
+            .put("microgram", "migram")
+            .put("horsepower", "horsep")
+            .put("milliwatt", "mwatt")
+            .put("hectopascal", "hpascal")
+            .put("temperature", "temp")
+            .put("fahrenheit", "fahren")
+            .put("centiliter", "cliter")
+            .put("hectoliter", "hliter")
+            .put("megaliter", "megliter")
+            .put("milliliter", "mliter")
+            .put("tablespoon", "tblspoon")
+            .build();
+        
+        for (Entry<LstrType, Map<Status, Set<String>>> e1 : validity.getData().entrySet()) {
+            LstrType lstrType = e1.getKey();
+            for (Entry<Status, Set<String>> e2 : e1.getValue().entrySet()) {
+                Status status = e2.getKey();
+                for (String code : e2.getValue()) {
+                    StringBuilder fixed = new StringBuilder();
+                    for (String subcode : HYPHEN_SPLITTER.split(code)) {
+                        if (fixed.length() > 0) {
+                            fixed.append('-');
+                        }
+                        if (!allowed.containsAll(subcode)) {
+                            errln("subcode has illegal character: " + subcode + ", in " + code);
+                        } else if (subcode.length() > 8) {
+                            fixed.append(shorten(subcode, shortened));
+                        } else {
+                            fixed.append(subcode);
+                        }
+                    }
+                    String fixedCode = fixed.toString();
+                    if (!fixedCode.equals(code)) {
+                        warnln("code has overlong subcode: " + code + " should be " + fixedCode);
+                    }
+                }
+            }
+        }
+        for (Entry<String, String> e : shortened.entrySet()) {
+            System.out.println('"' + e.getKey() + "\", \"" + e.getValue() + "\",");
+        }
+    }
+
+    
+    private String shorten(String subcode, Map<String, String> shortened) {
+        String result = shortened.get(subcode);
+        if (result != null) return result;
+        
+        switch (subcode) {
+        case "temperature": result = "temp"; break;
+        case "acceleration": result =  "accel"; break;
+        case "frequency": result =  "freq"; break;
+        default: result = subcode.substring(0, 8); break;
+        }
+        shortened.put(subcode, result);
+        return result;
+    }
+
 }

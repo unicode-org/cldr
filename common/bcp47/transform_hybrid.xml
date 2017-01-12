@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldmlBCP47 SYSTEM "../../common/dtd/ldmlBCP47.dtd">
+<!--
+Copyright © 1991-2017 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldmlBCP47>
+	<version number="$Revision: 11914 $" />
+	<keyword>
+		<key extension="t" name="h0" description="Language mixed into hybrid language tag. 
+		The key type (value) must be valid language tag. 
+		Example: es-t-h0-en for Spanglish" valueType="language-tag" since="31"/>
+		<key extension="t" name="h1" description="Language mixed into hybrid translation source. 
+		The key type (value) must be valid language tag. 
+		There must be a -t- subtag with a valid language tag value also.
+		Example: es-t-hi-h1-en for Spanish translated from Hinglish." valueType="language-tag" since="31"/>
+	</keyword>
+</ldmlBCP47>

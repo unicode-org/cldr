@@ -348,7 +348,7 @@ h5 {
 							Language and Locale IDs</a>
 						<ul class="toc">
 							<li>3.10.1 <a href="#Written_Language">Written Language</a></li>
-							<li class='changed'>3.10.2 <a href="#Hybrid_Locale">Hybrid Locale Identifiers</a></li>
+						  <li class='changed'>3.10.2 <a href="#Hybrid_Locale">Hybrid Locale Identifiers</a></li>
 						</ul>
 					</li>
 					<li>3.11 <a href="#Validity_Data">Validity Data</a></li>
@@ -3051,8 +3051,54 @@ zh-Hant-HK</pre>
 			extensions are alphanumeric characters in length of two to eight that
 			meet the rule
 			<code>extension</code>
-			in the [<a href="#BCP47">BCP47</a>]
-		</p>
+			in the [<a href="#BCP47">BCP47</a>].</p>
+	  <p class='changed'>The following keys are defined for the -t- extension:</p>
+		<table class='changed simple'>
+		  <tbody>
+		    <tr>
+		      <th>Keys</th>
+		      <th>Description</th>
+		      <th>Values in latest release</th>
+	        </tr>
+		    <tr>
+		      <td>m0</td>
+		      <td><strong>Transform extension mechanism:</strong> to reference an authority or rules for a type of transformation</td>
+		      <td><a href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/transform.xml">​transform.xml</a></td>
+	        </tr>
+		    <tr>
+		      <td nowrap>s0, d0 </td>
+		      <td><strong>Transform source/destination:</strong> for non-languages/scripts, such as fullwidth-halfwidth conversion.</td>
+		      <td><a href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/transform-destination.xml">​transform-destination.xml</a></td>
+	        </tr>
+		    <tr>
+		      <td>i0</td>
+		      <td><strong>Input Method Engine transform:</strong> Used to indicate an input method transformation, such as one used by 
+a client-side input method. The first subfield in a sequence would 
+typically be a 'platform' or vendor designation.</td>
+		      <td><a href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/transform_ime.xml">​transform_ime.xml</a></td>
+	        </tr>
+		    <tr>
+		      <td>k0</td>
+		      <td><strong>Keyboard transform:</strong> Used to indicate a keyboard transformation, such as one used by a client-side virtual keyboard. The first subfield in a sequence would typically be a 'platform' designation, representing the platform that the keyboard is intended for. The keyboard might or might not correspond to a keyboard mapping shipped by the vendor for the platform. One or more subsequent fields may occur, but are only added where needed to distinguish from others.</td>
+		      <td><a href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/transform_keyboard.xml">​transform_keyboard.xml</a></td>
+	        </tr>
+		    <tr>
+		      <td>t0</td>
+		      <td><strong>Machine Translation:</strong> Used to indicate content that has been machine translated, or a request for a particular type of machine translation of content. The first subfield in a sequence would typically be a 'platform' or vendor designation.</td>
+		      <td><a href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/transform_mt.xml">​transform_mt.xml</a></td>
+	        </tr>
+		    <tr>
+		      <td nowrap>h0, h1</td>
+		      <td><strong>Hybrid Locale Identifiers:</strong> h0 has a language mixed into the main  language tag to form a hybrid.  		The key type (value) must be valid language tag.  		h1 has a language mixed into  translation source. The key type (value) must be valid language tag, and there must be a -t- subtag with a valid language tag value also. For more information, and examples, see <span class="changed"><em>Section 3.10.2 <a href="#Hybrid_Locale">Hybrid Locale Identifiers</a>.</em></span></td>
+		      <td><a href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/transform_hybrid.xml">​transform_hybrid.xml</a></td>
+	        </tr>
+			    <tr>
+		      <td>x0</td>
+		      <td><strong>Private use transform</strong></td>
+		      <td><a href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/transform_private_use.xml">​transform_private_use.xml</a></td>
+	        </tr>
+      </tbody>
+	  </table>
 		<h4>
 			<a href="#Transformed_Content_Data_File"
 				name="Transformed_Content_Data_File">3.7.1 T Extension Data
@@ -3589,7 +3635,7 @@ zh-Hant-HK</pre>
 			unfamiliar date or number formats on the user as well.</p>
 	  <h4 class='changed'>
 			<a name="Hybrid_Locale" href="#Hybrid_Locale">3.10.2
-				Hybrid Locale Identifiers</a>
+		Hybrid Locale Identifiers</a>
 		</h4>
         <p class='changed'>Hybrid locales have intermixed content from 2 (or more) languages, often with one language's grammatical structure applied to words in another. See also <a href="https://en.oxforddictionaries.com/definition/spanglish">​spanglish in the OED</a> for the use of the term &ldquo;hybrid&rdquo;. This is <em>not</em> simply content that has two languages in it, such as a book of parallel text containing English and Spanish:<br>
         </p>
@@ -3604,7 +3650,7 @@ zh-Hant-HK</pre>
         <p class='changed'>While text in a document can be tagged as partly in one language and partly in another, that is not the same having a hybrid locale. There is a difference between having a Spanish document that has some passages quoted in English and a Spanglish document. And fine-grained tagging doesn't work handle combinations like Denglisch "<a href="http://www.duden.de/rechtschreibung/downloaden">​gedownloadet</a>" or the Franglais "downloadé", cf <a href="http://www.duden.de/rechtschreibung/downloaden"></a>) which are in neither language.<br>
       </p>
       <p class='changed'>More importantly, it doesn't work for a very common use case: locale selection. To communicate requests for localized content and internationalization services, locales are used, which are an extension of language tags. When people pick a language from a menu, internally they are picking a locale (en-GB, es-419, etc). To allow an application to support Spanglish or Hinglish, unicode locale identifers provide for hybrid locales.</p>
-        <p class='changed'>The hybrid locales use the  T extension keys 'h0' and 'h1' for identification.<br>
+        <p class='changed'>The hybrid locales use the  T extension keys 'h0' and 'h1' for identification. For more information, see <em>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a>.</em><br>
       </p>
       <p class='changed'>Examples:</p>
       <table class='changed simple'>
@@ -8406,13 +8452,18 @@ decimal?, group?, special*)) &gt;</pre>
 	  <blockquote>
 	    <p><strong>Part 1: <a href="#Contents">Core</a></strong> </p>
 	    <ul>
+	      <li><strong>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a></strong>
+	        <ul>
+	          <li>Added table of -t- keys.  [<a href="http://unicode.org/cldr/trac/ticket/9966">#9966</a>] </li>
+            </ul>
+	      </li>
 	      <li><strong>Section <a name="Hybrid_Locale" href="#Hybrid_Locale">3.10.2
-				Hybrid Locale Identifiers</a>
+	        Hybrid Locale Identifiers</a>
           </strong>
 	        <ul>
 	          <li>Added description of hybrid locale identifiers. [<a href="http://unicode.org/cldr/trac/ticket/9956">#9956</a>]	      </li>
-	        </ul>
-	      </li>
+            </ul>
+          </li>
         </ul>
       </blockquote>
 	  <ul class='removed'>

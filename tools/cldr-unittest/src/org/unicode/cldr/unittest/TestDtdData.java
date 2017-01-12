@@ -18,7 +18,6 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
-import org.unicode.cldr.util.DtdData.AttributeStatus;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
@@ -97,7 +96,9 @@ public class TestDtdData  extends TestFmwk {
                 "//ldmlBCP47/keyword/key[@name=\"ca\"]/_alias==calendar",
                 "//ldmlBCP47/keyword/key[@name=\"ca\"]/_description==Calendar algorithm key",
                 "//ldmlBCP47/keyword/key[@name=\"ca\"]/_valueType==incremental",
-                "//ldmlBCP47/keyword/key[@name=\"ca\"]/type[@name=\"chinese\"]/_description==Traditional Chinese calendar"
+                "//ldmlBCP47/keyword/key[@name=\"ca\"]/type[@name=\"chinese\"]/_description==Traditional Chinese calendar",
+                "//ldmlBCP47/keyword/key[@name=\"ca\"]/_deprecated==false", 
+                "//ldmlBCP47/keyword/key[@name=\"ca\"]/type[@name=\"chinese\"]/_deprecated==false"
             },        
 
         };
@@ -158,7 +159,7 @@ public class TestDtdData  extends TestFmwk {
         }
     }
 
-    public void TestEmpty() {
+    public void TestValueAttributesWithChildren() {
         Multimap<String,String> m = TreeMultimap.create();
         for (DtdType type : DtdType.values()) {
             if (type == DtdType.ldmlICU) {
@@ -171,14 +172,8 @@ public class TestDtdData  extends TestFmwk {
         }
         Collection<String> items = m.get("error");
         if (items != null) {
-            if (logKnownIssue("cldrbug:7902", "problems with attributes")) {
-                for (String item : items) {
-                    warnln(item);
-                }
-            } else {
-                for (String item : items) {
-                    errln(item);
-                }
+            for (String item : items) {
+                errln(item);
             }
         }
         if (isVerbose()) {
@@ -206,30 +201,33 @@ public class TestDtdData  extends TestFmwk {
             return;
         }
 
-        HashSet<Attribute> attributes = new LinkedHashSet<>();
+        HashSet<Attribute> valueAttributes = new LinkedHashSet<>();
+        HashSet<Attribute> distAttributes = new LinkedHashSet<>();
         for (Attribute attribute : element.getAttributes().keySet()) {
-            if (!attribute.isDeprecated() 
-                && attribute.getStatus() == AttributeStatus.value
-                // && (attribute.mode == Mode.REQUIRED || attribute.mode == Mode.FIXED) strong test
-                ) {
-                attributes.add(attribute);
+            if (attribute.isDeprecated()) continue;
+            switch (attribute.getStatus()) {
+            case value:
+                //if (attribute.mode == Mode.REQUIRED || attribute.mode == Mode.FIXED) {//strong test
+                valueAttributes.add(attribute); break;
+            case distinguished:
+                distAttributes.add(attribute); break;
             }
         }
         ElementType elementType = element.getType();
         switch (elementType) {
         case EMPTY: 
-            if (attributes.isEmpty()) {
-//                if (type == DtdType.supplementalData && element.name.equals("rgPath")) {
-//                    m.put("warn", type + "\t||" + showPath(parents) + "||path has neither value NOR value attributes||");
-//                    break;
-//                }
-                m.put("error", "\t||" + showPath(parents) + "||path has neither value NOR value attributes||");
+            if (valueAttributes.isEmpty()) {
+                if (!distAttributes.isEmpty()) {
+                    m.put("warn", type + "\t||" + showPath(parents) + "||path has neither value NOR value attributes NOR dist. attrs.||");
+                } else {
+                    m.put("error", "\t||" + showPath(parents) + "||path has neither value NOR value attributes||");
+                }
             }
             break;
         case ANY:
         case PCDATA:
-            if (!attributes.isEmpty()) {
-                m.put("warn", "\t||" + showPath(parents) + "||path has both value AND value attributes||" + attributes + "||");
+            if (!valueAttributes.isEmpty()) {
+                m.put("warn", "\t||" + showPath(parents) + "||path has both value AND value attributes||" + valueAttributes + "||");
             }
             break;
         case CHILDREN:
@@ -244,16 +242,28 @@ public class TestDtdData  extends TestFmwk {
 
             // if no children left, treat like EMPTY
             if (children.isEmpty()) {
-                if (attributes.isEmpty()) {
+                if (valueAttributes.isEmpty()) {
                     errln(type + "\t|| " + showPath(parents) + "||path has neither value NOR value attributes||");
                 }
                 break;
             }
-            if (!attributes.isEmpty()) {
-                m.put("error", "\t||" + showPath(parents) + "||path has both children AND value attributes"
-                    + "||" + attributes
-                    + "||" + children + "||"
-                    );
+            if (!valueAttributes.isEmpty()) {
+                switch(element.getName()) {
+                case "ruleset":
+                    logKnownIssue("cldrbug:8909", "waiting for RBNF to use data"); 
+                    break;
+                case "key":
+                case "territory":
+                case "transform":
+                    logKnownIssue("cldrbug:9982", "Lower priority fixes to bad xml"); 
+                    break;
+                default: 
+                    m.put("error", "\t||" + showPath(parents) + "||path has both children AND value attributes"
+                        + "||" + valueAttributes
+                        + "||" + children + "||"
+                        );
+                    break;
+                }
             }
             for (Element child : children) {
                 parents.add(child);
@@ -276,7 +286,7 @@ public class TestDtdData  extends TestFmwk {
             DtdData dtdData = DtdData.getInstance(type);
             for (Element element : dtdData.getElements()) {
                 boolean orderedNew = dtdData.isOrdered(element.name);
-                boolean orderedOld = DtdData.isOrderedOld(element.name, type);
+                boolean orderedOld = isOrderedOld(element.name, type);
                 assertEquals("isOrdered " + type + ":" + element, orderedOld, orderedNew);
                 boolean deprecatedNew = dtdData.isDeprecated(element.name, "*", "*");
                 boolean deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, "*", "*");
@@ -284,7 +294,7 @@ public class TestDtdData  extends TestFmwk {
 
                 for (Attribute attribute : element.getAttributes().keySet()) {
                     boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
-                    boolean distinguishedOld = dtdData.isDistinguishingOld(element.name, attribute.name);
+                    boolean distinguishedOld = isDistinguishingOld(type, element.name, attribute.name);
                     assertEquals("isDistinguished " + type + ":" + attribute, distinguishedOld, distinguishedNew);
                     deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
                     deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, "*");
@@ -327,4 +337,254 @@ public class TestDtdData  extends TestFmwk {
 //        }
 //        
 //    }
+
+    // TESTING CODE
+    static final Set<String> orderedElements = Collections.unmodifiableSet(new HashSet<String>(Arrays
+        .asList(
+            // can prettyprint with TestAttributes
+
+            // DTD: ldml
+            // <collation> children
+            "base", "optimize", "rules", "settings", "suppress_contractions",
+
+            // <rules> children
+            "i", "ic", "p", "pc", "reset", "s", "sc", "t", "tc", "x",
+
+            // <x> children
+            "context", "extend", "i", "ic", "p", "pc", "s", "sc", "t", "tc",
+            "last_non_ignorable", "last_secondary_ignorable", "last_tertiary_ignorable",
+
+            // <variables> children
+            "variable",
+
+            // <rulesetGrouping> children
+            "ruleset",
+
+            // <ruleset> children
+            "rbnfrule",
+
+            // <exceptions> children (deprecated, use 'suppressions')
+            "exception",
+
+            // <suppressions> children
+            "suppression",
+
+            // DTD: supplementalData
+            // <territory> children
+            // "languagePopulation",
+
+            // <postalCodeData> children
+            // "postCodeRegex",
+
+            // <characters> children
+            // "character-fallback",
+
+            // <character-fallback> children
+            // "character",
+
+            // <character> children
+            "substitute", // may occur multiple times
+
+            // <transform> children
+            "comment", "tRule",
+
+            // <validity> children
+            // both of these don't need to be ordered, but must delay changes until after isDistinguished always uses
+            // the dtd type
+            "attributeValues", // attribute values shouldn't need ordering, as long as these are distinguishing:
+            // elements="zoneItem" attributes="type"
+            "variable", // doesn't need to be ordered
+
+            // <pluralRules> children
+            "pluralRule",
+
+            // <codesByTerritory> children
+            // "telephoneCountryCode", // doesn't need ordering, as long as code is distinguishing, telephoneCountryCode
+            // code="376"
+
+            // <numberingSystems> children
+            // "numberingSystem", // doesn't need ordering, since id is distinguishing
+
+            // <metazoneInfo> children
+            // "timezone", // doesn't need ordering, since type is distinguishing
+
+            "attributes", // shouldn't need this in //supplementalData/metadata/suppress/attributes, except that the
+            // element is badly designed
+
+            "languageMatch",
+
+            "exception", // needed for new segmentations
+            "coverageLevel", // needed for supplemental/coverageLevel.xml
+            "coverageVariable", // needed for supplemental/coverageLevel.xml
+            "substitute" // needed for characters.xml
+            )));
+
+    public static boolean isOrderedOld(String element, DtdType type) {
+        return orderedElements.contains(element);
+    }
+
+    public boolean isDistinguishingOld(DtdType dtdType, String elementName, String attribute) {
+        switch (dtdType) {
+        case ldml:
+            return attribute.equals("_q")
+                || attribute.equals("key")
+                || attribute.equals("indexSource")
+                || attribute.equals("request")
+                || attribute.equals("count")
+                || attribute.equals("id")
+                || attribute.equals("registry")
+                || attribute.equals("alt")
+                || attribute.equals("mzone")
+                || attribute.equals("from")
+                || attribute.equals("to")
+                || attribute.equals("value") && !elementName.equals("rbnfrule")
+                || attribute.equals("yeartype")
+                || attribute.equals("numberSystem")
+                || attribute.equals("parent")
+                || elementName.equals("annotation") && attribute.equals("cp")
+                || (attribute.equals("type")
+                    && !elementName.equals("default")
+                    && !elementName.equals("measurementSystem")
+                    && !elementName.equals("mapping")
+                    && !elementName.equals("abbreviationFallback")
+                    && !elementName.equals("preferenceOrdering"))
+                || (elementName.equals("parseLenients") && (attribute.equals("scope") || attribute.equals("level")))
+                || (elementName.equals("parseLenient") && attribute.equals("sample"))
+                ;
+        case ldmlBCP47:
+            return attribute.equals("_q")
+                //|| attribute.equals("alias")
+                || attribute.equals("name")
+                || attribute.equals("extension");
+        case supplementalData:
+            return attribute.equals("_q")
+                || attribute.equals("iso4217")
+                || attribute.equals("iso3166")
+                || attribute.equals("code")
+                || (attribute.equals("type") && !elementName.equals("calendarSystem") && !elementName.equals("mapZone") && !elementName.equals("numberingSystem") && !elementName.equals("variable"))
+                || attribute.equals("id") && elementName.equals("variable")
+                || attribute.equals("alt")
+                || attribute.equals("dtds")
+                || attribute.equals("idStatus")
+                || elementName.equals("deprecatedItems")
+                && (attribute.equals("type") || attribute.equals("elements") || attribute.equals("attributes") || attribute.equals("values"))
+                || elementName.equals("character")
+                && attribute.equals("value")
+                || elementName.equals("dayPeriodRules")
+                && attribute.equals("locales")
+                || elementName.equals("dayPeriodRule")
+                && (attribute.equals("type"))
+                || elementName.equals("metazones") && attribute.equals("type")
+                || elementName.equals("subgroup") && attribute.equals("subtype")
+                || elementName.equals("mapZone")
+                && (attribute.equals("other") || attribute.equals("territory"))
+                || elementName.equals("postCodeRegex")
+                && attribute.equals("territoryId")
+                || elementName.equals("calendarPreference")
+                && attribute.equals("territories")
+                || elementName.equals("minDays")
+                && attribute.equals("count")
+                || elementName.equals("firstDay")
+                && attribute.equals("day")
+                || elementName.equals("weekendStart")
+                && attribute.equals("day")
+                || elementName.equals("weekendEnd")
+                && attribute.equals("day")
+                || elementName.equals("measurementSystem")
+                && attribute.equals("category")
+                || elementName.equals("unitPreferences")
+                && (attribute.equals("category") || attribute.equals("usage") || attribute.equals("scope"))
+                || elementName.equals("unitPreference")
+                && attribute.equals("regions")
+                || elementName.equals("distinguishingItems")
+                && attribute.equals("attributes")
+                || elementName.equals("codesByTerritory")
+                && attribute.equals("territory")
+                || elementName.equals("currency")
+                && attribute.equals("iso4217")
+                || elementName.equals("territoryAlias")
+                && attribute.equals("type")
+                || elementName.equals("territoryCodes")
+                && attribute.equals("type")
+                || elementName.equals("group")
+                && (attribute.equals("status")) //  || attribute.equals("grouping")
+                || elementName.equals("plurals")
+                && attribute.equals("type")
+                || elementName.equals("pluralRules")
+                && attribute.equals("locales")
+                || elementName.equals("pluralRule")
+                && attribute.equals("count")
+                || elementName.equals("pluralRanges")
+                && attribute.equals("locales")
+                || elementName.equals("pluralRange")
+                && (attribute.equals("start") || attribute.equals("end"))
+                || elementName.equals("hours")
+                && (attribute.equals("preferred") || attribute.equals("allowed"))
+                || elementName.equals("personList") && attribute.equals("type")
+                || elementName.equals("likelySubtag")
+                && attribute.equals("from")
+                || elementName.equals("rgPath")
+                && attribute.equals("path")
+                || elementName.equals("timezone")
+                && attribute.equals("type")
+                || elementName.equals("usesMetazone")
+                && (attribute.equals("to") || attribute.equals("from")) // attribute.equals("mzone") ||
+                || elementName.equals("numberingSystem")
+                && attribute.equals("id")
+                || elementName.equals("group")
+                && attribute.equals("type")
+                || elementName.equals("currency")
+                && attribute.equals("from")
+                || elementName.equals("currency")
+                && attribute.equals("to")
+                || elementName.equals("currency")
+                && attribute.equals("iso4217")
+                || elementName.equals("parentLocale")
+                && attribute.equals("parent")
+                || elementName.equals("currencyCodes")
+                && attribute.equals("type")
+                || elementName.equals("approvalRequirement")
+                && (attribute.equals("locales") || attribute.equals("paths"))
+                || elementName.equals("weekOfPreference")
+                && attribute.equals("locales")
+                || elementName.equals("coverageVariable")
+                && attribute.equals("key")
+                || elementName.equals("coverageLevel")
+                && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
+                || elementName.equals("languageMatch")
+                && (attribute.equals("desired") || attribute.equals("supported"))
+                || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
+                    .equals("variant")))
+                ;
+
+        case keyboard:
+            return attribute.equals("_q")
+                || elementName.equals("keyboard") && attribute.equals("locale")
+                || elementName.equals("keyMap") && attribute.equals("modifiers")
+                || elementName.equals("map") && attribute.equals("iso")
+                || elementName.equals("transforms") && attribute.equals("type")
+                || elementName.equals("transform") && attribute.equals("from");
+        case platform:
+            return attribute.equals("_q")
+                || elementName.equals("platform") && attribute.equals("id")
+                || elementName.equals("map") && attribute.equals("keycode");
+        case ldmlICU:
+            return false;
+        default:
+            throw new IllegalArgumentException("Type is wrong: " + dtdType);
+        }
+        // if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {
+        // matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true);
+        // throw new IllegalArgumentException("Failed: " + elementName + ", " + attribute);
+        // }
+    }
+
+    /**
+     * @deprecated
+     * @return
+     */
+    @Deprecated
+    public static Set<String> getSerialElements() {
+        return orderedElements;
+    }
 }

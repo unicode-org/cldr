@@ -2409,9 +2409,9 @@ $Revision$
 
 <!ELEMENT collation ( alias | ( base?, import*, settings?, suppress_contractions?, optimize?, ( cr* | rules? ), special* ) ) >
 <!ATTLIST collation type NMTOKEN "standard" >
-<!ATTLIST collation visibility (internal | external) "external" >
+<!ATTLIST collation visibility (internal | external) #IMPLIED >
     <!--@VALUE-->
-    <!--@DEPRECATED:internal-->
+    <!--@DEPRECATED-->
 <!ATTLIST collation alt NMTOKENS #IMPLIED >
 <!ATTLIST collation draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->

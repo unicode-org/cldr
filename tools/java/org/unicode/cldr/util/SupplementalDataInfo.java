@@ -1347,16 +1347,18 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Unexpected level1 element: " + level1);
             }
 
+            String finalElement = parts.getElement(-1);
             String key = parts.getAttributeValue(2, "name");
-            String keyAlias = parts.getAttributeValue(2, "alias");
-            String keyDescription = parts.getAttributeValue(2, "description");
             String extension = parts.getAttributeValue(2, "extension");
-            String deprecated = parts.getAttributeValue(2, "deprecated");
             if (extension == null) {
                 extension = "u";
             }
-
             bcp47Extension2Keys.put(extension, key);
+            
+            String keyAlias = parts.getAttributeValue(2, "alias");
+            String keyDescription = parts.getAttributeValue(2, "description");
+            String deprecated = parts.getAttributeValue(2, "deprecated");
+            // TODO add preferred, valueType, since
 
             final R2<String, String> key_empty = (R2<String, String>) Row.of(key, "").freeze();
 
@@ -1371,9 +1373,11 @@ public class SupplementalDataInfo {
                 bcp47Deprecated.put(key_empty, deprecated);
             }
 
-            if (parts.size() > 3) { // for parts with no subtype: //ldmlBCP47/keyword/key[@extension="t"][@name="x0"]
-
-                // have subtype
+            switch (finalElement) {
+            case "key":
+                break; // all actions taken above
+                
+            case "type":
                 String subtype = parts.getAttributeValue(3, "name");
                 String subtypeAlias = parts.getAttributeValue(3, "alias");
                 String subtypeDescription = parts.getAttributeValue(3, "description").replaceAll("\\s+", " ");
@@ -1404,6 +1408,9 @@ public class SupplementalDataInfo {
                 if (subtypeDeprecated != null) {
                     bcp47Deprecated.put(key_subtype, subtypeDeprecated);
                 }
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected element: " + finalElement);
             }
 
             return true;

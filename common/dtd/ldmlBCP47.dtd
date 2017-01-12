@@ -39,7 +39,7 @@ $Revision$
 <!ATTLIST key description CDATA #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST key deprecated (true | false) "false" >
-    <!--@METADATA-->
+    <!--@VALUE-->
 <!ATTLIST key preferred NMTOKEN #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST key alias NMTOKEN #IMPLIED >
@@ -54,7 +54,7 @@ $Revision$
 <!ATTLIST type description CDATA #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST type deprecated (true | false) "false" >
-    <!--@METADATA-->
+    <!--@VALUE-->
 <!ATTLIST type preferred NMTOKEN #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST type alias CDATA #IMPLIED >
@@ -67,7 +67,7 @@ $Revision$
 <!ATTLIST attribute description CDATA #REQUIRED >
     <!--@VALUE-->
 <!ATTLIST attribute deprecated (true | false) "false" >
-    <!--@METADATA-->
+    <!--@VALUE-->
 <!ATTLIST attribute preferred NMTOKEN #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST attribute since CDATA #IMPLIED >

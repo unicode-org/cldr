@@ -13,7 +13,15 @@ import com.ibm.icu.text.Transform;
 public class PatternPlaceholders {
 
     public enum PlaceholderStatus {
-        DISALLOWED, OPTIONAL, LOCALE_DEPENDENT, REQUIRED
+        DISALLOWED ("No placeholders allowed."), 
+        OPTIONAL ("Zero or one placeholder allowed."), 
+        MULTIPLE ("Zero or more placeholders allowed."), 
+        LOCALE_DEPENDENT ("Varies by locale."), 
+        REQUIRED ("Placeholder required");
+        final String message;
+        private PlaceholderStatus(String message) {
+            this.message = message;
+        }
     }
 
     private static class PlaceholderData {
@@ -66,30 +74,35 @@ public class PatternPlaceholders {
             try {
                 String[] parts = source.split("\\s*;\\s+");
                 for (String part : parts) {
-                    if (part.equals("optional")) {
+                    switch(part) {
+                    case "optional":
                         result.status = PlaceholderStatus.OPTIONAL;
                         continue;
-                    } else if (part.equals("locale")) {
+                    case "locale":
                         result.status = PlaceholderStatus.LOCALE_DEPENDENT;
                         continue;
-                    }
-                    int equalsPos = part.indexOf('=');
-                    String id = part.substring(0, equalsPos).trim();
-                    String name = part.substring(equalsPos + 1).trim();
-                    int spacePos = name.indexOf(' ');
-                    String example;
-                    if (spacePos >= 0) {
-                        example = name.substring(spacePos + 1).trim();
-                        name = name.substring(0, spacePos).trim();
-                    } else {
-                        example = "";
-                    }
+                    case "multiple":
+                        result.status = PlaceholderStatus.MULTIPLE;
+                        continue;
+                    default:
+                        int equalsPos = part.indexOf('=');
+                        String id = part.substring(0, equalsPos).trim();
+                        String name = part.substring(equalsPos + 1).trim();
+                        int spacePos = name.indexOf(' ');
+                        String example;
+                        if (spacePos >= 0) {
+                            example = name.substring(spacePos + 1).trim();
+                            name = name.substring(0, spacePos).trim();
+                        } else {
+                            example = "";
+                        }
 
-                    PlaceholderInfo old = result.data.get(id);
-                    if (old != null) {
-                        throw new IllegalArgumentException("Key occurs twice: " + id + "=" + old + "!=" + name);
+                        PlaceholderInfo old = result.data.get(id);
+                        if (old != null) {
+                            throw new IllegalArgumentException("Key occurs twice: " + id + "=" + old + "!=" + name);
+                        }
+                        result.add(id, name, example);
                     }
-                    result.add(id, name, example);
                 }
             } catch (Exception e) {
                 throw new IllegalArgumentException("Failed to parse " + source, e);

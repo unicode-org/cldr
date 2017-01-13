@@ -1,6 +1,10 @@
 #Remember to quote any [ character!
-# Note that normally placeholders don't have either "locale" or "optional"!
-# The only time they should normally have "locale" is when there's a count.
+# The default is DISALLOWED for anything not in this file.
+# The default for everything in this file is REQUIRED.
+# That default is overridden if the line has as the X parameter: locale, optional, or multiple.
+#	optional: there may or may not be a placeholder.
+#	locale: there is a count= or ordinal=, so the value is subject to the locale.
+#	multiple: there may be one or more placeholders (normally only in minimalPairs)
 
 %A = [^"]*+
 %L = (long|short|narrow)
@@ -199,8 +203,8 @@
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"range\"] ; {0}=START_NUMBER 3 ; {1}=END_NUMBER 5
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"%A\"] ; {0}=NUMBER 3
 
-^//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="%A"] ; {0}=COUNT 3
-^//ldml/numbers/minimalPairs/pluralMinimalPairs[@count="%A"] ; {0}=COUNT 3
+^//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="%A"] ; multiple ; {0}=COUNT 3
+^//ldml/numbers/minimalPairs/pluralMinimalPairs[@count="%A"] 	; multiple ; {0}=COUNT 3
 
 ^//ldml/units/unitLength\[@type="%L"]/compoundUnit\[@type="%A"]/compoundUnitPattern ; locale ; {0}=DIVIDEND UNIT meters ; {1}=DIVIDEND UNIT second
 ^//ldml/units/unitLength\[@type="%L"]/coordinateUnit/coordinateUnitPattern\[@type="%A"] ; {0}=DEGREES 12°

@@ -212,9 +212,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         skip = false;
         prettyPrint = new UnicodeSetPrettyPrinter()
-        .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-        .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-            .setStrength2(Collator.PRIMARY))
+            .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+            .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                .setStrength2(Collator.PRIMARY))
             .setCompressRanges(true);
         return this;
     }
@@ -233,8 +233,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             ok[0] = true;
         } catch (IllegalArgumentException iae) {
             possibleErrors.add(new CheckStatus()
-            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.couldNotAccessExemplars)
-            .setMessage("Could not get exemplar set: " + iae.toString()));
+                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.couldNotAccessExemplars)
+                .setMessage("Could not get exemplar set: " + iae.toString()));
             ok[0] = false;
         }
         return result;
@@ -270,94 +270,17 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             return this;
         }
 
-        // add checks for patterns. Make sure that all and only the message format patterns have {n}
-        Matcher matcher = patternMatcher.reset(value);
-        Set<String> matchList = new HashSet<String>();
-        StringBuffer placeholderBuffer = new StringBuffer();
-        while (matcher.find()) {
-            // Look for duplicate values.
-            if (!matchList.add(matcher.group())) {
-                placeholderBuffer.append(", ").append(matcher.group());
-            }
-        }
-        Set<String> placeholders = null;
-        PlaceholderStatus placeholderStatus = patternPlaceholders.getStatus(path);
-        if (placeholderStatus != PlaceholderStatus.DISALLOWED) {
-            placeholders = patternPlaceholders.get(path).keySet();
-        }
-
-        boolean supposedToHaveMessageFormatFields =
-            // supposedToBeMessageFormat.reset(path).find()
-            placeholders != null;
-
-        if (supposedToHaveMessageFormatFields) {
-            if (placeholderBuffer.length() > 0) {
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.extraPlaceholders)
-                    .setMessage("Remove duplicates of{0}",
-                        new Object[] { placeholderBuffer.substring(1) }));
-            }
-            placeholderBuffer.setLength(0);
-            // Check that the needed placeholders are there.
-            if (placeholders == null) placeholders = new HashSet<String>();
-            for (String placeholder : placeholders) {
-                if (!matchList.contains(placeholder)) {
-                    placeholderBuffer.append(", ").append(placeholder);
-                }
-            }
-            boolean placeholdersMissing = false;
-            if (placeholderBuffer.length() > 0) {
-                // Check
-                if (placeholderStatus == PlaceholderStatus.LOCALE_DEPENDENT && path.contains("[@count=")) {
-                    PluralRules rules = PluralRules.forLocale(new ULocale(getCldrFileToCheck().getLocaleID()));
-                    XPathParts parts = new XPathParts();
-                    parts.set(path);
-                    String keyword = parts.getAttributeValue(-1, "count");
-                    placeholdersMissing = rules.getUniqueKeywordValue(keyword) == PluralRules.NO_UNIQUE_VALUE;
-                } else {
-                    placeholdersMissing = placeholderStatus == PlaceholderStatus.REQUIRED;
-                }
-            }
-            if (placeholdersMissing) {
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.missingPlaceholders)
-                    .setMessage("This message pattern is missing placeholder(s){0}. See the English for an example.",
-                        new Object[] { placeholderBuffer.substring(1) }));
-            }
-            // Check for extra placeholders.
-            matchList.removeAll(placeholders);
-            if (matchList.size() > 0) {
-                String list = matchList.toString();
-                list = list.substring(1, list.length() - 1);
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.extraPlaceholders)
-                    .setMessage("Extra placeholders {0} should be removed.",
-                        new Object[] { list }));
-            }
-            // check the other characters in the message format patterns
-            value = patternMatcher.replaceAll(STAND_IN);
-        } else if (matchList.size() > 0 && placeholderStatus == PlaceholderStatus.DISALLOWED) { // non-message field has
-            // placeholder values
-            result
-            .add(new CheckStatus()
-            .setCause(this)
-            .setMainType(CheckStatus.errorType)
-            .setSubtype(Subtype.shouldntHavePlaceholders)
-            .setMessage(
-                "This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
-                new Object[] {}));
-            // end checks for patterns
-        }
+        value = checkAndReplacePlaceholders(path, value, result);
         if (path.startsWith("//ldml/numbers/miscPatterns") && path.contains("[@type=\"range\"]")) {
             if (DISALLOWED_IN_RANGE.containsSome(value)) {
                 result
                 .add(new CheckStatus()
-                .setCause(this)
-                .setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.illegalCharactersInPattern)
-                .setMessage(
-                    "Range patterns should not have letters.",
-                    new Object[] {}));
+                    .setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.illegalCharactersInPattern)
+                    .setMessage(
+                        "Range patterns should not have letters.",
+                        new Object[] {}));
             }
         }
         // Now handle date patterns.
@@ -477,6 +400,91 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // .setMessage("This item must not contain two space characters in a row."));
         // }
         return this;
+    }
+
+    private String checkAndReplacePlaceholders(String path, String value, List<CheckStatus> result) {
+        // add checks for patterns. Make sure that all and only the message format patterns have {n}
+        Matcher matcher = patternMatcher.reset(value);
+        Set<String> matchList = new HashSet<String>();
+        StringBuffer placeholderBuffer = new StringBuffer();
+        while (matcher.find()) {
+            // Look for duplicate values.
+            if (!matchList.add(matcher.group())) {
+                placeholderBuffer.append(", ").append(matcher.group());
+            }
+        }
+        Set<String> placeholders = null;
+        PlaceholderStatus placeholderStatus = patternPlaceholders.getStatus(path);
+        if (placeholderStatus != PlaceholderStatus.DISALLOWED) {
+            placeholders = patternPlaceholders.get(path).keySet();
+        }
+
+        boolean supposedToHaveMessageFormatFields =
+            // supposedToBeMessageFormat.reset(path).find()
+            placeholders != null;
+
+        if (supposedToHaveMessageFormatFields) {
+            if (placeholderBuffer.length() > 0) {
+                if (placeholderStatus != PlaceholderStatus.MULTIPLE) {
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.extraPlaceholders)
+                        .setMessage("Remove duplicates of{0}",
+                            new Object[] { placeholderBuffer.substring(1) }));
+                }
+            }
+            placeholderBuffer.setLength(0);
+            // Check that the needed placeholders are there.
+            if (placeholders == null) placeholders = new HashSet<String>();
+            for (String placeholder : placeholders) {
+                if (!matchList.contains(placeholder)) {
+                    placeholderBuffer.append(", ").append(placeholder);
+                }
+            }
+            boolean placeholdersMissing = false;
+            if (placeholderBuffer.length() > 0) {
+                // Check
+                if (placeholderStatus == PlaceholderStatus.LOCALE_DEPENDENT && (path.contains("[@count=") || path.contains("[@ordinal="))) {
+                    PluralRules rules = PluralRules.forLocale(new ULocale(getCldrFileToCheck().getLocaleID()));
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
+                    String keyword = parts.getAttributeValue(-1, "count");
+                    if (keyword == null) {
+                        keyword = parts.getAttributeValue(-1, "ordinal");
+                    }
+                    placeholdersMissing = rules.getUniqueKeywordValue(keyword) == PluralRules.NO_UNIQUE_VALUE;
+                } else {
+                    placeholdersMissing = placeholderStatus == PlaceholderStatus.REQUIRED;
+                }
+            }
+            if (placeholdersMissing) {
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.missingPlaceholders)
+                    .setMessage("This message pattern is missing placeholder(s){0}. See the English for an example.",
+                        new Object[] { placeholderBuffer.substring(1) }));
+            }
+            // Check for extra placeholders.
+            matchList.removeAll(placeholders);
+            if (matchList.size() > 0) {
+                String list = matchList.toString();
+                list = list.substring(1, list.length() - 1);
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.extraPlaceholders)
+                    .setMessage("Extra placeholders {0} should be removed.",
+                        new Object[] { list }));
+            }
+            // check the other characters in the message format patterns
+            value = patternMatcher.replaceAll(STAND_IN);
+        } else if (matchList.size() > 0 && placeholderStatus == PlaceholderStatus.DISALLOWED) { // non-message field has
+            // placeholder values
+            result.add(new CheckStatus()
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.shouldntHavePlaceholders)
+                .setMessage(
+                    "This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
+                    new Object[] {}));
+            // end checks for patterns
+        }
+        return value;
     }
 
     /**
@@ -618,14 +626,14 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         }
         result
         .add(new CheckStatus()
-        .setCause(this)
-        .setMainType(warningVsError)
-        .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
-        .setMessage(
-            "The characters \u200E{0}\u200E {1} {2}. "
-                +
-                "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Characters</a>.",
-                new Object[] { fixedMissing, scriptString, qualifier }));
+            .setCause(this)
+            .setMainType(warningVsError)
+            .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
+            .setMessage(
+                "The characters \u200E{0}\u200E {1} {2}. "
+                    +
+                    "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Characters</a>.",
+                    new Object[] { fixedMissing, scriptString, qualifier }));
     }
 
     static final Normalizer2 NFC = Normalizer2.getInstance(null, "nfc", Normalizer2.Mode.COMPOSE);

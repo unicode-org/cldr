@@ -137,10 +137,8 @@ public class TestCheckCLDR extends TestFmwk {
                 .get(path);
             final PlaceholderStatus placeholderStatus = patternPlaceholders
                 .getStatus(path);
-            if (containsMessagePattern
-                && placeholderStatus == PlaceholderStatus.DISALLOWED
-                || !containsMessagePattern
-                && placeholderStatus == PlaceholderStatus.REQUIRED) {
+            if (containsMessagePattern && placeholderStatus == PlaceholderStatus.DISALLOWED
+                || !containsMessagePattern && placeholderStatus == PlaceholderStatus.REQUIRED) {
                 errln("Value (" + value + ") looks like placeholder = "
                     + containsMessagePattern + ", but placeholder info = "
                     + placeholderStatus + "\t" + path);

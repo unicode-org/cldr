@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2016 Unicode, Inc.
+<!-- Copyright © 1991-2017 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -46,25 +46,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
-    	<parseLenients scope='general' level='lenient'>
-	        <parseLenient sample='$'>[$﹩＄$]</parseLenient>
-	        <parseLenient sample='₹'>[₨₹{Rs}{Rp}]</parseLenient>
-	        <parseLenient sample='£'>[£₤]</parseLenient>
-	     	<parseLenient sample='.'>[.．․﹒ 。︒｡]</parseLenient>
-    	</parseLenients>
-    	<parseLenients scope='number' level='lenient'>
-			<parseLenient sample=','>[,，﹐︐ ، ٫ 、﹑︑､]</parseLenient>
-			<parseLenient sample='-'>[\-－﹣ −⁻₋ ➖‒]</parseLenient>
-			<parseLenient sample='+'>[+＋﬩﹢⁺₊ ➕]</parseLenient>
-    	</parseLenients>
-    	<parseLenients scope='number' level='stricter'>
-			<parseLenient sample='.'>[.．․﹒ ｡]</parseLenient>
-			<parseLenient sample=','>[,，﹐︐ ٫]</parseLenient>
-    	</parseLenients>
-    	<parseLenients scope='date' level='lenient'>
-			<parseLenient sample='-'>[\-./]</parseLenient>
-			<parseLenient sample=':'>[\:∶]</parseLenient>
-    	</parseLenients>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-">[\-./]</parseLenient>
+			<parseLenient sample=":">[\:∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample=".">[.．․﹒ 。︒｡]</parseLenient>
+			<parseLenient sample="$">[$﹩＄$]</parseLenient>
+			<parseLenient sample="£">[£₤]</parseLenient>
+			<parseLenient sample="₹">[₨₹{Rs}{Rp}]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-">[\-－﹣ −⁻₋ ➖‒]</parseLenient>
+			<parseLenient sample=",">[,，﹐︐ ، ٫ 、﹑︑､]</parseLenient>
+			<parseLenient sample="+">[+＋﬩﹢⁺₊ ➕]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample=",">[,，﹐︐ ٫]</parseLenient>
+			<parseLenient sample=".">[.．․﹒ ｡]</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -3346,7 +3346,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencyFormats>
 		<currencyFormats numberSystem="arab">
 			<currencySpacing>
-				<alias source="locale" path="../../currencyFormats[@numberSystem='latn']/currencySpacing"/> 
+				<alias source="locale" path="../../currencyFormats[@numberSystem='latn']/currencySpacing"/>
 			</currencySpacing>
 			<currencyFormatLength>
 				<currencyFormat type="standard">

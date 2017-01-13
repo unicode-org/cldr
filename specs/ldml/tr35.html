@@ -3637,78 +3637,91 @@ typically be a 'platform' or vendor designation.</td>
 			<a name="Hybrid_Locale" href="#Hybrid_Locale">3.10.2
 		Hybrid Locale Identifiers</a>
 		</h4>
-        <p class='changed'>Hybrid locales have intermixed content from 2 (or more) languages, often with one language's grammatical structure applied to words in another. See also <a href="https://en.oxforddictionaries.com/definition/spanglish">​spanglish in the OED</a> for the use of the term &ldquo;hybrid&rdquo;. This is <em>not</em> simply content that has two languages in it, such as a book of parallel text containing English and Spanish:<br>
-        </p>
-      <table class='changed'>
+        <p class='changed'>Hybrid locales have intermixed content from 2 (or more) languages, often with one language's grammatical structure applied to words in another. These are commonly referred to with portmanteau words such as <em>Franglais, <a href="https://en.oxforddictionaries.com/definition/spanglish">​Spanglish</a> </em>or<em> Denglish</em>. Hybrid locales do not <em>not</em> reference text simply containing two languages: a book of parallel text containing English and French, such as the following, is not Franglais:</p>
+      <table class='changed' style='margin-left:2em; margin-right:2em'>
           <tbody>
             <tr>
-              <td>On the 24th of May, 1863, my uncle, Professor Liedenbrock, rushed into his little house, No. 19 Königstrasse, one of the oldest streets in the oldest portion of the city of Hamburg…</td>
-              <td>El domingo 24 de mayo de 1863, mi tío, el profesor Lidenbrock, regresó precipitadamente a su casa, situada en el número 19 de la König-strasse, una de las calles más antiguas del barrio viejo de Hamburgo…</td>
+              <td width='50%' style='font-family:serif'>On the 24th of May, 1863, my uncle, Professor Liedenbrock, rushed into his little house, No. 19 Königstrasse, one of the oldest streets in the oldest portion of the city of Hamburg…</td>
+              <td style='font-family:serif'>Le 24 mai 1863, un dimanche, mon oncle, le professeur Lidenbrock, revint précipitamment vers sa petite maison située au numéro 19 de Königstrasse, l’une des plus anciennes rues du vieux quartier de Hambourg…</td>
             </tr>
           </tbody>
         </table>
-        <p class='changed'>While text in a document can be tagged as partly in one language and partly in another, that is not the same having a hybrid locale. There is a difference between having a Spanish document that has some passages quoted in English and a Spanglish document. And fine-grained tagging doesn't work handle combinations like Denglisch "<a href="http://www.duden.de/rechtschreibung/downloaden">​gedownloadet</a>" or the Franglais "downloadé", cf <a href="http://www.duden.de/rechtschreibung/downloaden"></a>) which are in neither language.<br>
-      </p>
-      <p class='changed'>More importantly, it doesn't work for a very common use case: locale selection. To communicate requests for localized content and internationalization services, locales are used, which are an extension of language tags. When people pick a language from a menu, internally they are picking a locale (en-GB, es-419, etc). To allow an application to support Spanglish or Hinglish, unicode locale identifers provide for hybrid locales.</p>
-        <p class='changed'>The hybrid locales use the  T extension keys 'h0' and 'h1' for identification. For more information, see <em>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a>.</em><br>
+        <p class='changed'>While text in a document can be tagged as partly in one language and partly in another, that is not the same having a hybrid locale. There is a difference between having a Spanglish document, and a Spanish document that has some passages quoted in English. Fine-grained tagging doesn't  handle grammatical combinations like Denglisch “<a href="http://www.duden.de/rechtschreibung/downloaden">​gedownloadet</a>”, which is neither English nor German — similarly the Franglais “<a href='http://www.le-dictionnaire.com/definition.php?mot=downloader'>downloadé</a>”. More importantly, it doesn’t work for the very common use case for a <a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a>: <i>locale selection</i>. </p>
+      <p class='changed'>To communicate requests for localized content and internationalization services, locales are used. When people pick a language from a menu, internally they are picking a locale (en-GB, es-419, etc.). To allow an application to support Spanglish or Hinglish locale selection, <a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a>s can represent hybrid locales using the  T extension keys 'h0' and 'h1'. (For more information on the T extension, see <em>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a>.</em>)
       </p>
       <p class='changed'>Examples:</p>
       <table class='changed simple'>
           <tbody>
             <tr>
-              <td>es-t-<strong>h0-en</strong></td>
-              <td>Spanglish</td>
-              <td>Spanish with an admixture of English</td>
+              <td>es-t-<u>h0-hi</u></td>
+              <td>Hinglish</td>
+              <td>Hindi-English hybrid locale</td>
             </tr>
             <tr>
-              <td>en-t-<strong>h0-es</strong></td>
-              <td>Spanglish</td>
-              <td>English with an admixture of Spanish</td>
+              <td>es-t-<u>h0-ta</u></td>
+              <td>Tanglish</td>
+              <td>Tamil-English hybrid locale</td>
             </tr>
-          </tbody>
+            <tr>
+              <td>es-t-<u>h0-bn</u></td>
+              <td>Banglish</td>
+              <td>Bangla-English hybrid locale</td>
+            </tr>
+             <tr><td colspan="3">…</td></tr>
+            <tr>
+              <td>en-t-<u>h0-es</u></td>
+              <td>Hinglish</td>
+              <td>English-Hindi hybrid locale</td>
+            </tr>
+            <tr>
+              <td>en-t-<u>h0-zh</u></td>
+              <td>Chinglish</td>
+              <td>English-Chinese hybrid locale</td>
+            </tr>
+			<tr><td colspan="3">…</td></tr>
+        </tbody>
         </table>
         <blockquote>
-          <p class='changed'><em>Note: es-t-h0-en should be used unless English clearly predominates.</em><br>
-          </p>
+          <p class='changed'><em>Note: The <a href="#unicode_language_id">unicode_language_id</a> should be the language used as the ‘scaffold’: for the fallback locale for internationalization services, typically used for more of the core vocabulary/structure in the content. Thus Hinglish should be represented as hi-t-h0-en where Hindi is the scaffold, and as en-t-h0-hi where English is.</em></p>
         </blockquote>
-      <p class='changed'>One could then also have</p>
+      <p class='changed'>One could then also have the following:</p>
       <table class='changed simple'>
           <tbody>
             <tr>
-              <td>es-t-hi-<strong>h0-en</strong></td>
-              <td>Spanglish translated from Hindi</td>
+              <td>ta-t-hi-<u>h0-en</u></td>
+              <td>Tanglish translated from Hindi</td>
             </tr>
           </tbody>
         </table>
-        <p class='changed'>A second key 'h1' is defined indicating that the <em>source</em> language for transform is a hybrid, much has with the transliteration s0 and d0 keys. The value of h1 is a language tag for the language mixed into the the source language for -t-, allowing formulations like</p>
+        <p class='changed'>A second key 'h1' is defined indicating that the <em>source</em> language for transform is a hybrid, much has with the transliteration s0 and d0 keys. The value of h1 is a language tag for the language mixed into the the source language for -t-, allowing formulations such as the following:</p>
       <table class='changed simple'>
           <tbody>
             <tr>
-              <td>es-t-hi-<strong>h1-en</strong></td>
-              <td>Spanish translated from Hinglish</td>
+              <td>ta-t-hi-<u>h1-en</u></td>
+              <td>Tamil translated from Hinglish</td>
             </tr>
             <tr>
-              <td>es-t-hi-<strong>h0-en</strong>-<strong>h1-en</strong></td>
-              <td>Spanglish translated from Hinglish</td>
+              <td>ta-t-hi-<u>h0-en</u>-<u>h1-en</u></td>
+              <td>Tanglish translated from Hinglish</td>
             </tr>
           </tbody>
         </table>
-      <p class='changed'>If needed, one could even indicate what the script of the "mixed-in" language is:</p>
+      <p class='changed'>The value of h0 or h1 is a full <em><a href="#unicode_language_id">unicode_language_id</a></em>, and can contain subtags for script or region, as in the following:</p>
       <table class='changed simple'>
           <tbody>
             <tr>
-              <td>ru-t-<strong>h0-en-latn</strong></td>
+              <td>ru-t-<u>h0-en-latn</u></td>
               <td>Runglish</td>
               <td>Russian with an admixture of English in Latin script</td>
             </tr>
             <tr>
-              <td>ru-t-<strong>h0-en-cyrl</strong></td>
+              <td>ru-t-<u>h0-en-cyrl</u></td>
               <td>Runglish</td>
               <td>Russian with an admixture of English in Cyrillic script</td>
             </tr>
           </tbody>
         </table>
-      <p class='changed'>Should there ever be need for hybrids of more than two languages, corresponding pairs of keywords such as h2 and h3 can be defined as well.</p>
+      <p class='changed'>Should there ever be need for hybrids of more than two languages, corresponding pairs of keywords such as h2 and h3 can be defined in the future.</p>
 		<h3>
 			<a name="Validity_Data" href="#Validity_Data">3.11 Validity Data</a>
 		</h3>

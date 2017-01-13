@@ -6912,6 +6912,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">Rẽ vào lối rẽ thứ nhất bên phải.</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">Rẽ vào lối rẽ thứ {0} bên phải.</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">Rẽ vào lối rẽ thứ nhất bên phải.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Rẽ vào lối rẽ thứ {0} bên phải.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

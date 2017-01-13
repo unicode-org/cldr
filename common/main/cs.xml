@@ -9583,6 +9583,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} den</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} dny</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} dne</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} dní</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Na {0}. křižovatce odbočte vpravo.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

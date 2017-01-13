@@ -5907,6 +5907,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} घर</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} घरे</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}थे उजवे वळण घ्या.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">{0}ले उजवे वळण घ्या.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}वे उजवे वळण घ्या.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">{0}रे उजवे वळण घ्या.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

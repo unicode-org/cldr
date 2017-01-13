@@ -6218,6 +6218,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} ቀን</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} ቀናት</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">በቀኝ በኩል ባለው በ{0}ኛው መታጠፊያ ግባ።</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

@@ -7568,6 +7568,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="other">{0} hari</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Ambil belokan kanan ke-{0}.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

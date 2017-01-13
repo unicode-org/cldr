@@ -199,6 +199,9 @@
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"range\"] ; {0}=START_NUMBER 3 ; {1}=END_NUMBER 5
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"%A\"] ; {0}=NUMBER 3
 
+^//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="%A"] ; {0}=COUNT 3
+^//ldml/numbers/minimalPairs/pluralMinimalPairs[@count="%A"] ; {0}=COUNT 3
+
 ^//ldml/units/unitLength\[@type="%L"]/compoundUnit\[@type="%A"]/compoundUnitPattern ; locale ; {0}=DIVIDEND UNIT meters ; {1}=DIVIDEND UNIT second
 ^//ldml/units/unitLength\[@type="%L"]/coordinateUnit/coordinateUnitPattern\[@type="%A"] ; {0}=DEGREES 12°
 

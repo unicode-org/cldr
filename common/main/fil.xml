@@ -5631,6 +5631,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} mansanas</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} na mansanas</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">Lumiko sa unang kanan.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Lumiko sa ika-{0} kanan.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

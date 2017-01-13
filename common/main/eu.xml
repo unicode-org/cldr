@@ -5603,6 +5603,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">Nire {0} lagunarekin nago</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">Nire {0} lagunekin nago</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}. bira eskuinetara</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

@@ -5614,6 +5614,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">siku {0} iliyopita</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">siku {0} zilizopita</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Chukua mpinduko wa {0} kulia.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

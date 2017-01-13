@@ -5219,6 +5219,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="other">{0} ថ្ងៃ</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">បត់​ស្តាំ​លើក​ទី​ {0}</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

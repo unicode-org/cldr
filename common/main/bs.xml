@@ -7216,6 +7216,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0} – {1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">za {0} mjesec</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">za {0} mjeseca</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">za {0} mjeseci</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">za {0} mjeseci</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Skrenite na {0}. križanju desno.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

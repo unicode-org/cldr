@@ -6901,6 +6901,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">A kosár tartalma: {0} X. Megveszi?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">A kosár tartalma: {0} X. Megveszi őket?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">Az {0}. lehetőségnél forduljon jobbra.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">A {0}. lehetőségnél forduljon jobbra.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

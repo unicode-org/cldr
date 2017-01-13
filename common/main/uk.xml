@@ -7533,6 +7533,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} день</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} дні</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} днів</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} дня</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}-я дивізія, {0}-є коло</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-а дивізія, {0}-е коло</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

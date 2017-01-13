@@ -5485,6 +5485,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">Картанд {0} Х байна. Үүнийг авах уу?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">Картанд {0} Х байна. Тэднийг авах уу?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-р баруун эргэлтээр орно уу</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

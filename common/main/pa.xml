@@ -5862,6 +5862,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} ਘੰਟਾ</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} ਘੰਟੇ</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">ਸਜੇ ਪਾਸੇ {0} ਮੋੜ ਲਵੋ</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

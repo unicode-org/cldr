@@ -3966,6 +3966,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<miscPatterns numberSystem="vaii">
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="other">{0}?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}?</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

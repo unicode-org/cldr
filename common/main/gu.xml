@@ -5927,6 +5927,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} કિલોગ્રામ</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} કિલોગ્રામ્સ</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">જમણી બાજુએ {0}થો વળાંક લો.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">જમણી બાજુએ {0}ઠો વળાંક લો.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">જમણી બાજુએ {0}લો વળાંક લો.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">જમણી બાજુએ {0}મો વળાંક લો.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">જમણી બાજુએ {0}જો વળાંક લો.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

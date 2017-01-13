@@ -8216,6 +8216,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="other">{0} 日</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">在第 {0} 個路口右轉。</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

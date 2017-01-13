@@ -1267,6 +1267,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast" draft="unconfirmed">⩾{0}</pattern>
 			<pattern type="range" draft="unconfirmed">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} Ulloq</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} Ullut</pluralMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

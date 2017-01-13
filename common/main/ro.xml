@@ -6722,6 +6722,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0} - {1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} zi</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} zile</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} de zile</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">Faceţi virajul nr. {0} la dreapta.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Faceţi virajul al {0}-lea la dreapta.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

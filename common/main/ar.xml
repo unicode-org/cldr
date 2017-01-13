@@ -8234,6 +8234,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">+{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="zero">{0} كتاب</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">ولد واحد حضر</pluralMinimalPairs>
+			<pluralMinimalPairs count="two">ولدان حضرا</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} أولاد حضروا</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} ولدًا حضروا</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} ولد حضروا</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">اتجه إلى المنعطف الـ {0} يمينًا.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

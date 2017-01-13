@@ -8475,6 +8475,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0} 以上</pattern>
 			<pattern type="range">{0}～{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="other">{0}日</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0} 番目の角を右折します。</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

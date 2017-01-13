@@ -7424,6 +7424,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} сат</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} сата</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} сати</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} сати</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Скрените у {0}. десно.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

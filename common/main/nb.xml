@@ -8405,6 +8405,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} dag</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} dager</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Ta {0}. svingen til høyre.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

@@ -5349,6 +5349,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0} နှင့်အထက်</pattern>
 			<pattern type="range">{0} - {1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="other">{0}ရက္</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0} အုပ်မြောက်</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

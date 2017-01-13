@@ -9239,6 +9239,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} obuolys</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} obuoliai</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} obuolio</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} obuolių</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-ame posūkyje sukite į dešinę.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

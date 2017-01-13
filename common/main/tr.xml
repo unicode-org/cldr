@@ -6984,6 +6984,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">Sepetinizde {0} X var. Bunu almak istiyor musunuz?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">Sepetinizde {0} X var. Bunları almak istiyor musunuz?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}. sağdan dönün.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

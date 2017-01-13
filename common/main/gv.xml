@@ -269,5 +269,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} thunnag/vuc/ooyl</pluralMinimalPairs>
+			<pluralMinimalPairs count="two">{0} hunnag/vuc/ooyl</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} thunnag/muc/ooyl</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} dy hunnagyn/dy vucyn/dy ooylyn</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} thunnagyn/mucyn/ooylyn</pluralMinimalPairs>
+		</minimalPairs>
 	</numbers>
 </ldml>

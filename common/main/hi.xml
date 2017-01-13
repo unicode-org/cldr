@@ -6271,6 +6271,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} घंटा</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} घंटे</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}था दाहिना मोड़ लें.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">{0}ठा दाहिना मोड़ लें.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">{0}ला दाहिना मोड़ लें.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}वां दाहिना मोड़ लें.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">{0}रा दाहिना मोड़ लें.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

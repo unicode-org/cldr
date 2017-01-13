@@ -6324,6 +6324,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">კალათში {0} X-ია. შეიძენთ მას?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">კალათში {0} X-ია. შეიძენთ მათ?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">მე-{0}</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">{0}-ლი</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-ე</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

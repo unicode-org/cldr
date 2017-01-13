@@ -6389,6 +6389,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾ {0}</pattern>
 			<pattern type="range">{0} – {1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} ден</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} дена</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Завийте надясно по {0}-ата пресечка.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

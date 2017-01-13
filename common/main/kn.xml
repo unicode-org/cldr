@@ -5892,6 +5892,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} ದಿನ</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} ದಿನಗಳು</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}ನೇ ಬಲತಿರುವನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

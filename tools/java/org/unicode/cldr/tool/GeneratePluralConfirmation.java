@@ -48,7 +48,9 @@ public class GeneratePluralConfirmation {
                     System.out.println("locale="
                         + uLocale
                         + "; action=add ; new_path="
-                        + "//ldml/dates/pluralMinimalPairPatterns/pluralPattern[@" 
+                        + "//ldml/numbers/minimalPairs/"
+                        + (type == PluralRules.PluralType.CARDINAL ? "plural" : "ordinal")
+                        + "MinimalPairs[@" 
                         + (type == PluralRules.PluralType.CARDINAL ? "count" : "ordinal")
                         + "=\"" + count.toString().toLowerCase(Locale.ENGLISH) + "\"]"
                         + "; new_value="

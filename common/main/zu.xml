@@ -5563,6 +5563,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} usuku</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} izinsuku</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Thatha indlela ejikela kwesokudla engu-{0}</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

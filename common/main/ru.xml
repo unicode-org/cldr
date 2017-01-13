@@ -7785,6 +7785,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">из {0} книги за {0} день</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">из {0} книг за {0} дня</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">из {0} книг за {0} дней</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">из {0} книги за {0} дня</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Сверните направо на {0}-м перекрестке.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

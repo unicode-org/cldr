@@ -5500,6 +5500,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">Cебетте {0} Х бар. Ол сіздікі ме?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">Себетте {0} Х бар. Олар сіздікі ме?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">{0}-ші бұрылыстан оңға бұрылыңыз.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-шы бұрылыстан оңға бұрылыңыз.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

@@ -6578,6 +6578,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">Más de {0}</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} día</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} días</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Toma la {0}.ª a la derecha.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

@@ -5499,6 +5499,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">Себетте {0} Х бар. Аны аласызбы?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">Себетте {0} Х бар. Аларды аласызбы?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-бурулуштан оңго бурулуңуз.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

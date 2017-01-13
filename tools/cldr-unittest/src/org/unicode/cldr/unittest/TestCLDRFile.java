@@ -145,8 +145,8 @@ public class TestCLDRFile extends TestFmwk {
                 // path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=")
                 // &&
                 // !path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]")
-                || path.contains("[@count=")
-                && !path.contains("[@count=\"other\"]")
+                || (path.contains("[@count=") && !path.contains("[@count=\"other\"]"))
+                || (path.contains("[@ordinal=") && !path.contains("[@ordinal=\"other\"]"))
                 || path.contains("dayPeriod[@type=\"noon\"]")) {
                 continue;
             }

@@ -6719,6 +6719,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">⩾{0}</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} ura</pluralMinimalPairs>
+			<pluralMinimalPairs count="two">{0} uri</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} ure</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} ur</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">V {0}. križišču zavijte desno.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

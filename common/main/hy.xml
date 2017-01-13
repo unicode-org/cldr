@@ -5574,6 +5574,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">այդ {0} ժամը</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">այդ {0} ժամերը</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">Թեքվեք աջ {0}-ին խաչմերուկից:</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Թեքվեք աջ {0}-րդ խաչմերուկից:</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

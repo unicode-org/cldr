@@ -7291,6 +7291,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} ci, {0} gath</pluralMinimalPairs>
+			<pluralMinimalPairs count="two">{0} gi, {0} gath</pluralMinimalPairs>
+			<pluralMinimalPairs count="few">{0} chi, {0} cath</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} chi, {0} chath</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} ci, {0} cath</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">Glac an {0}ú chasadh ar dheis.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Glac an {0}ú casadh ar dheis.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

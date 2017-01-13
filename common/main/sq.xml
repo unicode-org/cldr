@@ -5344,6 +5344,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atLeast">&gt;{0}</pattern>
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">{0} libër</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} libra</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">Merrni kthesën e {0}-t në të djathtë.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">Merrni kthesën e {0}-rë në të djathtë.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Merrni kthesën e {0}-të në të djathtë.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">

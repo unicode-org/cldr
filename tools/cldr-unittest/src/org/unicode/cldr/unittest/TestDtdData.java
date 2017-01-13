@@ -450,6 +450,7 @@ public class TestDtdData  extends TestFmwk {
                     && !elementName.equals("preferenceOrdering"))
                 || (elementName.equals("parseLenients") && (attribute.equals("scope") || attribute.equals("level")))
                 || (elementName.equals("parseLenient") && attribute.equals("sample"))
+                || (elementName.equals("ordinalMinimalPairs") && attribute.equals("ordinal"))
                 ;
         case ldmlBCP47:
             return attribute.equals("_q")

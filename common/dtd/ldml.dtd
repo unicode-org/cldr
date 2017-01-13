@@ -1793,7 +1793,7 @@ $Revision$
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, special* ) ) >
+<!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, minimalPairs*, special* ) ) >
 <!ATTLIST numbers alt NMTOKENS #IMPLIED >
 <!ATTLIST numbers draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -1806,6 +1806,23 @@ $Revision$
 <!ATTLIST numbers validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+
+<!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, special* )) >
+<!ATTLIST minimalPairs alt NMTOKENS #IMPLIED >
+<!ATTLIST minimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT pluralMinimalPairs ( #PCDATA ) >
+<!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED >
+<!ATTLIST pluralMinimalPairs alt NMTOKENS #IMPLIED >
+<!ATTLIST pluralMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT ordinalMinimalPairs ( #PCDATA ) >
+<!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED >
+<!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED >
+<!ATTLIST ordinalMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT defaultNumberingSystem ( #PCDATA ) >
 <!ATTLIST defaultNumberingSystem alt NMTOKENS #IMPLIED >

@@ -51,7 +51,6 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -64,9 +63,13 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
@@ -185,28 +188,28 @@ public class ShowLanguages {
     private static void printLanguageScript(LanguageInfo linfo, PrintWriter pw) throws IOException {
         PrintWriter pw1;
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Language", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0)
-        .setBreakSpans(true)
-        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .setSpanRows(true)
-        .addColumn("ML", "class='target' title='modern language'", null, "class='target'", true).setSpanRows(true)
-        .setSortPriority(1)
-        .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3)
-        .addColumn("Script", "class='target'", null, "class='target'", true).setSortPriority(3)
-        .addColumn("Code", "class='target'", null, "class='target'", true)
-        .addColumn("MS", "class='target' title='modern script'", null, "class='target'", true).setSortPriority(2);
+            .addColumn("Language", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0)
+            .setBreakSpans(true)
+            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSpanRows(true)
+            .addColumn("ML", "class='target' title='modern language'", null, "class='target'", true).setSpanRows(true)
+            .setSortPriority(1)
+            .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3)
+            .addColumn("Script", "class='target'", null, "class='target'", true).setSortPriority(3)
+            .addColumn("Code", "class='target'", null, "class='target'", true)
+            .addColumn("MS", "class='target' title='modern script'", null, "class='target'", true).setSortPriority(2);
 
         TablePrinter tablePrinter2 = new TablePrinter()
-        .addColumn("Script", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0)
-        .setBreakSpans(true)
-        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .setSpanRows(true)
-        .addColumn("MS", "class='target' title='modern script'", null, "class='target'", true).setSpanRows(true)
-        .setSortPriority(1)
-        .addColumn("Language", "class='target'", null, "class='target'", true).setSortPriority(3)
-        .addColumn("Code", "class='target'", null, "class='target'", true)
-        .addColumn("ML", "class='target' title='modern language'", null, "class='target'", true).setSortPriority(2)
-        .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3);
+            .addColumn("Script", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0)
+            .setBreakSpans(true)
+            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSpanRows(true)
+            .addColumn("MS", "class='target' title='modern script'", null, "class='target'", true).setSpanRows(true)
+            .setSortPriority(1)
+            .addColumn("Language", "class='target'", null, "class='target'", true).setSortPriority(3)
+            .addColumn("Code", "class='target'", null, "class='target'", true)
+            .addColumn("ML", "class='target' title='modern language'", null, "class='target'", true).setSortPriority(2)
+            .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3);
 
         // get the codes so we can show the remainder
         Set<String> remainingScripts = new TreeSet<String>(getScriptsToShow()); // StandardCodes.MODERN_SCRIPTS);
@@ -335,19 +338,19 @@ public class ShowLanguages {
     private static void printScriptLanguageTerritory(LanguageInfo linfo, PrintWriter pw) throws IOException {
         PrintWriter pw1;
         TablePrinter tablePrinter2 = new TablePrinter()
-        .addColumn("Sample Char", "class='source'", null, "class='source sample'", true).setSpanRows(true)
-        .addColumn("Script", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0)
-        .setBreakSpans(true)
-        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .setSpanRows(true)
-        .addColumn("T", "class='target'", null, "class='target'", true).setSortPriority(1)
-        .addColumn("Language", "class='target'", null, "class='target'", true).setSortPriority(2)
-        .addColumn("Native", "class='target'", null, "class='target'", true)
-        .addColumn("Code", "class='target'", null, "class='target'", true)
-        .addColumn("T", "class='target'", null, "class='target'", true).setSortPriority(3)
-        .addColumn("Territory", "class='target'", null, "class='target'", true).setSortPriority(4)
-        .addColumn("Native", "class='target'", null, "class='target'", true)
-        .addColumn("Code", "class='target'", null, "class='target'", true);
+            .addColumn("Sample Char", "class='source'", null, "class='source sample'", true).setSpanRows(true)
+            .addColumn("Script", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0)
+            .setBreakSpans(true)
+            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .setSpanRows(true)
+            .addColumn("T", "class='target'", null, "class='target'", true).setSortPriority(1)
+            .addColumn("Language", "class='target'", null, "class='target'", true).setSortPriority(2)
+            .addColumn("Native", "class='target'", null, "class='target'", true)
+            .addColumn("Code", "class='target'", null, "class='target'", true)
+            .addColumn("T", "class='target'", null, "class='target'", true).setSortPriority(3)
+            .addColumn("Territory", "class='target'", null, "class='target'", true).setSortPriority(4)
+            .addColumn("Native", "class='target'", null, "class='target'", true)
+            .addColumn("Code", "class='target'", null, "class='target'", true);
 
         // get the codes so we can show the remainder
         Set<String> remainingScripts = new TreeSet<String>(getScriptsToShow());
@@ -625,15 +628,15 @@ public class ShowLanguages {
     static class LanguageInfo {
         private static final Map<String, Map<String, String>> localeAliasInfo = new TreeMap<String, Map<String, String>>();
 
-        Map<String, Set<String>> language_scripts = new TreeMap<String, Set<String>>();
+        Multimap<String, String> language_scripts = TreeMultimap.create();
 
-        Map<String, Set<String>> language_territories = new TreeMap<String, Set<String>>();
+        Multimap<String, String> language_territories = TreeMultimap.create();
 
         List<Map<String, String>> deprecatedItems = new ArrayList<Map<String, String>>();
 
-        Map<String, Set<String>> territory_languages;
+        Multimap<String, String> territory_languages;
 
-        Map<String, Set<String>> script_languages;
+        Multimap<String, String> script_languages;
 
         //Map group_contains = new TreeMap();
 
@@ -674,12 +677,6 @@ public class ShowLanguages {
                     supp.getFullXPath(path);
                 }
                 parts.set(fullPath);
-//                if (path.indexOf("/territoryContainment") >= 0) {
-//                    Map attributes = parts.findAttributes("group");
-//                    String type = (String) attributes.get("type");
-//                    addTokens(type, (String) attributes.get("contains"), " ", group_contains);
-//                    continue;
-//                }
 
                 // <zoneItem type="America/Adak" territory="US" aliases="America/Atka US/Aleutian"/>
                 if (path.indexOf("/zoneItem") >= 0) {
@@ -831,38 +828,18 @@ public class ShowLanguages {
                         addTerritoryInfo(territories, display, type);
                     }
                 }
-                if (path.indexOf("/territoryInfo") >= 0) {
-                    Map<String, String> attributes = parts.getAttributes(2);
-                    String type = attributes.get("type");
-                    String name = english.getName(CLDRFile.TERRITORY_NAME, type);
-                    Map<String, Object> languageData = territoryLanguageData.get(name);
-                    if (languageData == null) territoryLanguageData.put(name, languageData = new TreeMap<String, Object>());
-                    languageData.put("code", attributes.get("type"));
-                    languageData.put("gdp", attributes.get("gdp"));
-                    languageData.put("literacyPercent", attributes.get("literacyPercent"));
-                    languageData.put("population", attributes.get("population"));
-                    if (parts.size() > 3) {
-                        attributes = parts.getAttributes(3);
-                        Set<Pair<Double, Pair<Double, String>>> languageData2 = (Set<Pair<Double, Pair<Double, String>>>) languageData.get("language");
-                        if (languageData2 == null)
-                            languageData.put("language", languageData2 = new TreeSet<Pair<Double, Pair<Double, String>>>(INVERSE_COMPARABLE));
-                        String literacy = attributes.get("literacyPercent");
-                        languageData2.add(
-                            new Pair(Double.parseDouble(attributes.get("populationPercent")),
-                                new Pair(literacy == null ? Double.NaN : Double.parseDouble(literacy),
-                                    attributes.get("type"))));
-                    }
-                    // <languagePopulation type="tet" populationPercent="5.38" references="R1048"/> <!--Tetum-->
-                    // supplementalData/territoryTestData/territory[@type="AU"][@gdp="640100000000"][@literacy="0.99"][@population="20000000"]/languagePopulation[@type="zh_Hant"][@functionallyLiterate="420000"]
-                    // supplementalData/territoryTestData/territory[@type="GP"][@gdp="3513000000"][@literacy="0.99"][@population="450000"]
-                    continue;
-                }
                 if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0)
                     continue;
                 System.out.println("Skipped Element: " + path);
             }
-            territory_languages = getInverse(language_territories);
-            script_languages = getInverse(language_scripts);
+            
+            for (String territory : supplementalDataInfo.getTerritoriesWithPopulationData()) {
+                for (String language : supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(territory)) {
+                    language_territories.put(language, territory);
+                }
+            }
+            territory_languages = Multimaps.invertFrom(language_territories, TreeMultimap.create());
+            script_languages = Multimaps.invertFrom(language_scripts, TreeMultimap.create());
 
             // now get some metadata
             localeAliasInfo.put("language", new TreeMap<String, String>());
@@ -962,18 +939,18 @@ public class ShowLanguages {
             PrintWriter pw = new PrintWriter(new FormattedFileWriter(null, "Likely Subtags", null, SUPPLEMENTAL_INDEX_ANCHORS));
 
             TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Source Lang", "class='source'", null, "class='source'", true).setSortPriority(1)
-            .setSpanRows(false)
-            .addColumn("Source Script", "class='source'", null, "class='source'", true).setSortPriority(0)
-            .setSpanRows(false).setBreakSpans(true)
-            .addColumn("Source Region", "class='source'", null, "class='source'", true).setSortPriority(2)
-            .setSpanRows(false)
-            .addColumn("Target Lang", "class='target'", null, "class='target'", true).setSortPriority(3)
-            .setBreakSpans(true)
-            .addColumn("Target Script", "class='target'", null, "class='target'", true).setSortPriority(4)
-            .addColumn("Target Region", "class='target'", null, "class='target'", true).setSortPriority(5)
-            .addColumn("Source ID", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Target ID", "class='target'", null, "class='target'", true);
+                .addColumn("Source Lang", "class='source'", null, "class='source'", true).setSortPriority(1)
+                .setSpanRows(false)
+                .addColumn("Source Script", "class='source'", null, "class='source'", true).setSortPriority(0)
+                .setSpanRows(false).setBreakSpans(true)
+                .addColumn("Source Region", "class='source'", null, "class='source'", true).setSortPriority(2)
+                .setSpanRows(false)
+                .addColumn("Target Lang", "class='target'", null, "class='target'", true).setSortPriority(3)
+                .setBreakSpans(true)
+                .addColumn("Target Script", "class='target'", null, "class='target'", true).setSortPriority(4)
+                .addColumn("Target Region", "class='target'", null, "class='target'", true).setSortPriority(5)
+                .addColumn("Source ID", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+                .addColumn("Target ID", "class='target'", null, "class='target'", true);
             Map<String, String> subtags = supplementalDataInfo.getLikelySubtags();
             LanguageTagParser sourceParsed = new LanguageTagParser();
             LanguageTagParser targetParsed = new LanguageTagParser();
@@ -994,6 +971,12 @@ public class ShowLanguages {
             }
             pw.println(tablePrinter.toTable());
             pw.close();
+        }
+
+        static class LanguageData extends R4<Double, Double, Double, String> {
+            public LanguageData(Double a, Double b, Double c, String d) {
+                super(a, b, c, d);
+            }
         }
 
         private String getName(final int type, final String value) {
@@ -1215,21 +1198,21 @@ public class ShowLanguages {
             nf.setGroupingUsed(true);
             //NumberFormat percent = new DecimalFormat("000.0%");
             TablePrinter tablePrinter = new TablePrinter()
-            // tablePrinter.setSortPriorities(0,5)
-            .addColumn("L", "class='source'", null, "class='source'", true)
-            .setSortPriority(0)
-            .setBreakSpans(true)
-            .setRepeatHeader(true)
-            .setHidden(true)
-            .addColumn("Language", "class='source'", null, "class='source'", true)
-            .setSortPriority(0)
-            .setBreakSpans(true)
-            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            // .addColumn("Report Bug", "class='target'", null, "class='target'", false)
-            .addColumn("Territory", "class='target'", null, "class='target'", true)
-            .addColumn("Code", "class='target'", "<a href=\"territory_language_information.html#{0}\">{0}</a>",
-                "class='target'", true)
-                .addColumn("Language Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
+                // tablePrinter.setSortPriorities(0,5)
+                .addColumn("L", "class='source'", null, "class='source'", true)
+                .setSortPriority(0)
+                .setBreakSpans(true)
+                .setRepeatHeader(true)
+                .setHidden(true)
+                .addColumn("Language", "class='source'", null, "class='source'", true)
+                .setSortPriority(0)
+                .setBreakSpans(true)
+                .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+                // .addColumn("Report Bug", "class='target'", null, "class='target'", false)
+                .addColumn("Territory", "class='target'", null, "class='target'", true)
+                .addColumn("Code", "class='target'", "<a href=\"territory_language_information.html#{0}\">{0}</a>",
+                    "class='target'", true)
+                .addColumn("Language Population", "class='target'", "{0,number,#,#@@}", "class='targetRight'", true)
                 .setSortPriority(1).setSortAscending(false)
                 // .addColumn("Territory Population", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
                 // .addColumn("Language Literacy", "class='target'", "{0,number,00.0}%", "class='targetRight'", true)
@@ -1239,53 +1222,27 @@ public class ShowLanguages {
             TreeSet<String> languages = new TreeSet<String>();
             Collection<Comparable[]> data = new ArrayList<Comparable[]>();
             String msg = "<br><i>Please click on each country code</i>";
-            for (String territoryName : territoryLanguageData.keySet()) {
-                Map<String, Object> results = territoryLanguageData.get(territoryName);
-                Set<Pair<Double, Pair<Double, String>>> language = (Set<Pair<Double, Pair<Double, String>>>) results
-                    .get("language");
-                double population = Double.parseDouble((String) results.get("population"));
-                double gdp = Double.parseDouble((String) results.get("gdp"));
-                if (language == null) {
+
+            for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
+                // PopulationData territoryData = supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
+                String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territoryCode);
+                for (String languageCode : supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(territoryCode)) {
+                    PopulationData languageData = supplementalDataInfo.getLanguageAndTerritoryPopulationData(languageCode, territoryCode);
+                    languages.add(languageCode);
                     Comparable[] items = new Comparable[] {
-                        getFirstPrimaryWeight(getLanguageName("und")),
-                        getLanguageName("und") + msg,
-                        "und",
+                        getFirstPrimaryWeight(getLanguageName(languageCode)),
+                        getLanguageName(languageCode), // + getLanguagePluralMessage(msg, languageCode),
+                        languageCode,
                         // bug,
-                        territoryName,
-                        (String) results.get("code"),
-                        Double.NaN,
+                        territoryName + getOfficialStatus(territoryCode, languageCode),
+                        territoryCode,
+                        languageData.getPopulation(),
                         // population,
-                        // Double.NaN,
-                        // Double.parseDouble((String)results.get("literacyPercent")),
+                        // languageliteracy,
+                        // territoryLiteracy,
                         // gdp
                     };
                     data.add(items);
-                } else {
-                    for (Pair<Double, Pair<Double, String>> languageCodePair : language) {
-                        double languagePopulation = languageCodePair.getFirst();
-                        double languageliteracy = languageCodePair.getSecond().getFirst();
-                        String languageCode = languageCodePair.getSecond().getSecond();
-                        languages.add(languageCode);
-                        double territoryLiteracy = Double.parseDouble((String) results.get("literacyPercent"));
-                        if (Double.isNaN(languageliteracy)) {
-                            languageliteracy = territoryLiteracy;
-                        }
-                        String territoryCode = (String) results.get("code");
-                        Comparable[] items = new Comparable[] {
-                            getFirstPrimaryWeight(getLanguageName(languageCode)),
-                            getLanguageName(languageCode), // + getLanguagePluralMessage(msg, languageCode),
-                            languageCode,
-                            // bug,
-                            territoryName + getOfficialStatus(territoryCode, languageCode),
-                            territoryCode,
-                            languagePopulation / 100 * population,
-                            // population,
-                            // languageliteracy,
-                            // territoryLiteracy,
-                            // gdp
-                        };
-                        data.add(items);
-                    }
                 }
             }
             for (String languageCode : languages) {
@@ -1295,13 +1252,13 @@ public class ShowLanguages {
                     languageCode,
                     // bug,
                     addBug(1217, "<i>add new</i>", "<email>", "Add territory to " + getLanguageName(languageCode)
-                        + " (" + languageCode + ")", "<territory, speaker population in territory, and references>"),
-                        "",
-                        0.0d,
-                        // 0.0d,
-                        // 0.0d,
-                        // 0.0d,
-                        // gdp
+                    + " (" + languageCode + ")", "<territory, speaker population in territory, and references>"),
+                    "",
+                    0.0d,
+                    // 0.0d,
+                    // 0.0d,
+                    // 0.0d,
+                    // gdp
                 };
                 data.add(items);
 
@@ -1347,12 +1304,12 @@ public class ShowLanguages {
                 ));
 
             TablePrinter tablePrinter = new TablePrinter()
-            // tablePrinter.setSortPriorities(0,4)
-            .addColumn("Language", "class='source'", null, "class='source'", true)
-            .setSortPriority(0)
-            .setBreakSpans(true)
-            .addColumn("Code", "class='source'",
-                "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false);
+                // tablePrinter.setSortPriorities(0,4)
+                .addColumn("Language", "class='source'", null, "class='source'", true)
+                .setSortPriority(0)
+                .setBreakSpans(true)
+                .addColumn("Code", "class='source'",
+                    "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false);
             Map<Organization, Map<String, Level>> vendordata = sc.getLocaleTypes();
             Set<String> locales = new TreeSet<String>();
             Set<Organization> vendors = new LinkedHashSet<>();
@@ -1514,85 +1471,76 @@ public class ShowLanguages {
             nf.setGroupingUsed(true);
             //NumberFormat percent = new DecimalFormat("000.0%");
             TablePrinter tablePrinter = new TablePrinter()
-            // tablePrinter.setSortPriorities(0,4)
-            .addColumn("T", "class='source'", null, "class='source'", true)
-            .setSortPriority(0)
-            .setBreakSpans(true)
-            .setRepeatHeader(true)
-            .setHidden(true)
-            .addColumn("Territory", "class='source'", null, "class='source'", true)
-            .setSortPriority(0)
-            .setBreakSpans(true)
-            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(),
-                "class='source'", true)
-                .addColumn("Terr. Literacy", "class='target'", "{0,number,#.0}%", "class='targetRight'", true);
+                // tablePrinter.setSortPriorities(0,4)
+                .addColumn("T", "class='source'", null, "class='source'", true)
+                .setSortPriority(0)
+                .setBreakSpans(true)
+                .setRepeatHeader(true)
+                .setHidden(true)
+                .addColumn("Territory", "class='source'", null, "class='source'", true)
+                .setSortPriority(0)
+                .setBreakSpans(true)
+                .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(),
+                    "class='source'", true)
+                .addColumn("Terr. Literacy", "class='target'", "{0,number,@@}%", "class='targetRight'", true);
 
             tablePrinter
             .addColumn("Language", "class='target'", null, "class='target'", false)
             .addColumn("Code", "class='target'", "<a href=\"language_territory_information.html#{0}\">{0}</a>",
                 "class='target'", false)
-                .addColumn("Lang. Pop.%", "class='target'", "{0,number,#.0}%", "class='targetRight'", true)
-                .setSortAscending(false).setSortPriority(1)
-                .addColumn("Writ. Lang. Pop.%", "class='target'", "{0,number,#.0}%", "class='targetRight'", true)
-                .addColumn("Report Bug", "class='target'", null, "class='target'", false);
+            .addColumn("Lang. Pop.", "class='target'", "{0,number,#,#@@}", "class='targetRight'", true)
+            .addColumn("Pop.%", "class='target'", "{0,number,@@}%", "class='targetRight'", true)
+            .setSortAscending(false).setSortPriority(1)
+            .addColumn("Literacy%", "class='target'", "{0,number,@@}%", "class='targetRight'", true)
+            .addColumn("Written%", "class='target'", "{0,number,@@}%", "class='targetRight'", true)
+            .addColumn("Report Bug", "class='target'", null, "class='target'", false);
 
-            for (String territoryName : territoryLanguageData.keySet()) {
-                Map<String, Object> results = territoryLanguageData.get(territoryName);
-                Set<Pair<Double, Pair<Double, String>>> language = (Set<Pair<Double, Pair<Double, String>>>) results
-                    .get("language");
-                double population = Double.parseDouble((String) results.get("population")) / 1000000;
-                double gdp = Double.parseDouble((String) results.get("gdp")) / 1000000;
-                double territoryLiteracy = Double.parseDouble((String) results.get("literacyPercent"));
-                String territoryCode = (String) results.get("code");
+            for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
+                String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territoryCode);
+                PopulationData territoryData2 = supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
+                double territoryLiteracy = territoryData2.getLiteratePopulationPercent();
 
-                Map<String, Set<String>> worldData = territoryData.get(getName(CLDRFile.TERRITORY_NAME, "001", false));
-                Map<String, Set<String>> countryData = territoryData.get(getName(CLDRFile.TERRITORY_NAME, territoryCode, false));
+                for (String languageCode : supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(territoryCode)) {
+                    PopulationData languageData = supplementalDataInfo.getLanguageAndTerritoryPopulationData(languageCode, territoryCode);
+                    double languagePopulationPercent = 100 * languageData.getPopulation() / territoryData2.getPopulation();
+                    double languageliteracy = languageData.getLiteratePopulationPercent();
+                    double writingFrequency = languageData.getWritingPercent();
 
-                if (language != null) {
-                    for (Pair<Double, Pair<Double, String>> languageCodePair : language) {
-                        double languagePopulation = languageCodePair.getFirst();
-                        double languageliteracy = languageCodePair.getSecond().getFirst();
-                        String languageCode = languageCodePair.getSecond().getSecond();
-
-                        if (Double.isNaN(languageliteracy)) {
-                            languageliteracy = territoryLiteracy;
-                        }
-                        tablePrinter.addRow()
-                        .addCell(getFirstPrimaryWeight(territoryName))
-                        .addCell(territoryName)
-                        .addCell(territoryCode)
-                        .addCell(territoryLiteracy);
-
-                        tablePrinter
-                        .addCell(getLanguageName(languageCode) + getOfficialStatus(territoryCode, languageCode))
-                        .addCell(languageCode)
-                        .addCell(languagePopulation)
-                        .addCell(languageliteracy)
-                        .addCell(
-                            addBug(1217, "<i>bug</i>", "<email>", "Fix info for " + getLanguageName(languageCode)
-                                + " (" + languageCode + ")"
-                                + " in " + territoryName + " (" + territoryCode + ")",
-                                "<fixed data for territory, plus references>"))
-                                .finishRow();
-                    }
+                    tablePrinter.addRow()
+                    .addCell(getFirstPrimaryWeight(territoryName))
+                    .addCell(territoryName)
+                    .addCell(territoryCode)
+                    .addCell(territoryLiteracy)
+                    .addCell(getLanguageName(languageCode) + getOfficialStatus(territoryCode, languageCode))
+                    .addCell(languageCode)
+                    .addCell(languageData.getPopulation())
+                    .addCell(languagePopulationPercent)
+                    .addCell(languageliteracy)
+                    .addCell(writingFrequency)
+                    .addCell(
+                        addBug(1217, "<i>bug</i>", "<email>", "Fix info for " + getLanguageName(languageCode)
+                        + " (" + languageCode + ")"
+                        + " in " + territoryName + " (" + territoryCode + ")",
+                            "<fixed data for territory, plus references>"))
+                    .finishRow();
                 }
 
                 tablePrinter.addRow()
                 .addCell(getFirstPrimaryWeight(territoryName))
                 .addCell(territoryName)
                 .addCell(territoryCode)
-                .addCell(territoryLiteracy);
-
-                tablePrinter
+                .addCell(territoryLiteracy)
                 .addCell(
                     addBug(1217, "<i>add new</i>", "<email>", "Add language to " + territoryName + "("
                         + territoryCode + ")",
                         "<language, speaker pop. and literacy in territory, plus references>"))
-                        .addCell("")
-                        .addCell(0.0d)
-                        .addCell(0.0d)
-                        .addCell("")
-                        .finishRow();
+                .addCell("")
+                .addCell(0.0d)
+                .addCell(0.0d)
+                .addCell(0.0d)
+                .addCell(0.0d)
+                .addCell("")
+                .finishRow();
 
             }
             String value = tablePrinter.toTable();
@@ -1608,19 +1556,19 @@ public class ShowLanguages {
             nf.setGroupingUsed(true);
             //NumberFormat percent = new DecimalFormat("000.0%");
             TablePrinter tablePrinter = new TablePrinter()
-            // tablePrinter.setSortPriorities(0,4)
-            .addColumn("T", "class='source'", null, "class='source'", true)
-            .setSortPriority(0)
-            .setBreakSpans(true)
-            .setRepeatHeader(true)
-            .setHidden(true)
-            .addColumn("Territory", "class='source'", null, "class='source'", true)
-            .setSortPriority(0)
-            .setBreakSpans(true)
-            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(),
-                "class='source'", true)
-                .addColumn("Terr. Pop (M)", "class='target'", "{0,number,#,###.0}", "class='targetRight'", true)
-                .addColumn("Terr. GDP ($M PPP)", "class='target'", "{0,number,#,##0}", "class='targetRight'", true)
+                // tablePrinter.setSortPriorities(0,4)
+                .addColumn("T", "class='source'", null, "class='source'", true)
+                .setSortPriority(0)
+                .setBreakSpans(true)
+                .setRepeatHeader(true)
+                .setHidden(true)
+                .addColumn("Territory", "class='source'", null, "class='source'", true)
+                .setSortPriority(0)
+                .setBreakSpans(true)
+                .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(),
+                    "class='source'", true)
+                .addColumn("Terr. Pop (M)", "class='target'", "{0,number,#,#@@}", "class='targetRight'", true)
+                .addColumn("Terr. GDP ($M PPP)", "class='target'", "{0,number,#,#@@}", "class='targetRight'", true)
                 .addColumn("Currencies (2006...)", "class='target'", null, "class='target'", true);
             for (Iterator<String> it = territoryTypes.iterator(); it.hasNext();) {
                 String header = it.next();
@@ -1632,11 +1580,11 @@ public class ShowLanguages {
             tablePrinter
             .addColumn("Report Bug", "class='target'", null, "class='target'", false);
 
-            for (String territoryName : territoryLanguageData.keySet()) {
-                Map<String, Object> results = territoryLanguageData.get(territoryName);
-                double population = Double.parseDouble((String) results.get("population")) / 1000000;
-                double gdp = Double.parseDouble((String) results.get("gdp")) / 1000000;
-                String territoryCode = (String) results.get("code");
+            for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
+                String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territoryCode);
+                PopulationData territoryData2 = supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
+                double population = territoryData2.getPopulation() / 1000000;
+                double gdp = territoryData2.getGdp() / 1000000;
 
                 Map<String, Set<String>> worldData = territoryData.get(getName(CLDRFile.TERRITORY_NAME, "001", false));
                 Map<String, Set<String>> countryData = territoryData.get(getName(CLDRFile.TERRITORY_NAME, territoryCode, false));
@@ -1655,7 +1603,7 @@ public class ShowLanguages {
                 .addCell(
                     addBug(1217, "<i>bug</i>", "<email>", "Fix info for " + territoryName + " (" + territoryCode + ")",
                         "<fixed data for territory, plus references>"))
-                        .finishRow();
+                .finishRow();
 
             }
             String value = tablePrinter.toTable();
@@ -1855,19 +1803,19 @@ public class ShowLanguages {
                     String name = words[i];
                     String script = name_script.get(name);
                     if (script != null) {
-                        Set<String> langSet = script_languages.get(script);
+                        Set<String> langSet = (Set<String>) script_languages.asMap().get(script);
                         if (langSet != null && langSet.contains(language))
                             System.out.print("*");
                         System.out.println("\t" + name + " [" + language + "]\t=> " + name + " [" + script + "]");
                     } else {
                         String language2 = name_language.get(name);
                         if (language2 != null && !language.equals(language2)) {
-                            Set<String> langSet = language_scripts.get(language);
+                            Set<String> langSet = (Set<String>) language_scripts.get(language);
                             if (langSet != null)
                                 System.out.print("*");
                             System.out.print("?\tSame script?\t + " + getName(CLDRFile.LANGUAGE_NAME, language, false)
-                                + "\t & " + getName(CLDRFile.LANGUAGE_NAME, language2, false));
-                            langSet = language_scripts.get(language2);
+                            + "\t & " + getName(CLDRFile.LANGUAGE_NAME, language2, false));
+                            langSet = (Set<String>) language_scripts.get(language2);
                             if (langSet != null)
                                 System.out.print("*");
                             System.out.println();
@@ -2012,7 +1960,7 @@ public class ShowLanguages {
                     + (info.cashDigits == info.getDigits() && info.cashRounding == info.getRounding() ? "" :
                         (info.cashDigits
                             + (info.cashRounding == 0 ? "" : " (" + info.cashRounding + ")")))
-                            + "</td>" +
+                    + "</td>" +
                     "<td class='target'>");
                 boolean first = true;
                 boolean needBreak = false;
@@ -2352,10 +2300,11 @@ public class ShowLanguages {
         // source, eg english.TERRITORY_NAME
         // target, eg english.LANGUAGE_NAME
         public void print(PrintWriter pw, int source, int target) {
-            Map<String, Set<String>> data = source == CLDRFile.TERRITORY_NAME && target == CLDRFile.LANGUAGE_NAME ? territory_languages
+            Multimap<String, String> data = source == CLDRFile.TERRITORY_NAME && target == CLDRFile.LANGUAGE_NAME ? territory_languages
                 : source == CLDRFile.LANGUAGE_NAME && target == CLDRFile.TERRITORY_NAME ? language_territories
                     : source == CLDRFile.SCRIPT_NAME && target == CLDRFile.LANGUAGE_NAME ? script_languages
-                        : source == CLDRFile.LANGUAGE_NAME && target == CLDRFile.SCRIPT_NAME ? language_scripts : null;
+                        : source == CLDRFile.LANGUAGE_NAME && target == CLDRFile.SCRIPT_NAME ? language_scripts 
+                            : null;
             // transform into names, and sort
             Map<String, Set<String>> territory_languageNames = new TreeMap<String, Set<String>>(col);
             for (Iterator<String> it = data.keySet().iterator(); it.hasNext();) {
@@ -2435,11 +2384,11 @@ public class ShowLanguages {
             List<String[]> rows = new ArrayList<String[]>();
             printContains3("001", rows, new ArrayList<String>());
             TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("World", "class='source'", null, "class='z0'", true).setSortPriority(0)
-            .addColumn("Continent", "class='source'", null, "class='z1'", true).setSortPriority(1)
-            .addColumn("Subcontinent", "class='source'", null, "class='z2'", true).setSortPriority(2)
-            .addColumn("Country (Territory)", "class='source'", null, "class='z3'", true).setSortPriority(3)
-            .addColumn("Time Zone", "class='source'", null, "class='z4'", true).setSortPriority(4);
+                .addColumn("World", "class='source'", null, "class='z0'", true).setSortPriority(0)
+                .addColumn("Continent", "class='source'", null, "class='z1'", true).setSortPriority(1)
+                .addColumn("Subcontinent", "class='source'", null, "class='z2'", true).setSortPriority(2)
+                .addColumn("Country (Territory)", "class='source'", null, "class='z3'", true).setSortPriority(3)
+                .addColumn("Time Zone", "class='source'", null, "class='z4'", true).setSortPriority(4);
             String[][] flatData = rows.toArray(string2ArrayPattern);
             pw.println(tablePrinter.addRows(flatData).toTable());
 
@@ -2487,8 +2436,8 @@ public class ShowLanguages {
                 title +
                 "</h2>");
             TablePrinter tablePrinter2 = new TablePrinter()
-            .addColumn(containerTitle, "class='source'", null, "class='z0'", true).setSortPriority(0)
-            .addColumn(containeeTitle, "class='source'", null, "class='z4'", true).setSortPriority(1);
+                .addColumn(containerTitle, "class='source'", null, "class='z0'", true).setSortPriority(0)
+                .addColumn(containeeTitle, "class='source'", null, "class='z4'", true).setSortPriority(1);
 
             Relation<String, String> grouping = supplementalDataInfo
                 .getTerritoryToContained(containmentStyle);
@@ -2593,6 +2542,12 @@ public class ShowLanguages {
             if (s == null)
                 key_value.put(key, s = new TreeSet<String>(col));
             s.addAll(Arrays.asList(values.split(value_delimiter)));
+        }
+    }
+
+    private static void addTokens(String key, String values, String value_delimiter, Multimap<String, String> key_value) {
+        if (values != null) {
+            key_value.putAll(key, Arrays.asList(values.split(value_delimiter)));
         }
     }
 

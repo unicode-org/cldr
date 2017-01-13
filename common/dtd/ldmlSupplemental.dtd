@@ -159,6 +159,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT languagePopulation EMPTY >
 <!ATTLIST languagePopulation type NMTOKEN #REQUIRED >
+<!ATTLIST languagePopulation literacyPercent NMTOKEN #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST languagePopulation writingPercent NMTOKEN #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST languagePopulation populationPercent NMTOKEN #REQUIRED >

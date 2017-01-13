@@ -142,6 +142,8 @@ public class SupplementalDataInfo {
         private double population = Double.NaN;
 
         private double literatePopulation = Double.NaN;
+        
+        private double writingPopulation = Double.NaN;
 
         private double gdp = Double.NaN;
 
@@ -155,7 +157,19 @@ public class SupplementalDataInfo {
             return literatePopulation;
         }
 
-        public double getPopulation() {
+        public double getLiteratePopulationPercent() {
+            return 100*literatePopulation/population;
+        }
+
+        public double getWritingPopulation() {
+            return writingPopulation;
+        }
+
+        public double getWritingPercent() {
+            return writingPopulation/population;
+        }
+
+       public double getPopulation() {
             return population;
         }
 
@@ -196,6 +210,7 @@ public class SupplementalDataInfo {
             } else {
                 population = other.population;
                 literatePopulation = other.literatePopulation;
+                writingPopulation = other.writingPopulation;
                 gdp = other.gdp;
             }
             return this;
@@ -208,6 +223,7 @@ public class SupplementalDataInfo {
             }
             population += other.population;
             literatePopulation += other.literatePopulation;
+            writingPopulation += other.writingPopulation;
             gdp += other.gdp;
         }
 
@@ -238,7 +254,20 @@ public class SupplementalDataInfo {
         }
 
         public PopulationData setOfficialStatus(OfficialStatus officialStatus) {
+            if (frozen) {
+                throw new UnsupportedOperationException(
+                    "Attempt to modify frozen object");
+            }
             this.officialStatus = officialStatus;
+            return this;
+        }
+
+        public PopulationData setWritingPopulation(double writingPopulation) {
+            if (frozen) {
+                throw new UnsupportedOperationException(
+                    "Attempt to modify frozen object");
+            }
+            this.writingPopulation = writingPopulation;
             return this;
         }
     }
@@ -1687,10 +1716,15 @@ public class SupplementalDataInfo {
                 Map<String, String> languageInTerritoryAttributes = parts
                     .getAttributes(3);
                 String language = languageInTerritoryAttributes.get("type");
-                double languageLiteracyPercent = parseDouble(languageInTerritoryAttributes.get("writingPercent"));
+                double languageLiteracyPercent = parseDouble(languageInTerritoryAttributes.get("literacyPercent"));
                 if (Double.isNaN(languageLiteracyPercent)) {
                     languageLiteracyPercent = territoryLiteracyPercent;
-                }// else {
+                }
+                double writingPercent = parseDouble(languageInTerritoryAttributes.get("writingPercent"));
+                if (Double.isNaN(writingPercent)) {
+                    writingPercent = languageLiteracyPercent;
+                }
+                // else {
                 // System.out.println("writingPercent\t" + languageLiteracyPercent
                 // + "\tterritory\t" + territory
                 // + "\tlanguage\t" + language);
@@ -1713,6 +1747,7 @@ public class SupplementalDataInfo {
                 PopulationData newData = new PopulationData()
                 .setPopulation(languagePopulation)
                 .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
+                .setWritingPopulation(writingPercent * languagePopulation / 100)
                 .setOfficialStatus(officialStatus)
                 // .setGdp(languageGdp)
                 ;

@@ -180,7 +180,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Islamic(SectionId.DateTime),
         Japanese(SectionId.DateTime),
         Persian(SectionId.DateTime),
-        ROC(SectionId.DateTime),
+        Minguo(SectionId.DateTime),
         Timezone_Display_Patterns(SectionId.Timezones, "Timezone Display Patterns"),
         NAmerica(SectionId.Timezones, "North America"),
         SAmerica(SectionId.Timezones, "South America"),
@@ -1097,7 +1097,7 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("calendar", new Transform<String, String>() {
                 Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
                         .put("islamicc", "Islamic Civil")
-                        .put("roc", "ROC")
+                        .put("roc", "Minguo")
                         .put("Ethioaa", "Ethiopic Amete Alem")
                         .put("Gregory", "Gregorian")
                         .put("iso8601", "ISO 8601")

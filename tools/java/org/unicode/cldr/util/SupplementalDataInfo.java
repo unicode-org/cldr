@@ -142,7 +142,7 @@ public class SupplementalDataInfo {
         private double population = Double.NaN;
 
         private double literatePopulation = Double.NaN;
-        
+
         private double writingPopulation = Double.NaN;
 
         private double gdp = Double.NaN;
@@ -169,7 +169,7 @@ public class SupplementalDataInfo {
             return writingPopulation/population;
         }
 
-       public double getPopulation() {
+        public double getPopulation() {
             return population;
         }
 
@@ -357,9 +357,9 @@ public class SupplementalDataInfo {
             + "\""
             + (scripts.size() == 0 ? "" : " scripts=\""
                 + CldrUtility.join(scripts, " ") + "\"")
-                + (territories.size() == 0 ? "" : " territories=\""
-                    + CldrUtility.join(territories, " ") + "\"")
-                    + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
+            + (territories.size() == 0 ? "" : " territories=\""
+                + CldrUtility.join(territories, " ") + "\"")
+            + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
 
         public String toString() {
@@ -554,8 +554,8 @@ public class SupplementalDataInfo {
 
         public String toString() {
             return "{" + formatDate(from)
-                + ", "
-                + formatDate(to) + "}";
+            + ", "
+            + formatDate(to) + "}";
         }
 
         public static String formatDate(long date) {
@@ -1383,7 +1383,7 @@ public class SupplementalDataInfo {
                 extension = "u";
             }
             bcp47Extension2Keys.put(extension, key);
-            
+
             String keyAlias = parts.getAttributeValue(2, "alias");
             String keyDescription = parts.getAttributeValue(2, "description");
             String deprecated = parts.getAttributeValue(2, "deprecated");
@@ -1405,7 +1405,7 @@ public class SupplementalDataInfo {
             switch (finalElement) {
             case "key":
                 break; // all actions taken above
-                
+
             case "type":
                 String subtype = parts.getAttributeValue(3, "name");
                 String subtypeAlias = parts.getAttributeValue(3, "alias");
@@ -1447,13 +1447,40 @@ public class SupplementalDataInfo {
 
         private boolean handleLanguageMatcher(String level2) {
             String type = parts.getAttributeValue(2, "type");
-            List<R4<String, String, Integer, Boolean>> matches = languageMatch.get(type);
-            if (matches == null) {
-                languageMatch.put(type, matches = new ArrayList<R4<String, String, Integer, Boolean>>());
+            String alt = parts.getAttributeValue(2, "alt");
+            if (alt != null) {
+                type += "_" + alt;
             }
-            matches.add(Row.of(parts.getAttributeValue(3, "desired"), parts.getAttributeValue(3, "supported"),
-                Integer.parseInt(parts.getAttributeValue(3, "percent")),
-                "true".equals(parts.getAttributeValue(3, "oneway"))));
+            switch(parts.getElement(3)) {
+            case "paradigmLocales":
+                List<String> locales = WHITESPACE_SPLTTER.splitToList(parts.getAttributeValue(3, "locales"));
+                // TODO
+//                LanguageMatchData languageMatchData = languageMatchData.get(type);
+//                if (languageMatchData == null) {
+//                    languageMatch.put(type, languageMatchData = new LanguageMatchData());
+//                }
+                break;
+            case "matchVariable":
+                String id = parts.getAttributeValue(3, "id");
+                String value = parts.getAttributeValue(3, "value");
+                // TODO
+                break;
+            case "languageMatch":
+                List<R4<String, String, Integer, Boolean>> matches = languageMatch.get(type);
+                if (matches == null) {
+                    languageMatch.put(type, matches = new ArrayList<R4<String, String, Integer, Boolean>>());
+                }
+                String percent = parts.getAttributeValue(3, "percent");
+                String distance = parts.getAttributeValue(3, "distance");
+                matches.add(Row.of(
+                    parts.getAttributeValue(3, "desired"), 
+                    parts.getAttributeValue(3, "supported"),
+                    percent != null ? Integer.parseInt(percent) 
+                        : 100-Integer.parseInt(distance),
+                        "true".equals(parts.getAttributeValue(3, "oneway"))));
+                break;
+                default: throw new IllegalArgumentException("Unknown element");
+            }
             return true;
         }
 
@@ -1707,9 +1734,9 @@ public class SupplementalDataInfo {
             double territoryGdp = parseDouble(territoryAttributes.get("gdp"));
             if (territoryToPopulationData.get(territory) == null) {
                 territoryToPopulationData.put(territory, new PopulationData()
-                .setPopulation(territoryPopulation)
-                .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
-                .setGdp(territoryGdp));
+                    .setPopulation(territoryPopulation)
+                    .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
+                    .setGdp(territoryGdp));
             }
             if (parts.size() > 3) {
 
@@ -1745,12 +1772,12 @@ public class SupplementalDataInfo {
                 if (officialStatusString != null) officialStatus = OfficialStatus.valueOf(officialStatusString);
 
                 PopulationData newData = new PopulationData()
-                .setPopulation(languagePopulation)
-                .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
-                .setWritingPopulation(writingPercent * languagePopulation / 100)
-                .setOfficialStatus(officialStatus)
-                // .setGdp(languageGdp)
-                ;
+                    .setPopulation(languagePopulation)
+                    .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
+                    .setWritingPopulation(writingPercent * languagePopulation / 100)
+                    .setOfficialStatus(officialStatus)
+                    // .setGdp(languageGdp)
+                    ;
                 newData.freeze();
                 if (territoryLanguageToPopulation.get(language) != null) {
                     System.out
@@ -2437,15 +2464,15 @@ public class SupplementalDataInfo {
         while (i.hasNext()) {
             CoverageLevelInfo ci = i.next();
             String regex = "//ldml/" + ci.match.replace('\'', '"')
-                .replaceAll("\\[", "\\\\[")
-                .replaceAll("\\]", "\\\\]")
-                .replace("${Target-Language}", targetLanguage)
-                .replace("${Target-Scripts}", targetScriptString)
-                .replace("${Target-Territories}", targetTerritoryString)
-                .replace("${Target-TimeZones}", targetTimeZoneString)
-                .replace("${Target-Currencies}", targetCurrencyString)
-                .replace("${Target-Plurals}", targetPluralsString)
-                .replace("${Calendar-List}", calendarListString);
+            .replaceAll("\\[", "\\\\[")
+            .replaceAll("\\]", "\\\\]")
+            .replace("${Target-Language}", targetLanguage)
+            .replace("${Target-Scripts}", targetScriptString)
+            .replace("${Target-Territories}", targetTerritoryString)
+            .replace("${Target-TimeZones}", targetTimeZoneString)
+            .replace("${Target-Currencies}", targetCurrencyString)
+            .replace("${Target-Plurals}", targetPluralsString)
+            .replace("${Calendar-List}", calendarListString);
 
             // Special logic added for coverage fields that are only to be applicable
             // to certain territories

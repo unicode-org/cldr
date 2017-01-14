@@ -856,17 +856,28 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT languageMatching ( languageMatches* ) >
 
-<!ELEMENT languageMatches ( languageMatch* ) >
+<!ELEMENT languageMatches ( paradigmLocales*, matchVariable*, languageMatch* ) >
 <!ATTLIST languageMatches type NMTOKEN #REQUIRED >
 
 <!ELEMENT languageMatch EMPTY >
     <!--@ORDERED-->
 <!ATTLIST languageMatch desired CDATA #REQUIRED >
+<!ATTLIST languageMatch supported CDATA #REQUIRED >
+<!ATTLIST languageMatch percent NMTOKEN #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST languageMatch distance NMTOKEN #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST languageMatch oneway (true | false) #IMPLIED >
     <!--@VALUE-->
-<!ATTLIST languageMatch percent NMTOKEN #REQUIRED >
+
+<!ELEMENT paradigmLocales EMPTY >
+<!ATTLIST paradigmLocales locales NMTOKENS #REQUIRED >
     <!--@VALUE-->
-<!ATTLIST languageMatch supported CDATA #REQUIRED >
+
+<!ELEMENT matchVariable EMPTY >
+<!ATTLIST matchVariable id CDATA #REQUIRED >
+<!ATTLIST matchVariable value CDATA #REQUIRED >
+    <!--@VALUE-->
 
 <!-- # Day Periods -->
 

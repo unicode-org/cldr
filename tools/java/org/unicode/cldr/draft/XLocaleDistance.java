@@ -17,6 +17,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.draft.XLocaleDistance.RegionMapper.Builder;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.google.common.base.Objects;
@@ -36,7 +37,8 @@ import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class XLocaleDistance {
-    static final boolean PRINT_OVERRIDES = false;
+
+    static final boolean PRINT_OVERRIDES = true;
 
     public static final int ABOVE_THRESHOLD = 100;
 
@@ -49,7 +51,9 @@ public class XLocaleDistance {
 
     // For now, get data directly from CLDR
 
-    static final SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
+    private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
+    private static final CLDRFile english = CONFIG.getEnglish();
+    static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
 
     private static List<R4<String, String, Integer, Boolean>> xGetLanguageMatcherData() {
         return SDI.getLanguageMatcherData("written");
@@ -278,7 +282,7 @@ public class XLocaleDistance {
                 ((StringDistanceTable)distanceTable).copy(value);
             }
         }
-        
+
         public DistanceTable getDistanceTable() {
             return distanceTable;
         }
@@ -287,7 +291,7 @@ public class XLocaleDistance {
     public XLocaleDistance(DistanceTable datadistancetable2, RegionMapper regionMapper) {
         languageDesired2Supported = datadistancetable2;
         this.regionMapper = regionMapper;
-        
+
         StringDistanceNode languageNode = (StringDistanceNode) ((StringDistanceTable) languageDesired2Supported).subtables.get(ANY).get(ANY);
         defaultLanguageDistance = languageNode.distance;
         StringDistanceNode scriptNode = (StringDistanceNode) ((StringDistanceTable)languageNode.distanceTable).subtables.get(ANY).get(ANY);
@@ -313,7 +317,7 @@ public class XLocaleDistance {
         StringDistanceTable() {
             this(newMap());
         }
-        
+
         public boolean isEmpty() {
             return subtables.isEmpty();
         }
@@ -732,13 +736,16 @@ public class XLocaleDistance {
         Builder rmb = new RegionMapper.Builder().addParadigms(paradigmRegions);
         for (String[] variableRule : variableOverrides) {
             rmb.add(variableRule[0], variableRule[1]);
-            if (PRINT_OVERRIDES) {
-                System.out.println("<paradigms paradigmLocales=\"" + CollectionUtilities.join(paradigmRegions, " ")
-                    + "\"/>");
-                System.out.println("<matchVariable groupVariable=\"" + variableRule[0]
-                + "\" groupValue=\""
-                + variableRule[1]
-                    + "\"/>");
+        }
+        if (PRINT_OVERRIDES) {
+            System.out.println("\t\t<languageMatches type=\"written\" alt=\"enhanced\">");
+            System.out.println("\t\t\t<paradigmLocales locales=\"" + CollectionUtilities.join(paradigmRegions, " ")
+            + "\"/>");
+            for (String[] variableRule : variableOverrides) {
+                System.out.println("\t\t\t<matchVariable id=\"" + variableRule[0]
+                    + "\" value=\""
+                    + variableRule[1]
+                        + "\"/>");
             }
         }
 
@@ -747,7 +754,7 @@ public class XLocaleDistance {
 
         Splitter bar = Splitter.on('_');
 
-        List<Row.R3<List<String>, List<String>, Integer>>[] sorted = new ArrayList[3];
+        List<Row.R4<List<String>, List<String>, Integer, Boolean>>[] sorted = new ArrayList[3];
         sorted[0] = new ArrayList<>();
         sorted[1] = new ArrayList<>();
         sorted[2] = new ArrayList<>();
@@ -756,40 +763,47 @@ public class XLocaleDistance {
         for (R4<String, String, Integer, Boolean> info : xGetLanguageMatcherData()) {
             List<String> desired = bar.splitToList(info.get0());
             List<String> supported = bar.splitToList(info.get1());
+            Boolean oneway = info.get3();
             final int distance = 100-info.get2();
             int size = desired.size();
 
             // for now, skip size == 3
             if (size == 3) continue;
 
-            sorted[size-1].add(Row.of(desired, supported, distance));
-            if (info.get3() != Boolean.TRUE && !desired.equals(supported)) {
-                sorted[size-1].add(Row.of(supported, desired, distance));
-            }
+            sorted[size-1].add(Row.of(desired, supported, distance, oneway));
         }
 
-        for (List<Row.R3<List<String>, List<String>, Integer>> item1 : sorted) {
+        for (List<Row.R4<List<String>, List<String>, Integer, Boolean>> item1 : sorted) {
             int debug = 0;
-            for (Row.R3<List<String>, List<String>, Integer> item2 : item1) {
-                add(defaultDistanceTable, item2.get0(), item2.get1(), item2.get2());
+            for (Row.R4<List<String>, List<String>, Integer, Boolean> item2 : item1) {
+                List<String> desired = item2.get0();
+                List<String> supported = item2.get1();
+                Integer distance = item2.get2();
+                Boolean oneway = item2.get3();
+                add(defaultDistanceTable, desired, supported, distance);
+                if (oneway != Boolean.TRUE && !desired.equals(supported)) {
+                    add(defaultDistanceTable, supported, desired, distance);
+                }
+                printMatchXml(desired, supported, distance, oneway);
             }
         }
 
         // add new size=3
         for (String[] rule : regionRuleOverrides) {
-            if (PRINT_OVERRIDES) System.out.println("<languageMatch  desired=\""
-                + rule[0]
-                    + "\" supported=\""
-                    + rule[1]
-                        + "\"   percent=\""
-                        + rule[2]
-                            + "\"/>");
+//            if (PRINT_OVERRIDES) System.out.println("\t\t\t<languageMatch desired=\""
+//                + rule[0]
+//                    + "\" supported=\""
+//                    + rule[1]
+//                        + "\" distance=\""
+//                        + rule[2]
+//                            + "\"/>");
             if (rule[0].equals("en_*_*") || rule[1].equals("*_*_*")) {
                 int debug = 0;
             }
             List<String> desiredBase = new ArrayList<>(bar.splitToList(rule[0]));
             List<String> supportedBase = new ArrayList<>(bar.splitToList(rule[1]));
             Integer distance = 100-Integer.parseInt(rule[2]);
+            printMatchXml(desiredBase, supportedBase, distance, false);
 
             Collection<String> desiredRegions = defaultRegionMapper.getIdsFromVariable(desiredBase.get(2));
             if (desiredRegions.isEmpty()) {
@@ -808,13 +822,61 @@ public class XLocaleDistance {
                 }
             }
         }
+        if (PRINT_OVERRIDES) {
+            System.out.println("\t\t</languageMatches>");
+        }
 
         DEFAULT = new XLocaleDistance(defaultDistanceTable.compact(), defaultRegionMapper);
 
-        if (PRINT_OVERRIDES) {
+        if (false && PRINT_OVERRIDES) {
             System.out.println(defaultRegionMapper);
             System.out.println(defaultDistanceTable);
+            throw new IllegalArgumentException();
         }
+    }
+
+    private static void printMatchXml(List<String> desired, List<String> supported, Integer distance, Boolean oneway) {
+        if (PRINT_OVERRIDES) {
+            String desiredStr = CollectionUtilities.join(desired, "_");
+            String supportedStr = CollectionUtilities.join(supported, "_");
+            String desiredName = fixedName(desired);
+            String supportedName = fixedName(supported);
+            System.out.println("\t\t\t<languageMatch"
+                + " desired=\"" + desiredStr
+                + "\"\tsupported=\"" + supportedStr
+                + "\"\tdistance=\"" + distance
+                + (!oneway ? "" : "\"\toneway=\"true")
+                + "\"/>\t<!-- " + desiredName + " ⇒ " + supportedName + " -->");
+        }
+    }
+
+    private static String fixedName(List<String> match) {
+        List<String> alt = new ArrayList<String>(match);
+        StringBuilder result = new StringBuilder();
+        switch(alt.size()) {
+        case 3:
+            String region = alt.get(2);
+            if (region.equals("*") || region.startsWith("$")) {
+                result.append(region);
+            } else {
+                result.append(english.getName(CLDRFile.TERRITORY_NAME, region));
+            }
+        case 2:
+            String script = alt.get(1);
+            if (script.equals("*")) {
+                result.insert(0, script);
+            } else {
+                result.insert(0, english.getName(CLDRFile.TERRITORY_NAME, script));
+            }
+        case 1:
+            String language = alt.get(0);
+            if (language.equals("*")) {
+                result.insert(0, language);
+            } else {
+                result.insert(0, english.getName(CLDRFile.TERRITORY_NAME, language));
+            }
+        }
+        return CollectionUtilities.join(alt, "; ");
     }
 
     static public void add(StringDistanceTable languageDesired2Supported, List<String> desired, List<String> supported, int percentage) {
@@ -1144,7 +1206,9 @@ public class XLocaleDistance {
 //      for (Entry<String, Collection<String>> entry : regionToMacros.asMap().entrySet()) {
 //          System.out.println(entry.getKey() + "\t⥤ " + entry.getValue());
 //      }
-        System.out.println(getDefault().toString(true));
+        if (PRINT_OVERRIDES) {
+            System.out.println(getDefault().toString(true));
+        }
         DistanceTable table = getDefault().languageDesired2Supported;
         DistanceTable compactedTable = table.compact();
         if (!table.equals(compactedTable)) {

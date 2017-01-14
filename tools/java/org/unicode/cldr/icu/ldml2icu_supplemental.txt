@@ -150,7 +150,7 @@
 //supplementalData/languageMatching/languageMatches[@type="(%B)_new"]/matchVariable[@id="(%A)"][@value="(%A)"] ; /languageMatchingInfo/$1/matchVariable/$2 ; values=$3
 
 //supplementalData/languageMatching/languageMatches[@type="(%B)_new"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@distance="(%N)"][@oneway="true"] ; /languageMatchingNew/$1/<FIFO> ; values=$2 $3 $4 1
-//supplementalData/languageMatching/languageMatches[@type="(%A)_new"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@distance="(%N)"] ; /languageMatchingNew/$1/<FIFO> ; values=$2 $3 $4 0
+//supplementalData/languageMatching/languageMatches[@type="(%B)_new"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@distance="(%N)"] ; /languageMatchingNew/$1/<FIFO> ; values=$2 $3 $4 0
 
 //supplementalData/languageMatching/languageMatches[@type="(%B)"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@percent="(%N)"][@oneway="true"] ; /languageMatching/$1/<FIFO> ; values=$2 $3 $4 1
 //supplementalData/languageMatching/languageMatches[@type="(%B)"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@percent="(%N)"] ; /languageMatching/$1/<FIFO> ; values=$2 $3 $4 0

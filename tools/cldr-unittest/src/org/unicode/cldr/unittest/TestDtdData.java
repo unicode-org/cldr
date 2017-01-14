@@ -459,6 +459,7 @@ public class TestDtdData  extends TestFmwk {
                 || attribute.equals("extension");
         case supplementalData:
             return attribute.equals("_q")
+                || (elementName.equals("matchVariable") && attribute.equals("id"))
                 || attribute.equals("iso4217")
                 || attribute.equals("iso3166")
                 || attribute.equals("code")
@@ -556,8 +557,6 @@ public class TestDtdData  extends TestFmwk {
                 && (attribute.equals("desired") || attribute.equals("supported"))
                 || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
                     .equals("variant")))
-                || elementName.equals("paradigmLocales") && attribute.equals("locales")
-                || elementName.equals("matchVariable") && (attribute.equals("id") || attribute.equals("value"))
                 ;
 
         case keyboard:

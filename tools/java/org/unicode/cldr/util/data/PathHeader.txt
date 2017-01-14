@@ -324,8 +324,8 @@
 
 //supplementalData/languageMatching/languageMatches[@type="%A"]/languageMatch[@desired="%A"][@supported="%A"]/_%E			; Supplemental ; LanguageMatch ; $1 ; $2-$3-$4 ; HIDE
 //supplementalData/languageMatching/languageMatches[@type="%A"]/languageMatch/_%E			; Supplemental ; LanguageMatch ; $1 ; $2 ; HIDE
-//supplementalData/languageMatching/languageMatches[@type="%A"]/paradigmLocales/_%E			; Supplemental ; LanguageMatch ; $1 ; paradigmLocales-$2 ; HIDE
-//supplementalData/languageMatching/languageMatches[@type="%A"]/matchVariable/_%E			; Supplemental ; LanguageMatch ; $1 ; matchVariable-$2 ; HIDE
+//supplementalData/languageMatching/languageMatches[@type="%A"]/paradigmLocales/_%E			; Supplemental ; LanguageMatch ; $1 ; paradigmLocales ; HIDE
+//supplementalData/languageMatching/languageMatches[@type="%A"]/matchVariable[@id="%A"]/_%E	; Supplemental ; LanguageMatch ; $1 ; matchVariable-$2 ; HIDE
 
 //supplementalData/languageData/language[@type="%A"]/_%E			; Supplemental ; Language ; $1 ; $2 ; HIDE
 //supplementalData/languageData/language[@type="%A"][@alt="%A"]/_%E			; Supplemental ; Language ; $1 ; $3-$2 ; HIDE

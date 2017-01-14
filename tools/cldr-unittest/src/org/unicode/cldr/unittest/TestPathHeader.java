@@ -1138,6 +1138,7 @@ public class TestPathHeader extends TestFmwkPlus {
                 checkSubpath(path);
             }
         }
+        
         public void checkSubpath(String path) {
             String message = ": Can't compute path header";
             PathHeader ph = null;
@@ -1159,8 +1160,12 @@ public class TestPathHeader extends TestFmwkPlus {
                         seenBad.add(ph);
                     }
                     return;
-                } 
-                message = ": Unknown path header";
+                }
+                // for debugging
+                phf.clearCache();
+                List<String> failures = new ArrayList<>();
+                ph = phf.fromPath(path, failures);
+                message = ": Unknown path header" + failures;
             } catch (Exception e) {
                 message = ": Exception in path header: " + e.getMessage();
             }

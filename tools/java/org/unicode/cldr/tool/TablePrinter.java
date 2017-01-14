@@ -86,7 +86,7 @@ public class TablePrinter {
         private boolean repeatHeader = false;
         private boolean hidden = false;
         private boolean isHeader = false;
-        private boolean divider = false;
+//        private boolean divider = false;
 
         public Column(String header) {
             this.header = header;
@@ -125,9 +125,9 @@ public class TablePrinter {
             isHeader = b;
         }
 
-        public void setDivider(boolean b) {
-            divider = b;
-        }
+//        public void setDivider(boolean b) {
+//            divider = b;
+//        }
     }
 
     public TablePrinter addColumn(String header, String headerAttributes, String cellPattern, String cellAttributes,
@@ -326,8 +326,8 @@ public class TablePrinter {
                     if (column.repeatHeader && !sortedFlat[i - 1][j].equals(sortedFlat[i][j])) {
                         showHeader(result);
                         break;
-                    } else if (column.divider && !sortedFlat[i - 1][j].equals(sortedFlat[i][j])) {
-                        divider = true;
+//                    } else if (column.divider && !sortedFlat[i - 1][j].equals(sortedFlat[i][j])) {
+//                        divider = true;
                     }
                 }
                 if (divider) {
@@ -508,10 +508,10 @@ public class TablePrinter {
         return this;
     }
 
-    public TablePrinter setRepeatDivider(boolean b) {
-        columns.get(columns.size() - 1).setDivider(b);
-        return this;
-    }
+//    public TablePrinter setRepeatDivider(boolean b) {
+//        //columns.get(columns.size() - 1).setDivider(b);
+//        return this;
+//    }
 
     public void clearRows() {
         rows.clear();

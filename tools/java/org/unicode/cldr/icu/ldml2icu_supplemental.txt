@@ -10,6 +10,8 @@
 
 # Attribute value
 %A=[^"']++
+# Attribute value, no underscore
+%B=[^"'_]++
 # Word/Zone match
 %W=[\s\w\-/]++
 # Greedy word match
@@ -144,13 +146,14 @@
 
 # languageInfo.xml
 
-//supplementalData/languageMatching/languageMatches[@type="(%A)"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@distance="(%N)"][@oneway="true"] ; /languageMatching/$1/<$2$4> ; values=$2 $4 $3 1
-//supplementalData/languageMatching/languageMatches[@type="(%A)"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@distance="(%N)"] ; /languageMatching/$1/<$2$4> ; values=$2 $4 $3 0
-//supplementalData/languageMatching/languageMatches[@type="(%A)"]/paradigmLocales[@locales="(%A)"] ; /languageMatching/$1/paradigmLocales ; values=$2
-//supplementalData/languageMatching/languageMatches[@type="(%A)"]/matchVariable[@id="(%A)"][@value="(%A)"] ; /languageMatching/$1/matchVariable/$2 ; values=$3
+//supplementalData/languageMatching/languageMatches[@type="(%B)_new"]/paradigmLocales[@locales="(%A)"] ; /languageMatchingInfo/$1/paradigmLocales ; values=$2
+//supplementalData/languageMatching/languageMatches[@type="(%B)_new"]/matchVariable[@id="(%A)"][@value="(%A)"] ; /languageMatchingInfo/$1/matchVariable/$2 ; values=$3
 
-//supplementalData/languageMatching/languageMatches[@type="(%A)"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@percent="(%N)"][@oneway="true"] ; /languageMatching/$1/<$2$4> ; values=$2 $4 $3 1
-//supplementalData/languageMatching/languageMatches[@type="(%A)"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@percent="(%N)"] ; /languageMatching/$1/<$2$4> ; values=$2 $4 $3 0
+//supplementalData/languageMatching/languageMatches[@type="(%B)_new"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@distance="(%N)"][@oneway="true"] ; /languageMatchingNew/$1/<FIFO> ; values=$2 $3 $4 1
+//supplementalData/languageMatching/languageMatches[@type="(%A)_new"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@distance="(%N)"] ; /languageMatchingNew/$1/<FIFO> ; values=$2 $3 $4 0
+
+//supplementalData/languageMatching/languageMatches[@type="(%B)"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@percent="(%N)"][@oneway="true"] ; /languageMatching/$1/<FIFO> ; values=$2 $3 $4 1
+//supplementalData/languageMatching/languageMatches[@type="(%B)"]/languageMatch[@desired="(%A)"][@supported="(%A)"][@percent="(%N)"] ; /languageMatching/$1/<FIFO> ; values=$2 $3 $4 0
 
 # likelySubtags.xml
 //supplementalData/likelySubtags/likelySubtag[@from="(%A)"][@to="(%A)"] ; /$1 ; values=$2

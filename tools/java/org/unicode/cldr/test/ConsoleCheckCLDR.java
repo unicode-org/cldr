@@ -996,7 +996,7 @@ public class ConsoleCheckCLDR {
             .setBreakSpans(true).setRepeatHeader(true).setHeaderCell(true)
             .addColumn("Locale").setCellAttributes("class=\"{1}\"")
             .setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}\">{0}</a>").setSortPriority(2)
-            .setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
+            .setSpanRows(true).setBreakSpans(true)//.setRepeatDivider(true)
             .addColumn("Name").setCellAttributes("class=\"{1}\"").setSpanRows(true)
             .setBreakSpans(true)
             // .addColumn("HIDDEN").setSortPriority(2).setHidden(true)
@@ -1112,7 +1112,7 @@ public class ConsoleCheckCLDR {
 
             TablePrinter indexTablePrinter = new TablePrinter().setCaption("Problem Summary")
                 .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
-                .addColumn("BASE").setHidden(true).setRepeatDivider(true)
+                .addColumn("BASE").setHidden(true)//.setRepeatDivider(true)
                 .addColumn("Locale").setCellPattern("<a name=\"{0}\" href=\"{1}.html\">{0}</a>") // link to base, anchor
                 // with full
                 .addColumn("Name");
@@ -1199,7 +1199,7 @@ public class ConsoleCheckCLDR {
             Relation<Organization, String> orgToLocales = getOrgToLocales();
             TablePrinter indexTablePrinter = new TablePrinter().setCaption("Problem Summary")
                 .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
-                .addColumn("Section").setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
+                .addColumn("Section").setSpanRows(true).setBreakSpans(true)//.setRepeatDivider(true)
                 .addColumn("Problems").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
                 .addColumn("Subtype").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
                 .addColumn("Locale").setCellAttributes("class=\"{2}\"")

@@ -427,6 +427,7 @@ public class TestTransforms extends TestFmwkPlus {
                     if (line == null)
                         break;
                     line = line.trim();
+                    counter += 1;
                     if (line.startsWith("#")) {
                         continue;
                     }
@@ -434,7 +435,7 @@ public class TestTransforms extends TestFmwkPlus {
                     String source = parts[0];
                     String expected = parts[1];
                     String result = trans.transform(source);
-                    assertEquals(transName + " " + (++counter) + " Transform "
+                    assertEquals(transName + " " + counter + " Transform "
                         + source, expected, result);
                 }
                 in.close();

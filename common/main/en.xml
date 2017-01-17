@@ -2465,6 +2465,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="era">
 				<displayName>era</displayName>
 			</field>
+			<field type="era-short">
+				<displayName>era</displayName>
+			</field>
 			<field type="year">
 				<displayName>year</displayName>
 				<relative type="-1">last year</relative>
@@ -2578,6 +2581,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} wk. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>week of month</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>wk. of mo.</displayName>
+			</field>
 			<field type="day">
 				<displayName>day</displayName>
 				<relative type="-1">yesterday</relative>
@@ -2603,8 +2612,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="dayOfYear">
+				<displayName>day of year</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>day of yr.</displayName>
+			</field>
 			<field type="weekday">
 				<displayName>day of the week</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>day of wk.</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>weekday of the month</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>wkday. of mo.</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">last Sunday</relative>
@@ -2883,6 +2907,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>AM/PM</displayName>
 				<displayName alt="variant">am/pm</displayName>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>AM/PM</displayName>
+				<displayName alt="variant">am/pm</displayName>
+			</field>
 			<field type="hour">
 				<displayName>hour</displayName>
 				<relative type="0">this hour</relative>
@@ -2955,6 +2983,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="zone">
 				<displayName>time zone</displayName>
+			</field>
+			<field type="zone-short">
+				<displayName>zone</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>

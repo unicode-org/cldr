@@ -2380,6 +2380,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="era">
 				<displayName>Era</displayName>
 			</field>
+			<field type="era-short">
+				<alias source="locale" path="../field[@type='era']"/>
+			</field>
+			<field type="era-narrow">
+				<alias source="locale" path="../field[@type='era-short']"/>
+			</field>
 			<field type="year">
 				<displayName>Year</displayName>
 				<relative type="-1">last year</relative>
@@ -2453,6 +2459,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="week-narrow">
 				<alias source="locale" path="../field[@type='week-short']"/>
 			</field>
+			<field type="weekOfMonth">
+				<displayName>Week Of Month</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<alias source="locale" path="../field[@type='weekOfMonth']"/>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<alias source="locale" path="../field[@type='weekOfMonth-short']"/>
+			</field>
 			<field type="day">
 				<displayName>Day</displayName>
 				<relative type="-1">yesterday</relative>
@@ -2471,8 +2486,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="day-narrow">
 				<alias source="locale" path="../field[@type='day-short']"/>
 			</field>
+			<field type="dayOfYear">
+				<displayName>Day Of Year</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<alias source="locale" path="../field[@type='dayOfYear']"/>
+			</field>
+			<field type="dayOfYear-narrow">
+				<alias source="locale" path="../field[@type='dayOfYear-short']"/>
+			</field>
 			<field type="weekday">
 				<displayName>Day of the Week</displayName>
+			</field>
+			<field type="weekday-short">
+				<alias source="locale" path="../field[@type='weekday']"/>
+			</field>
+			<field type="weekday-narrow">
+				<alias source="locale" path="../field[@type='weekday-short']"/>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>Weekday Of Month</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<alias source="locale" path="../field[@type='weekdayOfMonth']"/>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<alias source="locale" path="../field[@type='weekdayOfMonth-short']"/>
 			</field>
 			<field type="sun">
 				<relative type="-1">last Sunday</relative>
@@ -2596,6 +2635,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="dayperiod">
 				<displayName>Dayperiod</displayName>
 			</field>
+			<field type="dayperiod-short">
+				<alias source="locale" path="../field[@type='dayperiod']"/>
+			</field>
+			<field type="dayperiod-narrow">
+				<alias source="locale" path="../field[@type='dayperiod-short']"/>
+			</field>
 			<field type="hour">
 				<displayName>Hour</displayName>
 				<relative type="0">this hour</relative>
@@ -2646,6 +2691,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="zone">
 				<displayName>Zone</displayName>
+			</field>
+			<field type="zone-short">
+				<alias source="locale" path="../field[@type='zone']"/>
+			</field>
+			<field type="zone-narrow">
+				<alias source="locale" path="../field[@type='zone-short']"/>
 			</field>
 		</fields>
 		<timeZoneNames>

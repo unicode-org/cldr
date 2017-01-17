@@ -1228,22 +1228,28 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     static MapComparator<String> lengthOrder = new MapComparator<String>().add(
         "full", "long", "medium", "short").freeze();
     static MapComparator<String> dateFieldOrder = new MapComparator<String>().add(
-        "era",
+        "era", "era-short", "era-narrow",
         "year", "year-short", "year-narrow",
         "quarter", "quarter-short", "quarter-narrow",
         "month", "month-short", "month-narrow",
         "week", "week-short", "week-narrow",
+        "weekOfMonth", "weekOfMonth-short", "weekOfMonth-narrow",
         "day", "day-short", "day-narrow",
-        "weekday",
-        "sun", "sun-short", "sun-narrow", "mon", "mon-short", "mon-narrow",
-        "tue", "tue-short", "tue-narrow", "wed", "wed-short", "wed-narrow",
-        "thu", "thu-short", "thu-narrow", "fri", "fri-short", "fri-narrow",
+        "dayOfYear", "dayOfYear-short", "dayOfYear-narrow",
+        "weekday", "weekday-short", "weekday-narrow",
+        "weekdayOfMonth", "weekdayOfMonth-short", "weekdayOfMonth-narrow",
+        "sun", "sun-short", "sun-narrow",
+        "mon", "mon-short", "mon-narrow",
+        "tue", "tue-short", "tue-narrow",
+        "wed", "wed-short", "wed-narrow",
+        "thu", "thu-short", "thu-narrow",
+        "fri", "fri-short", "fri-narrow",
         "sat", "sat-short", "sat-narrow",
-        "dayperiod",
+        "dayperiod-short", "dayperiod", "dayperiod-narrow",
         "hour", "hour-short", "hour-narrow",
         "minute", "minute-short", "minute-narrow",
         "second", "second-short", "second-narrow",
-        "zone").freeze();
+        "zone", "zone-short", "zone-narrow").freeze();
     static MapComparator<String> unitOrder = new MapComparator<String>().add(
         "acceleration-g-force", "acceleration-meter-per-second-squared",
         "angle-revolution", "angle-radian", "angle-degree", "angle-arc-minute", "angle-arc-second",

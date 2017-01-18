@@ -1279,6 +1279,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "length-parsec", "length-light-year", "length-astronomical-unit",
         "length-furlong", "length-fathom",
         "length-nautical-mile", "length-mile-scandinavian",
+        "length-point",
         "light-lux",
         "mass-metric-ton", "mass-kilogram", "mass-gram", "mass-milligram", "mass-microgram",
         "mass-ton", "mass-stone", "mass-pound", "mass-ounce",

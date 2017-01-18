@@ -7,13 +7,12 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 
-public class CheckNew extends CheckCLDR {
-    private CLDRFile english;
+public class CheckNew extends FactoryCheckCLDR {
     private OutdatedPaths outdatedPaths;
 
     public CheckNew(Factory factory) {
+        super(factory);
         outdatedPaths = OutdatedPaths.getInstance();
-        english = factory.make("en", true);
     }
 
     @Override
@@ -46,7 +45,7 @@ public class CheckNew extends CheckCLDR {
         // we skip if certain other errors are present
         if (hasCoverageError(result)) return this;
 
-        String englishValue = english.getStringValue(path);
+        String englishValue = getEnglishFile().getStringValue(path);
         String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
 
         result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)

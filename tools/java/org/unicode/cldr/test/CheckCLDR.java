@@ -69,6 +69,8 @@ abstract public class CheckCLDR {
     private static CLDRFile displayInformation;
 
     private CLDRFile cldrFileToCheck;
+    private CLDRFile englishFile = null;
+
     private boolean skipTest = false;
     private Phase phase;
     private Map<Subtype, List<Pattern>> filtersForLocale = new HashMap<Subtype, List<Pattern>>();
@@ -583,7 +585,7 @@ abstract public class CheckCLDR {
         .add(new CheckNumbers(factory))
         // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
         .add(new CheckMetazones())
-        .add(new CheckLogicalGroupings())
+        .add(new CheckLogicalGroupings(factory))
         .add(new CheckAlt())
         .add(new CheckCurrencies())
         .add(new CheckCasing())
@@ -1398,5 +1400,13 @@ abstract public class CheckCLDR {
             }
         }
         return false;
+    }
+
+    public CLDRFile getEnglishFile() {
+        return englishFile;
+    }
+
+    public void setEnglishFile(CLDRFile englishFile) {
+        this.englishFile = englishFile;
     }
 }

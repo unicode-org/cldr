@@ -205,13 +205,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         return Collections.unmodifiableMap(mapPathPartsToSets);
     }
 
-    private transient final PathHeader.Factory pathHeaderFactory;
-
     public CheckDisplayCollisions(Factory factory) {
         super(factory);
-        pathHeaderFactory = PathHeader.getFactory(factory.make("en", true));
     }
-
+    
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -384,7 +381,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         if (SKIP_TYPE_CHECK) {
             for (String pathName : paths) {
                 currentAttributesToIgnore.reset(pathName);
-                PathHeader pathHeader = pathHeaderFactory.fromPath(pathName);
+                PathHeader pathHeader = getPathHeaderFactory().fromPath(pathName);
                 if (getPhase() == Phase.FINAL_TESTING) {
                     collidingTypes.add(pathHeader.getHeaderCode()); // later make this more readable.
                 } else {
@@ -433,7 +430,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // ( JCE: 8/7/2012 )
 
         if (path.contains("timeZoneNames") && collidingTypes.size() == 1) {
-            PathHeader pathHeader = pathHeaderFactory.fromPath(path);
+            PathHeader pathHeader = getPathHeaderFactory().fromPath(path);
             String thisZone = pathHeader.getHeader();
             String thisZoneType = pathHeader.getCode();
             String collisionString = collidingTypes.toString();

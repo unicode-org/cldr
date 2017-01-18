@@ -2,18 +2,21 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -23,7 +26,9 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
@@ -31,6 +36,9 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.NumberFormat;
@@ -158,29 +166,29 @@ public class TestCLDRFile extends TestFmwk {
                     if (path.startsWith("//ldml/dates/calendars/calendar")
                         && !(path.contains("[@type=\"generic\"]") || path
                             .contains("[@type=\"gregorian\"]"))
-                            || (path.contains("/eras/") && path
-                                .contains("[@alt=\"variant\"]")) // it is OK
-                                // for
-                                // just
-                                // "en"
-                                // to
-                                // have
-                                // /eras/.../era[@type=...][@alt="variant"]
-                                || path.contains("[@type=\"japanese\"]")
-                                || path.contains("[@type=\"coptic\"]")
-                                || path.contains("[@type=\"hebrew\"]")
-                                || path.contains("[@type=\"islamic-rgsa\"]")
-                                || path.contains("[@type=\"islamic-umalqura\"]")
-                                || path.contains("/relative[@type=\"-2\"]")
-                                || path.contains("/relative[@type=\"2\"]")
-                                || path.startsWith("//ldml/contextTransforms/contextTransformUsage")
-                                || path.contains("[@alt=\"variant\"]")
-                                || (path.contains("dayPeriod[@type=")
-                        && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]")
-                        )) // morning1, afternoon1, ...
-                                        || (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
-                                            && localeInfo.locale.equals("root"))
-                                            // //ldml/characters/exemplarCharacters[@type="index"][root]
+                        || (path.contains("/eras/") && path
+                            .contains("[@alt=\"variant\"]")) // it is OK
+                        // for
+                        // just
+                        // "en"
+                        // to
+                        // have
+                        // /eras/.../era[@type=...][@alt="variant"]
+                        || path.contains("[@type=\"japanese\"]")
+                        || path.contains("[@type=\"coptic\"]")
+                        || path.contains("[@type=\"hebrew\"]")
+                        || path.contains("[@type=\"islamic-rgsa\"]")
+                        || path.contains("[@type=\"islamic-umalqura\"]")
+                        || path.contains("/relative[@type=\"-2\"]")
+                        || path.contains("/relative[@type=\"2\"]")
+                        || path.startsWith("//ldml/contextTransforms/contextTransformUsage")
+                        || path.contains("[@alt=\"variant\"]")
+                        || (path.contains("dayPeriod[@type=")
+                            && (path.endsWith("1\"]") || path.endsWith("\"am\"]") || path.endsWith("\"pm\"]") || path.endsWith("\"midnight\"]")
+                                )) // morning1, afternoon1, ...
+                        || (path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]")
+                            && localeInfo.locale.equals("root"))
+                        // //ldml/characters/exemplarCharacters[@type="index"][root]
                         ) {
                         continue;
                     }
@@ -283,7 +291,7 @@ public class TestCLDRFile extends TestFmwk {
             String path = it.next();
             if (m.reset(path).find() && !path.contains("alias")) {
                 errln(cldr.getLocaleID() + "\t" + cldr.getStringValue(path)
-                    + "\t" + cldr.getFullXPath(path));
+                + "\t" + cldr.getFullXPath(path));
             }
             if (path == null) {
                 errln("Null path");
@@ -558,4 +566,127 @@ public class TestCLDRFile extends TestFmwk {
         }
     }
 
+    public void TestFileIds() {
+        if (logKnownIssue("cldrbug:9994", "Suppress  tests for exemplars directory til fixed")) {
+            return;
+        }
+        Output<Map<String, Multimap<LdmlDir, Source>>> localeToDirToSource = new Output<>();
+        Map<LdmlDir, Multimap<String, Source>> dirToLocaleToSource = getFiles(localeToDirToSource);
+        
+        for ( Entry<String, Multimap<LdmlDir, Source>> e : localeToDirToSource.value.entrySet()) {
+            String locale = e.getKey();
+            Map<LdmlDir, Collection<Source>> value = e.getValue().asMap();
+            for (Entry<LdmlDir, Collection<Source>> e2 : value.entrySet()) {
+                LdmlDir dir = e2.getKey();
+                Collection<Source> sources = e2.getValue();
+                if (sources.size() != 1) {
+                    errln("Can only one have 1 instance of " + locale + " in " + dir + ", but have in " + sources);
+                }
+            }
+        }
+
+        LikelySubtags likelySubtags = new LikelySubtags();
+
+        for (Entry<LdmlDir, Multimap<String, Source>> dirAndLocaleToSource : dirToLocaleToSource.entrySet()) {
+            LdmlDir ldmlDir = dirAndLocaleToSource.getKey();
+            Multimap<String, Source> localesToDirs = dirAndLocaleToSource.getValue();
+            for (Entry<String, Source> localeAndDir : localesToDirs.entries()) {
+                String loc = localeAndDir.getKey();
+                if (loc.equals("root")) {
+                    continue;
+                }
+                Source source = localeAndDir.getValue();
+                String parent = LocaleIDParser.getParent(loc);
+                String parent2 = LanguageTagParser.getSimpleParent(loc); 
+                if (parent2.isEmpty()) {
+                    parent2 = "root";
+                }
+                String likely = likelySubtags.minimize(loc);
+                if (!localesToDirs.containsKey(parent)) {
+                    errln("Missing parent (" + parent + ") for " + loc + "  in " + source + "/" + ldmlDir + "; likely=" + likely);
+                }
+                if (!Objects.equals(parent, parent2) && !localesToDirs.containsKey(parent2)) {
+                    errln("Missing simple parent (" + parent2 + ") for " + loc + "  in " + source + "/" + ldmlDir + "; likely=" + likely);
+                }
+            }
+
+
+            // establish that the parent of locale is somewhere in the same 
+//                assertEquals(dir + " locale file has minimal id: ", min, loc);
+//            if (!dir.endsWith("exemplars")) {
+//                continue;
+//            }
+//            String trans = ltc.transform(loc);
+//            System.out.println("\t" + min + "\t" + loc + "\t" + trans);
+        }
+    }
+
+    enum Source {
+        common, 
+        seed, 
+        exemplars}
+    
+    enum LdmlDir {
+        main,
+        annotations,
+        casing,
+        collation,
+        rbnf,
+        segments,
+        subdivisions
+    }
+
+    /**
+     * Returns a map from directory (eg main) to its parent (eg seed) and to their children (locales in seed/main)
+     * @param localeToSourceToDir 
+     * @return
+     */
+    private Map<LdmlDir, Multimap<String, Source>> getFiles(
+        Output<Map<String, Multimap<LdmlDir, Source>>> localeToDirToSource) {
+
+        Map<LdmlDir, Multimap<String, Source>> _dirToLocaleToSource = new TreeMap<>();
+        Map<String, Multimap<LdmlDir, Source>> _localeToDirToSource = new TreeMap<>();
+
+        for (String base : new File(CLDRPaths.BASE_DIRECTORY).list()) {
+            Source source;
+            try {
+                source = Source.valueOf(base);
+            } catch (Exception e) {
+                continue;
+            }
+            String fullBase = CLDRPaths.BASE_DIRECTORY + base;
+            File fullBaseFile = new File(fullBase);
+            if (!fullBaseFile.isDirectory()) {
+                continue;
+            }
+
+            for (String sub1 : fullBaseFile.list()) {
+                if (!DtdType.ldml.directories.contains(sub1)) {
+                    continue;
+                }
+                LdmlDir ldmlDir = LdmlDir.valueOf(sub1);
+                String dir = fullBase + "/" + ldmlDir;
+                System.out.println(dir);
+                for (String loc : new File(dir).list()) {
+                    if (!loc.endsWith(".xml")) {
+                        continue;
+                    }
+                    loc = loc.substring(0, loc.length() - 4);
+
+                    put(_localeToDirToSource, loc, ldmlDir, source);
+                    put(_dirToLocaleToSource, ldmlDir, loc, source);
+                }
+            }
+        }
+        localeToDirToSource.value = ImmutableMap.copyOf(_localeToDirToSource); // TODO protect subtrees
+        return ImmutableMap.copyOf(_dirToLocaleToSource);
+    }
+
+    private <A, B, C> void put(Map<A, Multimap<B, C>> aToBToC, A a, B b, C c) {
+        Multimap<B, C> dirToSource = aToBToC.get(a);
+        if (dirToSource == null) {
+            aToBToC.put(a, dirToSource = (Multimap<B, C>) TreeMultimap.create());
+        }
+        dirToSource.put(b, c);
+    }
 }

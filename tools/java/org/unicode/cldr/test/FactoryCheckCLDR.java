@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader;
 
 /**
  * Subclass of CheckCLDR that requires a factory during checking.
@@ -13,7 +14,19 @@ import org.unicode.cldr.util.Factory;
 abstract class FactoryCheckCLDR extends CheckCLDR {
     private Factory factory;
     private CLDRFile resolvedCldrFileToCheck;
+    private PathHeader.Factory pathHeaderFactory;
 
+    public synchronized CLDRFile getEnglishFile() {
+        return super.getEnglishFile() != null ? super.getEnglishFile() : getFactory().make("en", true);
+    }
+
+    public synchronized PathHeader.Factory getPathHeaderFactory() {
+        if (pathHeaderFactory == null) {
+            pathHeaderFactory = PathHeader.getFactory(getEnglishFile() != null ? getEnglishFile() : getFactory().make("en", true));
+        }
+        return pathHeaderFactory;
+    }
+    
     public FactoryCheckCLDR(Factory factory) {
         super();
         this.factory = factory;

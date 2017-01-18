@@ -6,13 +6,17 @@ import java.util.Set;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.XPathParts;
 
-public class CheckLogicalGroupings extends CheckCLDR {
+public class CheckLogicalGroupings extends FactoryCheckCLDR {
 
+    public CheckLogicalGroupings(Factory factory) {
+        super(factory);
+    }
+    
     // Change MINIMUM_DRAFT_STATUS to DraftStatus.contributed if you only care about
     // contributed or higher. This can help to reduce the error count when you have a lot of new data.
 
@@ -80,7 +84,6 @@ public class CheckLogicalGroupings extends CheckCLDR {
         //}
 
         //if (Phase.FINAL_TESTING.equals(this.getPhase())) {
-        Factory factory = PathHeader.getFactory(CheckCLDR.getDisplayInformation());
         DraftStatus myStatus = null;
         EnumMap<DraftStatus, PathHeader> draftStatuses = new EnumMap<DraftStatus, PathHeader>(DraftStatus.class);
         for (String apath : paths) {
@@ -101,7 +104,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
             }
             PathHeader old = draftStatuses.get(draftStatus);
             if (old == null) { // take first or path itself
-                draftStatuses.put(draftStatus, factory.fromPath(apath));
+                draftStatuses.put(draftStatus, getPathHeaderFactory().fromPath(apath));
             }
         }
         if (draftStatuses.size() > 1 && myStatus != DraftStatus.approved) { // only show errors for the items that

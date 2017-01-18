@@ -74,7 +74,6 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
     public CheckNumbers(Factory factory) {
         super(factory);
-        pathHeaderFactory = PathHeader.getFactory(factory.make("en", true));
     }
 
     /**

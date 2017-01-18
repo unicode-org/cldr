@@ -377,6 +377,7 @@ public class ConsoleCheckCLDR {
             english = backCldrFactory.make("en", true);
         }
         checkCldr.setDisplayInformation(english);
+        checkCldr.setEnglishFile(english);
         setExampleGenerator(new ExampleGenerator(english, english, CLDRPaths.SUPPLEMENTAL_DIRECTORY));
         PathShower pathShower = new PathShower();
 

@@ -34,6 +34,14 @@
 			<dayPeriodRule type="evening1" from="18:00" before="24:00"/>	<!-- avond -->
 			<dayPeriodRule type="night1" from="00:00" before="06:00"/>	<!-- nacht -->
 		</dayPeriodRules>
+		<dayPeriodRules locales="gsw">
+			<dayPeriodRule type="midnight" at="00:00"/>			<!-- Mitternacht -->
+			<dayPeriodRule type="morning1" from="05:00" before="12:00"/>	<!-- Morge -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="14:00"/>	<!-- Mittag -->
+			<dayPeriodRule type="afternoon2" from="14:00" before="18:00"/>	<!-- Namittag -->
+			<dayPeriodRule type="evening1" from="18:00" before="24:00"/>	<!-- Aabig -->
+			<dayPeriodRule type="night1" from="00:00" before="05:00"/>	<!-- Nacht -->
+		</dayPeriodRules>
 		<dayPeriodRules locales="de">
 			<dayPeriodRule type="midnight" at="00:00"/>	<!-- Mitternacht -->
 			<dayPeriodRule type="morning1" from="05:00" before="10:00"/>	<!-- Morgen -->
@@ -655,6 +663,14 @@
 			<dayPeriodRule type="afternoon1" from="12:00" before="18:00"/>	<!-- middag -->
 			<dayPeriodRule type="evening1" from="18:00" before="24:00"/>	<!-- avond -->
 			<dayPeriodRule type="night1" from="00:00" before="06:00"/>	<!-- nacht -->
+		</dayPeriodRules>
+		<dayPeriodRules locales="gsw">
+			<dayPeriodRule type="midnight" at="00:00"/>			<!-- Mitternacht -->
+			<dayPeriodRule type="morning1" from="05:00" before="12:00"/>	<!-- Morge -->
+			<dayPeriodRule type="afternoon1" from="12:00" before="14:00"/>	<!-- Mittag -->
+			<dayPeriodRule type="afternoon2" from="14:00" before="18:00"/>	<!-- Namittag -->
+			<dayPeriodRule type="evening1" from="18:00" before="24:00"/>	<!-- Aabig -->
+			<dayPeriodRule type="night1" from="00:00" before="05:00"/>	<!-- Nacht -->
 		</dayPeriodRules>
 		<dayPeriodRules locales="de">
 			<dayPeriodRule type="morning1" from="05:00" before="10:00"/>	<!-- Morgen -->

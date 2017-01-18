@@ -1230,18 +1230,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">v.m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">n.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">vorm.</dayPeriod>
 							<dayPeriod type="pm">nam.</dayPeriod>
+							<dayPeriod type="midnight">Mitternacht</dayPeriod>
+							<dayPeriod type="morning1">am Morge</dayPeriod>
+							<dayPeriod type="afternoon1">zmittag</dayPeriod>
+							<dayPeriod type="afternoon2">am Namittag</dayPeriod>
+							<dayPeriod type="evening1">zaabig</dayPeriod>
+							<dayPeriod type="night1">znacht</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">am Vormittag</dayPeriod>
+							<dayPeriod type="pm">am Namittag</dayPeriod>
+							<dayPeriod type="midnight">Mitternacht</dayPeriod>
+							<dayPeriod type="morning1">am Morge</dayPeriod>
+							<dayPeriod type="afternoon1">zmittag</dayPeriod>
+							<dayPeriod type="afternoon2">am Namittag</dayPeriod>
+							<dayPeriod type="evening1">zaabig</dayPeriod>
+							<dayPeriod type="night1">znacht</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">Vormittag</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">Namittag</dayPeriod>
+							<dayPeriod type="am">Vormittag</dayPeriod>
+							<dayPeriod type="pm">Namittag</dayPeriod>
+							<dayPeriod type="midnight">Mitternacht</dayPeriod>
+							<dayPeriod type="morning1">Morge</dayPeriod>
+							<dayPeriod type="afternoon1">Mittag</dayPeriod>
+							<dayPeriod type="afternoon2">Namittag</dayPeriod>
+							<dayPeriod type="evening1">Aabig</dayPeriod>
+							<dayPeriod type="night1">Nacht</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>

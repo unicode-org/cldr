@@ -603,10 +603,10 @@ public class XLocaleDistance {
         }
     }
 
-    public int distance(ULocale desired, ULocale supported, int threshold, int languageScriptOffset) {
+    public int distance(ULocale desired, ULocale supported, int threshold, DistanceOption distanceOption) {
         LSR supportedLSR = LSR.fromMaximalized(supported);
         LSR desiredLSR = LSR.fromMaximalized(desired);
-        return distanceRaw(desiredLSR, supportedLSR, threshold, languageScriptOffset);
+        return distanceRaw(desiredLSR, supportedLSR, threshold, distanceOption);
     }
 
     /**
@@ -614,16 +614,18 @@ public class XLocaleDistance {
      * ULocales must be in canonical, addLikelySubtags format. Returns distance
      * @param desired
      * @param supported
-     * @param languageScriptOffset 
+     * @param distanceOption 
      * @return
      */
-    public int distanceRaw(LSR desired, LSR supported, int threshold, int languageScriptOffset) {
+    public int distanceRaw(LSR desired, LSR supported, int threshold, DistanceOption distanceOption) {
         return distanceRaw(desired.language, supported.language, 
             desired.script, supported.script, 
             desired.region, supported.region,
-            threshold, languageScriptOffset);
+            threshold, distanceOption);
     }
 
+    public enum DistanceOption {NORMAL, SCRIPT_FIRST}
+    
     /**
      * Returns distance, from 0 to ABOVE_THRESHOLD.
      * ULocales must be in canonical, addLikelySubtags format. Returns distance
@@ -633,18 +635,26 @@ public class XLocaleDistance {
         String desiredScript, String supportedScript, 
         String desiredRegion, String supportedRegion,
         int threshold,
-        int languageScriptOffset) {
+        DistanceOption distanceOption) {
 
         Output<DistanceTable> subtable = new Output<>();
 
-        int distance = languageDesired2Supported.getDistance(desiredLang, supportedlang, subtable, true) - languageScriptOffset;
+        int distance = languageDesired2Supported.getDistance(desiredLang, supportedlang, subtable, true);
+        boolean scriptFirst = distanceOption == DistanceOption.SCRIPT_FIRST;
+        if (scriptFirst) {
+            distance >>= 2;
+        }
         if (distance < 0) {
             distance = 0;
         } else if (distance >= threshold) {
             return ABOVE_THRESHOLD;
         }
 
-        distance += subtable.value.getDistance(desiredScript, supportedScript, subtable, true);
+        int scriptDistance = subtable.value.getDistance(desiredScript, supportedScript, subtable, true);
+        if (scriptFirst) {
+            scriptDistance >>= 1;
+        }
+        distance += scriptDistance;
         if (distance >= threshold) {
             return ABOVE_THRESHOLD;
         }
@@ -761,10 +771,13 @@ public class XLocaleDistance {
 
         // sort the rules so that the language-only are first, then the language-script, and finally the language-script-region.
         for (R4<String, String, Integer, Boolean> info : xGetLanguageMatcherData()) {
-            List<String> desired = bar.splitToList(info.get0());
-            List<String> supported = bar.splitToList(info.get1());
+            String desiredRaw = info.get0();
+            String supportedRaw = info.get1();
+            List<String> desired = bar.splitToList(desiredRaw);
+            List<String> supported = bar.splitToList(supportedRaw);
             Boolean oneway = info.get3();
-            final int distance = 100-info.get2();
+            Integer percentRaw = desiredRaw.equals("*_*") ? 50 : info.get2();
+            final int distance = 100-percentRaw;
             int size = desired.size();
 
             // for now, skip size == 3

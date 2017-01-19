@@ -2,7 +2,9 @@
 # Format
 # • Everything after "#" is a comment
 # • Arguments are separated by ";". They are:
+
 # supported ; desired ; expected
+
 # • The supported may have the threshold distance reset as a first item, eg 50, en, fr
 # A line starting with @debug will reach a statement in the test code where you can put a breakpoint for debugging
 # The test code also supports reformatting this file, by setting the REFORMAT flag.
@@ -155,7 +157,6 @@ fr, en-GB, ja, es-ES, es-MX ; 	ja, de ; 	ja
 
 ##################################################
 # testGetBestMatchForList-simpleVariantMatch
-@debug
 fr, en-GB, ja, es-ES, es-MX ; 	de, en-US ; 	en-GB	# Intentionally avoiding a perfect-match or two candidates for variant matches.
 
 # Fallback.
@@ -364,16 +365,19 @@ und, en-GU, en-GB, en-IN ; 	en-VI ; 	en-GU
 
 ##################################################
 # testThreshold
-@threshold=60
+@Threshold=60
 
 50, und, fr-CA-fonupa ; 	fr-BE-fonipa ; 	fr-CA-fonupa ; 	fr-BE-fonipa
 50, und, fr-Cyrl-CA-fonupa ; 	fr-BE-fonipa ; 	fr-Cyrl-CA-fonupa ; 	fr-Cyrl-BE-fonipa
 
-@threshold=-1 # restore
+@Threshold=-1 # restore
 
 ##################################################
-# testScriptBelowLanguage
-@scriptBelowLanguage=true
+# testScriptFirst
+@DistanceOption=SCRIPT_FIRST
 @debug
 
+ru, fr ; zh, pl ; fr
+ru, fr ; zh-Cyrl, pl ; ru
 hr, en-Cyrl; sr ; en-Cyrl
+da, ru, hr; sr ; ru

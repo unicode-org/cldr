@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.XLocaleDistance;
+import org.unicode.cldr.draft.XLocaleDistance.DistanceOption;
 import org.unicode.cldr.draft.XLocaleMatcher;
 
 import com.google.common.base.Joiner;
@@ -45,15 +46,15 @@ public class XLocaleMatcherTest extends TestFmwk {
     }
 
     private XLocaleMatcher newXLocaleMatcher(LocalePriorityList string, int d) {
-        return XLocaleMatcher.start().setSupportedLocales(string).setThresholdDistance(d).build();
+        return XLocaleMatcher.builder().setSupportedLocales(string).setThresholdDistance(d).build();
     }
 
-    private XLocaleMatcher newXLocaleMatcher(LocalePriorityList string, int d, boolean scriptBeforeLang) {
+    private XLocaleMatcher newXLocaleMatcher(LocalePriorityList string, int d, DistanceOption distanceOption) {
         return XLocaleMatcher
-            .start()
+            .builder()
             .setSupportedLocales(string)
             .setThresholdDistance(d)
-            .setLanguageBelowScript(scriptBeforeLang)
+            .setDistanceOption(distanceOption)
             .build();
     }
 
@@ -275,7 +276,7 @@ public class XLocaleMatcherTest extends TestFmwk {
     class MyTestFileHandler extends DataDrivenTestHelper {
 
         Output<ULocale> bestDesired = new Output<ULocale>();
-        boolean scriptBelowLanguage = false;
+        DistanceOption distanceOption = DistanceOption.NORMAL;
         int threshold = -1;
 
         @Override
@@ -299,8 +300,9 @@ public class XLocaleMatcherTest extends TestFmwk {
                 breakpoint = false; // put debugger breakpoint here to break at @debug in test file
             }
 
-            XLocaleMatcher matcher = threshold < 0 && !scriptBelowLanguage ? newXLocaleMatcher(supportedList) 
-                : newXLocaleMatcher(supportedList, threshold, scriptBelowLanguage);
+            XLocaleMatcher matcher = threshold < 0 && distanceOption == DistanceOption.NORMAL 
+                ? newXLocaleMatcher(supportedList) 
+                : newXLocaleMatcher(supportedList, threshold, distanceOption);
             ULocale bestSupported;
             if (expectedUi != null) {
                 bestSupported = matcher.getBestMatch(desiredList, bestDesired);
@@ -316,10 +318,10 @@ public class XLocaleMatcherTest extends TestFmwk {
         @Override
         public void handleParams(String comment, List<String> arguments) {
             switch(arguments.get(0)) {
-            case "@scriptBelowLanguage": 
-                scriptBelowLanguage = Boolean.valueOf(arguments.get(1)); 
+            case "@DistanceOption": 
+                distanceOption = DistanceOption.valueOf(arguments.get(1)); 
                 break;
-            case "@threshold": 
+            case "@Threshold": 
                 threshold = Integer.valueOf(arguments.get(1)); 
                 break;
             default: 

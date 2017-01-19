@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
+import org.unicode.cldr.draft.XLocaleDistance.DistanceOption;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
@@ -30,8 +31,8 @@ public class XLocaleMatcher {
     private final XLocaleDistance localeDistance;
     private final int thresholdDistance;
     private final int demotionPerAdditionalDesiredLocale;
-    private final int languageScriptOffset;
-    
+    private final DistanceOption distanceOption;
+
     // built based on application's supported languages in constructor
 
     private final Map<LSR, Collection<ULocale>> supportedLanguages; // the locales in the collection are ordered!
@@ -45,7 +46,7 @@ public class XLocaleMatcher {
         private int demotionPerAdditionalDesiredLocale = -1;;
         private ULocale defaultLanguage; 
         private XLocaleDistance localeDistance;
-        private boolean languageBelowScript;
+        private DistanceOption distanceOption;
         /**
          * @param languagePriorityList the languagePriorityList to set
          * @return 
@@ -102,11 +103,11 @@ public class XLocaleMatcher {
         /**
          * If true, then the language differences are smaller than than script differences. 
          * This is used in situations (such as maps) where it is better to fall back to the same script than a similar language.
-         * @param languageBelowScript
+         * @param distanceOption
          * @return 
          */
-        public Builder setLanguageBelowScript(boolean languageBelowScript) {
-            this.languageBelowScript = languageBelowScript;
+        public Builder setDistanceOption(DistanceOption distanceOption) {
+            this.distanceOption = distanceOption;
             return this;
         }
 
@@ -115,21 +116,21 @@ public class XLocaleMatcher {
         }
     }
 
-    public static Builder start() {
+    public static Builder builder() {
         return new Builder();
     }
 
     /** Convenience method */
     public XLocaleMatcher(String supportedLocales) {
-        this(start().setSupportedLocales(supportedLocales));
+        this(builder().setSupportedLocales(supportedLocales));
     }
     /** Convenience method */
     public XLocaleMatcher(LocalePriorityList supportedLocales) {
-        this(start().setSupportedLocales(supportedLocales));
+        this(builder().setSupportedLocales(supportedLocales));
     }
     /** Convenience method */
     public XLocaleMatcher(Set<ULocale> supportedLocales) {
-        this(start().setSupportedLocales(supportedLocales));
+        this(builder().setSupportedLocales(supportedLocales));
     }
 
     /**
@@ -155,7 +156,7 @@ public class XLocaleMatcher {
                 : supportedLanguages.entrySet().iterator().next().getValue().iterator().next(); // first language
         demotionPerAdditionalDesiredLocale = builder.demotionPerAdditionalDesiredLocale < 0 ? localeDistance.getDefaultRegionDistance()+1 
             : builder.demotionPerAdditionalDesiredLocale;
-        languageScriptOffset = builder.languageBelowScript ? localeDistance.getDefaultLanguageDistance() : 0;
+        distanceOption = builder.distanceOption;
     }
 
     // Result is not immutable!
@@ -274,7 +275,7 @@ public class XLocaleMatcher {
                 }
                 for (final Entry<LSR, Collection<ULocale>> supportedLsrAndLocale : supportedLanguages.entrySet()) {
                     int distance = delta + localeDistance.distanceRaw(desiredLSR, supportedLsrAndLocale.getKey(), 
-                        thresholdDistance, languageScriptOffset);
+                        thresholdDistance, distanceOption);
                     if (distance < bestDistance) {
                         bestDistance = distance;
                         bestDesiredLocale = desiredLocale;
@@ -325,17 +326,19 @@ public class XLocaleMatcher {
             return desiredLocale;
         }
         // quick check for maximized locale
-        Collection<ULocale> found = supportedLanguages.get(desiredLSR);
-        if (found != null) {
-            // if we find one in the set, return first (lowest). We already know the exact one isn't there.
-            if (outputBestDesired != null) {
-                outputBestDesired.value = desiredLocale;
+        if (distanceOption == DistanceOption.NORMAL) {
+            Collection<ULocale> found = supportedLanguages.get(desiredLSR);
+            if (found != null) {
+                // if we find one in the set, return first (lowest). We already know the exact one isn't there.
+                if (outputBestDesired != null) {
+                    outputBestDesired.value = desiredLocale;
+                }
+                return found.iterator().next();
             }
-            return found.iterator().next();
         }
         for (final Entry<LSR, Collection<ULocale>> supportedLsrAndLocale : supportedLanguages.entrySet()) {
             int distance = localeDistance.distanceRaw(desiredLSR, supportedLsrAndLocale.getKey(), 
-                thresholdDistance, languageScriptOffset);
+                thresholdDistance, distanceOption);
             if (distance < bestDistance) {
                 bestDistance = distance;
                 bestDesiredLocale = desiredLocale;
@@ -367,7 +370,7 @@ public class XLocaleMatcher {
         // for examples of extensions, variants, see
         //  http://unicode.org/repos/cldr/tags/latest/common/bcp47/
         //  http://unicode.org/repos/cldr/tags/latest/common/validity/variant.xml
-        
+
         if (!bestSupported.equals(bestDesired) && bestDesired != null) {
             // add region, variants, extensions
             ULocale.Builder b = new ULocale.Builder().setLocale(bestSupported);
@@ -404,7 +407,7 @@ public class XLocaleMatcher {
     public int distance(ULocale desired, ULocale supported) {
         return localeDistance.distanceRaw(
             LSR.fromMaximalized(desired), 
-            LSR.fromMaximalized(supported), thresholdDistance, languageScriptOffset);
+            LSR.fromMaximalized(supported), thresholdDistance, distanceOption);
     }
 
     /** Convenience method */
@@ -412,7 +415,7 @@ public class XLocaleMatcher {
         return localeDistance.distanceRaw(
             LSR.fromMaximalized(new ULocale(desiredLanguage)), 
             LSR.fromMaximalized(new ULocale(supportedLanguage)), 
-            thresholdDistance, languageScriptOffset);
+            thresholdDistance, distanceOption);
     }
 
     @Override

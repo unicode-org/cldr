@@ -26,7 +26,6 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PatternCache;
@@ -676,20 +675,6 @@ public class TestInheritance extends TestFmwk {
             + "; "
             + toLoc.toULocale().getDisplayCountry() + " }-->";
 
-    }
-
-    public void TestLanguageTagCanonicalizer() {
-        String[][] tests = {
-            { "en-POLYTONI-WHATEVER-ANYTHING-AALAND",
-            "en_AX_ANYTHING_POLYTON_WHATEVER" },
-            { "eng-840", "en" }, { "sh_ba", "sr_Latn_BA" },
-            { "iw-arab-010", "he_Arab_AQ" }, { "und", "und" },
-            { "und_us", "und_US" }, { "und_su", "und_RU" }, };
-        LanguageTagCanonicalizer canon = new LanguageTagCanonicalizer();
-        for (String[] inputExpected : tests) {
-            assertEquals("Canonicalize", inputExpected[1],
-                canon.transform(inputExpected[0]));
-        }
     }
 
     public void TestDeprecatedTerritoryDataLocaleIds() {

@@ -21,6 +21,8 @@ public class CLDRPaths {
     // if the main is different, use -Dcldrmain=<value>
 
     public static final String BASE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new
+    public static final String EXTERNAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("UCD_DIR", BASE_DIRECTORY) + "/../");
+    public static final String LOCAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("LOCAL_DIR", BASE_DIRECTORY) + "/../");
     // File(Utility.getProperty("CLDR_DIR",
     // null)).getPath();
     // // get up to
@@ -45,8 +47,8 @@ public class CLDRPaths {
     public static final String TMP2_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
         CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp2/")));
     // external data
-    public static final String EXTERNAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("UCD_DIR", BASE_DIRECTORY) + "/../");
-    public static final String ARCHIVE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("ARCHIVE", CldrUtility.getPath(BASE_DIRECTORY, "../cldr-archive/")));
+    public static final String ARCHIVE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("ARCHIVE", 
+        CldrUtility.getPath(BASE_DIRECTORY, "../cldr-archive/")));
     public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" +
         ToolConstants.PREVIOUS_CHART_VERSION +
         "/";
@@ -54,10 +56,12 @@ public class CLDRPaths {
 	CldrUtility.getPath(CLDRPaths.LAST_DIRECTORY, "common/");
     public static final String LAST_TRANSFORMS_DIRECTORY =
 	CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, "transforms/");
+    
     public static final String GEN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
-        CldrUtility.getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
+        CldrUtility.getPath(LOCAL_DIRECTORY, "Generated/cldr/")));
     public static final String DATA_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_EXT_DATA_DIR",
-        CldrUtility.getPath(GEN_DIRECTORY, "../../Data/")));
+        CldrUtility.getPath(LOCAL_DIRECTORY, "Data/")));
+    
     public static final String UCD_DATA_DIRECTORY = CldrUtility.getPath(EXTERNAL_DIRECTORY + "unicodetools/draft/");
     public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
     public static final String BIRTH_DATA_DIR = CldrUtility.getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/births/");

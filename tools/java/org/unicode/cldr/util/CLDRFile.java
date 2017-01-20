@@ -56,6 +56,8 @@ import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMap.Builder;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Utility;
@@ -2095,13 +2097,35 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return the key used to access data of a given type
      */
     public static String getKey(int type, String code) {
+        switch (type) {
+        case VARIANT_NAME:
+            code = code.toUpperCase(Locale.ROOT);
+            break;
+        case KEY_NAME:
+            code = fixKeyName(code);
+            break;
+        }
         String[] nameTableRow = NameTable[type];
         if (code.contains("|")) {
             String[] codes = code.split("\\|");
-            return nameTableRow[0] + codes[0] + nameTableRow[1] + codes[1] + nameTableRow[2];
+            return nameTableRow[0] + fixKeyName(codes[0]) + nameTableRow[1] + codes[1] + nameTableRow[2];
         } else {
             return nameTableRow[0] + code + nameTableRow[1];
         }
+    }
+
+    static final ImmutableMap<String,String> FIX_KEY_NAME; 
+    static {
+        Builder<String, String> temp = ImmutableMap.builder();
+        for (String s : Arrays.asList("colAlternate", "colBackwards","colCaseFirst","colCaseLevel","colNormalization","colNumeric","colReorder","colStrength")) {
+            temp.put(s.toLowerCase(Locale.ROOT), s);
+        }
+        FIX_KEY_NAME = temp.build();
+    }
+    
+    private static String fixKeyName(String code) {
+        String result = FIX_KEY_NAME.get(code);
+        return result == null ? code : result;
     }
 
     /**

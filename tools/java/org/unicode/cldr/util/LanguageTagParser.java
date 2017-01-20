@@ -8,12 +8,10 @@
  */
 package org.unicode.cldr.util;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -21,11 +19,18 @@ import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.LikelySubtags;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -55,7 +60,7 @@ public class LanguageTagParser {
      * @return Returns the variants.
      */
     public List<String> getVariants() {
-        return frozenVariants;
+        return ImmutableList.copyOf(variants);
     }
 
     /**
@@ -68,8 +73,31 @@ public class LanguageTagParser {
     /**
      * @return Returns the extensions.
      */
+    @Deprecated
     public Map<String, String> getExtensions() {
-        return frozenExtensions;
+        return OutputOption.ICU.convert(extensions);
+    }
+
+    /**
+     * @return Returns the localeExtensions.
+     */
+    @Deprecated
+    public Map<String, String> getLocaleExtensions() {
+        return OutputOption.ICU.convert(localeExtensions);
+    }
+
+    /**
+     * @return Returns the extensions.
+     */
+    public Map<String, List<String>> getExtensionsDetailed() {
+        return ImmutableMap.copyOf(extensions);
+    }
+
+    /**
+     * @return Returns the localeExtensions.
+     */
+    public Map<String, List<String>> getLocaleExtensionsDetailed() {
+        return ImmutableMap.copyOf(localeExtensions);
     }
 
     /**
@@ -117,22 +145,25 @@ public class LanguageTagParser {
     private String language;
     private String script;
     private String region;
-    private List<String> variants = new ArrayList<String>();
-    private Map<String, String> extensions = new LinkedHashMap<String, String>();
-    private LinkedHashMap<String, String> localeExtensions = new LinkedHashMap<String, String>();
+    private Set<String> variants = new TreeSet<String>();
+    private Map<String, List<String>> extensions = new TreeMap<String, List<String>>(); // use tree map
+    private Map<String, List<String>> localeExtensions = new TreeMap<String, List<String>>();
 
-    private List<String> frozenVariants = Collections.unmodifiableList(variants);
-    private Map<String, String> frozenExtensions = Collections.unmodifiableMap(extensions);
-
-    private static final UnicodeSet ALPHA = new UnicodeSet("[a-zA-Z]");
-    private static final UnicodeSet DIGIT = new UnicodeSet("[0-9]");
-    private static final UnicodeSet ALPHANUM = new UnicodeSet("[0-9a-zA-Z]");
-    private static final UnicodeSet EXTENSION_VALUE = new UnicodeSet("[0-9a-zA-Z/_]");
-    private static final UnicodeSet X = new UnicodeSet("[xX]");
-    private static final UnicodeSet ALPHA_MINUS_X = new UnicodeSet(ALPHA).removeAll(X);
+    private static final UnicodeSet ALPHA = new UnicodeSet("[a-zA-Z]").freeze();
+    private static final UnicodeSet DIGIT = new UnicodeSet("[0-9]").freeze();
+    private static final UnicodeSet ALPHANUM = new UnicodeSet("[0-9a-zA-Z]").freeze();
+    private static final UnicodeSet EXTENSION_VALUE = new UnicodeSet("[0-9a-zA-Z/_]").freeze();
+    private static final UnicodeSet X = new UnicodeSet("[xX]").freeze();
+    private static final UnicodeSet ALPHA_MINUS_X = new UnicodeSet(ALPHA).removeAll(X).freeze();
     private static StandardCodes standardCodes = StandardCodes.make();
     private static final Set<String> grandfatheredCodes = standardCodes.getAvailableCodes("grandfathered");
     private static final String separator = "-_"; // '-' alone for 3066bis language tags
+    private static final UnicodeSet SEPARATORS = new UnicodeSet().addAll(separator).freeze();
+    private static final Splitter SPLIT_BAR = Splitter.on(CharMatcher.anyOf(separator));
+    private static final Splitter SPLIT_COLON = Splitter.on(';');
+    private static final Splitter SPLIT_EQUAL = Splitter.on('=');
+    private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
+    private static final Relation<R2<String, String>, String> BCP47_ALIASES = SDI.getBcp47Aliases();
 
     /**
      * Parses out a language tag, setting a number of fields that can subsequently be retrieved.
@@ -147,6 +178,8 @@ public class LanguageTagParser {
         if (languageTag.length() == 0) {
             throw new IllegalArgumentException("Language tag cannot be empty");
         }
+        languageTag = languageTag.toLowerCase(Locale.ROOT);
+        
         // clear everything out
         language = region = script = "";
         grandfathered = false;
@@ -157,16 +190,15 @@ public class LanguageTagParser {
         int localeExtensionsPosition = languageTag.indexOf('@');
         if (localeExtensionsPosition >= 0) {
             final String localeExtensionsString = languageTag.substring(localeExtensionsPosition + 1);
-            for (String keyValue : localeExtensionsString.split(";")) {
-                final String[] keyValuePair = keyValue.split("\\=");
-                final String key = keyValuePair[0];
-                final String value = keyValuePair[1];
-                if (keyValuePair.length != 2 || !ALPHANUM.containsAll(key) || !EXTENSION_VALUE.containsAll(value)) {
+            for (String keyValue : SPLIT_COLON.split(localeExtensionsString)) {
+                final Iterator<String> keyValuePair = SPLIT_EQUAL.split(keyValue).iterator();
+                final String key = keyValuePair.next();
+                final String value = keyValuePair.next();
+                if (keyValuePair.hasNext() || !ALPHANUM.containsAll(key) || !EXTENSION_VALUE.containsAll(value)) {
                     throwError(keyValue, "Invalid key/value pair");
                 }
-                localeExtensions.put(key, value);
+                localeExtensions.put(key, SPLIT_BAR.splitToList(value));
             }
-
             languageTag = languageTag.substring(0, localeExtensionsPosition);
         }
 
@@ -197,14 +229,14 @@ public class LanguageTagParser {
             throwError(subtag, "Invalid language subtag");
         }
         try { // The try block is to catch the out-of-tokens case. Easier than checking each time.
-            language = subtag.toLowerCase(Locale.ENGLISH);
+            language = subtag;
             subtag = getSubtag(st); // prepare for next
 
             // check for script, 4 letters
             if (subtag.length() == 4 && ALPHA.containsAll(subtag)) {
                 script = subtag;
-                script = script.substring(0, 1).toUpperCase(Locale.ENGLISH)
-                    + script.substring(1).toLowerCase(Locale.ENGLISH);
+                script = script.substring(0, 1).toUpperCase(Locale.ROOT)
+                    + script.substring(1);
                 subtag = getSubtag(st); // prepare for next
             }
 
@@ -271,8 +303,7 @@ public class LanguageTagParser {
             return Status.WELL_FORMED;
             // TODO, check the bcp47 extension codes also
         }
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-        Map<String, Map<String, R2<List<String>, String>>> aliasInfo = sdi.getLocaleAliasInfo();
+        Map<String, Map<String, R2<List<String>, String>>> aliasInfo = SDI.getLocaleAliasInfo();
         Map<String, Map<String, String>> languageInfo = StandardCodes.getLStreg().get("language");
 
         if (aliasInfo.get("language").containsKey(language)) {
@@ -295,7 +326,7 @@ public class LanguageTagParser {
             return Status.VALID;
         }
         String tag = language + (script.isEmpty() ? "" : "_" + script) + (region.isEmpty() ? "" : "_" + region);
-        String minimized = LikelySubtags.minimize(tag, sdi.getLikelySubtags(), false);
+        String minimized = LikelySubtags.minimize(tag, SDI.getLikelySubtags(), false);
         if (minimized == null) {
             errors.add("No minimal data for:" + tag);
             if (script.isEmpty() && region.isEmpty()) {
@@ -334,21 +365,18 @@ public class LanguageTagParser {
         if (!st.hasMoreElements()) {
             throwError(subtag, "Private Use / Extension requires subsequent subtag");
         }
-        StringBuffer result = new StringBuffer();
+        ImmutableList.Builder<String> result = ImmutableList.builder();
         try {
             while (st.hasMoreElements()) {
                 subtag = getSubtag(st);
                 if (subtag.length() < minLength) {
                     return subtag;
                 }
-                if (result.length() != 0) {
-                    result.append('-');
-                }
-                result.append(subtag);
+                result.add(subtag);
             }
             return null;
         } finally {
-            extensions.put(key, result.toString());
+            extensions.put(key, result.build());
         }
     }
 
@@ -373,13 +401,6 @@ public class LanguageTagParser {
         throw new IllegalArgumentException(errorText + ": " + subtag + " in " + original);
     }
 
-    /**
-     * @return Returns the localeExtensions.
-     */
-    public Map<String, String> getLocaleExtensions() {
-        return localeExtensions;
-    }
-
     public LanguageTagParser setRegion(String region) {
         this.region = region;
         return this;
@@ -390,21 +411,61 @@ public class LanguageTagParser {
         return this;
     }
 
+    public enum OutputOption {
+        ICU('_'), 
+        BCP47('-');
+        final char separator;
+        final Joiner joiner;
+        private OutputOption(char separator) {
+            this.separator = separator;
+            joiner = Joiner.on(separator);
+        }
+        public Map<String, String> convert(Map<String, List<String>> mapToList) {
+            if (mapToList.isEmpty()) {
+                return Collections.emptyMap();
+            }
+            ImmutableMap.Builder<String, String> builder = ImmutableMap.builder();
+            for (Entry<String, List<String>> entry : mapToList.entrySet()) {
+                builder.put(entry.getKey(), joiner.join(entry.getValue()));
+            }
+            return builder.build();
+        }
+    }
+
     public String toString() {
-        String result = language; // optimize for the simple cases
-        if (this.script.length() != 0) result += "_" + script;
-        if (this.region.length() != 0) result += "_" + region;
+        return toString(OutputOption.ICU);
+    }
+
+    public String toString(OutputOption oo) {
+        StringBuilder result = new StringBuilder(language); // optimize for the simple cases
+        if (this.script.length() != 0) result.append(oo.separator).append(script);
+        if (this.region.length() != 0) result.append(oo.separator).append(region);
         if (this.variants.size() != 0) {
-            for (String variant : (Collection<String>) variants) {
-                result += "_" + variant;
+            for (String variant : variants) {
+                result.append(oo.separator).append(oo != OutputOption.ICU ? variant : variant.toUpperCase(Locale.ROOT));
             }
         }
         if (this.extensions.size() != 0) {
-            for (Entry<String, String> extension : extensions.entrySet()) {
-                result += "_" + extension.getKey() + "_" + extension.getValue();
+            for (Entry<String, List<String>> extension : extensions.entrySet()) {
+                String key = extension.getKey();
+                String value = oo.joiner.join(extension.getValue());
+                result.append(oo.separator).append(key)
+                .append(oo.separator).append(value);
             }
         }
-        return result;
+        if (this.localeExtensions.size() != 0) {
+            if (oo == OutputOption.BCP47) {
+                throw new IllegalArgumentException("Cannot represent as BCP47 without canonicalizing first");
+            }
+            result.append('@');
+            for (Entry<String, List<String>> extension : localeExtensions.entrySet()) {
+                String key = extension.getKey();
+                String value = oo.joiner.join(extension.getValue());
+                result.append(oo != OutputOption.ICU ? key : key.toUpperCase(Locale.ROOT))
+                .append('=').append(oo != OutputOption.ICU ? value : value.toUpperCase(Locale.ROOT));
+            }
+        }
+        return result.toString();
     }
 
     /**
@@ -440,10 +501,10 @@ public class LanguageTagParser {
     }
 
     public LanguageTagParser setLanguage(String language) {
-        if (language.contains("_")) {
+        if (SEPARATORS.containsSome(language)) {
             String oldScript = script;
             String oldRegion = region;
-            List<String> oldVariants = variants;
+            Set<String> oldVariants = variants;
             set(language);
             if (script.length() == 0) {
                 script = oldScript;
@@ -452,7 +513,7 @@ public class LanguageTagParser {
                 region = oldRegion;
             }
             if (oldVariants.size() != 0) {
-                variants.addAll(oldVariants);
+                variants = oldVariants;
             }
         } else {
             this.language = language;
@@ -460,8 +521,8 @@ public class LanguageTagParser {
         return this;
     }
 
-    public LanguageTagParser setLocaleExtensions(LinkedHashMap<String, String> localeExtensions) {
-        this.localeExtensions = localeExtensions;
+    public LanguageTagParser setLocaleExtensions(Map<String, String> localeExtensions) {
+        this.localeExtensions = expandMap(localeExtensions, 1, Integer.MAX_VALUE);
         return this;
     }
 
@@ -479,20 +540,36 @@ public class LanguageTagParser {
     static final Pattern EXTENSION_PATTERN = PatternCache.get("([0-9a-zA-Z]{2,8}(-[0-9a-zA-Z]{2,8})*)?");
 
     public LanguageTagParser setExtensions(Map<String, String> newExtensions) {
-        for (Entry<String, String> entry : newExtensions.entrySet()) {
-            if (!ALPHA.contains(entry.getKey())) {
-                throw new IllegalArgumentException("Illegal exception key: " + entry.getKey());
-            }
-            if (EXTENSION_PATTERN.matcher(entry.getValue()).matches()) {
-                throw new IllegalArgumentException("Illegal exception value: " + entry.getValue());
-            }
-        }
-        this.extensions.putAll(newExtensions);
+        this.extensions = expandMap(newExtensions, 2, 8);
         return this;
     }
 
     public static String getSimpleParent(String s) {
         int lastBar = s.lastIndexOf('_');
         return lastBar >= 0 ? s.substring(0, lastBar) : "";
+    }
+    
+    private Map<String, List<String>> expandMap(Map<String, String> newLocaleExtensions, int minLength, int maxLength) {
+        if (newLocaleExtensions.isEmpty()) {
+            return Collections.emptyMap();
+        }
+        ImmutableMap.Builder<String, List<String>> result = ImmutableMap.builder();
+        for (Entry<String, String> entry : newLocaleExtensions.entrySet()) {
+            result.put(entry.getKey(), split(entry.getValue(), minLength, maxLength));
+        }
+        return result.build();
+    }
+
+    private List<String> split(String value, int minLength, int maxLength) {
+        List<String> values = SPLIT_BAR.splitToList(value);
+        for (String s : values) {
+            if (s.length() < minLength || s.length() > maxLength) {
+                throw new IllegalArgumentException("Illegal subtag length for: " + s);
+            }
+            if (!ALPHA.contains(s)) {
+                throw new IllegalArgumentException("Illegal locale character in: " + s);
+            }
+        }
+        return values;
     }
 }

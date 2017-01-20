@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -35,6 +36,8 @@ public class LanguageTagCanonicalizer implements StringTransform {
 
     /**
      * Convert a locale (language tag) into the canonical form.
+     * <br>Any invalid variant code is removed.
+     * <br>TODO: map invalid language tags to <unknown>, eg ZZ; drop invalid U or T extensions, convert ICU locale extensions to BCP47
      */
     // TODO, handle variants
     public synchronized String transform(String locale) {
@@ -94,8 +97,8 @@ public class LanguageTagCanonicalizer implements StringTransform {
          * Get the replacements, or the empty list if there are none.
          */
         private List<String> getReplacements(String field) {
-            final R2<List<String>, String> data = replacements.get(field);
-            return data == null ? Collections.EMPTY_LIST : data.get0();
+            final R2<List<String>, String> data = replacements.get(this == variant ? field.toUpperCase(Locale.ROOT) : field);
+            return data == null ? Collections.emptyList() : data.get0();
         }
     }
 

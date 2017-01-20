@@ -10,6 +10,8 @@ import java.util.Set;
 import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
@@ -203,7 +205,7 @@ public class TestValidity extends TestFmwkPlus {
             .put("milliliter", "mliter")
             .put("tablespoon", "tblspoon")
             .build();
-        
+
         for (Entry<LstrType, Map<Status, Set<String>>> e1 : validity.getData().entrySet()) {
             LstrType lstrType = e1.getKey();
             for (Entry<Status, Set<String>> e2 : e1.getValue().entrySet()) {
@@ -234,11 +236,11 @@ public class TestValidity extends TestFmwkPlus {
         }
     }
 
-    
+
     private String shorten(String subcode, Map<String, String> shortened) {
         String result = shortened.get(subcode);
         if (result != null) return result;
-        
+
         switch (subcode) {
         case "temperature": result = "temp"; break;
         case "acceleration": result =  "accel"; break;
@@ -249,4 +251,39 @@ public class TestValidity extends TestFmwkPlus {
         return result;
     }
 
+    public void TestLanguageTagParser() {
+        String[][] tests = {
+            {"en-cyrl_ru_variant2_variant1", "en_Cyrl_RU_VARIANT1_VARIANT2", "en-Cyrl-RU-variant1-variant2"},
+            {"EN-U-CO-PHONEBK-EM-EMOJI-T_RU", "en_t_ru_u_co_phonebk_em_emoji", "en-t-ru-u-co-phonebk-em-emoji"},
+        };
+        LanguageTagParser ltp = new LanguageTagParser();
+        for (String[] test : tests) {
+            String source = test[0];
+            String expectedLanguageSubtagParserIcu = test[1];
+            String expectedLanguageSubtagParserBCP = test[2];
+            ltp.set(source);
+            String actualLanguageSubtagParserIcu = ltp.toString();
+            assertEquals("Language subtag (ICU) for " + source, expectedLanguageSubtagParserIcu, actualLanguageSubtagParserIcu);
+            String actualLanguageSubtagParserBCP = ltp.toString(LanguageTagParser.OutputOption.BCP47);
+            assertEquals("Language subtag (BCP47) for " + source, expectedLanguageSubtagParserBCP, actualLanguageSubtagParserBCP);
+        }
+    }
+    
+    public void TestLanguageTagCanonicalizer() {
+        String[][] tests = {
+            { "de-fonipa", "de_FONIPA" }, 
+            { "el-1901-polytoni-aaland", "el_AX_1901_POLYTON" }, 
+            { "en-POLYTONI-WHATEVER-ANYTHING-AALAND", "en_AX_ANYTHING_POLYTON_WHATEVER" },
+            { "eng-840", "en" }, 
+            { "sh_ba", "sr_Latn_BA" },
+            { "iw-arab-010", "he_Arab_AQ" }, 
+            { "und", "und" },
+            { "und_us", "und_US" }, 
+            { "und_su", "und_RU" }, 
+            };
+        LanguageTagCanonicalizer canon = new LanguageTagCanonicalizer();
+        for (String[] inputExpected : tests) {
+            assertEquals("Canonicalize", inputExpected[1], canon.transform(inputExpected[0]));
+        }
+    }
 }

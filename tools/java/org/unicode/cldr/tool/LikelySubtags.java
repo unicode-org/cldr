@@ -1,11 +1,9 @@
 package org.unicode.cldr.tool;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -118,6 +116,7 @@ public class LikelySubtags {
         return new LikelySubtags(toMaximized).setFavorRegion(favorRegion).minimize(input);
     }
 
+    // TODO Old, crufty code, needs reworking.
     public synchronized String maximize(String languageTag) {
         if (languageTag == null) {
             return null;
@@ -133,6 +132,7 @@ public class LikelySubtags {
         String script = ltp.getScript();
         List<String> variants = ltp.getVariants();
         Map<String, String> extensions = ltp.getExtensions();
+        Map<String, String> localeExtensions = ltp.getLocaleExtensions();
 
         if (language.equals("")) {
             ltp.setLanguage(language = "und");
@@ -144,18 +144,23 @@ public class LikelySubtags {
             ltp.setRegion(region = "");
         }
         if (variants.size() != 0) {
-            variants = new ArrayList<String>(variants); // make copy
             ltp.setVariants(Collections.<String> emptySet());
         }
         if (extensions.size() != 0) {
-            extensions = new LinkedHashMap<String, String>(extensions);
+            ltp.setExtensions(Collections.<String, String> emptyMap());
+        }
+        if (localeExtensions.size() != 0) {
             ltp.setExtensions(Collections.<String, String> emptyMap());
         }
 
         // check whole
         String result = toMaximized.get(ltp.toString());
         if (result != null) {
-            return result;
+            return ltp.set(result)
+                .setVariants(variants)
+                .setExtensions(extensions)
+                .setLocaleExtensions(localeExtensions)
+                .toString();
         }
 
         boolean noLanguage = language.equals("und");
@@ -180,8 +185,10 @@ public class LikelySubtags {
                     if (!noRegion) {
                         ltp.setRegion(region);
                     }
-                    ltp.setVariants(variants).setExtensions(extensions);
-                    return ltp.toString();
+                    return ltp.setVariants(variants)
+                        .setExtensions(extensions)
+                        .setLocaleExtensions(localeExtensions)
+                        .toString();
                 }
             }
         }
@@ -202,45 +209,18 @@ public class LikelySubtags {
                 if (!noRegion) {
                     ltp.setRegion(region);
                 }
-                ltp.setVariants(variants).setExtensions(extensions);
-                return ltp.toString();
+                return ltp.setVariants(variants)
+                    .setExtensions(extensions)
+                    .setLocaleExtensions(localeExtensions)
+                    .toString();
             }
         }
 
-        //        String result = toMaximized.get(ltp.toString());
-        //        if (result != null) {
-        //            return ltp.set(result).setVariants(variants).setExtensions(extensions).toString();
-        //        }
-        //        // try empty region
-        //        if (region.length() != 0) {
-        //            result = toMaximized.get(ltp.setRegion("").toString());
-        //            if (result != null) {
-        //                return ltp.set(result).setRegion(region).setVariants(variants).setExtensions(extensions).toString();
-        //            }
-        //            ltp.setRegion(region); // restore
-        //        }
-        //        // try empty script
-        //        if (script.length() != 0) {
-        //            result = toMaximized.get(ltp.setScript("").toString());
-        //            if (result != null) {
-        //                return ltp.set(result).setScript(script).setVariants(variants).setExtensions(extensions).toString();
-        //            }
-        //            // try empty script and region
-        //            if (region.length() != 0) {
-        //                result = toMaximized.get(ltp.setRegion("").toString());
-        //                if (result != null) {
-        //                    return ltp.set(result).setScript(script).setRegion(region).setVariants(variants)
-        //                        .setExtensions(extensions).toString();
-        //                }
-        //            }
-        //        }
-        // if (!language.equals("und") && script.length() != 0 && region.length() != 0) {
-        // return languageTag; // it was ok, and we couldn't do anything with it
-        // }
         return null; // couldn't maximize
     }
 
     // TODO, optimize if needed by adding private routine that maximizes a LanguageTagParser instead of multiple parsings
+    // TODO Old, crufty code, needs reworking.
     public synchronized String minimize(String input) {
         String maximized = maximize(input, toMaximized);
         if (maximized == null) {
@@ -255,10 +235,12 @@ public class LikelySubtags {
         String script = ltp.getScript();
 
         // handle variants
-        List<String> var = ltp.getVariants();
-        Map<String, String> ext = ltp.getExtensions();
+        List<String> variants = ltp.getVariants();
+        Map<String, String> extensions = ltp.getExtensions();
+        Map<String, String> localeExtensions = ltp.getLocaleExtensions();
+
         String maximizedCheck = maximized;
-        if (!var.isEmpty() || !ext.isEmpty()) {
+        if (!variants.isEmpty() || !extensions.isEmpty() || !localeExtensions.isEmpty()) {
             maximizedCheck = ltp.toLSR();
         }
         // try building up from shorter to longer, and find the first that matches
@@ -269,15 +251,14 @@ public class LikelySubtags {
         for (String trial : trials) {
             String newMaximized = maximize(trial, toMaximized);
             if (maximizedCheck.equals(newMaximized)) {
-                if (var.isEmpty() && ext.isEmpty()) {
+                if (variants.isEmpty() && extensions.isEmpty() && localeExtensions.isEmpty()) {
                     return trial;
                 }
-                var = new ArrayList(var);
-                ext = new LinkedHashMap(ext);
-                ltp.set(trial);
-                ltp.setVariants(var);
-                ltp.setExtensions(ext);
-                return ltp.toString();
+                return ltp.set(trial)
+                    .setVariants(variants)
+                    .setExtensions(extensions)
+                    .setLocaleExtensions(extensions)
+                    .toString();
             }
         }
         return maximized;

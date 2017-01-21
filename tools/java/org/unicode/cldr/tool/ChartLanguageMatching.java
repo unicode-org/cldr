@@ -47,14 +47,14 @@ public class ChartLanguageMatching extends Chart {
     @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
         TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Desired", "class='source'", null, "class='source'", true)
-        .addColumn("Supported", "class='source'", null, "class='source'", true)
-        .addColumn("D. Code", "class='source'", null, "class='source'", true)
-        .setBreakSpans(true)
-        .addColumn("S. Code", "class='source'", null, "class='source'", true)
-        .setBreakSpans(true)
-        .addColumn("Distance", "class='target'", null, "class='target'", true)
-        .addColumn("Sym?", "class='target'", null, "class='target'", true);
+            .addColumn("Desired", "class='source'", null, "class='source'", true)
+            .addColumn("Supported", "class='source'", null, "class='source'", true)
+            .addColumn("D. Code", "class='source'", null, "class='source'", true)
+            .setBreakSpans(true)
+            .addColumn("S. Code", "class='source'", null, "class='source'", true)
+            .setBreakSpans(true)
+            .addColumn("Distance", "class='target'", null, "class='target'", true)
+            .addColumn("Sym?", "class='target'", null, "class='target'", true);
 
         for (String type : SDI.getLanguageMatcherKeys()) {
             pw.write("<h2>Type=" + type + "</h2>");
@@ -78,7 +78,7 @@ public class ChartLanguageMatching extends Chart {
     }
 
     private String getName(String codeWithStars, boolean user) {
-        if (!codeWithStars.contains("*")) {
+        if (!codeWithStars.contains("*") && !codeWithStars.contains("$")) {
             return ENGLISH.getName(codeWithStars, true, CLDRFile.SHORT_ALTS);
         }
         String[] parts = codeWithStars.split("_");
@@ -88,15 +88,23 @@ public class ChartLanguageMatching extends Chart {
         if (parts.length > 1 && parts[1].equals("*")) {
             parts[1] = "Xxxx";
         }
-        if (parts.length > 2 && parts[2].equals("*")) {
-            parts[2] = "XX";
+        String parts2orig = "XY";
+        if (parts.length > 2) { 
+            parts2orig = parts[2];
+            if(parts[2].equals("*")) {
+                parts[2] = "XX";
+            } else if (parts[2].startsWith("$")) {
+                parts[2] = "XY";
+            }
         }
         String result = ENGLISH.getName(CollectionUtilities.join(parts, "_"), true, CLDRFile.SHORT_ALTS);
         if (user) {
             result = result
                 .replace("Xxxx", "any-script")
                 .replace("xxx", "any-language")
-                .replace("XX", "any-region");
+                .replace("XX", "any-region")
+                .replace("XY", parts2orig)
+                ;
         } else {
             result = replaceStar(result);
         }

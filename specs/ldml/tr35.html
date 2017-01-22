@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2017-01-17</td>
+				<td class="changed">2017-01-22</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -297,10 +297,11 @@ h5 {
 									Extension Data Files</a>
 								<ul class="toc">
 									<li>3.6.4.1 <a href="#CODEPOINTS">CODEPOINTS</a></li>
-									<li>3.6.4.2 <a href="#REORDER_CODE">REORDER_CODE</a></li>
-									<li>3.6.4.3 <a href="#RG_KEY_VALUE">RG_KEY_VALUE</a></li>
-									<li>3.6.4.4 <a href="#SUBDIVISION_CODE">SUBDIVISION_CODE</a></li>
-									<li>3.6.4.5 <a href="#PRIVATE_USE">PRIVATE_USE</a></li>
+									<li class="changed">3.6.4.2 <a href="#LANGUAGE_TAG">LANGUAGE_TAG</a></li>
+									<li>3.6.4.3 <a href="#REORDER_CODE">REORDER_CODE</a></li>
+									<li>3.6.4.4 <a href="#RG_KEY_VALUE">RG_KEY_VALUE</a></li>
+									<li>3.6.4.5 <a href="#SUBDIVISION_CODE">SUBDIVISION_CODE</a></li>
+									<li>3.6.4.6 <a href="#PRIVATE_USE">PRIVATE_USE</a></li>
 								</ul>
 							</li>
 							<li>3.6.5 <a href="#Unicode_Subdivision_Codes">Subdivision
@@ -2713,8 +2714,18 @@ zh-Hant-HK</pre>
 						3.3 <em>Setting Options</em>
 					</a>.
 				</p>
+
+				<h5 class="changed">
+					<a name="LANGUAGE_TAG" href="#LANGUAGE_TAG">3.6.4.2
+						LANGUAGE_TAG</a>
+				</h5>
+				<p class="changed">
+					The type name <strong>"LANGUAGE_TAG"</strong> is reserved for
+					....
+				</p>
+
 				<h5>
-					<a name="REORDER_CODE" href="#REORDER_CODE">3.6.4.2
+					<a name="REORDER_CODE" href="#REORDER_CODE">3.6.4.3
 						REORDER_CODE</a>
 				</h5>
 				<p>
@@ -2729,7 +2740,7 @@ zh-Hant-HK</pre>
 					</a>.
 				</p>
 				<h5>
-					<a name="RG_KEY_VALUE" href="#RG_KEY_VALUE">3.6.4.3
+					<a name="RG_KEY_VALUE" href="#RG_KEY_VALUE">3.6.4.4
 						RG_KEY_VALUE</a>
 				</h5>
 				<p>
@@ -2747,7 +2758,7 @@ zh-Hant-HK</pre>
 					common/validity/subdivision.xml.
 				</p>
 				<h5>
-					<a name="SUBDIVISION_CODE" href="#SUBDIVISION_CODE">3.6.4.4
+					<a name="SUBDIVISION_CODE" href="#SUBDIVISION_CODE">3.6.4.5
 						SUBDIVISION_CODE</a>
 				</h5>
 				<p>
@@ -2760,7 +2771,7 @@ zh-Hant-HK</pre>
 					used with prior agreement.
 				</p>
 				<h5>
-					<a name="PRIVATE_USE" href="#PRIVATE_USE">3.6.4.5 PRIVATE_USE</a>
+					<a name="PRIVATE_USE" href="#PRIVATE_USE">3.6.4.6 PRIVATE_USE</a>
 				</h5>
 				<p>
 					The type name <strong>"PRIVATE_USE"</strong> is reserved for
@@ -8465,6 +8476,11 @@ decimal?, group?, special*)) &gt;</pre>
 	  <blockquote class='changed'>
 	    <p><strong>Part 1: <a href="#Contents">Core</a></strong></p>
 	    <ul>
+	      <li><strong>Section 3.6.4 <a href="#Unicode_Locale_Extension_Data_Files">U Extension Data Files</a></strong>
+	        <ul>
+	          <li>Added special type name LANGUAGE_TAG.  [<a href="http://unicode.org/cldr/trac/ticket/9966">#9966</a>] </li>
+            </ul>
+	      </li>
 	      <li><strong>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a></strong>
 	        <ul>
 	          <li>Added table of -t- keys.  [<a href="http://unicode.org/cldr/trac/ticket/9966">#9966</a>] </li>

@@ -23,7 +23,7 @@ $nasal = [ŋɲɳnm];
 
 # Manifest the implicit vowel after every consonant that is not followed by a
 # dependent vowel or virama.
-($c) } [^$v\u0BCD] → $1 a;
+($c) } [^$v \u0BCD] → $1 a;
 
 ::Null;
 

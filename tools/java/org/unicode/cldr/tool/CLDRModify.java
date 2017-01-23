@@ -1157,6 +1157,22 @@ public class CLDRModify {
             }
         });
 
+        fixList.add('g', "Swap alt/non-alt values for Czechia", new CLDRFilter() {
+
+            public void handleStart() {
+            }
+
+            public void handlePath(String xpath) {
+                parts.set(xpath);
+                if (!parts.containsAttributeValue("alt", "variant") || !parts.containsAttributeValue("type", "CZ")) return;
+                String variantValue = cldrFileToFilter.getStringValue(xpath);
+                String nonVariantXpath = xpath.replaceAll("\\[\\@alt=\"variant\"\\]", "");
+                String nonVariantValue = cldrFileToFilter.getStringValue(nonVariantXpath);
+                replace(xpath, xpath, nonVariantValue);
+                replace(nonVariantXpath,nonVariantXpath,variantValue);
+            }
+        });
+
         fixList.add('u', "fix duration unit patterns", new CLDRFilter() {
 
             public void handlePath(String xpath) {

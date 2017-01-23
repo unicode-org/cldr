@@ -137,7 +137,8 @@
         		org/unicode/cldr/posix/**/*,
         		org/unicode/cldr/ant/**/*,
         		org/unicode/cldr/json/**/*,
-        		org/unicode/cldr/icu/**/*"
+        		org/unicode/cldr/icu/**/*,
+        		com/ibm/icu/**/*"
 			basedir="${build.dir}">
 			<manifest>
 				<attribute name="Built-By" value="${user.name}" />

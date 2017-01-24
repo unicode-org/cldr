@@ -10,13 +10,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<keyword>
 		<key extension="t" name="h0" description="Language mixed into hybrid language tag. 
 		The key type (value) must be valid language tag. 
-		Example: es-t-h0-en for Spanglish" valueType="language-tag" since="31">
+		See http://unicode.org/reports/tr35/#Hybrid_Locale" valueType="language-tag" since="31">
             <type name="LANGUAGE_TAG" description="Language tag" since="31"/>
         </key>
 		<key extension="t" name="h1" description="Language mixed into hybrid translation source. 
 		The key type (value) must be valid language tag. 
 		There must be a -t- subtag with a valid language tag value also.
-		Example: es-t-hi-h1-en for Spanish translated from Hinglish." valueType="language-tag" since="31">
+		http://unicode.org/reports/tr35/#Hybrid_Locale" valueType="language-tag" since="31">
             <type name="LANGUAGE_TAG" description="Language tag" since="31"/>
         </key>
 	</keyword>

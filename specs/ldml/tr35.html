@@ -297,11 +297,10 @@ h5 {
 									Extension Data Files</a>
 								<ul class="toc">
 									<li>3.6.4.1 <a href="#CODEPOINTS">CODEPOINTS</a></li>
-									<li class="changed">3.6.4.2 <a href="#LANGUAGE_TAG">LANGUAGE_TAG</a></li>
-									<li>3.6.4.3 <a href="#REORDER_CODE">REORDER_CODE</a></li>
-									<li>3.6.4.4 <a href="#RG_KEY_VALUE">RG_KEY_VALUE</a></li>
-									<li>3.6.4.5 <a href="#SUBDIVISION_CODE">SUBDIVISION_CODE</a></li>
-									<li>3.6.4.6 <a href="#PRIVATE_USE">PRIVATE_USE</a></li>
+									<li>3.6.4.2 <a href="#REORDER_CODE">REORDER_CODE</a></li>
+									<li>3.6.4.3 <a href="#RG_KEY_VALUE">RG_KEY_VALUE</a></li>
+									<li>3.6.4.4 <a href="#SUBDIVISION_CODE">SUBDIVISION_CODE</a></li>
+									<li>3.6.4.5 <a href="#PRIVATE_USE">PRIVATE_USE</a></li>
 								</ul>
 							</li>
 							<li>3.6.5 <a href="#Unicode_Subdivision_Codes">Subdivision
@@ -2715,17 +2714,8 @@ zh-Hant-HK</pre>
 					</a>.
 				</p>
 
-				<h5 class="changed">
-					<a name="LANGUAGE_TAG" href="#LANGUAGE_TAG">3.6.4.2
-						LANGUAGE_TAG</a>
-				</h5>
-				<p class="changed">
-					The type name <strong>"LANGUAGE_TAG"</strong> is reserved for
-					....
-				</p>
-
 				<h5>
-					<a name="REORDER_CODE" href="#REORDER_CODE">3.6.4.3
+					<a name="REORDER_CODE" href="#REORDER_CODE">3.6.4.2
 						REORDER_CODE</a>
 				</h5>
 				<p>
@@ -2740,7 +2730,7 @@ zh-Hant-HK</pre>
 					</a>.
 				</p>
 				<h5>
-					<a name="RG_KEY_VALUE" href="#RG_KEY_VALUE">3.6.4.4
+					<a name="RG_KEY_VALUE" href="#RG_KEY_VALUE">3.6.4.3
 						RG_KEY_VALUE</a>
 				</h5>
 				<p>
@@ -2758,7 +2748,7 @@ zh-Hant-HK</pre>
 					common/validity/subdivision.xml.
 				</p>
 				<h5>
-					<a name="SUBDIVISION_CODE" href="#SUBDIVISION_CODE">3.6.4.5
+					<a name="SUBDIVISION_CODE" href="#SUBDIVISION_CODE">3.6.4.4
 						SUBDIVISION_CODE</a>
 				</h5>
 				<p>
@@ -2771,7 +2761,7 @@ zh-Hant-HK</pre>
 					used with prior agreement.
 				</p>
 				<h5>
-					<a name="PRIVATE_USE" href="#PRIVATE_USE">3.6.4.6 PRIVATE_USE</a>
+					<a name="PRIVATE_USE" href="#PRIVATE_USE">3.6.4.5 PRIVATE_USE</a>
 				</h5>
 				<p>
 					The type name <strong>"PRIVATE_USE"</strong> is reserved for
@@ -3099,8 +3089,8 @@ typically be a 'platform' or vendor designation.</td>
 		      <td><a href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/transform_mt.xml">​transform_mt.xml</a></td>
 	        </tr>
 		    <tr>
-		      <td nowrap>h0, h1</td>
-		      <td><strong>Hybrid Locale Identifiers:</strong> h0 has a language mixed into the main  language tag to form a hybrid.  		The key type (value) must be valid language tag.  		h1 has a language mixed into  translation source. The key type (value) must be valid language tag, and there must be a -t- subtag with a valid language tag value also. For more information, and examples, see <span class="changed"><em>Section 3.10.2 <a href="#Hybrid_Locale">Hybrid Locale Identifiers</a>.</em></span></td>
+		      <td nowrap>h0</td>
+		      <td><strong>Hybrid Locale Identifiers:</strong> h0 with the value 'hybrid' indicates that the -t- value is a language that is mixed into the main  language tag to form a hybrid.  		For more information, and examples, see <span class="changed"><em>Section 3.10.2 <a href="#Hybrid_Locale">Hybrid Locale Identifiers</a>.</em></span></td>
 		      <td><a href="http://unicode.org/repos/cldr/tags/latest/common/bcp47/transform_hybrid.xml">​transform_hybrid.xml</a></td>
 	        </tr>
 			    <tr>
@@ -3658,34 +3648,34 @@ typically be a 'platform' or vendor designation.</td>
           </tbody>
         </table>
         <p class='changed'>While text in a document can be tagged as partly in one language and partly in another, that is not the same having a hybrid locale. There is a difference between having a Spanglish document, and a Spanish document that has some passages quoted in English. Fine-grained tagging doesn't  handle grammatical combinations like Denglisch “<a href="http://www.duden.de/rechtschreibung/downloaden">​gedownloadet</a>”, which is neither English nor German — similarly the Franglais “<a href='http://www.le-dictionnaire.com/definition.php?mot=downloader'>downloadé</a>”. More importantly, it doesn’t work for the very common use case for a <a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a>: <i>locale selection</i>. </p>
-      <p class='changed'>To communicate requests for localized content and internationalization services, locales are used. When people pick a language from a menu, internally they are picking a locale (en-GB, es-419, etc.). To allow an application to support Spanglish or Hinglish locale selection, <a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a>s can represent hybrid locales using the  T extension keys 'h0' and 'h1'. (For more information on the T extension, see <em>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a>.</em>)
+      <p class='changed'>To communicate requests for localized content and internationalization services, locales are used. When people pick a language from a menu, internally they are picking a locale (en-GB, es-419, etc.). To allow an application to support Spanglish or Hinglish locale selection, <a href="#unicode_locale_id" name="unicode_locale_id">unicode_locale_id</a>s can represent hybrid locales using the  T extension key-value 'h0-hybrid'. (For more information on the T extension, see <em>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a>.</em>)
       </p>
       <p class='changed'>Examples:</p>
       <table class='changed simple'>
           <tbody>
             <tr>
-              <td>es-t-<u>h0-hi</u></td>
+              <td>hi-t-<u>en-h0-hybrid</u></td>
               <td>Hinglish</td>
               <td>Hindi-English hybrid locale</td>
             </tr>
             <tr>
-              <td>es-t-<u>h0-ta</u></td>
+              <td>ta-t-<u>en-h0-hybrid</u></td>
               <td>Tanglish</td>
               <td>Tamil-English hybrid locale</td>
             </tr>
             <tr>
-              <td>es-t-<u>h0-bn</u></td>
+              <td>ba-t-<u>en-h0-hybrid</u></td>
               <td>Banglish</td>
               <td>Bangla-English hybrid locale</td>
             </tr>
              <tr><td colspan="3">…</td></tr>
             <tr>
-              <td>en-t-<u>h0-es</u></td>
+              <td>en-t-<u>hi-h0-hybrid</u></td>
               <td>Hinglish</td>
               <td>English-Hindi hybrid locale</td>
             </tr>
             <tr>
-              <td>en-t-<u>h0-zh</u></td>
+              <td>en-t-<u>zh-h0-hybrid</u></td>
               <td>Chinglish</td>
               <td>English-Chinese hybrid locale</td>
             </tr>
@@ -3695,44 +3685,22 @@ typically be a 'platform' or vendor designation.</td>
         <blockquote>
           <p class='changed'><em>Note: The <a href="#unicode_language_id">unicode_language_id</a> should be the language used as the ‘scaffold’: for the fallback locale for internationalization services, typically used for more of the core vocabulary/structure in the content. Thus Hinglish should be represented as hi-t-h0-en where Hindi is the scaffold, and as en-t-h0-hi where English is.</em></p>
         </blockquote>
-      <p class='changed'>One could then also have the following:</p>
+      <p class='changed'>The value of -t- is a full <em><a href="#unicode_language_id">unicode_language_id</a></em>, and can contain subtags for script or region where it is important to include them, as in the following. It may be useful in order to emphasize the script, even where it is the default script for the language, if it is not the same as the script of the main language tag.</p>
       <table class='changed simple'>
           <tbody>
             <tr>
-              <td>ta-t-hi-<u>h0-en</u></td>
-              <td>Tanglish translated from Hindi</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class='changed'>A second key 'h1' is defined indicating that the <em>source</em> language for transform is a hybrid, much has with the transliteration s0 and d0 keys. The value of h1 is a language tag for the language mixed into the the source language for -t-, allowing formulations such as the following:</p>
-      <table class='changed simple'>
-          <tbody>
-            <tr>
-              <td>ta-t-hi-<u>h1-en</u></td>
-              <td>Tamil translated from Hinglish</td>
-            </tr>
-            <tr>
-              <td>ta-t-hi-<u>h0-en</u>-<u>h1-en</u></td>
-              <td>Tanglish translated from Hinglish</td>
-            </tr>
-          </tbody>
-        </table>
-      <p class='changed'>The value of h0 or h1 is a full <em><a href="#unicode_language_id">unicode_language_id</a></em>, and can contain subtags for script or region, as in the following:</p>
-      <table class='changed simple'>
-          <tbody>
-            <tr>
-              <td>ru-t-<u>h0-en-latn</u></td>
+              <td>ru-t<u>-en-latn-gb-h0-hybrid</u></td>
               <td>Runglish</td>
-              <td>Russian with an admixture of English in Latin script</td>
+              <td>Russian with an admixture of British English in Latin script</td>
             </tr>
             <tr>
-              <td>ru-t-<u>h0-en-cyrl</u></td>
+              <td>ru-t-<u>en-cyrl-gb-h0-hybrid</u></td>
               <td>Runglish</td>
-              <td>Russian with an admixture of English in Cyrillic script</td>
+              <td>Russian with an admixture of British English in Cyrillic script</td>
             </tr>
           </tbody>
         </table>
-      <p class='changed'>Should there ever be need for hybrids of more than two languages, corresponding pairs of keywords such as h2 and h3 can be defined in the future.</p>
+      <p class='changed'>Should there ever be strong need for hybrids of more than two languages or for other purposes such as hybrid languages as the source of translated content, additional structure could be added.</p>
 		<h3>
 			<a name="Validity_Data" href="#Validity_Data">3.11 Validity Data</a>
 		</h3>

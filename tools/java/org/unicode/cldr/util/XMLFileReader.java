@@ -447,11 +447,15 @@ public class XMLFileReader {
             return x;
         }
     }
-
+    
     public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating) {
+        return loadPathValues(filename, data, validating, false);
+    }
+
+    public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating, boolean full) {
         try {
             new XMLFileReader()
-            .setHandler(new PathValueListHandler(data))
+            .setHandler(new PathValueListHandler(data, full))
             .read(filename, -1, validating);
             return data;
         } catch (Exception e) {
@@ -460,16 +464,25 @@ public class XMLFileReader {
     }
 
     static final class PathValueListHandler extends SimpleHandler {
-        List<Pair<String, String>> data = new ArrayList<Pair<String, String>>();
+        List<Pair<String, String>> data;
+        boolean full;
 
-        public PathValueListHandler(List<Pair<String, String>> data) {
+        public PathValueListHandler(List<Pair<String, String>> data, boolean full) {
             super();
-            this.data = data;
+            this.data = data != null ? data : new ArrayList<Pair<String, String>>();
+            this.full = full;
         }
 
         @Override
         public void handlePathValue(String path, String value) {
             data.add(Pair.of(path, value));
+        }
+        @Override
+        public void handleComment(String path, String comment) {
+            if (!full || path.equals("/")) {
+                return;
+            }
+            data.add(Pair.of("!", comment));
         }
     }
 }

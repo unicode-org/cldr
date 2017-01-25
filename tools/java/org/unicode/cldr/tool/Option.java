@@ -77,6 +77,10 @@ public class Option {
     public String getValue() {
         return value;
     }
+    
+    public String getExplicitValue() {
+        return doesOccur ? value : null;
+    }
 
     // public boolean getUsingImplicitValue() {
     // return false;

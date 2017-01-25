@@ -21,8 +21,8 @@ public class CLDRPaths {
     // if the main is different, use -Dcldrmain=<value>
 
     public static final String BASE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new
-    public static final String EXTERNAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("UCD_DIR", BASE_DIRECTORY) + "/../");
-    public static final String LOCAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("LOCAL_DIR", BASE_DIRECTORY) + "/../");
+    public static final String LOCAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("LOCAL_DIR", BASE_DIRECTORY + "/../"));
+    public static final String EXTERNAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("UCD_DIR", LOCAL_DIRECTORY));
     // File(Utility.getProperty("CLDR_DIR",
     // null)).getPath();
     // // get up to

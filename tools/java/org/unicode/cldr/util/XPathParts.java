@@ -106,11 +106,15 @@ public final class XPathParts implements Freezable<XPathParts> {
         if (v == null) return this; // end
         // now write the start of the current
         for (int i = limit; i < size() - 1; ++i) {
-            filteredXPath.writeComment(pw, xpath_comments, i + 1, Comments.CommentType.PREBLOCK);
+            if (xpath_comments != null) {
+                filteredXPath.writeComment(pw, xpath_comments, i + 1, Comments.CommentType.PREBLOCK);
+            }
             pw.print(Utility.repeat("\t", i));
             pw.println(elements.get(i).toString(XML_OPEN));
         }
-        filteredXPath.writeComment(pw, xpath_comments, size(), Comments.CommentType.PREBLOCK);
+        if (xpath_comments != null) {
+            filteredXPath.writeComment(pw, xpath_comments, size(), Comments.CommentType.PREBLOCK);
+        }
 
         // now write element itself
         pw.print(Utility.repeat("\t", (size() - 1)));
@@ -123,9 +127,13 @@ public final class XPathParts implements Freezable<XPathParts> {
             pw.print(untrim(eValue, size()));
             pw.print(e.toString(XML_CLOSE));
         }
-        filteredXPath.writeComment(pw, xpath_comments, size(), Comments.CommentType.LINE);
+        if (xpath_comments != null) {
+            filteredXPath.writeComment(pw, xpath_comments, size(), Comments.CommentType.LINE);
+        }
         pw.println();
-        filteredXPath.writeComment(pw, xpath_comments, size(), Comments.CommentType.POSTBLOCK);
+        if (xpath_comments != null) {
+            filteredXPath.writeComment(pw, xpath_comments, size(), Comments.CommentType.POSTBLOCK);
+        }
         pw.flush();
         return this;
     }
@@ -159,9 +167,9 @@ public final class XPathParts implements Freezable<XPathParts> {
         }
 
         public String getComment(CommentType style, String xpath) {
-           return comments.get(style).get(xpath);
+            return comments.get(style).get(xpath);
         }
-        
+
         public Comments addComment(CommentType style, String xpath, String comment) {
             String existing = comments.get(style).get(xpath);
             if (existing != null) {

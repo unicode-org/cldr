@@ -114,6 +114,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT subgroup EMPTY >
 <!ATTLIST subgroup type NMTOKEN #REQUIRED >
 <!ATTLIST subgroup subtype NMTOKEN #IMPLIED >
+    <!--@DEPRECATED-->
 <!ATTLIST subgroup contains NMTOKENS #IMPLIED >
     <!--@VALUE-->
 

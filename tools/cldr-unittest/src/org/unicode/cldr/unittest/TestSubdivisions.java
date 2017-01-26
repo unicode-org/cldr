@@ -37,7 +37,7 @@ public class TestSubdivisions extends TestFmwkPlus {
         assertNotNull("subdivision containers", containers);
         Set<String> states = SDI.getContainedSubdivisions("US");
         
-        assertRelation("US contains CA", true, states, TestFmwkPlus.CONTAINS, "US-CA");
+        assertRelation("US contains CA", true, states, TestFmwkPlus.CONTAINS, "usca");
 
         /*
          * <subgroup type="BE" contains="WAL BRU VLG"/>
@@ -45,11 +45,11 @@ public class TestSubdivisions extends TestFmwkPlus {
          * <subgroup type="BE" subtype="VLG" contains="VBR VWV VAN VLI VOV"/>
          */
         assertEquals("BE",
-            new HashSet<String>(Arrays.asList("BE-WAL", "BE-BRU", "BE-VLG")),
+            new HashSet<String>(Arrays.asList("bewal", "bebru", "bevlg")),
             SDI.getContainedSubdivisions("BE"));
         assertEquals("BE",
-            new HashSet<String>(Arrays.asList("BE-WLX", "BE-WNA", "BE-WHT", "BE-WBR", "BE-WLG")),
-            SDI.getContainedSubdivisions("BE-WAL"));
+            new HashSet<String>(Arrays.asList("bewlx", "bewna", "bewht", "bewbr", "bewlg")),
+            SDI.getContainedSubdivisions("bewal"));
     }
 
 

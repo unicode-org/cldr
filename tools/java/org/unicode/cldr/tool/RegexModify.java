@@ -115,11 +115,8 @@ public class RegexModify {
         return result.build();
     }
 
-    private static final String DEBUG_STRING = null; // "subdivision";
-
     public static abstract class RegexFunction implements Function<String,String> {
         protected Matcher lineMatcher;
-        protected String pattern;
         private int count;
         
         public RegexFunction() {
@@ -138,25 +135,42 @@ public class RegexModify {
                if (!line.equals(oldLine)) {
                    ++count;
                }
-            } else if (DEBUG_STRING != null && line.contains(DEBUG_STRING)) {
+            } else if (getCheckOnPattern() != null && line.contains(getCheckOnPattern())) {
                 System.out.println(RegexUtilities.showMismatch(lineMatcher, line));
             }
             return line;
         }
         public abstract String getPattern();
+        public abstract String getCheckOnPattern(); // for debugging the regex
         public abstract String fixLine();
     }
     
     public static class Subdivision extends RegexFunction {
         @Override
+        public String getCheckOnPattern() {
+            return "subdivision";
+        }
+        @Override
         public String getPattern() {
-            return "(.*<subdivisionAlias type=\")([^\"]+)(\".*)";
+            //return "(.*<subdivision(?:Alias)? type=\")([^\"]+)(\".*)";
+            return "(.*<subdivision(?:Alias)? type=\")([^\"]+)(\" replacement=\")([^\"]+)(\".*)";
         }
         @Override
         public String fixLine() {
-            String value = lineMatcher.group(2);
-            value = value.replaceAll("-", "").toLowerCase(Locale.ROOT);
-            return lineMatcher.replaceAll("$1\\Q"+value+"\\E$3"); // TODO modify to be cleaner
+            String value = convertToCldr(lineMatcher.group(2));
+            String value2 = convertToCldr(lineMatcher.group(4));
+            //return lineMatcher.replaceAll("$1"+value+"$3"); // TODO modify to be cleaner
+            return lineMatcher.replaceAll("$1" + value + "$3" + value2 + "$5"); // TODO modify to be cleaner
         }
+        
+        private static boolean isRegionCode(String s) {
+            return s.length() == 2 || (s.length() == 3 && s.compareTo("A") < 0);
+        }
+
+        private static String convertToCldr(String regionOrSubdivision) {
+            return isRegionCode(regionOrSubdivision) ? regionOrSubdivision.toUpperCase(Locale.ROOT)
+                : regionOrSubdivision.replace("-", "").toLowerCase(Locale.ROOT);
+        }
+
     }
 }

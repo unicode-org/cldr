@@ -62,34 +62,32 @@ public class GenerateSubdivisions {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final CLDRFile ENGLISH_CLDR = CLDR_CONFIG.getEnglish();
     private static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
-    
+
     // TODO: consider whether to use the last archive directory to generate
     // There are pros and cons. 
     // Pros are that we don't introduce "fake" deprecated elements that are introduced and deprecated during the 6 month CLDR cycle
     // Cons are that we may have to repeat work
-    
+
     private static final Map<String, R2<List<String>, String>> SUBDIVISION_ALIASES_FORMER = SDI.getLocaleAliasInfo().get("subdivision");
-    
+
     private static final SubdivisionNames SUBDIVISION_NAMES_ENGLISH_FORMER = new SubdivisionNames("en");
-    
+
     private static final Validity VALIDITY_FORMER = Validity.getInstance();
-    
-    private static final Relation<String,String> regionToFormer_IsoFormat = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class, ROOT_COL);
+
+    private static final Relation<String,String> formerRegionToSubdivisions = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class, ROOT_COL);
     static {
         Map<Status, Set<String>> oldSubdivisionData = VALIDITY_FORMER.getStatusToCodes(LstrType.subdivision);
         for (Entry<Status, Set<String>> e : oldSubdivisionData.entrySet()) {
             final Status status = e.getKey();
             if (status != Status.unknown) { // special is a hack
                 for (String sdCode : e.getValue()) {
-                    final String region = sdCode.substring(0,2).toUpperCase();
-                    final String subregion = sdCode.substring(2).toUpperCase();
-                    regionToFormer_IsoFormat.put(region, region+"-"+subregion);
+                    final String region = regionFromSubdivision(sdCode);
+                    formerRegionToSubdivisions.put(region, sdCode);
                 }
             }
         }
-        regionToFormer_IsoFormat.freeze();
+        formerRegionToSubdivisions.freeze();
     }
-
 
     static Map<String, String> NAME_CORRECTIONS = new HashMap<>();
     static {
@@ -103,8 +101,21 @@ public class GenerateSubdivisions {
                 continue;
             }
             List<String> parts = semi.splitToList(s);
-            NAME_CORRECTIONS.put(parts.get(0), parts.get(1));
+            NAME_CORRECTIONS.put(convertToCldr(parts.get(0)), parts.get(1));
         }
+    }
+    
+    private static boolean isRegionCode(String s) {
+        return s.length() == 2 || (s.length() == 3 && s.compareTo("A") < 0);
+    }
+
+    private static String convertToCldr(String regionOrSubdivision) {
+        return isRegionCode(regionOrSubdivision) ? regionOrSubdivision.toUpperCase(Locale.ROOT)
+            : regionOrSubdivision.replace("-", "").toLowerCase(Locale.ROOT);
+    }
+    
+    private static String regionFromSubdivision(String sdCode) {
+        return sdCode.compareTo("A") < 0 ? sdCode.substring(0,3) : sdCode.substring(0,2).toUpperCase();
     }
 
     static final Normalizer2 nfc = Normalizer2.getNFCInstance();
@@ -351,7 +362,7 @@ public class GenerateSubdivisions {
         public static void printEnglish(Appendable output) throws IOException {
             TreeSet<String> allRegions = new TreeSet<>();
             allRegions.addAll(codeToData.keySet());
-            allRegions.addAll(regionToFormer_IsoFormat.keySet());
+            allRegions.addAll(formerRegionToSubdivisions.keySet());
 
             // <subdivisions>
             // <subdivisiontype="NZ-AUK">Auckland</territory>
@@ -373,12 +384,12 @@ public class GenerateSubdivisions {
                     continue;
                 }
                 Set<String> codesIncluded = new HashSet<>(); // record the ones we did, so we can add others
-                Set<String> remainder = regionToFormer_IsoFormat.get(regionCode);
+                Set<String> remainder = formerRegionToSubdivisions.get(regionCode);
                 remainder = remainder == null ? Collections.EMPTY_SET : new LinkedHashSet<>(remainder);
 
                 SubdivisionNode regionNode = ID_TO_NODE.get(regionCode);
                 output.append("\t\t<!-- ")
-                .append(regionCode).append(" : ")
+                .append(convertToCldr(regionCode)).append(" : ")
                 .append(TransliteratorUtilities.toXML.transform(ENGLISH_ICU.regionDisplayName(regionCode)));
                 if (regionNode == null) {
                     output.append(" : NO SUBDIVISIONS -->\n");
@@ -426,7 +437,7 @@ public class GenerateSubdivisions {
                 getBestName(sdCode, true);
                 name = "NAME-UNAVAILABLE";
             }
-            output.append("\t\t\t<subdivision type=\"").append(sdCode).append("\">")
+            output.append("\t\t\t<subdivision type=\"").append(convertToCldr(sdCode)).append("\">")
             .append(TransliteratorUtilities.toXML.transform(name))
             .append("</subdivision>")
             .append(level)
@@ -518,7 +529,7 @@ public class GenerateSubdivisions {
 
         static final SubdivisionNode addNode(SubdivisionNode lastSubdivision, String subdivision) {
             // "NZ-S", x
-            String region = subdivision.substring(0, subdivision.indexOf('-'));
+            String region = regionFromSubdivision(subdivision);
             REGION_CONTAINS.put(region, subdivision);
             if (lastSubdivision == null) {
                 lastSubdivision = BASE.children.get(region);
@@ -634,8 +645,8 @@ public class GenerateSubdivisions {
                 }
                 Set<String> set = e.getValue();
                 for (String sdcodeRaw : set) {
-                    String sdcode = sdcodeRaw.toUpperCase(Locale.ROOT);
-                    sdcode = sdcode.substring(0,2) + "-" + sdcode.substring(2);
+                    String sdcode = sdcodeRaw; // .toUpperCase(Locale.ROOT);
+//                  sdcode = sdcode.substring(0,2) + "-" + sdcode.substring(2);
                     if (!nowValid.contains(sdcode)) {
                         missing.add(sdcode);
                     }
@@ -647,7 +658,7 @@ public class GenerateSubdivisions {
 
         private static void addAliases(Appendable output, Set<String> missing) throws IOException {
             for (String toReplace : missing) {
-                if (toReplace.startsWith("NL-")) {
+                if (toReplace.startsWith("nl")) {
                     int debug = 0;
                 }
                 List<String> replaceBy = null;
@@ -689,7 +700,7 @@ public class GenerateSubdivisions {
                 if (result.length() != 0) {
                     result.append(", ");
                 }
-                if (!s.contains("-")) {
+                if (isRegionCode(s)) {
                     result.append(ENGLISH_CLDR.getName(CLDRFile.TERRITORY_NAME, s));
                 } else {
                     result.append(getBestName(s, useIso));
@@ -704,19 +715,10 @@ public class GenerateSubdivisions {
             }
             String type = base2.code;
             if (base2 != BASE) {
-                int hyphenPos = type.indexOf('-');
-                if (hyphenPos >= 0) {
-                    String subtype = type.substring(hyphenPos + 1);
-                    type = type.substring(0, hyphenPos);
-                    output.append("\t\t" + "<subgroup"
-                        + " type=\"" + type + "\""
-                        + " subtype=\"" + subtype + "\""
-                        + " contains=\"");
-                } else {
-                    output.append("\t\t" + "<subgroup"
-                        + " type=\"" + type + "\""
-                        + " contains=\"");
-                }
+                type = convertToCldr(type);
+                output.append("\t\t" + "<subgroup"
+                    + " type=\"" + type + "\""
+                    + " contains=\"");
                 boolean first = true;
                 for (String child : base2.children.keySet()) {
                     if (first) {
@@ -724,7 +726,7 @@ public class GenerateSubdivisions {
                     } else {
                         output.append(' ');
                     }
-                    String subregion = child.substring(child.indexOf('-') + 1);
+                    String subregion = convertToCldr(child);
                     output.append(subregion);
                 }
                 output.append("\"/>\n");
@@ -733,6 +735,7 @@ public class GenerateSubdivisions {
                 printXml(output, child, indent);
             }
         }
+
 
         public static void addIdSample(String id, String value) {
             SUB_TO_CAT.put(value, id);
@@ -752,7 +755,7 @@ public class GenerateSubdivisions {
                     }
                     seen.add(region);
                     pw.append(";\t" + ENGLISH_ICU.regionDisplayName(region) + ": " + getIsoName(sample)
-                        + " (" + sample + ")");
+                    + " (" + sample + ")");
                     //if (--max < 0) break;
                 }
                 pw.append(System.lineSeparator());
@@ -768,8 +771,9 @@ public class GenerateSubdivisions {
         for (String line : FileUtilities.in(CLDRPaths.DATA_DIRECTORY + "iso/", "subdivision-names-wikidata.txt")) {
             // AD-02    Q24260  /m/... an  Canillo
             List<String> data = TAB.splitToList(line);
-            WIKIDATA_LANG_NAME.put(data.get(0), data.get(3), data.get(4));
-            WIKIDATA_TO_MID.put(data.get(0), data.get(2));
+            String subdivision = convertToCldr(data.get(0));
+            WIKIDATA_LANG_NAME.put(subdivision, data.get(3), data.get(4));
+            WIKIDATA_TO_MID.put(subdivision, data.get(2));
         }
     }
 
@@ -852,6 +856,7 @@ public class GenerateSubdivisions {
                 if (maxIndent < countSubdivision) {
                     maxIndent = countSubdivision;
                 }
+                value = convertToCldr(value);
                 if (countSubdivision == 1) {
                     lastNode = SubdivisionNode.addNode(null, value);
                 } else {

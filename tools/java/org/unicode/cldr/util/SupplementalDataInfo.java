@@ -19,6 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -1653,6 +1654,7 @@ public class SupplementalDataInfo {
                     throw new IllegalArgumentException();
                 }
                 level3 = level3.substring(0, level3.length() - "Alias".length());
+                boolean isSubdivision = level3.equals("subdivision");
                 Map<String, R2<List<String>, String>> tagToReplacement = typeToTagToReplacement.get(level3);
                 if (tagToReplacement == null) {
                     typeToTagToReplacement.put(level3,
@@ -1661,7 +1663,8 @@ public class SupplementalDataInfo {
                 final String replacement = parts.getAttributeValue(3, "replacement");
                 List<String> replacementList = null;
                 if (replacement != null) {
-                    String cleaned = "subdivision".equals(level3) ? replacement : replacement.replace("-", "_");
+                    String cleaned = isSubdivision ? replacement.replace("-","").toLowerCase(Locale.ROOT) 
+                        : replacement.replace("-", "_");
                     replacementList = Arrays.asList(cleaned.split("\\s+"));
                 }
                 final String reason = parts.getAttributeValue(3, "reason");
@@ -1887,9 +1890,10 @@ public class SupplementalDataInfo {
             //      <subgroup type="AL" subtype="04" contains="FR MK LU"/>
             final String country = parts.getAttributeValue(-1, "type");
             final String subtype = parts.getAttributeValue(-1, "subtype");
-            final String container = subtype == null ? country : country + "-" + subtype;
+            final String container = subtype == null ? country : (country + subtype).toLowerCase(Locale.ROOT);
             for (String contained : parts.getAttributeValue(-1, "contains").split("\\s+")) {
-                containerToSubdivision.put(container, country + "-" + contained);
+                String newContained = contained.charAt(0) >= 'a' ? contained : (country + contained).toLowerCase(Locale.ROOT);
+                containerToSubdivision.put(container, newContained);
             }
         }
 

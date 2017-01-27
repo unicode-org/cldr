@@ -482,7 +482,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     static final Splitter LINE_SPLITTER = Splitter.on('\n');
-    
+
     private String fixInitialComment(String initialComment) {
         if (initialComment == null || initialComment.isEmpty()) {
             return CldrUtility.getCopyrightString();
@@ -1707,10 +1707,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String distinguishing = CLDRFile.getDistinguishingXPath(formerPath, null, true);
             String distinguishing2 = CLDRFile.getDistinguishingXPath(currentFullXPath, null, true);
             System.out.println("\tERROR in " + target.getLocaleID()
-                + ";\toverriding old value <" + former + "> at path " + distinguishing +
-                "\twith\t<" + lastChars + ">" +
-                CldrUtility.LINE_SEPARATOR + "\told fullpath: " + formerPath +
-                CldrUtility.LINE_SEPARATOR + "\tnew fullpath: " + currentFullXPath);
+            + ";\toverriding old value <" + former + "> at path " + distinguishing +
+            "\twith\t<" + lastChars + ">" +
+            CldrUtility.LINE_SEPARATOR + "\told fullpath: " + formerPath +
+            CldrUtility.LINE_SEPARATOR + "\tnew fullpath: " + currentFullXPath);
             overrideCount += 1;
         }
 
@@ -2050,6 +2050,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         TZ_LIMIT = 13,
         KEY_NAME = 13,
         KEY_TYPE_NAME = 14,
+        SUBDIVISION_NAME = 15,
         LIMIT_TYPES = 15;
 
     private static final String[][] NameTable = {
@@ -2068,6 +2069,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         { "//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/daylight", "tz-daylight-short" },
         { "//ldml/localeDisplayNames/keys/key[@type=\"", "\"]", "key" },
         { "//ldml/localeDisplayNames/types/type[@key=\"", "\"][@type=\"", "\"]", "key|type" },
+        { "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"", "\"]", "subdivision" },
 
         /**
          * <long>
@@ -2122,7 +2124,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
         FIX_KEY_NAME = temp.build();
     }
-    
+
     private static String fixKeyName(String code) {
         String result = FIX_KEY_NAME.get(code);
         return result == null ? code : result;
@@ -2640,7 +2642,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     static final UnicodeSet HACK_CASE_CLOSURE_SET = new UnicodeSet(
         "[ſẛﬀẞ{i̇}\u1F71\u1F73\u1F75\u1F77\u1F79\u1F7B\u1F7D\u1FBB\u1FBE\u1FC9\u1FCB\u1FD3\u1FDB\u1FE3\u1FEB\u1FF9\u1FFB\u2126\u212A\u212B]")
-    .freeze();
+        .freeze();
 
     public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice, int option) {
         if (type.length() != 0) type = "[@type=\"" + type + "\"]";

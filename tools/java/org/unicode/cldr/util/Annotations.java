@@ -218,19 +218,33 @@ public class Annotations {
             .add(EmojiConstants.HEART).add(EmojiConstants.KISS)
             .add(MALE_SIGN).add(FEMALE_SIGN)
             .freeze();
+        public static final String TAG_TERM = UTF16.valueOf(0xE007F);
+        public static final String BLACK_FLAG = UTF16.valueOf(0x1F3F4);
+        public static String getTagSpec(String code) {
+            StringBuilder b = new StringBuilder();
+            for (int codePoint : CharSequences.codePoints(code)) {
+                if (codePoint >= 0xE0020 && codePoint <= 0xE007E) {
+                    b.appendCodePoint(codePoint - 0xE0000);
+                }
+            }
+            return b.toString();
+        }
     }
 
     public static final class AnnotationSet {
 
         private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
 
-        static Factory factory = CONFIG.getCldrFactory();
-        static CLDRFile ENGLISH = CONFIG.getEnglish();
+        static final Factory factory = CONFIG.getCldrFactory();
+        static final CLDRFile ENGLISH = CONFIG.getEnglish();
+        static final Factory SUBDIVISION_FACTORY = Factory.make(CLDRPaths.COMMON_DIRECTORY + "subdivisions/", ".*");
+        static final CLDRFile ENGLISH_SUBDIVISIONS = SUBDIVISION_FACTORY.make("en", true); 
 
         private final String locale;
         private final UnicodeMap<Annotations> baseData;
         private final UnicodeMap<Annotations> unresolvedData;
         private final CLDRFile cldrFile;
+        private final CLDRFile cldrFileSubdivisions;
         private final SimpleFormatter initialPattern;
         private final Pattern initialRegexPattern;
         private final SimpleFormatter listPattern;
@@ -246,6 +260,7 @@ public class Annotations {
             unresolvedData = source.freeze();
             this.baseData = resolvedSource == null ? unresolvedData : resolvedSource.freeze();
             cldrFile = factory.make(locale, true);
+            cldrFileSubdivisions = SUBDIVISION_FACTORY.make(locale, true);
             listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
             final String initialPatternString = getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);
@@ -269,11 +284,14 @@ public class Annotations {
             return label == null ? Collections.<String>emptySet() : Collections.singleton(label);
         }
         private String getStringValue(String xpath) {
-            String result = cldrFile.getStringValue(xpath);
+            return getStringValue(xpath, cldrFile, ENGLISH);
+        }
+        private String getStringValue(String xpath, CLDRFile cldrFile2, CLDRFile english) {
+            String result = cldrFile2.getStringValue(xpath);
             if (result == null) {
-                return ENGLISH_MARKER + ENGLISH.getStringValue(xpath);
+                return ENGLISH_MARKER + english.getStringValue(xpath);
             }
-            String sourceLocale = cldrFile.getSourceLocaleID(xpath, null);
+            String sourceLocale = cldrFile2.getSourceLocaleID(xpath, null);
             if (sourceLocale.equals(XMLSource.CODE_FALLBACK_ID) || sourceLocale.equals(XMLSource.ROOT_ID)) {
                 return BAD_MARKER + result;
             }
@@ -351,6 +369,11 @@ public class Annotations {
                 String countryCode = EmojiConstants.getFlagCode(code);
                 String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
                 return new Annotations(flagLabelSet, getStringValue(path));
+            } else if (code.startsWith(EmojiConstants.BLACK_FLAG) 
+                && code.endsWith(EmojiConstants.TAG_TERM)) {
+                String subdivisionCode = EmojiConstants.getTagSpec(code);
+                String path = CLDRFile.getKey(CLDRFile.SUBDIVISION_NAME, subdivisionCode);
+                return new Annotations(flagLabelSet, getStringValue(path, cldrFileSubdivisions, ENGLISH_SUBDIVISIONS));
             } else if (isKeycap10 || code.contains(EmojiConstants.KEYCAP_MARK_STRING)) {
                 final String rem = code.equals("🔟") ? "10" : UTF16.valueOf(code.charAt(0));
                 shortName = initialPattern.format(keycapLabel, rem);

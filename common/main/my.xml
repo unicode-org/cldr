@@ -4322,11 +4322,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="1000000" count="other">0သန်း</pattern>
 					<pattern type="10000000" count="other">0ကုဋေ</pattern>
 					<pattern type="100000000" count="other">00ကုဋေ</pattern>
-					<pattern type="1000000000" count="other">ကုဋေ000</pattern>
-					<pattern type="10000000000" count="other">ကုဋေ0ထ</pattern>
-					<pattern type="100000000000" count="other">ကုဋေ0သ</pattern>
-					<pattern type="1000000000000" count="other">ဋေ0သိန်း</pattern>
-					<pattern type="10000000000000" count="other">ဋေ0သန်း</pattern>
+					<pattern type="1000000000" count="other">ကုဋေ000;ကုဋေ-000</pattern>
+					<pattern type="10000000000" count="other">ကုဋေ0ထ;ကုဋေ-0ထ</pattern>
+					<pattern type="100000000000" count="other">ကုဋေ0သ;ကုဋေ-0သ</pattern>
+					<pattern type="1000000000000" count="other">ဋေ0သိန်း;ဋေ-0သိန်း</pattern>
+					<pattern type="10000000000000" count="other">ဋေ0သန်း;ဋေ-0သန်း</pattern>
 					<pattern type="100000000000000" count="other">0ကောဋိ</pattern>
 				</decimalFormat>
 			</decimalFormatLength>

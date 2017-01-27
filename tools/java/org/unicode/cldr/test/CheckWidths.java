@@ -34,7 +34,7 @@ public class CheckWidths extends CheckCLDR {
     }
 
     private enum Special {
-        NONE, QUOTES, PLACEHOLDERS, NUMBERSYMBOLS
+        NONE, QUOTES, PLACEHOLDERS, NUMBERSYMBOLS, NUMBERFORMAT
     }
 
     private static final Pattern PLACEHOLDER_PATTERN = PatternCache.get("\\{\\d\\}");
@@ -80,6 +80,12 @@ public class CheckWidths extends CheckCLDR {
 
         boolean hasProblem(String value, List<CheckStatus> result, CheckCLDR cause, Boolean aliasedAndComprenehsive) {
             switch (special) {
+            case NUMBERFORMAT:
+                String [] values = value.split(";",2);
+                // If it's a number format with positive and negative subpatterns, just check the longer one.
+                value = (values.length == 2 && values[1].length() > values[0].length()) ? values[1] : values[0];
+                value = value.replace("'", "");
+                break;
             case QUOTES:
                 value = value.replace("'", "");
                 break;
@@ -231,7 +237,7 @@ public class CheckWidths extends CheckCLDR {
 
         .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1",
             new Limit[] {
-            new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.QUOTES)
+            new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NUMBERFORMAT)
         })
         // Catch -future/past Narrow units  and allow much wider values
         .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {

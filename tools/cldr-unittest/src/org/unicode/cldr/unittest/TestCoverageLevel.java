@@ -345,7 +345,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             + "Tagb|Takr|Tal[eu]|Tang|Tavt|Teng|Tfng|Tglg|Tirh|Ugar|Vaii|Visp|Wara|Wole|Xpeo|Xsux|Yiii|Zinh|Zmth)");
 
         final Pattern keys100 = PatternCache.get("(col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|"
-            + "Normalization|Numeric|Reorder|Strength)|kv|sd|timezone|va|variableTop|x|d0|m0)");
+            + "Normalization|Numeric|Reorder|Strength)|kv|sd|timezone|va|variableTop|x|d0|h0|i0|k0|m0|s0)");
 
         final Pattern numberingSystem100 = PatternCache.get("("
             + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|hanidays|hmng|java|kali|lana(tham)?|lepc|limb|"

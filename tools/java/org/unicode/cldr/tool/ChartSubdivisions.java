@@ -72,14 +72,19 @@ public class ChartSubdivisions extends Chart {
         }
 
         for (String container : SDI.getContainersForSubdivisions()) {
-            int pos = container.indexOf('-');
-            String region = pos < 0 ? container : container.substring(0, pos);
+            boolean containerIsRegion = SubdivisionNames.isRegionCode(container);
+            String region = containerIsRegion ? container : SubdivisionNames.getRegionFromSubdivision(container);
+//            int pos = container.indexOf('-');
+//            String region = pos < 0 ? container : container.substring(0, pos);
             for (String contained : SDI.getContainedSubdivisions(container)) {
+                if (contained.equals("usas")) {
+                    int debug = 0;
+                }
                 if (SDI.getContainedSubdivisions(contained) != null) {
                     continue;
                 }
-                String s1 = pos < 0 ? contained : container;
-                String s2 = pos < 0 ? "" : contained;
+                String s1 = containerIsRegion ? contained : container;
+                String s2 = containerIsRegion ? "" : contained;
 
                 String name1 = getName(s1);
                 String name2 = getName(s2);

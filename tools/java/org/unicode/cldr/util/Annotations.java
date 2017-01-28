@@ -260,7 +260,11 @@ public class Annotations {
             unresolvedData = source.freeze();
             this.baseData = resolvedSource == null ? unresolvedData : resolvedSource.freeze();
             cldrFile = factory.make(locale, true);
-            cldrFileSubdivisions = SUBDIVISION_FACTORY.make(locale, true);
+            CLDRFile _cldrFileSubdivisions = null;
+            try {
+                _cldrFileSubdivisions = SUBDIVISION_FACTORY.make(locale, true);
+            } catch (Exception e) {}
+            cldrFileSubdivisions = _cldrFileSubdivisions;
             listPattern = SimpleFormatter.compile(getStringValue("//ldml/listPatterns/listPattern[@type=\"unit-short\"]/listPatternPart[@type=\"2\"]"));
             final String initialPatternString = getStringValue("//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);

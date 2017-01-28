@@ -33,6 +33,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.tool.SubdivisionNames;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -43,6 +44,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.IterableComparator;
@@ -1663,9 +1665,13 @@ public class SupplementalDataInfo {
                 final String replacement = parts.getAttributeValue(3, "replacement");
                 List<String> replacementList = null;
                 if (replacement != null) {
-                    String cleaned = isSubdivision ? replacement.replace("-","").toLowerCase(Locale.ROOT) 
-                        : replacement.replace("-", "_");
-                    replacementList = Arrays.asList(cleaned.split("\\s+"));
+                    Set<String> builder = new LinkedHashSet<>();
+                    for (String item : replacement.split("\\s+")) {
+                        String cleaned = SubdivisionNames.isRegionCode(item) ? item : replacement.replace("-","").toLowerCase(Locale.ROOT); 
+//                            : replacement.replace("-", "_");
+                        builder.add(cleaned);
+                    }
+                    replacementList = ImmutableList.copyOf(builder);
                 }
                 final String reason = parts.getAttributeValue(3, "reason");
                 String cleanTag = parts.getAttributeValue(3, "type");

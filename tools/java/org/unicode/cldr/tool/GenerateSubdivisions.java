@@ -81,7 +81,7 @@ public class GenerateSubdivisions {
             final Status status = e.getKey();
             if (status != Status.unknown) { // special is a hack
                 for (String sdCode : e.getValue()) {
-                    final String region = regionFromSubdivision(sdCode);
+                    final String region = SubdivisionNames.getRegionFromSubdivision(sdCode);
                     formerRegionToSubdivisions.put(region, sdCode);
                 }
             }
@@ -105,19 +105,11 @@ public class GenerateSubdivisions {
         }
     }
     
-    private static boolean isRegionCode(String s) {
-        return s.length() == 2 || (s.length() == 3 && s.compareTo("A") < 0);
-    }
-
     private static String convertToCldr(String regionOrSubdivision) {
-        return isRegionCode(regionOrSubdivision) ? regionOrSubdivision.toUpperCase(Locale.ROOT)
+        return SubdivisionNames.isRegionCode(regionOrSubdivision) ? regionOrSubdivision.toUpperCase(Locale.ROOT)
             : regionOrSubdivision.replace("-", "").toLowerCase(Locale.ROOT);
     }
     
-    private static String regionFromSubdivision(String sdCode) {
-        return sdCode.compareTo("A") < 0 ? sdCode.substring(0,3) : sdCode.substring(0,2).toUpperCase();
-    }
-
     static final Normalizer2 nfc = Normalizer2.getNFCInstance();
 
     public static void main(String[] args) throws IOException {
@@ -529,7 +521,7 @@ public class GenerateSubdivisions {
 
         static final SubdivisionNode addNode(SubdivisionNode lastSubdivision, String subdivision) {
             // "NZ-S", x
-            String region = regionFromSubdivision(subdivision);
+            String region = SubdivisionNames.getRegionFromSubdivision(subdivision);
             REGION_CONTAINS.put(region, subdivision);
             if (lastSubdivision == null) {
                 lastSubdivision = BASE.children.get(region);
@@ -700,7 +692,7 @@ public class GenerateSubdivisions {
                 if (result.length() != 0) {
                     result.append(", ");
                 }
-                if (isRegionCode(s)) {
+                if (SubdivisionNames.isRegionCode(s)) {
                     result.append(ENGLISH_CLDR.getName(CLDRFile.TERRITORY_NAME, s));
                 } else {
                     result.append(getBestName(s, useIso));

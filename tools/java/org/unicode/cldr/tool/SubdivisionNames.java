@@ -42,4 +42,12 @@ public class SubdivisionNames {
     public Set<String> keySet() {
         return subdivisionToName.keySet();
     }
+
+    public static String getRegionFromSubdivision(String sdCode) {
+        return sdCode.compareTo("A") < 0 ? sdCode.substring(0,3) : sdCode.substring(0,2).toUpperCase();
+    }
+
+    public static boolean isRegionCode(String regionOrSubdivision) {
+        return regionOrSubdivision.length() == 2 || (regionOrSubdivision.length() == 3 && regionOrSubdivision.compareTo("A") < 0);
+    }
 }

@@ -411,7 +411,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
             else if (xpp.containsElement("zone")) {
                 String zoneType = xpp.findAttributeValue("zone", "type");
-                if (zoneType.startsWith("Etc/GMT") && path.endsWith("exemplarCity")) {
+                if ((zoneType.startsWith("Etc/GMT") || zoneType.equals("Etc/UTC"))
+                    && path.endsWith("exemplarCity")) {
                     continue;
                 }
                 // We don't survey for short timezone names

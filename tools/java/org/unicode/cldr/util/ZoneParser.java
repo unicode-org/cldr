@@ -592,47 +592,28 @@ public class ZoneParser {
 
     private static Map<String, String> FIX_UNSTABLE_TZIDS;
 
-    //private static Set<String> SKIP_LINKS = new HashSet<String>(Arrays.asList(new String[] {
-    //    "Navajo", "America/Shiprock" }));
+    private static Set<String> SKIP_LINKS = new HashSet<String>(Arrays.asList(
+        new String[] {
+            "America/Montreal", "America/Toronto",
+            "America/Santa_Isabel", "America/Tijuana" }));
 
     private static Set<String> PREFERRED_BASES = new HashSet<String>(Arrays.asList(new String[] { "Europe/London" }));
 
-    private static String[][] ADD_ZONE_ALIASES_DATA = { { "Etc/UTC", "Etc/GMT" },
-        { "Etc/UCT", "Etc/GMT" },
-        // { "Navajo", "America/Shiprock" },
-        // extras added in 2006g
-        { "SystemV/AST4ADT", "America/Halifax" },
-        { "SystemV/EST5EDT", "America/New_York" },
-        { "EST5EDT", "America/New_York" },
-        { "SystemV/CST6CDT", "America/Chicago" },
-        { "CST6CDT", "America/Chicago" },
-        { "SystemV/MST7MDT", "America/Denver" },
-        { "MST7MDT", "America/Denver" },
-        { "SystemV/PST8PDT", "America/Los_Angeles" },
-        { "PST8PDT", "America/Los_Angeles" },
-        { "SystemV/YST9YDT", "America/Anchorage" },
+    private static String[][] ADD_ZONE_ALIASES_DATA = {
+        { "Etc/UCT", "Etc/UTC" },
+
+        { "EST", "Etc/GMT+5" },
+        { "MST", "Etc/GMT+7" },
+        { "HST", "Etc/GMT+10" },
 
         { "SystemV/AST4", "Etc/GMT+4" },
         { "SystemV/EST5", "Etc/GMT+5" },
-        { "EST", "Etc/GMT+5" },
         { "SystemV/CST6", "Etc/GMT+6" },
         { "SystemV/MST7", "Etc/GMT+7" },
-        { "MST", "Etc/GMT+7" },
         { "SystemV/PST8", "Etc/GMT+8" },
         { "SystemV/YST9", "Etc/GMT+9" },
         { "SystemV/HST10", "Etc/GMT+10" },
-        { "HST", "Etc/GMT+10" },
     };
-
-    /*
-     * ## Zone SystemV/AST4 -4:00 - AST
-     * ## Zone SystemV/EST5 -5:00 - EST
-     * ## Zone SystemV/CST6 -6:00 - CST
-     * ## Zone SystemV/MST7 -7:00 - MST
-     * ## Zone SystemV/PST8 -8:00 - PST
-     * ## Zone SystemV/YST9 -9:00 - YST
-     * ## Zone SystemV/HST10 -10:00 - HST
-     */
 
     static String[] FIX_DEPRECATED_ZONE_DATA = {
         "Africa/Timbuktu",
@@ -739,12 +720,13 @@ public class ZoneParser {
                 zoneData.put("Etc/GMT" + (i == 0 ? "" : i < 0 ? "" + i : "+" + i),
                     pieces);
             }
-            // add Unknown
+            // add Unknown / UTC
             List<String> pieces = new ArrayList<String>();
             pieces.add(new Double(0).toString()); // lat
             pieces.add(new Double(0).toString()); // long
             pieces.add(StandardCodes.NO_COUNTRY); // country
             zoneData.put("Etc/Unknown", pieces);
+            zoneData.put("Etc/UTC", pieces);
 
             zoneData = CldrUtility.protectCollection(zoneData); // protect for later
 
@@ -828,10 +810,10 @@ public class ZoneParser {
                     } else if (items[0].equals("Link")) {
                         String old = items[2];
                         String newOne = items[1];
-                        //if (!SKIP_LINKS.contains(old) && !SKIP_LINKS.contains(newOne)) {
-                        // System.out.println("Original " + old + "\t=>\t" + newOne);
-                        linkedItems.add(old, newOne);
-                        //}
+                        if (!(SKIP_LINKS.contains(old) && SKIP_LINKS.contains(newOne))) {
+                            //System.out.println("Original " + old + "\t=>\t" + newOne);
+                            linkedItems.add(old, newOne);
+                        }
                         /*
                          * String conflict = (String) linkold_new.get(old); if (conflict !=
                          * null) { System.out.println("Conflict with old: " + old + " => " +
@@ -850,9 +832,6 @@ public class ZoneParser {
                 linkedItems.add(ADD_ZONE_ALIASES_DATA[i][0],
                     ADD_ZONE_ALIASES_DATA[i][1]);
             }
-            // linkedItems.add("Etc/UTC", "Etc/GMT");
-            // linkedItems.add("Etc/UCT", "Etc/GMT");
-            // linkedItems.add("Navajo", "America/Shiprock");
 
             Set<String> isCanonical = zoneData.keySet();
 

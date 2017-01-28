@@ -3301,7 +3301,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "Pacific/Honolulu\"]/short/standard",
             "Pacific/Honolulu\"]/short/daylight",
             "Europe/Dublin\"]/long/daylight",
-            "Europe/London\"]/long/daylight"
+            "Europe/London\"]/long/daylight",
+            "Etc/UTC\"]/long/standard",
+            "Etc/UTC\"]/short/standard"
         };
         for (String override : overrides) {
             toAddTo.add("//ldml/dates/timeZoneNames/zone[@type=\"" + override);

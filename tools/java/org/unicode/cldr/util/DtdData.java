@@ -1456,7 +1456,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return false;
     }
 
-    public final static Splitter SPACE_SPLITTER = Splitter.on(CharMatcher.WHITESPACE).trimResults().omitEmptyStrings();
+    public final static Splitter SPACE_SPLITTER = Splitter.on(CharMatcher.whitespace()).trimResults().omitEmptyStrings();
     public final static Splitter CR_SPLITTER = Splitter.on(CharMatcher.anyOf("\n\r")).trimResults().omitEmptyStrings();
 
     private static class XPathPartsSet {

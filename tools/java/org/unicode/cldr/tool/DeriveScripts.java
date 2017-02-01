@@ -30,17 +30,17 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 
 public class DeriveScripts {
+    private static final boolean SHOW = false;
+
     static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     static final SupplementalDataInfo SUP = CONFIG.getSupplementalDataInfo();
     static final Multimap<String, String> LANG_TO_SCRIPT;
     static final Map<String, String> SUPPRESS;
-    
-
 
     static {
         File[] paths = { 
-            new File(CLDRPaths.MAIN_DIRECTORY), 
-            new File(CLDRPaths.SEED_DIRECTORY), 
+//            new File(CLDRPaths.MAIN_DIRECTORY), 
+//            new File(CLDRPaths.SEED_DIRECTORY), 
             new File(CLDRPaths.EXEMPLARS_DIRECTORY) };
         final Factory fullCldrFactory = SimpleFactory.make(paths, ".*");
         LikelySubtags ls = new LikelySubtags();
@@ -48,7 +48,7 @@ public class DeriveScripts {
         Set<String> seen = new HashSet<>();
 
         Multimap<String, String> langToScript = TreeMultimap.create();
-        
+
         Map<String,String> suppress = new TreeMap<>();
         final Map<String, Map<LstrField, String>> langToInfo = StandardCodes.getLstregEnumRaw().get(LstrType.language);
         for (Entry<String, Map<LstrField, String>> entry : langToInfo.entrySet()) {
@@ -72,7 +72,7 @@ public class DeriveScripts {
         LanguageTagCanonicalizer canon = new LanguageTagCanonicalizer();
 
         for (String file : fullCldrFactory.getAvailable()) {
-            String langScript = ltp.set(file).getLanguageScript();
+            String langScript = ltp.set(file).getLanguage();
             if (!file.equals(langScript)) {  // skip other variants
                 continue;
             }
@@ -84,18 +84,19 @@ public class DeriveScripts {
             if (lang.equals("root")) {
                 continue;
             }
-            
-            String likelyScript = ls.getLikelyScript(lang);
-            if (!likelyScript.equals("Zzzz")) {
-                continue;
-            }
 
-            String script = ltp.getScript();
-            if (!script.isEmpty()) {
-                add(langToScript, lang, script);
-                continue;
-            }
-            
+//            String likelyScript = ls.getLikelyScript(lang);
+//            if (!likelyScript.equals("Zzzz")) {
+//                continue;
+//            }
+
+            String script = "";
+//            script = ltp.getScript();
+//            if (!script.isEmpty()) {
+//                add(langToScript, lang, script);
+//                continue;
+//            }
+
             CLDRFile cldrFile = fullCldrFactory.make(lang, false);
             UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
             for (String s : exemplars){
@@ -105,7 +106,9 @@ public class DeriveScripts {
                     break;
                 }
             }
-            add(langToScript, lang, script);
+            if (!script.isEmpty()) {
+                add(langToScript, lang, script);
+            }
         }
         LANG_TO_SCRIPT = ImmutableMultimap.copyOf(langToScript);
     }
@@ -113,43 +116,44 @@ public class DeriveScripts {
     private static void add(Multimap<String, String> langToScript, String lang, String script) {
         if (script != null) {
             if (langToScript.put(lang, script)) {
-               //System.out.println("# Adding from actual exemplars: " + lang + ", " + script);
+                if (SHOW) System.out.println("# Adding from actual exemplars: " + lang + ", " + script);
             }
         }
     }
-    
+
     public static Multimap<String, String> getLanguageToScript() {
-       return LANG_TO_SCRIPT; 
+        return LANG_TO_SCRIPT; 
     }
-    
+
     public static void showLine(String language, String scriptField, String status) {
         CLDRFile english = CONFIG.getEnglish();
         System.out.println(language + ";\t" + scriptField + "\t# " + english.getName(CLDRFile.LANGUAGE_NAME, language)
-            + ";\t" + status
-            + ";\t" + Iso639Data.getScope(language)
-            + ";\t" + Iso639Data.getType(language)
+        + ";\t" + status
+        + ";\t" + Iso639Data.getScope(language)
+        + ";\t" + Iso639Data.getType(language)
             );
-      }
+    }
 
     public static void main(String[] args) {
         LikelySubtags ls = new LikelySubtags();
         CLDRFile english = CONFIG.getEnglish();
-        
+        int count = 0;
+
         int i = 0;
-//        System.out.println("#From Suppress Script");
+        System.out.println("#From Suppress Script");
         for (Entry<String, String> entry : SUPPRESS.entrySet()) {
             showLine(entry.getKey(), entry.getValue(), "Suppress");
             ++i;
         }
-//        System.out.println("#total:\t" + i);
+        System.out.println("#total:\t" + i);
         i = 0;
         boolean haveMore = true;
 
-        //        System.out.println("\n#From Exemplars");
+        System.out.println("\n#From Exemplars");
         for (int scriptCount = 1; haveMore ; ++scriptCount) {
             haveMore = false;
             if (scriptCount != 1) {
-//                System.out.println("\n#NEEDS RESOLUTION:\t" + scriptCount + " scripts");
+                System.out.println("\n#NEEDS RESOLUTION:\t" + scriptCount + " scripts");
             }
             for (Entry<String, Collection<String>> entry : getLanguageToScript().asMap().entrySet()) {
                 Collection<String> scripts = entry.getValue();
@@ -164,13 +168,13 @@ public class DeriveScripts {
                 String lang = entry.getKey();                
                 showLine(lang,scripts.size() == 1 ? scripts.iterator().next() : scripts.toString(), "Exemplars" + (scripts.size() == 1 ? "" : "*"));
                 ++i;
-//                String likelyScript = scriptsSize == 1 ? "" : ls.getLikelyScript(lang);
-//                System.out.println(++count + "\t" + scriptsSize + "\t" + lang + "\t" + english.getName(lang)  
-//                    + "\t" + scripts + "\t" + likelyScript
-////                + "\t" + script + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
-//                    );
+                String likelyScript = scriptsSize == 1 ? "" : ls.getLikelyScript(lang);
+                System.out.println(++count + "\t" + scriptsSize + "\t" + lang + "\t" + english.getName(lang)  
+                + "\t" + scripts + "\t" + likelyScript
+//                + "\t" + script + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
+                    );
             }
-//            System.out.println("#total:\t" + i);
+            System.out.println("#total:\t" + i);
             i = 0;
         }
     }

@@ -331,7 +331,7 @@ public class GenerateMaximalLocales {
                 if (status.compareTo(minimalStatus) >= 0) {
                     add = true;
                 }
-                final long literatePopulation = (long) popData.getLiteratePopulation();
+                long literatePopulation = getWritingPopulation(popData);
                 // #2
                 languageToLiteratePopulation.add(language, literatePopulation);
                 // #3
@@ -404,6 +404,14 @@ public class GenerateMaximalLocales {
         showLanguages(languageToReason.keySet(), languageToReason);
         System.out.println("\nExcluded Languages:\t" + others.size());
         showLanguages(others, languageToReason);
+    }
+
+    private static long getWritingPopulation(PopulationData popData) {
+        final double writingPopulation = popData.getWritingPopulation();
+        if (!Double.isNaN(writingPopulation)) {
+            return (long) writingPopulation;
+        }
+        return (long) popData.getLiteratePopulation();
     }
 
     private static void showLanguages(Set<String> others, Map<String, Set<RowData>> languageToReason) {
@@ -788,7 +796,7 @@ public class GenerateMaximalLocales {
 
             for (String writtenLanguage : supplementalData.getLanguagesForTerritoryWithPopulationData(region)) {
                 PopulationData data = supplementalData.getLanguageAndTerritoryPopulationData(writtenLanguage, region);
-                final double literatePopulation = data.getLiteratePopulation();
+                final double literatePopulation = getWritingPopulation(data); //data.getLiteratePopulation();
                 double order = -literatePopulation; // negative so we get the inverse order
 
                 if (data.getOfficialStatus() == OfficialStatus.unknown) {

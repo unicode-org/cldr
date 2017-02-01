@@ -1183,7 +1183,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         return languageScope;
     }
 
-    static final boolean LOCALES_FIXED = false;
+    static final boolean LOCALES_FIXED = true;
     
     public void TestPopulation() {
         Set<String> languages = SUPPLEMENTAL

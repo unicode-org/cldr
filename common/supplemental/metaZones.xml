@@ -638,6 +638,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="America/Puerto_Rico">
 				<usesMetazone mzone="Atlantic"/>
 			</timezone>
+			<timezone type="America/Punta_Arenas">
+				<usesMetazone to="2017-05-14 03:00" mzone="Chile"/>
+			</timezone>
 			<timezone type="America/Rainy_River">
 				<usesMetazone mzone="America_Central"/>
 			</timezone>
@@ -774,7 +777,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Antarctica/Palmer">
 				<usesMetazone to="1982-05-01 03:00" mzone="Argentina"/>
-				<usesMetazone from="1982-05-01 03:00" mzone="Chile"/>
+				<usesMetazone to="2017-05-14 03:00" from="1982-05-01 03:00" mzone="Chile"/>
 			</timezone>
 			<timezone type="Antarctica/Rothera">
 				<usesMetazone mzone="Rothera"/>
@@ -1668,7 +1671,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Chamorro" territory="GU" type="Pacific/Guam"/>
 			<mapZone other="Chatham" territory="001" type="Pacific/Chatham"/>
 			<mapZone other="Chile" territory="001" type="America/Santiago"/>
-			<mapZone other="Chile" territory="AQ" type="Antarctica/Palmer"/>
 			<mapZone other="China" territory="001" type="Asia/Shanghai"/>
 			<mapZone other="Choibalsan" territory="001" type="Asia/Choibalsan"/>
 			<mapZone other="Christmas" territory="001" type="Indian/Christmas"/>

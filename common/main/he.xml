@@ -2932,6 +2932,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">שעון {0} (קיץ)</regionFormat>
 			<regionFormat type="standard">שעון {0} (חורף)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>זמן אוניברסלי מתואם</standard>
+				</long>
+			</zone>
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>סנטה איסבל</exemplarCity>
 			</zone>

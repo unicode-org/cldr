@@ -3053,16 +3053,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} Daylight Time</regionFormat>
 			<regionFormat type="standard">{0} Standard Time</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="Etc/Unknown">
-				<exemplarCity>Unknown City</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Coordinated Universal Time</standard>
 				</long>
-				<short>
-					<standard>UTC</standard>
-				</short>
+			</zone>
+			<zone type="Etc/Unknown">
+				<exemplarCity>Unknown City</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>Dumont d’Urville</exemplarCity>

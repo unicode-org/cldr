@@ -4447,6 +4447,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">Vasaros laikas: {0}</regionFormat>
 			<regionFormat type="standard">Žiemos laikas: {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Suderintasis pasaulinis laikas</standard>
+				</long>
+			</zone>
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Santa Izabelė</exemplarCity>
 			</zone>

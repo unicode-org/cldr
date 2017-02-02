@@ -2148,6 +2148,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">Ora verore: {0}</regionFormat>
 			<regionFormat type="standard">Ora standarde: {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Ora universale e koordinuar</standard>
+				</long>
+			</zone>
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Santa-Izabela</exemplarCity>
 			</zone>

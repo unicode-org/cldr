@@ -2155,6 +2155,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} жазғы уақыты</regionFormat>
 			<regionFormat type="standard">{0} стандартты уақыты</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Дүниежүзілік үйлестірілген уақыт</standard>
+				</long>
+			</zone>
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Санта-Изабел</exemplarCity>
 			</zone>

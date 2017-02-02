@@ -2553,6 +2553,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0}, лятно часово време</regionFormat>
 			<regionFormat type="standard">{0} – стандартно време</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Координирано универсално време</standard>
+				</long>
+			</zone>
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Санта Исабел</exemplarCity>
 			</zone>

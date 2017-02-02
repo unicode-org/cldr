@@ -2509,6 +2509,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0}: vasaras laiks</regionFormat>
 			<regionFormat type="standard">{0}: standarta laiks</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Universālais koordinētais laiks</standard>
+				</long>
+			</zone>
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Santaisabela</exemplarCity>
 			</zone>

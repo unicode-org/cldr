@@ -2969,6 +2969,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
 			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Tempo Universal Coordenado</standard>
+				</long>
+			</zone>
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>

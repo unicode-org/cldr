@@ -4364,6 +4364,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">zomertijd {0}</regionFormat>
 			<regionFormat type="standard">standaardtijd {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Gecoördineerde wereldtijd</standard>
+				</long>
+			</zone>
 			<zone type="America/Santa_Isabel">
 				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>

@@ -90,7 +90,10 @@ public class GenerateMaximalLocales {
 
     private static final boolean tryDifferent = true;
 
-    private static final File list[] = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.SEED_DIRECTORY) };
+    private static final File list[] = { 
+        new File(CLDRPaths.MAIN_DIRECTORY), 
+        new File(CLDRPaths.SEED_DIRECTORY), 
+        new File(CLDRPaths.EXEMPLARS_DIRECTORY) };
 
     private static Factory factory = SimpleFactory.make(list, ".*");
     private static SupplementalDataInfo supplementalData = SupplementalDataInfo
@@ -295,6 +298,7 @@ public class GenerateMaximalLocales {
         NumberFormat nf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
         nf.setGroupingUsed(true);
         LanguageTagParser ltp = new LanguageTagParser();
+        LikelySubtags likelySubtags = new LikelySubtags();
         /*
          * A. X is a qualified language**, and at least one of the following is true:
          *
@@ -324,7 +328,15 @@ public class GenerateMaximalLocales {
             for (String languageScript : supplementalData.getLanguagesForTerritoryWithPopulationData(territory)) {
                 PopulationData popData = supplementalData.getLanguageAndTerritoryPopulationData(languageScript,
                     territory);
-                String language = ltp.set(languageScript).getLanguage();
+                ltp.set(languageScript);
+                String language = ltp.getLanguage();
+//                if (ltp.getScript().isEmpty()) {
+//                    String max = likelySubtags.maximize(languageScript);
+//                    if (max != null) {
+//                        ltp.set(max).setRegion("");
+//                        languageScript = ltp.toString();
+//                    }
+//                }
                 boolean add = false;
                 // #1
                 OfficialStatus status = popData.getOfficialStatus();

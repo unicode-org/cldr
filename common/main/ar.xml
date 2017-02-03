@@ -1146,9 +1146,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</layout>
 	<characters>
 		<exemplarCharacters>[\u064B \u064C \u064D \u064E \u064F \u0650 \u0651 \u0652 \u0670 ء أ ؤ إ ئ ا آ ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[\u200C\u200D\u200E\u200F پ چ ژ ڜ ڢ ڤ ڥ ٯ ڧ ڨ ک گ ی]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u0640 \u200C\u200D\u200E\u200F پ چ ژ ڜ ڢ ڤ ڥ ٯ ڧ ڨ ک گ ی]</exemplarCharacters>
 		<exemplarCharacters type="index">[ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐ – — ، ؛ \: ! ؟ . ' &quot; ( ) \[ \]]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ – — ، ؛ \: ! ؟ . ' &quot; ( ) \[ \] « » \u2026]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -5782,80 +5782,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="zero">0 ألف</pattern>
-					<pattern type="1000" count="one">0 ألف</pattern>
-					<pattern type="1000" count="two">0 ألف</pattern>
-					<pattern type="1000" count="few">0 آلاف</pattern>
-					<pattern type="1000" count="many">0 ألف</pattern>
-					<pattern type="1000" count="other">0 ألف</pattern>
-					<pattern type="10000" count="zero">00 ألف</pattern>
-					<pattern type="10000" count="one">00 ألف</pattern>
-					<pattern type="10000" count="two">00 ألف</pattern>
-					<pattern type="10000" count="few">00 ألف</pattern>
-					<pattern type="10000" count="many">00 ألف</pattern>
-					<pattern type="10000" count="other">00 ألف</pattern>
-					<pattern type="100000" count="zero">000 ألف</pattern>
-					<pattern type="100000" count="one">000 ألف</pattern>
-					<pattern type="100000" count="two">000 ألف</pattern>
-					<pattern type="100000" count="few">000 ألف</pattern>
-					<pattern type="100000" count="many">000 ألف</pattern>
-					<pattern type="100000" count="other">000 ألف</pattern>
-					<pattern type="1000000" count="zero">0 مليو</pattern>
-					<pattern type="1000000" count="one">0 مليو</pattern>
-					<pattern type="1000000" count="two">0 مليو</pattern>
-					<pattern type="1000000" count="few">0 مليو</pattern>
-					<pattern type="1000000" count="many">0 مليو</pattern>
-					<pattern type="1000000" count="other">0 مليو</pattern>
-					<pattern type="10000000" count="zero">00 مليو</pattern>
-					<pattern type="10000000" count="one">00 مليو</pattern>
-					<pattern type="10000000" count="two">00 مليو</pattern>
-					<pattern type="10000000" count="few">00 مليو</pattern>
-					<pattern type="10000000" count="many">00 مليو</pattern>
-					<pattern type="10000000" count="other">00 مليو</pattern>
-					<pattern type="100000000" count="zero">000 مليو</pattern>
-					<pattern type="100000000" count="one">000 مليو</pattern>
-					<pattern type="100000000" count="two">000 مليو</pattern>
-					<pattern type="100000000" count="few">000 مليو</pattern>
-					<pattern type="100000000" count="many">000 مليو</pattern>
-					<pattern type="100000000" count="other">000 مليو</pattern>
-					<pattern type="1000000000" count="zero">0 مليا</pattern>
-					<pattern type="1000000000" count="one">0 مليا</pattern>
-					<pattern type="1000000000" count="two">0 مليا</pattern>
-					<pattern type="1000000000" count="few">0 مليا</pattern>
-					<pattern type="1000000000" count="many">0 مليا</pattern>
-					<pattern type="1000000000" count="other">0 مليا</pattern>
-					<pattern type="10000000000" count="zero">00 مليا</pattern>
-					<pattern type="10000000000" count="one">00 مليا</pattern>
-					<pattern type="10000000000" count="two">00 مليا</pattern>
-					<pattern type="10000000000" count="few">00 مليا</pattern>
-					<pattern type="10000000000" count="many">00 مليا</pattern>
-					<pattern type="10000000000" count="other">00 مليا</pattern>
-					<pattern type="100000000000" count="zero">000 مليا</pattern>
-					<pattern type="100000000000" count="one">000 مليا</pattern>
-					<pattern type="100000000000" count="two">000 مليا</pattern>
-					<pattern type="100000000000" count="few">000 مليا</pattern>
-					<pattern type="100000000000" count="many">000 مليا</pattern>
-					<pattern type="100000000000" count="other">000 مليا</pattern>
-					<pattern type="1000000000000" count="zero">0 ترليو</pattern>
-					<pattern type="1000000000000" count="one">0 ترليو</pattern>
-					<pattern type="1000000000000" count="two">0 ترليو</pattern>
-					<pattern type="1000000000000" count="few">0 ترليو</pattern>
-					<pattern type="1000000000000" count="many">0 ترليو</pattern>
-					<pattern type="1000000000000" count="other">0 ترليو</pattern>
-					<pattern type="10000000000000" count="zero">00 ترليو</pattern>
-					<pattern type="10000000000000" count="one">00 ترليو</pattern>
-					<pattern type="10000000000000" count="two">00 ترليو</pattern>
-					<pattern type="10000000000000" count="few">00 ترليو</pattern>
-					<pattern type="10000000000000" count="many">00 ترليو</pattern>
-					<pattern type="10000000000000" count="other">00 ترليو</pattern>
-					<pattern type="100000000000000" count="zero">000 ترليو</pattern>
-					<pattern type="100000000000000" count="one">000 ترليو</pattern>
-					<pattern type="100000000000000" count="two">000 ترليو</pattern>
-					<pattern type="100000000000000" count="few">000 ترليو</pattern>
-					<pattern type="100000000000000" count="many">000 ترليو</pattern>
-					<pattern type="100000000000000" count="other">000 ترليو</pattern>
-				</decimalFormat>
+				<alias source="locale" path="../decimalFormatLength[@type='long']"/>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="arab">

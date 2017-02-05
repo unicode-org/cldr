@@ -214,6 +214,7 @@ public class TestAll extends TestGroup {
             "org.unicode.cldr.unittest.TestOutdatedPaths",
             "org.unicode.cldr.unittest.TestPathHeader",
             "org.unicode.cldr.unittest.TestPaths",
+            "org.unicode.cldr.unittest.TestPseudolocalization",
             "org.unicode.cldr.unittest.TestScriptMetadata",
             "org.unicode.cldr.unittest.TestSupplementalInfo",
             "org.unicode.cldr.unittest.TestTransforms",

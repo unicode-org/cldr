@@ -223,7 +223,8 @@ public class TestLocale extends TestFmwkPlus {
     }
 
     public void checkRegion(String file, String region) {
-        if (!region.isEmpty() && !region.equals("AN")) {
+        if (!region.isEmpty() && !region.equals("AN")
+            && !region.equals("XA") && !region.equals("XB")) {
             assertRelation("Region ok? " + region + " in " + file, true,
                 ALLOWED_REGIONS, TestFmwkPlus.CONTAINS, region);
         }

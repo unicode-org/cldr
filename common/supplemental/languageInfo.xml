@@ -12,9 +12,9 @@
 			<!-- languageMatch desired="ku" supported="ckb" percent="96" oneway="true"/ -->  
 			<languageMatch desired="hr" supported="bs" percent="96"/>   <!-- Serbo-croatian variants are all very close. -->
 			<languageMatch desired="sh" supported="bs" percent="96"/>
-			<languageMatch desired="sr" supported="bs" percent="96"/>
+			<!-- languageMatch desired="sr" supported="bs" percent="96"/-->
 			<languageMatch desired="sh" supported="hr" percent="96"/>
-			<languageMatch desired="sr" supported="hr" percent="96"/>
+			<!-- languageMatch desired="sr" supported="hr" percent="96"/-->
 			<languageMatch desired="sh" supported="sr" percent="96"/>
 			<languageMatch desired="ssy" supported="aa" percent="96"/>  <!-- Saho is closely related to Afar -->
 			<languageMatch desired="gsw" supported="de" percent="96" oneway="true"/> <!-- All Swiss speakers can read High German -->
@@ -189,9 +189,9 @@
 			<!-- languageMatch desired="ckb" supported="ku" percent="8" oneway="true"/ --> <!-- ckb ⇒ ku -->
 			<languageMatch desired="hr"	supported="bs"	distance="4"/>	<!-- hr ⇒ bs -->
 			<languageMatch desired="sh"	supported="bs"	distance="4"/>	<!-- sh ⇒ bs -->
-			<languageMatch desired="sr"	supported="bs"	distance="4"/>	<!-- sr ⇒ bs -->
+			<!-- languageMatch desired="sr"	supported="bs"	distance="4"/-->	<!-- sr ⇒ bs -->
 			<languageMatch desired="sh"	supported="hr"	distance="4"/>	<!-- sh ⇒ hr -->
-			<languageMatch desired="sr"	supported="hr"	distance="4"/>	<!-- sr ⇒ hr -->
+			<!-- languageMatch desired="sr"	supported="hr"	distance="4"/-->	<!-- sr ⇒ hr -->
 			<languageMatch desired="sh"	supported="sr"	distance="4"/>	<!-- sh ⇒ sr -->
 			<languageMatch desired="ssy"	supported="aa"	distance="4"/>	<!-- ssy ⇒ aa -->
 			<languageMatch desired="gsw"	supported="de"	distance="4"	oneway="true"/>	<!-- gsw ⇒ de -->

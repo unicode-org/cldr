@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <!--
-Copyright © 1991-2016 Unicode, Inc.
+Copyright © 1991-2017 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -26,6 +26,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Abkhazian; ?; ? } => { Abkhazian; Cyrillic; Georgia }-->
 		<likelySubtag from="abi" to="abi_Latn_ZZ"/>
 		<!--{ Abidji; ?; ? } => { Abidji; Latin; Unknown Region }-->
+		<likelySubtag from="abq" to="abq_Cyrl_ZZ"/>
+		<!--{ Abaza; ?; ? } => { Abaza; Cyrillic; Unknown Region }-->
 		<likelySubtag from="abr" to="abr_Latn_GH"/>
 		<!--{ Abron; ?; ? } => { Abron; Latin; Ghana }-->
 		<likelySubtag from="abt" to="abt_Latn_ZZ"/>
@@ -320,6 +322,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Mid-Southern Banda; ?; ? } => { Mid-Southern Banda; Latin; Unknown Region }-->
 		<likelySubtag from="bjr" to="bjr_Latn_ZZ"/>
 		<!--{ Binumarien; ?; ? } => { Binumarien; Latin; Unknown Region }-->
+		<likelySubtag from="bjt" to="bjt_Latn_SN"/>
+		<!--{ Balanta-Ganja; ?; ? } => { Balanta-Ganja; Latin; Senegal }-->
 		<likelySubtag from="bjz" to="bjz_Latn_ZZ"/>
 		<!--{ Baruga; ?; ? } => { Baruga; Latin; Unknown Region }-->
 		<likelySubtag from="bkc" to="bkc_Latn_ZZ"/>
@@ -454,8 +458,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Atsam; ?; ? } => { Atsam; Latin; Nigeria }-->
 		<likelySubtag from="ccp" to="ccp_Cakm_BD"/>
 		<!--{ Chakma; ?; ? } => { Chakma; Chakma; Bangladesh }-->
-		<likelySubtag from="ccp_Beng" to="ccp_Beng_IN"/>
-		<!--{ Chakma; Chakma; ? } => { Chakma; Bangla; India }-->
 		<likelySubtag from="ce" to="ce_Cyrl_RU"/>
 		<!--{ Chechen; ?; ? } => { Chechen; Cyrillic; Russia }-->
 		<likelySubtag from="ceb" to="ceb_Latn_PH"/>
@@ -502,6 +504,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Capiznon; ?; ? } => { Capiznon; Latin; Philippines }-->
 		<likelySubtag from="cr" to="cr_Cans_CA"/>
 		<!--{ Cree; ?; ? } => { Cree; Unified Canadian Aboriginal Syllabics; Canada }-->
+		<likelySubtag from="crh" to="crh_Cyrl_UA"/>
+		<!--{ Crimean Turkish; ?; ? } => { Crimean Turkish; Cyrillic; Ukraine }-->
 		<likelySubtag from="crj" to="crj_Cans_CA"/>
 		<!--{ Southern East Cree; ?; ? } => { Southern East Cree; Unified Canadian Aboriginal Syllabics; Canada }-->
 		<likelySubtag from="crk" to="crk_Cans_CA"/>
@@ -513,7 +517,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="crs" to="crs_Latn_SC"/>
 		<!--{ Seselwa Creole French; ?; ? } => { Seselwa Creole French; Latin; Seychelles }-->
 		<likelySubtag from="cs" to="cs_Latn_CZ"/>
-		<!--{ Czech; ?; ? } => { Czech; Latin; Czech Republic }-->
+		<!--{ Czech; ?; ? } => { Czech; Latin; Czechia }-->
 		<likelySubtag from="csb" to="csb_Latn_PL"/>
 		<!--{ Kashubian; ?; ? } => { Kashubian; Latin; Poland }-->
 		<likelySubtag from="csw" to="csw_Cans_CA"/>
@@ -630,6 +634,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Emilian; ?; ? } => { Emilian; Latin; Italy }-->
 		<likelySubtag from="egy" to="egy_Egyp_EG"/>
 		<!--{ Ancient Egyptian; ?; ? } => { Ancient Egyptian; Egyptian hieroglyphs; Egypt }-->
+		<likelySubtag from="eka" to="eka_Latn_ZZ"/>
+		<!--{ Ekajuk; ?; ? } => { Ekajuk; Latin; Unknown Region }-->
 		<likelySubtag from="eky" to="eky_Kali_MM"/>
 		<!--{ Eastern Kayah; ?; ? } => { Eastern Kayah; Kayah Li; Myanmar (Burma) }-->
 		<likelySubtag from="el" to="el_Grek_GR"/>
@@ -844,6 +850,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Gronings; ?; ? } => { Gronings; Latin; Netherlands }-->
 		<likelySubtag from="got" to="got_Goth_UA"/>
 		<!--{ Gothic; ?; ? } => { Gothic; Gothic; Ukraine }-->
+		<likelySubtag from="grb" to="grb_Latn_ZZ"/>
+		<!--{ Grebo; ?; ? } => { Grebo; Latin; Unknown Region }-->
 		<likelySubtag from="grc" to="grc_Cprt_CY"/>
 		<!--{ Ancient Greek; ?; ? } => { Ancient Greek; Cypriot; Cyprus }-->
 		<likelySubtag from="grc_Linb" to="grc_Linb_GR"/>
@@ -988,6 +996,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Idi; ?; ? } => { Idi; Latin; Unknown Region }-->
 		<likelySubtag from="idu" to="idu_Latn_ZZ"/>
 		<!--{ Idoma; ?; ? } => { Idoma; Latin; Unknown Region }-->
+		<likelySubtag from="ife" to="ife_Latn_ZZ"/>
+		<!--{ Ifè; ?; ? } => { Ifè; Latin; Unknown Region }-->
 		<likelySubtag from="ig" to="ig_Latn_NG"/>
 		<!--{ Igbo; ?; ? } => { Igbo; Latin; Nigeria }-->
 		<likelySubtag from="igb" to="igb_Latn_ZZ"/>
@@ -1208,6 +1218,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Komo (Democratic Republic of Congo); ?; ? } => { Komo (Democratic Republic of Congo); Latin; Unknown Region }-->
 		<likelySubtag from="kn" to="kn_Knda_IN"/>
 		<!--{ Kannada; ?; ? } => { Kannada; Kannada; India }-->
+		<likelySubtag from="knf" to="knf_Latn_SN"/>
+		<!--{ Mankanya; ?; ? } => { Mankanya; Latin; Senegal }-->
 		<likelySubtag from="knp" to="knp_Latn_ZZ"/>
 		<!--{ Kwanja; ?; ? } => { Kwanja; Latin; Unknown Region }-->
 		<likelySubtag from="ko" to="ko_Kore_KR"/>
@@ -2054,6 +2066,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Sasak; ?; ? } => { Sasak; Latin; Indonesia }-->
 		<likelySubtag from="sat" to="sat_Latn_IN"/>
 		<!--{ Santali; ?; ? } => { Santali; Latin; India }-->
+		<likelySubtag from="sav" to="sav_Latn_SN"/>
+		<!--{ Saafi-Saafi; ?; ? } => { Saafi-Saafi; Latin; Senegal }-->
 		<likelySubtag from="saz" to="saz_Saur_IN"/>
 		<!--{ Saurashtra; ?; ? } => { Saurashtra; Saurashtra; India }-->
 		<likelySubtag from="sba" to="sba_Latn_ZZ"/>
@@ -2909,7 +2923,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_CY" to="el_Grek_CY"/>
 		<!--{ ?; ?; Cyprus } => { Greek; Greek; Cyprus }-->
 		<likelySubtag from="und_CZ" to="cs_Latn_CZ"/>
-		<!--{ ?; ?; Czech Republic } => { Czech; Latin; Czech Republic }-->
+		<!--{ ?; ?; Czechia } => { Czech; Latin; Czechia }-->
 		<likelySubtag from="und_DE" to="de_Latn_DE"/>
 		<!--{ ?; ?; Germany } => { German; Latin; Germany }-->
 		<likelySubtag from="und_DJ" to="aa_Latn_DJ"/>
@@ -3306,8 +3320,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ ?; Cyrillic; Greece } => { Macedonian; Cyrillic; Greece }-->
 		<likelySubtag from="und_Cyrl_MD" to="uk_Cyrl_MD"/>
 		<!--{ ?; Cyrillic; Moldova } => { Ukrainian; Cyrillic; Moldova }-->
-		<likelySubtag from="und_Cyrl_PL" to="be_Cyrl_PL"/>
-		<!--{ ?; Cyrillic; Poland } => { Belarusian; Cyrillic; Poland }-->
 		<likelySubtag from="und_Cyrl_RO" to="bg_Cyrl_RO"/>
 		<!--{ ?; Cyrillic; Romania } => { Bulgarian; Cyrillic; Romania }-->
 		<likelySubtag from="und_Cyrl_SK" to="uk_Cyrl_SK"/>

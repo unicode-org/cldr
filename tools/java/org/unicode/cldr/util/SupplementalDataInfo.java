@@ -4187,7 +4187,7 @@ public class SupplementalDataInfo {
         ltp.setScript("");
         String trial = ltp.toString();
         String newMax = LikelySubtags.maximize(trial, likely);
-        if (newMax.equals(max)) {
+        if (Objects.equals(newMax,max)) {
             locales.add(trial);
         }
 
@@ -4195,7 +4195,7 @@ public class SupplementalDataInfo {
         ltp.setRegion("");
         trial = ltp.toString();
         newMax = LikelySubtags.maximize(trial, likely);
-        if (newMax.equals(max)) {
+        if (Objects.equals(newMax,max)) {
             locales.add(trial);
         }
 

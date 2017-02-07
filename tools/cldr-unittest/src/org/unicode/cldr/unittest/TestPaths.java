@@ -239,9 +239,10 @@ public class TestPaths extends TestFmwkPlus {
             return false;
         }
 
-        public void show() {
+        public void show(int inclusion) {
             for (DtdType dtdType : DtdType.values()) {
-                if (dtdType == DtdType.ldmlICU) {
+                if (dtdType == DtdType.ldmlICU ||
+                    (inclusion <= 5 && dtdType == DtdType.platform)) { // keyboards/*/_platform.xml won't be in the list for non-exhaustive runs
                     continue;
                 }
                 M4<String, String, String, Boolean> infoEAV = data.get(dtdType);
@@ -420,7 +421,7 @@ public class TestPaths extends TestFmwkPlus {
                 }
             }
         }
-        checkDeprecated.show();
+        checkDeprecated.show(getInclusion());
     }
 
     private void checkParts(String path, DtdData dtdData) {

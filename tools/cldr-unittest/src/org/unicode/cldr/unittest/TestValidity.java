@@ -23,6 +23,8 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestValidity extends TestFmwkPlus {
 
+    private boolean DEBUG = false;
+    
     public static void main(String[] args) {
         new TestValidity().run(args);
     }
@@ -231,8 +233,11 @@ public class TestValidity extends TestFmwkPlus {
                 }
             }
         }
-        for (Entry<String, String> e : shortened.entrySet()) {
-            System.out.println('"' + e.getKey() + "\", \"" + e.getValue() + "\",");
+        
+        if (DEBUG) {
+            for (Entry<String, String> e : shortened.entrySet()) {
+                System.out.println('"' + e.getKey() + "\", \"" + e.getValue() + "\",");
+            }
         }
     }
 

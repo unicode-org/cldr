@@ -412,12 +412,6 @@ public class TestTransforms extends TestFmwkPlus {
                 }
                 logln("Testing file: " + file);
                 String transName = file.substring(0, file.length() - 4);
-                if (transName.startsWith("ur-t-und-")) {
-                  if (logKnownIssue("cldrbug:9737",
-                      "CLDR test suite is loading transforms non-deterministically")) {
-                    continue;
-                  }
-                }
 
                 Transliterator trans = getTransliterator(transName);
                 BufferedReader in = FileUtilities.openUTF8Reader(fileDirectoryName, file);

@@ -8,7 +8,6 @@ import java.util.Set;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Pair;
 
-import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.LocaleMatcher;
@@ -128,13 +127,10 @@ public class LanguageInfoTest extends TestFmwk {
     static final ULocale MUL = new ULocale("mul");
 
     public void testFallbacks() {
-        ImmutableSet<String> skip = !logKnownIssue("Cldrbug:9168", "Problems with subtags/languageMatch data for bh")
-              ? ImmutableSet.of()
-              : ImmutableSet.of("bh");
 
         for (R4<String, String, Integer, Boolean> foo : testInfo.getSupplementalDataInfo().getLanguageMatcherData("written")) {
             String rawDesired = foo.get0();
-            if (rawDesired.contains("*") || skip.contains(rawDesired)) {
+            if (rawDesired.contains("*")) {
                 continue;
             }
             if (rawDesired.equals("tlh")) {

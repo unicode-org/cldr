@@ -11,7 +11,7 @@ $Revision$
 
 <!ELEMENT ldml ( identity, ( alias | ( fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, characterLabels?, segmentations?, rbnf?, annotations?, metadata?, references?, special* ) ) ) >
 <!ATTLIST ldml version CDATA #IMPLIED >
-    <!--@METADATA -->
+    <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST ldml draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -419,16 +419,6 @@ $Revision$
 <!ATTLIST characters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
-    
-<!ELEMENT parseLenients ( alias | (parseLenient*, special*) ) >
-<!ATTLIST parseLenients scope (general | number | date) #REQUIRED >
-<!ATTLIST parseLenients level (lenient | stricter) #REQUIRED >    
-
-<!ELEMENT parseLenient (#PCDATA) >
-<!ATTLIST parseLenient sample CDATA #REQUIRED >
-<!ATTLIST parseLenient alt NMTOKENS #IMPLIED >
-<!ATTLIST parseLenient draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
-    <!--@METADATA-->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
 <!ATTLIST exemplarCharacters type (auxiliary | standard | punctuation | currencySymbol | index) #IMPLIED >
@@ -583,6 +573,16 @@ $Revision$
 <!ATTLIST mapping validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+
+<!ELEMENT parseLenients ( alias | ( parseLenient*, special* ) ) >
+<!ATTLIST parseLenients scope (general | number | date) #REQUIRED >
+<!ATTLIST parseLenients level (lenient | stricter) #REQUIRED >
+
+<!ELEMENT parseLenient ( #PCDATA ) >
+<!ATTLIST parseLenient sample CDATA #REQUIRED >
+<!ATTLIST parseLenient alt NMTOKENS #IMPLIED >
+<!ATTLIST parseLenient draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!-- ######################################################### -->
 
@@ -1807,23 +1807,6 @@ $Revision$
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
-<!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, special* )) >
-<!ATTLIST minimalPairs alt NMTOKENS #IMPLIED >
-<!ATTLIST minimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
-    <!--@METADATA-->
-
-<!ELEMENT pluralMinimalPairs ( #PCDATA ) >
-<!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED >
-<!ATTLIST pluralMinimalPairs alt NMTOKENS #IMPLIED >
-<!ATTLIST pluralMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
-    <!--@METADATA-->
-
-<!ELEMENT ordinalMinimalPairs ( #PCDATA ) >
-<!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED >
-<!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED >
-<!ATTLIST ordinalMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
-    <!--@METADATA-->
-
 <!ELEMENT defaultNumberingSystem ( #PCDATA ) >
 <!ATTLIST defaultNumberingSystem alt NMTOKENS #IMPLIED >
 <!ATTLIST defaultNumberingSystem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -2274,6 +2257,24 @@ $Revision$
     <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
+
+<!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, special* ) ) >
+<!ATTLIST minimalPairs alt NMTOKENS #IMPLIED >
+<!ATTLIST minimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED-->
+
+<!ELEMENT pluralMinimalPairs ( #PCDATA ) >
+<!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED >
+<!ATTLIST pluralMinimalPairs alt NMTOKENS #IMPLIED >
+<!ATTLIST pluralMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT ordinalMinimalPairs ( #PCDATA ) >
+<!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED >
+<!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED >
+<!ATTLIST ordinalMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!-- ######################################################### -->
 

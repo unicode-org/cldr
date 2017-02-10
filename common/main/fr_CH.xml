@@ -215,6 +215,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 	</dates>
 	<numbers>
+		<symbols numberSystem="latn">
+			<currencyDecimal>.</currencyDecimal>
+		</symbols>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>

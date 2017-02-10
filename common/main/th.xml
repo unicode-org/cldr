@@ -6577,18 +6577,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other">0 พ'.'</pattern>
-					<pattern type="10000" count="other">0 ม'.'</pattern>
-					<pattern type="100000" count="other">0 ส'.'</pattern>
-					<pattern type="1000000" count="other">0 ล'.'</pattern>
-					<pattern type="10000000" count="other">00 ล'.'</pattern>
-					<pattern type="100000000" count="other">000 ล'.'</pattern>
-					<pattern type="1000000000" count="other">0 พ'.'ล'.'</pattern>
-					<pattern type="10000000000" count="other">0 ม'.'ล'.'</pattern>
-					<pattern type="100000000000" count="other">0 ส'.'ล'.'</pattern>
-					<pattern type="1000000000000" count="other">0 ล'.'ล'.'</pattern>
-					<pattern type="10000000000000" count="other">00 ล'.'ล'.'</pattern>
-					<pattern type="100000000000000" count="other">000 ล'.'ล'.'</pattern>
+					<pattern type="1000" count="other">0K</pattern>
+					<pattern type="10000" count="other">00K</pattern>
+					<pattern type="100000" count="other">000K</pattern>
+					<pattern type="1000000" count="other">0M</pattern>
+					<pattern type="10000000" count="other">00M</pattern>
+					<pattern type="100000000" count="other">000M</pattern>
+					<pattern type="1000000000" count="other">0B</pattern>
+					<pattern type="10000000000" count="other">00B</pattern>
+					<pattern type="100000000000" count="other">000B</pattern>
+					<pattern type="1000000000000" count="other">0T</pattern>
+					<pattern type="10000000000000" count="other">00T</pattern>
+					<pattern type="100000000000000" count="other">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -6617,18 +6617,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other" draft="contributed">¤0 พ'.'</pattern>
-					<pattern type="10000" count="other" draft="contributed">¤0 ม'.'</pattern>
-					<pattern type="100000" count="other" draft="contributed">¤0 ส'.'</pattern>
-					<pattern type="1000000" count="other" draft="contributed">¤0 ล'.'</pattern>
-					<pattern type="10000000" count="other" draft="contributed">¤00 ล'.'</pattern>
-					<pattern type="100000000" count="other" draft="contributed">¤000 ล'.'</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">¤0 พ'.'ล'.'</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">¤0 ม'.'ล'.'</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">¤0 ส'.'ล'.'</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">¤0 ล'.'ล'.'</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">¤00 ล'.'ล'.'</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">¤000 ล'.'ล'.'</pattern>
+					<pattern type="1000" count="other">¤0K</pattern>
+					<pattern type="10000" count="other">¤00K</pattern>
+					<pattern type="100000" count="other">¤000K</pattern>
+					<pattern type="1000000" count="other">¤0M</pattern>
+					<pattern type="10000000" count="other">¤00M</pattern>
+					<pattern type="100000000" count="other">¤000M</pattern>
+					<pattern type="1000000000" count="other">¤0B</pattern>
+					<pattern type="10000000000" count="other">¤00B</pattern>
+					<pattern type="100000000000" count="other">¤000B</pattern>
+					<pattern type="1000000000000" count="other">¤0T</pattern>
+					<pattern type="10000000000000" count="other">¤00T</pattern>
+					<pattern type="100000000000000" count="other">¤000T</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>

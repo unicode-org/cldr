@@ -51,6 +51,7 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateSubdivisions {
 
+    private static final String ISO_COUNTRY_CODES = CLDRPaths.CLDR_PRIVATE_DIRECTORY + "external/iso_country_codes/";
     static final Comparator<String> ROOT_COL;
     static {
         RuleBasedCollator _ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
@@ -92,7 +93,7 @@ public class GenerateSubdivisions {
     static Map<String, String> NAME_CORRECTIONS = new HashMap<>();
     static {
         Splitter semi = Splitter.on(';').trimResults();
-        for (String s : FileUtilities.in(CLDRPaths.DATA_DIRECTORY + "iso/", "en-subdivisions-corrections.txt")) {
+        for (String s : FileUtilities.in(ISO_COUNTRY_CODES, "en-subdivisions-corrections.txt")) {
             if (s.startsWith("#")) {
                 continue;
             }
@@ -760,7 +761,7 @@ public class GenerateSubdivisions {
 
     private static void loadWiki() {
         Splitter TAB = Splitter.on('\t').trimResults();
-        for (String line : FileUtilities.in(CLDRPaths.DATA_DIRECTORY + "iso/", "subdivision-names-wikidata.txt")) {
+        for (String line : FileUtilities.in(ISO_COUNTRY_CODES, "subdivision-names-wikidata.txt")) {
             // AD-02    Q24260  /m/... an  Canillo
             List<String> data = TAB.splitToList(line);
             String subdivision = convertToCldr(data.get(0));
@@ -776,7 +777,7 @@ public class GenerateSubdivisions {
         //                  <subdivision-locale-name>Otago</subdivision-locale-name>
 
         List<Pair<String, String>> pathValues = XMLFileReader.loadPathValues(
-            CLDRPaths.DATA_DIRECTORY + "iso/iso_country_codes.xml",
+            ISO_COUNTRY_CODES + "iso_country_codes.xml",
             new ArrayList<Pair<String, String>>(), false);
         XPathParts parts = new XPathParts();
         int maxIndent = 0;

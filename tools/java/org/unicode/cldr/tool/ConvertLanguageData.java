@@ -72,6 +72,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class ConvertLanguageData {
 
+    private static final boolean DEBUG = false;
     // change this if you need to override what is generated for the default contents.
     private static final List<String> defaultOverrides = Arrays.asList("es_ES".split("\\s+")); // und_ZZ
 
@@ -167,6 +168,11 @@ public class ConvertLanguageData {
                             BadItem.ERROR.show("missing language/population data for CLDR locale", locale + " = " + getLanguageCodeAndName(locale));
                         }
                     } else {
+                        // These exceptions are OK, because these locales by default use the non-default script
+                        Set<String> OKExceptions = ImmutableSet.of("sr_Cyrl_ME", "zh_Hans_HK", "zh_Hans_MO");
+                        if (OKExceptions.contains(locale)) {
+                            continue;
+                        }
                         BadItem.ERROR.show("missing language/population data for CLDR locale", locale + " = " + getLanguageCodeAndName(locale)
                         + " but have data for " + getLanguageCodeAndName(withoutScript));
                     }
@@ -209,10 +215,10 @@ public class ConvertLanguageData {
             showFailures(failures);
 
             CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</territoryInfo>\\s*"), null, false);
-            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<references>\\s*"), Log.getLog(), false);
+            //CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<references>\\s*"), Log.getLog(), false);
             // generateIso639_2Data();
-            references.printReferences();
-            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</references>\\s*"), null, false);
+            //references.printReferences();
+            //CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</references>\\s*"), null, false);
             CldrUtility.copyUpTo(oldFile, null, Log.getLog(), false);
             // Log.println("</supplementalData>");
             Log.close();
@@ -2207,7 +2213,7 @@ public class ConvertLanguageData {
 
     private static String fixLanguageCode(String languageCodeRaw, List<String> row) {
         String languageCode = languageTagCanonicalizer.transform(languageCodeRaw);
-        if (!languageCode.equals(languageCodeRaw)) {
+        if (DEBUG && !languageCode.equals(languageCodeRaw)) {
             System.out.println("## " + languageCodeRaw + " => " + languageCode);
         }
         int bar = languageCode.indexOf('_');

@@ -215,10 +215,10 @@ public class ConvertLanguageData {
             showFailures(failures);
 
             CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</territoryInfo>\\s*"), null, false);
-            //CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<references>\\s*"), Log.getLog(), false);
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<references>\\s*"), Log.getLog(), false);
             // generateIso639_2Data();
-            //references.printReferences();
-            //CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</references>\\s*"), null, false);
+            references.printReferences();
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</references>\\s*"), null, false);
             CldrUtility.copyUpTo(oldFile, null, Log.getLog(), false);
             // Log.println("</supplementalData>");
             Log.close();
@@ -988,7 +988,7 @@ public class ConvertLanguageData {
                         + formatPercent(languageLiteracy, 2, true) + "\"")
                     + " populationPercent=\"" + formatPercent(languagePopulationPercent, 2, true) + "\""
                     + (row.officialStatus.isOfficial() ? " officialStatus=\"" + row.officialStatus + "\"" : "")
-                    + references.addReference(row.comment)
+                    + references.addReference(row.notes)
                     + "/>");
                 Log.println("\t<!--" + getLanguageName(languageCode) + "-->");
             } else if (!row.countryCode.equals("ZZ")) {

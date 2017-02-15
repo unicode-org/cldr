@@ -3468,13 +3468,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0}, ljetno vrijeme</regionFormat>
 			<regionFormat type="standard">{0}, standardno vrijeme</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Koordinirano svjetsko vrijeme</standard>
 				</long>
-			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Nepoznati grad</exemplarCity>

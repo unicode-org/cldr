@@ -2961,11 +2961,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">{0} Sa ago</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="dayperiod">
+			<field type="dayperiod-short">
 				<displayName>AM/PM</displayName>
 				<displayName alt="variant">am/pm</displayName>
 			</field>
-			<field type="dayperiod-short">
+			<field type="dayperiod">
 				<displayName>AM/PM</displayName>
 				<displayName alt="variant">am/pm</displayName>
 			</field>
@@ -6096,11 +6096,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} picometer</unitPattern>
 				<unitPattern count="other">{0} picometers</unitPattern>
 			</unit>
-			<unit type="length-point">
-				<displayName>points</displayName>
-				<unitPattern count="one">{0} point</unitPattern>
-				<unitPattern count="other">{0} points</unitPattern>
-			</unit>
 			<unit type="length-mile">
 				<displayName>miles</displayName>
 				<unitPattern count="one">{0} mile</unitPattern>
@@ -6157,6 +6152,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>mile-scandinavian</displayName>
 				<unitPattern count="one">{0} mile-scandinavian</unitPattern>
 				<unitPattern count="other">{0} miles-scandinavian</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>points</displayName>
+				<unitPattern count="one">{0} point</unitPattern>
+				<unitPattern count="other">{0} points</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
@@ -6803,11 +6803,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} pm</unitPattern>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
-			<unit type="length-point">
-				<displayName>points</displayName>
-				<unitPattern count="one">{0} pt</unitPattern>
-				<unitPattern count="other">{0} pt</unitPattern>
-			</unit>
 			<unit type="length-mile">
 				<displayName>miles</displayName>
 				<unitPattern count="one">{0} mi</unitPattern>
@@ -6864,6 +6859,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>smi</displayName>
 				<unitPattern count="one">{0} smi</unitPattern>
 				<unitPattern count="other">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>points</displayName>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
@@ -7474,11 +7474,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}pm</unitPattern>
 				<unitPattern count="other">{0}pm</unitPattern>
 			</unit>
-			<unit type="length-point">
-				<displayName>pts</displayName>
-				<unitPattern count="one">{0}pt</unitPattern>
-				<unitPattern count="other">{0}pt</unitPattern>
-			</unit>
 			<unit type="length-mile">
 				<displayName>mi</displayName>
 				<unitPattern count="one">{0}mi</unitPattern>
@@ -7533,6 +7528,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>smi</displayName>
 				<unitPattern count="one">{0}smi</unitPattern>
 				<unitPattern count="other">{0}smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>pts</displayName>
+				<unitPattern count="one">{0}pt</unitPattern>
+				<unitPattern count="other">{0}pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>

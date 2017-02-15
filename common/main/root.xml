@@ -2632,11 +2632,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="sat-narrow">
 				<alias source="locale" path="../field[@type='sat-short']"/>
 			</field>
-			<field type="dayperiod">
-				<displayName>Dayperiod</displayName>
-			</field>
 			<field type="dayperiod-short">
 				<alias source="locale" path="../field[@type='dayperiod']"/>
+			</field>
+			<field type="dayperiod">
+				<displayName>Dayperiod</displayName>
 			</field>
 			<field type="dayperiod-narrow">
 				<alias source="locale" path="../field[@type='dayperiod-short']"/>
@@ -4330,10 +4330,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>pm</displayName>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
-			<unit type="length-point">
-				<displayName>pt</displayName>
-				<unitPattern count="other">{0} pt</unitPattern>
-			</unit>
 			<unit type="length-mile">
 				<displayName>mi</displayName>
 				<unitPattern count="other">{0} mi</unitPattern>
@@ -4379,6 +4375,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="length-mile-scandinavian">
 				<displayName>smi</displayName>
 				<unitPattern count="other">{0} smi</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>pt</displayName>
+				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>

@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import java.util.EnumMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -32,6 +33,12 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         // if (fullPath == null) return this; // skip paths that we don't have
         if (LogicalGrouping.isOptional(getCldrFileToCheck(), path)) return this;
         Set<String> paths = LogicalGrouping.getPaths(getCldrFileToCheck(), path);
+        Set<String> paths2 = new HashSet<String>(paths);
+        for (String p : paths2) {
+            if (LogicalGrouping.isOptional(getCldrFileToCheck(), p)) {
+                paths.remove(p);
+            }
+        }
         if (paths.size() < 2) return this; // skip if not part of a logical grouping
         int logicalGroupingCount = 0;
         for (String apath : paths) {

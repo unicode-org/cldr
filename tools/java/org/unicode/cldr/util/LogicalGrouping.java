@@ -134,7 +134,11 @@ public class LogicalGrouping {
             Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
             if (relativeValue >= -3 && relativeValue <= 3) { // This is just a quick check to make sure the path is good.
                 if (!(nowUnits.contains(fieldType) && relativeValue == 0)) { // Workaround for "now", "this hour", "this minute"
-                    for (Integer i = -1; i <= 1; i++) {
+                    int limit = 1;
+                    if (fieldType != null && fieldType.startsWith("day")) {
+                        limit = 3;
+                    }
+                    for (Integer i = -1*limit; i <= limit; i++) {
                         parts.setAttribute("relative", "type", i.toString());
                         result.add(parts.toString());
                     }
@@ -187,10 +191,19 @@ public class LogicalGrouping {
      *         that it belongs to.
      */
     public static boolean isOptional(CLDRFile cldrFile, String path) {
+        XPathParts parts = new XPathParts().set(path);
+
+        if (parts.containsElement("relative")) {
+            String fieldType = parts.findAttributeValue("field", "type");
+            String relativeType = parts.findAttributeValue("relative", "type");
+            Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
+            if (fieldType != null && fieldType.startsWith("day") && Math.abs(relativeValue.intValue()) >= 2) {
+                return true;   // relative days +2 +3 -2 -3 are optional in a logical group.
+            }
+        }
         // Paths with count="(zero|one)" are optional if their usage is covered
         // fully by paths with count="(0|1)", which are always optional themselves.
         if (!path.contains("[@count=")) return false;
-        XPathParts parts = new XPathParts().set(path);
         String pluralType = parts.getAttributeValue(-1, "count");
         if (pluralType.equals("0") || pluralType.equals("1")) return true;
         if (!pluralType.equals("zero") && !pluralType.equals("one")) return false;

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="bo-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Tibetan (PRC)"/>
 	</names>
@@ -160,60 +160,59 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<transforms type="simple">
-		<transform from="m་" to="\u{F84}"/> <!--  m་ → ྄ -->
+		<transform from="m་" to="\u{F84}"/> <!-- m་ → ྄ -->
 		<transform from="m།" to="༎"/>
 		<transform from="m༠" to="༈"/>
 		<transform from="m༡" to="༄"/>
 		<transform from="m༢" to="༅"/>
-		<transform from="m༣" to="\u{F7E}"/> <!--  m༣ → ཾ -->
-		<transform from="m༤" to="\u{F83}"/> <!--  m༤ → ྃ -->
-		<transform from="m༥" to="\u{F37}"/> <!--  m༥ → ༷ -->
-		<transform from="m༦" to="\u{F35}"/> <!--  m༦ → ༵ -->
-		<transform from="m༧" to="\u{F7F}"/> <!--  m༧ → ཿ -->
+		<transform from="m༣" to="\u{F7E}"/> <!-- m༣ → ཾ -->
+		<transform from="m༤" to="\u{F83}"/> <!-- m༤ → ྃ -->
+		<transform from="m༥" to="\u{F37}"/> <!-- m༥ → ༷ -->
+		<transform from="m༦" to="\u{F35}"/> <!-- m༦ → ༵ -->
+		<transform from="m༧" to="\u{F7F}"/> <!-- m༧ → ཿ -->
 		<transform from="m༨" to="༔"/>
 		<transform from="m༩" to="༑"/>
 		<transform from="mm" to="྅"/>
-		<transform from="Mm" to="\u{FA2}"/> <!--  Mm → ྡྷ -->
-		<transform from="MM" to="\u{F39}"/> <!--  MM → ༹ -->
-		<transform from="mཀ" to="\u{F90}"/> <!--  mཀ → ྐ -->
-		<transform from="mཁ" to="\u{F91}"/> <!--  mཁ → ྑ -->
-		<transform from="mག" to="\u{F92}"/> <!--  mག → ྒ -->
-		<transform from="Mག" to="\u{F93}"/> <!--  Mག → ྒྷ -->
-		<transform from="mང" to="\u{F94}"/> <!--  mང → ྔ -->
-		<transform from="mཅ" to="\u{F95}"/> <!--  mཅ → ྕ -->
-		<transform from="mཆ" to="\u{F96}"/> <!--  mཆ → ྖ -->
-		<transform from="mཇ" to="\u{F97}"/> <!--  mཇ → ྗ -->
-		<transform from="mཉ" to="\u{F99}"/> <!--  mཉ → ྙ -->
-		<transform from="mཏ" to="\u{F9F}"/> <!--  mཏ → ྟ -->
-		<transform from="Mཏ" to="\u{F9D}"/> <!--  Mཏ → ྜྷ -->
-		<transform from="mཐ" to="\u{FA0}"/> <!--  mཐ → ྠ -->
-		<transform from="mད" to="\u{FA1}"/> <!--  mད → ྡ -->
+		<transform from="Mm" to="\u{FA2}"/> <!-- Mm → ྡྷ -->
+		<transform from="MM" to="\u{F39}"/> <!-- MM → ༹ -->
+		<transform from="mཀ" to="\u{F90}"/> <!-- mཀ → ྐ -->
+		<transform from="mཁ" to="\u{F91}"/> <!-- mཁ → ྑ -->
+		<transform from="mག" to="\u{F92}"/> <!-- mག → ྒ -->
+		<transform from="Mག" to="\u{F93}"/> <!-- Mག → ྒྷ -->
+		<transform from="mང" to="\u{F94}"/> <!-- mང → ྔ -->
+		<transform from="mཅ" to="\u{F95}"/> <!-- mཅ → ྕ -->
+		<transform from="mཆ" to="\u{F96}"/> <!-- mཆ → ྖ -->
+		<transform from="mཇ" to="\u{F97}"/> <!-- mཇ → ྗ -->
+		<transform from="mཉ" to="\u{F99}"/> <!-- mཉ → ྙ -->
+		<transform from="mཏ" to="\u{F9F}"/> <!-- mཏ → ྟ -->
+		<transform from="Mཏ" to="\u{F9D}"/> <!-- Mཏ → ྜྷ -->
+		<transform from="mཐ" to="\u{FA0}"/> <!-- mཐ → ྠ -->
+		<transform from="mད" to="\u{FA1}"/> <!-- mད → ྡ -->
 		<transform from="Mད" to="ཌྷ"/>
-		<transform from="mན" to="\u{FA3}"/> <!--  mན → ྣ -->
-		<transform from="mཔ" to="\u{FA4}"/> <!--  mཔ → ྤ -->
-		<transform from="mཕ" to="\u{FA5}"/> <!--  mཕ → ྥ -->
-		<transform from="mབ" to="\u{FA6}"/> <!--  mབ → ྦ -->
-		<transform from="Mབ" to="\u{FA7}"/> <!--  Mབ → ྦྷ -->
-		<transform from="mམ" to="\u{FA8}"/> <!--  mམ → ྨ -->
-		<transform from="mཙ" to="\u{FA9}"/> <!--  mཙ → ྩ -->
-		<transform from="mཚ" to="\u{FAA}"/> <!--  mཚ → ྪ -->
-		<transform from="mཛ" to="\u{FAB}"/> <!--  mཛ → ྫ -->
-		<transform from="Mཛ" to="\u{FAC}"/> <!--  Mཛ → ྫྷ -->
-		<transform from="mཝ" to="\u{FBA}"/> <!--  mཝ → ྺ -->
-		<transform from="mཞ" to="\u{FAE}"/> <!--  mཞ → ྮ -->
-		<transform from="mཟ" to="\u{FAF}"/> <!--  mཟ → ྯ -->
-		<transform from="mའ" to="\u{FB0}"/> <!--  mའ → ྰ -->
-		<transform from="mཡ" to="\u{FB1}"/> <!--  mཡ → ྱ -->
-		<transform from="mར" to="\u{FB2}"/> <!--  mར → ྲ -->
-		<transform from="mལ" to="\u{FB3}"/> <!--  mལ → ླ -->
-		<transform from="mཤ" to="\u{FB4}"/> <!--  mཤ → ྴ -->
-		<transform from="mས" to="\u{FB6}"/> <!--  mས → ྶ -->
-		<transform from="mཧ" to="\u{FB7}"/> <!--  mཧ → ྷ -->
-		<transform from="mཨ" to="\u{FB8}"/> <!--  mཨ → ྸ -->
-		<transform from="m\u{F72}" to="\u{F80}"/> <!--  mི → ྀ -->
-		<transform from="m\u{F74}" to="\u{FAD}"/> <!--  mུ → ྭ -->
-		<transform from="m\u{F7A}" to="\u{F7B}"/> <!--  mེ → ཻ -->
-		<transform from="m\u{F7C}" to="\u{F7D}"/> <!--  mོ → ཽ -->
+		<transform from="mན" to="\u{FA3}"/> <!-- mན → ྣ -->
+		<transform from="mཔ" to="\u{FA4}"/> <!-- mཔ → ྤ -->
+		<transform from="mཕ" to="\u{FA5}"/> <!-- mཕ → ྥ -->
+		<transform from="mབ" to="\u{FA6}"/> <!-- mབ → ྦ -->
+		<transform from="Mབ" to="\u{FA7}"/> <!-- Mབ → ྦྷ -->
+		<transform from="mམ" to="\u{FA8}"/> <!-- mམ → ྨ -->
+		<transform from="mཙ" to="\u{FA9}"/> <!-- mཙ → ྩ -->
+		<transform from="mཚ" to="\u{FAA}"/> <!-- mཚ → ྪ -->
+		<transform from="mཛ" to="\u{FAB}"/> <!-- mཛ → ྫ -->
+		<transform from="Mཛ" to="\u{FAC}"/> <!-- Mཛ → ྫྷ -->
+		<transform from="mཝ" to="\u{FBA}"/> <!-- mཝ → ྺ -->
+		<transform from="mཞ" to="\u{FAE}"/> <!-- mཞ → ྮ -->
+		<transform from="mཟ" to="\u{FAF}"/> <!-- mཟ → ྯ -->
+		<transform from="mའ" to="\u{FB0}"/> <!-- mའ → ྰ -->
+		<transform from="mཡ" to="\u{FB1}"/> <!-- mཡ → ྱ -->
+		<transform from="mར" to="\u{FB2}"/> <!-- mར → ྲ -->
+		<transform from="mལ" to="\u{FB3}"/> <!-- mལ → ླ -->
+		<transform from="mཤ" to="\u{FB4}"/> <!-- mཤ → ྴ -->
+		<transform from="mས" to="\u{FB6}"/> <!-- mས → ྶ -->
+		<transform from="mཧ" to="\u{FB7}"/> <!-- mཧ → ྷ -->
+		<transform from="mཨ" to="\u{FB8}"/> <!-- mཨ → ྸ -->
+		<transform from="m\u{F72}" to="\u{F80}"/> <!-- mི → ྀ -->
+		<transform from="m\u{F74}" to="\u{FAD}"/> <!-- mུ → ྭ -->
+		<transform from="m\u{F7A}" to="\u{F7B}"/> <!-- mེ → ཻ -->
+		<transform from="m\u{F7C}" to="\u{F7D}"/> <!-- mོ → ཽ -->
 	</transforms>
 </keyboard>
-

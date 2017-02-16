@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="chr-t-k0-windows-phonetic">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Cherokee Phonetic"/>
 	</names>
@@ -125,14 +125,6 @@
 		<transform from="D&lt;" to="&lt;"/>
 		<transform from="d|" to="|"/>
 		<transform from="D|" to="|"/>
-		<transform from="dd" to="d"/>
-		<transform from="dD" to="D"/>
-		<transform from="Dd" to="d"/>
-		<transform from="DD" to="D"/>
-		<transform from="dn" to="n"/>
-		<transform from="dN" to="N"/>
-		<transform from="Dn" to="n"/>
-		<transform from="DN" to="N"/>
 		<transform from="dᎠ" to="Ꮣ"/>
 		<transform from="DᎠ" to="Ꮣ"/>
 		<transform from="dᎡ" to="Ꮥ"/>
@@ -145,6 +137,14 @@
 		<transform from="DᎤ" to="Ꮪ"/>
 		<transform from="dᎥ" to="Ꮫ"/>
 		<transform from="DᎥ" to="Ꮫ"/>
+		<transform from="dd" to="d"/>
+		<transform from="dD" to="D"/>
+		<transform from="Dd" to="d"/>
+		<transform from="DD" to="D"/>
+		<transform from="dn" to="n"/>
+		<transform from="dN" to="N"/>
+		<transform from="Dn" to="n"/>
+		<transform from="DN" to="N"/>
 		<transform from="g " to="Ꭶ"/>
 		<transform from="G " to="Ꭶ"/>
 		<transform from="gᎠ" to="Ꭶ"/>
@@ -221,10 +221,6 @@
 		<transform from="MᎤ" to="Ꮍ"/>
 		<transform from="n " to="Ꮎ"/>
 		<transform from="N " to="Ꮎ"/>
-		<transform from="nh" to="Ꮐ"/>
-		<transform from="nH" to="Ꮐ"/>
-		<transform from="Nh" to="Ꮐ"/>
-		<transform from="NH" to="Ꮐ"/>
 		<transform from="nᎠ" to="Ꮎ"/>
 		<transform from="NᎠ" to="Ꮎ"/>
 		<transform from="nᎡ" to="Ꮑ"/>
@@ -237,6 +233,10 @@
 		<transform from="NᎤ" to="Ꮔ"/>
 		<transform from="nᎥ" to="Ꮕ"/>
 		<transform from="NᎥ" to="Ꮕ"/>
+		<transform from="nh" to="Ꮐ"/>
+		<transform from="nH" to="Ꮐ"/>
+		<transform from="Nh" to="Ꮐ"/>
+		<transform from="NH" to="Ꮐ"/>
 		<transform from="q " to="Ꮚ"/>
 		<transform from="Q " to="Ꮚ"/>
 		<transform from="qᎠ" to="Ꮖ"/>
@@ -253,10 +253,6 @@
 		<transform from="S " to="Ꮝ"/>
 		<transform from="s`" to="Ꮝ"/>
 		<transform from="S`" to="Ꮝ"/>
-		<transform from="sx" to="Ꮝ"/>
-		<transform from="sX" to="Ꮝ"/>
-		<transform from="Sx" to="Ꮝ"/>
-		<transform from="SX" to="Ꮝ"/>
 		<transform from="sᎠ" to="Ꮜ"/>
 		<transform from="SᎠ" to="Ꮜ"/>
 		<transform from="sᎡ" to="Ꮞ"/>
@@ -269,6 +265,10 @@
 		<transform from="SᎤ" to="Ꮡ"/>
 		<transform from="sᎥ" to="Ꮢ"/>
 		<transform from="SᎥ" to="Ꮢ"/>
+		<transform from="sx" to="Ꮝ"/>
+		<transform from="sX" to="Ꮝ"/>
+		<transform from="Sx" to="Ꮝ"/>
+		<transform from="SX" to="Ꮝ"/>
 		<transform from="t " to="Ꮤ"/>
 		<transform from="T " to="Ꮤ"/>
 		<transform from="tᎠ" to="Ꮤ"/>
@@ -313,4 +313,3 @@
 		<transform from="YᎥ" to="Ᏼ"/>
 	</transforms>
 </keyboard>
-

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="ml-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Malayalam"/>
 	</names>
@@ -55,53 +55,11 @@
 		<map iso="B10" to="യ"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
+	<keyMap modifiers="shift+caps?">
 		<map iso="E00" to="ഒ"/> <!-- `  base=ൊ -->
 		<map iso="E03" to="\u{D4D}ര"/> <!-- 3  to= ്ര  -->
 		<map iso="E06" to="ൿ"/> <!-- 6 -->
 		<map iso="E07" to="ക\u{D4D}ഷ"/> <!-- 7  to= ക്ഷ  -->
-		<map iso="E08" to="ൾ"/> <!-- 8 -->
-		<map iso="E09" to="("/> <!-- 9 -->
-		<map iso="E10" to=")"/> <!-- 0 -->
-		<map iso="E11" to="\u{D03}"/> <!-- -  to= ഃ  -->
-		<map iso="E12" to="ഋ"/> <!-- =  base=ൃ -->
-		<map iso="D01" to="ഔ"/> <!-- Q  base=ൌ -->
-		<map iso="D02" to="ഐ"/> <!-- W  base=ൈ -->
-		<map iso="D03" to="ആ"/> <!-- E  base=ാ -->
-		<map iso="D04" to="ഈ"/> <!-- R  base=ീ -->
-		<map iso="D05" to="ഊ"/> <!-- T  base=ൂ -->
-		<map iso="D06" to="ഭ"/> <!-- Y  base=ബ -->
-		<map iso="D07" to="ങ"/> <!-- U  base=ഹ -->
-		<map iso="D08" to="ഘ"/> <!-- I  base=ഗ -->
-		<map iso="D09" to="ധ"/> <!-- O  base=ദ -->
-		<map iso="D10" to="ഝ"/> <!-- P  base=ജ -->
-		<map iso="D11" to="ഢ"/> <!-- [  base=ഡ -->
-		<map iso="D12" to="ഞ"/> <!-- ]  base=ർ -->
-		<map iso="C01" to="ഓ"/> <!-- A  base=ോ -->
-		<map iso="C02" to="ഏ"/> <!-- S  base=േ -->
-		<map iso="C03" to="അ"/> <!-- D  base=് -->
-		<map iso="C04" to="ഇ"/> <!-- F  base=ി -->
-		<map iso="C05" to="ഉ"/> <!-- G  base=ു -->
-		<map iso="C06" to="ഫ"/> <!-- H  base=പ -->
-		<map iso="C07" to="റ"/> <!-- J  base=ര -->
-		<map iso="C08" to="ഖ"/> <!-- K  base=ക -->
-		<map iso="C09" to="ഥ"/> <!-- L  base=ത -->
-		<map iso="C10" to="ഛ"/> <!-- ;  base=ച -->
-		<map iso="C11" to="ഠ"/> <!-- '  base=ട -->
-		<map iso="B01" to="എ"/> <!-- Z  base=െ -->
-		<map iso="B02" to="ൺ"/> <!-- X  base=ം -->
-		<map iso="B03" to="ണ"/> <!-- C  base=മ -->
-		<map iso="B04" to="ൻ"/> <!-- V  base=ന -->
-		<map iso="B05" to="ഴ"/> <!-- B  base=വ -->
-		<map iso="B06" to="ള"/> <!-- N  base=ല -->
-		<map iso="B07" to="ശ"/> <!-- M  base=സ -->
-		<map iso="B08" to="ഷ"/> <!-- , -->
-		<map iso="B09" to="ൽ"/> <!-- . -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers="caps+shift">
-		<map iso="E00" to="ഒ"/> <!-- `  base=ൊ -->
-		<map iso="E06" to="ൿ"/> <!-- 6 -->
 		<map iso="E08" to="ൾ"/> <!-- 8 -->
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
@@ -169,4 +127,3 @@
 		<map iso="E04" to="₹"/> <!-- 4 -->
 	</keyMap>
 </keyboard>
-

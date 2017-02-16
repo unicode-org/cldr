@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="syr-t-k0-windows-qwerty">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Syriac Phonetic"/>
 	</names>
@@ -58,7 +58,7 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers="shift+caps?">
-		<map iso="E00" to="\u{32E}"/> <!-- `  to= ̮  -->
+		<map iso="E00" to="\u{32E}"/> <!-- `  base=܏  to= ̮  -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="\u{30A}"/> <!-- 2  to= ̊  -->
 		<map iso="E03" to="\u{325}"/> <!-- 3  to= ̥  -->
@@ -109,7 +109,7 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
-		<map iso="E00" to="\u{651}"/> <!-- `  to= ّ  -->
+		<map iso="E00" to="\u{651}"/> <!-- `  base=܏  to= ّ  -->
 		<map iso="E01" to="܁"/> <!-- 1 -->
 		<map iso="E02" to="܂"/> <!-- 2 -->
 		<map iso="E03" to="܃"/> <!-- 3 -->
@@ -152,4 +152,3 @@
 		<map iso="C12" to="\u{1C}"/> <!-- (key to right of ')  base=܆ -->
 	</keyMap>
 </keyboard>
-

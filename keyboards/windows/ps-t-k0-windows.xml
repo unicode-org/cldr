@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="ps-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Pashto (Afghanistan)"/>
 	</names>
@@ -57,7 +57,7 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers="shift+caps?">
-		<map iso="E00" to="\u{654}"/> <!-- `  to= ٔ  -->
+		<map iso="E00" to="\u{654}"/> <!-- `  base=‍  to= ٔ  -->
 		<map iso="E01" to="!"/> <!-- 1  base=۱ -->
 		<map iso="E02" to="٬"/> <!-- 2  base=۲ -->
 		<map iso="E03" to="٫"/> <!-- 3  base=۳ -->
@@ -107,7 +107,7 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
-		<map iso="E00" to="`"/>
+		<map iso="E00" to="`"/> <!--   base=‍ -->
 		<map iso="E01" to="~"/> <!-- 1  base=۱ -->
 		<map iso="E02" to="@"/> <!-- 2  base=۲ -->
 		<map iso="E03" to="#"/> <!-- 3  base=۳ -->
@@ -149,7 +149,6 @@
 		<map iso="B08" to=","/> <!--   base=و -->
 		<map iso="B09" to="ۇ"/> <!-- .  base=ږ -->
 		<map iso="B10" to="ۉ"/> <!-- / -->
-		<map iso="A03" to="\u{A0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space  base=  -->
 	</keyMap>
 </keyboard>
-

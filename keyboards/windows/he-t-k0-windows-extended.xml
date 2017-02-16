@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="he-t-k0-windows-extended">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Hebrew (Standard)"/>
 	</names>
@@ -122,8 +122,8 @@
 		<map iso="E10" to="0"/>
 		<map iso="E11" to="-"/>
 		<map iso="E12" to="="/>
-		<map iso="D01" to="/"/> <!-- Q -->
-		<map iso="D02" to="&apos;"/> <!-- W -->
+		<map iso="D01" to="Q"/> <!--   base=/ -->
+		<map iso="D02" to="W"/> <!--   base=' -->
 		<map iso="D03" to="E"/> <!--   base=ק -->
 		<map iso="D04" to="R"/> <!--   base=ר -->
 		<map iso="D05" to="T"/> <!--   base=א -->
@@ -173,8 +173,8 @@
 		<map iso="E10" to="("/> <!-- 0 -->
 		<map iso="E11" to="_"/> <!-- - -->
 		<map iso="E12" to="+"/> <!-- = -->
-		<map iso="D01" to="Q"/> <!--   base=/ -->
-		<map iso="D02" to="W"/> <!--   base=' -->
+		<map iso="D01" to="/"/> <!-- Q -->
+		<map iso="D02" to="&apos;"/> <!-- W -->
 		<map iso="D03" to="ק"/> <!-- E -->
 		<map iso="D04" to="ר"/> <!-- R -->
 		<map iso="D05" to="א"/> <!-- T -->
@@ -231,14 +231,14 @@
 		<map iso="C05" to="ױ"/> <!-- G  base=ע -->
 		<map iso="C06" to="ײ"/> <!-- H  base=י -->
 		<map iso="C07" to="\u{5B4}"/> <!-- J  base=ח  to= ִ  -->
-		<map iso="C09" to="“"/> <!-- L  base=ך -->
+		<map iso="C09" to="”"/> <!-- L  base=ך -->
 		<map iso="C10" to="„"/> <!-- ;  base=ף -->
 		<map iso="C11" to="״"/> <!-- '  base=, -->
 		<map iso="C12" to="\u{5BB}"/> <!-- (key to right of ')  base=\  to= ֻ  -->
 		<map iso="B02" to="\u{5B6}"/> <!-- X  base=ס  to= ֶ  -->
 		<map iso="B03" to="\u{5B1}"/> <!-- C  base=ב  to= ֱ  -->
 		<map iso="B07" to="\u{5B5}"/> <!-- M  base=צ  to= ֵ  -->
-		<map iso="B08" to="‘"/> <!-- ,  base=ת -->
+		<map iso="B08" to="’"/> <!-- ,  base=ת -->
 		<map iso="B09" to="‚"/> <!-- .  base=ץ -->
 		<map iso="B10" to="÷"/> <!-- /  base=. -->
 	</keyMap>
@@ -261,4 +261,3 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
-

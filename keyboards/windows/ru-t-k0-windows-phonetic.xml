@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="ru-t-k0-windows-phonetic">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Russian - Mnemonic"/>
 	</names>
@@ -212,6 +212,7 @@
 	</keyMap>
 	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
 		<map iso="E00" to="¨"/> <!-- `  base=ъ -->
+		<map iso="E08" to="₽"/> <!-- 8 -->
 		<map iso="C11" to="’"/> <!-- '  base=ь -->
 	</keyMap>
 	<keyMap modifiers="ctrl+caps?">
@@ -289,4 +290,3 @@
 		<transform from="ЫУ" to="Ю"/>
 	</transforms>
 </keyboard>
-

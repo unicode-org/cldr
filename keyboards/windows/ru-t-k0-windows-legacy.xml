@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="ru-t-k0-windows-legacy">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Russian (Typewriter)"/>
 	</names>
@@ -210,6 +210,9 @@
 		<map iso="B10" to="ё"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
+	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
+		<map iso="E08" to="₽"/> <!-- 8  base=_ -->
+	</keyMap>
 	<keyMap modifiers="ctrl+caps?">
 		<map iso="D12" to="\u{1B}"/> <!-- ]  base=ъ -->
 		<map iso="C10" to="\u{1D}"/> <!-- ;  base=ж -->
@@ -218,4 +221,3 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
-

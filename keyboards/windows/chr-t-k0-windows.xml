@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="chr-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Cherokee Nation"/>
 	</names>
@@ -108,6 +108,9 @@
 	</keyMap>
 	<keyMap modifiers="caps">
 		<map iso="E00" to="`"/>
+		<map iso="E01" to="ᏣᎳᎩ"/> <!-- 1 -->
+		<map iso="E02" to="ᎣᏏᏲ"/> <!-- 2 -->
+		<map iso="E03" to="ᏩᏙ"/> <!-- 3 -->
 		<map iso="E04" to="Ꮩ"/> <!-- 4 -->
 		<map iso="E05" to="Ꮶ"/> <!-- 5 -->
 		<map iso="E06" to="Ꮬ"/> <!-- 6 -->
@@ -298,4 +301,3 @@
 		<map iso="B10" to="?"/> <!-- /  base=Ꮒ -->
 	</keyMap>
 </keyboard>
-

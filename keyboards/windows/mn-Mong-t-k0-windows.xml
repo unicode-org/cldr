@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="mn-Mong-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Mongolian (Mongolian Script)"/>
 	</names>
@@ -57,7 +57,7 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers="shift">
-		<map iso="E00" to="~"/> <!-- ` -->
+		<map iso="E00" to="~"/> <!-- `  base=᠍ -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="⁈"/> <!-- 2 -->
 		<map iso="E03" to="⁉"/> <!-- 3 -->
@@ -68,7 +68,7 @@
 		<map iso="E08" to="\u{200D}"/> <!-- 8 -->
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
-		<map iso="E11" to="\u{180E}"/> <!-- - -->
+		<map iso="E11" to="\u{180E}"/> <!-- -  base=  -->
 		<map iso="E12" to="+"/> <!-- = -->
 		<map iso="D02" to="ᠸ"/> <!-- W  base=ᠣ -->
 		<map iso="D03" to="ᠧ"/> <!-- E  base=ᠡ -->
@@ -79,7 +79,7 @@
 		<map iso="C08" to="ᠻ"/> <!-- K  base=ᠺ -->
 		<map iso="C09" to="ᡀ"/> <!-- L  base=ᠯ -->
 		<map iso="C10" to="᠄"/> <!-- ; -->
-		<map iso="C11" to="\u{180C}"/> <!-- ' -->
+		<map iso="C11" to="\u{180C}"/> <!-- '  base=᠋ -->
 		<map iso="C12" to="|"/> <!-- (key to right of ')  base=᠁ -->
 		<map iso="B01" to="ᡁ"/> <!-- Z  base=ᠽ -->
 		<map iso="B03" to="ᡂ"/> <!-- C  base=ᠼ -->
@@ -125,7 +125,7 @@
 		<map iso="C08" to="ᠺ"/> <!-- K -->
 		<map iso="C09" to="ᡀ"/> <!-- L  base=ᠯ -->
 		<map iso="C10" to="᠄"/> <!-- ; -->
-		<map iso="C11" to="\u{180C}"/> <!-- ' -->
+		<map iso="C11" to="\u{180C}"/> <!-- '  base=᠋ -->
 		<map iso="C12" to="|"/> <!-- (key to right of ')  base=᠁ -->
 		<map iso="B01" to="ᡁ"/> <!-- Z  base=ᠽ -->
 		<map iso="B02" to="ᠱ"/> <!-- X -->
@@ -140,7 +140,7 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers="caps+shift">
-		<map iso="E00" to="~"/> <!-- ` -->
+		<map iso="E00" to="~"/> <!-- `  base=᠍ -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="⁈"/> <!-- 2 -->
 		<map iso="E03" to="⁉"/> <!-- 3 -->
@@ -151,7 +151,7 @@
 		<map iso="E08" to="\u{200D}"/> <!-- 8 -->
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
-		<map iso="E11" to="\u{180E}"/> <!-- - -->
+		<map iso="E11" to="\u{180E}"/> <!-- -  base=  -->
 		<map iso="E12" to="+"/> <!-- = -->
 		<map iso="D02" to="ᠣ"/> <!-- W -->
 		<map iso="D03" to="ᠡ"/> <!-- E -->
@@ -176,4 +176,3 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
-

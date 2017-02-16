@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="ka-t-k0-windows-var">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Georgian (Ergonomic)"/>
 	</names>
@@ -57,25 +57,7 @@
 		<map iso="B10" to="წ"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
-		<map iso="E00" to="&apos;"/> <!-- `  base=„ -->
-		<map iso="E01" to="1"/> <!--   base=! -->
-		<map iso="E02" to="2"/> <!--   base=№ -->
-		<map iso="E03" to="3"/> <!--   base=, -->
-		<map iso="E04" to="4"/> <!--   base=; -->
-		<map iso="E05" to="5"/> <!--   base=% -->
-		<map iso="E06" to="6"/> <!--   base=: -->
-		<map iso="E07" to="7"/> <!--   base=? -->
-		<map iso="E08" to="8"/> <!--   base=. -->
-		<map iso="E09" to="9"/> <!--   base=( -->
-		<map iso="E10" to="0"/> <!--   base=) -->
-		<map iso="E11" to="+"/> <!-- - -->
-		<map iso="E12" to="="/> <!--   base=“ -->
-		<map iso="C12" to="§"/> <!-- (key to right of ')  base=/ -->
-		<map iso="B00" to="/"/> <!-- (key to left of Z)  base=\ -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers="caps+shift">
+	<keyMap modifiers="shift+caps?">
 		<map iso="E00" to="&apos;"/> <!-- `  base=„ -->
 		<map iso="E01" to="1"/> <!--   base=! -->
 		<map iso="E02" to="2"/> <!--   base=№ -->
@@ -148,4 +130,3 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
-

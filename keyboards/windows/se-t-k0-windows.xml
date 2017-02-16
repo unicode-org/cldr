@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="se-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Sami Extended Norway"/>
 	</names>
@@ -283,10 +283,6 @@
 		<transform from="´ " to="´"/>
 		<transform from="´a" to="á"/>
 		<transform from="´A" to="Á"/>
-		<transform from="´å" to="ǻ"/>
-		<transform from="´Å" to="Ǻ"/>
-		<transform from="´æ" to="ǽ"/>
-		<transform from="´Æ" to="Ǽ"/>
 		<transform from="´c" to="ć"/>
 		<transform from="´C" to="Ć"/>
 		<transform from="´e" to="é"/>
@@ -299,8 +295,6 @@
 		<transform from="´N" to="Ń"/>
 		<transform from="´o" to="ó"/>
 		<transform from="´O" to="Ó"/>
-		<transform from="´ø" to="ǿ"/>
-		<transform from="´Ø" to="Ǿ"/>
 		<transform from="´r" to="ŕ"/>
 		<transform from="´R" to="Ŕ"/>
 		<transform from="´s" to="ś"/>
@@ -313,6 +307,12 @@
 		<transform from="´Y" to="Ý"/>
 		<transform from="´z" to="ź"/>
 		<transform from="´Z" to="Ź"/>
+		<transform from="´ø" to="ǿ"/>
+		<transform from="´Ø" to="Ǿ"/>
+		<transform from="´æ" to="ǽ"/>
+		<transform from="´Æ" to="Ǽ"/>
+		<transform from="´å" to="ǻ"/>
+		<transform from="´Å" to="Ǻ"/>
 		<transform from="^ " to="^"/>
 		<transform from="^a" to="â"/>
 		<transform from="^A" to="Â"/>
@@ -356,6 +356,8 @@
 		<transform from="ˇ " to="ˇ"/>
 		<transform from="ˇc" to="č"/>
 		<transform from="ˇC" to="Č"/>
+		<transform from="ˇʒ" to="ǯ"/>
+		<transform from="ˇƷ" to="Ǯ"/>
 		<transform from="ˇd" to="ď"/>
 		<transform from="ˇD" to="Ď"/>
 		<transform from="ˇe" to="ě"/>
@@ -378,8 +380,6 @@
 		<transform from="ˇT" to="Ť"/>
 		<transform from="ˇz" to="ž"/>
 		<transform from="ˇZ" to="Ž"/>
-		<transform from="ˇʒ" to="ǯ"/>
-		<transform from="ˇƷ" to="Ǯ"/>
 		<transform from="~ " to="~"/>
 		<transform from="~a" to="ã"/>
 		<transform from="~A" to="Ã"/>
@@ -393,4 +393,3 @@
 		<transform from="~U" to="Ũ"/>
 	</transforms>
 </keyboard>
-

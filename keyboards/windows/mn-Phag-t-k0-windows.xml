@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="mn-Phag-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Phags-pa"/>
 	</names>
@@ -68,7 +68,7 @@
 		<map iso="E08" to="\u{200D}"/> <!-- 8 -->
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
-		<map iso="E11" to="\u{A0}"/> <!-- - -->
+		<map iso="E11" to="\u{A0}"/> <!-- -  base=  -->
 		<map iso="E12" to="+"/> <!-- = -->
 		<map iso="D02" to="ꡧ"/> <!-- W  base=ꡓ -->
 		<map iso="D03" to="ꡦ"/> <!-- E  base=ꡠ -->
@@ -93,7 +93,7 @@
 		<map iso="B08" to="、"/> <!-- ,  base=᠂ -->
 		<map iso="B09" to="。"/> <!-- .  base=᠃ -->
 		<map iso="B10" to="?"/> <!-- /  base=᠅ -->
-		<map iso="A03" to="\u{2009}"/> <!-- space -->
+		<map iso="A03" to="\u{2009}"/> <!-- space  base=  -->
 	</keyMap>
 	<keyMap modifiers="caps">
 		<map iso="E00" to="꡴"/> <!-- ` -->
@@ -157,7 +157,7 @@
 		<map iso="E08" to="\u{200D}"/> <!-- 8 -->
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
-		<map iso="E11" to="\u{A0}"/> <!-- - -->
+		<map iso="E11" to="\u{A0}"/> <!-- -  base=  -->
 		<map iso="E12" to="+"/> <!-- = -->
 		<map iso="D02" to="ꡓ"/> <!-- W -->
 		<map iso="D03" to="ꡠ"/> <!-- E -->
@@ -182,10 +182,10 @@
 		<map iso="B08" to="、"/> <!-- ,  base=᠂ -->
 		<map iso="B09" to="。"/> <!-- .  base=᠃ -->
 		<map iso="B10" to="?"/> <!-- /  base=᠅ -->
-		<map iso="A03" to="\u{2009}"/> <!-- space -->
+		<map iso="A03" to="\u{2009}"/> <!-- space  base=  -->
 	</keyMap>
 	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
-		<map iso="E11" to="\u{200B}"/> <!-- - -->
+		<map iso="E11" to="\u{200B}"/> <!-- -  base=  -->
 		<map iso="D04" to="ꡱ"/> <!-- R  base=ꡘ -->
 		<map iso="D05" to="ꡩ"/> <!-- T  base=ꡈ -->
 		<map iso="D06" to="ꡭ"/> <!-- Y  base=ꡗ -->
@@ -210,4 +210,3 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
-

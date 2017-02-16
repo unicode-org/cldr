@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="el-POLYTON-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Greek Polytonic"/>
 	</names>
@@ -323,24 +323,24 @@
 		<transform from="&apos;υ" to="ὐ"/>
 		<transform from="&apos;ω" to="ὠ"/>
 		<transform from="&apos;Ω" to="Ὠ"/>
-		<transform from="\u{22} " to="\u{22}"/> <!--  "  → " -->
-		<transform from="\u{22}." to="῾"/> <!--  ". → ῾ -->
-		<transform from="\u{22}α" to="ἁ"/> <!--  "α → ἁ -->
-		<transform from="\u{22}Α" to="Ἁ"/> <!--  "Α → Ἁ -->
-		<transform from="\u{22}ε" to="ἑ"/> <!--  "ε → ἑ -->
-		<transform from="\u{22}Ε" to="Ἑ"/> <!--  "Ε → Ἑ -->
-		<transform from="\u{22}η" to="ἡ"/> <!--  "η → ἡ -->
-		<transform from="\u{22}Η" to="Ἡ"/> <!--  "Η → Ἡ -->
-		<transform from="\u{22}ι" to="ἱ"/> <!--  "ι → ἱ -->
-		<transform from="\u{22}Ι" to="Ἱ"/> <!--  "Ι → Ἱ -->
-		<transform from="\u{22}ο" to="ὁ"/> <!--  "ο → ὁ -->
-		<transform from="\u{22}Ο" to="Ὁ"/> <!--  "Ο → Ὁ -->
-		<transform from="\u{22}ρ" to="ῥ"/> <!--  "ρ → ῥ -->
-		<transform from="\u{22}Ρ" to="Ῥ"/> <!--  "Ρ → Ῥ -->
-		<transform from="\u{22}υ" to="ὑ"/> <!--  "υ → ὑ -->
-		<transform from="\u{22}Υ" to="Ὑ"/> <!--  "Υ → Ὑ -->
-		<transform from="\u{22}ω" to="ὡ"/> <!--  "ω → ὡ -->
-		<transform from="\u{22}Ω" to="Ὡ"/> <!--  "Ω → Ὡ -->
+		<transform from="\u{22} " to="\u{22}"/>
+		<transform from="\u{22}." to="῾"/> <!-- ". → ῾ -->
+		<transform from="\u{22}α" to="ἁ"/> <!-- "α → ἁ -->
+		<transform from="\u{22}Α" to="Ἁ"/> <!-- "Α → Ἁ -->
+		<transform from="\u{22}ε" to="ἑ"/> <!-- "ε → ἑ -->
+		<transform from="\u{22}Ε" to="Ἑ"/> <!-- "Ε → Ἑ -->
+		<transform from="\u{22}η" to="ἡ"/> <!-- "η → ἡ -->
+		<transform from="\u{22}Η" to="Ἡ"/> <!-- "Η → Ἡ -->
+		<transform from="\u{22}ι" to="ἱ"/> <!-- "ι → ἱ -->
+		<transform from="\u{22}Ι" to="Ἱ"/> <!-- "Ι → Ἱ -->
+		<transform from="\u{22}ο" to="ὁ"/> <!-- "ο → ὁ -->
+		<transform from="\u{22}Ο" to="Ὁ"/> <!-- "Ο → Ὁ -->
+		<transform from="\u{22}ρ" to="ῥ"/> <!-- "ρ → ῥ -->
+		<transform from="\u{22}Ρ" to="Ῥ"/> <!-- "Ρ → Ῥ -->
+		<transform from="\u{22}υ" to="ὑ"/> <!-- "υ → ὑ -->
+		<transform from="\u{22}Υ" to="Ὑ"/> <!-- "Υ → Ὑ -->
+		<transform from="\u{22}ω" to="ὡ"/> <!-- "ω → ὡ -->
+		<transform from="\u{22}Ω" to="Ὡ"/> <!-- "Ω → Ὡ -->
 		<transform from="« " to="«"/>
 		<transform from="«α" to="ᾷ"/>
 		<transform from="«η" to="ῇ"/>
@@ -418,12 +418,10 @@
 		<transform from="`υ" to="ῢ"/>
 		<transform from="΄ " to="΄"/>
 		<transform from="΄." to="΄"/>
-		<transform from="´α" to="ᾴ"/>
 		<transform from="΄α" to="ά"/>
 		<transform from="΄Α" to="Ά"/>
 		<transform from="΄ε" to="έ"/>
 		<transform from="΄Ε" to="Έ"/>
-		<transform from="´η" to="ῄ"/>
 		<transform from="΄η" to="ή"/>
 		<transform from="΄Η" to="Ή"/>
 		<transform from="΄ι" to="ί"/>
@@ -432,7 +430,6 @@
 		<transform from="΄Ο" to="Ό"/>
 		<transform from="΄υ" to="ύ"/>
 		<transform from="΄Υ" to="Ύ"/>
-		<transform from="´ω" to="ῴ"/>
 		<transform from="΄ω" to="ώ"/>
 		<transform from="΄Ω" to="Ώ"/>
 		<transform from="¨ " to="¨"/>
@@ -544,4 +541,3 @@
 		<transform from="ιΩ" to="ᾬ"/>
 	</transforms>
 </keyboard>
-

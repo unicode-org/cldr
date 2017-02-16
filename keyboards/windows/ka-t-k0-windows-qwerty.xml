@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="ka-t-k0-windows-qwerty">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Georgian (QWERTY)"/>
 	</names>
@@ -57,7 +57,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
+	<keyMap modifiers="shift+caps?">
 		<map iso="E00" to="“"/> <!-- `  base=„ -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -78,38 +78,7 @@
 		<map iso="D12" to="}"/> <!-- ] -->
 		<map iso="C02" to="შ"/> <!-- S  base=ს -->
 		<map iso="C07" to="ჟ"/> <!-- J  base=ჯ -->
-		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
-		<map iso="C12" to="|"/> <!-- (key to right of ')  base=~ -->
-		<map iso="B01" to="ძ"/> <!-- Z  base=ზ -->
-		<map iso="B03" to="ჩ"/> <!-- C  base=ც -->
-		<map iso="B06" to="N"/> <!--   base=ნ -->
-		<map iso="B08" to="&lt;"/> <!-- , -->
-		<map iso="B09" to="&gt;"/> <!-- . -->
-		<map iso="B10" to="?"/> <!-- / -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers="caps+shift">
-		<map iso="E00" to="“"/> <!-- `  base=„ -->
-		<map iso="E01" to="!"/> <!-- 1 -->
-		<map iso="E02" to="@"/> <!-- 2 -->
-		<map iso="E03" to="#"/> <!-- 3 -->
-		<map iso="E04" to="$"/> <!-- 4 -->
-		<map iso="E05" to="%"/> <!-- 5 -->
-		<map iso="E06" to="^"/> <!-- 6 -->
-		<map iso="E07" to="&amp;"/> <!-- 7 -->
-		<map iso="E08" to="*"/> <!-- 8 -->
-		<map iso="E09" to="("/> <!-- 9 -->
-		<map iso="E10" to=")"/> <!-- 0 -->
-		<map iso="E11" to="_"/> <!-- - -->
-		<map iso="E12" to="+"/> <!-- = -->
-		<map iso="D02" to="ჭ"/> <!-- W  base=წ -->
-		<map iso="D04" to="ღ"/> <!-- R  base=რ -->
-		<map iso="D05" to="თ"/> <!-- T  base=ტ -->
-		<map iso="D11" to="{"/> <!-- [ -->
-		<map iso="D12" to="}"/> <!-- ] -->
-		<map iso="C02" to="შ"/> <!-- S  base=ს -->
-		<map iso="C07" to="ჟ"/> <!-- J  base=ჯ -->
+		<map iso="C09" to="₾"/> <!-- L  base=ლ -->
 		<map iso="C10" to=":"/> <!-- ; -->
 		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="C12" to="|"/> <!-- (key to right of ')  base=~ -->
@@ -149,4 +118,3 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
-

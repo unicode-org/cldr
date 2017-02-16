@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="si-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Sinhala - Wij 9"/>
 	</names>
@@ -142,6 +142,7 @@
 		<map iso="C09" to="l"/> <!--   base=ක -->
 		<map iso="C10" to=";"/> <!--   base=ත -->
 		<map iso="C11" to="."/> <!-- ' -->
+		<map iso="C12" to="\u{DCA}\u{200D}"/> <!-- (key to right of ')  to= ්‍  -->
 		<map iso="B01" to="z"/> <!--   base=' -->
 		<map iso="B02" to="x"/> <!--   base=ං -->
 		<map iso="B03" to="c"/> <!--   base=ජ -->
@@ -155,7 +156,7 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers="caps+shift">
-		<map iso="E00" to="~"/> <!-- ` -->
+		<map iso="E00" to="~"/> <!-- `  base=්‍ර -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
 		<map iso="E03" to="#"/> <!-- 3 -->
@@ -262,4 +263,3 @@
 		<map iso="B08" to="&lt;"/> <!-- ,  base=ල -->
 	</keyMap>
 </keyboard>
-

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="ar-t-k0-windows-azerty">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Arabic (102) AZERTY"/>
 	</names>
@@ -57,7 +57,7 @@
 		<map iso="B10" to="ظ"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
+	<keyMap modifiers="shift+caps?">
 		<map iso="E00" to="&lt;"/> <!-- `  base=> -->
 		<map iso="E01" to="1"/> <!--   base=& -->
 		<map iso="E02" to="2"/> <!--   base=é -->
@@ -107,53 +107,6 @@
 		<map iso="B10" to="؟"/> <!-- /  base=ظ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+shift">
-		<map iso="E00" to="&lt;"/> <!-- `  base=> -->
-		<map iso="E01" to="1"/> <!--   base=& -->
-		<map iso="E02" to="2"/> <!--   base=é -->
-		<map iso="E03" to="3"/> <!--   base=" -->
-		<map iso="E04" to="4"/> <!--   base=' -->
-		<map iso="E05" to="5"/> <!--   base=( -->
-		<map iso="E06" to="6"/> <!--   base=- -->
-		<map iso="E07" to="7"/> <!--   base=è -->
-		<map iso="E08" to="8"/> <!--   base=_ -->
-		<map iso="E09" to="9"/> <!--   base=ç -->
-		<map iso="E10" to="0"/> <!--   base=à -->
-		<map iso="E11" to="°"/> <!-- -  base=) -->
-		<map iso="E12" to="+"/> <!-- = -->
-		<map iso="D01" to="\u{64E}"/> <!-- Q  base=ض  to= َ  -->
-		<map iso="D02" to="\u{64B}"/> <!-- W  base=ص  to= ً  -->
-		<map iso="D03" to="\u{64F}"/> <!-- E  base=ث  to= ُ  -->
-		<map iso="D04" to="\u{64C}"/> <!-- R  base=ق  to= ٌ  -->
-		<map iso="D06" to="إ"/> <!-- Y  base=غ -->
-		<map iso="D07" to="‘"/> <!-- U  base=ع -->
-		<map iso="D08" to="÷"/> <!-- I  base=ه -->
-		<map iso="D09" to="×"/> <!-- O  base=خ -->
-		<map iso="D10" to="؛"/> <!-- P  base=ح -->
-		<map iso="D11" to="}"/> <!-- [  base=ج -->
-		<map iso="D12" to="{"/> <!-- ]  base=د -->
-		<map iso="C01" to="\"/> <!-- A  base=ش -->
-		<map iso="C03" to="]"/> <!-- D  base=ي -->
-		<map iso="C04" to="["/> <!-- F  base=ب -->
-		<map iso="C06" to="أ"/> <!-- H  base=ا -->
-		<map iso="C07" to="ـ"/> <!-- J  base=ت -->
-		<map iso="C08" to="،"/> <!-- K  base=ن -->
-		<map iso="C09" to="/"/> <!-- L  base=م -->
-		<map iso="C10" to=":"/> <!-- ;  base=ك -->
-		<map iso="C11" to="\u{22}"/> <!-- '  base=ط  to= "  -->
-		<map iso="C12" to="\u{651}"/> <!-- (key to right of ')  base=ذ  to= ّ  -->
-		<map iso="B00" to="|"/> <!-- (key to left of Z)  base=\ -->
-		<map iso="B01" to="~"/> <!-- Z  base=ئ -->
-		<map iso="B02" to="\u{652}"/> <!-- X  base=ء  to= ْ  -->
-		<map iso="B03" to="\u{650}"/> <!-- C  base=ؤ  to= ِ  -->
-		<map iso="B04" to="\u{64D}"/> <!-- V  base=ر  to= ٍ  -->
-		<map iso="B06" to="آ"/> <!-- N  base=ى -->
-		<map iso="B07" to="’"/> <!-- M  base=ة -->
-		<map iso="B08" to=","/> <!--   base=و -->
-		<map iso="B09" to="."/> <!--   base=ز -->
-		<map iso="B10" to="؟"/> <!-- /  base=ظ -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
 	<keyMap modifiers="altR+caps?+shift? ctrl+alt+caps?+shift?">
 		<map iso="E04" to="¤"/> <!-- 4  base=' -->
 		<map iso="D01" to="\u{651}\u{64E}"/> <!-- Q  base=ض  to= َّ  -->
@@ -177,4 +130,3 @@
 		<map iso="E04" to="\u{200F}"/> <!-- 4  base=' -->
 	</keyMap>
 </keyboard>
-

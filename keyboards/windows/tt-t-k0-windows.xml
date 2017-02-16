@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="tt-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Tatar"/>
 	</names>
@@ -44,7 +44,7 @@
 		<map iso="C10" to="ң"/> <!-- ; -->
 		<map iso="C11" to="э"/> <!-- ' -->
 		<map iso="C12" to="\"/> <!-- (key to right of ') -->
-		<map iso="B00" to="ґ"/> <!-- (key to left of Z) -->
+		<map iso="B00" to="\"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="я"/> <!-- Z -->
 		<map iso="B02" to="ч"/> <!-- X -->
 		<map iso="B03" to="с"/> <!-- C -->
@@ -95,7 +95,7 @@
 		<map iso="C10" to="Ң"/> <!-- ; -->
 		<map iso="C11" to="Э"/> <!-- ' -->
 		<map iso="C12" to="/"/> <!-- (key to right of ')  base=\ -->
-		<map iso="B00" to="Ґ"/> <!-- (key to left of Z) -->
+		<map iso="B00" to="/"/> <!-- (key to left of Z)  base=\ -->
 		<map iso="B01" to="Я"/> <!-- Z -->
 		<map iso="B02" to="Ч"/> <!-- X -->
 		<map iso="B03" to="С"/> <!-- C -->
@@ -146,7 +146,7 @@
 		<map iso="C10" to="Ң"/> <!-- ; -->
 		<map iso="C11" to="Э"/> <!-- ' -->
 		<map iso="C12" to="\"/> <!-- (key to right of ') -->
-		<map iso="B00" to="Ґ"/> <!-- (key to left of Z) -->
+		<map iso="B00" to="/"/> <!-- (key to left of Z)  base=\ -->
 		<map iso="B01" to="Я"/> <!-- Z -->
 		<map iso="B02" to="Ч"/> <!-- X -->
 		<map iso="B03" to="С"/> <!-- C -->
@@ -197,7 +197,7 @@
 		<map iso="C10" to="ң"/> <!-- ; -->
 		<map iso="C11" to="э"/> <!-- ' -->
 		<map iso="C12" to="/"/> <!-- (key to right of ')  base=\ -->
-		<map iso="B00" to="ґ"/> <!-- (key to left of Z) -->
+		<map iso="B00" to="\"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="я"/> <!-- Z -->
 		<map iso="B02" to="ч"/> <!-- X -->
 		<map iso="B03" to="с"/> <!-- C -->
@@ -230,6 +230,7 @@
 	</keyMap>
 	<keyMap modifiers="altR+shift+caps? ctrl+alt+shift+caps?">
 		<map iso="E00" to="Ё"/> <!-- `  base=һ -->
+		<map iso="E08" to="₽"/> <!-- 8 -->
 		<map iso="D02" to="Ц"/> <!-- W  base=ө -->
 		<map iso="D09" to="Щ"/> <!-- O  base=ә -->
 		<map iso="D12" to="Ъ"/> <!-- ]  base=ү -->
@@ -240,8 +241,7 @@
 		<map iso="D12" to="\u{1B}"/> <!-- ]  base=ү -->
 		<map iso="C10" to="\u{1D}"/> <!-- ;  base=ң -->
 		<map iso="C12" to="\u{1C}"/> <!-- (key to right of ')  base=\ -->
-		<map iso="B00" to="\u{1C}"/> <!-- (key to left of Z)  base=ґ -->
+		<map iso="B00" to="\u{1C}"/> <!-- (key to left of Z)  base=\ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
-

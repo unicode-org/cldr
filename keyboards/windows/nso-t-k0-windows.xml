@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="nso-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Sesotho sa Leboa"/>
 	</names>
@@ -299,18 +299,18 @@
 		<transform from="&apos;U" to="Ú"/>
 		<transform from="&apos;y" to="ý"/>
 		<transform from="&apos;Y" to="Ý"/>
-		<transform from="\u{22} " to="\u{22}"/> <!--  "  → " -->
-		<transform from="\u{22}a" to="ä"/> <!--  "a → ä -->
-		<transform from="\u{22}A" to="Ä"/> <!--  "A → Ä -->
-		<transform from="\u{22}e" to="ë"/> <!--  "e → ë -->
-		<transform from="\u{22}E" to="Ë"/> <!--  "E → Ë -->
-		<transform from="\u{22}i" to="ï"/> <!--  "i → ï -->
-		<transform from="\u{22}I" to="Ï"/> <!--  "I → Ï -->
-		<transform from="\u{22}o" to="ö"/> <!--  "o → ö -->
-		<transform from="\u{22}O" to="Ö"/> <!--  "O → Ö -->
-		<transform from="\u{22}u" to="ü"/> <!--  "u → ü -->
-		<transform from="\u{22}U" to="Ü"/> <!--  "U → Ü -->
-		<transform from="\u{22}y" to="ÿ"/> <!--  "y → ÿ -->
+		<transform from="\u{22} " to="\u{22}"/>
+		<transform from="\u{22}a" to="ä"/> <!-- "a → ä -->
+		<transform from="\u{22}A" to="Ä"/> <!-- "A → Ä -->
+		<transform from="\u{22}e" to="ë"/> <!-- "e → ë -->
+		<transform from="\u{22}E" to="Ë"/> <!-- "E → Ë -->
+		<transform from="\u{22}i" to="ï"/> <!-- "i → ï -->
+		<transform from="\u{22}I" to="Ï"/> <!-- "I → Ï -->
+		<transform from="\u{22}o" to="ö"/> <!-- "o → ö -->
+		<transform from="\u{22}O" to="Ö"/> <!-- "O → Ö -->
+		<transform from="\u{22}u" to="ü"/> <!-- "u → ü -->
+		<transform from="\u{22}U" to="Ü"/> <!-- "U → Ü -->
+		<transform from="\u{22}y" to="ÿ"/> <!-- "y → ÿ -->
 		<transform from="` " to="`"/>
 		<transform from="`a" to="à"/>
 		<transform from="`A" to="À"/>
@@ -342,4 +342,3 @@
 		<transform from="~O" to="Õ"/>
 	</transforms>
 </keyboard>
-

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="sah-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Sakha"/>
 	</names>
@@ -111,6 +111,8 @@
 	<keyMap modifiers="caps">
 		<map iso="E00" to="\u{22}"/> <!-- `  to= "  -->
 		<map iso="E01" to="?"/> <!-- 1  base=! -->
+		<map iso="E02" to="Нь"/> <!-- 2 -->
+		<map iso="E03" to="Дь"/> <!-- 3 -->
 		<map iso="E04" to="Ҥ"/> <!-- 4 -->
 		<map iso="E05" to="Ҕ"/> <!-- 5 -->
 		<map iso="E06" to="Ө"/> <!-- 6 -->
@@ -160,6 +162,8 @@
 	<keyMap modifiers="caps+shift">
 		<map iso="E00" to="№"/> <!-- `  base=" -->
 		<map iso="E01" to="!"/> <!-- 1 -->
+		<map iso="E02" to="нь"/> <!-- 2 -->
+		<map iso="E03" to="дь"/> <!-- 3 -->
 		<map iso="E04" to="ҥ"/> <!-- 4 -->
 		<map iso="E05" to="ҕ"/> <!-- 5 -->
 		<map iso="E06" to="ө"/> <!-- 6 -->
@@ -206,8 +210,10 @@
 		<map iso="B10" to=","/> <!-- /  base=. -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
+	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
+		<map iso="E08" to="₽"/> <!-- 8  base=ү -->
+	</keyMap>
 	<keyMap modifiers="ctrl+caps?">
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
-

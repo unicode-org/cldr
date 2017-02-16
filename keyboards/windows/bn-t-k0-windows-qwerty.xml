@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="bn-t-k0-windows-qwerty">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Bengali"/>
 	</names>
@@ -53,7 +53,7 @@
 		<map iso="B10" to="য"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
+	<keyMap modifiers="shift+caps?">
 		<map iso="E01" to="অ\u{9CD}য\u{9BE}"/> <!-- 1  to= অ্যা  -->
 		<map iso="E03" to="\u{9CD}র"/> <!-- 3  to= ্র  -->
 		<map iso="E04" to="র\u{9CD}"/> <!-- 4  to= র্  -->
@@ -61,41 +61,6 @@
 		<map iso="E06" to="ত\u{9CD}ষ"/> <!-- 6  to= ত্ষ  -->
 		<map iso="E07" to="ক\u{9CD}র"/> <!-- 7  to= ক্র  -->
 		<map iso="E08" to="শ\u{9CD}র"/> <!-- 8  to= শ্র  -->
-		<map iso="E09" to="("/> <!-- 9 -->
-		<map iso="E10" to=")"/> <!-- 0 -->
-		<map iso="E11" to="\u{983}"/> <!-- -  to= ঃ  -->
-		<map iso="E12" to="ঋ"/> <!-- =  base=ৃ -->
-		<map iso="D01" to="ঔ"/> <!-- Q  base=ৌ -->
-		<map iso="D02" to="ঐ"/> <!-- W  base=ৈ -->
-		<map iso="D03" to="আ"/> <!-- E  base=া -->
-		<map iso="D04" to="ঈ"/> <!-- R  base=ী -->
-		<map iso="D05" to="ঊ"/> <!-- T  base=ূ -->
-		<map iso="D06" to="ভ"/> <!-- Y  base=ব -->
-		<map iso="D07" to="ঙ"/> <!-- U  base=হ -->
-		<map iso="D08" to="ঘ"/> <!-- I  base=গ -->
-		<map iso="D09" to="ধ"/> <!-- O  base=দ -->
-		<map iso="D10" to="ঝ"/> <!-- P  base=জ -->
-		<map iso="D11" to="ঢ"/> <!-- [  base=ড -->
-		<map iso="D12" to="ঞ"/> <!-- ]  base=় -->
-		<map iso="C01" to="ও"/> <!-- A  base=ো -->
-		<map iso="C02" to="এ"/> <!-- S  base=ে -->
-		<map iso="C03" to="অ"/> <!-- D  base=্ -->
-		<map iso="C04" to="ই"/> <!-- F  base=ি -->
-		<map iso="C05" to="উ"/> <!-- G  base=ু -->
-		<map iso="C06" to="ফ"/> <!-- H  base=প -->
-		<map iso="C08" to="খ"/> <!-- K  base=ক -->
-		<map iso="C09" to="থ"/> <!-- L  base=ত -->
-		<map iso="C10" to="ছ"/> <!-- ;  base=চ -->
-		<map iso="C11" to="ঠ"/> <!-- '  base=ট -->
-		<map iso="B02" to="\u{981}"/> <!-- X  base=ং  to= ঁ  -->
-		<map iso="B03" to="ণ"/> <!-- C  base=ম -->
-		<map iso="B07" to="শ"/> <!-- M  base=স -->
-		<map iso="B08" to="ষ"/> <!-- , -->
-		<map iso="B09" to="{"/> <!-- . -->
-		<map iso="B10" to="য়"/> <!-- /  base=য -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers="caps+shift">
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
 		<map iso="E11" to="\u{983}"/> <!-- -  to= ঃ  -->
@@ -169,4 +134,3 @@
 		<map iso="E04" to="₹"/> <!-- 4 -->
 	</keyMap>
 </keyboard>
-

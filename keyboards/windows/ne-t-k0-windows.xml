@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="ne-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Nepali"/>
 	</names>
@@ -56,7 +56,7 @@
 		<map iso="B10" to="र"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
+	<keyMap modifiers="shift+caps?">
 		<map iso="E00" to="ञ\u{94D}"/> <!-- `  base=ञ  to= ञ्  -->
 		<map iso="E01" to="१"/> <!-- 1  base=ज्ञ -->
 		<map iso="E02" to="२"/> <!-- 2  base=घ -->
@@ -106,32 +106,6 @@
 		<map iso="B10" to="र\u{942}"/> <!-- /  base=र  to= रू  -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+shift">
-		<map iso="E01" to="१"/> <!-- 1  base=ज्ञ -->
-		<map iso="E02" to="२"/> <!-- 2  base=घ -->
-		<map iso="E03" to="३"/> <!-- 3  base=ङ -->
-		<map iso="E04" to="४"/> <!-- 4  base=झ -->
-		<map iso="E05" to="५"/> <!-- 5  base=छ -->
-		<map iso="E06" to="६"/> <!-- 6  base=ट -->
-		<map iso="E07" to="७"/> <!-- 7  base=ठ -->
-		<map iso="E08" to="८"/> <!-- 8  base=ड -->
-		<map iso="E09" to="९"/> <!-- 9  base=ढ -->
-		<map iso="E10" to="०"/> <!-- 0  base=ण -->
-		<map iso="E11" to=")"/> <!-- -  base=( -->
-		<map iso="E12" to="\u{902}"/> <!-- =  base=.  to= ं  -->
-		<map iso="D01" to="\u{94B}"/> <!-- Q  base=त्र  to= ो  -->
-		<map iso="D09" to="इ"/> <!-- O  base=य -->
-		<map iso="D10" to="ए"/> <!-- P  base=उ -->
-		<map iso="D12" to="\u{948}"/> <!-- ]  base=े  to= ै  -->
-		<map iso="C04" to="\u{901}"/> <!-- F  base=ा  to= ँ  -->
-		<map iso="C09" to="\u{940}"/> <!-- L  base=ि  to= ी  -->
-		<map iso="C11" to="\u{942}"/> <!-- '  base=ु  to= ू  -->
-		<map iso="C12" to="\u{94D}"/> <!-- (key to right of ')  base=्र  to= ्  -->
-		<map iso="B03" to="ऋ"/> <!-- C  base=अ -->
-		<map iso="B07" to="\u{903}"/> <!-- M  base=फ  to= ः  -->
-		<map iso="B08" to="?"/> <!-- , -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
 	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
 		<map iso="E01" to="1"/> <!--   base=ज्ञ -->
 		<map iso="E02" to="2"/> <!--   base=घ -->
@@ -167,4 +141,3 @@
 		<map iso="D12" to="ओ"/> <!-- ]  base=े -->
 	</keyMap>
 </keyboard>
-

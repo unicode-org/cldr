@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="bg-t-k0-windows-qwerty">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Bulgarian (Phonetic)"/>
 	</names>
@@ -196,6 +196,7 @@
 		<map iso="C09" to="л"/> <!-- L -->
 		<map iso="C10" to=":"/> <!-- ; -->
 		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
+		<map iso="C12" to="Ѝ"/> <!-- (key to right of ')  base=ь -->
 		<map iso="B00" to="ѝ"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="з"/> <!-- Z -->
 		<map iso="B02" to="ж"/> <!-- X -->
@@ -210,4 +211,3 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
-

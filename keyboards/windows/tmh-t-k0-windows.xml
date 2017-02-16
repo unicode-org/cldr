@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="tmh-t-k0-windows">
-	<version platform="8" number="$Revision$"/>
+	<version platform="10" number="$Revision$"/>
 	<names>
 		<name value="Tifinagh (Basic)"/>
 	</names>
@@ -52,7 +52,7 @@
 		<map iso="B10" to="!"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
+	<keyMap modifiers="shift+caps?">
 		<map iso="E01" to="1"/> <!--   base=& -->
 		<map iso="E02" to="2"/>
 		<map iso="E03" to="3"/> <!--   base=" -->
@@ -82,34 +82,6 @@
 		<map iso="B10" to="§"/> <!-- /  base=! -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+shift">
-		<map iso="E01" to="1"/> <!--   base=& -->
-		<map iso="E02" to="2"/>
-		<map iso="E03" to="3"/> <!--   base=" -->
-		<map iso="E04" to="4"/> <!--   base=' -->
-		<map iso="E05" to="5"/> <!--   base=( -->
-		<map iso="E06" to="6"/> <!--   base=- -->
-		<map iso="E07" to="7"/>
-		<map iso="E08" to="8"/> <!--   base=_ -->
-		<map iso="E09" to="9"/>
-		<map iso="E10" to="0"/>
-		<map iso="E11" to="°"/> <!-- -  base=) -->
-		<map iso="E12" to="+"/> <!-- = -->
-		<map iso="D02" to="ⵥ"/> <!-- W  base=ⵣ -->
-		<map iso="D04" to="ⵕ"/> <!-- R  base=ⵔ -->
-		<map iso="D05" to="ⵟ"/> <!-- T  base=ⵜ -->
-		<map iso="D12" to="£"/> <!-- ]  base=$ -->
-		<map iso="C02" to="ⵚ"/> <!-- S  base=ⵙ -->
-		<map iso="C03" to="ⴹ"/> <!-- D  base=ⴷ -->
-		<map iso="C11" to="%"/> <!-- ' -->
-		<map iso="C12" to="µ"/> <!-- (key to right of ')  base=* -->
-		<map iso="B00" to="&gt;"/> <!-- (key to left of Z)  base=< -->
-		<map iso="B07" to="?"/> <!-- M  base=, -->
-		<map iso="B08" to="."/> <!-- ,  base=; -->
-		<map iso="B09" to="/"/> <!-- .  base=: -->
-		<map iso="B10" to="§"/> <!-- /  base=! -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
 	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
 		<map iso="E02" to="~"/> <!-- 2 -->
 		<map iso="E03" to="#"/> <!-- 3  base=" -->
@@ -125,4 +97,3 @@
 		<map iso="D12" to="¤"/> <!-- ]  base=$ -->
 	</keyMap>
 </keyboard>
-

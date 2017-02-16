@@ -17,8 +17,6 @@
 # Field 1 indicates that the character(s) listed in Field 0 have the value ExtendedPictographic=Yes
 # All other characters have the value ExtendedPictographic=No
 #
-# =====
-# Review Notes 
 # The files contain additional comments to aid in understanding the context of the property values.
 #
 # 1. Blocks are included if they contain any emoji characters, even if there are no EP characters.
@@ -105,10 +103,12 @@ U+1F1AD..U+1F1E5	; ExtendedPictographic #	GC=Cn
 # EP=198	: [🈃-🈏🈼-🈿🉉-🉏🉒-🋿]
 # other=43	: [🈀🈐-🈙🈛-🈮🈰🈱🈻🉀-🉈]
 
+U+1F260..U+1F265	; ExtendedPictographic #	[🉠-🉥]	ROUNDED SYMBOL FOR FU .. ROUNDED SYMBOL FOR CAI
 U+1F203..U+1F20F	; ExtendedPictographic #	GC=Cn
 U+1F23C..U+1F23F	; ExtendedPictographic #	GC=Cn
 U+1F249..U+1F24F	; ExtendedPictographic #	GC=Cn
-U+1F252..U+1F2FF	; ExtendedPictographic #	GC=Cn
+U+1F252..U+1F25F	; ExtendedPictographic #	GC=Cn
+U+1F266..U+1F2FF	; ExtendedPictographic #	GC=Cn
 # count=198
 
 # Geometric_Shapes
@@ -141,7 +141,7 @@ U+1F02C..U+1F02F	; ExtendedPictographic #	GC=Cn
 
 # Miscellaneous_Symbols_And_Arrows
 # emoji=7	: [⬅-⬇⬛⬜⭐⭕]
-# other=199	: [⬀-⬄⬈-⬚⬝-⭏⭑-⭔⭖-⭳⭶-⮕⮘-⮹⮽-⯈⯊-⯑⯬-⯯]
+# other=200	: [⬀-⬄⬈-⬚⬝-⭏⭑-⭔⭖-⭳⭶-⮕⮘-⮹⮽-⯈⯊-⯒⯬-⯯]
 
 # Miscellaneous_Symbols_And_Pictographs
 # emoji=637	: [🌀-🌡🌤-🎓🎖🎗🎙-🎛🎞-🏰🏳-🏵🏷-📽📿-🔽🕉-🕎🕐-🕧🕯🕰🕳-🕺🖇🖊-🖍🖐🖕🖖🖤🖥🖨🖱🖲🖼🗂-🗄🗑-🗓🗜-🗞🗡🗣🗨🗯🗳🗺-🗿]
@@ -178,7 +178,7 @@ U+1F5F4..U+1F5F9	; ExtendedPictographic #	[🗴-🗹]	BALLOT SCRIPT X .. BALLOT 
 # count=131
 
 # Miscellaneous_Symbols
-# emoji=77	: [☀-☄☎☑☔☕☘☝☠☢☣☦☪☮☯☸-☺♈-♓♠♣♥♦♨♻♿⚒-⚔⚖⚗⚙⚛⚜⚠⚡⚪⚫⚰⚱⚽⚾⛄⛅⛈⛎⛏⛑⛓⛔⛩⛪⛰-⛵⛷-⛺⛽]
+# emoji=80	: [☀-☄☎☑☔☕☘☝☠☢☣☦☪☮☯☸-☺♀♂♈-♓♠♣♥♦♨♻♿⚒-⚗⚙⚛⚜⚠⚡⚪⚫⚰⚱⚽⚾⛄⛅⛈⛎⛏⛑⛓⛔⛩⛪⛰-⛵⛷-⛺⛽]
 # EP=177	: [★☇-☍☏☐☒☖☗☙-☜☞☟☡☤☥☧-☩☫-☭☰-☷☻-♇♔-♟♡♢♤♧♩-♺♼-♾⚀-⚑⚕⚘⚚⚝-⚟⚢-⚩⚬-⚯⚲-⚼⚿-⛃⛆⛇⛉-⛍⛐⛒⛕-⛨⛫-⛯⛶⛻⛼⛾⛿]
 # other=2	: [☆☓]
 
@@ -224,8 +224,7 @@ U+26FE..U+26FF	; ExtendedPictographic #	[⛾⛿]	CUP ON BLACK SQUARE .. WHITE FL
 # Miscellaneous_Technical
 # emoji=18	: [⌚⌛⌨⏏⏩-⏳⏸-⏺]
 # EP=1	: [⎈]
-# other=236	: [⌀-⌙⌜-⌧〈-⎇⎉-⏎⏐-⏨⏴-⏷⏻-⏾]
-# otherCn=1
+# other=237	: [⌀-⌙⌜-⌧〈-⎇⎉-⏎⏐-⏨⏴-⏷⏻-⏿]
 
 U+2388	; ExtendedPictographic #	[⎈]	HELM SYMBOL
 # count=1
@@ -270,32 +269,40 @@ U+1F8AE..U+1F8FF	; ExtendedPictographic #	GC=Cn
 # count=108
 
 # Supplemental_Symbols_And_Pictographs
-# emoji=80	: [🤐-🤞🤠-🤧🤰🤳-🤺🤼-🤾🥀-🥅🥇-🥋🥐-🥞🦀-🦑🧀]
+# emoji=134	: [🤐-🤺🤼-🤾🥀-🥅🥇-🥌🥐-🥫🦀-🦗🧀🧐-🧦]
 # EP=174	: [🤀-🤏🤟🤨-🤯🤱🤲🤿🥌-🥏🥟-🥿🦒-🦿🧁-🧿]
 # other=2	: [🤻🥆]
 
-U+1F900..U+1F90F	; ExtendedPictographic #	GC=Cn
-U+1F91F	; ExtendedPictographic #	GC=Cn
-U+1F928..U+1F92F	; ExtendedPictographic #	GC=Cn
-U+1F931..U+1F932	; ExtendedPictographic #	GC=Cn
+U+1F900..U+1F90B	; ExtendedPictographic #	[🤀-🤋]	CIRCLED CROSS FORMEE WITH FOUR DOTS .. DOWNWARD FACING NOTCHED HOOK WITH DOT
+U+1F91F	; ExtendedPictographic #	[🤟]	I LOVE YOU HAND SIGN
+U+1F928..U+1F92F	; ExtendedPictographic #	[🤨-🤯]	FACE WITH ONE EYEBROW RAISED .. SHOCKED FACE WITH EXPLODING HEAD
+U+1F931..U+1F932	; ExtendedPictographic #	[🤱🤲]	BREAST-FEEDING .. PALMS UP TOGETHER
+U+1F94C	; ExtendedPictographic #	[🥌]	CURLING STONE
+U+1F95F..U+1F96B	; ExtendedPictographic #	[🥟-🥫]	DUMPLING .. CANNED FOOD
+U+1F992..U+1F997	; ExtendedPictographic #	[🦒-🦗]	GIRAFFE FACE .. CRICKET
+U+1F9D0..U+1F9E6	; ExtendedPictographic #	[🧐-🧦]	FACE WITH MONOCLE .. SOCKS
+U+1F90C..U+1F90F	; ExtendedPictographic #	GC=Cn
 U+1F93F	; ExtendedPictographic #	GC=Cn
-U+1F94C..U+1F94F	; ExtendedPictographic #	GC=Cn
-U+1F95F..U+1F97F	; ExtendedPictographic #	GC=Cn
-U+1F992..U+1F9BF	; ExtendedPictographic #	GC=Cn
-U+1F9C1..U+1F9FF	; ExtendedPictographic #	GC=Cn
+U+1F94D..U+1F94F	; ExtendedPictographic #	GC=Cn
+U+1F96C..U+1F97F	; ExtendedPictographic #	GC=Cn
+U+1F998..U+1F9BF	; ExtendedPictographic #	GC=Cn
+U+1F9C1..U+1F9CF	; ExtendedPictographic #	GC=Cn
+U+1F9E7..U+1F9FF	; ExtendedPictographic #	GC=Cn
 # count=174
 
 # Transport_And_Map_Symbols
-# emoji=92	: [🚀-🛅🛋-🛒🛠-🛥🛩🛫🛬🛰🛳-🛶]
+# emoji=94	: [🚀-🛅🛋-🛒🛠-🛥🛩🛫🛬🛰🛳-🛸]
 # EP=36	: [🛆-🛊🛓-🛟🛦-🛨🛪🛭-🛯🛱🛲🛷-🛿]
 
 U+1F6C6..U+1F6CA	; ExtendedPictographic #	[🛆-🛊]	TRIANGLE WITH ROUNDED CORNERS .. GIRLS SYMBOL
+U+1F6D3..U+1F6D4	; ExtendedPictographic #	[🛓🛔]	STUPA .. PAGODA
 U+1F6E6..U+1F6E8	; ExtendedPictographic #	[🛦-🛨]	UP-POINTING MILITARY AIRPLANE .. UP-POINTING SMALL AIRPLANE
 U+1F6EA	; ExtendedPictographic #	[🛪]	NORTHEAST-POINTING AIRPLANE
 U+1F6F1..U+1F6F2	; ExtendedPictographic #	[🛱🛲]	ONCOMING FIRE ENGINE .. DIESEL LOCOMOTIVE
-U+1F6D3..U+1F6DF	; ExtendedPictographic #	GC=Cn
+U+1F6F7..U+1F6F8	; ExtendedPictographic #	[🛷🛸]	SLED .. FLYING SAUCER
+U+1F6D5..U+1F6DF	; ExtendedPictographic #	GC=Cn
 U+1F6ED..U+1F6EF	; ExtendedPictographic #	GC=Cn
-U+1F6F7..U+1F6FF	; ExtendedPictographic #	GC=Cn
+U+1F6F9..U+1F6FF	; ExtendedPictographic #	GC=Cn
 # count=36
 
 # total_count=2744

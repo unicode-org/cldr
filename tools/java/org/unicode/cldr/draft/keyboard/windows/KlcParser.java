@@ -86,8 +86,8 @@ public final class KlcParser {
 
   private void parseNameAndId() {
     // The descriptions section (containing the name) is bounded below by the languagenames section.
-    int descriptionsIndex = klcContents.indexOf("DESCRIPTIONS");
-    int languageNamesIndex = klcContents.indexOf("LANGUAGENAMES");
+    int descriptionsIndex = klcContents.indexOf("\nDESCRIPTIONS");
+    int languageNamesIndex = klcContents.indexOf("\nLANGUAGENAMES");
     String section = klcContents.substring(descriptionsIndex, languageNamesIndex);
     List<String> lines = LINE_SPLITTER.splitToList(section);
     checkArgument(lines.size() == 2, section);
@@ -102,8 +102,8 @@ public final class KlcParser {
 
   private void parseModifiers() {
     // The modifiers section (shiftstate) is always bounded below by the layout section.
-    int shiftStateIndex = klcContents.indexOf("SHIFTSTATE");
-    int layoutIndex = klcContents.indexOf("LAYOUT");
+    int shiftStateIndex = klcContents.indexOf("\nSHIFTSTATE");
+    int layoutIndex = klcContents.indexOf("\nLAYOUT");
     String section = klcContents.substring(shiftStateIndex, layoutIndex);
     List<String> lines = LINE_SPLITTER.splitToList(section);
     for (int i = 1; i < lines.size(); i++) {
@@ -148,16 +148,16 @@ public final class KlcParser {
   }
 
   private int findLigatureEndIndex() {
-    int keynameIndex = klcContents.indexOf("KEYNAME");
+    int keynameIndex = klcContents.indexOf("\nKEYNAME");
     keynameIndex = keynameIndex == -1 ? Integer.MAX_VALUE : keynameIndex;
-    int deadkeyIndex = klcContents.indexOf("DEADKEY");
+    int deadkeyIndex = klcContents.indexOf("\nDEADKEY");
     deadkeyIndex = deadkeyIndex == -1 ? Integer.MAX_VALUE : deadkeyIndex;
     return Math.min(keynameIndex, deadkeyIndex);
   }
   
   private void parseLigatures() {
     // The ligature section is always bounded below by the keyname or deadkey sections.
-    int ligatureIndex = klcContents.indexOf("LIGATURE\r");
+    int ligatureIndex = klcContents.indexOf("\nLIGATURE\r");
     if (ligatureIndex == -1) {
       return;
     }
@@ -187,11 +187,11 @@ public final class KlcParser {
   }
 
   private int findLayoutEndIndex() {
-    int deadKeyIndex = klcContents.indexOf("DEADKEY");
+    int deadKeyIndex = klcContents.indexOf("\nDEADKEY");
     deadKeyIndex = deadKeyIndex == -1 ? Integer.MAX_VALUE : deadKeyIndex;
-    int keynameIndex = klcContents.indexOf("KEYNAME");
+    int keynameIndex = klcContents.indexOf("\nKEYNAME");
     keynameIndex = keynameIndex == -1 ? Integer.MAX_VALUE : keynameIndex;
-    int ligatureIndex = klcContents.indexOf("LIGATURE");
+    int ligatureIndex = klcContents.indexOf("\nLIGATURE");
     ligatureIndex = ligatureIndex == -1 ? Integer.MAX_VALUE : ligatureIndex;
     return Math.min(Math.min(deadKeyIndex, keynameIndex), ligatureIndex);
   }
@@ -207,7 +207,7 @@ public final class KlcParser {
 
   private void parseLayout() {
     // The layout section is bounded from below by the deadkey, keyname or ligature section.
-    int layoutIndex = klcContents.indexOf("LAYOUT");
+    int layoutIndex = klcContents.indexOf("\nLAYOUT");
     int endIndex = findLayoutEndIndex();
     String section = klcContents.substring(layoutIndex, endIndex);
     List<String> lines = LINE_SPLITTER.splitToList(section);
@@ -304,10 +304,10 @@ public final class KlcParser {
 
   private void parseDeadkeys() {
     // Each deadkey section is bounded below by another deadkey section or the keyname section.
-    int deadkeyIndex = klcContents.indexOf("DEADKEY");
+    int deadkeyIndex = klcContents.indexOf("\nDEADKEY");
     while (deadkeyIndex != -1) {
-      int nextDeadkeySection = klcContents.indexOf("DEADKEY", deadkeyIndex + 1);
-      int endIndex = nextDeadkeySection == -1 ? klcContents.indexOf("KEYNAME") : nextDeadkeySection;
+      int nextDeadkeySection = klcContents.indexOf("\nDEADKEY", deadkeyIndex + 1);
+      int endIndex = nextDeadkeySection == -1 ? klcContents.indexOf("\nKEYNAME") : nextDeadkeySection;
       String section = klcContents.substring(deadkeyIndex, endIndex);
       checkArgument(!section.isEmpty(), klcContents);
       parseDeadkeySection(klcContents.substring(deadkeyIndex, endIndex));

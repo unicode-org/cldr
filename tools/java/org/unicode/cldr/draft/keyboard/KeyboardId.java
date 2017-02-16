@@ -115,7 +115,7 @@ public final class KeyboardId {
         TransformPartialSetting.HIDE)),
     OSX(10.9f, KeyboardSettings.of(FallbackSetting.BASE, TransformFailureSetting.EMIT,
         TransformPartialSetting.SHOW)),
-    WINDOWS(8f, KeyboardSettings.of(FallbackSetting.OMIT, TransformFailureSetting.EMIT,
+    WINDOWS(10f, KeyboardSettings.of(FallbackSetting.OMIT, TransformFailureSetting.EMIT,
         TransformPartialSetting.HIDE));
 
     private final float version;

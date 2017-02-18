@@ -111,7 +111,7 @@ public class Annotations {
                     }
                 }
             }
-
+            
             final AnnotationSet result = new AnnotationSet(locale, localeData, templocaleData);
             dirCache.put(locale, result);
             return result;
@@ -128,7 +128,11 @@ public class Annotations {
                 return;
             }
             String usString = parts.getAttributeValue(-1, "cp");
-            UnicodeSet us = usString.startsWith("[") && usString.endsWith("]") ? new UnicodeSet(usString) : new UnicodeSet().add(usString);
+            UnicodeSet us1 = usString.startsWith("[") && usString.endsWith("]") ? new UnicodeSet(usString) : new UnicodeSet().add(usString);
+            UnicodeSet us = new UnicodeSet();
+            for (String s : us1) {
+                us.add(s.replace(EmojiConstants.EMOJI_VARIANT_STRING, ""));
+            }
             String tts = parts.getAttributeValue(-1, "tts");
             String type = parts.getAttributeValue(-1, "type");
             String alt = parts.getAttributeValue(-1, "alt");
@@ -160,7 +164,7 @@ public class Annotations {
     }
 
     public Annotations(Set<String> attributes, String tts2) {
-        annotations = attributes == null ? Collections.<String>emptySet() : Collections.unmodifiableSet(attributes);
+        annotations = attributes == null ? Collections.<String>emptySet() : ImmutableSet.copyOf(attributes);
         tts = tts2;
     }
 
@@ -306,7 +310,7 @@ public class Annotations {
             return getShortName(code, null);
         }
         public String getShortName(String code, Transform<String,String> otherSource) {
-            if (code.equals("👩🏼‍⚖")) {
+            if (code.equals("🧙‍♀️")) {
                 int debug = 0;
             }
 
@@ -344,6 +348,9 @@ public class Annotations {
             }
             return Collections.<String>emptySet();
         }
+        
+        /** Returns the set of all keys for which annotations are available. WARNING: keys have the Emoji Presentation Selector removed!
+         */
         public UnicodeSet keySet() {
             return baseData.keySet();
         }

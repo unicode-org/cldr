@@ -42,7 +42,7 @@ public class BagFormatter {
     private static final String NULL_VALUE = "_NULL_VALUE_";
     private int fullTotal = -1;
     private boolean showTotal = true;
-    private String lineSeparator = "\r\n";
+    private String lineSeparator = System.lineSeparator();
     private Tabber tabber = new Tabber.MonoTabber();
 
     /**

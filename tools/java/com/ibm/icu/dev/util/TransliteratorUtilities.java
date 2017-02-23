@@ -65,7 +65,7 @@ public class TransliteratorUtilities {
             String line = br.readLine();
             if (line == null) break;
             if (line.length() > 0 && line.charAt(0) == '\uFEFF') line = line.substring(1);
-            buffer.append(line).append("\r\n");
+            buffer.append(line).append(System.lineSeparator());
         }
         br.close();
         return buffer.toString();

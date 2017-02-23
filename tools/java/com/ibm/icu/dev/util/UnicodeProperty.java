@@ -875,12 +875,12 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 int pos = s.indexOf(':', start);
                 if (pos < 0) { // should never happen
                     throw new IllegalArgumentException(
-                            "Internal Error: missing =: " + s + "\r\n");
+                            "Internal Error: missing =: " + s + System.lineSeparator());
                 }
                 UnicodeProperty prop = getProperty(s.substring(start, pos));
                 if (prop == null) {
                     throw new IllegalArgumentException("Invalid Property in: "
-                            + s + "\r\nUse " + showSet(getAvailableNames()));
+                            + s + System.lineSeparator() + "Use " + showSet(getAvailableNames()));
                 }
                 String value = s.substring(pos + 1);
                 UnicodeSet set;
@@ -892,7 +892,7 @@ public abstract class UnicodeProperty extends UnicodeLabel {
                 }
                 if (set.size() == 0) {
                     throw new IllegalArgumentException(
-                            "Empty Property-Value in: " + s + "\r\nUse "
+                            "Empty Property-Value in: " + s + System.lineSeparator() + "Use "
                             + showSet(prop.getAvailableValues()));
                 }
                 if (DEBUG)

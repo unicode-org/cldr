@@ -10,6 +10,9 @@ package org.unicode.cldr.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.text.UnicodeSet;
+
 public abstract class Tabber {
     public static final byte LEFT = 0, CENTER = 1, RIGHT = 2;
     private static final String[] ALIGNMENT_NAMES = {"Left", "Center", "Right"};
@@ -107,52 +110,41 @@ public abstract class Tabber {
             if (fieldNumber >= stops.size()) return LEFT;
             return ((Integer)types.get(fieldNumber)).intValue();
         }
-        /*
-        public String process(String source) {
-            StringBuffer result = new StringBuffer();
-            int lastPos = 0;
-            int count = 0;
-            for (count = 0; lastPos < source.length() && count < stops.size(); count++) {
-                int pos = source.indexOf('\t', lastPos);
-                if (pos < 0) pos = source.length();
-                String piece = source.substring(lastPos, pos);
-                int stopPos = getStop(count);
-                if (result.length() < stopPos) {
-                    result.append(repeat(" ", stopPos - result.length()));
-                    // TODO fix type
-                }
-                result.append(piece);
-                lastPos = pos+1;
-            }
-            if (lastPos < source.length()) {
-                result.append(source.substring(lastPos));
-            }
-            return result.toString();
-        }
-        */
-        
+
         public void process_field(int count, String source, int start, int limit, StringBuffer output) {
             String piece = source.substring(start, limit);
             int startPos = getStop(count-1);
             int endPos = getStop(count) - minGap;
             int type = getType(count);
+            final int pieceLength = getMonospaceWidth(piece);
             switch (type) {
                 case LEFT: 
                     break;
                 case RIGHT: 
-                    startPos = endPos - piece.length();
+                    startPos = endPos - pieceLength;
                     break;
                 case CENTER: 
-                    startPos = (startPos + endPos - piece.length() + 1)/2;
+                    startPos = (startPos + endPos - pieceLength + 1)/2;
                     break;
             }
 
-            int gap = startPos - output.length();
+            int gap = startPos - getMonospaceWidth(output);
             if (count != 0 && gap < minGap) gap = minGap;
             if (gap > 0) output.append(repeat(" ", gap));
             output.append(piece);
         }
+
+        static final UnicodeSet IGNOREABLE = new UnicodeSet("[:di:]");
         
+        private int getMonospaceWidth(CharSequence piece) {
+            int len = 0;
+            for (int cp : CharSequences.codePoints(piece)) {
+                if (!IGNOREABLE.contains(cp)) {
+                    ++len;
+                }
+            }
+            return len;
+        }
     }
     
     public static Tabber NULL_TABBER = new Tabber() {

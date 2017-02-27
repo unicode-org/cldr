@@ -260,6 +260,18 @@ public final class FileUtilities {
         }
     }
 
+    public static BufferedReader openFile(File file, Charset charset) {
+        try {
+            return new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
+        } catch (FileNotFoundException e) {
+            throw new IllegalArgumentException(e); // handle dang'd checked exception
+        }
+    }
+
+    public static BufferedReader openFile(File file) {
+        return openFile(file, UTF8);
+    }
+
     public static BufferedReader openFile(String directory, String file) {
         return openFile(directory, file, UTF8);
     }

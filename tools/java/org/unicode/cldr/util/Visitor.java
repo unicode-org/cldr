@@ -121,6 +121,10 @@ public abstract class Visitor {
     
     public static class CodePointRange{
         public int codepoint, codepointEnd;
+        @Override
+        public String toString() {
+            return "[" + codepoint + ", " + codepointEnd + "]";
+        }
     }
     
     // ===== MUST BE OVERRIDEN =====

@@ -752,14 +752,16 @@ public class BagFormatter {
             String label = getLabelSource(false).getValue(limit, true);
             String value = getValue(limit, true);
             String breaker = getRangeBreakSource().getValue(limit,true);
-            if (DEBUG && limit < 0x9FD6) System.out.println("Label: " + label + ", Value: " + value + ", Break: " + breaker);
+            if (DEBUG && 0x3FFD < limit && limit < 0x9FD6) {
+                System.out.println(Utility.hex(limit) + ", Label: " + label + ", Value: " + value + ", Break: " + breaker);
+            }
             limit++;
             for (; limit < veryLimit; limit++) {
                 String s = getLabelSource(false).getValue(limit, true);
                 String v = getValue(limit, true);
                 String b = getRangeBreakSource().getValue(limit, true);
-                if (DEBUG && limit > 0x9FD6) {
-                    System.out.println("*Label: " + s + ", Value: " + v + ", Break: " + b);
+                if (DEBUG && limit > 0x9FD4) {
+                    System.out.println(Utility.hex(limit) + ", *Label: " + s + ", Value: " + v + ", Break: " + b);
                 }
                 if (!equalTo(s, label) 
                     || !equalTo(v, value) 

@@ -7,13 +7,13 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
-import com.ibm.icu.dev.util.BagFormatter;
 /**
  * Generates pseudolocalized contents of a CLDRFile.
  *
@@ -366,7 +366,7 @@ public class CLDRFilePseudolocalizer {
         CLDRFile output = generate();
         String outputDir = CLDRPaths.GEN_DIRECTORY + "main" + File.separator + PSEUDOLOCALES_DIRECTORY + File.separator;
         String outputFile = output.getLocaleID() + ".xml";
-        PrintWriter out = BagFormatter.openUTF8Writer(outputDir, outputFile);
+        PrintWriter out = FileUtilities.openUTF8Writer(outputDir, outputFile);
         output.write(out);
         out.close();
         return (outputDir + outputFile);

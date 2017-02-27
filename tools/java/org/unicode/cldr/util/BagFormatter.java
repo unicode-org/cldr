@@ -25,6 +25,20 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class BagFormatter {
     static final boolean DEBUG = false;
+    public static final boolean SHOW_FILES;
+    static {
+    boolean showFiles = false;
+    try {
+        showFiles = System.getProperty("SHOW_FILES") != null;
+    }
+    catch (SecurityException e) {
+    }
+    SHOW_FILES = showFiles;
+    }
+
+    public static final PrintWriter CONSOLE = new PrintWriter(System.out,true);
+
+    private static PrintWriter log = CONSOLE;
 
     private boolean abbreviated = false;
     private String separator = ",";
@@ -78,11 +92,11 @@ public class BagFormatter {
     }
 
     public void showSetDifferences(
-            PrintWriter pw,
-            String name1,
-            UnicodeSet set1,
-            String name2,
-            UnicodeSet set2) {
+        PrintWriter pw,
+        String name1,
+        UnicodeSet set1,
+        String name2,
+        UnicodeSet set2) {
         showSetDifferences(pw, name1, set1, name2, set2, -1);
     }
     /**
@@ -104,7 +118,7 @@ public class BagFormatter {
         String[] names = { name1, name2 };
 
         UnicodeSet temp;
-        
+
         if ((flags&1) != 0) {
             temp = new UnicodeSet(set1).removeAll(set2);
             pw.print(lineSeparator);
@@ -231,7 +245,7 @@ public class BagFormatter {
 
     /*
      r.getRelati on(last, s) + quote(s) + "\t#" + UnicodeSetFormatter.getResolvedName(s)
-    */
+     */
     /*
     static final UnicodeSet NO_NAME =
         new UnicodeSet("[\\u0080\\u0081\\u0084\\u0099\\p{Cn}\\p{Co}]");
@@ -263,7 +277,7 @@ public class BagFormatter {
         // then we could optimize by skipping whole swathes of characters
         return result;
     }
-    */
+     */
 
     public BagFormatter setMergeRanges(boolean in) {
         mergeRanges = in;
@@ -310,7 +324,7 @@ public class BagFormatter {
         public String getValue(int codePoint, boolean isShort) {
             String hcp = !isShort
                 ? "U+" + Utility.hex(codePoint, 4) + " "
-                : "";
+                    : "";
             String result = nameProp.getValue(codePoint);
             if (result != null)
                 return hcp + result;
@@ -339,9 +353,9 @@ public class BagFormatter {
     }
 
     public String getName(String s, boolean withCodePoint) {
-           String result = getNameSource().getValue(s, separator, !withCodePoint);
+        String result = getNameSource().getValue(s, separator, !withCodePoint);
         return fixName == null ? result : fixName.transliterate(result);
-     }
+    }
 
     public String hex(String s) {
         return hex(s,separator);
@@ -403,7 +417,7 @@ public class BagFormatter {
         }
         return labelVisitor.join(names);
     }
-    */
+     */
 
     private void addMatching(
         String src,
@@ -433,7 +447,7 @@ public class BagFormatter {
     static {
         nf.setGroupingUsed(false);
     }
-    
+
     private int maxWidthOverride = -1;
     private int maxLabelWidthOverride = -1;
 
@@ -464,35 +478,35 @@ public class BagFormatter {
         int labelSize;
         boolean isHtml;
         boolean inTable = false;
-        
+
         public void toOutput(String s) {
-          if (isHtml) {
-            if (inTable) {
-              output.print("</table>");
-              inTable = false;
+            if (isHtml) {
+                if (inTable) {
+                    output.print("</table>");
+                    inTable = false;
+                }
+                output.print("<p>");
             }
-            output.print("<p>");
-          }
-          output.print(s);
-          if (isHtml)
-            output.println("</p>");
-          else
-            output.print(lineSeparator);
+            output.print(s);
+            if (isHtml)
+                output.println("</p>");
+            else
+                output.print(lineSeparator);
         }
-        
+
         public void toTable(String s) {
-          if (isHtml && !inTable) {
-            output.print("<table>");
-            inTable = true;
-          }
-          output.print(tabber.process(s) +  lineSeparator);
+            if (isHtml && !inTable) {
+                output.print("<table>");
+                inTable = true;
+            }
+            output.print(tabber.process(s) +  lineSeparator);
         }
 
         public void doAt(Object c, PrintWriter out) {
             output = out;
             isHtml = tabber instanceof Tabber.HTMLTabber;
             counter = 0;
-            
+
             tabber.clear();
             // old:
             // 0009..000D    ; White_Space # Cc   [5] <control-0009>..<control-000D>
@@ -505,7 +519,7 @@ public class BagFormatter {
             }
 
             valueSize = maxWidthOverride > 0 ? maxWidthOverride : getValueSource().getMaxWidth(shortValue);
-            
+
             if (DEBUG) System.out.println("ValueSize: " + valueSize);
             if (valueSize > 0) {
                 tabber.add(valueSize + 2,Tabber.LEFT); // value
@@ -528,13 +542,13 @@ public class BagFormatter {
             //myTabber.add(7,Tabber.LEFT);
 
             commentSeparator = (showCount || showLiteral != null
-              || getLabelSource(true) != UnicodeLabel.NULL
-              || getNameSource() != UnicodeLabel.NULL)
-            ? "\t #" : "";
+                || getLabelSource(true) != UnicodeLabel.NULL
+                || getNameSource() != UnicodeLabel.NULL)
+                ? "\t #" : "";
 
             if (DEBUG) System.out.println("Tabber: " + tabber.toString());
             if (DEBUG) System.out.println("Tabber: " + tabber.process(
-                    "200C..200D\t; White_Space\t #\tCf\t [2]\t ZERO WIDTH NON-JOINER..ZERO WIDTH JOINER"));
+                "200C..200D\t; White_Space\t #\tCf\t [2]\t ZERO WIDTH NON-JOINER..ZERO WIDTH JOINER"));
             doAt(c);
         }
 
@@ -551,7 +565,7 @@ public class BagFormatter {
 
         protected void doBefore(Object container, Object o) {
             if (showSetAlso && container instanceof UnicodeSet) {
-              toOutput("#" + container);
+                toOutput("#" + container);
             }
         }
 
@@ -641,7 +655,7 @@ public class BagFormatter {
             if (mergeRanges && showCount) {
                 if (end == start) count = "\t";
                 else count = "\t ["+ nf.format(end - start + 1)+ "]";
-           }
+            }
 
             toTable(
                 hex(start, end)
@@ -662,9 +676,9 @@ public class BagFormatter {
         private String insertLiteral(int start, int end) {
             return (showLiteral == null ? "" :
                 " \t(" + showLiteral.transliterate(UTF16.valueOf(start))
-                        + ((start != end)
-                            ? (".." + showLiteral.transliterate(UTF16.valueOf(end)))
-                            : "")
+                + ((start != end)
+                    ? (".." + showLiteral.transliterate(UTF16.valueOf(end)))
+                        : "")
                 + ") ");
         }
         /*
@@ -672,7 +686,7 @@ public class BagFormatter {
             return (showLiteral == null ? ""
                 :  " \t(" + showLiteral.transliterate(UTF16.valueOf(cp)) + ") ");
         }
-        */
+         */
     }
 
     /**
@@ -738,14 +752,20 @@ public class BagFormatter {
             String label = getLabelSource(false).getValue(limit, true);
             String value = getValue(limit, true);
             String breaker = getRangeBreakSource().getValue(limit,true);
-            if (DEBUG && limit < 0x7F) System.out.println("Label: " + label + ", Value: " + value + ", Break: " + breaker);
+            if (DEBUG && limit < 0x9FD6) System.out.println("Label: " + label + ", Value: " + value + ", Break: " + breaker);
             limit++;
             for (; limit < veryLimit; limit++) {
                 String s = getLabelSource(false).getValue(limit, true);
                 String v = getValue(limit, true);
                 String b = getRangeBreakSource().getValue(limit, true);
-                if (DEBUG && limit < 0x7F) System.out.println("*Label: " + label + ", Value: " + value + ", Break: " + breaker);
-                if (!equalTo(s, label) || !equalTo(v, value) || !equalTo(b, breaker)) break;
+                if (DEBUG && limit > 0x9FD6) {
+                    System.out.println("*Label: " + s + ", Value: " + v + ", Break: " + b);
+                }
+                if (!equalTo(s, label) 
+                    || !equalTo(v, value) 
+                    || !equalTo(b, breaker)) {
+                    break;
+                }
             }
             // at this point, limit is the first item that has a different label than source
             // OR, we got to the end, and limit == veryLimit
@@ -799,7 +819,7 @@ public class BagFormatter {
             labelSource = new UnicodeProperty.FilteredProperty(
                 getUnicodePropertyFactory().getProperty("General_Category"),
                 new UnicodeProperty.MapFilter(labelMap)
-            ).setAllowValueAliasCollisions(true);
+                ).setAllowValueAliasCollisions(true);
         }
         return labelSource;
     }
@@ -1030,11 +1050,11 @@ public class BagFormatter {
 
             rangeBreakSource =
                 new UnicodeProperty
-                    .FilteredProperty(
-                        getUnicodePropertyFactory().getProperty(
-                            "General_Category"),
-                        new UnicodeProperty.MapFilter(labelMap))
-                    .setAllowValueAliasCollisions(true);
+                .FilteredProperty(
+                    getUnicodePropertyFactory().getProperty(
+                        "General_Category"),
+                    new UnicodeProperty.MapFilter(labelMap))
+                .setAllowValueAliasCollisions(true);
 
             /*
             "Cn", // = Other, Not Assigned 0
@@ -1043,7 +1063,7 @@ public class BagFormatter {
             UnicodeProperty.UNUSED, // missing
             "Co", // = Other, Private Use 18
             "Cs", // = Other, Surrogate 19
-            */
+             */
         }
         return rangeBreakSource;
     }

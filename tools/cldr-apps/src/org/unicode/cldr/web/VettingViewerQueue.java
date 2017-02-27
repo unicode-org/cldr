@@ -32,6 +32,7 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
@@ -41,7 +42,6 @@ import org.unicode.cldr.util.VettingViewer.WritingInfo;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;

@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -37,7 +38,6 @@ import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.XPathTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.ElapsedTimer;
 
 public class TestSTFactory extends TestFmwk {
@@ -218,7 +218,7 @@ public class TestSTFactory extends TestFmwk {
             logln("Write out..");
             File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
             File outFile = new File(targDir, locale.getBaseName() + ".xml");
-            PrintWriter pw = BagFormatter.openUTF8Writer(targDir.getAbsolutePath(), locale.getBaseName() + ".xml");
+            PrintWriter pw = FileUtilities.openUTF8Writer(targDir.getAbsolutePath(), locale.getBaseName() + ".xml");
             mt.write(pw, noDtdPlease);
             pw.close();
 
@@ -347,7 +347,7 @@ public class TestSTFactory extends TestFmwk {
             logln("Write out..");
             File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
             File outFile = new File(targDir, locale2.getBaseName() + ".xml");
-            PrintWriter pw = BagFormatter.openUTF8Writer(targDir.getAbsolutePath(), locale2.getBaseName() + ".xml");
+            PrintWriter pw = FileUtilities.openUTF8Writer(targDir.getAbsolutePath(), locale2.getBaseName() + ".xml");
             mt_MT.write(pw, noDtdPlease);
             pw.close();
 
@@ -541,7 +541,7 @@ public class TestSTFactory extends TestFmwk {
                         outFile.delete();
                     try {
                         PrintWriter pw;
-                        pw = BagFormatter.openUTF8Writer(targDir.getAbsolutePath(), locale.getBaseName() + ".xml");
+                        pw = FileUtilities.openUTF8Writer(targDir.getAbsolutePath(), locale.getBaseName() + ".xml");
                         cf.write(pw, noDtdPlease);
                         pw.close();
                     } catch (IOException e) {
@@ -767,7 +767,7 @@ public class TestSTFactory extends TestFmwk {
             logln("Write out..");
             File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
             File outFile = new File(targDir, locale2.getBaseName() + ".xml");
-            PrintWriter pw = BagFormatter.openUTF8Writer(targDir.getAbsolutePath(), locale2.getBaseName() + ".xml");
+            PrintWriter pw = FileUtilities.openUTF8Writer(targDir.getAbsolutePath(), locale2.getBaseName() + ".xml");
             mt_MT.write(pw, noDtdPlease);
             pw.close();
 

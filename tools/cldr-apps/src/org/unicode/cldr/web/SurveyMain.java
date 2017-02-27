@@ -63,6 +63,7 @@ import org.json.JSONObject;
 import org.tmatesoft.svn.core.SVNDepth;
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.wc.SVNRevision;
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -97,6 +98,7 @@ import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -108,9 +110,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.ListFormatter;
@@ -6800,7 +6800,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     boolean readWarnings() {
         //int lines = 0;
         try {
-            BufferedReader in = BagFormatter.openUTF8Reader(cldrHome, "surveyInfo.txt");
+            BufferedReader in = FileUtilities.openUTF8Reader(cldrHome, "surveyInfo.txt");
             String line;
             while ((line = in.readLine()) != null) {
                 //lines++;

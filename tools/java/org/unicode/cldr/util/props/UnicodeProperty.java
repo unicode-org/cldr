@@ -4,7 +4,7 @@
  * others. All Rights Reserved.                                                *
  *******************************************************************************
  */
-package org.unicode.cldr.util;
+package org.unicode.cldr.util.props;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

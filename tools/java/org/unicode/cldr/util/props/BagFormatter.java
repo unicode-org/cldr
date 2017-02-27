@@ -4,7 +4,7 @@
  * others. All Rights Reserved.
  *******************************************************************************
  */
-package org.unicode.cldr.util;
+package org.unicode.cldr.util.props;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -16,6 +16,8 @@ import java.util.Locale;
 import java.util.Map;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.Tabber;
+import org.unicode.cldr.util.Visitor;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
@@ -376,7 +378,7 @@ public class BagFormatter {
         return this;
     }
 
-    public UnicodeProperty.Factory getUnicodePropertyFactory() {
+    private UnicodeProperty.Factory getUnicodePropertyFactory() {
         if (source == null) source = ICUPropertyFactory.make();
         return source;
     }

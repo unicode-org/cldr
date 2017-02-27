@@ -6,7 +6,7 @@
  * Author: Mark Davis
  **********************************************************************
  */
-package org.unicode.cldr.util;
+package org.unicode.cldr.util.props;
 
 import java.util.ArrayList;
 import java.util.List;

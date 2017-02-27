@@ -4,13 +4,13 @@
  * others. All Rights Reserved.                                                *
  *******************************************************************************
  */
-package org.unicode.cldr.util;
+package org.unicode.cldr.util.props;
 
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-import org.unicode.cldr.util.UnicodeProperty.PatternMatcher;
+import org.unicode.cldr.util.props.UnicodeProperty.PatternMatcher;
 
 import com.ibm.icu.impl.UnicodeRegex;
 import com.ibm.icu.text.UTF16;

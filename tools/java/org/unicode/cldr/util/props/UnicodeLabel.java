@@ -4,7 +4,7 @@
  * others. All Rights Reserved.                                                *
  *******************************************************************************
  */
-package org.unicode.cldr.util;
+package org.unicode.cldr.util.props;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UTF16;

@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -67,8 +68,8 @@ public class ExtractCountItems {
         Map<String, Map<String, SampleData>> defectiveLocales = new LinkedHashMap<String, Map<String, SampleData>>();
 
         for (String locale : factory.getAvailableLanguages()) {
-            Map<String, Level> locale_status = StandardCodes.make().getLocaleTypes().get("google"); // later, make
-                                                                                                    // parameter
+            Map<String, Level> locale_status = StandardCodes.make().getLocaleToLevel(Organization.google);
+                                                                                                    
             if (locale_status == null) continue;
             Level level = locale_status.get(locale);
             if (level == null) continue;

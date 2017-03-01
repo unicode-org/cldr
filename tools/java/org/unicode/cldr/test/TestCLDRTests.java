@@ -79,8 +79,7 @@ public class TestCLDRTests extends TestFmwk {
     Set<String> languagesToTest;
 
     public void TestAll() throws Exception {
-        Map<Organization, Map<String, Level>> platform_locale_status = StandardCodes.make().getLocaleTypes();
-        Map<String, Level> onlyLocales = platform_locale_status.get(Organization.ibm);
+        Map<String, Level> onlyLocales = StandardCodes.make().getLocaleToLevel(Organization.cldr);
         Set<String> locales = onlyLocales.keySet();
         languagesToTest = (Set<String>) new CldrUtility.CollectionTransform() {
             LocaleIDParser lip = new LocaleIDParser();

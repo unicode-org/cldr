@@ -426,7 +426,7 @@ public class ConsoleCheckCLDR {
                 level = Level.BASIC;
             }
             if (organization != null) {
-                Map<String, Level> locale_status = StandardCodes.make().getLocaleTypes().get(organization);
+                Map<String, Level> locale_status = StandardCodes.make().getLocaleToLevel(organization);
                 if (locale_status == null) continue;
                 level = locale_status.get(localeID);
                 if (level == null) continue;

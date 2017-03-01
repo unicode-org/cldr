@@ -11,7 +11,9 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
@@ -30,7 +32,7 @@ import com.ibm.icu.util.VersionInfo;
 public class LikelySubtagsTest extends TestFmwk {
 
     private boolean DEBUG = false;
-    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = TestInfo
+    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = CLDRConfig
         .getInstance().getSupplementalDataInfo();
     static final Map<String, String> likely = SUPPLEMENTAL_DATA_INFO
         .getLikelySubtags();
@@ -312,9 +314,9 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestMissingInfoForLanguage() {
-        CLDRFile english = TestInfo.getInstance().getEnglish();
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
-        for (String language : TestInfo.getInstance().getCldrFactory()
+        for (String language : CLDRConfig.getInstance().getCldrFactory()
             .getAvailableLanguages()) {
             if (language.contains("_") || language.equals("root")) {
                 continue;
@@ -334,7 +336,7 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestMissingInfoForRegion() {
-        CLDRFile english = TestInfo.getInstance().getEnglish();
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
         for (String region : StandardCodes.make().getGoodAvailableCodes(
             "territory")) {

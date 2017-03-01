@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.CldrUtility;
@@ -25,7 +26,7 @@ public class TestBCP47 extends TestFmwk {
     private static final int WARNING = LOG; // change to WARN to enable checking for non-bcp47 attributes
     private static final int ERROR = WARN; // change to ERR to enable test
 
-    private static final TestAll.TestInfo testInfo = TestAll.TestInfo.getInstance();
+    private static final CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     private static final CLDRFile ENGLISH = testInfo.getEnglish();
     private static final Relation<String, String> bcp47key_types = SUPPLEMENTAL_DATA_INFO.getBcp47Keys();

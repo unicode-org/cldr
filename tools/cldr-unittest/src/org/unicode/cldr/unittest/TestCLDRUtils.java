@@ -14,7 +14,9 @@ import java.io.StringWriter;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
@@ -50,7 +52,7 @@ public class TestCLDRUtils extends TestFmwk {
     };
 
     public void TestVariantName() {
-        CLDRFile english = TestInfo.getInstance().getEnglish();
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
         checkNames(english, "en_US_POSIX", "American English (Computer)",
             "US English (Computer)", "English (United States, Computer)",
@@ -74,7 +76,7 @@ public class TestCLDRUtils extends TestFmwk {
         checkNames(english, new ULocale("el__POLYTON").toLanguageTag(),
             "Greek (Polytonic)");
 
-        CLDRFile french = TestInfo.getInstance().getCldrFactory()
+        CLDRFile french = CLDRConfig.getInstance().getCldrFactory()
             .make("fr", true);
 
         checkNames(french, "en_US_POSIX", "anglais américain (informatique)",

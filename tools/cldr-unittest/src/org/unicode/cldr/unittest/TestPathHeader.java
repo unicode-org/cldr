@@ -20,7 +20,9 @@ import java.util.regex.Matcher;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -70,7 +72,7 @@ public class TestPathHeader extends TestFmwkPlus {
         new TestPathHeader().run(args);
     }
 
-    static final TestInfo info = TestInfo.getInstance();
+    static final CLDRConfig info = CLDRConfig.getInstance();
     static final Factory factory = info.getCldrFactory();
     static final CLDRFile english = info.getEnglish();
     static final SupplementalDataInfo supplemental = info
@@ -773,7 +775,7 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestTerritoryOrder() {
-        final Set<String> goodAvailableCodes = TestInfo.getInstance()
+        final Set<String> goodAvailableCodes = CLDRConfig.getInstance()
             .getStandardCodes().getGoodAvailableCodes("territory");
         Set<String> results = showContained("001", 0, new HashSet<String>(
             goodAvailableCodes));

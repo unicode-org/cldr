@@ -6,7 +6,9 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
@@ -122,7 +124,7 @@ public class TestXMLSource extends TestFmwk {
     }
 
     public void TestA() {
-        TestInfo testInfo = TestInfo.getInstance();
+        CLDRConfig testInfo = CLDRConfig.getInstance();
         CLDRFile file = testInfo.getEnglish();
         Set<String> result = new LinkedHashSet<String>();
         file.getPathsWithValue("ms", "", null, result);

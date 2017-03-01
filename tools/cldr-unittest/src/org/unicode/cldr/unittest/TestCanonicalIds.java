@@ -12,6 +12,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 
@@ -29,7 +30,7 @@ public class TestCanonicalIds extends TestFmwk {
 
     static final Pattern WHITESPACE_PATTERN = PatternCache.get("\\s+");
 
-    static TestAll.TestInfo testInfo = TestAll.TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
     static Map<String, Map<String, R2<List<String>, String>>> aliasInfo = testInfo
         .getSupplementalDataInfo().getLocaleAliasInfo();
 

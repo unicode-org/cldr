@@ -5,7 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
@@ -14,7 +16,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestIdentity extends TestFmwk {
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestIdentity().run(args);

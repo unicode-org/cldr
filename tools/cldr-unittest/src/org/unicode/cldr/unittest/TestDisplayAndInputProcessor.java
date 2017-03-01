@@ -3,7 +3,9 @@ package org.unicode.cldr.unittest;
 import java.util.Set;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 
@@ -14,7 +16,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 
 public class TestDisplayAndInputProcessor extends TestFmwk {
 
-    TestInfo info = TestAll.TestInfo.getInstance();
+    CLDRConfig info = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestDisplayAndInputProcessor().run(args);

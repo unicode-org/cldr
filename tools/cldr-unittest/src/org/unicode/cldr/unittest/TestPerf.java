@@ -7,7 +7,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.AttributeValueComparator;
@@ -33,7 +35,7 @@ public class TestPerf extends TestFmwkPlus {
 
     static {
         Set<String> testPaths_ = new HashSet<String>();
-        CollectionUtilities.addAll(TestInfo.getInstance().getEnglish()
+        CollectionUtilities.addAll(CLDRConfig.getInstance().getEnglish()
             .iterator(), testPaths_);
         testPaths = Collections.unmodifiableSet(testPaths_);
         Set<String> sorted = new TreeSet<String>(

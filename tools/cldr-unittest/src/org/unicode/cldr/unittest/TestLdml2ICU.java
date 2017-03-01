@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.unicode.cldr.icu.NewLdml2IcuConverter;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
@@ -31,7 +33,7 @@ import com.ibm.icu.text.Transform;
  * @author jchye
  */
 public class TestLdml2ICU extends TestFmwk {
-    static final TestAll.TestInfo info = TestInfo.getInstance();
+    static final CLDRConfig info = CLDRConfig.getInstance();
 
     private static final Transform<String, RegexFinder> XPATH_TRANSFORM = new Transform<String, RegexFinder>() {
         public RegexFinder transform(String source) {

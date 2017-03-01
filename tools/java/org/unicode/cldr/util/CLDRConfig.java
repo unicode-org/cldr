@@ -21,6 +21,7 @@ import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
 
 public class CLDRConfig extends Properties {
     /**
@@ -640,4 +641,18 @@ public class CLDRConfig extends Properties {
 
     private CLDRURLS urls = null;
     private CLDRURLS absoluteUrls = null;
+    
+    public boolean isCldrVersionBefore(int... version) {
+        return getEnglish().getDtdVersionInfo()
+            .compareTo(getVersion(version)) < 0;
+    }
+
+    public static VersionInfo getVersion(int... versionInput) {
+        int[] version = new int[4];
+        for (int i = 0; i < versionInput.length; ++i) {
+            version[i] = versionInput[i];
+        }
+        return VersionInfo.getInstance(version[0], version[1], version[2],
+            version[3]);
+    }
 }

@@ -1,11 +1,13 @@
 package org.unicode.cldr.unittest;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestExternalCodeAPIs extends TestFmwk {
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestExternalCodeAPIs().run(args);

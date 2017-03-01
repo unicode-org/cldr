@@ -13,7 +13,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -39,7 +41,7 @@ import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestPaths extends TestFmwkPlus {
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestPaths().run(args);

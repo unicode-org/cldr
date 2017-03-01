@@ -5,7 +5,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.UnicodeMap;
@@ -19,7 +21,7 @@ public class TestBcp47Numbers extends TestFmwk {
         new TestBcp47Numbers().run(args);
     }
 
-    static TestInfo info = TestInfo.getInstance();
+    static CLDRConfig info = CLDRConfig.getInstance();
 
     static UnicodeMap<String> specials = new UnicodeMap<String>()
         .put('0', "latn; Western (European/ASCII) digits")

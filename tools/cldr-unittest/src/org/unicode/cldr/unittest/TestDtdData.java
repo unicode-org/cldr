@@ -14,7 +14,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
@@ -33,7 +35,7 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestDtdData  extends TestFmwk {
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
         .getSupplementalDataInfo();
 

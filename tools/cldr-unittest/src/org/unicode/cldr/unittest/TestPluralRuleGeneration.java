@@ -4,7 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -47,7 +49,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
     }
 
     public void TestAtoms() {
-        TestInfo testInfo = TestAll.TestInfo.getInstance();
+        CLDRConfig testInfo = CLDRConfig.getInstance();
         SupplementalDataInfo supp = testInfo.getSupplementalDataInfo();
         Set<PluralRules> seen = new HashSet();
         Set<String> atoms = new TreeSet();

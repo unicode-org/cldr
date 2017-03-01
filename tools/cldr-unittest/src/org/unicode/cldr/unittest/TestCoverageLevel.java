@@ -12,7 +12,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
@@ -45,7 +47,7 @@ import com.ibm.icu.util.ULocale;
 
 public class TestCoverageLevel extends TestFmwkPlus {
 
-    private static TestInfo testInfo = TestInfo.getInstance();
+    private static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();
     private static final CLDRFile ENGLISH = testInfo.getEnglish();
     private static final SupplementalDataInfo SDI = testInfo.getSupplementalDataInfo();

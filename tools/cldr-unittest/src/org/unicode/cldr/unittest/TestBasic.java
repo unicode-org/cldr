@@ -22,7 +22,9 @@ import java.util.TreeSet;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.GenerateBirth.Versions;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -77,7 +79,7 @@ import com.ibm.icu.util.ULocale;
 
 public class TestBasic extends TestFmwkPlus {
 
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo
         .getSupplementalDataInfo();

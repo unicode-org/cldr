@@ -12,7 +12,9 @@ import java.util.Set;
 import org.unicode.cldr.tool.resolver.CldrResolver;
 import org.unicode.cldr.tool.resolver.ResolutionType;
 import org.unicode.cldr.tool.resolver.ResolverUtils;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -26,7 +28,7 @@ import org.unicode.cldr.util.LocaleIDParser;
  */
 public class TestCldrResolver extends TestFmwkPlus {
 
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     private static final String LOCALES_TO_TEST = ".*";
 

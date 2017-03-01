@@ -9,7 +9,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -26,7 +28,7 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 
 public class LanguageTest extends TestFmwk {
-    final TestInfo testInfo = TestInfo.getInstance();
+    final CLDRConfig testInfo = CLDRConfig.getInstance();
     final SupplementalDataInfo supplementalDataInfo = testInfo
         .getSupplementalDataInfo();
     final Map<String, String> likelyMap = supplementalDataInfo

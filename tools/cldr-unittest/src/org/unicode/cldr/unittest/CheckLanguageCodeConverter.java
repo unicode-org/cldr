@@ -10,7 +10,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -23,7 +23,7 @@ import com.ibm.icu.impl.Row.R5;
 
 public class CheckLanguageCodeConverter {
     public static void main(String[] args) {
-        CLDRFile english = TestInfo.getInstance().getEnglish();
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
         System.out
         .println("Input Name" + "\t" + "Std Code" + "\t" + "Std Name");
         Set<LanguageName> names = new TreeSet<LanguageName>();

@@ -8,7 +8,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -18,7 +20,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestLocalCurrency extends TestFmwk {
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestLocalCurrency().run(args);

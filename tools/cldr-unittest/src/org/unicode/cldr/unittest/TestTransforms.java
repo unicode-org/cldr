@@ -16,7 +16,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
@@ -34,7 +36,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class TestTransforms extends TestFmwkPlus {
-    TestInfo testInfo = TestInfo.getInstance();
+    CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestTransforms().run(args);

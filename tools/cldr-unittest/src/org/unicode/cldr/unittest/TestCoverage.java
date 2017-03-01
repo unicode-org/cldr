@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
@@ -18,7 +20,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class TestCoverage extends TestFmwkPlus {
 
-    static final TestInfo testInfo = TestInfo.getInstance();
+    static final CLDRConfig testInfo = CLDRConfig.getInstance();
     static final StandardCodes sc = StandardCodes.make();
     static final SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
 

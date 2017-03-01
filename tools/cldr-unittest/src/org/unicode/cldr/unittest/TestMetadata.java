@@ -5,14 +5,16 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Differ;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestMetadata extends TestFmwk {
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestMetadata().run(args);

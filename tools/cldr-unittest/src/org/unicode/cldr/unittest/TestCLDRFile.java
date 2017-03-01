@@ -17,7 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -48,7 +50,7 @@ import com.ibm.icu.util.Output;
 public class TestCLDRFile extends TestFmwk {
     private static final boolean DISABLE_TIL_WORKS = false;
 
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
     static SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
 
     public static void main(String[] args) {
@@ -493,7 +495,7 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void TestConstructedBailey() {
-        CLDRFile eng = TestInfo.getInstance().getEnglish();
+        CLDRFile eng = CLDRConfig.getInstance().getEnglish();
 
         String prefix = "//ldml/localeDisplayNames/languages/language[@type=\"";
         String display = eng.getConstructedBaileyValue(prefix + "zh_Hans"

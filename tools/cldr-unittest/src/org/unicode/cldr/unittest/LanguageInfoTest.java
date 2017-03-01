@@ -5,7 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.Pair;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -16,7 +18,7 @@ import com.ibm.icu.util.LocalePriorityList;
 import com.ibm.icu.util.ULocale;
 
 public class LanguageInfoTest extends TestFmwk {
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
     static LanguageMatcherData data = LocaleMatcherTest.LANGUAGE_MATCHER_DATA;
     static Map<ULocale, ULocale> FALLBACKS = new LinkedHashMap<>();
 

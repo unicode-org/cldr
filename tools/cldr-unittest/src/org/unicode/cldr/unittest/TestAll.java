@@ -8,13 +8,10 @@ import java.io.Writer;
 import java.util.Date;
 
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.util.VersionInfo;
 
 /**
  * Top level test used to run all other tests as a batch.
@@ -231,34 +228,4 @@ public class TestAll extends TestGroup {
     }
 
     public static final String CLASS_TARGET_NAME = "CLDR";
-
-    public static class TestInfo extends CLDRConfig {
-        private static final long serialVersionUID = -2383155678635899954L;
-        private static TestInfo INSTANCE = null;
-
-        public static TestInfo getInstance() {
-            synchronized (TestInfo.class) {
-                if (INSTANCE == null) {
-                    CldrUtility.checkValidDirectory(CLDRPaths.BASE_DIRECTORY,
-                        "You have to set -Dcheckdata=<validdirectory>");
-                    INSTANCE = new TestInfo();
-                }
-            }
-            return INSTANCE;
-        }
-
-        public static boolean isCldrVersionBefore(int... version) {
-            return TestInfo.getInstance().getEnglish().getDtdVersionInfo()
-                .compareTo(getVersion(version)) < 0;
-        }
-
-        public static VersionInfo getVersion(int... versionInput) {
-            int[] version = new int[4];
-            for (int i = 0; i < versionInput.length; ++i) {
-                version[i] = versionInput[i];
-            }
-            return VersionInfo.getInstance(version[0], version[1], version[2],
-                version[3]);
-        }
-    }
 }

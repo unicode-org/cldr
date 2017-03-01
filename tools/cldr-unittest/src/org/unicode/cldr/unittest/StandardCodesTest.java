@@ -4,7 +4,9 @@ import java.util.EnumSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -20,7 +22,7 @@ public class StandardCodesTest extends TestFmwk {
 
     static final StandardCodes sc = StandardCodes.make();
 
-    static final TestInfo testInfo = TestInfo.getInstance();
+    static final CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public void TestCoverage() {
         EnumSet<Organization> missing = EnumSet.noneOf(Organization.class);

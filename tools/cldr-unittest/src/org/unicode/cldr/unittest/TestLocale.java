@@ -13,7 +13,9 @@ import java.util.Set;
 import javax.xml.xpath.XPathException;
 
 import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.AttributeValueValidity;
 import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
@@ -32,7 +34,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 public class TestLocale extends TestFmwkPlus {
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestLocale().run(args);

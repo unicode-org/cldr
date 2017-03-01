@@ -25,7 +25,9 @@ import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.PluralRulesFactory;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -84,7 +86,7 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class TestSupplementalInfo extends TestFmwkPlus {
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     private static final StandardCodes STANDARD_CODES = testInfo
             .getStandardCodes();
@@ -1612,7 +1614,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             //            }
             ULocale ulocale = new ULocale(locale);
             PluralRulesFactory prf = PluralRulesFactory
-                    .getInstance(TestAll.TestInfo.getInstance()
+                    .getInstance(CLDRConfig.getInstance()
                             .getSupplementalDataInfo());
 
             for (PluralType type : PluralType.values()) {

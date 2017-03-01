@@ -5,13 +5,15 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import org.unicode.cldr.test.OutdatedPaths;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+
+import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.PathHeader;
 
 public class TestOutdatedPaths extends TestFmwkPlus {
 
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
         new TestOutdatedPaths().run(args);
@@ -58,7 +60,7 @@ public class TestOutdatedPaths extends TestFmwkPlus {
                 logln("Eng: "
                     + outdatedPaths.getPreviousEnglish(originalPath)
                     + "\t=>\t"
-                    + TestAll.TestInfo.getInstance().getEnglish()
+                    + CLDRConfig.getInstance().getEnglish()
                     .getStringValue(originalPath) + "\tNative: "
                     + fr.getStringValue(originalPath) + "\tPath: "
                     + p.toString() + "\tXML Path: " + originalPath);

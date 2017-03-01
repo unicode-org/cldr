@@ -26,6 +26,7 @@ import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
 public class VerifyCompactNumbers {
@@ -276,7 +277,7 @@ public class VerifyCompactNumbers {
             showErrors(errors, out);
             showErrors(debugCreationErrors, out);
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

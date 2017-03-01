@@ -21,6 +21,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 /** Provides more flexible formatting of UnicodeSet patterns.
  */
@@ -284,7 +285,7 @@ public class UnicodeSetPrettyPrinter {
         try {
             return toAppendTo.append(format(obj));
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 }

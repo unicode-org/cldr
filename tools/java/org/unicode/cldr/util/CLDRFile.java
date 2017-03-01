@@ -66,6 +66,7 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
@@ -220,7 +221,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             sb.append(fullFileName);
             sb.append("': ");
             sb.append(e.getMessage());
-            throw new IllegalArgumentException(sb.toString(), e);
+            throw new ICUUncheckedIOException(sb.toString(), e);
 //            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullFileName + " - "
 //                + e.toString()).initCause(e);
         }
@@ -285,7 +286,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         } catch (SAXException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + localeName).initCause(e);
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + localeName).initCause(e);
+            throw new ICUUncheckedIOException("Can't read " + localeName, e);
         }
     }
 

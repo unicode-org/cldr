@@ -13,6 +13,7 @@ import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
 public class CountryCodeConverter {
@@ -68,7 +69,7 @@ public class CountryCodeConverter {
         try {
             loadNames();
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

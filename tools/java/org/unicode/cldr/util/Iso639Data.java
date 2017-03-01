@@ -13,6 +13,7 @@ import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class Iso639Data {
 
@@ -575,7 +576,7 @@ public class Iso639Data {
             macro_encompassed.freeze();
 
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalArgumentException("Cannot parse file").initCause(e);
+            throw new ICUUncheckedIOException("Cannot parse file", e);
         }
     }
 

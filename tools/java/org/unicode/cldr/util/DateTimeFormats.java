@@ -35,6 +35,7 @@ import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.DateInterval;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -481,7 +482,7 @@ public class DateTimeFormats {
             }
             output.append("</table>");
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -739,7 +740,7 @@ public class DateTimeFormats {
                 english, output, "1", "2", "3", "4");
             //            add24HourInfo();
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -1024,7 +1025,7 @@ public class DateTimeFormats {
             }
             output.append("</table>\n");
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

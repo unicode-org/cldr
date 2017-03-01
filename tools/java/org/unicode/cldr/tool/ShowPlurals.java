@@ -26,6 +26,7 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
 public class ShowPlurals {
@@ -68,7 +69,7 @@ public class ShowPlurals {
         try {
             pw.append(Utility.repeat("<br>", 100)).append(System.lineSeparator());
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

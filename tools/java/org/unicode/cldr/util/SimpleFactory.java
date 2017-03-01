@@ -74,10 +74,10 @@ public class SimpleFactory extends Factory {
             this.draftStatus = draftStatus;
             // Parameter check: the directory/file supplied must be non-null and readable.
             if (directory == null) {
-                throw new IllegalArgumentException("Attempt to create a CLDRCacheKey with a null directory, please supply a non-null one.");
+                throw new ICUUncheckedIOException("Attempt to create a CLDRCacheKey with a null directory, please supply a non-null one.");
             }
             if (!directory.canRead()) {
-                throw new IllegalArgumentException("The directory specified, " + directory.getPath() + ", cannot be read");
+                throw new ICUUncheckedIOException("The directory specified, " + directory.getPath() + ", cannot be read");
             }
             this.directory = directory.toString();
             hashCode = Objects.hash(this.localeName, this.resolved, this.draftStatus, this.directory);

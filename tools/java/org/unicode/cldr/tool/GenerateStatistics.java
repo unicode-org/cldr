@@ -31,6 +31,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -446,8 +447,7 @@ class GenerateStatistics {
                 }
                 pw.close();
             } catch (IOException e) {
-                e.printStackTrace();
-                throw new IllegalArgumentException("Failure on " + localeName + ": " + dir + localeName + ".xml");
+                throw new ICUUncheckedIOException("Failure on " + localeName + ": " + dir + localeName + ".xml", e);
             }
             cache.put(localeName, check);
             return check == TRUE;

@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
+
 public class FileProcessor {
     private int lineCount;
     protected boolean doHash = true;
@@ -95,7 +97,7 @@ public class FileProcessor {
             in.close();
             handleEnd();
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + line).initCause(e);
+            throw new ICUUncheckedIOException(lineCount + ":\t" + line, e);
         }
         return this;
     }

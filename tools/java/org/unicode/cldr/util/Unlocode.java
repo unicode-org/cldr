@@ -24,6 +24,7 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
@@ -177,7 +178,7 @@ public class Unlocode {
                 }
                 br.close();
             } catch (IOException e) {
-                throw new IllegalArgumentException(e);
+                throw new ICUUncheckedIOException(e);
             }
             for (LocodeData s : locodeToData.values()) {
                 for (String name : s.names) {

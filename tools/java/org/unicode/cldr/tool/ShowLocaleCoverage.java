@@ -57,6 +57,7 @@ import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class ShowLocaleCoverage {
     private static final boolean DEBUG = false;
@@ -540,7 +541,7 @@ public class ShowLocaleCoverage {
         try {
             out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", "simpleCoverage.tsv");
         } catch (IOException e1) {
-            throw new IllegalArgumentException(e1);
+            throw new ICUUncheckedIOException(e1);
         }
 
         out.println("#LCode\tEnglish Name\tScript\tEnglish Value\tNative Value\tStatus\tST Link\tSection\tPage\tHeader\tCode\tPath");
@@ -558,7 +559,7 @@ public class ShowLocaleCoverage {
         try {
             out2 = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "coverage/", "showLocaleCoverage.txt");
         } catch (IOException e1) {
-            throw new IllegalArgumentException(e1);
+            throw new ICUUncheckedIOException(e1);
         }
 
         out2.print("Code\tCom?\tEnglish Name\tNative Name\tScript\tSublocales\tStrings");

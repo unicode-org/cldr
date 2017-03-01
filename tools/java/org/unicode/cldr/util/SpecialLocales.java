@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
+
 /**
  * List of locale IDs which are somehow 'special'. Parses SpecialLocales.txt
  *
@@ -185,7 +187,7 @@ public class SpecialLocales {
                 }
             }
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Internal Error").initCause(e);
+            throw new ICUUncheckedIOException("Internal Error", e);
         }
         specials = Collections.unmodifiableMap(specials);
         specialsWildcards = Collections.unmodifiableSet(specialsWildcards);

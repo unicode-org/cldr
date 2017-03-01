@@ -21,6 +21,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUException;
 
 public class CheckForCopy extends FactoryCheckCLDR {
 
@@ -189,7 +190,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
                         break;
                     }
                 } catch (NullPointerException e) {
-                    throw new IllegalArgumentException("Value: " + value + "\nattributeValue: " + attributeValue
+                    throw new ICUException("Value: " + value + "\nattributeValue: " + attributeValue
                         + "\nPath: " + path, e);
                 }
             }

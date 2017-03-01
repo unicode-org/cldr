@@ -54,6 +54,7 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
 @CLDRTool(alias = "showkeyboards", description = "Generate keyboard charts")
@@ -103,7 +104,7 @@ public class ShowKeyboards {
         try {
             Log.setLog(CLDRPaths.LOG_DIRECTORY + "keyboard-log.txt");
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
         boolean layoutsOnly = MyOptions.layouts.option.doesOccur();
         boolean repertoireOnly = MyOptions.repertoire.option.doesOccur();

@@ -38,6 +38,7 @@ import org.unicode.cldr.util.ZoneParser.ZoneLine;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 /**
@@ -545,7 +546,7 @@ public class StandardCodes {
                 }
             }
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Internal Error").initCause(e);
+            throw new ICUUncheckedIOException("Internal Error", e);
         }
 
         // now reset the parent to be the max of the children

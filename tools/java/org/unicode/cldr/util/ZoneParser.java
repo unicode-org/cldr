@@ -17,6 +17,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
+
 public class ZoneParser {
     static final boolean DEBUG = false;
 
@@ -929,8 +931,8 @@ public class ZoneParser {
             zone_rules = CldrUtility.protectCollection(zone_rules);
             // TODO protect zone info later
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException(
-                "Can't find timezone aliases: " + e.toString()).initCause(e);
+            throw new ICUUncheckedIOException(
+                "Can't find timezone aliases: " + e.toString(), e);
         }
     }
 

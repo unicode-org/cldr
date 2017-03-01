@@ -21,6 +21,7 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class ElementAttributeInfo {
 
@@ -68,7 +69,7 @@ public class ElementAttributeInfo {
                     cache.put(canonicalCommonDirectory, result);
                 }
             } catch (IOException e) {
-                throw new IllegalArgumentException(e);
+                throw new ICUUncheckedIOException(e);
             }
         }
         return result.get(dtdType);

@@ -23,6 +23,8 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.With.SimpleIterator;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
+
 public final class FileUtilities {
     public static final boolean SHOW_FILES;
     static {
@@ -146,7 +148,7 @@ public final class FileUtilities {
                 BufferedReader in = openFile(classLocation, fileName);
                 return process(in, fileName);
             } catch (Exception e) {
-                throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
+                throw new ICUUncheckedIOException(lineCount + ":\t" + 0, e);
             }
 
         }
@@ -158,7 +160,7 @@ public final class FileUtilities {
                 BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);
             } catch (Exception e) {
-                throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
+                throw new ICUUncheckedIOException(lineCount + ":\t" + 0, e);
             }
         }
 
@@ -169,7 +171,7 @@ public final class FileUtilities {
                 BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);
             } catch (Exception e) {
-                throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
+                throw new ICUUncheckedIOException(lineCount + ":\t" + 0, e);
             }
         }
 
@@ -202,7 +204,7 @@ public final class FileUtilities {
                 in.close();
                 handleEnd();
             } catch (Exception e) {
-                throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + line).initCause(e);
+                throw (RuntimeException) new ICUUncheckedIOException(lineCount + ":\t" + line, e);
             }
             return this;
         }
@@ -244,10 +246,10 @@ public final class FileUtilities {
                 String relativeFileName = getRelativeFileName(class1, "../util/");
                 canonicalName = new File(relativeFileName).getCanonicalPath();
             } catch (Exception e1) {
-                throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: "
+                throw new ICUUncheckedIOException("Couldn't open file: " + file + "; relative to class: "
                     + className, e);
             }
-            throw new IllegalArgumentException("Couldn't open file " + file + "; in path " + canonicalName + "; relative to class: "
+            throw new ICUUncheckedIOException("Couldn't open file " + file + "; in path " + canonicalName + "; relative to class: "
                 + className, e);
         }
     }
@@ -256,7 +258,7 @@ public final class FileUtilities {
         try {
             return new BufferedReader(new InputStreamReader(new FileInputStream(new File(directory, file)), charset));
         } catch (FileNotFoundException e) {
-            throw new IllegalArgumentException(e); // handle dang'd checked exception
+            throw new ICUUncheckedIOException(e); // handle dang'd checked exception
         }
     }
 
@@ -264,7 +266,7 @@ public final class FileUtilities {
         try {
             return new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
         } catch (FileNotFoundException e) {
-            throw new IllegalArgumentException(e); // handle dang'd checked exception
+            throw new ICUUncheckedIOException(e); // handle dang'd checked exception
         }
     }
 
@@ -329,7 +331,7 @@ public final class FileUtilities {
                 br.close();
             }
         } catch (IOException e) {
-            throw new IllegalArgumentException(e); // wrap darn'd checked exception
+            throw new ICUUncheckedIOException(e); // wrap darn'd checked exception
         }
     }
 
@@ -415,7 +417,7 @@ public final class FileUtilities {
             appendFile(class1, sourceFile, UTF8, replacementList, out);
             out.close();
         } catch (IOException e) {
-            throw new IllegalArgumentException(e); // dang'd checked exceptions
+            throw new ICUUncheckedIOException(e); // dang'd checked exceptions
         }
     }
 
@@ -427,7 +429,7 @@ public final class FileUtilities {
         } else if (resourceString.startsWith("jar:file:")) {
             return resourceString.substring(9);
         } else {
-            throw new IllegalArgumentException("File not found: " + resourceString);
+            throw new ICUUncheckedIOException("File not found: " + resourceString);
         }
     }
 
@@ -512,7 +514,7 @@ public final class FileUtilities {
                 }
                 return result;
             } catch (IOException e) {
-                throw new IllegalArgumentException(e); // handle dang'd checked exception
+                throw new ICUUncheckedIOException(e); // handle dang'd checked exception
             }
         }
 
@@ -559,8 +561,7 @@ public final class FileUtilities {
                     if (SHOW_SKIP) System.out.println("Skipping line: " + line);
                 }
             } catch (Exception e) {
-                throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line)
-                    .initCause(e);
+                throw new ICUUncheckedIOException("Problem with line: " + line, e);
             }
         }
         in.close();

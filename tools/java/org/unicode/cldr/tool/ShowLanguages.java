@@ -77,6 +77,7 @@ import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
 @CLDRTool(alias = "showlanguages", description = "Generate Lanugage info charts")
@@ -2563,7 +2564,7 @@ public class ShowLanguages {
 
             pw.append("<div align='center'>" + System.lineSeparator());
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

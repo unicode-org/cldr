@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
  * @author markdavis
@@ -102,7 +103,7 @@ public class Utf8StringByteConverter extends StringByteConverter {
             }
             return result;
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Internal error").initCause(e);
+            throw new ICUUncheckedIOException("Internal error", e);
         }
     }
 }

@@ -22,6 +22,8 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StringId;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
+
 /**
  * This class should be used to detect when a path should be included in the set
  * of outdated items, because the value in the locale has not changed since the
@@ -114,7 +116,7 @@ public class OutdatedPaths {
             dataIn.close();
 
         } catch (IOException e) {
-            throw new IllegalArgumentException("Data Not Available", e);
+            throw new ICUUncheckedIOException("Data Not Available", e);
         }
     }
 

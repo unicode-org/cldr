@@ -48,6 +48,7 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
@@ -157,7 +158,7 @@ public class VettingViewer<T> {
                 }
                 return target;
             } catch (IOException e) {
-                throw new IllegalArgumentException(e); // damn'd checked
+                throw new ICUUncheckedIOException(e); // damn'd checked
                 // exceptions
             }
         }
@@ -204,7 +205,7 @@ public class VettingViewer<T> {
                 }
                 return target;
             } catch (IOException e) {
-                throw new IllegalArgumentException(e); // damn'd checked
+                throw new ICUUncheckedIOException(e); // damn'd checked
                 // exceptions
             }
         }
@@ -1050,7 +1051,7 @@ public class VettingViewer<T> {
                 }
             }
         } catch (IOException e) {
-            throw new IllegalArgumentException(e); // dang'ed checked exceptions
+            throw new ICUUncheckedIOException(e); // dang'ed checked exceptions
         }
 
     }
@@ -1717,7 +1718,7 @@ public class VettingViewer<T> {
                 output.append("</table>\n");
             }
         } catch (IOException e) {
-            throw new IllegalArgumentException(e); // damn'ed checked exceptions
+            throw new ICUUncheckedIOException(e); // damn'ed checked exceptions
         }
     }
 

@@ -7,6 +7,8 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
+
 /**
  * To add a new chart, subclass this, and add the subclass to {@link ShowLanguages.printLanguageData()}. There isn't much
  * documentation, so best to look at a simple subclass to see how it works.
@@ -102,7 +104,7 @@ public abstract class Chart {
             writeContents(x);
             writeFooter(x);
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 }

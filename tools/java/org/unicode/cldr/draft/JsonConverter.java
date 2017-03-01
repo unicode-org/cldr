@@ -28,6 +28,7 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class JsonConverter {
 
@@ -396,7 +397,7 @@ public class JsonConverter {
                 indent(result, i).append("}");
                 return result;
             } catch (IOException e) {
-                throw new IllegalArgumentException(e);
+                throw new ICUUncheckedIOException(e);
             }
         }
 

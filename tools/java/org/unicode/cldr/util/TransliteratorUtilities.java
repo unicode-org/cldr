@@ -12,6 +12,7 @@ import java.io.IOException;
 import org.unicode.cldr.draft.FileUtilities;
 
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class TransliteratorUtilities {
     public static boolean DEBUG = false;
@@ -47,7 +48,7 @@ public class TransliteratorUtilities {
 //#if defined(FOUNDATION10) || defined(J2SE13)
 //##        throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + id+" "+ e.getMessage());
 //#else
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't open " + dir + ", " + id).initCause(e);
+            throw new ICUUncheckedIOException("Can't open " + dir + ", " + id, e);
 //#endif
         }
     }

@@ -13,6 +13,8 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
+
 /**
  * Run this code to extract the ISO currency data from a file.
  * Use -Dinput=xxx for the input file, and -Doutput=xxx for the output file
@@ -147,7 +149,7 @@ public class ExtractIsoCurrencyData {
             }
             out.println("Last modified " + version);
         } catch (IOException e) {
-            throw new IllegalArgumentException("Can't read currency file " + e.getMessage());
+            throw new ICUUncheckedIOException("Can't read currency file " + e.getMessage(), e);
         }
         out.close();
     }

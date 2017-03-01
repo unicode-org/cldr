@@ -13,6 +13,7 @@ import java.util.TreeSet;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class IsoRegionData {
     static Map<String, String> _numeric = new HashMap<String, String>();
@@ -109,7 +110,7 @@ public class IsoRegionData {
                 throw new IllegalArgumentException("Internet values illegal: " + errors);
             }
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
         _internet.put("ZZ", CollectionUtilities.join(other_internet, " "));
 

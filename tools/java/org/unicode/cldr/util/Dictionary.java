@@ -18,6 +18,8 @@ import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
+
 /**
  * Provides for detecting all words starting at a given offset, and returning a
  * value associated with each of the words. Logically, it is backed by a
@@ -416,7 +418,7 @@ public abstract class Dictionary<T> {
                 }
                 return target;
             } catch (IOException e) {
-                throw (IllegalArgumentException) new IllegalArgumentException("Internal error").initCause(e);
+                throw new ICUUncheckedIOException("Internal error", e);
             }
         }
 

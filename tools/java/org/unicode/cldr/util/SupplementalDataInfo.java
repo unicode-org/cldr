@@ -63,6 +63,7 @@ import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -952,7 +953,7 @@ public class SupplementalDataInfo {
         try {
             return getInstance(supplementalDirectory.getCanonicalPath());
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
 //            throw (IllegalArgumentException) new IllegalArgumentException()
 //            .initCause(e);
         }
@@ -997,7 +998,7 @@ public class SupplementalDataInfo {
             try {
                 canonicalpath = new File(supplementalDirectory).getCanonicalPath();
             } catch (IOException e) {
-                throw new IllegalArgumentException(e);
+                throw new ICUUncheckedIOException(e);
             }
             SupplementalDataInfo instance = directory_instance.get(canonicalpath);
             if (instance != null) {

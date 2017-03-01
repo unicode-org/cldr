@@ -10,6 +10,7 @@ package org.unicode.cldr.util;
 import java.io.IOException;
 
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class CompactStringByteConverter extends StringByteConverter {
     static public final boolean DEBUG = false;
@@ -107,7 +108,7 @@ public class CompactStringByteConverter extends StringByteConverter {
             }
             return result;
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Internal error").initCause(e);
+            throw new ICUUncheckedIOException("Internal error", e);
         }
     }
 

@@ -33,6 +33,7 @@ import org.unicode.cldr.test.TestTransforms;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeFilter;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class CLDRTransforms {
 
@@ -448,7 +449,7 @@ public class CLDRTransforms {
                 ((Writer) showProgress).flush();
             }
         } catch (IOException e) {
-            throw (RuntimeException) new IllegalArgumentException().initCause(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

@@ -6,6 +6,8 @@ import java.nio.charset.Charset;
 
 import org.unicode.cldr.util.With.SimpleIterator;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
+
 /**
  * Class to get an Iterable for Strings from a File, returning one line at a time.
  * @author ribnitz
@@ -93,7 +95,7 @@ public class StringIterables {
                 }
                 return result;
             } catch (IOException e) {
-                throw new IllegalArgumentException(e); // handle dang'd checked exception
+                throw new ICUUncheckedIOException(e); // handle dang'd checked exception
             }
         }
 

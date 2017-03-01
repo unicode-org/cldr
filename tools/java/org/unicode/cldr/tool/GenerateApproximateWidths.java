@@ -29,6 +29,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class GenerateApproximateWidths extends JApplet implements Runnable {
     private static final long serialVersionUID = 1L;
@@ -127,7 +128,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
             System.out.println("Adjusted: " + widths.adjusted);
             System.out.println("DONE");
         } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

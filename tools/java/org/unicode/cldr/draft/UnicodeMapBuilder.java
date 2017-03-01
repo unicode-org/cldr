@@ -8,6 +8,7 @@ import org.unicode.cldr.util.PatternCache;
 
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class UnicodeMapBuilder<T> {
     public enum Leniency {
@@ -134,7 +135,7 @@ public class UnicodeMapBuilder<T> {
             }
             line = line.trim();
         } catch (final Exception e) {
-            throw new IllegalArgumentException("Line \"{" + originalLine + "}\",  \"{" + line + "}\"", e);
+            throw new ICUUncheckedIOException("Line \"{" + originalLine + "}\",  \"{" + line + "}\"", e);
         }
         return line;
     }

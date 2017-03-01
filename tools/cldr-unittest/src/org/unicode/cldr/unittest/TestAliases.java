@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -13,6 +14,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -166,4 +168,33 @@ public class TestAliases extends TestFmwk {
         }
     }
 
+    /** Test that <alias> elements only are in root.html
+     * For speed in testing, just checks for the presence of "<alias" to avoid doing XML parse.
+     */
+    public void TestOnlyRootHasAliases() {
+        for (String dirString : DtdType.ldml.directories) {
+            checkForAliases(CLDRPaths.COMMON_DIRECTORY + dirString);
+        }
+    }
+
+    /** Test that <alias> elements only are in root.html
+     * For speed in testing, just checks for the presence of "<alias" to avoid doing XML parse.
+     */
+    private void checkForAliases(String dirString) {
+        File file = new File(dirString);
+        if (file.isDirectory()) {
+            for (String subfile : file.list()) {
+                checkForAliases(dirString + "/" + subfile);
+            }
+        } else {
+            String name = file.getName();
+            if (!name.equals("root.xml") && name.endsWith(".xml")) {
+                for (String line : FileUtilities.in(FileUtilities.openFile(file))) {
+                    if (line.contains("<alias")) {
+                        errln(file + " contains <alias…");
+                    }
+                }
+            }
+        }
+    }
 }

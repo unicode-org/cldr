@@ -110,7 +110,7 @@ h5 {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td class="changed">2017-01-25</td>
+				<td class="changed">2017-03-01</td>
 			</tr>
 			<tr>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
@@ -6690,7 +6690,7 @@ decimal?, group?, special*)) &gt;</pre>
         </blockquote>
 <p>The customized rules replacing GB11, WB3c, and LB8a are:</p>
 <p> </p>
-<p>GB11′  (Extended_Pictographic | EmojiNRK) ZWJ × (Extended_Pictographic |EmojiNRK)</p>
+<p>GB11′  (Extended_Pictographic | EmojiNRK) <span class="changed">Extend* </span>ZWJ × (Extended_Pictographic |EmojiNRK)</p>
         <p>WB3c′  ZWJ × (Extended_Pictographic | EmojiNRK)</p>
         <p>LB8a′ ZWJ × (ID | Extended_Pictographic | EmojiNRK)        </p>
         <h2>
@@ -8449,13 +8449,16 @@ decimal?, group?, special*)) &gt;</pre>
 	          <li>Added table of -t- keys.  [<a href="http://unicode.org/cldr/trac/ticket/9966">#9966</a>] </li>
             </ul>
 	      </li>
-	      <li><strong>Section <a name="Hybrid_Locale" href="#Hybrid_Locale">3.10.2
-	        Hybrid Locale Identifiers</a>
-          </strong>
+	      <li><strong>Section 3.10.2 <a href="#Hybrid_Locale">Hybrid Locale Identifiers</a></strong>
 	        <ul>
 	          <li>Added description of hybrid locale identifiers. [<a href="http://unicode.org/cldr/trac/ticket/9956">#9956</a>]	      </li>
             </ul>
           </li>
+	      <li><strong>Section 6.2 <a href="#Extended_Pictographic">Extended Pictographic</a></strong>
+	        <ul>
+	          <li>Added “Extend*” to GB11′ rule. [<a href="http://unicode.org/cldr/trac/ticket/10088">#10088</a>] </li>
+            </ul>
+	      </li>
         </ul>
 
 		<p><strong>Part 2: <a

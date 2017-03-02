@@ -43,7 +43,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="9.1"> × $SpacingMark </rule>
 				<rule id="9.2"> $Prepend × </rule>
 				<rule id="10"> ($E_Base | $E_Base_GAZ) $Extend* × $E_Modifier </rule>
-				<rule id="11"> ($Extended_Pict | $EmojiNRK) $ZWJ × ($Extended_Pict | $EmojiNRK) </rule>
+				<rule id="11"> ($Extended_Pict | $EmojiNRK) $Extend* $ZWJ × ($Extended_Pict | $EmojiNRK) </rule>
 				<rule id="12"> ^$Prepend* $Regional_Indicator $Regional_Indicator ÷ $Regional_Indicator </rule>
 				<rule id="13"> ^$Prepend* $Regional_Indicator × $Regional_Indicator </rule>
 			</segmentRules>

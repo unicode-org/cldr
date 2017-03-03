@@ -24,6 +24,7 @@ class LdmlConvertRules {
     // common/main
     static final ImmutableSet<String> NAME_PART_DISTINGUISHING_ATTR_SET = ImmutableSet.of(
         "monthWidth:month:yeartype",
+        "characters:parseLenients:scope",
         "dateFormat:pattern:numbers",
         "currencyFormats:unitPattern:count",
         "currency:displayName:count",
@@ -48,6 +49,7 @@ class LdmlConvertRules {
         "weekData:firstDay:territories",
         "weekData:weekendStart:territories",
         "weekData:weekendEnd:territories",
+        "unitPreferenceDataData:unitPreferences:category",
         "measurementData:measurementSystem:category",
         "supplemental:plurals:type",
         "pluralRules:pluralRule:count",
@@ -265,7 +267,8 @@ class LdmlConvertRules {
         new SplittableAttributeSpec("hours", "regions", null),
         new SplittableAttributeSpec("dayPeriodRules", "locales", null),
         // new SplittableAttributeSpec("group", "contains", "group"),
-        new SplittableAttributeSpec("personList", "locales", "type")
+        new SplittableAttributeSpec("personList", "locales", "type"),
+        new SplittableAttributeSpec("unitPreference", "regions", null)
     };
 
     /**
@@ -431,6 +434,8 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/transforms/transform[^/]*)/(.*)", "$1/tRules/$2"),
         new PathTransformSpec("(.*)\\[@territories=\"([^\"]*)\"\\](.*)\\[@alt=\"variant\"\\](.*)", "$1\\[@territories=\"$2-alt-variant\"\\]"),
         new PathTransformSpec("(.*)/weekData/(.*)\\[@alt=\"variant\"\\](.*)", "$1/weekData/$2$3"),
-        
+        new PathTransformSpec("(.*)/unitPreferenceData/unitPreferences\\[@category=\"([^\"]*)\"\\]\\[@usage=\"([^\"]*)\"\\](.*)",
+            "$1/unitPreferenceData/unitPreferences/$2/$3$4"),
+       
     };
 }

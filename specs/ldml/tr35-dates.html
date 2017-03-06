@@ -3387,10 +3387,41 @@ h2, h3, h4, table {
 				Format Patterns</a>
 		</h2>
 
-		<p>A date pattern is a string of characters, in which specific
-			substrings of characters are replaced with date and time data from a
-			calendar when formatting, or used to generate data for a calendar
-			when parsing. The following are examples:</p>
+		<p>A date pattern is a <span class="changed">character string consisting
+			of two types of elements:</span></p>
+		<ul>
+			<li><span class="changed"><em>Pattern fields</em>, which repeat a specific
+				<em>pattern character</em> one or more times. These fields</span> are
+				replaced with date and time data from a calendar when formatting, or used
+				to generate data for a calendar when parsing. Currently, A..Z and a..z
+				are reserved for use as pattern characters (unless they are quoted, see 
+				next item). The pattern characters currently defined, and the meaning of
+				different fields lengths for then, are listed in the Date Field Symbol
+				Table below.</li>
+			<li><span class="changed">Literal text, which is output as-is when formatting,
+				and must closely match when parsing. Literal text can include:</span>
+				<ul>
+					<li class="changed">Any characters other than A..Z and a..z, including
+						spaces and punctuation.</li>
+					<li class="changed">Any text between single vertical quotes (&#39;xxxx&#39;),
+						which may include A..Z and a..z as literal text.</li>
+					<li><span class="changed">Two adjacent single vertical quotes (&#39;&#39;),
+						which represent</span> a literal single quote, either inside or
+						outside <span class="changed">quoted text</span>.</li>
+				</ul>
+			</li>
+		</ul>
+		<p class="removed">In patterns, two single quotes represents a literal single
+			quote, either inside or outside single quotes. Text within single
+			quotes is not interpreted in any way (except for two adjacent single
+			quotes). Otherwise all ASCII letters from a to z and A to Z are
+			reserved as syntax characters, and require quoting if they are to
+			represent literal characters. In addition, certain ASCII punctuation
+			characters may become variable in the future (for example,
+			&quot;:&quot; being interpreted as the time separator and &#39;/&#39;
+			as a date separator, and replaced by respective locale-sensitive
+			characters in display).</p>
+		<p>The following are examples:</p>
 		<table border="1" cellpadding="0" cellspacing="0"
 			style="border-style: solid; border-collapse: collapse">
 			<caption>
@@ -3433,17 +3464,6 @@ h2, h3, h4, table {
 			</i>
 		</p>
 
-		<p>The Date Field Symbol Table below contains the characters used
-			in patterns to show the appropriate formats for a given locale, such
-			as yyyy for the year. Characters may be used multiple times. For
-			example, if y is used for the year, &#39;yy&#39; might produce
-			&#39;99&#39;, whereas &#39;yyyy&#39; produces &#39;1999&#39;. For
-			most numerical fields, the number of characters specifies the field
-			width. For example, if h is the hour, &#39;h&#39; might produce
-			&#39;5&#39;, but &#39;hh&#39; produces &#39;05&#39;. For some
-			characters, the count specifies whether an abbreviated or full form
-			should be used, but may have other choices, as given below.</p>
-
 		<p class="dtd">&lt;!ATTLIST pattern numbers CDATA #IMPLIED &gt;</p>
 
 		<p>
@@ -3473,30 +3493,60 @@ h2, h3, h4, table {
 			pattern. --&gt;
 		</p>
 
-		<p>In patterns, two single quotes represents a literal single
-			quote, either inside or outside single quotes. Text within single
-			quotes is not interpreted in any way (except for two adjacent single
-			quotes). Otherwise all ASCII letters from a to z and A to Z are
-			reserved as syntax characters, and require quoting if they are to
-			represent literal characters. In addition, certain ASCII punctuation
-			characters may become variable in the future (for example,
-			&quot;:&quot; being interpreted as the time separator and &#39;/&#39;
-			as a date separator, and replaced by respective locale-sensitive
-			characters in display).</p>
+		<br>
+		<p class="changed"><strong>Pattern fields and the Date Field Symbol Table</strong></p>
 
-		<blockquote>
-			<p>Note 1: The counter-intuitive use of 5 letters for the narrow
-				form of weekdays and months is forced by backwards compatibility.</p>
-			<p>Note 2: The examples in the table below are merely
-				illustrative and may not reflect current actual data.</p>
-		</blockquote>
-		<p>
-			Any sequence of syntax characters other
-			than those listed below is invalid.
-				Invalid pattern fields should be handled for formatting and parsing
-				as described in <a href="tr35.html#Invalid_Patterns">Handling
-					Invalid Patterns</a>.
-			</p>
+		<p class="changed">The Date Field Symbol Table below shows the pattern
+			characters (Sym.) and associated fields used in date patterns. The length
+			of the pattern field is related to the length and style used to format the
+			data item. For numeric-only fields, the field length typically indicates the
+			minimum number of digits that should be used to display the value
+			(zero-padding as necessary). As an example using pattern character ‘H’ for
+			hour (24-hour cycle) and values 5 and 11, a field “H” should produce formatted
+			results “5” and “11” while a field “HH” should produce formatted results “05”
+			and “11”. For alphanumeric fields (such as months) and alphabetic-only fields
+			(such as era names), the relationship between field length and formatted result
+			may be more complex. Typically this is as follows:</p>
+
+		<table cellspacing="0" cellpadding="2" border="1">
+			<tr class="changed">
+				<th>Pattern field length</th>
+				<th>Typical style for alphanumeric item</th>
+				<th>Typical style for alpha-only item</th>
+			</tr>
+			<tr class="changed">
+				<td>1</td>
+				<td>Numeric, 1-2 digits (e.g. M)</td>
+				<td rowspan="3">Abbreviated (e.g. E, EE, EEE)</td>
+			</tr>
+			<tr class="changed">
+				<td>2</td>
+				<td>Numeric, 2 digits (e.g. MM)</td>
+			</tr>
+			<tr class="changed">
+				<td>3</td>
+				<td>Abbreviated (e.g. MMM)</td>
+			</tr>
+			<tr class="changed">
+				<td>4</td>
+				<td colspan="2">Long (e.g. MMMM, EEEE)</td>
+			</tr>
+			<tr class="changed">
+				<td>5</td>
+				<td colspan="2">Narrow (e.g. MMMMM, EEEEE)<br>(The counter-intuitive use of 5 letters for this is forced by backwards compatibility)</td>
+			</tr>
+		</table>
+
+		<p class="changed">Notes for the table below:</p>
+		<ul>
+			<li>Any sequence of syntax characters other than those listed below is invalid.
+				Invalid pattern fields should be handled for formatting and parsing as
+				described in <a href="tr35.html#Invalid_Patterns">Handling Invalid Patterns</a>.</li>
+			<li>The examples in the table below are merely illustrative and may not reflect
+				current actual data.</li>
+		</ul>
+
+
 		<table cellspacing="0" cellpadding="2" border="1">
 			<caption>
 				<a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date
@@ -3505,15 +3555,15 @@ h2, h3, h4, table {
 			<tr>
 				<th>Field</th>
 				<th style="text-align: center">Sym.</th>
-				<th style="text-align: center">No.</th>
-				<th>Example</th>
+				<th style="text-align: center" class="changed">Field</th>
+				<th>Example<span class="changed">s</span></th>
 				<th colspan="2">Description</th>
 			</tr>
 			<tr>
 				<th rowspan="3" style="vertical-align: top; text-align: left"><a name='dfst-era' href='#dfst-era'>era</a>
                 </th>
 				<td style="text-align: center; vertical-align: top" rowspan="3">G</td>
-				<td style="text-align: center; vertical-align: top">1..3</td>
+				<td style="text-align: center; vertical-align: top" class="changed">G, GG, GGG</td>
 				<td style="vertical-align: top; text-align: left">AD (variant:
 					CE)</td>
 				<td colspan="2" rowspan="3"
@@ -3523,30 +3573,34 @@ h2, h3, h4, table {
 					for the narrow form.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">4</td>
+				<td style="text-align: center; vertical-align: top" class="changed">GGGG</td>
 				<td style="vertical-align: top; text-align: left">Anno Domini
 					(variant: Common Era)</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">5</td>
+				<td style="text-align: center; vertical-align: top" class="changed">GGGGG</td>
 				<td style="vertical-align: top; text-align: left">A</td>
 			</tr>
 			<tr>
-				<th rowspan="7"><a name='dfst-year' href='#dfst-year'>year</a></th>
-				<td style="text-align: center">y</td>
-				<td style="text-align: center">1..n</td>
-				<td>1996</td>
-				<td colspan="2">Year. Normally the length specifies the
-					padding, but for two letters it also specifies the maximum length.
-					Examples:
+				<th rowspan="16"><a name='dfst-year' href='#dfst-year'>year</a></th>
+				<td rowspan="6" style="text-align: center">y</td>
+				<td style="text-align: center" class="changed">y</td>
+				<td class="changed">2, 20, 201, 2017, 20173</td>
+				<td rowspan="6" colspan="2">
+					<span class="changed">Calendar year. In most cases the length of the y
+					field specifies the minimum number of digits to display, zero-padded as
+					necessary; more digits will be displayed if needed to show the full
+					year. However, “yy” requests just the two low-order digits of the year,
+					zero-padded as necessary. For most use cases, “y” or “yy” should be
+					adequate.</span><br><span class="removed">Examples:</span>
 					<div align="center">
 						<center>
 							<table border="0" cellpadding="2" cellspacing="0">
-								<caption>
+								<caption class="removed">
 									<a name="Year_Length_Examples" href="#Year_Length_Examples">Year
 										Length Examples</a>
 								</caption>
-								<tr>
+								<tr class="removed">
 									<th>Year</th>
 									<th style="text-align: right">y</th>
 									<th style="text-align: right">yy</th>
@@ -3554,7 +3608,7 @@ h2, h3, h4, table {
 									<th style="text-align: right">yyyy</th>
 									<th style="text-align: right">yyyyy</th>
 								</tr>
-								<tr>
+								<tr class="removed">
 									<td>AD 1</td>
 									<td style="text-align: right">1</td>
 									<td style="text-align: right">01</td>
@@ -3562,7 +3616,7 @@ h2, h3, h4, table {
 									<td style="text-align: right">0001</td>
 									<td style="text-align: right">00001</td>
 								</tr>
-								<tr>
+								<tr class="removed">
 									<td>AD 12</td>
 									<td style="text-align: right">12</td>
 									<td style="text-align: right">12</td>
@@ -3570,7 +3624,7 @@ h2, h3, h4, table {
 									<td style="text-align: right">0012</td>
 									<td style="text-align: right">00012</td>
 								</tr>
-								<tr>
+								<tr class="removed">
 									<td>AD 123</td>
 									<td style="text-align: right">123</td>
 									<td style="text-align: right">23</td>
@@ -3578,7 +3632,7 @@ h2, h3, h4, table {
 									<td style="text-align: right">0123</td>
 									<td style="text-align: right">00123</td>
 								</tr>
-								<tr>
+								<tr class="removed">
 									<td>AD 1234</td>
 									<td style="text-align: right">1234</td>
 									<td style="text-align: right">34</td>
@@ -3586,7 +3640,7 @@ h2, h3, h4, table {
 									<td style="text-align: right">1234</td>
 									<td style="text-align: right">01234</td>
 								</tr>
-								<tr>
+								<tr class="removed">
 									<td>AD 12345</td>
 									<td style="text-align: right">12345</td>
 									<td style="text-align: right">45</td>
@@ -3600,20 +3654,59 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center">Y</td>
-				<td style="text-align: center">1..n</td>
-				<td>1997</td>
-				<td colspan="2">Year (in &quot;Week of Year&quot; based
-					calendars). Normally the length specifies the padding, but for two
-					letters it also specifies the maximum length. This year designation
-					is used in ISO year-week calendar as defined by ISO 8601, but can
-					be used in non-Gregorian based calendar systems where week date
-					processing is desired. May not always be the same value as calendar
-					year.</td>
+				<td style="text-align: center" class="changed">yy</td>
+				<td class="changed">02, 20, 01, 17, 73</td>
+			</tr>
+			<tr>
+				<td style="text-align: center" class="changed">yyy</td>
+				<td class="changed">002, 020, 201, 2017, 20173</td>
+			</tr>
+			<tr>
+				<td style="text-align: center" class="changed">yyyy</td>
+				<td class="changed">0002, 0020, 0201, 2017, 20173</td>
+			</tr>
+			<tr>
+				<td style="text-align: center" class="changed">yyyyy</td>
+				<td class="changed">00002, 00020, 00201, 02017, 20173</td>
+			</tr>
+			<tr>
+				<td style="text-align: center" class="changed">...</td>
+				<td class="changed">...</td>
+			</tr>
+			<tr>
+				<td rowspan="5" style="text-align: center">Y</td>
+				<td style="text-align: center" class="changed">Y</td>
+				<td class="changed">2, 20, 201, 2017, 20173</td>
+				<td rowspan="5" colspan="2">Year in &quot;Week of Year&quot; based calendars
+					<span class="changed">in which the year transition occurs on a week
+					boundary; may differ from calendar year ‘y’ near a year transition.</span>
+					This year designation is used <span class="changed">in conjunction with pattern
+					character ‘w’ in the</span> ISO year-week calendar as defined by ISO 8601,
+					but can be used in non-Gregorian based calendar systems where week date
+					processing is desired. <span class="changed">The field length is interpreted
+					in the same was as for ‘y’; that is, “yy” specifies use of the two
+					low-order year digits, while any other field length specifies a minimum
+					number of digits to display.</span></td>
+			</tr>
+			<tr>
+				<td style="text-align: center" class="changed">YY</td>
+				<td class="changed">02, 20, 01, 17, 73</td>
+			</tr>
+			<tr>
+				<td style="text-align: center" class="changed">YYY</td>
+				<td class="changed">002, 020, 201, 2017, 20173</td>
+			</tr>
+			<tr>
+				<td style="text-align: center" class="changed">YYYY</td>
+				<td class="changed">0002, 0020, 0201, 2017, 20173</td>
+			</tr>
+			<tr>
+				<td style="text-align: center" class="changed">...</td>
+				<td class="changed">...</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">u</td>
-				<td style="text-align: center">1..n</td>
+				<td style="text-align: center" class="changed">u, uu, uuu, uuuu, ...</td>
 				<td>4601</td>
 				<td colspan="2">Extended year. This is a single number
 					designating the year of this calendar system, encompassing all
@@ -3621,7 +3714,8 @@ h2, h3, h4, table {
 					year numbers are positive, with an era of BCE or CE. An extended
 					year value for the Julian calendar system assigns positive values
 					to CE years and negative values to BCE years, with 1 BCE being year
-					0.</td>
+					0. <span class="changed">For ‘u’ all field lengths specify a minimum
+					number of digits; there is no special interpretation for “uu”.</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top" rowspan="3">U</td>
@@ -4337,13 +4431,6 @@ h2, h3, h4, table {
 						supported by the ISO8601 specification.</i></td>
 			</tr>
 		</table>
-
-		<p>
-			All characters other than A-Za-z
-				currently represent themselves in a pattern, except for the single
-			quote. It is used to &#39;escape&#39; letters. Two single quotes in a
-			row, whether inside or outside a quoted &#39;real&#39; single quote.
-		</p>
 
 		<h3>
 			8.1 <a name="Localized_Pattern_Characters"

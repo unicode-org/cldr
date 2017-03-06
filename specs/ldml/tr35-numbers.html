@@ -220,6 +220,7 @@ h2, h3, h4, table {
 					</li>
 					<li>2.5 <a href="#Miscellaneous_Patterns">Miscellaneous
 							Patterns</a></li>
+					<li class='changed'>2.6 <a href="#Minimal_Pairs">Minimal Pairs</a></li>
 				</ul>
 			</li>
 			<li>3 <a href="#Number_Format_Patterns">Number Format
@@ -372,11 +373,7 @@ h2, h3, h4, table {
 			<a name="Number_Elements" href="#Number_Elements">2 Number
 				Elements</a>
 		</h2>
-		<p class="dtd">&lt;!ELEMENT numbers (alias |
-			(defaultNumberingSystem*, otherNumberingSystems*,
-			minimumGroupingDigits*, symbols*, decimalFormats*,
-			scientificFormats*, percentFormats*, currencyFormats*, currencies?,
-			miscPatterns*, special*)) &gt;</p>
+		<p class="dtd">&lt;!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*,<span class='changed'> minimalPairs*,</span> special* ) ) &gt;</p>
 		<p>
 			The numbers element supplies information for formatting and parsing
 			numbers and currencies. It has the following sub-elements:
@@ -840,7 +837,23 @@ h2, h3, h4, table {
 				&lt;/miscPatterns&gt;
 			</code>
 		</p>
-		<h2>
+	  	<div class='changed'>
+  <h3>
+		2.6 <a name="Minimal_Pairs" href="#Minimal_Pairs">Minimal Pairs</a></h3>
+	  <p class="dtd">&lt;!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, special* ) ) &gt;
+        <br>&lt;!ATTLIST minimalPairs alt NMTOKENS #IMPLIED &gt; <br>
+        &lt;!ATTLIST minimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED &gt;     <br>
+	  </p>
+	  <p class="dtd">&lt;!ELEMENT pluralMinimalPairs ( #PCDATA ) &gt; <br>
+	    &lt;!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED &gt; <br>
+	    &lt;!ATTLIST pluralMinimalPairs alt NMTOKENS #IMPLIED &gt; <br>
+	    &lt;!ATTLIST pluralMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED &gt;</p>
+	  <p class="dtd">&lt;!ELEMENT ordinalMinimalPairs ( #PCDATA ) &gt; <br>
+	    &lt;!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED &gt; <br>
+	    &lt;!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED &gt; <br>
+	    &lt;!ATTLIST ordinalMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED &gt;</p>
+      <p>Minimal pairs provide examples that justify why multiple plural or ordinal categories exist. For more information, see <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural Rules</a>.</p></div>
+      <h2>
 			<a name="Number_Format_Patterns" href="#Number_Format_Patterns">3
 				Number Format Patterns</a>
 		</h2>

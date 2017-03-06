@@ -1823,22 +1823,18 @@ h2, h3, h4, table {
 			<tr>
 				<td width="10">weekOfYear</td>
 				<td width="20%">week 15 of 2016</td>
-				<td width="30%">&lt;dateFormatItem id='yw'&gt;<br>
-					e.g. "'week' w 'of' y"</td>
-				<td width="40%"></td>
+				<td width="30%">&lt;dateFormatItem id='yw'<span class='changed'> count='one'&gt;</span>'week' w 'of' <span class="changed" style="text-align: center">Y&lt;…</span></td>
+				<td width="40%" rowspan="2" class='changed'>The <em>week of</em> construction  takes a <strong>count</strong> attribute, just in case the pattern changes depending on the numeric value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.)<br>In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction.</td>
 			</tr>
 			<tr>
 				<td width="10%">weekOfMonth</td>
 				<td width="20%">week 2 of April<br>2nd week of April</td>
-				<td width="30%">&lt;dateFormatItem id='MMMMW'&gt;<br>
-					e.g. "'week' W 'of' MMM"</td>
-				<td width="40%"></td>
+				<td width="30%">&lt;dateFormatItem id='MMMMW''<span class='changed'> count='one'&gt;</span>'week' W 'of' MMM<span class='changed'>&lt;…</span></td>
 			</tr>
 			<tr>
 				<td width="10%">weekOfDate</td>
 				<td width="20%">the week of April 11, 2016</td>
-				<td width="30%" rowspan="2">&lt;field type="week"&gt;&lt;relativePeriod&gt;<br>
-					e.g. "the week of {0}"</td>
+				<td width="30%" rowspan="2">&lt;field type="week"&gt;&lt;relativePeriod<span class="changed">&gt;</span>the week of {0}<span class="changed">&lt;…</span></td>
 				<td width="40%" rowspan="2">The date pattern that replaces {0} is determined
 					separately and may use the first day or workday of the week,
 					the range of the full week or work week, etc.</td>
@@ -3865,7 +3861,7 @@ h2, h3, h4, table {
 				<td>27</td>
 				<td colspan="2">Week of Year. Use "w" to show the minimum
 					number of digits, or "ww" to always show two digits (zero-padding
-					if necessary, e.g. "08").</td>
+			  if necessary, e.g. "08"). <span class='changed'>Should be used with Y instead of y.</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center">W</td>

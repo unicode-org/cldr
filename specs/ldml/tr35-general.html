@@ -770,9 +770,7 @@ h2, h3, h4, table {
 		</h2>
 
 
-		<p class="dtd">&lt;!ELEMENT characters (alias |
-			(exemplarCharacters*, ellipsis*, moreInformation*, stopwords*,
-			indexLabels*, mapping*, special*)) &gt;</p>
+		<p class="dtd">&lt;!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, <span class='changed'>parseLenients*, </span>special* ) ) &gt;</p>
 		<p>
 			The &lt;characters&gt; element provides optional information about
 			characters that are in common use in the locale, and information that
@@ -1132,8 +1130,23 @@ h2, h3, h4, table {
 			interface to indicate that more information is available. For
 			example:</p>
 		<p>&lt;moreInformation&gt;?&lt;/moreInformation&gt;</p>
-
-
+		<div class='changed'><h3> 3.6 <a name="Character_Parse_Lenient" href="#Character_Parse_Lenient">Parse Lenient</a> </h3>
+		  <p  class='dtd'>&lt;!ELEMENT parseLenients ( alias | ( parseLenient*, special* ) ) &gt;<br>
+		    &lt;!ATTLIST parseLenients scope (general | number | date) #REQUIRED &gt;<br>
+		    &lt;!ATTLIST parseLenients level (lenient | stricter) #REQUIRED &gt;</p>
+		  <p class='dtd'>&lt;!ELEMENT parseLenient ( #PCDATA ) &gt;<br>
+		    &lt;!ATTLIST parseLenient sample CDATA #REQUIRED &gt;<br>
+		    &lt;!ATTLIST parseLenient alt NMTOKENS #IMPLIED &gt;<br>
+		    &lt;!ATTLIST parseLenient draft (approved | contributed | provisional | unconfirmed) #IMPLIED &gt;<br>
+		  </p>
+<p>Example:</p>
+<pre>&lt;parseLenients scope=&quot;date&quot; level=&quot;lenient&quot;&gt;
+    &lt;parseLenient sample=&quot;-&quot;&gt;[\-./]&lt;/parseLenient&gt;
+    &lt;parseLenient sample=&quot;:&quot;&gt;[\:∶]&lt;/parseLenient&gt;
+&lt;/parseLenients&gt;</pre>
+<p>The parseLenient elements are used to indicate that characters within a particular UnicodeSet are normally to be treated as equivalent when doing a lenient parse. The <strong>scope</strong> attribute value defines where the lenient sets are intended for use. The <strong>level</strong> attribute value is included for future expansion; currently the only value is &quot;lenient&quot;.</p>
+<p>The <strong>sample</strong> attribute value is a paradigm element of that UnicodeSet, but the only reason for pulling it out separately is so that different classes of characters are separated, and to enable inheritance overriding. The first version of this data is populated with the data used for lenient parsing from ICU.</p>
+	  </div>
 		<h2>
 			4 <a name="Delimiter_Elements" href="#Delimiter_Elements">Delimiter
 				Elements</a>

@@ -290,7 +290,12 @@ h2, h3, h4, table {
 				</ul>
 			</li>
 			<li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
-			<li>14 <a href="#Annotations">Annotations and Labels</a></li>
+			<li>14 <a href="#Annotations">Annotations and Labels</a>
+			  <ul class="toc">
+			    <li class='changed'>14.1 <a href="#SynthesizingNames">Synthesizing Sequence Names</a></li>
+			    <li class='changed'>14.2 <a href="#Character_Labels">Annotations Character Labels</a></li>
+		      </ul>
+			</li>
 		</ul>
 		<!-- END Generated TOC: CheckHtmlFiles -->
 		<h2>
@@ -4088,7 +4093,9 @@ h2, h3, h4, table {
 		<p>Annotations provide information about characters, typically
 			used in input. For example, on a mobile keyboard they can be used to
 			do completion. They are typically used for symbols, especially emoji
-			characters.</p>
+			characters.  </p>
+		<p class='changed'>For more information, see version 5.0 or <a href="http://unicode.org/reports/tr51/">UTR #51, Unicode Emoji</a>. (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)<br>
+		</p>
 
 		<p class="dtd">&lt;!ELEMENT annotations ( annotation* ) &gt;</p>
 		<p class="dtd">&lt;!ELEMENT annotation ( #PCDATA ) &gt;</p>
@@ -4126,12 +4133,14 @@ h2, h3, h4, table {
 			Please see the <a href='https://sites.google.com/site/cldr/index/downloads/cldr-30#TOC-Known-Issues'>Known
 			Issues</a> section of the CLDR download page for any updates.</p>
 		<ol>
-		  <li>If  <strong>sequence</strong> is an emoji flag sequence, look up the territory name in CLDR for the
+		  <li>If  <strong>sequence</strong> is an <strong>emoji flag sequence</strong>, look up the territory name in CLDR for the
 		  		corresponding ASCII characters and return as the short name. For example, the regional
 		  		indicator symbols P+F would map to “Französisch-Polynesien” in German.</li>
+		  <li class='changed'>If <strong>sequence</strong> is an <strong>emoji tag sequence</strong>, look up the subdivision name in CLDR for the
+		  		corresponding ASCII characters and return as the short name. For example, the TAG characters gbsct would map to “Schottland” in German.</li>
 		  <li>If  <strong>sequence</strong> is a keycap sequence or 🔟, use the characterLabel for &quot;keycap&quot;
 		  		as the <strong>prefixName</strong> and  set the <strong>suffix</strong> to be the sequence (or &quot;10&quot; in the case of 🔟), then go to step 8.</li>
-		  <li>Let<strong> suffix</strong> be &quot;&quot;.</li>
+		  <li>Let<strong> suffix</strong> and <span class='changed'><strong>prefixName</strong></span> be &quot;&quot;.</li>
 		  <li>If  <strong>sequence</strong> contains any emoji modifiers, move them (in order) into <strong>suffix</strong>, removing them from  <strong>sequence</strong>.		  </li>
 		  <li>If  <strong>sequence</strong> is a &quot;KISS&quot;, &quot;HEART&quot; or &quot;FAMILY&quot; emoji
 		  		ZWJ sequence, move the characters in  <strong>sequence</strong> to the front of <strong>suffix</strong>, and set the <strong>sequence</strong> to be  &quot;💏&quot;, &quot;💑&quot;, or &quot;👪&quot;
@@ -4143,15 +4152,15 @@ h2, h3, h4, table {
 		      		Nothing is skipped in  moving to <strong>suffix</strong>, except ZWJ.</li>
 	        </ol>
 		  </li>
-		  <li>If   <strong>sequence</strong> ends with ♂ or ♀, and does not have a name, remove the ♂ or ♀  and move &quot;👨&quot; or
-	      &quot;👩&quot; respectively to the start of <strong>suffix</strong>.</li>
-		  <li>Transform   <strong>sequence</strong> into <strong>prefixName</strong>, by successively getting  names for the longest subsequences, skipping any singleton ZWJ characters. If there is more than one name,  use the listPattern for unit-short, type=2 to link them.</li>
+		  <li>If   <strong>sequence</strong> ends with ♂ or ♀, and does not have a name, remove the ♂ or ♀  and move <span class='changed'>the name for</span> &quot;👨&quot; or
+	      &quot;👩&quot; respectively to <span class='changed'>the start of<strong> prefixName</strong></span>.</li>
+		  <li>Transform   <strong>sequence</strong> and <span class='changed'>append to</span> <strong>prefixName</strong>, by successively getting  names for the longest subsequences, skipping any singleton ZWJ characters. If there is more than one name,  use the listPattern for unit-short, type=2 to link them.</li>
 		  <li>Transform <strong>suffix</strong> into <strong>suffixName</strong> in the same manner.</li>
 		  <li>If both the <strong>prefixName</strong> and <strong>suffixName</strong> are non-empty, form the name by joining them with the  &quot;category-list&quot; characterLabelPattern and return it. Otherwise return whichever of them is non-empty.</li>
 	    </ol>
 		<p>The synthesized keywords can follow a similar process.</p>
 		<ol>
-		  <li>For flag sequences, use &quot;flag&quot;.</li>
+		  <li>For an <strong>emoji flag sequence</strong> or <span class='changed'><strong>emoji tag sequence</strong> representing a subdivision</span>, use &quot;flag&quot;.</li>
 		  <li>For keycap sequences, use &quot;keycap&quot;.</li>
 		  <li>For other sequences, add the keywords for the subsequences used to get the short names for <strong>prefixName</strong>, and the short names used for <strong>suffixName</strong>.</li>
 	    </ol>
@@ -4308,7 +4317,7 @@ h2, h3, h4, table {
 				Emoji</a>.
 		</p>
 	  		<h3>
-			14.1 <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a>
+			14.<span class='changed'>2</span> <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a>
 		</h3>
 	  		<p class="dtd">&lt;!ELEMENT characterLabels ( alias | ( characterLabelPattern*, characterLabel*, special* ) ) &gt; </p>
 	  		<p class="dtd">&lt;!ELEMENT characterLabelPattern ( #PCDATA ) &gt; </p>

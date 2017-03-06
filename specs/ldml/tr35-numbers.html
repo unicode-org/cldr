@@ -220,7 +220,7 @@ h2, h3, h4, table {
 					</li>
 					<li>2.5 <a href="#Miscellaneous_Patterns">Miscellaneous
 							Patterns</a></li>
-					<li class='changed'>2.6 <a href="#Minimal_Pairs">Minimal Pairs</a></li>
+				  <li class='changed'>2.6 <a href="#Minimal_Pairs">Minimal Pairs</a></li>
 				</ul>
 			</li>
 			<li>3 <a href="#Number_Format_Patterns">Number Format
@@ -736,7 +736,9 @@ h2, h3, h4, table {
 		A pattern type attribute is used for <em>compact number formats</em>,
 		such as the following:
 		<pre>
-&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		…<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>		…<br>		&lt;/decimalFormat&gt;</pre>
+&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		…<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>		…<br>	&lt;/decimalFormat&gt;
+<span class='changed'>…
+&lt;currencyFormatLength type=&quot;short&quot;&gt;<br>	&lt;currencyFormat type=&quot;standard&quot;&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M ¤&lt;/pattern&gt;</span></pre>
 		<p>Formats can be supplied for numbers (as above)
 			or for currencies or other units. They can also be used with ranges
 			of numbers, resulting in formatting strings like “$10K” or “$3–7M”.</p>
@@ -745,19 +747,20 @@ h2, h3, h4, table {
 			type, after removing the number of zeros in the pattern, less 1. APIs
 			supporting this format should provide control over the number of
 			significant or fraction digits.</p>
-		<p>If the value is precisely 0, or if the type is
-			less than 1000, then the normal number format pattern for that sort
-			of object is supplied. For example, formatting 1200 would result in
-			“$1.2K”, while 990 would result in simply “$990”.</p>
+		<p class='changed'>The default pattern for any type that is not supplied is the special value “0”, as in the following.</p>
+      <p class='changed'><code>        &lt;pattern type=&quot;1&quot; count=&quot;one&quot;&gt;0&lt;/pattern&gt;</code></p>
+		<p>If the value is precisely 0, or if <span class='changed'>the special value “0” is either explicit or defaulted</span>, then the normal number format pattern for that sort
+			of object is supplied<span class='changed'>; either &lt;decimalFormat&gt; or &lt;currencyFormat type=&quot;standard&quot;&gt;, with the normal formatting for the locale (such as the grouping separators). However, the signficant digits are adjusted for consistency, typically to 2 or 3 digits.</span>		</p>
 		<p>
-			Thus N=12345 matches
-			<code>&lt;pattern type=&quot;10000&quot;
+			<span class="changed">With the data above, </span> N=12345 matches <code>&lt;pattern type=&quot;10000&quot;
 				count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;</code>
 			. N is divided by 1000 (obtained from10000 after removing
 			&quot;00&quot; and restoring one &quot;0&quot;. The result is
 			formatted according to the normal decimal pattern. With no fractional
 			digits, that yields &quot;12 K&quot;.
 		</p>
+		<p>Formatting 1200 <span class='changed'>in USD</span> would result in
+			“1.2<span class='changed'> K $</span>”, while 990 <span class='changed'>implicitly maps to the special value “0”, which maps to &lt;currencyFormat type=&quot;standard&quot;&gt;&lt;pattern&gt;#,##0.00 ¤&lt;/pattern&gt;, and </span>would result in simply “990<span class="changed"> $</span>”.</p>
 		<p>The short format is designed for UI environments where space is
 			at a premium, and should ideally result in a formatted string no more
 			than about 6 em wide (with no fractional digits).</p>

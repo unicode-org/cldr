@@ -478,8 +478,8 @@ h2, h3, h4, table {
 			width and the context.</p>
 		<p>
 			The context is either <i>format</i> (the default), the form used
-			within a completedate format string (such as &quot;Saturday, November
-			12&quot;, or <i>stand-alone</i>, the form for date elementsused
+			within a complete date format string (such as &quot;Saturday, November
+			12&quot;, or <i>stand-alone</i>, the form for date elements used
 			independently, such as in calendar headers. The most important
 			distinction between format and stand-alone forms is a grammatical
 			distinction, for languages that require it. For example, many
@@ -3506,9 +3506,9 @@ h2, h3, h4, table {
 
 		<table cellspacing="0" cellpadding="2" border="1">
 			<tr class="changed">
-				<th>Pattern field length</th>
-				<th>Typical style for alphanumeric item</th>
-				<th>Typical style for alpha-only item</th>
+				<th>Pattern field<br>length</th>
+				<th>Typical style,<br>alphanumeric item</th>
+				<th>Typical style,<br>alpha-only item</th>
 			</tr>
 			<tr class="changed">
 				<td>1</td>
@@ -3525,19 +3525,21 @@ h2, h3, h4, table {
 			</tr>
 			<tr class="changed">
 				<td>4</td>
-				<td colspan="2">Long (e.g. MMMM, EEEE)</td>
+				<td colspan="2">Wide / Long / Full (e.g. MMMM, EEEE)</td>
 			</tr>
 			<tr class="changed">
 				<td>5</td>
-				<td colspan="2">Narrow (e.g. MMMMM, EEEEE)<br>(The counter-intuitive use of 5 letters for this is forced by backwards compatibility)</td>
+				<td colspan="2">Narrow (e.g. MMMMM, EEEEE)<br>(The counter-intuitive use
+					of 5 letters for this is forced by backwards compatibility)</td>
 			</tr>
 		</table>
 
 		<p class="changed">Notes for the table below:</p>
 		<ul>
-			<li>Any sequence of syntax characters other than those listed below is invalid.
-				Invalid pattern fields should be handled for formatting and parsing as
-				described in <a href="tr35.html#Invalid_Patterns">Handling Invalid Patterns</a>.</li>
+			<li>Any sequence of <span class="removed">syntax </span><span class="changed">pattern </span>characters
+				other than those listed below is invalid. Invalid pattern fields
+				should be handled for formatting and parsing as described in
+				<a href="tr35.html#Invalid_Patterns">Handling Invalid Patterns</a>.</li>
 			<li>The examples in the table below are merely illustrative and may not reflect
 				current actual data.</li>
 		</ul>
@@ -3559,31 +3561,34 @@ h2, h3, h4, table {
 				<th rowspan="3" style="vertical-align: top; text-align: left"><a name='dfst-era' href='#dfst-era'>era</a>
                 </th>
 				<td style="text-align: center; vertical-align: top" rowspan="3">G</td>
-				<td style="text-align: center; vertical-align: top" class="changed">G, GG, GGG</td>
+				<td style="text-align: center; vertical-align: top" class="changed">G..GGG</td>
 				<td style="vertical-align: top; text-align: left">AD (variant:
 					CE)</td>
-				<td colspan="2" rowspan="3"
-					style="vertical-align: top; text-align: left">Era - Replaced
-					with the Era string for the current date. One to three letters for
+				<td class="changed">Abbreviated</td>
+				<td rowspan="3"
+					style="vertical-align: top; text-align: left">Era <span class="changed">name.</span>
+					Era string for the current date.<span class="removed"><br>One to three letters for
 					the abbreviated form, four letters for the long (wide) form, five
-					for the narrow form.</td>
+					for the narrow form.</span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top" class="changed">GGGG</td>
 				<td style="vertical-align: top; text-align: left">Anno Domini
 					(variant: Common Era)</td>
+				<td class="changed">Wide</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top" class="changed">GGGGG</td>
 				<td style="vertical-align: top; text-align: left">A</td>
+				<td class="changed">Narrow</td>
 			</tr>
 			<tr>
-				<th rowspan="16"><a name='dfst-year' href='#dfst-year'>year</a></th>
-				<td rowspan="6" style="text-align: center">y</td>
+				<th rowspan="15"><a name='dfst-year' href='#dfst-year'>year</a></th>
+				<td rowspan="5" style="text-align: center">y</td>
 				<td style="text-align: center" class="changed">y</td>
 				<td class="changed">2, 20, 201, 2017, 20173</td>
-				<td rowspan="6" colspan="2">
-					<span class="changed">Calendar year. In most cases the length of the y
+				<td rowspan="5" colspan="2">
+					<span class="changed">Calendar year (numeric). In most cases the length of the y
 					field specifies the minimum number of digits to display, zero-padded as
 					necessary; more digits will be displayed if needed to show the full
 					year. However, “yy” requests just the two low-order digits of the year,
@@ -3662,10 +3667,6 @@ h2, h3, h4, table {
 				<td class="changed">0002, 0020, 0201, 2017, 20173</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">yyyyy</td>
-				<td class="changed">00002, 00020, 00201, 02017, 20173</td>
-			</tr>
-			<tr>
 				<td style="text-align: center" class="changed">...</td>
 				<td class="changed">...</td>
 			</tr>
@@ -3673,10 +3674,10 @@ h2, h3, h4, table {
 				<td rowspan="5" style="text-align: center">Y</td>
 				<td style="text-align: center" class="changed">Y</td>
 				<td class="changed">2, 20, 201, 2017, 20173</td>
-				<td rowspan="5" colspan="2">Year in &quot;Week of Year&quot; based calendars
+				<td rowspan="5" colspan="2">Year in “Week of Year” based calendars
 					<span class="changed">in which the year transition occurs on a week
 					boundary; may differ from calendar year ‘y’ near a year transition.</span>
-					This year designation is used <span class="changed">in conjunction with pattern
+					This numeric year designation is used <span class="changed">in conjunction with pattern
 					character ‘w’ in the</span> ISO year-week calendar as defined by ISO 8601,
 					but can be used in non-Gregorian based calendar systems where week date
 					processing is desired. <span class="changed">The field length is interpreted
@@ -3704,10 +3705,10 @@ h2, h3, h4, table {
 				<td style="text-align: center">u</td>
 				<td style="text-align: center" class="changed">u, uu, uuu, uuuu, ...</td>
 				<td>4601</td>
-				<td colspan="2">Extended year. This is a single number
-					designating the year of this calendar system, encompassing all
-					supra-year fields. For example, for the Julian calendar system,
-					year numbers are positive, with an era of BCE or CE. An extended
+				<td colspan="2">Extended year<span class="changed"> (numeric)</span>. This
+					is a single number designating the year of this calendar system,
+					encompassing all supra-year fields. For example, for the Julian calendar
+					system, year numbers are positive, with an era of BCE or CE. An extended
 					year value for the Julian calendar system assigns positive values
 					to CE years and negative values to BCE years, with 1 BCE being year
 					0. <span class="changed">For ‘u’ all field lengths specify a minimum
@@ -3715,136 +3716,183 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top" rowspan="3">U</td>
-				<td style="text-align: center; vertical-align: top">1..3</td>
+				<td style="text-align: center; vertical-align: top" class="changed">U..UUU</td>
 				<td style="vertical-align: top; text-align: left">甲子</td>
-				<td colspan="2" rowspan="3"
+				<td class="changed">Abbreviated</td>
+				<td rowspan="3"
 					style="vertical-align: top; text-align: left">Cyclic year
 					name. Calendars such as the Chinese lunar calendar (and related
 					calendars) and the Hindu calendars use 60-year cycles of year
-					names. Use one through three letters for the abbreviated name, four
-					for the full (wide) name, or five for the narrow name (currently
-					the data only provides abbreviated names, which will be used for
-					all requested name widths). If the calendar does not provide cyclic
+					names. If the calendar does not provide cyclic
 					year name data, or if the year value to be formatted is out of the
 					range of years for which cyclic name data is provided, then numeric
-					formatting is used (behaves like 'y').</td>
+					formatting is used (behaves like 'y').<br>
+					<span class="changed">Currently the data only provides abbreviated
+					names, which will be used for all requested name widths.</span>
+					</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">4</td>
+				<td style="text-align: center; vertical-align: top" class="changed">UUUU</td>
 				<td style="vertical-align: top; text-align: left">(currently
 					also 甲子)</td>
+				<td class="changed">Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">5</td>
+				<td style="text-align: center; vertical-align: top" class="changed">UUUUU</td>
 				<td style="vertical-align: top; text-align: left">(currently
 					also 甲子)</td>
+				<td class="changed">Narrow</td>
 			</tr>
 			<tr>
 				<td>r</td>
-				<td>1..n</td>
-				<td>1996</td>
-				<td colspan="2">Related Gregorian year. For non-Gregorian
-					calendars, this corresponds to the extended Gregorian year in which
-					the calendar’s year begins. Related Gregorian years are often
-					displayed, for example, when formatting dates in the Japanese
+				<td class="changed">r, rr, rrr, rrrr, ...</td>
+				<td>2017</td>
+				<td colspan="2">Related Gregorian year<span class="changed"> (numeric)</span>.
+					For non-Gregorian calendars, this corresponds to the extended Gregorian
+					year in which the calendar’s year begins. Related Gregorian years are
+					often displayed, for example, when formatting dates in the Japanese
 					calendar — e.g. “2012(平成24)年1月15日” — or in the Chinese calendar —
 					e.g. “2012壬辰年腊月初四”. The related Gregorian year is usually displayed
 					using the "latn" numbering system, regardless of what numbering
 					systems may be used for other parts of the formatted date. If the
 					calendar’s year is linked to the solar year (perhaps using leap
-					months), then for that calendar the 'r' year will always be at a
-					fixed offset from the 'u' year. For the Gregorian calendar, the 'r'
-					year is the same as the 'u' year.</td>
+					months), then for that calendar the ‘r’ year will always be at a
+					fixed offset from the ‘u’ year. For the Gregorian calendar, the ‘r’
+					year is the same as the ‘u’ year.</td>
 			</tr>
 			<tr>
-				<th rowspan="8" style="vertical-align: top; text-align: left"><a name='dfst-quarter' href='#dfst-quarter'>quarter</a></th>
-				<td style="text-align: center; vertical-align: top" rowspan="4">Q</td>
-				<td style="text-align: center; vertical-align: top">1..2</td>
+				<th rowspan="10" style="vertical-align: top; text-align: left"><a name='dfst-quarter' href='#dfst-quarter'>quarter</a></th>
+				<td style="text-align: center; vertical-align: top" rowspan="5">Q</td>
+				<td style="text-align: center; vertical-align: top" class="changed">Q</td>
+				<td style="vertical-align: top; text-align: left" class="changed">2</td>
+				<td class="changed">Numeric (one digit)</td>
+				<td rowspan="5">Quarter<span class="changed"> number/name.</span>
+					<span class="removed"><br>- Use one or two for the numerical quarter,
+					three for the abbreviation, four for the full (wide) name, or five for
+					the narrow name.</span></td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top" class="changed">QQ</td>
 				<td style="vertical-align: top; text-align: left">02</td>
-				<td colspan="2" rowspan="4">Quarter - Use one or two for the
-					numerical quarter, three for the abbreviation, four for the full
-					(wide) name, or five for the narrow name.</td>
+				<td class="changed">Numeric (two digits with zero pad)</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">3</td>
+				<td style="text-align: center; vertical-align: top" class="changed">QQQ</td>
 				<td style="vertical-align: top; text-align: left">Q2</td>
+				<td class="changed">Abbreviated</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">4</td>
+				<td style="text-align: center; vertical-align: top" class="changed">QQQQ</td>
 				<td style="vertical-align: top; text-align: left">2nd quarter</td>
+				<td class="changed">Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">5</td>
+				<td style="text-align: center; vertical-align: top" class="changed">QQQQQ</td>
 				<td style="vertical-align: top; text-align: left">2</td>
+				<td class="changed">Narrow</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" rowspan="4">q</td>
-				<td style="text-align: center; vertical-align: top">1..2</td>
-				<td style="vertical-align: top; text-align: left">02</td>
-				<td colspan="2" rowspan="4"
+				<td style="text-align: center; vertical-align: top" rowspan="5">q</td>
+				<td style="text-align: center; vertical-align: top" class="changed">q</td>
+				<td style="vertical-align: top; text-align: left" class="changed">2</td>
+				<td class="changed">Numeric (one digit)</td>
+				<td rowspan="5"
 					style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
-					Quarter - Use one or two for the numerical quarter, three for the
-					abbreviation, four for the full name, or five for the narrow name.</td>
+					Quarter<span class="changed"> number/name.</span>
+					<span class="removed"><br> - Use one or two for the numerical quarter,
+					three for the abbreviation, four for the full name, or five for the
+					narrow name.</span></td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">3</td>
+				<td style="text-align: center; vertical-align: top" class="changed">qq</td>
+				<td style="vertical-align: top; text-align: left">02</td>
+				<td class="changed">Numeric (two digits with zero pad)</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top" class="changed">qqq</td>
 				<td style="vertical-align: top; text-align: left">Q2</td>
+				<td class="changed">Abbreviated</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">4</td>
+				<td style="text-align: center; vertical-align: top" class="changed">qqqq</td>
 				<td style="vertical-align: top; text-align: left">2nd quarter</td>
+				<td class="changed">Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">5</td>
+				<td style="text-align: center; vertical-align: top" class="changed">qqqqq</td>
 				<td style="vertical-align: top; text-align: left">2</td>
+				<td class="changed">Narrow</td>
 			</tr>
 			<tr>
-				<th rowspan="9" style="vertical-align: top; text-align: left"><a name='dfst-month' href='#dfst-month'>month</a></th>
-				<td rowspan="4" style="text-align: center; vertical-align: top">M</td>
-				<td style="text-align: center; vertical-align: top">1..2</td>
-				<td style="vertical-align: top; text-align: left">09</td>
-				<td colspan="2" rowspan="4"
-					style="vertical-align: top; text-align: left">Month - Use one
-					or two for the numerical month, three for the abbreviation, four
-					for the full (wide) name, or five for the narrow name. With two
-					("MM"), the month number is zero-padded if necessary (e.g. "08").</td>
+				<th rowspan="11" style="vertical-align: top; text-align: left"><a name='dfst-month' href='#dfst-month'>month</a></th>
+				<td rowspan="5" style="text-align: center; vertical-align: top">M</td>
+				<td style="text-align: center; vertical-align: top" class="changed">M</td>
+				<td style="vertical-align: top; text-align: left" class="changed">9, 12</td>
+				<td class="changed">Numeric (minimum digits)</td>
+				<td rowspan="5"
+					style="vertical-align: top; text-align: left">Month<span class="changed">
+					number/name, format style (intended to be used in conjunction with ‘d’
+					for day number).</span>
+					<span class="removed"><br> - Use one or two for the numerical month,
+					three for the abbreviation, four for the full (wide) name, or five for
+					the narrow name. With two ("MM"), the month number is zero-padded if
+					necessary (e.g. "08").</span></td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">3</td>
+				<td style="text-align: center; vertical-align: top" class="changed">MM</td>
+				<td style="vertical-align: top; text-align: left" class="changed">09, 12</td>
+				<td class="changed">Numeric (two digits, zero-padded if necessary)</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top" class="changed">MMM</td>
 				<td style="vertical-align: top; text-align: left">Sep</td>
+				<td class="changed">Abbreviated</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">4</td>
+				<td style="text-align: center; vertical-align: top" class="changed">MMMM</td>
 				<td style="vertical-align: top; text-align: left">September</td>
+				<td class="changed">Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">5</td>
+				<td style="text-align: center; vertical-align: top" class="changed">MMMMM</td>
 				<td style="vertical-align: top; text-align: left">S</td>
+				<td class="changed">Narrow</td>
 			</tr>
 			<tr>
-				<td rowspan="4" style="text-align: center; vertical-align: top">L</td>
-				<td style="text-align: center; vertical-align: top">1..2</td>
-				<td style="vertical-align: top; text-align: left">09</td>
-				<td colspan="2" rowspan="4"><b>Stand-Alone</b> Month - Use one
-					or two for the numerical month, three for the abbreviation, four
-					for the full (wide) name, or 5 for the narrow name. With two
-					("LL"), the month number is zero-padded if necessary (e.g. "08").</td>
+				<td rowspan="5" style="text-align: center; vertical-align: top">L</td>
+				<td style="text-align: center; vertical-align: top" class="changed">L</td>
+				<td style="vertical-align: top; text-align: left" class="changed">9, 12</td>
+				<td class="changed">Numeric (minimum digits)</td>
+				<td rowspan="5"><b>Stand-Alone</b> Month<span class="changed">
+					number/name (intended to be used without ‘d’ for day number).</span>
+					<span class="removed"><br> - Use one or two for the numerical month,
+					three for the abbreviation, four for the full (wide) name, or 5 for
+					the narrow name. With two ("LL"), the month number is zero-padded if
+					necessary (e.g. "08").</span></td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">3</td>
+				<td style="text-align: center; vertical-align: top" class="changed">LL</td>
+				<td style="vertical-align: top; text-align: left" class="changed">09, 12</td>
+				<td class="changed">Numeric (two digits, zero-padded if necessary)</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top" class="changed">LLL</td>
 				<td style="vertical-align: top; text-align: left">Sep</td>
+				<td class="changed">Abbreviated</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">4</td>
+				<td style="text-align: center; vertical-align: top" class="changed">LLLL</td>
 				<td style="vertical-align: top; text-align: left">September</td>
+				<td class="changed">Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top">5</td>
+				<td style="text-align: center; vertical-align: top" class="changed">LLLLL</td>
 				<td style="vertical-align: top; text-align: left">S</td>
+				<td class="changed">Narrow</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">l</td>
-				<td style="text-align: center">1</td>
+				<td style="text-align: center" class="changed">l</td>
 				<td>(nothing)</td>
 				<td colspan="2">This pattern character is deprecated, and
 					should be ignored in patterns. It was originally intended to be
@@ -3855,19 +3903,27 @@ h2, h3, h4, table {
 					supporting the regular M and L pattern characters.</td>
 			</tr>
 			<tr>
-				<th rowspan="2"><a name='dfst-week' href='#dfst-week'>week</a></th>
-				<td style="text-align: center">w</td>
-				<td style="text-align: center">1..2</td>
-				<td>27</td>
-				<td colspan="2">Week of Year. Use "w" to show the minimum
-					number of digits, or "ww" to always show two digits (zero-padding
-			  if necessary, e.g. "08"). <span class='changed'>Should be used with Y instead of y.</span></td>
+				<th rowspan="3"><a name='dfst-week' href='#dfst-week'>week</a></th>
+				<td rowspan="2" style="text-align: center">w</td>
+				<td style="text-align: center" class="changed">w</td>
+				<td class="changed">8, 27</td>
+				<td class="changed">Numeric (minimum digits)</td>
+				<td rowspan="2">Week of Year<span class="changed"> (numeric). When used in
+					a pattern with year, use ‘Y’ for the year field instead of ‘y’.</span>
+					<span class="removed"><br>Use "w" to show the minimum number of digits,
+					or "ww" to always show two digits (zero-padding if necessary, e.g. "08").</span></td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top" class="changed">ww</td>
+				<td style="vertical-align: top; text-align: left" class="changed">08, 27</td>
+				<td class="changed">Numeric (two digits, zero-padded if necessary)</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">W</td>
-				<td style="text-align: center">1</td>
+				<td style="text-align: center" class="changed">W</td>
 				<td>3</td>
-				<td colspan="2">Week of Month</td>
+				<td class="changed">Numeric (one digit)</td>
+				<td >Week of Month<span class="changed"> (numeric)</span></td>
 			</tr>
 			<tr>
 				<th rowspan="4"><a name='dfst-day' href='#dfst-day'>day</a></th>
@@ -3981,7 +4037,7 @@ h2, h3, h4, table {
 				<td rowspan="3" style="text-align: center">a</td>
 				<td style="text-align: center">1-3</td>
 				<td>12 <strong>am.</strong></td>
-				<td>Short</td>
+				<td class="changed">Abbreviated</td>
 				<td rowspan="3"><strong>AM, PM<br>
 				</strong>May be upper or lowercase depending on the locale and other options.
 					The wide form may be the same as the short form if the “real” long
@@ -4004,7 +4060,7 @@ h2, h3, h4, table {
 				<td rowspan="3" style="text-align: center">b</td>
 				<td style="text-align: center">1-3</td>
 				<td>12 <strong>mid.</strong></td>
-				<td>Short</td>
+				<td class="changed">Abbreviated</td>
 				<td rowspan="3"><strong>am, pm, noon, midnight</strong><br>
 					May be upper or lowercase depending on the locale and other
 					options. If the locale doesn't the notion of a unique
@@ -4026,7 +4082,7 @@ h2, h3, h4, table {
 				<td rowspan="3" style="text-align: center">B</td>
 				<td style="text-align: center">1-3</td>
 				<td>3:00<strong> at night</strong></td>
-				<td>Short</td>
+				<td class="changed">Abbreviated</td>
 				<td rowspan="3"><strong>flexible day periods</strong><br>
 					May be upper or lowercase depending on the locale and other
 					options. Often there is only one width that is customarily used.</td>
@@ -4080,8 +4136,8 @@ h2, h3, h4, table {
 			<tr>
 				<td rowspan="3" style="text-align: center">j</td>
 				<td  style="text-align: center">1-3</td>
-				<td >n/a</td>
-				<td >Short</td>
+				<td>n/a</td>
+				<td class="changed">Abbreviated</td>
 				<td rowspan="3"><em><strong>Input skeleton symbol</strong></em><br>
 					It must not occur in pattern or skeleton data. Instead, it is
 					reserved for use in skeletons passed to APIs doing flexible date
@@ -4108,7 +4164,7 @@ h2, h3, h4, table {
 				<td rowspan="3" style="text-align: center">J</td>
 				<td  style="text-align: center">1-3</td>
 				<td >n/a</td>
-				<td >Short</td>
+				<td class="changed">Abbreviated</td>
 				<td rowspan="3"><em><strong>Input skeleton symbol</strong></em><br>
 					It must not occur in pattern or skeleton data. Instead, it is
 					reserved for use in skeletons passed to APIs doing flexible date
@@ -4136,7 +4192,7 @@ h2, h3, h4, table {
 				<td rowspan="3" style="text-align: center">C</td>
 				<td style="text-align: center">1-3</td>
 				<td>n/a</td>
-				<td>Short</td>
+				<td class="changed">Abbreviated</td>
 				<td rowspan="3"><em><strong>Input skeleton symbol</strong></em><br>
 					It must not occur in pattern or skeleton data. Instead, it is
 					reserved for use in skeletons passed to APIs doing flexible date

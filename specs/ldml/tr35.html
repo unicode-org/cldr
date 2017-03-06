@@ -392,7 +392,11 @@ h5 {
 						</ul>
 					</li>
 					<li>4.3 <a href="#Likely_Subtags">Likely Subtags</a></li>
-					<li>4.4 <a href="#LanguageMatching">Language Matching</a></li>
+					<li>4.4 <a href="#LanguageMatching">Language Matching</a>
+					  <ul>
+					    <li class='toc changed'>4.4.1 <a href="#EnhancedLanguageMatching">Enhanced Language Matching</a></li>
+				      </ul>
+					</li>
 				</ul>
 			</li>
 			<li>5 <a href="#XML_Format">XML Format</a>
@@ -5020,14 +5024,19 @@ root</pre>
 		</h3>
 		<p class="dtd">
 			&lt;!ELEMENT languageMatching ( languageMatches* ) &gt;<br>
-			&lt;!ELEMENT languageMatches ( languageMatch* ) &gt;<br>
-			&lt;!ATTLIST languageMatches type NMTOKEN #REQUIRED &gt;<br>
-			&lt;!ELEMENT languageMatch EMPTY &gt;<br> &lt;!ATTLIST
-			languageMatch desired CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
-			languageMatch supported CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
-			languageMatch percent NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST
-			languageMatch oneway ( true | false ) #IMPLIED &gt;
-		</p>
+			&lt;!ELEMENT languageMatches ( <span class='changed'>paradigmLocales*, matchVariable*, </span>languageMatch* ) &gt;<br>
+		&lt;!ATTLIST languageMatches type NMTOKEN #REQUIRED &gt;</p>
+		<p class="dtd">&lt;!ELEMENT languageMatch EMPTY &gt;<br> &lt;!ATTLIST
+		  languageMatch desired CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
+		  languageMatch supported CDATA #REQUIRED &gt;<br> &lt;!ATTLIST
+		  languageMatch percent NMTOKEN #REQUIRED &gt;<br>
+          <span class='changed'>&lt;!ATTLIST languageMatch distance NMTOKEN #IMPLIED &gt;</span><br>
+           &lt;!ATTLIST languageMatch oneway ( true | false ) #IMPLIED &gt;</p>
+		<div class='changed'><p class="dtd">&lt;!ELEMENT languageMatches ( paradigmLocales*, matchVariable*, languageMatch* ) &gt;<br>
+		  &lt;!ATTLIST languageMatches type NMTOKEN #REQUIRED &gt;</p>
+		<p class="dtd">&lt;!ELEMENT paradigmLocales EMPTY &gt;<br>
+		  &lt;!ATTLIST paradigmLocales locales NMTOKENS #REQUIRED &gt;
+	  </p></div>
 		<p>
 			Implementers are often faced with the issue of how to match the
 			user's requested languages with their product's supported languages.
@@ -5273,6 +5282,24 @@ root</pre>
 			However, any such data must be used carefully; although Hong Kong is
 			closer to India than to the UK, it is unlikely that en-IN would be a
 			better match to en-HK than en-GB would.</p>
+      <div class='changed'>
+		<h4><a name="EnhancedLanguageMatching" href="#EnhancedLanguageMatching">4.4.1 Enhanced Language Matching</a></h4>
+		<p>The enhanced format for language matching adds  structure to enable better matching of languages. It is distinguished by having a suffix &quot;_new&quot; on the type, as in the example below. The extended structure allows matching to  take into account broad similarities that would give better results. For example, for English the regions that are or inherit from US (AS|GU|MH|MP|PR|UM|VI|US) form a &ldquo;cluster&rdquo;. Each region in that cluster should be closer to each other than to any other region. And a region outside the cluster should be closer to another region outside that cluster than to one inside. We get this issue with the &ldquo;world languages&rdquo; like English, Spanish, Portuguese, Arabic, etc.</p>
+		<p><em>Example:</em></p>
+		<pre> &lt;languageMatches type=&quot;written_new&quot;&gt;<br>	&lt;paradigmLocales locales=&quot;en en-GB es es-419 pt-BR pt-PT&quot;/&gt;<br>	&lt;matchVariable id=&quot;$enUS&quot; value=&quot;AS+GU+MH+MP+PR+UM+US+VI&quot;/&gt;<br>	&lt;matchVariable id=&quot;$cnsar&quot; value=&quot;HK+MO&quot;/&gt;<br>	&lt;matchVariable id=&quot;$americas&quot; value=&quot;019&quot;/&gt;<br>	&lt;matchVariable id=&quot;$maghreb&quot; value=&quot;MA+DZ+TN+LY+MR+EH&quot;/&gt;<br>	&lt;languageMatch desired=&quot;no&quot; supported=&quot;nb&quot; distance=&quot;1&quot;/&gt;&lt;!-- no ⇒ nb --&gt;<br>…
+	&lt;languageMatch desired=&quot;ar_*_$maghreb&quot; supported=&quot;ar_*_$maghreb&quot; distance=&quot;4&quot;/&gt;
+		&lt;!-- ar; *; $maghreb ⇒ ar; *; $maghreb --&gt;			
+	&lt;languageMatch desired=&quot;ar_*_$!maghreb&quot;	supported=&quot;ar_*_$!maghreb&quot;	distance=&quot;4&quot;/&gt;
+		&lt;!-- ar; *; $!maghreb ⇒ ar; *; $!maghreb --&gt;<br>…</pre>
+<p>The <strong>matchVariable</strong> allows for  a rule to matche to multiple regions, as illustrated by <strong>$maghreb</strong>. The syntax is simple: it allows for + for <em>union</em> and - for <em>set difference</em>, but no precedence. So A+B-A+D is interpreted as (((A+B)-A)+D), not as (A+B)-(A+D). The variable <strong>id</strong> has a value of the form [$][a-zA-Z0-9]+. If $X is defined, then $!X automatically means all those regions that are not in $X. </p>
+<p dir="ltr">When the set is interpreted, then macrolanguages are (logically) transformed into a list of their contents, so &ldquo;053+GB&rdquo; → &ldquo;AU+GB+NF+NZ&rdquo;. This is done recursively, so 009 → &ldquo;053+054+057+061+QO&rdquo; → &ldquo;AU+NF+NZ+FJ+NC+PG+SB +VU...&rdquo;. Note that we use 019 for all of the Americas in the variables above, because en-US should be in the same cluster as es-419 and its contents. </p>
+<p>In the rules, the percent value (100..0) is replaced by a <strong>distance</strong> value, which is the inverse (0..100).</p>
+<p dir="ltr">These new variables and rules divide up the world into clusters, where items in the same clusters (for specific languages) get the normal regional difference, and items in different clusters get different weights.</p>
+<br>
+<p dir="ltr">Each cluster can have one or more associated <strong>paradigmLocales</strong>. These are locales that are preferred within a cluster. So when matching desired=[en-SA] against [en-GU en en-IN en-GB], the value en-GB is returned. Both of {en-GU en} are in a different cluster. While {en-IN en-GB} are in the same cluster, and the same distance from en-SA, the preference is given to en-GB because it is in the paradigm locales. It would be possible to express this in rules, but using this mechanism handles these very common cases without bulking up the tables.<br>
+</p>
+<p dir="ltr">The <strong>paradigmLocales</strong>  also allow matching to macroregions. For example, desired=[es-419] should match to {es-MX} more closely than to {es}, and vice versa: {es-MX} should match more closely to {es-419} than to {es}. But es-MX should match more closely to es-419 than to any of the other es-419 sublocales. In general, in the absence of other distance data, there is a &lsquo;paradigm&rsquo; in each cluster that the others should match more closely to: en(-US), en-GB, es(-ES), es-419, ru(-RU)... </p>
+      </div>
 		<h2>
 			<a name="XML_Format" href="#XML_Format">5 XML Format</a>
 		</h2>
@@ -8453,7 +8480,12 @@ decimal?, group?, special*)) &gt;</pre>
 	        <ul>
 	          <li>Added description of hybrid locale identifiers. [<a href="http://unicode.org/cldr/trac/ticket/9956">#9956</a>]	      </li>
             </ul>
-          </li>
+	      </li>
+	      <li><strong>Section 4.4.1 <a href="#EnhancedLanguageMatching">Enhanced Language Matching</a> </strong>
+	        <ul>
+	          <li>Described new enhanced structures for language matching. [<a href="http://unicode.org/cldr/trac/ticket/10096">#10096</a>] </li>
+            </ul>
+	      </li>
 	      <li><strong>Section 6.2 <a href="#Extended_Pictographic">Extended Pictographic</a></strong>
 	        <ul>
 	          <li>Added “Extend*” to GB11′ rule. [<a href="http://unicode.org/cldr/trac/ticket/10088">#10088</a>] </li>

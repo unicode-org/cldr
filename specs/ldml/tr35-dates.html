@@ -293,7 +293,7 @@ h2, h3, h4, table {
 							Format Pattern Examples</a></li>
 					<li><a href="#Date_Field_Symbol_Table">Date Field Symbol
 							Table</a></li>
-					<li>Table: <a href="#Year_Length_Examples">Year Length
+					<li class="removed">Table: <a href="#Year_Length_Examples">Year Length
 							Examples</a></li>
 					<li>8.1 <a href="#Localized_Pattern_Characters">Localized
 							Pattern Characters (deprecated)</a></li>
@@ -3551,9 +3551,9 @@ h2, h3, h4, table {
 					Field Symbol Table</a>
 			</caption>
 			<tr>
-				<th>Field</th>
+				<th>Field<br><span class="changed">Type</span></th>
 				<th style="text-align: center">Sym.</th>
-				<th style="text-align: center" class="changed">Field</th>
+				<th style="text-align: center" class="changed">Field<br>Patterns</th>
 				<th>Example<span class="changed">s</span></th>
 				<th colspan="2">Description</th>
 			</tr>
@@ -3583,7 +3583,7 @@ h2, h3, h4, table {
 				<td class="changed">Narrow</td>
 			</tr>
 			<tr>
-				<th rowspan="15"><a name='dfst-year' href='#dfst-year'>year</a></th>
+				<th rowspan="15"><a name='dfst-year' href='#dfst-year'>year</a><a name="Year_Length_Examples"></a></th>
 				<td rowspan="5" style="text-align: center">y</td>
 				<td style="text-align: center" class="changed">y</td>
 				<td class="changed">2, 20, 201, 2017, 20173</td>
@@ -3598,7 +3598,7 @@ h2, h3, h4, table {
 						<center>
 							<table border="0" cellpadding="2" cellspacing="0">
 								<caption class="removed">
-									<a name="Year_Length_Examples" href="#Year_Length_Examples">Year
+									<a href="#Year_Length_Examples">Year
 										Length Examples</a>
 								</caption>
 								<tr class="removed">
@@ -3926,13 +3926,20 @@ h2, h3, h4, table {
 				<td >Week of Month<span class="changed"> (numeric)</span></td>
 			</tr>
 			<tr>
-				<th rowspan="4"><a name='dfst-day' href='#dfst-day'>day</a></th>
-				<td style="text-align: center">d</td>
-				<td style="text-align: center">1..2</td>
+				<th rowspan="5"><a name='dfst-day' href='#dfst-day'>day</a></th>
+				<td rowspan="2" style="text-align: center">d</td>
+				<td style="text-align: center" class="changed">d</td>
 				<td>1</td>
-				<td colspan="2">Date - Day of the month. Use "d" to show the
+				<td class="changed">Numeric (minimum digits)</td>
+				<td rowspan="2"><span class="removed">Date - </span>Day of month<span class="changed">
+					(numeric)</span>.<span class="removed"><br>Use "d" to show the
 					minimum number of digits, or "dd" to always show two digits
-					(zero-padding if necessary, e.g. "08").</td>
+					(zero-padding if necessary, e.g. "08").</span></td>
+			</tr>
+			<tr>
+				<td style="text-align: center" class="changed">dd</td>
+				<td class="changed">01</td>
+				<td class="changed">Numeric (two digits, zero-padded if necessary)</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">D</td>

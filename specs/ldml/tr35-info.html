@@ -1225,14 +1225,14 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 					See <a href="http://cldr.unicode.org/index/cldr-spec/minimaldata">http://cldr.unicode.org/index/cldr-spec/minimaldata</a>
 				</td>
 			</tr>
-			<tr>
+			<tr class='removed'>
 				<td nowrap><div align="right">20</div></td>
 				<td>posix</td>
 				<td>The minimum amount of data necessary in order to create a
 					POSIX style locale from CLDR data. For example, only one country
 					name, only one currency symbol, and so on.</td>
 			</tr>
-			<tr>
+			<tr class='removed'>
 				<td nowrap><div align="right">30</div></td>
 				<td>minimal</td>
 				<td>The minimum amount of locale data deemed necessary to
@@ -1249,7 +1249,13 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			<tr>
 				<td nowrap><div align="right">40</div></td>
 				<td>basic</td>
-				<td>Contains data associated with the most prominent languages
+				<td><span class='changed'>The minimum amount of locale data deemed necessary to
+					create a "viable" locale in CLDR. Contains names for the languages,
+					scripts, and territories associated with the language, numbering
+					systems used in those languages, date and number formats, plus a
+					few key values such as the values in Section 3.1 <a
+					href="tr35.html#Unknown_or_Invalid_Identifiers">Unknown or
+						Invalid Identifiers</a>. Also c</span>ontains data associated with the most prominent languages
 					and countries.</td>
 			</tr>
 			<tr>
@@ -1272,7 +1278,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 				<td>Contains complete localizations (or valid inheritance) for
 					every possible field.</td>
 			</tr>
-			<tr>
+			<tr class='removed'>
 				<td nowrap><div align="right">101</div></td>
 				<td>optional</td>
 				<td>Fields that are not typically in use, or are deprecated.</td>

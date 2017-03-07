@@ -408,38 +408,52 @@ h2, h3, h4, table {
 				Containment</a>
 		</h3>
 		<p class="dtd">
-			&lt;!ELEMENT subdivisionContainment ( subgroup* ) &gt;<br> <br>
-			&lt;!ELEMENT subgroup EMPTY &gt;<br> &lt;!ATTLIST subgroup type
-			NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST subgroup subtype NMTOKEN
-			#IMPLIED &gt;<br> &lt;!ATTLIST subgroup contains NMTOKENS
-			#IMPLIED &gt;
+			&lt;!ELEMENT subdivisionContainment ( subgroup* ) &gt;<br>
+			<br>
+			&lt;!ELEMENT subgroup EMPTY &gt;<br>
+			&lt;!ATTLIST subgroup type NMTOKEN #REQUIRED &gt;<br>
+			<span class="removed">&lt;!ATTLIST subgroup subtype NMTOKEN #IMPLIED &gt;<br></span>
+			&lt;!ATTLIST subgroup contains NMTOKENS #IMPLIED &gt;
 		</p>
 		<p>The subdivision containment data is similar to the territory
 			containment. It is based on ISO 3166-2 data, but may diverge from it
 			in the future.</p>
-		<p class="xmlExample">
-			&lt;subgroup type=&quot;AL&quot; contains=&quot;04 11 12 03 09 01 02
-			08 10 05 06 07&quot;/&gt;<br> &lt;subgroup type=&quot;AL&quot;
-			subtype=&quot;04&quot; contains=&quot;FR MK LU&quot;/&gt;
+		<p class="xmlExample"><span class="changed">
+			&lt;subgroup type=&quot;BD&quot; contains=&quot;bda bdb bdc bdd bde bdf bdg bdh&quot;/&gt;<br>
+			&lt;subgroup type=&quot;bda&quot; contains=&quot;bd02 bd06 bd07 bd25 bd50 bd51&quot;/&gt;</span>
 		</p>
 		<p>
 			The <strong>type</strong> is a
-			<code>
-				<a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a>
-			</code>
-			(territory) identifier. The <strong>contains</strong> value is a
-			space-delimited list of one or more
-			<code>
-				<a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
-			</code>
-			values. Wherever there are multiple levels of containment, the <strong>subtype</strong>
-			is used to indicate that. In such a case, its value is a containing
-			<code>
-				<a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_subtag</a>
-			</code>
-			. In the example above, subdivision 04 contains other subdivisions
-			FR, MK, and LU.
+			<code><a href="tr35.html#unicode_region_subtag">unicode_region_subtag</a></code>
+			(territory) identifier<span class="changed"> for the top level of containment, 
+			or a <code><a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_id</a></code>
+			for lower levels of containment when there are multiple levels</span>.
+			The <strong>contains</strong> value is a space-delimited list of one or more
+			<code><a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_<span class="changed">id</span></a></code>
+			values.<span class="removed"> Wherever there are multiple levels of containment,
+			the <strong>subtype</strong> is used to indicate that. In such a case, its
+			value is a containing
+			<code><a href="tr35.html#unicode_subdivision_subtag">unicode_subdivision_subtag</a></code>.</span>
+			In the example above, subdivision <span class="changed">bda</span> contains
+			other subdivisions <span class="changed">bd02, bd06, bd07, bd25, bd50, bd51</span>.
 		</p>
+		<p class="changed"> Note: Formerly (in CLDR 28 through 30):</p>
+		<ul class="changed">
+			<li>The <strong>type</strong> attribute could only contain a
+				<code>unicode_region_subtag</code>;</li>
+			<li>The <strong>contains</strong> attribute contained
+				<code>unicode_subdivision_suffix</code> values; these are not unique
+				across multiple territories, so...</li>
+			<li>For lower containment levels, a now-deprecated subtype
+				<strong>attribute</strong> was used to specify the parent
+				<code>unicode_subdivision_suffix</code>.</li>
+		</ul>
+			* The type attribute contained only a <code>unicode_region_subtag</code>
+			
+			
+			<code>unicode_subdivision_suffix</code>
+			values were used in the <strong>contains</strong> attribute; these are not
+			unique across multiple territories, so for lower levels a now-deprecated 
 		<h3>
 			2.3 <a name="Supplemental_Territory_Information"
 				href="#Supplemental_Territory_Information">Supplemental

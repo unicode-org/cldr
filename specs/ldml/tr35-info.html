@@ -451,14 +451,14 @@ h2, h3, h4, table {
 			&lt;!ATTLIST territory type NMTOKEN #REQUIRED &gt;<br>
 			&lt;!ATTLIST territory gdp NMTOKEN #REQUIRED &gt;<br>
 			&lt;!ATTLIST territory literacyPercent NMTOKEN #REQUIRED &gt;<br>
-			&lt;!ATTLIST territory population NMTOKEN #REQUIRED &gt;<br> <br>
-			&lt;!ELEMENT languagePopulation EMPTY &gt;<br> &lt;!ATTLIST
-			languagePopulation type NMTOKEN #REQUIRED &gt;<br> &lt;!ATTLIST
-			languagePopulation writingPercent NMTOKEN #IMPLIED &gt;<br>
-			&lt;!ATTLIST languagePopulation populationPercent NMTOKEN #REQUIRED
-			&gt;<br> &lt;!ATTLIST languagePopulation officialStatus
-			(de_facto_official | official | official_regional |
-			official_minority) #IMPLIED &gt;
+			&lt;!ATTLIST territory population NMTOKEN #REQUIRED &gt;<br>
+			<br>
+			&lt;!ELEMENT languagePopulation EMPTY &gt;<br>
+			&lt;!ATTLIST languagePopulation type NMTOKEN #REQUIRED &gt;<br>
+			<span class="changed">&lt;!ATTLIST languagePopulation literacyPercent NMTOKEN #IMPLIED &gt;</span><br>
+			&lt;!ATTLIST languagePopulation writingPercent NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST languagePopulation populationPercent NMTOKEN #REQUIRED &gt;<br>
+			&lt;!ATTLIST languagePopulation officialStatus (de_facto_official | official | official_regional | official_minority) #IMPLIED &gt;
 		</p>
 		<p>
 			This data provides testing information for language and territory
@@ -492,26 +492,25 @@ h2, h3, h4, table {
 			speakers, which includes people who are not literate, and excludes
 			people who are functional second-language users.) Some references are
 			marked in the XML files, with attributes such as
-			<code>references=&quot;R1010&quot;</code>
-			.
+			<code>references=&quot;R1010&quot;</code> .
 		</p>
 		<p>
 			The percentages may add up to more than 100% due to multilingual
 			populations, or may be less than 100% due to illiteracy or because
 			the data has not yet been gathered or processed. Languages with
-			smaller populations might not be included. The literacy rate may be
-			discounted to reflect the actual usage of the written form in normal
-			daily life. Thus languages that are typically not written, such as
+			smaller populations might not be included.<span class="removed"> The literacy
+			rate may be discounted to reflect the actual usage of the written form in
+			normal daily life. Thus languages that are typically not written, such as
 			Swiss German, will be given a low literacy rate, even though nearly
 			the whole native germanophone population <em>could </em>write in
-			Swiss German.
+			Swiss German.</span>
 		</p>
 		<p>The following describes the meaning of some of these terms—as
 			used in CLDR—in more detail.</p>
 		<p>
-			<em><a name="literacy_percent" href="#literacy_percent">literacy
-					percent</a></em> — an estimate of the percentage of the country's population
-			that is functionally literate.
+			<a name="literacy_percent" href="#literacy_percent">literacy percent<span class="changed">
+				for the territory</span></a> — an estimate of the percentage of the
+			country’s population that is functionally literate.
 		</p>
 		<p>
 			<a name="language_population_percent"
@@ -522,18 +521,39 @@ h2, h3, h4, table {
 			computer, smartphone, or similar devices, rather than complete
 			fluency.
 		</p>
+		<p class="changed">
+			<a name="literacy_percent_for_langPop" href="#literacy_percent_for_langPop">literacy
+				percent for language population</a> — Within the
+			set of people who are functional in the corresponding language (as specified
+			by <a href="#language_population_percent">language population percent</a>),
+			this is an estimate of the percentage of those people who are functionally
+			literate in that language, that is, who are <em>capable</em> of reading or
+			writing in that language, even if they do not regularly use it for reading
+			or writing. If not specified, this defaults to the
+			<a href="#literacy_percent">literacy percent for the territory</a>.
+		</p>
 		<p>
 			<a name="writing_percent" href="#writing_percent">writing percent</a>
-			— an estimate of the percentage of the country’s population fluent in
-			that language who regularly read or write a significant amount in
-			that language. Ideally, the regularity would be measured as "7-day
-			actives". If it is known that the language is not widely or commonly
-			written, but there are no solid figures, the value is typically given
-			1%-5%. Where this figure is missing, a common technique is to
-			approximate it with the country’s <a href="#literacy_percent">literacy
-				percent</a> times the <a href="#language_population_percent">language
-				population percent</a>. Because the literacy rate can vary widely across
-			languages within a country, this is only an approximation.
+			— <span class="changed">Within the
+			set of people who are functional in the corresponding language (as specified
+			by <a href="#language_population_percent">language population percent</a>),
+			this is an estimate of the percentage of those people</span> who regularly
+			read or write a significant amount in that language. Ideally, the regularity
+			would be measured as “7-day actives”. If it is known that the language is not
+			widely or commonly written, but there are no solid figures, the value is
+			typically given 1%-5%.<span class="removed"> Where this figure is missing, a
+			common technique is to approximate it with the country’s
+				<a href="#literacy_percent">literacy percent</a> times the
+				<a href="#language_population_percent">language population percent</a>.
+			Because the literacy rate can vary widely across languages within a country,
+			this is only an approximation.</span>
+		</p>
+		<p class="changed">
+			For a language such as Swiss German, which is typically not written, even
+			though nearly the whole native Germanophone population <em>could </em>write
+			in Swiss German, the <a href="#literacy_percent_for_langPop">literacy percent
+			for language population</a> is high, but the <a href="#writing_percent">writing
+			percent</a> is low.
 		</p>
 		<p>
 			<a name="official_language" href="#official_language">official

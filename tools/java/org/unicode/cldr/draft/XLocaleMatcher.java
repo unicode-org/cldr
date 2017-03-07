@@ -116,6 +116,10 @@ public class XLocaleMatcher {
         }
     }
 
+    /**
+     * Returns a builder used in chaining parameters for building a Locale Matcher.
+     * @return
+     */
     public static Builder builder() {
         return new Builder();
     }
@@ -399,8 +403,8 @@ public class XLocaleMatcher {
     }
 
     /** Returns the distance between the two languages. The values are not necessarily symmetric.
-     * @param desired
-     * @param supported
+     * @param desired A locale desired by the user
+     * @param supported A locale supported by a program.
      * @return A return of 0 is a complete match, and 100 is a failure case (above the thresholdDistance).
      * A language is first maximized with add likely subtags, then compared.
      */

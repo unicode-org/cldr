@@ -147,7 +147,7 @@ public class ShowStarredCoverage {
         case DateTime:
             category = sectionId + " — " + (starredPath.contains("/displayName") ? "field labels" 
                 : starredPath.contains("/interval") ? "intervals" 
-                    : pageId == PageId.Fields ? "fields"
+                    : pageId == PageId.Fields ? "relative"
                         : "basic");
             category += MainDateTimePages.contains(pageId) ? "" : " (non-greg)";
             break;

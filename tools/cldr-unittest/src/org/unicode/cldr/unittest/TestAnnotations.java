@@ -1,15 +1,22 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.UnicodeMap.EntryRange;
 import com.ibm.icu.text.UnicodeSet;
@@ -118,5 +125,83 @@ public class TestAnnotations extends TestFmwk {
             assertEquals("short name for " + emoji, expectedName, shortName);
             assertEquals("keywords for " + emoji, expectedKeywords, keywords);
         }
+    }
+
+    public void TestUniqueness() {
+        if (logKnownIssue("cldrbug:10104", "Disable until the uniqueness problems are fixed")) {
+            return;
+        }
+        LinkedHashSet<String> locales = new LinkedHashSet<>();
+        locales.add("en");
+        locales.addAll(Annotations.getAvailable());
+        locales.remove("root");
+        locales.remove("sr_Latn");
+        Multimap<String, String> localeToNameToEmoji = TreeMultimap.create();
+        Multimap<String, String> nameToEmoji = TreeMultimap.create();
+        UnicodeMap<Annotations> english = Annotations.getData("en");
+        UnicodeSet englishKeys = getCurrent(english.keySet());
+        Map<String, UnicodeSet> localeToMissing = new TreeMap<>();
+
+        for (String locale : locales) {
+            UnicodeMap<Annotations> data = Annotations.getData(locale);
+            nameToEmoji.clear();
+            localeToMissing.put(locale, new UnicodeSet(englishKeys).removeAll(data.keySet()).freeze());
+            for (Entry<String, Annotations> value : data.entrySet()) {
+                String emoji = value.getKey();
+                String name = value.getValue().getShortName();
+                if (name == null) {
+                    continue;
+                }
+                nameToEmoji.put(name, emoji);
+            }
+            for ( Entry<String, Collection<String>> entry : nameToEmoji.asMap().entrySet()) {
+                String name = entry.getKey();
+                Collection<String> emojis = entry.getValue();
+                if (emojis.size() > 1) {
+                    errln("Duplicate name in " + locale + ": “" + name + "” for " 
+                        + CollectionUtilities.join(emojis, " & "));
+                    localeToNameToEmoji.putAll(locale + "\t" + name, emojis);
+                }
+            }
+        }
+        if (isVerbose() && !localeToNameToEmoji.isEmpty()) {
+            System.out.println("\nCollisions");
+            for ( Entry<String, String> entry : localeToNameToEmoji.entries()) {
+                String locale = entry.getKey();
+                String emoji = entry.getValue();
+                System.out.println(locale
+                    + "\t" + english.get(emoji).getShortName()
+                    + "\t" + emoji
+                    );
+            }
+        }
+        if (isVerbose() && !localeToMissing.isEmpty()) {
+            System.out.println("\nMissing");
+            int count = 2;
+            for (Entry<String, UnicodeSet> entry : localeToMissing.entrySet()) {
+                String locale = entry.getKey();
+                for (String emoji : entry.getValue()) {
+                    System.out.println(locale
+                        + "\t" + emoji
+                        + "\t" + english.get(emoji).getShortName()
+                        + "\t" + "=GOOGLETRANSLATE(C"+count+",\"en\",A"+count+")"
+                        // =GOOGLETRANSLATE(C2,"en",A2)
+                        );
+                    ++count;
+                }
+            }
+        }
+
+    }
+
+    private UnicodeSet getCurrent(UnicodeSet keySet) {
+        UnicodeSet currentAge = new UnicodeSet("[:age=9.0:]");
+        UnicodeSet result = new UnicodeSet();
+        for (String s : keySet) {
+            if (currentAge.containsAll(s)) {
+                result.add(s);
+            }
+        }
+        return result.freeze();
     }
 }

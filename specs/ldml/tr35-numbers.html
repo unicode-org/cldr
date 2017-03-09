@@ -747,10 +747,10 @@ h2, h3, h4, table {
 			type, after removing the number of zeros in the pattern, less 1. APIs
 			supporting this format should provide control over the number of
 			significant or fraction digits.</p>
-		<p class='changed'>The default pattern for any type that is not supplied is the special value “0”, as in the following.</p>
+		<p class='changed'>The default pattern for any type that is not supplied is the special value “0”, as in the following. The value “0” must be used when a child locale overrides a parent locale to drop the compact pattern for that type and use the default pattern.</p>
       <p class='changed'><code>        &lt;pattern type=&quot;1&quot; count=&quot;one&quot;&gt;0&lt;/pattern&gt;</code></p>
-		<p>If the value is precisely 0, or if <span class='changed'>the special value “0” is either explicit or defaulted</span>, then the normal number format pattern for that sort
-			of object is supplied<span class='changed'>; either &lt;decimalFormat&gt; or &lt;currencyFormat type=&quot;standard&quot;&gt;, with the normal formatting for the locale (such as the grouping separators). However, the signficant digits are adjusted for consistency, typically to 2 or 3 digits.</span>		</p>
+		<p>If the value is precisely <span class="changed">“0”</span>, <span class='changed'>either explicit or defaulted</span>, then the normal number format pattern for that sort
+			of object is supplied<span class='changed'> — either &lt;decimalFormat&gt; or &lt;currencyFormat type=&quot;standard&quot;&gt; — with the normal formatting for the locale (such as the grouping separators). However, for the “0” case by default the signficant digits are adjusted for consistency, typically to 2 or 3 digits, and the maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.</span>		</p>
 		<p>
 			<span class="changed">With the data above, </span> N=12345 matches <code>&lt;pattern type=&quot;10000&quot;
 				count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;</code>

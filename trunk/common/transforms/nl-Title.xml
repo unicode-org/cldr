@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="nl" target="Title" direction="forward" alias="nl-t-d0-title">
+			<tRule>
+# Copyright (C) 2011-2013, Apple Inc. and others. All Rights Reserved.
+# Special titlecasing for Dutch initial "ij".
+::Any-Title();
+# Fix up Ij at the beginning of a "word" (per Any-Title, notUAX #29)
+[:^WB=ALetter:] [:WB=Extend:]* [[:WB=MidLetter:][:WB=MidNumLet:]]? { Ij } → IJ ;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

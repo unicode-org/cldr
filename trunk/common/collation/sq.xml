@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="sq" /> 
+	</identity>
+		<collations  >
+			<collation type="standard" >
+				<cr><![CDATA[
+					&[before 1]D<ç<<<Ç
+					&[before 1]E<dh<<<Dh<<<DH
+					&[before 1]F<ë<<<Ë
+					&[before 1]H<gj<<<Gj<<<GJ
+					&[before 1]M<ll<<<Ll<<<LL
+					&[before 1]O<nj<<<Nj<<<NJ
+					&[before 1]S<rr<<<Rr<<<RR
+					&[before 1]T<sh<<<Sh<<<SH
+					&[before 1]U<th<<<Th<<<TH
+					&[before 1]Y<xh<<<Xh<<<XH
+					&[before 1]Ʒ<zh<<<Zh<<<ZH
+				]]></cr>
+			</collation  >
+			<collation draft="unconfirmed" alt="proposed" type="standard" >
+				<cr><![CDATA[
+					&[before 1]D<ç<<<Ç
+					&[before 1]E<dh<<<dH<<<Dh<<<DH
+					&[before 1]F<ë<<<Ë
+					&[before 1]H<gj<<<gJ<<<Gj<<<GJ
+					&[before 1]M<ll<<<lL<<<Ll<<<LL
+					&[before 1]O<nj<<<nJ<<<Nj<<<NJ
+					&[before 1]S<rr<<<rR<<<Rr<<<RR
+					&[before 1]T<sh<<<sH<<<Sh<<<SH
+					&[before 1]U<th<<<tH<<<Th<<<TH
+					&[before 1]Y<xh<<<xH<<<Xh<<<XH
+					&[before 1]Ʒ<zh<<<zH<<<Zh<<<ZH
+				]]></cr>
+			</collation  >
+		</collations>
+</ldml>

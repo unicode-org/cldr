@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 2014 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<language type="ku" />
+	</identity>
+	<collations>
+		<!-- TODO: Add collation type="search" -->
+		<collation type="standard" draft="contributed"
+				references="​http://en.wikipedia.org/wiki/Kurdish_alphabets 2013-aug-20">
+			<!-- Initial request and data see cldrbug 6527. -->
+			<cr><![CDATA[
+				[reorder Latn Arab]
+			
+				# Primary differences for Kurmanji letters.
+				&c<ç<<<Ç
+				&e<ê<<<Ê
+				&i<î<<<Î
+				&s<ş<<<Ş
+				&u<û<<<Û
+
+				# Sahand T says: "Éé Íí Úú" are alternative forms
+				# that are used in a variant of the Kurdish-Latin alphabet.
+				&ê<<é<<<É
+				&î<<í<<<Í
+				&û<<ú<<<Ú
+
+				# According to Wikipedia, ḧ and ẍ "do not have the status of letter"
+				# which should mean they don't need primary differences.
+				# &h<ḧ<<<Ḧ
+				# &x<ẍ<<<Ẍ
+
+				# Sahand T also suggested tailoring Řř
+				# but that was not requested in cldrbug 6527 nor mentioned in Wikipedia.
+				# &r<ř<<<Ř
+			]]></cr>
+		</collation>
+		<!-- TODO: Does ku-Arab (or ckb) need to tailor Arabic letters relative to the CLDR root?
+			If so, then we should add them to the one tailoring here. -->
+	</collations>
+</ldml>

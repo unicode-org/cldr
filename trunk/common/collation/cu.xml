@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2014 Unicode, Inc. -->
+<!-- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) -->
+<!-- For terms of use, see http://www.unicode.org/copyright.html -->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="cu"/> 
+	</identity>
+	<collations>
+		<collation type="standard"><cr><![CDATA[
+# Church Slavic sort order according to UTN #41: http://www.unicode.org/notes/tn41/
+[caseLevel on]
+[caseFirst upper]
+[backwards 2]
+[reorder Cyrl]
+[suppressContractions [Ии]]
+& [first secondary ignorable] = \u0487 = \uA67C = \uA67E << \u0485 << \u0486 << \u0301 << \u0300 << \u0311 << \u0483 << \u0306 << \u0308 = \u030F << \u2DF6 << \u2DE0 << \u2DE1 << \u2DE2 << \u2DE3 << \u2DF7 << \uA674 << \u2DE4 << \u2DE5 << \uA675 << \uA676 << \u2DE6 << \u2DE7 << \u2DE8 << \u2DE9 << \u2DEA << \uA67B << \u2DEB << \u2DEC << \u2DED << \u2DEE << \u2DF9 << \uA677 << \uA69E << \u2DEF << \u2DF0 << \u2DF1 << \u2DF2 << \u2DF3 << \u033E = \uA678 = \u2E2F << \uA679 << \uA67F = \uA67D = \uA67A << \u2DFA << \u2DFB << \u2DFE << \u2DFC << \u2DFD << \u2DF4
+& \u2DED\u2DEE = \u2DF5
+& д = \u1C81
+& Е <<< є <<< Є
+& ѕ < з = ꙁ <<< З = Ꙁ
+& И < і <<< І
+& Н < ѻ <<< Ѻ <<< о = \u1C82 <<< О <<< \u0461 <<< \u0460 <<< \uA64D <<< \uA64C
+& \uA64C\u0486\u0311 = \u047C
+& \uA64D\u0486\u0311 = \u047D
+& Ѡт = Ѿ
+& ѡт = ѿ
+& Т < \u0479 = \u043E\u0443 = \u1C82\u0443 <<< \u0478 = \u041E\u0443 = \u041E\u0423 <<< \uA64B <<< \uA64A <<< \u0443 <<< \u0423
+& Э < ѣ <<< Ѣ
+& Ю < ѫ <<< Ѫ < я <<< Я < ꙗ <<< Ꙗ <<< ѧ <<< Ѧ < ѯ <<< Ѯ < ѱ <<< Ѱ < ѳ <<< Ѳ < ѵ <<< Ѵ
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>
+

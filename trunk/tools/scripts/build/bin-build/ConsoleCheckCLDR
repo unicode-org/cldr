@@ -1,0 +1,12 @@
+#!/bin/sh
+BEST=${HOME}/best
+CLDR_TOOLS=${BEST}/cldr-tools
+if [ -d tools/java ];
+then
+        CLDR_TOOLS=`pwd`/tools/java
+fi
+
+LIBS=${CLDR_TOOLS}/libs
+ALL_LIBS=`echo ${LIBS}/*.jar | tr ' ' ':'`
+CP=${CLDR_TOOLS}/cldr.jar:${ALL_LIBS}
+java -classpath "${CP}" ${JAVA_OPTS} org.unicode.cldr.test.ConsoleCheckCLDR  $@

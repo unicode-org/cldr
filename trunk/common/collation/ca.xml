@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2014 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<language type="ca" />
+	</identity>
+	<collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import und-u-co-search]
+				# Below are the rules specific to ca.
+				# Per Apple language group, these are modified from standard rules below
+				# to make L primary-different from L-dot for search.
+				&L<ŀ=l·<<<Ŀ=L·
+			]]></cr>
+		</collation>
+		<!-- standard collation &L<<ŀ=l·<<<Ŀ=L· is equivalent to root collation order
+			(except root uses prefix rules for the middle dot, rather than contractions)
+			references="Enciclopèdia Catalana: Diccionari de la llengua catalana ISBN 84-85194-46-2" -->
+		<collation draft="unconfirmed" alt="proposed" type="standard">
+			<cr><![CDATA[
+				&C<ch<<<cH<<<Ch<<<CH
+				&L<ll<<<l·l<<<lL<<<l·L<<<Ll<<<L·l<<<LL<<<L·L
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

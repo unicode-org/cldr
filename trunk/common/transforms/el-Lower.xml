@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="el" target="Lower" direction="forward" alias="el-t-d0-lower">
+			<tRule>
+# Special case for final form of sigma.
+::NFD();
+# C is preceded by a sequence consisting of a cased letter and then zero or more case-ignorable characters,
+# and C is not followed by a sequence consisting of zero or more case-ignorable characters and then a cased letter.
+# 03A3; 03C2; 03A3; 03A3; Final_Sigma; # GREEK CAPITAL LETTER SIGMA
+# With translit rules, easiest is to handle the negative condition first, mapping in that case to the regular sigma.
+Σ } [:case-ignorable:]* [:cased:] → σ;
+[:cased:] [:case-ignorable:]* { Σ → ς;
+::Any-Lower;
+::NFC();
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

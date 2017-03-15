@@ -1,0 +1,2455 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2016 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+For  details about the format and other information, see:
+* http://www.unicode.org/reports/tr51/index.html#Data_Files
+* http://unicode.org/cldr/trac/ticket/8019
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="gl"/>
+	</identity>
+	<annotations>
+		<annotation cp="♀">símbolo | muller | feminismo</annotation>
+		<annotation cp="♀" type="tts">símbolo da muller</annotation>
+		<annotation cp="♂">símbolo | home</annotation>
+		<annotation cp="♂" type="tts">símbolo do home</annotation>
+		<annotation cp="⚕">Esculapio | medicina | serpe | farmacia</annotation>
+		<annotation cp="⚕" type="tts">símbolo da medicina</annotation>
+		<annotation cp="🕺">bailar | bailarín | home</annotation>
+		<annotation cp="🕺" type="tts">bailarín</annotation>
+		<annotation cp="🖤">corazón | negro | maldade | malvado</annotation>
+		<annotation cp="🖤" type="tts">corazón negro</annotation>
+		<annotation cp="🤙">chámame | chamar | man</annotation>
+		<annotation cp="🤙" type="tts">chámame</annotation>
+		<annotation cp="🤚">man | palma | deter</annotation>
+		<annotation cp="🤚" type="tts">palma da man</annotation>
+		<annotation cp="🤛">man | esquerda | puño</annotation>
+		<annotation cp="🤛" type="tts">puño cara á esquerda</annotation>
+		<annotation cp="🤜">man | dereita | puño</annotation>
+		<annotation cp="🤜" type="tts">puño cara á dereita</annotation>
+		<annotation cp="🤝">aperta | mans | trato</annotation>
+		<annotation cp="🤝" type="tts">aperta de mans</annotation>
+		<annotation cp="🤞">dedos | cruzar | sorte | man</annotation>
+		<annotation cp="🤞" type="tts">dedos cruzados</annotation>
+		<annotation cp="🤠">cara | sombreiro | vaqueiro | vaqueira</annotation>
+		<annotation cp="🤠" type="tts">sombreiro de vaqueiro</annotation>
+		<annotation cp="🤡">paiaso | circo | cara</annotation>
+		<annotation cp="🤡" type="tts">paiaso de circo</annotation>
+		<annotation cp="🤢">náuseas | vómito | mareado | mareada | cara</annotation>
+		<annotation cp="🤢" type="tts">mareo</annotation>
+		<annotation cp="🤣">esmedrellar | gargallada | risa | cara</annotation>
+		<annotation cp="🤣" type="tts">morrer coa risa</annotation>
+		<annotation cp="🤤">baba | babas | babexar | cara</annotation>
+		<annotation cp="🤤" type="tts">baboso</annotation>
+		<annotation cp="🤥">cara | mentira | trola | nariz | mentireiro | Pinocho</annotation>
+		<annotation cp="🤥" type="tts">mentirán</annotation>
+		<annotation cp="🤦">incredulidade | exasperación | cara</annotation>
+		<annotation cp="🤦" type="tts">exasperación</annotation>
+		<annotation cp="🤦‍♀">muller | xesto | incredulidade | fronte</annotation>
+		<annotation cp="🤦‍♀" type="tts">muller facendo xesto de exasperación</annotation>
+		<annotation cp="🤦‍♂">home | xesto | incredulidade | fronte</annotation>
+		<annotation cp="🤦‍♂" type="tts">home facendo xesto de exasperación</annotation>
+		<annotation cp="🤧">cara | arrefriado | mocos | catarro | catarreira</annotation>
+		<annotation cp="🤧" type="tts">constipado</annotation>
+		<annotation cp="🤰">embarazo | embarazada | muller</annotation>
+		<annotation cp="🤰" type="tts">muller embarazada</annotation>
+		<annotation cp="🤳">foto | cámara | teléfono | selfi</annotation>
+		<annotation cp="🤳" type="tts">selfi</annotation>
+		<annotation cp="🤴">príncipe | cara</annotation>
+		<annotation cp="🤴" type="tts">príncipe</annotation>
+		<annotation cp="🤵">voda | traxe | etiqueta | elegante | cara</annotation>
+		<annotation cp="🤵" type="tts">elegante</annotation>
+		<annotation cp="🤶">nadal | señora Noel | mamá</annotation>
+		<annotation cp="🤶" type="tts">Mamá Noel</annotation>
+		<annotation cp="🤷">ignorancia | indiferenza | dúbida | cara</annotation>
+		<annotation cp="🤷" type="tts">nin idea</annotation>
+		<annotation cp="🤷‍♀">muller | xesto | dúbida | ignorancia</annotation>
+		<annotation cp="🤷‍♀" type="tts">muller facendo xesto de “nin idea”</annotation>
+		<annotation cp="🤷‍♂">home | xesto | dúbida | ignorancia</annotation>
+		<annotation cp="🤷‍♂" type="tts">home facendo xesto de “nin idea”</annotation>
+		<annotation cp="🤸">ximnasia | deporte</annotation>
+		<annotation cp="🤸" type="tts">ximnasia</annotation>
+		<annotation cp="🤸‍♀">ximnasia | viravolta | muller</annotation>
+		<annotation cp="🤸‍♀" type="tts">muller facendo unha viravolta lateral</annotation>
+		<annotation cp="🤸‍♂">ximnasia | viravolta | home</annotation>
+		<annotation cp="🤸‍♂" type="tts">home facendo unha viravolta lateral</annotation>
+		<annotation cp="🤹">malabar | malabarista | malabarismo | habilidade | multitarefa</annotation>
+		<annotation cp="🤹" type="tts">malabares</annotation>
+		<annotation cp="🤹‍♀">malabarismo | multitarefa | muller</annotation>
+		<annotation cp="🤹‍♀" type="tts">muller malabarista</annotation>
+		<annotation cp="🤹‍♂">malabarismo | multitarefa | home</annotation>
+		<annotation cp="🤹‍♂" type="tts">home malabarista</annotation>
+		<annotation cp="🤺">esgrima | esgrimista | deporte | espada | sable | espadachín</annotation>
+		<annotation cp="🤺" type="tts">esgrima</annotation>
+		<annotation cp="🤼">loita | loitadores | deporte</annotation>
+		<annotation cp="🤼" type="tts">loitadores</annotation>
+		<annotation cp="🤼‍♀">loita | deporte | mulleres | loitadoras</annotation>
+		<annotation cp="🤼‍♀" type="tts">mulleres practicando loita libre</annotation>
+		<annotation cp="🤼‍♂">loita | deporte | homes | loitadores</annotation>
+		<annotation cp="🤼‍♂" type="tts">homes practicando loita libre</annotation>
+		<annotation cp="🤽">waterpolo | auga | deporte</annotation>
+		<annotation cp="🤽" type="tts">waterpolo</annotation>
+		<annotation cp="🤽‍♀">wáter-polo | balón | muller</annotation>
+		<annotation cp="🤽‍♀" type="tts">muller xogando a wáter-polo</annotation>
+		<annotation cp="🤽‍♂">wáter-polo | balón | home</annotation>
+		<annotation cp="🤽‍♂" type="tts">home xogando a wáter-polo</annotation>
+		<annotation cp="🤾">balonmán | pelota | deporte</annotation>
+		<annotation cp="🤾" type="tts">balonmán</annotation>
+		<annotation cp="🤾‍♀">balonmán | muller</annotation>
+		<annotation cp="🤾‍♀" type="tts">muller xogando a balonmán</annotation>
+		<annotation cp="🤾‍♂">balonmán | home</annotation>
+		<annotation cp="🤾‍♂" type="tts">home xogando a balonmán</annotation>
+		<annotation cp="🥀">flor | murcha | planta</annotation>
+		<annotation cp="🥀" type="tts">flor murcha</annotation>
+		<annotation cp="🥁">tambor | música</annotation>
+		<annotation cp="🥁" type="tts">tambor</annotation>
+		<annotation cp="🥂">brinde | copas | bebida | celebrar</annotation>
+		<annotation cp="🥂" type="tts">brinde</annotation>
+		<annotation cp="🥃">vaso | xeo | bebida | whisky</annotation>
+		<annotation cp="🥃" type="tts">vaso con xeo</annotation>
+		<annotation cp="🥄">culler | cuberto</annotation>
+		<annotation cp="🥄" type="tts">culler</annotation>
+		<annotation cp="🥅">portería | gol | rede | deporte</annotation>
+		<annotation cp="🥅" type="tts">portería</annotation>
+		<annotation cp="🥇">medalla | ouro | primeiro | primeira | gañador | gañadora</annotation>
+		<annotation cp="🥇" type="tts">medalla de ouro</annotation>
+		<annotation cp="🥈">medalla | prata | segundo | segunda</annotation>
+		<annotation cp="🥈" type="tts">medalla de prata</annotation>
+		<annotation cp="🥉">medalla | bronce | terceiro | terceira</annotation>
+		<annotation cp="🥉" type="tts">medalla de bronce</annotation>
+		<annotation cp="🥊">guante | luva | boxeo | deporte</annotation>
+		<annotation cp="🥊" type="tts">guante de boxeo</annotation>
+		<annotation cp="🥋">quimono | judo | karate | artes marciais | deporte | uniforme</annotation>
+		<annotation cp="🥋" type="tts">quimono de artes marciais</annotation>
+		<annotation cp="🥐">croissant | almorzo | comida | bolo</annotation>
+		<annotation cp="🥐" type="tts">croissant</annotation>
+		<annotation cp="🥑">aguacate | froita | comida</annotation>
+		<annotation cp="🥑" type="tts">aguacate</annotation>
+		<annotation cp="🥒">cogombro | vexetal | comida</annotation>
+		<annotation cp="🥒" type="tts">cogombro</annotation>
+		<annotation cp="🥓">touciño | unto | carne | comida</annotation>
+		<annotation cp="🥓" type="tts">touciño</annotation>
+		<annotation cp="🥔">pataca | vexetal | comida</annotation>
+		<annotation cp="🥔" type="tts">pataca</annotation>
+		<annotation cp="🥕">cenoria | vexetal | comida</annotation>
+		<annotation cp="🥕" type="tts">cenoria</annotation>
+		<annotation cp="🥖">pan | barra | comida | panadería</annotation>
+		<annotation cp="🥖" type="tts">barra de pan</annotation>
+		<annotation cp="🥗">ensalada | verde | horta | comida</annotation>
+		<annotation cp="🥗" type="tts">ensalada da horta</annotation>
+		<annotation cp="🥘">paella | paelleira | arroz | comida</annotation>
+		<annotation cp="🥘" type="tts">paella</annotation>
+		<annotation cp="🥙">kebab | falafel | comida</annotation>
+		<annotation cp="🥙" type="tts">kebab</annotation>
+		<annotation cp="🥚">ovo | comida</annotation>
+		<annotation cp="🥚" type="tts">ovo</annotation>
+		<annotation cp="🥛">vaso | leite | bebida</annotation>
+		<annotation cp="🥛" type="tts">vaso de leite</annotation>
+		<annotation cp="🥜">cacahuete | froito | seco | comida</annotation>
+		<annotation cp="🥜" type="tts">cacahuete</annotation>
+		<annotation cp="🥝">kiwi | Nova Zelandia | froita | comida</annotation>
+		<annotation cp="🥝" type="tts">kiwi</annotation>
+		<annotation cp="🥞">tortas | filloas | comida</annotation>
+		<annotation cp="🥞" type="tts">filloas</annotation>
+		<annotation cp="🦅">aguia | rapina | paxaro | animal</annotation>
+		<annotation cp="🦅" type="tts">aguia</annotation>
+		<annotation cp="🦆">pato | parrulo | paxaro | animal</annotation>
+		<annotation cp="🦆" type="tts">pato</annotation>
+		<annotation cp="🦇">morcego | vampiro | animal</annotation>
+		<annotation cp="🦇" type="tts">morcego</annotation>
+		<annotation cp="🦈">tiburón | quenlla | escualo | peixe | animal</annotation>
+		<annotation cp="🦈" type="tts">tiburón</annotation>
+		<annotation cp="🦉">moucho | curuxa | sabio | paxaro | animal</annotation>
+		<annotation cp="🦉" type="tts">moucho</annotation>
+		<annotation cp="🦊">raposo | animal | arteiro | astuto</annotation>
+		<annotation cp="🦊" type="tts">raposo</annotation>
+		<annotation cp="🦋">bolboreta | insecto | animal</annotation>
+		<annotation cp="🦋" type="tts">bolboreta</annotation>
+		<annotation cp="🦌">cervo | animal</annotation>
+		<annotation cp="🦌" type="tts">cervo</annotation>
+		<annotation cp="🦍">gorila | animal | simio</annotation>
+		<annotation cp="🦍" type="tts">gorila</annotation>
+		<annotation cp="🦎">lagarto | réptil | animal</annotation>
+		<annotation cp="🦎" type="tts">lagarto</annotation>
+		<annotation cp="🦏">rinoceronte | animal</annotation>
+		<annotation cp="🦏" type="tts">rinoceronte</annotation>
+		<annotation cp="🦐">gamba | camarón | lagostino | marisco | animal</annotation>
+		<annotation cp="🦐" type="tts">gamba</annotation>
+		<annotation cp="🦑">lura | choco | molusco | animal</annotation>
+		<annotation cp="🦑" type="tts">lura</annotation>
+		<annotation cp="😀">cara | sorriso</annotation>
+		<annotation cp="😀" type="tts">cara moi riseira</annotation>
+		<annotation cp="😁">cara | sorriso | ollos</annotation>
+		<annotation cp="😁" type="tts">cara moi riseira cos ollos alegres</annotation>
+		<annotation cp="😂">cara | alegría | bágoas</annotation>
+		<annotation cp="😂" type="tts">cara con bágoas de alegría</annotation>
+		<annotation cp="😃">cara | boca | aberta | sorriso</annotation>
+		<annotation cp="😃" type="tts">cara riseira coa boca aberta</annotation>
+		<annotation cp="😄">cara | boca | ollos | sorriso</annotation>
+		<annotation cp="😄" type="tts">cara riseira coa boca aberta e os ollos alegres</annotation>
+		<annotation cp="😅">cara | boca | sorriso | suor</annotation>
+		<annotation cp="😅" type="tts">cara riseira coa boca aberta e unha pinga de suor</annotation>
+		<annotation cp="😆">cara | risa | ollos</annotation>
+		<annotation cp="😆" type="tts">cara riseira cos ollos pechados</annotation>
+		<annotation cp="😉">cara | chiscadela | ollo</annotation>
+		<annotation cp="😉" type="tts">cara chiscando un ollo</annotation>
+		<annotation cp="😊">alegre | sorriso | ollos</annotation>
+		<annotation cp="😊" type="tts">cara alegre con ollos riseiros</annotation>
+		<annotation cp="😋">cara | rico | delicioso | saborear</annotation>
+		<annotation cp="😋" type="tts">cara de saborear algo delicioso</annotation>
+		<annotation cp="😎">cara | lentes de sol | sorriso</annotation>
+		<annotation cp="😎" type="tts">cara riseira con lentes de sol</annotation>
+		<annotation cp="😍">cara | sorriso | corazóns | amor</annotation>
+		<annotation cp="😍" type="tts">cara con ollos en forma de corazón</annotation>
+		<annotation cp="😘">cara | bico | corazón</annotation>
+		<annotation cp="😘" type="tts">cara mandando un bico</annotation>
+		<annotation cp="😗">cara | bico</annotation>
+		<annotation cp="😗" type="tts">cara dando un bico</annotation>
+		<annotation cp="😙">cara | bico | ollos</annotation>
+		<annotation cp="😙" type="tts">cara dando un bico cos ollos riseiros</annotation>
+		<annotation cp="😚">cara | bico | ollos | coloretes</annotation>
+		<annotation cp="😚" type="tts">cara dando un bico cos ollos pechados</annotation>
+		<annotation cp="☺">cara | sorriso</annotation>
+		<annotation cp="☺" type="tts">cara riseira</annotation>
+		<annotation cp="🙂">cara | sorriso</annotation>
+		<annotation cp="🙂" type="tts">cara cun leve sorriso</annotation>
+		<annotation cp="🤗">cara | abrazo</annotation>
+		<annotation cp="🤗" type="tts">cara dando un abrazo</annotation>
+		<annotation cp="😇">cara | auréola | santo | anxo</annotation>
+		<annotation cp="😇" type="tts">cara riseira con auréola</annotation>
+		<annotation cp="🤔">cara | pensar</annotation>
+		<annotation cp="🤔" type="tts">cara pensativa</annotation>
+		<annotation cp="😐">cara | neutra</annotation>
+		<annotation cp="😐" type="tts">cara neutra</annotation>
+		<annotation cp="😑">cara | inexpresiva</annotation>
+		<annotation cp="😑" type="tts">cara inexpresiva</annotation>
+		<annotation cp="😶">cara | boca | silencio | calar</annotation>
+		<annotation cp="😶" type="tts">cara sen boca</annotation>
+		<annotation cp="🙄">cara | ollos en branco</annotation>
+		<annotation cp="🙄" type="tts">cara cos ollos en branco</annotation>
+		<annotation cp="😏">cara | sorriso | malicia</annotation>
+		<annotation cp="😏" type="tts">cara con sorriso malicioso</annotation>
+		<annotation cp="😣">cara | estragar | perseverante</annotation>
+		<annotation cp="😣" type="tts">cara de estragalo todo</annotation>
+		<annotation cp="😥">cara | decepción | alivio</annotation>
+		<annotation cp="😥" type="tts">cara de decepción e alivio</annotation>
+		<annotation cp="😮">cara | boca aberta</annotation>
+		<annotation cp="😮" type="tts">cara coa boca aberta</annotation>
+		<annotation cp="🤐">cara | boca | cremalleira | silencio</annotation>
+		<annotation cp="🤐" type="tts">cara coa boca pechada cunha cremalleira</annotation>
+		<annotation cp="😯">cara | estupefacto | pasmo</annotation>
+		<annotation cp="😯" type="tts">cara estupefacta</annotation>
+		<annotation cp="😪">cara | sono</annotation>
+		<annotation cp="😪" type="tts">cara de sono</annotation>
+		<annotation cp="😫">cara | cansazo | canso</annotation>
+		<annotation cp="😫" type="tts">cara de cansazo</annotation>
+		<annotation cp="😴">cara | durmir | sono</annotation>
+		<annotation cp="😴" type="tts">cara durmindo</annotation>
+		<annotation cp="😌">cara | alivio</annotation>
+		<annotation cp="😌" type="tts">cara de alivio</annotation>
+		<annotation cp="🤓">cara | chapón | anteollos | estudar</annotation>
+		<annotation cp="🤓" type="tts">cara de chapón</annotation>
+		<annotation cp="😛">cara | lingua | broma</annotation>
+		<annotation cp="😛" type="tts">cara sacando a lingua</annotation>
+		<annotation cp="😜">cara | lingua | chiscadela | broma</annotation>
+		<annotation cp="😜" type="tts">cara sacando a lingua e chiscando un ollo</annotation>
+		<annotation cp="😝">cara | lingua | ollos pechados | noxo</annotation>
+		<annotation cp="😝" type="tts">cara sacando a lingua e cos ollos pechados</annotation>
+		<annotation cp="☹">cara | decepción | tristeza | triste</annotation>
+		<annotation cp="☹" type="tts">cara moi triste</annotation>
+		<annotation cp="🙁">cara | tristeza | triste</annotation>
+		<annotation cp="🙁" type="tts">cara triste</annotation>
+		<annotation cp="😒">cara | desagrado | desaprobación | aburrido</annotation>
+		<annotation cp="😒" type="tts">cara de que non ten graza</annotation>
+		<annotation cp="😓">cara | suor fría</annotation>
+		<annotation cp="😓" type="tts">cara con suor fría</annotation>
+		<annotation cp="😔">cara | desánimo | pensativo | triste</annotation>
+		<annotation cp="😔" type="tts">cara desanimada</annotation>
+		<annotation cp="😕">cara | confuso | confusión</annotation>
+		<annotation cp="😕" type="tts">cara confusa</annotation>
+		<annotation cp="😖">cara | frustrado | frustración</annotation>
+		<annotation cp="😖" type="tts">cara de frustración</annotation>
+		<annotation cp="🙃">cara | revés</annotation>
+		<annotation cp="🙃" type="tts">cara ao revés</annotation>
+		<annotation cp="😷">cara | máscara | enfermo</annotation>
+		<annotation cp="😷" type="tts">cara con máscara médica</annotation>
+		<annotation cp="🤒">cara | termómetro | enfermo</annotation>
+		<annotation cp="🤒" type="tts">cara con termómetro</annotation>
+		<annotation cp="🤕">cara | venda | ferido</annotation>
+		<annotation cp="🤕" type="tts">cara coa cabeza vendada</annotation>
+		<annotation cp="🤑">cara | cartos | diñeiro</annotation>
+		<annotation cp="🤑" type="tts">cara de pensar en cartos</annotation>
+		<annotation cp="😲">cara | asombro | abraio</annotation>
+		<annotation cp="😲" type="tts">cara abraiada</annotation>
+		<annotation cp="😞">cara | desilusión | decepcionado | decepción</annotation>
+		<annotation cp="😞" type="tts">cara de decepción</annotation>
+		<annotation cp="😟">cara | preocupación | preocupado</annotation>
+		<annotation cp="😟" type="tts">cara de preocupación</annotation>
+		<annotation cp="😤">cara | botar fume | enfado | cabreo</annotation>
+		<annotation cp="😤" type="tts">cara botando fume</annotation>
+		<annotation cp="😢">cara | chorar | triste | bágoa</annotation>
+		<annotation cp="😢" type="tts">cara chorando</annotation>
+		<annotation cp="😭">cara | chorar | desconsolo | bágoas</annotation>
+		<annotation cp="😭" type="tts">cara chorando desconsoladamente</annotation>
+		<annotation cp="😦">cara | triste | boca | aberta</annotation>
+		<annotation cp="😦" type="tts">cara triste coa boca aberta</annotation>
+		<annotation cp="😧">cara | angustia | sufrimento</annotation>
+		<annotation cp="😧" type="tts">cara de angustia</annotation>
+		<annotation cp="😨">cara | medo | terror</annotation>
+		<annotation cp="😨" type="tts">cara de medo</annotation>
+		<annotation cp="😩">cara | cansazo | esgotamento</annotation>
+		<annotation cp="😩" type="tts">cara de esgotamento</annotation>
+		<annotation cp="😬">cara | dentes | nervios</annotation>
+		<annotation cp="😬" type="tts">cara apertando os dentes</annotation>
+		<annotation cp="😰">cara | boca aberta | suor fría</annotation>
+		<annotation cp="😰" type="tts">cara coa boca aberta e suor fría</annotation>
+		<annotation cp="😱">cara | medo | aterrorizar | berrar</annotation>
+		<annotation cp="😱" type="tts">cara berrando de medo</annotation>
+		<annotation cp="😳">cara | arroibado | vergoña</annotation>
+		<annotation cp="😳" type="tts">cara arroibada</annotation>
+		<annotation cp="😵">cara | atordamento | mareo</annotation>
+		<annotation cp="😵" type="tts">cara atordada</annotation>
+		<annotation cp="😡">cara | ira | rabia</annotation>
+		<annotation cp="😡" type="tts">cara furiosa</annotation>
+		<annotation cp="😠">cara | cabreo | enfado</annotation>
+		<annotation cp="😠" type="tts">cara de cabreo</annotation>
+		<annotation cp="😈">cara | demo | sorriso | maldade</annotation>
+		<annotation cp="😈" type="tts">cara de demo riseiro</annotation>
+		<annotation cp="👿">cara | demo | pillabán</annotation>
+		<annotation cp="👿" type="tts">cara de demo</annotation>
+		<annotation cp="👹">cara | ogro | xaponés</annotation>
+		<annotation cp="👹" type="tts">ogro xaponés</annotation>
+		<annotation cp="👺">cara | demo | xaponés | tengu</annotation>
+		<annotation cp="👺" type="tts">demo xaponés</annotation>
+		<annotation cp="💀">caveira | morte</annotation>
+		<annotation cp="💀" type="tts">caveira</annotation>
+		<annotation cp="☠">caveira | osos | morte</annotation>
+		<annotation cp="☠" type="tts">caveira e osos</annotation>
+		<annotation cp="👻">pantasma | susto</annotation>
+		<annotation cp="👻" type="tts">pantasma</annotation>
+		<annotation cp="👽">extraterrestre | espazo | ovni</annotation>
+		<annotation cp="👽" type="tts">extraterrestre</annotation>
+		<annotation cp="👾">extraterrestre | monstro | espazo | ovni</annotation>
+		<annotation cp="👾" type="tts">monstro extraterrestre</annotation>
+		<annotation cp="🤖">cara | robot</annotation>
+		<annotation cp="🤖" type="tts">cara de robot</annotation>
+		<annotation cp="💩">caca | merda</annotation>
+		<annotation cp="💩" type="tts">caca</annotation>
+		<annotation cp="😺">cara | gato | boca | sorriso</annotation>
+		<annotation cp="😺" type="tts">gato riseiro coa boca aberta</annotation>
+		<annotation cp="😸">cara | gato | sorriso | ollos</annotation>
+		<annotation cp="😸" type="tts">gato moi riseiro cos ollos alegres</annotation>
+		<annotation cp="😹">cara | gato | alegría | bágoas</annotation>
+		<annotation cp="😹" type="tts">gato con bágoas de alegría</annotation>
+		<annotation cp="😻">cara | gato | sorriso | corazóns</annotation>
+		<annotation cp="😻" type="tts">gato con ollos en forma de corazón</annotation>
+		<annotation cp="😼">cara | gato | sorriso | ironía</annotation>
+		<annotation cp="😼" type="tts">gato con sorriso irónico</annotation>
+		<annotation cp="😽">cara | gato | bico | ollos</annotation>
+		<annotation cp="😽" type="tts">gato dando un bico cos ollos pechados</annotation>
+		<annotation cp="🙀">cara | gato | cansazo | esgotamento</annotation>
+		<annotation cp="🙀" type="tts">gato con cara de esgotamento</annotation>
+		<annotation cp="😿">cara | gato | chorar | bágoa</annotation>
+		<annotation cp="😿" type="tts">gato chorando</annotation>
+		<annotation cp="😾">cara | gato | rabia | ira</annotation>
+		<annotation cp="😾" type="tts">gato furioso</annotation>
+		<annotation cp="🙈">cara | mono | ollos | tapados</annotation>
+		<annotation cp="🙈" type="tts">mono cos ollos tapados</annotation>
+		<annotation cp="🙉">cara | mono | orellas | tapadas</annotation>
+		<annotation cp="🙉" type="tts">mono coas orellas tapadas</annotation>
+		<annotation cp="🙊">cara | mono | boca | tapada</annotation>
+		<annotation cp="🙊" type="tts">mono coa boca tapada</annotation>
+		<annotation cp="👦">neno | rapaz</annotation>
+		<annotation cp="👦" type="tts">neno</annotation>
+		<annotation cp="👧">nena | rapaza | Virgo | zodíaco</annotation>
+		<annotation cp="👧" type="tts">nena</annotation>
+		<annotation cp="👨">home</annotation>
+		<annotation cp="👨" type="tts">home</annotation>
+		<annotation cp="👨‍⚕">home | médico | enfermeiro</annotation>
+		<annotation cp="👨‍⚕" type="tts">traballador sanitario</annotation>
+		<annotation cp="👨‍👦">home | pai | fillo | neno</annotation>
+		<annotation cp="👨‍👦" type="tts">familia de home e neno</annotation>
+		<annotation cp="👨‍👦‍👦">home | pai | fillos | nenos</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">familia de home e dous nenos</annotation>
+		<annotation cp="👨‍👧">home | pai | filla | nena</annotation>
+		<annotation cp="👨‍👧" type="tts">familia de home e nena</annotation>
+		<annotation cp="👨‍👧‍👦">home | pai | fillo | filla</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">familia de home, nena e neno</annotation>
+		<annotation cp="👨‍👧‍👧">home | pai | fillas | nenas</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">familia de home e dúas nenas</annotation>
+		<annotation cp="👨‍🎓">home | estudante | graduado | universitario</annotation>
+		<annotation cp="👨‍🎓" type="tts">estudante de sexo masculino</annotation>
+		<annotation cp="👨‍🌾">home | granxeiro | cultivo | gando</annotation>
+		<annotation cp="👨‍🌾" type="tts">agricultor</annotation>
+		<annotation cp="👨‍🍳">home | cociñar | xefe de cociña</annotation>
+		<annotation cp="👨‍🍳" type="tts">cociñeiro</annotation>
+		<annotation cp="👨‍🏫">home | escola</annotation>
+		<annotation cp="👨‍🏫" type="tts">profesor</annotation>
+		<annotation cp="👨‍🏭">home | traballador | obreiro | fábrica</annotation>
+		<annotation cp="👨‍🏭" type="tts">operario</annotation>
+		<annotation cp="👨‍🎨">home | artista | pintor | paleta</annotation>
+		<annotation cp="👨‍🎨" type="tts">pintor</annotation>
+		<annotation cp="👨‍🚒">home | bombeiro</annotation>
+		<annotation cp="👨‍🚒" type="tts">bombeiro</annotation>
+		<annotation cp="👨‍✈">home | piloto | avión</annotation>
+		<annotation cp="👨‍✈" type="tts">piloto de sexo masculino</annotation>
+		<annotation cp="👨‍🚀">home | astronauta | foguete | espazo</annotation>
+		<annotation cp="👨‍🚀" type="tts">astronauta de sexo masculino</annotation>
+		<annotation cp="👨‍🎤">home | cantante | rock | actor</annotation>
+		<annotation cp="👨‍🎤" type="tts">cantante de sexo masculino</annotation>
+		<annotation cp="👨‍💻">home | informático | programador | software</annotation>
+		<annotation cp="👨‍💻" type="tts">informático</annotation>
+		<annotation cp="👨‍🔬">home | químico | biólogo | científico</annotation>
+		<annotation cp="👨‍🔬" type="tts">científico</annotation>
+		<annotation cp="👨‍💼">home | oficinista | empregado</annotation>
+		<annotation cp="👨‍💼" type="tts">administrativo</annotation>
+		<annotation cp="👨‍🔧">home | mecánico | electricista | fontaneiro</annotation>
+		<annotation cp="👨‍🔧" type="tts">mecánico</annotation>
+		<annotation cp="👨‍⚖">home | xustiza | balanza</annotation>
+		<annotation cp="👨‍⚖" type="tts">xuíz</annotation>
+		<annotation cp="👩">muller</annotation>
+		<annotation cp="👩" type="tts">muller</annotation>
+		<annotation cp="👩‍⚕">muller | médica | enfermeira</annotation>
+		<annotation cp="👩‍⚕" type="tts">traballadora sanitaria</annotation>
+		<annotation cp="👩‍👦">muller | nai | fillo | neno</annotation>
+		<annotation cp="👩‍👦" type="tts">familia de muller e neno</annotation>
+		<annotation cp="👩‍👦‍👦">muller | nai | fillos | nenos</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">familia de muller e dous nenos</annotation>
+		<annotation cp="👩‍👧">muller | nai | filla | nena</annotation>
+		<annotation cp="👩‍👧" type="tts">familia de muller e nena</annotation>
+		<annotation cp="👩‍👧‍👦">muller | nai | fillo | filla</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">familia de muller, nena e neno</annotation>
+		<annotation cp="👩‍👧‍👧">muller | nai | fillas | nenas</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">familia de muller e dúas nenas</annotation>
+		<annotation cp="👩‍🎓">muller | estudante | graduada | universitaria</annotation>
+		<annotation cp="👩‍🎓" type="tts">estudante de sexo feminino</annotation>
+		<annotation cp="👩‍🌾">muller | granxeira | cultivo | gando</annotation>
+		<annotation cp="👩‍🌾" type="tts">agricultora</annotation>
+		<annotation cp="👩‍🍳">muller | cociñar | xefa de cociña</annotation>
+		<annotation cp="👩‍🍳" type="tts">cociñeira</annotation>
+		<annotation cp="👩‍🏫">muller | escola</annotation>
+		<annotation cp="👩‍🏫" type="tts">profesora</annotation>
+		<annotation cp="👩‍🏭">muller | traballadora | obreira | fábrica</annotation>
+		<annotation cp="👩‍🏭" type="tts">operaria</annotation>
+		<annotation cp="👩‍🎨">muller | artista | pintora | paleta</annotation>
+		<annotation cp="👩‍🎨" type="tts">pintora</annotation>
+		<annotation cp="👩‍🚒">muller | bombeira</annotation>
+		<annotation cp="👩‍🚒" type="tts">bombeira</annotation>
+		<annotation cp="👩‍✈">muller | piloto | avión</annotation>
+		<annotation cp="👩‍✈" type="tts">piloto de sexo feminino</annotation>
+		<annotation cp="👩‍🚀">muller | astronauta | foguete | espazo</annotation>
+		<annotation cp="👩‍🚀" type="tts">astronauta de sexo feminino</annotation>
+		<annotation cp="👩‍🎤">muller | cantante | rock | actriz</annotation>
+		<annotation cp="👩‍🎤" type="tts">cantante de sexo feminino</annotation>
+		<annotation cp="👩‍💻">muller | informática | programadora | software</annotation>
+		<annotation cp="👩‍💻" type="tts">informática</annotation>
+		<annotation cp="👩‍🔬">muller | química | bióloga | científica</annotation>
+		<annotation cp="👩‍🔬" type="tts">científica</annotation>
+		<annotation cp="👩‍💼">muller | oficinista | empregada</annotation>
+		<annotation cp="👩‍💼" type="tts">administrativa</annotation>
+		<annotation cp="👩‍🔧">muller | mecánica | electricista | fontaneira</annotation>
+		<annotation cp="👩‍🔧" type="tts">mecánica</annotation>
+		<annotation cp="👩‍⚖">muller | xustiza | balanza</annotation>
+		<annotation cp="👩‍⚖" type="tts">xuíza</annotation>
+		<annotation cp="👴">vello | ancián | home</annotation>
+		<annotation cp="👴" type="tts">vello</annotation>
+		<annotation cp="👵">vella | anciá | muller</annotation>
+		<annotation cp="👵" type="tts">vella</annotation>
+		<annotation cp="👶">bebé</annotation>
+		<annotation cp="👶" type="tts">bebé</annotation>
+		<annotation cp="👱">louro | loiro</annotation>
+		<annotation cp="👱" type="tts">persoa loira</annotation>
+		<annotation cp="👱‍♀">muller | loira | loura</annotation>
+		<annotation cp="👱‍♀" type="tts">muller loura</annotation>
+		<annotation cp="👱‍♂">home | loiro | louro</annotation>
+		<annotation cp="👱‍♂" type="tts">home louro</annotation>
+		<annotation cp="👮">poli | policía | axente</annotation>
+		<annotation cp="👮" type="tts">policía</annotation>
+		<annotation cp="👮‍♀">muller | poli | policía | axente</annotation>
+		<annotation cp="👮‍♀" type="tts">policía de sexo feminino</annotation>
+		<annotation cp="👮‍♂">home | poli | policía | axente</annotation>
+		<annotation cp="👮‍♂" type="tts">policía de sexo masculino</annotation>
+		<annotation cp="👲">home | gorro | chinés</annotation>
+		<annotation cp="👲" type="tts">home con gorro chinés</annotation>
+		<annotation cp="👳">turbante</annotation>
+		<annotation cp="👳" type="tts">persoa con turbante</annotation>
+		<annotation cp="👳‍♀">muller | turbante</annotation>
+		<annotation cp="👳‍♀" type="tts">muller con turbante</annotation>
+		<annotation cp="👳‍♂">home | turbante</annotation>
+		<annotation cp="👳‍♂" type="tts">home con turbante</annotation>
+		<annotation cp="👷">traballador | obreiro | construción</annotation>
+		<annotation cp="👷" type="tts">traballador da construción</annotation>
+		<annotation cp="👷‍♀">muller | traballador | obreiro | construción</annotation>
+		<annotation cp="👷‍♀" type="tts">obreira</annotation>
+		<annotation cp="👷‍♂">home | traballador | obreiro | construción</annotation>
+		<annotation cp="👷‍♂" type="tts">obreiro</annotation>
+		<annotation cp="⛑">casco | cruz | axuda</annotation>
+		<annotation cp="⛑" type="tts">casco cunha cruz branca</annotation>
+		<annotation cp="👸">princesa | conto de fadas | fantasía</annotation>
+		<annotation cp="👸" type="tts">princesa</annotation>
+		<annotation cp="💂">garda | real</annotation>
+		<annotation cp="💂" type="tts">garda real</annotation>
+		<annotation cp="💂‍♀">muller | garda | real</annotation>
+		<annotation cp="💂‍♀" type="tts">garda real de sexo feminino</annotation>
+		<annotation cp="💂‍♂">home | garda | real</annotation>
+		<annotation cp="💂‍♂" type="tts">garda real de sexo masculino</annotation>
+		<annotation cp="🕵">detective | espía | sabuxo</annotation>
+		<annotation cp="🕵" type="tts">detective</annotation>
+		<annotation cp="🕵‍♀">muller | detective | espía | sabuxa</annotation>
+		<annotation cp="🕵‍♀" type="tts">detective de sexo feminino</annotation>
+		<annotation cp="🕵‍♂">home | detective | espía | sabuxo</annotation>
+		<annotation cp="🕵‍♂" type="tts">detective de sexo masculino</annotation>
+		<annotation cp="🎅">Papá Noel | Santa Claus | Nadal | celebración</annotation>
+		<annotation cp="🎅" type="tts">Papá Noel</annotation>
+		<annotation cp="👼">anxo | bebé</annotation>
+		<annotation cp="👼" type="tts">anxiño</annotation>
+		<annotation cp="👯">festa | bailar</annotation>
+		<annotation cp="👯" type="tts">xente de festa</annotation>
+		<annotation cp="👯‍♀">mulleres | festa | bailar</annotation>
+		<annotation cp="👯‍♀" type="tts">mulleres de festa</annotation>
+		<annotation cp="👯‍♂">homes | festa | bailar</annotation>
+		<annotation cp="👯‍♂" type="tts">homes de festa</annotation>
+		<annotation cp="💆">masaxe | relaxarse | salón de beleza</annotation>
+		<annotation cp="💆" type="tts">masaxe facial</annotation>
+		<annotation cp="💆‍♀">muller | masaxe | relaxarse | salón de beleza</annotation>
+		<annotation cp="💆‍♀" type="tts">masaxe facial a muller</annotation>
+		<annotation cp="💆‍♂">home | masaxe | relaxarse | salón de beleza</annotation>
+		<annotation cp="💆‍♂" type="tts">masaxe facial a home</annotation>
+		<annotation cp="💇">salón de peiteado | beleza | corte de pelo</annotation>
+		<annotation cp="💇" type="tts">corte de pelo</annotation>
+		<annotation cp="💇‍♀">muller | salón de peiteado | beleza | corte de pelo</annotation>
+		<annotation cp="💇‍♀" type="tts">muller cortando o pelo</annotation>
+		<annotation cp="💇‍♂">home | salón de peiteado | beleza | corte de pelo</annotation>
+		<annotation cp="💇‍♂" type="tts">home cortando o pelo</annotation>
+		<annotation cp="👰">noiva | veo | voda | casamento</annotation>
+		<annotation cp="👰" type="tts">noiva con veo</annotation>
+		<annotation cp="🙍">xesto | cello | enfurruñado</annotation>
+		<annotation cp="🙍" type="tts">persoa enfurruñada</annotation>
+		<annotation cp="🙍‍♀">muller | xesto | cello | enfurruñada</annotation>
+		<annotation cp="🙍‍♀" type="tts">muller enfurruñada</annotation>
+		<annotation cp="🙍‍♂">home | xesto | cello | enfurruñado</annotation>
+		<annotation cp="🙍‍♂" type="tts">home enfurruñado</annotation>
+		<annotation cp="🙎">xesto | ira | rabia | furioso</annotation>
+		<annotation cp="🙎" type="tts">persoa furiosa</annotation>
+		<annotation cp="🙎‍♀">muller | xesto | ira | rabia | furiosa</annotation>
+		<annotation cp="🙎‍♀" type="tts">muller furiosa</annotation>
+		<annotation cp="🙎‍♂">home | xesto | ira | rabia | furioso</annotation>
+		<annotation cp="🙎‍♂" type="tts">home furioso</annotation>
+		<annotation cp="🙅">xesto | prohibición</annotation>
+		<annotation cp="🙅" type="tts">xesto de prohibición</annotation>
+		<annotation cp="🙅‍♀">muller | xesto | prohibición</annotation>
+		<annotation cp="🙅‍♀" type="tts">muller facendo xesto de prohibición</annotation>
+		<annotation cp="🙅‍♂">home | xesto | prohibición</annotation>
+		<annotation cp="🙅‍♂" type="tts">home facendo xesto de prohibición</annotation>
+		<annotation cp="🙆">xesto | hurra | aprobación</annotation>
+		<annotation cp="🙆" type="tts">xesto de “hurra”</annotation>
+		<annotation cp="🙆‍♀">home | xesto | hurra | aprobación</annotation>
+		<annotation cp="🙆‍♀" type="tts">muller facendo xesto de “hurra”</annotation>
+		<annotation cp="🙆‍♂">home | xesto | hurra | aprobación</annotation>
+		<annotation cp="🙆‍♂" type="tts">home facendo xesto de “hurra”</annotation>
+		<annotation cp="💁">información | asistencia | axuda</annotation>
+		<annotation cp="💁" type="tts">ofrecer axuda</annotation>
+		<annotation cp="💁‍♀">muller | información | asistencia | axuda</annotation>
+		<annotation cp="💁‍♀" type="tts">muller ofrecendo axuda</annotation>
+		<annotation cp="💁‍♂">home | información | asistencia | axuda</annotation>
+		<annotation cp="💁‍♂" type="tts">home ofrecendo axuda</annotation>
+		<annotation cp="🙋">xesto | man levantada</annotation>
+		<annotation cp="🙋" type="tts">levantar a man</annotation>
+		<annotation cp="🙋‍♀">muller | xesto | man levantada</annotation>
+		<annotation cp="🙋‍♀" type="tts">muller levantando a man</annotation>
+		<annotation cp="🙋‍♂">home | xesto | man levantada</annotation>
+		<annotation cp="🙋‍♂" type="tts">home levantando a man</annotation>
+		<annotation cp="🙇">xesto | reverencia | desculpas</annotation>
+		<annotation cp="🙇" type="tts">reverencia</annotation>
+		<annotation cp="🙇‍♀">muller | xesto | reverencia | desculpas</annotation>
+		<annotation cp="🙇‍♀" type="tts">muller facendo unha reverencia</annotation>
+		<annotation cp="🙇‍♂">home | xesto | reverencia | desculpas</annotation>
+		<annotation cp="🙇‍♂" type="tts">home facendo unha reverencia</annotation>
+		<annotation cp="🙌">mans | xesto | chocar | celebración</annotation>
+		<annotation cp="🙌" type="tts">mans levantadas</annotation>
+		<annotation cp="🙏">mans | rezar | favor</annotation>
+		<annotation cp="🙏" type="tts">mans en oración</annotation>
+		<annotation cp="🗣">silueta | falar | cabeza | cara</annotation>
+		<annotation cp="🗣" type="tts">silueta de persoa falando</annotation>
+		<annotation cp="👤">silueta | busto | persoa</annotation>
+		<annotation cp="👤" type="tts">silueta dun busto</annotation>
+		<annotation cp="👥">silueta | bustos | persoas</annotation>
+		<annotation cp="👥" type="tts">silueta de dous bustos</annotation>
+		<annotation cp="🚶">andar | camiñar | pasear</annotation>
+		<annotation cp="🚶" type="tts">persoa andando</annotation>
+		<annotation cp="🚶‍♀">muller | andar | camiñar | pasear</annotation>
+		<annotation cp="🚶‍♀" type="tts">muller andando</annotation>
+		<annotation cp="🚶‍♂">home | andar | camiñar | pasear</annotation>
+		<annotation cp="🚶‍♂" type="tts">home andando</annotation>
+		<annotation cp="🏃">correr | maratón</annotation>
+		<annotation cp="🏃" type="tts">persoa correndo</annotation>
+		<annotation cp="🏃‍♀">muller | correr | maratón</annotation>
+		<annotation cp="🏃‍♀" type="tts">muller correndo</annotation>
+		<annotation cp="🏃‍♂">home | correr | maratón</annotation>
+		<annotation cp="🏃‍♂" type="tts">home correndo</annotation>
+		<annotation cp="💃">muller | bailar | bailarina</annotation>
+		<annotation cp="💃" type="tts">bailarina</annotation>
+		<annotation cp="🕴">home | negocios | traxe</annotation>
+		<annotation cp="🕴" type="tts">home de negocios</annotation>
+		<annotation cp="💏">parella | bico</annotation>
+		<annotation cp="💏" type="tts">parella bicándose</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">parella | bico | home | muller</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">parella de home e muller bicándose</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">parella | bico | homes</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">parella de dous homes bicándose</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">parella | bico | mulleres</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">parella de dúas mulleres bicándose</annotation>
+		<annotation cp="💑">parella | corazón | namorados</annotation>
+		<annotation cp="💑" type="tts">parella cun corazón</annotation>
+		<annotation cp="👩‍❤‍👨">muller | home | corazón | namorados</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">parella de muller e home cun corazón</annotation>
+		<annotation cp="👨‍❤‍👨">homes | corazón | namorados | amor</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">parella de dous homes cun corazón</annotation>
+		<annotation cp="👩‍❤‍👩">mulleres | corazón | namoradas | amor</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">parella de dúas mulleres cun corazón</annotation>
+		<annotation cp="👪">neno | pai | nai</annotation>
+		<annotation cp="👪" type="tts">familia</annotation>
+		<annotation cp="👨‍👩‍👦">pai | nai | fillo</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">familia de home, muller e neno</annotation>
+		<annotation cp="👨‍👩‍👧">pai | nai | filla</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">familia de home, muller e nena</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">pai | nai | fillos</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">familia de home, muller e dous nenos</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">pai | nai | filla | fillo</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">familia de home, muller, nena e neno</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">pai | nai | fillas</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">familia de home, muller e dúas nenas</annotation>
+		<annotation cp="👨‍👨‍👦">homes | pais | fillo | neno</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">familia de dous homes e neno</annotation>
+		<annotation cp="👨‍👨‍👧">homes | pais | filla | nena</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">familia de dous homes e nena</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">homes | pais | fillos | nenos</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">familia de dous homes e dous nenos</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">homes | pais | filla | fillo</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">familia de dous homes, nena e neno</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">homes | pais | fillas | nenas</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">familia de dous homes e dúas nenas</annotation>
+		<annotation cp="👩‍👩‍👦">mulleres | nais | fillo | neno</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">familia de dúas mulleres e neno</annotation>
+		<annotation cp="👩‍👩‍👧">mulleres | nais | fillo | neno</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">familia de dúas mulleres e nena</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">mulleres | nais | fillos | nenos</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">familia de dúas mulleres e dous nenos</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">mulleres | nais | fillo | filla</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">familia de dúas mulleres, nena e neno</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">mulleres | nais | fillas | nenas</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">familia de dúas mulleres e dúas nenas</annotation>
+		<annotation cp="👫">parella | man | home | muller</annotation>
+		<annotation cp="👫" type="tts">home e muller collidos da man</annotation>
+		<annotation cp="👬">parella | homes | xemelgos | Xémini</annotation>
+		<annotation cp="👬" type="tts">dous homes collidos da man</annotation>
+		<annotation cp="👭">parella | mulleres | man</annotation>
+		<annotation cp="👭" type="tts">dúas mulleres collidas da man</annotation>
+		<annotation cp="🏻">ton de pel</annotation>
+		<annotation cp="🏻" type="tts">tipo 1–2</annotation>
+		<annotation cp="🏼">ton de pel</annotation>
+		<annotation cp="🏼" type="tts">tipo 3</annotation>
+		<annotation cp="🏽">ton de pel</annotation>
+		<annotation cp="🏽" type="tts">tipo 4</annotation>
+		<annotation cp="🏾">ton de pel</annotation>
+		<annotation cp="🏾" type="tts">tipo 5</annotation>
+		<annotation cp="🏿">ton de pel</annotation>
+		<annotation cp="🏿" type="tts">tipo 6</annotation>
+		<annotation cp="💪">bíceps | músculo | forte | forza</annotation>
+		<annotation cp="💪" type="tts">bíceps</annotation>
+		<annotation cp="👈">índice | esquerda | dedo | man</annotation>
+		<annotation cp="👈" type="tts">índice apuntando á esquerda</annotation>
+		<annotation cp="👉">índice | dereita | dedo | man</annotation>
+		<annotation cp="👉" type="tts">índice apuntando á dereita</annotation>
+		<annotation cp="☝">índice | arriba | advertencia | man</annotation>
+		<annotation cp="☝" type="tts">índice apuntando cara arriba</annotation>
+		<annotation cp="👆">índice | arriba | man</annotation>
+		<annotation cp="👆" type="tts">dedo índice apuntando cara arriba</annotation>
+		<annotation cp="🖕">man | dedo | insulto | ofensivo</annotation>
+		<annotation cp="🖕" type="tts">dedo do medio levantado</annotation>
+		<annotation cp="👇">man | dedo | abaixo</annotation>
+		<annotation cp="👇" type="tts">dedo apuntando cara abaixo</annotation>
+		<annotation cp="✌">man | vitoria | xesto | triunfo</annotation>
+		<annotation cp="✌" type="tts">xesto de vitoria</annotation>
+		<annotation cp="🖖">man | saúdo | Spock | Star Trek</annotation>
+		<annotation cp="🖖" type="tts">saúdo vulcaniano</annotation>
+		<annotation cp="🤘">man | cornos | rock and roll</annotation>
+		<annotation cp="🤘" type="tts">man facendo os cornos</annotation>
+		<annotation cp="🖐">man | aberta</annotation>
+		<annotation cp="🖐" type="tts">man aberta</annotation>
+		<annotation cp="✊">puño | arriba | loita</annotation>
+		<annotation cp="✊" type="tts">puño en alto</annotation>
+		<annotation cp="✋">man | levantada</annotation>
+		<annotation cp="✋" type="tts">man levantada</annotation>
+		<annotation cp="👊">puño | golpe</annotation>
+		<annotation cp="👊" type="tts">puñada</annotation>
+		<annotation cp="👌">man | OK | perfecto</annotation>
+		<annotation cp="👌" type="tts">xesto de “OK”</annotation>
+		<annotation cp="👍">man | polgar | +1 | gústame</annotation>
+		<annotation cp="👍" type="tts">polgar cara arriba</annotation>
+		<annotation cp="👎">man | polgar | non me gusta</annotation>
+		<annotation cp="👎" type="tts">polgar cara abaixo</annotation>
+		<annotation cp="👋">man | saúdo | saudar</annotation>
+		<annotation cp="👋" type="tts">man saudando</annotation>
+		<annotation cp="👏">mans | aplauso | aplaudir</annotation>
+		<annotation cp="👏" type="tts">mans aplaudindo</annotation>
+		<annotation cp="👐">mans | abertas</annotation>
+		<annotation cp="👐" type="tts">mans abertas</annotation>
+		<annotation cp="✍">man | escribir | bolígrafo | lapis</annotation>
+		<annotation cp="✍" type="tts">man escribindo</annotation>
+		<annotation cp="💅">uñas | manicura | cosmético | esmalte</annotation>
+		<annotation cp="💅" type="tts">pintar as uñas</annotation>
+		<annotation cp="👂">orella</annotation>
+		<annotation cp="👂" type="tts">orella</annotation>
+		<annotation cp="👃">nariz</annotation>
+		<annotation cp="👃" type="tts">nariz</annotation>
+		<annotation cp="👣">pegada | pés</annotation>
+		<annotation cp="👣" type="tts">pegadas de pés</annotation>
+		<annotation cp="👀">ollos</annotation>
+		<annotation cp="👀" type="tts">ollos</annotation>
+		<annotation cp="👁">ollo</annotation>
+		<annotation cp="👁" type="tts">ollo</annotation>
+		<annotation cp="👁‍🗨">globo | ollo | testemuña</annotation>
+		<annotation cp="👁‍🗨" type="tts">globo de diálogo en forma de ollo</annotation>
+		<annotation cp="👅">lingua</annotation>
+		<annotation cp="👅" type="tts">lingua</annotation>
+		<annotation cp="👄">boca | beizos | labios</annotation>
+		<annotation cp="👄" type="tts">boca</annotation>
+		<annotation cp="💋">bico | beizos | labios | marca</annotation>
+		<annotation cp="💋" type="tts">marca de bico</annotation>
+		<annotation cp="💘">corazón | frecha | cupido | amor</annotation>
+		<annotation cp="💘" type="tts">corazón con frecha</annotation>
+		<annotation cp="❤">corazón | amor</annotation>
+		<annotation cp="❤" type="tts">corazón vermello</annotation>
+		<annotation cp="💓">corazón | amor | latexo</annotation>
+		<annotation cp="💓" type="tts">corazón latindo</annotation>
+		<annotation cp="💔">corazón | desamor | roto | romper o corazón</annotation>
+		<annotation cp="💔" type="tts">corazón roto</annotation>
+		<annotation cp="💕">corazóns | amor</annotation>
+		<annotation cp="💕" type="tts">dous corazóns</annotation>
+		<annotation cp="💖">corazón | amor | escintilar</annotation>
+		<annotation cp="💖" type="tts">corazón escintilante</annotation>
+		<annotation cp="💗">corazón | amor | entusiasmo | emoción</annotation>
+		<annotation cp="💗" type="tts">corazón crecendo</annotation>
+		<annotation cp="💙">corazón | azul</annotation>
+		<annotation cp="💙" type="tts">corazón azul</annotation>
+		<annotation cp="💚">corazón | verde</annotation>
+		<annotation cp="💚" type="tts">corazón verde</annotation>
+		<annotation cp="💛">corazón | amarelo</annotation>
+		<annotation cp="💛" type="tts">corazón amarelo</annotation>
+		<annotation cp="💜">corazón | violeta</annotation>
+		<annotation cp="💜" type="tts">corazón violeta</annotation>
+		<annotation cp="💝">corazón | lazo | San Valentín</annotation>
+		<annotation cp="💝" type="tts">corazón cun lazo</annotation>
+		<annotation cp="💞">corazóns | voar</annotation>
+		<annotation cp="💞" type="tts">corazóns voando</annotation>
+		<annotation cp="💟">corazón | decoración</annotation>
+		<annotation cp="💟" type="tts">decoración en forma de corazón</annotation>
+		<annotation cp="❣">corazón | exclamación | admiración | puntuación</annotation>
+		<annotation cp="❣" type="tts">exclamación en forma de corazón</annotation>
+		<annotation cp="💌">carta | amor | correo | corazón</annotation>
+		<annotation cp="💌" type="tts">carta de amor</annotation>
+		<annotation cp="💤">cómic | durmir | durmindo</annotation>
+		<annotation cp="💤" type="tts">símbolo de estar durmindo</annotation>
+		<annotation cp="💢">cómic | enfado</annotation>
+		<annotation cp="💢" type="tts">símbolo de enfado</annotation>
+		<annotation cp="💣">cómic | bomba</annotation>
+		<annotation cp="💣" type="tts">bomba</annotation>
+		<annotation cp="💥">cómic | explosión | colisión</annotation>
+		<annotation cp="💥" type="tts">explosión</annotation>
+		<annotation cp="💦">cómic | suor | salpicar | salpicadura</annotation>
+		<annotation cp="💦" type="tts">pingas de suor</annotation>
+		<annotation cp="💨">cómic | saír correndo | escapar</annotation>
+		<annotation cp="💨" type="tts">símbolo de saír correndo</annotation>
+		<annotation cp="💫">cómic | atordamento | mareo | estrelas</annotation>
+		<annotation cp="💫" type="tts">símbolo de atordamento</annotation>
+		<annotation cp="💬">cómic | globo | diálogo | falar</annotation>
+		<annotation cp="💬" type="tts">globo de diálogo á esquerda</annotation>
+		<annotation cp="🗨">cómic | globo | diálogo | falar</annotation>
+		<annotation cp="🗨" type="tts">globo de diálogo á dereita</annotation>
+		<annotation cp="🗯">cómic | globo | diálogo | berrar</annotation>
+		<annotation cp="🗯" type="tts">globo de diálogo enfadado</annotation>
+		<annotation cp="💭">cómic | globo | pensamento</annotation>
+		<annotation cp="💭" type="tts">globo de pensamento</annotation>
+		<annotation cp="🕳">burato | buraco</annotation>
+		<annotation cp="🕳" type="tts">burato</annotation>
+		<annotation cp="👓">anteollos | lentes</annotation>
+		<annotation cp="👓" type="tts">anteollos</annotation>
+		<annotation cp="🕶">anteollos | lentes | sol</annotation>
+		<annotation cp="🕶" type="tts">lentes de sol</annotation>
+		<annotation cp="👔">gravata</annotation>
+		<annotation cp="👔" type="tts">gravata</annotation>
+		<annotation cp="👕">camiseta</annotation>
+		<annotation cp="👕" type="tts">camiseta</annotation>
+		<annotation cp="👖">vaqueiros | pantalóns</annotation>
+		<annotation cp="👖" type="tts">vaqueiros</annotation>
+		<annotation cp="👗">vestido</annotation>
+		<annotation cp="👗" type="tts">vestido</annotation>
+		<annotation cp="👘">quimono</annotation>
+		<annotation cp="👘" type="tts">quimono</annotation>
+		<annotation cp="👙">bikini | bañarse</annotation>
+		<annotation cp="👙" type="tts">bikini</annotation>
+		<annotation cp="👚">roupa | muller</annotation>
+		<annotation cp="👚" type="tts">roupa de muller</annotation>
+		<annotation cp="👛">moedeiro | portamoedas | moedas</annotation>
+		<annotation cp="👛" type="tts">moedeiro</annotation>
+		<annotation cp="👜">bolso</annotation>
+		<annotation cp="👜" type="tts">bolso</annotation>
+		<annotation cp="👝">carteira | bolso | neceser</annotation>
+		<annotation cp="👝" type="tts">bolso de man</annotation>
+		<annotation cp="🛍">bolsas | compras | hotel</annotation>
+		<annotation cp="🛍" type="tts">bolsas de compras</annotation>
+		<annotation cp="🎒">mochila | escola</annotation>
+		<annotation cp="🎒" type="tts">mochila</annotation>
+		<annotation cp="👞">zapato | home</annotation>
+		<annotation cp="👞" type="tts">zapato de home</annotation>
+		<annotation cp="👟">calzado | zapatilla | correr | deporte</annotation>
+		<annotation cp="👟" type="tts">zapatilla deportiva</annotation>
+		<annotation cp="👠">zapato | muller | tacón</annotation>
+		<annotation cp="👠" type="tts">zapato de tacón</annotation>
+		<annotation cp="👡">calzado | sandalia | muller</annotation>
+		<annotation cp="👡" type="tts">sandalia de muller</annotation>
+		<annotation cp="👢">calzado | botas | muller</annotation>
+		<annotation cp="👢" type="tts">botas de muller</annotation>
+		<annotation cp="👑">coroa | rei | raíña</annotation>
+		<annotation cp="👑" type="tts">coroa</annotation>
+		<annotation cp="👒">sombreiro | muller</annotation>
+		<annotation cp="👒" type="tts">sombreiro de muller</annotation>
+		<annotation cp="🎩">sombreiro | sombreiro de copa | mago</annotation>
+		<annotation cp="🎩" type="tts">sombreiro de copa</annotation>
+		<annotation cp="🎓">birrete | barrete</annotation>
+		<annotation cp="🎓" type="tts">barrete de graduación</annotation>
+		<annotation cp="📿">rosario | relixión | colar | contas</annotation>
+		<annotation cp="📿" type="tts">rosario</annotation>
+		<annotation cp="💄">lapis de labios | maquillaxe | beizos | barra</annotation>
+		<annotation cp="💄" type="tts">barra de labios</annotation>
+		<annotation cp="💍">anel | xoia | diamante</annotation>
+		<annotation cp="💍" type="tts">anel</annotation>
+		<annotation cp="💎">diamante | xema | xoia</annotation>
+		<annotation cp="💎" type="tts">pedra preciosa</annotation>
+		<annotation cp="🐵">cara | mono</annotation>
+		<annotation cp="🐵" type="tts">cara de mono</annotation>
+		<annotation cp="🐒">mono</annotation>
+		<annotation cp="🐒" type="tts">mono</annotation>
+		<annotation cp="🐶">cara | can | mascota</annotation>
+		<annotation cp="🐶" type="tts">cara de can</annotation>
+		<annotation cp="🐕">can | mascota</annotation>
+		<annotation cp="🐕" type="tts">can</annotation>
+		<annotation cp="🐩">can | mascota | caniche</annotation>
+		<annotation cp="🐩" type="tts">caniche</annotation>
+		<annotation cp="🐺">cara | lobo</annotation>
+		<annotation cp="🐺" type="tts">cara de lobo</annotation>
+		<annotation cp="🐱">cara | gato | mascota</annotation>
+		<annotation cp="🐱" type="tts">cara de gato</annotation>
+		<annotation cp="🐈">gato | mascota</annotation>
+		<annotation cp="🐈" type="tts">gato</annotation>
+		<annotation cp="🦁">cara | león | Leo | zodíaco</annotation>
+		<annotation cp="🦁" type="tts">cara de león</annotation>
+		<annotation cp="🐯">cara | tigre</annotation>
+		<annotation cp="🐯" type="tts">cara de tigre</annotation>
+		<annotation cp="🐅">tigre</annotation>
+		<annotation cp="🐅" type="tts">tigre</annotation>
+		<annotation cp="🐆">leopardo</annotation>
+		<annotation cp="🐆" type="tts">leopardo</annotation>
+		<annotation cp="🐴">cara | cabalo</annotation>
+		<annotation cp="🐴" type="tts">cara de cabalo</annotation>
+		<annotation cp="🐎">cabalo de carreiras | carreira de cabalos</annotation>
+		<annotation cp="🐎" type="tts">cabalo</annotation>
+		<annotation cp="🦄">cara | unicornio</annotation>
+		<annotation cp="🦄" type="tts">cara de unicornio</annotation>
+		<annotation cp="🐮">cara | vaca</annotation>
+		<annotation cp="🐮" type="tts">cara de vaca</annotation>
+		<annotation cp="🐂">touro | Tauro | zodíaco</annotation>
+		<annotation cp="🐂" type="tts">boi</annotation>
+		<annotation cp="🐃">búfalo | auga | doméstico</annotation>
+		<annotation cp="🐃" type="tts">búfalo acuático</annotation>
+		<annotation cp="🐄">vaca</annotation>
+		<annotation cp="🐄" type="tts">vaca</annotation>
+		<annotation cp="🐷">cara | porco</annotation>
+		<annotation cp="🐷" type="tts">cara de porco</annotation>
+		<annotation cp="🐖">porco</annotation>
+		<annotation cp="🐖" type="tts">porco</annotation>
+		<annotation cp="🐗">xabarín | xabaril | porco bravo</annotation>
+		<annotation cp="🐗" type="tts">xabaril</annotation>
+		<annotation cp="🐽">nariz | porco</annotation>
+		<annotation cp="🐽" type="tts">nariz de porco</annotation>
+		<annotation cp="🐏">ovella | Aries | zodíaco</annotation>
+		<annotation cp="🐏" type="tts">carneiro</annotation>
+		<annotation cp="🐑">ovella</annotation>
+		<annotation cp="🐑" type="tts">ovella</annotation>
+		<annotation cp="🐐">cabra | Capricornio | zodíaco</annotation>
+		<annotation cp="🐐" type="tts">cabra</annotation>
+		<annotation cp="🐪">dromedario | xiba</annotation>
+		<annotation cp="🐪" type="tts">dromedario</annotation>
+		<annotation cp="🐫">camelo | xibas</annotation>
+		<annotation cp="🐫" type="tts">camelo</annotation>
+		<annotation cp="🐘">elefante</annotation>
+		<annotation cp="🐘" type="tts">elefante</annotation>
+		<annotation cp="🐭">cara | rato</annotation>
+		<annotation cp="🐭" type="tts">cara de rato</annotation>
+		<annotation cp="🐁">rato</annotation>
+		<annotation cp="🐁" type="tts">rato</annotation>
+		<annotation cp="🐀">rata</annotation>
+		<annotation cp="🐀" type="tts">rata</annotation>
+		<annotation cp="🐹">hámster | mascota</annotation>
+		<annotation cp="🐹" type="tts">cara de hámster</annotation>
+		<annotation cp="🐰">cara | coello | mascota</annotation>
+		<annotation cp="🐰" type="tts">cara de coello</annotation>
+		<annotation cp="🐇">coello | mascota</annotation>
+		<annotation cp="🐇" type="tts">coello</annotation>
+		<annotation cp="🐿">esquío</annotation>
+		<annotation cp="🐿" type="tts">esquío</annotation>
+		<annotation cp="🐻">cara | oso</annotation>
+		<annotation cp="🐻" type="tts">cara de oso</annotation>
+		<annotation cp="🐨">coala | koala</annotation>
+		<annotation cp="🐨" type="tts">coala</annotation>
+		<annotation cp="🐼">cara | oso panda | panda</annotation>
+		<annotation cp="🐼" type="tts">cara de oso panda</annotation>
+		<annotation cp="🐾">pegada | patas</annotation>
+		<annotation cp="🐾" type="tts">pegadas de patas</annotation>
+		<annotation cp="🦃">pavo</annotation>
+		<annotation cp="🦃" type="tts">pavo</annotation>
+		<annotation cp="🐔">polo</annotation>
+		<annotation cp="🐔" type="tts">polo</annotation>
+		<annotation cp="🐓">galo</annotation>
+		<annotation cp="🐓" type="tts">galo</annotation>
+		<annotation cp="🐣">pito | pitiño | casca | ovo</annotation>
+		<annotation cp="🐣" type="tts">pitiño saíndo da casca</annotation>
+		<annotation cp="🐤">pito | pitiño</annotation>
+		<annotation cp="🐤" type="tts">pitiño</annotation>
+		<annotation cp="🐥">pito | pitiño</annotation>
+		<annotation cp="🐥" type="tts">pitiño de fronte</annotation>
+		<annotation cp="🐦">paxaro</annotation>
+		<annotation cp="🐦" type="tts">paxaro</annotation>
+		<annotation cp="🐧">pingüín</annotation>
+		<annotation cp="🐧" type="tts">pingüín</annotation>
+		<annotation cp="🕊">ave | voar | paz</annotation>
+		<annotation cp="🕊" type="tts">pomba</annotation>
+		<annotation cp="🐸">cara | ra</annotation>
+		<annotation cp="🐸" type="tts">cara de ra</annotation>
+		<annotation cp="🐊">crocodilo</annotation>
+		<annotation cp="🐊" type="tts">crocodilo</annotation>
+		<annotation cp="🐢">tartaruga</annotation>
+		<annotation cp="🐢" type="tts">tartaruga</annotation>
+		<annotation cp="🐍">serpe | réptil | Ofiúco | zodíaco</annotation>
+		<annotation cp="🐍" type="tts">serpe</annotation>
+		<annotation cp="🐲">cara | dragón</annotation>
+		<annotation cp="🐲" type="tts">cara de dragón</annotation>
+		<annotation cp="🐉">dragón</annotation>
+		<annotation cp="🐉" type="tts">dragón</annotation>
+		<annotation cp="🐳">balea | chorro</annotation>
+		<annotation cp="🐳" type="tts">balea botando un chorro</annotation>
+		<annotation cp="🐋">balea</annotation>
+		<annotation cp="🐋" type="tts">balea</annotation>
+		<annotation cp="🐬">golfiño | delfín</annotation>
+		<annotation cp="🐬" type="tts">golfiño</annotation>
+		<annotation cp="🐟">peixe | Pisces | zodíaco</annotation>
+		<annotation cp="🐟" type="tts">peixe</annotation>
+		<annotation cp="🐠">peixe | tropical</annotation>
+		<annotation cp="🐠" type="tts">peixe tropical</annotation>
+		<annotation cp="🐡">peixe | globo</annotation>
+		<annotation cp="🐡" type="tts">peixe globo</annotation>
+		<annotation cp="🐙">polbo | tentáculos</annotation>
+		<annotation cp="🐙" type="tts">polbo</annotation>
+		<annotation cp="🐚">bucina | buguina | bucio | corno</annotation>
+		<annotation cp="🐚" type="tts">bucina mariña</annotation>
+		<annotation cp="🦀">cangrexo | Cáncer | zodíaco</annotation>
+		<annotation cp="🦀" type="tts">caranguexo</annotation>
+		<annotation cp="🐌">caracol</annotation>
+		<annotation cp="🐌" type="tts">caracol</annotation>
+		<annotation cp="🐛">cempés | verme | becho | bicho</annotation>
+		<annotation cp="🐛" type="tts">cempés</annotation>
+		<annotation cp="🐜">formiga</annotation>
+		<annotation cp="🐜" type="tts">formiga</annotation>
+		<annotation cp="🐝">vespa | avespa | mel</annotation>
+		<annotation cp="🐝" type="tts">abella</annotation>
+		<annotation cp="🐞">reirrei | maruxiña | voaniña | barrosiña</annotation>
+		<annotation cp="🐞" type="tts">xoaniña</annotation>
+		<annotation cp="🕷">araña</annotation>
+		<annotation cp="🕷" type="tts">araña</annotation>
+		<annotation cp="🕸">araña | tea de araña | arañeira</annotation>
+		<annotation cp="🕸" type="tts">tea de araña</annotation>
+		<annotation cp="🦂">alacrán | Escorpión | zodíaco</annotation>
+		<annotation cp="🦂" type="tts">escorpión</annotation>
+		<annotation cp="💐">flores | ramo</annotation>
+		<annotation cp="💐" type="tts">ramo de flores</annotation>
+		<annotation cp="🌸">flor | cereixa | cerdeira</annotation>
+		<annotation cp="🌸" type="tts">flor de cerdeira</annotation>
+		<annotation cp="💮">flor</annotation>
+		<annotation cp="💮" type="tts">flor branca</annotation>
+		<annotation cp="🏵">roseta | flor</annotation>
+		<annotation cp="🏵" type="tts">roseta</annotation>
+		<annotation cp="🌹">flor</annotation>
+		<annotation cp="🌹" type="tts">rosa</annotation>
+		<annotation cp="🌺">flor</annotation>
+		<annotation cp="🌺" type="tts">flor de hibisco</annotation>
+		<annotation cp="🌻">flor</annotation>
+		<annotation cp="🌻" type="tts">xirasol</annotation>
+		<annotation cp="🌼">flor</annotation>
+		<annotation cp="🌼" type="tts">flor</annotation>
+		<annotation cp="🌷">flor</annotation>
+		<annotation cp="🌷" type="tts">tulipán</annotation>
+		<annotation cp="☘">planta</annotation>
+		<annotation cp="☘" type="tts">trevo</annotation>
+		<annotation cp="🌱">planta | xerminar</annotation>
+		<annotation cp="🌱" type="tts">plántula</annotation>
+		<annotation cp="🌲">árbore | abeto</annotation>
+		<annotation cp="🌲" type="tts">árbore de folla perenne</annotation>
+		<annotation cp="🌳">árbore</annotation>
+		<annotation cp="🌳" type="tts">árbore de folla caduca</annotation>
+		<annotation cp="🌴">árbore</annotation>
+		<annotation cp="🌴" type="tts">palmeira</annotation>
+		<annotation cp="🌵">planta</annotation>
+		<annotation cp="🌵" type="tts">cacto</annotation>
+		<annotation cp="🌾">planta | arroz | cereais</annotation>
+		<annotation cp="🌾" type="tts">planta de arroz</annotation>
+		<annotation cp="🌿">planta | follas</annotation>
+		<annotation cp="🌿" type="tts">planta</annotation>
+		<annotation cp="🍀">planta | sorte | 4</annotation>
+		<annotation cp="🍀" type="tts">trevo de catro follas</annotation>
+		<annotation cp="🍁">planta | folla | sicómoro | pradairo</annotation>
+		<annotation cp="🍁" type="tts">folla de pradairo</annotation>
+		<annotation cp="🍂">planta | folla | outono</annotation>
+		<annotation cp="🍂" type="tts">folla seca</annotation>
+		<annotation cp="🍃">planta | folla | vento</annotation>
+		<annotation cp="🍃" type="tts">folla ao vento</annotation>
+		<annotation cp="🍇">froita | uva | acio</annotation>
+		<annotation cp="🍇" type="tts">uvas</annotation>
+		<annotation cp="🍈">froita</annotation>
+		<annotation cp="🍈" type="tts">melón</annotation>
+		<annotation cp="🍉">froita</annotation>
+		<annotation cp="🍉" type="tts">sandía</annotation>
+		<annotation cp="🍊">froita | laranxa</annotation>
+		<annotation cp="🍊" type="tts">mandarina</annotation>
+		<annotation cp="🍋">froita</annotation>
+		<annotation cp="🍋" type="tts">limón</annotation>
+		<annotation cp="🍌">froita | banana</annotation>
+		<annotation cp="🍌" type="tts">plátano</annotation>
+		<annotation cp="🍍">froita | ananás</annotation>
+		<annotation cp="🍍" type="tts">piña</annotation>
+		<annotation cp="🍎">froita</annotation>
+		<annotation cp="🍎" type="tts">mazá vermella</annotation>
+		<annotation cp="🍏">froita</annotation>
+		<annotation cp="🍏" type="tts">mazá verde</annotation>
+		<annotation cp="🍐">froita</annotation>
+		<annotation cp="🍐" type="tts">pera</annotation>
+		<annotation cp="🍑">froita</annotation>
+		<annotation cp="🍑" type="tts">pexego</annotation>
+		<annotation cp="🍒">froita | cereixa</annotation>
+		<annotation cp="🍒" type="tts">cereixas</annotation>
+		<annotation cp="🍓">froita</annotation>
+		<annotation cp="🍓" type="tts">amorodo</annotation>
+		<annotation cp="🍅">vexetal</annotation>
+		<annotation cp="🍅" type="tts">tomate</annotation>
+		<annotation cp="🍆">vexetal</annotation>
+		<annotation cp="🍆" type="tts">berenxena</annotation>
+		<annotation cp="🌽">vexetal | millo | espiga</annotation>
+		<annotation cp="🌽" type="tts">mazaroca</annotation>
+		<annotation cp="🌶">chile</annotation>
+		<annotation cp="🌶" type="tts">chile</annotation>
+		<annotation cp="🍄">champiñón</annotation>
+		<annotation cp="🍄" type="tts">cogomelo</annotation>
+		<annotation cp="🌰">castaña | outono | magosto</annotation>
+		<annotation cp="🌰" type="tts">castaña</annotation>
+		<annotation cp="🍞">pan</annotation>
+		<annotation cp="🍞" type="tts">pan de molde</annotation>
+		<annotation cp="🧀">queixo</annotation>
+		<annotation cp="🧀" type="tts">queixo</annotation>
+		<annotation cp="🍖">carne | óso</annotation>
+		<annotation cp="🍖" type="tts">óso con carne</annotation>
+		<annotation cp="🍗">carne | óso | polo</annotation>
+		<annotation cp="🍗" type="tts">zanco de polo</annotation>
+		<annotation cp="🍔">hamburguesa</annotation>
+		<annotation cp="🍔" type="tts">hamburguesa</annotation>
+		<annotation cp="🍟">patacas fritas</annotation>
+		<annotation cp="🍟" type="tts">patacas fritas</annotation>
+		<annotation cp="🍕">pizza | porción</annotation>
+		<annotation cp="🍕" type="tts">pizza</annotation>
+		<annotation cp="🌭">salchicha | bolo con salchicha | pan de salchicha</annotation>
+		<annotation cp="🌭" type="tts">bocadillo de salchicha</annotation>
+		<annotation cp="🌮">mexicano</annotation>
+		<annotation cp="🌮" type="tts">taco</annotation>
+		<annotation cp="🌯">mexicano</annotation>
+		<annotation cp="🌯" type="tts">burrito</annotation>
+		<annotation cp="🍿">flocos de millo | flocos | millo</annotation>
+		<annotation cp="🍿" type="tts">flocos de millo</annotation>
+		<annotation cp="🍲">guiso | comida | pota | tarteira</annotation>
+		<annotation cp="🍲" type="tts">pota con comida</annotation>
+		<annotation cp="🍱">bento | xaponés | comida xaponesa</annotation>
+		<annotation cp="🍱" type="tts">caixa de bento</annotation>
+		<annotation cp="🍘">galleta | arroz | comida xaponesa</annotation>
+		<annotation cp="🍘" type="tts">galleta de arroz</annotation>
+		<annotation cp="🍙">arroz | comida xaponesa</annotation>
+		<annotation cp="🍙" type="tts">bola de arroz</annotation>
+		<annotation cp="🍚">arroz | cocido | comida chinesa | comida xaponesa</annotation>
+		<annotation cp="🍚" type="tts">cunca de arroz</annotation>
+		<annotation cp="🍛">arroz | curry</annotation>
+		<annotation cp="🍛" type="tts">arroz con curry</annotation>
+		<annotation cp="🍜">ramen | fumegante | comida chinesa | comida xaponesa</annotation>
+		<annotation cp="🍜" type="tts">fideos chineses</annotation>
+		<annotation cp="🍝">pasta | spaghetti</annotation>
+		<annotation cp="🍝" type="tts">espaguetes</annotation>
+		<annotation cp="🍠">pataca doce | pataca | doce</annotation>
+		<annotation cp="🍠" type="tts">pataca doce</annotation>
+		<annotation cp="🍢">espeto | marisco | comida xaponesa</annotation>
+		<annotation cp="🍢" type="tts">oden</annotation>
+		<annotation cp="🍣">suxi | sushi</annotation>
+		<annotation cp="🍣" type="tts">suxi</annotation>
+		<annotation cp="🍤">gamba á gabardina | gamba</annotation>
+		<annotation cp="🍤" type="tts">gamba frita</annotation>
+		<annotation cp="🍥">pastel | peixe | remuíño | espiral</annotation>
+		<annotation cp="🍥" type="tts">pastel de peixe</annotation>
+		<annotation cp="🍡">espetada | doce | sobremesa | xaponesa</annotation>
+		<annotation cp="🍡" type="tts">dango</annotation>
+		<annotation cp="🍦">sobremesa | xeado | cremoso | doce</annotation>
+		<annotation cp="🍦" type="tts">xeado de máquina</annotation>
+		<annotation cp="🍧">picado | xeo | sobremesa</annotation>
+		<annotation cp="🍧" type="tts">sobremesa de xeo picado</annotation>
+		<annotation cp="🍨">xeado | copa</annotation>
+		<annotation cp="🍨" type="tts">copa de xeado</annotation>
+		<annotation cp="🍩">rosquilla | donut | doce</annotation>
+		<annotation cp="🍩" type="tts">rosquilla</annotation>
+		<annotation cp="🍪">galleta | doce</annotation>
+		<annotation cp="🍪" type="tts">galleta</annotation>
+		<annotation cp="🎂">aniversario | candeas | celebración | festa</annotation>
+		<annotation cp="🎂" type="tts">torta de aniversario</annotation>
+		<annotation cp="🍰">torta | sobremesa | doce</annotation>
+		<annotation cp="🍰" type="tts">porción de torta</annotation>
+		<annotation cp="🍫">chocolate | libra | doce</annotation>
+		<annotation cp="🍫" type="tts">chocolate</annotation>
+		<annotation cp="🍬">doce | caramelo</annotation>
+		<annotation cp="🍬" type="tts">caramelo</annotation>
+		<annotation cp="🍭">doce | caramelo | piruleta</annotation>
+		<annotation cp="🍭" type="tts">piruleta</annotation>
+		<annotation cp="🍮">doce | sobremesa | pudin</annotation>
+		<annotation cp="🍮" type="tts">flan</annotation>
+		<annotation cp="🍯">doce | mel | bote</annotation>
+		<annotation cp="🍯" type="tts">tarro de mel</annotation>
+		<annotation cp="🍼">bebé | leite | beber</annotation>
+		<annotation cp="🍼" type="tts">biberón</annotation>
+		<annotation cp="☕">bar | bebida | quente | café</annotation>
+		<annotation cp="☕" type="tts">café</annotation>
+		<annotation cp="🍵">bar | bebida | quente | té</annotation>
+		<annotation cp="🍵" type="tts">té</annotation>
+		<annotation cp="🍶">botella | cunca | bebida | xaponesa</annotation>
+		<annotation cp="🍶" type="tts">sake</annotation>
+		<annotation cp="🍾">botella | champaña | cava | celebración</annotation>
+		<annotation cp="🍾" type="tts">botella de champaña</annotation>
+		<annotation cp="🍷">bar | bebida | copa | alcohol</annotation>
+		<annotation cp="🍷" type="tts">copa de viño</annotation>
+		<annotation cp="🍸">bar | bebida | copa | vermú</annotation>
+		<annotation cp="🍸" type="tts">cóctel</annotation>
+		<annotation cp="🍹">bar | bebida | copa</annotation>
+		<annotation cp="🍹" type="tts">bebida tropical</annotation>
+		<annotation cp="🍺">bar | cervexa | xerra</annotation>
+		<annotation cp="🍺" type="tts">cervexa</annotation>
+		<annotation cp="🍻">cervexa | celebración | xerras</annotation>
+		<annotation cp="🍻" type="tts">brinde de cervexas</annotation>
+		<annotation cp="🍽">prato | coitelo | garfo | cubertos</annotation>
+		<annotation cp="🍽" type="tts">prato e cubertos</annotation>
+		<annotation cp="🍴">cubertos | coitelo | garfo</annotation>
+		<annotation cp="🍴" type="tts">garfo e coitelo</annotation>
+		<annotation cp="🍳">tixola | ovo frito | ovo</annotation>
+		<annotation cp="🍳" type="tts">tixola</annotation>
+		<annotation cp="🏺">Acuario | zodíaco | antigüidade</annotation>
+		<annotation cp="🏺" type="tts">ánfora</annotation>
+		<annotation cp="🌍">Terra | mundo | África | Europa</annotation>
+		<annotation cp="🌍" type="tts">globo terráqueo Europa/África</annotation>
+		<annotation cp="🌎">Terra | mundo | América</annotation>
+		<annotation cp="🌎" type="tts">globo terráqueo América</annotation>
+		<annotation cp="🌏">Terra | mundo | Asia | Australia</annotation>
+		<annotation cp="🌏" type="tts">globo terráqueo Asia/Australia</annotation>
+		<annotation cp="🌐">Terra | mundo | globo | meridianos</annotation>
+		<annotation cp="🌐" type="tts">globo terráqueo con meridianos</annotation>
+		<annotation cp="🗺">mapamundi | mapa | mundo</annotation>
+		<annotation cp="🗺" type="tts">mapa do mundo</annotation>
+		<annotation cp="🏔">montaña | neve | frío | inverno</annotation>
+		<annotation cp="🏔" type="tts">montañas nevadas</annotation>
+		<annotation cp="⛰">montaña</annotation>
+		<annotation cp="⛰" type="tts">montañas</annotation>
+		<annotation cp="🌋">erupción</annotation>
+		<annotation cp="🌋" type="tts">volcán</annotation>
+		<annotation cp="🗻">montaña | monte | Xapón</annotation>
+		<annotation cp="🗻" type="tts">monte Fuji</annotation>
+		<annotation cp="🏕">campismo</annotation>
+		<annotation cp="🏕" type="tts">cámping</annotation>
+		<annotation cp="🏖">praia | parasol | verán | vacacións</annotation>
+		<annotation cp="🏖" type="tts">praia e parasol</annotation>
+		<annotation cp="🏜">deserto</annotation>
+		<annotation cp="🏜" type="tts">deserto</annotation>
+		<annotation cp="🏝">illa | deserta</annotation>
+		<annotation cp="🏝" type="tts">illa deserta</annotation>
+		<annotation cp="🏞">parque</annotation>
+		<annotation cp="🏞" type="tts">parque nacional</annotation>
+		<annotation cp="🏟">estadio | deporte | competición | partido</annotation>
+		<annotation cp="🏟" type="tts">estadio</annotation>
+		<annotation cp="🏛">edificio | clásico | Grecia</annotation>
+		<annotation cp="🏛" type="tts">monumento</annotation>
+		<annotation cp="🏗">edificio | guindastre</annotation>
+		<annotation cp="🏗" type="tts">construción</annotation>
+		<annotation cp="🏘">vivendas | urbanización | cidade | chalés</annotation>
+		<annotation cp="🏘" type="tts">casas</annotation>
+		<annotation cp="🏙">edificios | cidade</annotation>
+		<annotation cp="🏙" type="tts">paisaxe urbana</annotation>
+		<annotation cp="🏚">casa | abandonada | deshabitada | en ruínas</annotation>
+		<annotation cp="🏚" type="tts">casa abandonada</annotation>
+		<annotation cp="🏠">vivenda | chalé</annotation>
+		<annotation cp="🏠" type="tts">casa</annotation>
+		<annotation cp="🏡">casa | xardín | vivenda</annotation>
+		<annotation cp="🏡" type="tts">casa con xardín</annotation>
+		<annotation cp="⛪">edificio | capela | relixión | cristianismo</annotation>
+		<annotation cp="⛪" type="tts">igrexa</annotation>
+		<annotation cp="🕋">relixión | islamismo | musulmán | A Meca</annotation>
+		<annotation cp="🕋" type="tts">Kaaba</annotation>
+		<annotation cp="🕌">edificio | relixión | islamismo | musulmán</annotation>
+		<annotation cp="🕌" type="tts">mesquita</annotation>
+		<annotation cp="🕍">edificio | relixión | xudaísmo | xudeu</annotation>
+		<annotation cp="🕍" type="tts">sinagoga</annotation>
+		<annotation cp="⛩">relixión | xintoísmo | Xapón</annotation>
+		<annotation cp="⛩" type="tts">santuario xintoísta</annotation>
+		<annotation cp="🏢">edificio</annotation>
+		<annotation cp="🏢" type="tts">edificio</annotation>
+		<annotation cp="🏣">correo postal | edificio | oficina | correo</annotation>
+		<annotation cp="🏣" type="tts">oficina de correos xaponesa</annotation>
+		<annotation cp="🏤">correo postal | Correos | edificio | oficina</annotation>
+		<annotation cp="🏤" type="tts">oficina de correos</annotation>
+		<annotation cp="🏥">edificio | médico | medicina | urxencias</annotation>
+		<annotation cp="🏥" type="tts">hospital</annotation>
+		<annotation cp="🏦">edificio | diñeiro</annotation>
+		<annotation cp="🏦" type="tts">banco</annotation>
+		<annotation cp="🏨">edificio | hotel | aloxamento</annotation>
+		<annotation cp="🏨" type="tts">hotel</annotation>
+		<annotation cp="🏩">edificio | hotel | aloxamento | cita</annotation>
+		<annotation cp="🏩" type="tts">motel</annotation>
+		<annotation cp="🏪">edificio | establecemento | tenda | 24 horas</annotation>
+		<annotation cp="🏪" type="tts">tenda 24 horas</annotation>
+		<annotation cp="🏫">edificio | colexio</annotation>
+		<annotation cp="🏫" type="tts">escola</annotation>
+		<annotation cp="🏬">edificio | comercial | compras | grandes almacéns</annotation>
+		<annotation cp="🏬" type="tts">centro comercial</annotation>
+		<annotation cp="🏭">edificio | industria</annotation>
+		<annotation cp="🏭" type="tts">fábrica</annotation>
+		<annotation cp="🏯">edificio | castelo | Xapón</annotation>
+		<annotation cp="🏯" type="tts">castelo xaponés</annotation>
+		<annotation cp="🏰">edificio | construción</annotation>
+		<annotation cp="🏰" type="tts">castelo</annotation>
+		<annotation cp="💒">capela | igrexa | voda | casar</annotation>
+		<annotation cp="💒" type="tts">voda pola Igrexa</annotation>
+		<annotation cp="🗼">torre | Toquio | Tokio</annotation>
+		<annotation cp="🗼" type="tts">Torre de Toquio</annotation>
+		<annotation cp="🗽">estatua | liberdade | EUA</annotation>
+		<annotation cp="🗽" type="tts">Estatua da liberdade</annotation>
+		<annotation cp="🗾">mapa | Xapón</annotation>
+		<annotation cp="🗾" type="tts">mapa de Xapón</annotation>
+		<annotation cp="⛲">fonte</annotation>
+		<annotation cp="⛲" type="tts">fonte</annotation>
+		<annotation cp="⛺">cámping | campamento | acampar</annotation>
+		<annotation cp="⛺" type="tts">tenda de campaña</annotation>
+		<annotation cp="🌁">meteoroloxía | nebuloso | neboeira | borraxeira</annotation>
+		<annotation cp="🌁" type="tts">paisaxe nebulosa</annotation>
+		<annotation cp="🌃">meteoroloxía | noite | estrelas | cidade</annotation>
+		<annotation cp="🌃" type="tts">noite estrelada</annotation>
+		<annotation cp="🌄">meteoroloxía | amencer | montañas | sol</annotation>
+		<annotation cp="🌄" type="tts">amencer sobre as montañas</annotation>
+		<annotation cp="🌅">meteoroloxía | amencer | sol</annotation>
+		<annotation cp="🌅" type="tts">amencer</annotation>
+		<annotation cp="🌆">meteoroloxía | noitiña | cidade</annotation>
+		<annotation cp="🌆" type="tts">luscofusco</annotation>
+		<annotation cp="🌇">meteoroloxía | ocaso | cidade | posta de sol</annotation>
+		<annotation cp="🌇" type="tts">solpor</annotation>
+		<annotation cp="🌉">meteoroloxía | noite | estrelas | ponte</annotation>
+		<annotation cp="🌉" type="tts">ponte de noite</annotation>
+		<annotation cp="♨">quente | vapor | auga termal</annotation>
+		<annotation cp="♨" type="tts">augas termais</annotation>
+		<annotation cp="🌌">espazo</annotation>
+		<annotation cp="🌌" type="tts">vía láctea</annotation>
+		<annotation cp="🎠">cabalo | carrusel | cabaliños</annotation>
+		<annotation cp="🎠" type="tts">cabaliño de carrusel</annotation>
+		<annotation cp="🎡">parque de atraccións | noria</annotation>
+		<annotation cp="🎡" type="tts">nora</annotation>
+		<annotation cp="🎢">parque de atraccións</annotation>
+		<annotation cp="🎢" type="tts">montaña rusa</annotation>
+		<annotation cp="💈">barbeiro | barbería | barbaría | salón de peiteado</annotation>
+		<annotation cp="💈" type="tts">poste de barbeiro</annotation>
+		<annotation cp="🎪">circo | carpa</annotation>
+		<annotation cp="🎪" type="tts">carpa do circo</annotation>
+		<annotation cp="🎭">arte | teatro | artes interpretativas | actuación</annotation>
+		<annotation cp="🎭" type="tts">máscaras</annotation>
+		<annotation cp="🖼">marco | museo | pintura | exposición</annotation>
+		<annotation cp="🖼" type="tts">cadro</annotation>
+		<annotation cp="🎨">pintura | museo | paleta | arte</annotation>
+		<annotation cp="🎨" type="tts">paleta de artista</annotation>
+		<annotation cp="🎰">xogo | bar | casino</annotation>
+		<annotation cp="🎰" type="tts">máquina comecartos</annotation>
+		<annotation cp="🚂">tren | vapor | locomotora</annotation>
+		<annotation cp="🚂" type="tts">locomotora de vapor</annotation>
+		<annotation cp="🚃">tren | tranvía | tren eléctrico</annotation>
+		<annotation cp="🚃" type="tts">vagón</annotation>
+		<annotation cp="🚄">tren | alta velocidade | AVE</annotation>
+		<annotation cp="🚄" type="tts">tren de alta velocidade</annotation>
+		<annotation cp="🚅">tren | alta velocidade</annotation>
+		<annotation cp="🚅" type="tts">tren bala</annotation>
+		<annotation cp="🚆">ferrocarril</annotation>
+		<annotation cp="🚆" type="tts">tren</annotation>
+		<annotation cp="🚇">metro</annotation>
+		<annotation cp="🚇" type="tts">metro</annotation>
+		<annotation cp="🚈">tranvía</annotation>
+		<annotation cp="🚈" type="tts">tren lixeiro</annotation>
+		<annotation cp="🚉">tren | tranvía</annotation>
+		<annotation cp="🚉" type="tts">estación</annotation>
+		<annotation cp="🚊">tranvía</annotation>
+		<annotation cp="🚊" type="tts">tranvía</annotation>
+		<annotation cp="🚝">monocarril</annotation>
+		<annotation cp="🚝" type="tts">monocarril</annotation>
+		<annotation cp="🚞">ferrocarril</annotation>
+		<annotation cp="🚞" type="tts">ferrocarril de montaña</annotation>
+		<annotation cp="🚋">tranvía | vagón</annotation>
+		<annotation cp="🚋" type="tts">vagón de tranvía</annotation>
+		<annotation cp="🚌">bus | autocar</annotation>
+		<annotation cp="🚌" type="tts">autobús</annotation>
+		<annotation cp="🚍">autobús | bus | autocar</annotation>
+		<annotation cp="🚍" type="tts">autobús de fronte</annotation>
+		<annotation cp="🚎">trole</annotation>
+		<annotation cp="🚎" type="tts">trolebús</annotation>
+		<annotation cp="🚏">parada de autobús | bus | autobús | parada</annotation>
+		<annotation cp="🚏" type="tts">parada de bus</annotation>
+		<annotation cp="🚐">autobús</annotation>
+		<annotation cp="🚐" type="tts">minibús</annotation>
+		<annotation cp="🚑">ambulancia</annotation>
+		<annotation cp="🚑" type="tts">ambulancia</annotation>
+		<annotation cp="🚒">camión | bombeiros</annotation>
+		<annotation cp="🚒" type="tts">coche de bombeiros</annotation>
+		<annotation cp="🚓">coche | policía</annotation>
+		<annotation cp="🚓" type="tts">coche de policía</annotation>
+		<annotation cp="🚔">coche | policía</annotation>
+		<annotation cp="🚔" type="tts">coche de policía de fronte</annotation>
+		<annotation cp="🚕">taxi</annotation>
+		<annotation cp="🚕" type="tts">taxi</annotation>
+		<annotation cp="🚖">taxi</annotation>
+		<annotation cp="🚖" type="tts">taxi de fronte</annotation>
+		<annotation cp="🚗">automóbil | vehículo</annotation>
+		<annotation cp="🚗" type="tts">coche</annotation>
+		<annotation cp="🚘">automóbil | vehículo | coche</annotation>
+		<annotation cp="🚘" type="tts">coche de fronte</annotation>
+		<annotation cp="🚙">autocaravana | vehículo recreativo | vacacións</annotation>
+		<annotation cp="🚙" type="tts">autocaravana</annotation>
+		<annotation cp="🚚">camión</annotation>
+		<annotation cp="🚚" type="tts">camión de reparto</annotation>
+		<annotation cp="🚛">camión | tráiler</annotation>
+		<annotation cp="🚛" type="tts">camión articulado</annotation>
+		<annotation cp="🚜">tractor | agricultura</annotation>
+		<annotation cp="🚜" type="tts">tractor</annotation>
+		<annotation cp="🚲">bici</annotation>
+		<annotation cp="🚲" type="tts">bicicleta</annotation>
+		<annotation cp="⛽">combustible | gasolina | gasóleo | carburante</annotation>
+		<annotation cp="⛽" type="tts">gasolineira</annotation>
+		<annotation cp="🛣">autovía | estrada</annotation>
+		<annotation cp="🛣" type="tts">autoestrada</annotation>
+		<annotation cp="🛤">vía | tren</annotation>
+		<annotation cp="🛤" type="tts">vía do tren</annotation>
+		<annotation cp="🚨">coche de policía | policía | sirena | luces</annotation>
+		<annotation cp="🚨" type="tts">sirena de policía</annotation>
+		<annotation cp="🚥">semáforo | tráfico | horizontal</annotation>
+		<annotation cp="🚥" type="tts">semáforo horizontal</annotation>
+		<annotation cp="🚦">semáforo | tráfico | vertical</annotation>
+		<annotation cp="🚦" type="tts">semáforo</annotation>
+		<annotation cp="🚧">obras | sinal de obras</annotation>
+		<annotation cp="🚧" type="tts">en construción</annotation>
+		<annotation cp="⚓">barco</annotation>
+		<annotation cp="⚓" type="tts">áncora</annotation>
+		<annotation cp="⛵">mar | barco</annotation>
+		<annotation cp="⛵" type="tts">veleiro</annotation>
+		<annotation cp="🚣">remeiro | bote | remo | embarcación</annotation>
+		<annotation cp="🚣" type="tts">remador</annotation>
+		<annotation cp="🚣‍♀">remador | bote | remo | muller</annotation>
+		<annotation cp="🚣‍♀" type="tts">remeira</annotation>
+		<annotation cp="🚣‍♂">remador | bote | remo | home</annotation>
+		<annotation cp="🚣‍♂" type="tts">remeiro</annotation>
+		<annotation cp="🚤">lancha | barco</annotation>
+		<annotation cp="🚤" type="tts">lancha motora</annotation>
+		<annotation cp="🛳">barco | cruceiro</annotation>
+		<annotation cp="🛳" type="tts">barco de pasaxeiros</annotation>
+		<annotation cp="⛴">barco | transbordador</annotation>
+		<annotation cp="⛴" type="tts">ferri</annotation>
+		<annotation cp="🛥">barco | motor</annotation>
+		<annotation cp="🛥" type="tts">barco a motor</annotation>
+		<annotation cp="🚢">barco</annotation>
+		<annotation cp="🚢" type="tts">barco</annotation>
+		<annotation cp="✈">avión</annotation>
+		<annotation cp="✈" type="tts">avión</annotation>
+		<annotation cp="🛩">avión</annotation>
+		<annotation cp="🛩" type="tts">avioneta</annotation>
+		<annotation cp="🛫">avión | saída | despegue</annotation>
+		<annotation cp="🛫" type="tts">avión despegando</annotation>
+		<annotation cp="🛬">avión | chegada | aterraxe</annotation>
+		<annotation cp="🛬" type="tts">avión aterrando</annotation>
+		<annotation cp="💺">asento</annotation>
+		<annotation cp="💺" type="tts">asento</annotation>
+		<annotation cp="🚁">helicóptero</annotation>
+		<annotation cp="🚁" type="tts">helicóptero</annotation>
+		<annotation cp="🚟">tren | suspensión | suspendido | ferrocarril</annotation>
+		<annotation cp="🚟" type="tts">tren colgante</annotation>
+		<annotation cp="🚠">montaña | tren | cabina</annotation>
+		<annotation cp="🚠" type="tts">teleférico</annotation>
+		<annotation cp="🚡">aéreo | tranvía | colgante</annotation>
+		<annotation cp="🚡" type="tts">funicular</annotation>
+		<annotation cp="🚀">espazo</annotation>
+		<annotation cp="🚀" type="tts">foguete</annotation>
+		<annotation cp="🛰">espazo</annotation>
+		<annotation cp="🛰" type="tts">satélite</annotation>
+		<annotation cp="🛎">campaíña | hotel | recepción | timbre</annotation>
+		<annotation cp="🛎" type="tts">campaíña de recepción</annotation>
+		<annotation cp="🚪">porta</annotation>
+		<annotation cp="🚪" type="tts">porta</annotation>
+		<annotation cp="🛌">hotel | durmir</annotation>
+		<annotation cp="🛌" type="tts">persoa durmindo</annotation>
+		<annotation cp="🛏">hotel | durmir</annotation>
+		<annotation cp="🛏" type="tts">cama</annotation>
+		<annotation cp="🛋">hotel | sofá | lámpada</annotation>
+		<annotation cp="🛋" type="tts">sofá e lámpada</annotation>
+		<annotation cp="🚽">váter | inodoro | retrete</annotation>
+		<annotation cp="🚽" type="tts">váter</annotation>
+		<annotation cp="🚿">auga</annotation>
+		<annotation cp="🚿" type="tts">ducha</annotation>
+		<annotation cp="🛀">bañeira | bañarse</annotation>
+		<annotation cp="🛀" type="tts">persoa bañándose</annotation>
+		<annotation cp="🛁">baño</annotation>
+		<annotation cp="🛁" type="tts">bañeira</annotation>
+		<annotation cp="⌛">reloxo | tempo</annotation>
+		<annotation cp="⌛" type="tts">reloxo de area</annotation>
+		<annotation cp="⏳">reloxo | reloxo de area</annotation>
+		<annotation cp="⏳" type="tts">reloxo de area en funcionamento</annotation>
+		<annotation cp="⌚">reloxo</annotation>
+		<annotation cp="⌚" type="tts">reloxo</annotation>
+		<annotation cp="⏰">reloxo | espertar | alarma</annotation>
+		<annotation cp="⏰" type="tts">espertador</annotation>
+		<annotation cp="⏱">reloxo | tempo</annotation>
+		<annotation cp="⏱" type="tts">cronómetro</annotation>
+		<annotation cp="⏲">reloxo | tempo</annotation>
+		<annotation cp="⏲" type="tts">temporizador</annotation>
+		<annotation cp="🕰">reloxo</annotation>
+		<annotation cp="🕰" type="tts">reloxo de repisa</annotation>
+		<annotation cp="🕛">12:00 | 00:00 | 12 | en punto</annotation>
+		<annotation cp="🕛" type="tts">as doce en punto</annotation>
+		<annotation cp="🕧">12:30 | 00:30 | 12 | e media</annotation>
+		<annotation cp="🕧" type="tts">as doce e media</annotation>
+		<annotation cp="🕐">1:00 | 13:00 | 1 | en punto</annotation>
+		<annotation cp="🕐" type="tts">unha en punto</annotation>
+		<annotation cp="🕜">1:30 | 13:30 | 1 | e media</annotation>
+		<annotation cp="🕜" type="tts">unha e media</annotation>
+		<annotation cp="🕑">2:00 | 14:00 | 2 | en punto</annotation>
+		<annotation cp="🕑" type="tts">dúas en punto</annotation>
+		<annotation cp="🕝">2:30 | 14:30 | 2 | e media</annotation>
+		<annotation cp="🕝" type="tts">dúas e media</annotation>
+		<annotation cp="🕒">3:00 | 15:00 | 3 | en punto</annotation>
+		<annotation cp="🕒" type="tts">tres en punto</annotation>
+		<annotation cp="🕞">3:30 | 15:30 | 3 | e media</annotation>
+		<annotation cp="🕞" type="tts">tres e media</annotation>
+		<annotation cp="🕓">4:00 | 16:00 | 4 | en punto</annotation>
+		<annotation cp="🕓" type="tts">catro en punto</annotation>
+		<annotation cp="🕟">4:30 | 16:30 | 4 | e media</annotation>
+		<annotation cp="🕟" type="tts">catro e media</annotation>
+		<annotation cp="🕔">5:00 | 17:00 | 5 | en punto</annotation>
+		<annotation cp="🕔" type="tts">cinco en punto</annotation>
+		<annotation cp="🕠">5:30 | 17:30 | 5 | e media</annotation>
+		<annotation cp="🕠" type="tts">cinco e media</annotation>
+		<annotation cp="🕕">6:00 | 18:00 | 6 | en punto</annotation>
+		<annotation cp="🕕" type="tts">seis en punto</annotation>
+		<annotation cp="🕡">6:30 | 18:30 | 6 | e media</annotation>
+		<annotation cp="🕡" type="tts">seis e media</annotation>
+		<annotation cp="🕖">7:00 | 19:00 | 7 | en punto</annotation>
+		<annotation cp="🕖" type="tts">sete en punto</annotation>
+		<annotation cp="🕢">7:30 | 19:30 | 7 | e media</annotation>
+		<annotation cp="🕢" type="tts">sete e media</annotation>
+		<annotation cp="🕗">8:00 | 20:00 | 8 | en punto</annotation>
+		<annotation cp="🕗" type="tts">oito en punto</annotation>
+		<annotation cp="🕣">8:30 | 20:30 | 8 | e media</annotation>
+		<annotation cp="🕣" type="tts">oito e media</annotation>
+		<annotation cp="🕘">9:00 | 21:00 | 9 | en punto</annotation>
+		<annotation cp="🕘" type="tts">nove en punto</annotation>
+		<annotation cp="🕤">9:30 | 21:30 | 9 | e media</annotation>
+		<annotation cp="🕤" type="tts">nove e media</annotation>
+		<annotation cp="🕙">10:00 | 22:00 | 10 | en punto</annotation>
+		<annotation cp="🕙" type="tts">dez en punto</annotation>
+		<annotation cp="🕥">10:30 | 22:30 | 10 | e media</annotation>
+		<annotation cp="🕥" type="tts">dez e media</annotation>
+		<annotation cp="🕚">11:00 | 23:00 | 11 | en punto</annotation>
+		<annotation cp="🕚" type="tts">once en punto</annotation>
+		<annotation cp="🕦">11:30 | 23:30 | 11 | e media</annotation>
+		<annotation cp="🕦" type="tts">once e media</annotation>
+		<annotation cp="🌑">lúa | nova | novilunio</annotation>
+		<annotation cp="🌑" type="tts">lúa nova</annotation>
+		<annotation cp="🌒">lúa | nova | visible</annotation>
+		<annotation cp="🌒" type="tts">lúa nova visible</annotation>
+		<annotation cp="🌓">lúa | cuarto | crecente</annotation>
+		<annotation cp="🌓" type="tts">lúa en cuarto crecente</annotation>
+		<annotation cp="🌔">lúa | xibosa | crecente</annotation>
+		<annotation cp="🌔" type="tts">lúa xibosa crecente</annotation>
+		<annotation cp="🌕">lúa | chea | plenilunio</annotation>
+		<annotation cp="🌕" type="tts">lúa chea</annotation>
+		<annotation cp="🌖">lúa | xibosa | minguante</annotation>
+		<annotation cp="🌖" type="tts">lúa xibosa minguante</annotation>
+		<annotation cp="🌗">lúa | cuarto | minguante</annotation>
+		<annotation cp="🌗" type="tts">lúa en cuarto minguante</annotation>
+		<annotation cp="🌘">lúa | minguante</annotation>
+		<annotation cp="🌘" type="tts">lúa minguante</annotation>
+		<annotation cp="🌙">lúa | crecente</annotation>
+		<annotation cp="🌙" type="tts">lúa crecente</annotation>
+		<annotation cp="🌚">lúa | nova | cara</annotation>
+		<annotation cp="🌚" type="tts">lúa nova con cara</annotation>
+		<annotation cp="🌛">lúa | cuarto | cara | crecente</annotation>
+		<annotation cp="🌛" type="tts">lúa en cuarto crecente con cara</annotation>
+		<annotation cp="🌜">lúa | cuarto | cara | minguante</annotation>
+		<annotation cp="🌜" type="tts">lúa en cuarto minguante con cara</annotation>
+		<annotation cp="🌡">temperatura</annotation>
+		<annotation cp="🌡" type="tts">termómetro</annotation>
+		<annotation cp="☀">tempo | solleiro | raios | calor</annotation>
+		<annotation cp="☀" type="tts">sol</annotation>
+		<annotation cp="🌝">lúa | chea | cara</annotation>
+		<annotation cp="🌝" type="tts">lúa chea con cara</annotation>
+		<annotation cp="🌞">sol | cara</annotation>
+		<annotation cp="🌞" type="tts">sol con cara</annotation>
+		<annotation cp="⭐">estrela</annotation>
+		<annotation cp="⭐" type="tts">estrela branca mediana</annotation>
+		<annotation cp="🌟">estrela | brillante | escintilante</annotation>
+		<annotation cp="🌟" type="tts">estrela brillante</annotation>
+		<annotation cp="🌠">estrela | fugaz | choiva de estrelas | chuvia de estrelas</annotation>
+		<annotation cp="🌠" type="tts">estrela fugaz</annotation>
+		<annotation cp="☁">meteoroloxía</annotation>
+		<annotation cp="☁" type="tts">nube</annotation>
+		<annotation cp="⛅">meteoroloxía | sol | nubrado | anubrado</annotation>
+		<annotation cp="⛅" type="tts">ceo parcialmente cuberto</annotation>
+		<annotation cp="⛈">meteoroloxía | nube | lóstrego | choiva</annotation>
+		<annotation cp="⛈" type="tts">tormenta</annotation>
+		<annotation cp="🌤">meteoroloxía | nube | sol</annotation>
+		<annotation cp="🌤" type="tts">ceo parcialmente despexado</annotation>
+		<annotation cp="🌥">meteoroloxía | nube | sol</annotation>
+		<annotation cp="🌥" type="tts">ceo cuberto</annotation>
+		<annotation cp="🌦">meteoroloxía | nube | sol | choiva</annotation>
+		<annotation cp="🌦" type="tts">ceo cuberto con choiva</annotation>
+		<annotation cp="🌧">meteoroloxía | nube | choiva | chuvia</annotation>
+		<annotation cp="🌧" type="tts">choiva</annotation>
+		<annotation cp="🌨">meteoroloxía | neve | frío | inverno</annotation>
+		<annotation cp="🌨" type="tts">neve</annotation>
+		<annotation cp="🌩">meteoroloxía | nube | lóstrego</annotation>
+		<annotation cp="🌩" type="tts">lóstregos</annotation>
+		<annotation cp="🌪">meteoroloxía | furacán</annotation>
+		<annotation cp="🌪" type="tts">tornado</annotation>
+		<annotation cp="🌫">meteoroloxía | nebuloso</annotation>
+		<annotation cp="🌫" type="tts">néboa</annotation>
+		<annotation cp="🌬">meteoroloxía | vento | cara | soprar</annotation>
+		<annotation cp="🌬" type="tts">vento</annotation>
+		<annotation cp="🌀">tifón | furacán | tornado</annotation>
+		<annotation cp="🌀" type="tts">ciclón</annotation>
+		<annotation cp="🌈">arco iris</annotation>
+		<annotation cp="🌈" type="tts">arco da vella</annotation>
+		<annotation cp="🌂">paraugas | choiva | pingas</annotation>
+		<annotation cp="🌂" type="tts">paraugas pechado</annotation>
+		<annotation cp="☂">paraugas | choiva</annotation>
+		<annotation cp="☂" type="tts">paraugas</annotation>
+		<annotation cp="☔">paraugas | choiva</annotation>
+		<annotation cp="☔" type="tts">paraugas con choiva</annotation>
+		<annotation cp="⛱">praia | area | sol | parasol</annotation>
+		<annotation cp="⛱" type="tts">parasol na praia</annotation>
+		<annotation cp="⚡">electricidade | perigo | alta voltaxe</annotation>
+		<annotation cp="⚡" type="tts">alta tensión</annotation>
+		<annotation cp="❄">neve | frío | inverno | copo</annotation>
+		<annotation cp="❄" type="tts">copo de neve</annotation>
+		<annotation cp="☃">neve | frío | inverno | boneco</annotation>
+		<annotation cp="☃" type="tts">nevando e boneco de neve</annotation>
+		<annotation cp="⛄">frío | inverno | boneco</annotation>
+		<annotation cp="⛄" type="tts">boneco de neve</annotation>
+		<annotation cp="☄">espazo</annotation>
+		<annotation cp="☄" type="tts">cometa</annotation>
+		<annotation cp="🔥">lapas | incendio | fogo</annotation>
+		<annotation cp="🔥" type="tts">lume</annotation>
+		<annotation cp="💧">cómic | suor fría | suar | auga</annotation>
+		<annotation cp="💧" type="tts">pinga</annotation>
+		<annotation cp="🌊">onda do mar | onda do océano | mar | océano</annotation>
+		<annotation cp="🌊" type="tts">onda</annotation>
+		<annotation cp="🎃">Samaín | Halloween | celebración | cabaza</annotation>
+		<annotation cp="🎃" type="tts">cabaza de Samaín</annotation>
+		<annotation cp="🎄">Nadal | árbore | celebración</annotation>
+		<annotation cp="🎄" type="tts">árbore de Nadal</annotation>
+		<annotation cp="🎆">celebración | festas</annotation>
+		<annotation cp="🎆" type="tts">fogos artificiais</annotation>
+		<annotation cp="🎇">celebración | festa</annotation>
+		<annotation cp="🎇" type="tts">bengala</annotation>
+		<annotation cp="✨">estrelas</annotation>
+		<annotation cp="✨" type="tts">chispas</annotation>
+		<annotation cp="🎈">aniversario | festa</annotation>
+		<annotation cp="🎈" type="tts">globo</annotation>
+		<annotation cp="🎉">festa | confeti</annotation>
+		<annotation cp="🎉" type="tts">lanzador de confeti</annotation>
+		<annotation cp="🎊">festa | confeti</annotation>
+		<annotation cp="🎊" type="tts">bola de confeti</annotation>
+		<annotation cp="🎋">árbore | celebración | tiras de papel | xaponés</annotation>
+		<annotation cp="🎋" type="tts">árbore dos desexos de Tanabata</annotation>
+		<annotation cp="🎌">bandeiras | cruzadas | Xapón</annotation>
+		<annotation cp="🎌" type="tts">bandeiras cruzadas</annotation>
+		<annotation cp="🎍">bambú | celebración | Aninovo</annotation>
+		<annotation cp="🎍" type="tts">decoración con bambú</annotation>
+		<annotation cp="🎎">celebración | festival xaponés | bonecas</annotation>
+		<annotation cp="🎎" type="tts">bonecas xaponesas</annotation>
+		<annotation cp="🎏">bandeirolas | carpas | festa</annotation>
+		<annotation cp="🎏" type="tts">bandeirolas con forma de carpas</annotation>
+		<annotation cp="🎐">campaíña | vento</annotation>
+		<annotation cp="🎐" type="tts">campaíña de vento</annotation>
+		<annotation cp="🎑">cerimonia | lúa | xaponesa</annotation>
+		<annotation cp="🎑" type="tts">cerimonia da lúa</annotation>
+		<annotation cp="🎀">celebración | cinta | regalo</annotation>
+		<annotation cp="🎀" type="tts">lazo</annotation>
+		<annotation cp="🎁">festa | aniversario | lazo</annotation>
+		<annotation cp="🎁" type="tts">regalo</annotation>
+		<annotation cp="🎖">medalla | militar | condecoración</annotation>
+		<annotation cp="🎖" type="tts">medalla militar</annotation>
+		<annotation cp="🎗">conmemoración | lazo</annotation>
+		<annotation cp="🎗" type="tts">lazo conmemorativo</annotation>
+		<annotation cp="🎞">cine | fotograma | película | negativo</annotation>
+		<annotation cp="🎞" type="tts">fotograma de película</annotation>
+		<annotation cp="🎟">entrada | espectáculo</annotation>
+		<annotation cp="🎟" type="tts">entradas</annotation>
+		<annotation cp="🎫">entrada | billete</annotation>
+		<annotation cp="🎫" type="tts">tícket</annotation>
+		<annotation cp="🏷">etiqueta</annotation>
+		<annotation cp="🏷" type="tts">etiqueta</annotation>
+		<annotation cp="⚽">balón | pelota | fútbol</annotation>
+		<annotation cp="⚽" type="tts">balón de fútbol</annotation>
+		<annotation cp="⚾">pelota | béisbol</annotation>
+		<annotation cp="⚾" type="tts">pelota de béisbol</annotation>
+		<annotation cp="🏀">balón | pelota | baloncesto | canastra</annotation>
+		<annotation cp="🏀" type="tts">balón de baloncesto</annotation>
+		<annotation cp="🏈">balón | pelota | fútbol americano</annotation>
+		<annotation cp="🏈" type="tts">balón de fútbol americano</annotation>
+		<annotation cp="🏉">balón | pelota | rugby</annotation>
+		<annotation cp="🏉" type="tts">balón de rugby</annotation>
+		<annotation cp="🎾">pelota | raqueta</annotation>
+		<annotation cp="🎾" type="tts">tenis</annotation>
+		<annotation cp="🎱">bola</annotation>
+		<annotation cp="🎱" type="tts">billar</annotation>
+		<annotation cp="🎳">bolos</annotation>
+		<annotation cp="🎳" type="tts">bolos</annotation>
+		<annotation cp="⛳">bandeira | burato | buraco</annotation>
+		<annotation cp="⛳" type="tts">golf</annotation>
+		<annotation cp="🏌">golf | pelota</annotation>
+		<annotation cp="🏌" type="tts">golfista</annotation>
+		<annotation cp="🏌‍♀">golf | pelota | muller</annotation>
+		<annotation cp="🏌‍♀" type="tts">golfista de sexo feminino</annotation>
+		<annotation cp="🏌‍♂">golf | pelota | home</annotation>
+		<annotation cp="🏌‍♂" type="tts">golfista de sexo masculino</annotation>
+		<annotation cp="⛸">patinaxe | xeo</annotation>
+		<annotation cp="⛸" type="tts">patinaxe sobre xeo</annotation>
+		<annotation cp="🎣">cana | peixe | pescar</annotation>
+		<annotation cp="🎣" type="tts">cana de pescar</annotation>
+		<annotation cp="🎽">correr | camiseta</annotation>
+		<annotation cp="🎽" type="tts">camiseta de correr</annotation>
+		<annotation cp="🎿">esquí | neve | bastóns</annotation>
+		<annotation cp="🎿" type="tts">esquís</annotation>
+		<annotation cp="⛷">esquí | neve</annotation>
+		<annotation cp="⛷" type="tts">esquiador</annotation>
+		<annotation cp="🏂">neve | táboa | snowboard</annotation>
+		<annotation cp="🏂" type="tts">persoa practicando snowboard</annotation>
+		<annotation cp="🏄">surf | surfeiro</annotation>
+		<annotation cp="🏄" type="tts">surfista</annotation>
+		<annotation cp="🏄‍♀">surf | muller | surfista</annotation>
+		<annotation cp="🏄‍♀" type="tts">surfeira</annotation>
+		<annotation cp="🏄‍♂">surf | home | surfista</annotation>
+		<annotation cp="🏄‍♂" type="tts">surfeiro</annotation>
+		<annotation cp="🏇">cabalo | jóckey | xinete | cabalo de carreiras</annotation>
+		<annotation cp="🏇" type="tts">carreira de cabalos</annotation>
+		<annotation cp="🏊">nadar</annotation>
+		<annotation cp="🏊" type="tts">persoa nadando</annotation>
+		<annotation cp="🏊‍♀">nadar | muller</annotation>
+		<annotation cp="🏊‍♀" type="tts">nadadora</annotation>
+		<annotation cp="🏊‍♂">nadar | home</annotation>
+		<annotation cp="🏊‍♂" type="tts">nadador</annotation>
+		<annotation cp="⛹">balón | baloncesto</annotation>
+		<annotation cp="⛹" type="tts">persoa cun balón</annotation>
+		<annotation cp="⛹‍♀">balón | baloncesto | muller</annotation>
+		<annotation cp="⛹‍♀" type="tts">xogadora de baloncesto</annotation>
+		<annotation cp="⛹‍♂">balón | baloncesto | home</annotation>
+		<annotation cp="⛹‍♂" type="tts">xogador de baloncesto</annotation>
+		<annotation cp="🏋">levantar pesos | halterofilia</annotation>
+		<annotation cp="🏋" type="tts">persoa practicando halterofilia</annotation>
+		<annotation cp="🏋‍♀">levantar pesos | halterofilia | muller</annotation>
+		<annotation cp="🏋‍♀" type="tts">levantadora de pesos</annotation>
+		<annotation cp="🏋‍♂">levantar pesos | halterofilia | home</annotation>
+		<annotation cp="🏋‍♂" type="tts">levantador de pesos</annotation>
+		<annotation cp="🚴">bicicleta | ciclismo</annotation>
+		<annotation cp="🚴" type="tts">ciclista</annotation>
+		<annotation cp="🚴‍♀">bicicleta | ciclismo | ciclista | muller</annotation>
+		<annotation cp="🚴‍♀" type="tts">muller practicando ciclismo</annotation>
+		<annotation cp="🚴‍♂">bicicleta | ciclismo | ciclista | home</annotation>
+		<annotation cp="🚴‍♂" type="tts">home practicando ciclismo</annotation>
+		<annotation cp="🚵">bicicleta de montaña | ciclismo</annotation>
+		<annotation cp="🚵" type="tts">ciclista de montaña</annotation>
+		<annotation cp="🚵‍♀">bicicleta de montaña | ciclismo | ciclista | muller</annotation>
+		<annotation cp="🚵‍♀" type="tts">muller practicando ciclismo de montaña</annotation>
+		<annotation cp="🚵‍♂">bicicleta de montaña | ciclismo | ciclista | home</annotation>
+		<annotation cp="🚵‍♂" type="tts">home practicando ciclismo de montaña</annotation>
+		<annotation cp="🏎">coche | carreiras</annotation>
+		<annotation cp="🏎" type="tts">coche de carreiras</annotation>
+		<annotation cp="🏍">motocicleta | carreiras</annotation>
+		<annotation cp="🏍" type="tts">moto</annotation>
+		<annotation cp="🏅">medalla | podio | deporte</annotation>
+		<annotation cp="🏅" type="tts">medalla deportiva</annotation>
+		<annotation cp="🏆">premio</annotation>
+		<annotation cp="🏆" type="tts">trofeo</annotation>
+		<annotation cp="🏏">pelota | bate</annotation>
+		<annotation cp="🏏" type="tts">crícket</annotation>
+		<annotation cp="🏐">balón | pelota | voleibol</annotation>
+		<annotation cp="🏐" type="tts">balón de voleibol</annotation>
+		<annotation cp="🏑">stick | pelota | hóckey | herba</annotation>
+		<annotation cp="🏑" type="tts">hóckey sobre herba</annotation>
+		<annotation cp="🏒">stick | disco | hóckey | xeo</annotation>
+		<annotation cp="🏒" type="tts">hóckey sobre xeo</annotation>
+		<annotation cp="🏓">ping-pong | tenis de mesa</annotation>
+		<annotation cp="🏓" type="tts">pimpón</annotation>
+		<annotation cp="🏸">raqueta | volante</annotation>
+		<annotation cp="🏸" type="tts">bádminton</annotation>
+		<annotation cp="🎯">dardo</annotation>
+		<annotation cp="🎯" type="tts">diana</annotation>
+		<annotation cp="🎮">mando | xogo | consola</annotation>
+		<annotation cp="🎮" type="tts">videoxogo</annotation>
+		<annotation cp="🕹">xogo | videoxogo | consola</annotation>
+		<annotation cp="🕹" type="tts">panca de mando</annotation>
+		<annotation cp="🎲">xogo</annotation>
+		<annotation cp="🎲" type="tts">dado</annotation>
+		<annotation cp="♠">cartas | xogos | baralla francesa | pica</annotation>
+		<annotation cp="♠" type="tts">picas</annotation>
+		<annotation cp="♥">cartas | xogos | baralla francesa | corazón</annotation>
+		<annotation cp="♥" type="tts">corazóns</annotation>
+		<annotation cp="♦">cartas | xogos | baralla francesa | rombo</annotation>
+		<annotation cp="♦" type="tts">rombos</annotation>
+		<annotation cp="♣">cartas | xogos | baralla francesa | trevo</annotation>
+		<annotation cp="♣" type="tts">trevos</annotation>
+		<annotation cp="🃏">cartas | xogos | baralla francesa</annotation>
+		<annotation cp="🃏" type="tts">comodín</annotation>
+		<annotation cp="🀄">xogo | mahjong | dragón | vermello</annotation>
+		<annotation cp="🀄" type="tts">ficha de mahjong</annotation>
+		<annotation cp="🎴">xogo | cartas | xaponés | flor</annotation>
+		<annotation cp="🎴" type="tts">xogo de cartas de flores</annotation>
+		<annotation cp="🔇">silencio | altofalante | volume</annotation>
+		<annotation cp="🔇" type="tts">altofalante desactivado</annotation>
+		<annotation cp="🔈">volume</annotation>
+		<annotation cp="🔈" type="tts">altofalante</annotation>
+		<annotation cp="🔉">volume | altofalante | baixo</annotation>
+		<annotation cp="🔉" type="tts">altofalante activado</annotation>
+		<annotation cp="🔊">volume | altofalante | alto</annotation>
+		<annotation cp="🔊" type="tts">altofalante con volume alto</annotation>
+		<annotation cp="📢">altofalante | megafonía</annotation>
+		<annotation cp="📢" type="tts">altofalante de megafonía</annotation>
+		<annotation cp="📣">megáfono | megafonía</annotation>
+		<annotation cp="📣" type="tts">megáfono</annotation>
+		<annotation cp="📯">corneta | postal | Correos</annotation>
+		<annotation cp="📯" type="tts">corneta postal</annotation>
+		<annotation cp="🔔">campá</annotation>
+		<annotation cp="🔔" type="tts">campá</annotation>
+		<annotation cp="🔕">campá | tachada | silencio | prohibido</annotation>
+		<annotation cp="🔕" type="tts">campá tachada</annotation>
+		<annotation cp="🎼">pentagrama | música | solfexo</annotation>
+		<annotation cp="🎼" type="tts">clave de sol</annotation>
+		<annotation cp="🎵">nota | música | solfexo | corchea</annotation>
+		<annotation cp="🎵" type="tts">nota musical</annotation>
+		<annotation cp="🎶">notas | música</annotation>
+		<annotation cp="🎶" type="tts">notas musicais</annotation>
+		<annotation cp="🎙">micrófono | música | gravación | radio</annotation>
+		<annotation cp="🎙" type="tts">micrófono de gravación</annotation>
+		<annotation cp="🎚">control | volume | música</annotation>
+		<annotation cp="🎚" type="tts">control desprazable</annotation>
+		<annotation cp="🎛">control | botóns | música</annotation>
+		<annotation cp="🎛" type="tts">botóns de control</annotation>
+		<annotation cp="🎤">karaoke</annotation>
+		<annotation cp="🎤" type="tts">micrófono</annotation>
+		<annotation cp="🎧">cascos</annotation>
+		<annotation cp="🎧" type="tts">auriculares</annotation>
+		<annotation cp="🎷">instrumento | saxo</annotation>
+		<annotation cp="🎷" type="tts">saxofón</annotation>
+		<annotation cp="🎸">instrumento</annotation>
+		<annotation cp="🎸" type="tts">guitarra</annotation>
+		<annotation cp="🎹">instrumento | teclado | órgano | piano</annotation>
+		<annotation cp="🎹" type="tts">teclado musical</annotation>
+		<annotation cp="🎺">instrumento</annotation>
+		<annotation cp="🎺" type="tts">trompeta</annotation>
+		<annotation cp="🎻">instrumento</annotation>
+		<annotation cp="🎻" type="tts">violín</annotation>
+		<annotation cp="📻">radio</annotation>
+		<annotation cp="📻" type="tts">radio</annotation>
+		<annotation cp="📱">móbil | teléfono</annotation>
+		<annotation cp="📱" type="tts">teléfono móbil</annotation>
+		<annotation cp="📲">móbil | teléfono | frecha | recibir</annotation>
+		<annotation cp="📲" type="tts">teléfono móbil con frecha</annotation>
+		<annotation cp="☎">teléfono</annotation>
+		<annotation cp="☎" type="tts">teléfono</annotation>
+		<annotation cp="📞">teléfono | receptor | auricular</annotation>
+		<annotation cp="📞" type="tts">auricular do teléfono</annotation>
+		<annotation cp="📟">busca | localizador</annotation>
+		<annotation cp="📟" type="tts">busca</annotation>
+		<annotation cp="📠">fax | telefax</annotation>
+		<annotation cp="📠" type="tts">fax</annotation>
+		<annotation cp="🔋">batería | carga</annotation>
+		<annotation cp="🔋" type="tts">pila</annotation>
+		<annotation cp="🔌">electricidade | enchufar</annotation>
+		<annotation cp="🔌" type="tts">enchufe</annotation>
+		<annotation cp="💻">ordenador | portátil</annotation>
+		<annotation cp="💻" type="tts">ordenador portátil</annotation>
+		<annotation cp="🖥">ordenador | escritorio</annotation>
+		<annotation cp="🖥" type="tts">ordenador de escritorio</annotation>
+		<annotation cp="🖨">ordenador | imprimir</annotation>
+		<annotation cp="🖨" type="tts">impresora</annotation>
+		<annotation cp="⌨">ordenador</annotation>
+		<annotation cp="⌨" type="tts">teclado</annotation>
+		<annotation cp="🖱">ordenador | rato</annotation>
+		<annotation cp="🖱" type="tts">rato de ordenador</annotation>
+		<annotation cp="🖲">ordenador | rato</annotation>
+		<annotation cp="🖲" type="tts">rato de bola</annotation>
+		<annotation cp="💽">ordenador | disco</annotation>
+		<annotation cp="💽" type="tts">minidisc</annotation>
+		<annotation cp="💾">ordenador | disqueteira</annotation>
+		<annotation cp="💾" type="tts">disquete</annotation>
+		<annotation cp="💿">ordenador | disco</annotation>
+		<annotation cp="💿" type="tts">CD</annotation>
+		<annotation cp="📀">ordenador | disco</annotation>
+		<annotation cp="📀" type="tts">DVD</annotation>
+		<annotation cp="🎥">cine | película | filmar | filme</annotation>
+		<annotation cp="🎥" type="tts">cámara cinematográfica</annotation>
+		<annotation cp="🎬">cinematografía | película | filmar</annotation>
+		<annotation cp="🎬" type="tts">claqueta</annotation>
+		<annotation cp="📽">cine | película | proxector | vídeo</annotation>
+		<annotation cp="📽" type="tts">proxector cinematográfico</annotation>
+		<annotation cp="📺">televisión | vídeo | televisor</annotation>
+		<annotation cp="📺" type="tts">televisión</annotation>
+		<annotation cp="📷">cámara | fotografía | fotos | vídeos</annotation>
+		<annotation cp="📷" type="tts">cámara de fotos</annotation>
+		<annotation cp="📸">cámara | fotografía | flash</annotation>
+		<annotation cp="📸" type="tts">cámara de fotos con flash</annotation>
+		<annotation cp="📹">cámara | vídeo</annotation>
+		<annotation cp="📹" type="tts">cámara de vídeo</annotation>
+		<annotation cp="📼">cinta de vídeo | VHS | cinta</annotation>
+		<annotation cp="📼" type="tts">videocasete</annotation>
+		<annotation cp="🔍">lupa | buscar | esquerda</annotation>
+		<annotation cp="🔍" type="tts">lupa cara a esquerda</annotation>
+		<annotation cp="🔎">lupa | buscar | dereita</annotation>
+		<annotation cp="🔎" type="tts">lupa cara a dereita</annotation>
+		<annotation cp="🔬">laboratorio | ciencia</annotation>
+		<annotation cp="🔬" type="tts">microscopio</annotation>
+		<annotation cp="🔭">astronomía | constelacións | corpos celestes</annotation>
+		<annotation cp="🔭" type="tts">telescopio</annotation>
+		<annotation cp="📡">antena | satélite</annotation>
+		<annotation cp="📡" type="tts">antena de satélite</annotation>
+		<annotation cp="🕯">luz | cera | iluminar</annotation>
+		<annotation cp="🕯" type="tts">candea</annotation>
+		<annotation cp="💡">electricidade | luz | idea | cómic</annotation>
+		<annotation cp="💡" type="tts">lámpada</annotation>
+		<annotation cp="🔦">luz</annotation>
+		<annotation cp="🔦" type="tts">lanterna</annotation>
+		<annotation cp="🏮">lanterna | vermella | xaponesa | luz</annotation>
+		<annotation cp="🏮" type="tts">lanterna de papel vermella</annotation>
+		<annotation cp="📔">caderno | cuberta | decorada</annotation>
+		<annotation cp="📔" type="tts">caderno de tapas decoradas</annotation>
+		<annotation cp="📕">libro | pechado</annotation>
+		<annotation cp="📕" type="tts">libro pechado</annotation>
+		<annotation cp="📖">libro | aberto</annotation>
+		<annotation cp="📖" type="tts">libro aberto</annotation>
+		<annotation cp="📗">libro | verde</annotation>
+		<annotation cp="📗" type="tts">libro verde</annotation>
+		<annotation cp="📘">libro | azul</annotation>
+		<annotation cp="📘" type="tts">libro azul</annotation>
+		<annotation cp="📙">libro | laranxa</annotation>
+		<annotation cp="📙" type="tts">libro laranxa</annotation>
+		<annotation cp="📚">libros</annotation>
+		<annotation cp="📚" type="tts">libros</annotation>
+		<annotation cp="📓">caderno</annotation>
+		<annotation cp="📓" type="tts">caderno</annotation>
+		<annotation cp="📒">libro | caderno | contabilidade</annotation>
+		<annotation cp="📒" type="tts">libro de contabilidade</annotation>
+		<annotation cp="📃">documento | páxina | enrolada</annotation>
+		<annotation cp="📃" type="tts">páxina coa parte inferior enrolada</annotation>
+		<annotation cp="📜">papel | pergamiño</annotation>
+		<annotation cp="📜" type="tts">pergameo</annotation>
+		<annotation cp="📄">documento | páxina | anverso</annotation>
+		<annotation cp="📄" type="tts">páxina cunha esquina dobrada</annotation>
+		<annotation cp="📰">diario | noticias | artigos</annotation>
+		<annotation cp="📰" type="tts">xornal</annotation>
+		<annotation cp="🗞">diario | noticias | artigos | enrolado</annotation>
+		<annotation cp="🗞" type="tts">xornal enrolado</annotation>
+		<annotation cp="📑">marcador | bandeiriña adhesiva</annotation>
+		<annotation cp="📑" type="tts">marcador autoadhesivo</annotation>
+		<annotation cp="🔖">marcador | punto de lectura | marcalibros</annotation>
+		<annotation cp="🔖" type="tts">marcapáxinas</annotation>
+		<annotation cp="💰">diñeiro | dólares | saco | bolsa</annotation>
+		<annotation cp="💰" type="tts">saco de diñeiro</annotation>
+		<annotation cp="💴">billete | banco | moeda | ien</annotation>
+		<annotation cp="💴" type="tts">billete de ien</annotation>
+		<annotation cp="💵">billete | banco | moeda | dólar</annotation>
+		<annotation cp="💵" type="tts">billete de dólar</annotation>
+		<annotation cp="💶">billete | banco | moeda | euro</annotation>
+		<annotation cp="💶" type="tts">billete de euro</annotation>
+		<annotation cp="💷">billete | banco | moeda | libra</annotation>
+		<annotation cp="💷" type="tts">billete de libra</annotation>
+		<annotation cp="💸">billetes | ás | alas | cartos</annotation>
+		<annotation cp="💸" type="tts">diñeiro voando</annotation>
+		<annotation cp="💳">diñeiro | tarxeta | banco</annotation>
+		<annotation cp="💳" type="tts">tarxeta de crédito</annotation>
+		<annotation cp="💹">gráfico | mercado | tendencia | ien</annotation>
+		<annotation cp="💹" type="tts">mercado en alza</annotation>
+		<annotation cp="✉">correo e. | correo electrónico</annotation>
+		<annotation cp="✉" type="tts">sobre</annotation>
+		<annotation cp="📧">correo e.</annotation>
+		<annotation cp="📧" type="tts">correo electrónico</annotation>
+		<annotation cp="📨">correo electrónico | recibido | sobre | correo</annotation>
+		<annotation cp="📨" type="tts">correo entrante</annotation>
+		<annotation cp="📩">correo electrónico | enviado | sobre | correo</annotation>
+		<annotation cp="📩" type="tts">correo saínte</annotation>
+		<annotation cp="📤">bandexa | correo | saínte | saída</annotation>
+		<annotation cp="📤" type="tts">bandexa de saída</annotation>
+		<annotation cp="📥">bandexa | correo | entrante | entrada</annotation>
+		<annotation cp="📥" type="tts">bandexa de entrada</annotation>
+		<annotation cp="📦">caixa</annotation>
+		<annotation cp="📦" type="tts">paquete</annotation>
+		<annotation cp="📫">caixa de correo | bandeira | chea | pechada</annotation>
+		<annotation cp="📫" type="tts">caixa de correo con bandeira subida</annotation>
+		<annotation cp="📪">caixa de correo | bandeira | baleira | pechada</annotation>
+		<annotation cp="📪" type="tts">caixa de correo con bandeira baixada</annotation>
+		<annotation cp="📬">caixa de correo | bandeira | chea | aberta</annotation>
+		<annotation cp="📬" type="tts">caixa de correo chea</annotation>
+		<annotation cp="📭">caixa de correo | bandeira | baleira | aberta</annotation>
+		<annotation cp="📭" type="tts">caixa de correo baleira</annotation>
+		<annotation cp="📮">correo | correo postal | carta | correspondencia</annotation>
+		<annotation cp="📮" type="tts">caixa de correo</annotation>
+		<annotation cp="🗳">voto | papeleta | urna | eleccións</annotation>
+		<annotation cp="🗳" type="tts">urna electoral con voto</annotation>
+		<annotation cp="✏">lapis | escribir</annotation>
+		<annotation cp="✏" type="tts">lapis</annotation>
+		<annotation cp="✒">pluma | pluma estilográfica | escribir | estilográfica</annotation>
+		<annotation cp="✒" type="tts">plumiña</annotation>
+		<annotation cp="🖋">estilográfica | pluma | escribir</annotation>
+		<annotation cp="🖋" type="tts">pluma estilográfica</annotation>
+		<annotation cp="🖊">boli | escribir</annotation>
+		<annotation cp="🖊" type="tts">bolígrafo</annotation>
+		<annotation cp="🖌">pintar</annotation>
+		<annotation cp="🖌" type="tts">pincel</annotation>
+		<annotation cp="🖍">cores | pintar | colorear</annotation>
+		<annotation cp="🖍" type="tts">lapis de cor</annotation>
+		<annotation cp="📝">recordatorio | escribir | anotar</annotation>
+		<annotation cp="📝" type="tts">nota</annotation>
+		<annotation cp="💼">documentos | oficina</annotation>
+		<annotation cp="💼" type="tts">maletín</annotation>
+		<annotation cp="📁">carpeta | documentos</annotation>
+		<annotation cp="📁" type="tts">cartafol</annotation>
+		<annotation cp="📂">carpeta | documentos | aberto</annotation>
+		<annotation cp="📂" type="tts">cartafol aberto</annotation>
+		<annotation cp="🗂">arquivador | ficheiro | separador | documentos</annotation>
+		<annotation cp="🗂" type="tts">separadores de fichas</annotation>
+		<annotation cp="📅">data</annotation>
+		<annotation cp="📅" type="tts">calendario</annotation>
+		<annotation cp="📆">calendario | data | arrancar | follas</annotation>
+		<annotation cp="📆" type="tts">calendario de varias follas</annotation>
+		<annotation cp="🗒">caderno | escribir | espiral</annotation>
+		<annotation cp="🗒" type="tts">caderno de espiral</annotation>
+		<annotation cp="🗓">calendario | data</annotation>
+		<annotation cp="🗓" type="tts">calendario de espiral</annotation>
+		<annotation cp="📇">organizador | tarxetas | tarxetas de visita</annotation>
+		<annotation cp="📇" type="tts">organizador de tarxetas</annotation>
+		<annotation cp="📈">gráfico | gráfica | tendencia | alza</annotation>
+		<annotation cp="📈" type="tts">gráfico con tendencia ascendente</annotation>
+		<annotation cp="📉">gráfico | gráfica | tendencia | baixa</annotation>
+		<annotation cp="📉" type="tts">gráfico con tendencia descendente</annotation>
+		<annotation cp="📊">gráfico | gráfica | barras</annotation>
+		<annotation cp="📊" type="tts">gráfico de barras</annotation>
+		<annotation cp="📋">portapapeis</annotation>
+		<annotation cp="📋" type="tts">portapapeis</annotation>
+		<annotation cp="📌">chincheta</annotation>
+		<annotation cp="📌" type="tts">chincheta</annotation>
+		<annotation cp="📍">chincheta | redonda</annotation>
+		<annotation cp="📍" type="tts">chincheta redonda</annotation>
+		<annotation cp="📎">clip</annotation>
+		<annotation cp="📎" type="tts">clip</annotation>
+		<annotation cp="🖇">clips | enganchar | unidos</annotation>
+		<annotation cp="🖇" type="tts">clips enganchados</annotation>
+		<annotation cp="📏">regra | triángulo</annotation>
+		<annotation cp="📏" type="tts">regra</annotation>
+		<annotation cp="📐">regra | triángulo | triangular</annotation>
+		<annotation cp="📐" type="tts">escuadro</annotation>
+		<annotation cp="✂">tesoira | cortar</annotation>
+		<annotation cp="✂" type="tts">tesoiras</annotation>
+		<annotation cp="🗃">caixa | arquivar | documentos | ficheiro</annotation>
+		<annotation cp="🗃" type="tts">caixa de arquivo</annotation>
+		<annotation cp="🗄">escritorio | caixóns | oficina | documentos</annotation>
+		<annotation cp="🗄" type="tts">arquivador</annotation>
+		<annotation cp="🗑">papeleira</annotation>
+		<annotation cp="🗑" type="tts">papeleira</annotation>
+		<annotation cp="🔒">cadeado | pechado</annotation>
+		<annotation cp="🔒" type="tts">cadeado</annotation>
+		<annotation cp="🔓">cadeado | aberto | desbloquear</annotation>
+		<annotation cp="🔓" type="tts">cadeado aberto</annotation>
+		<annotation cp="🔏">cadeado | pluma | seguranza | sinatura dixital</annotation>
+		<annotation cp="🔏" type="tts">cadeado con pluma</annotation>
+		<annotation cp="🔐">cadeado | pechado | seguranza | privacidade</annotation>
+		<annotation cp="🔐" type="tts">cadeado con chave</annotation>
+		<annotation cp="🔑">clave | contrasinal</annotation>
+		<annotation cp="🔑" type="tts">chave</annotation>
+		<annotation cp="🗝">chave | antiga</annotation>
+		<annotation cp="🗝" type="tts">chave antiga</annotation>
+		<annotation cp="🔨">ferramenta</annotation>
+		<annotation cp="🔨" type="tts">martelo</annotation>
+		<annotation cp="⛏">ferramenta | mina</annotation>
+		<annotation cp="⛏" type="tts">pico</annotation>
+		<annotation cp="⚒">ferramenta | pico | martelo</annotation>
+		<annotation cp="⚒" type="tts">martelo e pico</annotation>
+		<annotation cp="🛠">ferramenta | chave inglesa | martelo</annotation>
+		<annotation cp="🛠" type="tts">martelo e chave inglesa</annotation>
+		<annotation cp="🔧">ferramenta</annotation>
+		<annotation cp="🔧" type="tts">chave inglesa</annotation>
+		<annotation cp="🔩">parafuso | porca</annotation>
+		<annotation cp="🔩" type="tts">parafuso con porca</annotation>
+		<annotation cp="⚙">roda dentada | mecanismo</annotation>
+		<annotation cp="⚙" type="tts">engrenaxe</annotation>
+		<annotation cp="🗜">ferramenta | compresión</annotation>
+		<annotation cp="🗜" type="tts">ferramenta de compresión</annotation>
+		<annotation cp="⚗">destilar | química | augardente</annotation>
+		<annotation cp="⚗" type="tts">alambique</annotation>
+		<annotation cp="⚖">peso | xustiza | Libra | zodíaco</annotation>
+		<annotation cp="⚖" type="tts">balanza</annotation>
+		<annotation cp="🔗">ligazón | cadea</annotation>
+		<annotation cp="🔗" type="tts">elo</annotation>
+		<annotation cp="⛓">cadea</annotation>
+		<annotation cp="⛓" type="tts">cadeas</annotation>
+		<annotation cp="💉">inxección | vacina | virus | médico</annotation>
+		<annotation cp="💉" type="tts">xiringa</annotation>
+		<annotation cp="💊">médico | enfermidade | pastilla | medicación</annotation>
+		<annotation cp="💊" type="tts">pílula</annotation>
+		<annotation cp="🗡">arma | puñal</annotation>
+		<annotation cp="🗡" type="tts">daga</annotation>
+		<annotation cp="🔪">coitelo | cociña | arma</annotation>
+		<annotation cp="🔪" type="tts">coitelo de cociña</annotation>
+		<annotation cp="⚔">arma | espadas | cruzadas</annotation>
+		<annotation cp="⚔" type="tts">espadas cruzadas</annotation>
+		<annotation cp="🔫">arma | revólver</annotation>
+		<annotation cp="🔫" type="tts">pistola</annotation>
+		<annotation cp="🛡">arma | protección</annotation>
+		<annotation cp="🛡" type="tts">escudo</annotation>
+		<annotation cp="🏹">arco | frecha | Saxitario | zodíaco</annotation>
+		<annotation cp="🏹" type="tts">arco e frecha</annotation>
+		<annotation cp="🏁">de cadros | bandeira | carreiras | fin</annotation>
+		<annotation cp="🏁" type="tts">bandeira de cadros</annotation>
+		<annotation cp="🏳">bandeira | ondear | branca</annotation>
+		<annotation cp="🏳" type="tts">bandeira branca ondeando</annotation>
+		<annotation cp="🏳‍🌈">bandeira | multicolor | arco da vella</annotation>
+		<annotation cp="🏳‍🌈" type="tts">bandeira do arco da vella</annotation>
+		<annotation cp="🏴">bandeira | ondear | negra</annotation>
+		<annotation cp="🏴" type="tts">bandeira negra ondeando</annotation>
+		<annotation cp="🚩">bandeira | triangular | bandeirola</annotation>
+		<annotation cp="🚩" type="tts">bandeira triangular</annotation>
+		<annotation cp="🚬">fumar | tabaco | permitido fumar</annotation>
+		<annotation cp="🚬" type="tts">símbolo de fumar</annotation>
+		<annotation cp="⚰">morte | funeral | velorio | sepultura</annotation>
+		<annotation cp="⚰" type="tts">ataúde</annotation>
+		<annotation cp="⚱">morte | funeral | urna | incineración</annotation>
+		<annotation cp="⚱" type="tts">urna funeraria</annotation>
+		<annotation cp="🗿">cara | estatua | escultura | moai</annotation>
+		<annotation cp="🗿" type="tts">estatua da illa de Pascua</annotation>
+		<annotation cp="🛢">bidón | barril | petróleo</annotation>
+		<annotation cp="🛢" type="tts">barril de petróleo</annotation>
+		<annotation cp="🔮">bola | cristal | adiviñación | futuro</annotation>
+		<annotation cp="🔮" type="tts">bola de cristal</annotation>
+		<annotation cp="🏧">banco | diñeiro | caixeiro</annotation>
+		<annotation cp="🏧" type="tts">sinal de caixeiro automático</annotation>
+		<annotation cp="🚮">papeleira | lixo</annotation>
+		<annotation cp="🚮" type="tts">sinal de tirar lixo na papeleira</annotation>
+		<annotation cp="🚰">auga | potable | beber | fonte</annotation>
+		<annotation cp="🚰" type="tts">sinal de auga potable</annotation>
+		<annotation cp="♿">acceso | cadeira de rodas</annotation>
+		<annotation cp="♿" type="tts">sinal de acceso para cadeira de rodas</annotation>
+		<annotation cp="🚹">baño | aseo | homes</annotation>
+		<annotation cp="🚹" type="tts">sinal de aseo de homes</annotation>
+		<annotation cp="🚺">baño | aseo | mulleres</annotation>
+		<annotation cp="🚺" type="tts">sinal de aseo de mulleres</annotation>
+		<annotation cp="🚻">baño | aseos | homes | mulleres</annotation>
+		<annotation cp="🚻" type="tts">sinal de aseos</annotation>
+		<annotation cp="🚼">bebé | sinal | cambiador</annotation>
+		<annotation cp="🚼" type="tts">sinal de cambiador de bebés</annotation>
+		<annotation cp="🚾">baños | aseo | váter</annotation>
+		<annotation cp="🚾" type="tts">sinal de aseo</annotation>
+		<annotation cp="🛂">pasaporte | control</annotation>
+		<annotation cp="🛂" type="tts">sinal de control de pasaportes</annotation>
+		<annotation cp="🛃">aduana</annotation>
+		<annotation cp="🛃" type="tts">sinal de alfándega</annotation>
+		<annotation cp="🛄">equipaxes | maletas | recollida</annotation>
+		<annotation cp="🛄" type="tts">sinal de recollida de equipaxes</annotation>
+		<annotation cp="🛅">consigna | equipaxes | maletas | baixo chave</annotation>
+		<annotation cp="🛅" type="tts">sinal de consigna</annotation>
+		<annotation cp="⚠">advertencia | sinal</annotation>
+		<annotation cp="⚠" type="tts">sinal de advertencia</annotation>
+		<annotation cp="🚸">sinal | nenos | cruzar | escola</annotation>
+		<annotation cp="🚸" type="tts">sinal de nenos cruzando</annotation>
+		<annotation cp="⛔">sinal | prohibido | tráfico</annotation>
+		<annotation cp="⛔" type="tts">sinal de acceso prohibido</annotation>
+		<annotation cp="🚫">sinal | prohibición | prohibido</annotation>
+		<annotation cp="🚫" type="tts">sinal de prohibición</annotation>
+		<annotation cp="🚳">sinal | bicicleta | prohibición</annotation>
+		<annotation cp="🚳" type="tts">sinal de prohibido bicicletas</annotation>
+		<annotation cp="🚭">fumar | prohibido | prohibición</annotation>
+		<annotation cp="🚭" type="tts">sinal de prohibido fumar</annotation>
+		<annotation cp="🚯">tirar | lixo | guindar | prohibido</annotation>
+		<annotation cp="🚯" type="tts">sinal de prohibido guindar lixo</annotation>
+		<annotation cp="🚱">auga | non | potable | beber</annotation>
+		<annotation cp="🚱" type="tts">sinal de auga non potable</annotation>
+		<annotation cp="🚷">prohibido | peóns | prohibición</annotation>
+		<annotation cp="🚷" type="tts">sinal de acceso prohibido a peóns</annotation>
+		<annotation cp="☢">radioactivo | perigo | sinal</annotation>
+		<annotation cp="☢" type="tts">sinal de radioactividade</annotation>
+		<annotation cp="☣">perigo | risco | substancias perigosas</annotation>
+		<annotation cp="☣" type="tts">sinal de perigo biolóxico</annotation>
+		<annotation cp="⬆">frecha | dirección | arriba | norte</annotation>
+		<annotation cp="⬆" type="tts">frecha cara arriba</annotation>
+		<annotation cp="↗">frecha | dirección | arriba | nordeste</annotation>
+		<annotation cp="↗" type="tts">frecha cara arriba á dereita</annotation>
+		<annotation cp="➡">frecha | dirección | dereita | leste</annotation>
+		<annotation cp="➡" type="tts">frecha cara á dereita</annotation>
+		<annotation cp="↘">frecha | dirección | abaixo | sueste</annotation>
+		<annotation cp="↘" type="tts">frecha cara abaixo á dereita</annotation>
+		<annotation cp="⬇">frecha | dirección | abaixo | sur</annotation>
+		<annotation cp="⬇" type="tts">frecha cara abaixo</annotation>
+		<annotation cp="↙">frecha | dirección | abaixo | suroeste</annotation>
+		<annotation cp="↙" type="tts">frecha cara abaixo á esquerda</annotation>
+		<annotation cp="⬅">frecha | dirección | esquerda | oeste</annotation>
+		<annotation cp="⬅" type="tts">frecha cara á esquerda</annotation>
+		<annotation cp="↖">frecha | dirección | arriba | noroeste</annotation>
+		<annotation cp="↖" type="tts">frecha cara arriba á esquerda</annotation>
+		<annotation cp="↕">frecha | dirección | arriba | abaixo</annotation>
+		<annotation cp="↕" type="tts">frecha cara arriba e abaixo</annotation>
+		<annotation cp="↔">frecha | dirección | esquerda | dereita</annotation>
+		<annotation cp="↔" type="tts">frecha cara á esquerda e a dereita</annotation>
+		<annotation cp="↩">frecha | curva | esquerda</annotation>
+		<annotation cp="↩" type="tts">frecha curvada cara á esquerda</annotation>
+		<annotation cp="↪">frecha | curva | dereita</annotation>
+		<annotation cp="↪" type="tts">frecha curvada cara á dereita</annotation>
+		<annotation cp="⤴">frecha | curva | arriba</annotation>
+		<annotation cp="⤴" type="tts">frecha curvada cara arriba</annotation>
+		<annotation cp="⤵">frecha | curva | abaixo</annotation>
+		<annotation cp="⤵" type="tts">frecha curvada cara abaixo</annotation>
+		<annotation cp="🔃">frechas | xirar | sentido das agullas do reloxo</annotation>
+		<annotation cp="🔃" type="tts">frechas verticais xirando cara á dereita</annotation>
+		<annotation cp="🔄">frechas | xirar | sentido contrario ás agullas do reloxo | reiniciar</annotation>
+		<annotation cp="🔄" type="tts">frechas xirando cara á esquerda</annotation>
+		<annotation cp="🔙">frecha | volver | atrás | back</annotation>
+		<annotation cp="🔙" type="tts">frecha coa palabra “back”</annotation>
+		<annotation cp="🔚">frecha | final | fin | end</annotation>
+		<annotation cp="🔚" type="tts">frecha coa palabra “end”</annotation>
+		<annotation cp="🔛">frecha | acender | acendido | on!</annotation>
+		<annotation cp="🔛" type="tts">frecha coa palabra “on!”</annotation>
+		<annotation cp="🔜">frecha | pronto | soon</annotation>
+		<annotation cp="🔜" type="tts">frecha coa palabra “soon”</annotation>
+		<annotation cp="🔝">frecha | arriba | top</annotation>
+		<annotation cp="🔝" type="tts">frecha coa palabra “top”</annotation>
+		<annotation cp="🛐">relixión | culto | oración</annotation>
+		<annotation cp="🛐" type="tts">sinal de lugar de culto</annotation>
+		<annotation cp="⚛">átomo | ateísmo</annotation>
+		<annotation cp="⚛" type="tts">símbolo atómico</annotation>
+		<annotation cp="🕉">relixión | om | hinduísmo</annotation>
+		<annotation cp="🕉" type="tts">símbolo de om</annotation>
+		<annotation cp="✡">relixión | estrela | xudaísmo | xudeus</annotation>
+		<annotation cp="✡" type="tts">estrela de David</annotation>
+		<annotation cp="☸">relixión | roda | dharma | budismo</annotation>
+		<annotation cp="☸" type="tts">roda do dharma</annotation>
+		<annotation cp="☯">relixión | yin | yang | taoísmo</annotation>
+		<annotation cp="☯" type="tts">yin-yang</annotation>
+		<annotation cp="✝">relixión | cruz | cristianismo</annotation>
+		<annotation cp="✝" type="tts">cruz latina</annotation>
+		<annotation cp="☦">relixión | cruz | cristianismo</annotation>
+		<annotation cp="☦" type="tts">cruz ortodoxa</annotation>
+		<annotation cp="☪">relixión | media lúa | islam | islamismo</annotation>
+		<annotation cp="☪" type="tts">media lúa e estrela</annotation>
+		<annotation cp="☮">símbolo | paz</annotation>
+		<annotation cp="☮" type="tts">símbolo da paz</annotation>
+		<annotation cp="🕎">relixión | candelabro | 7 brazos | xudaísmo</annotation>
+		<annotation cp="🕎" type="tts">menorá</annotation>
+		<annotation cp="🔯">estrela | punto | David | adiviñación</annotation>
+		<annotation cp="🔯" type="tts">estrela de seis puntas con punto</annotation>
+		<annotation cp="♻">reciclaxe | símbolo | reciclado</annotation>
+		<annotation cp="♻" type="tts">símbolo de reciclaxe</annotation>
+		<annotation cp="📛">tarxeta | etiqueta | nome | identificación</annotation>
+		<annotation cp="📛" type="tts">tarxeta identificativa</annotation>
+		<annotation cp="⚜">flor | lis</annotation>
+		<annotation cp="⚜" type="tts">flor de lis</annotation>
+		<annotation cp="🔰">xaponés | principiante | verde | amarelo</annotation>
+		<annotation cp="🔰" type="tts">símbolo xaponés para principiante</annotation>
+		<annotation cp="🔱">emblema | áncora | tridente</annotation>
+		<annotation cp="🔱" type="tts">emblema de tridente</annotation>
+		<annotation cp="⭕">círculo | o</annotation>
+		<annotation cp="⭕" type="tts">círculo groso</annotation>
+		<annotation cp="✅">marca | verificación | correcto | ben</annotation>
+		<annotation cp="✅" type="tts">marca de verificación branca</annotation>
+		<annotation cp="☑">recadro | marca | verificación | marcado</annotation>
+		<annotation cp="☑" type="tts">recadro con marca de verificación</annotation>
+		<annotation cp="✔">marca | verificación | correcto | ben</annotation>
+		<annotation cp="✔" type="tts">marca de verificación</annotation>
+		<annotation cp="✖">multiplicar | multiplicación | cancelar | X</annotation>
+		<annotation cp="✖" type="tts">signo de multiplicar groso</annotation>
+		<annotation cp="❌">multiplicar | multiplicación | cancelar | X</annotation>
+		<annotation cp="❌" type="tts">signo de multiplicar</annotation>
+		<annotation cp="❎">marca | recadro | cancelar | X</annotation>
+		<annotation cp="❎" type="tts">botón cun “X”</annotation>
+		<annotation cp="➕">matemáticas | máis | sumar | suma</annotation>
+		<annotation cp="➕" type="tts">signo de sumar</annotation>
+		<annotation cp="➖">matemáticas | menos | restar | resta</annotation>
+		<annotation cp="➖" type="tts">signo de restar</annotation>
+		<annotation cp="➗">matemáticas | dividir | división</annotation>
+		<annotation cp="➗" type="tts">signo de dividir</annotation>
+		<annotation cp="➰">bucle</annotation>
+		<annotation cp="➰" type="tts">bucle</annotation>
+		<annotation cp="➿">bucle | dobre</annotation>
+		<annotation cp="➿" type="tts">bucle dobre</annotation>
+		<annotation cp="〽">alternancia | signo</annotation>
+		<annotation cp="〽" type="tts">signo de alternancia</annotation>
+		<annotation cp="✳">asterisco | 8 | oito</annotation>
+		<annotation cp="✳" type="tts">asterisco de oito raios</annotation>
+		<annotation cp="✴">estrela | 8 | oito</annotation>
+		<annotation cp="✴" type="tts">estrela de oito puntas</annotation>
+		<annotation cp="❇">chispa</annotation>
+		<annotation cp="❇" type="tts">chispa</annotation>
+		<annotation cp="💱">banco | diñeiro | divisas | cambio</annotation>
+		<annotation cp="💱" type="tts">cambio de divisas</annotation>
+		<annotation cp="💲">divisa | dólar | diñeiro</annotation>
+		<annotation cp="💲" type="tts">símbolo do dólar</annotation>
+		<annotation cp="‼">exclamación | admiración | dobre</annotation>
+		<annotation cp="‼" type="tts">signo de exclamación dobre</annotation>
+		<annotation cp="⁉">exclamación | admiración | interrogación</annotation>
+		<annotation cp="⁉" type="tts">signo de exclamación e interrogación</annotation>
+		<annotation cp="❓">interrogación | pregunta</annotation>
+		<annotation cp="❓" type="tts">signo de interrogación</annotation>
+		<annotation cp="❔">interrogación | pregunta | branco</annotation>
+		<annotation cp="❔" type="tts">signo de interrogación branco</annotation>
+		<annotation cp="❕">exclamación | admiración | branco</annotation>
+		<annotation cp="❕" type="tts">signo de exclamación branco</annotation>
+		<annotation cp="❗">exclamación | admiración</annotation>
+		<annotation cp="❗" type="tts">signo de exclamación</annotation>
+		<annotation cp="〰">onda | son largo | trazo | ondulado</annotation>
+		<annotation cp="〰" type="tts">liña ondulada</annotation>
+		<annotation cp="©">copyright | dereitos | autor</annotation>
+		<annotation cp="©" type="tts">copyright</annotation>
+		<annotation cp="®">marca | rexistrada</annotation>
+		<annotation cp="®" type="tts">marca rexistrada “R”</annotation>
+		<annotation cp="™">marca | rexistrada | TM</annotation>
+		<annotation cp="™" type="tts">marca rexistrada “TM”</annotation>
+		<annotation cp="♈">zodíaco | carneiro | Ariete</annotation>
+		<annotation cp="♈" type="tts">Aries</annotation>
+		<annotation cp="♉">zodíaco | touro | Taurus</annotation>
+		<annotation cp="♉" type="tts">Tauro</annotation>
+		<annotation cp="♊">zodíaco | xemelgos | Gemini</annotation>
+		<annotation cp="♊" type="tts">Xémini</annotation>
+		<annotation cp="♋">zodíaco | cangrexo | caranguexo</annotation>
+		<annotation cp="♋" type="tts">Cáncer</annotation>
+		<annotation cp="♌">zodíaco | león | Leo</annotation>
+		<annotation cp="♌" type="tts">León</annotation>
+		<annotation cp="♍">zodíaco | virxe</annotation>
+		<annotation cp="♍" type="tts">Virgo</annotation>
+		<annotation cp="♎">zodíaco | balanza</annotation>
+		<annotation cp="♎" type="tts">Libra</annotation>
+		<annotation cp="♏">zodíaco | escorpión | Scorpius</annotation>
+		<annotation cp="♏" type="tts">Escorpión</annotation>
+		<annotation cp="♐">zodíaco | arqueiro | Sagittarius</annotation>
+		<annotation cp="♐" type="tts">Saxitario</annotation>
+		<annotation cp="♑">zodíaco | cabra | Capricornus</annotation>
+		<annotation cp="♑" type="tts">Capricornio</annotation>
+		<annotation cp="♒">zodíaco | vendedor de auga | auga | Aquarius</annotation>
+		<annotation cp="♒" type="tts">Acuario</annotation>
+		<annotation cp="♓">zodíaco | peixes</annotation>
+		<annotation cp="♓" type="tts">Pisces</annotation>
+		<annotation cp="⛎">zodíaco | cazador de serpes | serpe | Ophiuchus</annotation>
+		<annotation cp="⛎" type="tts">Ofiúco</annotation>
+		<annotation cp="🔀">frechas | entrecruzadas | reprodución | aleatoria</annotation>
+		<annotation cp="🔀" type="tts">botón de reprodución aleatoria</annotation>
+		<annotation cp="🔁">frechas | repetir | repetición</annotation>
+		<annotation cp="🔁" type="tts">botón de repetición continua</annotation>
+		<annotation cp="🔂">frechas | repetir | repetición | unha vez</annotation>
+		<annotation cp="🔂" type="tts">botón de repetición única</annotation>
+		<annotation cp="▶">botón | reprodución</annotation>
+		<annotation cp="▶" type="tts">botón de reprodución</annotation>
+		<annotation cp="⏩">botón | avanzar | rapidamente | avance</annotation>
+		<annotation cp="⏩" type="tts">botón de avance rápido</annotation>
+		<annotation cp="⏭">botón | pista | seguinte | avanzar</annotation>
+		<annotation cp="⏭" type="tts">botón de pista seguinte</annotation>
+		<annotation cp="⏯">botón | pausa | reprodución</annotation>
+		<annotation cp="⏯" type="tts">botón reprodución ou pausa</annotation>
+		<annotation cp="◀">botón | retroceder | retroceso</annotation>
+		<annotation cp="◀" type="tts">botón de retroceso</annotation>
+		<annotation cp="⏪">botón | retroceder | retroceso | rápido</annotation>
+		<annotation cp="⏪" type="tts">botón de retroceso rápido</annotation>
+		<annotation cp="⏮">botón | pista | anterior | retroceder</annotation>
+		<annotation cp="⏮" type="tts">botón de pista anterior</annotation>
+		<annotation cp="🔼">botón | arriba | vermello</annotation>
+		<annotation cp="🔼" type="tts">botón de ir arriba</annotation>
+		<annotation cp="⏫">botón | arriba | rápido</annotation>
+		<annotation cp="⏫" type="tts">botón de ir arriba rápido</annotation>
+		<annotation cp="🔽">botón | abaixo | vermello</annotation>
+		<annotation cp="🔽" type="tts">botón de ir abaixo</annotation>
+		<annotation cp="⏬">botón | abaixo | rápido</annotation>
+		<annotation cp="⏬" type="tts">botón de ir abaixo rápido</annotation>
+		<annotation cp="⏸">botón | pausa</annotation>
+		<annotation cp="⏸" type="tts">botón de pausa</annotation>
+		<annotation cp="⏹">botón | parar | deter | cadrado</annotation>
+		<annotation cp="⏹" type="tts">botón de parada</annotation>
+		<annotation cp="⏺">botón | gravar | gravación | círculo</annotation>
+		<annotation cp="⏺" type="tts">botón de gravación</annotation>
+		<annotation cp="⏏">botón | expulsar | expulsión</annotation>
+		<annotation cp="⏏" type="tts">botón de expulsión</annotation>
+		<annotation cp="🎦">cinema | película</annotation>
+		<annotation cp="🎦" type="tts">cine</annotation>
+		<annotation cp="🔅">brillo | luminosidade | baixo | diminuír</annotation>
+		<annotation cp="🔅" type="tts">botón de diminuír o brillo</annotation>
+		<annotation cp="🔆">brillo | luminosidade | alto | aumentar</annotation>
+		<annotation cp="🔆" type="tts">botón de aumentar o brillo</annotation>
+		<annotation cp="📶">antena | barras | cobertura</annotation>
+		<annotation cp="📶" type="tts">sinal de cobertura</annotation>
+		<annotation cp="📵">móbil | prohibido | teléfono móbil</annotation>
+		<annotation cp="📵" type="tts">sinal de prohibición de teléfonos móbiles</annotation>
+		<annotation cp="📳">móbil | teléfono | silencio | vibración</annotation>
+		<annotation cp="📳" type="tts">modo vibración</annotation>
+		<annotation cp="📴">móbil | teléfono | apagado | desactivado</annotation>
+		<annotation cp="📴" type="tts">teléfono móbil apagado</annotation>
+		<annotation cp="💯">puntuación | 100 | cen | puntos</annotation>
+		<annotation cp="💯" type="tts">100 puntos</annotation>
+		<annotation cp="🔞">prohibición | menores de idade | 18</annotation>
+		<annotation cp="🔞" type="tts">sinal de prohibido a menores de idade</annotation>
+		<annotation cp="🔠">introducir | letras | ABCD | maiúscula</annotation>
+		<annotation cp="🔠" type="tts">introducir letras en maiúsculas</annotation>
+		<annotation cp="🔡">introducir | letras | abcd | minúscula</annotation>
+		<annotation cp="🔡" type="tts">introducir letras en minúsculas</annotation>
+		<annotation cp="🔢">introducir | números | 1234</annotation>
+		<annotation cp="🔢" type="tts">introducir números</annotation>
+		<annotation cp="🔣">introducir | símbolos</annotation>
+		<annotation cp="🔣" type="tts">introducir símbolos</annotation>
+		<annotation cp="🔤">introducir | letras | ABC</annotation>
+		<annotation cp="🔤" type="tts">introducir letras</annotation>
+		<annotation cp="🅰">grupo | sanguíneo | A</annotation>
+		<annotation cp="🅰" type="tts">grupo A</annotation>
+		<annotation cp="🆎">grupo | sanguíneo | AB</annotation>
+		<annotation cp="🆎" type="tts">grupo AB</annotation>
+		<annotation cp="🅱">grupo | sanguíneo | B</annotation>
+		<annotation cp="🅱" type="tts">grupo B</annotation>
+		<annotation cp="🆑">cl | clear | borrar | borrado</annotation>
+		<annotation cp="🆑" type="tts">cadrado coas letras “cl”</annotation>
+		<annotation cp="🆒">interesante | xenial | cool</annotation>
+		<annotation cp="🆒" type="tts">cadrado coa palabra “cool”</annotation>
+		<annotation cp="🆓">gratis | free</annotation>
+		<annotation cp="🆓" type="tts">cadrado coa palabra “free”</annotation>
+		<annotation cp="ℹ">información</annotation>
+		<annotation cp="ℹ" type="tts">punto de información</annotation>
+		<annotation cp="🆔">ID | identificación | identidade</annotation>
+		<annotation cp="🆔" type="tts">cadrado coas letras “ID”</annotation>
+		<annotation cp="Ⓜ">círculo | M | metro</annotation>
+		<annotation cp="Ⓜ" type="tts">círculo coa letra “M”</annotation>
+		<annotation cp="🆕">novo | new</annotation>
+		<annotation cp="🆕" type="tts">cadrado coa palabra “new”</annotation>
+		<annotation cp="🆖">NG | mal | non conforme</annotation>
+		<annotation cp="🆖" type="tts">cadrado coas letras “NG”</annotation>
+		<annotation cp="🅾">grupo | sanguíneo | O</annotation>
+		<annotation cp="🅾" type="tts">grupo O</annotation>
+		<annotation cp="🆗">OK | ben | de acordo</annotation>
+		<annotation cp="🆗" type="tts">cadrado coa palabra “OK”</annotation>
+		<annotation cp="🅿">aparcar | aparcamento | parking | P</annotation>
+		<annotation cp="🅿" type="tts">aparcadoiro</annotation>
+		<annotation cp="🆘">SOS | auxilio | axuda | socorro</annotation>
+		<annotation cp="🆘" type="tts">cadrado coas letras “SOS”</annotation>
+		<annotation cp="🆙">botón | up!</annotation>
+		<annotation cp="🆙" type="tts">botón coa palabra “up!”</annotation>
+		<annotation cp="🆚">versus | vs | fronte a | contra</annotation>
+		<annotation cp="🆚" type="tts">cadrado coas letras “vs”</annotation>
+		<annotation cp="🈁">xaponés | katakana | koko | aquí</annotation>
+		<annotation cp="🈁" type="tts">cadrado coa palabra “aquí” en katakana</annotation>
+		<annotation cp="🈂">xaponés | katakana | de regalo | gratis</annotation>
+		<annotation cp="🈂" type="tts">cadrado coa expresión “de regalo” en katakana</annotation>
+		<annotation cp="🈷">xaponés | ideograma | lúa</annotation>
+		<annotation cp="🈷" type="tts">ideograma cadrado “lúa”</annotation>
+		<annotation cp="🈶">xaponés | ideograma | existir</annotation>
+		<annotation cp="🈶" type="tts">ideograma cadrado “existir”</annotation>
+		<annotation cp="🈯">xaponés | ideograma | dedo</annotation>
+		<annotation cp="🈯" type="tts">ideograma cadrado “dedo”</annotation>
+		<annotation cp="🉐">xaponés | ideograma | vantaxe</annotation>
+		<annotation cp="🉐" type="tts">ideograma circular “vantaxe”</annotation>
+		<annotation cp="🈹">xaponés | ideograma | dividir</annotation>
+		<annotation cp="🈹" type="tts">ideograma cadrado “dividir”</annotation>
+		<annotation cp="🈚">xaponés | ideograma | negación</annotation>
+		<annotation cp="🈚" type="tts">ideograma cadrado “negación”</annotation>
+		<annotation cp="🈲">xaponés | ideograma | prohibido</annotation>
+		<annotation cp="🈲" type="tts">ideograma cadrado “prohibido”</annotation>
+		<annotation cp="🉑">chinés | ideograma | aceptar</annotation>
+		<annotation cp="🉑" type="tts">ideograma circular “aceptar”</annotation>
+		<annotation cp="🈸">chinés | ideograma | aplicar</annotation>
+		<annotation cp="🈸" type="tts">ideograma cadrado “aplicar”</annotation>
+		<annotation cp="🈴">chinés | ideograma | xuntos</annotation>
+		<annotation cp="🈴" type="tts">ideograma cadrado “xuntos”</annotation>
+		<annotation cp="🈳">chinés | ideograma | baleiro</annotation>
+		<annotation cp="🈳" type="tts">ideograma cadrado “baleiro”</annotation>
+		<annotation cp="㊗">chinés | ideograma | parabéns</annotation>
+		<annotation cp="㊗" type="tts">ideograma circular “parabéns”</annotation>
+		<annotation cp="㊙">chinés | ideograma | segredo</annotation>
+		<annotation cp="㊙" type="tts">ideograma circular “segredo”</annotation>
+		<annotation cp="🈺">chinés | ideograma | en funcionamento</annotation>
+		<annotation cp="🈺" type="tts">ideograma cadrado “en funcionamento”</annotation>
+		<annotation cp="🈵">chinés | ideograma | plenitude</annotation>
+		<annotation cp="🈵" type="tts">ideograma cadrado “plenitude”</annotation>
+		<annotation cp="▪">cadrado | pequeno | negro</annotation>
+		<annotation cp="▪" type="tts">cadrado pequeno negro</annotation>
+		<annotation cp="▫">cadrado | pequeno | branco</annotation>
+		<annotation cp="▫" type="tts">cadrado pequeno branco</annotation>
+		<annotation cp="◻">cadrado | mediano | branco</annotation>
+		<annotation cp="◻" type="tts">cadrado mediano branco</annotation>
+		<annotation cp="◼">cadrado | mediano | negro</annotation>
+		<annotation cp="◼" type="tts">cadrado mediano negro</annotation>
+		<annotation cp="◽">cadrado | mediano | pequeno | branco</annotation>
+		<annotation cp="◽" type="tts">cadrado pequeno-mediano branco</annotation>
+		<annotation cp="◾">cadrado | mediano | pequeno | negro</annotation>
+		<annotation cp="◾" type="tts">cadrado pequeno-mediano negro</annotation>
+		<annotation cp="⬛">cadrado | grande | negro</annotation>
+		<annotation cp="⬛" type="tts">cadrado grande negro</annotation>
+		<annotation cp="⬜">cadrado | grande | branco</annotation>
+		<annotation cp="⬜" type="tts">cadrado grande branco</annotation>
+		<annotation cp="🔶">rombo | grande | laranxa</annotation>
+		<annotation cp="🔶" type="tts">rombo grande laranxa</annotation>
+		<annotation cp="🔷">rombo | grande | azul</annotation>
+		<annotation cp="🔷" type="tts">rombo grande azul</annotation>
+		<annotation cp="🔸">rombo | pequeno | laranxa</annotation>
+		<annotation cp="🔸" type="tts">rombo pequeno laranxa</annotation>
+		<annotation cp="🔹">rombo | pequeno | azul</annotation>
+		<annotation cp="🔹" type="tts">rombo pequeno azul</annotation>
+		<annotation cp="🔺">triángulo | vermello | arriba</annotation>
+		<annotation cp="🔺" type="tts">triángulo vermello</annotation>
+		<annotation cp="🔻">triángulo | vermello | abaixo | invertido</annotation>
+		<annotation cp="🔻" type="tts">triángulo invertido vermello</annotation>
+		<annotation cp="💠">rombo | punto | flor</annotation>
+		<annotation cp="💠" type="tts">rombo en forma de flor</annotation>
+		<annotation cp="🔘">botón | opción</annotation>
+		<annotation cp="🔘" type="tts">botón de opción</annotation>
+		<annotation cp="🔲">botón | cadrado | negro</annotation>
+		<annotation cp="🔲" type="tts">botón cadrado negro</annotation>
+		<annotation cp="🔳">botón | cadrado | branco</annotation>
+		<annotation cp="🔳" type="tts">botón cadrado branco</annotation>
+		<annotation cp="⚪">círculo | branco</annotation>
+		<annotation cp="⚪" type="tts">círculo branco</annotation>
+		<annotation cp="⚫">círculo | negro</annotation>
+		<annotation cp="⚫" type="tts">círculo negro</annotation>
+		<annotation cp="🔴">círculo | vermello</annotation>
+		<annotation cp="🔴" type="tts">círculo vermello</annotation>
+		<annotation cp="🔵">círculo | azul</annotation>
+		<annotation cp="🔵" type="tts">círculo azul</annotation>
+		<annotation cp="🛑">señal | stop | parar | octógono</annotation>
+		<annotation cp="🛑" type="tts">señal de stop</annotation>
+		<annotation cp="🛒">carro | compra | supermercado</annotation>
+		<annotation cp="🛒" type="tts">carro da compra</annotation>
+		<annotation cp="🛴">patinete | patín | xoguete</annotation>
+		<annotation cp="🛴" type="tts">patinete</annotation>
+		<annotation cp="🛵">moto | motocicleta | motociclismo</annotation>
+		<annotation cp="🛵" type="tts">motocicleta</annotation>
+		<annotation cp="🛶">canoa | piragua | piragüismo | remar | barca</annotation>
+		<annotation cp="🛶" type="tts">canoa</annotation>
+	</annotations>
+</ldml>

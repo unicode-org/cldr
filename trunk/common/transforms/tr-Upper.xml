@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="tr" target="Upper" direction="forward" alias="tr-t-d0-upper">
+			<tRule>
+# Copyright (C) 2011-2013, Apple Inc.; Unicode, Inc.; and others. All Rights Reserved.
+# I and i-dotless; I-dot and i are case pairs in Turkish and Azeri
+# When uppercasing, i turns into a dotted capital I
+# 0069; 0069; 0130; 0130; tr; # LATIN SMALL LETTER I
+i→İ;
+::Any-Upper();
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ml" />
+	</identity>
+	<collations>
+		<collation type="standard" references="Sabdatharavali Malayalam Dictionary 23rd Ed. by Sahithya Pravarthaka Co-operative Society Ltd.">
+			<cr><![CDATA[
+				[reorder Mlym Latn Deva Arab Taml Knda Telu Beng Guru Gujr Orya Sinh]  # native speaker's special list
+				#
+				#  Avagraha and Visarga are primary ignorables.
+				#
+				&ഃ<<ഽ
+				#
+				#  Vowel sign AU ( ൌ) and AU length mark ( ൗ) need to differ
+				#  only on secondary level, not primary.
+				#
+				&\u0D4C<<\u0D57
+				#
+				#  Pre-5.1 Chillus secondary equal to 5.1 chillus.
+				#  Chillus primary equal to their consonant_dead form.
+				#
+				&ക്<<ക്\u200D<<<ൿ
+				&ണ്<<ണ്\u200D<<<ൺ
+				&ന്<<ന്\u200D<<<ൻ
+				&ര്<<ര്\u200D<<<ർ
+				&ല്<<ല്\u200D<<<ൽ
+				&ള്<<ള്\u200D<<<ൾ
+				#
+				#  Anuswara primary equal to MA_dead.
+				#
+				&മ്<<ം
+				#
+				#  /nta/ is sorted as <NA, Virama, RRA>.
+				#
+				&ന്<<<ൻ്
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

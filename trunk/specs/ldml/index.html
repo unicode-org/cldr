@@ -1,0 +1,559 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta name="VI60_defaultClientScript" content="JavaScript">
+  <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+  <meta name="keywords" content="Unicode, common locale data repository">
+  <meta name="ProgId" content="FrontPage.Editor.Document">
+  <title>Unicode CLDR Project</title>
+  <link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
+  <link rel="stylesheet" type="text/css" href="./cldr.css">
+  <style type="text/css">
+<!--
+-->
+  </style>
+  <meta content="Unicode Common Locale Data Repository Project" name="description">
+</head>
+<body text="#330000">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody>
+	<tr>
+		<td colspan="2">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+			<tr>
+				<td class="icon"><a href="http://www.unicode.org/">
+				<img src="http://www.unicode.org/webscripts/logo60s2.gif" alt="[Unicode]" align="middle" border="0" height="33" width="34"></a>&nbsp;&nbsp;
+				<a class="bar" href="index.html"><font size="3">Common Locale Data 
+				Repository</font></a></td>
+				<td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> 
+				| <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> 
+				| <a href="http://www.unicode.org/search/" class="bar">Search</a></td>
+			</tr>
+        </tbody>
+      </table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="gray">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="navCol" valign="top" width="25%">
+      <table class="navColTable" border="0" cellpadding="0" cellspacing="4" width="100%">
+			<tbody>
+			<tr>
+				<td class="navColTitle">Contents</td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top"><a href="#Introduction">Introduction</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top"><a href="#Acknowledgments">Acknowledgments</a></td>
+			</tr>
+			<tr>
+				<td class="navColTitle">Unicode CLDR</td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top"><a href="index.html">CLDR Project</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="repository_access.html">CLDR Releases (Downloads)</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top"><a href="survey_tool.html">CLDR 
+				Survey Tool</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="filing_bug_reports.html">CLDR Bug Reports</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="comparison_charts.html">CLDR Charts</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top"><a href="process.html">CLDR 
+				Process</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="http://www.unicode.org/reports/tr35/">UTS #35: Locale Data 
+				Markup Language (LDML)</a></td>
+			</tr>
+			<tr>
+				<td class="navColTitle">Related Links</td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">Join the
+				<a href="http://www.unicode.org/consortium/consort.html">Unicode 
+				Consortium</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="http://www.unicode.org/reports/">Unicode Technical Reports</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="http://www.unicode.org/faq/reports_process.html">Technical 
+				Reports Development and Maintenance Process</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="http://www.unicode.org/consortium/utc.html">Unicode Technical 
+				Committee</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="http://www.unicode.org/versions/">Versions of the Unicode 
+				Standard</a></td>
+			</tr>
+			<tr>
+				<td class="navColTitle">Other Publications</td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="http://www.unicode.org/standard/standard.html">The Unicode 
+				Standard</a></td>
+			</tr>
+			<tr>
+				<td class="navColCell" valign="top">
+				<a href="http://www.unicode.org/notes/">Unicode Technical Notes</a></td>
+			</tr>
+        </tbody>
+      </table>
+		<!-- BEGIN CONTENTS --></td>
+		<td>
+      <table>
+			<tbody>
+			<tr>
+				<td class="contents" valign="top">
+            <div class="body">
+            <h1>Unicode CLDR Project:</h1>
+            <h1 align="center">Common Locale Data Repository</h1>
+            <h2><a name="Introduction">Introduction</a></h2>
+            <table class="sidebar" id="table2" align="right">
+						<tbody>
+						<tr>
+							<td class="sidebarTitle" style="" colspan="3">
+							<span style="font-size: 133%;">Latest Release:<br>CLDR 1.6.1</span></td>
+						</tr>
+						<tr>
+							<td class="sidebar" colspan="3">
+							<a href="repository_access.html">CLDR Releases (Downloads)</a></td>
+						</tr>
+						<tr>
+							<td class="sidebarTitle" colspan="3" style="">CLDR 1.7 
+							<i>Tentative</i> Schedule: <b>2008-09</b></td>
+						</tr>
+						<tr>
+							<td class="sidebar" nowrap="nowrap"><b>Start</b></td>
+							<td class="sidebar"><b>Phase </b></td>
+							<td class="sidebar" align="right" nowrap="nowrap"><b>Done</b></td>
+							</tr>
+						<tr>
+							<td class="sidebar" align="center" nowrap="nowrap">10-01</td>
+							<td class="sidebar">DTD/spec/tool additions</td>
+							<td class="sidebar" align="center" nowrap="nowrap">11-01</td>
+							</tr>
+						<tr>
+							<td class="sidebar" align="center" nowrap="nowrap">12-17</td>
+							<td class="sidebar">Survey Tool public β</td>
+							<td class="sidebar" align="center" nowrap="nowrap">01-06</td>
+							</tr>
+						<tr>
+							<td class="sidebar" align="center" nowrap="nowrap">01-07</td>
+							<td class="sidebar">Data submission</td>
+							<td class="sidebar" align="center" nowrap="nowrap">02-24</td>
+						</tr>
+						<tr>
+							<td class="sidebar" align="center" nowrap="nowrap">02-25</td>
+							<td class="sidebar">Data vetting</td>
+							<td class="sidebar" align="center" nowrap="nowrap">03-10</td>
+						</tr>
+						<tr>
+							<td class="sidebar" align="center" nowrap="nowrap">03-11</td>
+							<td class="sidebar"><a href="http://www.unicode.org/cldr/process.html#resolution_procedure">Data resolution</a>, data/structure verification and correction</td>
+							<td class="sidebar" align="center" nowrap="nowrap">03-31</td>
+						</tr>
+						<tr>
+							<td class="sidebar" align="center" nowrap="nowrap">04-01</td>
+							<td class="sidebar">Final Candidate available</td>
+							<td class="sidebar" align="center" nowrap="nowrap">05-01</td>
+						</tr>
+						<tr>
+							<td class="sidebar" align="center" nowrap="nowrap"><b>05-01</b></td>
+							<td class="sidebar"><b><i>Target release date</i></b></td>
+							<td class="sidebar" align="center" nowrap="nowrap">-</td>
+						</tr>
+						<tr>
+							<td class="sidebar" colspan="3"><b>For details, see <a href="process.html#release_schedule">Release Schedule</a>. For notification of changes on this 
+							page or others, see
+							<a href="http://www.unicode.org/consortium/distlist.html#monitoring">
+							Notification Services</a>.</b></td>
+						</tr>
+              </tbody>
+            </table>
+            <p>The Unicode CLDR provides key building blocks for software to support 
+					the world's languages. CLDR is by far the largest and most extensive 
+					standard repository of locale data. This data is used by a wide 
+					spectrum of companies for their software internationalization 
+					and localization: adapting software to the conventions of different 
+					languages for such common software tasks as formatting of dates, 
+					times, time zones, numbers, and currency values; sorting text; 
+					choosing languages or countries by name; and many others.</p>
+            <ul>
+						<li><span>For a set of slides with an overview of CLDR, 
+						see </span>
+						<a href="http://unicode.org/cldr/data/docs/presentations/cldr_overview.ppt">
+						<span>CLDR Overview</span></a><span>.</span></li>
+						<li>For charts showing different aspects of the CLDR data, 
+						see <a href="comparison_charts.html">CLDR Charts</a>.
+						</li>
+						<li>For access to released data or data under development, see
+						<a href="repository_access.html">CLDR Releases (Downloads)</a>.</li>
+						<li>For access to data under development, see
+						<a href="survey_tool.html">CLDR Survey Tool</a>.</li>
+						<li>For filing other bugs or enhancement requests, see
+						<a href="filing_bug_reports.html">CLDR Bug Reports</a>.</li>
+						<li>For a description of the process of collecting and resolving 
+						data, and how the technical committee operates, see
+						<a href="process.html">CLDR Process</a>.</li>
+						<li>For announcements about CLDR, see <a href="http://www.unicode.org/press/releases.html">Unicode Press Releases</a>.</li>
+						<li>To get on the CLDR user mailing list, see <a href="http://www.unicode.org/consortium/distlist.html#cldr_list">Unicode CLDR Mailing List</a>.</li>
+						<li>For information on transliteration, see
+						<a href="transliteration_guidelines.html">Transliteration Guidelines</a>.</li>
+            </ul>
+            <p><span class="q">CLDR uses the XML format provided by
+					</span><i><a href="http://www.unicode.org/reports/tr35/">UTS 
+					#35: Locale Data Markup Language (LDML)</a></i><span class="q">. LDML is a format used not only for CLDR, but also for general interchange 
+					of locale data, such as in Microsoft's .NET. </span></p>
+            <p>For information about joining the Unicode Consortium, see
+					<a href="http://www.unicode.org/consortium/consort.html">Unicode 
+					Consortium</a>.</p>
+            <h2><a name="Acknowledgments"></a><a name="History">Acknowledgments</a></h2>
+            <p>Acknowledgments for special contributions to successive versions of CLDR and 
+					LDML 
+					are in the
+					<a href="http://www.unicode.org/reports/tr35/#Acknowledgments">
+					Acknowledgments</a> section of <i>
+					<a href="http://www.unicode.org/reports/tr35/">UTS #35: Locale 
+					Data Markup Language (LDML)</a></i>.</p>
+            <p>Many other people have 
+					made significant contributions to CLDR and LDML, including the 
+					following:</p>
+            <table class="table2" id="table1" border="0" cellpadding="4" cellspacing="0">
+				<tbody>
+					<tr>
+						<td class="noborder" valign="top" width="33%">
+							<p>
+							A S Alam (ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ),<br>
+							Abdullah Hassaan Al-Anssary (عبدالله حسان الأنصاري),<br>
+							Ahmad Farrag (أحمد فرّاج),<br>
+							Åke Persson,<br>
+							Akio Kido,<br>
+							Alan Liu,<br>
+							Alberto Barbati,<br>
+							Alberto Escudero-Pascual,<br>
+							Alejandra Canoura Pérez,<br>
+							Alexander Buloichik (Аляксандар Булойчык),<br>
+							Alexander Kachur (Александр Качур),<br>
+							Alexey Proskuryakov (Алексей Проскуряков),<br>
+							Alexis Cheng (鄭宗堯),<br>
+							Anastasia Golikova (Анастасия Голикова),<br>
+							Andrea Decorte,<br>
+							André Stryger,<br>
+							Andy Heninger,<br>
+							Angelo Dalli,<br>
+							Anna Taranova (Анна Таранова),<br>
+							Anthony Deign (അന്തോണി ഡെയ്‌ന്‍),<br>
+							Antoine Leca,<br>
+							Artur Klauser,<br>
+							Ashraf-ul-Kabir (اشرف الکبير),<br>
+							Atso Puronen,<br>
+							Audun Lona,<br>
+							Avery Chan,<br>
+							Ayka Agayeva,<br>
+							<p>
+							Baldev Soor,<br>
+							Behdad Esfahbod (بهداد اسفهبد),<br>
+							Behdad Pournader (بهداد پورنادر),<br>
+							Boris Matveev (Борис Матвеев),<br>
+							<p>
+							Calvin Lee (李灝),<br>
+							Catherine Christaki (Κατερίνα Χρηστάκη),<br>
+							Charles Pau (鲍景超),<br>
+							Charles Riley,<br>
+							Chris Hansten,<br>
+							Christopher Fynn (ཀརྨ་སྒྲུབ་བརྒྱུད་བསྟན་འཛིན།),<br>
+							Cibu C. J. (സിബു സി.ജെ.),<br>
+							Claire Ho (賀靜蘭),<br>
+							Cristina Gonçalves<br>
+							<p>
+							Dacijus Turauskas,<br>
+							Dale Schultz,<br>
+							Dan Dascalescu,<br>
+							Daniel Yacob,<br>
+							Dary Mihova (Дари Михова),<br>
+							David Luo (罗凌),<br>
+							Deborah Goldsmith,<br>
+							Delyth Prys,<br>
+							Denis Jacquerye,<br>
+							Dewi Bryn Jones,<br>
+							Dick Veerhar,<br>
+							Dmitry Molodyk,<br>
+							Đoàn Anh Đức,<br>
+							Dominic Hung (洪淦輝),<br>
+							Doug Ewell,<br>
+							Doug Felt,<br>
+							Dr. Adebisi Aromolaran,<br>
+							Dr. Frans Wijma,<br>
+							Dr. Rajesh Kumar (डॉ. राजेश कुमार),<br>
+							Dr. Sarmad Hussain [CRULP (مرکز تحقیقات اردو)],<br>
+							Dwayne Bailey,<br>
+							<p>
+							Eddy Petrișor,<br>
+							Eike Rathke,<br>
+							Elisabete Ferreira,<br>
+							Elsebeth Flarup,<br>
+							Erdal Ronahi,<br>
+							Eric Mader,<br>
+							Eric Muller,<br>
+							Erkki Kolehmainen,<br>
+							Ernest v.d. Boogaard,<br>
+							Eva Albertsdotter Enblom,<br>
+							<p>
+							Fayeq Oweis (فائق عويس ),<br>
+							Firoj Alam (ফিরোজ আলম),<br>
+							Flora Gu,<br>
+							Focko Dijksterhuis,<br>
+							Fredrik Stenshamn,<br>
+							Friedel Wolff,<br>
+							<p>
+							George Rhoten,<br>
+							Ghasem Kiani (قاسم کیانی مقدم),<br>
+							Gruff Prys,<br>
+							<p>
+							Han Keuper,<br>
+							Helena Shih Chapman (施尙吟),<br>
+							Hideki Hiura,<br>
+							Håvard Hjulstad,<br>
+							Hélène Guillerme,<br>
+							<p>
+							Ihar Mahaniok (Ігар Маханёк),<br>
+							Irina Chausova,<br>
+							Irina Parshina,<br>
+							Iroro Orife,<br>
+							Ivailo Djilianov (Ивайло Джилянов),<br>
+							Ivana Jelisavcic (Ивана Јелисавчић),<br>
+							<p>
+							Jacobo Tarrío Barreiro,<br>
+							Jaganadh.G (ജഗന്നാഥ്.ജി),<br>
+							Jama Musse Jama,<br>
+							James Ballentine,<br>
+							Janny Chen (陈敏敏),<br>
+							Jarkko Hietaniemi,<br>
+							Jarosław Włodarczyk,<br>
+							Javier Sola,<br>
+							Jean-Jacques Enser,<br>
+							Jelena Oertel,<br>
+							Jelena Pjesivac-Grbovic (Јелена Пјешивац-Грбовић),<br>
+							Jeno Demeczky,<br>
+							Jeroen Ruigrok van der Werven,<br>
+							John Emmons,<br>
+							Jolanta Szczerba,<br>
+							Jonathan Rosenne (יונתן רוזן),<br>
+							Jung Hyoun Yi (이정현),<br>
+							Jungshik Shin (신정식, 申政湜),<br>
+							Jørgen Christian Wind Nielsen,<br>
+							<p>
+							Keith Stribley,<br>
+							Kent Karlsson,<br>
+							Kentaroh Noji (野地 健太郎),<br>
+							Khaled Hosny (خالد حسني),<br>
+							Kik Velt,<br>
+							Klaas Ruppel,<br>
+							Klean Xhelilaj,<br>
+							<p>
+							Laurențiu Iancu,<br>
+							Lee Collins,<br>
+							Livia Soardi,<br>
+							Lynn Lin (林蓓蓓),<br>
+						</td>
+						<td class="noborder" valign="top" width="33%">
+							<p>
+							Maiko Nagae Tasaki (田崎 麻衣子),<br>
+							Manfred Kiefer,<br>
+							Marc Liyanage,<br>
+							Maria Luna,<br>
+							Mark Davis,<br>
+							Mark Garrett,<br>
+							Markus Scherer,<br>
+							Mati Allouche (מתתיהו אלוש),<br>
+							Michael Everson,<br>
+							Michael Twomey,<br>
+							Miguel A. Jimenez,<br>
+							Miguel Sousa,<br>
+							Mihai Niță,<br>
+							Mike Tardif,<br>
+							Milind Wanjari,<br>
+							Mine Halıcı,<br>
+							Mirela Škarica,<br>
+							Mitra Fathollahpour (میترا فتح اله پور),<br>
+							Myron Nechypor,<br>
+							Márcio Ferreira,<br>
+							<p>
+							Natalie Davitashvili (ნატალია დავითაშვილი),<br>
+							Nattapong Sirilappanich (ณัฐพงษ์ ศิริลาภพานิช),<br>
+							Neda Armanfar (ندا آرمانفر),<br>
+							Neel Kamal Thakur (नील कमल ठाकुर),<br>
+							Nicha Kumchokpattaraporn (ณิชชา กำโชคภัทรพร),<br>
+							Nicholas Shanks,<br>
+							Ole Kristian Julseth,<br>
+							Omi Azad (অমি আজাদ),<br>
+							Oscar D.P. Triscon,<br>
+							<p>
+							Pantelis Assimakopoulos,<br>
+							Patrick Andries,<br>
+							Paulo José,<br>
+							Peter Edberg,<br>
+							Peter Linsley,<br>
+							Peter Nugent,<br>
+							Philippe Verdy,<br>
+							Philips Benjamin,<br>
+							Puri Rodríguez Díaz,<br>
+							<p>
+							Radek Podolski,<br>
+							Radi Pipev (Ради Пипев),<br>
+							Radosław Moszczyński,<br>
+							Raghuram Viswanadha (రఘురామ్ విశ్వనాథ),<br>
+							Raj Neettiyath (രാജ് നീട്ടിയത്ത്),<br>
+							Rajesh Ranjan (राजेश रंजन),<br>
+							Ramon Casha,<br>
+							Reiko Saito (斎藤 玲子),<br>
+							Riad Khaled Hallab (رياض خالد حلاب),<br>
+							Rici Lake,<br>
+							Rick McGowan,<br>
+							Rob Kiely,<br>
+							Roey Saban (רועי סבן),<br>
+							Roozbeh Pournader (روزبه پورنادر),<br>
+							Rossi Ignatova (Роси Игнатова),<br>
+							Ruben Zakharov (Рубен Захаров),<br>
+							<p>
+							S. M. Murtoza Habib (এস. এম. মুর্তজা হাবিব),<br>
+							Sajith VK,<br>
+							Samphan Raruenrom (สัมพันธ์ ระรื่ืนรมย์),<br>
+							Sandra O'Donnell,<br>
+							Saniye Boran,<br>
+							Sara Santa Clara,<br>
+							Saravanan (ശരവണന്),<br>
+							Sasha Maric (Саша Марић),<br>
+							Saurabh Kudesia (सौरभ कुदेशिया),<br>
+							Serena Xiao (肖顺敏),<br>
+							Serpil Zengin Akkaya,<br>
+							Shankar Prasad M V,<br>
+							Shu Bei (舒蓓),<br>
+							Siddaarth Shanmugam (சித்தார்த் சண்முகம்),<br>
+							Simon Dean,<br>
+							Simone Nicolo,<br>
+							Simos Xenitellis (Σίμος Ξενιτέλλης),<br>
+							Sivaraj Doddannan,<br>
+							Soe Min Mark,<br>
+							Sonia Mokrani,<br>
+							Steingrímur Árnason,<br>
+							Steven R. Loomis,<br>
+							Sumesh Chandran V.R (സുമേഷ് ചന്ദ്രന്‍.വി.ആര്‍),<br>
+							Suresh Chandrasekharan (സുരേഷ് ചന്ദ്രശേഖരന്),<br>
+							Susan Maria Howard,<br>
+							Susanna Laaksonen,<br>
+							Suwit Srivilairith (สุวิทย์ ศรีวิไลฤทธิ์),<br>
+							Sverrir Á. Berg,<br>
+							Séamus Ó Ciardhuáin,<br>
+							Søren Thing Pedersen,<br>
+							<p>
+							Tarek Abou Aly (طارق أبو على),<br>
+							Tatsuo Sekine(関根 達夫),<br>
+							Teppo Turtiainen,<br>
+							Theresa Hieatt-Smith,<br>
+							Thomas Dujardin,<br>
+							Thrine Bjerknes,<br>
+							Tim Brandall,<br>
+							Tom Garland,<br>
+							Troy Korjuslommi,<br>
+							<p>
+							Valeriy Perunov,<br>
+							Vasyl Shumskyi,<br>
+							Viswa Prabha (വിശ്വപ്രഭ),<br>
+							Vitaliy Shipitsyn (Виталий Шипицын),<br>
+							Vladimir Weinstein (Владимир Вајнштајн),<br>
+							Vladislav Zavyalov (Владислав Завьялов),<br>
+							Vytautas Rekus,<br>
+							<p>
+							Walter Keutgen,<br>
+							Waris Abdukerim Janbaz (ۋارىس ئابدۇكېرىم جانباز),<br>
+							Weilin Zhang (张卫琳).<br>
+							William Gan (甘玮亚),<br>
+							William J. Sullivan,<br>
+							Witold Jarnicki,<br>
+							<p>
+							Yajie Ma (马亚杰),<br>
+							Yannis Haralambous (Γιάννης Χαραλάμπους),<br>
+							Yasuyuki Kagawa (香川 康之),<br>
+							Yoshito Umaoka (馬岡 由人),<br>
+							Yun Fang Ge (葛云芳),<br>
+							Yuri Kirghisov,<br>
+							Yury Tarasievich (Юры Тарасевіч),<br>
+							<p>
+							Zsolt Mattburger<br>
+					  </td>
+					</tr>
+				</tbody>
+            </table>
+            <p>The first CLDR version under the sponsorship of the Unicode 
+					Consortium was version 1.1. The CLDR project was originally 
+					developed under the sponsorship of the Linux Application Development 
+					Environment (aka LADE) Workgroup of the
+					<a href="http://www.freestandards.org/">Free Standards Group</a>'s
+					<a href="http://www.openi18n.org/">OpenI18N</a> (formerly known 
+					as Linux Internationalization Initiative or Li18nux) team. CLDR 
+					1.0 was approved on 2004.01.16 by the OpenI18N steering committee. 
+					The founding members of the workgroup were
+					<a href="http://www.ibm.com/">IBM</a>,
+					<a href="http://www.sun.com/">Sun</a> and
+					<a href="http://www.openoffice.org/">OpenOffice.org</a>.</p>
+            <p>Thanks to the following people for their contributions to 
+					the CLDR 1.0 and LDML 1.0: Helena Shih Chapman, Mark Davis, 
+					Simon Dean, Deborah Goldsmith, Steven R Loomis, Kentaroh Noji, 
+					George Rhoten, Baldev Soor, Michael Twomey, Ram Viswanadha and 
+					Vladimir Weinstein. Special thanks to Akio Kido, Hideki Hiura, 
+					Tom Garland, and the OpenI18N organization for the sponsorship 
+					of this activity, and to the ICU team for hosting the CVS repository 
+					and collecting and managing the data for the project. </p>
+				</div>
+				</td>
+			</tr>
+        </tbody>
+      </table>
+      <hr width="50%">
+      <div align="center">
+      <center>
+      <table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+				<tr>
+					<td><a href="http://www.unicode.org/copyright.html">
+					<img src="http://www.unicode.org/img/hb_notice.gif" alt="Access to Copyright and terms of use" border="0" height="50" width="216"></a></td>
+				</tr>
+        </tbody>
+      </table>
+      <script language="Javascript" type="text/javascript" src="http://www.unicode.org/webscripts/lastModified.js">
+      </script>
+			</center>
+      </div>
+		</td>
+	</tr>
+  </tbody>
+</table>
+</body>
+</html>

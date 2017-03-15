@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="cs_FONIPA" target="ko" direction="forward" alias="ko-t-cs-fonipa">
+			<tRule>
+# Transliteration of Phonemic Czech (cs_FONIPA) to Korean (ko).
+#
+# First pass: Phonemic Czech (cs_FONIPA) to Latinized Korean (ko_Latn).
+
+$vowel = [aeɛiɪoux];
+$start = [\u0020$];
+$end = [\u0020$];
+b } $end   → peu ;
+b } $vowel → b ;
+bj } $vowel → b ;  # objɛc → obeti
+b          → beu ;
+c } $end   → ti ;
+c          → t ;
+d͡z         → deuj ;
+d } $end   → teu ;
+d } $vowel → d ;
+d          → deu ;
+ɛ          → e ;
+f } $vowel → p ;
+f          → peu ;
+ɡ } $vowel → g ;
+ɡ          → geu ;
+ɦ } $vowel → h ;
+ɦ          → heu ;
+h } $vowel → h ;
+h          → heu ;
+i          → i ;
+ɪ          → i ;
+j } $end   → i ;  # pokoj → pokoi
+j          → y ;
+kvu        → keub ;  # kvuasɪ → keubasi
+ks } $end  → gseu ;  # ksɛroks → jelogseu
+$start { ks → j ;  # ksɛroks → jelogseu
+ks         → gs ;  # saksofoːn → sagsopon
+k } $vowel → k ;
+k          → keu ;
+$vowel { l } $vowel → ll ;
+lz         → lj ;
+m } $end   → m ;
+m } $vowel → m ;
+m } [l]    → m ;
+m          → meu ;
+ɲ          → n ;
+ŋ          → n ;
+p } $vowel → p ;
+p } t      → b ;  # koroptɛv
+p          → peu ;
+r̝ } $end   → leusi ; # kour̝ → kouleusi
+r̝ } $vowel → leuj ;
+r̝ } k      → leusyu ;  # ɦor̝kiː → holeusyuki
+r̝          → leuju ;
+r } $vowel → l ;
+r          → leu ;
+s } $vowel → s ;
+s          → seu ;
+ʃ } $end   → si ;
+ʃ } $vowel → sy ;
+ʃ          → syu ;
+t͡s} $vowel → ch ;
+t͡s         → cheu ;
+t͡ʃ} $vowel → ch ;
+t͡ʃ         → chi ;
+t } $vowel → t ;
+t          → teu ;
+vj         → b ;    # ʒvjɛr̝ɪna → jubeleujina
+v } $end   → peu ;
+v } $vowel → b ;
+v          → beu ;
+x } $vowel → h ;
+x          → heu ;
+ɣ } $vowel → h ;
+ɣ          → heu ;
+z } $vowel → j ;    # zaːmɛk → jamekeu
+z } $end   → seu ;  # ɦmɪz → heumiseu
+z          → jeu ;  # pozdniː → pojeudeuni
+ʒ } $vowel → j ;    # ʒɪʒka → jisyuka (first ʒ)
+ʒ } v      → ju ;   # ʒvjɛr̝ɪna → jubeleujina
+ʒ } $end   → si ;   # broʒ → beulosi
+ʒ          → syu ;  # ʒɪʒka → jisyuka (second ʒ)
+ɟ } $vowel → dy ;
+ɟ          → ti ;
+ː          → ;
+\u0020     → ;  # space
+#
+#
+# Second pass.
+
+:: Latin-Hangul ();
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

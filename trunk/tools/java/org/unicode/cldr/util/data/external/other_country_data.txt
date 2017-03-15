@@ -1,0 +1,141 @@
+Code;Name;Type;Data;Source
+# the data in the case of gdp-ppp or literacy can be a country code. 
+# For literacy, it is copied. For gdp it is scaled.
+# the population MUST be set before gdp occurs!
+
+AX;Aland Islands;gdp-ppp;$929,773,254;www.aland.ax
+GF;French Guiana;gdp-ppp;$1,551,000,000;www.countryreports.org
+GP;Guadeloupe;gdp-ppp;$3,513,000,000;www.countryreports.org
+MQ;Martinique;gdp-ppp;$6,117,000,000;www.countryreports.org
+RE;Reunion;gdp-ppp;$4,790,000,000;www.countryreports.org
+
+AX;Aland Islands;population;26,200;www.aland.ax
+GF;French Guiana;population;199,509;www.countryreports.org
+GP;Guadeloupe;population;452,776;www.countryreports.org
+MQ;Martinique;population;436,131;www.countryreports.org
+RE;Reunion;population;787,584;www.countryreports.org
+
+AX;Aland Islands;literacy;FI;
+BL;Saint Barthélemy;literacy;FR;
+
+
+EH;Western Sahara;literacy;50;http://en.wikipedia.org/wiki/Culture_of_Western_Sahara
+FK;Falkland Islands;literacy;GB;
+FO;Faroe Islands;literacy;99;original.britannica.com
+GF;French Guiana;literacy;83;original.britannica.com
+GG;Guernsey;literacy;100;original.britannica.com
+GP;Guadeloupe;literacy;90;original.britannica.com
+IM;Isle of Man;literacy;GB;
+JE;Jersey;literacy;GB;
+KI;Kiribati;literacy;90;original.britannica.com
+ME;Montenegro;literacy;RS;
+MF;Saint Martin;literacy;FR;
+MQ;Martinique;literacy;98;original.britannica.com
+
+NR;Nauru;literacy;99;original.britannica.com
+
+RE;Reunion;literacy;88;original.britannica.com
+SB;Solomon Islands;literacy;54;original.britannica.com
+
+
+TV;Tuvalu;literacy;95;original.britannica.com
+YT;Mayotte;literacy;92;original.britannica.com
+
+
+AX;Aland Islands;gdp-ppp;$26200;
+BL;Saint Barthélemy;gdp-ppp;$255,000,000 ;en.wikipedia.org
+
+
+
+FK;Falkland Islands;gdp-ppp;$75000000;
+FO;Faroe Islands;gdp-ppp;$1000000000;
+GF;French Guiana;gdp-ppp;$199509;
+GG;Guernsey;gdp-ppp;$2742000000;
+GP;Guadeloupe;gdp-ppp;$452776;
+IM;Isle of Man;gdp-ppp;$2719000000;
+JE;Jersey;gdp-ppp;$5100000000;
+KI;Kiribati;gdp-ppp;$348000000;
+ME;Montenegro;gdp-ppp;$5918000000;
+MF;Saint Martin;gdp-ppp;$449,000,000 ;en.wikipedia.org
+MQ;Martinique;gdp-ppp;$436131;
+
+NR;Nauru;gdp-ppp;$60000000;
+
+RE;Reunion;gdp-ppp;$787584;
+SB;Solomon Islands;gdp-ppp;$948000000
+
+TK;Tokelau;gdp-ppp;$1500000
+TV;Tuvalu;gdp-ppp;$14940000
+YT;Mayotte;gdp-ppp;$953600000
+
+AQ;Antarctica;population;300;uninhabited
+BV;Bouvet Island;population;1;uninhabited
+GS;South Georgia and the South Sandwich Islands;population;20;uninhabited
+HM;Heard Island and McDonald Islands;population;1;uninhabited
+IO;British Indian Ocean Territory;population;3500;uninhabited
+TF;French Southern Territories;population;140;uninhabited
+UM;United States Minor Outlying Islands;population;316;uninhabited
+
+# Extras in latest release
+AC;Ascension Island;population;940;http://en.wikipedia.org/wiki/Ascension_Island
+AC;Ascension Island;gdp-ppp;GB;reason
+AC;Ascension Island;literacy;GB;reason
+AQ;Antarctica;gdp-ppp;US;reason
+AQ;Antarctica;literacy;US;reason
+BV;Bouvet Island;gdp-ppp;GB;reason
+BV;Bouvet Island;literacy;GB;reason
+CC;Cocos (Keeling) Islands;gdp-ppp;AU;reason
+CC;Cocos (Keeling) Islands;literacy;AU;reason
+CP;Clipperton Island;population;1;reason
+CP;Clipperton Island;gdp-ppp;FR;reason
+CP;Clipperton Island;literacy;FR;reason
+CX;Christmas Island;gdp-ppp;AU;reason
+CX;Christmas Island;literacy;AU;reason
+DG;Diego Garcia;population;500;reason
+DG;Diego Garcia;gdp-ppp;GB;reason
+DG;Diego Garcia;literacy;GB;reason
+EA;Ceuta, Melilla;population;150000;wikipedia
+EA;Ceuta, Melilla;gdp-ppp;ES;reason
+EA;Ceuta, Melilla;literacy;ES;reason
+GS;South Georgia and the South Sandwich Islands;gdp-ppp;GB;reason
+GS;South Georgia and the South Sandwich Islands;literacy;GB;reason
+HM;Heard Island and McDonald Islands;gdp-ppp;AU;reason
+HM;Heard Island and McDonald Islands;literacy;AU;reason
+IC;Canary Islands;population;2,098,593;http://en.wikipedia.org/wiki/Canary_Islands
+IC;Canary Islands;gdp-ppp;ES;reason
+IC;Canary Islands;literacy;ES;reason
+IO;British Indian Ocean Territory;gdp-ppp;GB;reason
+IO;British Indian Ocean Territory;literacy;GB;reason
+NF;Norfolk Island;gdp-ppp;AU;reason
+NF;Norfolk Island;literacy;AU;reason
+PN;Pitcairn;gdp-ppp;GB;reason
+PN;Pitcairn;literacy;GB;reason
+SJ;Svalbard and Jan Mayen;gdp-ppp;NO;reason
+SJ;Svalbard and Jan Mayen;literacy;NO;reason
+TA;Tristan da Cunha;population;275;reason
+TA;Tristan da Cunha;gdp-ppp;GB;reason
+TA;Tristan da Cunha;literacy;GB;reason
+TF;French Southern Territories;gdp-ppp;FR;reason
+TF;French Southern Territories;literacy;FR;reason
+TK;Tokelau;literacy;94;http://www.ethnologue.com/show_country.asp?name=TK
+UM;United States Minor Outlying Islands;gdp-ppp;US;reason
+UM;United States Minor Outlying Islands;literacy;US;reason
+VA;Holy See (Vatican City State);gdp-ppp;IT;reason
+VI;U.S. Virgin Islands;literacy;US;reason
+
+GU;Guam;gdp-ppp;$2500000000;factbook (2005 est)
+
+CW;Curaçao;population;142180;wikipedia
+CW;Curaçao;gdp-ppp;$2914000;wikipedia
+CW;Curaçao;literacy;NL;reason
+
+BQ;Bonaire, Saint Eustatius and Saba;population;20000;wikipedia
+BQ;Bonaire, Saint Eustatius and Saba;gdp-ppp;CW;reason
+BQ;Bonaire, Saint Eustatius and Saba;literacy;CW;reason
+
+SX;Sint Maarten (Dutch part);population;37429;wikipedia
+SX;Sint Maarten (Dutch part);gdp-ppp;$400000000;wikipedia
+SX;Sint Maarten (Dutch part);literacy;NL;reason
+
+SS;South Sudan;gdp-ppp;$120000000000;worldbank-blog
+YT;Mayotte;population;194000;reason

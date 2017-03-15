@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="*.jar|*.properties|*.txt|*.xml|.*|.*/**/*|build/|classes/|libs/|org/unicode/cldr/web/|out/" kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ANT_LIB"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry exported="true" kind="lib" path="libs/icu4j.jar" sourcepath="libs/icu4j-src.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/utilities.jar" sourcepath="libs/utilities-src.jar"/>
+	<classpathentry kind="lib" path="libs/xercesImpl.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="libs/guava.jar"/>
+	<classpathentry kind="lib" path="libs/gson.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

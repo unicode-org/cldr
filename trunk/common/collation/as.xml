@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="as"/>
+	</identity>
+		<collations>
+<collation type="standard" references="http://www.eki.ee/wgrs/rom1_as.pdf">
+<cr><![CDATA[
+[normalization on]
+[reorder Beng Deva Guru Gujr Orya Taml Telu Knda Mlym Sinh]
+#
+# The following tailoring is an adjustment of the
+# DUCET collation order for ANUSVARA, CANDRABINDU,
+# and VISARGA. Instead of being sorted with secondary
+# weights, they are collated on primary level between
+# the independent vowels and the consonants.
+# 
+&ঔ<ং<ঁ<ঃ
+#
+# KHANDA-TA is sorted before TA.
+# 
+&[before 1]ত<ৎ=ত্\u200D
+#
+# KSSA is sorted after HA.
+# 
+&হ<ক্ষ
+]]></cr>
+</collation>
+		</collations>
+</ldml>
+

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2016 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="und_FONIPA" target="fa" direction="forward" alias="fa-t-und-fonipa">
+		  <tRule><![CDATA[
+# Vowels
+# ------
+# In these rules, we produce ی و ا both for short and for long vowels.
+# This would be wrong for writing Farsi or Arabic, but when transliterating
+# foreign words and names, it is strongly preferred to vowel marks.
+# Short schwa [ə] and a few other, schwa-like vowels get omitted entirely
+# unless at the end of the word, in which case we emit ه whose Farsi
+# word-final pronunciation comes close to [ə]. At the beginning of words,
+# Farsi speakers prefer to see آ for [ɑ] and a few other similar-sounding
+# dark vowels; note that this use of آ is quite different from Arabic.
+
+$IVowel = [i ɪ e {e̞}];
+$UVowel = [y {ɨ} {ʉ} ɯ u ʏ {ɪ̈} {ʊ̈} {ɯ̽} {ʊ} ø ɤ o {ø̞} {ɤ̞} {o̞} ɔ w {w̥} ʍ ʷ];
+$AVowel = [ɛ œ ɜ æ ɶ];
+$DarkAVowel = [ʌ a ɑ ɒ ɐ ɞ {ä} {ɒ̈}];  # آ instead of ا at beginning of words
+$SchwaVowel = [ɘ ɵ ə {ɵ̞}];
+$Click = [ʘ ɋ ǀ ʇ ǃ ʗ ǂ ʄ ǁ ʖ];
+$Boundary =  [^[:L:][:M:][:N:]];
+
+::NFD;
+[ʰ ʱ ʼ  ̃  ̰  ̋  ́  ̄  ̀  ̏  ̌  ̂ ˥ ˦ ˧ ˨ ˩ ꜜ ꜛ ↗ ↘  ͡  ͜  ̯] → ;
+ʲ → j;
+ᵐ → m;
+ⁿ → n;
+ᵑ → ŋ;
+::NFC;
+
+# TODO: Diphthongs probably need more work.
+
+# Romanian [sekujesk] → [sekujask], for emitting سیکویاسک not سیکویسک
+$UVowel [j $IVowel] [e {e̞} $SchwaVowel] → uia;
+
+# Kazakh Аягөз [ɑjɑɡy̯ʉz] → [ɑjɑɡiuz], to emit آیاگیوز not آیاگووز
+yʉ → iu;
+
+::NULL;
+
+# Vowels
+$Boundary {$SchwaVowel ː?} → ای;
+$SchwaVowel ː → ی;
+{[$SchwaVowel e {e̞}]} [^[:L:][:M:][:N:][\.]] → ه;
+$SchwaVowel → ;
+
+$Boundary {$IVowel ː?} → ای;
+$IVowel ː? j? → ی;
+
+$Boundary {$UVowel ː?} → او;
+$UVowel ː? → و;
+
+$Boundary {$AVowel ː?} → ا;
+$AVowel ː? → ا;
+
+$Boundary {$DarkAVowel ː?} → آ;
+$DarkAVowel ː? → ا;
+
+# Shadda for long (geminated) consonants
+ː → ّ;
+
+# Affricates
+[{t͡ʃ} ʧ] → چ;
+
+# Clicks
+[ɡ g ɠ k] $Click → کچ;
+[n ɲ]? $Click → نچ;
+
+# Nasal stops
+[{m̥} m ɱ] → م;
+[{n̼̊} {n̼} {n̥} n {ɳ̊} ɳ {ɲ̊} {ɲ̥} ɲ] → ن;
+[{ŋ̊} ŋ {ɴ̥} ɴ] k → نک;
+[{ŋ̊} ŋ {ɴ̥} ɴ] [ɡ g]? → نگ;
+
+# Non-nasal stops
+[p {p̪}] → پ;
+[b {b̪} ɓ] → ب;
+[{d̼} d ɗ ᶑ] → د;
+[{t̼} t] → ت;
+[ʈ] → ط;
+[ɖ] → ض;
+c → چ;
+ɟ → دج;
+k → ک;
+[ɡ g ɠ] → گ;
+[q ɢ ʡ ʛ] → ق;
+ʔ → ;
+
+# Sibilant fricatives
+s → س;
+z → ز;
+[ʃ ʂ ɕ ʄ] → ش;
+[ʒ ʐ ʑ] → ژ;
+
+# Non-sibilant fricatives
+[ɸ f] → ف;
+[β v] → و;
+[{θ̼} θ {θ̱}] → ث;
+[{ð̼} ð {ð̠}] → ذ;
+ç → ش;
+ʝ $IVowel? ː? → ی;
+[x χ] → خ;
+[ɣ ʁ] → غ;
+ħ → ح;
+ʕ → ع;
+[h ɦ {ʔ̞}] → ه;
+
+# Approximants, trills, flaps
+ʋ → و;
+ʙ → بر;
+{r̝} → رژ;
+[{ɹ̥} {ɹ} {ɻ̊} {ɻ} {ɾ̥} ɾ {ɽ̊} ɽ {r̼} {r̥} r] → ر;
+[{ʀ̥} ʀ] → غ;
+ʜ → ح;
+ʢ → ع;
+j $IVowel? ː? → ی;
+
+# Laterals
+ɬ → شل;
+ɮ → ژل;
+{[{ʎ̥} ʎ]} [^ $IVowel j ʝ] → لی;
+[{l̼} {l̥} l {ɭ̊} ɭ {ʎ̥} ʎ] → ل;
+[ʟ {ʟ̠}] → غ;
+
+# Independent pass for misc cleanup.
+::NULL;
+
+# Strip off syllable markers
+\. → ;  
+
+# Sequences of three or more ووو look very confusing; we shorten them.
+# Polish Darłowo [darwɔvɔ] → داروو → داروووو
+ووو+ → وو;
+
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

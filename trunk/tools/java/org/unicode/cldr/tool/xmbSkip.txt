@@ -1,0 +1,63 @@
+# Items that we will skip (at least for now).
+# path ; value
+# for value = SKIP, always skip.
+# for value = KEEP, keep if if the coverage level is high.
+# for value = VALUE, skip if $1 = value
+
+# Remember to quote any [ character!
+
+# Needs special review, not for average translators
+
+^//ldml/dates/calendars/calendar\[@type="(?!gregorian) ; SKIP
+
+^//ldml/dates/timeZoneNames/metazone\[@type="([^"]*)"]/commonlyUsed ; SKIP
+
+^//ldml/characters/exemplarCharacters\[@type="currency"] ;   SKIP
+
+^//ldml/numbers/currencyFormats/currencySpacing ; SKIP
+^//ldml/numbers/defaultNumberingSystem ; SKIP
+^//ldml/references ; SKIP
+
+^//ldml/localeDisplayNames/variants/variant\[@type="([^"]*+)"]   ;  SKIP
+
+# Should be deprecated?
+
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/appendItems/appendItem\[@request="([^"]*)"] ; SKIP
+# should use the fields instead?
+
+^//ldml/layout/inList ; SKIP
+^//ldml/layout/inText ; SKIP
+
+^//ldml/localeDisplayNames/codePatterns/codePattern ; SKIP
+
+^//ldml/numbers/symbols/list    ;   SKIP
+^//ldml/numbers/symbols/nativeZeroDigit ;   SKIP
+^//ldml/numbers/symbols/patternDigit    ;   SKIP
+
+^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/(long|short|commonlyUsed) ; SKIP
+
+^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/symbol ; VALUE
+
+# Skip for now, since we can't handle well:
+^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/displayName\[@count="([^"]*)"] ; SKIP
+^//ldml/numbers/currencyFormats/unitPattern\[@count="([^"]*)"]  ;   SKIP
+
+# /calendar.*/dayPeriod.*\@alt   ;   SKIP
+
+^//ldml/layout/orientation ; SKIP
+^//ldml/localeDisplayNames/territories/territory\[@type="062|172|200|830|AN|CS|CT|DD|FQ|FX|JT|MI|NQ|NT|PC|PU|PZ|SU|VD|WK|YD"] ; SKIP
+
+^//ldml/characters/stopwords/stopwordList ; SKIP
+^//ldml/characters/exemplarCharacters\[@type="currencySymbol"] ; SKIP
+^//ldml/localeDisplayNames/types/type\[@type="direct"]\[@key="collation"] ; SKIP
+
+^//ldml/localeDisplayNames/types/type\[@type="(taml|tamldec|bali|brah|cakm|cham|java|kali|osma|lana|lanatham|lepc|limb|mong|mtei|mymrshan|nkoo|olck|saur|shrd|sora|sund|talu|takr)"]\[@key="numbers"] ; SKIP
+
+^//ldml/localeDisplayNames/scripts/script\[@type="(Kore|Jpan)"] ; KEEP
+^//ldml/localeDisplayNames/scripts/script\[@type="(Cans|Tfng|Yiii)"] ; SKIP
+
+# Make sure to duplicate this list in PathDescription.EXTRA_LANGUAGES!!!
+^//ldml/localeDisplayNames/languages/language\[@type="(ach|af|ak|ak|am|ar|az|be|bem|bg|bh|bn|br|bs|ca|chr|ckb|co|crs|cs|cy|da|de|de_AT|de_CH|ee|el|en|en_AU|en_CA|en_GB|en_US|eo|es|es_419|es_ES|et|eu|fa|fi|fil|fo|fr|fr_CA|fr_CH|fy|ga|gaa|gd|gl|gn|gsw|gu|ha|haw|he|hi|hr|ht|hu|hy|ia|id|ig|is|it|ja|jv|ka|kg|kk|km|kn|ko|kri|ku|ky|la|lg|ln|lo|loz|lt|lua|lv|mfe|mg|mi|mk|ml|mn|mr|ms|mt|my|nb|ne|nl|nl_BE|nn|nso|ny|nyn|oc|om|or|pa|pcm|pl|ps|pt|pt_BR|pt_PT|qu|rm|rn|ro|ro|ro_MD|ru|rw|sd|si|sk|sl|sn|so|sq|sr|sr_Latn|sr_ME|st|su|sv|sw|ta|te|tg|th|ti|tk|tlh|tn|to|tr|tt|tum|ug|uk|und|ur|uz|vi|wo|xh|yi|yo|zh|zh_Hans|zh_Hant|zh_HK|zu|zxx)"] ; KEEP
+#skip all other languages!
+^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"] ; SKIP
+

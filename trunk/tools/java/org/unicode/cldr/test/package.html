@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+Copyright (C) 2004-2005, Unicode, Inc., International Business Machines Corporation, and others.
+For terms of use, see http://www.unicode.org/terms_of_use.html
+-->
+<link rel="stylesheet" type="text/css" href="../common.css">
+</head>
+<body bgcolor="white">
+	<h1>Test Programs for CLDR files</h1>
+	<p>
+		Provides test programs for CLDR files.<i> Warning: these tools are
+			written quickly without much documentation</i>
+	</p>
+	<p>
+		<b>The directory C:\cvsdata\unicode stands for wherever the cldr
+			directory is for the locale CVS.</b>
+	</p>
+	<table border="1" width="100%" id="table1"
+		style="border-collapse: collapse">
+		<tr>
+			<th>Goal</th>
+			<th>Program</th>
+			<th>Typical Options</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>For speed, UTF-8 files, showing file creation</td>
+			<td><i>Common Options for all of following</i></td>
+			<td>-DCLDR_DTD_CACHE=C:\cldrcache\ -Dfile.encoding=UTF-8
+				-Xmx700M -DSHOW_FILES -DSHOW</td>
+		</tr>
+		<tr>
+			<td rowspan="2">Check for general CLDR errors. Use for testing
+				the survey tool tests, plus independent verification of bulk/CVS
+				changes.</td>
+			<td rowspan="2">ConsoleCheckCLDR</td>
+			<td>General verification of vetted data (Should take about 6
+				minutes.)</td>
+			<td>-e -c minimal -z final_testing -s
+				C:\cvsdata\unicode\cldr\incoming\vetted\main</td>
+		</tr>
+		<tr>
+			<td>HTML error report</td>
+			<td>Add -g option. Generates data in <a
+				href="file:///C:/cvsdata/unicode/cldr/dropbox/gen/errors/">C:\cvsdata\unicode\cldr\dropbox\gen\errors\</a>
+				(you can change this with -g xxx). Once this is done, update with
+				CVS.
+			</td>
+		</tr>
+		<tr>
+			<td>Test basic DTD correctness, paths</td>
+			<td>QuickCheck</td>
+			<td>&nbsp;</td>
+			<td>-DSOURCE=C:\cvsdata\unicode\cldr\incoming\vetted\main</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	<h3>Terms of Use</h3>
+	<pre>* All files Copyright (c) 2004-2007, Unicode Inc, and others.  All Rights Reserved.
+* For terms of use, see <a
+			href="http://unicode.org/copyright.html#Exhibit1">http://unicode.org/copyright.html#Exhibit1</a>
+	</pre>
+</body>
+</html>

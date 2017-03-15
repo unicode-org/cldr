@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+Originally prepared by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Science Association http://ukij.org
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ug" /> 
+	</identity>
+	<collations>
+		<collation type="standard">
+				<cr><![CDATA[
+					[reorder Arab]
+					&ا<ە<ب
+					&ك<گ<ڭ<ل
+					&ھ<و<ۇ<ۆ<ۈ<ۋ<ې<ى<ي
+				]]></cr>
+		</collation>
+	</collations>
+</ldml>

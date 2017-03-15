@@ -1,0 +1,350 @@
+<project name="CLDR Web Apps" default="all" basedir=".">
+    <target name="init">
+    	<!-- copied from cldr/tools/java's build.xml -->
+        <tstamp/>
+
+        <property name="src.dir" value="src"/>
+        <property name="libs.dir" value="WebContent/WEB-INF/lib"/>
+
+        <property name="build.dir" value="build/classes"/>
+        <property name="jar.file" value="cldr-apps.jar"/>
+        <property name="jarSrc.file" value="cldr-apps-src.jar"/>
+        <property name="jarDocs.file" value="cldr-apps-docs.jar"/>
+        <property name="doc.dir" value="doc"/>
+        <property name="doc.params" value=""/>
+        <!--  Load local definitions from an optional build.properties file, if available.
+              build.properties is NOT checked into CVS. -->
+        <!-- Load environment variables -->
+        <!--
+            <property environment="env"/>
+        -->
+        <property file="build.properties" />
+
+        <!-- CLDR_TOOLS defaults to ../java, override if not correct. -->
+        <property name="CLDR_TOOLS" value="../java"/>
+        <property name="CLDR_DIR" value="../../common/.."/>
+        <property name="CLDR_JAR" value="${CLDR_TOOLS}/cldr.jar"/>
+
+        <path id="build.classpath">
+            <pathelement path="${build.dir}"/>
+        </path>
+
+        <property name="ICU4J_JAR" value="${CLDR_TOOLS}/libs/icu4j.jar"/>
+        <property name="UTILITIES_JAR" value="${CLDR_TOOLS}/libs/utilities.jar"/>
+        <property name="GUAVA_JAR" value="${CLDR_TOOLS}/libs/guava.jar" />
+    	
+        <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -Dorg.unicode.cldr.unittest.web.dir=cldr_db_test -DDEBUG=true"/>
+        <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
+
+        <!-- from webinit: -->
+        <property name="tomcat.home"        value="${CATALINA_HOME}"/>
+        <condition property="is.tomcat.home.set" >
+                <isset property="CATALINA_HOME" />
+        </condition>
+        <fail unless="is.tomcat.home.set" message="Please set the CATALINA_HOME property in build.properties to point at your Tomcat installation."/>
+        <property name="SERVLET_JAR"        value="${CATALINA_HOME}/lib/servlet-api.jar"/>
+        <property name="JSP_JAR"        value="${CATALINA_HOME}/lib/jsp-api.jar"/>
+
+        <!-- Configure the context path for this application -->
+        <property name="path"     value="/cldr-apps"/>
+        <property name="hostport" value="http://localhost:8080"/>
+        <!-- Configure properties to access the Manager application -->
+        <property name="managerpath" value="/manager/text" />
+        <property name="url"      value="${hostport}${managerpath}"/>  <!-- TODO: support multiple, overrides -->
+        <property name="appurl"   value="${hostport}${path}"/>
+        <property name="username" value="admin"/> <!-- TODO: support overrides -->
+        <property name="webcheck.delay" value="15"/> <!-- delay time -->
+        <!-- call ant with:  -Dpassword=adminpass to use the updating stuff -->
+
+        <property name="warfile" location="cldr-apps.war"/>
+
+	<property name="WebContent" location="./WebContent"/>
+	<property name="WEB-INF" location="${WebContent}/WEB-INF"/>
+        <property name="webxml" location="${WEB-INF}/web.xml"/>
+
+        <mkdir dir="${build.dir}"/>
+
+        <path id="project.class.path">
+            <pathelement path="${java.class.path}/"/>
+            <pathelement path="${build.dir}"/>
+            <pathelement path="${CLDR_CLASSES}"/>
+            <fileset dir="${libs.dir}">
+              <include name="**/*.jar"/>
+            </fileset>
+            <!-- <pathelement location="${CLDR_JAR}"/> -->
+            <pathelement path="${CLDR_TOOLS}/classes"/>
+            <pathelement location="${CATALINA_HOME}/lib/tomcat-dbcp.jar"/>
+            <pathelement location="${ICU4J_JAR}"/>
+            <pathelement location="${UTILITIES_JAR}"/>
+            <pathelement location="${GUAVA_JAR}"/>
+            <pathelement location="${XML_APIS_JAR}"/>
+            <pathelement location="${DERBY_LIB}"/>
+            <pathelement location="${JDOM_LIB}"/>
+            <pathelement location="${SERVLET_JAR}"/>
+            <pathelement location="${JSP_JAR}"/>
+            <pathelement location="${MAIL_LIB}"/>
+            <pathelement location="${ROME_LIB}"/>
+
+        </path>
+
+ <!--       <property name="icu.home"           value="${env.ICU4J_HOME}"/> -->
+
+        <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
+
+        <path id="catalina-ant.classpath">
+          <fileset dir="${tomcat.home}/lib">
+	    <include name="**/*.jar"/>
+	  </fileset>
+	  <fileset dir="${tomcat.home}/bin">
+	    <include name="**/*.jar"/>
+	  </fileset>
+        </path>
+
+        <!-- Configure the custom Ant tasks for the Manager application -->
+        <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="list"      classname="org.apache.catalina.ant.ListTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <!-- <taskdef name="roles"     classname="org.apache.catalina.ant.RolesTask"><classpath refid="catalina-ant.classpath" /></taskdef> -->
+        <taskdef name="start"     classname="org.apache.catalina.ant.StartTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="stop"      classname="org.apache.catalina.ant.StopTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <taskdef name="undeploy"  classname="org.apache.catalina.ant.UndeployTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+
+        <!--
+        TODO: do the following for the other env variables above..
+        <condition property="is.icu4j.classes.set" >
+            <isset property="env.ICU4J_CLASSES" />
+        </condition >
+        <fail unless="is.icu4j.classes.set" message="Please set the ICU4J_CLASSES environment variable."/>
+        -->
+
+        <echo message="Java: ${java.version}. [For verbose list of properties, use the 'properties' target.]"/>
+    </target>
+
+    <target name="properties" description="dump out properties" depends="init">
+        <echo message="java home: ${java.home}"/>
+        <echo message="java version: ${java.version} ant java version: ${ant.java.version}"/>
+        <echo message="java.class.path: ${java.class.path}/"/>
+        <echo message="project.class.path: ${project.class.path}"/>
+        <echo message="build.dir: ${build.dir}"/>
+        <echo message="${ant.version}"/>
+        <echo message="CATALINA_HOME ${CATALINA_HOME}"/>
+        <echo message="tomcat.home ${tomcat.home}"/>
+        <echo/>
+        <echo message="ICU properties:"/>
+        <echo message="env.ICU4J_CLASSES: ${env.ICU4J_CLASSES}"/>
+        <echo message="env.CLDR_CLASSES: ${env.CLDR_CLASSES}"/>
+        <echo message="env.ICU4J_JAR: ${env.ICU4J_JAR}"/>
+        <echo/>
+        <echo message="Properties from build.properties (see build-sample.properties)"/>
+        <echo message="CLDR_TOOLS: ${CLDR_TOOLS} ( usually just ../java )"/>
+        <echo message="JDOM_LIB: ${JDOM_LIB}"/>
+        <echo message="DERBY_LIB: ${DERBY_LIB}"/>
+        <echo message="DERBYTOOLS_LIB: ${DERBYTOOLS_LIB}"/>
+        <echo message="ROME_LIB: ${ROME_LIB}"/>
+        <echo message="MAIL_LIB: ${MAIL_LIB}"/>
+        <echo message="SERVLET_JAR: ${SERVLET_JAR}"/>
+        <echo message="JSP_JAR: ${JSP_JAR}"/>
+        <echo/>
+        <echo message="Derived properties"/>
+        <echo message="CLDR_JAR: ${CLDR_JAR}"/>
+        <echo message="CLDR_CLASSES: ${CLDR_CLASSES}"/>
+        <echo message="env.UTILITIES_JAR: ${env.UTILITIES_JAR}"/>
+        <echo message="env.XML_APIS_JAR: ${env.XML_APIS_JAR}"/>
+        <echo/>
+        <echo message="Servlet properties"/>
+        <echo message="appurl: ${appurl}"/>
+        <echo message="url: ${url}"/>
+    </target>
+
+
+    <target name="clean" depends="init" description="remove all build targets">
+        <delete dir="${build.dir}"/>
+        <delete file="${jar.file}"/>
+        <delete file="${warfile}"/>
+        <delete file="${jarSrc.file}"/>
+        <delete file="${jarDocs.file}"/>
+        <delete dir="${doc.dir}"/>
+    </target>
+
+    <target name="jar" depends="web" description="build full 'cldr.jar' jar file">
+        <jar jarfile="${jar.file}"
+            compress="true"
+            includes="org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ooo/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/icu/**/*"
+            basedir="${build.dir}"/>
+    </target>
+  <!-- Docs stuff -->
+    <!-- use excludefiles below when we move to ant 1.5 -->
+    <target name="docs-jar" depends="docs">
+      <jar jarfile="${jarDocs.file}"
+           compress="true"
+           includes="**/*"
+           basedir="${doc.dir}"/>
+    </target>
+    <target name="docs" depends="init" description="build user javadoc">
+	<tstamp>
+		<format property="current.year" pattern="yyyy"/>
+	</tstamp>
+        <echo message="doc params: ${doc.params}"/>
+        <mkdir dir="${doc.dir}"/>
+        <javadoc
+            packagenames="org.unicode.cldr.*"
+            sourcepath="${src.dir}"
+            destdir="${doc.dir}"
+            classpathref="project.class.path"
+            nodeprecatedlist="true"
+            windowtitle="CLDR | Java Tools"
+            doctitle="CLDR | Java Tools"
+            encoding="utf-8"
+            docencoding="utf-8"
+            additionalparam="${doc.params}"
+            link="http://docs.oracle.com/javase/7/docs/api"
+            bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
+            source="1.8" />
+    </target>
+               <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->
+
+
+  <!-- SurveyTool (web) stuff follows ................. -->
+
+
+    <!-- build all web related things -->
+    <!--
+    	// includes="${src.dir}/**/*.java"
+    	    excludes="**/.svn/**/*"
+    -->
+	<target name="web" depends="all" description="alias for old 'web' target"/>
+
+    <target name="all" depends="init" description="build web classes">
+        <javac
+            srcdir="${src.dir}"
+        	includes="org/unicode/cldr/util/*.java,org/unicode/cldr/web/*.java,org/json/*.java"
+            destdir="${build.dir}"
+            classpathref="project.class.path"
+            source="1.8"
+            target="1.8"
+            debug="on" deprecation="off"
+            includeantruntime="false"
+            encoding="UTF-8"/>
+    </target>
+
+
+    <!-- build as a WAR file -->
+    <!-- TODO: include CLDR as a jar? Only include certain classes? -->
+    <target name="war" depends="web" description="Build war">
+        <war destfile="${warfile}" webxml="${webxml}">
+            <!-- classes (for now, may want to take cldr utils as a jar later) -->
+            <classes dir="${build.dir}" />
+
+            <!-- all other files in /root -->
+            <zipfileset dir="${WebContent}" excludes="**/.svn/**/*"/>
+
+            <!-- certain jars that we want -->
+            <lib file="${UTILITIES_JAR}"/>  <!-- CLDR utilities -->
+            <lib file="${ICU4J_JAR}"/>  <!-- CLDR jar -->
+            <lib file="${CLDR_JAR}"/>  <!-- CLDR jar -->
+        	<lib file="${GUAVA_JAR}" /> <!-- GUAVA jar -->
+            <!-- May want this later. -->
+            <!--  <pathelement path="${jsp.jar}"/> -->
+
+        </war>
+    </target>
+
+    <!-- deploy to the server -->
+    <target name="deploy" depends="init,war">
+        <deploy url="${url}" username="${username}" password="${password}"
+            path="${path}" war="${warfile}"/>
+    </target>
+
+    <!-- reload on the server - doesn't require building -->
+    <target name="reload" description="Reload SurveyTool application"
+          depends="init">
+        <reload  url="${url}" username="${username}" password="${password}"
+            path="${path}"/>
+    </target>
+
+    <!-- un-deploy from the server -->
+    <target name="undeploy" description="Remove SurveyTool application" depends="init">
+        <undeploy url="${url}" username="${username}" password="${password}"
+            path="${path}"/>
+    </target>
+
+    <!-- redeploy to the server.  Builds first so we catch trouble early.
+        Note, this will fail if you haven't deployed the first time. -->
+    <target name="redeploy" description="Redeploy SurveyTool application"
+        depends="init,war,undeploy,deploy">
+    </target>
+
+	<!-- must use this to initialize the derby DB. -->
+    <target name="create-derby-db" description="Create empty Derby DB"
+	depends="init">
+	<java classname="org.apache.derby.tools.ij" inputstring="exit;">
+         <sysproperty key="derby.system.home" value="${tomcat.home}"/>
+         <sysproperty key="ij.database" value="jdbc:derby:cldr/cldrdb;create=true"/>
+	 <classpath>
+		<pathelement location="${DERBY_LIB}"/>
+		<pathelement location="${DERBYTOOLS_LIB}"/>
+	 </classpath>
+	</java>
+    </target>
+
+
+   <target name="tests" depends="all" description="Rebuild just tests">
+        <javac
+            srcdir="${src.dir}"
+        	includes="org/unicode/cldr/unittest/web/*.java"
+            destdir="${build.dir}"
+            classpathref="project.class.path"
+            source="1.8"
+            target="1.8"
+            debug="on" deprecation="off"
+            includeantruntime="false"
+            encoding="UTF-8"/>
+        <mkdir dir="${build.dir}/org/unicode/cldr/unittest/web/data"/>
+        <copy todir="${build.dir}/org/unicode/cldr/unittest/web/data">
+            <fileset dir="${src.dir}/org/unicode/cldr/unittest/web/data"
+                excludes="**/CVS/**/*"/>
+        </copy>
+
+    </target>
+
+    <target name="check" description="Run the standard ICU4J test suite" depends="init">
+        <antcall target="_runCheck">
+            <param name="runcheck.arg" value="-n"/>
+            <param name="runcheck.jvmarg" value="${jvm_options}"/>
+        </antcall>
+    </target>
+
+   <target name="_runCheck" depends="init,tests">
+        <echo message="JVM argument:   ${runcheck.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST  -Djava.awt.headless=true"/>
+        <echo message="Test argument:   ${runcheck.arg}"/>
+        <java classname="org.unicode.cldr.unittest.web.TestAll" fork="yes" failonerror="true" classpathref="project.class.path">
+            <arg line="${runcheck.arg}"/>
+            <jvmarg line="${runcheck.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true"/>
+        </java>
+   </target>
+
+   <target name="webcheck" description="Test that the server is semi working" depends="init">
+     <delete file="tmp.survey.html"/>
+     <get src="${appurl}/survey" dest="tmp.survey.html" verbose="false" httpusecaches="false" />
+     <echo message="... waiting ${webcheck.delay}s for server to settle ..."/>
+     <sleep seconds="${webcheck.delay}" />
+     <delete file="tmp.survey2.html"/>
+     <get src="${appurl}/survey" dest="tmp.survey2.html" verbose="false" httpusecaches="false" />
+     <delete file="tmp.mt.xml"/>
+     <get src="${appurl}/survey/vxml/main/mt.xml" dest="tmp.mt.xml" verbose="false" httpusecaches="false" />
+     <delete file="tmp.status.json"/>
+     <get src="${appurl}/SurveyAjax?what=status" dest="tmp.status.json" verbose="false" httpusecaches="false" />
+     <loadfile property="st.status" srcfile="tmp.status.json" />
+     <loadfile property="st.ok" srcfile="tmp.status.json">
+       <filterchain>
+         <linecontainsregexp>
+           <regexp pattern="isSetup.:true" />
+         </linecontainsregexp>
+       </filterchain>
+     </loadfile>
+     <fail unless="st.ok" message="${appurl} SurveyTool not running: ${st.status}"/>
+     <echo message="${appurl} SurveyTool OK: ${st.status}"/>
+   </target>
+
+</project>

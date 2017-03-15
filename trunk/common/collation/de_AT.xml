@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2015 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="de"/>
+		<territory type="AT"/>
+	</identity>
+	<collations>
+		<!-- Primary differences for äöüß, see CLDR ticket #8016 -->
+		<collation type="phonebook">
+			<cr><![CDATA[
+&a<ä<<<Ä
+&o<ö<<<Ö
+&u<ü<<<Ü
+&ss<ß<<<ẞ
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>
+

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+Originally prepared by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Science Association http://ukij.org
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+    <transforms>
+        <transform source="ug" target="Latin" direction="both" draft="provisional">
+            <comment># Follows the Latin-Script Uyghur alphabet 2001-todate rules defined at ←http://ukij.org/html/ , https://en.wikipedia.org/wiki/Uyghur_Latin_alphabet, 			         			http://www.uyghurdictionary.org/excerpts/An%20Introduction%20to%20LSU.pdf
+				</comment>
+				<comment># Rules are predicated on running NFD first, and NFC afterwards</comment>
+				<tRule>:: NFD (NFC) ;</tRule>
+				<tRule>$lsuVowels = [aAeEoOuUöÖüÜéÉiI’'] ;</tRule>
+              <tRule>$disambig =  ̱ ;</tRule>
+              <tRule>[:Separator:]* → ' ';</tRule>
+				<tRule>$space = [:Separator:]*;</tRule>
+              <tRule>٫ ↔ ',' $disambig ; # ARABIC DECIMAL SEPARATOR</tRule>
+              <tRule>، ↔ ',' ; # ARABIC COMMA</tRule>
+              <tRule>؛ ↔ ';' ; # ARABIC SEMICOLON</tRule>
+              <tRule>؟ ↔ '?' ; # ARABIC QUESTION MARK</tRule>
+				<tRule>› ↔ ‘ ;</tRule>
+				<tRule>‹ ↔ ’ ;</tRule>
+              <tRule>ئ → ; # Uyghur Hamza</tRule>
+			    <tRule>ـ → ; # ARABIC/UYGHUR TATWEEL</tRule>
+
+				<comment># special treatment for Uyghur hamza</comment>
+				<tRule>ئا ← $space { [aA] ;</tRule>
+				<tRule>ئە ← $space { [eE] ;</tRule>
+				<tRule>ئو ← $space { [oO] ;</tRule>
+				<tRule>ئۇ ← $space { [uU] ;</tRule>
+				<tRule>ئۆ ← $space { [öÖ] ;</tRule>
+				<tRule>ئۈ ← $space { [üÜ] ;</tRule>
+				<tRule>ئې ← $space { [éÉ] ;</tRule>
+				<tRule>ئى ← $space { [iI] ;</tRule>
+				<tRule>ئا ← $lsuVowels { [aA] ;</tRule>
+				<tRule>ئە ← $lsuVowels { [eE] ;</tRule>
+				<tRule>ئو ← $lsuVowels { [oO] ;</tRule>
+				<tRule>ئۇ ← $lsuVowels { [uU] ;</tRule>
+				<tRule>ئۆ ← $lsuVowels { [öÖ] ;</tRule>
+				<tRule>ئۈ ← $lsuVowels { [üÜ] ;</tRule>
+				<tRule>ئې ← $lsuVowels { [éÉ] ;</tRule>
+				<tRule>ئى ← $lsuVowels { [iI] ;</tRule>
+
+				<comment># special treatment for apostrof</comment>
+				<tRule>سھ ← s [’'] { h ;</tRule>
+				<tRule>نغ ← n [’'] { gh ;</tRule>
+				<tRule>نگ ← n [’'] { g ;</tRule>
+				<tRule>ڭھ ← ng [’'] { h ;</tRule>
+				<tRule>سھ ← S [’'] { H ;</tRule>
+				<tRule>نغ ← N [’'] { GH ;</tRule>
+				<tRule>نگ ← N [’'] { G ;</tRule>
+				<tRule>ڭھ ← NG [’'] { H ;</tRule>
+
+				<comment># special treatment for apostrof</comment>
+				<tRule>سھ → s''h ;</tRule>
+				<tRule>نغ → n''gh ;</tRule>
+				<tRule>نگ → n''g ;</tRule>
+				<tRule>ڭھ → ng''h ;</tRule>
+                                <!-- following 4 were duplicates. -->
+				<!-- <tRule>سھ → S''H ;</tRule> -->
+				<!-- <tRule>نغ → N''GH ;</tRule> -->
+				<!-- <tRule>نگ → N''G ;</tRule> -->
+				<!-- <tRule>ڭھ → NG''H ;</tRule> -->
+
+				<comment># disambiguation for ژ by covering the most common words with ژ</comment>
+				<tRule>دىرىژور ← dirijor ;</tRule>
+				<tRule>رېژىسسور ← réjissor ;</tRule>
+				<tRule>ژۇرنىلى ← jurnili ;</tRule>
+				<tRule>چېرتيوژ ← chértyoj ;</tRule>
+				<tRule>پۇرژىن ← purjin ;</tRule>
+				<tRule>پېرسوناژ ← pérsonaj ;</tRule>
+				<tRule>ماروژ ← maroj ;</tRule>
+				<tRule>پارىژ ← parij ;</tRule>
+				<tRule>ژۇرنال ← jurnal ;</tRule>
+				<tRule>بۇژغۇن ← bujghun ;</tRule>
+				<tRule>ۋولتاژ ← woltaj ;</tRule>
+				<tRule>ئورانژې ← oranjé ;</tRule>
+				<tRule>تاموژنا ← tamojna ;</tRule>
+				<tRule>گاراژ ← garaj ;</tRule>
+				<tRule>غۇژمەك ← ghujmek ;</tRule>
+				<tRule>تىراژ ← tiraj ;</tRule>
+				<tRule>ستاژ ← staj ;</tRule>
+				<tRule>پروژېكتور ← projéktor ;</tRule>
+				<tRule>'گاژ-گۇژ' ← 'gaj-guj' ;</tRule>
+				<tRule>'پاژ-پۇژ' ← 'paj-puj' ;</tRule>
+				<tRule>'ۋاژ-ۋۇژ' ← 'waj-wuj' ;</tRule>
+				<tRule>'پىژ-پىژ' ← 'pij-pij' ;</tRule>
+				<tRule>'گىژ-گىژ' ← 'gij-gij' ;</tRule>
+				<tRule>'مىژ-مىژ' ← 'mij-mij' ;</tRule>
+				<tRule>ژاندارم ← jandarm ;</tRule>
+
+				<tRule>دىرىژور ← DIRIJOR ;</tRule>
+				<tRule>رېژىسسور ← RÉJISSOR ;</tRule>
+				<tRule>ژۇرنىلى ← JURNILI ;</tRule>
+				<tRule>چېرتيوژ ← CHÉRTYOJ ;</tRule>
+				<tRule>پۇرژىن ← PURJIN ;</tRule>
+				<tRule>پېرسوناژ ← PÉRSONAJ ;</tRule>
+				<tRule>ماروژ ← MAROJ ;</tRule>
+				<tRule>پارىژ ← PARIJ ;</tRule>
+				<tRule>ژۇرنال ← JURNAL ;</tRule>
+				<tRule>بۇژغۇن ← BUJGHUN ;</tRule>
+				<tRule>ۋولتاژ ← WOLTAJ ;</tRule>
+				<tRule>ئورانژې ← ORANJÉ ;</tRule>
+				<tRule>تاموژنا ← TAMOJNA ;</tRule>
+				<tRule>گاراژ ← GARAJ ;</tRule>
+				<tRule>غۇژمەك ← GHUJMEK ;</tRule>
+				<tRule>تىراژ ← TIRAJ ;</tRule>
+				<tRule>ستاژ ← STAJ ;</tRule>
+				<tRule>پروژېكتور ← PROJÉKTOR ;</tRule>
+				<tRule>'گاژ-گۇژ' ← 'GAJ-GUJ' ;</tRule>
+				<tRule>'پاژ-پۇژ' ← 'PAJ-PUJ' ;</tRule>
+				<tRule>'ۋاژ-ۋۇژ' ← 'WAJ-WUJ' ;</tRule>
+				<tRule>'پىژ-پىژ' ← 'PIJ-PIJ' ;</tRule>
+				<tRule>'گىژ-گىژ' ← 'GIJ-GIJ' ;</tRule>
+				<tRule>'مىژ-مىژ' ← 'MIJ-MIJ' ;</tRule>
+				<tRule>ژاندارم ← JANDARM ;</tRule>
+
+				<comment># letters</comment>
+				<tRule>ا ↔ a ;</tRule>
+				<tRule>ە ↔ e ;</tRule>
+				<tRule>ب ↔ b ;</tRule>
+				<tRule>پ ↔ p ;</tRule>
+				<tRule>ت ↔ t ;</tRule>
+				<tRule>ج ↔ j ;</tRule>
+				<tRule>چ ↔ ch ;</tRule>
+				<tRule>خ ↔ x ;</tRule>
+				<tRule>د ↔ d ;</tRule>
+				<tRule>ر ↔ r ;</tRule>
+				<tRule>ز ↔ z ;</tRule>
+				<tRule>ژ → j ;</tRule>
+				<tRule>ش ↔ sh ;</tRule>
+				<tRule>س ↔ s ;</tRule>
+				<tRule>غ ↔ gh ;</tRule>
+				<tRule>ف ↔ f ;</tRule>
+				<tRule>ق ↔ q ;</tRule>
+				<tRule>ك ↔ k ;</tRule>
+				<tRule>ڭ ↔ ng ;</tRule>
+				<tRule>گ ↔ g ;</tRule>
+				<tRule>ل ↔ l ;</tRule>
+				<tRule>م ↔ m ;</tRule>
+				<tRule>ن ↔ n ;</tRule>
+				<tRule>ھ ↔ h ;</tRule>
+				<tRule>و ↔ o ;</tRule>
+				<tRule>ۇ ↔ u ;</tRule>
+				<tRule>ۆ ↔ ö ;</tRule>
+				<tRule>ۈ ↔ ü ;</tRule>
+				<tRule>ۋ ↔ w ;</tRule>
+				<tRule>ې ↔ é ;</tRule>
+				<tRule>ى ↔ i ;</tRule>
+				<tRule>ي ↔ y ;</tRule>
+
+				<tRule>ا ← A ;</tRule>
+				<tRule>ە ← E ;</tRule>
+				<tRule>ب ← B ;</tRule>
+				<tRule>پ ← P ;</tRule>
+				<tRule>ت ← T ;</tRule>
+				<tRule>ج ← J ;</tRule>
+				<tRule>چ ← CH ;</tRule>
+				<tRule>چ ← Ch ;</tRule>
+				<tRule>خ ← X ;</tRule>
+				<tRule>د ← D ;</tRule>
+				<tRule>ر ← R ;</tRule>
+				<tRule>ز ← Z ;</tRule>
+
+				<tRule>ش ← SH ;</tRule>
+				<tRule>ش ← Sh ;</tRule>
+				<tRule>س ← S ;</tRule>
+				<tRule>غ ← GH ;</tRule>
+				<tRule>غ ← Gh ;</tRule>
+				<tRule>ف ← F ;</tRule>
+				<tRule>ق ← Q ;</tRule>
+				<tRule>ك ← K ;</tRule>
+				<tRule>ڭ ← NG ;</tRule>
+				<tRule>ڭ ← Ng ;</tRule>
+				<tRule>گ ← G ;</tRule>
+				<tRule>ل ← L ;</tRule>
+				<tRule>م ← M ;</tRule>
+				<tRule>ن ← N ;</tRule>
+				<tRule>ھ ← H ;</tRule>
+				<tRule>و ← O ;</tRule>
+				<tRule>ۇ ← U ;</tRule>
+				<tRule>ۆ ← Ö ;</tRule>
+				<tRule>ۈ ← Ü ;</tRule>
+				<tRule>ۋ ← W ;</tRule>
+				<tRule>ې ← É ;</tRule>
+				<tRule>ى ← I ;</tRule>
+				<tRule>ي ← Y ;</tRule>
+
+			   <tRule>::NFC (NFD) ;</tRule>
+        </transform>
+    </transforms>
+</supplementalData>

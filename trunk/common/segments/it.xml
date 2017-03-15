@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+  <identity>
+    <version number="$Revision$"/>
+    <language type="it"/>
+  </identity>
+  <segmentations>
+    <segmentation type="SentenceBreak">
+      <!--From ULI data, http://uli.unicode.org-->
+      <suppressions type="standard">
+        <suppression>N.B.</suppression>
+        <suppression>div.</suppression>
+        <suppression>a.C.</suppression>
+        <suppression>fig.</suppression>
+        <suppression>d.p.R.</suppression>
+        <suppression>c.c.p.</suppression>
+        <suppression>Cfr.</suppression>
+        <suppression>vol.</suppression>
+        <suppression>Geom.</suppression>
+        <suppression>O.d.G.</suppression>
+        <suppression>S.p.A.</suppression>
+        <suppression>ver.</suppression>
+        <suppression>N.d.A.</suppression>
+        <suppression>dott.</suppression>
+        <suppression>arch.</suppression>
+        <suppression>d.C.</suppression>
+        <suppression>N.d.T.</suppression>
+        <suppression>rag.</suppression>
+        <suppression>Sig.</suppression>
+        <suppression>Mod.</suppression>
+        <suppression>pag.</suppression>
+        <suppression>dr.</suppression>
+        <suppression>tav.</suppression>
+        <suppression>N.d.E.</suppression>
+        <suppression>DC.</suppression>
+        <suppression>mitt.</suppression>
+        <suppression>Ing.</suppression>
+        <suppression>int.</suppression>
+        <suppression>on.</suppression>
+        <suppression>C.P.</suppression>
+        <suppression>ag.</suppression>
+        <suppression>L.</suppression>
+        <suppression>U.S.</suppression>
+        <suppression>S.M.A.R.T.</suppression>
+        <suppression>p.i.</suppression>
+        <suppression>tab.</suppression>
+        <suppression>Ltd.</suppression>
+        <suppression>Liv.</suppression>
+        <suppression>D.</suppression>
+        <suppression>U.S.A.</suppression>
+        <suppression>sez.</suppression>
+        <suppression>avv.</suppression>
+        <suppression>S.A.R.</suppression>
+        <suppression>all.</suppression>
+        <suppression>p.</suppression>
+      </suppressions>
+    </segmentation>
+  </segmentations>
+</ldml>
+

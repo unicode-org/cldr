@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="yi" /> 
+	</identity>
+	<collations>
+		<collation type="search">
+				<cr><![CDATA[
+					[import und-u-co-search]
+					‎&׳	# 05F3 HEBREW PUNCTUATION GERESH, ignorable
+						<<''	# APOSTROPHE, Hebrew-specific addition, should match GERESH
+					‎&״	# 05F4 HEBREW PUNCTUATION GERSHAYIM, ignorable
+						<<'\"'	# QUOTATION MARK, Hebrew-specific addition, should match GERSHAYIM 
+				]]></cr>
+		</collation>
+		<collation type="standard">
+				<cr><![CDATA[
+					[normalization on]
+					[reorder Hebr]
+					&[before 2]''<<׳ # GERESH just before APOSTROPHE (secondary difference)
+					&[before 2]'\"'<<״ # GERSHAYIM just before QUOTATION MARK (secondary difference)
+					&ב<בֿ
+					&ו<<וּ<<וו<<וי
+					&י<<יִ<<יי<<ײַ
+					&[before 1]כ<כּ
+					&[before 1]פ<פּ
+					&פֿ<<<ף
+					&ש<שׂ
+					&[before 1]ת<תּ
+				]]></cr>
+		</collation>
+	</collations>
+</ldml>

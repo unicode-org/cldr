@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2016 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="am" target="ar" direction="forward" alias="ar-t-am">
+			<tRule><![CDATA[
+::am-am_FONIPA;
+ɨ → ə;
+::und_FONIPA-ar;
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

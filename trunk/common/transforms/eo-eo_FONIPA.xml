@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2015 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision$" />
+	<transforms>
+		<transform source="eo" target="eo_FONIPA" direction="forward" draft="contributed" alias="eo-fonipa-t-eo">
+			<tRule>
+# https://en.wikipedia.org/wiki/Esperanto_phonology
+
+::NFC;
+::Lower;
+
+[\-\'’] → ;  # eg. vorto-provizo, famili’
+aj → ai̯;
+aŭ → au̯;
+á → a;
+a → a;
+b → b;
+ĉ → t͡ʃ;
+c → t͡s;
+dz → d͡z;
+d → d;
+ej → ei̯;
+eŭ → eu̯;
+é → e;
+e → e;
+f → f;
+ĝ → d͡ʒ;
+g → ɡ;
+ĥ → x;
+h → h;
+í → i;
+i → i;
+ĵ → ʒ;
+j → j;
+k → k;
+l → l;
+m → m;
+n → n;
+oj → oi̯;
+ó → o;
+o → o;
+p → p;
+r → r;
+ŝ → ʃ;
+s → s;
+t → t;
+uj → ui̯;
+ŭ → w;  # eg. ŭa!
+ú → u;
+u → u;
+v → v;
+z → z;
+
+::NFC;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

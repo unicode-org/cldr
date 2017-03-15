@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="cy" /> 
+	</identity>
+	<collations  >
+		<collation type="standard" references="http://www.evertype.com/alphabets/welsh.pdf">
+                	<cr><![CDATA[
+				&C<ch<<<Ch<<<CH
+				&D<dd<<<Dd<<<DD
+				&F<ff<<<Ff<<<FF
+				&G<ng<<<Ng<<<NG
+				&L<ll<<<Ll<<<LL
+				&P<ph<<<Ph<<<PH
+				&R<rh<<<Rh<<<RH
+				&T<th<<<Th<<<TH
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

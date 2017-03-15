@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+        <identity>
+                <version number="$Revision$"/>
+                <language type="th" /> 
+        </identity>
+        <collations>
+                <collation type="standard" references="ISO/IEC 14651, Annex C, C.2.1 Thai ordering principles">
+                        <cr><![CDATA[
+				[normalization on]
+				[alternate shifted]
+				[reorder Thai]
+                                #
+                                #        The following tailoring is an adjustment of the
+                                #        DUCET collation order for PAIYANNOI, MAIYAMOK,
+                                #        NIKHAHIT, LAKKHANGYAO, and PHINTHU. This gives
+                                #        a sort order as defined in the Royal Institute
+                                #        Dictionary 2542 B.E. Edition (1999 A.D.).
+                                #
+                                &[before 1]๚<ฯ	 # should be "variable"
+
+                                &๛<ๆ # should be "variable"
+
+                                &๎<<์
+								&[before 1]ะ<ํ
+                                &า<<<ๅ
+								&าํ<<<ํา<<<ำ
+								&ๅํ<<<ํๅ
+                                &ไ<ฺ
+                                # consider: order pali virama as secondary different from yammacan (another old virama)
+                                # &๎
+                                # <<ฺ
+                                #
+                        ]]></cr>
+                </collation>
+        </collations>
+</ldml>

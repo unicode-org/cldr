@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Latin" target="NumericPinyin" direction="both" alias="und-pinyin-t-d0-npinyin" backwardAlias="und-pinyin-t-s0-npinyin">
+			<tRule><![CDATA[
+# According to the pinyin definitions I've been able to find:
+# 'a', 'e' are the preferred bases
+# otherwise 'o'
+# otherwise last vowel
+# The trailing form of syllables are the following:
+#         "a", "ai", "ao", "an", "ang",
+#         "o", "ou", "ong",
+#         "e", "ei", "er", "en", "eng",
+#         "i", "ia", "iao", "ie", "iu", "ian", "in", "iang", "ing", "iong",
+#         "u", "ua", "uo", "uai", "ui", "uan", "un", "uang", "ueng",
+#         "ü", "üe", "üan", "ün"
+# so the letters the tone will 'hop' are:
+::NFD (NFC);
+$tone = [̄́̌̀̆] ;
+# Move the tone to the end of a syllable, and convert to number
+e {($tone) r} → r &Pinyin-NumericPinyin($1);
+($tone) ( [i o n u {o n} {n g}]) → $2 &Pinyin-NumericPinyin($1);
+($tone) → &Pinyin-NumericPinyin($1);
+# The following backs up until it finds the right vowel, then deposits the tone
+$vowel = [aAeEiIoOuU {ü} {Ü} vV];
+$consonant = [[a-z A-Z] - [$vowel]];
+$digit = [1-5];
+$1 &NumericPinyin-Pinyin($3) $2 ← ([aAeE]) ($vowel* $consonant*) ($digit);
+$1 &NumericPinyin-Pinyin($3) $2 ← ([oO]) ([$vowel-[aeAE]]* $consonant*) ($digit);
+$1 &NumericPinyin-Pinyin($3) $2 ← ($vowel) ($consonant*) ($digit);
+&NumericPinyin-Pinyin($1) ← [:letter:] {($digit)};
+::NFC (NFD);
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

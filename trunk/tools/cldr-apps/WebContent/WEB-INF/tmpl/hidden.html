@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ --><!--  hidden.html - prototypes for some things -->
+<h1>Hidden Stuff</h1>
+<h3>Prototype datarow:</h3>
+<table>
+<tbody>
+		<tr id='proto-datarow' class='vother'>
+			<td id='codecell' class='d-code'></td>
+			<td id='comparisoncell' title="$flyoverbaseline" class='d-disp'></td>
+			<td id='nocell' title="$flyovernoopinion" class='d-no'></td>
+			<td  style='display: none'  id='votedcell' class='d-vo'></td>
+			<td id='statuscell' class='d-dr'></td>
+			<td style='display: none' id='errcell' class='d-st-okay'></td>
+			<td id='proposedcell' title="$flyoverproposed" class='d-win'></td>
+			<td id='addcell' title="$flyoveradd" class='d-win'></td>
+			<td id='othercell' title="$flyoverother" class='d-win'></td>
+		</tr>
+<tr id='proto-parrow' class='d-parrow' >
+	<th class='partsection' colspan='9'>
+		<a>Partition</a>
+	</th>
+</tr>
+</tbody>
+</table>
+
+<input id='proto-button' class='ichoice' type='radio' title='click to vote'></input>
+<button id='cancel-button' class='cancelbutton tip btn btn-danger' title='Delete'><span class="glyphicon glyphicon-minus"></span></button>
+
+<span id='proto-item'>
+
+</span>
+
+<div id='proto-sortmode' class='d-sortmode'>
+</div>
+<input id='proto-inputbox' class='inputbox'>
+
+<div id='proto-loading' class='loading' style='display:none;'>
+	
+	<p>
+		Your message here.
+	</p>
+	<hr>
+	<span style='background-color: white; float: right;' class='loadbot'>(Stuck? <a href='javascript:window.location.reload(true);'>Refresh</a> the page.)</span>
+</div>
+
+<table>
+	<thead id="voteInfoHead">
+          <tr>
+              <th title='$flyovervorg' id='stui-htmlvorg'></th>
+              <th title='$flyovervorgvote' id='stui-htmlvorgvote'></th>
+              <th title='$flyovervdissenting' id='stui-htmlvdissenting'></th>
+          </tr>
+	</thead>
+</table>
+
+<table id='proto-datatable' class='data table table-bordered'>
+<thead>
+<tr class="headingb active">
+<!--  see stui.js for the following -->
+    <th title="$flyovercode" id='stui-htmlcode'></th>
+	<th title="$flyoverbaseline" id='stui-htmlbaseline'></th>
+	<th title="$flyovernoopinion" id='stui-htmlnoopinion' class='d-no'></th>
+	<th title="$flyovervoted" id='stui-htmlvoted'  style='display: none' ></th>
+	<th title="$flyoverdraft" id='stui-htmldraft' class='d-status'></th>
+	<th title="$flyoverst" id='stui-htmlst' style='display: none' ></th>
+	<th title="$flyoverproposed" id='stui-htmlproposed'></th>
+	<th title="$flyoveradd" id='stui-htmltoadd'></td>
+	<th title="$flyoverothers" id='stui-htmlothers'></th>
+<!--	<th title="$flyoverchange" id='stui-htmlchange' class='d-change'></th>-->
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<div id="proto-datafix" class="data">
+	<div class="data-vertical">
+					<div id='comparisoncell' class='d-disp comparisoncell'></div>
+					<hr/>
+					<div id='proposedcell' class='d-win proposedcell'></div>
+					
+					<div id='statuscell' class='d-dr statuscell'></div>
+					<hr/>
+					<div id='othercell' class='d-win othercell'></div>
+					<hr/>
+					<div id='nocell' class='d-no nocell'></div>
+	</div>
+	<div class="data-vote"></div>
+	<button type="button" class="close">&times;</button>	
+</div>
+
+<div id='proto-datarowfix' class='vother'>
+					<div id='comparisoncell' class='d-disp comparisoncell'></div>
+					<hr/>
+					<div id='proposedcell' class='d-win proposedcell'></div>
+					
+					<div id='statuscell' class='d-dr statuscell'></div>
+					<hr/>
+					<div id='othercell' class='d-win othercell'></div>
+					<hr/>
+					<div id='nocell' class='d-no nocell'></div>
+</div>
+
+
+<!--  end hidden.html -->

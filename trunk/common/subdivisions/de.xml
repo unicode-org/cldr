@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM '../../common/dtd/ldml.dtd'>
+<!--
+Copyright © 1991-2016 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="de"/>
+	</identity>
+	<localeDisplayNames>
+		<subdivisions>
+			<!--  AT : Austria  -->
+			<subdivision type="at1">Burgenland</subdivision>
+			<subdivision type="at2">Kärnten</subdivision>
+			<subdivision type="at3">Niederösterreich</subdivision>
+			<subdivision type="at4">Oberösterreich</subdivision>
+			<subdivision type="at5">Salzburg</subdivision>
+			<subdivision type="at6">Steiermark</subdivision>
+			<subdivision type="at7">Tirol</subdivision>
+			<subdivision type="at8">Vorarlberg</subdivision>
+			<subdivision type="at9">Wien</subdivision>
+
+			<!--  BE : Belgium  -->
+			<subdivision type="bebru">Brüssel</subdivision>
+			<subdivision type="bevlg">Flandern</subdivision>
+			<subdivision type="bewal">Wallonien</subdivision>
+			<subdivision type="bevan">Antwerpen</subdivision>
+			<!--  in BE-VLG : Flanders  -->
+			<subdivision type="bevbr">Flämisch-Brabant</subdivision>
+			<!--  in BE-VLG : Flanders  -->
+			<subdivision type="bevli">Limburg</subdivision>
+			<!--  in BE-VLG : Flanders  -->
+			<subdivision type="bevov">Ostflandern</subdivision>
+			<!--  in BE-VLG : Flanders  -->
+			<subdivision type="bevwv">Westflandern</subdivision>
+			<!--  in BE-VLG : Flanders  -->
+			<subdivision type="bewbr">Wallonisch-Brabant</subdivision>
+			<!--  in BE-WAL : Wallonia  -->
+			<subdivision type="bewht">Hennegau</subdivision>
+			<!--  in BE-WAL : Wallonia  -->
+			<subdivision type="bewlg">Lüttich</subdivision>
+			<!--  in BE-WAL : Wallonia  -->
+			<subdivision type="bewlx">Luxemburg</subdivision>
+			<!--  in BE-WAL : Wallonia  -->
+			<subdivision type="bewna">Namur</subdivision>
+			<!--  in BE-WAL : Wallonia  -->
+
+			<!--  CH : Switzerland  -->
+			<subdivision type="chag">Aargau</subdivision>
+			<subdivision type="chai">Appenzell Innerrhoden</subdivision>
+			<subdivision type="char">Appenzell Außerrhoden</subdivision>
+			<subdivision type="chbe">Bern</subdivision>
+			<subdivision type="chbl">Basel-Landschaft</subdivision>
+			<subdivision type="chbs">Basel-Stadt</subdivision>
+			<subdivision type="chfr">Freiburg</subdivision>
+			<subdivision type="chge">Genf</subdivision>
+			<subdivision type="chgl">Glarus</subdivision>
+			<subdivision type="chgr">Graubünden</subdivision>
+			<subdivision type="chju">Jura</subdivision>
+			<subdivision type="chlu">Luzern</subdivision>
+			<subdivision type="chne">Neuenburg</subdivision>
+			<subdivision type="chnw">Nidwalden</subdivision>
+			<subdivision type="chow">Obwalden</subdivision>
+			<subdivision type="chsg">St. Gallen</subdivision>
+			<subdivision type="chsh">Schaffhausen</subdivision>
+			<subdivision type="chso">Solothurn</subdivision>
+			<subdivision type="chsz">Schwyz</subdivision>
+			<subdivision type="chtg">Thurgau</subdivision>
+			<subdivision type="chti">Tessin</subdivision>
+			<subdivision type="chur">Uri</subdivision>
+			<subdivision type="chvd">Waadt</subdivision>
+			<subdivision type="chvs">Wallis</subdivision>
+			<subdivision type="chzg">Zug</subdivision>
+			<subdivision type="chzh">Zürich</subdivision>
+
+			<!--  DE : Germany  -->
+			<subdivision type="debb">Brandenburg</subdivision>
+			<subdivision type="debe">Berlin</subdivision>
+			<subdivision type="debw">Baden-Württemberg</subdivision>
+			<subdivision type="deby">Bayern</subdivision>
+			<subdivision type="dehb">Bremen</subdivision>
+			<subdivision type="dehe">Hessen</subdivision>
+			<subdivision type="dehh">Hamburg</subdivision>
+			<subdivision type="demv">Mecklenburg-Vorpommern</subdivision>
+			<subdivision type="deni">Niedersachsen</subdivision>
+			<subdivision type="denw">Nordrhein-Westfalen</subdivision>
+			<subdivision type="derp">Rheinland-Pfalz</subdivision>
+			<subdivision type="desh">Schleswig-Holstein</subdivision>
+			<subdivision type="desl">Saarland</subdivision>
+			<subdivision type="desn">Sachsen</subdivision>
+			<subdivision type="dest">Sachsen-Anhalt</subdivision>
+			<subdivision type="deth">Thüringen</subdivision>
+
+			<!--  LI : Liechtenstein  -->
+			<subdivision type="li01">Balzers</subdivision>
+			<subdivision type="li02">Eschen</subdivision>
+			<subdivision type="li03">Gamprin</subdivision>
+			<subdivision type="li04">Mauren</subdivision>
+			<subdivision type="li05">Planken</subdivision>
+			<subdivision type="li06">Ruggell</subdivision>
+			<subdivision type="li07">Schaan</subdivision>
+			<subdivision type="li08">Schellenberg</subdivision>
+			<subdivision type="li09">Triesen</subdivision>
+			<subdivision type="li10">Triesenberg</subdivision>
+			<subdivision type="li11">Vaduz</subdivision>
+
+			<!--  LU : Luxembourg  -->
+			<subdivision type="luca">Capellen</subdivision>
+			<subdivision type="lucl">Clerf</subdivision>
+			<subdivision type="ludi">Diekirch</subdivision>
+			<subdivision type="luec">Echternach</subdivision>
+			<subdivision type="lues">Esch an der Alzette</subdivision>
+			<subdivision type="lugr">Grevenmacher</subdivision>
+			<subdivision type="lulu">Luxemburg</subdivision>
+			<subdivision type="lume">Mersch</subdivision>
+			<subdivision type="lurd">Redingen</subdivision>
+			<subdivision type="lurm">Remich</subdivision>
+			<subdivision type="luvd">Vianden</subdivision>
+			<subdivision type="luwi">Wiltz</subdivision>
+			<subdivision type="lud">Diekirch</subdivision>
+			<!--  deprecated  -->
+			<subdivision type="lug">Grevenmacher</subdivision>
+			<!--  deprecated  -->
+			<subdivision type="lul">Luxemburg</subdivision>
+			<!--  deprecated  -->
+			
+			<!-- GB -->
+			<subdivision type='gbwls'>Wales</subdivision>
+			<subdivision type='gbsct'>Schottland</subdivision>
+			<subdivision type='gbeng'>England</subdivision>
+		</subdivisions>
+	</localeDisplayNames>
+</ldml>

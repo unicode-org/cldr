@@ -1,0 +1,2455 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2016 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+For  details about the format and other information, see:
+* http://www.unicode.org/reports/tr51/index.html#Data_Files
+* http://unicode.org/cldr/trac/ticket/8019
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="cy"/>
+	</identity>
+	<annotations>
+		<annotation cp="♀">benywaidd | menyw</annotation>
+		<annotation cp="♀" type="tts">arwydd benyw</annotation>
+		<annotation cp="♂">gwrywaidd | dyn</annotation>
+		<annotation cp="♂" type="tts">arwydd gwrw</annotation>
+		<annotation cp="⚕">esgwlapaidd | meddyginiaeth | staff</annotation>
+		<annotation cp="⚕" type="tts">arwydd meddygol</annotation>
+		<annotation cp="🕺">dawnsio | dyn</annotation>
+		<annotation cp="🕺" type="tts">dyn yn dawnsio</annotation>
+		<annotation cp="🖤">du | calon | drwg | maleisus</annotation>
+		<annotation cp="🖤" type="tts">calon du</annotation>
+		<annotation cp="🤙">ffonio | llaw</annotation>
+		<annotation cp="🤙" type="tts">llaw ffonia fi</annotation>
+		<annotation cp="🤚">cefn llaw | wedi’i chodi</annotation>
+		<annotation cp="🤚" type="tts">cefn llaw wedi’i chodi</annotation>
+		<annotation cp="🤛">dwrn | tua’r chwith</annotation>
+		<annotation cp="🤛" type="tts">dwrn tua’r chwith</annotation>
+		<annotation cp="🤜">dwrn | tua’r dde</annotation>
+		<annotation cp="🤜" type="tts">dwrn tua’r dde</annotation>
+		<annotation cp="🤝">ysgwyd dwylo | cytuno | cyfarfod | ysgwyd | llaw</annotation>
+		<annotation cp="🤝" type="tts">ysgwyd dwylo</annotation>
+		<annotation cp="🤞">croesi | bys | llaw | lwc</annotation>
+		<annotation cp="🤞" type="tts">bysedd wedi’u croesi</annotation>
+		<annotation cp="🤠">cowboi | wyneb | het | cowmones</annotation>
+		<annotation cp="🤠" type="tts">wyneb het cowboi</annotation>
+		<annotation cp="🤡">clown | wyneb</annotation>
+		<annotation cp="🤡" type="tts">wyneb clown</annotation>
+		<annotation cp="🤢">wyneb | chwydlyd | chwydu</annotation>
+		<annotation cp="🤢" type="tts">wyneb chwydlyd</annotation>
+		<annotation cp="🤣">llawr | chwerthin | rholio | wyneb</annotation>
+		<annotation cp="🤣" type="tts">rholio ar y llawr yn chwerthin</annotation>
+		<annotation cp="🤤">glafoerio | wyneb</annotation>
+		<annotation cp="🤤" type="tts">wyneb glafoerio</annotation>
+		<annotation cp="🤥">wyneb | celwydd | pinocchio</annotation>
+		<annotation cp="🤥" type="tts">wyneb celwydd</annotation>
+		<annotation cp="🤦">wyneb | cledr | anghrediniaeth | cythrudd</annotation>
+		<annotation cp="🤦" type="tts">cledr i’r wyneb</annotation>
+		<annotation cp="🤦‍♀">anghoel | cythrudd | cledr | menyw</annotation>
+		<annotation cp="🤦‍♀" type="tts">menyw yn codi cledr i’w wyneb</annotation>
+		<annotation cp="🤦‍♂">anghoel | cythrudd | cledr | dyn</annotation>
+		<annotation cp="🤦‍♂" type="tts">dyn yn codi cledr i’w wyneb</annotation>
+		<annotation cp="🤧">wyneb | gesundheit | tisian</annotation>
+		<annotation cp="🤧" type="tts">wyneb tisian</annotation>
+		<annotation cp="🤰">beichiog | menyw</annotation>
+		<annotation cp="🤰" type="tts">menyw feichiog</annotation>
+		<annotation cp="🤳">hunlun | camera | ffôn</annotation>
+		<annotation cp="🤳" type="tts">hunlun</annotation>
+		<annotation cp="🤴">tywysog</annotation>
+		<annotation cp="🤴" type="tts">tywysog</annotation>
+		<annotation cp="🤵">priodfab | dyn | tycs</annotation>
+		<annotation cp="🤵" type="tts">dyn mewn tycs</annotation>
+		<annotation cp="🤶">Siân Corn | y Nadolig | mam</annotation>
+		<annotation cp="🤶" type="tts">Siân Corn</annotation>
+		<annotation cp="🤷">codi gwar | amheuaeth | anwybodaeth | difaterwch</annotation>
+		<annotation cp="🤷" type="tts">codi gwar</annotation>
+		<annotation cp="🤷‍♀">amheuaeth | anwybodaeth | codi gwar | menyw</annotation>
+		<annotation cp="🤷‍♀" type="tts">menyw yn codi gwar</annotation>
+		<annotation cp="🤷‍♂">amheuaeth | anwybodaeth | codi gwar | dyn</annotation>
+		<annotation cp="🤷‍♂" type="tts">dyn yn codi gwar</annotation>
+		<annotation cp="🤸">olwyn droi | gymnasteg | person | chwaraeon</annotation>
+		<annotation cp="🤸" type="tts">olwyn droi</annotation>
+		<annotation cp="🤸‍♀">olwyn dro | gymnasteg | menyw | chwaraeon</annotation>
+		<annotation cp="🤸‍♀" type="tts">menyw yn gwneud olwyn dro</annotation>
+		<annotation cp="🤸‍♂">olwyn dro | gymnasteg | dyn | chwaraeon</annotation>
+		<annotation cp="🤸‍♂" type="tts">dyn yn gwneud olwyn dro</annotation>
+		<annotation cp="🤹">jyglo | amldasgio | cydbwyso | sgil</annotation>
+		<annotation cp="🤹" type="tts">jyglo</annotation>
+		<annotation cp="🤹‍♀">jyglo | menyw | amldasgio</annotation>
+		<annotation cp="🤹‍♀" type="tts">menyw yn jyglo</annotation>
+		<annotation cp="🤹‍♂">jyglo | dyn | amldasgio</annotation>
+		<annotation cp="🤹‍♂" type="tts">dyn yn jyglo</annotation>
+		<annotation cp="🤺">ffensiwr | ffensio | cleddyf | chwaraeon | person</annotation>
+		<annotation cp="🤺" type="tts">ffensiwr</annotation>
+		<annotation cp="🤼">taflwr codwm | taflu codwm | chwaraeon | person</annotation>
+		<annotation cp="🤼" type="tts">taflwyr codwm</annotation>
+		<annotation cp="🤼‍♀">menyw | chwaraeon | reslo</annotation>
+		<annotation cp="🤼‍♀" type="tts">menywod yn reslo</annotation>
+		<annotation cp="🤼‍♂">dyn | chwaraeon | reslo</annotation>
+		<annotation cp="🤼‍♂" type="tts">dynion yn reslo</annotation>
+		<annotation cp="🤽">polo | dŵr | person | chwaraeon</annotation>
+		<annotation cp="🤽" type="tts">polo dŵr</annotation>
+		<annotation cp="🤽‍♀">menyw | chwaraeon | polo | dŵr</annotation>
+		<annotation cp="🤽‍♀" type="tts">menyw yn chwarae polo dŵr</annotation>
+		<annotation cp="🤽‍♂">dyn | chwaraeon | polo | dŵr</annotation>
+		<annotation cp="🤽‍♂" type="tts">dyn yn chwarae polo dŵr</annotation>
+		<annotation cp="🤾">pêl-law | pêl | chwaraeon | person</annotation>
+		<annotation cp="🤾" type="tts">pêl-law</annotation>
+		<annotation cp="🤾‍♀">pêl-law | menyw | chwaraeon</annotation>
+		<annotation cp="🤾‍♀" type="tts">menyw yn chwarae pêl law</annotation>
+		<annotation cp="🤾‍♂">pêl-law | dyn | chwaraeon</annotation>
+		<annotation cp="🤾‍♂" type="tts">dyn yn chwarae pêl law</annotation>
+		<annotation cp="🥀">blodyn | wedi gwiwo</annotation>
+		<annotation cp="🥀" type="tts">blodyn wedi gwiwo</annotation>
+		<annotation cp="🥁">drwm | ffyn curo | cerddoriaeth</annotation>
+		<annotation cp="🥁" type="tts">drwm</annotation>
+		<annotation cp="🥂">clinc | gwydr | diod | dathlu</annotation>
+		<annotation cp="🥂" type="tts">gwydrau yn tincian</annotation>
+		<annotation cp="🥃">gwydraid | tymbler | whisgi | gwirod | shot</annotation>
+		<annotation cp="🥃" type="tts">tymbler</annotation>
+		<annotation cp="🥄">llwy | llestri bwrdd</annotation>
+		<annotation cp="🥄" type="tts">llwy</annotation>
+		<annotation cp="🥅">gôl | rhwyd | chwaraeon</annotation>
+		<annotation cp="🥅" type="tts">rhwyd gôl</annotation>
+		<annotation cp="🥇">cyntaf | aur | medal</annotation>
+		<annotation cp="🥇" type="tts">medal aur</annotation>
+		<annotation cp="🥈">medal | ail | arian</annotation>
+		<annotation cp="🥈" type="tts">medal arian</annotation>
+		<annotation cp="🥉">efydd | medal | trydydd</annotation>
+		<annotation cp="🥉" type="tts">medal efydd</annotation>
+		<annotation cp="🥊">bocsio | maneg | chwaraeon</annotation>
+		<annotation cp="🥊" type="tts">maneg bocsio</annotation>
+		<annotation cp="🥋">jiwdo | karate | taekwondo | y crefftau ymladd | gwisg | chwaraeon</annotation>
+		<annotation cp="🥋" type="tts">gwisg y crefftau ymladd</annotation>
+		<annotation cp="🥐">croissant | rhôl cilgant | ffrengig | bwyd | bara</annotation>
+		<annotation cp="🥐" type="tts">croissant</annotation>
+		<annotation cp="🥑">afocado | ffrwyth | bwyd</annotation>
+		<annotation cp="🥑" type="tts">afocado</annotation>
+		<annotation cp="🥒">ciwcymber | piclen | llysieuyn | bwyd</annotation>
+		<annotation cp="🥒" type="tts">ciwcymber</annotation>
+		<annotation cp="🥓">bacwn | cig | bwyd</annotation>
+		<annotation cp="🥓" type="tts">bacwn</annotation>
+		<annotation cp="🥔">taten | llysieuyn | bwyd</annotation>
+		<annotation cp="🥔" type="tts">taten</annotation>
+		<annotation cp="🥕">moron | llysieuyn | bwyd</annotation>
+		<annotation cp="🥕" type="tts">moron</annotation>
+		<annotation cp="🥖">ffon fara | bara | ffrengig | bwyd</annotation>
+		<annotation cp="🥖" type="tts">ffon fara</annotation>
+		<annotation cp="🥗">gwyrdd | salad | bwyd</annotation>
+		<annotation cp="🥗" type="tts">salad gwyrdd</annotation>
+		<annotation cp="🥘">paella | casserol | padell | bas | bwyd</annotation>
+		<annotation cp="🥘" type="tts">padell fas o fwyd</annotation>
+		<annotation cp="🥙">cebab | falaffel | gyro | bara gwastad | wedi stwffio | bwyd</annotation>
+		<annotation cp="🥙" type="tts">bara gwastad wedi’i stwffio</annotation>
+		<annotation cp="🥚">wy | bwyd</annotation>
+		<annotation cp="🥚" type="tts">wy</annotation>
+		<annotation cp="🥛">gwydraid | llaeth | diod</annotation>
+		<annotation cp="🥛" type="tts">gwydraid o laeth</annotation>
+		<annotation cp="🥜">cneuen ddaear | cneuen | bwyd | llysieuyn</annotation>
+		<annotation cp="🥜" type="tts">cnai ddaear</annotation>
+		<annotation cp="🥝">ciwi | ffrwyth | bwyd</annotation>
+		<annotation cp="🥝" type="tts">ffrwyth ciwi</annotation>
+		<annotation cp="🥞">cacennau poeth | crêpe | crempog | bwyd</annotation>
+		<annotation cp="🥞" type="tts">crempogau</annotation>
+		<annotation cp="🦅">eryr | aderyn</annotation>
+		<annotation cp="🦅" type="tts">eryr</annotation>
+		<annotation cp="🦆">hwyaden | aderyn</annotation>
+		<annotation cp="🦆" type="tts">hwyaden</annotation>
+		<annotation cp="🦇">ystlum | fampir | anifail</annotation>
+		<annotation cp="🦇" type="tts">ystlum</annotation>
+		<annotation cp="🦈">siarc | pysgodyn</annotation>
+		<annotation cp="🦈" type="tts">siarc</annotation>
+		<annotation cp="🦉">tylluan | doeth | aderyn</annotation>
+		<annotation cp="🦉" type="tts">tylluan</annotation>
+		<annotation cp="🦊">wyneb | llwynog | anifail</annotation>
+		<annotation cp="🦊" type="tts">wyneb llwynog</annotation>
+		<annotation cp="🦋">pili-pala | pryfyn | pert</annotation>
+		<annotation cp="🦋" type="tts">pili-pala</annotation>
+		<annotation cp="🦌">carw | anifail</annotation>
+		<annotation cp="🦌" type="tts">carw</annotation>
+		<annotation cp="🦍">gorila | anifail</annotation>
+		<annotation cp="🦍" type="tts">gorila</annotation>
+		<annotation cp="🦎">madfall | ymlusgiad</annotation>
+		<annotation cp="🦎" type="tts">madfall</annotation>
+		<annotation cp="🦏">rhinoseros | anifail</annotation>
+		<annotation cp="🦏" type="tts">rhinoseros</annotation>
+		<annotation cp="🦐">berdysyn | bach | pysgodyn cragen | bwyd</annotation>
+		<annotation cp="🦐" type="tts">berdysyn</annotation>
+		<annotation cp="🦑">ystifflog | molwsg | bwyd</annotation>
+		<annotation cp="🦑" type="tts">ystifflog</annotation>
+		<annotation cp="😀">wyneb | lledwenu</annotation>
+		<annotation cp="😀" type="tts">wyneb yn lledwenu</annotation>
+		<annotation cp="😁">llygaid | wyneb | lledwenu | gwenu</annotation>
+		<annotation cp="😁" type="tts">wyneb yn lledwenu â gwên yn y llygaid</annotation>
+		<annotation cp="😂">wyneb | hapusrwydd | chwerthin | dagrau</annotation>
+		<annotation cp="😂" type="tts">wyneb â dagrau hapusrwydd</annotation>
+		<annotation cp="😃">wyneb | ceg | agored | gwenu</annotation>
+		<annotation cp="😃" type="tts">wyneb yn gwenu â cheg agored</annotation>
+		<annotation cp="😄">llygad | wyneb | ceg | gwenu</annotation>
+		<annotation cp="😄" type="tts">wyneb yn gwenu â cheg agored a gwên yn y llygaid</annotation>
+		<annotation cp="😅">gofid | wyneb | gwenu | chwys</annotation>
+		<annotation cp="😅" type="tts">wyneb yn gwenu â cheg agored a chwys o ofid</annotation>
+		<annotation cp="😆">wyneb | chwerthin | ceg | bodlon</annotation>
+		<annotation cp="😆" type="tts">wyneb yn gwenu â cheg agored a llygaid ynghau</annotation>
+		<annotation cp="😉">wyneb | winc</annotation>
+		<annotation cp="😉" type="tts">llygaid yn wincio</annotation>
+		<annotation cp="😊">cochi | llygad | wyneb | gwenu</annotation>
+		<annotation cp="😊" type="tts">wyneb yn gwenu â gwên yn y llygaid</annotation>
+		<annotation cp="😋">blasus | wyneb | blasu | gwenu</annotation>
+		<annotation cp="😋" type="tts">wyneb yn blasu bwyd blasus</annotation>
+		<annotation cp="😎">llygad | wyneb | gwên | sbectol haul</annotation>
+		<annotation cp="😎" type="tts">wyneb yn gwenu â sbectol haul</annotation>
+		<annotation cp="😍">wyneb | calon | cariad | gwên</annotation>
+		<annotation cp="😍" type="tts">wyneb yn gwenu â chalonnau yn y llygaid</annotation>
+		<annotation cp="😘">wyneb | calon | cusan</annotation>
+		<annotation cp="😘" type="tts">wyneb yn chwythu cusan</annotation>
+		<annotation cp="😗">wyneb | cusan</annotation>
+		<annotation cp="😗" type="tts">wyneb yn rhoi cusan</annotation>
+		<annotation cp="😙">llygad | wyneb | cusan | gwên</annotation>
+		<annotation cp="😙" type="tts">wyneb yn rhoi cusan â gwên yn y llygaid</annotation>
+		<annotation cp="😚">caeedig | llygad | wyneb | cusan</annotation>
+		<annotation cp="😚" type="tts">wyneb yn rhoi cusan â llygaid ynghau</annotation>
+		<annotation cp="☺">wyneb | amlinelliad | ymlacio | gwên</annotation>
+		<annotation cp="☺" type="tts">wyneb yn gwenu</annotation>
+		<annotation cp="🙂">face | smile</annotation>
+		<annotation cp="🙂" type="tts">wyneb ag ychydig o wên arni</annotation>
+		<annotation cp="🤗">wyneb | cwtsh</annotation>
+		<annotation cp="🤗" type="tts">wyneb yn rhoi cwtsh</annotation>
+		<annotation cp="😇">angel | wyneb | eurgylch | diniwed</annotation>
+		<annotation cp="😇" type="tts">wyneb yn gwenu ag eurgylch</annotation>
+		<annotation cp="🤔">wyneb | meddwl</annotation>
+		<annotation cp="🤔" type="tts">wyneb yn meddwl</annotation>
+		<annotation cp="😐">wyneb | niwtral</annotation>
+		<annotation cp="😐" type="tts">wyneb niwtral</annotation>
+		<annotation cp="😑">dring | wyneb | ddifynegiant</annotation>
+		<annotation cp="😑" type="tts">wyneb difynegiant</annotation>
+		<annotation cp="😶">wyneb | ceg | distaw</annotation>
+		<annotation cp="😶" type="tts">wyneb heb geg</annotation>
+		<annotation cp="🙄">llygaid | wyneb | rolio</annotation>
+		<annotation cp="🙄" type="tts">wyneb â llygaid yn rholio</annotation>
+		<annotation cp="😏">wyneb | cilwen</annotation>
+		<annotation cp="😏" type="tts">wyneb yn cilwenu</annotation>
+		<annotation cp="😣">wyneb | dyfal</annotation>
+		<annotation cp="😣" type="tts">wyneb dyfal</annotation>
+		<annotation cp="😥">siomedig | wyneb | rhyddhad</annotation>
+		<annotation cp="😥" type="tts">wyneb siomedig ond â rhyddhad</annotation>
+		<annotation cp="😮">wyneb | ceg | agored | cydymdeimlad</annotation>
+		<annotation cp="😮" type="tts">wyneb â cheg agored</annotation>
+		<annotation cp="🤐">wyneb | ceg | sip | caeedig</annotation>
+		<annotation cp="🤐" type="tts">wyneb â sip dros y geg</annotation>
+		<annotation cp="😯">wyneb | distewi | syfrdanu</annotation>
+		<annotation cp="😯" type="tts">wyneb distewi</annotation>
+		<annotation cp="😪">wyneb | cysgu</annotation>
+		<annotation cp="😪" type="tts">wyneb cysglyd</annotation>
+		<annotation cp="😫">wyneb | blino | blinedig</annotation>
+		<annotation cp="😫" type="tts">wyneb blinedig</annotation>
+		<annotation cp="😴">wyneb | cysgu | zzz</annotation>
+		<annotation cp="😴" type="tts">wyneb yn cysgu</annotation>
+		<annotation cp="😌">wyneb | rhyddhad</annotation>
+		<annotation cp="😌" type="tts">wyneb o ryddhad</annotation>
+		<annotation cp="🤓">wyneb | clyfar</annotation>
+		<annotation cp="🤓" type="tts">wyneb clyfar</annotation>
+		<annotation cp="😛">wyneb | tafod</annotation>
+		<annotation cp="😛" type="tts">wyneb â thafod yng ngolwg</annotation>
+		<annotation cp="😜">wyneb | jôc | tafod | winc</annotation>
+		<annotation cp="😜" type="tts">wyneb â thafod yng ngolwg a llygaid yn wincio</annotation>
+		<annotation cp="😝">wyneb | afiach | blasu | tafod</annotation>
+		<annotation cp="😝" type="tts">wyneb â thafod yng ngolwg a llygaid ynghau</annotation>
+		<annotation cp="☹">wyneb | cuchio | gwg</annotation>
+		<annotation cp="☹" type="tts">wyneb gwgus</annotation>
+		<annotation cp="🙁">wyneb | cuchio | gwg</annotation>
+		<annotation cp="🙁" type="tts">wyneb â pheth gwg arni</annotation>
+		<annotation cp="😒">wyneb | di--ddifyr | anhapus</annotation>
+		<annotation cp="😒" type="tts">wyneb ddi-ddifyr</annotation>
+		<annotation cp="😓">gofid | wyneb | chwys</annotation>
+		<annotation cp="😓" type="tts">wyneb yn chwysu o ofid</annotation>
+		<annotation cp="😔">digalon | wyneb | synfyfyriol</annotation>
+		<annotation cp="😔" type="tts">wyneb synfyfyriol</annotation>
+		<annotation cp="😕">cymysglyd | wyneb</annotation>
+		<annotation cp="😕" type="tts">wyneb cymysglyd</annotation>
+		<annotation cp="😖">dryslyd | wyneb</annotation>
+		<annotation cp="😖" type="tts">wyneb dryslyd</annotation>
+		<annotation cp="🙃">wyneb | ben i waered</annotation>
+		<annotation cp="🙃" type="tts">wyneb â’i ben i waered</annotation>
+		<annotation cp="😷">annwyd | doctor | masg | sâl</annotation>
+		<annotation cp="😷" type="tts">wyneb â mwgwd meddygol</annotation>
+		<annotation cp="🤒">wyneb | sâl | thermomedr</annotation>
+		<annotation cp="🤒" type="tts">wyneb â thermomedr</annotation>
+		<annotation cp="🤕">rhwymyn | wyneb | dolur | niwed</annotation>
+		<annotation cp="🤕" type="tts">wyneb â rhwymyn i’r pen</annotation>
+		<annotation cp="🤑">wyneb | arian | ceg</annotation>
+		<annotation cp="🤑" type="tts">wyneb symbol arian</annotation>
+		<annotation cp="😲">rhyfeddu | wyneb | syfrdanu | hollol</annotation>
+		<annotation cp="😲" type="tts">wyneb wedi rhyfeddu</annotation>
+		<annotation cp="😞">siomedig | wyneb</annotation>
+		<annotation cp="😞" type="tts">wyneb siomedig</annotation>
+		<annotation cp="😟">wyneb | gofid</annotation>
+		<annotation cp="😟" type="tts">wyneb gofidio</annotation>
+		<annotation cp="😤">wyneb | buddugoliaeth | ennill</annotation>
+		<annotation cp="😤" type="tts">wyneb â stêm yn dod o’r trwyn</annotation>
+		<annotation cp="😢">crio | wyneb | trist | deigryn</annotation>
+		<annotation cp="😢" type="tts">wyneb yn crio</annotation>
+		<annotation cp="😭">crio | wyneb | trist | deigryn</annotation>
+		<annotation cp="😭" type="tts">wyneb yn beichio crio</annotation>
+		<annotation cp="😦">wyneb | gwg | ceg | agored</annotation>
+		<annotation cp="😦" type="tts">wyneb gwgus â cheg agored</annotation>
+		<annotation cp="😧">dirboen | wyneb | ing</annotation>
+		<annotation cp="😧" type="tts">wyneb dirboen</annotation>
+		<annotation cp="😨">wyneb | ofn | ofnus</annotation>
+		<annotation cp="😨" type="tts">wyneb ofnus</annotation>
+		<annotation cp="😩">wyneb | blinedig | lluddedig</annotation>
+		<annotation cp="😩" type="tts">wyneb lluddedig</annotation>
+		<annotation cp="😬">wyneb | ystum</annotation>
+		<annotation cp="😬" type="tts">wyneb ag ystum</annotation>
+		<annotation cp="😰">ceg | agored | gofid | chwys</annotation>
+		<annotation cp="😰" type="tts">wyneb â cheg agored a chwys o ofid</annotation>
+		<annotation cp="😱">wyneb | ofn | arswyd | braw</annotation>
+		<annotation cp="😱" type="tts">wyneb yn sgrechian ag ofn</annotation>
+		<annotation cp="😳">synnu | wyneb | cochi | gwrido</annotation>
+		<annotation cp="😳" type="tts">wyneb yn gwrido</annotation>
+		<annotation cp="😵">pendro | wyneb | penysgafnder</annotation>
+		<annotation cp="😵" type="tts">wyneb penysgafn</annotation>
+		<annotation cp="😡">dig | wyneb | pwdu | coch</annotation>
+		<annotation cp="😡" type="tts">wyneb pwdu</annotation>
+		<annotation cp="😠">dig | wyneb | gwallgof</annotation>
+		<annotation cp="😠" type="tts">wyneb dig</annotation>
+		<annotation cp="😈">wyneb | ffantasi | cyrn | gwên</annotation>
+		<annotation cp="😈" type="tts">wyneb yn gwenu â chyrn</annotation>
+		<annotation cp="👿">diafol | wyneb | ffantasi</annotation>
+		<annotation cp="👿" type="tts">gwalch</annotation>
+		<annotation cp="👹">creadur | wyneb | Japaneaidd | anghenfil</annotation>
+		<annotation cp="👹" type="tts">anghenfil</annotation>
+		<annotation cp="👺">creadur | wyneb | Japaneaidd | anghenfil</annotation>
+		<annotation cp="👺" type="tts">coblyn</annotation>
+		<annotation cp="💀">corff | marwolaeth | wyneb | anghenfil</annotation>
+		<annotation cp="💀" type="tts">penglog</annotation>
+		<annotation cp="☠">corff | esgyrn croes | marwolaeth | penglog</annotation>
+		<annotation cp="☠" type="tts">penglog ac esgyrn croes</annotation>
+		<annotation cp="👻">creadur | wyneb | ffantasi | anghenfil</annotation>
+		<annotation cp="👻" type="tts">ysbryd</annotation>
+		<annotation cp="👽">creature | extraterrestrial | face | fairy tale | fantasy | monster | space | ufo</annotation>
+		<annotation cp="👽" type="tts">estron</annotation>
+		<annotation cp="👾">estron | creadur | anghenfil | gofod</annotation>
+		<annotation cp="👾" type="tts">anghenfil estron</annotation>
+		<annotation cp="🤖">wyneb | anghenfil | robot</annotation>
+		<annotation cp="🤖" type="tts">wyneb robot</annotation>
+		<annotation cp="💩">wyneb | anghenfil | baw | cachu</annotation>
+		<annotation cp="💩" type="tts">pentwr o faw</annotation>
+		<annotation cp="😺">cath | gwên | ceg | agored</annotation>
+		<annotation cp="😺" type="tts">wyneb cath yn gwenu â cheg agored</annotation>
+		<annotation cp="😸">cath | lledwenu | llygaid | gwenu</annotation>
+		<annotation cp="😸" type="tts">wyneb cath yn lledwenu â gwên yn y llygaid</annotation>
+		<annotation cp="😹">cath | wyneb | hapusrwydd | deigryn</annotation>
+		<annotation cp="😹" type="tts">wyneb cath â dagrau o hapusrwydd</annotation>
+		<annotation cp="😻">cath | llygaid | calonnau | cariad</annotation>
+		<annotation cp="😻" type="tts">wyneb cath yn gwenu â chalonnau yn y llygaid</annotation>
+		<annotation cp="😼">cath | eironig | gwên | ar gam</annotation>
+		<annotation cp="😼" type="tts">wyneb cath â gwên ar gam</annotation>
+		<annotation cp="😽">cath | llygad | wyneb | cusan</annotation>
+		<annotation cp="😽" type="tts">wyneb cath yn cusanu â llygaid ynghau</annotation>
+		<annotation cp="🙀">cath | wyneb | syfrdanol | lluddedig</annotation>
+		<annotation cp="🙀" type="tts">wyneb cath luddedig</annotation>
+		<annotation cp="😿">cath | crio | trist | deigryn</annotation>
+		<annotation cp="😿" type="tts">wyneb cath yn crio</annotation>
+		<annotation cp="😾">cath | wyneb | pwdu</annotation>
+		<annotation cp="😾" type="tts">wyneb cath yn pwdu</annotation>
+		<annotation cp="🙈">drwg | wyneb | mwnci | gweld</annotation>
+		<annotation cp="🙈" type="tts">gweld dim drwg</annotation>
+		<annotation cp="🙉">drwg | wyneb | mwnci | clywed</annotation>
+		<annotation cp="🙉" type="tts">clywed dim drwg</annotation>
+		<annotation cp="🙊">drwg | wyneb | mwnci | siarad</annotation>
+		<annotation cp="🙊" type="tts">siarad dim drwg</annotation>
+		<annotation cp="👦">bachgen | gwrywaidd</annotation>
+		<annotation cp="👦" type="tts">bachgen</annotation>
+		<annotation cp="👧">merch | benywaidd | morwyn</annotation>
+		<annotation cp="👧" type="tts">merch</annotation>
+		<annotation cp="👨">gwrywaidd | dyn</annotation>
+		<annotation cp="👨" type="tts">dyn</annotation>
+		<annotation cp="👨‍⚕">meddyg | gofal iechyd | gwrywaidd | nyrs</annotation>
+		<annotation cp="👨‍⚕" type="tts">gweithiwr iechyd gwrywaidd</annotation>
+		<annotation cp="👨‍👦">bachgen | plentyn | tad</annotation>
+		<annotation cp="👨‍👦" type="tts">teulu, dyn, bachgen</annotation>
+		<annotation cp="👨‍👦‍👦">bachgen | plentyn | tad | plant</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">teulu, dyn, bachgen, bachgen</annotation>
+		<annotation cp="👨‍👧">merch | plentyn | tad | plant</annotation>
+		<annotation cp="👨‍👧" type="tts">teulu, dyn, merch</annotation>
+		<annotation cp="👨‍👧‍👦">bachgen | merch | tad | plant</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">teulu, dyn, merch, bachgen</annotation>
+		<annotation cp="👨‍👧‍👧">merched | merch | tad | plant</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">teulu, dyn, merch, merch</annotation>
+		<annotation cp="👨‍🎓">graddio | gwrywaidd | dyn | myfyriwr</annotation>
+		<annotation cp="👨‍🎓" type="tts">myfyriwr</annotation>
+		<annotation cp="👨‍🌾">ffermwr | garddwr | gwrywaidd | dyn</annotation>
+		<annotation cp="👨‍🌾" type="tts">ffermwr</annotation>
+		<annotation cp="👨‍🍳">cogydd | coginio | dyn | gwrywaidd</annotation>
+		<annotation cp="👨‍🍳" type="tts">cogydd</annotation>
+		<annotation cp="👨‍🏫">hyfforddwr | dyn | athro | gwrywaidd</annotation>
+		<annotation cp="👨‍🏫" type="tts">athro</annotation>
+		<annotation cp="👨‍🏭">cydosod | ffatri | diwydiant | dyn</annotation>
+		<annotation cp="👨‍🏭" type="tts">gweithiwr ffatri</annotation>
+		<annotation cp="👨‍🎨">arlunydd | dyn | palet</annotation>
+		<annotation cp="👨‍🎨" type="tts">arlunydd</annotation>
+		<annotation cp="👨‍🚒">dyn tân | lori tân | dyn</annotation>
+		<annotation cp="👨‍🚒" type="tts">dyn tân</annotation>
+		<annotation cp="👨‍✈">gwrywaidd | dyn | peilot | awyren</annotation>
+		<annotation cp="👨‍✈" type="tts">peilot gwrywaidd</annotation>
+		<annotation cp="👨‍🚀">gofodwr | roced | dyn | gofod</annotation>
+		<annotation cp="👨‍🚀" type="tts">gofodwr</annotation>
+		<annotation cp="👨‍🎤">actor | adlonni | cantor | dyn</annotation>
+		<annotation cp="👨‍🎤" type="tts">cantor</annotation>
+		<annotation cp="👨‍💻">codydd | datblygydd | dyfeisio | dyn</annotation>
+		<annotation cp="👨‍💻" type="tts">technolegwr</annotation>
+		<annotation cp="👨‍🔬">biolegydd | cemegydd | gwyddonydd | dyn</annotation>
+		<annotation cp="👨‍🔬" type="tts">gwyddonydd</annotation>
+		<annotation cp="👨‍💼">pensaer | busnes | swyddfa | dyn</annotation>
+		<annotation cp="👨‍💼" type="tts">gweithiwr swyddfa gwrywaidd</annotation>
+		<annotation cp="👨‍🔧">trydanwr | dyn | peiriannydd | plymwr</annotation>
+		<annotation cp="👨‍🔧" type="tts">peiriannydd gwrywaidd</annotation>
+		<annotation cp="👨‍⚖">cyfiawnder | dyn | gwrywaidd | clorian</annotation>
+		<annotation cp="👨‍⚖" type="tts">barnwr</annotation>
+		<annotation cp="👩">benywaidd | menyw</annotation>
+		<annotation cp="👩" type="tts">menyw</annotation>
+		<annotation cp="👩‍⚕">meddyg | gofal iechyd | benywaidd | nyrs</annotation>
+		<annotation cp="👩‍⚕" type="tts">gweithiwr iechyd benywaidd</annotation>
+		<annotation cp="👩‍👦">bachgen | menyw | mam | plentyn</annotation>
+		<annotation cp="👩‍👦" type="tts">teulu, menyw, bachgen</annotation>
+		<annotation cp="👩‍👦‍👦">bachgen | menyw | mam | plant</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">teulu, menyw, bachgen, bachgen</annotation>
+		<annotation cp="👩‍👧">merch | menyw | mam | plentyn</annotation>
+		<annotation cp="👩‍👧" type="tts">teulu, menyw, merch</annotation>
+		<annotation cp="👩‍👧‍👦">merch | menyw | plant | bachgen</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">teulu, menyw, merch, bachgen</annotation>
+		<annotation cp="👩‍👧‍👧">merch | menyw | plant | merched</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">teulu, menyw, merch, merch</annotation>
+		<annotation cp="👩‍🎓">graddio | benywaidd | menyw | myfyrwraig</annotation>
+		<annotation cp="👩‍🎓" type="tts">myfyrwraig</annotation>
+		<annotation cp="👩‍🌾">ffermio | benywaidd | garddio | menyw</annotation>
+		<annotation cp="👩‍🌾" type="tts">ffarmwraig</annotation>
+		<annotation cp="👩‍🍳">cogydd | coginio | menyw | benywaidd</annotation>
+		<annotation cp="👩‍🍳" type="tts">cogyddes</annotation>
+		<annotation cp="👩‍🏫">hyfforddwraig | athrawes | benywaidd | menyw</annotation>
+		<annotation cp="👩‍🏫" type="tts">athrawes</annotation>
+		<annotation cp="👩‍🏭">cydosod | ffatri | diwydiant | benyw</annotation>
+		<annotation cp="👩‍🏭" type="tts">gweithwraig ffatri</annotation>
+		<annotation cp="👩‍🎨">arlunwraig | benyw | palet</annotation>
+		<annotation cp="👩‍🎨" type="tts">arlunwraig</annotation>
+		<annotation cp="👩‍🚒">menyw tân | lori tân | menyw</annotation>
+		<annotation cp="👩‍🚒" type="tts">menyw tân</annotation>
+		<annotation cp="👩‍✈">benywaidd | menyw | peilot | awyren</annotation>
+		<annotation cp="👩‍✈" type="tts">peilot benywaidd</annotation>
+		<annotation cp="👩‍🚀">gofodwraig | roced | menyw | gofod</annotation>
+		<annotation cp="👩‍🚀" type="tts">gofodwraig</annotation>
+		<annotation cp="👩‍🎤">actor | adlonni | cantores | menyw</annotation>
+		<annotation cp="👩‍🎤" type="tts">cantores</annotation>
+		<annotation cp="👩‍💻">codydd | datblygydd | dyfeisio | menyw</annotation>
+		<annotation cp="👩‍💻" type="tts">technolegwraig</annotation>
+		<annotation cp="👩‍🔬">biolegydd | cemegydd | gwyddonwraig | menyw</annotation>
+		<annotation cp="👩‍🔬" type="tts">gwyddonwraig</annotation>
+		<annotation cp="👩‍💼">pensaer | busnes | swyddfa | menyw</annotation>
+		<annotation cp="👩‍💼" type="tts">gweithiwr swyddfa benywaidd</annotation>
+		<annotation cp="👩‍🔧">trydanwr | benywaidd | peiriannydd | plymio</annotation>
+		<annotation cp="👩‍🔧" type="tts">peiriannydd benywaidd</annotation>
+		<annotation cp="👩‍⚖">cyfiawnder | menyw | benywaidd | clorian</annotation>
+		<annotation cp="👩‍⚖" type="tts">barnwres</annotation>
+		<annotation cp="👴">gwrywaidd | dyn | hen</annotation>
+		<annotation cp="👴" type="tts">hen ddyn</annotation>
+		<annotation cp="👵">benywaidd | hen | menyw</annotation>
+		<annotation cp="👵" type="tts">hen fenyw</annotation>
+		<annotation cp="👶">babi</annotation>
+		<annotation cp="👶" type="tts">babi</annotation>
+		<annotation cp="👱">gwallt golau</annotation>
+		<annotation cp="👱" type="tts">person â gwallt golau</annotation>
+		<annotation cp="👱‍♀">blonde | menyw | gwallt golau</annotation>
+		<annotation cp="👱‍♀" type="tts">menyw â gwallt golau</annotation>
+		<annotation cp="👱‍♂">blond | dyn | gwallt golau</annotation>
+		<annotation cp="👱‍♂" type="tts">dyn â gwallt golau</annotation>
+		<annotation cp="👮">plismon | swyddog | heddlu</annotation>
+		<annotation cp="👮" type="tts">heddwas</annotation>
+		<annotation cp="👮‍♀">plismon | benywaidd | swyddog | heddlu</annotation>
+		<annotation cp="👮‍♀" type="tts">swyddog heddlu benywaidd</annotation>
+		<annotation cp="👮‍♂">plismon | gwrywaidd | swyddog | heddlu</annotation>
+		<annotation cp="👮‍♂" type="tts">swyddog heddlu gwrywaidd</annotation>
+		<annotation cp="👲">gua pi mao | het | dyn</annotation>
+		<annotation cp="👲" type="tts">dyn â chap Tsieineaidd</annotation>
+		<annotation cp="👳">twrban</annotation>
+		<annotation cp="👳" type="tts">person yn gwisgo twrban</annotation>
+		<annotation cp="👳‍♀">benywaidd | twrban | menyw</annotation>
+		<annotation cp="👳‍♀" type="tts">menyw â thwrban</annotation>
+		<annotation cp="👳‍♂">gwrywaidd | dyn | twrban</annotation>
+		<annotation cp="👳‍♂" type="tts">dyn â thwrban</annotation>
+		<annotation cp="👷">adeiladu | het | gweithiwr</annotation>
+		<annotation cp="👷" type="tts">adeiladwr</annotation>
+		<annotation cp="👷‍♀">adeiladu | benywaidd | menyw | gweithwraig</annotation>
+		<annotation cp="👷‍♀" type="tts">gweithiwr adeiladu benywaidd</annotation>
+		<annotation cp="👷‍♂">adeiladu | gwrywaidd | dyn | gweithiwr</annotation>
+		<annotation cp="👷‍♂" type="tts">gweithiwr adeiladu gwrywaidd</annotation>
+		<annotation cp="⛑">cymorth | croes | het | wyneb</annotation>
+		<annotation cp="⛑" type="tts">helmed â chroes wen</annotation>
+		<annotation cp="👸">ffantasi</annotation>
+		<annotation cp="👸" type="tts">tywysoges</annotation>
+		<annotation cp="💂">gwarchod</annotation>
+		<annotation cp="💂" type="tts">gwarchodfilwr</annotation>
+		<annotation cp="💂‍♀">benywaidd | gwarchod | menyw</annotation>
+		<annotation cp="💂‍♀" type="tts">gwarchodydd benywaidd</annotation>
+		<annotation cp="💂‍♂">gwarchod | gwrywaidd | dyn</annotation>
+		<annotation cp="💂‍♂" type="tts">gwarchodydd gwrywaidd</annotation>
+		<annotation cp="🕵">ditectif | ysbïwr</annotation>
+		<annotation cp="🕵" type="tts">ditectif</annotation>
+		<annotation cp="🕵‍♀">ditectif | benywaidd | menyw | ysbiwraig</annotation>
+		<annotation cp="🕵‍♀" type="tts">ditectif benywaidd</annotation>
+		<annotation cp="🕵‍♂">ditectif | gwrywaidd | dyn | ysbïwr</annotation>
+		<annotation cp="🕵‍♂" type="tts">ditectif gwrywaidd</annotation>
+		<annotation cp="🎅">dathliad | Nadolig | Siôn Corn | santa</annotation>
+		<annotation cp="🎅" type="tts">Siôn Corn</annotation>
+		<annotation cp="👼">angel | babi | wyneb | ffantasi</annotation>
+		<annotation cp="👼" type="tts">babi angel</annotation>
+		<annotation cp="👯">dawnsiwr | clust | merch | menyw</annotation>
+		<annotation cp="👯" type="tts">pobl mewn parti</annotation>
+		<annotation cp="👯‍♀">dawnsiwr | menyw | menywod | parti</annotation>
+		<annotation cp="👯‍♀" type="tts">menyw mewn parti</annotation>
+		<annotation cp="👯‍♂">dawnsiwr | dyn | dynion | parti</annotation>
+		<annotation cp="👯‍♂" type="tts">dyn mewn parti</annotation>
+		<annotation cp="💆">wyneb | tyluniad | salon</annotation>
+		<annotation cp="💆" type="tts">person yn derbyn tyluniad</annotation>
+		<annotation cp="💆‍♀">wyneb | menyw | tyluniad</annotation>
+		<annotation cp="💆‍♀" type="tts">menyw yn derbyn tyluniad i’w wyneb</annotation>
+		<annotation cp="💆‍♂">wyneb | dyn | tyluniad</annotation>
+		<annotation cp="💆‍♂" type="tts">dyn yn derbyn tyluniad i’w wyneb</annotation>
+		<annotation cp="💇">barbwr | harddwch | gwallt | torri</annotation>
+		<annotation cp="💇" type="tts">person yn cael ei wallt wedi’u torri</annotation>
+		<annotation cp="💇‍♀">torri | gwallt | menyw</annotation>
+		<annotation cp="💇‍♀" type="tts">menyw yn cael ei gwallt wedi’u torri</annotation>
+		<annotation cp="💇‍♂">torri | gwallt | dyn</annotation>
+		<annotation cp="💇‍♂" type="tts">dyn yn cael ei wallt wedi’u torri</annotation>
+		<annotation cp="👰">priodferch | fêl | priodas</annotation>
+		<annotation cp="👰" type="tts">priodferch â fêl</annotation>
+		<annotation cp="🙍">gwg | ystum</annotation>
+		<annotation cp="🙍" type="tts">person yn gwgu</annotation>
+		<annotation cp="🙍‍♀">gwgu | ystum | menyw</annotation>
+		<annotation cp="🙍‍♀" type="tts">menyw yn gwgu</annotation>
+		<annotation cp="🙍‍♂">gwgu | ystum | dyn</annotation>
+		<annotation cp="🙍‍♂" type="tts">dyn yn gwgu</annotation>
+		<annotation cp="🙎">ystum | pwdu</annotation>
+		<annotation cp="🙎" type="tts">person yn pwdu</annotation>
+		<annotation cp="🙎‍♀">ystum | menyw | pwdu</annotation>
+		<annotation cp="🙎‍♀" type="tts">menyw yn pwdu</annotation>
+		<annotation cp="🙎‍♂">ystum | dyn | pwdu</annotation>
+		<annotation cp="🙎‍♂" type="tts">dyn yn pwdu</annotation>
+		<annotation cp="🙅">gwaharddedig | ystum | llaw | na</annotation>
+		<annotation cp="🙅" type="tts">person yn ystumio nad yw’n iawn</annotation>
+		<annotation cp="🙅‍♀">gwaharddedig | ystum | menyw | na</annotation>
+		<annotation cp="🙅‍♀" type="tts">menyw yn ystumio nad yw’n iawn</annotation>
+		<annotation cp="🙅‍♂">gwaharddedig | ystum | dyn | na</annotation>
+		<annotation cp="🙅‍♂" type="tts">dyn yn ystumio nad yw’n iawn</annotation>
+		<annotation cp="🙆">ystum | llaw | iawn | ok</annotation>
+		<annotation cp="🙆" type="tts">person yn ystumio iawn</annotation>
+		<annotation cp="🙆‍♀">ystum | menyw | iawn | ok</annotation>
+		<annotation cp="🙆‍♀" type="tts">menyw yn ystumio iawn</annotation>
+		<annotation cp="🙆‍♂">ystum | dyn | iawn | ok</annotation>
+		<annotation cp="🙆‍♂" type="tts">dyn yn ystumio iawn</annotation>
+		<annotation cp="💁">llaw | help | gwybodaeth | tipio</annotation>
+		<annotation cp="💁" type="tts">person yn gwyro llaw</annotation>
+		<annotation cp="💁‍♀">llaw | menyw | gwybodaeth | tipio</annotation>
+		<annotation cp="💁‍♀" type="tts">menyw yn gwyro ei llaw</annotation>
+		<annotation cp="💁‍♂">llaw | dyn | gwybodaeth | tipio</annotation>
+		<annotation cp="💁‍♂" type="tts">dyn yn gwyro ei law</annotation>
+		<annotation cp="🙋">ystum | llaw | hapus</annotation>
+		<annotation cp="🙋" type="tts">person yn codi llaw</annotation>
+		<annotation cp="🙋‍♀">ystum | llaw | hapus | menyw</annotation>
+		<annotation cp="🙋‍♀" type="tts">menyw yn codi ei llaw</annotation>
+		<annotation cp="🙋‍♂">ystum | llaw | hapus | dyn</annotation>
+		<annotation cp="🙋‍♂" type="tts">dyn yn codi ei law</annotation>
+		<annotation cp="🙇">ymddiheuriad | ymgrymiad | ystum | sori</annotation>
+		<annotation cp="🙇" type="tts">person yn ymgrymu</annotation>
+		<annotation cp="🙇‍♀">ymddiheuriad | ymgrymiad | ffafr | menyw</annotation>
+		<annotation cp="🙇‍♀" type="tts">menyw yn ymgrymu’n isel</annotation>
+		<annotation cp="🙇‍♂">ymddiheuriad | ymgrymiad | ffafr | dyn</annotation>
+		<annotation cp="🙇‍♂" type="tts">dyn yn ymgrymu’n isel</annotation>
+		<annotation cp="🙌">corff | dathliad | ystum | llaw</annotation>
+		<annotation cp="🙌" type="tts">person yn codi dwylo</annotation>
+		<annotation cp="🙏">corff | plygu | ystum | gweddi</annotation>
+		<annotation cp="🙏" type="tts">dwylo wedi plygu</annotation>
+		<annotation cp="🗣">wyneb | pen | silwét | siarad</annotation>
+		<annotation cp="🗣" type="tts">pen yn siarad</annotation>
+		<annotation cp="👤">bron | silwét</annotation>
+		<annotation cp="👤" type="tts">bron mewn silwét</annotation>
+		<annotation cp="👥">bron | silwét</annotation>
+		<annotation cp="👥" type="tts">bronnau mewn silwét</annotation>
+		<annotation cp="🚶">heicio | cerdded</annotation>
+		<annotation cp="🚶" type="tts">person yn cerdded</annotation>
+		<annotation cp="🚶‍♀">heicio | cerdded | menyw</annotation>
+		<annotation cp="🚶‍♀" type="tts">menyw yn cerdded</annotation>
+		<annotation cp="🚶‍♂">heicio | cerdded | dyn</annotation>
+		<annotation cp="🚶‍♂" type="tts">dyn yn cerdded</annotation>
+		<annotation cp="🏃">marathon | rhedeg</annotation>
+		<annotation cp="🏃" type="tts">person yn rhedeg</annotation>
+		<annotation cp="🏃‍♀">menyw | ras | marathon | rhedeg</annotation>
+		<annotation cp="🏃‍♀" type="tts">menyw yn rhedeg</annotation>
+		<annotation cp="🏃‍♂">dyn | ras | marathon | rhedeg</annotation>
+		<annotation cp="🏃‍♂" type="tts">dyn yn rhedeg</annotation>
+		<annotation cp="💃">dawnsio | menyw</annotation>
+		<annotation cp="💃" type="tts">menyw yn dawnsio</annotation>
+		<annotation cp="🕴">busnes | dyn | gwisg</annotation>
+		<annotation cp="🕴" type="tts">dyn mewn gwisg fusnes yn ymddyrchafu</annotation>
+		<annotation cp="💏">pâr</annotation>
+		<annotation cp="💏" type="tts">cusan</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">pâr | menyw | dyn</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">cusan, menyw, dyn</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">pâr | gwrywaidd | dyn</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">cusan, dyn, dyn</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">pâr | benywaidd | menyw</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">cusan, menyw, menyw</annotation>
+		<annotation cp="💑">pâr | calon | cariad</annotation>
+		<annotation cp="💑" type="tts">pâr a chalon</annotation>
+		<annotation cp="👩‍❤‍👨">pâr | menyw | calon | cariad</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">pâr a chalon, menyw, dyn</annotation>
+		<annotation cp="👨‍❤‍👨">pâr | dynion | calon | cariad</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">pâr a chalon, dyn, dyn</annotation>
+		<annotation cp="👩‍❤‍👩">pâr | menywod | calon | cariad</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">pâr a chalon, menyw, menyw</annotation>
+		<annotation cp="👪">plentyn | tad | mam</annotation>
+		<annotation cp="👪" type="tts">teulu</annotation>
+		<annotation cp="👨‍👩‍👦">bachgen | plentyn | tad | mam</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">teulu, dyn, menyw, bachgen</annotation>
+		<annotation cp="👨‍👩‍👧">plentyn | tad | mam | merch</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">teulu, dyn, menyw, merch</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">plentyn | tad | mam | bachgen</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">teulu, dyn, menyw, bachgen, bachgen</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">plentyn | tad | mam | plant</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">teulu, dyn, menyw, merch, bachgen</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">plentyn | tad | mam | merch</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">teulu, dyn, menyw, merch, merch</annotation>
+		<annotation cp="👨‍👨‍👦">bachgen | plentyn | tad | mam</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">teulu, dyn, dyn, bachgen</annotation>
+		<annotation cp="👨‍👨‍👧">merch | plentyn | tad | tadau</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">teulu, dyn, dyn, merch</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">bachgen | plant | tad | tadau</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">teulu, dyn, dyn, bachgen, bachgen</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">plant | plentyn | tad | tadau</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">teulu, dyn, dyn, merch, bachgen</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">plant | merched | tad | tadau</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">teulu, dyn, dyn merch, merch</annotation>
+		<annotation cp="👩‍👩‍👦">plentyn | bachgen | mam | mamau</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">teulu, menyw, menyw, bachgen</annotation>
+		<annotation cp="👩‍👩‍👧">plentyn | merch | mam | mamau</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">teulu, menyw, menyw, merch</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">plant | bachgen | mam | mamau</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">teulu, menyw, menyw, bachgen, bachgen</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">plentyn | plant | mam | mamau</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">teulu, menyw, menyw, merch, bachgen</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">plant | merch | mam | mamau</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">teulu, menyw, menyw, merch, merch</annotation>
+		<annotation cp="👫">pâr | dwylo | dal</annotation>
+		<annotation cp="👫" type="tts">dyn a menyw yn dal dwylo</annotation>
+		<annotation cp="👬">pâr | dal | dwylo | dyn</annotation>
+		<annotation cp="👬" type="tts">dau ddyn yn dal dwylo</annotation>
+		<annotation cp="👭">pâr | dal | dwylo | menyw</annotation>
+		<annotation cp="👭" type="tts">dwy fenyw yn dal dwylo</annotation>
+		<annotation cp="🏻">lliw croen</annotation>
+		<annotation cp="🏻" type="tts">math 1–2</annotation>
+		<annotation cp="🏼">lliw croen</annotation>
+		<annotation cp="🏼" type="tts">math 3</annotation>
+		<annotation cp="🏽">lliw croen</annotation>
+		<annotation cp="🏽" type="tts">math 4</annotation>
+		<annotation cp="🏾">lliw croen</annotation>
+		<annotation cp="🏾" type="tts">math 5</annotation>
+		<annotation cp="🏿">lliw croen</annotation>
+		<annotation cp="🏿" type="tts">math 6</annotation>
+		<annotation cp="💪">cyhyrau | corff | ystwytho</annotation>
+		<annotation cp="💪" type="tts">cyhyrau deuben wedi eu hystwytho</annotation>
+		<annotation cp="👈">gwrthlaw | corff | bys | llaw</annotation>
+		<annotation cp="👈" type="tts">mynegfys yr wrthlaw yn pwyntio i’r chwith</annotation>
+		<annotation cp="👉">gwrthlaw | corff | bys | llaw</annotation>
+		<annotation cp="👉" type="tts">mynegfys yr wrthlaw yn pwyntio i’r dde</annotation>
+		<annotation cp="☝">mynegfys | corff | pwyntio | i fyny</annotation>
+		<annotation cp="☝" type="tts">mynegfys yn pwyntio i fyny</annotation>
+		<annotation cp="👆">gwrthlaw | corff | bys | mynegfys</annotation>
+		<annotation cp="👆" type="tts">mynegfys yr wrthlaw yn pwyntio i fyny</annotation>
+		<annotation cp="🖕">corff | bys | llaw</annotation>
+		<annotation cp="🖕" type="tts">bys canol</annotation>
+		<annotation cp="👇">gwrthlaw | corff | bys | mynegfys</annotation>
+		<annotation cp="👇" type="tts">mynegfys yr wrthlaw yn pwyntio i lawr</annotation>
+		<annotation cp="✌">corff | llaw | v | buddugoliaeth</annotation>
+		<annotation cp="✌" type="tts">llaw fuddugol</annotation>
+		<annotation cp="🖖">corff | bys | llaw | spock</annotation>
+		<annotation cp="🖖" type="tts">saliwt fulcanaidd</annotation>
+		<annotation cp="🤘">corff | bys | llaw | cyrn</annotation>
+		<annotation cp="🤘" type="tts">arwydd y cyrn</annotation>
+		<annotation cp="🖐">corff | bys | llaw | wedi lledu</annotation>
+		<annotation cp="🖐" type="tts">llaw wedi ei chodi â bysedd wedi eu lledu</annotation>
+		<annotation cp="✊">corff | cau | dwrn | llaw</annotation>
+		<annotation cp="✊" type="tts">dwrn wedi codi</annotation>
+		<annotation cp="✋">corff | llaw</annotation>
+		<annotation cp="✋" type="tts">llaw wedi codi</annotation>
+		<annotation cp="👊">corff | cau | dwrn | llaw</annotation>
+		<annotation cp="👊" type="tts">dwrn yn agosáu</annotation>
+		<annotation cp="👌">corff | llaw | ok</annotation>
+		<annotation cp="👌" type="tts">llaw ocê</annotation>
+		<annotation cp="👍">corff | bys bawd | ok</annotation>
+		<annotation cp="👍" type="tts">byw bawd i fyny</annotation>
+		<annotation cp="👎">corff | i lawr | llaw | bys bawd</annotation>
+		<annotation cp="👎" type="tts">bys bawd i lawr</annotation>
+		<annotation cp="👋">corff | chwifio | llaw</annotation>
+		<annotation cp="👋" type="tts">llaw yn chwifio</annotation>
+		<annotation cp="👏">corff | curo | llaw</annotation>
+		<annotation cp="👏" type="tts">dwylo yn curo</annotation>
+		<annotation cp="👐">corff | llaw | agored</annotation>
+		<annotation cp="👐" type="tts">dwylo agored</annotation>
+		<annotation cp="✍">corff | llaw | ysgrifennu</annotation>
+		<annotation cp="✍" type="tts">dwylo yn ysgrifennu</annotation>
+		<annotation cp="💅">corff | gofal | triniaeth | ewyn</annotation>
+		<annotation cp="💅" type="tts">farnais ewinedd</annotation>
+		<annotation cp="👂">corff</annotation>
+		<annotation cp="👂" type="tts">clust</annotation>
+		<annotation cp="👃">corff</annotation>
+		<annotation cp="👃" type="tts">trwyn</annotation>
+		<annotation cp="👣">corff | dilledyn | olion traed</annotation>
+		<annotation cp="👣" type="tts">olion traed</annotation>
+		<annotation cp="👀">corff | llygad | wyneb</annotation>
+		<annotation cp="👀" type="tts">llygaid</annotation>
+		<annotation cp="👁">corff</annotation>
+		<annotation cp="👁" type="tts">llygad</annotation>
+		<annotation cp="👁‍🗨">llygad | mewn cwmwl | tyst</annotation>
+		<annotation cp="👁‍🗨" type="tts">llygad mewn cwmwl</annotation>
+		<annotation cp="👅">corff</annotation>
+		<annotation cp="👅" type="tts">tafod</annotation>
+		<annotation cp="👄">corff | gwefusau</annotation>
+		<annotation cp="👄" type="tts">ceg</annotation>
+		<annotation cp="💋">cusan | gwefusau</annotation>
+		<annotation cp="💋" type="tts">ôl cusan</annotation>
+		<annotation cp="💘">saeth | calon</annotation>
+		<annotation cp="💘" type="tts">calon â saeth trwyddi</annotation>
+		<annotation cp="❤">calon</annotation>
+		<annotation cp="❤" type="tts">calon goch</annotation>
+		<annotation cp="💓">curo | calon</annotation>
+		<annotation cp="💓" type="tts">calon yn curo</annotation>
+		<annotation cp="💔">torri | calon</annotation>
+		<annotation cp="💔" type="tts">calon wedi torri</annotation>
+		<annotation cp="💕">calon | cariad</annotation>
+		<annotation cp="💕" type="tts">dwy galon</annotation>
+		<annotation cp="💖">cynhyrfu | calon | disgleirio</annotation>
+		<annotation cp="💖" type="tts">calon yn disgleirio</annotation>
+		<annotation cp="💗">cynhyrfu | tyfu | calon | nerfus</annotation>
+		<annotation cp="💗" type="tts">calon yn tyfu</annotation>
+		<annotation cp="💙">glas | calon</annotation>
+		<annotation cp="💙" type="tts">calon las</annotation>
+		<annotation cp="💚">gwyrdd | calon</annotation>
+		<annotation cp="💚" type="tts">calon werdd</annotation>
+		<annotation cp="💛">calon | melyn</annotation>
+		<annotation cp="💛" type="tts">calon felen</annotation>
+		<annotation cp="💜">calon | porffor</annotation>
+		<annotation cp="💜" type="tts">calon borffor</annotation>
+		<annotation cp="💝">calon | rhuban | ffolant</annotation>
+		<annotation cp="💝" type="tts">calon â rhuban</annotation>
+		<annotation cp="💞">calon | troelli</annotation>
+		<annotation cp="💞" type="tts">calonnau yn troelli</annotation>
+		<annotation cp="💟">calon</annotation>
+		<annotation cp="💟" type="tts">addurn calon</annotation>
+		<annotation cp="❣">ebychiad | calon | marc | atalnodiad</annotation>
+		<annotation cp="❣" type="tts">ebychiad trwm galon</annotation>
+		<annotation cp="💌">calon | llythyr | cariad | post</annotation>
+		<annotation cp="💌" type="tts">llythyr caru</annotation>
+		<annotation cp="💤">comig | cysgu</annotation>
+		<annotation cp="💤" type="tts">zzz</annotation>
+		<annotation cp="💢">dig | comig | gwallgof</annotation>
+		<annotation cp="💢" type="tts">symbol dicter</annotation>
+		<annotation cp="💣">comig</annotation>
+		<annotation cp="💣" type="tts">bom</annotation>
+		<annotation cp="💥">trwst | comig</annotation>
+		<annotation cp="💥" type="tts">trawiad</annotation>
+		<annotation cp="💦">comig | splash | chwys</annotation>
+		<annotation cp="💦" type="tts">defnynnau chwys</annotation>
+		<annotation cp="💨">comig | rhuthro | rhedeg</annotation>
+		<annotation cp="💨" type="tts">rhuthro</annotation>
+		<annotation cp="💫">comig | seren</annotation>
+		<annotation cp="💫" type="tts">penysgafn</annotation>
+		<annotation cp="💬">balŵn | swigen | comig | deialog</annotation>
+		<annotation cp="💬" type="tts">balŵn deialog</annotation>
+		<annotation cp="🗨">deialog | siarad</annotation>
+		<annotation cp="🗨" type="tts">swigen yn siarad i’r chwith</annotation>
+		<annotation cp="🗯">dig | balŵn | swigen</annotation>
+		<annotation cp="🗯" type="tts">swigen ddig i’r dde</annotation>
+		<annotation cp="💭">balŵn | swigen | comig</annotation>
+		<annotation cp="💭" type="tts">cwmwl meddwl</annotation>
+		<annotation cp="🕳">twll</annotation>
+		<annotation cp="🕳" type="tts">twll</annotation>
+		<annotation cp="👓">llygad | sbectol</annotation>
+		<annotation cp="👓" type="tts">sbectol</annotation>
+		<annotation cp="🕶">tywyll | llygad | sbectol</annotation>
+		<annotation cp="🕶" type="tts">sbectol haul</annotation>
+		<annotation cp="👔">dillad</annotation>
+		<annotation cp="👔" type="tts">tei</annotation>
+		<annotation cp="👕">dillad | crys</annotation>
+		<annotation cp="👕" type="tts">crys T</annotation>
+		<annotation cp="👖">dillad | trwser</annotation>
+		<annotation cp="👖" type="tts">jîns</annotation>
+		<annotation cp="👗">dillad</annotation>
+		<annotation cp="👗" type="tts">ffrog</annotation>
+		<annotation cp="👘">dillad</annotation>
+		<annotation cp="👘" type="tts">cimono</annotation>
+		<annotation cp="👙">dillad | nofio</annotation>
+		<annotation cp="👙" type="tts">bicini</annotation>
+		<annotation cp="👚">dillad | menyw</annotation>
+		<annotation cp="👚" type="tts">dillad menywod</annotation>
+		<annotation cp="👛">dillad | darn arian</annotation>
+		<annotation cp="👛" type="tts">pwrs</annotation>
+		<annotation cp="👜">bag | dillad</annotation>
+		<annotation cp="👜" type="tts">bag llaw</annotation>
+		<annotation cp="👝">bag | dillad</annotation>
+		<annotation cp="👝" type="tts">cwd</annotation>
+		<annotation cp="🛍">bag | gwesty | siopa</annotation>
+		<annotation cp="🛍" type="tts">bagiau siopa</annotation>
+		<annotation cp="🎒">bag | ysgol</annotation>
+		<annotation cp="🎒" type="tts">bag ysgol</annotation>
+		<annotation cp="👞">dillad | dyn | esgid</annotation>
+		<annotation cp="👞" type="tts">esgid dyn</annotation>
+		<annotation cp="👟">athletig | dillad | esgid | rhedeg</annotation>
+		<annotation cp="👟" type="tts">esgidiau rhedeg</annotation>
+		<annotation cp="👠">dillad | sawdl | esgid | menyw</annotation>
+		<annotation cp="👠" type="tts">esgidiau sodlau uchel</annotation>
+		<annotation cp="👡">dillad | sandal | esgid | menyw</annotation>
+		<annotation cp="👡" type="tts">sandal menyw</annotation>
+		<annotation cp="👢">esgid | dillad | menyw</annotation>
+		<annotation cp="👢" type="tts">esgid fenyw</annotation>
+		<annotation cp="👑">dillad | brenin | brenhines</annotation>
+		<annotation cp="👑" type="tts">coron</annotation>
+		<annotation cp="👒">dillad | het | menyw</annotation>
+		<annotation cp="👒" type="tts">het fenyw</annotation>
+		<annotation cp="🎩">dillad | het</annotation>
+		<annotation cp="🎩" type="tts">het silc</annotation>
+		<annotation cp="🎓">cap | dathlu | dillad | het</annotation>
+		<annotation cp="🎓" type="tts">cap graddio</annotation>
+		<annotation cp="📿">gleiniau | dillad | mwclis | gweddi</annotation>
+		<annotation cp="📿" type="tts">gleiniau gweddïo</annotation>
+		<annotation cp="💄">colur</annotation>
+		<annotation cp="💄" type="tts">minlliw</annotation>
+		<annotation cp="💍">diemwnt</annotation>
+		<annotation cp="💍" type="tts">modrwy</annotation>
+		<annotation cp="💎">diemwnt | gem | tlws</annotation>
+		<annotation cp="💎" type="tts">gemfaen</annotation>
+		<annotation cp="🐵">wyneb | mwnci</annotation>
+		<annotation cp="🐵" type="tts">wyneb mwnci</annotation>
+		<annotation cp="🐒">mwnci</annotation>
+		<annotation cp="🐒" type="tts">mwnci</annotation>
+		<annotation cp="🐶">ci | wyneb | anifail anwes</annotation>
+		<annotation cp="🐶" type="tts">wyneb ci</annotation>
+		<annotation cp="🐕">anifail anwes</annotation>
+		<annotation cp="🐕" type="tts">ci</annotation>
+		<annotation cp="🐩">ci</annotation>
+		<annotation cp="🐩" type="tts">pwdl</annotation>
+		<annotation cp="🐺">wyneb | blaidd</annotation>
+		<annotation cp="🐺" type="tts">wyneb blaidd</annotation>
+		<annotation cp="🐱">cath | wyneb | anifail anwes</annotation>
+		<annotation cp="🐱" type="tts">wyneb cath</annotation>
+		<annotation cp="🐈">anifail anwes</annotation>
+		<annotation cp="🐈" type="tts">cath</annotation>
+		<annotation cp="🦁">wyneb | llew</annotation>
+		<annotation cp="🦁" type="tts">wyneb llew</annotation>
+		<annotation cp="🐯">wyneb | teigr</annotation>
+		<annotation cp="🐯" type="tts">wyneb teigr</annotation>
+		<annotation cp="🐅">teigr</annotation>
+		<annotation cp="🐅" type="tts">teigr</annotation>
+		<annotation cp="🐆">llewpard</annotation>
+		<annotation cp="🐆" type="tts">llewpard</annotation>
+		<annotation cp="🐴">wyneb | ceffyl</annotation>
+		<annotation cp="🐴" type="tts">wyneb ceffyl</annotation>
+		<annotation cp="🐎">ras | ceffyl</annotation>
+		<annotation cp="🐎" type="tts">ceffyl</annotation>
+		<annotation cp="🦄">wyneb | uncorn</annotation>
+		<annotation cp="🦄" type="tts">wyneb uncorn</annotation>
+		<annotation cp="🐮">buwch | wyneb</annotation>
+		<annotation cp="🐮" type="tts">wyneb buwch</annotation>
+		<annotation cp="🐂">tarw</annotation>
+		<annotation cp="🐂" type="tts">ych</annotation>
+		<annotation cp="🐃">byfflo | dŵr</annotation>
+		<annotation cp="🐃" type="tts">byfflo dwr</annotation>
+		<annotation cp="🐄">buwch</annotation>
+		<annotation cp="🐄" type="tts">buwch</annotation>
+		<annotation cp="🐷">wyneb | mochyn</annotation>
+		<annotation cp="🐷" type="tts">wyneb mochyn</annotation>
+		<annotation cp="🐖">hwch</annotation>
+		<annotation cp="🐖" type="tts">mochyn</annotation>
+		<annotation cp="🐗">mochyn</annotation>
+		<annotation cp="🐗" type="tts">baedd</annotation>
+		<annotation cp="🐽">wyneb | trwyn | mochyn</annotation>
+		<annotation cp="🐽" type="tts">trwyn mochyn</annotation>
+		<annotation cp="🐏">hwrdd | dafad</annotation>
+		<annotation cp="🐏" type="tts">hwrdd</annotation>
+		<annotation cp="🐑">dafad</annotation>
+		<annotation cp="🐑" type="tts">dafad</annotation>
+		<annotation cp="🐐">gafr</annotation>
+		<annotation cp="🐐" type="tts">gafr</annotation>
+		<annotation cp="🐪">dromedari | twmpath</annotation>
+		<annotation cp="🐪" type="tts">camel</annotation>
+		<annotation cp="🐫">bactriaidd | camel | twmpath</annotation>
+		<annotation cp="🐫" type="tts">camel dau dwmpath</annotation>
+		<annotation cp="🐘">eliffant</annotation>
+		<annotation cp="🐘" type="tts">eliffant</annotation>
+		<annotation cp="🐭">wyneb | llygoden</annotation>
+		<annotation cp="🐭" type="tts">wyneb llygoden</annotation>
+		<annotation cp="🐁">llygoden</annotation>
+		<annotation cp="🐁" type="tts">llygoden</annotation>
+		<annotation cp="🐀">llygoden fawr</annotation>
+		<annotation cp="🐀" type="tts">llygoden fawr</annotation>
+		<annotation cp="🐹">wyneb | bochdew | anifail anwes</annotation>
+		<annotation cp="🐹" type="tts">wyneb bochdew</annotation>
+		<annotation cp="🐰">cwningen | wyneb | anifail anwes | bwni</annotation>
+		<annotation cp="🐰" type="tts">wyneb cwningen</annotation>
+		<annotation cp="🐇">bwni | anifail anwes</annotation>
+		<annotation cp="🐇" type="tts">cwningen</annotation>
+		<annotation cp="🐿">gwiwer resog</annotation>
+		<annotation cp="🐿" type="tts">gwiwer resog</annotation>
+		<annotation cp="🐻">arth | wyneb</annotation>
+		<annotation cp="🐻" type="tts">wyneb arth</annotation>
+		<annotation cp="🐨">arth</annotation>
+		<annotation cp="🐨" type="tts">coala</annotation>
+		<annotation cp="🐼">wyneb | panda</annotation>
+		<annotation cp="🐼" type="tts">wyneb panda</annotation>
+		<annotation cp="🐾">traed | pawen | olion</annotation>
+		<annotation cp="🐾" type="tts">olion pawen</annotation>
+		<annotation cp="🦃">twrci</annotation>
+		<annotation cp="🦃" type="tts">twrci</annotation>
+		<annotation cp="🐔">iâr</annotation>
+		<annotation cp="🐔" type="tts">iâr</annotation>
+		<annotation cp="🐓">ceiliog</annotation>
+		<annotation cp="🐓" type="tts">ceiliog</annotation>
+		<annotation cp="🐣">babi | cyw | deor</annotation>
+		<annotation cp="🐣" type="tts">deoriad cywion</annotation>
+		<annotation cp="🐤">babi | cyw</annotation>
+		<annotation cp="🐤" type="tts">cyw bach</annotation>
+		<annotation cp="🐥">babi | cyw</annotation>
+		<annotation cp="🐥" type="tts">cyw iâr yn blaen-wynebu</annotation>
+		<annotation cp="🐦">aderyn</annotation>
+		<annotation cp="🐦" type="tts">aderyn</annotation>
+		<annotation cp="🐧">pengwin</annotation>
+		<annotation cp="🐧" type="tts">pengwin</annotation>
+		<annotation cp="🕊">aderyn | hedfan | heddwch</annotation>
+		<annotation cp="🕊" type="tts">colomen</annotation>
+		<annotation cp="🐸">face | frog</annotation>
+		<annotation cp="🐸" type="tts">wyneb broga</annotation>
+		<annotation cp="🐊">crocodeil</annotation>
+		<annotation cp="🐊" type="tts">crocodeil</annotation>
+		<annotation cp="🐢">crwban y môr</annotation>
+		<annotation cp="🐢" type="tts">crwban y môr</annotation>
+		<annotation cp="🐍">ophiuchus | neidr</annotation>
+		<annotation cp="🐍" type="tts">neidr</annotation>
+		<annotation cp="🐲">draig | wyneb</annotation>
+		<annotation cp="🐲" type="tts">wyneb draig</annotation>
+		<annotation cp="🐉">stori tylwyth teg</annotation>
+		<annotation cp="🐉" type="tts">draig</annotation>
+		<annotation cp="🐳">wyneb | dŵr | morfil</annotation>
+		<annotation cp="🐳" type="tts">morfil yn chwythu dŵr</annotation>
+		<annotation cp="🐋">morfil</annotation>
+		<annotation cp="🐋" type="tts">morfil</annotation>
+		<annotation cp="🐬">flipper</annotation>
+		<annotation cp="🐬" type="tts">dolffin</annotation>
+		<annotation cp="🐟">pysgod</annotation>
+		<annotation cp="🐟" type="tts">pysgodyn</annotation>
+		<annotation cp="🐠">pysgodyn | trofannol</annotation>
+		<annotation cp="🐠" type="tts">pysgod trofannol</annotation>
+		<annotation cp="🐡">pysgod</annotation>
+		<annotation cp="🐡" type="tts">chwydd bysgodyn</annotation>
+		<annotation cp="🐙">octopws</annotation>
+		<annotation cp="🐙" type="tts">octopws</annotation>
+		<annotation cp="🐚">cragen | troellog</annotation>
+		<annotation cp="🐚" type="tts">cragen droellog</annotation>
+		<annotation cp="🦀">cranc</annotation>
+		<annotation cp="🦀" type="tts">cranc</annotation>
+		<annotation cp="🐌">malwoden</annotation>
+		<annotation cp="🐌" type="tts">malwoden</annotation>
+		<annotation cp="🐛">chwilen</annotation>
+		<annotation cp="🐛" type="tts">chwilen</annotation>
+		<annotation cp="🐜">chwilen</annotation>
+		<annotation cp="🐜" type="tts">morgrugyn</annotation>
+		<annotation cp="🐝">gwenynen | chwilen</annotation>
+		<annotation cp="🐝" type="tts">gwenynen</annotation>
+		<annotation cp="🐞">chwilen</annotation>
+		<annotation cp="🐞" type="tts">chwilen y wraig</annotation>
+		<annotation cp="🕷">chwilen</annotation>
+		<annotation cp="🕷" type="tts">pry copyn</annotation>
+		<annotation cp="🕸">pry copyn | gwe</annotation>
+		<annotation cp="🕸" type="tts">gwe pry cop</annotation>
+		<annotation cp="🦂">sgorpion</annotation>
+		<annotation cp="🦂" type="tts">sgorpion</annotation>
+		<annotation cp="💐">blodyn | planhigyn</annotation>
+		<annotation cp="💐" type="tts">tusw</annotation>
+		<annotation cp="🌸">blodeuyn | ceirios | blodyn | planhigyn</annotation>
+		<annotation cp="🌸" type="tts">blodeuyn ceirios</annotation>
+		<annotation cp="💮">blodyn</annotation>
+		<annotation cp="💮" type="tts">blodyn gwyn</annotation>
+		<annotation cp="🏵">planhigyn</annotation>
+		<annotation cp="🏵" type="tts">rhosglwm</annotation>
+		<annotation cp="🌹">blodyn | planhigyn</annotation>
+		<annotation cp="🌹" type="tts">rhosyn</annotation>
+		<annotation cp="🌺">blodyn | planhigyn</annotation>
+		<annotation cp="🌺" type="tts">hibisgws</annotation>
+		<annotation cp="🌻">blodyn | haul</annotation>
+		<annotation cp="🌻" type="tts">blodyn haul</annotation>
+		<annotation cp="🌼">blodyn | planhigyn</annotation>
+		<annotation cp="🌼" type="tts">blodeuyn</annotation>
+		<annotation cp="🌷">blodyn | planhigyn</annotation>
+		<annotation cp="🌷" type="tts">tiwlip</annotation>
+		<annotation cp="☘">planhigyn</annotation>
+		<annotation cp="☘" type="tts">samrog</annotation>
+		<annotation cp="🌱">blodyn | ifanc</annotation>
+		<annotation cp="🌱" type="tts">eginblanhigyn</annotation>
+		<annotation cp="🌲">planhigyn | coeden</annotation>
+		<annotation cp="🌲" type="tts">bythwyrdd</annotation>
+		<annotation cp="🌳">collddail | planhigyn | coeden</annotation>
+		<annotation cp="🌳" type="tts">coeden gollddail</annotation>
+		<annotation cp="🌴">palmwydden | planhigyn | coeden</annotation>
+		<annotation cp="🌴" type="tts">palmwydden</annotation>
+		<annotation cp="🌵">planhigyn</annotation>
+		<annotation cp="🌵" type="tts">cactws</annotation>
+		<annotation cp="🌾">planhigyn | reis | gronyn</annotation>
+		<annotation cp="🌾" type="tts">ysgub o reis</annotation>
+		<annotation cp="🌿">deilen | planhigyn</annotation>
+		<annotation cp="🌿" type="tts">llysieuyn</annotation>
+		<annotation cp="🍀">4 | meillionen | pedwar | deilen</annotation>
+		<annotation cp="🍀" type="tts">meillionen pedair deilen</annotation>
+		<annotation cp="🍁">deilen | cwympo | masarnen</annotation>
+		<annotation cp="🍁" type="tts">deilen masarnen</annotation>
+		<annotation cp="🍂">cwympo | deilen | planhigyn</annotation>
+		<annotation cp="🍂" type="tts">deilen yn cwympo</annotation>
+		<annotation cp="🍃">chwythu | crynu | deilen | planhigyn</annotation>
+		<annotation cp="🍃" type="tts">deilen yn crynu yn y gwynt</annotation>
+		<annotation cp="🍇">ffrwyth | grawnwin | planhigyn</annotation>
+		<annotation cp="🍇" type="tts">grawnwin</annotation>
+		<annotation cp="🍈">ffrwyth | planhigyn</annotation>
+		<annotation cp="🍈" type="tts">melon</annotation>
+		<annotation cp="🍉">ffrwyth | planhigyn</annotation>
+		<annotation cp="🍉" type="tts">melon dŵr</annotation>
+		<annotation cp="🍊">ffrwyth | oren | planhigyn</annotation>
+		<annotation cp="🍊" type="tts">tanjerin</annotation>
+		<annotation cp="🍋">sitrws | ffrwyth | planhigyn</annotation>
+		<annotation cp="🍋" type="tts">lemwn</annotation>
+		<annotation cp="🍌">ffrwyth | planhigyn</annotation>
+		<annotation cp="🍌" type="tts">banana</annotation>
+		<annotation cp="🍍">ffrwyth | planhigyn</annotation>
+		<annotation cp="🍍" type="tts">pinafal</annotation>
+		<annotation cp="🍎">afal | ffrwyth | planhigyn | coch</annotation>
+		<annotation cp="🍎" type="tts">afal coch</annotation>
+		<annotation cp="🍏">afal | ffrwyth | gwyrdd | planhigyn</annotation>
+		<annotation cp="🍏" type="tts">afal gwyrdd</annotation>
+		<annotation cp="🍐">ffrwyth | planhigyn</annotation>
+		<annotation cp="🍐" type="tts">peren</annotation>
+		<annotation cp="🍑">ffrwyth | planhigyn</annotation>
+		<annotation cp="🍑" type="tts">eirinen wlanog</annotation>
+		<annotation cp="🍒">ceirios | ffrwyth | planhigyn</annotation>
+		<annotation cp="🍒" type="tts">ceirios</annotation>
+		<annotation cp="🍓">aeronen | ffrwyth | planhigyn</annotation>
+		<annotation cp="🍓" type="tts">mefus</annotation>
+		<annotation cp="🍅">planhigyn | llysieuyn</annotation>
+		<annotation cp="🍅" type="tts">tomato</annotation>
+		<annotation cp="🍆">ŵylyst | planhigyn | llysieuyn</annotation>
+		<annotation cp="🍆" type="tts">ŵylyst</annotation>
+		<annotation cp="🌽">corn | tywysen | planhigyn</annotation>
+		<annotation cp="🌽" type="tts">tywysen o gorn</annotation>
+		<annotation cp="🌶">twym | pupur | planhigyn</annotation>
+		<annotation cp="🌶" type="tts">pupur twym</annotation>
+		<annotation cp="🍄">planhigyn</annotation>
+		<annotation cp="🍄" type="tts">madarch</annotation>
+		<annotation cp="🌰">planhigyn</annotation>
+		<annotation cp="🌰" type="tts">castan</annotation>
+		<annotation cp="🍞">torth</annotation>
+		<annotation cp="🍞" type="tts">bara</annotation>
+		<annotation cp="🧀">caws</annotation>
+		<annotation cp="🧀" type="tts">darn o gaws</annotation>
+		<annotation cp="🍖">asgwrn | cig</annotation>
+		<annotation cp="🍖" type="tts">cig ar yr asgwrn</annotation>
+		<annotation cp="🍗">asgwrn | cyw iâr | coes | ffowls</annotation>
+		<annotation cp="🍗" type="tts">coes o ffowls</annotation>
+		<annotation cp="🍔">byrgyr</annotation>
+		<annotation cp="🍔" type="tts">hambyrgyr</annotation>
+		<annotation cp="🍟">sglodion</annotation>
+		<annotation cp="🍟" type="tts">sglodion</annotation>
+		<annotation cp="🍕">caws | darn</annotation>
+		<annotation cp="🍕" type="tts">pitsa</annotation>
+		<annotation cp="🌭">frankfurter | selsigen mewn bynen</annotation>
+		<annotation cp="🌭" type="tts">selsigen mewn bynen</annotation>
+		<annotation cp="🌮">mecsicanaidd</annotation>
+		<annotation cp="🌮" type="tts">taco</annotation>
+		<annotation cp="🌯">mecsicanaidd</annotation>
+		<annotation cp="🌯" type="tts">burrito</annotation>
+		<annotation cp="🍿">pop gorn</annotation>
+		<annotation cp="🍿" type="tts">pop gorn</annotation>
+		<annotation cp="🍲">llestr | stiw</annotation>
+		<annotation cp="🍲" type="tts">llestr o fwyd</annotation>
+		<annotation cp="🍱">bento | bocs</annotation>
+		<annotation cp="🍱" type="tts">bocs bento</annotation>
+		<annotation cp="🍘">cracer | reis</annotation>
+		<annotation cp="🍘" type="tts">cracer reis</annotation>
+		<annotation cp="🍙">pêl | Japaneaidd | reis</annotation>
+		<annotation cp="🍙" type="tts">pêl reis</annotation>
+		<annotation cp="🍚">reis</annotation>
+		<annotation cp="🍚" type="tts">reis wedi’i goginio</annotation>
+		<annotation cp="🍛">cyrri | reis</annotation>
+		<annotation cp="🍛" type="tts">reis cyrri</annotation>
+		<annotation cp="🍜">bowl | nwdl | ramen | stêm</annotation>
+		<annotation cp="🍜" type="tts">bowlen yn stemio</annotation>
+		<annotation cp="🍝">pasta</annotation>
+		<annotation cp="🍝" type="tts">spaghetti</annotation>
+		<annotation cp="🍠">tato | rostio | melys</annotation>
+		<annotation cp="🍠" type="tts">taten felys wedi’i rostio</annotation>
+		<annotation cp="🍢">cebab | bwyd môr | sgiwer</annotation>
+		<annotation cp="🍢" type="tts">oden</annotation>
+		<annotation cp="🍣">swshi</annotation>
+		<annotation cp="🍣" type="tts">swshi</annotation>
+		<annotation cp="🍤">berdysyn | corgimwch</annotation>
+		<annotation cp="🍤" type="tts">berdysyn wedi’i ffrio</annotation>
+		<annotation cp="🍥">cacen | pysgodyn | toes</annotation>
+		<annotation cp="🍥" type="tts">cacen bysgod gyda chwyrlïad</annotation>
+		<annotation cp="🍡">pwdin | Japaneaidd | sgiwer</annotation>
+		<annotation cp="🍡" type="tts">dango</annotation>
+		<annotation cp="🍦">hufen | pwdin | iâ | meddal</annotation>
+		<annotation cp="🍦" type="tts">hufen iâ meddal</annotation>
+		<annotation cp="🍧">hufen | pwdin | iâ | melys</annotation>
+		<annotation cp="🍧" type="tts">iâ wedi’i siafio</annotation>
+		<annotation cp="🍨">hufen | pwdin | iâ | melys</annotation>
+		<annotation cp="🍨" type="tts">hufen iâ</annotation>
+		<annotation cp="🍩">pwdin | toesen | melys</annotation>
+		<annotation cp="🍩" type="tts">toesen</annotation>
+		<annotation cp="🍪">pwdin | melys</annotation>
+		<annotation cp="🍪" type="tts">bisgeden</annotation>
+		<annotation cp="🎂">pen-blwydd | cacen | dathliad | parti</annotation>
+		<annotation cp="🎂" type="tts">cacen pen-blwydd</annotation>
+		<annotation cp="🍰">cacen | pwdin | melys</annotation>
+		<annotation cp="🍰" type="tts">cacen fer</annotation>
+		<annotation cp="🍫">bar | siocled | melys</annotation>
+		<annotation cp="🍫" type="tts">bar o siocled</annotation>
+		<annotation cp="🍬">pwdin | melys</annotation>
+		<annotation cp="🍬" type="tts">losin</annotation>
+		<annotation cp="🍭">losin | pwdin | melys</annotation>
+		<annotation cp="🍭" type="tts">lolipop</annotation>
+		<annotation cp="🍮">pwdin | melys</annotation>
+		<annotation cp="🍮" type="tts">cwstard</annotation>
+		<annotation cp="🍯">mêl | melys</annotation>
+		<annotation cp="🍯" type="tts">pot mêl</annotation>
+		<annotation cp="🍼">babi | botel | diod | llaeth</annotation>
+		<annotation cp="🍼" type="tts">botel babi</annotation>
+		<annotation cp="☕">diod | coffi | twym | te</annotation>
+		<annotation cp="☕" type="tts">diod boeth</annotation>
+		<annotation cp="🍵">diod | cwpan | te</annotation>
+		<annotation cp="🍵" type="tts">cwpan te heb ddolen</annotation>
+		<annotation cp="🍶">bar | diod | botel | cwpan</annotation>
+		<annotation cp="🍶" type="tts">sake</annotation>
+		<annotation cp="🍾">bar | botel | corcyn | diod</annotation>
+		<annotation cp="🍾" type="tts">potel gyda chorcyn yn popian</annotation>
+		<annotation cp="🍷">bar | diod | gwydr | gwin</annotation>
+		<annotation cp="🍷" type="tts">gwydr gwin</annotation>
+		<annotation cp="🍸">bar | coctel | diod | gwydr</annotation>
+		<annotation cp="🍸" type="tts">gwydr coctel</annotation>
+		<annotation cp="🍹">bar | diod | trofannol</annotation>
+		<annotation cp="🍹" type="tts">diod drofannol</annotation>
+		<annotation cp="🍺">bar | cwrw | diod | mwg</annotation>
+		<annotation cp="🍺" type="tts">mwg cwrw</annotation>
+		<annotation cp="🍻">bar | cwrw | diod</annotation>
+		<annotation cp="🍻" type="tts">mygiau cwrw yn clincian</annotation>
+		<annotation cp="🍽">coginio | fforc | cyllell | plât</annotation>
+		<annotation cp="🍽" type="tts">fforc a chyllell gyda phlât</annotation>
+		<annotation cp="🍴">coginio | fforc | cyllell</annotation>
+		<annotation cp="🍴" type="tts">fforc a chyllell</annotation>
+		<annotation cp="🍳">wy | ffrio | padell</annotation>
+		<annotation cp="🍳" type="tts">coginio</annotation>
+		<annotation cp="🏺">coginio | diod | jwg</annotation>
+		<annotation cp="🏺" type="tts">llestri</annotation>
+		<annotation cp="🌍">Affrica | y ddaear | Ewrop | byd</annotation>
+		<annotation cp="🌍" type="tts">glôb yn dangos Ewrop-Affrica</annotation>
+		<annotation cp="🌎">americas | y ddaear | byd</annotation>
+		<annotation cp="🌎" type="tts">glôb yn dangos yr americas</annotation>
+		<annotation cp="🌏">Asia | Awstralia | y ddaear | byd</annotation>
+		<annotation cp="🌏" type="tts">glôb yn dangos Asia-Awstralia</annotation>
+		<annotation cp="🌐">y ddaear | byd</annotation>
+		<annotation cp="🌐" type="tts">glôb gyda meridianau</annotation>
+		<annotation cp="🗺">map | byd</annotation>
+		<annotation cp="🗺" type="tts">mar o’r byd</annotation>
+		<annotation cp="🏔">oer | mynydd | eira</annotation>
+		<annotation cp="🏔" type="tts">mynydd wedi’i orchuddio mewn eira</annotation>
+		<annotation cp="⛰">mynydd</annotation>
+		<annotation cp="⛰" type="tts">mynydd</annotation>
+		<annotation cp="🌋">echdoriad | mynydd | tywydd</annotation>
+		<annotation cp="🌋" type="tts">llosgfynydd</annotation>
+		<annotation cp="🗻">fuji | mynydd</annotation>
+		<annotation cp="🗻" type="tts">mynydd Fuji</annotation>
+		<annotation cp="🏕">gwersylla</annotation>
+		<annotation cp="🏕" type="tts">gwersyllu</annotation>
+		<annotation cp="🏖">traeth | ymbarel</annotation>
+		<annotation cp="🏖" type="tts">traeth ag ymbarél</annotation>
+		<annotation cp="🏜">anialwch</annotation>
+		<annotation cp="🏜" type="tts">anialwch</annotation>
+		<annotation cp="🏝">ynys | anghyfannedd</annotation>
+		<annotation cp="🏝" type="tts">ynys anghyfannedd</annotation>
+		<annotation cp="🏞">parc</annotation>
+		<annotation cp="🏞" type="tts">parc cenedlaethol</annotation>
+		<annotation cp="🏟">stadiwm</annotation>
+		<annotation cp="🏟" type="tts">stadiwm</annotation>
+		<annotation cp="🏛">adeilad | clasurol</annotation>
+		<annotation cp="🏛" type="tts">adeilad clasurol</annotation>
+		<annotation cp="🏗">adeilad | adeiladwaith</annotation>
+		<annotation cp="🏗" type="tts">adeiladwaith adeilad</annotation>
+		<annotation cp="🏘">adeiladu | tŷ</annotation>
+		<annotation cp="🏘" type="tts">adeiladau tai</annotation>
+		<annotation cp="🏙">adeiladu | dinas</annotation>
+		<annotation cp="🏙" type="tts">dinaslun</annotation>
+		<annotation cp="🏚">adeilad | gwag | tŷ</annotation>
+		<annotation cp="🏚" type="tts">adeilad o dŷ gwag</annotation>
+		<annotation cp="🏠">adeilad | cartref | tŷ</annotation>
+		<annotation cp="🏠" type="tts">adeilad o dŷ</annotation>
+		<annotation cp="🏡">adeilad | gardd | cartref</annotation>
+		<annotation cp="🏡" type="tts">tŷ gyda gardd</annotation>
+		<annotation cp="⛪">adeilad | cristnogol | croes | crefydd</annotation>
+		<annotation cp="⛪" type="tts">eglwys</annotation>
+		<annotation cp="🕋">islam | mwslim | crefydd</annotation>
+		<annotation cp="🕋" type="tts">kaaba</annotation>
+		<annotation cp="🕌">islam | mwslim | crefydd</annotation>
+		<annotation cp="🕌" type="tts">mosg</annotation>
+		<annotation cp="🕍">iddew | iddewig | crefydd | teml</annotation>
+		<annotation cp="🕍" type="tts">synagog</annotation>
+		<annotation cp="⛩">crefydd | shinto | cysegrfa</annotation>
+		<annotation cp="⛩" type="tts">cysegrfa shinto</annotation>
+		<annotation cp="🏢">adeilad</annotation>
+		<annotation cp="🏢" type="tts">adeilad o swyddfa</annotation>
+		<annotation cp="🏣">adeilad | Japaneaidd | post</annotation>
+		<annotation cp="🏣" type="tts">swyddfa bost Japaneaidd</annotation>
+		<annotation cp="🏤">adeilad | Ewropeaidd | post</annotation>
+		<annotation cp="🏤" type="tts">swyddfa bost</annotation>
+		<annotation cp="🏥">adeilad | meddyg</annotation>
+		<annotation cp="🏥" type="tts">ysbyty</annotation>
+		<annotation cp="🏦">adeilad</annotation>
+		<annotation cp="🏦" type="tts">banc</annotation>
+		<annotation cp="🏨">adeilad</annotation>
+		<annotation cp="🏨" type="tts">gwesty</annotation>
+		<annotation cp="🏩">adeilad | gwesty | cariad</annotation>
+		<annotation cp="🏩" type="tts">gwesty cariad</annotation>
+		<annotation cp="🏪">adeilad | cyfleus | siop</annotation>
+		<annotation cp="🏪" type="tts">siop gyfleus</annotation>
+		<annotation cp="🏫">adeilad</annotation>
+		<annotation cp="🏫" type="tts">ysgol</annotation>
+		<annotation cp="🏬">adeilad | adran | siop</annotation>
+		<annotation cp="🏬" type="tts">siop adrannol</annotation>
+		<annotation cp="🏭">adeilad</annotation>
+		<annotation cp="🏭" type="tts">ffatri</annotation>
+		<annotation cp="🏯">adeilad | castell | Japaneaidd</annotation>
+		<annotation cp="🏯" type="tts">castell Japaneaidd</annotation>
+		<annotation cp="🏰">adeilad | Ewropeaidd</annotation>
+		<annotation cp="🏰" type="tts">castell</annotation>
+		<annotation cp="💒">capel | rhamant</annotation>
+		<annotation cp="💒" type="tts">priodas</annotation>
+		<annotation cp="🗼">tokyo | tŵr</annotation>
+		<annotation cp="🗼" type="tts">tŵr tokyo</annotation>
+		<annotation cp="🗽">rhyddid | cerflun</annotation>
+		<annotation cp="🗽" type="tts">cerflun o ryddid</annotation>
+		<annotation cp="🗾">Japan | map</annotation>
+		<annotation cp="🗾" type="tts">map o Japan</annotation>
+		<annotation cp="⛲">ffynnon</annotation>
+		<annotation cp="⛲" type="tts">ffynnon</annotation>
+		<annotation cp="⛺">gwersylla</annotation>
+		<annotation cp="⛺" type="tts">pabell</annotation>
+		<annotation cp="🌁">niwl | tywydd</annotation>
+		<annotation cp="🌁" type="tts">niwlog</annotation>
+		<annotation cp="🌃">nos | seren | tywydd</annotation>
+		<annotation cp="🌃" type="tts">noson â sêr</annotation>
+		<annotation cp="🌄">bore | mynydd | haul | codiad</annotation>
+		<annotation cp="🌄" type="tts">codiad haul dros fynyddoedd</annotation>
+		<annotation cp="🌅">haul | tywydd</annotation>
+		<annotation cp="🌅" type="tts">codiad haul</annotation>
+		<annotation cp="🌆">bore | haul | tywydd</annotation>
+		<annotation cp="🌆" type="tts">dinaslun cyfnos</annotation>
+		<annotation cp="🌇">adeilad | dinas | cyfnos</annotation>
+		<annotation cp="🌇" type="tts">machlud haul</annotation>
+		<annotation cp="🌉">pont | nos | tywydd</annotation>
+		<annotation cp="🌉" type="tts">pont gyda’r nos</annotation>
+		<annotation cp="♨">poeth | tarddelli poeth | tarddelli | stêm</annotation>
+		<annotation cp="♨" type="tts">tarddelli poeth</annotation>
+		<annotation cp="🌌">gofod | tywydd</annotation>
+		<annotation cp="🌌" type="tts">y llwybr llaethog</annotation>
+		<annotation cp="🎠">carwsél | ceffyl</annotation>
+		<annotation cp="🎠" type="tts">ceffyl carwsél</annotation>
+		<annotation cp="🎡">parc diddanu | olwyn</annotation>
+		<annotation cp="🎡" type="tts">olwyn fawr</annotation>
+		<annotation cp="🎢">parc diddanu | cert | sglefrio</annotation>
+		<annotation cp="🎢" type="tts">cert sglefrio</annotation>
+		<annotation cp="💈">barbwr | toriad gwallt | polyn</annotation>
+		<annotation cp="💈" type="tts">polyn barbwr</annotation>
+		<annotation cp="🎪">syrcas | tent</annotation>
+		<annotation cp="🎪" type="tts">tent syrcas</annotation>
+		<annotation cp="🎭">celf | mwgwd | perfformiadol | theatr</annotation>
+		<annotation cp="🎭" type="tts">celfyddydau perfformiadol</annotation>
+		<annotation cp="🖼">celf | ffrâm | amgueddfa</annotation>
+		<annotation cp="🖼" type="tts">ffrâm gyda llun</annotation>
+		<annotation cp="🎨">celf | amgueddfa | paentiad</annotation>
+		<annotation cp="🎨" type="tts">palet arlunydd</annotation>
+		<annotation cp="🎰">gêm | slot</annotation>
+		<annotation cp="🎰" type="tts">peiriant slot</annotation>
+		<annotation cp="🚂">peiriant | rheilffordd | stêm | trên</annotation>
+		<annotation cp="🚂" type="tts">locomotif</annotation>
+		<annotation cp="🚃">car | trydan | rheilffordd | trên</annotation>
+		<annotation cp="🚃" type="tts">car rheilffordd</annotation>
+		<annotation cp="🚄">rheilffordd | shinkansen | cyflymder | trên</annotation>
+		<annotation cp="🚄" type="tts">trên tra chyflym</annotation>
+		<annotation cp="🚅">rheilffordd | bwled | cyflymder | trên</annotation>
+		<annotation cp="🚅" type="tts">trên tra chyflym gyda thrwyn fel bwled</annotation>
+		<annotation cp="🚆">rheilffordd | cerbyd</annotation>
+		<annotation cp="🚆" type="tts">trên</annotation>
+		<annotation cp="🚇">tanlwybr | cerbyd</annotation>
+		<annotation cp="🚇" type="tts">metro</annotation>
+		<annotation cp="🚈">rheilffordd | cerbyd</annotation>
+		<annotation cp="🚈" type="tts">rheilffordd ysgafn</annotation>
+		<annotation cp="🚉">rheilffordd | trên | cerbyd</annotation>
+		<annotation cp="🚉" type="tts">gorsaf</annotation>
+		<annotation cp="🚊">bysys trydan | cerbyd</annotation>
+		<annotation cp="🚊" type="tts">tram</annotation>
+		<annotation cp="🚝">cerbyd</annotation>
+		<annotation cp="🚝" type="tts">trên un gledren</annotation>
+		<annotation cp="🚞">car | mynydd | rheilffordd</annotation>
+		<annotation cp="🚞" type="tts">rheilffordd fynydd</annotation>
+		<annotation cp="🚋">car | tram | cerbyd</annotation>
+		<annotation cp="🚋" type="tts">car tram</annotation>
+		<annotation cp="🚌">cerbyd</annotation>
+		<annotation cp="🚌" type="tts">bws</annotation>
+		<annotation cp="🚍">bws | cerbyd</annotation>
+		<annotation cp="🚍" type="tts">bws yn dod i’ch cwrdd</annotation>
+		<annotation cp="🚎">bws | tram | troli | cerbyd</annotation>
+		<annotation cp="🚎" type="tts">bws trydan</annotation>
+		<annotation cp="🚏">bws | arhosfan | stop</annotation>
+		<annotation cp="🚏" type="tts">arhosfan bws</annotation>
+		<annotation cp="🚐">bws | cerbyd</annotation>
+		<annotation cp="🚐" type="tts">bws mini</annotation>
+		<annotation cp="🚑">cerbyd</annotation>
+		<annotation cp="🚑" type="tts">ambiwlans</annotation>
+		<annotation cp="🚒">peiriant | tân | cerbyd</annotation>
+		<annotation cp="🚒" type="tts">peiriant tân</annotation>
+		<annotation cp="🚓">car | patrôl | heddlu | cerbyd</annotation>
+		<annotation cp="🚓" type="tts">car yr heddlu</annotation>
+		<annotation cp="🚔">car | dod i’ch cwrdd | heddlu</annotation>
+		<annotation cp="🚔" type="tts">car heddlu sy’n dod i’ch cwrdd</annotation>
+		<annotation cp="🚕">cerbyd</annotation>
+		<annotation cp="🚕" type="tts">tacsi</annotation>
+		<annotation cp="🚖">tacsi | cerbyd</annotation>
+		<annotation cp="🚖" type="tts">tacsi sy’n dod i’ch cwrdd</annotation>
+		<annotation cp="🚗">car | cerbyd</annotation>
+		<annotation cp="🚗" type="tts">modur</annotation>
+		<annotation cp="🚘">modur | car | dod i’ch cwrdd</annotation>
+		<annotation cp="🚘" type="tts">modur sy’n dod i’ch cwrdd</annotation>
+		<annotation cp="🚙">hamdden | cerbyd</annotation>
+		<annotation cp="🚙" type="tts">cerbyd hamdden</annotation>
+		<annotation cp="🚚">dosbarthu | lori | cerbyd</annotation>
+		<annotation cp="🚚" type="tts">lori dosbarthu</annotation>
+		<annotation cp="🚛">lori | rhannol | cerbyd</annotation>
+		<annotation cp="🚛" type="tts">lori gymalog</annotation>
+		<annotation cp="🚜">cerbyd</annotation>
+		<annotation cp="🚜" type="tts">tractor</annotation>
+		<annotation cp="🚲">beic | cerbyd</annotation>
+		<annotation cp="🚲" type="tts">beic</annotation>
+		<annotation cp="⛽">tanwydd | pwmp | gorsaf</annotation>
+		<annotation cp="⛽" type="tts">pwmp tanwydd</annotation>
+		<annotation cp="🛣">traffordd | heol</annotation>
+		<annotation cp="🛣" type="tts">traffordd</annotation>
+		<annotation cp="🛤">rheilffordd | trên</annotation>
+		<annotation cp="🛤" type="tts">trac rheilffordd</annotation>
+		<annotation cp="🚨">golau | car | heddlu</annotation>
+		<annotation cp="🚨" type="tts">golau car yr heddlu</annotation>
+		<annotation cp="🚥">golau | arwydd | traffig</annotation>
+		<annotation cp="🚥" type="tts">golau traffig llorweddol</annotation>
+		<annotation cp="🚦">golau | arwydd | traffig</annotation>
+		<annotation cp="🚦" type="tts">golau traffig fertigol</annotation>
+		<annotation cp="🚧">rhwystr</annotation>
+		<annotation cp="🚧" type="tts">adeiladwaith</annotation>
+		<annotation cp="⚓">llong | offer</annotation>
+		<annotation cp="⚓" type="tts">angor</annotation>
+		<annotation cp="⛵">cwch | cyrchfan | môr</annotation>
+		<annotation cp="⛵" type="tts">cwch hwylio</annotation>
+		<annotation cp="🚣">cwch | rhwyfo</annotation>
+		<annotation cp="🚣" type="tts">person yn rhwyfo cwch</annotation>
+		<annotation cp="🚣‍♀">cwch | menyw | rhwyfo</annotation>
+		<annotation cp="🚣‍♀" type="tts">menyw yn rhwyfo cwch</annotation>
+		<annotation cp="🚣‍♂">cwch | rhwyfo | dyn</annotation>
+		<annotation cp="🚣‍♂" type="tts">dyn yn rhwyfo cwch</annotation>
+		<annotation cp="🚤">cwch | cerbyd</annotation>
+		<annotation cp="🚤" type="tts">cwch gwib</annotation>
+		<annotation cp="🛳">teithwyr | llong | cerbyd</annotation>
+		<annotation cp="🛳" type="tts">llong deithwyr</annotation>
+		<annotation cp="⛴">cwch</annotation>
+		<annotation cp="⛴" type="tts">fferi</annotation>
+		<annotation cp="🛥">cwch | cwch modur | cerbyd</annotation>
+		<annotation cp="🛥" type="tts">cwch modur</annotation>
+		<annotation cp="🚢">cerbyd</annotation>
+		<annotation cp="🚢" type="tts">llong</annotation>
+		<annotation cp="✈">cerbyd</annotation>
+		<annotation cp="✈" type="tts">awyren</annotation>
+		<annotation cp="🛩">awyren | cerbyd</annotation>
+		<annotation cp="🛩" type="tts">awyren fach</annotation>
+		<annotation cp="🛫">awyren | cofrestru | ymadawiad</annotation>
+		<annotation cp="🛫" type="tts">ymadawiad awyren</annotation>
+		<annotation cp="🛬">awyren | glanio | dyfodiadau</annotation>
+		<annotation cp="🛬" type="tts">dyfodiad awyren</annotation>
+		<annotation cp="💺">cadair</annotation>
+		<annotation cp="💺" type="tts">sedd</annotation>
+		<annotation cp="🚁">cerbyd</annotation>
+		<annotation cp="🚁" type="tts">hofrennydd</annotation>
+		<annotation cp="🚟">rheilffordd | crogiant | cerbyd</annotation>
+		<annotation cp="🚟" type="tts">rheilffordd grog</annotation>
+		<annotation cp="🚠">cebl | gondola | mynydd</annotation>
+		<annotation cp="🚠" type="tts">rhaffbont fynydd</annotation>
+		<annotation cp="🚡">awyrol | cebl | car | gondola</annotation>
+		<annotation cp="🚡" type="tts">tramffordd awyrol</annotation>
+		<annotation cp="🚀">gofod | cerbyd</annotation>
+		<annotation cp="🚀" type="tts">roced</annotation>
+		<annotation cp="🛰">gofod | cerbyd</annotation>
+		<annotation cp="🛰" type="tts">lloeren</annotation>
+		<annotation cp="🛎">cloch | porthor | gwesty</annotation>
+		<annotation cp="🛎" type="tts">porthor</annotation>
+		<annotation cp="🚪">drws</annotation>
+		<annotation cp="🚪" type="tts">drws</annotation>
+		<annotation cp="🛌">gwesty | cysgu</annotation>
+		<annotation cp="🛌" type="tts">person mewn gwely</annotation>
+		<annotation cp="🛏">gwesty | cysgu</annotation>
+		<annotation cp="🛏" type="tts">gwely</annotation>
+		<annotation cp="🛋">soffa | gwesty | lamp</annotation>
+		<annotation cp="🛋" type="tts">soffa a lamp</annotation>
+		<annotation cp="🚽">toiled</annotation>
+		<annotation cp="🚽" type="tts">toiled</annotation>
+		<annotation cp="🚿">dŵr</annotation>
+		<annotation cp="🚿" type="tts">cawod</annotation>
+		<annotation cp="🛀">bath | twba</annotation>
+		<annotation cp="🛀" type="tts">person mewn bath</annotation>
+		<annotation cp="🛁">bath</annotation>
+		<annotation cp="🛁" type="tts">twba bath</annotation>
+		<annotation cp="⌛">tywod | amserydd</annotation>
+		<annotation cp="⌛" type="tts">awrwydr</annotation>
+		<annotation cp="⏳">awrwydr | tywod | amserydd</annotation>
+		<annotation cp="⏳" type="tts">awrwydr gyda thywod yn llifo</annotation>
+		<annotation cp="⌚">cloc</annotation>
+		<annotation cp="⌚" type="tts">oriawr</annotation>
+		<annotation cp="⏰">larwm | cloc</annotation>
+		<annotation cp="⏰" type="tts">cloc larwm</annotation>
+		<annotation cp="⏱">cloc</annotation>
+		<annotation cp="⏱" type="tts">stop wats</annotation>
+		<annotation cp="⏲">cloc | amserydd</annotation>
+		<annotation cp="⏲" type="tts">cloc ag amserydd</annotation>
+		<annotation cp="🕰">cloc</annotation>
+		<annotation cp="🕰" type="tts">cloc silff ben tân</annotation>
+		<annotation cp="🕛">00 | 12 | 12:00 | cloc</annotation>
+		<annotation cp="🕛" type="tts">deuddeg o’r gloch</annotation>
+		<annotation cp="🕧">12 | 12:30 | 30 | cloc</annotation>
+		<annotation cp="🕧" type="tts">hanner awr wedi deuddeg</annotation>
+		<annotation cp="🕐">00 | 1 | 1:00 | cloc</annotation>
+		<annotation cp="🕐" type="tts">un o’r gloch</annotation>
+		<annotation cp="🕜">1 | 1:30 | 30 | cloc</annotation>
+		<annotation cp="🕜" type="tts">hanner awr wedi un</annotation>
+		<annotation cp="🕑">00 | 2 | 2:00 | cloc</annotation>
+		<annotation cp="🕑" type="tts">dau o’r gloch</annotation>
+		<annotation cp="🕝">2 | 2:30 | 30 | cloc</annotation>
+		<annotation cp="🕝" type="tts">hanner awr wedi dau</annotation>
+		<annotation cp="🕒">00 | 3 | 3:00 | cloc</annotation>
+		<annotation cp="🕒" type="tts">tri o’r gloch</annotation>
+		<annotation cp="🕞">3 | 3:30 | 30 | cloc</annotation>
+		<annotation cp="🕞" type="tts">hanner awr wedi tri</annotation>
+		<annotation cp="🕓">00 | 4 | 4:00 | cloc</annotation>
+		<annotation cp="🕓" type="tts">pedwar o’r gloch</annotation>
+		<annotation cp="🕟">30 | 4 | 4:30 | cloc</annotation>
+		<annotation cp="🕟" type="tts">hanner awr wedi pedwar</annotation>
+		<annotation cp="🕔">00 | 5 | 5:00 | cloc</annotation>
+		<annotation cp="🕔" type="tts">pump o’r gloch</annotation>
+		<annotation cp="🕠">30 | 5 | 5:30 | cloc</annotation>
+		<annotation cp="🕠" type="tts">hanner awr wedi pump</annotation>
+		<annotation cp="🕕">00 | 6 | 6:00 | cloc</annotation>
+		<annotation cp="🕕" type="tts">chwech o’r gloch</annotation>
+		<annotation cp="🕡">30 | 6 | 6:30 | cloc</annotation>
+		<annotation cp="🕡" type="tts">hanner awr wedi chwech</annotation>
+		<annotation cp="🕖">00 | 7 | 7:00 | cloc</annotation>
+		<annotation cp="🕖" type="tts">saith o’r gloch</annotation>
+		<annotation cp="🕢">30 | 7 | 7:30 | cloc</annotation>
+		<annotation cp="🕢" type="tts">hanner awr wedi saith</annotation>
+		<annotation cp="🕗">00 | 8 | 8:00 | cloc</annotation>
+		<annotation cp="🕗" type="tts">wyth o’r gloch</annotation>
+		<annotation cp="🕣">30 | 8 | 8:30 | cloc</annotation>
+		<annotation cp="🕣" type="tts">hanner awr wedi wyth</annotation>
+		<annotation cp="🕘">00 | 9 | 9:00 | cloc</annotation>
+		<annotation cp="🕘" type="tts">naw o’r gloch</annotation>
+		<annotation cp="🕤">30 | 9 | 9:30 | cloc</annotation>
+		<annotation cp="🕤" type="tts">hanner awr wedi naw</annotation>
+		<annotation cp="🕙">00 | 10 | 10:00 | cloc</annotation>
+		<annotation cp="🕙" type="tts">deg o’r gloch</annotation>
+		<annotation cp="🕥">10 | 10:30 | 30 | cloc</annotation>
+		<annotation cp="🕥" type="tts">hanner awr wedi deg</annotation>
+		<annotation cp="🕚">00 | 11 | 11:00 | cloc</annotation>
+		<annotation cp="🕚" type="tts">un ar ddeg o’r gloch</annotation>
+		<annotation cp="🕦">11 | 11:30 | 30 | cloc</annotation>
+		<annotation cp="🕦" type="tts">hanner awr wedi un ar ddeg</annotation>
+		<annotation cp="🌑">tywyllwch | lleuad | gofod | tywydd</annotation>
+		<annotation cp="🌑" type="tts">lleuad newydd</annotation>
+		<annotation cp="🌒">crescent | moon | space | waxing | weather</annotation>
+		<annotation cp="🌒" type="tts">lleuad gilgant ar ei chynnydd</annotation>
+		<annotation cp="🌓">cilgant | lleuad | gofod</annotation>
+		<annotation cp="🌓" type="tts">lleuad chwarter cyntaf</annotation>
+		<annotation cp="🌔">lleuad | chwarter | gofod</annotation>
+		<annotation cp="🌔" type="tts">lleuad amgrwm ar ei chynnydd</annotation>
+		<annotation cp="🌕">amgrwm | lleuad | gofod</annotation>
+		<annotation cp="🌕" type="tts">lleuad lawn</annotation>
+		<annotation cp="🌖">llawn | lleuad | gofod</annotation>
+		<annotation cp="🌖" type="tts">lleuad amgrwm ar ei chil</annotation>
+		<annotation cp="🌗">amgrwm | lleuad | gofod</annotation>
+		<annotation cp="🌗" type="tts">lleuad chwarter olaf</annotation>
+		<annotation cp="🌘">lleuad | chwarter | gofod</annotation>
+		<annotation cp="🌘" type="tts">lleuad cilgant ar ei chil</annotation>
+		<annotation cp="🌙">cilgant | lleuad | gofod</annotation>
+		<annotation cp="🌙" type="tts">lleuad gilgant</annotation>
+		<annotation cp="🌚">cilgant | lleuad | gofod</annotation>
+		<annotation cp="🌚" type="tts">wyneb lleuad newydd</annotation>
+		<annotation cp="🌛">wyneb | lleuad | chwarter | gofod</annotation>
+		<annotation cp="🌛" type="tts">lleuad chwarter cyntaf gydag wyneb</annotation>
+		<annotation cp="🌜">wyneb | lleuad | chwarter | gofod</annotation>
+		<annotation cp="🌜" type="tts">lleuad chwarter olaf gydag wyneb</annotation>
+		<annotation cp="🌡">tywydd</annotation>
+		<annotation cp="🌡" type="tts">thermomedr</annotation>
+		<annotation cp="☀">golau | pelydrau | heulog | tywydd</annotation>
+		<annotation cp="☀" type="tts">haul</annotation>
+		<annotation cp="🌝">llachar | wyneb | lleuad | llawn</annotation>
+		<annotation cp="🌝" type="tts">lleuad lawn gydag wyneb</annotation>
+		<annotation cp="🌞">llachar | wyneb | haul | tywydd</annotation>
+		<annotation cp="🌞" type="tts">lleuad ag wyneb</annotation>
+		<annotation cp="⭐">seren</annotation>
+		<annotation cp="⭐" type="tts">seren ganolig wen</annotation>
+		<annotation cp="🌟">pelydru | tywynnu | disgleirio</annotation>
+		<annotation cp="🌟" type="tts">seren yn tywynnu</annotation>
+		<annotation cp="🌠">syrthio | gwibio | gofod</annotation>
+		<annotation cp="🌠" type="tts">seren wib</annotation>
+		<annotation cp="☁">tywydd</annotation>
+		<annotation cp="☁" type="tts">cwmwl</annotation>
+		<annotation cp="⛅">cwmwl | haul | tywydd</annotation>
+		<annotation cp="⛅" type="tts">haul tu ôl i gwmwl</annotation>
+		<annotation cp="⛈">cwmwl | glau | storm | tywydd</annotation>
+		<annotation cp="⛈" type="tts">cwmwl â mellt a glaw</annotation>
+		<annotation cp="🌤">cwmwl | haul | tywydd</annotation>
+		<annotation cp="🌤" type="tts">haul tu ôl i gwmwl bach</annotation>
+		<annotation cp="🌥">cwmwl | haul | tywydd</annotation>
+		<annotation cp="🌥" type="tts">haul tu ôl i gwmwl mawr</annotation>
+		<annotation cp="🌦">cwmwl | glaw | haul | tywydd</annotation>
+		<annotation cp="🌦" type="tts">haul tu ôl i gwmwl gyda glaw</annotation>
+		<annotation cp="🌧">cwmwl | glaw | tywydd</annotation>
+		<annotation cp="🌧" type="tts">cwmwl gyda glaw</annotation>
+		<annotation cp="🌨">cwmwl | oer | eira | tywydd</annotation>
+		<annotation cp="🌨" type="tts">cwmwl gydag eira</annotation>
+		<annotation cp="🌩">cwmwl | mellt | tywydd</annotation>
+		<annotation cp="🌩" type="tts">cwmwl gyda mellt</annotation>
+		<annotation cp="🌪">cwmwl | tywydd | chwyrlwynt</annotation>
+		<annotation cp="🌪" type="tts">tornado</annotation>
+		<annotation cp="🌫">cwmwl | tywydd</annotation>
+		<annotation cp="🌫" type="tts">niwl</annotation>
+		<annotation cp="🌬">chwythu | cwmwl | wyneb | tywydd</annotation>
+		<annotation cp="🌬" type="tts">wyneb gwyntog</annotation>
+		<annotation cp="🌀">tornado | tywydd</annotation>
+		<annotation cp="🌀" type="tts">seiclon</annotation>
+		<annotation cp="🌈">glaw | tywydd</annotation>
+		<annotation cp="🌈" type="tts">enfys</annotation>
+		<annotation cp="🌂">dillad | glaw | ymbarel | tywydd</annotation>
+		<annotation cp="🌂" type="tts">ymbarel ar gau</annotation>
+		<annotation cp="☂">dillad | glaw | tywydd</annotation>
+		<annotation cp="☂" type="tts">ymbarel</annotation>
+		<annotation cp="☔">dillad | diferyn | glaw | tywydd</annotation>
+		<annotation cp="☔" type="tts">ymbarel gyda glaw</annotation>
+		<annotation cp="⛱">glaw | haul | ymbarel | tywydd</annotation>
+		<annotation cp="⛱" type="tts">ymbarel ar lawr</annotation>
+		<annotation cp="⚡">perygl | trydan | foltedd</annotation>
+		<annotation cp="⚡" type="tts">foltedd uchel</annotation>
+		<annotation cp="❄">oer | eira | tywydd</annotation>
+		<annotation cp="❄" type="tts">pluen eira</annotation>
+		<annotation cp="☃">oerfel | eira | tywydd</annotation>
+		<annotation cp="☃" type="tts">dyn eira</annotation>
+		<annotation cp="⛄">oer | eira | dyn eira | tywydd</annotation>
+		<annotation cp="⛄" type="tts">dyn eira heb eira</annotation>
+		<annotation cp="☄">gofod</annotation>
+		<annotation cp="☄" type="tts">comed</annotation>
+		<annotation cp="🔥">fflam | offer</annotation>
+		<annotation cp="🔥" type="tts">tân</annotation>
+		<annotation cp="💧">oer | comig | diferyn | chwys</annotation>
+		<annotation cp="💧" type="tts">defnyn</annotation>
+		<annotation cp="🌊">cefnfor | dŵr | ton | tywydd</annotation>
+		<annotation cp="🌊" type="tts">ton ddŵr</annotation>
+		<annotation cp="🎃">dathliad | calan gaeaf | llusern</annotation>
+		<annotation cp="🎃" type="tts">jack-o-lantern</annotation>
+		<annotation cp="🎄">dathliad | nadolig | coeden</annotation>
+		<annotation cp="🎄" type="tts">coeden nadolig</annotation>
+		<annotation cp="🎆">dathliad</annotation>
+		<annotation cp="🎆" type="tts">tân gwyllt</annotation>
+		<annotation cp="🎇">dathliad | tân gwyllt | gwreichion</annotation>
+		<annotation cp="🎇" type="tts">ffon wreichion</annotation>
+		<annotation cp="✨">gwreichion | seren</annotation>
+		<annotation cp="✨" type="tts">gwreichion</annotation>
+		<annotation cp="🎈">dathliad</annotation>
+		<annotation cp="🎈" type="tts">balŵn</annotation>
+		<annotation cp="🎉">dathliad | parti | popiwr | tada</annotation>
+		<annotation cp="🎉" type="tts">popiwr parti</annotation>
+		<annotation cp="🎊">pêl | dathliad | conffeti</annotation>
+		<annotation cp="🎊" type="tts">pelen gonffeti</annotation>
+		<annotation cp="🎋">baner | dathliad | Japaneaidd | coeden</annotation>
+		<annotation cp="🎋" type="tts">coeden tanabata</annotation>
+		<annotation cp="🎌">dathliad | croes | â chroesau | Japaneaidd</annotation>
+		<annotation cp="🎌" type="tts">baneri â chroesau</annotation>
+		<annotation cp="🎍">bambŵ | dathliad | pinwydden | planhigyn</annotation>
+		<annotation cp="🎍" type="tts">addurn pinwydden</annotation>
+		<annotation cp="🎎">dathliad | doli | Japaneaidd</annotation>
+		<annotation cp="🎎" type="tts">doliau Japaneaidd</annotation>
+		<annotation cp="🎏">carp | dathliad | baner</annotation>
+		<annotation cp="🎏" type="tts">baner y carp</annotation>
+		<annotation cp="🎐">cloch | dathliad | clychsain | gwynt</annotation>
+		<annotation cp="🎐" type="tts">clychsain wynt</annotation>
+		<annotation cp="🎑">dathliad | seremoni | lleuad</annotation>
+		<annotation cp="🎑" type="tts">seremoni’r lleuad</annotation>
+		<annotation cp="🎀">dathliad</annotation>
+		<annotation cp="🎀" type="tts">rhuban</annotation>
+		<annotation cp="🎁">bocs | dathliad | anrheg</annotation>
+		<annotation cp="🎁" type="tts">anrheg wedi’i lapio</annotation>
+		<annotation cp="🎖">dathliad | medal | milwrol</annotation>
+		<annotation cp="🎖" type="tts">medal filwrol</annotation>
+		<annotation cp="🎗">dathliad | atgoffa | rhuban</annotation>
+		<annotation cp="🎗" type="tts">rhuban atgoffa</annotation>
+		<annotation cp="🎞">sinema | ffilm | fframiau</annotation>
+		<annotation cp="🎞" type="tts">fframiau ffilm</annotation>
+		<annotation cp="🎟">mynediad | tocyn</annotation>
+		<annotation cp="🎟" type="tts">tocynnau mynediad</annotation>
+		<annotation cp="🎫">mynediad</annotation>
+		<annotation cp="🎫" type="tts">tocyn</annotation>
+		<annotation cp="🏷">label</annotation>
+		<annotation cp="🏷" type="tts">label</annotation>
+		<annotation cp="⚽">pêl | pêl droed</annotation>
+		<annotation cp="⚽" type="tts">pêl droed</annotation>
+		<annotation cp="⚾">ball</annotation>
+		<annotation cp="⚾" type="tts">pêl fas</annotation>
+		<annotation cp="🏀">pêl | cylch</annotation>
+		<annotation cp="🏀" type="tts">pêl fasged</annotation>
+		<annotation cp="🏈">americanaidd | pêl | pêl droed</annotation>
+		<annotation cp="🏈" type="tts">pêl droed Americanaidd</annotation>
+		<annotation cp="🏉">pêl | pêl droed | rygbi</annotation>
+		<annotation cp="🏉" type="tts">pêl rygbi</annotation>
+		<annotation cp="🎾">pêl | raced</annotation>
+		<annotation cp="🎾" type="tts">tenis</annotation>
+		<annotation cp="🎱">biliards | wyth | gêm</annotation>
+		<annotation cp="🎱" type="tts">biliards</annotation>
+		<annotation cp="🎳">pêl | gêm</annotation>
+		<annotation cp="🎳" type="tts">bowlio</annotation>
+		<annotation cp="⛳">golff | twll</annotation>
+		<annotation cp="⛳" type="tts">baner mewn twll</annotation>
+		<annotation cp="🏌">pêl | golff</annotation>
+		<annotation cp="🏌" type="tts">person yn chwarae golff</annotation>
+		<annotation cp="🏌‍♀">golff | menyw</annotation>
+		<annotation cp="🏌‍♀" type="tts">menyw yn chwarae golff</annotation>
+		<annotation cp="🏌‍♂">golff | dyn</annotation>
+		<annotation cp="🏌‍♂" type="tts">dyn yn chwarae golff</annotation>
+		<annotation cp="⛸">iâ | sglefrio</annotation>
+		<annotation cp="⛸" type="tts">sglefrio iâ</annotation>
+		<annotation cp="🎣">pysgodyn | polyn</annotation>
+		<annotation cp="🎣" type="tts">polyn pysgota</annotation>
+		<annotation cp="🎽">rhedeg | sash | crys</annotation>
+		<annotation cp="🎽" type="tts">crys rhedeg</annotation>
+		<annotation cp="🎿">sgi | eira</annotation>
+		<annotation cp="🎿" type="tts">sgîs</annotation>
+		<annotation cp="⛷">sgi | eira</annotation>
+		<annotation cp="⛷" type="tts">sgïwr</annotation>
+		<annotation cp="🏂">sgi | eira | eirafyrddio</annotation>
+		<annotation cp="🏂" type="tts">eirafyrddiwr</annotation>
+		<annotation cp="🏄">syrffio</annotation>
+		<annotation cp="🏄" type="tts">person yn syrffio</annotation>
+		<annotation cp="🏄‍♀">menyw | syrffio</annotation>
+		<annotation cp="🏄‍♀" type="tts">menyw yn syrffio</annotation>
+		<annotation cp="🏄‍♂">dyn | syrffio</annotation>
+		<annotation cp="🏄‍♂" type="tts">dyn yn syrffio</annotation>
+		<annotation cp="🏇">ceffyl | joci | rasio</annotation>
+		<annotation cp="🏇" type="tts">rasio ceffylau</annotation>
+		<annotation cp="🏊">nofio</annotation>
+		<annotation cp="🏊" type="tts">person yn nofio</annotation>
+		<annotation cp="🏊‍♀">menyw | nofio</annotation>
+		<annotation cp="🏊‍♀" type="tts">menyw yn nofio</annotation>
+		<annotation cp="🏊‍♂">dyn | nofio</annotation>
+		<annotation cp="🏊‍♂" type="tts">dyn yn nofio</annotation>
+		<annotation cp="⛹">pêl</annotation>
+		<annotation cp="⛹" type="tts">person â phêl</annotation>
+		<annotation cp="⛹‍♀">pêl | menyw</annotation>
+		<annotation cp="⛹‍♀" type="tts">menyw â phêl</annotation>
+		<annotation cp="⛹‍♂">pêl | dyn</annotation>
+		<annotation cp="⛹‍♂" type="tts">dyn â phêl</annotation>
+		<annotation cp="🏋">codwr | pwysau</annotation>
+		<annotation cp="🏋" type="tts">person yn codi pwysau</annotation>
+		<annotation cp="🏋‍♀">menyw | codi | pwysau</annotation>
+		<annotation cp="🏋‍♀" type="tts">menyw yn codi pwysau</annotation>
+		<annotation cp="🏋‍♂">dyn | codi | pwysau</annotation>
+		<annotation cp="🏋‍♂" type="tts">dyn yn codi pwysau</annotation>
+		<annotation cp="🚴">beicio | beic</annotation>
+		<annotation cp="🚴" type="tts">person yn beicio</annotation>
+		<annotation cp="🚴‍♀">beic | beicio | menyw</annotation>
+		<annotation cp="🚴‍♀" type="tts">menyw yn beicio</annotation>
+		<annotation cp="🚴‍♂">beic | beicio | dyn</annotation>
+		<annotation cp="🚴‍♂" type="tts">dyn yn beicio</annotation>
+		<annotation cp="🚵">beicio | beic | mynydd</annotation>
+		<annotation cp="🚵" type="tts">person yn beicio mynydd</annotation>
+		<annotation cp="🚵‍♀">beicio | beic | mynydd | menyw</annotation>
+		<annotation cp="🚵‍♀" type="tts">menyw yn beicio mynydd</annotation>
+		<annotation cp="🚵‍♂">beicio | beic | mynydd | dyn</annotation>
+		<annotation cp="🚵‍♂" type="tts">dyn yn beicio mynydd</annotation>
+		<annotation cp="🏎">car | rasio</annotation>
+		<annotation cp="🏎" type="tts">car rasio</annotation>
+		<annotation cp="🏍">rasio</annotation>
+		<annotation cp="🏍" type="tts">beic modur</annotation>
+		<annotation cp="🏅">medal</annotation>
+		<annotation cp="🏅" type="tts">medal chwaraeon</annotation>
+		<annotation cp="🏆">gwobr</annotation>
+		<annotation cp="🏆" type="tts">tlws</annotation>
+		<annotation cp="🏏">pêl | bat | gêm</annotation>
+		<annotation cp="🏏" type="tts">criced</annotation>
+		<annotation cp="🏐">pêl | gêm</annotation>
+		<annotation cp="🏐" type="tts">pêl-foli</annotation>
+		<annotation cp="🏑">pêl | cae | hoci | chwarae</annotation>
+		<annotation cp="🏑" type="tts">hoci cae</annotation>
+		<annotation cp="🏒">gêm | hoci | iâ | ffon</annotation>
+		<annotation cp="🏒" type="tts">cnap a ffon hoci iâ</annotation>
+		<annotation cp="🏓">pêl | bat | gêm | tenis</annotation>
+		<annotation cp="🏓" type="tts">ping pong</annotation>
+		<annotation cp="🏸">gêm | raced</annotation>
+		<annotation cp="🏸" type="tts">badminton</annotation>
+		<annotation cp="🎯">tarw | llygad | targed | gêm</annotation>
+		<annotation cp="🎯" type="tts">ergyd uniongyrchol</annotation>
+		<annotation cp="🎮">rheolydd | gêm</annotation>
+		<annotation cp="🎮" type="tts">gêm fideo</annotation>
+		<annotation cp="🕹">gêm | fideo</annotation>
+		<annotation cp="🕹" type="tts">ffon reoli</annotation>
+		<annotation cp="🎲">dis | gêm</annotation>
+		<annotation cp="🎲" type="tts">dis</annotation>
+		<annotation cp="♠">cardiau | gêm | rhofiau | siwt</annotation>
+		<annotation cp="♠" type="tts">siwt rhofiau</annotation>
+		<annotation cp="♥">cardiau | gêm | calonnau | siwt</annotation>
+		<annotation cp="♥" type="tts">siwt calonnau</annotation>
+		<annotation cp="♦">cardiau | gêm | diemwntau | siwt</annotation>
+		<annotation cp="♦" type="tts">siwt diemwntau</annotation>
+		<annotation cp="♣">cardiau | gêm | clybiau | siwt</annotation>
+		<annotation cp="♣" type="tts">siwt clybiau</annotation>
+		<annotation cp="🃏">cardiau | gêm | chwarae</annotation>
+		<annotation cp="🃏" type="tts">cellweiriwr</annotation>
+		<annotation cp="🀄">gêm | mahjong | coch</annotation>
+		<annotation cp="🀄" type="tts">draig goch mahjong</annotation>
+		<annotation cp="🎴">cardiau | blodyn | Japaneaidd</annotation>
+		<annotation cp="🎴" type="tts">cardiau chwarae blodau</annotation>
+		<annotation cp="🔇">mud | tawelwch | sain</annotation>
+		<annotation cp="🔇" type="tts">seinydd wedi’i ddiffodd</annotation>
+		<annotation cp="🔈">sŵn</annotation>
+		<annotation cp="🔈" type="tts">seinydd</annotation>
+		<annotation cp="🔉">isel | siarad | ton</annotation>
+		<annotation cp="🔉" type="tts">seinydd ymlaen</annotation>
+		<annotation cp="🔊">3 | uchel | seinydd</annotation>
+		<annotation cp="🔊" type="tts">seinydd uchel</annotation>
+		<annotation cp="📢">uchel | cyhoeddus</annotation>
+		<annotation cp="📢" type="tts">uchelseinydd</annotation>
+		<annotation cp="📣">sirioli</annotation>
+		<annotation cp="📣" type="tts">megaffon</annotation>
+		<annotation cp="📯">corn | post</annotation>
+		<annotation cp="📯" type="tts">corn bost</annotation>
+		<annotation cp="🔔">cloch</annotation>
+		<annotation cp="🔔" type="tts">cloch</annotation>
+		<annotation cp="🔕">cloch | gwaharddedig | mud | na</annotation>
+		<annotation cp="🔕" type="tts">cloch a slaes</annotation>
+		<annotation cp="🎼">cerddoriaeth | sgôr</annotation>
+		<annotation cp="🎼" type="tts">sgôr cerddorol</annotation>
+		<annotation cp="🎵">cerddoriaeth | nodyn</annotation>
+		<annotation cp="🎵" type="tts">nodyn cerddorol</annotation>
+		<annotation cp="🎶">cerddoriaeth | nodyn</annotation>
+		<annotation cp="🎶" type="tts">nodau cerddorol</annotation>
+		<annotation cp="🎙">meic | meicroffon | cerddoriaeth | stiwdio</annotation>
+		<annotation cp="🎙" type="tts">meicroffon stiwdio</annotation>
+		<annotation cp="🎚">lefel | cerddoriaeth</annotation>
+		<annotation cp="🎚" type="tts">llithrydd lefel</annotation>
+		<annotation cp="🎛">rheoli | dyrnau | cerddoriaeth</annotation>
+		<annotation cp="🎛" type="tts">dyrnau rheoli</annotation>
+		<annotation cp="🎤">caraoce | meic</annotation>
+		<annotation cp="🎤" type="tts">meicroffon</annotation>
+		<annotation cp="🎧">clustffon</annotation>
+		<annotation cp="🎧" type="tts">clustffon</annotation>
+		<annotation cp="🎷">offeryn | cerddoriaeth | sacs</annotation>
+		<annotation cp="🎷" type="tts">sacsoffon</annotation>
+		<annotation cp="🎸">offeyrn | cerddoriaeth</annotation>
+		<annotation cp="🎸" type="tts">gitâr</annotation>
+		<annotation cp="🎹">offeryn | allweddell | cerddoriaeth | piano</annotation>
+		<annotation cp="🎹" type="tts">allweddell</annotation>
+		<annotation cp="🎺">offeryn | cerddoriaeth</annotation>
+		<annotation cp="🎺" type="tts">trwmped</annotation>
+		<annotation cp="🎻">offeryn | cerddoriaeth</annotation>
+		<annotation cp="🎻" type="tts">ffidl</annotation>
+		<annotation cp="📻">fideo</annotation>
+		<annotation cp="📻" type="tts">radio</annotation>
+		<annotation cp="📱">symudol | ffôn</annotation>
+		<annotation cp="📱" type="tts">ffôn symudol</annotation>
+		<annotation cp="📲">saeth | galw | symudol | ffôn</annotation>
+		<annotation cp="📲" type="tts">ffôn symudol â saeth</annotation>
+		<annotation cp="☎">ffôn</annotation>
+		<annotation cp="☎" type="tts">ffôn</annotation>
+		<annotation cp="📞">ffôn | derbyniwr</annotation>
+		<annotation cp="📞" type="tts">derbynnydd ffôn</annotation>
+		<annotation cp="📟">galwr</annotation>
+		<annotation cp="📟" type="tts">peiriant galw</annotation>
+		<annotation cp="📠">ffacs</annotation>
+		<annotation cp="📠" type="tts">peiriant ffacs</annotation>
+		<annotation cp="🔋">batri</annotation>
+		<annotation cp="🔋" type="tts">batri</annotation>
+		<annotation cp="🔌">trydan | trydanol | plwg</annotation>
+		<annotation cp="🔌" type="tts">plwg trydanol</annotation>
+		<annotation cp="💻">cyfrifiadur | personol</annotation>
+		<annotation cp="💻" type="tts">cluniadur</annotation>
+		<annotation cp="🖥">cyfrifiadur | ben desg</annotation>
+		<annotation cp="🖥" type="tts">cyfrifiadur</annotation>
+		<annotation cp="🖨">cyfrifiadur</annotation>
+		<annotation cp="🖨" type="tts">argraffydd</annotation>
+		<annotation cp="⌨">cyfrifiadur</annotation>
+		<annotation cp="⌨" type="tts">bysellfwrdd</annotation>
+		<annotation cp="🖱">3 | botwm | llygoden | tri</annotation>
+		<annotation cp="🖱" type="tts">llygoden gyfrifiadurol</annotation>
+		<annotation cp="🖲">cyfrifiadur</annotation>
+		<annotation cp="🖲" type="tts">pelen lwybro</annotation>
+		<annotation cp="💽">cyfrifiadur | disg | disg mini | optegol</annotation>
+		<annotation cp="💽" type="tts">disg mini</annotation>
+		<annotation cp="💾">cyfrifiadur | disg | hyblyg</annotation>
+		<annotation cp="💾" type="tts">disg hyblyg</annotation>
+		<annotation cp="💿">blu-ray | cd | computer | disk | dvd | optical</annotation>
+		<annotation cp="💿" type="tts">disg optegol</annotation>
+		<annotation cp="📀">blu-ray | cd | cyfrifiadur | disg</annotation>
+		<annotation cp="📀" type="tts">dvd</annotation>
+		<annotation cp="🎥">camera | sinema | ffilm</annotation>
+		<annotation cp="🎥" type="tts">camera ffilm</annotation>
+		<annotation cp="🎬">clepiwr | ffilm</annotation>
+		<annotation cp="🎬" type="tts">clepiwr</annotation>
+		<annotation cp="📽">sinema | ffilm | taflunydd | fideo</annotation>
+		<annotation cp="📽" type="tts">taflunydd ffilm</annotation>
+		<annotation cp="📺">teledu | fideo</annotation>
+		<annotation cp="📺" type="tts">teledu</annotation>
+		<annotation cp="📷">fideo</annotation>
+		<annotation cp="📷" type="tts">camera</annotation>
+		<annotation cp="📸">camera | fflach | fideo</annotation>
+		<annotation cp="📸" type="tts">camera â fflach</annotation>
+		<annotation cp="📹">camera | fideo</annotation>
+		<annotation cp="📹" type="tts">camera fideo</annotation>
+		<annotation cp="📼">tap | vhs | fideo</annotation>
+		<annotation cp="📼" type="tts">casét fideo</annotation>
+		<annotation cp="🔍">gwydr | chwyddwydr | chwilio | offeryn</annotation>
+		<annotation cp="🔍" type="tts">chwyddwydr yn wynebu’r chwith</annotation>
+		<annotation cp="🔎">gwydr | chwyddo | chwilio | offeryn</annotation>
+		<annotation cp="🔎" type="tts">chwyddwydr yn wynebu’r dde</annotation>
+		<annotation cp="🔬">offeryn</annotation>
+		<annotation cp="🔬" type="tts">microsgop</annotation>
+		<annotation cp="🔭">offeryn</annotation>
+		<annotation cp="🔭" type="tts">telesgop</annotation>
+		<annotation cp="📡">antena | lloeren</annotation>
+		<annotation cp="📡" type="tts">antena lloeren</annotation>
+		<annotation cp="🕯">golau</annotation>
+		<annotation cp="🕯" type="tts">cannwyll</annotation>
+		<annotation cp="💡">bwlb | comig | trydanol | syniad</annotation>
+		<annotation cp="💡" type="tts">bwlb golau</annotation>
+		<annotation cp="🔦">trydanol | golau | offeryn | tortsh</annotation>
+		<annotation cp="🔦" type="tts">tortsh</annotation>
+		<annotation cp="🏮">bar | Japaneaidd | llusern | coch</annotation>
+		<annotation cp="🏮" type="tts">llusern bapur coch</annotation>
+		<annotation cp="📔">llyfr | clawr | addurnol | llyfr nodiadau</annotation>
+		<annotation cp="📔" type="tts">llyfr nodiadau gyda chlawr addurnol</annotation>
+		<annotation cp="📕">llyfr | ynghau</annotation>
+		<annotation cp="📕" type="tts">llyfr ynghau</annotation>
+		<annotation cp="📖">llyfr | agored</annotation>
+		<annotation cp="📖" type="tts">llyfr agored</annotation>
+		<annotation cp="📗">llyfr | gwyrdd</annotation>
+		<annotation cp="📗" type="tts">llyfr gwyrdd</annotation>
+		<annotation cp="📘">llyfr | glas</annotation>
+		<annotation cp="📘" type="tts">llyfr glas</annotation>
+		<annotation cp="📙">llyfr | oren</annotation>
+		<annotation cp="📙" type="tts">llyfr oren</annotation>
+		<annotation cp="📚">llyfr</annotation>
+		<annotation cp="📚" type="tts">llyfrau</annotation>
+		<annotation cp="📓">llyfr nodiadau</annotation>
+		<annotation cp="📓" type="tts">llyfr nodiadau</annotation>
+		<annotation cp="📒">llyfr nodiadau</annotation>
+		<annotation cp="📒" type="tts">cyfriflyfr</annotation>
+		<annotation cp="📃">cwrl | dogfen | tudalen</annotation>
+		<annotation cp="📃" type="tts">tudalen gyda chwrl</annotation>
+		<annotation cp="📜">papur</annotation>
+		<annotation cp="📜" type="tts">sgrôl</annotation>
+		<annotation cp="📄">dogfen | tudalen</annotation>
+		<annotation cp="📄" type="tts">tudalen yn wynebu i fyny</annotation>
+		<annotation cp="📰">newyddion | papur</annotation>
+		<annotation cp="📰" type="tts">papur newydd</annotation>
+		<annotation cp="🗞">newyddion | papur newydd | papur | wedi’i rolio</annotation>
+		<annotation cp="🗞" type="tts">papur newydd wedi’i rolio</annotation>
+		<annotation cp="📑">nod tudalen | marc | llyfrnod | tabiau</annotation>
+		<annotation cp="📑" type="tts">tabiau nodau tudalen</annotation>
+		<annotation cp="🔖">marc</annotation>
+		<annotation cp="🔖" type="tts">nod tudalen</annotation>
+		<annotation cp="💰">bag | doler | arian | bag arian</annotation>
+		<annotation cp="💰" type="tts">bag arian</annotation>
+		<annotation cp="💴">banc | papur arian | arian cyfredol | yen</annotation>
+		<annotation cp="💴" type="tts">papur arian yen</annotation>
+		<annotation cp="💵">banc | papur arian | arian cyfredol | doler</annotation>
+		<annotation cp="💵" type="tts">papur arian doler</annotation>
+		<annotation cp="💶">banc | papur arian | arian cyfredol | ewro</annotation>
+		<annotation cp="💶" type="tts">papur arian ewro</annotation>
+		<annotation cp="💷">banc | papur arian | arian cyfredol | punt</annotation>
+		<annotation cp="💷" type="tts">papur arian punt</annotation>
+		<annotation cp="💸">banc | papur arian | arian cyfredol | adenydd</annotation>
+		<annotation cp="💸" type="tts">arian gydag adenydd</annotation>
+		<annotation cp="💳">banc | card | credyd | arian</annotation>
+		<annotation cp="💳" type="tts">cerdyn credyd</annotation>
+		<annotation cp="💹">banc | siart | twf | marchnad</annotation>
+		<annotation cp="💹" type="tts">siart yn cynyddu â yen</annotation>
+		<annotation cp="✉">e-bost</annotation>
+		<annotation cp="✉" type="tts">amlen</annotation>
+		<annotation cp="📧">e-bost | llythyren | post</annotation>
+		<annotation cp="📧" type="tts">e-bost</annotation>
+		<annotation cp="📨">e-bost | amlen | llythyr | derbyn</annotation>
+		<annotation cp="📨" type="tts">amlen yn dyfod i mewn</annotation>
+		<annotation cp="📩">saeth | i lawr | e-bost | amlen</annotation>
+		<annotation cp="📩" type="tts">amlen gyda saeth</annotation>
+		<annotation cp="📤">blwch | llythyr | blwch allan | hambwrdd</annotation>
+		<annotation cp="📤" type="tts">hambwrdd blwch allan</annotation>
+		<annotation cp="📥">blwch | mewnflwch | hambwrdd</annotation>
+		<annotation cp="📥" type="tts">hambwrdd mewnflwch</annotation>
+		<annotation cp="📦">blwch | parsel</annotation>
+		<annotation cp="📦" type="tts">parsel</annotation>
+		<annotation cp="📫">caeedig | post | blwch post</annotation>
+		<annotation cp="📫" type="tts">blwch post caeedig gyda banner wedi’i chodi</annotation>
+		<annotation cp="📪">caeedig | wedi’i gostwng | blwch post</annotation>
+		<annotation cp="📪" type="tts">blwch post caeedig gyda banner wedi’i gostwng</annotation>
+		<annotation cp="📬">post | blwch post | agored</annotation>
+		<annotation cp="📬" type="tts">blwch post agored gyda banner wedi’i chodi</annotation>
+		<annotation cp="📭">wedi’i gostwng | blwch post | agored</annotation>
+		<annotation cp="📭" type="tts">blwch post agored gyda banner wedi’i gostwng</annotation>
+		<annotation cp="📮">post | blwch post</annotation>
+		<annotation cp="📮" type="tts">blwch post</annotation>
+		<annotation cp="🗳">pleidlais | blwch</annotation>
+		<annotation cp="🗳" type="tts">blwch pleidlais gyda phleidlais</annotation>
+		<annotation cp="✏">pensil</annotation>
+		<annotation cp="✏" type="tts">pensil</annotation>
+		<annotation cp="✒">nib | pen</annotation>
+		<annotation cp="✒" type="tts">nib du</annotation>
+		<annotation cp="🖋">ysgrifbin</annotation>
+		<annotation cp="🖋" type="tts">ysgrifbin</annotation>
+		<annotation cp="🖊">blaengrwn</annotation>
+		<annotation cp="🖊" type="tts">beiro</annotation>
+		<annotation cp="🖌">paentio</annotation>
+		<annotation cp="🖌" type="tts">brwsh paent</annotation>
+		<annotation cp="🖍">pensil lliw</annotation>
+		<annotation cp="🖍" type="tts">pensil lliw</annotation>
+		<annotation cp="📝">pensil</annotation>
+		<annotation cp="📝" type="tts">memo</annotation>
+		<annotation cp="💼">cas friff</annotation>
+		<annotation cp="💼" type="tts">cas friff</annotation>
+		<annotation cp="📁">ffeil | ffolder</annotation>
+		<annotation cp="📁" type="tts">ffolder ffeiliau</annotation>
+		<annotation cp="📂">ffeil | ffolder | agor</annotation>
+		<annotation cp="📂" type="tts">agor ffolder ffeiliau</annotation>
+		<annotation cp="🗂">card | rhanwyr | mynegai</annotation>
+		<annotation cp="🗂" type="tts">rhanwyr mynegai cardiau</annotation>
+		<annotation cp="📅">dyddiad</annotation>
+		<annotation cp="📅" type="tts">calendr</annotation>
+		<annotation cp="📆">calendr</annotation>
+		<annotation cp="📆" type="tts">calendr rwygo</annotation>
+		<annotation cp="🗒">nodyn | llyfr nodiadau | troellog</annotation>
+		<annotation cp="🗒" type="tts">llyfr nodiadau troellog</annotation>
+		<annotation cp="🗓">calendr | pad | troellog</annotation>
+		<annotation cp="🗓" type="tts">calendr troellog</annotation>
+		<annotation cp="📇">card | mynegai | rolodex</annotation>
+		<annotation cp="📇" type="tts">mynegai cardiau</annotation>
+		<annotation cp="📈">siart | graff | twf | i fyny</annotation>
+		<annotation cp="📈" type="tts">siart yn cynyddu</annotation>
+		<annotation cp="📉">siart | i lawr | graff | trend</annotation>
+		<annotation cp="📉" type="tts">siart yn gostwng</annotation>
+		<annotation cp="📊">bar | siart | graff</annotation>
+		<annotation cp="📊" type="tts">siart bar</annotation>
+		<annotation cp="📋">clipfwrdd</annotation>
+		<annotation cp="📋" type="tts">clipfwrdd</annotation>
+		<annotation cp="📌">pin</annotation>
+		<annotation cp="📌" type="tts">pin</annotation>
+		<annotation cp="📍">pin | pin crwn</annotation>
+		<annotation cp="📍" type="tts">pin crwn</annotation>
+		<annotation cp="📎">clip papur</annotation>
+		<annotation cp="📎" type="tts">clip papur</annotation>
+		<annotation cp="🖇">linc | clip papur</annotation>
+		<annotation cp="🖇" type="tts">clipiau papur wedi’u cysylltu</annotation>
+		<annotation cp="📏">pren mesur | ymyl syth</annotation>
+		<annotation cp="📏" type="tts">pren mesur</annotation>
+		<annotation cp="📐">pren mesur | set | triongl</annotation>
+		<annotation cp="📐" type="tts">pren mesur trionglog</annotation>
+		<annotation cp="✂">offeryn</annotation>
+		<annotation cp="✂" type="tts">siswrn</annotation>
+		<annotation cp="🗃">blwch | card | ffeilio</annotation>
+		<annotation cp="🗃" type="tts">blwch ffeilio cardiau</annotation>
+		<annotation cp="🗄">cabinet | ffeilio</annotation>
+		<annotation cp="🗄" type="tts">ffeil gabinet</annotation>
+		<annotation cp="🗑">bin sbwriel</annotation>
+		<annotation cp="🗑" type="tts">bin sbwriel</annotation>
+		<annotation cp="🔒">clô</annotation>
+		<annotation cp="🔒" type="tts">clô</annotation>
+		<annotation cp="🔓">cloi | agor | datgloi</annotation>
+		<annotation cp="🔓" type="tts">clô agored</annotation>
+		<annotation cp="🔏">inc | cloi | nib | ysgrifbin</annotation>
+		<annotation cp="🔏" type="tts">clô ac ysgrifbin</annotation>
+		<annotation cp="🔐">clô | allwedd | cloi | diogel</annotation>
+		<annotation cp="🔐" type="tts">clô ynghau gydag allwedd</annotation>
+		<annotation cp="🔑">cloi | allweddair</annotation>
+		<annotation cp="🔑" type="tts">allwedd</annotation>
+		<annotation cp="🗝">cliw | allwedd | cloi | hen</annotation>
+		<annotation cp="🗝" type="tts">hen allwedd</annotation>
+		<annotation cp="🔨">offeryn</annotation>
+		<annotation cp="🔨" type="tts">morthwyl</annotation>
+		<annotation cp="⛏">cloddio | offeryn</annotation>
+		<annotation cp="⛏" type="tts">caib</annotation>
+		<annotation cp="⚒">morthwyl | caib | offeryn</annotation>
+		<annotation cp="⚒" type="tts">morthwyl a chaib</annotation>
+		<annotation cp="🛠">morthwyl | caib | sbaner</annotation>
+		<annotation cp="🛠" type="tts">morthwyl a sbaner</annotation>
+		<annotation cp="🔧">offeryn</annotation>
+		<annotation cp="🔧" type="tts">sbaner</annotation>
+		<annotation cp="🔩">bollt | nyten | offeryn</annotation>
+		<annotation cp="🔩" type="tts">nyten a bollt</annotation>
+		<annotation cp="⚙">offeryn</annotation>
+		<annotation cp="⚙" type="tts">gêr</annotation>
+		<annotation cp="🗜">offeryn | feis</annotation>
+		<annotation cp="🗜" type="tts">cywasgedd</annotation>
+		<annotation cp="⚗">cemeg | offeryn</annotation>
+		<annotation cp="⚗" type="tts">distyllydd</annotation>
+		<annotation cp="⚖">mantol | clorian | offeryn | pwysau</annotation>
+		<annotation cp="⚖" type="tts">clorian</annotation>
+		<annotation cp="🔗">linc</annotation>
+		<annotation cp="🔗" type="tts">dolen</annotation>
+		<annotation cp="⛓">cadwyn</annotation>
+		<annotation cp="⛓" type="tts">cadwyni</annotation>
+		<annotation cp="💉">doctor | meddygaeth | nodwydd | sâl</annotation>
+		<annotation cp="💉" type="tts">chwistrell</annotation>
+		<annotation cp="💊">doctor | meddygaeth | sâl</annotation>
+		<annotation cp="💊" type="tts">pilsen</annotation>
+		<annotation cp="🗡">cyllell | arf</annotation>
+		<annotation cp="🗡" type="tts">dagr</annotation>
+		<annotation cp="🔪">coginio | cyllell | cegin</annotation>
+		<annotation cp="🔪" type="tts">cyllell cegin</annotation>
+		<annotation cp="⚔">wedi croesi | cleddyfau | arf</annotation>
+		<annotation cp="⚔" type="tts">cleddyfau wedi croesi</annotation>
+		<annotation cp="🔫">dryll | llawddryll | rifolfer | arf</annotation>
+		<annotation cp="🔫" type="tts">pistol</annotation>
+		<annotation cp="🛡">arf</annotation>
+		<annotation cp="🛡" type="tts">tarian</annotation>
+		<annotation cp="🏹">saethwr | saeth | bwa | sidydd</annotation>
+		<annotation cp="🏹" type="tts">bwa saeth</annotation>
+		<annotation cp="🏁">sgwariog | frith | rasio</annotation>
+		<annotation cp="🏁" type="tts">banner frith</annotation>
+		<annotation cp="🏳">chwifio</annotation>
+		<annotation cp="🏳" type="tts">chwifio banner wen</annotation>
+		<annotation cp="🏳‍🌈">baner | enfys</annotation>
+		<annotation cp="🏳‍🌈" type="tts">banner enfys</annotation>
+		<annotation cp="🏴">chwifio</annotation>
+		<annotation cp="🏴" type="tts">chwifio banner ddu</annotation>
+		<annotation cp="🚩">post</annotation>
+		<annotation cp="🚩" type="tts">banner drionglog</annotation>
+		<annotation cp="🚬">ysmygu</annotation>
+		<annotation cp="🚬" type="tts">ysmygu</annotation>
+		<annotation cp="⚰">marwolaeth</annotation>
+		<annotation cp="⚰" type="tts">arch</annotation>
+		<annotation cp="⚱">marwolaeth | angladd | wrn</annotation>
+		<annotation cp="⚱" type="tts">wrn angladd</annotation>
+		<annotation cp="🗿">wyneb | moyai | cerflun</annotation>
+		<annotation cp="🗿" type="tts">moai</annotation>
+		<annotation cp="🛢">drwm | olew</annotation>
+		<annotation cp="🛢" type="tts">drwm olew</annotation>
+		<annotation cp="🔮">pêl | crisial | tylwyth teg | ffantasi</annotation>
+		<annotation cp="🔮" type="tts">pêl grisial</annotation>
+		<annotation cp="🏧">atm | awtomataidd | banc | clerc</annotation>
+		<annotation cp="🏧" type="tts">arwydd peiriant codi arian</annotation>
+		<annotation cp="🚮">sbwriel | bin sbwriel</annotation>
+		<annotation cp="🚮" type="tts">arwydd sbwriel mewn bin</annotation>
+		<annotation cp="🚰">diod | yfed | dŵr</annotation>
+		<annotation cp="🚰" type="tts">dŵr yfed</annotation>
+		<annotation cp="♿">mynediad</annotation>
+		<annotation cp="♿" type="tts">cadair olwyn</annotation>
+		<annotation cp="🚹">toiled | dyn | tŷ bach</annotation>
+		<annotation cp="🚹" type="tts">ystafell ymolchi i ddynion</annotation>
+		<annotation cp="🚺">toiled | tŷbach | menyw</annotation>
+		<annotation cp="🚺" type="tts">ystafell ymolchi i fenywod</annotation>
+		<annotation cp="🚻">toiled</annotation>
+		<annotation cp="🚻" type="tts">ystafell ymolchi</annotation>
+		<annotation cp="🚼">babi | newid</annotation>
+		<annotation cp="🚼" type="tts">symbol babi</annotation>
+		<annotation cp="🚾">tŷbach | toiled | dŵr</annotation>
+		<annotation cp="🚾" type="tts">tŷ bach</annotation>
+		<annotation cp="🛂">arolygaeth | pasbort</annotation>
+		<annotation cp="🛂" type="tts">arolygaeth pasbort</annotation>
+		<annotation cp="🛃">tollau</annotation>
+		<annotation cp="🛃" type="tts">tollau</annotation>
+		<annotation cp="🛄">bagiau | hawlio</annotation>
+		<annotation cp="🛄" type="tts">hawlio bagiau</annotation>
+		<annotation cp="🛅">bagiau | coffor</annotation>
+		<annotation cp="🛅" type="tts">bagiau wedi’u gadael</annotation>
+		<annotation cp="⚠">rhybudd</annotation>
+		<annotation cp="⚠" type="tts">rhybudd</annotation>
+		<annotation cp="🚸">plentyn | croesi | cerddwr | traffig</annotation>
+		<annotation cp="🚸" type="tts">plant yn croesi</annotation>
+		<annotation cp="⛔">mynediad | gwahardd | traffig</annotation>
+		<annotation cp="⛔" type="tts">dim mynediad</annotation>
+		<annotation cp="🚫">mynediad | gwahardd | dim</annotation>
+		<annotation cp="🚫" type="tts">wedi’i wahardd</annotation>
+		<annotation cp="🚳">beic | gwahardd | cerbyd</annotation>
+		<annotation cp="🚳" type="tts">dim beiciau</annotation>
+		<annotation cp="🚭">gwahardd | dim | ysmygu</annotation>
+		<annotation cp="🚭" type="tts">dim ysmygu</annotation>
+		<annotation cp="🚯">gwahardd | sbwriel | dim</annotation>
+		<annotation cp="🚯" type="tts">dim sbwriel</annotation>
+		<annotation cp="🚱">diod | gwahardd | yfed | prohibited | dŵr</annotation>
+		<annotation cp="🚱" type="tts">dwr na ellir ei foteli</annotation>
+		<annotation cp="🚷">gwahardd | dim | cerddwr</annotation>
+		<annotation cp="🚷" type="tts">dim cerddwyr</annotation>
+		<annotation cp="☢">ymbelydrol | arwydd</annotation>
+		<annotation cp="☢" type="tts">ymbelydrol</annotation>
+		<annotation cp="☣">bioberyg | arwydd</annotation>
+		<annotation cp="☣" type="tts">bioberyg</annotation>
+		<annotation cp="⬆">saeth | cyfeiriad | Gogledd</annotation>
+		<annotation cp="⬆" type="tts">saeth i fyny</annotation>
+		<annotation cp="↗">saeth | cyfeiriad | Gogledd-ddwyrain</annotation>
+		<annotation cp="↗" type="tts">saeth i fyny-dde</annotation>
+		<annotation cp="➡">saeth | cyfeiriad | Dwyrain</annotation>
+		<annotation cp="➡" type="tts">saeth i’r dde</annotation>
+		<annotation cp="↘">saeth | cyfeiriad | De-ddwyrain</annotation>
+		<annotation cp="↘" type="tts">saeth i lawr-dde</annotation>
+		<annotation cp="⬇">saeth | cyfeiriad | De</annotation>
+		<annotation cp="⬇" type="tts">saeth i lawr</annotation>
+		<annotation cp="↙">saeth | cyfeiriad | De-orllewin</annotation>
+		<annotation cp="↙" type="tts">saeth i lawr-chwith</annotation>
+		<annotation cp="⬅">saeth | cyfeiriad | Gorllewin</annotation>
+		<annotation cp="⬅" type="tts">saeth i’r chwith</annotation>
+		<annotation cp="↖">saeth | cyfeiriad | Gogledd-orllewin</annotation>
+		<annotation cp="↖" type="tts">saeth i fyny-chwith</annotation>
+		<annotation cp="↕">saeth</annotation>
+		<annotation cp="↕" type="tts">saeth i fyny-lawr</annotation>
+		<annotation cp="↔">saeth</annotation>
+		<annotation cp="↔" type="tts">saeth chwith-dde</annotation>
+		<annotation cp="↩">saeth</annotation>
+		<annotation cp="↩" type="tts">saeth i’r dde yn troi i’r chwith</annotation>
+		<annotation cp="↪">saeth</annotation>
+		<annotation cp="↪" type="tts">saeth i’r chwith yn troi i’r dde</annotation>
+		<annotation cp="⤴">saeth</annotation>
+		<annotation cp="⤴" type="tts">saeth i’r dde yn troi i fyny</annotation>
+		<annotation cp="⤵">saeth | i lawr</annotation>
+		<annotation cp="⤵" type="tts">saeth i’r dde yn troi i lawr</annotation>
+		<annotation cp="🔃">saeth | clocwedd | ail-lwytho</annotation>
+		<annotation cp="🔃" type="tts">saethau clocwedd fertigol</annotation>
+		<annotation cp="🔄">gwrthglocwedd | saeth | o chwith</annotation>
+		<annotation cp="🔄" type="tts">botwm saethau gwrthglocwedd</annotation>
+		<annotation cp="🔙">saeth | yn ôl</annotation>
+		<annotation cp="🔙" type="tts">saeth back</annotation>
+		<annotation cp="🔚">saeth | diwedd</annotation>
+		<annotation cp="🔚" type="tts">saeth end</annotation>
+		<annotation cp="🔛">saeth | marc | ymlaen</annotation>
+		<annotation cp="🔛" type="tts">saeth on!</annotation>
+		<annotation cp="🔜">saeth | cyn bo hir</annotation>
+		<annotation cp="🔜" type="tts">saeth soon</annotation>
+		<annotation cp="🔝">saeth | top | i fyny</annotation>
+		<annotation cp="🔝" type="tts">saeth top</annotation>
+		<annotation cp="🛐">crefydd | addoli</annotation>
+		<annotation cp="🛐" type="tts">man addoli</annotation>
+		<annotation cp="⚛">anffyddiwr | atom</annotation>
+		<annotation cp="⚛" type="tts">symbol o atom</annotation>
+		<annotation cp="🕉">hindŵ | crefydd</annotation>
+		<annotation cp="🕉" type="tts">om</annotation>
+		<annotation cp="✡">Dafydd | Iddew | Iddewig | seren</annotation>
+		<annotation cp="✡" type="tts">seren Dafydd</annotation>
+		<annotation cp="☸">bwdhaidd | dharma | crefydd | olwyn</annotation>
+		<annotation cp="☸" type="tts">olwyn dharma</annotation>
+		<annotation cp="☯">crefydd | tao | taoaidd</annotation>
+		<annotation cp="☯" type="tts">yin yang</annotation>
+		<annotation cp="✝">cristnogol | croes | crefydd</annotation>
+		<annotation cp="✝" type="tts">croes ladin</annotation>
+		<annotation cp="☦">cristnogol | croes | crefydd</annotation>
+		<annotation cp="☦" type="tts">croes uniongred</annotation>
+		<annotation cp="☪">islam | mwslim | crefydd</annotation>
+		<annotation cp="☪" type="tts">seren a chilgant</annotation>
+		<annotation cp="☮">heddwch</annotation>
+		<annotation cp="☮" type="tts">symbol hedd</annotation>
+		<annotation cp="🕎">sêr canhwyllau | canhwyllbren | crefydd</annotation>
+		<annotation cp="🕎" type="tts">menorah</annotation>
+		<annotation cp="🔯">ffortiwn | seren</annotation>
+		<annotation cp="🔯" type="tts">seren chwe ochr dotiog</annotation>
+		<annotation cp="♻">ailgylchu</annotation>
+		<annotation cp="♻" type="tts">symbol ailgylchu</annotation>
+		<annotation cp="📛">bathodyn | enw</annotation>
+		<annotation cp="📛" type="tts">bathodyn enw</annotation>
+		<annotation cp="⚜">gellesgen</annotation>
+		<annotation cp="⚜" type="tts">gellesgen</annotation>
+		<annotation cp="🔰">dechreuwr | gwyrdd | Japaneaidd | deilen</annotation>
+		<annotation cp="🔰" type="tts">symbol Japaneaidd am ddechreuwr</annotation>
+		<annotation cp="🔱">angor | arwyddlun | llong | tryfer</annotation>
+		<annotation cp="🔱" type="tts">arwyddlun tryfer</annotation>
+		<annotation cp="⭕">cylch | o</annotation>
+		<annotation cp="⭕" type="tts">cylch mawr trwm</annotation>
+		<annotation cp="✅">marc | tic</annotation>
+		<annotation cp="✅" type="tts">marc tic gwyn trwm</annotation>
+		<annotation cp="☑">blwch | pleidlais | tic</annotation>
+		<annotation cp="☑" type="tts">blwch pleidlais gyda thic</annotation>
+		<annotation cp="✔">marc | tic</annotation>
+		<annotation cp="✔" type="tts">marc tic trwm</annotation>
+		<annotation cp="✖">canslo | lluosiad | lluosi | x</annotation>
+		<annotation cp="✖" type="tts">lluosi x trwm</annotation>
+		<annotation cp="❌">canslo | marc | lluosi | x</annotation>
+		<annotation cp="❌" type="tts">marc croes</annotation>
+		<annotation cp="❎">marc | sgwâr</annotation>
+		<annotation cp="❎" type="tts">botwm croes</annotation>
+		<annotation cp="➕">math | adio</annotation>
+		<annotation cp="➕" type="tts">arwydd adio trwm</annotation>
+		<annotation cp="➖">math | tynnu</annotation>
+		<annotation cp="➖" type="tts">arwydd tynnu trwm</annotation>
+		<annotation cp="➗">rhannu | math</annotation>
+		<annotation cp="➗" type="tts">arwydd rhannu trwm</annotation>
+		<annotation cp="➰">cwrl | dolen</annotation>
+		<annotation cp="➰" type="tts">dolen gyrliog</annotation>
+		<annotation cp="➿">cwrl | dwbl | dolen</annotation>
+		<annotation cp="➿" type="tts">dolen gyrliog ddwbl</annotation>
+		<annotation cp="〽">marc | rhan</annotation>
+		<annotation cp="〽" type="tts">marc aryneilio rhannol</annotation>
+		<annotation cp="✳">asterics</annotation>
+		<annotation cp="✳" type="tts">asterics wyth pwynt</annotation>
+		<annotation cp="✴">seren</annotation>
+		<annotation cp="✴" type="tts">seren wyth pwynt</annotation>
+		<annotation cp="❇">fflachiad</annotation>
+		<annotation cp="❇" type="tts">fflachiad</annotation>
+		<annotation cp="💱">banc | arian cyfredol | cyfnewid | arian</annotation>
+		<annotation cp="💱" type="tts">cyfnewid arian cyfredol</annotation>
+		<annotation cp="💲">arian cyfredol | doler | arian</annotation>
+		<annotation cp="💲" type="tts">arwydd doler drom</annotation>
+		<annotation cp="‼">bangbang | marc | ebychnod | atalnodiad</annotation>
+		<annotation cp="‼" type="tts">ebychnod dwbl</annotation>
+		<annotation cp="⁉">ebychnod | holnod ebychol | marc | cwestiwn</annotation>
+		<annotation cp="⁉" type="tts">marc cwestiwn ag ebychnod</annotation>
+		<annotation cp="❓">marc | atalnodiad | cwestiwn</annotation>
+		<annotation cp="❓" type="tts">marc cwestiwn</annotation>
+		<annotation cp="❔">marc | amlinellol | atalnodiad | cwestiwn</annotation>
+		<annotation cp="❔" type="tts">marc cwestiwn gwyn</annotation>
+		<annotation cp="❕">ebychnod | marc | amlinelliad | atalnodiad</annotation>
+		<annotation cp="❕" type="tts">ebychnod gwyn</annotation>
+		<annotation cp="❗">ebychnod | marc | atalnodiad</annotation>
+		<annotation cp="❗" type="tts">ebychnod</annotation>
+		<annotation cp="〰">llinell | atalnodiad | tonnog</annotation>
+		<annotation cp="〰" type="tts">llinell donnog</annotation>
+		<annotation cp="©">hawlfraint</annotation>
+		<annotation cp="©" type="tts">hawlfraint</annotation>
+		<annotation cp="®">cofrestredig</annotation>
+		<annotation cp="®" type="tts">cofrestredig</annotation>
+		<annotation cp="™">marc | nod masnachu</annotation>
+		<annotation cp="™" type="tts">nod masnachu</annotation>
+		<annotation cp="♈">hwrdd | sidydd</annotation>
+		<annotation cp="♈" type="tts">yr Hwrdd</annotation>
+		<annotation cp="♉">tarw | ych | sidydd</annotation>
+		<annotation cp="♉" type="tts">y Tarw</annotation>
+		<annotation cp="♊">efeilliaid | sidydd</annotation>
+		<annotation cp="♊" type="tts">yr Efeilliaid</annotation>
+		<annotation cp="♋">cranc | sidydd</annotation>
+		<annotation cp="♋" type="tts">y Cranc</annotation>
+		<annotation cp="♌">llew | sidydd</annotation>
+		<annotation cp="♌" type="tts">y Llew</annotation>
+		<annotation cp="♍">morwyn | sidydd</annotation>
+		<annotation cp="♍" type="tts">y Forwyn</annotation>
+		<annotation cp="♎">mantol | cyfiawnder | clorian | sidydd</annotation>
+		<annotation cp="♎" type="tts">y Fantol</annotation>
+		<annotation cp="♏">sgorpio | sgorpion | sidydd</annotation>
+		<annotation cp="♏" type="tts">y Sgorpion</annotation>
+		<annotation cp="♐">saethwr | sidydd</annotation>
+		<annotation cp="♐" type="tts">y Saethydd</annotation>
+		<annotation cp="♑">gafr | sidydd</annotation>
+		<annotation cp="♑" type="tts">yr afr</annotation>
+		<annotation cp="♒">cludwr | dŵr | sidydd</annotation>
+		<annotation cp="♒" type="tts">y Dyfrwr</annotation>
+		<annotation cp="♓">pysgod | sidydd</annotation>
+		<annotation cp="♓" type="tts">y Pysgod</annotation>
+		<annotation cp="⛎">cludwr | sarff | neidr | sidydd</annotation>
+		<annotation cp="⛎" type="tts">ophiuchus</annotation>
+		<annotation cp="🔀">saeth | wedi’i chroesi</annotation>
+		<annotation cp="🔀" type="tts">botwm cymysgu traciau</annotation>
+		<annotation cp="🔁">saeth | clocwedd | ailadrodd</annotation>
+		<annotation cp="🔁" type="tts">botwm ailadrodd</annotation>
+		<annotation cp="🔂">saeth | clocwedd | unwaith</annotation>
+		<annotation cp="🔂" type="tts">botwm ailadrodd sengl</annotation>
+		<annotation cp="▶">saeth | chwarae | dde | triongl</annotation>
+		<annotation cp="▶" type="tts">botwm chwarae</annotation>
+		<annotation cp="⏩">saeth | dwbl | cyflym | ymlaen</annotation>
+		<annotation cp="⏩" type="tts">botwm blaenyrru cyflym</annotation>
+		<annotation cp="⏭">saeth | golygfa nesaf | trac nesaf | triongl</annotation>
+		<annotation cp="⏭" type="tts">botwm trac nesaf</annotation>
+		<annotation cp="⏯">saeth | saib | chwarae | triongl</annotation>
+		<annotation cp="⏯" type="tts">botwm chwarae neu saib</annotation>
+		<annotation cp="◀">saeth | chwith | cildroi | triongl</annotation>
+		<annotation cp="◀" type="tts">botwm cildroi</annotation>
+		<annotation cp="⏪">saeth | dwbl | cildroi</annotation>
+		<annotation cp="⏪" type="tts">botwm cildroi cyflym</annotation>
+		<annotation cp="⏮">saeth | golygfa olaf | trac olaf | triongl</annotation>
+		<annotation cp="⏮" type="tts">botwm trac olaf</annotation>
+		<annotation cp="🔼">saeth | botwm | coch</annotation>
+		<annotation cp="🔼" type="tts">botwm i fyny</annotation>
+		<annotation cp="⏫">saeth | dwbl</annotation>
+		<annotation cp="⏫" type="tts">botwm i fyny cyflym</annotation>
+		<annotation cp="🔽">saeth | botwm | i fyny | coch</annotation>
+		<annotation cp="🔽" type="tts">botwm i lawr</annotation>
+		<annotation cp="⏬">saeth | dwbl | i lawr</annotation>
+		<annotation cp="⏬" type="tts">botwm i lawr cyflym</annotation>
+		<annotation cp="⏸">bar | dwbl | saib | fertigol</annotation>
+		<annotation cp="⏸" type="tts">botwm saib</annotation>
+		<annotation cp="⏹">sgwâr | stop</annotation>
+		<annotation cp="⏹" type="tts">botwm stop</annotation>
+		<annotation cp="⏺">cylch | recordio</annotation>
+		<annotation cp="⏺" type="tts">botwm recordio</annotation>
+		<annotation cp="⏏">allfwrw</annotation>
+		<annotation cp="⏏" type="tts">botwm allfwrw</annotation>
+		<annotation cp="🎦">camera | ffilm</annotation>
+		<annotation cp="🎦" type="tts">sinema</annotation>
+		<annotation cp="🔅">disgleirdeb | pylu | isel</annotation>
+		<annotation cp="🔅" type="tts">botwm pylu</annotation>
+		<annotation cp="🔆">disglair | disgleirdeb</annotation>
+		<annotation cp="🔆" type="tts">botwm disglair</annotation>
+		<annotation cp="📶">antena | bar | cell | symudol</annotation>
+		<annotation cp="📶" type="tts">barrau antena</annotation>
+		<annotation cp="📵">symudol | gwahardd | ffôn</annotation>
+		<annotation cp="📵" type="tts">dim ffonau symudol</annotation>
+		<annotation cp="📳">modd | ffôn | dirgryniad</annotation>
+		<annotation cp="📳" type="tts">modd dirgryniad</annotation>
+		<annotation cp="📴">cell | diffodd | ffôn</annotation>
+		<annotation cp="📴" type="tts">ffôn symudol wedi’i ddiffodd</annotation>
+		<annotation cp="💯">100 | llawn | cant | sgôr</annotation>
+		<annotation cp="💯" type="tts">cant o bwyntiau</annotation>
+		<annotation cp="🔞">18 | oedran | un deg wyth | dan oed</annotation>
+		<annotation cp="🔞" type="tts">neb o dan un deg wyth oed</annotation>
+		<annotation cp="🔠">mewnbwn | lladin | llythrennau | llythrennau mawr</annotation>
+		<annotation cp="🔠" type="tts">mewnbwn llythrennau mawr ladin</annotation>
+		<annotation cp="🔡">abcch | mewnbwn | lladin | llythrennau bach</annotation>
+		<annotation cp="🔡" type="tts">mewnbwn llythrennau bach lladin</annotation>
+		<annotation cp="🔢">1234 | mewnbwn | rhifau</annotation>
+		<annotation cp="🔢" type="tts">mewnbwn rhifedd</annotation>
+		<annotation cp="🔣">mewnbwn</annotation>
+		<annotation cp="🔣" type="tts">mewnbwn symbylau</annotation>
+		<annotation cp="🔤">abc | gwyddor | mewnbwn | lladin</annotation>
+		<annotation cp="🔤" type="tts">mewnbwn llythrennau lladin</annotation>
+		<annotation cp="🅰">a | gwaed</annotation>
+		<annotation cp="🅰" type="tts">botwm a</annotation>
+		<annotation cp="🆎">ab | gwaed</annotation>
+		<annotation cp="🆎" type="tts">botwm ab</annotation>
+		<annotation cp="🅱">b | gwaed</annotation>
+		<annotation cp="🅱" type="tts">botwm b</annotation>
+		<annotation cp="🆑">cl</annotation>
+		<annotation cp="🆑" type="tts">cl mewn sgwâr</annotation>
+		<annotation cp="🆒">cool</annotation>
+		<annotation cp="🆒" type="tts">cool mewn sgwâr</annotation>
+		<annotation cp="🆓">free</annotation>
+		<annotation cp="🆓" type="tts">free mewn sgwâr</annotation>
+		<annotation cp="ℹ">i | gwybodaeth</annotation>
+		<annotation cp="ℹ" type="tts">ffynhonnell gwybodaeth</annotation>
+		<annotation cp="🆔">id | adnabod</annotation>
+		<annotation cp="🆔" type="tts">id mewn sgwâr</annotation>
+		<annotation cp="Ⓜ">cylch | m</annotation>
+		<annotation cp="Ⓜ" type="tts">llythyren m mewn cylch</annotation>
+		<annotation cp="🆕">newydd</annotation>
+		<annotation cp="🆕" type="tts">new mewn sgwâr</annotation>
+		<annotation cp="🆖">ng</annotation>
+		<annotation cp="🆖" type="tts">ng mewn sgwâr</annotation>
+		<annotation cp="🅾">gwaed | o</annotation>
+		<annotation cp="🅾" type="tts">botwm o</annotation>
+		<annotation cp="🆗">ocê</annotation>
+		<annotation cp="🆗" type="tts">botwm ok</annotation>
+		<annotation cp="🅿">parcio</annotation>
+		<annotation cp="🅿" type="tts">botwm p</annotation>
+		<annotation cp="🆘">help | sos</annotation>
+		<annotation cp="🆘" type="tts">botwm sos</annotation>
+		<annotation cp="🆙">marc | i fyny</annotation>
+		<annotation cp="🆙" type="tts">botwm up!</annotation>
+		<annotation cp="🆚">yn erbyn | vs</annotation>
+		<annotation cp="🆚" type="tts">vs mewn sgwâr</annotation>
+		<annotation cp="🈁">Japaneaidd</annotation>
+		<annotation cp="🈁" type="tts">katakana koko mewn sgwâr</annotation>
+		<annotation cp="🈂">Japaneaidd</annotation>
+		<annotation cp="🈂" type="tts">katakana sa mewn sgwâr</annotation>
+		<annotation cp="🈷">Japaneaidd</annotation>
+		<annotation cp="🈷" type="tts">ideograff lleuad mewn sgwâr</annotation>
+		<annotation cp="🈶">Japaneaidd</annotation>
+		<annotation cp="🈶" type="tts">ideograff bodoli mewn sgwâr</annotation>
+		<annotation cp="🈯">Japaneaidd</annotation>
+		<annotation cp="🈯" type="tts">ideograff bys mewn sgwâr</annotation>
+		<annotation cp="🉐">Japaneaidd</annotation>
+		<annotation cp="🉐" type="tts">ideograff mantais mewn cylch</annotation>
+		<annotation cp="🈹">Japaneaidd</annotation>
+		<annotation cp="🈹" type="tts">ideograff rhannu mewn sgwâr</annotation>
+		<annotation cp="🈚">Japaneaidd</annotation>
+		<annotation cp="🈚" type="tts">ideograff negyddiad mewn sgwâr</annotation>
+		<annotation cp="🈲">Japaneaidd</annotation>
+		<annotation cp="🈲" type="tts">ideograff gwaharddiad mewn sgwâr</annotation>
+		<annotation cp="🉑">Tsieineaidd</annotation>
+		<annotation cp="🉑" type="tts">ideograff derbyn mewn cylch</annotation>
+		<annotation cp="🈸">Tsieineaidd</annotation>
+		<annotation cp="🈸" type="tts">ideograff cais mewn sgwâr</annotation>
+		<annotation cp="🈴">Tsieineaidd</annotation>
+		<annotation cp="🈴" type="tts">ideograff gyda’i gilydd mewn sgwâr</annotation>
+		<annotation cp="🈳">Tsieineaidd</annotation>
+		<annotation cp="🈳" type="tts">ideograff gwag mewn sgwâr</annotation>
+		<annotation cp="㊗">Tsieineaidd | llongyfarchiad | llongyfarchiadau | ideograff</annotation>
+		<annotation cp="㊗" type="tts">ideograff cyfarchion mewn cylch</annotation>
+		<annotation cp="㊙">Tsieineaidd | ideograff | cyfrinach</annotation>
+		<annotation cp="㊙" type="tts">ideograff cyfrinach mewn cylch</annotation>
+		<annotation cp="🈺">Tsieineaidd</annotation>
+		<annotation cp="🈺" type="tts">ideograff gweithredu mewn sgwâr</annotation>
+		<annotation cp="🈵">Tsieineaidd</annotation>
+		<annotation cp="🈵" type="tts">ideograff llawnder mewn sgwâr</annotation>
+		<annotation cp="▪">geometrig | sgwâr</annotation>
+		<annotation cp="▪" type="tts">sgwâr bach du</annotation>
+		<annotation cp="▫">geometrig | sgwâr</annotation>
+		<annotation cp="▫" type="tts">sgwâr bach gwyn</annotation>
+		<annotation cp="◻">geometrig | sgwâr</annotation>
+		<annotation cp="◻" type="tts">sgwâr canolig gwyn</annotation>
+		<annotation cp="◼">geometrig | sgwâr</annotation>
+		<annotation cp="◼" type="tts">sgwâr canolig du</annotation>
+		<annotation cp="◽">geometrig | sgwâr</annotation>
+		<annotation cp="◽" type="tts">sgwâr canolig-bach gwyn</annotation>
+		<annotation cp="◾">geometrig | sgwâr</annotation>
+		<annotation cp="◾" type="tts">sgwâr canolig-bach du</annotation>
+		<annotation cp="⬛">geometrig | sgwâr</annotation>
+		<annotation cp="⬛" type="tts">sgwâr mawr du</annotation>
+		<annotation cp="⬜">geometrig | sgwâr</annotation>
+		<annotation cp="⬜" type="tts">sgwâr mawr wyn</annotation>
+		<annotation cp="🔶">diemwnt | geometrig | oren</annotation>
+		<annotation cp="🔶" type="tts">diemwnt mawr oren</annotation>
+		<annotation cp="🔷">glas | diemwnt | geometrig</annotation>
+		<annotation cp="🔷" type="tts">diemwnt mawr glas</annotation>
+		<annotation cp="🔸">diemwnt | geometrig | oren</annotation>
+		<annotation cp="🔸" type="tts">diemwnt bach oren</annotation>
+		<annotation cp="🔹">glas | diemwnt | geometrig</annotation>
+		<annotation cp="🔹" type="tts">diemwnt bach glas</annotation>
+		<annotation cp="🔺">geometrig | coch</annotation>
+		<annotation cp="🔺" type="tts">triongl coch yn pwyntio tuag i fyny</annotation>
+		<annotation cp="🔻">i lawr | geometrig | coch</annotation>
+		<annotation cp="🔻" type="tts">triongl coch yn pwyntio tuag i lawr</annotation>
+		<annotation cp="💠">comig | diemwnt | geometric | tu fewn</annotation>
+		<annotation cp="💠" type="tts">diemwnt â dot</annotation>
+		<annotation cp="🔘">botwm | geometrig | radio</annotation>
+		<annotation cp="🔘" type="tts">botwm radio</annotation>
+		<annotation cp="🔲">botwm | geometrig | sgwâr</annotation>
+		<annotation cp="🔲" type="tts">botwm sgwâr du</annotation>
+		<annotation cp="🔳">botwm | geometrig | amlinelliad | sgwâr</annotation>
+		<annotation cp="🔳" type="tts">botwm sgwâr gwyn</annotation>
+		<annotation cp="⚪">cylch | geometrig</annotation>
+		<annotation cp="⚪" type="tts">cylch gwyn</annotation>
+		<annotation cp="⚫">cylch | geometrig</annotation>
+		<annotation cp="⚫" type="tts">cylch du</annotation>
+		<annotation cp="🔴">cylch | geometrig | coch</annotation>
+		<annotation cp="🔴" type="tts">cylch coch</annotation>
+		<annotation cp="🔵">glas | cylch | geometrig</annotation>
+		<annotation cp="🔵" type="tts">cylch glas</annotation>
+		<annotation cp="🛑">wythonglog | arwydd | stop</annotation>
+		<annotation cp="🛑" type="tts">arwydd stop</annotation>
+		<annotation cp="🛒">siopa | cert | troli | siopa</annotation>
+		<annotation cp="🛒" type="tts">troli siopa</annotation>
+		<annotation cp="🛴">sgwter | cicio</annotation>
+		<annotation cp="🛴" type="tts">sgwter cicio</annotation>
+		<annotation cp="🛵">modur | sgwter</annotation>
+		<annotation cp="🛵" type="tts">sgwter modur</annotation>
+		<annotation cp="🛶">canŵ | cwch</annotation>
+		<annotation cp="🛶" type="tts">canŵ</annotation>
+	</annotations>
+</ldml>

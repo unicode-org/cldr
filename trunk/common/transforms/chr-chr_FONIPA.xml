@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2016 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="chr" target="chr_FONIPA" direction="forward" alias="chr-fonipa-t-chr">
+		  <tRule><![CDATA[
+# References
+# ----------
+# [1] http://www.omniglot.com/writing/cherokee.htm
+# [2] https://en.wikipedia.org/wiki/Cherokee_language#Phonology
+# [3] Edward Finegan. Language: Its structure and use. ISBN 978-1-4130-3055-6.
+#     Figure 12-4: The Cherokee Writing System, page 401.
+
+::[[:sc=Cher:][:P:][:M:]];
+
+::upper;
+
+[:P:]+ → ' ';
+
+Ꭰ → a;
+Ꭱ → e;
+Ꭲ → i;
+Ꭳ → o;
+Ꭴ → u;
+Ꭵ → ə̃;
+
+Ꭶ → ɡa;
+Ꭷ → ka;
+Ꭸ → ɡe;
+Ꭹ → ɡi;
+Ꭺ → ɡo;
+Ꭻ → ɡu;
+Ꭼ → ɡə̃;
+
+Ꭽ → ha;
+Ꭾ → he;
+Ꭿ → hi;
+Ꮀ → ho;
+Ꮁ → hu;
+Ꮂ → hə̃;
+
+Ꮃ → la;
+Ꮄ → le;
+Ꮅ → li;
+Ꮆ → lo;
+Ꮇ → lu;
+Ꮈ → lə̃;
+
+Ꮉ → ma;
+Ꮊ → me;
+Ꮋ → mi;
+Ꮌ → mo;
+Ꮍ → mu;
+Ᏽ → mə̃;
+
+Ꮎ → na;
+Ꮏ → hna;
+Ꮐ → nah;
+Ꮑ → ne;
+Ꮒ → ni;
+Ꮓ → no;
+Ꮔ → nu;
+Ꮕ → nə̃;
+
+Ꮖ → kʷa;
+Ꮗ → kʷe;
+Ꮘ → kʷi;
+Ꮙ → kʷo;
+Ꮚ → kʷu;
+Ꮛ → kʷə̃;
+
+Ꮝ → s;
+Ꮜ → sa;
+Ꮞ → se;
+Ꮟ → si;
+Ꮠ → so;
+Ꮡ → su;
+Ꮢ → sə̃;
+
+Ꮣ → da;
+Ꮤ → ta;
+Ꮥ → de;
+Ꮦ → te;
+Ꮧ → di;
+Ꮨ → ti;
+Ꮩ → do;
+Ꮪ → du;
+Ꮫ → də̃;
+
+Ꮬ → d͡la;
+Ꮭ → t͡ɬa;
+Ꮮ → t͡ɬe;
+Ꮯ → t͡ɬi;
+Ꮰ → t͡ɬo;
+Ꮱ → t͡ɬu;
+Ꮲ → t͡ɬə̃;
+
+Ꮳ → t͡sa;
+Ꮴ → t͡se;
+Ꮵ → t͡si;
+Ꮶ → t͡so;
+Ꮷ → t͡su;
+Ꮸ → t͡sə̃;
+
+Ꮹ → wa;
+Ꮺ → we;
+Ꮻ → wi;
+Ꮼ → wo;
+Ꮽ → wu;
+Ꮾ → wə̃;
+
+Ꮿ → ja;
+Ᏸ → je;
+Ᏹ → ji;
+Ᏺ → jo;
+Ᏻ → ju;
+Ᏼ → jə̃;
+
+̋ → ˥;
+́ → ˦;
+̄ → ˧;
+̀ → ˧˩;
+[ ̌ ̆ ] → ˨˦;
+̂ → ˥˧;
+
+[:M:] → ;
+
+::null;
+a a+ → aː;
+e e+ → eː;
+i i+ → iː;
+o o+ → oː;
+u u+ → uː;
+ə̃ {ə̃}+ → ə̃;
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

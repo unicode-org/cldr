@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="yo"/> 
+	</identity>
+	<collations>
+		<collation type="standard" references="Nigeria University Press: A dictionary of the Yoruba language ISBN 978-030-760-5">
+                	<cr><![CDATA[
+				[normalization on]
+				&E<ẹ<<<Ẹ
+				&G<gb<<<Gb<<<GB
+				&O<ọ<<<Ọ
+				&S<ṣ<<<Ṣ
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

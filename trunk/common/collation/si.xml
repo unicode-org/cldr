@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<language type="si" />
+	</identity>
+	<collations>
+		<collation type="standard" references="Sri Lanka standard 1134 Part 1 - 2007 edition - Sri Lanka Standards Institution">
+			<cr><![CDATA[
+				[normalization on]
+				[reorder Sinh Deva Beng Guru Gujr Orya Taml Telu Knda Mlym]
+				&ඖ<ං<ඃ
+				&ඥ<ඤ
+			]]></cr>
+		</collation>
+		<collation type="dictionary" references="Sri Lanka standard 1134 Part 1 - 2007 edition - Sri Lanka Standards Institution">
+			<cr><![CDATA[
+				[normalization on]
+				[reorder Sinh Deva Beng Guru Gujr Orya Taml Telu Knda Mlym]
+				&ඖ<ං<ඃ
+				&ජ්ඤ<<ඥ
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

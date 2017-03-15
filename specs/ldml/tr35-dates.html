@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">31</td>
+				<td>31</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -129,18 +129,18 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
-			<i class="changed">This is a<b><font color="#ff3333">
-						draft </font></b>document which may be updated, replaced, or superseded by
+				<i class="changed">This is a<b><font color="#ff3333">
+				draft </font></b>document which may be updated, replaced, or superseded by
 				other documents at any time. Publication does not imply endorsement
 				by the Unicode Consortium. This is not a stable document; it is
 				inappropriate to cite this document as other than a work in
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -148,7 +148,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -293,8 +293,6 @@ h2, h3, h4, table {
 							Format Pattern Examples</a></li>
 					<li><a href="#Date_Field_Symbol_Table">Date Field Symbol
 							Table</a></li>
-					<li class="removed">Table: <a href="#Year_Length_Examples">Year Length
-							Examples</a></li>
 					<li>8.1 <a href="#Localized_Pattern_Characters">Localized
 							Pattern Characters (deprecated)</a></li>
 					<li>8.2 <a href="#Date_Patterns_AM_PM">AM / PM</a></li>
@@ -1470,19 +1468,19 @@ h2, h3, h4, table {
 			&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
 			&lt;!ELEMENT field ( alias | (displayName*, relative*, relativeTime*,
 			relativePeriod*, special*)) &gt;<br>
-			&lt;!ATTLIST field type ( era |<span class="changed"> era-short | era-narrow |</span>
+			&lt;!ATTLIST field type ( era | era-short | era-narrow |
 			year | year-short | year-narrow | quarter | quarter-short | quarter-narrow |
-			month | month-short | month-narrow | week | week-short | week-narrow |<span class="changed">
-			weekOfMonth | weekOfMonth-short | weekOfMonth-narrow |</span>
-			day | day-short | day-narrow |<span class="changed"> dayOfYear | dayOfYear-short | dayOfYear-narrow |</span>
-			weekday |<span class="changed"> weekday-short | weekday-narrow |
-			weekdayOfMonth | weekdayOfMonth-short | weekdayOfMonth-narrow |</span>
+			month | month-short | month-narrow | week | week-short | week-narrow |
+			weekOfMonth | weekOfMonth-short | weekOfMonth-narrow |
+			day | day-short | day-narrow | dayOfYear | dayOfYear-short | dayOfYear-narrow |
+			weekday | weekday-short | weekday-narrow |
+			weekdayOfMonth | weekdayOfMonth-short | weekdayOfMonth-narrow |
 			sun | sun-short | sun-narrow | mon | mon-short | mon-narrow |
 			tue | tue-short | tue-narrow | wed | wed-short | wed-narrow |
 			thu | thu-short | thu-narrow | fri | fri-short | fri-narrow |
-			sat | sat-short | sat-narrow | dayperiod |<span class="changed"> dayperiod-short | dayperiod-narrow  |</span>
+			sat | sat-short | sat-narrow | dayperiod | dayperiod-short | dayperiod-narrow  |
 			hour | hour-short | hour-narrow | minute | minute-short | minute-narrow |
-			second | second-short | second-narrow | zone <span class="changed">| zone-short | zone-narrow </span>) #IMPLIED &gt;
+			second | second-short | second-narrow | zone | zone-short | zone-narrow ) #IMPLIED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT relative (#PCDATA) &gt;<br> &lt;!ATTLIST relative
@@ -1823,18 +1821,18 @@ h2, h3, h4, table {
 			<tr>
 				<td width="10">weekOfYear</td>
 				<td width="20%">week 15 of 2016</td>
-				<td width="30%">&lt;dateFormatItem id='yw'<span class='changed'> count='one'&gt;</span>'week' w 'of' <span class="changed" style="text-align: center">Y&lt;…</span></td>
-				<td width="40%" rowspan="2" class='changed'>The <em>week of</em> construction  takes a <strong>count</strong> attribute, just in case the pattern changes depending on the numeric value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.)<br>In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction.</td>
+				<td width="30%">&lt;dateFormatItem id='yw' count='one'&gt;'week' w 'of' <span style="text-align: center">Y&lt;…</span></td>
+				<td width="40%" rowspan="2">The <em>week of</em> construction  takes a <strong>count</strong> attribute, just in case the pattern changes depending on the numeric value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.)<br>In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction.</td>
 			</tr>
 			<tr>
 				<td width="10%">weekOfMonth</td>
 				<td width="20%">week 2 of April<br>2nd week of April</td>
-				<td width="30%">&lt;dateFormatItem id='MMMMW''<span class='changed'> count='one'&gt;</span>'week' W 'of' MMM<span class='changed'>&lt;…</span></td>
+				<td width="30%">&lt;dateFormatItem id='MMMMW'' count='one'&gt;'week' W 'of' MMM&lt;…</td>
 			</tr>
 			<tr>
 				<td width="10%">weekOfDate</td>
 				<td width="20%">the week of April 11, 2016</td>
-				<td width="30%" rowspan="2">&lt;field type="week"&gt;&lt;relativePeriod<span class="changed">&gt;</span>the week of {0}<span class="changed">&lt;…</span></td>
+				<td width="30%" rowspan="2">&lt;field type="week"&gt;&lt;relativePeriod&gt;the week of {0}&lt;…</td>
 				<td width="40%" rowspan="2">The date pattern that replaces {0} is determined
 					separately and may use the first day or workday of the week,
 					the range of the full week or work week, etc.</td>
@@ -3383,40 +3381,30 @@ h2, h3, h4, table {
 				Format Patterns</a>
 		</h2>
 
-		<p>A date pattern is a <span class="changed">character string consisting
-			of two types of elements:</span></p>
+		<p>A date pattern is a character string consisting
+			of two types of elements:</p>
 		<ul>
-			<li><span class="changed"><em>Pattern fields</em>, which repeat a specific
-				<em>pattern character</em> one or more times. These fields</span> are
+			<li><em>Pattern fields</em>, which repeat a specific
+				<em>pattern character</em> one or more times. These fields are
 				replaced with date and time data from a calendar when formatting, or used
 				to generate data for a calendar when parsing. Currently, A..Z and a..z
 				are reserved for use as pattern characters (unless they are quoted, see 
 				next item). The pattern characters currently defined, and the meaning of
 				different fields lengths for then, are listed in the Date Field Symbol
 				Table below.</li>
-			<li><span class="changed">Literal text, which is output as-is when formatting,
-				and must closely match when parsing. Literal text can include:</span>
+			<li>Literal text, which is output as-is when formatting,
+				and must closely match when parsing. Literal text can include:
 				<ul>
-					<li class="changed">Any characters other than A..Z and a..z, including
+					<li>Any characters other than A..Z and a..z, including
 						spaces and punctuation.</li>
-					<li class="changed">Any text between single vertical quotes (&#39;xxxx&#39;),
+					<li>Any text between single vertical quotes (&#39;xxxx&#39;),
 						which may include A..Z and a..z as literal text.</li>
-					<li><span class="changed">Two adjacent single vertical quotes (&#39;&#39;),
-						which represent</span> a literal single quote, either inside or
-						outside <span class="changed">quoted text</span>.</li>
+					<li>Two adjacent single vertical quotes (&#39;&#39;),
+						which represent a literal single quote, either inside or
+						outside quoted text.</li>
 				</ul>
 			</li>
 		</ul>
-		<p class="removed">In patterns, two single quotes represents a literal single
-			quote, either inside or outside single quotes. Text within single
-			quotes is not interpreted in any way (except for two adjacent single
-			quotes). Otherwise all ASCII letters from a to z and A to Z are
-			reserved as syntax characters, and require quoting if they are to
-			represent literal characters. In addition, certain ASCII punctuation
-			characters may become variable in the future (for example,
-			&quot;:&quot; being interpreted as the time separator and &#39;/&#39;
-			as a date separator, and replaced by respective locale-sensitive
-			characters in display).</p>
 		<p>The following are examples:</p>
 		<table border="1" cellpadding="0" cellspacing="0"
 			style="border-style: solid; border-collapse: collapse">
@@ -3490,9 +3478,9 @@ h2, h3, h4, table {
 		</p>
 
 		<br>
-		<p class="changed"><strong>Pattern fields and the Date Field Symbol Table</strong></p>
+		<p><strong>Pattern fields and the Date Field Symbol Table</strong></p>
 
-		<p class="changed">The Date Field Symbol Table below shows the pattern
+		<p>The Date Field Symbol Table below shows the pattern
 			characters (Sym.) and associated fields used in date patterns. The length
 			of the pattern field is related to the length and style used to format the
 			data item. For numeric-only fields, the field length typically indicates the
@@ -3505,38 +3493,38 @@ h2, h3, h4, table {
 			may be more complex. Typically this is as follows:</p>
 
 		<table cellspacing="0" cellpadding="2" border="1">
-			<tr class="changed">
+			<tr>
 				<th>Pattern field<br>length</th>
 				<th>Typical style,<br>alphanumeric item</th>
 				<th>Typical style,<br>alpha-only item</th>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>1</td>
 				<td>Numeric, 1-2 digits (e.g. M)</td>
 				<td rowspan="3">Abbreviated (e.g. E, EE, EEE)</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>2</td>
 				<td>Numeric, 2 digits (e.g. MM)</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>3</td>
 				<td>Abbreviated (e.g. MMM)</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>4</td>
 				<td colspan="2">Wide / Long / Full (e.g. MMMM, EEEE)</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>5</td>
 				<td colspan="2">Narrow (e.g. MMMMM, EEEEE)<br>(The counter-intuitive use
 					of 5 letters for this is forced by backwards compatibility)</td>
 			</tr>
 		</table>
 
-		<p class="changed">Notes for the table below:</p>
+		<p>Notes for the table below:</p>
 		<ul>
-			<li>Any sequence of <span class="removed">syntax </span><span class="changed">pattern </span>characters
+			<li>Any sequence of pattern characters
 				other than those listed below is invalid. Invalid pattern fields
 				should be handled for formatting and parsing as described in
 				<a href="tr35.html#Invalid_Patterns">Handling Invalid Patterns</a>.</li>
@@ -3551,173 +3539,112 @@ h2, h3, h4, table {
 					Field Symbol Table</a>
 			</caption>
 			<tr>
-				<th>Field<br><span class="changed">Type</span></th>
+				<th>Field<br>Type</th>
 				<th style="text-align: center">Sym.</th>
-				<th style="text-align: center" class="changed">Field<br>Patterns</th>
-				<th>Example<span class="changed">s</span></th>
+				<th style="text-align: center">Field<br>Patterns</th>
+				<th>Examples</th>
 				<th colspan="2">Description</th>
 			</tr>
 			<tr>
 				<th rowspan="3" style="vertical-align: top; text-align: left"><a name='dfst-era' href='#dfst-era'>era</a>
                 </th>
 				<td style="text-align: center; vertical-align: top" rowspan="3">G</td>
-				<td style="text-align: center; vertical-align: top" class="changed">G..GGG</td>
+				<td style="text-align: center; vertical-align: top" >G..GGG</td>
 				<td style="vertical-align: top; text-align: left">AD<br>(variant: CE)</td>
-				<td class="changed" style="width:130px">Abbreviated</td>
+				<td style="width:130px">Abbreviated</td>
 				<td rowspan="3"
-					style="vertical-align: top; text-align: left">Era <span class="changed">name.</span>
-					Era string for the current date.<span class="removed"><br>One to three letters for
-					the abbreviated form, four letters for the long (wide) form, five
-					for the narrow form.</span></td>
+					style="vertical-align: top; text-align: left">Era name.
+					Era string for the current date.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">GGGG</td>
+				<td style="text-align: center; vertical-align: top">GGGG</td>
 				<td style="vertical-align: top; text-align: left">Anno Domini<br>
 					(variant: Common Era)</td>
-				<td class="changed">Wide</td>
+				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">GGGGG</td>
+				<td style="text-align: center; vertical-align: top">GGGGG</td>
 				<td style="vertical-align: top; text-align: left">A</td>
-				<td class="changed">Narrow</td>
+				<td>Narrow</td>
 			</tr>
 			<tr>
 				<th rowspan="15"><a name='dfst-year' href='#dfst-year'>year</a><a name="Year_Length_Examples"></a></th>
 				<td rowspan="5" style="text-align: center">y</td>
-				<td style="text-align: center" class="changed">y</td>
-				<td class="changed">2, 20, 201, 2017, 20173</td>
+				<td style="text-align: center" >y</td>
+				<td>2, 20, 201, 2017, 20173</td>
 				<td rowspan="5" colspan="2">
-					<span class="changed">Calendar year (numeric). In most cases the length of the y
+					Calendar year (numeric). In most cases the length of the y
 					field specifies the minimum number of digits to display, zero-padded as
 					necessary; more digits will be displayed if needed to show the full
 					year. However, “yy” requests just the two low-order digits of the year,
 					zero-padded as necessary. For most use cases, “y” or “yy” should be
-					adequate.</span><br><span class="removed">Examples:</span>
-					<div align="center">
-						<center>
-							<table border="0" cellpadding="2" cellspacing="0">
-								<caption class="removed">
-									<a href="#Year_Length_Examples">Year
-										Length Examples</a>
-								</caption>
-								<tr class="removed">
-									<th>Year</th>
-									<th style="text-align: right">y</th>
-									<th style="text-align: right">yy</th>
-									<th style="text-align: right">yyy</th>
-									<th style="text-align: right">yyyy</th>
-									<th style="text-align: right">yyyyy</th>
-								</tr>
-								<tr class="removed">
-									<td>AD 1</td>
-									<td style="text-align: right">1</td>
-									<td style="text-align: right">01</td>
-									<td style="text-align: right">001</td>
-									<td style="text-align: right">0001</td>
-									<td style="text-align: right">00001</td>
-								</tr>
-								<tr class="removed">
-									<td>AD 12</td>
-									<td style="text-align: right">12</td>
-									<td style="text-align: right">12</td>
-									<td style="text-align: right">012</td>
-									<td style="text-align: right">0012</td>
-									<td style="text-align: right">00012</td>
-								</tr>
-								<tr class="removed">
-									<td>AD 123</td>
-									<td style="text-align: right">123</td>
-									<td style="text-align: right">23</td>
-									<td style="text-align: right">123</td>
-									<td style="text-align: right">0123</td>
-									<td style="text-align: right">00123</td>
-								</tr>
-								<tr class="removed">
-									<td>AD 1234</td>
-									<td style="text-align: right">1234</td>
-									<td style="text-align: right">34</td>
-									<td style="text-align: right">1234</td>
-									<td style="text-align: right">1234</td>
-									<td style="text-align: right">01234</td>
-								</tr>
-								<tr class="removed">
-									<td>AD 12345</td>
-									<td style="text-align: right">12345</td>
-									<td style="text-align: right">45</td>
-									<td style="text-align: right">12345</td>
-									<td style="text-align: right">12345</td>
-									<td style="text-align: right">12345</td>
-								</tr>
-							</table>
-						</center>
-					</div>
-				</td>
+					adequate.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">yy</td>
-				<td class="changed">02, 20, 01, 17, 73</td>
+				<td style="text-align: center">yy</td>
+				<td>02, 20, 01, 17, 73</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">yyy</td>
-				<td class="changed">002, 020, 201, 2017, 20173</td>
+				<td style="text-align: center">yyy</td>
+				<td>002, 020, 201, 2017, 20173</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">yyyy</td>
-				<td class="changed">0002, 0020, 0201, 2017, 20173</td>
+				<td style="text-align: center">yyyy</td>
+				<td>0002, 0020, 0201, 2017, 20173</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">yyyyy+</td>
-				<td class="changed">...</td>
+				<td style="text-align: center">yyyyy+</td>
+				<td>...</td>
 			</tr>
 			<tr>
 				<td rowspan="5" style="text-align: center">Y</td>
-				<td style="text-align: center" class="changed">Y</td>
-				<td class="changed">2, 20, 201, 2017, 20173</td>
+				<td style="text-align: center">Y</td>
+				<td>2, 20, 201, 2017, 20173</td>
 				<td rowspan="5" colspan="2">Year in “Week of Year” based calendars
-					<span class="changed">in which the year transition occurs on a week
-					boundary; may differ from calendar year ‘y’ near a year transition.</span>
-					This numeric year designation is used <span class="changed">in conjunction with pattern
-					character ‘w’ in the</span> ISO year-week calendar as defined by ISO 8601,
+					in which the year transition occurs on a week
+					boundary; may differ from calendar year ‘y’ near a year transition.
+					This numeric year designation is used in conjunction with pattern
+					character ‘w’ in the ISO year-week calendar as defined by ISO 8601,
 					but can be used in non-Gregorian based calendar systems where week date
-					processing is desired. <span class="changed">The field length is interpreted
+					processing is desired. The field length is interpreted
 					in the same was as for ‘y’; that is, “yy” specifies use of the two
 					low-order year digits, while any other field length specifies a minimum
-					number of digits to display.</span></td>
+					number of digits to display.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">YY</td>
-				<td class="changed">02, 20, 01, 17, 73</td>
+				<td style="text-align: center">YY</td>
+				<td>02, 20, 01, 17, 73</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">YYY</td>
-				<td class="changed">002, 020, 201, 2017, 20173</td>
+				<td style="text-align: center">YYY</td>
+				<td>002, 020, 201, 2017, 20173</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">YYYY</td>
-				<td class="changed">0002, 0020, 0201, 2017, 20173</td>
+				<td style="text-align: center">YYYY</td>
+				<td>0002, 0020, 0201, 2017, 20173</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">YYYYY+</td>
-				<td class="changed">...</td>
+				<td style="text-align: center">YYYYY+</td>
+				<td>...</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">u</td>
-				<td style="text-align: center" class="changed">u+</td>
+				<td style="text-align: center">u+</td>
 				<td>4601</td>
-				<td colspan="2">Extended year<span class="changed"> (numeric)</span>. This
+				<td colspan="2">Extended year (numeric). This
 					is a single number designating the year of this calendar system,
 					encompassing all supra-year fields. For example, for the Julian calendar
 					system, year numbers are positive, with an era of BCE or CE. An extended
 					year value for the Julian calendar system assigns positive values
 					to CE years and negative values to BCE years, with 1 BCE being year
-					0.<span class="changed"> For ‘u’, all field lengths specify a minimum
-					number of digits; there is no special interpretation for “uu”.</span></td>
+					0. For ‘u’, all field lengths specify a minimum
+					number of digits; there is no special interpretation for “uu”.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top" rowspan="3">U</td>
-				<td style="text-align: center; vertical-align: top" class="changed">U..UUU</td>
+				<td style="text-align: center; vertical-align: top">U..UUU</td>
 				<td style="vertical-align: top; text-align: left">甲子</td>
-				<td class="changed">Abbreviated</td>
+				<td>Abbreviated</td>
 				<td rowspan="3"
 					style="vertical-align: top; text-align: left">Cyclic year
 					name. Calendars such as the Chinese lunar calendar (and related
@@ -3726,25 +3653,25 @@ h2, h3, h4, table {
 					year name data, or if the year value to be formatted is out of the
 					range of years for which cyclic name data is provided, then numeric
 					formatting is used (behaves like 'y').<br>
-					<span class="changed">Currently the data only provides abbreviated
-					names, which will be used for all requested name widths.</span>
+					Currently the data only provides abbreviated
+					names, which will be used for all requested name widths.
 					</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">UUUU</td>
-				<td style="vertical-align: top; text-align: left">甲子<span class="changed"> (for now)</span></td>
-				<td class="changed">Wide</td>
+				<td style="text-align: center; vertical-align: top">UUUU</td>
+				<td style="vertical-align: top; text-align: left">甲子 (for now)</td>
+				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">UUUUU</td>
-				<td style="vertical-align: top; text-align: left">甲子<span class="changed"> (for now)</span></td>
-				<td class="changed">Narrow</td>
+				<td style="text-align: center; vertical-align: top">UUUUU</td>
+				<td style="vertical-align: top; text-align: left">甲子 (for now)</td>
+				<td>Narrow</td>
 			</tr>
 			<tr>
 				<td>r</td>
-				<td style="text-align: center; vertical-align: top" class="changed">r+</td>
+				<td style="text-align: center; vertical-align: top">r+</td>
 				<td>2017</td>
-				<td colspan="2">Related Gregorian year<span class="changed"> (numeric)</span>.
+				<td colspan="2">Related Gregorian year (numeric).
 					For non-Gregorian calendars, this corresponds to the extended Gregorian
 					year in which the calendar’s year begins. Related Gregorian years are
 					often displayed, for example, when formatting dates in the Japanese
@@ -3755,143 +3682,129 @@ h2, h3, h4, table {
 					calendar’s year is linked to the solar year (perhaps using leap
 					months), then for that calendar the ‘r’ year will always be at a
 					fixed offset from the ‘u’ year. For the Gregorian calendar, the ‘r’
-					year is the same as the ‘u’ year.<span class="changed"> For ‘r’, all
+					year is the same as the ‘u’ year. For ‘r’, all
 					field lengths specify a minimum number of digits; there is no special
-					interpretation for “rr”.</span></td>
+					interpretation for “rr”.</td>
 			</tr>
 			<tr>
 				<th rowspan="10" style="vertical-align: top; text-align: left"><a name='dfst-quarter' href='#dfst-quarter'>quarter</a></th>
 				<td style="text-align: center; vertical-align: top" rowspan="5">Q</td>
-				<td style="text-align: center; vertical-align: top" class="changed">Q</td>
-				<td style="vertical-align: top; text-align: left" class="changed">2</td>
-				<td class="changed">Numeric: 1 digit</td>
-				<td rowspan="5">Quarter<span class="changed"> number/name.</span>
-					<span class="removed"><br>- Use one or two for the numerical quarter,
-					three for the abbreviation, four for the full (wide) name, or five for
-					the narrow name.</span></td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">QQ</td>
-				<td style="vertical-align: top; text-align: left">02</td>
-				<td class="changed">Numeric: 2 digits + zero pad</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">QQQ</td>
-				<td style="vertical-align: top; text-align: left">Q2</td>
-				<td class="changed">Abbreviated</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">QQQQ</td>
-				<td style="vertical-align: top; text-align: left">2nd quarter</td>
-				<td class="changed">Wide</td>
-			</tr>
-			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">QQQQQ</td>
+				<td style="text-align: center; vertical-align: top">Q</td>
 				<td style="vertical-align: top; text-align: left">2</td>
-				<td class="changed">Narrow</td>
+				<td>Numeric: 1 digit</td>
+				<td rowspan="5">Quarter number/name.</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top">QQ</td>
+				<td style="vertical-align: top; text-align: left">02</td>
+				<td>Numeric: 2 digits + zero pad</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top">QQQ</td>
+				<td style="vertical-align: top; text-align: left">Q2</td>
+				<td>Abbreviated</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top">QQQQ</td>
+				<td style="vertical-align: top; text-align: left">2nd quarter</td>
+				<td>Wide</td>
+			</tr>
+			<tr>
+				<td style="text-align: center; vertical-align: top">QQQQQ</td>
+				<td style="vertical-align: top; text-align: left">2</td>
+				<td>Narrow</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top" rowspan="5">q</td>
-				<td style="text-align: center; vertical-align: top" class="changed">q</td>
-				<td style="vertical-align: top; text-align: left" class="changed">2</td>
-				<td class="changed">Numeric: 1 digit</td>
+				<td style="text-align: center; vertical-align: top">q</td>
+				<td style="vertical-align: top; text-align: left">2</td>
+				<td>Numeric: 1 digit</td>
 				<td rowspan="5"
 					style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
-					Quarter<span class="changed"> number/name.</span>
-					<span class="removed"><br> - Use one or two for the numerical quarter,
-					three for the abbreviation, four for the full name, or five for the
-					narrow name.</span></td>
+					Quarter number/name.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">qq</td>
+				<td style="text-align: center; vertical-align: top">qq</td>
 				<td style="vertical-align: top; text-align: left">02</td>
-				<td class="changed">Numeric: 2 digits + zero pad</td>
+				<td>Numeric: 2 digits + zero pad</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">qqq</td>
+				<td style="text-align: center; vertical-align: top">qqq</td>
 				<td style="vertical-align: top; text-align: left">Q2</td>
-				<td class="changed">Abbreviated</td>
+				<td>Abbreviated</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">qqqq</td>
+				<td style="text-align: center; vertical-align: top">qqqq</td>
 				<td style="vertical-align: top; text-align: left">2nd quarter</td>
-				<td class="changed">Wide</td>
+				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">qqqqq</td>
+				<td style="text-align: center; vertical-align: top">qqqqq</td>
 				<td style="vertical-align: top; text-align: left">2</td>
-				<td class="changed">Narrow</td>
+				<td>Narrow</td>
 			</tr>
 			<tr>
 				<th rowspan="11" style="vertical-align: top; text-align: left"><a name='dfst-month' href='#dfst-month'>month</a></th>
 				<td rowspan="5" style="text-align: center; vertical-align: top">M</td>
-				<td style="text-align: center; vertical-align: top" class="changed">M</td>
-				<td style="vertical-align: top; text-align: left" class="changed">9, 12</td>
-				<td class="changed">Numeric: minimum digits</td>
+				<td style="text-align: center; vertical-align: top">M</td>
+				<td>9, 12</td>
+				<td>Numeric: minimum digits</td>
 				<td rowspan="5"
-					style="vertical-align: top; text-align: left">Month<span class="changed">
+					style="vertical-align: top; text-align: left">Month
 					number/name, format style (intended to be used in conjunction with ‘d’
-					for day number).</span>
-					<span class="removed"><br> - Use one or two for the numerical month,
-					three for the abbreviation, four for the full (wide) name, or five for
-					the narrow name. With two ("MM"), the month number is zero-padded if
-					necessary (e.g. "08").</span></td>
+					for day number).</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">MM</td>
-				<td style="vertical-align: top; text-align: left" class="changed">09, 12</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center; vertical-align: top">MM</td>
+				<td>09, 12</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">MMM</td>
+				<td style="text-align: center; vertical-align: top">MMM</td>
 				<td style="vertical-align: top; text-align: left">Sep</td>
-				<td class="changed">Abbreviated</td>
+				<td>Abbreviated</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">MMMM</td>
+				<td style="text-align: center; vertical-align: top">MMMM</td>
 				<td style="vertical-align: top; text-align: left">September</td>
-				<td class="changed">Wide</td>
+				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">MMMMM</td>
+				<td style="text-align: center; vertical-align: top">MMMMM</td>
 				<td style="vertical-align: top; text-align: left">S</td>
-				<td class="changed">Narrow</td>
+				<td>Narrow</td>
 			</tr>
 			<tr>
 				<td rowspan="5" style="text-align: center; vertical-align: top">L</td>
-				<td style="text-align: center; vertical-align: top" class="changed">L</td>
-				<td style="vertical-align: top; text-align: left" class="changed">9, 12</td>
-				<td class="changed">Numeric: minimum digits</td>
-				<td rowspan="5"><b>Stand-Alone</b> Month<span class="changed">
-					number/name (intended to be used without ‘d’ for day number).</span>
-					<span class="removed"><br> - Use one or two for the numerical month,
-					three for the abbreviation, four for the full (wide) name, or 5 for
-					the narrow name. With two ("LL"), the month number is zero-padded if
-					necessary (e.g. "08").</span></td>
+				<td style="text-align: center; vertical-align: top">L</td>
+				<td>9, 12</td>
+				<td>Numeric: minimum digits</td>
+				<td rowspan="5"><b>Stand-Alone</b> Month
+					number/name (intended to be used without ‘d’ for day number). </td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">LL</td>
-				<td style="vertical-align: top; text-align: left" class="changed">09, 12</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center; vertical-align: top">LL</td>
+				<td>09, 12</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">LLL</td>
+				<td style="text-align: center; vertical-align: top">LLL</td>
 				<td style="vertical-align: top; text-align: left">Sep</td>
-				<td class="changed">Abbreviated</td>
+				<td>Abbreviated</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">LLLL</td>
+				<td style="text-align: center; vertical-align: top">LLLL</td>
 				<td style="vertical-align: top; text-align: left">September</td>
-				<td class="changed">Wide</td>
+				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">LLLLL</td>
+				<td style="text-align: center; vertical-align: top">LLLLL</td>
 				<td style="vertical-align: top; text-align: left">S</td>
-				<td class="changed">Narrow</td>
+				<td>Narrow</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">l</td>
-				<td style="text-align: center" class="changed">l</td>
+				<td style="text-align: center">l</td>
 				<td>(nothing)</td>
 				<td colspan="2">This pattern character is deprecated, and
 					should be ignored in patterns. It was originally intended to be
@@ -3904,172 +3817,161 @@ h2, h3, h4, table {
 			<tr>
 				<th rowspan="3"><a name='dfst-week' href='#dfst-week'>week</a></th>
 				<td rowspan="2" style="text-align: center">w</td>
-				<td style="text-align: center" class="changed">w</td>
-				<td class="changed">8, 27</td>
-				<td class="changed">Numeric: minimum digits</td>
-				<td rowspan="2">Week of Year<span class="changed"> (numeric). When used in
-					a pattern with year, use ‘Y’ for the year field instead of ‘y’.</span>
-					<span class="removed"><br>Use "w" to show the minimum number of digits,
-					or "ww" to always show two digits (zero-padding if necessary, e.g. "08").</span></td>
+				<td style="text-align: center">w</td>
+				<td>8, 27</td>
+				<td>Numeric: minimum digits</td>
+				<td rowspan="2">Week of Year (numeric). When used in
+					a pattern with year, use ‘Y’ for the year field instead of ‘y’.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">ww</td>
-				<td style="vertical-align: top; text-align: left" class="changed">08, 27</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center; vertical-align: top">ww</td>
+				<td>08, 27</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">W</td>
-				<td style="text-align: center" class="changed">W</td>
+				<td style="text-align: center">W</td>
 				<td>3</td>
-				<td class="changed">Numeric: 1 digit</td>
-				<td >Week of Month<span class="changed"> (numeric)</span></td>
+				<td>Numeric: 1 digit</td>
+				<td >Week of Month (numeric)</td>
 			</tr>
 			<tr>
 				<th rowspan="5"><a name='dfst-day' href='#dfst-day'>day</a></th>
 				<td rowspan="2" style="text-align: center">d</td>
-				<td style="text-align: center" class="changed">d</td>
+				<td style="text-align: center">d</td>
 				<td>1</td>
-				<td class="changed">Numeric: minimum digits</td>
-				<td rowspan="2"><span class="removed">Date - </span>Day of month<span class="changed">
-					(numeric)</span>.<span class="removed"><br>Use "d" to show the
-					minimum number of digits, or "dd" to always show two digits
-					(zero-padding if necessary, e.g. "08").</span></td>
+				<td>Numeric: minimum digits</td>
+				<td rowspan="2">Day of month
+					(numeric).</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">dd</td>
-				<td class="changed">01</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center">dd</td>
+				<td>01</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">D</td>
-				<td style="text-align: center" class="changed">D...DDD</td>
+				<td style="text-align: center">D...DDD</td>
 				<td>345</td>
-				<td colspan="2">Day of year<span class="changed"> (numeric). The field
+				<td colspan="2">Day of year (numeric). The field
 					length specifies the minimum number of digits, with
-					zero-padding as necessary.</span></td>
+					zero-padding as necessary.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">F</td>
-				<td style="text-align: center" class="changed">F</td>
+				<td style="text-align: center">F</td>
 				<td>2</td>
-				<td colspan="2">Day of Week in Month<span class="changed"> (numeric)</span>.
+				<td colspan="2">Day of Week in Month (numeric).
 					The example is for the 2nd Wed in July</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">g</td>
-				<td style="text-align: center" class="changed">g+</td>
+				<td style="text-align: center">g+</td>
 				<td>2451334</td>
-				<td colspan="2">Modified Julian day<span class="changed"> (numeric)</span>.
+				<td colspan="2">Modified Julian day (numeric).
 					This is different from the conventional Julian day number in two regards.
 					First, it demarcates days at local zone midnight, rather than noon GMT.
 					Second, it is a local number; that is, it depends on the local time zone.
 					It can be thought of as a single number that encompasses all the
-					date-related fields.<span class="changed">The field length specifies the
-					minimum number of digits, with zero-padding as necessary.</span></td>
+					date-related fields.The field length specifies the
+					minimum number of digits, with zero-padding as necessary.</td>
 			</tr>
 			<tr>
 				<th rowspan="15" style="vertical-align: top; text-align: left"><a name='dfst-weekday' href='#dfst-weekday'>week<br>
 					day</a>
 				</th>
 				<td rowspan="4" style="text-align: center; vertical-align: top">E</td>
-				<td style="text-align: center; vertical-align: top" class="changed">E..EEE</td>
+				<td style="text-align: center; vertical-align: top">E..EEE</td>
 				<td style="vertical-align: top; text-align: left">Tue</td>
-				<td class="changed">Abbreviated</td>
-				<td rowspan="4">Day of week<span class="changed"> name, format style.</span><span class="removed"><br>
-					- Use one through three letters for the abbreviated day name, four for
-					the full (wide) name, five for the narrow name, or six for the short
-					name.</span></td>
+				<td>Abbreviated</td>
+				<td rowspan="4">Day of week name, format style.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">EEEE</td>
+				<td style="text-align: center; vertical-align: top">EEEE</td>
 				<td style="vertical-align: top; text-align: left">Tuesday</td>
-				<td class="changed">Wide</td>
+				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">EEEEE</td>
+				<td style="text-align: center; vertical-align: top">EEEEE</td>
 				<td style="vertical-align: top; text-align: left">T</td>
-				<td class="changed">Narrow</td>
+				<td>Narrow</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">EEEEEE</td>
+				<td style="text-align: center; vertical-align: top">EEEEEE</td>
 				<td style="vertical-align: top; text-align: left">Tu</td>
-				<td class="changed">Short</td>
+				<td>Short</td>
 			</tr>
 			<tr>
 				<td rowspan="6" style="text-align: center; vertical-align: top">e</td>
-				<td style="text-align: center; vertical-align: top" class="changed">e</td>
+				<td style="text-align: center; vertical-align: top">e</td>
 				<td style="vertical-align: top; text-align: left">2</td>
-				<td class="changed">Numeric: 1 digit</td>
+				<td>Numeric: 1 digit</td>
 				<td rowspan="6"
 					style="vertical-align: top; text-align: left">Local day of
-					week<span class="changed"> number/name, format style</span>.
+					week number/name, format style.
 					Same as E except adds a numeric value that will depend on the
-					local starting day of the week<span class="removed">, using one
-					or two letters</span>. For this example, Monday is the first day
+					local starting day of the week. For this example, Monday is the first day
 					of the week.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">ee</td>
-				<td style="vertical-align: top; text-align: left" class="changed">02</td>
-				<td class="changed">Numeric: 2 digits + zero pad</td>
+				<td style="text-align: center; vertical-align: top">ee</td>
+				<td>02</td>
+				<td>Numeric: 2 digits + zero pad</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">eee</td>
+				<td style="text-align: center; vertical-align: top">eee</td>
 				<td style="vertical-align: top; text-align: left">Tue</td>
-				<td class="changed">Abbreviated</td>
+				<td>Abbreviated</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">eeee</td>
+				<td style="text-align: center; vertical-align: top">eeee</td>
 				<td style="vertical-align: top; text-align: left">Tuesday</td>
-				<td class="changed">Wide</td>
+				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">eeeee</td>
+				<td style="text-align: center; vertical-align: top">eeeee</td>
 				<td style="vertical-align: top; text-align: left">T</td>
-				<td class="changed">Narrow</td>
+				<td>Narrow</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">eeeeee</td>
+				<td style="text-align: center; vertical-align: top">eeeeee</td>
 				<td style="vertical-align: top; text-align: left">Tu</td>
-				<td class="changed">Short</td>
+				<td>Short</td>
 			</tr>
 			<tr>
 				<td rowspan="5" style="text-align: center; vertical-align: top">c</td>
-				<td style="text-align: center; vertical-align: top" class="changed">c..cc</td>
+				<td style="text-align: center; vertical-align: top">c..cc</td>
 				<td style="vertical-align: top; text-align: left">2</td>
-				<td class="changed">Numeric: 1 digit</td>
+				<td>Numeric: 1 digit</td>
 				<td rowspan="5"><b>Stand-Alone</b> local day of
-					week<span class="changed"> number/name.</span><span class="removed"><br>
-					- Use one letter for the local numeric value (same as
-					&#39;e&#39;), three for the abbreviated day name, four for the full
-					(wide) name, five for the narrow name, or six for the short name.</span></td>
+					week number/name.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">ccc</td>
+				<td style="text-align: center; vertical-align: top">ccc</td>
 				<td style="vertical-align: top; text-align: left">Tue</td>
-				<td class="changed">Abbreviated</td>
+				<td>Abbreviated</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">cccc</td>
+				<td style="text-align: center; vertical-align: top">cccc</td>
 				<td style="vertical-align: top; text-align: left">Tuesday</td>
-				<td class="changed">Wide</td>
+				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">ccccc</td>
+				<td style="text-align: center; vertical-align: top">ccccc</td>
 				<td style="vertical-align: top; text-align: left">T</td>
-				<td class="changed">Narrow</td>
+				<td>Narrow</td>
 			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" class="changed">cccccc</td>
+				<td style="text-align: center; vertical-align: top">cccccc</td>
 				<td style="vertical-align: top; text-align: left">Tu</td>
-				<td class="changed">Short</td>
+				<td>Short</td>
 			</tr>
 			<tr>
 				<th rowspan="9"><a name='dfst-period' href='#dfst-period'>period</a></th>
 				<td rowspan="3" style="text-align: center">a</td>
-				<td style="text-align: center" class="changed">a..aaa</td>
+				<td style="text-align: center">a..aaa</td>
 				<td>12 <strong>am.</strong></td>
-				<td class="changed">Abbreviated</td>
+				<td>Abbreviated</td>
 				<td rowspan="3"><strong>AM, PM<br>
 				</strong>May be upper or lowercase depending on the locale and other options.
 					The wide form may be the same as the short form if the “real” long
@@ -4079,20 +3981,20 @@ h2, h3, h4, table {
 						Times</a>.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">aaaa</td>
+				<td style="text-align: center">aaaa</td>
 				<td>12 <strong>am.</strong></td>
 				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">aaaaa</td>
+				<td style="text-align: center">aaaaa</td>
 				<td>12<strong>a</strong></td>
 				<td>Narrow</td>
 			</tr>
 			<tr>
 				<td rowspan="3" style="text-align: center">b</td>
-				<td style="text-align: center" class="changed">b..bbb</td>
+				<td style="text-align: center">b..bbb</td>
 				<td>12 <strong>mid.</strong></td>
-				<td class="changed">Abbreviated</td>
+				<td>Abbreviated</td>
 				<td rowspan="3"><strong>am, pm, noon, midnight</strong><br>
 					May be upper or lowercase depending on the locale and other
 					options. If the locale doesn't the notion of a unique
@@ -4101,31 +4003,31 @@ h2, h3, h4, table {
 					narrow form must be unique, unlike some other fields.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">bbbb</td>
+				<td style="text-align: center">bbbb</td>
 				<td>12 <strong>midnight</strong></td>
 				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">bbbbb</td>
+				<td style="text-align: center">bbbbb</td>
 				<td>12 <strong>md</strong></td>
 				<td>Narrow</td>
 			</tr>
 			<tr>
 				<td rowspan="3" style="text-align: center">B</td>
-				<td style="text-align: center" class="changed">B..BBB</td>
+				<td style="text-align: center">B..BBB</td>
 				<td>3:00<strong> at night</strong></td>
-				<td class="changed">Abbreviated</td>
+				<td>Abbreviated</td>
 				<td rowspan="3"><strong>flexible day periods</strong><br>
 					May be upper or lowercase depending on the locale and other
 					options. Often there is only one width that is customarily used.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">BBBB</td>
+				<td style="text-align: center">BBBB</td>
 				<td>3:00<strong> at night</strong></td>
 				<td>Wide</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">BBBBB</td>
+				<td style="text-align: center">BBBBB</td>
 				<td>3:00<strong> at night</strong></td>
 				<td>Narrow</td>
 			</tr>
@@ -4133,69 +4035,65 @@ h2, h3, h4, table {
 			<tr>
 				<th rowspan="22"><a name='dfst-hour' href='#dfst-hour'>hour</a></th>
 				<td rowspan="2" style="text-align: center">h</td>
-				<td style="text-align: center" class="changed">h</td>
-				<td class="changed">1, 12</td>
-				<td class="changed">Numeric: minimum digits</td>
+				<td style="text-align: center">h</td>
+				<td>1, 12</td>
+				<td>Numeric: minimum digits</td>
 				<td rowspan="2">Hour [1-12]. When used in skeleton data or in a
 					skeleton passed in an API for flexible date pattern generation, it
 					should match the 12-hour-cycle format preferred by the locale (h or
-					K); it should not match a 24-hour-cycle format (H or k).<span class="removed"><br>
-					Use hh for zero padding.</span></td>
+					K); it should not match a 24-hour-cycle format (H or k).</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">hh</td>
-				<td class="changed">01, 12</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center">hh</td>
+				<td>01, 12</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
 				<td rowspan="2" style="text-align: center">H</td>
-				<td style="text-align: center" class="changed">H</td>
-				<td class="changed">0, 23</td>
-				<td class="changed">Numeric: minimum digits</td>
+				<td style="text-align: center">H</td>
+				<td>0, 23</td>
+				<td>Numeric: minimum digits</td>
 				<td rowspan="2">Hour [0-23]. When used in skeleton data or in a
 					skeleton passed in an API for flexible date pattern generation, it
 					should match the 24-hour-cycle format preferred by the locale (H or
-					k); it should not match a 12-hour-cycle format (h or K).<span class="removed"><br>
-					Use HH for zero padding.</span></td>
+					k); it should not match a 12-hour-cycle format (h or K).</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">HH</td>
-				<td class="changed">00, 23</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center">HH</td>
+				<td>00, 23</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
 				<td rowspan="2" style="text-align: center">K</td>
-				<td style="text-align: center" class="changed">K</td>
-				<td class="changed">0, 11</td>
-				<td class="changed">Numeric: minimum digits</td>
+				<td style="text-align: center">K</td>
+				<td>0, 11</td>
+				<td>Numeric: minimum digits</td>
 				<td rowspan="2">Hour [0-11]. When used in a skeleton, only
-					matches K or h, see above.<span class="removed"><br>
-					Use KK for zero padding.</span></td>
+					matches K or h, see above.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">KK</td>
-				<td class="changed">00, 11</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center">KK</td>
+				<td>00, 11</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
 				<td rowspan="2" style="text-align: center">k</td>
-				<td style="text-align: center" class="changed">k</td>
-				<td class="changed">1, 24</td>
-				<td class="changed">Numeric: minimum digits</td>
+				<td style="text-align: center">k</td>
+				<td>1, 24</td>
+				<td>Numeric: minimum digits</td>
 				<td rowspan="2">Hour [1-24]. When used in a skeleton, only
-					matches k or H, see above.<span class="removed"><br>
-					Use kk for zero padding.</span></td>
+					matches k or H, see above.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">kk</td>
-				<td class="changed">01, 24</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center">kk</td>
+				<td>01, 24</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
 				<td rowspan="6" style="text-align: center">j</td>
-				<td  style="text-align: center" class="changed">j</td>
-				<td class="changed">8<br>8 AM<br>13<br>1 PM</td>
-				<td class="changed">Numeric hour (minimum digits), abbreviated dayPeriod if used</td>
+				<td>j</td>
+				<td>8<br>8 AM<br>13<br>1 PM</td>
+				<td>Numeric hour (minimum digits), abbreviated dayPeriod if used</td>
 				<td rowspan="6"><em><strong>Input skeleton symbol</strong></em><br>
 					It must not occur in pattern or skeleton data. Instead, it is
 					reserved for use in skeletons passed to APIs doing flexible date
@@ -4209,35 +4107,35 @@ h2, h3, h4, table {
 					(12-hour or 24-hour).</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">jj</td>
-				<td class="changed">08<br>08 AM<br>13<br>01 PM</td>
-				<td class="changed">Numeric hour (2 digits, zero pad if needed), abbreviated dayPeriod if used</td>
+				<td style="text-align: center">jj</td>
+				<td>08<br>08 AM<br>13<br>01 PM</td>
+				<td>Numeric hour (2 digits, zero pad if needed), abbreviated dayPeriod if used</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">jjj</td>
-				<td class="changed">8<br>8 A.M.<br>13<br>1 P.M.</td>
-				<td class="changed">Numeric hour (minimum digits), wide dayPeriod if used</td>
+				<td style="text-align: center">jjj</td>
+				<td>8<br>8 A.M.<br>13<br>1 P.M.</td>
+				<td>Numeric hour (minimum digits), wide dayPeriod if used</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">jjjj</td>
-				<td class="changed">08<br>08 A.M.<br>13<br>01 P.M.</td>
-				<td class="changed">Numeric hour (2 digits, zero pad if needed), wide dayPeriod if used</td>
+				<td style="text-align: center">jjjj</td>
+				<td>08<br>08 A.M.<br>13<br>01 P.M.</td>
+				<td>Numeric hour (2 digits, zero pad if needed), wide dayPeriod if used</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">jjjjj</td>
-				<td class="changed">8<br>8a<br>13<br>1p</td>
-				<td class="changed">Numeric hour (minimum digits), narrow dayPeriod if used</td>
+				<td style="text-align: center">jjjjj</td>
+				<td>8<br>8a<br>13<br>1p</td>
+				<td>Numeric hour (minimum digits), narrow dayPeriod if used</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">jjjjjj</td>
-				<td class="changed">08<br>08a<br>13<br>01p</td>
-				<td class="changed">Numeric hour (2 digits, zero pad if needed), narrow dayPeriod if used</td>
+				<td style="text-align: center">jjjjjj</td>
+				<td>08<br>08a<br>13<br>01p</td>
+				<td>Numeric hour (2 digits, zero pad if needed), narrow dayPeriod if used</td>
 			</tr>
 			<tr>
 				<td rowspan="2" style="text-align: center">J</td>
-				<td style="text-align: center" class="changed">J</td>
-				<td  class="changed">8<br>8</td>
-				<td class="changed">Numeric hour (minimum digits)</td>
+				<td style="text-align: center">J</td>
+				<td>8<br>8</td>
+				<td>Numeric hour (minimum digits)</td>
 				<td rowspan="2"><em><strong>Input skeleton symbol</strong></em><br>
 					It must not occur in pattern or skeleton data. Instead, it is
 					reserved for use in skeletons passed to APIs doing flexible date
@@ -4245,21 +4143,21 @@ h2, h3, h4, table {
 					preferred hour format for the locale (h, H, K, or k), as determined by
 					the <strong>preferred</strong> attribute of the <strong>hours</strong>
 					element in supplemental data. However, unlike 'j', it requests no
-					<span class="changed">dayPeriod marker such as</span> “am/pm” (It is
+					dayPeriod marker such as “am/pm” (It is
 					typically used where there is enough context that that is not
 					necessary). For example, with "jmm", 18:00 could appear as “6:00 PM”,
 					while with "Jmm", it would appear as “6:00” (no PM).</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">JJ</td>
-				<td class="changed">08<br>08</td>
-				<td class="changed">Numeric hour (2 digits, zero pad if needed)</td>
+				<td style="text-align: center">JJ</td>
+				<td>08<br>08</td>
+				<td>Numeric hour (2 digits, zero pad if needed)</td>
 			</tr>
 			<tr>
 				<td rowspan="6" style="text-align: center">C</td>
-				<td style="text-align: center" class="changed">C</td>
-				<td class="changed">8<br>8 (morning)</td>
-				<td class="changed">Numeric hour (minimum digits), abbreviated dayPeriod if used</td>
+				<td style="text-align: center">C</td>
+				<td>8<br>8 (morning)</td>
+				<td>Numeric hour (minimum digits), abbreviated dayPeriod if used</td>
 				<td rowspan="6"><em><strong>Input skeleton symbol</strong></em><br>
 					It must not occur in pattern or skeleton data. Instead, it is
 					reserved for use in skeletons passed to APIs doing flexible date
@@ -4274,93 +4172,91 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">CC</td>
-				<td class="changed">08<br>08 (morning)</td>
-				<td class="changed">Numeric hour (2 digits, zero pad if needed), abbreviated dayPeriod if used</td>
+				<td style="text-align: center">CC</td>
+				<td>08<br>08 (morning)</td>
+				<td>Numeric hour (2 digits, zero pad if needed), abbreviated dayPeriod if used</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">CCC</td>
-				<td class="changed">8<br>8 in the morning</td>
-				<td class="changed">Numeric hour (minimum digits), wide dayPeriod if used</td>
+				<td style="text-align: center">CCC</td>
+				<td>8<br>8 in the morning</td>
+				<td>Numeric hour (minimum digits), wide dayPeriod if used</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">CCCC</td>
-				<td class="changed">08<br>08 in the morning</td>
-				<td class="changed">Numeric hour (2 digits, zero pad if needed), wide dayPeriod if used</td>
+				<td style="text-align: center">CCCC</td>
+				<td>08<br>08 in the morning</td>
+				<td>Numeric hour (2 digits, zero pad if needed), wide dayPeriod if used</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">CCCCC</td>
-				<td class="changed">8<br>8 (morn.)</td>
-				<td class="changed">Numeric hour (minimum digits), narrow dayPeriod if used</td>
+				<td style="text-align: center">CCCCC</td>
+				<td>8<br>8 (morn.)</td>
+				<td>Numeric hour (minimum digits), narrow dayPeriod if used</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">CCCCCC</td>
-				<td class="changed">08<br>08 (morn.)</td>
-				<td class="changed">Numeric hour (2 digits, zero pad if needed), narrow dayPeriod if used</td>
+				<td style="text-align: center">CCCCCC</td>
+				<td>08<br>08 (morn.)</td>
+				<td>Numeric hour (2 digits, zero pad if needed), narrow dayPeriod if used</td>
 			</tr>
 
 			<tr>
 				<th rowspan="2"><a name='dfst-minute' href='#dfst-minute'>minute</a></th>
 				<td rowspan="2" style="text-align: center">m</td>
-				<td style="text-align: center" class="changed">m</td>
-				<td class="changed">8, 59</td>
-				<td class="changed">Numeric: minimum digits</td>
-				<td rowspan="2">Minute<span class="changed"> (numeric). Truncated, not
-					rounded</span>.<span class="removed"><br>
-					Use "m" to show the minimum number of digits, or "mm" to always show
-					two digits (zero-padding if necessary, e.g. "08").</span></td>
+				<td style="text-align: center">m</td>
+				<td>8, 59</td>
+				<td>Numeric: minimum digits</td>
+				<td rowspan="2">Minute (numeric). Truncated, not
+					rounded.<br>
+					</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">mm</td>
-				<td class="changed">08, 59</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center">mm</td>
+				<td>08, 59</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
 				<th rowspan="4"><a name='dfst-second' href='#dfst-second'>second</a></th>
 				<td rowspan="2" style="text-align: center">s</td>
-				<td style="text-align: center" class="changed">s</td>
-				<td class="changed">8, 12</td>
-				<td class="changed">Numeric: minimum digits</td>
-				<td rowspan="2">Second<span class="changed"> (numeric). Truncated, not
-					rounded</span>.<span class="removed"><br>
-					Use "s" to show the minimum number of digits, or "ss" to always show
-					two digits (zero-padding if necessary, e.g. "08").</span></td>
+				<td style="text-align: center">s</td>
+				<td>8, 12</td>
+				<td>Numeric: minimum digits</td>
+				<td rowspan="2">Second (numeric). Truncated, not
+					rounded.<br>
+					</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">ss</td>
-				<td class="changed">08, 12</td>
-				<td class="changed">Numeric: 2 digits, zero pad if needed</td>
+				<td style="text-align: center">ss</td>
+				<td>08, 12</td>
+				<td>Numeric: 2 digits, zero pad if needed</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">S</td>
-				<td style="text-align: center" class="changed">S+</td>
+				<td style="text-align: center">S+</td>
 				<td>3456</td>
-				<td colspan="2">Fractional Second<span class="changed"> (numeric).
-					T</span>runcates, like other <span class="changed">numeric </span>time
-					fields<span class="changed">, but in this case to the number of digits
-					specified by the field length</span>. (Example shows display using
+				<td colspan="2">Fractional Second (numeric).
+					Truncates, like other numeric time
+					fields, but in this case to the number of digits
+					specified by the field length. (Example shows display using
 					pattern SSSS for seconds value 12.34567)</td>
 			</tr>
 			<tr>
 				<td style="text-align: center">A</td>
-				<td style="text-align: center" class="changed">A+</td>
+				<td style="text-align: center">A+</td>
 				<td>69540000</td>
-				<td colspan="2">Milliseconds in day<span class="changed"> (numeric)</span>.
+				<td colspan="2">Milliseconds in day (numeric).
 					This field behaves <i>exactly</i> like a composite of all
 					time-related fields, not including the zone fields. As such,
 					it also reflects discontinuities of those fields on DST
 					transition days. On a day of DST onset, it will jump
 					forward. On a day of DST cessation, it will jump backward. This
 					reflects the fact that is must be combined with the offset field to
-					obtain a unique local time value.<span class="changed"> The field
+					obtain a unique local time value. The field
 					length specifies the minimum number of digits, with zero-padding as
-					necessary.</span>
+					necessary.
 				</td>
 			</tr>
 			<tr>
 				<th><a name='dfst-sep' href='#dfst-sep'>sep.</a></th>
 				<td>(none def., see note)</td>
-				<td style="text-align: center"><span class="removed">1</span></td>
+				<td style="text-align: center"></td>
 				<td></td>
 				<td colspan="2">Time separator. Like the use of "," in number
 					formats, this character in a date pattern is replaced with the
@@ -4380,7 +4276,7 @@ h2, h3, h4, table {
 			<tr>
 				<th rowspan="23"><a name='dfst-zone' href='#dfst-zone'>zone</a></th>
 				<td rowspan="2" style="text-align: center">z</td>
-				<td style="text-align: center" class="changed">z..zzz</td>
+				<td style="text-align: center">z..zzz</td>
 				<td>PDT</td>
 				<td colspan="2">The <i>short specific non-location format</i>.
 					Where that is unavailable, falls back to the <i>short localized
@@ -4388,7 +4284,7 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">zzzz</td>
+				<td style="text-align: center">zzzz</td>
 				<td>Pacific Daylight Time</td>
 				<td colspan="2">The <i>long specific non-location format</i>.
 					Where that is unavailable, falls back to the <i>long localized
@@ -4397,7 +4293,7 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td rowspan="3" style="text-align: center">Z</td>
-				<td style="text-align: center" class="changed">Z..ZZZ</td>
+				<td style="text-align: center">Z..ZZZ</td>
 				<td>-0800</td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours,
 					minutes and optional seconds fields. The format is equivalent to
@@ -4406,14 +4302,14 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">ZZZZ</td>
+				<td style="text-align: center">ZZZZ</td>
 				<td>GMT-8:00</td>
 				<td colspan="2">The <i>long localized GMT format</i>. This is
 					equivalent to the "OOOO" specifier.
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">ZZZZZ</td>
+				<td style="text-align: center">ZZZZZ</td>
 				<td>-08:00<br> -07:52:58
 				</td>
 				<td colspan="2">The <i>ISO8601 extended format</i> with hours,
@@ -4424,20 +4320,20 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td rowspan="2" style="text-align: center">O</td>
-				<td style="text-align: center" class="changed">O</td>
+				<td style="text-align: center">O</td>
 				<td>GMT-8</td>
 				<td colspan="2">The <i>short localized GMT format</i>.
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">OOOO</td>
+				<td style="text-align: center">OOOO</td>
 				<td>GMT-08:00</td>
 				<td colspan="2">The <i>long localized GMT format</i>.
 				</td>
 			</tr>
 			<tr>
 				<td rowspan="2" style="text-align: center">v</td>
-				<td style="text-align: center" class="changed">v</td>
+				<td style="text-align: center">v</td>
 				<td>PT</td>
 				<td colspan="2">The <i>short generic non-location format</i>.
 					Where that is unavailable, falls back to the <i>generic
@@ -4446,7 +4342,7 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">vvvv</td>
+				<td style="text-align: center">vvvv</td>
 				<td>Pacific Time</td>
 				<td colspan="2">The <i>long generic non-location format</i>.
 					Where that is unavailable, falls back to <i>generic location
@@ -4456,7 +4352,7 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td rowspan="4" style="text-align: center">V</td>
-				<td style="text-align: center" class="changed">V</td>
+				<td style="text-align: center">V</td>
 				<td>uslax</td>
 				<td colspan="2">The short time zone ID. Where that is
 					unavailable, the special short time zone ID <i>unk</i> (Unknown
@@ -4468,12 +4364,12 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">VV</td>
+				<td style="text-align: center">VV</td>
 				<td>America/Los_Angeles</td>
 				<td colspan="2">The long time zone ID.</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">VVV</td>
+				<td style="text-align: center">VVV</td>
 				<td>Los Angeles</td>
 				<td colspan="2">The exemplar city (location) for the time zone.
 					Where that is unavailable, the localized exemplar city name for the
@@ -4482,7 +4378,7 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">VVVV</td>
+				<td style="text-align: center">VVVV</td>
 				<td>Los Angeles Time</td>
 				<td colspan="2">The <i>generic location format</i>. Where that
 					is unavailable, falls back to the <i>long localized GMT format</i>
@@ -4494,7 +4390,7 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td rowspan="5" style="text-align: center">X</td>
-				<td style="text-align: center" class="changed">X</td>
+				<td style="text-align: center">X</td>
 				<td>-08<br> +0530<br> Z
 				</td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours
@@ -4503,7 +4399,7 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">XX</td>
+				<td style="text-align: center">XX</td>
 				<td>-0800<br> Z
 				</td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours and
@@ -4512,7 +4408,7 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">XXX</td>
+				<td style="text-align: center">XXX</td>
 				<td>-08:00<br> Z
 				</td>
 				<td colspan="2">The <i>ISO8601 extended format</i> with hours
@@ -4521,7 +4417,7 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">XXXX</td>
+				<td style="text-align: center">XXXX</td>
 				<td>-0800<br> -075258<br> Z
 				</td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours,
@@ -4531,7 +4427,7 @@ h2, h3, h4, table {
 						ISO8601 specification.</i></td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">XXXXX</td>
+				<td style="text-align: center">XXXXX</td>
 				<td>-08:00<br> -07:52:58<br> Z
 				</td>
 				<td colspan="2">The <i>ISO8601 extended format</i> with hours,
@@ -4542,7 +4438,7 @@ h2, h3, h4, table {
 			</tr>
 			<tr>
 				<td rowspan="5" style="text-align: center">x</td>
-				<td style="text-align: center" class="changed">x</td>
+				<td style="text-align: center">x</td>
 				<td>-08<br>+0530<br>+00
 				</td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours
@@ -4550,7 +4446,7 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">xx</td>
+				<td style="text-align: center">xx</td>
 				<td>-0800<br>+0000
 				</td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours and
@@ -4558,7 +4454,7 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">xxx</td>
+				<td style="text-align: center">xxx</td>
 				<td>-08:00<br>+00:00
 				</td>
 				<td colspan="2">The <i>ISO8601 extended format</i> with hours
@@ -4566,7 +4462,7 @@ h2, h3, h4, table {
 				</td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">xxxx</td>
+				<td style="text-align: center">xxxx</td>
 				<td>-0800<br>-075258<br>+0000
 				</td>
 				<td colspan="2">The <i>ISO8601 basic format</i> with hours,
@@ -4575,7 +4471,7 @@ h2, h3, h4, table {
 						ISO8601 specification.</i></td>
 			</tr>
 			<tr>
-				<td style="text-align: center" class="changed">xxxxx</td>
+				<td style="text-align: center">xxxxx</td>
 				<td>-08:00<br>-07:52:58<br>+00:00
 				</td>
 				<td colspan="2">The <i>ISO8601 extended format</i> with hours,
@@ -4766,7 +4662,7 @@ h2, h3, h4, table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–<span class="changed">2017 </span>Unicode, Inc. All
+			Copyright © 2001–2017 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

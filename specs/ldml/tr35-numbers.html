@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">31</td>
+				<td>31</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,18 +130,18 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
-			<i class="changed">This is a<b><font color="#ff3333">
-						draft </font></b>document which may be updated, replaced, or superseded by
+				<i class="changed">This is a<b><font color="#ff3333">
+				draft </font></b>document which may be updated, replaced, or superseded by
 				other documents at any time. Publication does not imply endorsement
 				by the Unicode Consortium. This is not a stable document; it is
 				inappropriate to cite this document as other than a work in
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -220,7 +220,7 @@ h2, h3, h4, table {
 					</li>
 					<li>2.5 <a href="#Miscellaneous_Patterns">Miscellaneous
 							Patterns</a></li>
-				  <li class='changed'>2.6 <a href="#Minimal_Pairs">Minimal Pairs</a></li>
+				  <li>2.6 <a href="#Minimal_Pairs">Minimal Pairs</a></li>
 				</ul>
 			</li>
 			<li>3 <a href="#Number_Format_Patterns">Number Format
@@ -373,7 +373,7 @@ h2, h3, h4, table {
 			<a name="Number_Elements" href="#Number_Elements">2 Number
 				Elements</a>
 		</h2>
-		<p class="dtd">&lt;!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*,<span class='changed'> minimalPairs*,</span> special* ) ) &gt;</p>
+		<p class="dtd">&lt;!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, minimalPairs*, special* ) ) &gt;</p>
 		<p>
 			The numbers element supplies information for formatting and parsing
 			numbers and currencies. It has the following sub-elements:
@@ -737,8 +737,8 @@ h2, h3, h4, table {
 		such as the following:
 		<pre>
 &lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		…<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>		…<br>	&lt;/decimalFormat&gt;
-<span class='changed'>…
-&lt;currencyFormatLength type=&quot;short&quot;&gt;<br>	&lt;currencyFormat type=&quot;standard&quot;&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M ¤&lt;/pattern&gt;</span></pre>
+…
+&lt;currencyFormatLength type=&quot;short&quot;&gt;<br>	&lt;currencyFormat type=&quot;standard&quot;&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M ¤&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M ¤&lt;/pattern&gt;</pre>
 		<p>Formats can be supplied for numbers (as above)
 			or for currencies or other units. They can also be used with ranges
 			of numbers, resulting in formatting strings like “$10K” or “$3–7M”.</p>
@@ -747,20 +747,20 @@ h2, h3, h4, table {
 			type, after removing the number of zeros in the pattern, less 1. APIs
 			supporting this format should provide control over the number of
 			significant or fraction digits.</p>
-		<p class='changed'>The default pattern for any type that is not supplied is the special value “0”, as in the following. The value “0” must be used when a child locale overrides a parent locale to drop the compact pattern for that type and use the default pattern.</p>
-      <p class='changed'><code>        &lt;pattern type=&quot;1&quot; count=&quot;one&quot;&gt;0&lt;/pattern&gt;</code></p>
-		<p>If the value is precisely <span class="changed">“0”</span>, <span class='changed'>either explicit or defaulted</span>, then the normal number format pattern for that sort
-			of object is supplied<span class='changed'> — either &lt;decimalFormat&gt; or &lt;currencyFormat type=&quot;standard&quot;&gt; — with the normal formatting for the locale (such as the grouping separators). However, for the “0” case by default the signficant digits are adjusted for consistency, typically to 2 or 3 digits, and the maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.</span>		</p>
+		<p>The default pattern for any type that is not supplied is the special value “0”, as in the following. The value “0” must be used when a child locale overrides a parent locale to drop the compact pattern for that type and use the default pattern.</p>
+      <p><code>        &lt;pattern type=&quot;1&quot; count=&quot;one&quot;&gt;0&lt;/pattern&gt;</code></p>
+		<p>If the value is precisely “0”, either explicit or defaulted, then the normal number format pattern for that sort
+			of object is supplied — either &lt;decimalFormat&gt; or &lt;currencyFormat type=&quot;standard&quot;&gt; — with the normal formatting for the locale (such as the grouping separators). However, for the “0” case by default the signficant digits are adjusted for consistency, typically to 2 or 3 digits, and the maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.		</p>
 		<p>
-			<span class="changed">With the data above, </span> N=12345 matches <code>&lt;pattern type=&quot;10000&quot;
+			With the data above, N=12345 matches <code>&lt;pattern type=&quot;10000&quot;
 				count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;</code>
 			. N is divided by 1000 (obtained from10000 after removing
 			&quot;00&quot; and restoring one &quot;0&quot;. The result is
 			formatted according to the normal decimal pattern. With no fractional
 			digits, that yields &quot;12 K&quot;.
 		</p>
-		<p>Formatting 1200 <span class='changed'>in USD</span> would result in
-			“1.2<span class='changed'> K $</span>”, while 990 <span class='changed'>implicitly maps to the special value “0”, which maps to &lt;currencyFormat type=&quot;standard&quot;&gt;&lt;pattern&gt;#,##0.00 ¤&lt;/pattern&gt;, and </span>would result in simply “990<span class="changed"> $</span>”.</p>
+		<p>Formatting 1200 in USD would result in
+			“1.2 K $”, while 990 implicitly maps to the special value “0”, which maps to &lt;currencyFormat type=&quot;standard&quot;&gt;&lt;pattern&gt;#,##0.00 ¤&lt;/pattern&gt;, and would result in simply “990 $”.</p>
 		<p>The short format is designed for UI environments where space is
 			at a premium, and should ideally result in a formatted string no more
 			than about 6 em wide (with no fractional digits).</p>
@@ -840,7 +840,6 @@ h2, h3, h4, table {
 				&lt;/miscPatterns&gt;
 			</code>
 		</p>
-	  	<div class='changed'>
   <h3>
 		2.6 <a name="Minimal_Pairs" href="#Minimal_Pairs">Minimal Pairs</a></h3>
 	  <p class="dtd">&lt;!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, special* ) ) &gt;
@@ -855,7 +854,7 @@ h2, h3, h4, table {
 	    &lt;!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED &gt; <br>
 	    &lt;!ATTLIST ordinalMinimalPairs alt NMTOKENS #IMPLIED &gt; <br>
 	    &lt;!ATTLIST ordinalMinimalPairs draft (approved | contributed | provisional | unconfirmed) #IMPLIED &gt;</p>
-      <p>Minimal pairs provide examples that justify why multiple plural or ordinal categories exist. For more information, see <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural Rules</a>.</p></div>
+      <p>Minimal pairs provide examples that justify why multiple plural or ordinal categories exist. For more information, see <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural Rules</a>.</p>
       <h2>
 			<a name="Number_Format_Patterns" href="#Number_Format_Patterns">3
 				Number Format Patterns</a>
@@ -1027,7 +1026,7 @@ h2, h3, h4, table {
 					<td>-</td>
 					<td>Number</td>
 					<td>minusSign</td>
-					<td colspan="2">Minus sign. <span class='changed'><strong>Warning: </strong>the pattern '-'0.0 is not the same as the pattern -0.0. In the former case, the minus sign is a literal. In the latter case, it is a special symbol, which is replaced by the minusSymbol, and can also be replaced by the plusSymbol for a format like +12% as in Section 3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a>.</span></td>
+					<td colspan="2">Minus sign. <strong>Warning: </strong>the pattern '-'0.0 is not the same as the pattern -0.0. In the former case, the minus sign is a literal. In the latter case, it is a special symbol, which is replaced by the minusSymbol, and can also be replaced by the plusSymbol for a format like +12% as in Section 3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a>.</td>
 				</tr>
 				<tr valign="top">
 					<td>,</td>
@@ -2846,7 +2845,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001–<span class="changed">2017</span> Unicode, Inc. All
+			Copyright © 2001–2017 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

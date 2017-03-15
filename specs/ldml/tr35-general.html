@@ -83,7 +83,7 @@ h2, h3, h4, table {
 	</table>
 	<div class="body">
 		<h2 style="text-align: center">
-			<span class="changed">Proposed Update </span>Unicode Technical
+			Unicode Technical
 			Standard #35
 		</h2>
 		<h1 style="text-align: center">
@@ -94,7 +94,7 @@ h2, h3, h4, table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td class="changed">31</td>
+				<td>31</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -130,18 +130,18 @@ h2, h3, h4, table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
-			<i class="changed">This is a<b><font color="#ff3333">
-						draft </font></b>document which may be updated, replaced, or superseded by
+				<i class="changed">This is a<b><font color="#ff3333">
+				draft </font></b>document which may be updated, replaced, or superseded by
 				other documents at any time. Publication does not imply endorsement
 				by the Unicode Consortium. This is not a stable document; it is
 				inappropriate to cite this document as other than a work in
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
 		<p>
 			<i>This document has been reviewed by Unicode members and other
 				interested parties, and has been approved for publication by the
@@ -149,7 +149,7 @@ h2, h3, h4, table {
 				reference material or cited as a normative reference by other
 				specifications.</i>
 		</p>
-		 END APPROVED -->
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -217,7 +217,7 @@ h2, h3, h4, table {
 					<li>3.3 <a href="#IndexLabels">Index Labels</a></li>
 					<li>3.4 <a href="#Ellipsis">Ellipsis</a></li>
 					<li>3.5 <a href="#Character_More_Info">More Information</a></li>
-					<li class="changed">3.6 <a href="#Character_Parse_Lenient">Parse Lenient</a></li>
+					<li>3.6 <a href="#Character_Parse_Lenient">Parse Lenient</a></li>
 				</ul>
 			</li>
 			<li>4 <a href="#Delimiter_Elements">Delimiter Elements</a></li>
@@ -293,8 +293,8 @@ h2, h3, h4, table {
 			<li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
 			<li>14 <a href="#Annotations">Annotations and Labels</a>
 			  <ul class="toc">
-			    <li class='changed'>14.1 <a href="#SynthesizingNames">Synthesizing Sequence Names</a></li>
-			    <li class='changed'>14.2 <a href="#Character_Labels">Annotations Character Labels</a></li>
+			    <li>14.1 <a href="#SynthesizingNames">Synthesizing Sequence Names</a></li>
+			    <li>14.2 <a href="#Character_Labels">Annotations Character Labels</a></li>
 		      </ul>
 			</li>
 		</ul>
@@ -776,7 +776,7 @@ h2, h3, h4, table {
 		</h2>
 
 
-		<p class="dtd">&lt;!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, <span class='changed'>parseLenients*, </span>special* ) ) &gt;</p>
+		<p class="dtd">&lt;!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, parseLenients*, special* ) ) &gt;</p>
 		<p>
 			The &lt;characters&gt; element provides optional information about
 			characters that are in common use in the locale, and information that
@@ -1136,7 +1136,7 @@ h2, h3, h4, table {
 			interface to indicate that more information is available. For
 			example:</p>
 		<p>&lt;moreInformation&gt;?&lt;/moreInformation&gt;</p>
-		<div class='changed'><h3> 3.6 <a name="Character_Parse_Lenient" href="#Character_Parse_Lenient">Parse Lenient</a> </h3>
+		<h3> 3.6 <a name="Character_Parse_Lenient" href="#Character_Parse_Lenient">Parse Lenient</a> </h3>
 		  <p  class='dtd'>&lt;!ELEMENT parseLenients ( alias | ( parseLenient*, special* ) ) &gt;<br>
 		    &lt;!ATTLIST parseLenients scope (general | number | date) #REQUIRED &gt;<br>
 		    &lt;!ATTLIST parseLenients level (lenient | stricter) #REQUIRED &gt;</p>
@@ -1152,7 +1152,7 @@ h2, h3, h4, table {
 &lt;/parseLenients&gt;</pre>
 <p>The parseLenient elements are used to indicate that characters within a particular UnicodeSet are normally to be treated as equivalent when doing a lenient parse. The <strong>scope</strong> attribute value defines where the lenient sets are intended for use. The <strong>level</strong> attribute value is included for future expansion; currently the only value is &quot;lenient&quot;.</p>
 <p>The <strong>sample</strong> attribute value is a paradigm element of that UnicodeSet, but the only reason for pulling it out separately is so that different classes of characters are separated, and to enable inheritance overriding. The first version of this data is populated with the data used for lenient parsing from ICU.</p>
-	  </div>
+
 		<h2>
 			4 <a name="Delimiter_Elements" href="#Delimiter_Elements">Delimiter
 				Elements</a>
@@ -1777,7 +1777,7 @@ h2, h3, h4, table {
 				<td>mile-scandinavian</td>
 				<td>{0} smi</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><em>length</em></td>
 				<td>point</td>
 				<td>{0} pt</td>
@@ -4095,7 +4095,7 @@ h2, h3, h4, table {
 			used in input. For example, on a mobile keyboard they can be used to
 			do completion. They are typically used for symbols, especially emoji
 			characters.  </p>
-		<p class='changed'>For more information, see version 5.0 or <a href="http://unicode.org/reports/tr51/">UTR #51, Unicode Emoji</a>. (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)<br>
+		<p>For more information, see version 5.0 or <a href="http://unicode.org/reports/tr51/">UTR #51, Unicode Emoji</a>. (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)<br>
 		</p>
 
 		<p class="dtd">&lt;!ELEMENT annotations ( annotation* ) &gt;</p>
@@ -4137,11 +4137,11 @@ h2, h3, h4, table {
 		  <li>If  <strong>sequence</strong> is an <strong>emoji flag sequence</strong>, look up the territory name in CLDR for the
 		  		corresponding ASCII characters and return as the short name. For example, the regional
 		  		indicator symbols P+F would map to “Französisch-Polynesien” in German.</li>
-		  <li class='changed'>If <strong>sequence</strong> is an <strong>emoji tag sequence</strong>, look up the subdivision name in CLDR for the
+		  <li>If <strong>sequence</strong> is an <strong>emoji tag sequence</strong>, look up the subdivision name in CLDR for the
 		  		corresponding ASCII characters and return as the short name. For example, the TAG characters gbsct would map to “Schottland” in German.</li>
 		  <li>If  <strong>sequence</strong> is a keycap sequence or 🔟, use the characterLabel for &quot;keycap&quot;
 		  		as the <strong>prefixName</strong> and  set the <strong>suffix</strong> to be the sequence (or &quot;10&quot; in the case of 🔟), then go to step 8.</li>
-		  <li>Let<strong> suffix</strong> and <span class='changed'><strong>prefixName</strong></span> be &quot;&quot;.</li>
+		  <li>Let<strong> suffix</strong> and <strong>prefixName</strong> be &quot;&quot;.</li>
 		  <li>If  <strong>sequence</strong> contains any emoji modifiers, move them (in order) into <strong>suffix</strong>, removing them from  <strong>sequence</strong>.		  </li>
 		  <li>If  <strong>sequence</strong> is a &quot;KISS&quot;, &quot;HEART&quot; or &quot;FAMILY&quot; emoji
 		  		ZWJ sequence, move the characters in  <strong>sequence</strong> to the front of <strong>suffix</strong>, and set the <strong>sequence</strong> to be  &quot;💏&quot;, &quot;💑&quot;, or &quot;👪&quot;
@@ -4153,15 +4153,15 @@ h2, h3, h4, table {
 		      		Nothing is skipped in  moving to <strong>suffix</strong>, except ZWJ.</li>
 	        </ol>
 		  </li>
-		  <li>If   <strong>sequence</strong> ends with ♂ or ♀, and does not have a name, remove the ♂ or ♀  and move <span class='changed'>the name for</span> &quot;👨&quot; or
-	      &quot;👩&quot; respectively to <span class='changed'>the start of<strong> prefixName</strong></span>.</li>
-		  <li>Transform   <strong>sequence</strong> and <span class='changed'>append to</span> <strong>prefixName</strong>, by successively getting  names for the longest subsequences, skipping any singleton ZWJ characters. If there is more than one name,  use the listPattern for unit-short, type=2 to link them.</li>
+		  <li>If   <strong>sequence</strong> ends with ♂ or ♀, and does not have a name, remove the ♂ or ♀  and move the name for &quot;👨&quot; or
+	      &quot;👩&quot; respectively to the start of<strong> prefixName</strong>.</li>
+		  <li>Transform   <strong>sequence</strong> and append to <strong>prefixName</strong>, by successively getting  names for the longest subsequences, skipping any singleton ZWJ characters. If there is more than one name,  use the listPattern for unit-short, type=2 to link them.</li>
 		  <li>Transform <strong>suffix</strong> into <strong>suffixName</strong> in the same manner.</li>
 		  <li>If both the <strong>prefixName</strong> and <strong>suffixName</strong> are non-empty, form the name by joining them with the  &quot;category-list&quot; characterLabelPattern and return it. Otherwise return whichever of them is non-empty.</li>
 	    </ol>
 		<p>The synthesized keywords can follow a similar process.</p>
 		<ol>
-		  <li>For an <strong>emoji flag sequence</strong> or <span class='changed'><strong>emoji tag sequence</strong> representing a subdivision</span>, use &quot;flag&quot;.</li>
+		  <li>For an <strong>emoji flag sequence</strong> or <strong>emoji tag sequence</strong> representing a subdivision, use &quot;flag&quot;.</li>
 		  <li>For keycap sequences, use &quot;keycap&quot;.</li>
 		  <li>For other sequences, add the keywords for the subsequences used to get the short names for <strong>prefixName</strong>, and the short names used for <strong>suffixName</strong>.</li>
 	    </ol>
@@ -4318,7 +4318,7 @@ h2, h3, h4, table {
 				Emoji</a>.
 		</p>
 	  		<h3>
-			14.<span class='changed'>2</span> <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a>
+			14.2 <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a>
 		</h3>
 	  		<p class="dtd">&lt;!ELEMENT characterLabels ( alias | ( characterLabelPattern*, characterLabel*, special* ) ) &gt; </p>
 	  		<p class="dtd">&lt;!ELEMENT characterLabelPattern ( #PCDATA ) &gt; </p>
@@ -4426,7 +4426,7 @@ h2, h3, h4, table {
 
 	  <hr>
 		<p class="copyright">
-			Copyright © 2001–<span class="changed">2017 </span>Unicode, Inc. All
+			Copyright © 2001–2017 Unicode, Inc. All
 			Rights Reserved. The Unicode Consortium makes no expressed or implied
 			warranty of any kind, and assumes no liability for errors or
 			omissions. No liability is assumed for incidental and consequential

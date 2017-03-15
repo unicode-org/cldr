@@ -14,9 +14,7 @@ import java.io.StringWriter;
 import java.util.Map;
 import java.util.TreeMap;
 
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;

@@ -11,9 +11,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.ElementAttributeInfo;

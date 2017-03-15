@@ -20,9 +20,6 @@ import java.util.regex.Matcher;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
-
-import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;

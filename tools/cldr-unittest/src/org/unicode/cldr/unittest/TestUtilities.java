@@ -15,9 +15,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
-
-import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;

@@ -13,14 +13,11 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.EnumLookup;
 import org.unicode.cldr.draft.ScriptMetadata;
-import org.unicode.cldr.draft.ScriptMetadata.Groupings;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Shaping;
 import org.unicode.cldr.draft.ScriptMetadata.Trinary;
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.StandardCodes;

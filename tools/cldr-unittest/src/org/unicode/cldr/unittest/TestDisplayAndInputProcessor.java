@@ -3,9 +3,7 @@ package org.unicode.cldr.unittest;
 import java.util.Set;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 

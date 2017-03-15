@@ -20,9 +20,7 @@ import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.CheckForExemplars;
 import org.unicode.cldr.test.CheckNames;
 import org.unicode.cldr.test.CheckNew;
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;

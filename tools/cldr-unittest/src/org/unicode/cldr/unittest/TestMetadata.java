@@ -5,9 +5,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Differ;
 

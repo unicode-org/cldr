@@ -5,9 +5,7 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import org.unicode.cldr.test.OutdatedPaths;
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.PathHeader;
 

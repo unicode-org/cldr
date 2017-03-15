@@ -13,9 +13,6 @@ import java.util.Set;
 import javax.xml.xpath.XPathException;
 
 import org.unicode.cldr.test.ExampleGenerator;
-
-import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.AttributeValueValidity;
 import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;

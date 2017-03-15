@@ -4,9 +4,7 @@ import java.util.EnumSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;

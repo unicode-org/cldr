@@ -8,9 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;

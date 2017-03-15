@@ -3,7 +3,6 @@ package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.util.CLDRConfig;
 
-
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestExternalCodeAPIs extends TestFmwk {

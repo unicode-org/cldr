@@ -5,9 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.Pair;
 
 import com.ibm.icu.dev.test.TestFmwk;

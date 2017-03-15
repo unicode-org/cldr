@@ -10,8 +10,8 @@ import java.util.List;
 
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 import org.unicode.cldr.util.props.UnicodeProperty;
-import org.unicode.cldr.util.props.UnicodePropertySymbolTable;
 import org.unicode.cldr.util.props.UnicodeProperty.Factory;
+import org.unicode.cldr.util.props.UnicodePropertySymbolTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;

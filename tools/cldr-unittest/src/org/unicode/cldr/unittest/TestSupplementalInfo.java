@@ -25,10 +25,8 @@ import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.PluralRulesFactory;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
-
-import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;

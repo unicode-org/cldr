@@ -6,9 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.unicode.cldr.icu.NewLdml2IcuConverter;
-
 import org.unicode.cldr.util.CLDRConfig;
-
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;

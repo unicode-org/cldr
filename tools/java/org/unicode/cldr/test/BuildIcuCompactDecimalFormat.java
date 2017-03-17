@@ -227,11 +227,16 @@ public class BuildIcuCompactDecimalFormat {
         // if (style == Style.LONG) {
         // pattern = pattern.replace("¤", "¤¤¤");
         // }
-        return new CompactDecimalFormat(
-            pattern, format.getDecimalFormatSymbols(),
-            style, pluralInfo.getPluralRules(),
-            divisor, affixes, unitPrefixes,
-            debugCreationErrors);
+        try {
+            return new CompactDecimalFormat(
+                pattern, format.getDecimalFormatSymbols(),
+                style, pluralInfo.getPluralRules(),
+                divisor, affixes, unitPrefixes,
+                debugCreationErrors);
+        } catch (Exception e) {
+            debugCreationErrors.add(e.getMessage());
+            return null;
+        }
         /*
          *                 divisor, prefixes, suffixes,
             unitPrefixes, unitSuffixes,

@@ -170,7 +170,6 @@ public class VerifyCompactNumbers {
 
             CompactDecimalFormat cdfCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
                 debugOriginals, CompactStyle.SHORT, locale2, CurrencyStyle.CURRENCY, currencyCode);
-            cdfCurr.setCurrency(Currency.getInstance(currencyCode));
             captureErrors(debugCreationErrors, errors, locale, "short-curr");
 //            CompactDecimalFormat cdfU = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
 //                debugOriginals, CompactStyle.SHORT, locale2, CurrencyStyle.UNIT, "EUR");
@@ -199,9 +198,16 @@ public class VerifyCompactNumbers {
                 collectItems(pluralInfo, 1000, 10000, samples);
                 sigDigits = 4;
             }
-            cdf.setMaximumSignificantDigits(sigDigits);
-            cdfs.setMaximumSignificantDigits(sigDigits);
-            cdfCurr.setMaximumSignificantDigits(sigDigits);
+            if (cdf != null) {
+                cdf.setMaximumSignificantDigits(sigDigits);
+            }
+            if (cdfs != null) {
+                cdfs.setMaximumSignificantDigits(sigDigits);
+            }
+            if (cdfCurr != null) {
+                cdfCurr.setCurrency(Currency.getInstance(currencyCode));
+                cdfCurr.setMaximumSignificantDigits(sigDigits);
+            }
 //            cdfU.setMaximumSignificantDigits(sigDigits);
 
             // for (Entry<Count, List<Double>> entry : pluralInfo.getCountToExamplesMap().entrySet()) {
@@ -231,8 +237,8 @@ public class VerifyCompactNumbers {
                     }
 
                     String formattedNumber = nf.format(source);
-                    String compactFormattedNumber = cdf.format(source);
-                    String compactLongFormattedNumber = cdfs.format(source);
+                    String compactFormattedNumber = cdf == null ? "n/a" : cdf.format(source);
+                    String compactLongFormattedNumber = cdfs == null ? "n/a" : cdfs.format(source);
                     // plainText.println(locale
                     // + "\t__" + source
                     // + "\t__" + compactFormattedNumber
@@ -244,7 +250,7 @@ public class VerifyCompactNumbers {
                     .addCell(compactLongFormattedNumber);
                     if (showCurrency) {
                         tablePrinter1
-                        .addCell(cdfCurr.format(source))
+                        .addCell(cdfCurr == null ? "n/a" : cdfCurr.format(source))
 //                            .addCell(cdfU.format(source))
 //                             .addCell(cdfsCurr.format(source))
                         // .addCell(cdfsCurrLong.format(source))

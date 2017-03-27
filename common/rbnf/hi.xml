@@ -158,22 +158,35 @@ For terms of use, see http://www.unicode.org/copyright.html
         <rulesetGrouping type="OrdinalRules">
             <ruleset type="digits-ordinal-masculine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
                 <rbnfrule value="0">0;</rbnfrule>
-                <rbnfrule value="1">=#,##,##0=ला;</rbnfrule>
-                <rbnfrule value="2">=#,##,##0=रा;</rbnfrule>
-                <rbnfrule value="4">=#,##,##0=था;</rbnfrule>
-                <rbnfrule value="5">=#,##,##0=वाँ;</rbnfrule>
-                <rbnfrule value="6">=#,##,##0=टा;</rbnfrule>
+                <rbnfrule value="1">=0=ला;</rbnfrule>
+                <rbnfrule value="2">=0=रा;</rbnfrule>
+                <rbnfrule value="4">=0=था;</rbnfrule>
+                <rbnfrule value="5">=0=वाँ;</rbnfrule>
+                <rbnfrule value="6">=0=टा;</rbnfrule>
                 <rbnfrule value="7">=#,##,##0=वाँ;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-masculine-oblique">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
+                <rbnfrule value="0">0;</rbnfrule>
+                <rbnfrule value="1">=0=ले;</rbnfrule>
+                <rbnfrule value="2">=0=रे;</rbnfrule>
+                <rbnfrule value="4">=0=थे;</rbnfrule>
+                <rbnfrule value="5">=0=वें;</rbnfrule>
+                <rbnfrule value="6">=0=ठे;</rbnfrule>
+                <rbnfrule value="7">=#,##,##0=वें;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-feminine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
                 <rbnfrule value="0">0;</rbnfrule>
-                <rbnfrule value="1">=#,##,##0=ली;</rbnfrule>
-                <rbnfrule value="2">=#,##,##0=री;</rbnfrule>
-                <rbnfrule value="4">=#,##,##0=थी;</rbnfrule>
-                <rbnfrule value="5">=#,##,##0=वीँ;</rbnfrule>
-                <rbnfrule value="6">=#,##,##0=टी;</rbnfrule>
+                <rbnfrule value="1">=0=ली;</rbnfrule>
+                <rbnfrule value="2">=0=री;</rbnfrule>
+                <rbnfrule value="4">=0=थी;</rbnfrule>
+                <rbnfrule value="5">=0=वीँ;</rbnfrule>
+                <rbnfrule value="6">=0=टी;</rbnfrule>
                 <rbnfrule value="7">=#,##,##0=वीँ;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal">

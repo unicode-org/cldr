@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="zh"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">按键</annotation>
+		<annotation cp="0⃣" type="tts">按键: 0</annotation>
+		<annotation cp="1⃣">按键</annotation>
+		<annotation cp="1⃣" type="tts">按键: 1</annotation>
+		<annotation cp="2⃣">按键</annotation>
+		<annotation cp="2⃣" type="tts">按键: 2</annotation>
+		<annotation cp="3⃣">按键</annotation>
+		<annotation cp="3⃣" type="tts">按键: 3</annotation>
+		<annotation cp="4⃣">按键</annotation>
+		<annotation cp="4⃣" type="tts">按键: 4</annotation>
+		<annotation cp="5⃣">按键</annotation>
+		<annotation cp="5⃣" type="tts">按键: 5</annotation>
+		<annotation cp="6⃣">按键</annotation>
+		<annotation cp="6⃣" type="tts">按键: 6</annotation>
+		<annotation cp="7⃣">按键</annotation>
+		<annotation cp="7⃣" type="tts">按键: 7</annotation>
+		<annotation cp="8⃣">按键</annotation>
+		<annotation cp="8⃣" type="tts">按键: 8</annotation>
+		<annotation cp="9⃣">按键</annotation>
+		<annotation cp="9⃣" type="tts">按键: 9</annotation>
+		<annotation cp="👶🏻">宝宝 | 种类-1-2</annotation>
+		<annotation cp="👶🏻" type="tts">小宝贝: 种类-1-2</annotation>
+		<annotation cp="👶🏼">宝宝 | 种类-3</annotation>
+		<annotation cp="👶🏼" type="tts">小宝贝: 种类-3</annotation>
+		<annotation cp="👶🏽">宝宝 | 种类-4</annotation>
+		<annotation cp="👶🏽" type="tts">小宝贝: 种类-4</annotation>
+		<annotation cp="👶🏾">宝宝 | 种类-5</annotation>
+		<annotation cp="👶🏾" type="tts">小宝贝: 种类-5</annotation>
+		<annotation cp="👶🏿">宝宝 | 种类-6</annotation>
+		<annotation cp="👶🏿" type="tts">小宝贝: 种类-6</annotation>
+		<annotation cp="👦🏻">儿童 | 孩子 | 小孩 | 男 | 种类-1-2</annotation>
+		<annotation cp="👦🏻" type="tts">男孩: 种类-1-2</annotation>
+		<annotation cp="👦🏼">儿童 | 孩子 | 小孩 | 男 | 种类-3</annotation>
+		<annotation cp="👦🏼" type="tts">男孩: 种类-3</annotation>
+		<annotation cp="👦🏽">儿童 | 孩子 | 小孩 | 男 | 种类-4</annotation>
+		<annotation cp="👦🏽" type="tts">男孩: 种类-4</annotation>
+		<annotation cp="👦🏾">儿童 | 孩子 | 小孩 | 男 | 种类-5</annotation>
+		<annotation cp="👦🏾" type="tts">男孩: 种类-5</annotation>
+		<annotation cp="👦🏿">儿童 | 孩子 | 小孩 | 男 | 种类-6</annotation>
+		<annotation cp="👦🏿" type="tts">男孩: 种类-6</annotation>
+		<annotation cp="👧🏻">儿童 | 女 | 孩子 | 小孩 | 种类-1-2</annotation>
+		<annotation cp="👧🏻" type="tts">女孩: 种类-1-2</annotation>
+		<annotation cp="👧🏼">儿童 | 女 | 孩子 | 小孩 | 种类-3</annotation>
+		<annotation cp="👧🏼" type="tts">女孩: 种类-3</annotation>
+		<annotation cp="👧🏽">儿童 | 女 | 孩子 | 小孩 | 种类-4</annotation>
+		<annotation cp="👧🏽" type="tts">女孩: 种类-4</annotation>
+		<annotation cp="👧🏾">儿童 | 女 | 孩子 | 小孩 | 种类-5</annotation>
+		<annotation cp="👧🏾" type="tts">女孩: 种类-5</annotation>
+		<annotation cp="👧🏿">儿童 | 女 | 孩子 | 小孩 | 种类-6</annotation>
+		<annotation cp="👧🏿" type="tts">女孩: 种类-6</annotation>
+		<annotation cp="👨🏻">男 | 种类-1-2</annotation>
+		<annotation cp="👨🏻" type="tts">男人: 种类-1-2</annotation>
+		<annotation cp="👨🏼">男 | 种类-3</annotation>
+		<annotation cp="👨🏼" type="tts">男人: 种类-3</annotation>
+		<annotation cp="👨🏽">男 | 种类-4</annotation>
+		<annotation cp="👨🏽" type="tts">男人: 种类-4</annotation>
+		<annotation cp="👨🏾">男 | 种类-5</annotation>
+		<annotation cp="👨🏾" type="tts">男人: 种类-5</annotation>
+		<annotation cp="👨🏿">男 | 种类-6</annotation>
+		<annotation cp="👨🏿" type="tts">男人: 种类-6</annotation>
+		<annotation cp="👩🏻">女 | 种类-1-2</annotation>
+		<annotation cp="👩🏻" type="tts">女人: 种类-1-2</annotation>
+		<annotation cp="👩🏼">女 | 种类-3</annotation>
+		<annotation cp="👩🏼" type="tts">女人: 种类-3</annotation>
+		<annotation cp="👩🏽">女 | 种类-4</annotation>
+		<annotation cp="👩🏽" type="tts">女人: 种类-4</annotation>
+		<annotation cp="👩🏾">女 | 种类-5</annotation>
+		<annotation cp="👩🏾" type="tts">女人: 种类-5</annotation>
+		<annotation cp="👩🏿">女 | 种类-6</annotation>
+		<annotation cp="👩🏿" type="tts">女人: 种类-6</annotation>
+		<annotation cp="👴🏻">老人 | 老头 | 种类-1-2</annotation>
+		<annotation cp="👴🏻" type="tts">老爷爷: 种类-1-2</annotation>
+		<annotation cp="👴🏼">老人 | 老头 | 种类-3</annotation>
+		<annotation cp="👴🏼" type="tts">老爷爷: 种类-3</annotation>
+		<annotation cp="👴🏽">老人 | 老头 | 种类-4</annotation>
+		<annotation cp="👴🏽" type="tts">老爷爷: 种类-4</annotation>
+		<annotation cp="👴🏾">老人 | 老头 | 种类-5</annotation>
+		<annotation cp="👴🏾" type="tts">老爷爷: 种类-5</annotation>
+		<annotation cp="👴🏿">老人 | 老头 | 种类-6</annotation>
+		<annotation cp="👴🏿" type="tts">老爷爷: 种类-6</annotation>
+		<annotation cp="👵🏻">老人 | 老太 | 种类-1-2</annotation>
+		<annotation cp="👵🏻" type="tts">老奶奶: 种类-1-2</annotation>
+		<annotation cp="👵🏼">老人 | 老太 | 种类-3</annotation>
+		<annotation cp="👵🏼" type="tts">老奶奶: 种类-3</annotation>
+		<annotation cp="👵🏽">老人 | 老太 | 种类-4</annotation>
+		<annotation cp="👵🏽" type="tts">老奶奶: 种类-4</annotation>
+		<annotation cp="👵🏾">老人 | 老太 | 种类-5</annotation>
+		<annotation cp="👵🏾" type="tts">老奶奶: 种类-5</annotation>
+		<annotation cp="👵🏿">老人 | 老太 | 种类-6</annotation>
+		<annotation cp="👵🏿" type="tts">老奶奶: 种类-6</annotation>
+		<annotation cp="👨🏻‍⚕">健康 | 医生 | 护士 | 男 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">男医生: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍⚕">健康 | 医生 | 护士 | 男 | 种类-3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">男医生: 种类-3</annotation>
+		<annotation cp="👨🏽‍⚕">健康 | 医生 | 护士 | 男 | 种类-4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">男医生: 种类-4</annotation>
+		<annotation cp="👨🏾‍⚕">健康 | 医生 | 护士 | 男 | 种类-5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">男医生: 种类-5</annotation>
+		<annotation cp="👨🏿‍⚕">健康 | 医生 | 护士 | 男 | 种类-6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">男医生: 种类-6</annotation>
+		<annotation cp="👩🏻‍⚕">健康 | 医生 | 女 | 护士 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">女医生: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍⚕">健康 | 医生 | 女 | 护士 | 种类-3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">女医生: 种类-3</annotation>
+		<annotation cp="👩🏽‍⚕">健康 | 医生 | 女 | 护士 | 种类-4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">女医生: 种类-4</annotation>
+		<annotation cp="👩🏾‍⚕">健康 | 医生 | 女 | 护士 | 种类-5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">女医生: 种类-5</annotation>
+		<annotation cp="👩🏿‍⚕">健康 | 医生 | 女 | 护士 | 种类-6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">女医生: 种类-6</annotation>
+		<annotation cp="👨🏻‍🎓">学生 | 毕业 | 男 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">男学生: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🎓">学生 | 毕业 | 男 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">男学生: 种类-3</annotation>
+		<annotation cp="👨🏽‍🎓">学生 | 毕业 | 男 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">男学生: 种类-4</annotation>
+		<annotation cp="👨🏾‍🎓">学生 | 毕业 | 男 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">男学生: 种类-5</annotation>
+		<annotation cp="👨🏿‍🎓">学生 | 毕业 | 男 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">男学生: 种类-6</annotation>
+		<annotation cp="👩🏻‍🎓">女 | 学生 | 毕业 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">女学生: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🎓">女 | 学生 | 毕业 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">女学生: 种类-3</annotation>
+		<annotation cp="👩🏽‍🎓">女 | 学生 | 毕业 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">女学生: 种类-4</annotation>
+		<annotation cp="👩🏾‍🎓">女 | 学生 | 毕业 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">女学生: 种类-5</annotation>
+		<annotation cp="👩🏿‍🎓">女 | 学生 | 毕业 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">女学生: 种类-6</annotation>
+		<annotation cp="👨🏻‍🏫">教师 | 教授 | 男 | 老师 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">男老师: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🏫">教师 | 教授 | 男 | 老师 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">男老师: 种类-3</annotation>
+		<annotation cp="👨🏽‍🏫">教师 | 教授 | 男 | 老师 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">男老师: 种类-4</annotation>
+		<annotation cp="👨🏾‍🏫">教师 | 教授 | 男 | 老师 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">男老师: 种类-5</annotation>
+		<annotation cp="👨🏿‍🏫">教师 | 教授 | 男 | 老师 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">男老师: 种类-6</annotation>
+		<annotation cp="👩🏻‍🏫">女 | 教师 | 教授 | 老师 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">女老师: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🏫">女 | 教师 | 教授 | 老师 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">女老师: 种类-3</annotation>
+		<annotation cp="👩🏽‍🏫">女 | 教师 | 教授 | 老师 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">女老师: 种类-4</annotation>
+		<annotation cp="👩🏾‍🏫">女 | 教师 | 教授 | 老师 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">女老师: 种类-5</annotation>
+		<annotation cp="👩🏿‍🏫">女 | 教师 | 教授 | 老师 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">女老师: 种类-6</annotation>
+		<annotation cp="👨🏻‍⚖">正义 | 法官 | 法律 | 男 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">男法官: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍⚖">正义 | 法官 | 法律 | 男 | 种类-3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">男法官: 种类-3</annotation>
+		<annotation cp="👨🏽‍⚖">正义 | 法官 | 法律 | 男 | 种类-4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">男法官: 种类-4</annotation>
+		<annotation cp="👨🏾‍⚖">正义 | 法官 | 法律 | 男 | 种类-5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">男法官: 种类-5</annotation>
+		<annotation cp="👨🏿‍⚖">正义 | 法官 | 法律 | 男 | 种类-6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">男法官: 种类-6</annotation>
+		<annotation cp="👩🏻‍⚖">女 | 正义 | 法官 | 法律 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">女法官: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍⚖">女 | 正义 | 法官 | 法律 | 种类-3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">女法官: 种类-3</annotation>
+		<annotation cp="👩🏽‍⚖">女 | 正义 | 法官 | 法律 | 种类-4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">女法官: 种类-4</annotation>
+		<annotation cp="👩🏾‍⚖">女 | 正义 | 法官 | 法律 | 种类-5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">女法官: 种类-5</annotation>
+		<annotation cp="👩🏿‍⚖">女 | 正义 | 法官 | 法律 | 种类-6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">女法官: 种类-6</annotation>
+		<annotation cp="👨🏻‍🌾">农夫 | 农民 | 园丁 | 男 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">农夫: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🌾">农夫 | 农民 | 园丁 | 男 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">农夫: 种类-3</annotation>
+		<annotation cp="👨🏽‍🌾">农夫 | 农民 | 园丁 | 男 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">农夫: 种类-4</annotation>
+		<annotation cp="👨🏾‍🌾">农夫 | 农民 | 园丁 | 男 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">农夫: 种类-5</annotation>
+		<annotation cp="👨🏿‍🌾">农夫 | 农民 | 园丁 | 男 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">农夫: 种类-6</annotation>
+		<annotation cp="👩🏻‍🌾">农妇 | 农民 | 园丁 | 女 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">农妇: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🌾">农妇 | 农民 | 园丁 | 女 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">农妇: 种类-3</annotation>
+		<annotation cp="👩🏽‍🌾">农妇 | 农民 | 园丁 | 女 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">农妇: 种类-4</annotation>
+		<annotation cp="👩🏾‍🌾">农妇 | 农民 | 园丁 | 女 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">农妇: 种类-5</annotation>
+		<annotation cp="👩🏿‍🌾">农妇 | 农民 | 园丁 | 女 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">农妇: 种类-6</annotation>
+		<annotation cp="👨🏻‍🍳">做饭 | 厨师 | 大厨 | 男 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">男厨师: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🍳">做饭 | 厨师 | 大厨 | 男 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">男厨师: 种类-3</annotation>
+		<annotation cp="👨🏽‍🍳">做饭 | 厨师 | 大厨 | 男 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">男厨师: 种类-4</annotation>
+		<annotation cp="👨🏾‍🍳">做饭 | 厨师 | 大厨 | 男 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">男厨师: 种类-5</annotation>
+		<annotation cp="👨🏿‍🍳">做饭 | 厨师 | 大厨 | 男 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">男厨师: 种类-6</annotation>
+		<annotation cp="👩🏻‍🍳">做饭 | 厨师 | 大厨 | 女 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">女厨师: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🍳">做饭 | 厨师 | 大厨 | 女 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">女厨师: 种类-3</annotation>
+		<annotation cp="👩🏽‍🍳">做饭 | 厨师 | 大厨 | 女 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">女厨师: 种类-4</annotation>
+		<annotation cp="👩🏾‍🍳">做饭 | 厨师 | 大厨 | 女 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">女厨师: 种类-5</annotation>
+		<annotation cp="👩🏿‍🍳">做饭 | 厨师 | 大厨 | 女 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">女厨师: 种类-6</annotation>
+		<annotation cp="👨🏻‍🔧">修理 | 技工 | 电工 | 男 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">男技工: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🔧">修理 | 技工 | 电工 | 男 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">男技工: 种类-3</annotation>
+		<annotation cp="👨🏽‍🔧">修理 | 技工 | 电工 | 男 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">男技工: 种类-4</annotation>
+		<annotation cp="👨🏾‍🔧">修理 | 技工 | 电工 | 男 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">男技工: 种类-5</annotation>
+		<annotation cp="👨🏿‍🔧">修理 | 技工 | 电工 | 男 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">男技工: 种类-6</annotation>
+		<annotation cp="👩🏻‍🔧">修理 | 女 | 技工 | 电工 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">女技工: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🔧">修理 | 女 | 技工 | 电工 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">女技工: 种类-3</annotation>
+		<annotation cp="👩🏽‍🔧">修理 | 女 | 技工 | 电工 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">女技工: 种类-4</annotation>
+		<annotation cp="👩🏾‍🔧">修理 | 女 | 技工 | 电工 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">女技工: 种类-5</annotation>
+		<annotation cp="👩🏿‍🔧">修理 | 女 | 技工 | 电工 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">女技工: 种类-6</annotation>
+		<annotation cp="👨🏻‍🏭">工人 | 工厂 | 男 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">男工人: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🏭">工人 | 工厂 | 男 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">男工人: 种类-3</annotation>
+		<annotation cp="👨🏽‍🏭">工人 | 工厂 | 男 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">男工人: 种类-4</annotation>
+		<annotation cp="👨🏾‍🏭">工人 | 工厂 | 男 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">男工人: 种类-5</annotation>
+		<annotation cp="👨🏿‍🏭">工人 | 工厂 | 男 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">男工人: 种类-6</annotation>
+		<annotation cp="👩🏻‍🏭">女 | 工人 | 工厂 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">女工人: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🏭">女 | 工人 | 工厂 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">女工人: 种类-3</annotation>
+		<annotation cp="👩🏽‍🏭">女 | 工人 | 工厂 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">女工人: 种类-4</annotation>
+		<annotation cp="👩🏾‍🏭">女 | 工人 | 工厂 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">女工人: 种类-5</annotation>
+		<annotation cp="👩🏿‍🏭">女 | 工人 | 工厂 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">女工人: 种类-6</annotation>
+		<annotation cp="👨🏻‍💼">商人 | 男 | 白领 | 经理 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">男白领: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍💼">商人 | 男 | 白领 | 经理 | 种类-3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">男白领: 种类-3</annotation>
+		<annotation cp="👨🏽‍💼">商人 | 男 | 白领 | 经理 | 种类-4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">男白领: 种类-4</annotation>
+		<annotation cp="👨🏾‍💼">商人 | 男 | 白领 | 经理 | 种类-5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">男白领: 种类-5</annotation>
+		<annotation cp="👨🏿‍💼">商人 | 男 | 白领 | 经理 | 种类-6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">男白领: 种类-6</annotation>
+		<annotation cp="👩🏻‍💼">商人 | 女 | 白领 | 经理 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">女白领: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍💼">商人 | 女 | 白领 | 经理 | 种类-3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">女白领: 种类-3</annotation>
+		<annotation cp="👩🏽‍💼">商人 | 女 | 白领 | 经理 | 种类-4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">女白领: 种类-4</annotation>
+		<annotation cp="👩🏾‍💼">商人 | 女 | 白领 | 经理 | 种类-5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">女白领: 种类-5</annotation>
+		<annotation cp="👩🏿‍💼">商人 | 女 | 白领 | 经理 | 种类-6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">女白领: 种类-6</annotation>
+		<annotation cp="👨🏻‍🔬">工程师 | 男 | 科学家 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">男科学家: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🔬">工程师 | 男 | 科学家 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">男科学家: 种类-3</annotation>
+		<annotation cp="👨🏽‍🔬">工程师 | 男 | 科学家 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">男科学家: 种类-4</annotation>
+		<annotation cp="👨🏾‍🔬">工程师 | 男 | 科学家 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">男科学家: 种类-5</annotation>
+		<annotation cp="👨🏿‍🔬">工程师 | 男 | 科学家 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">男科学家: 种类-6</annotation>
+		<annotation cp="👩🏻‍🔬">女 | 工程师 | 科学家 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">女科学家: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🔬">女 | 工程师 | 科学家 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">女科学家: 种类-3</annotation>
+		<annotation cp="👩🏽‍🔬">女 | 工程师 | 科学家 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">女科学家: 种类-4</annotation>
+		<annotation cp="👩🏾‍🔬">女 | 工程师 | 科学家 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">女科学家: 种类-5</annotation>
+		<annotation cp="👩🏿‍🔬">女 | 工程师 | 科学家 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">女科学家: 种类-6</annotation>
+		<annotation cp="👨🏻‍💻">工程师 | 男 | 码农 | 程序员 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">男程序员: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍💻">工程师 | 男 | 码农 | 程序员 | 种类-3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">男程序员: 种类-3</annotation>
+		<annotation cp="👨🏽‍💻">工程师 | 男 | 码农 | 程序员 | 种类-4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">男程序员: 种类-4</annotation>
+		<annotation cp="👨🏾‍💻">工程师 | 男 | 码农 | 程序员 | 种类-5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">男程序员: 种类-5</annotation>
+		<annotation cp="👨🏿‍💻">工程师 | 男 | 码农 | 程序员 | 种类-6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">男程序员: 种类-6</annotation>
+		<annotation cp="👩🏻‍💻">女 | 工程师 | 码农 | 程序员 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">女程序员: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍💻">女 | 工程师 | 码农 | 程序员 | 种类-3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">女程序员: 种类-3</annotation>
+		<annotation cp="👩🏽‍💻">女 | 工程师 | 码农 | 程序员 | 种类-4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">女程序员: 种类-4</annotation>
+		<annotation cp="👩🏾‍💻">女 | 工程师 | 码农 | 程序员 | 种类-5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">女程序员: 种类-5</annotation>
+		<annotation cp="👩🏿‍💻">女 | 工程师 | 码农 | 程序员 | 种类-6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">女程序员: 种类-6</annotation>
+		<annotation cp="👨🏻‍🎤">明星 | 歌手 | 男 | 艺人 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">男歌手: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🎤">明星 | 歌手 | 男 | 艺人 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">男歌手: 种类-3</annotation>
+		<annotation cp="👨🏽‍🎤">明星 | 歌手 | 男 | 艺人 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">男歌手: 种类-4</annotation>
+		<annotation cp="👨🏾‍🎤">明星 | 歌手 | 男 | 艺人 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">男歌手: 种类-5</annotation>
+		<annotation cp="👨🏿‍🎤">明星 | 歌手 | 男 | 艺人 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">男歌手: 种类-6</annotation>
+		<annotation cp="👩🏻‍🎤">女 | 明星 | 歌手 | 艺人 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">女歌手: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🎤">女 | 明星 | 歌手 | 艺人 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">女歌手: 种类-3</annotation>
+		<annotation cp="👩🏽‍🎤">女 | 明星 | 歌手 | 艺人 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">女歌手: 种类-4</annotation>
+		<annotation cp="👩🏾‍🎤">女 | 明星 | 歌手 | 艺人 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">女歌手: 种类-5</annotation>
+		<annotation cp="👩🏿‍🎤">女 | 明星 | 歌手 | 艺人 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">女歌手: 种类-6</annotation>
+		<annotation cp="👨🏻‍🎨">男 | 画家 | 艺术 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">男艺术家: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🎨">男 | 画家 | 艺术 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">男艺术家: 种类-3</annotation>
+		<annotation cp="👨🏽‍🎨">男 | 画家 | 艺术 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">男艺术家: 种类-4</annotation>
+		<annotation cp="👨🏾‍🎨">男 | 画家 | 艺术 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">男艺术家: 种类-5</annotation>
+		<annotation cp="👨🏿‍🎨">男 | 画家 | 艺术 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">男艺术家: 种类-6</annotation>
+		<annotation cp="👩🏻‍🎨">女 | 画家 | 艺术 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">女艺术家: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🎨">女 | 画家 | 艺术 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">女艺术家: 种类-3</annotation>
+		<annotation cp="👩🏽‍🎨">女 | 画家 | 艺术 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">女艺术家: 种类-4</annotation>
+		<annotation cp="👩🏾‍🎨">女 | 画家 | 艺术 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">女艺术家: 种类-5</annotation>
+		<annotation cp="👩🏿‍🎨">女 | 画家 | 艺术 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">女艺术家: 种类-6</annotation>
+		<annotation cp="👨🏻‍✈">机长 | 男 | 飞机 | 飞行员 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">男飞行员: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍✈">机长 | 男 | 飞机 | 飞行员 | 种类-3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">男飞行员: 种类-3</annotation>
+		<annotation cp="👨🏽‍✈">机长 | 男 | 飞机 | 飞行员 | 种类-4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">男飞行员: 种类-4</annotation>
+		<annotation cp="👨🏾‍✈">机长 | 男 | 飞机 | 飞行员 | 种类-5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">男飞行员: 种类-5</annotation>
+		<annotation cp="👨🏿‍✈">机长 | 男 | 飞机 | 飞行员 | 种类-6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">男飞行员: 种类-6</annotation>
+		<annotation cp="👩🏻‍✈">女 | 机长 | 飞机 | 飞行员 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">女飞行员: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍✈">女 | 机长 | 飞机 | 飞行员 | 种类-3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">女飞行员: 种类-3</annotation>
+		<annotation cp="👩🏽‍✈">女 | 机长 | 飞机 | 飞行员 | 种类-4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">女飞行员: 种类-4</annotation>
+		<annotation cp="👩🏾‍✈">女 | 机长 | 飞机 | 飞行员 | 种类-5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">女飞行员: 种类-5</annotation>
+		<annotation cp="👩🏿‍✈">女 | 机长 | 飞机 | 飞行员 | 种类-6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">女飞行员: 种类-6</annotation>
+		<annotation cp="👨🏻‍🚀">宇宙 | 宇航员 | 男 | 航天 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">男宇航员: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🚀">宇宙 | 宇航员 | 男 | 航天 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">男宇航员: 种类-3</annotation>
+		<annotation cp="👨🏽‍🚀">宇宙 | 宇航员 | 男 | 航天 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">男宇航员: 种类-4</annotation>
+		<annotation cp="👨🏾‍🚀">宇宙 | 宇航员 | 男 | 航天 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">男宇航员: 种类-5</annotation>
+		<annotation cp="👨🏿‍🚀">宇宙 | 宇航员 | 男 | 航天 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">男宇航员: 种类-6</annotation>
+		<annotation cp="👩🏻‍🚀">女 | 宇宙 | 宇航员 | 航天 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">女宇航员: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🚀">女 | 宇宙 | 宇航员 | 航天 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">女宇航员: 种类-3</annotation>
+		<annotation cp="👩🏽‍🚀">女 | 宇宙 | 宇航员 | 航天 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">女宇航员: 种类-4</annotation>
+		<annotation cp="👩🏾‍🚀">女 | 宇宙 | 宇航员 | 航天 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">女宇航员: 种类-5</annotation>
+		<annotation cp="👩🏿‍🚀">女 | 宇宙 | 宇航员 | 航天 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">女宇航员: 种类-6</annotation>
+		<annotation cp="👨🏻‍🚒">救火 | 消防 | 火灾 | 男 | 种类-1-2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">男消防员: 种类-1-2</annotation>
+		<annotation cp="👨🏼‍🚒">救火 | 消防 | 火灾 | 男 | 种类-3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">男消防员: 种类-3</annotation>
+		<annotation cp="👨🏽‍🚒">救火 | 消防 | 火灾 | 男 | 种类-4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">男消防员: 种类-4</annotation>
+		<annotation cp="👨🏾‍🚒">救火 | 消防 | 火灾 | 男 | 种类-5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">男消防员: 种类-5</annotation>
+		<annotation cp="👨🏿‍🚒">救火 | 消防 | 火灾 | 男 | 种类-6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">男消防员: 种类-6</annotation>
+		<annotation cp="👩🏻‍🚒">女 | 救火 | 消防 | 火灾 | 种类-1-2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">女消防员: 种类-1-2</annotation>
+		<annotation cp="👩🏼‍🚒">女 | 救火 | 消防 | 火灾 | 种类-3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">女消防员: 种类-3</annotation>
+		<annotation cp="👩🏽‍🚒">女 | 救火 | 消防 | 火灾 | 种类-4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">女消防员: 种类-4</annotation>
+		<annotation cp="👩🏾‍🚒">女 | 救火 | 消防 | 火灾 | 种类-5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">女消防员: 种类-5</annotation>
+		<annotation cp="👩🏿‍🚒">女 | 救火 | 消防 | 火灾 | 种类-6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">女消防员: 种类-6</annotation>
+		<annotation cp="👮🏻">警官 | 种类-1-2</annotation>
+		<annotation cp="👮🏻" type="tts">警察: 种类-1-2</annotation>
+		<annotation cp="👮🏼">警官 | 种类-3</annotation>
+		<annotation cp="👮🏼" type="tts">警察: 种类-3</annotation>
+		<annotation cp="👮🏽">警官 | 种类-4</annotation>
+		<annotation cp="👮🏽" type="tts">警察: 种类-4</annotation>
+		<annotation cp="👮🏾">警官 | 种类-5</annotation>
+		<annotation cp="👮🏾" type="tts">警察: 种类-5</annotation>
+		<annotation cp="👮🏿">警官 | 种类-6</annotation>
+		<annotation cp="👮🏿" type="tts">警察: 种类-6</annotation>
+		<annotation cp="👮🏻‍♂">男 | 警官 | 警察 | 种类-1-2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">男警察: 种类-1-2</annotation>
+		<annotation cp="👮🏼‍♂">男 | 警官 | 警察 | 种类-3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">男警察: 种类-3</annotation>
+		<annotation cp="👮🏽‍♂">男 | 警官 | 警察 | 种类-4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">男警察: 种类-4</annotation>
+		<annotation cp="👮🏾‍♂">男 | 警官 | 警察 | 种类-5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">男警察: 种类-5</annotation>
+		<annotation cp="👮🏿‍♂">男 | 警官 | 警察 | 种类-6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">男警察: 种类-6</annotation>
+		<annotation cp="👮🏻‍♀">女 | 警官 | 警察 | 种类-1-2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">女警察: 种类-1-2</annotation>
+		<annotation cp="👮🏼‍♀">女 | 警官 | 警察 | 种类-3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">女警察: 种类-3</annotation>
+		<annotation cp="👮🏽‍♀">女 | 警官 | 警察 | 种类-4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">女警察: 种类-4</annotation>
+		<annotation cp="👮🏾‍♀">女 | 警官 | 警察 | 种类-5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">女警察: 种类-5</annotation>
+		<annotation cp="👮🏿‍♀">女 | 警官 | 警察 | 种类-6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">女警察: 种类-6</annotation>
+		<annotation cp="🕵🏻">侦探 | 特工 | 间谍 | 种类-1-2</annotation>
+		<annotation cp="🕵🏻" type="tts">侦探: 种类-1-2</annotation>
+		<annotation cp="🕵🏼">侦探 | 特工 | 间谍 | 种类-3</annotation>
+		<annotation cp="🕵🏼" type="tts">侦探: 种类-3</annotation>
+		<annotation cp="🕵🏽">侦探 | 特工 | 间谍 | 种类-4</annotation>
+		<annotation cp="🕵🏽" type="tts">侦探: 种类-4</annotation>
+		<annotation cp="🕵🏾">侦探 | 特工 | 间谍 | 种类-5</annotation>
+		<annotation cp="🕵🏾" type="tts">侦探: 种类-5</annotation>
+		<annotation cp="🕵🏿">侦探 | 特工 | 间谍 | 种类-6</annotation>
+		<annotation cp="🕵🏿" type="tts">侦探: 种类-6</annotation>
+		<annotation cp="🕵🏻‍♂">侦探 | 特工 | 男 | 间谍 | 种类-1-2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">男侦探: 种类-1-2</annotation>
+		<annotation cp="🕵🏼‍♂">侦探 | 特工 | 男 | 间谍 | 种类-3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">男侦探: 种类-3</annotation>
+		<annotation cp="🕵🏽‍♂">侦探 | 特工 | 男 | 间谍 | 种类-4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">男侦探: 种类-4</annotation>
+		<annotation cp="🕵🏾‍♂">侦探 | 特工 | 男 | 间谍 | 种类-5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">男侦探: 种类-5</annotation>
+		<annotation cp="🕵🏿‍♂">侦探 | 特工 | 男 | 间谍 | 种类-6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">男侦探: 种类-6</annotation>
+		<annotation cp="🕵🏻‍♀">侦探 | 女 | 特工 | 间谍 | 种类-1-2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">女侦探: 种类-1-2</annotation>
+		<annotation cp="🕵🏼‍♀">侦探 | 女 | 特工 | 间谍 | 种类-3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">女侦探: 种类-3</annotation>
+		<annotation cp="🕵🏽‍♀">侦探 | 女 | 特工 | 间谍 | 种类-4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">女侦探: 种类-4</annotation>
+		<annotation cp="🕵🏾‍♀">侦探 | 女 | 特工 | 间谍 | 种类-5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">女侦探: 种类-5</annotation>
+		<annotation cp="🕵🏿‍♀">侦探 | 女 | 特工 | 间谍 | 种类-6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">女侦探: 种类-6</annotation>
+		<annotation cp="💂🏻">卫兵 | 卫士 | 守卫 | 种类-1-2</annotation>
+		<annotation cp="💂🏻" type="tts">卫兵: 种类-1-2</annotation>
+		<annotation cp="💂🏼">卫兵 | 卫士 | 守卫 | 种类-3</annotation>
+		<annotation cp="💂🏼" type="tts">卫兵: 种类-3</annotation>
+		<annotation cp="💂🏽">卫兵 | 卫士 | 守卫 | 种类-4</annotation>
+		<annotation cp="💂🏽" type="tts">卫兵: 种类-4</annotation>
+		<annotation cp="💂🏾">卫兵 | 卫士 | 守卫 | 种类-5</annotation>
+		<annotation cp="💂🏾" type="tts">卫兵: 种类-5</annotation>
+		<annotation cp="💂🏿">卫兵 | 卫士 | 守卫 | 种类-6</annotation>
+		<annotation cp="💂🏿" type="tts">卫兵: 种类-6</annotation>
+		<annotation cp="💂🏻‍♂">卫兵 | 卫士 | 守卫 | 男 | 种类-1-2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">男卫兵: 种类-1-2</annotation>
+		<annotation cp="💂🏼‍♂">卫兵 | 卫士 | 守卫 | 男 | 种类-3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">男卫兵: 种类-3</annotation>
+		<annotation cp="💂🏽‍♂">卫兵 | 卫士 | 守卫 | 男 | 种类-4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">男卫兵: 种类-4</annotation>
+		<annotation cp="💂🏾‍♂">卫兵 | 卫士 | 守卫 | 男 | 种类-5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">男卫兵: 种类-5</annotation>
+		<annotation cp="💂🏿‍♂">卫兵 | 卫士 | 守卫 | 男 | 种类-6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">男卫兵: 种类-6</annotation>
+		<annotation cp="💂🏻‍♀">卫兵 | 卫士 | 女 | 守卫 | 种类-1-2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">女卫兵: 种类-1-2</annotation>
+		<annotation cp="💂🏼‍♀">卫兵 | 卫士 | 女 | 守卫 | 种类-3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">女卫兵: 种类-3</annotation>
+		<annotation cp="💂🏽‍♀">卫兵 | 卫士 | 女 | 守卫 | 种类-4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">女卫兵: 种类-4</annotation>
+		<annotation cp="💂🏾‍♀">卫兵 | 卫士 | 女 | 守卫 | 种类-5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">女卫兵: 种类-5</annotation>
+		<annotation cp="💂🏿‍♀">卫兵 | 卫士 | 女 | 守卫 | 种类-6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">女卫兵: 种类-6</annotation>
+		<annotation cp="👷🏻">工人 | 建筑 | 种类-1-2</annotation>
+		<annotation cp="👷🏻" type="tts">建筑工人: 种类-1-2</annotation>
+		<annotation cp="👷🏼">工人 | 建筑 | 种类-3</annotation>
+		<annotation cp="👷🏼" type="tts">建筑工人: 种类-3</annotation>
+		<annotation cp="👷🏽">工人 | 建筑 | 种类-4</annotation>
+		<annotation cp="👷🏽" type="tts">建筑工人: 种类-4</annotation>
+		<annotation cp="👷🏾">工人 | 建筑 | 种类-5</annotation>
+		<annotation cp="👷🏾" type="tts">建筑工人: 种类-5</annotation>
+		<annotation cp="👷🏿">工人 | 建筑 | 种类-6</annotation>
+		<annotation cp="👷🏿" type="tts">建筑工人: 种类-6</annotation>
+		<annotation cp="👷🏻‍♂">工人 | 建筑 | 男 | 种类-1-2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">男建筑工人: 种类-1-2</annotation>
+		<annotation cp="👷🏼‍♂">工人 | 建筑 | 男 | 种类-3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">男建筑工人: 种类-3</annotation>
+		<annotation cp="👷🏽‍♂">工人 | 建筑 | 男 | 种类-4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">男建筑工人: 种类-4</annotation>
+		<annotation cp="👷🏾‍♂">工人 | 建筑 | 男 | 种类-5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">男建筑工人: 种类-5</annotation>
+		<annotation cp="👷🏿‍♂">工人 | 建筑 | 男 | 种类-6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">男建筑工人: 种类-6</annotation>
+		<annotation cp="👷🏻‍♀">女 | 工人 | 建筑 | 种类-1-2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">女建筑工人: 种类-1-2</annotation>
+		<annotation cp="👷🏼‍♀">女 | 工人 | 建筑 | 种类-3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">女建筑工人: 种类-3</annotation>
+		<annotation cp="👷🏽‍♀">女 | 工人 | 建筑 | 种类-4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">女建筑工人: 种类-4</annotation>
+		<annotation cp="👷🏾‍♀">女 | 工人 | 建筑 | 种类-5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">女建筑工人: 种类-5</annotation>
+		<annotation cp="👷🏿‍♀">女 | 工人 | 建筑 | 种类-6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">女建筑工人: 种类-6</annotation>
+		<annotation cp="🤴🏻">王子 | 种类-1-2</annotation>
+		<annotation cp="🤴🏻" type="tts">王子: 种类-1-2</annotation>
+		<annotation cp="🤴🏼">王子 | 种类-3</annotation>
+		<annotation cp="🤴🏼" type="tts">王子: 种类-3</annotation>
+		<annotation cp="🤴🏽">王子 | 种类-4</annotation>
+		<annotation cp="🤴🏽" type="tts">王子: 种类-4</annotation>
+		<annotation cp="🤴🏾">王子 | 种类-5</annotation>
+		<annotation cp="🤴🏾" type="tts">王子: 种类-5</annotation>
+		<annotation cp="🤴🏿">王子 | 种类-6</annotation>
+		<annotation cp="🤴🏿" type="tts">王子: 种类-6</annotation>
+		<annotation cp="👸🏻">公主 | 皇冠 | 童话 | 种类-1-2</annotation>
+		<annotation cp="👸🏻" type="tts">公主: 种类-1-2</annotation>
+		<annotation cp="👸🏼">公主 | 皇冠 | 童话 | 种类-3</annotation>
+		<annotation cp="👸🏼" type="tts">公主: 种类-3</annotation>
+		<annotation cp="👸🏽">公主 | 皇冠 | 童话 | 种类-4</annotation>
+		<annotation cp="👸🏽" type="tts">公主: 种类-4</annotation>
+		<annotation cp="👸🏾">公主 | 皇冠 | 童话 | 种类-5</annotation>
+		<annotation cp="👸🏾" type="tts">公主: 种类-5</annotation>
+		<annotation cp="👸🏿">公主 | 皇冠 | 童话 | 种类-6</annotation>
+		<annotation cp="👸🏿" type="tts">公主: 种类-6</annotation>
+		<annotation cp="👳🏻">头巾 | 种类-1-2</annotation>
+		<annotation cp="👳🏻" type="tts">戴头巾的人: 种类-1-2</annotation>
+		<annotation cp="👳🏼">头巾 | 种类-3</annotation>
+		<annotation cp="👳🏼" type="tts">戴头巾的人: 种类-3</annotation>
+		<annotation cp="👳🏽">头巾 | 种类-4</annotation>
+		<annotation cp="👳🏽" type="tts">戴头巾的人: 种类-4</annotation>
+		<annotation cp="👳🏾">头巾 | 种类-5</annotation>
+		<annotation cp="👳🏾" type="tts">戴头巾的人: 种类-5</annotation>
+		<annotation cp="👳🏿">头巾 | 种类-6</annotation>
+		<annotation cp="👳🏿" type="tts">戴头巾的人: 种类-6</annotation>
+		<annotation cp="👳🏻‍♂">头巾 | 男 | 穆斯林 | 种类-1-2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">戴头巾的男人: 种类-1-2</annotation>
+		<annotation cp="👳🏼‍♂">头巾 | 男 | 穆斯林 | 种类-3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">戴头巾的男人: 种类-3</annotation>
+		<annotation cp="👳🏽‍♂">头巾 | 男 | 穆斯林 | 种类-4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">戴头巾的男人: 种类-4</annotation>
+		<annotation cp="👳🏾‍♂">头巾 | 男 | 穆斯林 | 种类-5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">戴头巾的男人: 种类-5</annotation>
+		<annotation cp="👳🏿‍♂">头巾 | 男 | 穆斯林 | 种类-6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">戴头巾的男人: 种类-6</annotation>
+		<annotation cp="👳🏻‍♀">头巾 | 女 | 穆斯林 | 种类-1-2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">戴头巾的女人: 种类-1-2</annotation>
+		<annotation cp="👳🏼‍♀">头巾 | 女 | 穆斯林 | 种类-3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">戴头巾的女人: 种类-3</annotation>
+		<annotation cp="👳🏽‍♀">头巾 | 女 | 穆斯林 | 种类-4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">戴头巾的女人: 种类-4</annotation>
+		<annotation cp="👳🏾‍♀">头巾 | 女 | 穆斯林 | 种类-5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">戴头巾的女人: 种类-5</annotation>
+		<annotation cp="👳🏿‍♀">头巾 | 女 | 穆斯林 | 种类-6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">戴头巾的女人: 种类-6</annotation>
+		<annotation cp="👲🏻">帽子 | 瓜皮帽 | 种类-1-2</annotation>
+		<annotation cp="👲🏻" type="tts">戴瓜皮帽的人: 种类-1-2</annotation>
+		<annotation cp="👲🏼">帽子 | 瓜皮帽 | 种类-3</annotation>
+		<annotation cp="👲🏼" type="tts">戴瓜皮帽的人: 种类-3</annotation>
+		<annotation cp="👲🏽">帽子 | 瓜皮帽 | 种类-4</annotation>
+		<annotation cp="👲🏽" type="tts">戴瓜皮帽的人: 种类-4</annotation>
+		<annotation cp="👲🏾">帽子 | 瓜皮帽 | 种类-5</annotation>
+		<annotation cp="👲🏾" type="tts">戴瓜皮帽的人: 种类-5</annotation>
+		<annotation cp="👲🏿">帽子 | 瓜皮帽 | 种类-6</annotation>
+		<annotation cp="👲🏿" type="tts">戴瓜皮帽的人: 种类-6</annotation>
+		<annotation cp="👱🏻">金发 | 种类-1-2</annotation>
+		<annotation cp="👱🏻" type="tts">金色头发的人: 种类-1-2</annotation>
+		<annotation cp="👱🏼">金发 | 种类-3</annotation>
+		<annotation cp="👱🏼" type="tts">金色头发的人: 种类-3</annotation>
+		<annotation cp="👱🏽">金发 | 种类-4</annotation>
+		<annotation cp="👱🏽" type="tts">金色头发的人: 种类-4</annotation>
+		<annotation cp="👱🏾">金发 | 种类-5</annotation>
+		<annotation cp="👱🏾" type="tts">金色头发的人: 种类-5</annotation>
+		<annotation cp="👱🏿">金发 | 种类-6</annotation>
+		<annotation cp="👱🏿" type="tts">金色头发的人: 种类-6</annotation>
+		<annotation cp="👱🏻‍♂">男 | 金发 | 种类-1-2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">金发男: 种类-1-2</annotation>
+		<annotation cp="👱🏼‍♂">男 | 金发 | 种类-3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">金发男: 种类-3</annotation>
+		<annotation cp="👱🏽‍♂">男 | 金发 | 种类-4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">金发男: 种类-4</annotation>
+		<annotation cp="👱🏾‍♂">男 | 金发 | 种类-5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">金发男: 种类-5</annotation>
+		<annotation cp="👱🏿‍♂">男 | 金发 | 种类-6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">金发男: 种类-6</annotation>
+		<annotation cp="👱🏻‍♀">女 | 金发 | 种类-1-2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">金发女: 种类-1-2</annotation>
+		<annotation cp="👱🏼‍♀">女 | 金发 | 种类-3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">金发女: 种类-3</annotation>
+		<annotation cp="👱🏽‍♀">女 | 金发 | 种类-4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">金发女: 种类-4</annotation>
+		<annotation cp="👱🏾‍♀">女 | 金发 | 种类-5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">金发女: 种类-5</annotation>
+		<annotation cp="👱🏿‍♀">女 | 金发 | 种类-6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">金发女: 种类-6</annotation>
+		<annotation cp="🤵🏻">新郎 | 燕尾服 | 男人 | 种类-1-2</annotation>
+		<annotation cp="🤵🏻" type="tts">穿燕尾服的男人: 种类-1-2</annotation>
+		<annotation cp="🤵🏼">新郎 | 燕尾服 | 男人 | 种类-3</annotation>
+		<annotation cp="🤵🏼" type="tts">穿燕尾服的男人: 种类-3</annotation>
+		<annotation cp="🤵🏽">新郎 | 燕尾服 | 男人 | 种类-4</annotation>
+		<annotation cp="🤵🏽" type="tts">穿燕尾服的男人: 种类-4</annotation>
+		<annotation cp="🤵🏾">新郎 | 燕尾服 | 男人 | 种类-5</annotation>
+		<annotation cp="🤵🏾" type="tts">穿燕尾服的男人: 种类-5</annotation>
+		<annotation cp="🤵🏿">新郎 | 燕尾服 | 男人 | 种类-6</annotation>
+		<annotation cp="🤵🏿" type="tts">穿燕尾服的男人: 种类-6</annotation>
+		<annotation cp="👰🏻">头纱 | 种类-1-2</annotation>
+		<annotation cp="👰🏻" type="tts">新娘: 种类-1-2</annotation>
+		<annotation cp="👰🏼">头纱 | 种类-3</annotation>
+		<annotation cp="👰🏼" type="tts">新娘: 种类-3</annotation>
+		<annotation cp="👰🏽">头纱 | 种类-4</annotation>
+		<annotation cp="👰🏽" type="tts">新娘: 种类-4</annotation>
+		<annotation cp="👰🏾">头纱 | 种类-5</annotation>
+		<annotation cp="👰🏾" type="tts">新娘: 种类-5</annotation>
+		<annotation cp="👰🏿">头纱 | 种类-6</annotation>
+		<annotation cp="👰🏿" type="tts">新娘: 种类-6</annotation>
+		<annotation cp="🤰🏻">女人 | 怀孕 | 种类-1-2</annotation>
+		<annotation cp="🤰🏻" type="tts">怀孕的女人: 种类-1-2</annotation>
+		<annotation cp="🤰🏼">女人 | 怀孕 | 种类-3</annotation>
+		<annotation cp="🤰🏼" type="tts">怀孕的女人: 种类-3</annotation>
+		<annotation cp="🤰🏽">女人 | 怀孕 | 种类-4</annotation>
+		<annotation cp="🤰🏽" type="tts">怀孕的女人: 种类-4</annotation>
+		<annotation cp="🤰🏾">女人 | 怀孕 | 种类-5</annotation>
+		<annotation cp="🤰🏾" type="tts">怀孕的女人: 种类-5</annotation>
+		<annotation cp="🤰🏿">女人 | 怀孕 | 种类-6</annotation>
+		<annotation cp="🤰🏿" type="tts">怀孕的女人: 种类-6</annotation>
+		<annotation cp="👼🏻">儿童 | 天使 | 孩子 | 种类-1-2</annotation>
+		<annotation cp="👼🏻" type="tts">小天使: 种类-1-2</annotation>
+		<annotation cp="👼🏼">儿童 | 天使 | 孩子 | 种类-3</annotation>
+		<annotation cp="👼🏼" type="tts">小天使: 种类-3</annotation>
+		<annotation cp="👼🏽">儿童 | 天使 | 孩子 | 种类-4</annotation>
+		<annotation cp="👼🏽" type="tts">小天使: 种类-4</annotation>
+		<annotation cp="👼🏾">儿童 | 天使 | 孩子 | 种类-5</annotation>
+		<annotation cp="👼🏾" type="tts">小天使: 种类-5</annotation>
+		<annotation cp="👼🏿">儿童 | 天使 | 孩子 | 种类-6</annotation>
+		<annotation cp="👼🏿" type="tts">小天使: 种类-6</annotation>
+		<annotation cp="🎅🏻">圣诞 | 节日 | 种类-1-2</annotation>
+		<annotation cp="🎅🏻" type="tts">圣诞老人: 种类-1-2</annotation>
+		<annotation cp="🎅🏼">圣诞 | 节日 | 种类-3</annotation>
+		<annotation cp="🎅🏼" type="tts">圣诞老人: 种类-3</annotation>
+		<annotation cp="🎅🏽">圣诞 | 节日 | 种类-4</annotation>
+		<annotation cp="🎅🏽" type="tts">圣诞老人: 种类-4</annotation>
+		<annotation cp="🎅🏾">圣诞 | 节日 | 种类-5</annotation>
+		<annotation cp="🎅🏾" type="tts">圣诞老人: 种类-5</annotation>
+		<annotation cp="🎅🏿">圣诞 | 节日 | 种类-6</annotation>
+		<annotation cp="🎅🏿" type="tts">圣诞老人: 种类-6</annotation>
+		<annotation cp="🤶🏻">圣诞 | 奶奶 | 老妈 | 种类-1-2</annotation>
+		<annotation cp="🤶🏻" type="tts">圣诞奶奶: 种类-1-2</annotation>
+		<annotation cp="🤶🏼">圣诞 | 奶奶 | 老妈 | 种类-3</annotation>
+		<annotation cp="🤶🏼" type="tts">圣诞奶奶: 种类-3</annotation>
+		<annotation cp="🤶🏽">圣诞 | 奶奶 | 老妈 | 种类-4</annotation>
+		<annotation cp="🤶🏽" type="tts">圣诞奶奶: 种类-4</annotation>
+		<annotation cp="🤶🏾">圣诞 | 奶奶 | 老妈 | 种类-5</annotation>
+		<annotation cp="🤶🏾" type="tts">圣诞奶奶: 种类-5</annotation>
+		<annotation cp="🤶🏿">圣诞 | 奶奶 | 老妈 | 种类-6</annotation>
+		<annotation cp="🤶🏿" type="tts">圣诞奶奶: 种类-6</annotation>
+		<annotation cp="🙍🏻">不开心 | 皱眉 | 表情 | 种类-1-2</annotation>
+		<annotation cp="🙍🏻" type="tts">皱眉: 种类-1-2</annotation>
+		<annotation cp="🙍🏼">不开心 | 皱眉 | 表情 | 种类-3</annotation>
+		<annotation cp="🙍🏼" type="tts">皱眉: 种类-3</annotation>
+		<annotation cp="🙍🏽">不开心 | 皱眉 | 表情 | 种类-4</annotation>
+		<annotation cp="🙍🏽" type="tts">皱眉: 种类-4</annotation>
+		<annotation cp="🙍🏾">不开心 | 皱眉 | 表情 | 种类-5</annotation>
+		<annotation cp="🙍🏾" type="tts">皱眉: 种类-5</annotation>
+		<annotation cp="🙍🏿">不开心 | 皱眉 | 表情 | 种类-6</annotation>
+		<annotation cp="🙍🏿" type="tts">皱眉: 种类-6</annotation>
+		<annotation cp="🙍🏻‍♂">不开心 | 男 | 皱眉 | 表情 | 种类-1-2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">皱眉男: 种类-1-2</annotation>
+		<annotation cp="🙍🏼‍♂">不开心 | 男 | 皱眉 | 表情 | 种类-3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">皱眉男: 种类-3</annotation>
+		<annotation cp="🙍🏽‍♂">不开心 | 男 | 皱眉 | 表情 | 种类-4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">皱眉男: 种类-4</annotation>
+		<annotation cp="🙍🏾‍♂">不开心 | 男 | 皱眉 | 表情 | 种类-5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">皱眉男: 种类-5</annotation>
+		<annotation cp="🙍🏿‍♂">不开心 | 男 | 皱眉 | 表情 | 种类-6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">皱眉男: 种类-6</annotation>
+		<annotation cp="🙍🏻‍♀">不开心 | 女 | 皱眉 | 表情 | 种类-1-2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">皱眉女: 种类-1-2</annotation>
+		<annotation cp="🙍🏼‍♀">不开心 | 女 | 皱眉 | 表情 | 种类-3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">皱眉女: 种类-3</annotation>
+		<annotation cp="🙍🏽‍♀">不开心 | 女 | 皱眉 | 表情 | 种类-4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">皱眉女: 种类-4</annotation>
+		<annotation cp="🙍🏾‍♀">不开心 | 女 | 皱眉 | 表情 | 种类-5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">皱眉女: 种类-5</annotation>
+		<annotation cp="🙍🏿‍♀">不开心 | 女 | 皱眉 | 表情 | 种类-6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">皱眉女: 种类-6</annotation>
+		<annotation cp="🙎🏻">不开心 | 噘嘴 | 表情 | 种类-1-2</annotation>
+		<annotation cp="🙎🏻" type="tts">撅嘴: 种类-1-2</annotation>
+		<annotation cp="🙎🏼">不开心 | 噘嘴 | 表情 | 种类-3</annotation>
+		<annotation cp="🙎🏼" type="tts">撅嘴: 种类-3</annotation>
+		<annotation cp="🙎🏽">不开心 | 噘嘴 | 表情 | 种类-4</annotation>
+		<annotation cp="🙎🏽" type="tts">撅嘴: 种类-4</annotation>
+		<annotation cp="🙎🏾">不开心 | 噘嘴 | 表情 | 种类-5</annotation>
+		<annotation cp="🙎🏾" type="tts">撅嘴: 种类-5</annotation>
+		<annotation cp="🙎🏿">不开心 | 噘嘴 | 表情 | 种类-6</annotation>
+		<annotation cp="🙎🏿" type="tts">撅嘴: 种类-6</annotation>
+		<annotation cp="🙎🏻‍♂">不开心 | 噘嘴 | 男 | 表情 | 种类-1-2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">撅嘴男: 种类-1-2</annotation>
+		<annotation cp="🙎🏼‍♂">不开心 | 噘嘴 | 男 | 表情 | 种类-3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">撅嘴男: 种类-3</annotation>
+		<annotation cp="🙎🏽‍♂">不开心 | 噘嘴 | 男 | 表情 | 种类-4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">撅嘴男: 种类-4</annotation>
+		<annotation cp="🙎🏾‍♂">不开心 | 噘嘴 | 男 | 表情 | 种类-5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">撅嘴男: 种类-5</annotation>
+		<annotation cp="🙎🏿‍♂">不开心 | 噘嘴 | 男 | 表情 | 种类-6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">撅嘴男: 种类-6</annotation>
+		<annotation cp="🙎🏻‍♀">不开心 | 噘嘴 | 女 | 表情 | 种类-1-2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">撅嘴女: 种类-1-2</annotation>
+		<annotation cp="🙎🏼‍♀">不开心 | 噘嘴 | 女 | 表情 | 种类-3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">撅嘴女: 种类-3</annotation>
+		<annotation cp="🙎🏽‍♀">不开心 | 噘嘴 | 女 | 表情 | 种类-4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">撅嘴女: 种类-4</annotation>
+		<annotation cp="🙎🏾‍♀">不开心 | 噘嘴 | 女 | 表情 | 种类-5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">撅嘴女: 种类-5</annotation>
+		<annotation cp="🙎🏿‍♀">不开心 | 噘嘴 | 女 | 表情 | 种类-6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">撅嘴女: 种类-6</annotation>
+		<annotation cp="🙅🏻">不行 | 禁止 | 种类-1-2</annotation>
+		<annotation cp="🙅🏻" type="tts">禁止手势: 种类-1-2</annotation>
+		<annotation cp="🙅🏼">不行 | 禁止 | 种类-3</annotation>
+		<annotation cp="🙅🏼" type="tts">禁止手势: 种类-3</annotation>
+		<annotation cp="🙅🏽">不行 | 禁止 | 种类-4</annotation>
+		<annotation cp="🙅🏽" type="tts">禁止手势: 种类-4</annotation>
+		<annotation cp="🙅🏾">不行 | 禁止 | 种类-5</annotation>
+		<annotation cp="🙅🏾" type="tts">禁止手势: 种类-5</annotation>
+		<annotation cp="🙅🏿">不行 | 禁止 | 种类-6</annotation>
+		<annotation cp="🙅🏿" type="tts">禁止手势: 种类-6</annotation>
+		<annotation cp="🙅🏻‍♂">不行 | 反对 | 男 | 禁止 | 种类-1-2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">禁止手势男: 种类-1-2</annotation>
+		<annotation cp="🙅🏼‍♂">不行 | 反对 | 男 | 禁止 | 种类-3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">禁止手势男: 种类-3</annotation>
+		<annotation cp="🙅🏽‍♂">不行 | 反对 | 男 | 禁止 | 种类-4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">禁止手势男: 种类-4</annotation>
+		<annotation cp="🙅🏾‍♂">不行 | 反对 | 男 | 禁止 | 种类-5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">禁止手势男: 种类-5</annotation>
+		<annotation cp="🙅🏿‍♂">不行 | 反对 | 男 | 禁止 | 种类-6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">禁止手势男: 种类-6</annotation>
+		<annotation cp="🙅🏻‍♀">不行 | 反对 | 女 | 禁止 | 种类-1-2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">禁止手势女: 种类-1-2</annotation>
+		<annotation cp="🙅🏼‍♀">不行 | 反对 | 女 | 禁止 | 种类-3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">禁止手势女: 种类-3</annotation>
+		<annotation cp="🙅🏽‍♀">不行 | 反对 | 女 | 禁止 | 种类-4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">禁止手势女: 种类-4</annotation>
+		<annotation cp="🙅🏾‍♀">不行 | 反对 | 女 | 禁止 | 种类-5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">禁止手势女: 种类-5</annotation>
+		<annotation cp="🙅🏿‍♀">不行 | 反对 | 女 | 禁止 | 种类-6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">禁止手势女: 种类-6</annotation>
+		<annotation cp="🙆🏻">ok | 好的 | 种类-1-2</annotation>
+		<annotation cp="🙆🏻" type="tts">OK手势: 种类-1-2</annotation>
+		<annotation cp="🙆🏼">ok | 好的 | 种类-3</annotation>
+		<annotation cp="🙆🏼" type="tts">OK手势: 种类-3</annotation>
+		<annotation cp="🙆🏽">ok | 好的 | 种类-4</annotation>
+		<annotation cp="🙆🏽" type="tts">OK手势: 种类-4</annotation>
+		<annotation cp="🙆🏾">ok | 好的 | 种类-5</annotation>
+		<annotation cp="🙆🏾" type="tts">OK手势: 种类-5</annotation>
+		<annotation cp="🙆🏿">ok | 好的 | 种类-6</annotation>
+		<annotation cp="🙆🏿" type="tts">OK手势: 种类-6</annotation>
+		<annotation cp="🙆🏻‍♂">ok | 可以 | 同意 | 男 | 种类-1-2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">ok手势男: 种类-1-2</annotation>
+		<annotation cp="🙆🏼‍♂">ok | 可以 | 同意 | 男 | 种类-3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">ok手势男: 种类-3</annotation>
+		<annotation cp="🙆🏽‍♂">ok | 可以 | 同意 | 男 | 种类-4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">ok手势男: 种类-4</annotation>
+		<annotation cp="🙆🏾‍♂">ok | 可以 | 同意 | 男 | 种类-5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">ok手势男: 种类-5</annotation>
+		<annotation cp="🙆🏿‍♂">ok | 可以 | 同意 | 男 | 种类-6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">ok手势男: 种类-6</annotation>
+		<annotation cp="🙆🏻‍♀">ok | 可以 | 同意 | 女 | 种类-1-2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">ok手势女: 种类-1-2</annotation>
+		<annotation cp="🙆🏼‍♀">ok | 可以 | 同意 | 女 | 种类-3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">ok手势女: 种类-3</annotation>
+		<annotation cp="🙆🏽‍♀">ok | 可以 | 同意 | 女 | 种类-4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">ok手势女: 种类-4</annotation>
+		<annotation cp="🙆🏾‍♀">ok | 可以 | 同意 | 女 | 种类-5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">ok手势女: 种类-5</annotation>
+		<annotation cp="🙆🏿‍♀">ok | 可以 | 同意 | 女 | 种类-6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">ok手势女: 种类-6</annotation>
+		<annotation cp="💁🏻">时髦 | 种类-1-2</annotation>
+		<annotation cp="💁🏻" type="tts">前台: 种类-1-2</annotation>
+		<annotation cp="💁🏼">时髦 | 种类-3</annotation>
+		<annotation cp="💁🏼" type="tts">前台: 种类-3</annotation>
+		<annotation cp="💁🏽">时髦 | 种类-4</annotation>
+		<annotation cp="💁🏽" type="tts">前台: 种类-4</annotation>
+		<annotation cp="💁🏾">时髦 | 种类-5</annotation>
+		<annotation cp="💁🏾" type="tts">前台: 种类-5</annotation>
+		<annotation cp="💁🏿">时髦 | 种类-6</annotation>
+		<annotation cp="💁🏿" type="tts">前台: 种类-6</annotation>
+		<annotation cp="💁🏻‍♂">小费 | 时髦 | 服务员 | 男 | 种类-1-2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">前台男: 种类-1-2</annotation>
+		<annotation cp="💁🏼‍♂">小费 | 时髦 | 服务员 | 男 | 种类-3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">前台男: 种类-3</annotation>
+		<annotation cp="💁🏽‍♂">小费 | 时髦 | 服务员 | 男 | 种类-4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">前台男: 种类-4</annotation>
+		<annotation cp="💁🏾‍♂">小费 | 时髦 | 服务员 | 男 | 种类-5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">前台男: 种类-5</annotation>
+		<annotation cp="💁🏿‍♂">小费 | 时髦 | 服务员 | 男 | 种类-6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">前台男: 种类-6</annotation>
+		<annotation cp="💁🏻‍♀">女 | 小费 | 时髦 | 服务员 | 种类-1-2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">前台女: 种类-1-2</annotation>
+		<annotation cp="💁🏼‍♀">女 | 小费 | 时髦 | 服务员 | 种类-3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">前台女: 种类-3</annotation>
+		<annotation cp="💁🏽‍♀">女 | 小费 | 时髦 | 服务员 | 种类-4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">前台女: 种类-4</annotation>
+		<annotation cp="💁🏾‍♀">女 | 小费 | 时髦 | 服务员 | 种类-5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">前台女: 种类-5</annotation>
+		<annotation cp="💁🏿‍♀">女 | 小费 | 时髦 | 服务员 | 种类-6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">前台女: 种类-6</annotation>
+		<annotation cp="🙋🏻">举手 | 手势 | 报名 | 种类-1-2</annotation>
+		<annotation cp="🙋🏻" type="tts">举手: 种类-1-2</annotation>
+		<annotation cp="🙋🏼">举手 | 手势 | 报名 | 种类-3</annotation>
+		<annotation cp="🙋🏼" type="tts">举手: 种类-3</annotation>
+		<annotation cp="🙋🏽">举手 | 手势 | 报名 | 种类-4</annotation>
+		<annotation cp="🙋🏽" type="tts">举手: 种类-4</annotation>
+		<annotation cp="🙋🏾">举手 | 手势 | 报名 | 种类-5</annotation>
+		<annotation cp="🙋🏾" type="tts">举手: 种类-5</annotation>
+		<annotation cp="🙋🏿">举手 | 手势 | 报名 | 种类-6</annotation>
+		<annotation cp="🙋🏿" type="tts">举手: 种类-6</annotation>
+		<annotation cp="🙋🏻‍♂">举手 | 手势 | 报名 | 男 | 种类-1-2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">男生举手: 种类-1-2</annotation>
+		<annotation cp="🙋🏼‍♂">举手 | 手势 | 报名 | 男 | 种类-3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">男生举手: 种类-3</annotation>
+		<annotation cp="🙋🏽‍♂">举手 | 手势 | 报名 | 男 | 种类-4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">男生举手: 种类-4</annotation>
+		<annotation cp="🙋🏾‍♂">举手 | 手势 | 报名 | 男 | 种类-5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">男生举手: 种类-5</annotation>
+		<annotation cp="🙋🏿‍♂">举手 | 手势 | 报名 | 男 | 种类-6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">男生举手: 种类-6</annotation>
+		<annotation cp="🙋🏻‍♀">举手 | 女 | 手势 | 报名 | 种类-1-2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">女生举手: 种类-1-2</annotation>
+		<annotation cp="🙋🏼‍♀">举手 | 女 | 手势 | 报名 | 种类-3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">女生举手: 种类-3</annotation>
+		<annotation cp="🙋🏽‍♀">举手 | 女 | 手势 | 报名 | 种类-4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">女生举手: 种类-4</annotation>
+		<annotation cp="🙋🏾‍♀">举手 | 女 | 手势 | 报名 | 种类-5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">女生举手: 种类-5</annotation>
+		<annotation cp="🙋🏿‍♀">举手 | 女 | 手势 | 报名 | 种类-6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">女生举手: 种类-6</annotation>
+		<annotation cp="🙇🏻">不好意思 | 对不起 | 抱歉 | 道歉 | 种类-1-2</annotation>
+		<annotation cp="🙇🏻" type="tts">鞠躬: 种类-1-2</annotation>
+		<annotation cp="🙇🏼">不好意思 | 对不起 | 抱歉 | 道歉 | 种类-3</annotation>
+		<annotation cp="🙇🏼" type="tts">鞠躬: 种类-3</annotation>
+		<annotation cp="🙇🏽">不好意思 | 对不起 | 抱歉 | 道歉 | 种类-4</annotation>
+		<annotation cp="🙇🏽" type="tts">鞠躬: 种类-4</annotation>
+		<annotation cp="🙇🏾">不好意思 | 对不起 | 抱歉 | 道歉 | 种类-5</annotation>
+		<annotation cp="🙇🏾" type="tts">鞠躬: 种类-5</annotation>
+		<annotation cp="🙇🏿">不好意思 | 对不起 | 抱歉 | 道歉 | 种类-6</annotation>
+		<annotation cp="🙇🏿" type="tts">鞠躬: 种类-6</annotation>
+		<annotation cp="🙇🏻‍♂">对不起 | 男 | 道歉 | 鞠躬 | 种类-1-2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">男生鞠躬: 种类-1-2</annotation>
+		<annotation cp="🙇🏼‍♂">对不起 | 男 | 道歉 | 鞠躬 | 种类-3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">男生鞠躬: 种类-3</annotation>
+		<annotation cp="🙇🏽‍♂">对不起 | 男 | 道歉 | 鞠躬 | 种类-4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">男生鞠躬: 种类-4</annotation>
+		<annotation cp="🙇🏾‍♂">对不起 | 男 | 道歉 | 鞠躬 | 种类-5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">男生鞠躬: 种类-5</annotation>
+		<annotation cp="🙇🏿‍♂">对不起 | 男 | 道歉 | 鞠躬 | 种类-6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">男生鞠躬: 种类-6</annotation>
+		<annotation cp="🙇🏻‍♀">女 | 对不起 | 道歉 | 鞠躬 | 种类-1-2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">女生鞠躬: 种类-1-2</annotation>
+		<annotation cp="🙇🏼‍♀">女 | 对不起 | 道歉 | 鞠躬 | 种类-3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">女生鞠躬: 种类-3</annotation>
+		<annotation cp="🙇🏽‍♀">女 | 对不起 | 道歉 | 鞠躬 | 种类-4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">女生鞠躬: 种类-4</annotation>
+		<annotation cp="🙇🏾‍♀">女 | 对不起 | 道歉 | 鞠躬 | 种类-5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">女生鞠躬: 种类-5</annotation>
+		<annotation cp="🙇🏿‍♀">女 | 对不起 | 道歉 | 鞠躬 | 种类-6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">女生鞠躬: 种类-6</annotation>
+		<annotation cp="🤦🏻">捂 | 无语 | 脸 | 难以置信 | 种类-1-2</annotation>
+		<annotation cp="🤦🏻" type="tts">捂脸: 种类-1-2</annotation>
+		<annotation cp="🤦🏼">捂 | 无语 | 脸 | 难以置信 | 种类-3</annotation>
+		<annotation cp="🤦🏼" type="tts">捂脸: 种类-3</annotation>
+		<annotation cp="🤦🏽">捂 | 无语 | 脸 | 难以置信 | 种类-4</annotation>
+		<annotation cp="🤦🏽" type="tts">捂脸: 种类-4</annotation>
+		<annotation cp="🤦🏾">捂 | 无语 | 脸 | 难以置信 | 种类-5</annotation>
+		<annotation cp="🤦🏾" type="tts">捂脸: 种类-5</annotation>
+		<annotation cp="🤦🏿">捂 | 无语 | 脸 | 难以置信 | 种类-6</annotation>
+		<annotation cp="🤦🏿" type="tts">捂脸: 种类-6</annotation>
+		<annotation cp="🤦🏻‍♂">捂脸 | 无语 | 男 | 难以置信 | 种类-1-2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">男生捂脸: 种类-1-2</annotation>
+		<annotation cp="🤦🏼‍♂">捂脸 | 无语 | 男 | 难以置信 | 种类-3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">男生捂脸: 种类-3</annotation>
+		<annotation cp="🤦🏽‍♂">捂脸 | 无语 | 男 | 难以置信 | 种类-4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">男生捂脸: 种类-4</annotation>
+		<annotation cp="🤦🏾‍♂">捂脸 | 无语 | 男 | 难以置信 | 种类-5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">男生捂脸: 种类-5</annotation>
+		<annotation cp="🤦🏿‍♂">捂脸 | 无语 | 男 | 难以置信 | 种类-6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">男生捂脸: 种类-6</annotation>
+		<annotation cp="🤦🏻‍♀">女 | 捂脸 | 无语 | 难以置信 | 种类-1-2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">女生捂脸: 种类-1-2</annotation>
+		<annotation cp="🤦🏼‍♀">女 | 捂脸 | 无语 | 难以置信 | 种类-3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">女生捂脸: 种类-3</annotation>
+		<annotation cp="🤦🏽‍♀">女 | 捂脸 | 无语 | 难以置信 | 种类-4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">女生捂脸: 种类-4</annotation>
+		<annotation cp="🤦🏾‍♀">女 | 捂脸 | 无语 | 难以置信 | 种类-5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">女生捂脸: 种类-5</annotation>
+		<annotation cp="🤦🏿‍♀">女 | 捂脸 | 无语 | 难以置信 | 种类-6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">女生捂脸: 种类-6</annotation>
+		<annotation cp="🤷🏻">怀疑 | 无知 | 无视 | 耸肩 | 种类-1-2</annotation>
+		<annotation cp="🤷🏻" type="tts">耸肩: 种类-1-2</annotation>
+		<annotation cp="🤷🏼">怀疑 | 无知 | 无视 | 耸肩 | 种类-3</annotation>
+		<annotation cp="🤷🏼" type="tts">耸肩: 种类-3</annotation>
+		<annotation cp="🤷🏽">怀疑 | 无知 | 无视 | 耸肩 | 种类-4</annotation>
+		<annotation cp="🤷🏽" type="tts">耸肩: 种类-4</annotation>
+		<annotation cp="🤷🏾">怀疑 | 无知 | 无视 | 耸肩 | 种类-5</annotation>
+		<annotation cp="🤷🏾" type="tts">耸肩: 种类-5</annotation>
+		<annotation cp="🤷🏿">怀疑 | 无知 | 无视 | 耸肩 | 种类-6</annotation>
+		<annotation cp="🤷🏿" type="tts">耸肩: 种类-6</annotation>
+		<annotation cp="🤷🏻‍♂">怀疑 | 无所谓 | 男 | 耸肩 | 种类-1-2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">男生耸肩: 种类-1-2</annotation>
+		<annotation cp="🤷🏼‍♂">怀疑 | 无所谓 | 男 | 耸肩 | 种类-3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">男生耸肩: 种类-3</annotation>
+		<annotation cp="🤷🏽‍♂">怀疑 | 无所谓 | 男 | 耸肩 | 种类-4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">男生耸肩: 种类-4</annotation>
+		<annotation cp="🤷🏾‍♂">怀疑 | 无所谓 | 男 | 耸肩 | 种类-5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">男生耸肩: 种类-5</annotation>
+		<annotation cp="🤷🏿‍♂">怀疑 | 无所谓 | 男 | 耸肩 | 种类-6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">男生耸肩: 种类-6</annotation>
+		<annotation cp="🤷🏻‍♀">女 | 怀疑 | 无所谓 | 耸肩 | 种类-1-2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">女生耸肩: 种类-1-2</annotation>
+		<annotation cp="🤷🏼‍♀">女 | 怀疑 | 无所谓 | 耸肩 | 种类-3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">女生耸肩: 种类-3</annotation>
+		<annotation cp="🤷🏽‍♀">女 | 怀疑 | 无所谓 | 耸肩 | 种类-4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">女生耸肩: 种类-4</annotation>
+		<annotation cp="🤷🏾‍♀">女 | 怀疑 | 无所谓 | 耸肩 | 种类-5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">女生耸肩: 种类-5</annotation>
+		<annotation cp="🤷🏿‍♀">女 | 怀疑 | 无所谓 | 耸肩 | 种类-6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">女生耸肩: 种类-6</annotation>
+		<annotation cp="💆🏻">按摩 | 美容 | 种类-1-2</annotation>
+		<annotation cp="💆🏻" type="tts">按摩: 种类-1-2</annotation>
+		<annotation cp="💆🏼">按摩 | 美容 | 种类-3</annotation>
+		<annotation cp="💆🏼" type="tts">按摩: 种类-3</annotation>
+		<annotation cp="💆🏽">按摩 | 美容 | 种类-4</annotation>
+		<annotation cp="💆🏽" type="tts">按摩: 种类-4</annotation>
+		<annotation cp="💆🏾">按摩 | 美容 | 种类-5</annotation>
+		<annotation cp="💆🏾" type="tts">按摩: 种类-5</annotation>
+		<annotation cp="💆🏿">按摩 | 美容 | 种类-6</annotation>
+		<annotation cp="💆🏿" type="tts">按摩: 种类-6</annotation>
+		<annotation cp="💆🏻‍♂">按摩 | 男 | 美容 | 种类-1-2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">男生按摩: 种类-1-2</annotation>
+		<annotation cp="💆🏼‍♂">按摩 | 男 | 美容 | 种类-3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">男生按摩: 种类-3</annotation>
+		<annotation cp="💆🏽‍♂">按摩 | 男 | 美容 | 种类-4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">男生按摩: 种类-4</annotation>
+		<annotation cp="💆🏾‍♂">按摩 | 男 | 美容 | 种类-5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">男生按摩: 种类-5</annotation>
+		<annotation cp="💆🏿‍♂">按摩 | 男 | 美容 | 种类-6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">男生按摩: 种类-6</annotation>
+		<annotation cp="💆🏻‍♀">女 | 按摩 | 美容 | 种类-1-2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">女生按摩: 种类-1-2</annotation>
+		<annotation cp="💆🏼‍♀">女 | 按摩 | 美容 | 种类-3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">女生按摩: 种类-3</annotation>
+		<annotation cp="💆🏽‍♀">女 | 按摩 | 美容 | 种类-4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">女生按摩: 种类-4</annotation>
+		<annotation cp="💆🏾‍♀">女 | 按摩 | 美容 | 种类-5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">女生按摩: 种类-5</annotation>
+		<annotation cp="💆🏿‍♀">女 | 按摩 | 美容 | 种类-6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">女生按摩: 种类-6</annotation>
+		<annotation cp="💇🏻">剪头 | 理发 | 种类-1-2</annotation>
+		<annotation cp="💇🏻" type="tts">理发: 种类-1-2</annotation>
+		<annotation cp="💇🏼">剪头 | 理发 | 种类-3</annotation>
+		<annotation cp="💇🏼" type="tts">理发: 种类-3</annotation>
+		<annotation cp="💇🏽">剪头 | 理发 | 种类-4</annotation>
+		<annotation cp="💇🏽" type="tts">理发: 种类-4</annotation>
+		<annotation cp="💇🏾">剪头 | 理发 | 种类-5</annotation>
+		<annotation cp="💇🏾" type="tts">理发: 种类-5</annotation>
+		<annotation cp="💇🏿">剪头 | 理发 | 种类-6</annotation>
+		<annotation cp="💇🏿" type="tts">理发: 种类-6</annotation>
+		<annotation cp="💇🏻‍♂">剪头 | 理发 | 男 | 种类-1-2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">男生理发: 种类-1-2</annotation>
+		<annotation cp="💇🏼‍♂">剪头 | 理发 | 男 | 种类-3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">男生理发: 种类-3</annotation>
+		<annotation cp="💇🏽‍♂">剪头 | 理发 | 男 | 种类-4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">男生理发: 种类-4</annotation>
+		<annotation cp="💇🏾‍♂">剪头 | 理发 | 男 | 种类-5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">男生理发: 种类-5</annotation>
+		<annotation cp="💇🏿‍♂">剪头 | 理发 | 男 | 种类-6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">男生理发: 种类-6</annotation>
+		<annotation cp="💇🏻‍♀">剪头 | 女 | 理发 | 种类-1-2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">女生理发: 种类-1-2</annotation>
+		<annotation cp="💇🏼‍♀">剪头 | 女 | 理发 | 种类-3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">女生理发: 种类-3</annotation>
+		<annotation cp="💇🏽‍♀">剪头 | 女 | 理发 | 种类-4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">女生理发: 种类-4</annotation>
+		<annotation cp="💇🏾‍♀">剪头 | 女 | 理发 | 种类-5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">女生理发: 种类-5</annotation>
+		<annotation cp="💇🏿‍♀">剪头 | 女 | 理发 | 种类-6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">女生理发: 种类-6</annotation>
+		<annotation cp="🚶🏻">路人 | 种类-1-2</annotation>
+		<annotation cp="🚶🏻" type="tts">行人: 种类-1-2</annotation>
+		<annotation cp="🚶🏼">路人 | 种类-3</annotation>
+		<annotation cp="🚶🏼" type="tts">行人: 种类-3</annotation>
+		<annotation cp="🚶🏽">路人 | 种类-4</annotation>
+		<annotation cp="🚶🏽" type="tts">行人: 种类-4</annotation>
+		<annotation cp="🚶🏾">路人 | 种类-5</annotation>
+		<annotation cp="🚶🏾" type="tts">行人: 种类-5</annotation>
+		<annotation cp="🚶🏿">路人 | 种类-6</annotation>
+		<annotation cp="🚶🏿" type="tts">行人: 种类-6</annotation>
+		<annotation cp="🚶🏻‍♂">男 | 走 | 路人 | 种类-1-2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">男行人: 种类-1-2</annotation>
+		<annotation cp="🚶🏼‍♂">男 | 走 | 路人 | 种类-3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">男行人: 种类-3</annotation>
+		<annotation cp="🚶🏽‍♂">男 | 走 | 路人 | 种类-4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">男行人: 种类-4</annotation>
+		<annotation cp="🚶🏾‍♂">男 | 走 | 路人 | 种类-5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">男行人: 种类-5</annotation>
+		<annotation cp="🚶🏿‍♂">男 | 走 | 路人 | 种类-6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">男行人: 种类-6</annotation>
+		<annotation cp="🚶🏻‍♀">女 | 走 | 路人 | 种类-1-2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">女行人: 种类-1-2</annotation>
+		<annotation cp="🚶🏼‍♀">女 | 走 | 路人 | 种类-3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">女行人: 种类-3</annotation>
+		<annotation cp="🚶🏽‍♀">女 | 走 | 路人 | 种类-4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">女行人: 种类-4</annotation>
+		<annotation cp="🚶🏾‍♀">女 | 走 | 路人 | 种类-5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">女行人: 种类-5</annotation>
+		<annotation cp="🚶🏿‍♀">女 | 走 | 路人 | 种类-6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">女行人: 种类-6</annotation>
+		<annotation cp="🏃🏻">奔跑 | 跑步 | 马拉松 | 种类-1-2</annotation>
+		<annotation cp="🏃🏻" type="tts">跑步者: 种类-1-2</annotation>
+		<annotation cp="🏃🏼">奔跑 | 跑步 | 马拉松 | 种类-3</annotation>
+		<annotation cp="🏃🏼" type="tts">跑步者: 种类-3</annotation>
+		<annotation cp="🏃🏽">奔跑 | 跑步 | 马拉松 | 种类-4</annotation>
+		<annotation cp="🏃🏽" type="tts">跑步者: 种类-4</annotation>
+		<annotation cp="🏃🏾">奔跑 | 跑步 | 马拉松 | 种类-5</annotation>
+		<annotation cp="🏃🏾" type="tts">跑步者: 种类-5</annotation>
+		<annotation cp="🏃🏿">奔跑 | 跑步 | 马拉松 | 种类-6</annotation>
+		<annotation cp="🏃🏿" type="tts">跑步者: 种类-6</annotation>
+		<annotation cp="🏃🏻‍♂">男 | 跑 | 马拉松 | 种类-1-2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">男生跑步: 种类-1-2</annotation>
+		<annotation cp="🏃🏼‍♂">男 | 跑 | 马拉松 | 种类-3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">男生跑步: 种类-3</annotation>
+		<annotation cp="🏃🏽‍♂">男 | 跑 | 马拉松 | 种类-4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">男生跑步: 种类-4</annotation>
+		<annotation cp="🏃🏾‍♂">男 | 跑 | 马拉松 | 种类-5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">男生跑步: 种类-5</annotation>
+		<annotation cp="🏃🏿‍♂">男 | 跑 | 马拉松 | 种类-6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">男生跑步: 种类-6</annotation>
+		<annotation cp="🏃🏻‍♀">女 | 跑 | 马拉松 | 种类-1-2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">女生跑步: 种类-1-2</annotation>
+		<annotation cp="🏃🏼‍♀">女 | 跑 | 马拉松 | 种类-3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">女生跑步: 种类-3</annotation>
+		<annotation cp="🏃🏽‍♀">女 | 跑 | 马拉松 | 种类-4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">女生跑步: 种类-4</annotation>
+		<annotation cp="🏃🏾‍♀">女 | 跑 | 马拉松 | 种类-5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">女生跑步: 种类-5</annotation>
+		<annotation cp="🏃🏿‍♀">女 | 跑 | 马拉松 | 种类-6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">女生跑步: 种类-6</annotation>
+		<annotation cp="💃🏻">跳舞 | 种类-1-2</annotation>
+		<annotation cp="💃🏻" type="tts">舞者: 种类-1-2</annotation>
+		<annotation cp="💃🏼">跳舞 | 种类-3</annotation>
+		<annotation cp="💃🏼" type="tts">舞者: 种类-3</annotation>
+		<annotation cp="💃🏽">跳舞 | 种类-4</annotation>
+		<annotation cp="💃🏽" type="tts">舞者: 种类-4</annotation>
+		<annotation cp="💃🏾">跳舞 | 种类-5</annotation>
+		<annotation cp="💃🏾" type="tts">舞者: 种类-5</annotation>
+		<annotation cp="💃🏿">跳舞 | 种类-6</annotation>
+		<annotation cp="💃🏿" type="tts">舞者: 种类-6</annotation>
+		<annotation cp="🕺🏻">男人 | 跳舞 | 种类-1-2</annotation>
+		<annotation cp="🕺🏻" type="tts">跳舞的男人: 种类-1-2</annotation>
+		<annotation cp="🕺🏼">男人 | 跳舞 | 种类-3</annotation>
+		<annotation cp="🕺🏼" type="tts">跳舞的男人: 种类-3</annotation>
+		<annotation cp="🕺🏽">男人 | 跳舞 | 种类-4</annotation>
+		<annotation cp="🕺🏽" type="tts">跳舞的男人: 种类-4</annotation>
+		<annotation cp="🕺🏾">男人 | 跳舞 | 种类-5</annotation>
+		<annotation cp="🕺🏾" type="tts">跳舞的男人: 种类-5</annotation>
+		<annotation cp="🕺🏿">男人 | 跳舞 | 种类-6</annotation>
+		<annotation cp="🕺🏿" type="tts">跳舞的男人: 种类-6</annotation>
+		<annotation cp="🛀🏻">洗澡 | 浴盆 | 浴缸 | 澡盆 | 种类-1-2</annotation>
+		<annotation cp="🛀🏻" type="tts">盆浴: 种类-1-2</annotation>
+		<annotation cp="🛀🏼">洗澡 | 浴盆 | 浴缸 | 澡盆 | 种类-3</annotation>
+		<annotation cp="🛀🏼" type="tts">盆浴: 种类-3</annotation>
+		<annotation cp="🛀🏽">洗澡 | 浴盆 | 浴缸 | 澡盆 | 种类-4</annotation>
+		<annotation cp="🛀🏽" type="tts">盆浴: 种类-4</annotation>
+		<annotation cp="🛀🏾">洗澡 | 浴盆 | 浴缸 | 澡盆 | 种类-5</annotation>
+		<annotation cp="🛀🏾" type="tts">盆浴: 种类-5</annotation>
+		<annotation cp="🛀🏿">洗澡 | 浴盆 | 浴缸 | 澡盆 | 种类-6</annotation>
+		<annotation cp="🛀🏿" type="tts">盆浴: 种类-6</annotation>
+		<annotation cp="🛌🏻">入睡 | 宾馆 | 种类-1-2</annotation>
+		<annotation cp="🛌🏻" type="tts">躺在床上的人: 种类-1-2</annotation>
+		<annotation cp="🛌🏼">入睡 | 宾馆 | 种类-3</annotation>
+		<annotation cp="🛌🏼" type="tts">躺在床上的人: 种类-3</annotation>
+		<annotation cp="🛌🏽">入睡 | 宾馆 | 种类-4</annotation>
+		<annotation cp="🛌🏽" type="tts">躺在床上的人: 种类-4</annotation>
+		<annotation cp="🛌🏾">入睡 | 宾馆 | 种类-5</annotation>
+		<annotation cp="🛌🏾" type="tts">躺在床上的人: 种类-5</annotation>
+		<annotation cp="🛌🏿">入睡 | 宾馆 | 种类-6</annotation>
+		<annotation cp="🛌🏿" type="tts">躺在床上的人: 种类-6</annotation>
+		<annotation cp="🕴🏻">正装 | 西装革履 | 种类-1-2</annotation>
+		<annotation cp="🕴🏻" type="tts">西装革履的人: 种类-1-2</annotation>
+		<annotation cp="🕴🏼">正装 | 西装革履 | 种类-3</annotation>
+		<annotation cp="🕴🏼" type="tts">西装革履的人: 种类-3</annotation>
+		<annotation cp="🕴🏽">正装 | 西装革履 | 种类-4</annotation>
+		<annotation cp="🕴🏽" type="tts">西装革履的人: 种类-4</annotation>
+		<annotation cp="🕴🏾">正装 | 西装革履 | 种类-5</annotation>
+		<annotation cp="🕴🏾" type="tts">西装革履的人: 种类-5</annotation>
+		<annotation cp="🕴🏿">正装 | 西装革履 | 种类-6</annotation>
+		<annotation cp="🕴🏿" type="tts">西装革履的人: 种类-6</annotation>
+		<annotation cp="🏇🏻">赛马 | 马 | 种类-1-2</annotation>
+		<annotation cp="🏇🏻" type="tts">赛马: 种类-1-2</annotation>
+		<annotation cp="🏇🏼">赛马 | 马 | 种类-3</annotation>
+		<annotation cp="🏇🏼" type="tts">赛马: 种类-3</annotation>
+		<annotation cp="🏇🏽">赛马 | 马 | 种类-4</annotation>
+		<annotation cp="🏇🏽" type="tts">赛马: 种类-4</annotation>
+		<annotation cp="🏇🏾">赛马 | 马 | 种类-5</annotation>
+		<annotation cp="🏇🏾" type="tts">赛马: 种类-5</annotation>
+		<annotation cp="🏇🏿">赛马 | 马 | 种类-6</annotation>
+		<annotation cp="🏇🏿" type="tts">赛马: 种类-6</annotation>
+		<annotation cp="🏂🏻">单板 | 滑雪 | 种类-1-2</annotation>
+		<annotation cp="🏂🏻" type="tts">滑雪板: 种类-1-2</annotation>
+		<annotation cp="🏂🏼">单板 | 滑雪 | 种类-3</annotation>
+		<annotation cp="🏂🏼" type="tts">滑雪板: 种类-3</annotation>
+		<annotation cp="🏂🏽">单板 | 滑雪 | 种类-4</annotation>
+		<annotation cp="🏂🏽" type="tts">滑雪板: 种类-4</annotation>
+		<annotation cp="🏂🏾">单板 | 滑雪 | 种类-5</annotation>
+		<annotation cp="🏂🏾" type="tts">滑雪板: 种类-5</annotation>
+		<annotation cp="🏂🏿">单板 | 滑雪 | 种类-6</annotation>
+		<annotation cp="🏂🏿" type="tts">滑雪板: 种类-6</annotation>
+		<annotation cp="🏌🏻">高尔夫 | 种类-1-2</annotation>
+		<annotation cp="🏌🏻" type="tts">打高尔夫的人: 种类-1-2</annotation>
+		<annotation cp="🏌🏼">高尔夫 | 种类-3</annotation>
+		<annotation cp="🏌🏼" type="tts">打高尔夫的人: 种类-3</annotation>
+		<annotation cp="🏌🏽">高尔夫 | 种类-4</annotation>
+		<annotation cp="🏌🏽" type="tts">打高尔夫的人: 种类-4</annotation>
+		<annotation cp="🏌🏾">高尔夫 | 种类-5</annotation>
+		<annotation cp="🏌🏾" type="tts">打高尔夫的人: 种类-5</annotation>
+		<annotation cp="🏌🏿">高尔夫 | 种类-6</annotation>
+		<annotation cp="🏌🏿" type="tts">打高尔夫的人: 种类-6</annotation>
+		<annotation cp="🏌🏻‍♂">男 | 高尔夫 | 种类-1-2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">男生打高尔夫: 种类-1-2</annotation>
+		<annotation cp="🏌🏼‍♂">男 | 高尔夫 | 种类-3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">男生打高尔夫: 种类-3</annotation>
+		<annotation cp="🏌🏽‍♂">男 | 高尔夫 | 种类-4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">男生打高尔夫: 种类-4</annotation>
+		<annotation cp="🏌🏾‍♂">男 | 高尔夫 | 种类-5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">男生打高尔夫: 种类-5</annotation>
+		<annotation cp="🏌🏿‍♂">男 | 高尔夫 | 种类-6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">男生打高尔夫: 种类-6</annotation>
+		<annotation cp="🏌🏻‍♀">女 | 高尔夫 | 种类-1-2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">女生打高尔夫: 种类-1-2</annotation>
+		<annotation cp="🏌🏼‍♀">女 | 高尔夫 | 种类-3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">女生打高尔夫: 种类-3</annotation>
+		<annotation cp="🏌🏽‍♀">女 | 高尔夫 | 种类-4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">女生打高尔夫: 种类-4</annotation>
+		<annotation cp="🏌🏾‍♀">女 | 高尔夫 | 种类-5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">女生打高尔夫: 种类-5</annotation>
+		<annotation cp="🏌🏿‍♀">女 | 高尔夫 | 种类-6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">女生打高尔夫: 种类-6</annotation>
+		<annotation cp="🏄🏻">冲浪 | 种类-1-2</annotation>
+		<annotation cp="🏄🏻" type="tts">冲浪: 种类-1-2</annotation>
+		<annotation cp="🏄🏼">冲浪 | 种类-3</annotation>
+		<annotation cp="🏄🏼" type="tts">冲浪: 种类-3</annotation>
+		<annotation cp="🏄🏽">冲浪 | 种类-4</annotation>
+		<annotation cp="🏄🏽" type="tts">冲浪: 种类-4</annotation>
+		<annotation cp="🏄🏾">冲浪 | 种类-5</annotation>
+		<annotation cp="🏄🏾" type="tts">冲浪: 种类-5</annotation>
+		<annotation cp="🏄🏿">冲浪 | 种类-6</annotation>
+		<annotation cp="🏄🏿" type="tts">冲浪: 种类-6</annotation>
+		<annotation cp="🏄🏻‍♂">冲浪 | 男 | 种类-1-2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">男生冲浪: 种类-1-2</annotation>
+		<annotation cp="🏄🏼‍♂">冲浪 | 男 | 种类-3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">男生冲浪: 种类-3</annotation>
+		<annotation cp="🏄🏽‍♂">冲浪 | 男 | 种类-4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">男生冲浪: 种类-4</annotation>
+		<annotation cp="🏄🏾‍♂">冲浪 | 男 | 种类-5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">男生冲浪: 种类-5</annotation>
+		<annotation cp="🏄🏿‍♂">冲浪 | 男 | 种类-6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">男生冲浪: 种类-6</annotation>
+		<annotation cp="🏄🏻‍♀">冲浪 | 女 | 种类-1-2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">女生冲浪: 种类-1-2</annotation>
+		<annotation cp="🏄🏼‍♀">冲浪 | 女 | 种类-3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">女生冲浪: 种类-3</annotation>
+		<annotation cp="🏄🏽‍♀">冲浪 | 女 | 种类-4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">女生冲浪: 种类-4</annotation>
+		<annotation cp="🏄🏾‍♀">冲浪 | 女 | 种类-5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">女生冲浪: 种类-5</annotation>
+		<annotation cp="🏄🏿‍♀">冲浪 | 女 | 种类-6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">女生冲浪: 种类-6</annotation>
+		<annotation cp="🚣🏻">船 | 种类-1-2</annotation>
+		<annotation cp="🚣🏻" type="tts">划艇: 种类-1-2</annotation>
+		<annotation cp="🚣🏼">船 | 种类-3</annotation>
+		<annotation cp="🚣🏼" type="tts">划艇: 种类-3</annotation>
+		<annotation cp="🚣🏽">船 | 种类-4</annotation>
+		<annotation cp="🚣🏽" type="tts">划艇: 种类-4</annotation>
+		<annotation cp="🚣🏾">船 | 种类-5</annotation>
+		<annotation cp="🚣🏾" type="tts">划艇: 种类-5</annotation>
+		<annotation cp="🚣🏿">船 | 种类-6</annotation>
+		<annotation cp="🚣🏿" type="tts">划艇: 种类-6</annotation>
+		<annotation cp="🚣🏻‍♂">划船 | 划艇 | 男 | 船 | 种类-1-2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">男生划船: 种类-1-2</annotation>
+		<annotation cp="🚣🏼‍♂">划船 | 划艇 | 男 | 船 | 种类-3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">男生划船: 种类-3</annotation>
+		<annotation cp="🚣🏽‍♂">划船 | 划艇 | 男 | 船 | 种类-4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">男生划船: 种类-4</annotation>
+		<annotation cp="🚣🏾‍♂">划船 | 划艇 | 男 | 船 | 种类-5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">男生划船: 种类-5</annotation>
+		<annotation cp="🚣🏿‍♂">划船 | 划艇 | 男 | 船 | 种类-6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">男生划船: 种类-6</annotation>
+		<annotation cp="🚣🏻‍♀">划船 | 划艇 | 女 | 船 | 种类-1-2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">女生划船: 种类-1-2</annotation>
+		<annotation cp="🚣🏼‍♀">划船 | 划艇 | 女 | 船 | 种类-3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">女生划船: 种类-3</annotation>
+		<annotation cp="🚣🏽‍♀">划船 | 划艇 | 女 | 船 | 种类-4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">女生划船: 种类-4</annotation>
+		<annotation cp="🚣🏾‍♀">划船 | 划艇 | 女 | 船 | 种类-5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">女生划船: 种类-5</annotation>
+		<annotation cp="🚣🏿‍♀">划船 | 划艇 | 女 | 船 | 种类-6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">女生划船: 种类-6</annotation>
+		<annotation cp="🏊🏻">游泳 | 种类-1-2</annotation>
+		<annotation cp="🏊🏻" type="tts">游泳: 种类-1-2</annotation>
+		<annotation cp="🏊🏼">游泳 | 种类-3</annotation>
+		<annotation cp="🏊🏼" type="tts">游泳: 种类-3</annotation>
+		<annotation cp="🏊🏽">游泳 | 种类-4</annotation>
+		<annotation cp="🏊🏽" type="tts">游泳: 种类-4</annotation>
+		<annotation cp="🏊🏾">游泳 | 种类-5</annotation>
+		<annotation cp="🏊🏾" type="tts">游泳: 种类-5</annotation>
+		<annotation cp="🏊🏿">游泳 | 种类-6</annotation>
+		<annotation cp="🏊🏿" type="tts">游泳: 种类-6</annotation>
+		<annotation cp="🏊🏻‍♂">游泳 | 男 | 种类-1-2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">男生游泳: 种类-1-2</annotation>
+		<annotation cp="🏊🏼‍♂">游泳 | 男 | 种类-3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">男生游泳: 种类-3</annotation>
+		<annotation cp="🏊🏽‍♂">游泳 | 男 | 种类-4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">男生游泳: 种类-4</annotation>
+		<annotation cp="🏊🏾‍♂">游泳 | 男 | 种类-5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">男生游泳: 种类-5</annotation>
+		<annotation cp="🏊🏿‍♂">游泳 | 男 | 种类-6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">男生游泳: 种类-6</annotation>
+		<annotation cp="🏊🏻‍♀">女 | 游泳 | 种类-1-2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">女生游泳: 种类-1-2</annotation>
+		<annotation cp="🏊🏼‍♀">女 | 游泳 | 种类-3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">女生游泳: 种类-3</annotation>
+		<annotation cp="🏊🏽‍♀">女 | 游泳 | 种类-4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">女生游泳: 种类-4</annotation>
+		<annotation cp="🏊🏾‍♀">女 | 游泳 | 种类-5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">女生游泳: 种类-5</annotation>
+		<annotation cp="🏊🏿‍♀">女 | 游泳 | 种类-6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">女生游泳: 种类-6</annotation>
+		<annotation cp="⛹🏻">游戏 | 玩 | 球 | 种类-1-2</annotation>
+		<annotation cp="⛹🏻" type="tts">玩球: 种类-1-2</annotation>
+		<annotation cp="⛹🏼">游戏 | 玩 | 球 | 种类-3</annotation>
+		<annotation cp="⛹🏼" type="tts">玩球: 种类-3</annotation>
+		<annotation cp="⛹🏽">游戏 | 玩 | 球 | 种类-4</annotation>
+		<annotation cp="⛹🏽" type="tts">玩球: 种类-4</annotation>
+		<annotation cp="⛹🏾">游戏 | 玩 | 球 | 种类-5</annotation>
+		<annotation cp="⛹🏾" type="tts">玩球: 种类-5</annotation>
+		<annotation cp="⛹🏿">游戏 | 玩 | 球 | 种类-6</annotation>
+		<annotation cp="⛹🏿" type="tts">玩球: 种类-6</annotation>
+		<annotation cp="⛹🏻‍♂">游戏 | 玩 | 球 | 男 | 种类-1-2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">男生玩球: 种类-1-2</annotation>
+		<annotation cp="⛹🏼‍♂">游戏 | 玩 | 球 | 男 | 种类-3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">男生玩球: 种类-3</annotation>
+		<annotation cp="⛹🏽‍♂">游戏 | 玩 | 球 | 男 | 种类-4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">男生玩球: 种类-4</annotation>
+		<annotation cp="⛹🏾‍♂">游戏 | 玩 | 球 | 男 | 种类-5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">男生玩球: 种类-5</annotation>
+		<annotation cp="⛹🏿‍♂">游戏 | 玩 | 球 | 男 | 种类-6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">男生玩球: 种类-6</annotation>
+		<annotation cp="⛹🏻‍♀">女 | 游戏 | 玩 | 球 | 种类-1-2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">女生玩球: 种类-1-2</annotation>
+		<annotation cp="⛹🏼‍♀">女 | 游戏 | 玩 | 球 | 种类-3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">女生玩球: 种类-3</annotation>
+		<annotation cp="⛹🏽‍♀">女 | 游戏 | 玩 | 球 | 种类-4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">女生玩球: 种类-4</annotation>
+		<annotation cp="⛹🏾‍♀">女 | 游戏 | 玩 | 球 | 种类-5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">女生玩球: 种类-5</annotation>
+		<annotation cp="⛹🏿‍♀">女 | 游戏 | 玩 | 球 | 种类-6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">女生玩球: 种类-6</annotation>
+		<annotation cp="🏋🏻">举重 | 种类-1-2</annotation>
+		<annotation cp="🏋🏻" type="tts">举重: 种类-1-2</annotation>
+		<annotation cp="🏋🏼">举重 | 种类-3</annotation>
+		<annotation cp="🏋🏼" type="tts">举重: 种类-3</annotation>
+		<annotation cp="🏋🏽">举重 | 种类-4</annotation>
+		<annotation cp="🏋🏽" type="tts">举重: 种类-4</annotation>
+		<annotation cp="🏋🏾">举重 | 种类-5</annotation>
+		<annotation cp="🏋🏾" type="tts">举重: 种类-5</annotation>
+		<annotation cp="🏋🏿">举重 | 种类-6</annotation>
+		<annotation cp="🏋🏿" type="tts">举重: 种类-6</annotation>
+		<annotation cp="🏋🏻‍♂">举重 | 男 | 种类-1-2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">男生举重: 种类-1-2</annotation>
+		<annotation cp="🏋🏼‍♂">举重 | 男 | 种类-3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">男生举重: 种类-3</annotation>
+		<annotation cp="🏋🏽‍♂">举重 | 男 | 种类-4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">男生举重: 种类-4</annotation>
+		<annotation cp="🏋🏾‍♂">举重 | 男 | 种类-5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">男生举重: 种类-5</annotation>
+		<annotation cp="🏋🏿‍♂">举重 | 男 | 种类-6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">男生举重: 种类-6</annotation>
+		<annotation cp="🏋🏻‍♀">举重 | 女 | 种类-1-2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">女生举重: 种类-1-2</annotation>
+		<annotation cp="🏋🏼‍♀">举重 | 女 | 种类-3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">女生举重: 种类-3</annotation>
+		<annotation cp="🏋🏽‍♀">举重 | 女 | 种类-4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">女生举重: 种类-4</annotation>
+		<annotation cp="🏋🏾‍♀">举重 | 女 | 种类-5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">女生举重: 种类-5</annotation>
+		<annotation cp="🏋🏿‍♀">举重 | 女 | 种类-6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">女生举重: 种类-6</annotation>
+		<annotation cp="🚴🏻">自行车 | 种类-1-2</annotation>
+		<annotation cp="🚴🏻" type="tts">骑自行车: 种类-1-2</annotation>
+		<annotation cp="🚴🏼">自行车 | 种类-3</annotation>
+		<annotation cp="🚴🏼" type="tts">骑自行车: 种类-3</annotation>
+		<annotation cp="🚴🏽">自行车 | 种类-4</annotation>
+		<annotation cp="🚴🏽" type="tts">骑自行车: 种类-4</annotation>
+		<annotation cp="🚴🏾">自行车 | 种类-5</annotation>
+		<annotation cp="🚴🏾" type="tts">骑自行车: 种类-5</annotation>
+		<annotation cp="🚴🏿">自行车 | 种类-6</annotation>
+		<annotation cp="🚴🏿" type="tts">骑自行车: 种类-6</annotation>
+		<annotation cp="🚴🏻‍♂">男 | 自行车 | 骑车 | 种类-1-2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">男生骑车: 种类-1-2</annotation>
+		<annotation cp="🚴🏼‍♂">男 | 自行车 | 骑车 | 种类-3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">男生骑车: 种类-3</annotation>
+		<annotation cp="🚴🏽‍♂">男 | 自行车 | 骑车 | 种类-4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">男生骑车: 种类-4</annotation>
+		<annotation cp="🚴🏾‍♂">男 | 自行车 | 骑车 | 种类-5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">男生骑车: 种类-5</annotation>
+		<annotation cp="🚴🏿‍♂">男 | 自行车 | 骑车 | 种类-6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">男生骑车: 种类-6</annotation>
+		<annotation cp="🚴🏻‍♀">女 | 自行车 | 骑车 | 种类-1-2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">女生骑车: 种类-1-2</annotation>
+		<annotation cp="🚴🏼‍♀">女 | 自行车 | 骑车 | 种类-3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">女生骑车: 种类-3</annotation>
+		<annotation cp="🚴🏽‍♀">女 | 自行车 | 骑车 | 种类-4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">女生骑车: 种类-4</annotation>
+		<annotation cp="🚴🏾‍♀">女 | 自行车 | 骑车 | 种类-5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">女生骑车: 种类-5</annotation>
+		<annotation cp="🚴🏿‍♀">女 | 自行车 | 骑车 | 种类-6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">女生骑车: 种类-6</annotation>
+		<annotation cp="🚵🏻">山地车 | 种类-1-2</annotation>
+		<annotation cp="🚵🏻" type="tts">骑山地车: 种类-1-2</annotation>
+		<annotation cp="🚵🏼">山地车 | 种类-3</annotation>
+		<annotation cp="🚵🏼" type="tts">骑山地车: 种类-3</annotation>
+		<annotation cp="🚵🏽">山地车 | 种类-4</annotation>
+		<annotation cp="🚵🏽" type="tts">骑山地车: 种类-4</annotation>
+		<annotation cp="🚵🏾">山地车 | 种类-5</annotation>
+		<annotation cp="🚵🏾" type="tts">骑山地车: 种类-5</annotation>
+		<annotation cp="🚵🏿">山地车 | 种类-6</annotation>
+		<annotation cp="🚵🏿" type="tts">骑山地车: 种类-6</annotation>
+		<annotation cp="🚵🏻‍♂">山地车 | 男 | 骑车 | 种类-1-2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">男生骑山地车: 种类-1-2</annotation>
+		<annotation cp="🚵🏼‍♂">山地车 | 男 | 骑车 | 种类-3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">男生骑山地车: 种类-3</annotation>
+		<annotation cp="🚵🏽‍♂">山地车 | 男 | 骑车 | 种类-4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">男生骑山地车: 种类-4</annotation>
+		<annotation cp="🚵🏾‍♂">山地车 | 男 | 骑车 | 种类-5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">男生骑山地车: 种类-5</annotation>
+		<annotation cp="🚵🏿‍♂">山地车 | 男 | 骑车 | 种类-6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">男生骑山地车: 种类-6</annotation>
+		<annotation cp="🚵🏻‍♀">女 | 山地车 | 骑车 | 种类-1-2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">女生骑山地车: 种类-1-2</annotation>
+		<annotation cp="🚵🏼‍♀">女 | 山地车 | 骑车 | 种类-3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">女生骑山地车: 种类-3</annotation>
+		<annotation cp="🚵🏽‍♀">女 | 山地车 | 骑车 | 种类-4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">女生骑山地车: 种类-4</annotation>
+		<annotation cp="🚵🏾‍♀">女 | 山地车 | 骑车 | 种类-5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">女生骑山地车: 种类-5</annotation>
+		<annotation cp="🚵🏿‍♀">女 | 山地车 | 骑车 | 种类-6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">女生骑山地车: 种类-6</annotation>
+		<annotation cp="🤸🏻">人 | 体操 | 体育 | 侧手翻 | 种类-1-2</annotation>
+		<annotation cp="🤸🏻" type="tts">侧手翻: 种类-1-2</annotation>
+		<annotation cp="🤸🏼">人 | 体操 | 体育 | 侧手翻 | 种类-3</annotation>
+		<annotation cp="🤸🏼" type="tts">侧手翻: 种类-3</annotation>
+		<annotation cp="🤸🏽">人 | 体操 | 体育 | 侧手翻 | 种类-4</annotation>
+		<annotation cp="🤸🏽" type="tts">侧手翻: 种类-4</annotation>
+		<annotation cp="🤸🏾">人 | 体操 | 体育 | 侧手翻 | 种类-5</annotation>
+		<annotation cp="🤸🏾" type="tts">侧手翻: 种类-5</annotation>
+		<annotation cp="🤸🏿">人 | 体操 | 体育 | 侧手翻 | 种类-6</annotation>
+		<annotation cp="🤸🏿" type="tts">侧手翻: 种类-6</annotation>
+		<annotation cp="🤸🏻‍♂">体操 | 侧手翻 | 男 | 翻筋斗 | 种类-1-2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">男生侧手翻: 种类-1-2</annotation>
+		<annotation cp="🤸🏼‍♂">体操 | 侧手翻 | 男 | 翻筋斗 | 种类-3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">男生侧手翻: 种类-3</annotation>
+		<annotation cp="🤸🏽‍♂">体操 | 侧手翻 | 男 | 翻筋斗 | 种类-4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">男生侧手翻: 种类-4</annotation>
+		<annotation cp="🤸🏾‍♂">体操 | 侧手翻 | 男 | 翻筋斗 | 种类-5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">男生侧手翻: 种类-5</annotation>
+		<annotation cp="🤸🏿‍♂">体操 | 侧手翻 | 男 | 翻筋斗 | 种类-6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">男生侧手翻: 种类-6</annotation>
+		<annotation cp="🤸🏻‍♀">体操 | 侧手翻 | 女 | 翻筋斗 | 种类-1-2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">女生侧手翻: 种类-1-2</annotation>
+		<annotation cp="🤸🏼‍♀">体操 | 侧手翻 | 女 | 翻筋斗 | 种类-3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">女生侧手翻: 种类-3</annotation>
+		<annotation cp="🤸🏽‍♀">体操 | 侧手翻 | 女 | 翻筋斗 | 种类-4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">女生侧手翻: 种类-4</annotation>
+		<annotation cp="🤸🏾‍♀">体操 | 侧手翻 | 女 | 翻筋斗 | 种类-5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">女生侧手翻: 种类-5</annotation>
+		<annotation cp="🤸🏿‍♀">体操 | 侧手翻 | 女 | 翻筋斗 | 种类-6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">女生侧手翻: 种类-6</annotation>
+		<annotation cp="🤽🏻">人 | 体育 | 水球 | 种类-1-2</annotation>
+		<annotation cp="🤽🏻" type="tts">水球: 种类-1-2</annotation>
+		<annotation cp="🤽🏼">人 | 体育 | 水球 | 种类-3</annotation>
+		<annotation cp="🤽🏼" type="tts">水球: 种类-3</annotation>
+		<annotation cp="🤽🏽">人 | 体育 | 水球 | 种类-4</annotation>
+		<annotation cp="🤽🏽" type="tts">水球: 种类-4</annotation>
+		<annotation cp="🤽🏾">人 | 体育 | 水球 | 种类-5</annotation>
+		<annotation cp="🤽🏾" type="tts">水球: 种类-5</annotation>
+		<annotation cp="🤽🏿">人 | 体育 | 水球 | 种类-6</annotation>
+		<annotation cp="🤽🏿" type="tts">水球: 种类-6</annotation>
+		<annotation cp="🤽🏻‍♂">水球 | 男 | 种类-1-2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">男生玩水球: 种类-1-2</annotation>
+		<annotation cp="🤽🏼‍♂">水球 | 男 | 种类-3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">男生玩水球: 种类-3</annotation>
+		<annotation cp="🤽🏽‍♂">水球 | 男 | 种类-4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">男生玩水球: 种类-4</annotation>
+		<annotation cp="🤽🏾‍♂">水球 | 男 | 种类-5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">男生玩水球: 种类-5</annotation>
+		<annotation cp="🤽🏿‍♂">水球 | 男 | 种类-6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">男生玩水球: 种类-6</annotation>
+		<annotation cp="🤽🏻‍♀">女 | 水球 | 种类-1-2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">女生玩水球: 种类-1-2</annotation>
+		<annotation cp="🤽🏼‍♀">女 | 水球 | 种类-3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">女生玩水球: 种类-3</annotation>
+		<annotation cp="🤽🏽‍♀">女 | 水球 | 种类-4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">女生玩水球: 种类-4</annotation>
+		<annotation cp="🤽🏾‍♀">女 | 水球 | 种类-5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">女生玩水球: 种类-5</annotation>
+		<annotation cp="🤽🏿‍♀">女 | 水球 | 种类-6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">女生玩水球: 种类-6</annotation>
+		<annotation cp="🤾🏻">人 | 体育 | 手球 | 种类-1-2</annotation>
+		<annotation cp="🤾🏻" type="tts">手球: 种类-1-2</annotation>
+		<annotation cp="🤾🏼">人 | 体育 | 手球 | 种类-3</annotation>
+		<annotation cp="🤾🏼" type="tts">手球: 种类-3</annotation>
+		<annotation cp="🤾🏽">人 | 体育 | 手球 | 种类-4</annotation>
+		<annotation cp="🤾🏽" type="tts">手球: 种类-4</annotation>
+		<annotation cp="🤾🏾">人 | 体育 | 手球 | 种类-5</annotation>
+		<annotation cp="🤾🏾" type="tts">手球: 种类-5</annotation>
+		<annotation cp="🤾🏿">人 | 体育 | 手球 | 种类-6</annotation>
+		<annotation cp="🤾🏿" type="tts">手球: 种类-6</annotation>
+		<annotation cp="🤾🏻‍♂">手球 | 男 | 种类-1-2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">男生玩手球: 种类-1-2</annotation>
+		<annotation cp="🤾🏼‍♂">手球 | 男 | 种类-3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">男生玩手球: 种类-3</annotation>
+		<annotation cp="🤾🏽‍♂">手球 | 男 | 种类-4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">男生玩手球: 种类-4</annotation>
+		<annotation cp="🤾🏾‍♂">手球 | 男 | 种类-5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">男生玩手球: 种类-5</annotation>
+		<annotation cp="🤾🏿‍♂">手球 | 男 | 种类-6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">男生玩手球: 种类-6</annotation>
+		<annotation cp="🤾🏻‍♀">女 | 手球 | 种类-1-2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">女生玩手球: 种类-1-2</annotation>
+		<annotation cp="🤾🏼‍♀">女 | 手球 | 种类-3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">女生玩手球: 种类-3</annotation>
+		<annotation cp="🤾🏽‍♀">女 | 手球 | 种类-4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">女生玩手球: 种类-4</annotation>
+		<annotation cp="🤾🏾‍♀">女 | 手球 | 种类-5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">女生玩手球: 种类-5</annotation>
+		<annotation cp="🤾🏿‍♀">女 | 手球 | 种类-6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">女生玩手球: 种类-6</annotation>
+		<annotation cp="🤹🏻">平衡 | 抛接 | 杂技 | 杂耍 | 种类-1-2</annotation>
+		<annotation cp="🤹🏻" type="tts">抛接杂耍: 种类-1-2</annotation>
+		<annotation cp="🤹🏼">平衡 | 抛接 | 杂技 | 杂耍 | 种类-3</annotation>
+		<annotation cp="🤹🏼" type="tts">抛接杂耍: 种类-3</annotation>
+		<annotation cp="🤹🏽">平衡 | 抛接 | 杂技 | 杂耍 | 种类-4</annotation>
+		<annotation cp="🤹🏽" type="tts">抛接杂耍: 种类-4</annotation>
+		<annotation cp="🤹🏾">平衡 | 抛接 | 杂技 | 杂耍 | 种类-5</annotation>
+		<annotation cp="🤹🏾" type="tts">抛接杂耍: 种类-5</annotation>
+		<annotation cp="🤹🏿">平衡 | 抛接 | 杂技 | 杂耍 | 种类-6</annotation>
+		<annotation cp="🤹🏿" type="tts">抛接杂耍: 种类-6</annotation>
+		<annotation cp="🤹🏻‍♂">杂技 | 杂耍 | 男 | 颠球 | 种类-1-2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">男生抛接杂耍: 种类-1-2</annotation>
+		<annotation cp="🤹🏼‍♂">杂技 | 杂耍 | 男 | 颠球 | 种类-3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">男生抛接杂耍: 种类-3</annotation>
+		<annotation cp="🤹🏽‍♂">杂技 | 杂耍 | 男 | 颠球 | 种类-4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">男生抛接杂耍: 种类-4</annotation>
+		<annotation cp="🤹🏾‍♂">杂技 | 杂耍 | 男 | 颠球 | 种类-5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">男生抛接杂耍: 种类-5</annotation>
+		<annotation cp="🤹🏿‍♂">杂技 | 杂耍 | 男 | 颠球 | 种类-6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">男生抛接杂耍: 种类-6</annotation>
+		<annotation cp="🤹🏻‍♀">女 | 杂技 | 杂耍 | 颠球 | 种类-1-2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">女生抛接杂耍: 种类-1-2</annotation>
+		<annotation cp="🤹🏼‍♀">女 | 杂技 | 杂耍 | 颠球 | 种类-3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">女生抛接杂耍: 种类-3</annotation>
+		<annotation cp="🤹🏽‍♀">女 | 杂技 | 杂耍 | 颠球 | 种类-4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">女生抛接杂耍: 种类-4</annotation>
+		<annotation cp="🤹🏾‍♀">女 | 杂技 | 杂耍 | 颠球 | 种类-5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">女生抛接杂耍: 种类-5</annotation>
+		<annotation cp="🤹🏿‍♀">女 | 杂技 | 杂耍 | 颠球 | 种类-6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">女生抛接杂耍: 种类-6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">亲 | 吻 | 情侣 | 浪漫</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">男女亲吻</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">亲 | 吻 | 情侣 | 浪漫</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">男男亲吻</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">亲 | 吻 | 情侣 | 浪漫</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">女女亲吻</annotation>
+		<annotation cp="👩‍❤‍👨">异性 | 心 | 情侣 | 爱</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">男女情侣</annotation>
+		<annotation cp="👨‍❤‍👨">基友 | 心 | 情侣 | 爱</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">男男情侣</annotation>
+		<annotation cp="👩‍❤‍👩">心 | 情侣 | 爱 | 闺密</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">女女情侣</annotation>
+		<annotation cp="👨‍👩‍👦">亲子 | 儿子 | 家庭</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">父母和儿子</annotation>
+		<annotation cp="👨‍👩‍👧">亲子 | 女儿 | 家庭</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">父母和女儿</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">亲子 | 儿女 | 家庭</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">父母和儿女</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">亲子 | 兄弟 | 家庭</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">父母和两兄弟</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">亲子 | 姐妹 | 家庭</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">父母和两姐妹</annotation>
+		<annotation cp="👨‍👨‍👦">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">两个爸爸和儿子</annotation>
+		<annotation cp="👨‍👨‍👧">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">两个爸爸和女儿</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">两个爸爸和儿女</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">两个爸爸和两兄弟</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">两个爸爸和两姐妹</annotation>
+		<annotation cp="👩‍👩‍👦">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">两个妈妈和儿子</annotation>
+		<annotation cp="👩‍👩‍👧">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">两个妈妈和女儿</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">两个妈妈和儿女</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">两个妈妈和两兄弟</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">亲子 | 同性 | 家庭</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">两个妈妈和两姐妹</annotation>
+		<annotation cp="👨‍👦">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👨‍👦" type="tts">父子</annotation>
+		<annotation cp="👨‍👦‍👦">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">爸爸和两兄弟</annotation>
+		<annotation cp="👨‍👧">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👨‍👧" type="tts">父女</annotation>
+		<annotation cp="👨‍👧‍👦">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">爸爸和儿女</annotation>
+		<annotation cp="👨‍👧‍👧">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">爸爸和两姐妹</annotation>
+		<annotation cp="👩‍👦">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👩‍👦" type="tts">母子</annotation>
+		<annotation cp="👩‍👦‍👦">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">妈妈和两兄弟</annotation>
+		<annotation cp="👩‍👧">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👩‍👧" type="tts">母女</annotation>
+		<annotation cp="👩‍👧‍👦">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">妈妈和儿女</annotation>
+		<annotation cp="👩‍👧‍👧">亲子 | 单亲 | 家庭</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">妈妈和两姐妹</annotation>
+		<annotation cp="🤳🏻">手机 | 相机 | 自拍 | 种类-1-2</annotation>
+		<annotation cp="🤳🏻" type="tts">自拍: 种类-1-2</annotation>
+		<annotation cp="🤳🏼">手机 | 相机 | 自拍 | 种类-3</annotation>
+		<annotation cp="🤳🏼" type="tts">自拍: 种类-3</annotation>
+		<annotation cp="🤳🏽">手机 | 相机 | 自拍 | 种类-4</annotation>
+		<annotation cp="🤳🏽" type="tts">自拍: 种类-4</annotation>
+		<annotation cp="🤳🏾">手机 | 相机 | 自拍 | 种类-5</annotation>
+		<annotation cp="🤳🏾" type="tts">自拍: 种类-5</annotation>
+		<annotation cp="🤳🏿">手机 | 相机 | 自拍 | 种类-6</annotation>
+		<annotation cp="🤳🏿" type="tts">自拍: 种类-6</annotation>
+		<annotation cp="💪🏻">二头肌 | 强壮 | 种类-1-2</annotation>
+		<annotation cp="💪🏻" type="tts">肌肉: 种类-1-2</annotation>
+		<annotation cp="💪🏼">二头肌 | 强壮 | 种类-3</annotation>
+		<annotation cp="💪🏼" type="tts">肌肉: 种类-3</annotation>
+		<annotation cp="💪🏽">二头肌 | 强壮 | 种类-4</annotation>
+		<annotation cp="💪🏽" type="tts">肌肉: 种类-4</annotation>
+		<annotation cp="💪🏾">二头肌 | 强壮 | 种类-5</annotation>
+		<annotation cp="💪🏾" type="tts">肌肉: 种类-5</annotation>
+		<annotation cp="💪🏿">二头肌 | 强壮 | 种类-6</annotation>
+		<annotation cp="💪🏿" type="tts">肌肉: 种类-6</annotation>
+		<annotation cp="👈🏻">反手 | 向左指 | 指左 | 食指 | 种类-1-2</annotation>
+		<annotation cp="👈🏻" type="tts">反手食指向左指: 种类-1-2</annotation>
+		<annotation cp="👈🏼">反手 | 向左指 | 指左 | 食指 | 种类-3</annotation>
+		<annotation cp="👈🏼" type="tts">反手食指向左指: 种类-3</annotation>
+		<annotation cp="👈🏽">反手 | 向左指 | 指左 | 食指 | 种类-4</annotation>
+		<annotation cp="👈🏽" type="tts">反手食指向左指: 种类-4</annotation>
+		<annotation cp="👈🏾">反手 | 向左指 | 指左 | 食指 | 种类-5</annotation>
+		<annotation cp="👈🏾" type="tts">反手食指向左指: 种类-5</annotation>
+		<annotation cp="👈🏿">反手 | 向左指 | 指左 | 食指 | 种类-6</annotation>
+		<annotation cp="👈🏿" type="tts">反手食指向左指: 种类-6</annotation>
+		<annotation cp="👉🏻">反手 | 向右指 | 指右 | 食指 | 种类-1-2</annotation>
+		<annotation cp="👉🏻" type="tts">反手食指向右指: 种类-1-2</annotation>
+		<annotation cp="👉🏼">反手 | 向右指 | 指右 | 食指 | 种类-3</annotation>
+		<annotation cp="👉🏼" type="tts">反手食指向右指: 种类-3</annotation>
+		<annotation cp="👉🏽">反手 | 向右指 | 指右 | 食指 | 种类-4</annotation>
+		<annotation cp="👉🏽" type="tts">反手食指向右指: 种类-4</annotation>
+		<annotation cp="👉🏾">反手 | 向右指 | 指右 | 食指 | 种类-5</annotation>
+		<annotation cp="👉🏾" type="tts">反手食指向右指: 种类-5</annotation>
+		<annotation cp="👉🏿">反手 | 向右指 | 指右 | 食指 | 种类-6</annotation>
+		<annotation cp="👉🏿" type="tts">反手食指向右指: 种类-6</annotation>
+		<annotation cp="☝🏻">向上指 | 指上 | 食指 | 种类-1-2</annotation>
+		<annotation cp="☝🏻" type="tts">食指向上指: 种类-1-2</annotation>
+		<annotation cp="☝🏼">向上指 | 指上 | 食指 | 种类-3</annotation>
+		<annotation cp="☝🏼" type="tts">食指向上指: 种类-3</annotation>
+		<annotation cp="☝🏽">向上指 | 指上 | 食指 | 种类-4</annotation>
+		<annotation cp="☝🏽" type="tts">食指向上指: 种类-4</annotation>
+		<annotation cp="☝🏾">向上指 | 指上 | 食指 | 种类-5</annotation>
+		<annotation cp="☝🏾" type="tts">食指向上指: 种类-5</annotation>
+		<annotation cp="☝🏿">向上指 | 指上 | 食指 | 种类-6</annotation>
+		<annotation cp="☝🏿" type="tts">食指向上指: 种类-6</annotation>
+		<annotation cp="👆🏻">反手 | 向上指 | 指上 | 食指 | 种类-1-2</annotation>
+		<annotation cp="👆🏻" type="tts">反手食指向上指: 种类-1-2</annotation>
+		<annotation cp="👆🏼">反手 | 向上指 | 指上 | 食指 | 种类-3</annotation>
+		<annotation cp="👆🏼" type="tts">反手食指向上指: 种类-3</annotation>
+		<annotation cp="👆🏽">反手 | 向上指 | 指上 | 食指 | 种类-4</annotation>
+		<annotation cp="👆🏽" type="tts">反手食指向上指: 种类-4</annotation>
+		<annotation cp="👆🏾">反手 | 向上指 | 指上 | 食指 | 种类-5</annotation>
+		<annotation cp="👆🏾" type="tts">反手食指向上指: 种类-5</annotation>
+		<annotation cp="👆🏿">反手 | 向上指 | 指上 | 食指 | 种类-6</annotation>
+		<annotation cp="👆🏿" type="tts">反手食指向上指: 种类-6</annotation>
+		<annotation cp="🖕🏻">中指 | 反手 | 种类-1-2</annotation>
+		<annotation cp="🖕🏻" type="tts">竖中指: 种类-1-2</annotation>
+		<annotation cp="🖕🏼">中指 | 反手 | 种类-3</annotation>
+		<annotation cp="🖕🏼" type="tts">竖中指: 种类-3</annotation>
+		<annotation cp="🖕🏽">中指 | 反手 | 种类-4</annotation>
+		<annotation cp="🖕🏽" type="tts">竖中指: 种类-4</annotation>
+		<annotation cp="🖕🏾">中指 | 反手 | 种类-5</annotation>
+		<annotation cp="🖕🏾" type="tts">竖中指: 种类-5</annotation>
+		<annotation cp="🖕🏿">中指 | 反手 | 种类-6</annotation>
+		<annotation cp="🖕🏿" type="tts">竖中指: 种类-6</annotation>
+		<annotation cp="👇🏻">反手 | 向下指 | 指下 | 食指 | 种类-1-2</annotation>
+		<annotation cp="👇🏻" type="tts">反手食指向下指: 种类-1-2</annotation>
+		<annotation cp="👇🏼">反手 | 向下指 | 指下 | 食指 | 种类-3</annotation>
+		<annotation cp="👇🏼" type="tts">反手食指向下指: 种类-3</annotation>
+		<annotation cp="👇🏽">反手 | 向下指 | 指下 | 食指 | 种类-4</annotation>
+		<annotation cp="👇🏽" type="tts">反手食指向下指: 种类-4</annotation>
+		<annotation cp="👇🏾">反手 | 向下指 | 指下 | 食指 | 种类-5</annotation>
+		<annotation cp="👇🏾" type="tts">反手食指向下指: 种类-5</annotation>
+		<annotation cp="👇🏿">反手 | 向下指 | 指下 | 食指 | 种类-6</annotation>
+		<annotation cp="👇🏿" type="tts">反手食指向下指: 种类-6</annotation>
+		<annotation cp="✌🏻">成功 | 胜利 | 种类-1-2</annotation>
+		<annotation cp="✌🏻" type="tts">胜利手势: 种类-1-2</annotation>
+		<annotation cp="✌🏼">成功 | 胜利 | 种类-3</annotation>
+		<annotation cp="✌🏼" type="tts">胜利手势: 种类-3</annotation>
+		<annotation cp="✌🏽">成功 | 胜利 | 种类-4</annotation>
+		<annotation cp="✌🏽" type="tts">胜利手势: 种类-4</annotation>
+		<annotation cp="✌🏾">成功 | 胜利 | 种类-5</annotation>
+		<annotation cp="✌🏾" type="tts">胜利手势: 种类-5</annotation>
+		<annotation cp="✌🏿">成功 | 胜利 | 种类-6</annotation>
+		<annotation cp="✌🏿" type="tts">胜利手势: 种类-6</annotation>
+		<annotation cp="🤞🏻">交叉 | 幸运 | 手 | 手指 | 种类-1-2</annotation>
+		<annotation cp="🤞🏻" type="tts">交叉的手指: 种类-1-2</annotation>
+		<annotation cp="🤞🏼">交叉 | 幸运 | 手 | 手指 | 种类-3</annotation>
+		<annotation cp="🤞🏼" type="tts">交叉的手指: 种类-3</annotation>
+		<annotation cp="🤞🏽">交叉 | 幸运 | 手 | 手指 | 种类-4</annotation>
+		<annotation cp="🤞🏽" type="tts">交叉的手指: 种类-4</annotation>
+		<annotation cp="🤞🏾">交叉 | 幸运 | 手 | 手指 | 种类-5</annotation>
+		<annotation cp="🤞🏾" type="tts">交叉的手指: 种类-5</annotation>
+		<annotation cp="🤞🏿">交叉 | 幸运 | 手 | 手指 | 种类-6</annotation>
+		<annotation cp="🤞🏿" type="tts">交叉的手指: 种类-6</annotation>
+		<annotation cp="🖖🏻">敬礼 | 斯波克 | 星际迷航 | 瓦肯 | 种类-1-2</annotation>
+		<annotation cp="🖖🏻" type="tts">瓦肯举手礼: 种类-1-2</annotation>
+		<annotation cp="🖖🏼">敬礼 | 斯波克 | 星际迷航 | 瓦肯 | 种类-3</annotation>
+		<annotation cp="🖖🏼" type="tts">瓦肯举手礼: 种类-3</annotation>
+		<annotation cp="🖖🏽">敬礼 | 斯波克 | 星际迷航 | 瓦肯 | 种类-4</annotation>
+		<annotation cp="🖖🏽" type="tts">瓦肯举手礼: 种类-4</annotation>
+		<annotation cp="🖖🏾">敬礼 | 斯波克 | 星际迷航 | 瓦肯 | 种类-5</annotation>
+		<annotation cp="🖖🏾" type="tts">瓦肯举手礼: 种类-5</annotation>
+		<annotation cp="🖖🏿">敬礼 | 斯波克 | 星际迷航 | 瓦肯 | 种类-6</annotation>
+		<annotation cp="🖖🏿" type="tts">瓦肯举手礼: 种类-6</annotation>
+		<annotation cp="🤘🏻">摇滚 | 角 | 金属礼 | 种类-1-2</annotation>
+		<annotation cp="🤘🏻" type="tts">摇滚: 种类-1-2</annotation>
+		<annotation cp="🤘🏼">摇滚 | 角 | 金属礼 | 种类-3</annotation>
+		<annotation cp="🤘🏼" type="tts">摇滚: 种类-3</annotation>
+		<annotation cp="🤘🏽">摇滚 | 角 | 金属礼 | 种类-4</annotation>
+		<annotation cp="🤘🏽" type="tts">摇滚: 种类-4</annotation>
+		<annotation cp="🤘🏾">摇滚 | 角 | 金属礼 | 种类-5</annotation>
+		<annotation cp="🤘🏾" type="tts">摇滚: 种类-5</annotation>
+		<annotation cp="🤘🏿">摇滚 | 角 | 金属礼 | 种类-6</annotation>
+		<annotation cp="🤘🏿" type="tts">摇滚: 种类-6</annotation>
+		<annotation cp="🤙🏻">手 | 电话 | 种类-1-2</annotation>
+		<annotation cp="🤙🏻" type="tts">给我打电话的手势: 种类-1-2</annotation>
+		<annotation cp="🤙🏼">手 | 电话 | 种类-3</annotation>
+		<annotation cp="🤙🏼" type="tts">给我打电话的手势: 种类-3</annotation>
+		<annotation cp="🤙🏽">手 | 电话 | 种类-4</annotation>
+		<annotation cp="🤙🏽" type="tts">给我打电话的手势: 种类-4</annotation>
+		<annotation cp="🤙🏾">手 | 电话 | 种类-5</annotation>
+		<annotation cp="🤙🏾" type="tts">给我打电话的手势: 种类-5</annotation>
+		<annotation cp="🤙🏿">手 | 电话 | 种类-6</annotation>
+		<annotation cp="🤙🏿" type="tts">给我打电话的手势: 种类-6</annotation>
+		<annotation cp="🖐🏻">击掌 | 布 | 手 | 禁止 | 种类-1-2</annotation>
+		<annotation cp="🖐🏻" type="tts">手掌: 种类-1-2</annotation>
+		<annotation cp="🖐🏼">击掌 | 布 | 手 | 禁止 | 种类-3</annotation>
+		<annotation cp="🖐🏼" type="tts">手掌: 种类-3</annotation>
+		<annotation cp="🖐🏽">击掌 | 布 | 手 | 禁止 | 种类-4</annotation>
+		<annotation cp="🖐🏽" type="tts">手掌: 种类-4</annotation>
+		<annotation cp="🖐🏾">击掌 | 布 | 手 | 禁止 | 种类-5</annotation>
+		<annotation cp="🖐🏾" type="tts">手掌: 种类-5</annotation>
+		<annotation cp="🖐🏿">击掌 | 布 | 手 | 禁止 | 种类-6</annotation>
+		<annotation cp="🖐🏿" type="tts">手掌: 种类-6</annotation>
+		<annotation cp="✋🏻">举手 | 种类-1-2</annotation>
+		<annotation cp="✋🏻" type="tts">举起的手: 种类-1-2</annotation>
+		<annotation cp="✋🏼">举手 | 种类-3</annotation>
+		<annotation cp="✋🏼" type="tts">举起的手: 种类-3</annotation>
+		<annotation cp="✋🏽">举手 | 种类-4</annotation>
+		<annotation cp="✋🏽" type="tts">举起的手: 种类-4</annotation>
+		<annotation cp="✋🏾">举手 | 种类-5</annotation>
+		<annotation cp="✋🏾" type="tts">举起的手: 种类-5</annotation>
+		<annotation cp="✋🏿">举手 | 种类-6</annotation>
+		<annotation cp="✋🏿" type="tts">举起的手: 种类-6</annotation>
+		<annotation cp="👌🏻">OK | 同意 | 好的 | 确定 | 种类-1-2</annotation>
+		<annotation cp="👌🏻" type="tts">OK 手势: 种类-1-2</annotation>
+		<annotation cp="👌🏼">OK | 同意 | 好的 | 确定 | 种类-3</annotation>
+		<annotation cp="👌🏼" type="tts">OK 手势: 种类-3</annotation>
+		<annotation cp="👌🏽">OK | 同意 | 好的 | 确定 | 种类-4</annotation>
+		<annotation cp="👌🏽" type="tts">OK 手势: 种类-4</annotation>
+		<annotation cp="👌🏾">OK | 同意 | 好的 | 确定 | 种类-5</annotation>
+		<annotation cp="👌🏾" type="tts">OK 手势: 种类-5</annotation>
+		<annotation cp="👌🏿">OK | 同意 | 好的 | 确定 | 种类-6</annotation>
+		<annotation cp="👌🏿" type="tts">OK 手势: 种类-6</annotation>
+		<annotation cp="👍🏻">同意 | 真棒 | 赞成 | 顶一下 | 种类-1-2</annotation>
+		<annotation cp="👍🏻" type="tts">拇指向上: 种类-1-2</annotation>
+		<annotation cp="👍🏼">同意 | 真棒 | 赞成 | 顶一下 | 种类-3</annotation>
+		<annotation cp="👍🏼" type="tts">拇指向上: 种类-3</annotation>
+		<annotation cp="👍🏽">同意 | 真棒 | 赞成 | 顶一下 | 种类-4</annotation>
+		<annotation cp="👍🏽" type="tts">拇指向上: 种类-4</annotation>
+		<annotation cp="👍🏾">同意 | 真棒 | 赞成 | 顶一下 | 种类-5</annotation>
+		<annotation cp="👍🏾" type="tts">拇指向上: 种类-5</annotation>
+		<annotation cp="👍🏿">同意 | 真棒 | 赞成 | 顶一下 | 种类-6</annotation>
+		<annotation cp="👍🏿" type="tts">拇指向上: 种类-6</annotation>
+		<annotation cp="👎🏻">不赞成 | 反对 | 责备 | 种类-1-2</annotation>
+		<annotation cp="👎🏻" type="tts">拇指向下: 种类-1-2</annotation>
+		<annotation cp="👎🏼">不赞成 | 反对 | 责备 | 种类-3</annotation>
+		<annotation cp="👎🏼" type="tts">拇指向下: 种类-3</annotation>
+		<annotation cp="👎🏽">不赞成 | 反对 | 责备 | 种类-4</annotation>
+		<annotation cp="👎🏽" type="tts">拇指向下: 种类-4</annotation>
+		<annotation cp="👎🏾">不赞成 | 反对 | 责备 | 种类-5</annotation>
+		<annotation cp="👎🏾" type="tts">拇指向下: 种类-5</annotation>
+		<annotation cp="👎🏿">不赞成 | 反对 | 责备 | 种类-6</annotation>
+		<annotation cp="👎🏿" type="tts">拇指向下: 种类-6</annotation>
+		<annotation cp="✊🏻">握拳 | 种类-1-2</annotation>
+		<annotation cp="✊🏻" type="tts">拳头: 种类-1-2</annotation>
+		<annotation cp="✊🏼">握拳 | 种类-3</annotation>
+		<annotation cp="✊🏼" type="tts">拳头: 种类-3</annotation>
+		<annotation cp="✊🏽">握拳 | 种类-4</annotation>
+		<annotation cp="✊🏽" type="tts">拳头: 种类-4</annotation>
+		<annotation cp="✊🏾">握拳 | 种类-5</annotation>
+		<annotation cp="✊🏾" type="tts">拳头: 种类-5</annotation>
+		<annotation cp="✊🏿">握拳 | 种类-6</annotation>
+		<annotation cp="✊🏿" type="tts">拳头: 种类-6</annotation>
+		<annotation cp="👊🏻">打 | 拳 | 种类-1-2</annotation>
+		<annotation cp="👊🏻" type="tts">出拳: 种类-1-2</annotation>
+		<annotation cp="👊🏼">打 | 拳 | 种类-3</annotation>
+		<annotation cp="👊🏼" type="tts">出拳: 种类-3</annotation>
+		<annotation cp="👊🏽">打 | 拳 | 种类-4</annotation>
+		<annotation cp="👊🏽" type="tts">出拳: 种类-4</annotation>
+		<annotation cp="👊🏾">打 | 拳 | 种类-5</annotation>
+		<annotation cp="👊🏾" type="tts">出拳: 种类-5</annotation>
+		<annotation cp="👊🏿">打 | 拳 | 种类-6</annotation>
+		<annotation cp="👊🏿" type="tts">出拳: 种类-6</annotation>
+		<annotation cp="🤛🏻">拳头 | 朝左 | 种类-1-2</annotation>
+		<annotation cp="🤛🏻" type="tts">朝左的拳头: 种类-1-2</annotation>
+		<annotation cp="🤛🏼">拳头 | 朝左 | 种类-3</annotation>
+		<annotation cp="🤛🏼" type="tts">朝左的拳头: 种类-3</annotation>
+		<annotation cp="🤛🏽">拳头 | 朝左 | 种类-4</annotation>
+		<annotation cp="🤛🏽" type="tts">朝左的拳头: 种类-4</annotation>
+		<annotation cp="🤛🏾">拳头 | 朝左 | 种类-5</annotation>
+		<annotation cp="🤛🏾" type="tts">朝左的拳头: 种类-5</annotation>
+		<annotation cp="🤛🏿">拳头 | 朝左 | 种类-6</annotation>
+		<annotation cp="🤛🏿" type="tts">朝左的拳头: 种类-6</annotation>
+		<annotation cp="🤜🏻">拳头 | 朝右 | 种类-1-2</annotation>
+		<annotation cp="🤜🏻" type="tts">朝右的拳头: 种类-1-2</annotation>
+		<annotation cp="🤜🏼">拳头 | 朝右 | 种类-3</annotation>
+		<annotation cp="🤜🏼" type="tts">朝右的拳头: 种类-3</annotation>
+		<annotation cp="🤜🏽">拳头 | 朝右 | 种类-4</annotation>
+		<annotation cp="🤜🏽" type="tts">朝右的拳头: 种类-4</annotation>
+		<annotation cp="🤜🏾">拳头 | 朝右 | 种类-5</annotation>
+		<annotation cp="🤜🏾" type="tts">朝右的拳头: 种类-5</annotation>
+		<annotation cp="🤜🏿">拳头 | 朝右 | 种类-6</annotation>
+		<annotation cp="🤜🏿" type="tts">朝右的拳头: 种类-6</annotation>
+		<annotation cp="🤚🏻">手背 | 立起 | 种类-1-2</annotation>
+		<annotation cp="🤚🏻" type="tts">立起的手背: 种类-1-2</annotation>
+		<annotation cp="🤚🏼">手背 | 立起 | 种类-3</annotation>
+		<annotation cp="🤚🏼" type="tts">立起的手背: 种类-3</annotation>
+		<annotation cp="🤚🏽">手背 | 立起 | 种类-4</annotation>
+		<annotation cp="🤚🏽" type="tts">立起的手背: 种类-4</annotation>
+		<annotation cp="🤚🏾">手背 | 立起 | 种类-5</annotation>
+		<annotation cp="🤚🏾" type="tts">立起的手背: 种类-5</annotation>
+		<annotation cp="🤚🏿">手背 | 立起 | 种类-6</annotation>
+		<annotation cp="🤚🏿" type="tts">立起的手背: 种类-6</annotation>
+		<annotation cp="👋🏻">你好 | 再见 | 手 | 种类-1-2</annotation>
+		<annotation cp="👋🏻" type="tts">挥手: 种类-1-2</annotation>
+		<annotation cp="👋🏼">你好 | 再见 | 手 | 种类-3</annotation>
+		<annotation cp="👋🏼" type="tts">挥手: 种类-3</annotation>
+		<annotation cp="👋🏽">你好 | 再见 | 手 | 种类-4</annotation>
+		<annotation cp="👋🏽" type="tts">挥手: 种类-4</annotation>
+		<annotation cp="👋🏾">你好 | 再见 | 手 | 种类-5</annotation>
+		<annotation cp="👋🏾" type="tts">挥手: 种类-5</annotation>
+		<annotation cp="👋🏿">你好 | 再见 | 手 | 种类-6</annotation>
+		<annotation cp="👋🏿" type="tts">挥手: 种类-6</annotation>
+		<annotation cp="✍🏻">写 | 笔 | 种类-1-2</annotation>
+		<annotation cp="✍🏻" type="tts">写字: 种类-1-2</annotation>
+		<annotation cp="✍🏼">写 | 笔 | 种类-3</annotation>
+		<annotation cp="✍🏼" type="tts">写字: 种类-3</annotation>
+		<annotation cp="✍🏽">写 | 笔 | 种类-4</annotation>
+		<annotation cp="✍🏽" type="tts">写字: 种类-4</annotation>
+		<annotation cp="✍🏾">写 | 笔 | 种类-5</annotation>
+		<annotation cp="✍🏾" type="tts">写字: 种类-5</annotation>
+		<annotation cp="✍🏿">写 | 笔 | 种类-6</annotation>
+		<annotation cp="✍🏿" type="tts">写字: 种类-6</annotation>
+		<annotation cp="👏🏻">拍手 | 种类-1-2</annotation>
+		<annotation cp="👏🏻" type="tts">鼓掌: 种类-1-2</annotation>
+		<annotation cp="👏🏼">拍手 | 种类-3</annotation>
+		<annotation cp="👏🏼" type="tts">鼓掌: 种类-3</annotation>
+		<annotation cp="👏🏽">拍手 | 种类-4</annotation>
+		<annotation cp="👏🏽" type="tts">鼓掌: 种类-4</annotation>
+		<annotation cp="👏🏾">拍手 | 种类-5</annotation>
+		<annotation cp="👏🏾" type="tts">鼓掌: 种类-5</annotation>
+		<annotation cp="👏🏿">拍手 | 种类-6</annotation>
+		<annotation cp="👏🏿" type="tts">鼓掌: 种类-6</annotation>
+		<annotation cp="👐🏻">十 | 双手 | 摊手 | 种类-1-2</annotation>
+		<annotation cp="👐🏻" type="tts">双手: 种类-1-2</annotation>
+		<annotation cp="👐🏼">十 | 双手 | 摊手 | 种类-3</annotation>
+		<annotation cp="👐🏼" type="tts">双手: 种类-3</annotation>
+		<annotation cp="👐🏽">十 | 双手 | 摊手 | 种类-4</annotation>
+		<annotation cp="👐🏽" type="tts">双手: 种类-4</annotation>
+		<annotation cp="👐🏾">十 | 双手 | 摊手 | 种类-5</annotation>
+		<annotation cp="👐🏾" type="tts">双手: 种类-5</annotation>
+		<annotation cp="👐🏿">十 | 双手 | 摊手 | 种类-6</annotation>
+		<annotation cp="👐🏿" type="tts">双手: 种类-6</annotation>
+		<annotation cp="🙌🏻">击掌 | 双手 | 庆祝 | 种类-1-2</annotation>
+		<annotation cp="🙌🏻" type="tts">击掌: 种类-1-2</annotation>
+		<annotation cp="🙌🏼">击掌 | 双手 | 庆祝 | 种类-3</annotation>
+		<annotation cp="🙌🏼" type="tts">击掌: 种类-3</annotation>
+		<annotation cp="🙌🏽">击掌 | 双手 | 庆祝 | 种类-4</annotation>
+		<annotation cp="🙌🏽" type="tts">击掌: 种类-4</annotation>
+		<annotation cp="🙌🏾">击掌 | 双手 | 庆祝 | 种类-5</annotation>
+		<annotation cp="🙌🏾" type="tts">击掌: 种类-5</annotation>
+		<annotation cp="🙌🏿">击掌 | 双手 | 庆祝 | 种类-6</annotation>
+		<annotation cp="🙌🏿" type="tts">击掌: 种类-6</annotation>
+		<annotation cp="🙏🏻">拜托 | 祈求 | 祈祷 | 祝福 | 种类-1-2</annotation>
+		<annotation cp="🙏🏻" type="tts">双手合十: 种类-1-2</annotation>
+		<annotation cp="🙏🏼">拜托 | 祈求 | 祈祷 | 祝福 | 种类-3</annotation>
+		<annotation cp="🙏🏼" type="tts">双手合十: 种类-3</annotation>
+		<annotation cp="🙏🏽">拜托 | 祈求 | 祈祷 | 祝福 | 种类-4</annotation>
+		<annotation cp="🙏🏽" type="tts">双手合十: 种类-4</annotation>
+		<annotation cp="🙏🏾">拜托 | 祈求 | 祈祷 | 祝福 | 种类-5</annotation>
+		<annotation cp="🙏🏾" type="tts">双手合十: 种类-5</annotation>
+		<annotation cp="🙏🏿">拜托 | 祈求 | 祈祷 | 祝福 | 种类-6</annotation>
+		<annotation cp="🙏🏿" type="tts">双手合十: 种类-6</annotation>
+		<annotation cp="💅🏻">指甲油 | 美甲 | 种类-1-2</annotation>
+		<annotation cp="💅🏻" type="tts">涂指甲油: 种类-1-2</annotation>
+		<annotation cp="💅🏼">指甲油 | 美甲 | 种类-3</annotation>
+		<annotation cp="💅🏼" type="tts">涂指甲油: 种类-3</annotation>
+		<annotation cp="💅🏽">指甲油 | 美甲 | 种类-4</annotation>
+		<annotation cp="💅🏽" type="tts">涂指甲油: 种类-4</annotation>
+		<annotation cp="💅🏾">指甲油 | 美甲 | 种类-5</annotation>
+		<annotation cp="💅🏾" type="tts">涂指甲油: 种类-5</annotation>
+		<annotation cp="💅🏿">指甲油 | 美甲 | 种类-6</annotation>
+		<annotation cp="💅🏿" type="tts">涂指甲油: 种类-6</annotation>
+		<annotation cp="👂🏻">听 | 耳 | 种类-1-2</annotation>
+		<annotation cp="👂🏻" type="tts">耳朵: 种类-1-2</annotation>
+		<annotation cp="👂🏼">听 | 耳 | 种类-3</annotation>
+		<annotation cp="👂🏼" type="tts">耳朵: 种类-3</annotation>
+		<annotation cp="👂🏽">听 | 耳 | 种类-4</annotation>
+		<annotation cp="👂🏽" type="tts">耳朵: 种类-4</annotation>
+		<annotation cp="👂🏾">听 | 耳 | 种类-5</annotation>
+		<annotation cp="👂🏾" type="tts">耳朵: 种类-5</annotation>
+		<annotation cp="👂🏿">听 | 耳 | 种类-6</annotation>
+		<annotation cp="👂🏿" type="tts">耳朵: 种类-6</annotation>
+		<annotation cp="👃🏻">嗅 | 闻 | 鼻 | 种类-1-2</annotation>
+		<annotation cp="👃🏻" type="tts">鼻子: 种类-1-2</annotation>
+		<annotation cp="👃🏼">嗅 | 闻 | 鼻 | 种类-3</annotation>
+		<annotation cp="👃🏼" type="tts">鼻子: 种类-3</annotation>
+		<annotation cp="👃🏽">嗅 | 闻 | 鼻 | 种类-4</annotation>
+		<annotation cp="👃🏽" type="tts">鼻子: 种类-4</annotation>
+		<annotation cp="👃🏾">嗅 | 闻 | 鼻 | 种类-5</annotation>
+		<annotation cp="👃🏾" type="tts">鼻子: 种类-5</annotation>
+		<annotation cp="👃🏿">嗅 | 闻 | 鼻 | 种类-6</annotation>
+		<annotation cp="👃🏿" type="tts">鼻子: 种类-6</annotation>
+		<annotation cp="#⃣">按键</annotation>
+		<annotation cp="#⃣" type="tts">按键: #</annotation>
+		<annotation cp="*⃣">按键</annotation>
+		<annotation cp="*⃣" type="tts">按键: *</annotation>
+		<annotation cp="🇦🇨">旗</annotation>
+		<annotation cp="🇦🇨" type="tts">阿森松岛</annotation>
+		<annotation cp="🇦🇩">旗</annotation>
+		<annotation cp="🇦🇩" type="tts">安道尔</annotation>
+		<annotation cp="🇦🇪">旗</annotation>
+		<annotation cp="🇦🇪" type="tts">阿拉伯联合酋长国</annotation>
+		<annotation cp="🇦🇫">旗</annotation>
+		<annotation cp="🇦🇫" type="tts">阿富汗</annotation>
+		<annotation cp="🇦🇬">旗</annotation>
+		<annotation cp="🇦🇬" type="tts">安提瓜和巴布达</annotation>
+		<annotation cp="🇦🇮">旗</annotation>
+		<annotation cp="🇦🇮" type="tts">安圭拉</annotation>
+		<annotation cp="🇦🇱">旗</annotation>
+		<annotation cp="🇦🇱" type="tts">阿尔巴尼亚</annotation>
+		<annotation cp="🇦🇲">旗</annotation>
+		<annotation cp="🇦🇲" type="tts">亚美尼亚</annotation>
+		<annotation cp="🇦🇴">旗</annotation>
+		<annotation cp="🇦🇴" type="tts">安哥拉</annotation>
+		<annotation cp="🇦🇶">旗</annotation>
+		<annotation cp="🇦🇶" type="tts">南极洲</annotation>
+		<annotation cp="🇦🇷">旗</annotation>
+		<annotation cp="🇦🇷" type="tts">阿根廷</annotation>
+		<annotation cp="🇦🇸">旗</annotation>
+		<annotation cp="🇦🇸" type="tts">美属萨摩亚</annotation>
+		<annotation cp="🇦🇹">旗</annotation>
+		<annotation cp="🇦🇹" type="tts">奥地利</annotation>
+		<annotation cp="🇦🇺">旗</annotation>
+		<annotation cp="🇦🇺" type="tts">澳大利亚</annotation>
+		<annotation cp="🇦🇼">旗</annotation>
+		<annotation cp="🇦🇼" type="tts">阿鲁巴</annotation>
+		<annotation cp="🇦🇽">旗</annotation>
+		<annotation cp="🇦🇽" type="tts">奥兰群岛</annotation>
+		<annotation cp="🇦🇿">旗</annotation>
+		<annotation cp="🇦🇿" type="tts">阿塞拜疆</annotation>
+		<annotation cp="🇧🇦">旗</annotation>
+		<annotation cp="🇧🇦" type="tts">波斯尼亚和黑塞哥维那</annotation>
+		<annotation cp="🇧🇧">旗</annotation>
+		<annotation cp="🇧🇧" type="tts">巴巴多斯</annotation>
+		<annotation cp="🇧🇩">旗</annotation>
+		<annotation cp="🇧🇩" type="tts">孟加拉国</annotation>
+		<annotation cp="🇧🇪">旗</annotation>
+		<annotation cp="🇧🇪" type="tts">比利时</annotation>
+		<annotation cp="🇧🇫">旗</annotation>
+		<annotation cp="🇧🇫" type="tts">布基纳法索</annotation>
+		<annotation cp="🇧🇬">旗</annotation>
+		<annotation cp="🇧🇬" type="tts">保加利亚</annotation>
+		<annotation cp="🇧🇭">旗</annotation>
+		<annotation cp="🇧🇭" type="tts">巴林</annotation>
+		<annotation cp="🇧🇮">旗</annotation>
+		<annotation cp="🇧🇮" type="tts">布隆迪</annotation>
+		<annotation cp="🇧🇯">旗</annotation>
+		<annotation cp="🇧🇯" type="tts">贝宁</annotation>
+		<annotation cp="🇧🇱">旗</annotation>
+		<annotation cp="🇧🇱" type="tts">圣巴泰勒米</annotation>
+		<annotation cp="🇧🇲">旗</annotation>
+		<annotation cp="🇧🇲" type="tts">百慕大</annotation>
+		<annotation cp="🇧🇳">旗</annotation>
+		<annotation cp="🇧🇳" type="tts">文莱</annotation>
+		<annotation cp="🇧🇴">旗</annotation>
+		<annotation cp="🇧🇴" type="tts">玻利维亚</annotation>
+		<annotation cp="🇧🇶">旗</annotation>
+		<annotation cp="🇧🇶" type="tts">荷属加勒比区</annotation>
+		<annotation cp="🇧🇷">旗</annotation>
+		<annotation cp="🇧🇷" type="tts">巴西</annotation>
+		<annotation cp="🇧🇸">旗</annotation>
+		<annotation cp="🇧🇸" type="tts">巴哈马</annotation>
+		<annotation cp="🇧🇹">旗</annotation>
+		<annotation cp="🇧🇹" type="tts">不丹</annotation>
+		<annotation cp="🇧🇻">旗</annotation>
+		<annotation cp="🇧🇻" type="tts">布韦岛</annotation>
+		<annotation cp="🇧🇼">旗</annotation>
+		<annotation cp="🇧🇼" type="tts">博茨瓦纳</annotation>
+		<annotation cp="🇧🇾">旗</annotation>
+		<annotation cp="🇧🇾" type="tts">白俄罗斯</annotation>
+		<annotation cp="🇧🇿">旗</annotation>
+		<annotation cp="🇧🇿" type="tts">伯利兹</annotation>
+		<annotation cp="🇨🇦">旗</annotation>
+		<annotation cp="🇨🇦" type="tts">加拿大</annotation>
+		<annotation cp="🇨🇨">旗</annotation>
+		<annotation cp="🇨🇨" type="tts">科科斯（基林）群岛</annotation>
+		<annotation cp="🇨🇩">旗</annotation>
+		<annotation cp="🇨🇩" type="tts">刚果（金）</annotation>
+		<annotation cp="🇨🇫">旗</annotation>
+		<annotation cp="🇨🇫" type="tts">中非共和国</annotation>
+		<annotation cp="🇨🇬">旗</annotation>
+		<annotation cp="🇨🇬" type="tts">刚果（布）</annotation>
+		<annotation cp="🇨🇭">旗</annotation>
+		<annotation cp="🇨🇭" type="tts">瑞士</annotation>
+		<annotation cp="🇨🇮">旗</annotation>
+		<annotation cp="🇨🇮" type="tts">科特迪瓦</annotation>
+		<annotation cp="🇨🇰">旗</annotation>
+		<annotation cp="🇨🇰" type="tts">库克群岛</annotation>
+		<annotation cp="🇨🇱">旗</annotation>
+		<annotation cp="🇨🇱" type="tts">智利</annotation>
+		<annotation cp="🇨🇲">旗</annotation>
+		<annotation cp="🇨🇲" type="tts">喀麦隆</annotation>
+		<annotation cp="🇨🇳">旗</annotation>
+		<annotation cp="🇨🇳" type="tts">中国</annotation>
+		<annotation cp="🇨🇴">旗</annotation>
+		<annotation cp="🇨🇴" type="tts">哥伦比亚</annotation>
+		<annotation cp="🇨🇵">旗</annotation>
+		<annotation cp="🇨🇵" type="tts">克利珀顿岛</annotation>
+		<annotation cp="🇨🇷">旗</annotation>
+		<annotation cp="🇨🇷" type="tts">哥斯达黎加</annotation>
+		<annotation cp="🇨🇺">旗</annotation>
+		<annotation cp="🇨🇺" type="tts">古巴</annotation>
+		<annotation cp="🇨🇻">旗</annotation>
+		<annotation cp="🇨🇻" type="tts">佛得角</annotation>
+		<annotation cp="🇨🇼">旗</annotation>
+		<annotation cp="🇨🇼" type="tts">库拉索</annotation>
+		<annotation cp="🇨🇽">旗</annotation>
+		<annotation cp="🇨🇽" type="tts">圣诞岛</annotation>
+		<annotation cp="🇨🇾">旗</annotation>
+		<annotation cp="🇨🇾" type="tts">塞浦路斯</annotation>
+		<annotation cp="🇨🇿">旗</annotation>
+		<annotation cp="🇨🇿" type="tts">捷克</annotation>
+		<annotation cp="🇩🇪">旗</annotation>
+		<annotation cp="🇩🇪" type="tts">德国</annotation>
+		<annotation cp="🇩🇬">旗</annotation>
+		<annotation cp="🇩🇬" type="tts">迪戈加西亚岛</annotation>
+		<annotation cp="🇩🇯">旗</annotation>
+		<annotation cp="🇩🇯" type="tts">吉布提</annotation>
+		<annotation cp="🇩🇰">旗</annotation>
+		<annotation cp="🇩🇰" type="tts">丹麦</annotation>
+		<annotation cp="🇩🇲">旗</annotation>
+		<annotation cp="🇩🇲" type="tts">多米尼克</annotation>
+		<annotation cp="🇩🇴">旗</annotation>
+		<annotation cp="🇩🇴" type="tts">多米尼加共和国</annotation>
+		<annotation cp="🇩🇿">旗</annotation>
+		<annotation cp="🇩🇿" type="tts">阿尔及利亚</annotation>
+		<annotation cp="🇪🇦">旗</annotation>
+		<annotation cp="🇪🇦" type="tts">休达及梅利利亚</annotation>
+		<annotation cp="🇪🇨">旗</annotation>
+		<annotation cp="🇪🇨" type="tts">厄瓜多尔</annotation>
+		<annotation cp="🇪🇪">旗</annotation>
+		<annotation cp="🇪🇪" type="tts">爱沙尼亚</annotation>
+		<annotation cp="🇪🇬">旗</annotation>
+		<annotation cp="🇪🇬" type="tts">埃及</annotation>
+		<annotation cp="🇪🇭">旗</annotation>
+		<annotation cp="🇪🇭" type="tts">西撒哈拉</annotation>
+		<annotation cp="🇪🇷">旗</annotation>
+		<annotation cp="🇪🇷" type="tts">厄立特里亚</annotation>
+		<annotation cp="🇪🇸">旗</annotation>
+		<annotation cp="🇪🇸" type="tts">西班牙</annotation>
+		<annotation cp="🇪🇹">旗</annotation>
+		<annotation cp="🇪🇹" type="tts">埃塞俄比亚</annotation>
+		<annotation cp="🇪🇺">旗</annotation>
+		<annotation cp="🇪🇺" type="tts">欧盟</annotation>
+		<annotation cp="🇫🇮">旗</annotation>
+		<annotation cp="🇫🇮" type="tts">芬兰</annotation>
+		<annotation cp="🇫🇯">旗</annotation>
+		<annotation cp="🇫🇯" type="tts">斐济</annotation>
+		<annotation cp="🇫🇰">旗</annotation>
+		<annotation cp="🇫🇰" type="tts">福克兰群岛</annotation>
+		<annotation cp="🇫🇲">旗</annotation>
+		<annotation cp="🇫🇲" type="tts">密克罗尼西亚</annotation>
+		<annotation cp="🇫🇴">旗</annotation>
+		<annotation cp="🇫🇴" type="tts">法罗群岛</annotation>
+		<annotation cp="🇫🇷">旗</annotation>
+		<annotation cp="🇫🇷" type="tts">法国</annotation>
+		<annotation cp="🇬🇦">旗</annotation>
+		<annotation cp="🇬🇦" type="tts">加蓬</annotation>
+		<annotation cp="🇬🇧">旗</annotation>
+		<annotation cp="🇬🇧" type="tts">英国</annotation>
+		<annotation cp="🇬🇩">旗</annotation>
+		<annotation cp="🇬🇩" type="tts">格林纳达</annotation>
+		<annotation cp="🇬🇪">旗</annotation>
+		<annotation cp="🇬🇪" type="tts">格鲁吉亚</annotation>
+		<annotation cp="🇬🇫">旗</annotation>
+		<annotation cp="🇬🇫" type="tts">法属圭亚那</annotation>
+		<annotation cp="🇬🇬">旗</annotation>
+		<annotation cp="🇬🇬" type="tts">格恩西岛</annotation>
+		<annotation cp="🇬🇭">旗</annotation>
+		<annotation cp="🇬🇭" type="tts">加纳</annotation>
+		<annotation cp="🇬🇮">旗</annotation>
+		<annotation cp="🇬🇮" type="tts">直布罗陀</annotation>
+		<annotation cp="🇬🇱">旗</annotation>
+		<annotation cp="🇬🇱" type="tts">格陵兰</annotation>
+		<annotation cp="🇬🇲">旗</annotation>
+		<annotation cp="🇬🇲" type="tts">冈比亚</annotation>
+		<annotation cp="🇬🇳">旗</annotation>
+		<annotation cp="🇬🇳" type="tts">几内亚</annotation>
+		<annotation cp="🇬🇵">旗</annotation>
+		<annotation cp="🇬🇵" type="tts">瓜德罗普</annotation>
+		<annotation cp="🇬🇶">旗</annotation>
+		<annotation cp="🇬🇶" type="tts">赤道几内亚</annotation>
+		<annotation cp="🇬🇷">旗</annotation>
+		<annotation cp="🇬🇷" type="tts">希腊</annotation>
+		<annotation cp="🇬🇸">旗</annotation>
+		<annotation cp="🇬🇸" type="tts">南乔治亚和南桑威奇群岛</annotation>
+		<annotation cp="🇬🇹">旗</annotation>
+		<annotation cp="🇬🇹" type="tts">危地马拉</annotation>
+		<annotation cp="🇬🇺">旗</annotation>
+		<annotation cp="🇬🇺" type="tts">关岛</annotation>
+		<annotation cp="🇬🇼">旗</annotation>
+		<annotation cp="🇬🇼" type="tts">几内亚比绍</annotation>
+		<annotation cp="🇬🇾">旗</annotation>
+		<annotation cp="🇬🇾" type="tts">圭亚那</annotation>
+		<annotation cp="🇭🇰">旗</annotation>
+		<annotation cp="🇭🇰" type="tts">中国香港特别行政区</annotation>
+		<annotation cp="🇭🇲">旗</annotation>
+		<annotation cp="🇭🇲" type="tts">赫德岛和麦克唐纳群岛</annotation>
+		<annotation cp="🇭🇳">旗</annotation>
+		<annotation cp="🇭🇳" type="tts">洪都拉斯</annotation>
+		<annotation cp="🇭🇷">旗</annotation>
+		<annotation cp="🇭🇷" type="tts">克罗地亚</annotation>
+		<annotation cp="🇭🇹">旗</annotation>
+		<annotation cp="🇭🇹" type="tts">海地</annotation>
+		<annotation cp="🇭🇺">旗</annotation>
+		<annotation cp="🇭🇺" type="tts">匈牙利</annotation>
+		<annotation cp="🇮🇨">旗</annotation>
+		<annotation cp="🇮🇨" type="tts">加纳利群岛</annotation>
+		<annotation cp="🇮🇩">旗</annotation>
+		<annotation cp="🇮🇩" type="tts">印度尼西亚</annotation>
+		<annotation cp="🇮🇪">旗</annotation>
+		<annotation cp="🇮🇪" type="tts">爱尔兰</annotation>
+		<annotation cp="🇮🇱">旗</annotation>
+		<annotation cp="🇮🇱" type="tts">以色列</annotation>
+		<annotation cp="🇮🇲">旗</annotation>
+		<annotation cp="🇮🇲" type="tts">马恩岛</annotation>
+		<annotation cp="🇮🇳">旗</annotation>
+		<annotation cp="🇮🇳" type="tts">印度</annotation>
+		<annotation cp="🇮🇴">旗</annotation>
+		<annotation cp="🇮🇴" type="tts">英属印度洋领地</annotation>
+		<annotation cp="🇮🇶">旗</annotation>
+		<annotation cp="🇮🇶" type="tts">伊拉克</annotation>
+		<annotation cp="🇮🇷">旗</annotation>
+		<annotation cp="🇮🇷" type="tts">伊朗</annotation>
+		<annotation cp="🇮🇸">旗</annotation>
+		<annotation cp="🇮🇸" type="tts">冰岛</annotation>
+		<annotation cp="🇮🇹">旗</annotation>
+		<annotation cp="🇮🇹" type="tts">意大利</annotation>
+		<annotation cp="🇯🇪">旗</annotation>
+		<annotation cp="🇯🇪" type="tts">泽西岛</annotation>
+		<annotation cp="🇯🇲">旗</annotation>
+		<annotation cp="🇯🇲" type="tts">牙买加</annotation>
+		<annotation cp="🇯🇴">旗</annotation>
+		<annotation cp="🇯🇴" type="tts">约旦</annotation>
+		<annotation cp="🇯🇵">旗</annotation>
+		<annotation cp="🇯🇵" type="tts">日本</annotation>
+		<annotation cp="🇰🇪">旗</annotation>
+		<annotation cp="🇰🇪" type="tts">肯尼亚</annotation>
+		<annotation cp="🇰🇬">旗</annotation>
+		<annotation cp="🇰🇬" type="tts">吉尔吉斯斯坦</annotation>
+		<annotation cp="🇰🇭">旗</annotation>
+		<annotation cp="🇰🇭" type="tts">柬埔寨</annotation>
+		<annotation cp="🇰🇮">旗</annotation>
+		<annotation cp="🇰🇮" type="tts">基里巴斯</annotation>
+		<annotation cp="🇰🇲">旗</annotation>
+		<annotation cp="🇰🇲" type="tts">科摩罗</annotation>
+		<annotation cp="🇰🇳">旗</annotation>
+		<annotation cp="🇰🇳" type="tts">圣基茨和尼维斯</annotation>
+		<annotation cp="🇰🇵">旗</annotation>
+		<annotation cp="🇰🇵" type="tts">朝鲜</annotation>
+		<annotation cp="🇰🇷">旗</annotation>
+		<annotation cp="🇰🇷" type="tts">韩国</annotation>
+		<annotation cp="🇰🇼">旗</annotation>
+		<annotation cp="🇰🇼" type="tts">科威特</annotation>
+		<annotation cp="🇰🇾">旗</annotation>
+		<annotation cp="🇰🇾" type="tts">开曼群岛</annotation>
+		<annotation cp="🇰🇿">旗</annotation>
+		<annotation cp="🇰🇿" type="tts">哈萨克斯坦</annotation>
+		<annotation cp="🇱🇦">旗</annotation>
+		<annotation cp="🇱🇦" type="tts">老挝</annotation>
+		<annotation cp="🇱🇧">旗</annotation>
+		<annotation cp="🇱🇧" type="tts">黎巴嫩</annotation>
+		<annotation cp="🇱🇨">旗</annotation>
+		<annotation cp="🇱🇨" type="tts">圣卢西亚</annotation>
+		<annotation cp="🇱🇮">旗</annotation>
+		<annotation cp="🇱🇮" type="tts">列支敦士登</annotation>
+		<annotation cp="🇱🇰">旗</annotation>
+		<annotation cp="🇱🇰" type="tts">斯里兰卡</annotation>
+		<annotation cp="🇱🇷">旗</annotation>
+		<annotation cp="🇱🇷" type="tts">利比里亚</annotation>
+		<annotation cp="🇱🇸">旗</annotation>
+		<annotation cp="🇱🇸" type="tts">莱索托</annotation>
+		<annotation cp="🇱🇹">旗</annotation>
+		<annotation cp="🇱🇹" type="tts">立陶宛</annotation>
+		<annotation cp="🇱🇺">旗</annotation>
+		<annotation cp="🇱🇺" type="tts">卢森堡</annotation>
+		<annotation cp="🇱🇻">旗</annotation>
+		<annotation cp="🇱🇻" type="tts">拉脱维亚</annotation>
+		<annotation cp="🇱🇾">旗</annotation>
+		<annotation cp="🇱🇾" type="tts">利比亚</annotation>
+		<annotation cp="🇲🇦">旗</annotation>
+		<annotation cp="🇲🇦" type="tts">摩洛哥</annotation>
+		<annotation cp="🇲🇨">旗</annotation>
+		<annotation cp="🇲🇨" type="tts">摩纳哥</annotation>
+		<annotation cp="🇲🇩">旗</annotation>
+		<annotation cp="🇲🇩" type="tts">摩尔多瓦</annotation>
+		<annotation cp="🇲🇪">旗</annotation>
+		<annotation cp="🇲🇪" type="tts">黑山</annotation>
+		<annotation cp="🇲🇫">旗</annotation>
+		<annotation cp="🇲🇫" type="tts">圣马丁岛</annotation>
+		<annotation cp="🇲🇬">旗</annotation>
+		<annotation cp="🇲🇬" type="tts">马达加斯加</annotation>
+		<annotation cp="🇲🇭">旗</annotation>
+		<annotation cp="🇲🇭" type="tts">马绍尔群岛</annotation>
+		<annotation cp="🇲🇰">旗</annotation>
+		<annotation cp="🇲🇰" type="tts">马其顿</annotation>
+		<annotation cp="🇲🇱">旗</annotation>
+		<annotation cp="🇲🇱" type="tts">马里</annotation>
+		<annotation cp="🇲🇲">旗</annotation>
+		<annotation cp="🇲🇲" type="tts">缅甸</annotation>
+		<annotation cp="🇲🇳">旗</annotation>
+		<annotation cp="🇲🇳" type="tts">蒙古</annotation>
+		<annotation cp="🇲🇴">旗</annotation>
+		<annotation cp="🇲🇴" type="tts">中国澳门特别行政区</annotation>
+		<annotation cp="🇲🇵">旗</annotation>
+		<annotation cp="🇲🇵" type="tts">北马里亚纳群岛</annotation>
+		<annotation cp="🇲🇶">旗</annotation>
+		<annotation cp="🇲🇶" type="tts">马提尼克</annotation>
+		<annotation cp="🇲🇷">旗</annotation>
+		<annotation cp="🇲🇷" type="tts">毛里塔尼亚</annotation>
+		<annotation cp="🇲🇸">旗</annotation>
+		<annotation cp="🇲🇸" type="tts">蒙特塞拉特</annotation>
+		<annotation cp="🇲🇹">旗</annotation>
+		<annotation cp="🇲🇹" type="tts">马耳他</annotation>
+		<annotation cp="🇲🇺">旗</annotation>
+		<annotation cp="🇲🇺" type="tts">毛里求斯</annotation>
+		<annotation cp="🇲🇻">旗</annotation>
+		<annotation cp="🇲🇻" type="tts">马尔代夫</annotation>
+		<annotation cp="🇲🇼">旗</annotation>
+		<annotation cp="🇲🇼" type="tts">马拉维</annotation>
+		<annotation cp="🇲🇽">旗</annotation>
+		<annotation cp="🇲🇽" type="tts">墨西哥</annotation>
+		<annotation cp="🇲🇾">旗</annotation>
+		<annotation cp="🇲🇾" type="tts">马来西亚</annotation>
+		<annotation cp="🇲🇿">旗</annotation>
+		<annotation cp="🇲🇿" type="tts">莫桑比克</annotation>
+		<annotation cp="🇳🇦">旗</annotation>
+		<annotation cp="🇳🇦" type="tts">纳米比亚</annotation>
+		<annotation cp="🇳🇨">旗</annotation>
+		<annotation cp="🇳🇨" type="tts">新喀里多尼亚</annotation>
+		<annotation cp="🇳🇪">旗</annotation>
+		<annotation cp="🇳🇪" type="tts">尼日尔</annotation>
+		<annotation cp="🇳🇫">旗</annotation>
+		<annotation cp="🇳🇫" type="tts">诺福克岛</annotation>
+		<annotation cp="🇳🇬">旗</annotation>
+		<annotation cp="🇳🇬" type="tts">尼日利亚</annotation>
+		<annotation cp="🇳🇮">旗</annotation>
+		<annotation cp="🇳🇮" type="tts">尼加拉瓜</annotation>
+		<annotation cp="🇳🇱">旗</annotation>
+		<annotation cp="🇳🇱" type="tts">荷兰</annotation>
+		<annotation cp="🇳🇴">旗</annotation>
+		<annotation cp="🇳🇴" type="tts">挪威</annotation>
+		<annotation cp="🇳🇵">旗</annotation>
+		<annotation cp="🇳🇵" type="tts">尼泊尔</annotation>
+		<annotation cp="🇳🇷">旗</annotation>
+		<annotation cp="🇳🇷" type="tts">瑙鲁</annotation>
+		<annotation cp="🇳🇺">旗</annotation>
+		<annotation cp="🇳🇺" type="tts">纽埃</annotation>
+		<annotation cp="🇳🇿">旗</annotation>
+		<annotation cp="🇳🇿" type="tts">新西兰</annotation>
+		<annotation cp="🇴🇲">旗</annotation>
+		<annotation cp="🇴🇲" type="tts">阿曼</annotation>
+		<annotation cp="🇵🇦">旗</annotation>
+		<annotation cp="🇵🇦" type="tts">巴拿马</annotation>
+		<annotation cp="🇵🇪">旗</annotation>
+		<annotation cp="🇵🇪" type="tts">秘鲁</annotation>
+		<annotation cp="🇵🇫">旗</annotation>
+		<annotation cp="🇵🇫" type="tts">法属波利尼西亚</annotation>
+		<annotation cp="🇵🇬">旗</annotation>
+		<annotation cp="🇵🇬" type="tts">巴布亚新几内亚</annotation>
+		<annotation cp="🇵🇭">旗</annotation>
+		<annotation cp="🇵🇭" type="tts">菲律宾</annotation>
+		<annotation cp="🇵🇰">旗</annotation>
+		<annotation cp="🇵🇰" type="tts">巴基斯坦</annotation>
+		<annotation cp="🇵🇱">旗</annotation>
+		<annotation cp="🇵🇱" type="tts">波兰</annotation>
+		<annotation cp="🇵🇲">旗</annotation>
+		<annotation cp="🇵🇲" type="tts">圣皮埃尔和密克隆群岛</annotation>
+		<annotation cp="🇵🇳">旗</annotation>
+		<annotation cp="🇵🇳" type="tts">皮特凯恩群岛</annotation>
+		<annotation cp="🇵🇷">旗</annotation>
+		<annotation cp="🇵🇷" type="tts">波多黎各</annotation>
+		<annotation cp="🇵🇸">旗</annotation>
+		<annotation cp="🇵🇸" type="tts">巴勒斯坦领土</annotation>
+		<annotation cp="🇵🇹">旗</annotation>
+		<annotation cp="🇵🇹" type="tts">葡萄牙</annotation>
+		<annotation cp="🇵🇼">旗</annotation>
+		<annotation cp="🇵🇼" type="tts">帕劳</annotation>
+		<annotation cp="🇵🇾">旗</annotation>
+		<annotation cp="🇵🇾" type="tts">巴拉圭</annotation>
+		<annotation cp="🇶🇦">旗</annotation>
+		<annotation cp="🇶🇦" type="tts">卡塔尔</annotation>
+		<annotation cp="🇷🇪">旗</annotation>
+		<annotation cp="🇷🇪" type="tts">留尼汪</annotation>
+		<annotation cp="🇷🇴">旗</annotation>
+		<annotation cp="🇷🇴" type="tts">罗马尼亚</annotation>
+		<annotation cp="🇷🇸">旗</annotation>
+		<annotation cp="🇷🇸" type="tts">塞尔维亚</annotation>
+		<annotation cp="🇷🇺">旗</annotation>
+		<annotation cp="🇷🇺" type="tts">俄罗斯</annotation>
+		<annotation cp="🇷🇼">旗</annotation>
+		<annotation cp="🇷🇼" type="tts">卢旺达</annotation>
+		<annotation cp="🇸🇦">旗</annotation>
+		<annotation cp="🇸🇦" type="tts">沙特阿拉伯</annotation>
+		<annotation cp="🇸🇧">旗</annotation>
+		<annotation cp="🇸🇧" type="tts">所罗门群岛</annotation>
+		<annotation cp="🇸🇨">旗</annotation>
+		<annotation cp="🇸🇨" type="tts">塞舌尔</annotation>
+		<annotation cp="🇸🇩">旗</annotation>
+		<annotation cp="🇸🇩" type="tts">苏丹</annotation>
+		<annotation cp="🇸🇪">旗</annotation>
+		<annotation cp="🇸🇪" type="tts">瑞典</annotation>
+		<annotation cp="🇸🇬">旗</annotation>
+		<annotation cp="🇸🇬" type="tts">新加坡</annotation>
+		<annotation cp="🇸🇭">旗</annotation>
+		<annotation cp="🇸🇭" type="tts">圣赫勒拿</annotation>
+		<annotation cp="🇸🇮">旗</annotation>
+		<annotation cp="🇸🇮" type="tts">斯洛文尼亚</annotation>
+		<annotation cp="🇸🇯">旗</annotation>
+		<annotation cp="🇸🇯" type="tts">斯瓦尔巴和扬马延</annotation>
+		<annotation cp="🇸🇰">旗</annotation>
+		<annotation cp="🇸🇰" type="tts">斯洛伐克</annotation>
+		<annotation cp="🇸🇱">旗</annotation>
+		<annotation cp="🇸🇱" type="tts">塞拉利昂</annotation>
+		<annotation cp="🇸🇲">旗</annotation>
+		<annotation cp="🇸🇲" type="tts">圣马力诺</annotation>
+		<annotation cp="🇸🇳">旗</annotation>
+		<annotation cp="🇸🇳" type="tts">塞内加尔</annotation>
+		<annotation cp="🇸🇴">旗</annotation>
+		<annotation cp="🇸🇴" type="tts">索马里</annotation>
+		<annotation cp="🇸🇷">旗</annotation>
+		<annotation cp="🇸🇷" type="tts">苏里南</annotation>
+		<annotation cp="🇸🇸">旗</annotation>
+		<annotation cp="🇸🇸" type="tts">南苏丹</annotation>
+		<annotation cp="🇸🇹">旗</annotation>
+		<annotation cp="🇸🇹" type="tts">圣多美和普林西比</annotation>
+		<annotation cp="🇸🇻">旗</annotation>
+		<annotation cp="🇸🇻" type="tts">萨尔瓦多</annotation>
+		<annotation cp="🇸🇽">旗</annotation>
+		<annotation cp="🇸🇽" type="tts">荷属圣马丁</annotation>
+		<annotation cp="🇸🇾">旗</annotation>
+		<annotation cp="🇸🇾" type="tts">叙利亚</annotation>
+		<annotation cp="🇸🇿">旗</annotation>
+		<annotation cp="🇸🇿" type="tts">斯威士兰</annotation>
+		<annotation cp="🇹🇦">旗</annotation>
+		<annotation cp="🇹🇦" type="tts">特里斯坦-达库尼亚群岛</annotation>
+		<annotation cp="🇹🇨">旗</annotation>
+		<annotation cp="🇹🇨" type="tts">特克斯和凯科斯群岛</annotation>
+		<annotation cp="🇹🇩">旗</annotation>
+		<annotation cp="🇹🇩" type="tts">乍得</annotation>
+		<annotation cp="🇹🇫">旗</annotation>
+		<annotation cp="🇹🇫" type="tts">法属南部领地</annotation>
+		<annotation cp="🇹🇬">旗</annotation>
+		<annotation cp="🇹🇬" type="tts">多哥</annotation>
+		<annotation cp="🇹🇭">旗</annotation>
+		<annotation cp="🇹🇭" type="tts">泰国</annotation>
+		<annotation cp="🇹🇯">旗</annotation>
+		<annotation cp="🇹🇯" type="tts">塔吉克斯坦</annotation>
+		<annotation cp="🇹🇰">旗</annotation>
+		<annotation cp="🇹🇰" type="tts">托克劳</annotation>
+		<annotation cp="🇹🇱">旗</annotation>
+		<annotation cp="🇹🇱" type="tts">东帝汶</annotation>
+		<annotation cp="🇹🇲">旗</annotation>
+		<annotation cp="🇹🇲" type="tts">土库曼斯坦</annotation>
+		<annotation cp="🇹🇳">旗</annotation>
+		<annotation cp="🇹🇳" type="tts">突尼斯</annotation>
+		<annotation cp="🇹🇴">旗</annotation>
+		<annotation cp="🇹🇴" type="tts">汤加</annotation>
+		<annotation cp="🇹🇷">旗</annotation>
+		<annotation cp="🇹🇷" type="tts">土耳其</annotation>
+		<annotation cp="🇹🇹">旗</annotation>
+		<annotation cp="🇹🇹" type="tts">特立尼达和多巴哥</annotation>
+		<annotation cp="🇹🇻">旗</annotation>
+		<annotation cp="🇹🇻" type="tts">图瓦卢</annotation>
+		<annotation cp="🇹🇼">旗</annotation>
+		<annotation cp="🇹🇼" type="tts">台湾</annotation>
+		<annotation cp="🇹🇿">旗</annotation>
+		<annotation cp="🇹🇿" type="tts">坦桑尼亚</annotation>
+		<annotation cp="🇺🇦">旗</annotation>
+		<annotation cp="🇺🇦" type="tts">乌克兰</annotation>
+		<annotation cp="🇺🇬">旗</annotation>
+		<annotation cp="🇺🇬" type="tts">乌干达</annotation>
+		<annotation cp="🇺🇲">旗</annotation>
+		<annotation cp="🇺🇲" type="tts">美国本土外小岛屿</annotation>
+		<annotation cp="🇺🇳">旗</annotation>
+		<annotation cp="🇺🇳" type="tts">联合国</annotation>
+		<annotation cp="🇺🇸">旗</annotation>
+		<annotation cp="🇺🇸" type="tts">美国</annotation>
+		<annotation cp="🇺🇾">旗</annotation>
+		<annotation cp="🇺🇾" type="tts">乌拉圭</annotation>
+		<annotation cp="🇺🇿">旗</annotation>
+		<annotation cp="🇺🇿" type="tts">乌兹别克斯坦</annotation>
+		<annotation cp="🇻🇦">旗</annotation>
+		<annotation cp="🇻🇦" type="tts">梵蒂冈</annotation>
+		<annotation cp="🇻🇨">旗</annotation>
+		<annotation cp="🇻🇨" type="tts">圣文森特和格林纳丁斯</annotation>
+		<annotation cp="🇻🇪">旗</annotation>
+		<annotation cp="🇻🇪" type="tts">委内瑞拉</annotation>
+		<annotation cp="🇻🇬">旗</annotation>
+		<annotation cp="🇻🇬" type="tts">英属维尔京群岛</annotation>
+		<annotation cp="🇻🇮">旗</annotation>
+		<annotation cp="🇻🇮" type="tts">美属维尔京群岛</annotation>
+		<annotation cp="🇻🇳">旗</annotation>
+		<annotation cp="🇻🇳" type="tts">越南</annotation>
+		<annotation cp="🇻🇺">旗</annotation>
+		<annotation cp="🇻🇺" type="tts">瓦努阿图</annotation>
+		<annotation cp="🇼🇫">旗</annotation>
+		<annotation cp="🇼🇫" type="tts">瓦利斯和富图纳</annotation>
+		<annotation cp="🇼🇸">旗</annotation>
+		<annotation cp="🇼🇸" type="tts">萨摩亚</annotation>
+		<annotation cp="🇽🇰">旗</annotation>
+		<annotation cp="🇽🇰" type="tts">科索沃</annotation>
+		<annotation cp="🇾🇪">旗</annotation>
+		<annotation cp="🇾🇪" type="tts">也门</annotation>
+		<annotation cp="🇾🇹">旗</annotation>
+		<annotation cp="🇾🇹" type="tts">马约特</annotation>
+		<annotation cp="🇿🇦">旗</annotation>
+		<annotation cp="🇿🇦" type="tts">南非</annotation>
+		<annotation cp="🇿🇲">旗</annotation>
+		<annotation cp="🇿🇲" type="tts">赞比亚</annotation>
+		<annotation cp="🇿🇼">旗</annotation>
+		<annotation cp="🇿🇼" type="tts">津巴布韦</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">旗</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">英格兰</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">旗</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">苏格兰</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">旗</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">威尔士</annotation>
+	</annotations>
+</ldml>

@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="af"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | nul | sleutel | zero</annotation>
+		<annotation cp="0⃣" type="tts">nulsleutel</annotation>
+		<annotation cp="1⃣">1 | een | sleutel</annotation>
+		<annotation cp="1⃣" type="tts">eensleutel</annotation>
+		<annotation cp="2⃣">2 | sleutel | twee</annotation>
+		<annotation cp="2⃣" type="tts">tweesleutel</annotation>
+		<annotation cp="3⃣">3 | drie | sleutel</annotation>
+		<annotation cp="3⃣" type="tts">driesleutel</annotation>
+		<annotation cp="4⃣">4 | sleutel | vier</annotation>
+		<annotation cp="4⃣" type="tts">viersleutel</annotation>
+		<annotation cp="5⃣">5 | sleutel | vyf</annotation>
+		<annotation cp="5⃣" type="tts">vyfsleutel</annotation>
+		<annotation cp="6⃣">6 | ses | sleutel</annotation>
+		<annotation cp="6⃣" type="tts">sessleutel</annotation>
+		<annotation cp="7⃣">7 | sewe | sleutel</annotation>
+		<annotation cp="7⃣" type="tts">sewesleutel</annotation>
+		<annotation cp="8⃣">8 | agt | sleutel</annotation>
+		<annotation cp="8⃣" type="tts">agtsleutel</annotation>
+		<annotation cp="9⃣">9 | nege | sleutel</annotation>
+		<annotation cp="9⃣" type="tts">negesleutel</annotation>
+		<annotation cp="👶🏻">baba | veltipe-1-2</annotation>
+		<annotation cp="👶🏻" type="tts">baba: veltipe-1-2</annotation>
+		<annotation cp="👶🏼">baba | veltipe-3</annotation>
+		<annotation cp="👶🏼" type="tts">baba: veltipe-3</annotation>
+		<annotation cp="👶🏽">baba | veltipe-4</annotation>
+		<annotation cp="👶🏽" type="tts">baba: veltipe-4</annotation>
+		<annotation cp="👶🏾">baba | veltipe-5</annotation>
+		<annotation cp="👶🏾" type="tts">baba: veltipe-5</annotation>
+		<annotation cp="👶🏿">baba | veltipe-6</annotation>
+		<annotation cp="👶🏿" type="tts">baba: veltipe-6</annotation>
+		<annotation cp="👦🏻">kind | seun | veltipe-1-2</annotation>
+		<annotation cp="👦🏻" type="tts">seun: veltipe-1-2</annotation>
+		<annotation cp="👦🏼">kind | seun | veltipe-3</annotation>
+		<annotation cp="👦🏼" type="tts">seun: veltipe-3</annotation>
+		<annotation cp="👦🏽">kind | seun | veltipe-4</annotation>
+		<annotation cp="👦🏽" type="tts">seun: veltipe-4</annotation>
+		<annotation cp="👦🏾">kind | seun | veltipe-5</annotation>
+		<annotation cp="👦🏾" type="tts">seun: veltipe-5</annotation>
+		<annotation cp="👦🏿">kind | seun | veltipe-6</annotation>
+		<annotation cp="👦🏿" type="tts">seun: veltipe-6</annotation>
+		<annotation cp="👧🏻">kind | meisie | veltipe-1-2</annotation>
+		<annotation cp="👧🏻" type="tts">meisie: veltipe-1-2</annotation>
+		<annotation cp="👧🏼">kind | meisie | veltipe-3</annotation>
+		<annotation cp="👧🏼" type="tts">meisie: veltipe-3</annotation>
+		<annotation cp="👧🏽">kind | meisie | veltipe-4</annotation>
+		<annotation cp="👧🏽" type="tts">meisie: veltipe-4</annotation>
+		<annotation cp="👧🏾">kind | meisie | veltipe-5</annotation>
+		<annotation cp="👧🏾" type="tts">meisie: veltipe-5</annotation>
+		<annotation cp="👧🏿">kind | meisie | veltipe-6</annotation>
+		<annotation cp="👧🏿" type="tts">meisie: veltipe-6</annotation>
+		<annotation cp="👨🏻">man | veltipe-1-2</annotation>
+		<annotation cp="👨🏻" type="tts">man: veltipe-1-2</annotation>
+		<annotation cp="👨🏼">man | veltipe-3</annotation>
+		<annotation cp="👨🏼" type="tts">man: veltipe-3</annotation>
+		<annotation cp="👨🏽">man | veltipe-4</annotation>
+		<annotation cp="👨🏽" type="tts">man: veltipe-4</annotation>
+		<annotation cp="👨🏾">man | veltipe-5</annotation>
+		<annotation cp="👨🏾" type="tts">man: veltipe-5</annotation>
+		<annotation cp="👨🏿">man | veltipe-6</annotation>
+		<annotation cp="👨🏿" type="tts">man: veltipe-6</annotation>
+		<annotation cp="👩🏻">vrou | veltipe-1-2</annotation>
+		<annotation cp="👩🏻" type="tts">vrou: veltipe-1-2</annotation>
+		<annotation cp="👩🏼">vrou | veltipe-3</annotation>
+		<annotation cp="👩🏼" type="tts">vrou: veltipe-3</annotation>
+		<annotation cp="👩🏽">vrou | veltipe-4</annotation>
+		<annotation cp="👩🏽" type="tts">vrou: veltipe-4</annotation>
+		<annotation cp="👩🏾">vrou | veltipe-5</annotation>
+		<annotation cp="👩🏾" type="tts">vrou: veltipe-5</annotation>
+		<annotation cp="👩🏿">vrou | veltipe-6</annotation>
+		<annotation cp="👩🏿" type="tts">vrou: veltipe-6</annotation>
+		<annotation cp="👴🏻">man | oud | veltipe-1-2</annotation>
+		<annotation cp="👴🏻" type="tts">ou man: veltipe-1-2</annotation>
+		<annotation cp="👴🏼">man | oud | veltipe-3</annotation>
+		<annotation cp="👴🏼" type="tts">ou man: veltipe-3</annotation>
+		<annotation cp="👴🏽">man | oud | veltipe-4</annotation>
+		<annotation cp="👴🏽" type="tts">ou man: veltipe-4</annotation>
+		<annotation cp="👴🏾">man | oud | veltipe-5</annotation>
+		<annotation cp="👴🏾" type="tts">ou man: veltipe-5</annotation>
+		<annotation cp="👴🏿">man | oud | veltipe-6</annotation>
+		<annotation cp="👴🏿" type="tts">ou man: veltipe-6</annotation>
+		<annotation cp="👵🏻">oud | vrou | veltipe-1-2</annotation>
+		<annotation cp="👵🏻" type="tts">ou vrou: veltipe-1-2</annotation>
+		<annotation cp="👵🏼">oud | vrou | veltipe-3</annotation>
+		<annotation cp="👵🏼" type="tts">ou vrou: veltipe-3</annotation>
+		<annotation cp="👵🏽">oud | vrou | veltipe-4</annotation>
+		<annotation cp="👵🏽" type="tts">ou vrou: veltipe-4</annotation>
+		<annotation cp="👵🏾">oud | vrou | veltipe-5</annotation>
+		<annotation cp="👵🏾" type="tts">ou vrou: veltipe-5</annotation>
+		<annotation cp="👵🏿">oud | vrou | veltipe-6</annotation>
+		<annotation cp="👵🏿" type="tts">ou vrou: veltipe-6</annotation>
+		<annotation cp="👨🏻‍⚕">dokter | medies | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">manlike dokter: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍⚕">dokter | medies | veltipe-3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">manlike dokter: veltipe-3</annotation>
+		<annotation cp="👨🏽‍⚕">dokter | medies | veltipe-4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">manlike dokter: veltipe-4</annotation>
+		<annotation cp="👨🏾‍⚕">dokter | medies | veltipe-5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">manlike dokter: veltipe-5</annotation>
+		<annotation cp="👨🏿‍⚕">dokter | medies | veltipe-6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">manlike dokter: veltipe-6</annotation>
+		<annotation cp="👩🏻‍⚕">dokter | medies | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">vroulike dokter: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍⚕">dokter | medies | veltipe-3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">vroulike dokter: veltipe-3</annotation>
+		<annotation cp="👩🏽‍⚕">dokter | medies | veltipe-4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">vroulike dokter: veltipe-4</annotation>
+		<annotation cp="👩🏾‍⚕">dokter | medies | veltipe-5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">vroulike dokter: veltipe-5</annotation>
+		<annotation cp="👩🏿‍⚕">dokter | medies | veltipe-6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">vroulike dokter: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🎓">graad | gradeplegtigheid | toga | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">manlike student: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🎓">graad | gradeplegtigheid | toga | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">manlike student: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🎓">graad | gradeplegtigheid | toga | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">manlike student: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🎓">graad | gradeplegtigheid | toga | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">manlike student: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🎓">graad | gradeplegtigheid | toga | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">manlike student: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🎓">graad | gradeplegtigheid | toga | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">vroulike student: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🎓">graad | gradeplegtigheid | toga | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">vroulike student: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🎓">graad | gradeplegtigheid | toga | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">vroulike student: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🎓">graad | gradeplegtigheid | toga | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">vroulike student: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🎓">graad | gradeplegtigheid | toga | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">vroulike student: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🏫">onderwyser | opvoeder | skool | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">meneer: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🏫">onderwyser | opvoeder | skool | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">meneer: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🏫">onderwyser | opvoeder | skool | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">meneer: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🏫">onderwyser | opvoeder | skool | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">meneer: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🏫">onderwyser | opvoeder | skool | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">meneer: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🏫">onderwyser | onderwyseres | opvoeder | skool | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">juffrou: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🏫">onderwyser | onderwyseres | opvoeder | skool | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">juffrou: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🏫">onderwyser | onderwyseres | opvoeder | skool | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">juffrou: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🏫">onderwyser | onderwyseres | opvoeder | skool | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">juffrou: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🏫">onderwyser | onderwyseres | opvoeder | skool | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">juffrou: veltipe-6</annotation>
+		<annotation cp="👨🏻‍⚖">hof | landdros | magistraat | regter | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">manlike regter: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍⚖">hof | landdros | magistraat | regter | veltipe-3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">manlike regter: veltipe-3</annotation>
+		<annotation cp="👨🏽‍⚖">hof | landdros | magistraat | regter | veltipe-4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">manlike regter: veltipe-4</annotation>
+		<annotation cp="👨🏾‍⚖">hof | landdros | magistraat | regter | veltipe-5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">manlike regter: veltipe-5</annotation>
+		<annotation cp="👨🏿‍⚖">hof | landdros | magistraat | regter | veltipe-6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">manlike regter: veltipe-6</annotation>
+		<annotation cp="👩🏻‍⚖">hof | landdros | magistraat | regter | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">vroulike regter: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍⚖">hof | landdros | magistraat | regter | veltipe-3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">vroulike regter: veltipe-3</annotation>
+		<annotation cp="👩🏽‍⚖">hof | landdros | magistraat | regter | veltipe-4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">vroulike regter: veltipe-4</annotation>
+		<annotation cp="👩🏾‍⚖">hof | landdros | magistraat | regter | veltipe-5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">vroulike regter: veltipe-5</annotation>
+		<annotation cp="👩🏿‍⚖">hof | landdros | magistraat | regter | veltipe-6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">vroulike regter: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🌾">boer | koringaar | plaas | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">manlike boer: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🌾">boer | koringaar | plaas | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">manlike boer: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🌾">boer | koringaar | plaas | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">manlike boer: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🌾">boer | koringaar | plaas | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">manlike boer: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🌾">boer | koringaar | plaas | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">manlike boer: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🌾">boer | koringaar | plaas | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">vroulike boer: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🌾">boer | koringaar | plaas | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">vroulike boer: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🌾">boer | koringaar | plaas | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">vroulike boer: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🌾">boer | koringaar | plaas | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">vroulike boer: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🌾">boer | koringaar | plaas | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">vroulike boer: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🍳">eier | kok | pan | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">manlike kok: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🍳">eier | kok | pan | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">manlike kok: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🍳">eier | kok | pan | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">manlike kok: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🍳">eier | kok | pan | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">manlike kok: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🍳">eier | kok | pan | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">manlike kok: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🍳">eier | kok | pan | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">vroulike kok: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🍳">eier | kok | pan | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">vroulike kok: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🍳">eier | kok | pan | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">vroulike kok: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🍳">eier | kok | pan | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">vroulike kok: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🍳">eier | kok | pan | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">vroulike kok: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">manlike motorwerktuigkundige: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">manlike motorwerktuigkundige: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">manlike motorwerktuigkundige: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">manlike motorwerktuigkundige: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">manlike motorwerktuigkundige: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">vroulike motorwerktuigkundige: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">vroulike motorwerktuigkundige: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">vroulike motorwerktuigkundige: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">vroulike motorwerktuigkundige: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🔧">mechanic | moersleutel | motorwerktuigkundige | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">vroulike motorwerktuigkundige: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🏭">fabriekswerker | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">manlike fabriekswerker: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🏭">fabriekswerker | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">manlike fabriekswerker: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🏭">fabriekswerker | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">manlike fabriekswerker: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🏭">fabriekswerker | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">manlike fabriekswerker: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🏭">fabriekswerker | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">manlike fabriekswerker: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🏭">fabriekswerker | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">vroulike fabriekswerker: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🏭">fabriekswerker | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">vroulike fabriekswerker: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🏭">fabriekswerker | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">vroulike fabriekswerker: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🏭">fabriekswerker | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">vroulike fabriekswerker: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🏭">fabriekswerker | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">vroulike fabriekswerker: veltipe-6</annotation>
+		<annotation cp="👨🏻‍💼">kantoorwerker | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">manlike kantoorwerker: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍💼">kantoorwerker | veltipe-3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">manlike kantoorwerker: veltipe-3</annotation>
+		<annotation cp="👨🏽‍💼">kantoorwerker | veltipe-4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">manlike kantoorwerker: veltipe-4</annotation>
+		<annotation cp="👨🏾‍💼">kantoorwerker | veltipe-5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">manlike kantoorwerker: veltipe-5</annotation>
+		<annotation cp="👨🏿‍💼">kantoorwerker | veltipe-6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">manlike kantoorwerker: veltipe-6</annotation>
+		<annotation cp="👩🏻‍💼">kantoorwerker | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">vroulike kantoorwerker: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍💼">kantoorwerker | veltipe-3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">vroulike kantoorwerker: veltipe-3</annotation>
+		<annotation cp="👩🏽‍💼">kantoorwerker | veltipe-4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">vroulike kantoorwerker: veltipe-4</annotation>
+		<annotation cp="👩🏾‍💼">kantoorwerker | veltipe-5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">vroulike kantoorwerker: veltipe-5</annotation>
+		<annotation cp="👩🏿‍💼">kantoorwerker | veltipe-6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">vroulike kantoorwerker: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">manlike wetenskaplike: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">manlike wetenskaplike: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">manlike wetenskaplike: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">manlike wetenskaplike: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">manlike wetenskaplike: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">vroulike wetenskaplike: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">vroulike wetenskaplike: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">vroulike wetenskaplike: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">vroulike wetenskaplike: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🔬">mikroskoop | proefbuis | wetenskaplike | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">vroulike wetenskaplike: veltipe-6</annotation>
+		<annotation cp="👨🏻‍💻">bleeksiel | rekenaar | tegnologie | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">manlike tegnoloog: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍💻">bleeksiel | rekenaar | tegnologie | veltipe-3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">manlike tegnoloog: veltipe-3</annotation>
+		<annotation cp="👨🏽‍💻">bleeksiel | rekenaar | tegnologie | veltipe-4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">manlike tegnoloog: veltipe-4</annotation>
+		<annotation cp="👨🏾‍💻">bleeksiel | rekenaar | tegnologie | veltipe-5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">manlike tegnoloog: veltipe-5</annotation>
+		<annotation cp="👨🏿‍💻">bleeksiel | rekenaar | tegnologie | veltipe-6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">manlike tegnoloog: veltipe-6</annotation>
+		<annotation cp="👩🏻‍💻">bleeksiel | rekenaar | tegnologie | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">vroulike tegnoloog: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍💻">bleeksiel | rekenaar | tegnologie | veltipe-3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">vroulike tegnoloog: veltipe-3</annotation>
+		<annotation cp="👩🏽‍💻">bleeksiel | rekenaar | tegnologie | veltipe-4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">vroulike tegnoloog: veltipe-4</annotation>
+		<annotation cp="👩🏾‍💻">bleeksiel | rekenaar | tegnologie | veltipe-5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">vroulike tegnoloog: veltipe-5</annotation>
+		<annotation cp="👩🏿‍💻">bleeksiel | rekenaar | tegnologie | veltipe-6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">vroulike tegnoloog: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🎤">sanger | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">manlike sanger: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🎤">sanger | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">manlike sanger: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🎤">sanger | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">manlike sanger: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🎤">sanger | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">manlike sanger: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🎤">sanger | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">manlike sanger: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🎤">sanger | sangeres | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">vroulike sanger: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🎤">sanger | sangeres | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">vroulike sanger: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🎤">sanger | sangeres | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">vroulike sanger: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🎤">sanger | sangeres | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">vroulike sanger: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🎤">sanger | sangeres | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">vroulike sanger: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🎨">kunstenaar | skilder | verwer | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">manlike kunstenaar: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🎨">kunstenaar | skilder | verwer | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">manlike kunstenaar: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🎨">kunstenaar | skilder | verwer | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">manlike kunstenaar: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🎨">kunstenaar | skilder | verwer | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">manlike kunstenaar: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🎨">kunstenaar | skilder | verwer | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">manlike kunstenaar: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🎨">kunstenaar | skilder | verwer | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">vroulike kunstenaar: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🎨">kunstenaar | skilder | verwer | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">vroulike kunstenaar: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🎨">kunstenaar | skilder | verwer | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">vroulike kunstenaar: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🎨">kunstenaar | skilder | verwer | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">vroulike kunstenaar: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🎨">kunstenaar | skilder | verwer | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">vroulike kunstenaar: veltipe-6</annotation>
+		<annotation cp="👨🏻‍✈">kaptein | loods | vlieënier | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">manlike vlieënier: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍✈">kaptein | loods | vlieënier | veltipe-3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">manlike vlieënier: veltipe-3</annotation>
+		<annotation cp="👨🏽‍✈">kaptein | loods | vlieënier | veltipe-4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">manlike vlieënier: veltipe-4</annotation>
+		<annotation cp="👨🏾‍✈">kaptein | loods | vlieënier | veltipe-5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">manlike vlieënier: veltipe-5</annotation>
+		<annotation cp="👨🏿‍✈">kaptein | loods | vlieënier | veltipe-6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">manlike vlieënier: veltipe-6</annotation>
+		<annotation cp="👩🏻‍✈">kaptein | loods | vlieënier | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">vroulike vlieënier: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍✈">kaptein | loods | vlieënier | veltipe-3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">vroulike vlieënier: veltipe-3</annotation>
+		<annotation cp="👩🏽‍✈">kaptein | loods | vlieënier | veltipe-4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">vroulike vlieënier: veltipe-4</annotation>
+		<annotation cp="👩🏾‍✈">kaptein | loods | vlieënier | veltipe-5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">vroulike vlieënier: veltipe-5</annotation>
+		<annotation cp="👩🏿‍✈">kaptein | loods | vlieënier | veltipe-6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">vroulike vlieënier: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🚀">ruimtevaarder | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">manlike ruimtevaarder: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🚀">ruimtevaarder | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">manlike ruimtevaarder: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🚀">ruimtevaarder | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">manlike ruimtevaarder: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🚀">ruimtevaarder | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">manlike ruimtevaarder: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🚀">ruimtevaarder | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">manlike ruimtevaarder: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🚀">ruimtevaarder | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">vroulike ruimtevaarder: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🚀">ruimtevaarder | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">vroulike ruimtevaarder: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🚀">ruimtevaarder | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">vroulike ruimtevaarder: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🚀">ruimtevaarder | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">vroulike ruimtevaarder: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🚀">ruimtevaarder | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">vroulike ruimtevaarder: veltipe-6</annotation>
+		<annotation cp="👨🏻‍🚒">brandweer | brandweerman | veltipe-1-2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">brandweerman: veltipe-1-2</annotation>
+		<annotation cp="👨🏼‍🚒">brandweer | brandweerman | veltipe-3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">brandweerman: veltipe-3</annotation>
+		<annotation cp="👨🏽‍🚒">brandweer | brandweerman | veltipe-4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">brandweerman: veltipe-4</annotation>
+		<annotation cp="👨🏾‍🚒">brandweer | brandweerman | veltipe-5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">brandweerman: veltipe-5</annotation>
+		<annotation cp="👨🏿‍🚒">brandweer | brandweerman | veltipe-6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">brandweerman: veltipe-6</annotation>
+		<annotation cp="👩🏻‍🚒">brandweer | brandweervrou | veltipe-1-2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">brandweervrou: veltipe-1-2</annotation>
+		<annotation cp="👩🏼‍🚒">brandweer | brandweervrou | veltipe-3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">brandweervrou: veltipe-3</annotation>
+		<annotation cp="👩🏽‍🚒">brandweer | brandweervrou | veltipe-4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">brandweervrou: veltipe-4</annotation>
+		<annotation cp="👩🏾‍🚒">brandweer | brandweervrou | veltipe-5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">brandweervrou: veltipe-5</annotation>
+		<annotation cp="👩🏿‍🚒">brandweer | brandweervrou | veltipe-6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">brandweervrou: veltipe-6</annotation>
+		<annotation cp="👮🏻">beampte | polisie | veltipe-1-2</annotation>
+		<annotation cp="👮🏻" type="tts">polisiebeampte: veltipe-1-2</annotation>
+		<annotation cp="👮🏼">beampte | polisie | veltipe-3</annotation>
+		<annotation cp="👮🏼" type="tts">polisiebeampte: veltipe-3</annotation>
+		<annotation cp="👮🏽">beampte | polisie | veltipe-4</annotation>
+		<annotation cp="👮🏽" type="tts">polisiebeampte: veltipe-4</annotation>
+		<annotation cp="👮🏾">beampte | polisie | veltipe-5</annotation>
+		<annotation cp="👮🏾" type="tts">polisiebeampte: veltipe-5</annotation>
+		<annotation cp="👮🏿">beampte | polisie | veltipe-6</annotation>
+		<annotation cp="👮🏿" type="tts">polisiebeampte: veltipe-6</annotation>
+		<annotation cp="👮🏻‍♂">polisie | polisiebeampte | polisieman | veltipe-1-2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">polisieman: veltipe-1-2</annotation>
+		<annotation cp="👮🏼‍♂">polisie | polisiebeampte | polisieman | veltipe-3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">polisieman: veltipe-3</annotation>
+		<annotation cp="👮🏽‍♂">polisie | polisiebeampte | polisieman | veltipe-4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">polisieman: veltipe-4</annotation>
+		<annotation cp="👮🏾‍♂">polisie | polisiebeampte | polisieman | veltipe-5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">polisieman: veltipe-5</annotation>
+		<annotation cp="👮🏿‍♂">polisie | polisiebeampte | polisieman | veltipe-6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">polisieman: veltipe-6</annotation>
+		<annotation cp="👮🏻‍♀">polisie | polisiebeampte | polisievrou | veltipe-1-2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">polisievrou: veltipe-1-2</annotation>
+		<annotation cp="👮🏼‍♀">polisie | polisiebeampte | polisievrou | veltipe-3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">polisievrou: veltipe-3</annotation>
+		<annotation cp="👮🏽‍♀">polisie | polisiebeampte | polisievrou | veltipe-4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">polisievrou: veltipe-4</annotation>
+		<annotation cp="👮🏾‍♀">polisie | polisiebeampte | polisievrou | veltipe-5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">polisievrou: veltipe-5</annotation>
+		<annotation cp="👮🏿‍♀">polisie | polisiebeampte | polisievrou | veltipe-6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">polisievrou: veltipe-6</annotation>
+		<annotation cp="🕵🏻">spioen | veltipe-1-2</annotation>
+		<annotation cp="🕵🏻" type="tts">speurder: veltipe-1-2</annotation>
+		<annotation cp="🕵🏼">spioen | veltipe-3</annotation>
+		<annotation cp="🕵🏼" type="tts">speurder: veltipe-3</annotation>
+		<annotation cp="🕵🏽">spioen | veltipe-4</annotation>
+		<annotation cp="🕵🏽" type="tts">speurder: veltipe-4</annotation>
+		<annotation cp="🕵🏾">spioen | veltipe-5</annotation>
+		<annotation cp="🕵🏾" type="tts">speurder: veltipe-5</annotation>
+		<annotation cp="🕵🏿">spioen | veltipe-6</annotation>
+		<annotation cp="🕵🏿" type="tts">speurder: veltipe-6</annotation>
+		<annotation cp="🕵🏻‍♂">speurder | veltipe-1-2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">manlike speurder: veltipe-1-2</annotation>
+		<annotation cp="🕵🏼‍♂">speurder | veltipe-3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">manlike speurder: veltipe-3</annotation>
+		<annotation cp="🕵🏽‍♂">speurder | veltipe-4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">manlike speurder: veltipe-4</annotation>
+		<annotation cp="🕵🏾‍♂">speurder | veltipe-5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">manlike speurder: veltipe-5</annotation>
+		<annotation cp="🕵🏿‍♂">speurder | veltipe-6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">manlike speurder: veltipe-6</annotation>
+		<annotation cp="🕵🏻‍♀">speurder | veltipe-1-2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">vroulike speurder: veltipe-1-2</annotation>
+		<annotation cp="🕵🏼‍♀">speurder | veltipe-3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">vroulike speurder: veltipe-3</annotation>
+		<annotation cp="🕵🏽‍♀">speurder | veltipe-4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">vroulike speurder: veltipe-4</annotation>
+		<annotation cp="🕵🏾‍♀">speurder | veltipe-5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">vroulike speurder: veltipe-5</annotation>
+		<annotation cp="🕵🏿‍♀">speurder | veltipe-6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">vroulike speurder: veltipe-6</annotation>
+		<annotation cp="💂🏻">wag | veltipe-1-2</annotation>
+		<annotation cp="💂🏻" type="tts">gardesoldaat: veltipe-1-2</annotation>
+		<annotation cp="💂🏼">wag | veltipe-3</annotation>
+		<annotation cp="💂🏼" type="tts">gardesoldaat: veltipe-3</annotation>
+		<annotation cp="💂🏽">wag | veltipe-4</annotation>
+		<annotation cp="💂🏽" type="tts">gardesoldaat: veltipe-4</annotation>
+		<annotation cp="💂🏾">wag | veltipe-5</annotation>
+		<annotation cp="💂🏾" type="tts">gardesoldaat: veltipe-5</annotation>
+		<annotation cp="💂🏿">wag | veltipe-6</annotation>
+		<annotation cp="💂🏿" type="tts">gardesoldaat: veltipe-6</annotation>
+		<annotation cp="💂🏻‍♂">wag | veltipe-1-2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">manlike wag: veltipe-1-2</annotation>
+		<annotation cp="💂🏼‍♂">wag | veltipe-3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">manlike wag: veltipe-3</annotation>
+		<annotation cp="💂🏽‍♂">wag | veltipe-4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">manlike wag: veltipe-4</annotation>
+		<annotation cp="💂🏾‍♂">wag | veltipe-5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">manlike wag: veltipe-5</annotation>
+		<annotation cp="💂🏿‍♂">wag | veltipe-6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">manlike wag: veltipe-6</annotation>
+		<annotation cp="💂🏻‍♀">wag | veltipe-1-2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">vroulike wag: veltipe-1-2</annotation>
+		<annotation cp="💂🏼‍♀">wag | veltipe-3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">vroulike wag: veltipe-3</annotation>
+		<annotation cp="💂🏽‍♀">wag | veltipe-4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">vroulike wag: veltipe-4</annotation>
+		<annotation cp="💂🏾‍♀">wag | veltipe-5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">vroulike wag: veltipe-5</annotation>
+		<annotation cp="💂🏿‍♀">wag | veltipe-6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">vroulike wag: veltipe-6</annotation>
+		<annotation cp="👷🏻">hoed | konstruksie | werker | veltipe-1-2</annotation>
+		<annotation cp="👷🏻" type="tts">konstruksiewerker: veltipe-1-2</annotation>
+		<annotation cp="👷🏼">hoed | konstruksie | werker | veltipe-3</annotation>
+		<annotation cp="👷🏼" type="tts">konstruksiewerker: veltipe-3</annotation>
+		<annotation cp="👷🏽">hoed | konstruksie | werker | veltipe-4</annotation>
+		<annotation cp="👷🏽" type="tts">konstruksiewerker: veltipe-4</annotation>
+		<annotation cp="👷🏾">hoed | konstruksie | werker | veltipe-5</annotation>
+		<annotation cp="👷🏾" type="tts">konstruksiewerker: veltipe-5</annotation>
+		<annotation cp="👷🏿">hoed | konstruksie | werker | veltipe-6</annotation>
+		<annotation cp="👷🏿" type="tts">konstruksiewerker: veltipe-6</annotation>
+		<annotation cp="👷🏻‍♂">bouer | veltipe-1-2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">manlike bouer: veltipe-1-2</annotation>
+		<annotation cp="👷🏼‍♂">bouer | veltipe-3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">manlike bouer: veltipe-3</annotation>
+		<annotation cp="👷🏽‍♂">bouer | veltipe-4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">manlike bouer: veltipe-4</annotation>
+		<annotation cp="👷🏾‍♂">bouer | veltipe-5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">manlike bouer: veltipe-5</annotation>
+		<annotation cp="👷🏿‍♂">bouer | veltipe-6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">manlike bouer: veltipe-6</annotation>
+		<annotation cp="👷🏻‍♀">bouer | veltipe-1-2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">vroulike bouer: veltipe-1-2</annotation>
+		<annotation cp="👷🏼‍♀">bouer | veltipe-3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">vroulike bouer: veltipe-3</annotation>
+		<annotation cp="👷🏽‍♀">bouer | veltipe-4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">vroulike bouer: veltipe-4</annotation>
+		<annotation cp="👷🏾‍♀">bouer | veltipe-5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">vroulike bouer: veltipe-5</annotation>
+		<annotation cp="👷🏿‍♀">bouer | veltipe-6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">vroulike bouer: veltipe-6</annotation>
+		<annotation cp="🤴🏻">gesig | prins | veltipe-1-2</annotation>
+		<annotation cp="🤴🏻" type="tts">prins: veltipe-1-2</annotation>
+		<annotation cp="🤴🏼">gesig | prins | veltipe-3</annotation>
+		<annotation cp="🤴🏼" type="tts">prins: veltipe-3</annotation>
+		<annotation cp="🤴🏽">gesig | prins | veltipe-4</annotation>
+		<annotation cp="🤴🏽" type="tts">prins: veltipe-4</annotation>
+		<annotation cp="🤴🏾">gesig | prins | veltipe-5</annotation>
+		<annotation cp="🤴🏾" type="tts">prins: veltipe-5</annotation>
+		<annotation cp="🤴🏿">gesig | prins | veltipe-6</annotation>
+		<annotation cp="🤴🏿" type="tts">prins: veltipe-6</annotation>
+		<annotation cp="👸🏻">fantasie | sprokie | veltipe-1-2</annotation>
+		<annotation cp="👸🏻" type="tts">prinses: veltipe-1-2</annotation>
+		<annotation cp="👸🏼">fantasie | sprokie | veltipe-3</annotation>
+		<annotation cp="👸🏼" type="tts">prinses: veltipe-3</annotation>
+		<annotation cp="👸🏽">fantasie | sprokie | veltipe-4</annotation>
+		<annotation cp="👸🏽" type="tts">prinses: veltipe-4</annotation>
+		<annotation cp="👸🏾">fantasie | sprokie | veltipe-5</annotation>
+		<annotation cp="👸🏾" type="tts">prinses: veltipe-5</annotation>
+		<annotation cp="👸🏿">fantasie | sprokie | veltipe-6</annotation>
+		<annotation cp="👸🏿" type="tts">prinses: veltipe-6</annotation>
+		<annotation cp="👳🏻">man | tulband | veltipe-1-2</annotation>
+		<annotation cp="👳🏻" type="tts">met met tulband: veltipe-1-2</annotation>
+		<annotation cp="👳🏼">man | tulband | veltipe-3</annotation>
+		<annotation cp="👳🏼" type="tts">met met tulband: veltipe-3</annotation>
+		<annotation cp="👳🏽">man | tulband | veltipe-4</annotation>
+		<annotation cp="👳🏽" type="tts">met met tulband: veltipe-4</annotation>
+		<annotation cp="👳🏾">man | tulband | veltipe-5</annotation>
+		<annotation cp="👳🏾" type="tts">met met tulband: veltipe-5</annotation>
+		<annotation cp="👳🏿">man | tulband | veltipe-6</annotation>
+		<annotation cp="👳🏿" type="tts">met met tulband: veltipe-6</annotation>
+		<annotation cp="👳🏻‍♂">tulband | veltipe-1-2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">man met tulband: veltipe-1-2</annotation>
+		<annotation cp="👳🏼‍♂">tulband | veltipe-3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">man met tulband: veltipe-3</annotation>
+		<annotation cp="👳🏽‍♂">tulband | veltipe-4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">man met tulband: veltipe-4</annotation>
+		<annotation cp="👳🏾‍♂">tulband | veltipe-5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">man met tulband: veltipe-5</annotation>
+		<annotation cp="👳🏿‍♂">tulband | veltipe-6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">man met tulband: veltipe-6</annotation>
+		<annotation cp="👳🏻‍♀">tulband | veltipe-1-2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">vrou met tulband: veltipe-1-2</annotation>
+		<annotation cp="👳🏼‍♀">tulband | veltipe-3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">vrou met tulband: veltipe-3</annotation>
+		<annotation cp="👳🏽‍♀">tulband | veltipe-4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">vrou met tulband: veltipe-4</annotation>
+		<annotation cp="👳🏾‍♀">tulband | veltipe-5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">vrou met tulband: veltipe-5</annotation>
+		<annotation cp="👳🏿‍♀">tulband | veltipe-6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">vrou met tulband: veltipe-6</annotation>
+		<annotation cp="👲🏻">gua pi mao | hoed | man | veltipe-1-2</annotation>
+		<annotation cp="👲🏻" type="tts">man met chinese mus: veltipe-1-2</annotation>
+		<annotation cp="👲🏼">gua pi mao | hoed | man | veltipe-3</annotation>
+		<annotation cp="👲🏼" type="tts">man met chinese mus: veltipe-3</annotation>
+		<annotation cp="👲🏽">gua pi mao | hoed | man | veltipe-4</annotation>
+		<annotation cp="👲🏽" type="tts">man met chinese mus: veltipe-4</annotation>
+		<annotation cp="👲🏾">gua pi mao | hoed | man | veltipe-5</annotation>
+		<annotation cp="👲🏾" type="tts">man met chinese mus: veltipe-5</annotation>
+		<annotation cp="👲🏿">gua pi mao | hoed | man | veltipe-6</annotation>
+		<annotation cp="👲🏿" type="tts">man met chinese mus: veltipe-6</annotation>
+		<annotation cp="👱🏻">blond | veltipe-1-2</annotation>
+		<annotation cp="👱🏻" type="tts">persoon met blonde hare: veltipe-1-2</annotation>
+		<annotation cp="👱🏼">blond | veltipe-3</annotation>
+		<annotation cp="👱🏼" type="tts">persoon met blonde hare: veltipe-3</annotation>
+		<annotation cp="👱🏽">blond | veltipe-4</annotation>
+		<annotation cp="👱🏽" type="tts">persoon met blonde hare: veltipe-4</annotation>
+		<annotation cp="👱🏾">blond | veltipe-5</annotation>
+		<annotation cp="👱🏾" type="tts">persoon met blonde hare: veltipe-5</annotation>
+		<annotation cp="👱🏿">blond | veltipe-6</annotation>
+		<annotation cp="👱🏿" type="tts">persoon met blonde hare: veltipe-6</annotation>
+		<annotation cp="👱🏻‍♂">blonde man | veltipe-1-2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blonde man: veltipe-1-2</annotation>
+		<annotation cp="👱🏼‍♂">blonde man | veltipe-3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blonde man: veltipe-3</annotation>
+		<annotation cp="👱🏽‍♂">blonde man | veltipe-4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blonde man: veltipe-4</annotation>
+		<annotation cp="👱🏾‍♂">blonde man | veltipe-5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blonde man: veltipe-5</annotation>
+		<annotation cp="👱🏿‍♂">blonde man | veltipe-6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blonde man: veltipe-6</annotation>
+		<annotation cp="👱🏻‍♀">blonde vrou | blondine | veltipe-1-2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blondine: veltipe-1-2</annotation>
+		<annotation cp="👱🏼‍♀">blonde vrou | blondine | veltipe-3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blondine: veltipe-3</annotation>
+		<annotation cp="👱🏽‍♀">blonde vrou | blondine | veltipe-4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blondine: veltipe-4</annotation>
+		<annotation cp="👱🏾‍♀">blonde vrou | blondine | veltipe-5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blondine: veltipe-5</annotation>
+		<annotation cp="👱🏿‍♀">blonde vrou | blondine | veltipe-6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blondine: veltipe-6</annotation>
+		<annotation cp="🤵🏻">bruidegom | man | pak | tuxedo | veltipe-1-2</annotation>
+		<annotation cp="🤵🏻" type="tts">man in pak: veltipe-1-2</annotation>
+		<annotation cp="🤵🏼">bruidegom | man | pak | tuxedo | veltipe-3</annotation>
+		<annotation cp="🤵🏼" type="tts">man in pak: veltipe-3</annotation>
+		<annotation cp="🤵🏽">bruidegom | man | pak | tuxedo | veltipe-4</annotation>
+		<annotation cp="🤵🏽" type="tts">man in pak: veltipe-4</annotation>
+		<annotation cp="🤵🏾">bruidegom | man | pak | tuxedo | veltipe-5</annotation>
+		<annotation cp="🤵🏾" type="tts">man in pak: veltipe-5</annotation>
+		<annotation cp="🤵🏿">bruidegom | man | pak | tuxedo | veltipe-6</annotation>
+		<annotation cp="🤵🏿" type="tts">man in pak: veltipe-6</annotation>
+		<annotation cp="👰🏻">bruid | sluier | troue | veltipe-1-2</annotation>
+		<annotation cp="👰🏻" type="tts">bruid met sluier: veltipe-1-2</annotation>
+		<annotation cp="👰🏼">bruid | sluier | troue | veltipe-3</annotation>
+		<annotation cp="👰🏼" type="tts">bruid met sluier: veltipe-3</annotation>
+		<annotation cp="👰🏽">bruid | sluier | troue | veltipe-4</annotation>
+		<annotation cp="👰🏽" type="tts">bruid met sluier: veltipe-4</annotation>
+		<annotation cp="👰🏾">bruid | sluier | troue | veltipe-5</annotation>
+		<annotation cp="👰🏾" type="tts">bruid met sluier: veltipe-5</annotation>
+		<annotation cp="👰🏿">bruid | sluier | troue | veltipe-6</annotation>
+		<annotation cp="👰🏿" type="tts">bruid met sluier: veltipe-6</annotation>
+		<annotation cp="🤰🏻">ma | moeder | swanger | vrou | veltipe-1-2</annotation>
+		<annotation cp="🤰🏻" type="tts">swanger vrou: veltipe-1-2</annotation>
+		<annotation cp="🤰🏼">ma | moeder | swanger | vrou | veltipe-3</annotation>
+		<annotation cp="🤰🏼" type="tts">swanger vrou: veltipe-3</annotation>
+		<annotation cp="🤰🏽">ma | moeder | swanger | vrou | veltipe-4</annotation>
+		<annotation cp="🤰🏽" type="tts">swanger vrou: veltipe-4</annotation>
+		<annotation cp="🤰🏾">ma | moeder | swanger | vrou | veltipe-5</annotation>
+		<annotation cp="🤰🏾" type="tts">swanger vrou: veltipe-5</annotation>
+		<annotation cp="🤰🏿">ma | moeder | swanger | vrou | veltipe-6</annotation>
+		<annotation cp="🤰🏿" type="tts">swanger vrou: veltipe-6</annotation>
+		<annotation cp="👼🏻">baba | engel | fantasie | gesig | sprokie | veltipe-1-2</annotation>
+		<annotation cp="👼🏻" type="tts">baba-engel: veltipe-1-2</annotation>
+		<annotation cp="👼🏼">baba | engel | fantasie | gesig | sprokie | veltipe-3</annotation>
+		<annotation cp="👼🏼" type="tts">baba-engel: veltipe-3</annotation>
+		<annotation cp="👼🏽">baba | engel | fantasie | gesig | sprokie | veltipe-4</annotation>
+		<annotation cp="👼🏽" type="tts">baba-engel: veltipe-4</annotation>
+		<annotation cp="👼🏾">baba | engel | fantasie | gesig | sprokie | veltipe-5</annotation>
+		<annotation cp="👼🏾" type="tts">baba-engel: veltipe-5</annotation>
+		<annotation cp="👼🏿">baba | engel | fantasie | gesig | sprokie | veltipe-6</annotation>
+		<annotation cp="👼🏿" type="tts">baba-engel: veltipe-6</annotation>
+		<annotation cp="🎅🏻">fantasie | kersfees | sinterklaas | sprokie | vader | viering | veltipe-1-2</annotation>
+		<annotation cp="🎅🏻" type="tts">kersvader: veltipe-1-2</annotation>
+		<annotation cp="🎅🏼">fantasie | kersfees | sinterklaas | sprokie | vader | viering | veltipe-3</annotation>
+		<annotation cp="🎅🏼" type="tts">kersvader: veltipe-3</annotation>
+		<annotation cp="🎅🏽">fantasie | kersfees | sinterklaas | sprokie | vader | viering | veltipe-4</annotation>
+		<annotation cp="🎅🏽" type="tts">kersvader: veltipe-4</annotation>
+		<annotation cp="🎅🏾">fantasie | kersfees | sinterklaas | sprokie | vader | viering | veltipe-5</annotation>
+		<annotation cp="🎅🏾" type="tts">kersvader: veltipe-5</annotation>
+		<annotation cp="🎅🏿">fantasie | kersfees | sinterklaas | sprokie | vader | viering | veltipe-6</annotation>
+		<annotation cp="🎅🏿" type="tts">kersvader: veltipe-6</annotation>
+		<annotation cp="🤶🏻">gesig | kersmoeder | moeder kersfees | veltipe-1-2</annotation>
+		<annotation cp="🤶🏻" type="tts">moeder kersfees: veltipe-1-2</annotation>
+		<annotation cp="🤶🏼">gesig | kersmoeder | moeder kersfees | veltipe-3</annotation>
+		<annotation cp="🤶🏼" type="tts">moeder kersfees: veltipe-3</annotation>
+		<annotation cp="🤶🏽">gesig | kersmoeder | moeder kersfees | veltipe-4</annotation>
+		<annotation cp="🤶🏽" type="tts">moeder kersfees: veltipe-4</annotation>
+		<annotation cp="🤶🏾">gesig | kersmoeder | moeder kersfees | veltipe-5</annotation>
+		<annotation cp="🤶🏾" type="tts">moeder kersfees: veltipe-5</annotation>
+		<annotation cp="🤶🏿">gesig | kersmoeder | moeder kersfees | veltipe-6</annotation>
+		<annotation cp="🤶🏿" type="tts">moeder kersfees: veltipe-6</annotation>
+		<annotation cp="🙍🏻">frons | gebaar | veltipe-1-2</annotation>
+		<annotation cp="🙍🏻" type="tts">persoon wat frons: veltipe-1-2</annotation>
+		<annotation cp="🙍🏼">frons | gebaar | veltipe-3</annotation>
+		<annotation cp="🙍🏼" type="tts">persoon wat frons: veltipe-3</annotation>
+		<annotation cp="🙍🏽">frons | gebaar | veltipe-4</annotation>
+		<annotation cp="🙍🏽" type="tts">persoon wat frons: veltipe-4</annotation>
+		<annotation cp="🙍🏾">frons | gebaar | veltipe-5</annotation>
+		<annotation cp="🙍🏾" type="tts">persoon wat frons: veltipe-5</annotation>
+		<annotation cp="🙍🏿">frons | gebaar | veltipe-6</annotation>
+		<annotation cp="🙍🏿" type="tts">persoon wat frons: veltipe-6</annotation>
+		<annotation cp="🙍🏻‍♂">frons | ongelukkig | veltipe-1-2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">man wat frons: veltipe-1-2</annotation>
+		<annotation cp="🙍🏼‍♂">frons | ongelukkig | veltipe-3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">man wat frons: veltipe-3</annotation>
+		<annotation cp="🙍🏽‍♂">frons | ongelukkig | veltipe-4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">man wat frons: veltipe-4</annotation>
+		<annotation cp="🙍🏾‍♂">frons | ongelukkig | veltipe-5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">man wat frons: veltipe-5</annotation>
+		<annotation cp="🙍🏿‍♂">frons | ongelukkig | veltipe-6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">man wat frons: veltipe-6</annotation>
+		<annotation cp="🙍🏻‍♀">frons | ongelukkig | veltipe-1-2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">vrou wat frons: veltipe-1-2</annotation>
+		<annotation cp="🙍🏼‍♀">frons | ongelukkig | veltipe-3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">vrou wat frons: veltipe-3</annotation>
+		<annotation cp="🙍🏽‍♀">frons | ongelukkig | veltipe-4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">vrou wat frons: veltipe-4</annotation>
+		<annotation cp="🙍🏾‍♀">frons | ongelukkig | veltipe-5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">vrou wat frons: veltipe-5</annotation>
+		<annotation cp="🙍🏿‍♀">frons | ongelukkig | veltipe-6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">vrou wat frons: veltipe-6</annotation>
+		<annotation cp="🙎🏻">gebaar | pruil | veltipe-1-2</annotation>
+		<annotation cp="🙎🏻" type="tts">persoon wat pruil: veltipe-1-2</annotation>
+		<annotation cp="🙎🏼">gebaar | pruil | veltipe-3</annotation>
+		<annotation cp="🙎🏼" type="tts">persoon wat pruil: veltipe-3</annotation>
+		<annotation cp="🙎🏽">gebaar | pruil | veltipe-4</annotation>
+		<annotation cp="🙎🏽" type="tts">persoon wat pruil: veltipe-4</annotation>
+		<annotation cp="🙎🏾">gebaar | pruil | veltipe-5</annotation>
+		<annotation cp="🙎🏾" type="tts">persoon wat pruil: veltipe-5</annotation>
+		<annotation cp="🙎🏿">gebaar | pruil | veltipe-6</annotation>
+		<annotation cp="🙎🏿" type="tts">persoon wat pruil: veltipe-6</annotation>
+		<annotation cp="🙎🏻‍♂">dikbek | pruil | veltipe-1-2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">dikbek man: veltipe-1-2</annotation>
+		<annotation cp="🙎🏼‍♂">dikbek | pruil | veltipe-3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">dikbek man: veltipe-3</annotation>
+		<annotation cp="🙎🏽‍♂">dikbek | pruil | veltipe-4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">dikbek man: veltipe-4</annotation>
+		<annotation cp="🙎🏾‍♂">dikbek | pruil | veltipe-5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">dikbek man: veltipe-5</annotation>
+		<annotation cp="🙎🏿‍♂">dikbek | pruil | veltipe-6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">dikbek man: veltipe-6</annotation>
+		<annotation cp="🙎🏻‍♀">dikbek | pruil | veltipe-1-2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">dikbek vrou: veltipe-1-2</annotation>
+		<annotation cp="🙎🏼‍♀">dikbek | pruil | veltipe-3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">dikbek vrou: veltipe-3</annotation>
+		<annotation cp="🙎🏽‍♀">dikbek | pruil | veltipe-4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">dikbek vrou: veltipe-4</annotation>
+		<annotation cp="🙎🏾‍♀">dikbek | pruil | veltipe-5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">dikbek vrou: veltipe-5</annotation>
+		<annotation cp="🙎🏿‍♀">dikbek | pruil | veltipe-6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">dikbek vrou: veltipe-6</annotation>
+		<annotation cp="🙅🏻">gebaar | hand | keer | nee | verbied | verbode | veltipe-1-2</annotation>
+		<annotation cp="🙅🏻" type="tts">wys nee: veltipe-1-2</annotation>
+		<annotation cp="🙅🏼">gebaar | hand | keer | nee | verbied | verbode | veltipe-3</annotation>
+		<annotation cp="🙅🏼" type="tts">wys nee: veltipe-3</annotation>
+		<annotation cp="🙅🏽">gebaar | hand | keer | nee | verbied | verbode | veltipe-4</annotation>
+		<annotation cp="🙅🏽" type="tts">wys nee: veltipe-4</annotation>
+		<annotation cp="🙅🏾">gebaar | hand | keer | nee | verbied | verbode | veltipe-5</annotation>
+		<annotation cp="🙅🏾" type="tts">wys nee: veltipe-5</annotation>
+		<annotation cp="🙅🏿">gebaar | hand | keer | nee | verbied | verbode | veltipe-6</annotation>
+		<annotation cp="🙅🏿" type="tts">wys nee: veltipe-6</annotation>
+		<annotation cp="🙅🏻‍♂">nee | veltipe-1-2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">man wys nee: veltipe-1-2</annotation>
+		<annotation cp="🙅🏼‍♂">nee | veltipe-3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">man wys nee: veltipe-3</annotation>
+		<annotation cp="🙅🏽‍♂">nee | veltipe-4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">man wys nee: veltipe-4</annotation>
+		<annotation cp="🙅🏾‍♂">nee | veltipe-5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">man wys nee: veltipe-5</annotation>
+		<annotation cp="🙅🏿‍♂">nee | veltipe-6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">man wys nee: veltipe-6</annotation>
+		<annotation cp="🙅🏻‍♀">nee | veltipe-1-2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">vrou wys nee: veltipe-1-2</annotation>
+		<annotation cp="🙅🏼‍♀">nee | veltipe-3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">vrou wys nee: veltipe-3</annotation>
+		<annotation cp="🙅🏽‍♀">nee | veltipe-4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">vrou wys nee: veltipe-4</annotation>
+		<annotation cp="🙅🏾‍♀">nee | veltipe-5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">vrou wys nee: veltipe-5</annotation>
+		<annotation cp="🙅🏿‍♀">nee | veltipe-6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">vrou wys nee: veltipe-6</annotation>
+		<annotation cp="🙆🏻">gebaar | goed | hand | ok | veltipe-1-2</annotation>
+		<annotation cp="🙆🏻" type="tts">wys goed: veltipe-1-2</annotation>
+		<annotation cp="🙆🏼">gebaar | goed | hand | ok | veltipe-3</annotation>
+		<annotation cp="🙆🏼" type="tts">wys goed: veltipe-3</annotation>
+		<annotation cp="🙆🏽">gebaar | goed | hand | ok | veltipe-4</annotation>
+		<annotation cp="🙆🏽" type="tts">wys goed: veltipe-4</annotation>
+		<annotation cp="🙆🏾">gebaar | goed | hand | ok | veltipe-5</annotation>
+		<annotation cp="🙆🏾" type="tts">wys goed: veltipe-5</annotation>
+		<annotation cp="🙆🏿">gebaar | goed | hand | ok | veltipe-6</annotation>
+		<annotation cp="🙆🏿" type="tts">wys goed: veltipe-6</annotation>
+		<annotation cp="🙆🏻‍♂">ja | veltipe-1-2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">man wys ja: veltipe-1-2</annotation>
+		<annotation cp="🙆🏼‍♂">ja | veltipe-3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">man wys ja: veltipe-3</annotation>
+		<annotation cp="🙆🏽‍♂">ja | veltipe-4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">man wys ja: veltipe-4</annotation>
+		<annotation cp="🙆🏾‍♂">ja | veltipe-5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">man wys ja: veltipe-5</annotation>
+		<annotation cp="🙆🏿‍♂">ja | veltipe-6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">man wys ja: veltipe-6</annotation>
+		<annotation cp="🙆🏻‍♀">ja | veltipe-1-2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">vrou wys ja: veltipe-1-2</annotation>
+		<annotation cp="🙆🏼‍♀">ja | veltipe-3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">vrou wys ja: veltipe-3</annotation>
+		<annotation cp="🙆🏽‍♀">ja | veltipe-4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">vrou wys ja: veltipe-4</annotation>
+		<annotation cp="🙆🏾‍♀">ja | veltipe-5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">vrou wys ja: veltipe-5</annotation>
+		<annotation cp="🙆🏿‍♀">ja | veltipe-6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">vrou wys ja: veltipe-6</annotation>
+		<annotation cp="💁🏻">hand | help | inligting | skrander | veltipe-1-2</annotation>
+		<annotation cp="💁🏻" type="tts">persoon by inligtingtoonbank: veltipe-1-2</annotation>
+		<annotation cp="💁🏼">hand | help | inligting | skrander | veltipe-3</annotation>
+		<annotation cp="💁🏼" type="tts">persoon by inligtingtoonbank: veltipe-3</annotation>
+		<annotation cp="💁🏽">hand | help | inligting | skrander | veltipe-4</annotation>
+		<annotation cp="💁🏽" type="tts">persoon by inligtingtoonbank: veltipe-4</annotation>
+		<annotation cp="💁🏾">hand | help | inligting | skrander | veltipe-5</annotation>
+		<annotation cp="💁🏾" type="tts">persoon by inligtingtoonbank: veltipe-5</annotation>
+		<annotation cp="💁🏿">hand | help | inligting | skrander | veltipe-6</annotation>
+		<annotation cp="💁🏿" type="tts">persoon by inligtingtoonbank: veltipe-6</annotation>
+		<annotation cp="💁🏻‍♂">hulpvaardig | plathand | veltipe-1-2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">man met handpalm: veltipe-1-2</annotation>
+		<annotation cp="💁🏼‍♂">hulpvaardig | plathand | veltipe-3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">man met handpalm: veltipe-3</annotation>
+		<annotation cp="💁🏽‍♂">hulpvaardig | plathand | veltipe-4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">man met handpalm: veltipe-4</annotation>
+		<annotation cp="💁🏾‍♂">hulpvaardig | plathand | veltipe-5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">man met handpalm: veltipe-5</annotation>
+		<annotation cp="💁🏿‍♂">hulpvaardig | plathand | veltipe-6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">man met handpalm: veltipe-6</annotation>
+		<annotation cp="💁🏻‍♀">hulpvaardig | plathand | veltipe-1-2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">vrou met handpalm: veltipe-1-2</annotation>
+		<annotation cp="💁🏼‍♀">hulpvaardig | plathand | veltipe-3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">vrou met handpalm: veltipe-3</annotation>
+		<annotation cp="💁🏽‍♀">hulpvaardig | plathand | veltipe-4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">vrou met handpalm: veltipe-4</annotation>
+		<annotation cp="💁🏾‍♀">hulpvaardig | plathand | veltipe-5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">vrou met handpalm: veltipe-5</annotation>
+		<annotation cp="💁🏿‍♀">hulpvaardig | plathand | veltipe-6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">vrou met handpalm: veltipe-6</annotation>
+		<annotation cp="🙋🏻">gebaar | gelukkig | hand | omhoog | veltipe-1-2</annotation>
+		<annotation cp="🙋🏻" type="tts">gelukkige persoon met hand in die lug: veltipe-1-2</annotation>
+		<annotation cp="🙋🏼">gebaar | gelukkig | hand | omhoog | veltipe-3</annotation>
+		<annotation cp="🙋🏼" type="tts">gelukkige persoon met hand in die lug: veltipe-3</annotation>
+		<annotation cp="🙋🏽">gebaar | gelukkig | hand | omhoog | veltipe-4</annotation>
+		<annotation cp="🙋🏽" type="tts">gelukkige persoon met hand in die lug: veltipe-4</annotation>
+		<annotation cp="🙋🏾">gebaar | gelukkig | hand | omhoog | veltipe-5</annotation>
+		<annotation cp="🙋🏾" type="tts">gelukkige persoon met hand in die lug: veltipe-5</annotation>
+		<annotation cp="🙋🏿">gebaar | gelukkig | hand | omhoog | veltipe-6</annotation>
+		<annotation cp="🙋🏿" type="tts">gelukkige persoon met hand in die lug: veltipe-6</annotation>
+		<annotation cp="🙋🏻‍♂">groet | lig hand | waai | veltipe-1-2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">man lig hand: veltipe-1-2</annotation>
+		<annotation cp="🙋🏼‍♂">groet | lig hand | waai | veltipe-3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">man lig hand: veltipe-3</annotation>
+		<annotation cp="🙋🏽‍♂">groet | lig hand | waai | veltipe-4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">man lig hand: veltipe-4</annotation>
+		<annotation cp="🙋🏾‍♂">groet | lig hand | waai | veltipe-5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">man lig hand: veltipe-5</annotation>
+		<annotation cp="🙋🏿‍♂">groet | lig hand | waai | veltipe-6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">man lig hand: veltipe-6</annotation>
+		<annotation cp="🙋🏻‍♀">groet | lig hand | waai | veltipe-1-2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">vrou lig hand: veltipe-1-2</annotation>
+		<annotation cp="🙋🏼‍♀">groet | lig hand | waai | veltipe-3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">vrou lig hand: veltipe-3</annotation>
+		<annotation cp="🙋🏽‍♀">groet | lig hand | waai | veltipe-4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">vrou lig hand: veltipe-4</annotation>
+		<annotation cp="🙋🏾‍♀">groet | lig hand | waai | veltipe-5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">vrou lig hand: veltipe-5</annotation>
+		<annotation cp="🙋🏿‍♀">groet | lig hand | waai | veltipe-6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">vrou lig hand: veltipe-6</annotation>
+		<annotation cp="🙇🏻">buig | gebaar | jammer | verskoning | veltipe-1-2</annotation>
+		<annotation cp="🙇🏻" type="tts">persoon wat buig: veltipe-1-2</annotation>
+		<annotation cp="🙇🏼">buig | gebaar | jammer | verskoning | veltipe-3</annotation>
+		<annotation cp="🙇🏼" type="tts">persoon wat buig: veltipe-3</annotation>
+		<annotation cp="🙇🏽">buig | gebaar | jammer | verskoning | veltipe-4</annotation>
+		<annotation cp="🙇🏽" type="tts">persoon wat buig: veltipe-4</annotation>
+		<annotation cp="🙇🏾">buig | gebaar | jammer | verskoning | veltipe-5</annotation>
+		<annotation cp="🙇🏾" type="tts">persoon wat buig: veltipe-5</annotation>
+		<annotation cp="🙇🏿">buig | gebaar | jammer | verskoning | veltipe-6</annotation>
+		<annotation cp="🙇🏿" type="tts">persoon wat buig: veltipe-6</annotation>
+		<annotation cp="🙇🏻‍♂">buig | jammer | veltipe-1-2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">man buig: veltipe-1-2</annotation>
+		<annotation cp="🙇🏼‍♂">buig | jammer | veltipe-3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">man buig: veltipe-3</annotation>
+		<annotation cp="🙇🏽‍♂">buig | jammer | veltipe-4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">man buig: veltipe-4</annotation>
+		<annotation cp="🙇🏾‍♂">buig | jammer | veltipe-5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">man buig: veltipe-5</annotation>
+		<annotation cp="🙇🏿‍♂">buig | jammer | veltipe-6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">man buig: veltipe-6</annotation>
+		<annotation cp="🙇🏻‍♀">buig | jammer | veltipe-1-2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">vrou buig: veltipe-1-2</annotation>
+		<annotation cp="🙇🏼‍♀">buig | jammer | veltipe-3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">vrou buig: veltipe-3</annotation>
+		<annotation cp="🙇🏽‍♀">buig | jammer | veltipe-4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">vrou buig: veltipe-4</annotation>
+		<annotation cp="🙇🏾‍♀">buig | jammer | veltipe-5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">vrou buig: veltipe-5</annotation>
+		<annotation cp="🙇🏿‍♀">buig | jammer | veltipe-6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">vrou buig: veltipe-6</annotation>
+		<annotation cp="🤦🏻">facepalm | ongeloof | verbyster | veltipe-1-2</annotation>
+		<annotation cp="🤦🏻" type="tts">facepalm: veltipe-1-2</annotation>
+		<annotation cp="🤦🏼">facepalm | ongeloof | verbyster | veltipe-3</annotation>
+		<annotation cp="🤦🏼" type="tts">facepalm: veltipe-3</annotation>
+		<annotation cp="🤦🏽">facepalm | ongeloof | verbyster | veltipe-4</annotation>
+		<annotation cp="🤦🏽" type="tts">facepalm: veltipe-4</annotation>
+		<annotation cp="🤦🏾">facepalm | ongeloof | verbyster | veltipe-5</annotation>
+		<annotation cp="🤦🏾" type="tts">facepalm: veltipe-5</annotation>
+		<annotation cp="🤦🏿">facepalm | ongeloof | verbyster | veltipe-6</annotation>
+		<annotation cp="🤦🏿" type="tts">facepalm: veltipe-6</annotation>
+		<annotation cp="🤦🏻‍♂">facepalm | moedeloos | ongeloof | veltipe-1-2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">moedelose man: veltipe-1-2</annotation>
+		<annotation cp="🤦🏼‍♂">facepalm | moedeloos | ongeloof | veltipe-3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">moedelose man: veltipe-3</annotation>
+		<annotation cp="🤦🏽‍♂">facepalm | moedeloos | ongeloof | veltipe-4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">moedelose man: veltipe-4</annotation>
+		<annotation cp="🤦🏾‍♂">facepalm | moedeloos | ongeloof | veltipe-5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">moedelose man: veltipe-5</annotation>
+		<annotation cp="🤦🏿‍♂">facepalm | moedeloos | ongeloof | veltipe-6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">moedelose man: veltipe-6</annotation>
+		<annotation cp="🤦🏻‍♀">facepalm | moedeloos | ongeloof | veltipe-1-2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">moedelose vrou: veltipe-1-2</annotation>
+		<annotation cp="🤦🏼‍♀">facepalm | moedeloos | ongeloof | veltipe-3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">moedelose vrou: veltipe-3</annotation>
+		<annotation cp="🤦🏽‍♀">facepalm | moedeloos | ongeloof | veltipe-4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">moedelose vrou: veltipe-4</annotation>
+		<annotation cp="🤦🏾‍♀">facepalm | moedeloos | ongeloof | veltipe-5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">moedelose vrou: veltipe-5</annotation>
+		<annotation cp="🤦🏿‍♀">facepalm | moedeloos | ongeloof | veltipe-6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">moedelose vrou: veltipe-6</annotation>
+		<annotation cp="🤷🏻">onseker | skouers | weet nie | veltipe-1-2</annotation>
+		<annotation cp="🤷🏻" type="tts">weet nie: veltipe-1-2</annotation>
+		<annotation cp="🤷🏼">onseker | skouers | weet nie | veltipe-3</annotation>
+		<annotation cp="🤷🏼" type="tts">weet nie: veltipe-3</annotation>
+		<annotation cp="🤷🏽">onseker | skouers | weet nie | veltipe-4</annotation>
+		<annotation cp="🤷🏽" type="tts">weet nie: veltipe-4</annotation>
+		<annotation cp="🤷🏾">onseker | skouers | weet nie | veltipe-5</annotation>
+		<annotation cp="🤷🏾" type="tts">weet nie: veltipe-5</annotation>
+		<annotation cp="🤷🏿">onseker | skouers | weet nie | veltipe-6</annotation>
+		<annotation cp="🤷🏿" type="tts">weet nie: veltipe-6</annotation>
+		<annotation cp="🤷🏻‍♂">skouerophaal | weet nie | veltipe-1-2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">man skouerophaal: veltipe-1-2</annotation>
+		<annotation cp="🤷🏼‍♂">skouerophaal | weet nie | veltipe-3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">man skouerophaal: veltipe-3</annotation>
+		<annotation cp="🤷🏽‍♂">skouerophaal | weet nie | veltipe-4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">man skouerophaal: veltipe-4</annotation>
+		<annotation cp="🤷🏾‍♂">skouerophaal | weet nie | veltipe-5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">man skouerophaal: veltipe-5</annotation>
+		<annotation cp="🤷🏿‍♂">skouerophaal | weet nie | veltipe-6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">man skouerophaal: veltipe-6</annotation>
+		<annotation cp="🤷🏻‍♀">skouerophaal | weet nie | veltipe-1-2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">vrou skouerophaal: veltipe-1-2</annotation>
+		<annotation cp="🤷🏼‍♀">skouerophaal | weet nie | veltipe-3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">vrou skouerophaal: veltipe-3</annotation>
+		<annotation cp="🤷🏽‍♀">skouerophaal | weet nie | veltipe-4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">vrou skouerophaal: veltipe-4</annotation>
+		<annotation cp="🤷🏾‍♀">skouerophaal | weet nie | veltipe-5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">vrou skouerophaal: veltipe-5</annotation>
+		<annotation cp="🤷🏿‍♀">skouerophaal | weet nie | veltipe-6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">vrou skouerophaal: veltipe-6</annotation>
+		<annotation cp="💆🏻">masseer | salon | veltipe-1-2</annotation>
+		<annotation cp="💆🏻" type="tts">gesigmassering: veltipe-1-2</annotation>
+		<annotation cp="💆🏼">masseer | salon | veltipe-3</annotation>
+		<annotation cp="💆🏼" type="tts">gesigmassering: veltipe-3</annotation>
+		<annotation cp="💆🏽">masseer | salon | veltipe-4</annotation>
+		<annotation cp="💆🏽" type="tts">gesigmassering: veltipe-4</annotation>
+		<annotation cp="💆🏾">masseer | salon | veltipe-5</annotation>
+		<annotation cp="💆🏾" type="tts">gesigmassering: veltipe-5</annotation>
+		<annotation cp="💆🏿">masseer | salon | veltipe-6</annotation>
+		<annotation cp="💆🏿" type="tts">gesigmassering: veltipe-6</annotation>
+		<annotation cp="💆🏻‍♂">gesigmassering | masseer | veltipe-1-2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">man kry massering: veltipe-1-2</annotation>
+		<annotation cp="💆🏼‍♂">gesigmassering | masseer | veltipe-3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">man kry massering: veltipe-3</annotation>
+		<annotation cp="💆🏽‍♂">gesigmassering | masseer | veltipe-4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">man kry massering: veltipe-4</annotation>
+		<annotation cp="💆🏾‍♂">gesigmassering | masseer | veltipe-5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">man kry massering: veltipe-5</annotation>
+		<annotation cp="💆🏿‍♂">gesigmassering | masseer | veltipe-6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">man kry massering: veltipe-6</annotation>
+		<annotation cp="💆🏻‍♀">gesigmassering | masseer | veltipe-1-2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">vrou kry massering: veltipe-1-2</annotation>
+		<annotation cp="💆🏼‍♀">gesigmassering | masseer | veltipe-3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">vrou kry massering: veltipe-3</annotation>
+		<annotation cp="💆🏽‍♀">gesigmassering | masseer | veltipe-4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">vrou kry massering: veltipe-4</annotation>
+		<annotation cp="💆🏾‍♀">gesigmassering | masseer | veltipe-5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">vrou kry massering: veltipe-5</annotation>
+		<annotation cp="💆🏿‍♀">gesigmassering | masseer | veltipe-6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">vrou kry massering: veltipe-6</annotation>
+		<annotation cp="💇🏻">barbier | haarkapper | salon | skoonheid | veltipe-1-2</annotation>
+		<annotation cp="💇🏻" type="tts">haarsny: veltipe-1-2</annotation>
+		<annotation cp="💇🏼">barbier | haarkapper | salon | skoonheid | veltipe-3</annotation>
+		<annotation cp="💇🏼" type="tts">haarsny: veltipe-3</annotation>
+		<annotation cp="💇🏽">barbier | haarkapper | salon | skoonheid | veltipe-4</annotation>
+		<annotation cp="💇🏽" type="tts">haarsny: veltipe-4</annotation>
+		<annotation cp="💇🏾">barbier | haarkapper | salon | skoonheid | veltipe-5</annotation>
+		<annotation cp="💇🏾" type="tts">haarsny: veltipe-5</annotation>
+		<annotation cp="💇🏿">barbier | haarkapper | salon | skoonheid | veltipe-6</annotation>
+		<annotation cp="💇🏿" type="tts">haarsny: veltipe-6</annotation>
+		<annotation cp="💇🏻‍♂">barbier | haarsalon | haarsny | salon | veltipe-1-2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">man kry haarsny: veltipe-1-2</annotation>
+		<annotation cp="💇🏼‍♂">barbier | haarsalon | haarsny | salon | veltipe-3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">man kry haarsny: veltipe-3</annotation>
+		<annotation cp="💇🏽‍♂">barbier | haarsalon | haarsny | salon | veltipe-4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">man kry haarsny: veltipe-4</annotation>
+		<annotation cp="💇🏾‍♂">barbier | haarsalon | haarsny | salon | veltipe-5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">man kry haarsny: veltipe-5</annotation>
+		<annotation cp="💇🏿‍♂">barbier | haarsalon | haarsny | salon | veltipe-6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">man kry haarsny: veltipe-6</annotation>
+		<annotation cp="💇🏻‍♀">haarsalon | haarsny | salon | veltipe-1-2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">vrou kry haarsny: veltipe-1-2</annotation>
+		<annotation cp="💇🏼‍♀">haarsalon | haarsny | salon | veltipe-3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">vrou kry haarsny: veltipe-3</annotation>
+		<annotation cp="💇🏽‍♀">haarsalon | haarsny | salon | veltipe-4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">vrou kry haarsny: veltipe-4</annotation>
+		<annotation cp="💇🏾‍♀">haarsalon | haarsny | salon | veltipe-5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">vrou kry haarsny: veltipe-5</annotation>
+		<annotation cp="💇🏿‍♀">haarsalon | haarsny | salon | veltipe-6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">vrou kry haarsny: veltipe-6</annotation>
+		<annotation cp="🚶🏻">loop | stap | veltipe-1-2</annotation>
+		<annotation cp="🚶🏻" type="tts">voetganger: veltipe-1-2</annotation>
+		<annotation cp="🚶🏼">loop | stap | veltipe-3</annotation>
+		<annotation cp="🚶🏼" type="tts">voetganger: veltipe-3</annotation>
+		<annotation cp="🚶🏽">loop | stap | veltipe-4</annotation>
+		<annotation cp="🚶🏽" type="tts">voetganger: veltipe-4</annotation>
+		<annotation cp="🚶🏾">loop | stap | veltipe-5</annotation>
+		<annotation cp="🚶🏾" type="tts">voetganger: veltipe-5</annotation>
+		<annotation cp="🚶🏿">loop | stap | veltipe-6</annotation>
+		<annotation cp="🚶🏿" type="tts">voetganger: veltipe-6</annotation>
+		<annotation cp="🚶🏻‍♂">stap | voetganger | veltipe-1-2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">man stap: veltipe-1-2</annotation>
+		<annotation cp="🚶🏼‍♂">stap | voetganger | veltipe-3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">man stap: veltipe-3</annotation>
+		<annotation cp="🚶🏽‍♂">stap | voetganger | veltipe-4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">man stap: veltipe-4</annotation>
+		<annotation cp="🚶🏾‍♂">stap | voetganger | veltipe-5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">man stap: veltipe-5</annotation>
+		<annotation cp="🚶🏿‍♂">stap | voetganger | veltipe-6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">man stap: veltipe-6</annotation>
+		<annotation cp="🚶🏻‍♀">stap | voetganger | veltipe-1-2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">vrou stap: veltipe-1-2</annotation>
+		<annotation cp="🚶🏼‍♀">stap | voetganger | veltipe-3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">vrou stap: veltipe-3</annotation>
+		<annotation cp="🚶🏽‍♀">stap | voetganger | veltipe-4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">vrou stap: veltipe-4</annotation>
+		<annotation cp="🚶🏾‍♀">stap | voetganger | veltipe-5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">vrou stap: veltipe-5</annotation>
+		<annotation cp="🚶🏿‍♀">stap | voetganger | veltipe-6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">vrou stap: veltipe-6</annotation>
+		<annotation cp="🏃🏻">draf | marathon | veltipe-1-2</annotation>
+		<annotation cp="🏃🏻" type="tts">hardloper: veltipe-1-2</annotation>
+		<annotation cp="🏃🏼">draf | marathon | veltipe-3</annotation>
+		<annotation cp="🏃🏼" type="tts">hardloper: veltipe-3</annotation>
+		<annotation cp="🏃🏽">draf | marathon | veltipe-4</annotation>
+		<annotation cp="🏃🏽" type="tts">hardloper: veltipe-4</annotation>
+		<annotation cp="🏃🏾">draf | marathon | veltipe-5</annotation>
+		<annotation cp="🏃🏾" type="tts">hardloper: veltipe-5</annotation>
+		<annotation cp="🏃🏿">draf | marathon | veltipe-6</annotation>
+		<annotation cp="🏃🏿" type="tts">hardloper: veltipe-6</annotation>
+		<annotation cp="🏃🏻‍♂">draf | haastig | hardloop | veltipe-1-2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">man hardloop: veltipe-1-2</annotation>
+		<annotation cp="🏃🏼‍♂">draf | haastig | hardloop | veltipe-3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">man hardloop: veltipe-3</annotation>
+		<annotation cp="🏃🏽‍♂">draf | haastig | hardloop | veltipe-4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">man hardloop: veltipe-4</annotation>
+		<annotation cp="🏃🏾‍♂">draf | haastig | hardloop | veltipe-5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">man hardloop: veltipe-5</annotation>
+		<annotation cp="🏃🏿‍♂">draf | haastig | hardloop | veltipe-6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">man hardloop: veltipe-6</annotation>
+		<annotation cp="🏃🏻‍♀">draf | haastig | hardloop | veltipe-1-2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">vrou hardloop: veltipe-1-2</annotation>
+		<annotation cp="🏃🏼‍♀">draf | haastig | hardloop | veltipe-3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">vrou hardloop: veltipe-3</annotation>
+		<annotation cp="🏃🏽‍♀">draf | haastig | hardloop | veltipe-4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">vrou hardloop: veltipe-4</annotation>
+		<annotation cp="🏃🏾‍♀">draf | haastig | hardloop | veltipe-5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">vrou hardloop: veltipe-5</annotation>
+		<annotation cp="🏃🏿‍♀">draf | haastig | hardloop | veltipe-6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">vrou hardloop: veltipe-6</annotation>
+		<annotation cp="💃🏻">dans | tango | veltipe-1-2</annotation>
+		<annotation cp="💃🏻" type="tts">vrou dans: veltipe-1-2</annotation>
+		<annotation cp="💃🏼">dans | tango | veltipe-3</annotation>
+		<annotation cp="💃🏼" type="tts">vrou dans: veltipe-3</annotation>
+		<annotation cp="💃🏽">dans | tango | veltipe-4</annotation>
+		<annotation cp="💃🏽" type="tts">vrou dans: veltipe-4</annotation>
+		<annotation cp="💃🏾">dans | tango | veltipe-5</annotation>
+		<annotation cp="💃🏾" type="tts">vrou dans: veltipe-5</annotation>
+		<annotation cp="💃🏿">dans | tango | veltipe-6</annotation>
+		<annotation cp="💃🏿" type="tts">vrou dans: veltipe-6</annotation>
+		<annotation cp="🕺🏻">dans | man | veltipe-1-2</annotation>
+		<annotation cp="🕺🏻" type="tts">man dans: veltipe-1-2</annotation>
+		<annotation cp="🕺🏼">dans | man | veltipe-3</annotation>
+		<annotation cp="🕺🏼" type="tts">man dans: veltipe-3</annotation>
+		<annotation cp="🕺🏽">dans | man | veltipe-4</annotation>
+		<annotation cp="🕺🏽" type="tts">man dans: veltipe-4</annotation>
+		<annotation cp="🕺🏾">dans | man | veltipe-5</annotation>
+		<annotation cp="🕺🏾" type="tts">man dans: veltipe-5</annotation>
+		<annotation cp="🕺🏿">dans | man | veltipe-6</annotation>
+		<annotation cp="🕺🏿" type="tts">man dans: veltipe-6</annotation>
+		<annotation cp="🛀🏻">bad | water | veltipe-1-2</annotation>
+		<annotation cp="🛀🏻" type="tts">persoon wat bad: veltipe-1-2</annotation>
+		<annotation cp="🛀🏼">bad | water | veltipe-3</annotation>
+		<annotation cp="🛀🏼" type="tts">persoon wat bad: veltipe-3</annotation>
+		<annotation cp="🛀🏽">bad | water | veltipe-4</annotation>
+		<annotation cp="🛀🏽" type="tts">persoon wat bad: veltipe-4</annotation>
+		<annotation cp="🛀🏾">bad | water | veltipe-5</annotation>
+		<annotation cp="🛀🏾" type="tts">persoon wat bad: veltipe-5</annotation>
+		<annotation cp="🛀🏿">bad | water | veltipe-6</annotation>
+		<annotation cp="🛀🏿" type="tts">persoon wat bad: veltipe-6</annotation>
+		<annotation cp="🛌🏻">bed | hotel | slaap | veltipe-1-2</annotation>
+		<annotation cp="🛌🏻" type="tts">persoon in bed: veltipe-1-2</annotation>
+		<annotation cp="🛌🏼">bed | hotel | slaap | veltipe-3</annotation>
+		<annotation cp="🛌🏼" type="tts">persoon in bed: veltipe-3</annotation>
+		<annotation cp="🛌🏽">bed | hotel | slaap | veltipe-4</annotation>
+		<annotation cp="🛌🏽" type="tts">persoon in bed: veltipe-4</annotation>
+		<annotation cp="🛌🏾">bed | hotel | slaap | veltipe-5</annotation>
+		<annotation cp="🛌🏾" type="tts">persoon in bed: veltipe-5</annotation>
+		<annotation cp="🛌🏿">bed | hotel | slaap | veltipe-6</annotation>
+		<annotation cp="🛌🏿" type="tts">persoon in bed: veltipe-6</annotation>
+		<annotation cp="🕴🏻">besigheid | man | pak | sake | veltipe-1-2</annotation>
+		<annotation cp="🕴🏻" type="tts">man in sakepak wat sweef: veltipe-1-2</annotation>
+		<annotation cp="🕴🏼">besigheid | man | pak | sake | veltipe-3</annotation>
+		<annotation cp="🕴🏼" type="tts">man in sakepak wat sweef: veltipe-3</annotation>
+		<annotation cp="🕴🏽">besigheid | man | pak | sake | veltipe-4</annotation>
+		<annotation cp="🕴🏽" type="tts">man in sakepak wat sweef: veltipe-4</annotation>
+		<annotation cp="🕴🏾">besigheid | man | pak | sake | veltipe-5</annotation>
+		<annotation cp="🕴🏾" type="tts">man in sakepak wat sweef: veltipe-5</annotation>
+		<annotation cp="🕴🏿">besigheid | man | pak | sake | veltipe-6</annotation>
+		<annotation cp="🕴🏿" type="tts">man in sakepak wat sweef: veltipe-6</annotation>
+		<annotation cp="🏇🏻">jokkie | perd | resiesperd | wedren | veltipe-1-2</annotation>
+		<annotation cp="🏇🏻" type="tts">perdewedrenne: veltipe-1-2</annotation>
+		<annotation cp="🏇🏼">jokkie | perd | resiesperd | wedren | veltipe-3</annotation>
+		<annotation cp="🏇🏼" type="tts">perdewedrenne: veltipe-3</annotation>
+		<annotation cp="🏇🏽">jokkie | perd | resiesperd | wedren | veltipe-4</annotation>
+		<annotation cp="🏇🏽" type="tts">perdewedrenne: veltipe-4</annotation>
+		<annotation cp="🏇🏾">jokkie | perd | resiesperd | wedren | veltipe-5</annotation>
+		<annotation cp="🏇🏾" type="tts">perdewedrenne: veltipe-5</annotation>
+		<annotation cp="🏇🏿">jokkie | perd | resiesperd | wedren | veltipe-6</annotation>
+		<annotation cp="🏇🏿" type="tts">perdewedrenne: veltipe-6</annotation>
+		<annotation cp="🏂🏻">ski | sneeu | sneeuplank | veltipe-1-2</annotation>
+		<annotation cp="🏂🏻" type="tts">sneeuplankryer: veltipe-1-2</annotation>
+		<annotation cp="🏂🏼">ski | sneeu | sneeuplank | veltipe-3</annotation>
+		<annotation cp="🏂🏼" type="tts">sneeuplankryer: veltipe-3</annotation>
+		<annotation cp="🏂🏽">ski | sneeu | sneeuplank | veltipe-4</annotation>
+		<annotation cp="🏂🏽" type="tts">sneeuplankryer: veltipe-4</annotation>
+		<annotation cp="🏂🏾">ski | sneeu | sneeuplank | veltipe-5</annotation>
+		<annotation cp="🏂🏾" type="tts">sneeuplankryer: veltipe-5</annotation>
+		<annotation cp="🏂🏿">ski | sneeu | sneeuplank | veltipe-6</annotation>
+		<annotation cp="🏂🏿" type="tts">sneeuplankryer: veltipe-6</annotation>
+		<annotation cp="🏌🏻">bal | gholf | slaan | veltipe-1-2</annotation>
+		<annotation cp="🏌🏻" type="tts">gholfspeler: veltipe-1-2</annotation>
+		<annotation cp="🏌🏼">bal | gholf | slaan | veltipe-3</annotation>
+		<annotation cp="🏌🏼" type="tts">gholfspeler: veltipe-3</annotation>
+		<annotation cp="🏌🏽">bal | gholf | slaan | veltipe-4</annotation>
+		<annotation cp="🏌🏽" type="tts">gholfspeler: veltipe-4</annotation>
+		<annotation cp="🏌🏾">bal | gholf | slaan | veltipe-5</annotation>
+		<annotation cp="🏌🏾" type="tts">gholfspeler: veltipe-5</annotation>
+		<annotation cp="🏌🏿">bal | gholf | slaan | veltipe-6</annotation>
+		<annotation cp="🏌🏿" type="tts">gholfspeler: veltipe-6</annotation>
+		<annotation cp="🏌🏻‍♂">gholf | veltipe-1-2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">manlike gholfspeler: veltipe-1-2</annotation>
+		<annotation cp="🏌🏼‍♂">gholf | veltipe-3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">manlike gholfspeler: veltipe-3</annotation>
+		<annotation cp="🏌🏽‍♂">gholf | veltipe-4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">manlike gholfspeler: veltipe-4</annotation>
+		<annotation cp="🏌🏾‍♂">gholf | veltipe-5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">manlike gholfspeler: veltipe-5</annotation>
+		<annotation cp="🏌🏿‍♂">gholf | veltipe-6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">manlike gholfspeler: veltipe-6</annotation>
+		<annotation cp="🏌🏻‍♀">gholf | veltipe-1-2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">vroulike gholfspeler: veltipe-1-2</annotation>
+		<annotation cp="🏌🏼‍♀">gholf | veltipe-3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">vroulike gholfspeler: veltipe-3</annotation>
+		<annotation cp="🏌🏽‍♀">gholf | veltipe-4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">vroulike gholfspeler: veltipe-4</annotation>
+		<annotation cp="🏌🏾‍♀">gholf | veltipe-5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">vroulike gholfspeler: veltipe-5</annotation>
+		<annotation cp="🏌🏿‍♀">gholf | veltipe-6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">vroulike gholfspeler: veltipe-6</annotation>
+		<annotation cp="🏄🏻">branderplank | golf | see | veltipe-1-2</annotation>
+		<annotation cp="🏄🏻" type="tts">branderplankryer: veltipe-1-2</annotation>
+		<annotation cp="🏄🏼">branderplank | golf | see | veltipe-3</annotation>
+		<annotation cp="🏄🏼" type="tts">branderplankryer: veltipe-3</annotation>
+		<annotation cp="🏄🏽">branderplank | golf | see | veltipe-4</annotation>
+		<annotation cp="🏄🏽" type="tts">branderplankryer: veltipe-4</annotation>
+		<annotation cp="🏄🏾">branderplank | golf | see | veltipe-5</annotation>
+		<annotation cp="🏄🏾" type="tts">branderplankryer: veltipe-5</annotation>
+		<annotation cp="🏄🏿">branderplank | golf | see | veltipe-6</annotation>
+		<annotation cp="🏄🏿" type="tts">branderplankryer: veltipe-6</annotation>
+		<annotation cp="🏄🏻‍♂">branderplankry | surf | veltipe-1-2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">manlike branderplankryer: veltipe-1-2</annotation>
+		<annotation cp="🏄🏼‍♂">branderplankry | surf | veltipe-3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">manlike branderplankryer: veltipe-3</annotation>
+		<annotation cp="🏄🏽‍♂">branderplankry | surf | veltipe-4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">manlike branderplankryer: veltipe-4</annotation>
+		<annotation cp="🏄🏾‍♂">branderplankry | surf | veltipe-5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">manlike branderplankryer: veltipe-5</annotation>
+		<annotation cp="🏄🏿‍♂">branderplankry | surf | veltipe-6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">manlike branderplankryer: veltipe-6</annotation>
+		<annotation cp="🏄🏻‍♀">branderplankry | surf | veltipe-1-2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">vroulike branderplankryer: veltipe-1-2</annotation>
+		<annotation cp="🏄🏼‍♀">branderplankry | surf | veltipe-3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">vroulike branderplankryer: veltipe-3</annotation>
+		<annotation cp="🏄🏽‍♀">branderplankry | surf | veltipe-4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">vroulike branderplankryer: veltipe-4</annotation>
+		<annotation cp="🏄🏾‍♀">branderplankry | surf | veltipe-5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">vroulike branderplankryer: veltipe-5</annotation>
+		<annotation cp="🏄🏿‍♀">branderplankry | surf | veltipe-6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">vroulike branderplankryer: veltipe-6</annotation>
+		<annotation cp="🚣🏻">boot | roei | voertuig | veltipe-1-2</annotation>
+		<annotation cp="🚣🏻" type="tts">roeiboot: veltipe-1-2</annotation>
+		<annotation cp="🚣🏼">boot | roei | voertuig | veltipe-3</annotation>
+		<annotation cp="🚣🏼" type="tts">roeiboot: veltipe-3</annotation>
+		<annotation cp="🚣🏽">boot | roei | voertuig | veltipe-4</annotation>
+		<annotation cp="🚣🏽" type="tts">roeiboot: veltipe-4</annotation>
+		<annotation cp="🚣🏾">boot | roei | voertuig | veltipe-5</annotation>
+		<annotation cp="🚣🏾" type="tts">roeiboot: veltipe-5</annotation>
+		<annotation cp="🚣🏿">boot | roei | voertuig | veltipe-6</annotation>
+		<annotation cp="🚣🏿" type="tts">roeiboot: veltipe-6</annotation>
+		<annotation cp="🚣🏻‍♂">kano | roei | roeiboot | veltipe-1-2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">man wat roei: veltipe-1-2</annotation>
+		<annotation cp="🚣🏼‍♂">kano | roei | roeiboot | veltipe-3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">man wat roei: veltipe-3</annotation>
+		<annotation cp="🚣🏽‍♂">kano | roei | roeiboot | veltipe-4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">man wat roei: veltipe-4</annotation>
+		<annotation cp="🚣🏾‍♂">kano | roei | roeiboot | veltipe-5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">man wat roei: veltipe-5</annotation>
+		<annotation cp="🚣🏿‍♂">kano | roei | roeiboot | veltipe-6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">man wat roei: veltipe-6</annotation>
+		<annotation cp="🚣🏻‍♀">kano | roei | roeiboot | veltipe-1-2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">vrou wat roei: veltipe-1-2</annotation>
+		<annotation cp="🚣🏼‍♀">kano | roei | roeiboot | veltipe-3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">vrou wat roei: veltipe-3</annotation>
+		<annotation cp="🚣🏽‍♀">kano | roei | roeiboot | veltipe-4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">vrou wat roei: veltipe-4</annotation>
+		<annotation cp="🚣🏾‍♀">kano | roei | roeiboot | veltipe-5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">vrou wat roei: veltipe-5</annotation>
+		<annotation cp="🚣🏿‍♀">kano | roei | roeiboot | veltipe-6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">vrou wat roei: veltipe-6</annotation>
+		<annotation cp="🏊🏻">swem | veltipe-1-2</annotation>
+		<annotation cp="🏊🏻" type="tts">swemmer: veltipe-1-2</annotation>
+		<annotation cp="🏊🏼">swem | veltipe-3</annotation>
+		<annotation cp="🏊🏼" type="tts">swemmer: veltipe-3</annotation>
+		<annotation cp="🏊🏽">swem | veltipe-4</annotation>
+		<annotation cp="🏊🏽" type="tts">swemmer: veltipe-4</annotation>
+		<annotation cp="🏊🏾">swem | veltipe-5</annotation>
+		<annotation cp="🏊🏾" type="tts">swemmer: veltipe-5</annotation>
+		<annotation cp="🏊🏿">swem | veltipe-6</annotation>
+		<annotation cp="🏊🏿" type="tts">swemmer: veltipe-6</annotation>
+		<annotation cp="🏊🏻‍♂">swem | veltipe-1-2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">manlike swemmer: veltipe-1-2</annotation>
+		<annotation cp="🏊🏼‍♂">swem | veltipe-3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">manlike swemmer: veltipe-3</annotation>
+		<annotation cp="🏊🏽‍♂">swem | veltipe-4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">manlike swemmer: veltipe-4</annotation>
+		<annotation cp="🏊🏾‍♂">swem | veltipe-5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">manlike swemmer: veltipe-5</annotation>
+		<annotation cp="🏊🏿‍♂">swem | veltipe-6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">manlike swemmer: veltipe-6</annotation>
+		<annotation cp="🏊🏻‍♀">swem | veltipe-1-2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">vroulike swemmer: veltipe-1-2</annotation>
+		<annotation cp="🏊🏼‍♀">swem | veltipe-3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">vroulike swemmer: veltipe-3</annotation>
+		<annotation cp="🏊🏽‍♀">swem | veltipe-4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">vroulike swemmer: veltipe-4</annotation>
+		<annotation cp="🏊🏾‍♀">swem | veltipe-5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">vroulike swemmer: veltipe-5</annotation>
+		<annotation cp="🏊🏿‍♀">swem | veltipe-6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">vroulike swemmer: veltipe-6</annotation>
+		<annotation cp="⛹🏻">bal | veltipe-1-2</annotation>
+		<annotation cp="⛹🏻" type="tts">persoon met bal: veltipe-1-2</annotation>
+		<annotation cp="⛹🏼">bal | veltipe-3</annotation>
+		<annotation cp="⛹🏼" type="tts">persoon met bal: veltipe-3</annotation>
+		<annotation cp="⛹🏽">bal | veltipe-4</annotation>
+		<annotation cp="⛹🏽" type="tts">persoon met bal: veltipe-4</annotation>
+		<annotation cp="⛹🏾">bal | veltipe-5</annotation>
+		<annotation cp="⛹🏾" type="tts">persoon met bal: veltipe-5</annotation>
+		<annotation cp="⛹🏿">bal | veltipe-6</annotation>
+		<annotation cp="⛹🏿" type="tts">persoon met bal: veltipe-6</annotation>
+		<annotation cp="⛹🏻‍♂">skop | sokker | veltipe-1-2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">man met bal: veltipe-1-2</annotation>
+		<annotation cp="⛹🏼‍♂">skop | sokker | veltipe-3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">man met bal: veltipe-3</annotation>
+		<annotation cp="⛹🏽‍♂">skop | sokker | veltipe-4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">man met bal: veltipe-4</annotation>
+		<annotation cp="⛹🏾‍♂">skop | sokker | veltipe-5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">man met bal: veltipe-5</annotation>
+		<annotation cp="⛹🏿‍♂">skop | sokker | veltipe-6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">man met bal: veltipe-6</annotation>
+		<annotation cp="⛹🏻‍♀">skop | sokker | veltipe-1-2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">vrou met bal: veltipe-1-2</annotation>
+		<annotation cp="⛹🏼‍♀">skop | sokker | veltipe-3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">vrou met bal: veltipe-3</annotation>
+		<annotation cp="⛹🏽‍♀">skop | sokker | veltipe-4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">vrou met bal: veltipe-4</annotation>
+		<annotation cp="⛹🏾‍♀">skop | sokker | veltipe-5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">vrou met bal: veltipe-5</annotation>
+		<annotation cp="⛹🏿‍♀">skop | sokker | veltipe-6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">vrou met bal: veltipe-6</annotation>
+		<annotation cp="🏋🏻">gewig | optel | veltipe-1-2</annotation>
+		<annotation cp="🏋🏻" type="tts">gewigopteller: veltipe-1-2</annotation>
+		<annotation cp="🏋🏼">gewig | optel | veltipe-3</annotation>
+		<annotation cp="🏋🏼" type="tts">gewigopteller: veltipe-3</annotation>
+		<annotation cp="🏋🏽">gewig | optel | veltipe-4</annotation>
+		<annotation cp="🏋🏽" type="tts">gewigopteller: veltipe-4</annotation>
+		<annotation cp="🏋🏾">gewig | optel | veltipe-5</annotation>
+		<annotation cp="🏋🏾" type="tts">gewigopteller: veltipe-5</annotation>
+		<annotation cp="🏋🏿">gewig | optel | veltipe-6</annotation>
+		<annotation cp="🏋🏿" type="tts">gewigopteller: veltipe-6</annotation>
+		<annotation cp="🏋🏻‍♂">gewigoptel | sterk | veltipe-1-2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">manlike gewigopteller: veltipe-1-2</annotation>
+		<annotation cp="🏋🏼‍♂">gewigoptel | sterk | veltipe-3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">manlike gewigopteller: veltipe-3</annotation>
+		<annotation cp="🏋🏽‍♂">gewigoptel | sterk | veltipe-4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">manlike gewigopteller: veltipe-4</annotation>
+		<annotation cp="🏋🏾‍♂">gewigoptel | sterk | veltipe-5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">manlike gewigopteller: veltipe-5</annotation>
+		<annotation cp="🏋🏿‍♂">gewigoptel | sterk | veltipe-6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">manlike gewigopteller: veltipe-6</annotation>
+		<annotation cp="🏋🏻‍♀">gewigoptel | sterk | veltipe-1-2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">vroulike gewigopteller: veltipe-1-2</annotation>
+		<annotation cp="🏋🏼‍♀">gewigoptel | sterk | veltipe-3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">vroulike gewigopteller: veltipe-3</annotation>
+		<annotation cp="🏋🏽‍♀">gewigoptel | sterk | veltipe-4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">vroulike gewigopteller: veltipe-4</annotation>
+		<annotation cp="🏋🏾‍♀">gewigoptel | sterk | veltipe-5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">vroulike gewigopteller: veltipe-5</annotation>
+		<annotation cp="🏋🏿‍♀">gewigoptel | sterk | veltipe-6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">vroulike gewigopteller: veltipe-6</annotation>
+		<annotation cp="🚴🏻">fiets | veltipe-1-2</annotation>
+		<annotation cp="🚴🏻" type="tts">fietsryer: veltipe-1-2</annotation>
+		<annotation cp="🚴🏼">fiets | veltipe-3</annotation>
+		<annotation cp="🚴🏼" type="tts">fietsryer: veltipe-3</annotation>
+		<annotation cp="🚴🏽">fiets | veltipe-4</annotation>
+		<annotation cp="🚴🏽" type="tts">fietsryer: veltipe-4</annotation>
+		<annotation cp="🚴🏾">fiets | veltipe-5</annotation>
+		<annotation cp="🚴🏾" type="tts">fietsryer: veltipe-5</annotation>
+		<annotation cp="🚴🏿">fiets | veltipe-6</annotation>
+		<annotation cp="🚴🏿" type="tts">fietsryer: veltipe-6</annotation>
+		<annotation cp="🚴🏻‍♂">fiets | fietser | fietsry | fietsryer | veltipe-1-2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">manlike fietsryer: veltipe-1-2</annotation>
+		<annotation cp="🚴🏼‍♂">fiets | fietser | fietsry | fietsryer | veltipe-3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">manlike fietsryer: veltipe-3</annotation>
+		<annotation cp="🚴🏽‍♂">fiets | fietser | fietsry | fietsryer | veltipe-4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">manlike fietsryer: veltipe-4</annotation>
+		<annotation cp="🚴🏾‍♂">fiets | fietser | fietsry | fietsryer | veltipe-5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">manlike fietsryer: veltipe-5</annotation>
+		<annotation cp="🚴🏿‍♂">fiets | fietser | fietsry | fietsryer | veltipe-6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">manlike fietsryer: veltipe-6</annotation>
+		<annotation cp="🚴🏻‍♀">fiets | fietser | fietsry | fietsryer | veltipe-1-2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">vroulike fietsryer: veltipe-1-2</annotation>
+		<annotation cp="🚴🏼‍♀">fiets | fietser | fietsry | fietsryer | veltipe-3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">vroulike fietsryer: veltipe-3</annotation>
+		<annotation cp="🚴🏽‍♀">fiets | fietser | fietsry | fietsryer | veltipe-4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">vroulike fietsryer: veltipe-4</annotation>
+		<annotation cp="🚴🏾‍♀">fiets | fietser | fietsry | fietsryer | veltipe-5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">vroulike fietsryer: veltipe-5</annotation>
+		<annotation cp="🚴🏿‍♀">fiets | fietser | fietsry | fietsryer | veltipe-6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">vroulike fietsryer: veltipe-6</annotation>
+		<annotation cp="🚵🏻">berg | fiets | fietsryer | veltipe-1-2</annotation>
+		<annotation cp="🚵🏻" type="tts">bergietsryer: veltipe-1-2</annotation>
+		<annotation cp="🚵🏼">berg | fiets | fietsryer | veltipe-3</annotation>
+		<annotation cp="🚵🏼" type="tts">bergietsryer: veltipe-3</annotation>
+		<annotation cp="🚵🏽">berg | fiets | fietsryer | veltipe-4</annotation>
+		<annotation cp="🚵🏽" type="tts">bergietsryer: veltipe-4</annotation>
+		<annotation cp="🚵🏾">berg | fiets | fietsryer | veltipe-5</annotation>
+		<annotation cp="🚵🏾" type="tts">bergietsryer: veltipe-5</annotation>
+		<annotation cp="🚵🏿">berg | fiets | fietsryer | veltipe-6</annotation>
+		<annotation cp="🚵🏿" type="tts">bergietsryer: veltipe-6</annotation>
+		<annotation cp="🚵🏻‍♂">bergfiets | bergfietsry | veltipe-1-2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">manlike bergfietsryer: veltipe-1-2</annotation>
+		<annotation cp="🚵🏼‍♂">bergfiets | bergfietsry | veltipe-3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">manlike bergfietsryer: veltipe-3</annotation>
+		<annotation cp="🚵🏽‍♂">bergfiets | bergfietsry | veltipe-4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">manlike bergfietsryer: veltipe-4</annotation>
+		<annotation cp="🚵🏾‍♂">bergfiets | bergfietsry | veltipe-5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">manlike bergfietsryer: veltipe-5</annotation>
+		<annotation cp="🚵🏿‍♂">bergfiets | bergfietsry | veltipe-6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">manlike bergfietsryer: veltipe-6</annotation>
+		<annotation cp="🚵🏻‍♀">bergfiets | bergfietsry | veltipe-1-2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">vroulike bergfietsryer: veltipe-1-2</annotation>
+		<annotation cp="🚵🏼‍♀">bergfiets | bergfietsry | veltipe-3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">vroulike bergfietsryer: veltipe-3</annotation>
+		<annotation cp="🚵🏽‍♀">bergfiets | bergfietsry | veltipe-4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">vroulike bergfietsryer: veltipe-4</annotation>
+		<annotation cp="🚵🏾‍♀">bergfiets | bergfietsry | veltipe-5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">vroulike bergfietsryer: veltipe-5</annotation>
+		<annotation cp="🚵🏿‍♀">bergfiets | bergfietsry | veltipe-6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">vroulike bergfietsryer: veltipe-6</annotation>
+		<annotation cp="🤸🏻">bollemakiesie | gimnastiek | wawiel | veltipe-1-2</annotation>
+		<annotation cp="🤸🏻" type="tts">wawiel: veltipe-1-2</annotation>
+		<annotation cp="🤸🏼">bollemakiesie | gimnastiek | wawiel | veltipe-3</annotation>
+		<annotation cp="🤸🏼" type="tts">wawiel: veltipe-3</annotation>
+		<annotation cp="🤸🏽">bollemakiesie | gimnastiek | wawiel | veltipe-4</annotation>
+		<annotation cp="🤸🏽" type="tts">wawiel: veltipe-4</annotation>
+		<annotation cp="🤸🏾">bollemakiesie | gimnastiek | wawiel | veltipe-5</annotation>
+		<annotation cp="🤸🏾" type="tts">wawiel: veltipe-5</annotation>
+		<annotation cp="🤸🏿">bollemakiesie | gimnastiek | wawiel | veltipe-6</annotation>
+		<annotation cp="🤸🏿" type="tts">wawiel: veltipe-6</annotation>
+		<annotation cp="🤸🏻‍♂">bollemakiesie | wawiel | veltipe-1-2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">man wawiel: veltipe-1-2</annotation>
+		<annotation cp="🤸🏼‍♂">bollemakiesie | wawiel | veltipe-3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">man wawiel: veltipe-3</annotation>
+		<annotation cp="🤸🏽‍♂">bollemakiesie | wawiel | veltipe-4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">man wawiel: veltipe-4</annotation>
+		<annotation cp="🤸🏾‍♂">bollemakiesie | wawiel | veltipe-5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">man wawiel: veltipe-5</annotation>
+		<annotation cp="🤸🏿‍♂">bollemakiesie | wawiel | veltipe-6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">man wawiel: veltipe-6</annotation>
+		<annotation cp="🤸🏻‍♀">bollemakiesie | wawiel | veltipe-1-2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">vrou wawiel: veltipe-1-2</annotation>
+		<annotation cp="🤸🏼‍♀">bollemakiesie | wawiel | veltipe-3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">vrou wawiel: veltipe-3</annotation>
+		<annotation cp="🤸🏽‍♀">bollemakiesie | wawiel | veltipe-4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">vrou wawiel: veltipe-4</annotation>
+		<annotation cp="🤸🏾‍♀">bollemakiesie | wawiel | veltipe-5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">vrou wawiel: veltipe-5</annotation>
+		<annotation cp="🤸🏿‍♀">bollemakiesie | wawiel | veltipe-6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">vrou wawiel: veltipe-6</annotation>
+		<annotation cp="🤽🏻">sport | swem | waterpolo | veltipe-1-2</annotation>
+		<annotation cp="🤽🏻" type="tts">waterpolo: veltipe-1-2</annotation>
+		<annotation cp="🤽🏼">sport | swem | waterpolo | veltipe-3</annotation>
+		<annotation cp="🤽🏼" type="tts">waterpolo: veltipe-3</annotation>
+		<annotation cp="🤽🏽">sport | swem | waterpolo | veltipe-4</annotation>
+		<annotation cp="🤽🏽" type="tts">waterpolo: veltipe-4</annotation>
+		<annotation cp="🤽🏾">sport | swem | waterpolo | veltipe-5</annotation>
+		<annotation cp="🤽🏾" type="tts">waterpolo: veltipe-5</annotation>
+		<annotation cp="🤽🏿">sport | swem | waterpolo | veltipe-6</annotation>
+		<annotation cp="🤽🏿" type="tts">waterpolo: veltipe-6</annotation>
+		<annotation cp="🤽🏻‍♂">waterpolo | veltipe-1-2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">manlike waterpolospeler: veltipe-1-2</annotation>
+		<annotation cp="🤽🏼‍♂">waterpolo | veltipe-3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">manlike waterpolospeler: veltipe-3</annotation>
+		<annotation cp="🤽🏽‍♂">waterpolo | veltipe-4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">manlike waterpolospeler: veltipe-4</annotation>
+		<annotation cp="🤽🏾‍♂">waterpolo | veltipe-5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">manlike waterpolospeler: veltipe-5</annotation>
+		<annotation cp="🤽🏿‍♂">waterpolo | veltipe-6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">manlike waterpolospeler: veltipe-6</annotation>
+		<annotation cp="🤽🏻‍♀">waterpolo | veltipe-1-2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">vroulike waterpolospeler: veltipe-1-2</annotation>
+		<annotation cp="🤽🏼‍♀">waterpolo | veltipe-3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">vroulike waterpolospeler: veltipe-3</annotation>
+		<annotation cp="🤽🏽‍♀">waterpolo | veltipe-4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">vroulike waterpolospeler: veltipe-4</annotation>
+		<annotation cp="🤽🏾‍♀">waterpolo | veltipe-5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">vroulike waterpolospeler: veltipe-5</annotation>
+		<annotation cp="🤽🏿‍♀">waterpolo | veltipe-6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">vroulike waterpolospeler: veltipe-6</annotation>
+		<annotation cp="🤾🏻">handbal | sport | veltipe-1-2</annotation>
+		<annotation cp="🤾🏻" type="tts">handbal: veltipe-1-2</annotation>
+		<annotation cp="🤾🏼">handbal | sport | veltipe-3</annotation>
+		<annotation cp="🤾🏼" type="tts">handbal: veltipe-3</annotation>
+		<annotation cp="🤾🏽">handbal | sport | veltipe-4</annotation>
+		<annotation cp="🤾🏽" type="tts">handbal: veltipe-4</annotation>
+		<annotation cp="🤾🏾">handbal | sport | veltipe-5</annotation>
+		<annotation cp="🤾🏾" type="tts">handbal: veltipe-5</annotation>
+		<annotation cp="🤾🏿">handbal | sport | veltipe-6</annotation>
+		<annotation cp="🤾🏿" type="tts">handbal: veltipe-6</annotation>
+		<annotation cp="🤾🏻‍♂">handbal | veltipe-1-2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">manlike handbalspeler: veltipe-1-2</annotation>
+		<annotation cp="🤾🏼‍♂">handbal | veltipe-3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">manlike handbalspeler: veltipe-3</annotation>
+		<annotation cp="🤾🏽‍♂">handbal | veltipe-4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">manlike handbalspeler: veltipe-4</annotation>
+		<annotation cp="🤾🏾‍♂">handbal | veltipe-5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">manlike handbalspeler: veltipe-5</annotation>
+		<annotation cp="🤾🏿‍♂">handbal | veltipe-6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">manlike handbalspeler: veltipe-6</annotation>
+		<annotation cp="🤾🏻‍♀">handbal | veltipe-1-2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">vroulike handbalspeler: veltipe-1-2</annotation>
+		<annotation cp="🤾🏼‍♀">handbal | veltipe-3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">vroulike handbalspeler: veltipe-3</annotation>
+		<annotation cp="🤾🏽‍♀">handbal | veltipe-4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">vroulike handbalspeler: veltipe-4</annotation>
+		<annotation cp="🤾🏾‍♀">handbal | veltipe-5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">vroulike handbalspeler: veltipe-5</annotation>
+		<annotation cp="🤾🏿‍♀">handbal | veltipe-6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">vroulike handbalspeler: veltipe-6</annotation>
+		<annotation cp="🤹🏻">balanseer | jongleer | veltipe-1-2</annotation>
+		<annotation cp="🤹🏻" type="tts">jongleer: veltipe-1-2</annotation>
+		<annotation cp="🤹🏼">balanseer | jongleer | veltipe-3</annotation>
+		<annotation cp="🤹🏼" type="tts">jongleer: veltipe-3</annotation>
+		<annotation cp="🤹🏽">balanseer | jongleer | veltipe-4</annotation>
+		<annotation cp="🤹🏽" type="tts">jongleer: veltipe-4</annotation>
+		<annotation cp="🤹🏾">balanseer | jongleer | veltipe-5</annotation>
+		<annotation cp="🤹🏾" type="tts">jongleer: veltipe-5</annotation>
+		<annotation cp="🤹🏿">balanseer | jongleer | veltipe-6</annotation>
+		<annotation cp="🤹🏿" type="tts">jongleer: veltipe-6</annotation>
+		<annotation cp="🤹🏻‍♂">jongleer | veltipe-1-2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">manlike jongleur: veltipe-1-2</annotation>
+		<annotation cp="🤹🏼‍♂">jongleer | veltipe-3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">manlike jongleur: veltipe-3</annotation>
+		<annotation cp="🤹🏽‍♂">jongleer | veltipe-4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">manlike jongleur: veltipe-4</annotation>
+		<annotation cp="🤹🏾‍♂">jongleer | veltipe-5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">manlike jongleur: veltipe-5</annotation>
+		<annotation cp="🤹🏿‍♂">jongleer | veltipe-6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">manlike jongleur: veltipe-6</annotation>
+		<annotation cp="🤹🏻‍♀">jongleer | veltipe-1-2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">vroulike jongleur: veltipe-1-2</annotation>
+		<annotation cp="🤹🏼‍♀">jongleer | veltipe-3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">vroulike jongleur: veltipe-3</annotation>
+		<annotation cp="🤹🏽‍♀">jongleer | veltipe-4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">vroulike jongleur: veltipe-4</annotation>
+		<annotation cp="🤹🏾‍♀">jongleer | veltipe-5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">vroulike jongleur: veltipe-5</annotation>
+		<annotation cp="🤹🏿‍♀">jongleer | veltipe-6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">vroulike jongleur: veltipe-6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">man | paartjie | soen | vrou</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">man en vrou soen</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">mans | paartjie | soen</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">mans soen</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">paartjie | soen | vrouens</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">vrouens soen</annotation>
+		<annotation cp="👩‍❤‍👨">liefde | paartjie</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">man en vrou met hartjie</annotation>
+		<annotation cp="👨‍❤‍👨">liefde | paartjie</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">man en man met hartjie</annotation>
+		<annotation cp="👩‍❤‍👩">liefde | paartjie</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">vrou en vrou met hartjie</annotation>
+		<annotation cp="👨‍👩‍👦">gesin | ma | pa | seun</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">ma en pa met seun</annotation>
+		<annotation cp="👨‍👩‍👧">dogter | gesin | ma | pa</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">ma en pa met dogter</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">gesin | kinders | ma | pa</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">ma en pa met seun en dogter</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">gesin | ma | pa | seuns</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">ma en pa met seuns</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">dogters | gesin | ma | pa</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">ma en pa met dogters</annotation>
+		<annotation cp="👨‍👨‍👦">gesin | pa’s | seun</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">pa’s met seun</annotation>
+		<annotation cp="👨‍👨‍👧">dogter | gesin | pa’s</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">pa’s met dogter</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">gesin | kinders | pa’s</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">pa’s met seun en dogter</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">gesin | pa’s | seuns</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">pa’s met seuns</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">dogters | gesin | pa’s</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">pa’s met dogters</annotation>
+		<annotation cp="👩‍👩‍👦">gesin | ma’s | seun</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">ma’s met seun</annotation>
+		<annotation cp="👩‍👩‍👧">dogter | gesin | ma’s</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">ma’s met dogter</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">gesin | kinders | ma’s</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">ma’s met dogter en seun</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">gesin | ma’s | seuns</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">ma’s met seuns</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">dogters | gesin | ma’s</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">ma’s met dogters</annotation>
+		<annotation cp="👨‍👦">enkelouer | enkelpa | gesin | pa</annotation>
+		<annotation cp="👨‍👦" type="tts">pa met seun</annotation>
+		<annotation cp="👨‍👦‍👦">enkelouer | enkelpa | gesin | pa</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">pa met seuns</annotation>
+		<annotation cp="👨‍👧">enkelouer | enkelpa | gesin | pa</annotation>
+		<annotation cp="👨‍👧" type="tts">pa met dogter</annotation>
+		<annotation cp="👨‍👧‍👦">enkelouer | enkelpa | gesin | pa</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">pa met seun en dogter</annotation>
+		<annotation cp="👨‍👧‍👧">enkelouer | enkelpa | gesin | pa</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">pa met dogters</annotation>
+		<annotation cp="👩‍👦">enkelma | enkelouer | gesin | ma</annotation>
+		<annotation cp="👩‍👦" type="tts">ma met seun</annotation>
+		<annotation cp="👩‍👦‍👦">enkelma | enkelouer | gesin | ma</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">ma met seuns</annotation>
+		<annotation cp="👩‍👧">enkelma | enkelouer | gesin | ma</annotation>
+		<annotation cp="👩‍👧" type="tts">ma met dogter</annotation>
+		<annotation cp="👩‍👧‍👦">enkelma | enkelouer | gesin | ma</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">ma met dogter en seun</annotation>
+		<annotation cp="👩‍👧‍👧">enkelma | enkelouer | gesin | ma</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">ma met dogters</annotation>
+		<annotation cp="🤳🏻">foon | kamera | selfie | veltipe-1-2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: veltipe-1-2</annotation>
+		<annotation cp="🤳🏼">foon | kamera | selfie | veltipe-3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: veltipe-3</annotation>
+		<annotation cp="🤳🏽">foon | kamera | selfie | veltipe-4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: veltipe-4</annotation>
+		<annotation cp="🤳🏾">foon | kamera | selfie | veltipe-5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: veltipe-5</annotation>
+		<annotation cp="🤳🏿">foon | kamera | selfie | veltipe-6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: veltipe-6</annotation>
+		<annotation cp="💪🏻">biseps | bult | komies | liggaam | spier | veltipe-1-2</annotation>
+		<annotation cp="💪🏻" type="tts">gebulte biseps: veltipe-1-2</annotation>
+		<annotation cp="💪🏼">biseps | bult | komies | liggaam | spier | veltipe-3</annotation>
+		<annotation cp="💪🏼" type="tts">gebulte biseps: veltipe-3</annotation>
+		<annotation cp="💪🏽">biseps | bult | komies | liggaam | spier | veltipe-4</annotation>
+		<annotation cp="💪🏽" type="tts">gebulte biseps: veltipe-4</annotation>
+		<annotation cp="💪🏾">biseps | bult | komies | liggaam | spier | veltipe-5</annotation>
+		<annotation cp="💪🏾" type="tts">gebulte biseps: veltipe-5</annotation>
+		<annotation cp="💪🏿">biseps | bult | komies | liggaam | spier | veltipe-6</annotation>
+		<annotation cp="💪🏿" type="tts">gebulte biseps: veltipe-6</annotation>
+		<annotation cp="👈🏻">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-1-2</annotation>
+		<annotation cp="👈🏻" type="tts">wysvingerrughand wat links wys: veltipe-1-2</annotation>
+		<annotation cp="👈🏼">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-3</annotation>
+		<annotation cp="👈🏼" type="tts">wysvingerrughand wat links wys: veltipe-3</annotation>
+		<annotation cp="👈🏽">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-4</annotation>
+		<annotation cp="👈🏽" type="tts">wysvingerrughand wat links wys: veltipe-4</annotation>
+		<annotation cp="👈🏾">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-5</annotation>
+		<annotation cp="👈🏾" type="tts">wysvingerrughand wat links wys: veltipe-5</annotation>
+		<annotation cp="👈🏿">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-6</annotation>
+		<annotation cp="👈🏿" type="tts">wysvingerrughand wat links wys: veltipe-6</annotation>
+		<annotation cp="👉🏻">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-1-2</annotation>
+		<annotation cp="👉🏻" type="tts">wysvingerrughand wat regs wys: veltipe-1-2</annotation>
+		<annotation cp="👉🏼">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-3</annotation>
+		<annotation cp="👉🏼" type="tts">wysvingerrughand wat regs wys: veltipe-3</annotation>
+		<annotation cp="👉🏽">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-4</annotation>
+		<annotation cp="👉🏽" type="tts">wysvingerrughand wat regs wys: veltipe-4</annotation>
+		<annotation cp="👉🏾">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-5</annotation>
+		<annotation cp="👉🏾" type="tts">wysvingerrughand wat regs wys: veltipe-5</annotation>
+		<annotation cp="👉🏿">hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-6</annotation>
+		<annotation cp="👉🏿" type="tts">wysvingerrughand wat regs wys: veltipe-6</annotation>
+		<annotation cp="☝🏻">hand | liggaam | op | vinger | wys | wysvinger | veltipe-1-2</annotation>
+		<annotation cp="☝🏻" type="tts">wysvinger wat op wys: veltipe-1-2</annotation>
+		<annotation cp="☝🏼">hand | liggaam | op | vinger | wys | wysvinger | veltipe-3</annotation>
+		<annotation cp="☝🏼" type="tts">wysvinger wat op wys: veltipe-3</annotation>
+		<annotation cp="☝🏽">hand | liggaam | op | vinger | wys | wysvinger | veltipe-4</annotation>
+		<annotation cp="☝🏽" type="tts">wysvinger wat op wys: veltipe-4</annotation>
+		<annotation cp="☝🏾">hand | liggaam | op | vinger | wys | wysvinger | veltipe-5</annotation>
+		<annotation cp="☝🏾" type="tts">wysvinger wat op wys: veltipe-5</annotation>
+		<annotation cp="☝🏿">hand | liggaam | op | vinger | wys | wysvinger | veltipe-6</annotation>
+		<annotation cp="☝🏿" type="tts">wysvinger wat op wys: veltipe-6</annotation>
+		<annotation cp="👆🏻">hand | liggaam | op | rughnad | vinger | wys | wysvinger | veltipe-1-2</annotation>
+		<annotation cp="👆🏻" type="tts">wysvingerrughand wat op wys: veltipe-1-2</annotation>
+		<annotation cp="👆🏼">hand | liggaam | op | rughnad | vinger | wys | wysvinger | veltipe-3</annotation>
+		<annotation cp="👆🏼" type="tts">wysvingerrughand wat op wys: veltipe-3</annotation>
+		<annotation cp="👆🏽">hand | liggaam | op | rughnad | vinger | wys | wysvinger | veltipe-4</annotation>
+		<annotation cp="👆🏽" type="tts">wysvingerrughand wat op wys: veltipe-4</annotation>
+		<annotation cp="👆🏾">hand | liggaam | op | rughnad | vinger | wys | wysvinger | veltipe-5</annotation>
+		<annotation cp="👆🏾" type="tts">wysvingerrughand wat op wys: veltipe-5</annotation>
+		<annotation cp="👆🏿">hand | liggaam | op | rughnad | vinger | wys | wysvinger | veltipe-6</annotation>
+		<annotation cp="👆🏿" type="tts">wysvingerrughand wat op wys: veltipe-6</annotation>
+		<annotation cp="🖕🏻">hand | liggaam | op | vinger | wys | wysvinger | veltipe-1-2</annotation>
+		<annotation cp="🖕🏻" type="tts">middelvinger: veltipe-1-2</annotation>
+		<annotation cp="🖕🏼">hand | liggaam | op | vinger | wys | wysvinger | veltipe-3</annotation>
+		<annotation cp="🖕🏼" type="tts">middelvinger: veltipe-3</annotation>
+		<annotation cp="🖕🏽">hand | liggaam | op | vinger | wys | wysvinger | veltipe-4</annotation>
+		<annotation cp="🖕🏽" type="tts">middelvinger: veltipe-4</annotation>
+		<annotation cp="🖕🏾">hand | liggaam | op | vinger | wys | wysvinger | veltipe-5</annotation>
+		<annotation cp="🖕🏾" type="tts">middelvinger: veltipe-5</annotation>
+		<annotation cp="🖕🏿">hand | liggaam | op | vinger | wys | wysvinger | veltipe-6</annotation>
+		<annotation cp="🖕🏿" type="tts">middelvinger: veltipe-6</annotation>
+		<annotation cp="👇🏻">af | hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-1-2</annotation>
+		<annotation cp="👇🏻" type="tts">wysvingerrughand wat af wys: veltipe-1-2</annotation>
+		<annotation cp="👇🏼">af | hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-3</annotation>
+		<annotation cp="👇🏼" type="tts">wysvingerrughand wat af wys: veltipe-3</annotation>
+		<annotation cp="👇🏽">af | hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-4</annotation>
+		<annotation cp="👇🏽" type="tts">wysvingerrughand wat af wys: veltipe-4</annotation>
+		<annotation cp="👇🏾">af | hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-5</annotation>
+		<annotation cp="👇🏾" type="tts">wysvingerrughand wat af wys: veltipe-5</annotation>
+		<annotation cp="👇🏿">af | hand | liggaam | rughand | vinger | wys | wysvinger | veltipe-6</annotation>
+		<annotation cp="👇🏿" type="tts">wysvingerrughand wat af wys: veltipe-6</annotation>
+		<annotation cp="✌🏻">hand | liggaam | oorwinning | v | veltipe-1-2</annotation>
+		<annotation cp="✌🏻" type="tts">oorwinninghandteken: veltipe-1-2</annotation>
+		<annotation cp="✌🏼">hand | liggaam | oorwinning | v | veltipe-3</annotation>
+		<annotation cp="✌🏼" type="tts">oorwinninghandteken: veltipe-3</annotation>
+		<annotation cp="✌🏽">hand | liggaam | oorwinning | v | veltipe-4</annotation>
+		<annotation cp="✌🏽" type="tts">oorwinninghandteken: veltipe-4</annotation>
+		<annotation cp="✌🏾">hand | liggaam | oorwinning | v | veltipe-5</annotation>
+		<annotation cp="✌🏾" type="tts">oorwinninghandteken: veltipe-5</annotation>
+		<annotation cp="✌🏿">hand | liggaam | oorwinning | v | veltipe-6</annotation>
+		<annotation cp="✌🏿" type="tts">oorwinninghandteken: veltipe-6</annotation>
+		<annotation cp="🤞🏻">duimvashou | geluk | hand | hoop | veltipe-1-2</annotation>
+		<annotation cp="🤞🏻" type="tts">duim vashou: veltipe-1-2</annotation>
+		<annotation cp="🤞🏼">duimvashou | geluk | hand | hoop | veltipe-3</annotation>
+		<annotation cp="🤞🏼" type="tts">duim vashou: veltipe-3</annotation>
+		<annotation cp="🤞🏽">duimvashou | geluk | hand | hoop | veltipe-4</annotation>
+		<annotation cp="🤞🏽" type="tts">duim vashou: veltipe-4</annotation>
+		<annotation cp="🤞🏾">duimvashou | geluk | hand | hoop | veltipe-5</annotation>
+		<annotation cp="🤞🏾" type="tts">duim vashou: veltipe-5</annotation>
+		<annotation cp="🤞🏿">duimvashou | geluk | hand | hoop | veltipe-6</annotation>
+		<annotation cp="🤞🏿" type="tts">duim vashou: veltipe-6</annotation>
+		<annotation cp="🖖🏻">hand | liggaam | vinger | vulkan | veltipe-1-2</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkansaluut: veltipe-1-2</annotation>
+		<annotation cp="🖖🏼">hand | liggaam | vinger | vulkan | veltipe-3</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkansaluut: veltipe-3</annotation>
+		<annotation cp="🖖🏽">hand | liggaam | vinger | vulkan | veltipe-4</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkansaluut: veltipe-4</annotation>
+		<annotation cp="🖖🏾">hand | liggaam | vinger | vulkan | veltipe-5</annotation>
+		<annotation cp="🖖🏾" type="tts">vulkansaluut: veltipe-5</annotation>
+		<annotation cp="🖖🏿">hand | liggaam | vinger | vulkan | veltipe-6</annotation>
+		<annotation cp="🖖🏿" type="tts">vulkansaluut: veltipe-6</annotation>
+		<annotation cp="🤘🏻">hand | horings | liggaam | rock | vinger | veltipe-1-2</annotation>
+		<annotation cp="🤘🏻" type="tts">horingteken: veltipe-1-2</annotation>
+		<annotation cp="🤘🏼">hand | horings | liggaam | rock | vinger | veltipe-3</annotation>
+		<annotation cp="🤘🏼" type="tts">horingteken: veltipe-3</annotation>
+		<annotation cp="🤘🏽">hand | horings | liggaam | rock | vinger | veltipe-4</annotation>
+		<annotation cp="🤘🏽" type="tts">horingteken: veltipe-4</annotation>
+		<annotation cp="🤘🏾">hand | horings | liggaam | rock | vinger | veltipe-5</annotation>
+		<annotation cp="🤘🏾" type="tts">horingteken: veltipe-5</annotation>
+		<annotation cp="🤘🏿">hand | horings | liggaam | rock | vinger | veltipe-6</annotation>
+		<annotation cp="🤘🏿" type="tts">horingteken: veltipe-6</annotation>
+		<annotation cp="🤙🏻">bel | hand | veltipe-1-2</annotation>
+		<annotation cp="🤙🏻" type="tts">bel my hand: veltipe-1-2</annotation>
+		<annotation cp="🤙🏼">bel | hand | veltipe-3</annotation>
+		<annotation cp="🤙🏼" type="tts">bel my hand: veltipe-3</annotation>
+		<annotation cp="🤙🏽">bel | hand | veltipe-4</annotation>
+		<annotation cp="🤙🏽" type="tts">bel my hand: veltipe-4</annotation>
+		<annotation cp="🤙🏾">bel | hand | veltipe-5</annotation>
+		<annotation cp="🤙🏾" type="tts">bel my hand: veltipe-5</annotation>
+		<annotation cp="🤙🏿">bel | hand | veltipe-6</annotation>
+		<annotation cp="🤙🏿" type="tts">bel my hand: veltipe-6</annotation>
+		<annotation cp="🖐🏻">hand | liggaam | oopgesprei | vinger | veltipe-1-2</annotation>
+		<annotation cp="🖐🏻" type="tts">hand in die lug met vingers oopgesprei: veltipe-1-2</annotation>
+		<annotation cp="🖐🏼">hand | liggaam | oopgesprei | vinger | veltipe-3</annotation>
+		<annotation cp="🖐🏼" type="tts">hand in die lug met vingers oopgesprei: veltipe-3</annotation>
+		<annotation cp="🖐🏽">hand | liggaam | oopgesprei | vinger | veltipe-4</annotation>
+		<annotation cp="🖐🏽" type="tts">hand in die lug met vingers oopgesprei: veltipe-4</annotation>
+		<annotation cp="🖐🏾">hand | liggaam | oopgesprei | vinger | veltipe-5</annotation>
+		<annotation cp="🖐🏾" type="tts">hand in die lug met vingers oopgesprei: veltipe-5</annotation>
+		<annotation cp="🖐🏿">hand | liggaam | oopgesprei | vinger | veltipe-6</annotation>
+		<annotation cp="🖐🏿" type="tts">hand in die lug met vingers oopgesprei: veltipe-6</annotation>
+		<annotation cp="✋🏻">hand | liggaam | veltipe-1-2</annotation>
+		<annotation cp="✋🏻" type="tts">hand in die lug: veltipe-1-2</annotation>
+		<annotation cp="✋🏼">hand | liggaam | veltipe-3</annotation>
+		<annotation cp="✋🏼" type="tts">hand in die lug: veltipe-3</annotation>
+		<annotation cp="✋🏽">hand | liggaam | veltipe-4</annotation>
+		<annotation cp="✋🏽" type="tts">hand in die lug: veltipe-4</annotation>
+		<annotation cp="✋🏾">hand | liggaam | veltipe-5</annotation>
+		<annotation cp="✋🏾" type="tts">hand in die lug: veltipe-5</annotation>
+		<annotation cp="✋🏿">hand | liggaam | veltipe-6</annotation>
+		<annotation cp="✋🏿" type="tts">hand in die lug: veltipe-6</annotation>
+		<annotation cp="👌🏻">hand | liggaam | ok | veltipe-1-2</annotation>
+		<annotation cp="👌🏻" type="tts">ok-handteken: veltipe-1-2</annotation>
+		<annotation cp="👌🏼">hand | liggaam | ok | veltipe-3</annotation>
+		<annotation cp="👌🏼" type="tts">ok-handteken: veltipe-3</annotation>
+		<annotation cp="👌🏽">hand | liggaam | ok | veltipe-4</annotation>
+		<annotation cp="👌🏽" type="tts">ok-handteken: veltipe-4</annotation>
+		<annotation cp="👌🏾">hand | liggaam | ok | veltipe-5</annotation>
+		<annotation cp="👌🏾" type="tts">ok-handteken: veltipe-5</annotation>
+		<annotation cp="👌🏿">hand | liggaam | ok | veltipe-6</annotation>
+		<annotation cp="👌🏿" type="tts">ok-handteken: veltipe-6</annotation>
+		<annotation cp="👍🏻">+1 | duim | hand | liggaam | op | veltipe-1-2</annotation>
+		<annotation cp="👍🏻" type="tts">laaik baie: veltipe-1-2</annotation>
+		<annotation cp="👍🏼">+1 | duim | hand | liggaam | op | veltipe-3</annotation>
+		<annotation cp="👍🏼" type="tts">laaik baie: veltipe-3</annotation>
+		<annotation cp="👍🏽">+1 | duim | hand | liggaam | op | veltipe-4</annotation>
+		<annotation cp="👍🏽" type="tts">laaik baie: veltipe-4</annotation>
+		<annotation cp="👍🏾">+1 | duim | hand | liggaam | op | veltipe-5</annotation>
+		<annotation cp="👍🏾" type="tts">laaik baie: veltipe-5</annotation>
+		<annotation cp="👍🏿">+1 | duim | hand | liggaam | op | veltipe-6</annotation>
+		<annotation cp="👍🏿" type="tts">laaik baie: veltipe-6</annotation>
+		<annotation cp="👎🏻">-1 | af | duim | hand | liggaam | veltipe-1-2</annotation>
+		<annotation cp="👎🏻" type="tts">laaik niks: veltipe-1-2</annotation>
+		<annotation cp="👎🏼">-1 | af | duim | hand | liggaam | veltipe-3</annotation>
+		<annotation cp="👎🏼" type="tts">laaik niks: veltipe-3</annotation>
+		<annotation cp="👎🏽">-1 | af | duim | hand | liggaam | veltipe-4</annotation>
+		<annotation cp="👎🏽" type="tts">laaik niks: veltipe-4</annotation>
+		<annotation cp="👎🏾">-1 | af | duim | hand | liggaam | veltipe-5</annotation>
+		<annotation cp="👎🏾" type="tts">laaik niks: veltipe-5</annotation>
+		<annotation cp="👎🏿">-1 | af | duim | hand | liggaam | veltipe-6</annotation>
+		<annotation cp="👎🏿" type="tts">laaik niks: veltipe-6</annotation>
+		<annotation cp="✊🏻">gebal | hand | liggaam | slaan | vuis | veltipe-1-2</annotation>
+		<annotation cp="✊🏻" type="tts">vuis in die lug: veltipe-1-2</annotation>
+		<annotation cp="✊🏼">gebal | hand | liggaam | slaan | vuis | veltipe-3</annotation>
+		<annotation cp="✊🏼" type="tts">vuis in die lug: veltipe-3</annotation>
+		<annotation cp="✊🏽">gebal | hand | liggaam | slaan | vuis | veltipe-4</annotation>
+		<annotation cp="✊🏽" type="tts">vuis in die lug: veltipe-4</annotation>
+		<annotation cp="✊🏾">gebal | hand | liggaam | slaan | vuis | veltipe-5</annotation>
+		<annotation cp="✊🏾" type="tts">vuis in die lug: veltipe-5</annotation>
+		<annotation cp="✊🏿">gebal | hand | liggaam | slaan | vuis | veltipe-6</annotation>
+		<annotation cp="✊🏿" type="tts">vuis in die lug: veltipe-6</annotation>
+		<annotation cp="👊🏻">gebal | hand | liggam | slaan | vuis | veltipe-1-2</annotation>
+		<annotation cp="👊🏻" type="tts">vuishou: veltipe-1-2</annotation>
+		<annotation cp="👊🏼">gebal | hand | liggam | slaan | vuis | veltipe-3</annotation>
+		<annotation cp="👊🏼" type="tts">vuishou: veltipe-3</annotation>
+		<annotation cp="👊🏽">gebal | hand | liggam | slaan | vuis | veltipe-4</annotation>
+		<annotation cp="👊🏽" type="tts">vuishou: veltipe-4</annotation>
+		<annotation cp="👊🏾">gebal | hand | liggam | slaan | vuis | veltipe-5</annotation>
+		<annotation cp="👊🏾" type="tts">vuishou: veltipe-5</annotation>
+		<annotation cp="👊🏿">gebal | hand | liggam | slaan | vuis | veltipe-6</annotation>
+		<annotation cp="👊🏿" type="tts">vuishou: veltipe-6</annotation>
+		<annotation cp="🤛🏻">links | vuis | veltipe-1-2</annotation>
+		<annotation cp="🤛🏻" type="tts">vuis links: veltipe-1-2</annotation>
+		<annotation cp="🤛🏼">links | vuis | veltipe-3</annotation>
+		<annotation cp="🤛🏼" type="tts">vuis links: veltipe-3</annotation>
+		<annotation cp="🤛🏽">links | vuis | veltipe-4</annotation>
+		<annotation cp="🤛🏽" type="tts">vuis links: veltipe-4</annotation>
+		<annotation cp="🤛🏾">links | vuis | veltipe-5</annotation>
+		<annotation cp="🤛🏾" type="tts">vuis links: veltipe-5</annotation>
+		<annotation cp="🤛🏿">links | vuis | veltipe-6</annotation>
+		<annotation cp="🤛🏿" type="tts">vuis links: veltipe-6</annotation>
+		<annotation cp="🤜🏻">regs | vuis | veltipe-1-2</annotation>
+		<annotation cp="🤜🏻" type="tts">vuis regs: veltipe-1-2</annotation>
+		<annotation cp="🤜🏼">regs | vuis | veltipe-3</annotation>
+		<annotation cp="🤜🏼" type="tts">vuis regs: veltipe-3</annotation>
+		<annotation cp="🤜🏽">regs | vuis | veltipe-4</annotation>
+		<annotation cp="🤜🏽" type="tts">vuis regs: veltipe-4</annotation>
+		<annotation cp="🤜🏾">regs | vuis | veltipe-5</annotation>
+		<annotation cp="🤜🏾" type="tts">vuis regs: veltipe-5</annotation>
+		<annotation cp="🤜🏿">regs | vuis | veltipe-6</annotation>
+		<annotation cp="🤜🏿" type="tts">vuis regs: veltipe-6</annotation>
+		<annotation cp="🤚🏻">hand | handrug | veltipe-1-2</annotation>
+		<annotation cp="🤚🏻" type="tts">handrug: veltipe-1-2</annotation>
+		<annotation cp="🤚🏼">hand | handrug | veltipe-3</annotation>
+		<annotation cp="🤚🏼" type="tts">handrug: veltipe-3</annotation>
+		<annotation cp="🤚🏽">hand | handrug | veltipe-4</annotation>
+		<annotation cp="🤚🏽" type="tts">handrug: veltipe-4</annotation>
+		<annotation cp="🤚🏾">hand | handrug | veltipe-5</annotation>
+		<annotation cp="🤚🏾" type="tts">handrug: veltipe-5</annotation>
+		<annotation cp="🤚🏿">hand | handrug | veltipe-6</annotation>
+		<annotation cp="🤚🏿" type="tts">handrug: veltipe-6</annotation>
+		<annotation cp="👋🏻">hand | liggaam | waai | wuif | veltipe-1-2</annotation>
+		<annotation cp="👋🏻" type="tts">wuiwende hand: veltipe-1-2</annotation>
+		<annotation cp="👋🏼">hand | liggaam | waai | wuif | veltipe-3</annotation>
+		<annotation cp="👋🏼" type="tts">wuiwende hand: veltipe-3</annotation>
+		<annotation cp="👋🏽">hand | liggaam | waai | wuif | veltipe-4</annotation>
+		<annotation cp="👋🏽" type="tts">wuiwende hand: veltipe-4</annotation>
+		<annotation cp="👋🏾">hand | liggaam | waai | wuif | veltipe-5</annotation>
+		<annotation cp="👋🏾" type="tts">wuiwende hand: veltipe-5</annotation>
+		<annotation cp="👋🏿">hand | liggaam | waai | wuif | veltipe-6</annotation>
+		<annotation cp="👋🏿" type="tts">wuiwende hand: veltipe-6</annotation>
+		<annotation cp="✍🏻">hand | liggaam | skryf | veltipe-1-2</annotation>
+		<annotation cp="✍🏻" type="tts">hand wat skryf: veltipe-1-2</annotation>
+		<annotation cp="✍🏼">hand | liggaam | skryf | veltipe-3</annotation>
+		<annotation cp="✍🏼" type="tts">hand wat skryf: veltipe-3</annotation>
+		<annotation cp="✍🏽">hand | liggaam | skryf | veltipe-4</annotation>
+		<annotation cp="✍🏽" type="tts">hand wat skryf: veltipe-4</annotation>
+		<annotation cp="✍🏾">hand | liggaam | skryf | veltipe-5</annotation>
+		<annotation cp="✍🏾" type="tts">hand wat skryf: veltipe-5</annotation>
+		<annotation cp="✍🏿">hand | liggaam | skryf | veltipe-6</annotation>
+		<annotation cp="✍🏿" type="tts">hand wat skryf: veltipe-6</annotation>
+		<annotation cp="👏🏻">hand | klap | liggaam | veltipe-1-2</annotation>
+		<annotation cp="👏🏻" type="tts">handeklap: veltipe-1-2</annotation>
+		<annotation cp="👏🏼">hand | klap | liggaam | veltipe-3</annotation>
+		<annotation cp="👏🏼" type="tts">handeklap: veltipe-3</annotation>
+		<annotation cp="👏🏽">hand | klap | liggaam | veltipe-4</annotation>
+		<annotation cp="👏🏽" type="tts">handeklap: veltipe-4</annotation>
+		<annotation cp="👏🏾">hand | klap | liggaam | veltipe-5</annotation>
+		<annotation cp="👏🏾" type="tts">handeklap: veltipe-5</annotation>
+		<annotation cp="👏🏿">hand | klap | liggaam | veltipe-6</annotation>
+		<annotation cp="👏🏿" type="tts">handeklap: veltipe-6</annotation>
+		<annotation cp="👐🏻">hand | liggaam | oop | veltipe-1-2</annotation>
+		<annotation cp="👐🏻" type="tts">oop hande: veltipe-1-2</annotation>
+		<annotation cp="👐🏼">hand | liggaam | oop | veltipe-3</annotation>
+		<annotation cp="👐🏼" type="tts">oop hande: veltipe-3</annotation>
+		<annotation cp="👐🏽">hand | liggaam | oop | veltipe-4</annotation>
+		<annotation cp="👐🏽" type="tts">oop hande: veltipe-4</annotation>
+		<annotation cp="👐🏾">hand | liggaam | oop | veltipe-5</annotation>
+		<annotation cp="👐🏾" type="tts">oop hande: veltipe-5</annotation>
+		<annotation cp="👐🏿">hand | liggaam | oop | veltipe-6</annotation>
+		<annotation cp="👐🏿" type="tts">oop hande: veltipe-6</annotation>
+		<annotation cp="🙌🏻">gebaar | hand | hoera | liggaam | omhoog | viering | veltipe-1-2</annotation>
+		<annotation cp="🙌🏻" type="tts">persoon met hande in die lug: veltipe-1-2</annotation>
+		<annotation cp="🙌🏼">gebaar | hand | hoera | liggaam | omhoog | viering | veltipe-3</annotation>
+		<annotation cp="🙌🏼" type="tts">persoon met hande in die lug: veltipe-3</annotation>
+		<annotation cp="🙌🏽">gebaar | hand | hoera | liggaam | omhoog | viering | veltipe-4</annotation>
+		<annotation cp="🙌🏽" type="tts">persoon met hande in die lug: veltipe-4</annotation>
+		<annotation cp="🙌🏾">gebaar | hand | hoera | liggaam | omhoog | viering | veltipe-5</annotation>
+		<annotation cp="🙌🏾" type="tts">persoon met hande in die lug: veltipe-5</annotation>
+		<annotation cp="🙌🏿">gebaar | hand | hoera | liggaam | omhoog | viering | veltipe-6</annotation>
+		<annotation cp="🙌🏿" type="tts">persoon met hande in die lug: veltipe-6</annotation>
+		<annotation cp="🙏🏻">asseblief | bid | buig | dankie | gebaar | gevou | hand | liggaam | vra | veltipe-1-2</annotation>
+		<annotation cp="🙏🏻" type="tts">gevoude hande: veltipe-1-2</annotation>
+		<annotation cp="🙏🏼">asseblief | bid | buig | dankie | gebaar | gevou | hand | liggaam | vra | veltipe-3</annotation>
+		<annotation cp="🙏🏼" type="tts">gevoude hande: veltipe-3</annotation>
+		<annotation cp="🙏🏽">asseblief | bid | buig | dankie | gebaar | gevou | hand | liggaam | vra | veltipe-4</annotation>
+		<annotation cp="🙏🏽" type="tts">gevoude hande: veltipe-4</annotation>
+		<annotation cp="🙏🏾">asseblief | bid | buig | dankie | gebaar | gevou | hand | liggaam | vra | veltipe-5</annotation>
+		<annotation cp="🙏🏾" type="tts">gevoude hande: veltipe-5</annotation>
+		<annotation cp="🙏🏿">asseblief | bid | buig | dankie | gebaar | gevou | hand | liggaam | vra | veltipe-6</annotation>
+		<annotation cp="🙏🏿" type="tts">gevoude hande: veltipe-6</annotation>
+		<annotation cp="💅🏻">kosmetiek | liggaam | manikuur | nael | verf | versorg | veltipe-1-2</annotation>
+		<annotation cp="💅🏻" type="tts">naellak: veltipe-1-2</annotation>
+		<annotation cp="💅🏼">kosmetiek | liggaam | manikuur | nael | verf | versorg | veltipe-3</annotation>
+		<annotation cp="💅🏼" type="tts">naellak: veltipe-3</annotation>
+		<annotation cp="💅🏽">kosmetiek | liggaam | manikuur | nael | verf | versorg | veltipe-4</annotation>
+		<annotation cp="💅🏽" type="tts">naellak: veltipe-4</annotation>
+		<annotation cp="💅🏾">kosmetiek | liggaam | manikuur | nael | verf | versorg | veltipe-5</annotation>
+		<annotation cp="💅🏾" type="tts">naellak: veltipe-5</annotation>
+		<annotation cp="💅🏿">kosmetiek | liggaam | manikuur | nael | verf | versorg | veltipe-6</annotation>
+		<annotation cp="💅🏿" type="tts">naellak: veltipe-6</annotation>
+		<annotation cp="👂🏻">liggaam | veltipe-1-2</annotation>
+		<annotation cp="👂🏻" type="tts">oor: veltipe-1-2</annotation>
+		<annotation cp="👂🏼">liggaam | veltipe-3</annotation>
+		<annotation cp="👂🏼" type="tts">oor: veltipe-3</annotation>
+		<annotation cp="👂🏽">liggaam | veltipe-4</annotation>
+		<annotation cp="👂🏽" type="tts">oor: veltipe-4</annotation>
+		<annotation cp="👂🏾">liggaam | veltipe-5</annotation>
+		<annotation cp="👂🏾" type="tts">oor: veltipe-5</annotation>
+		<annotation cp="👂🏿">liggaam | veltipe-6</annotation>
+		<annotation cp="👂🏿" type="tts">oor: veltipe-6</annotation>
+		<annotation cp="👃🏻">liggaam | veltipe-1-2</annotation>
+		<annotation cp="👃🏻" type="tts">neus: veltipe-1-2</annotation>
+		<annotation cp="👃🏼">liggaam | veltipe-3</annotation>
+		<annotation cp="👃🏼" type="tts">neus: veltipe-3</annotation>
+		<annotation cp="👃🏽">liggaam | veltipe-4</annotation>
+		<annotation cp="👃🏽" type="tts">neus: veltipe-4</annotation>
+		<annotation cp="👃🏾">liggaam | veltipe-5</annotation>
+		<annotation cp="👃🏾" type="tts">neus: veltipe-5</annotation>
+		<annotation cp="👃🏿">liggaam | veltipe-6</annotation>
+		<annotation cp="👃🏿" type="tts">neus: veltipe-6</annotation>
+		<annotation cp="#⃣">hekkie | hekkiemerker | nommer | sleutel</annotation>
+		<annotation cp="#⃣" type="tts">hekkiemerkersleutel</annotation>
+		<annotation cp="*⃣">asterisk | sleutel | ster</annotation>
+		<annotation cp="*⃣" type="tts">asterisksleutel</annotation>
+		<annotation cp="🇦🇨">vlag</annotation>
+		<annotation cp="🇦🇨" type="tts">Ascensioneiland</annotation>
+		<annotation cp="🇦🇩">vlag</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇪">vlag</annotation>
+		<annotation cp="🇦🇪" type="tts">Verenigde Arabiese Emirate</annotation>
+		<annotation cp="🇦🇫">vlag</annotation>
+		<annotation cp="🇦🇫" type="tts">Afganistan</annotation>
+		<annotation cp="🇦🇬">vlag</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua en Barbuda</annotation>
+		<annotation cp="🇦🇮">vlag</annotation>
+		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇱">vlag</annotation>
+		<annotation cp="🇦🇱" type="tts">Albanië</annotation>
+		<annotation cp="🇦🇲">vlag</annotation>
+		<annotation cp="🇦🇲" type="tts">Armenië</annotation>
+		<annotation cp="🇦🇴">vlag</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">vlag</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarktika</annotation>
+		<annotation cp="🇦🇷">vlag</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentinië</annotation>
+		<annotation cp="🇦🇸">vlag</annotation>
+		<annotation cp="🇦🇸" type="tts">Amerikaans-Samoa</annotation>
+		<annotation cp="🇦🇹">vlag</annotation>
+		<annotation cp="🇦🇹" type="tts">Oostenryk</annotation>
+		<annotation cp="🇦🇺">vlag</annotation>
+		<annotation cp="🇦🇺" type="tts">Australië</annotation>
+		<annotation cp="🇦🇼">vlag</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">vlag</annotation>
+		<annotation cp="🇦🇽" type="tts">Ålandeilande</annotation>
+		<annotation cp="🇦🇿">vlag</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbeidjan</annotation>
+		<annotation cp="🇧🇦">vlag</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosnië en Herzegowina</annotation>
+		<annotation cp="🇧🇧">vlag</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">vlag</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesj</annotation>
+		<annotation cp="🇧🇪">vlag</annotation>
+		<annotation cp="🇧🇪" type="tts">België</annotation>
+		<annotation cp="🇧🇫">vlag</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">vlag</annotation>
+		<annotation cp="🇧🇬" type="tts">Bulgarye</annotation>
+		<annotation cp="🇧🇭">vlag</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrein</annotation>
+		<annotation cp="🇧🇮">vlag</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">vlag</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">vlag</annotation>
+		<annotation cp="🇧🇱" type="tts">Sint Barthélemy</annotation>
+		<annotation cp="🇧🇲">vlag</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇳">vlag</annotation>
+		<annotation cp="🇧🇳" type="tts">Broenei</annotation>
+		<annotation cp="🇧🇴">vlag</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolivië</annotation>
+		<annotation cp="🇧🇶">vlag</annotation>
+		<annotation cp="🇧🇶" type="tts">Karibiese Nederland</annotation>
+		<annotation cp="🇧🇷">vlag</annotation>
+		<annotation cp="🇧🇷" type="tts">Brasilië</annotation>
+		<annotation cp="🇧🇸">vlag</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahamas</annotation>
+		<annotation cp="🇧🇹">vlag</annotation>
+		<annotation cp="🇧🇹" type="tts">Bhoetan</annotation>
+		<annotation cp="🇧🇻">vlag</annotation>
+		<annotation cp="🇧🇻" type="tts">Bouvet-eiland</annotation>
+		<annotation cp="🇧🇼">vlag</annotation>
+		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇾">vlag</annotation>
+		<annotation cp="🇧🇾" type="tts">Belarus</annotation>
+		<annotation cp="🇧🇿">vlag</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">vlag</annotation>
+		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇨">vlag</annotation>
+		<annotation cp="🇨🇨" type="tts">Kokos-eilande</annotation>
+		<annotation cp="🇨🇩">vlag</annotation>
+		<annotation cp="🇨🇩" type="tts">Demokratiese Republiek van die Kongo</annotation>
+		<annotation cp="🇨🇫">vlag</annotation>
+		<annotation cp="🇨🇫" type="tts">Sentraal-Afrikaanse Republiek</annotation>
+		<annotation cp="🇨🇬">vlag</annotation>
+		<annotation cp="🇨🇬" type="tts">Kongo - Brazzaville</annotation>
+		<annotation cp="🇨🇭">vlag</annotation>
+		<annotation cp="🇨🇭" type="tts">Switserland</annotation>
+		<annotation cp="🇨🇮">vlag</annotation>
+		<annotation cp="🇨🇮" type="tts">Ivoorkus</annotation>
+		<annotation cp="🇨🇰">vlag</annotation>
+		<annotation cp="🇨🇰" type="tts">Cookeilande</annotation>
+		<annotation cp="🇨🇱">vlag</annotation>
+		<annotation cp="🇨🇱" type="tts">Chili</annotation>
+		<annotation cp="🇨🇲">vlag</annotation>
+		<annotation cp="🇨🇲" type="tts">Kameroen</annotation>
+		<annotation cp="🇨🇳">vlag</annotation>
+		<annotation cp="🇨🇳" type="tts">Sjina</annotation>
+		<annotation cp="🇨🇴">vlag</annotation>
+		<annotation cp="🇨🇴" type="tts">Colombië</annotation>
+		<annotation cp="🇨🇵">vlag</annotation>
+		<annotation cp="🇨🇵" type="tts">Clippertoneiland</annotation>
+		<annotation cp="🇨🇷">vlag</annotation>
+		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇺">vlag</annotation>
+		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇻">vlag</annotation>
+		<annotation cp="🇨🇻" type="tts">Kaap Verde</annotation>
+		<annotation cp="🇨🇼">vlag</annotation>
+		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇽">vlag</annotation>
+		<annotation cp="🇨🇽" type="tts">Kerseiland</annotation>
+		<annotation cp="🇨🇾">vlag</annotation>
+		<annotation cp="🇨🇾" type="tts">Siprus</annotation>
+		<annotation cp="🇨🇿">vlag</annotation>
+		<annotation cp="🇨🇿" type="tts">Tjeggië</annotation>
+		<annotation cp="🇩🇪">vlag</annotation>
+		<annotation cp="🇩🇪" type="tts">Duitsland</annotation>
+		<annotation cp="🇩🇬">vlag</annotation>
+		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇯">vlag</annotation>
+		<annotation cp="🇩🇯" type="tts">Djiboeti</annotation>
+		<annotation cp="🇩🇰">vlag</annotation>
+		<annotation cp="🇩🇰" type="tts">Denemarke</annotation>
+		<annotation cp="🇩🇲">vlag</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇴">vlag</annotation>
+		<annotation cp="🇩🇴" type="tts">Dominikaanse Republiek</annotation>
+		<annotation cp="🇩🇿">vlag</annotation>
+		<annotation cp="🇩🇿" type="tts">Algerië</annotation>
+		<annotation cp="🇪🇦">vlag</annotation>
+		<annotation cp="🇪🇦" type="tts">Ceuta en Melilla</annotation>
+		<annotation cp="🇪🇨">vlag</annotation>
+		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇪">vlag</annotation>
+		<annotation cp="🇪🇪" type="tts">Estland</annotation>
+		<annotation cp="🇪🇬">vlag</annotation>
+		<annotation cp="🇪🇬" type="tts">Egipte</annotation>
+		<annotation cp="🇪🇭">vlag</annotation>
+		<annotation cp="🇪🇭" type="tts">Wes-Sahara</annotation>
+		<annotation cp="🇪🇷">vlag</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇸">vlag</annotation>
+		<annotation cp="🇪🇸" type="tts">Spanje</annotation>
+		<annotation cp="🇪🇹">vlag</annotation>
+		<annotation cp="🇪🇹" type="tts">Ethiopië</annotation>
+		<annotation cp="🇪🇺">vlag</annotation>
+		<annotation cp="🇪🇺" type="tts">Europese Unie</annotation>
+		<annotation cp="🇫🇮">vlag</annotation>
+		<annotation cp="🇫🇮" type="tts">Finland</annotation>
+		<annotation cp="🇫🇯">vlag</annotation>
+		<annotation cp="🇫🇯" type="tts">Fidji</annotation>
+		<annotation cp="🇫🇰">vlag</annotation>
+		<annotation cp="🇫🇰" type="tts">Falklandeilande</annotation>
+		<annotation cp="🇫🇲">vlag</annotation>
+		<annotation cp="🇫🇲" type="tts">Mikronesië</annotation>
+		<annotation cp="🇫🇴">vlag</annotation>
+		<annotation cp="🇫🇴" type="tts">Faroëreilande</annotation>
+		<annotation cp="🇫🇷">vlag</annotation>
+		<annotation cp="🇫🇷" type="tts">Frankryk</annotation>
+		<annotation cp="🇬🇦">vlag</annotation>
+		<annotation cp="🇬🇦" type="tts">Gaboen</annotation>
+		<annotation cp="🇬🇧">vlag</annotation>
+		<annotation cp="🇬🇧" type="tts">Verenigde Koninkryk</annotation>
+		<annotation cp="🇬🇩">vlag</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">vlag</annotation>
+		<annotation cp="🇬🇪" type="tts">Georgië</annotation>
+		<annotation cp="🇬🇫">vlag</annotation>
+		<annotation cp="🇬🇫" type="tts">Frans-Guyana</annotation>
+		<annotation cp="🇬🇬">vlag</annotation>
+		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇭">vlag</annotation>
+		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇮">vlag</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">vlag</annotation>
+		<annotation cp="🇬🇱" type="tts">Groenland</annotation>
+		<annotation cp="🇬🇲">vlag</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambië</annotation>
+		<annotation cp="🇬🇳">vlag</annotation>
+		<annotation cp="🇬🇳" type="tts">Guinee</annotation>
+		<annotation cp="🇬🇵">vlag</annotation>
+		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇶">vlag</annotation>
+		<annotation cp="🇬🇶" type="tts">Ekwatoriaal-Guinee</annotation>
+		<annotation cp="🇬🇷">vlag</annotation>
+		<annotation cp="🇬🇷" type="tts">Griekeland</annotation>
+		<annotation cp="🇬🇸">vlag</annotation>
+		<annotation cp="🇬🇸" type="tts">Suid-Georgië en die Suidelike Sandwicheilande</annotation>
+		<annotation cp="🇬🇹">vlag</annotation>
+		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇺">vlag</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">vlag</annotation>
+		<annotation cp="🇬🇼" type="tts">Guinee-Bissau</annotation>
+		<annotation cp="🇬🇾">vlag</annotation>
+		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇭🇰">vlag</annotation>
+		<annotation cp="🇭🇰" type="tts">Hongkong SAS Sjina</annotation>
+		<annotation cp="🇭🇲">vlag</annotation>
+		<annotation cp="🇭🇲" type="tts">Heard- en McDonaldeilande</annotation>
+		<annotation cp="🇭🇳">vlag</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">vlag</annotation>
+		<annotation cp="🇭🇷" type="tts">Kroasië</annotation>
+		<annotation cp="🇭🇹">vlag</annotation>
+		<annotation cp="🇭🇹" type="tts">Haïti</annotation>
+		<annotation cp="🇭🇺">vlag</annotation>
+		<annotation cp="🇭🇺" type="tts">Hongarye</annotation>
+		<annotation cp="🇮🇨">vlag</annotation>
+		<annotation cp="🇮🇨" type="tts">Kanariese Eilande</annotation>
+		<annotation cp="🇮🇩">vlag</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonesië</annotation>
+		<annotation cp="🇮🇪">vlag</annotation>
+		<annotation cp="🇮🇪" type="tts">Ierland</annotation>
+		<annotation cp="🇮🇱">vlag</annotation>
+		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇲">vlag</annotation>
+		<annotation cp="🇮🇲" type="tts">Eiland Man</annotation>
+		<annotation cp="🇮🇳">vlag</annotation>
+		<annotation cp="🇮🇳" type="tts">Indië</annotation>
+		<annotation cp="🇮🇴">vlag</annotation>
+		<annotation cp="🇮🇴" type="tts">Brits-Indiese Oseaangebied</annotation>
+		<annotation cp="🇮🇶">vlag</annotation>
+		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇷">vlag</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">vlag</annotation>
+		<annotation cp="🇮🇸" type="tts">Ysland</annotation>
+		<annotation cp="🇮🇹">vlag</annotation>
+		<annotation cp="🇮🇹" type="tts">Italië</annotation>
+		<annotation cp="🇯🇪">vlag</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇲">vlag</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamaika</annotation>
+		<annotation cp="🇯🇴">vlag</annotation>
+		<annotation cp="🇯🇴" type="tts">Jordanië</annotation>
+		<annotation cp="🇯🇵">vlag</annotation>
+		<annotation cp="🇯🇵" type="tts">Japan</annotation>
+		<annotation cp="🇰🇪">vlag</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenia</annotation>
+		<annotation cp="🇰🇬">vlag</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirgisië</annotation>
+		<annotation cp="🇰🇭">vlag</annotation>
+		<annotation cp="🇰🇭" type="tts">Kambodja</annotation>
+		<annotation cp="🇰🇮">vlag</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">vlag</annotation>
+		<annotation cp="🇰🇲" type="tts">Comore</annotation>
+		<annotation cp="🇰🇳">vlag</annotation>
+		<annotation cp="🇰🇳" type="tts">St. Kitts en Nevis</annotation>
+		<annotation cp="🇰🇵">vlag</annotation>
+		<annotation cp="🇰🇵" type="tts">Noord-Korea</annotation>
+		<annotation cp="🇰🇷">vlag</annotation>
+		<annotation cp="🇰🇷" type="tts">Suid-Korea</annotation>
+		<annotation cp="🇰🇼">vlag</annotation>
+		<annotation cp="🇰🇼" type="tts">Koeweit</annotation>
+		<annotation cp="🇰🇾">vlag</annotation>
+		<annotation cp="🇰🇾" type="tts">Kaaimanseilande</annotation>
+		<annotation cp="🇰🇿">vlag</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazakstan</annotation>
+		<annotation cp="🇱🇦">vlag</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">vlag</annotation>
+		<annotation cp="🇱🇧" type="tts">Libanon</annotation>
+		<annotation cp="🇱🇨">vlag</annotation>
+		<annotation cp="🇱🇨" type="tts">St. Lucia</annotation>
+		<annotation cp="🇱🇮">vlag</annotation>
+		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇰">vlag</annotation>
+		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇷">vlag</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberië</annotation>
+		<annotation cp="🇱🇸">vlag</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇹">vlag</annotation>
+		<annotation cp="🇱🇹" type="tts">Litaue</annotation>
+		<annotation cp="🇱🇺">vlag</annotation>
+		<annotation cp="🇱🇺" type="tts">Luxemburg</annotation>
+		<annotation cp="🇱🇻">vlag</annotation>
+		<annotation cp="🇱🇻" type="tts">Letland</annotation>
+		<annotation cp="🇱🇾">vlag</annotation>
+		<annotation cp="🇱🇾" type="tts">Libië</annotation>
+		<annotation cp="🇲🇦">vlag</annotation>
+		<annotation cp="🇲🇦" type="tts">Marokko</annotation>
+		<annotation cp="🇲🇨">vlag</annotation>
+		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇩">vlag</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldowa</annotation>
+		<annotation cp="🇲🇪">vlag</annotation>
+		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇫">vlag</annotation>
+		<annotation cp="🇲🇫" type="tts">St. Martin</annotation>
+		<annotation cp="🇲🇬">vlag</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇭">vlag</annotation>
+		<annotation cp="🇲🇭" type="tts">Marshalleilande</annotation>
+		<annotation cp="🇲🇰">vlag</annotation>
+		<annotation cp="🇲🇰" type="tts">Macedonië</annotation>
+		<annotation cp="🇲🇱">vlag</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">vlag</annotation>
+		<annotation cp="🇲🇲" type="tts">Mianmar (Birma)</annotation>
+		<annotation cp="🇲🇳">vlag</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolië</annotation>
+		<annotation cp="🇲🇴">vlag</annotation>
+		<annotation cp="🇲🇴" type="tts">Macau SAS Sjina</annotation>
+		<annotation cp="🇲🇵">vlag</annotation>
+		<annotation cp="🇲🇵" type="tts">Noord-Mariane-eilande</annotation>
+		<annotation cp="🇲🇶">vlag</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇷">vlag</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauritanië</annotation>
+		<annotation cp="🇲🇸">vlag</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">vlag</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">vlag</annotation>
+		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇻">vlag</annotation>
+		<annotation cp="🇲🇻" type="tts">Maledive</annotation>
+		<annotation cp="🇲🇼">vlag</annotation>
+		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇽">vlag</annotation>
+		<annotation cp="🇲🇽" type="tts">Meksiko</annotation>
+		<annotation cp="🇲🇾">vlag</annotation>
+		<annotation cp="🇲🇾" type="tts">Maleisië</annotation>
+		<annotation cp="🇲🇿">vlag</annotation>
+		<annotation cp="🇲🇿" type="tts">Mosambiek</annotation>
+		<annotation cp="🇳🇦">vlag</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibië</annotation>
+		<annotation cp="🇳🇨">vlag</annotation>
+		<annotation cp="🇳🇨" type="tts">Nieu-Kaledonië</annotation>
+		<annotation cp="🇳🇪">vlag</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">vlag</annotation>
+		<annotation cp="🇳🇫" type="tts">Norfolkeiland</annotation>
+		<annotation cp="🇳🇬">vlag</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigerië</annotation>
+		<annotation cp="🇳🇮">vlag</annotation>
+		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇱">vlag</annotation>
+		<annotation cp="🇳🇱" type="tts">Nederland</annotation>
+		<annotation cp="🇳🇴">vlag</annotation>
+		<annotation cp="🇳🇴" type="tts">Noorweë</annotation>
+		<annotation cp="🇳🇵">vlag</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">vlag</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">vlag</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">vlag</annotation>
+		<annotation cp="🇳🇿" type="tts">Nieu-Seeland</annotation>
+		<annotation cp="🇴🇲">vlag</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">vlag</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">vlag</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">vlag</annotation>
+		<annotation cp="🇵🇫" type="tts">Frans-Polinesië</annotation>
+		<annotation cp="🇵🇬">vlag</annotation>
+		<annotation cp="🇵🇬" type="tts">Papoea-Nieu-Guinee</annotation>
+		<annotation cp="🇵🇭">vlag</annotation>
+		<annotation cp="🇵🇭" type="tts">Filippyne</annotation>
+		<annotation cp="🇵🇰">vlag</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">vlag</annotation>
+		<annotation cp="🇵🇱" type="tts">Pole</annotation>
+		<annotation cp="🇵🇲">vlag</annotation>
+		<annotation cp="🇵🇲" type="tts">St. Pierre en Miquelon</annotation>
+		<annotation cp="🇵🇳">vlag</annotation>
+		<annotation cp="🇵🇳" type="tts">Pitcairneilande</annotation>
+		<annotation cp="🇵🇷">vlag</annotation>
+		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇸">vlag</annotation>
+		<annotation cp="🇵🇸" type="tts">Palestynse gebiede</annotation>
+		<annotation cp="🇵🇹">vlag</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇼">vlag</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">vlag</annotation>
+		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇶🇦">vlag</annotation>
+		<annotation cp="🇶🇦" type="tts">Katar</annotation>
+		<annotation cp="🇷🇪">vlag</annotation>
+		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇴">vlag</annotation>
+		<annotation cp="🇷🇴" type="tts">Roemenië</annotation>
+		<annotation cp="🇷🇸">vlag</annotation>
+		<annotation cp="🇷🇸" type="tts">Serwië</annotation>
+		<annotation cp="🇷🇺">vlag</annotation>
+		<annotation cp="🇷🇺" type="tts">Rusland</annotation>
+		<annotation cp="🇷🇼">vlag</annotation>
+		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇸🇦">vlag</annotation>
+		<annotation cp="🇸🇦" type="tts">Saoedi-Arabië</annotation>
+		<annotation cp="🇸🇧">vlag</annotation>
+		<annotation cp="🇸🇧" type="tts">Salomonseilande</annotation>
+		<annotation cp="🇸🇨">vlag</annotation>
+		<annotation cp="🇸🇨" type="tts">Seychelle</annotation>
+		<annotation cp="🇸🇩">vlag</annotation>
+		<annotation cp="🇸🇩" type="tts">Soedan</annotation>
+		<annotation cp="🇸🇪">vlag</annotation>
+		<annotation cp="🇸🇪" type="tts">Swede</annotation>
+		<annotation cp="🇸🇬">vlag</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapoer</annotation>
+		<annotation cp="🇸🇭">vlag</annotation>
+		<annotation cp="🇸🇭" type="tts">Sint Helena</annotation>
+		<annotation cp="🇸🇮">vlag</annotation>
+		<annotation cp="🇸🇮" type="tts">Slowenië</annotation>
+		<annotation cp="🇸🇯">vlag</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbard en Jan Mayen</annotation>
+		<annotation cp="🇸🇰">vlag</annotation>
+		<annotation cp="🇸🇰" type="tts">Slowakye</annotation>
+		<annotation cp="🇸🇱">vlag</annotation>
+		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇲">vlag</annotation>
+		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇳">vlag</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">vlag</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalië</annotation>
+		<annotation cp="🇸🇷">vlag</annotation>
+		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇸">vlag</annotation>
+		<annotation cp="🇸🇸" type="tts">Suid-Soedan</annotation>
+		<annotation cp="🇸🇹">vlag</annotation>
+		<annotation cp="🇸🇹" type="tts">São Tomé en Príncipe</annotation>
+		<annotation cp="🇸🇻">vlag</annotation>
+		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇽">vlag</annotation>
+		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇾">vlag</annotation>
+		<annotation cp="🇸🇾" type="tts">Sirië</annotation>
+		<annotation cp="🇸🇿">vlag</annotation>
+		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇹🇦">vlag</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇨">vlag</annotation>
+		<annotation cp="🇹🇨" type="tts">Turks- en Caicoseilande</annotation>
+		<annotation cp="🇹🇩">vlag</annotation>
+		<annotation cp="🇹🇩" type="tts">Tsjad</annotation>
+		<annotation cp="🇹🇫">vlag</annotation>
+		<annotation cp="🇹🇫" type="tts">Franse Suidelike Gebiede</annotation>
+		<annotation cp="🇹🇬">vlag</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">vlag</annotation>
+		<annotation cp="🇹🇭" type="tts">Thailand</annotation>
+		<annotation cp="🇹🇯">vlag</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadjikistan</annotation>
+		<annotation cp="🇹🇰">vlag</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">vlag</annotation>
+		<annotation cp="🇹🇱" type="tts">Oos-Timor</annotation>
+		<annotation cp="🇹🇲">vlag</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenië</annotation>
+		<annotation cp="🇹🇳">vlag</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunisië</annotation>
+		<annotation cp="🇹🇴">vlag</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">vlag</annotation>
+		<annotation cp="🇹🇷" type="tts">Turkye</annotation>
+		<annotation cp="🇹🇹">vlag</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidad en Tobago</annotation>
+		<annotation cp="🇹🇻">vlag</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">vlag</annotation>
+		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇿">vlag</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzanië</annotation>
+		<annotation cp="🇺🇦">vlag</annotation>
+		<annotation cp="🇺🇦" type="tts">Oekraïne</annotation>
+		<annotation cp="🇺🇬">vlag</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">vlag</annotation>
+		<annotation cp="🇺🇲" type="tts">VS klein omliggende eilande</annotation>
+		<annotation cp="🇺🇳">vlag</annotation>
+		<annotation cp="🇺🇳" type="tts">verenigde nasies</annotation>
+		<annotation cp="🇺🇸">vlag</annotation>
+		<annotation cp="🇺🇸" type="tts">Verenigde State van Amerika</annotation>
+		<annotation cp="🇺🇾">vlag</annotation>
+		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇿">vlag</annotation>
+		<annotation cp="🇺🇿" type="tts">Oesbekistan</annotation>
+		<annotation cp="🇻🇦">vlag</annotation>
+		<annotation cp="🇻🇦" type="tts">Vatikaanstad</annotation>
+		<annotation cp="🇻🇨">vlag</annotation>
+		<annotation cp="🇻🇨" type="tts">St. Vincent en die Grenadine</annotation>
+		<annotation cp="🇻🇪">vlag</annotation>
+		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇬">vlag</annotation>
+		<annotation cp="🇻🇬" type="tts">Britse Maagde-eilande</annotation>
+		<annotation cp="🇻🇮">vlag</annotation>
+		<annotation cp="🇻🇮" type="tts">Amerikaanse Maagde-eilande</annotation>
+		<annotation cp="🇻🇳">vlag</annotation>
+		<annotation cp="🇻🇳" type="tts">Viëtnam</annotation>
+		<annotation cp="🇻🇺">vlag</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">vlag</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis en Futuna</annotation>
+		<annotation cp="🇼🇸">vlag</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">vlag</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">vlag</annotation>
+		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇹">vlag</annotation>
+		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇿🇦">vlag</annotation>
+		<annotation cp="🇿🇦" type="tts">Suid-Afrika</annotation>
+		<annotation cp="🇿🇲">vlag</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambië</annotation>
+		<annotation cp="🇿🇼">vlag</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">vlag</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">Engeland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">vlag</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Skotland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">vlag</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+	</annotations>
+</ldml>

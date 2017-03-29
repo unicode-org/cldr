@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="sv"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | noll | tangent</annotation>
+		<annotation cp="0⃣" type="tts">tangent för siffran noll</annotation>
+		<annotation cp="1⃣">1 | en | ett | tangent</annotation>
+		<annotation cp="1⃣" type="tts">tangent för siffran ett</annotation>
+		<annotation cp="2⃣">2 | tangent | två</annotation>
+		<annotation cp="2⃣" type="tts">tangent för siffran två</annotation>
+		<annotation cp="3⃣">3 | tangent | tre</annotation>
+		<annotation cp="3⃣" type="tts">tangent för siffran tre</annotation>
+		<annotation cp="4⃣">4 | fyra | tangent</annotation>
+		<annotation cp="4⃣" type="tts">tangent för siffran fyra</annotation>
+		<annotation cp="5⃣">5 | fem | tangent</annotation>
+		<annotation cp="5⃣" type="tts">tangent för siffran fem</annotation>
+		<annotation cp="6⃣">6 | sex | tangent</annotation>
+		<annotation cp="6⃣" type="tts">tangent för siffran sex</annotation>
+		<annotation cp="7⃣">7 | sju | tangent</annotation>
+		<annotation cp="7⃣" type="tts">tangent för siffran sju</annotation>
+		<annotation cp="8⃣">8 | tangent | åtta</annotation>
+		<annotation cp="8⃣" type="tts">tangent för siffran åtta</annotation>
+		<annotation cp="9⃣">9 | nio | tangent</annotation>
+		<annotation cp="9⃣" type="tts">tangent för siffran nio</annotation>
+		<annotation cp="👶🏻">baby | människor | hudton 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">bebis: hudton 1–2</annotation>
+		<annotation cp="👶🏼">baby | människor | hudton 3</annotation>
+		<annotation cp="👶🏼" type="tts">bebis: hudton 3</annotation>
+		<annotation cp="👶🏽">baby | människor | hudton 4</annotation>
+		<annotation cp="👶🏽" type="tts">bebis: hudton 4</annotation>
+		<annotation cp="👶🏾">baby | människor | hudton 5</annotation>
+		<annotation cp="👶🏾" type="tts">bebis: hudton 5</annotation>
+		<annotation cp="👶🏿">baby | människor | hudton 6</annotation>
+		<annotation cp="👶🏿" type="tts">bebis: hudton 6</annotation>
+		<annotation cp="👦🏻">kille | människor | hudton 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">pojke: hudton 1–2</annotation>
+		<annotation cp="👦🏼">kille | människor | hudton 3</annotation>
+		<annotation cp="👦🏼" type="tts">pojke: hudton 3</annotation>
+		<annotation cp="👦🏽">kille | människor | hudton 4</annotation>
+		<annotation cp="👦🏽" type="tts">pojke: hudton 4</annotation>
+		<annotation cp="👦🏾">kille | människor | hudton 5</annotation>
+		<annotation cp="👦🏾" type="tts">pojke: hudton 5</annotation>
+		<annotation cp="👦🏿">kille | människor | hudton 6</annotation>
+		<annotation cp="👦🏿" type="tts">pojke: hudton 6</annotation>
+		<annotation cp="👧🏻">människor | tjej | hudton 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">flicka: hudton 1–2</annotation>
+		<annotation cp="👧🏼">människor | tjej | hudton 3</annotation>
+		<annotation cp="👧🏼" type="tts">flicka: hudton 3</annotation>
+		<annotation cp="👧🏽">människor | tjej | hudton 4</annotation>
+		<annotation cp="👧🏽" type="tts">flicka: hudton 4</annotation>
+		<annotation cp="👧🏾">människor | tjej | hudton 5</annotation>
+		<annotation cp="👧🏾" type="tts">flicka: hudton 5</annotation>
+		<annotation cp="👧🏿">människor | tjej | hudton 6</annotation>
+		<annotation cp="👧🏿" type="tts">flicka: hudton 6</annotation>
+		<annotation cp="👨🏻">människor | hudton 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">man: hudton 1–2</annotation>
+		<annotation cp="👨🏼">människor | hudton 3</annotation>
+		<annotation cp="👨🏼" type="tts">man: hudton 3</annotation>
+		<annotation cp="👨🏽">människor | hudton 4</annotation>
+		<annotation cp="👨🏽" type="tts">man: hudton 4</annotation>
+		<annotation cp="👨🏾">människor | hudton 5</annotation>
+		<annotation cp="👨🏾" type="tts">man: hudton 5</annotation>
+		<annotation cp="👨🏿">människor | hudton 6</annotation>
+		<annotation cp="👨🏿" type="tts">man: hudton 6</annotation>
+		<annotation cp="👩🏻">människor | hudton 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">kvinna: hudton 1–2</annotation>
+		<annotation cp="👩🏼">människor | hudton 3</annotation>
+		<annotation cp="👩🏼" type="tts">kvinna: hudton 3</annotation>
+		<annotation cp="👩🏽">människor | hudton 4</annotation>
+		<annotation cp="👩🏽" type="tts">kvinna: hudton 4</annotation>
+		<annotation cp="👩🏾">människor | hudton 5</annotation>
+		<annotation cp="👩🏾" type="tts">kvinna: hudton 5</annotation>
+		<annotation cp="👩🏿">människor | hudton 6</annotation>
+		<annotation cp="👩🏿" type="tts">kvinna: hudton 6</annotation>
+		<annotation cp="👴🏻">gammal | man | människor | hudton 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">äldre man: hudton 1–2</annotation>
+		<annotation cp="👴🏼">gammal | man | människor | hudton 3</annotation>
+		<annotation cp="👴🏼" type="tts">äldre man: hudton 3</annotation>
+		<annotation cp="👴🏽">gammal | man | människor | hudton 4</annotation>
+		<annotation cp="👴🏽" type="tts">äldre man: hudton 4</annotation>
+		<annotation cp="👴🏾">gammal | man | människor | hudton 5</annotation>
+		<annotation cp="👴🏾" type="tts">äldre man: hudton 5</annotation>
+		<annotation cp="👴🏿">gammal | man | människor | hudton 6</annotation>
+		<annotation cp="👴🏿" type="tts">äldre man: hudton 6</annotation>
+		<annotation cp="👵🏻">gammal | kvinna | människor | hudton 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">äldre kvinna: hudton 1–2</annotation>
+		<annotation cp="👵🏼">gammal | kvinna | människor | hudton 3</annotation>
+		<annotation cp="👵🏼" type="tts">äldre kvinna: hudton 3</annotation>
+		<annotation cp="👵🏽">gammal | kvinna | människor | hudton 4</annotation>
+		<annotation cp="👵🏽" type="tts">äldre kvinna: hudton 4</annotation>
+		<annotation cp="👵🏾">gammal | kvinna | människor | hudton 5</annotation>
+		<annotation cp="👵🏾" type="tts">äldre kvinna: hudton 5</annotation>
+		<annotation cp="👵🏿">gammal | kvinna | människor | hudton 6</annotation>
+		<annotation cp="👵🏿" type="tts">äldre kvinna: hudton 6</annotation>
+		<annotation cp="👨🏻‍⚕">doktor | hälsovård | läkare | man | manlig | skötare | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">manlig läkare: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">doktor | hälsovård | läkare | man | manlig | skötare | hudton 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">manlig läkare: hudton 3</annotation>
+		<annotation cp="👨🏽‍⚕">doktor | hälsovård | läkare | man | manlig | skötare | hudton 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">manlig läkare: hudton 4</annotation>
+		<annotation cp="👨🏾‍⚕">doktor | hälsovård | läkare | man | manlig | skötare | hudton 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">manlig läkare: hudton 5</annotation>
+		<annotation cp="👨🏿‍⚕">doktor | hälsovård | läkare | man | manlig | skötare | hudton 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">manlig läkare: hudton 6</annotation>
+		<annotation cp="👩🏻‍⚕">doktor | hälsovård | kvinna | kvinnlig | läkare | skötare | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">kvinnlig läkare: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">doktor | hälsovård | kvinna | kvinnlig | läkare | skötare | hudton 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">kvinnlig läkare: hudton 3</annotation>
+		<annotation cp="👩🏽‍⚕">doktor | hälsovård | kvinna | kvinnlig | läkare | skötare | hudton 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">kvinnlig läkare: hudton 4</annotation>
+		<annotation cp="👩🏾‍⚕">doktor | hälsovård | kvinna | kvinnlig | läkare | skötare | hudton 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">kvinnlig läkare: hudton 5</annotation>
+		<annotation cp="👩🏿‍⚕">doktor | hälsovård | kvinna | kvinnlig | läkare | skötare | hudton 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">kvinnlig läkare: hudton 6</annotation>
+		<annotation cp="👨🏻‍🎓">man | manlig | student | studerande | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">manlig student: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">man | manlig | student | studerande | hudton 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">manlig student: hudton 3</annotation>
+		<annotation cp="👨🏽‍🎓">man | manlig | student | studerande | hudton 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">manlig student: hudton 4</annotation>
+		<annotation cp="👨🏾‍🎓">man | manlig | student | studerande | hudton 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">manlig student: hudton 5</annotation>
+		<annotation cp="👨🏿‍🎓">man | manlig | student | studerande | hudton 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">manlig student: hudton 6</annotation>
+		<annotation cp="👩🏻‍🎓">kvinna | kvinnlig | student | studerande | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">kvinnlig student: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">kvinna | kvinnlig | student | studerande | hudton 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">kvinnlig student: hudton 3</annotation>
+		<annotation cp="👩🏽‍🎓">kvinna | kvinnlig | student | studerande | hudton 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">kvinnlig student: hudton 4</annotation>
+		<annotation cp="👩🏾‍🎓">kvinna | kvinnlig | student | studerande | hudton 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">kvinnlig student: hudton 5</annotation>
+		<annotation cp="👩🏿‍🎓">kvinna | kvinnlig | student | studerande | hudton 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">kvinnlig student: hudton 6</annotation>
+		<annotation cp="👨🏻‍🏫">instruktör | lärare | man | manlig | professor | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">manlig lärare: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">instruktör | lärare | man | manlig | professor | hudton 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">manlig lärare: hudton 3</annotation>
+		<annotation cp="👨🏽‍🏫">instruktör | lärare | man | manlig | professor | hudton 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">manlig lärare: hudton 4</annotation>
+		<annotation cp="👨🏾‍🏫">instruktör | lärare | man | manlig | professor | hudton 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">manlig lärare: hudton 5</annotation>
+		<annotation cp="👨🏿‍🏫">instruktör | lärare | man | manlig | professor | hudton 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">manlig lärare: hudton 6</annotation>
+		<annotation cp="👩🏻‍🏫">instruktör | kvinna | kvinnlig | lärarinna | professor | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">kvinnlig lärare: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">instruktör | kvinna | kvinnlig | lärarinna | professor | hudton 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">kvinnlig lärare: hudton 3</annotation>
+		<annotation cp="👩🏽‍🏫">instruktör | kvinna | kvinnlig | lärarinna | professor | hudton 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">kvinnlig lärare: hudton 4</annotation>
+		<annotation cp="👩🏾‍🏫">instruktör | kvinna | kvinnlig | lärarinna | professor | hudton 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">kvinnlig lärare: hudton 5</annotation>
+		<annotation cp="👩🏿‍🏫">instruktör | kvinna | kvinnlig | lärarinna | professor | hudton 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">kvinnlig lärare: hudton 6</annotation>
+		<annotation cp="👨🏻‍⚖">advokat | jurist | man | manlig | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">manlig domare: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">advokat | jurist | man | manlig | hudton 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">manlig domare: hudton 3</annotation>
+		<annotation cp="👨🏽‍⚖">advokat | jurist | man | manlig | hudton 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">manlig domare: hudton 4</annotation>
+		<annotation cp="👨🏾‍⚖">advokat | jurist | man | manlig | hudton 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">manlig domare: hudton 5</annotation>
+		<annotation cp="👨🏿‍⚖">advokat | jurist | man | manlig | hudton 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">manlig domare: hudton 6</annotation>
+		<annotation cp="👩🏻‍⚖">advokat | jurist | kvinna | kvinnlig | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">kvinnlig domare: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">advokat | jurist | kvinna | kvinnlig | hudton 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">kvinnlig domare: hudton 3</annotation>
+		<annotation cp="👩🏽‍⚖">advokat | jurist | kvinna | kvinnlig | hudton 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">kvinnlig domare: hudton 4</annotation>
+		<annotation cp="👩🏾‍⚖">advokat | jurist | kvinna | kvinnlig | hudton 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">kvinnlig domare: hudton 5</annotation>
+		<annotation cp="👩🏿‍⚖">advokat | jurist | kvinna | kvinnlig | hudton 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">kvinnlig domare: hudton 6</annotation>
+		<annotation cp="👨🏻‍🌾">bonde | jordbruk | man | trädgårdsmästare | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">manlig bonde: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">bonde | jordbruk | man | trädgårdsmästare | hudton 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">manlig bonde: hudton 3</annotation>
+		<annotation cp="👨🏽‍🌾">bonde | jordbruk | man | trädgårdsmästare | hudton 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">manlig bonde: hudton 4</annotation>
+		<annotation cp="👨🏾‍🌾">bonde | jordbruk | man | trädgårdsmästare | hudton 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">manlig bonde: hudton 5</annotation>
+		<annotation cp="👨🏿‍🌾">bonde | jordbruk | man | trädgårdsmästare | hudton 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">manlig bonde: hudton 6</annotation>
+		<annotation cp="👩🏻‍🌾">bonde | jordbruk | kvinna | trädgårdsmästare | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">kvinnlig bonde: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">bonde | jordbruk | kvinna | trädgårdsmästare | hudton 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">kvinnlig bonde: hudton 3</annotation>
+		<annotation cp="👩🏽‍🌾">bonde | jordbruk | kvinna | trädgårdsmästare | hudton 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">kvinnlig bonde: hudton 4</annotation>
+		<annotation cp="👩🏾‍🌾">bonde | jordbruk | kvinna | trädgårdsmästare | hudton 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">kvinnlig bonde: hudton 5</annotation>
+		<annotation cp="👩🏿‍🌾">bonde | jordbruk | kvinna | trädgårdsmästare | hudton 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">kvinnlig bonde: hudton 6</annotation>
+		<annotation cp="👨🏻‍🍳">man | matlagning | restaurang | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">manlig kock: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">man | matlagning | restaurang | hudton 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">manlig kock: hudton 3</annotation>
+		<annotation cp="👨🏽‍🍳">man | matlagning | restaurang | hudton 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">manlig kock: hudton 4</annotation>
+		<annotation cp="👨🏾‍🍳">man | matlagning | restaurang | hudton 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">manlig kock: hudton 5</annotation>
+		<annotation cp="👨🏿‍🍳">man | matlagning | restaurang | hudton 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">manlig kock: hudton 6</annotation>
+		<annotation cp="👩🏻‍🍳">kvinna | matlaging | restaurang | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">kvinnlig kock: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">kvinna | matlaging | restaurang | hudton 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">kvinnlig kock: hudton 3</annotation>
+		<annotation cp="👩🏽‍🍳">kvinna | matlaging | restaurang | hudton 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">kvinnlig kock: hudton 4</annotation>
+		<annotation cp="👩🏾‍🍳">kvinna | matlaging | restaurang | hudton 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">kvinnlig kock: hudton 5</annotation>
+		<annotation cp="👩🏿‍🍳">kvinna | matlaging | restaurang | hudton 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">kvinnlig kock: hudton 6</annotation>
+		<annotation cp="👨🏻‍🔧">bil | man | mekaniker | motor | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">manlig mekaniker: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">bil | man | mekaniker | motor | hudton 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">manlig mekaniker: hudton 3</annotation>
+		<annotation cp="👨🏽‍🔧">bil | man | mekaniker | motor | hudton 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">manlig mekaniker: hudton 4</annotation>
+		<annotation cp="👨🏾‍🔧">bil | man | mekaniker | motor | hudton 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">manlig mekaniker: hudton 5</annotation>
+		<annotation cp="👨🏿‍🔧">bil | man | mekaniker | motor | hudton 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">manlig mekaniker: hudton 6</annotation>
+		<annotation cp="👩🏻‍🔧">bil | kvinna | mekaniker | motor | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">kvinnlig mekaniker: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">bil | kvinna | mekaniker | motor | hudton 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">kvinnlig mekaniker: hudton 3</annotation>
+		<annotation cp="👩🏽‍🔧">bil | kvinna | mekaniker | motor | hudton 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">kvinnlig mekaniker: hudton 4</annotation>
+		<annotation cp="👩🏾‍🔧">bil | kvinna | mekaniker | motor | hudton 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">kvinnlig mekaniker: hudton 5</annotation>
+		<annotation cp="👩🏿‍🔧">bil | kvinna | mekaniker | motor | hudton 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">kvinnlig mekaniker: hudton 6</annotation>
+		<annotation cp="👨🏻‍🏭">fabrik | industri | man | produktion | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">manlig fabriksarbetare: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">fabrik | industri | man | produktion | hudton 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">manlig fabriksarbetare: hudton 3</annotation>
+		<annotation cp="👨🏽‍🏭">fabrik | industri | man | produktion | hudton 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">manlig fabriksarbetare: hudton 4</annotation>
+		<annotation cp="👨🏾‍🏭">fabrik | industri | man | produktion | hudton 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">manlig fabriksarbetare: hudton 5</annotation>
+		<annotation cp="👨🏿‍🏭">fabrik | industri | man | produktion | hudton 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">manlig fabriksarbetare: hudton 6</annotation>
+		<annotation cp="👩🏻‍🏭">fabrik | industri | kvinna | produktion | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">kvinnlig fabriksarbetare: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">fabrik | industri | kvinna | produktion | hudton 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">kvinnlig fabriksarbetare: hudton 3</annotation>
+		<annotation cp="👩🏽‍🏭">fabrik | industri | kvinna | produktion | hudton 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">kvinnlig fabriksarbetare: hudton 4</annotation>
+		<annotation cp="👩🏾‍🏭">fabrik | industri | kvinna | produktion | hudton 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">kvinnlig fabriksarbetare: hudton 5</annotation>
+		<annotation cp="👩🏿‍🏭">fabrik | industri | kvinna | produktion | hudton 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">kvinnlig fabriksarbetare: hudton 6</annotation>
+		<annotation cp="👨🏻‍💼">chef | kontor | man | näringsliv | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">kontorstjänsteman: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍💼">chef | kontor | man | näringsliv | hudton 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">kontorstjänsteman: hudton 3</annotation>
+		<annotation cp="👨🏽‍💼">chef | kontor | man | näringsliv | hudton 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">kontorstjänsteman: hudton 4</annotation>
+		<annotation cp="👨🏾‍💼">chef | kontor | man | näringsliv | hudton 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">kontorstjänsteman: hudton 5</annotation>
+		<annotation cp="👨🏿‍💼">chef | kontor | man | näringsliv | hudton 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">kontorstjänsteman: hudton 6</annotation>
+		<annotation cp="👩🏻‍💼">chef | kontor | kvinna | näringsliv | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">kontorstjänstekvinna: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍💼">chef | kontor | kvinna | näringsliv | hudton 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">kontorstjänstekvinna: hudton 3</annotation>
+		<annotation cp="👩🏽‍💼">chef | kontor | kvinna | näringsliv | hudton 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">kontorstjänstekvinna: hudton 4</annotation>
+		<annotation cp="👩🏾‍💼">chef | kontor | kvinna | näringsliv | hudton 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">kontorstjänstekvinna: hudton 5</annotation>
+		<annotation cp="👩🏿‍💼">chef | kontor | kvinna | näringsliv | hudton 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">kontorstjänstekvinna: hudton 6</annotation>
+		<annotation cp="👨🏻‍🔬">kemi | laboratorium | man | vetenskap | vetenskapsman | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">manlig forskare: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">kemi | laboratorium | man | vetenskap | vetenskapsman | hudton 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">manlig forskare: hudton 3</annotation>
+		<annotation cp="👨🏽‍🔬">kemi | laboratorium | man | vetenskap | vetenskapsman | hudton 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">manlig forskare: hudton 4</annotation>
+		<annotation cp="👨🏾‍🔬">kemi | laboratorium | man | vetenskap | vetenskapsman | hudton 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">manlig forskare: hudton 5</annotation>
+		<annotation cp="👨🏿‍🔬">kemi | laboratorium | man | vetenskap | vetenskapsman | hudton 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">manlig forskare: hudton 6</annotation>
+		<annotation cp="👩🏻‍🔬">kemi | kvinna | laboratorium | vetenskap | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">kvinnlig forskare: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">kemi | kvinna | laboratorium | vetenskap | hudton 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">kvinnlig forskare: hudton 3</annotation>
+		<annotation cp="👩🏽‍🔬">kemi | kvinna | laboratorium | vetenskap | hudton 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">kvinnlig forskare: hudton 4</annotation>
+		<annotation cp="👩🏾‍🔬">kemi | kvinna | laboratorium | vetenskap | hudton 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">kvinnlig forskare: hudton 5</annotation>
+		<annotation cp="👩🏿‍🔬">kemi | kvinna | laboratorium | vetenskap | hudton 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">kvinnlig forskare: hudton 6</annotation>
+		<annotation cp="👨🏻‍💻">IT | data | man | teknologi | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">manlig IT-expert: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍💻">IT | data | man | teknologi | hudton 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">manlig IT-expert: hudton 3</annotation>
+		<annotation cp="👨🏽‍💻">IT | data | man | teknologi | hudton 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">manlig IT-expert: hudton 4</annotation>
+		<annotation cp="👨🏾‍💻">IT | data | man | teknologi | hudton 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">manlig IT-expert: hudton 5</annotation>
+		<annotation cp="👨🏿‍💻">IT | data | man | teknologi | hudton 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">manlig IT-expert: hudton 6</annotation>
+		<annotation cp="👩🏻‍💻">IT | data | kvinna | teknologi | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">kvinnlig IT-expert: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍💻">IT | data | kvinna | teknologi | hudton 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">kvinnlig IT-expert: hudton 3</annotation>
+		<annotation cp="👩🏽‍💻">IT | data | kvinna | teknologi | hudton 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">kvinnlig IT-expert: hudton 4</annotation>
+		<annotation cp="👩🏾‍💻">IT | data | kvinna | teknologi | hudton 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">kvinnlig IT-expert: hudton 5</annotation>
+		<annotation cp="👩🏿‍💻">IT | data | kvinna | teknologi | hudton 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">kvinnlig IT-expert: hudton 6</annotation>
+		<annotation cp="👨🏻‍🎤">artist | konsert | kändis | man | stjärna | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">manlig sångare: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">artist | konsert | kändis | man | stjärna | hudton 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">manlig sångare: hudton 3</annotation>
+		<annotation cp="👨🏽‍🎤">artist | konsert | kändis | man | stjärna | hudton 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">manlig sångare: hudton 4</annotation>
+		<annotation cp="👨🏾‍🎤">artist | konsert | kändis | man | stjärna | hudton 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">manlig sångare: hudton 5</annotation>
+		<annotation cp="👨🏿‍🎤">artist | konsert | kändis | man | stjärna | hudton 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">manlig sångare: hudton 6</annotation>
+		<annotation cp="👩🏻‍🎤">artist | konsert | kvinna | kändis | stjärna | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">kvinnlig sångare: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">artist | konsert | kvinna | kändis | stjärna | hudton 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">kvinnlig sångare: hudton 3</annotation>
+		<annotation cp="👩🏽‍🎤">artist | konsert | kvinna | kändis | stjärna | hudton 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">kvinnlig sångare: hudton 4</annotation>
+		<annotation cp="👩🏾‍🎤">artist | konsert | kvinna | kändis | stjärna | hudton 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">kvinnlig sångare: hudton 5</annotation>
+		<annotation cp="👩🏿‍🎤">artist | konsert | kvinna | kändis | stjärna | hudton 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">kvinnlig sångare: hudton 6</annotation>
+		<annotation cp="👨🏻‍🎨">man | målare | palett | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">manlig konstnär: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">man | målare | palett | hudton 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">manlig konstnär: hudton 3</annotation>
+		<annotation cp="👨🏽‍🎨">man | målare | palett | hudton 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">manlig konstnär: hudton 4</annotation>
+		<annotation cp="👨🏾‍🎨">man | målare | palett | hudton 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">manlig konstnär: hudton 5</annotation>
+		<annotation cp="👨🏿‍🎨">man | målare | palett | hudton 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">manlig konstnär: hudton 6</annotation>
+		<annotation cp="👩🏻‍🎨">kvinna | målare | palett | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">kvinnlig konstnär: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">kvinna | målare | palett | hudton 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">kvinnlig konstnär: hudton 3</annotation>
+		<annotation cp="👩🏽‍🎨">kvinna | målare | palett | hudton 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">kvinnlig konstnär: hudton 4</annotation>
+		<annotation cp="👩🏾‍🎨">kvinna | målare | palett | hudton 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">kvinnlig konstnär: hudton 5</annotation>
+		<annotation cp="👩🏿‍🎨">kvinna | målare | palett | hudton 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">kvinnlig konstnär: hudton 6</annotation>
+		<annotation cp="👨🏻‍✈">flyga | man | pilot | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">manlig pilot: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍✈">flyga | man | pilot | hudton 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">manlig pilot: hudton 3</annotation>
+		<annotation cp="👨🏽‍✈">flyga | man | pilot | hudton 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">manlig pilot: hudton 4</annotation>
+		<annotation cp="👨🏾‍✈">flyga | man | pilot | hudton 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">manlig pilot: hudton 5</annotation>
+		<annotation cp="👨🏿‍✈">flyga | man | pilot | hudton 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">manlig pilot: hudton 6</annotation>
+		<annotation cp="👩🏻‍✈">flyga | kvinna | pilot | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">kvinnlig pilot: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍✈">flyga | kvinna | pilot | hudton 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">kvinnlig pilot: hudton 3</annotation>
+		<annotation cp="👩🏽‍✈">flyga | kvinna | pilot | hudton 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">kvinnlig pilot: hudton 4</annotation>
+		<annotation cp="👩🏾‍✈">flyga | kvinna | pilot | hudton 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">kvinnlig pilot: hudton 5</annotation>
+		<annotation cp="👩🏿‍✈">flyga | kvinna | pilot | hudton 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">kvinnlig pilot: hudton 6</annotation>
+		<annotation cp="👨🏻‍🚀">astronaut | man | rymden | rymdfart | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">manlig astronaut: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">astronaut | man | rymden | rymdfart | hudton 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">manlig astronaut: hudton 3</annotation>
+		<annotation cp="👨🏽‍🚀">astronaut | man | rymden | rymdfart | hudton 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">manlig astronaut: hudton 4</annotation>
+		<annotation cp="👨🏾‍🚀">astronaut | man | rymden | rymdfart | hudton 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">manlig astronaut: hudton 5</annotation>
+		<annotation cp="👨🏿‍🚀">astronaut | man | rymden | rymdfart | hudton 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">manlig astronaut: hudton 6</annotation>
+		<annotation cp="👩🏻‍🚀">astronaut | kvinna | rymden | rymdfart | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">kvinnlig astronaut: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">astronaut | kvinna | rymden | rymdfart | hudton 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">kvinnlig astronaut: hudton 3</annotation>
+		<annotation cp="👩🏽‍🚀">astronaut | kvinna | rymden | rymdfart | hudton 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">kvinnlig astronaut: hudton 4</annotation>
+		<annotation cp="👩🏾‍🚀">astronaut | kvinna | rymden | rymdfart | hudton 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">kvinnlig astronaut: hudton 5</annotation>
+		<annotation cp="👩🏿‍🚀">astronaut | kvinna | rymden | rymdfart | hudton 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">kvinnlig astronaut: hudton 6</annotation>
+		<annotation cp="👨🏻‍🚒">brandbil | brandväsendet | man | hudton 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">brandman: hudton 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">brandbil | brandväsendet | man | hudton 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">brandman: hudton 3</annotation>
+		<annotation cp="👨🏽‍🚒">brandbil | brandväsendet | man | hudton 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">brandman: hudton 4</annotation>
+		<annotation cp="👨🏾‍🚒">brandbil | brandväsendet | man | hudton 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">brandman: hudton 5</annotation>
+		<annotation cp="👨🏿‍🚒">brandbil | brandväsendet | man | hudton 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">brandman: hudton 6</annotation>
+		<annotation cp="👩🏻‍🚒">brandbil | brandväsendet | kvinna | hudton 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">kvinnlig brandman: hudton 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">brandbil | brandväsendet | kvinna | hudton 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">kvinnlig brandman: hudton 3</annotation>
+		<annotation cp="👩🏽‍🚒">brandbil | brandväsendet | kvinna | hudton 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">kvinnlig brandman: hudton 4</annotation>
+		<annotation cp="👩🏾‍🚒">brandbil | brandväsendet | kvinna | hudton 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">kvinnlig brandman: hudton 5</annotation>
+		<annotation cp="👩🏿‍🚒">brandbil | brandväsendet | kvinna | hudton 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">kvinnlig brandman: hudton 6</annotation>
+		<annotation cp="👮🏻">människor | hudton 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">polis: hudton 1–2</annotation>
+		<annotation cp="👮🏼">människor | hudton 3</annotation>
+		<annotation cp="👮🏼" type="tts">polis: hudton 3</annotation>
+		<annotation cp="👮🏽">människor | hudton 4</annotation>
+		<annotation cp="👮🏽" type="tts">polis: hudton 4</annotation>
+		<annotation cp="👮🏾">människor | hudton 5</annotation>
+		<annotation cp="👮🏾" type="tts">polis: hudton 5</annotation>
+		<annotation cp="👮🏿">människor | hudton 6</annotation>
+		<annotation cp="👮🏿" type="tts">polis: hudton 6</annotation>
+		<annotation cp="👮🏻‍♂">konstapel | lagen | man | polisman | hudton 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">manlig polis: hudton 1–2</annotation>
+		<annotation cp="👮🏼‍♂">konstapel | lagen | man | polisman | hudton 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">manlig polis: hudton 3</annotation>
+		<annotation cp="👮🏽‍♂">konstapel | lagen | man | polisman | hudton 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">manlig polis: hudton 4</annotation>
+		<annotation cp="👮🏾‍♂">konstapel | lagen | man | polisman | hudton 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">manlig polis: hudton 5</annotation>
+		<annotation cp="👮🏿‍♂">konstapel | lagen | man | polisman | hudton 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">manlig polis: hudton 6</annotation>
+		<annotation cp="👮🏻‍♀">konstapel | kvinna | lagen | polis | hudton 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">kvinnlig polis: hudton 1–2</annotation>
+		<annotation cp="👮🏼‍♀">konstapel | kvinna | lagen | polis | hudton 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">kvinnlig polis: hudton 3</annotation>
+		<annotation cp="👮🏽‍♀">konstapel | kvinna | lagen | polis | hudton 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">kvinnlig polis: hudton 4</annotation>
+		<annotation cp="👮🏾‍♀">konstapel | kvinna | lagen | polis | hudton 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">kvinnlig polis: hudton 5</annotation>
+		<annotation cp="👮🏿‍♀">konstapel | kvinna | lagen | polis | hudton 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">kvinnlig polis: hudton 6</annotation>
+		<annotation cp="🕵🏻">människor | hudton 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">detektiv: hudton 1–2</annotation>
+		<annotation cp="🕵🏼">människor | hudton 3</annotation>
+		<annotation cp="🕵🏼" type="tts">detektiv: hudton 3</annotation>
+		<annotation cp="🕵🏽">människor | hudton 4</annotation>
+		<annotation cp="🕵🏽" type="tts">detektiv: hudton 4</annotation>
+		<annotation cp="🕵🏾">människor | hudton 5</annotation>
+		<annotation cp="🕵🏾" type="tts">detektiv: hudton 5</annotation>
+		<annotation cp="🕵🏿">människor | hudton 6</annotation>
+		<annotation cp="🕵🏿" type="tts">detektiv: hudton 6</annotation>
+		<annotation cp="🕵🏻‍♂">kommissarie | man | privatdetektiv | spanare | hudton 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">manlig detektiv: hudton 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">kommissarie | man | privatdetektiv | spanare | hudton 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">manlig detektiv: hudton 3</annotation>
+		<annotation cp="🕵🏽‍♂">kommissarie | man | privatdetektiv | spanare | hudton 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">manlig detektiv: hudton 4</annotation>
+		<annotation cp="🕵🏾‍♂">kommissarie | man | privatdetektiv | spanare | hudton 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">manlig detektiv: hudton 5</annotation>
+		<annotation cp="🕵🏿‍♂">kommissarie | man | privatdetektiv | spanare | hudton 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">manlig detektiv: hudton 6</annotation>
+		<annotation cp="🕵🏻‍♀">kommissarie | kvinna | privatdetektiv | spanare | hudton 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">kvinnlig detektiv: hudton 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">kommissarie | kvinna | privatdetektiv | spanare | hudton 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">kvinnlig detektiv: hudton 3</annotation>
+		<annotation cp="🕵🏽‍♀">kommissarie | kvinna | privatdetektiv | spanare | hudton 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">kvinnlig detektiv: hudton 4</annotation>
+		<annotation cp="🕵🏾‍♀">kommissarie | kvinna | privatdetektiv | spanare | hudton 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">kvinnlig detektiv: hudton 5</annotation>
+		<annotation cp="🕵🏿‍♀">kommissarie | kvinna | privatdetektiv | spanare | hudton 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">kvinnlig detektiv: hudton 6</annotation>
+		<annotation cp="💂🏻">människor | hudton 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">vakt: hudton 1–2</annotation>
+		<annotation cp="💂🏼">människor | hudton 3</annotation>
+		<annotation cp="💂🏼" type="tts">vakt: hudton 3</annotation>
+		<annotation cp="💂🏽">människor | hudton 4</annotation>
+		<annotation cp="💂🏽" type="tts">vakt: hudton 4</annotation>
+		<annotation cp="💂🏾">människor | hudton 5</annotation>
+		<annotation cp="💂🏾" type="tts">vakt: hudton 5</annotation>
+		<annotation cp="💂🏿">människor | hudton 6</annotation>
+		<annotation cp="💂🏿" type="tts">vakt: hudton 6</annotation>
+		<annotation cp="💂🏻‍♂">man | vaktbyte | vaktparad | hudton 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">manlig vakt: hudton 1–2</annotation>
+		<annotation cp="💂🏼‍♂">man | vaktbyte | vaktparad | hudton 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">manlig vakt: hudton 3</annotation>
+		<annotation cp="💂🏽‍♂">man | vaktbyte | vaktparad | hudton 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">manlig vakt: hudton 4</annotation>
+		<annotation cp="💂🏾‍♂">man | vaktbyte | vaktparad | hudton 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">manlig vakt: hudton 5</annotation>
+		<annotation cp="💂🏿‍♂">man | vaktbyte | vaktparad | hudton 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">manlig vakt: hudton 6</annotation>
+		<annotation cp="💂🏻‍♀">kvinna | vaktbyte | vaktparad | hudton 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">kvinnlig vakt: hudton 1–2</annotation>
+		<annotation cp="💂🏼‍♀">kvinna | vaktbyte | vaktparad | hudton 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">kvinnlig vakt: hudton 3</annotation>
+		<annotation cp="💂🏽‍♀">kvinna | vaktbyte | vaktparad | hudton 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">kvinnlig vakt: hudton 4</annotation>
+		<annotation cp="💂🏾‍♀">kvinna | vaktbyte | vaktparad | hudton 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">kvinnlig vakt: hudton 5</annotation>
+		<annotation cp="💂🏿‍♀">kvinna | vaktbyte | vaktparad | hudton 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">kvinnlig vakt: hudton 6</annotation>
+		<annotation cp="👷🏻">arbetare | människor | hudton 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">byggarbetare: hudton 1–2</annotation>
+		<annotation cp="👷🏼">arbetare | människor | hudton 3</annotation>
+		<annotation cp="👷🏼" type="tts">byggarbetare: hudton 3</annotation>
+		<annotation cp="👷🏽">arbetare | människor | hudton 4</annotation>
+		<annotation cp="👷🏽" type="tts">byggarbetare: hudton 4</annotation>
+		<annotation cp="👷🏾">arbetare | människor | hudton 5</annotation>
+		<annotation cp="👷🏾" type="tts">byggarbetare: hudton 5</annotation>
+		<annotation cp="👷🏿">arbetare | människor | hudton 6</annotation>
+		<annotation cp="👷🏿" type="tts">byggarbetare: hudton 6</annotation>
+		<annotation cp="👷🏻‍♂">bygge | ingenjör | man | hudton 1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">manlig byggarbetare: hudton 1–2</annotation>
+		<annotation cp="👷🏼‍♂">bygge | ingenjör | man | hudton 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">manlig byggarbetare: hudton 3</annotation>
+		<annotation cp="👷🏽‍♂">bygge | ingenjör | man | hudton 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">manlig byggarbetare: hudton 4</annotation>
+		<annotation cp="👷🏾‍♂">bygge | ingenjör | man | hudton 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">manlig byggarbetare: hudton 5</annotation>
+		<annotation cp="👷🏿‍♂">bygge | ingenjör | man | hudton 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">manlig byggarbetare: hudton 6</annotation>
+		<annotation cp="👷🏻‍♀">bygge | ingenjör | kvinna | hudton 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">kvinnlig byggarbetare: hudton 1–2</annotation>
+		<annotation cp="👷🏼‍♀">bygge | ingenjör | kvinna | hudton 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">kvinnlig byggarbetare: hudton 3</annotation>
+		<annotation cp="👷🏽‍♀">bygge | ingenjör | kvinna | hudton 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">kvinnlig byggarbetare: hudton 4</annotation>
+		<annotation cp="👷🏾‍♀">bygge | ingenjör | kvinna | hudton 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">kvinnlig byggarbetare: hudton 5</annotation>
+		<annotation cp="👷🏿‍♀">bygge | ingenjör | kvinna | hudton 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">kvinnlig byggarbetare: hudton 6</annotation>
+		<annotation cp="🤴🏻">prins | hudton 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">prins: hudton 1–2</annotation>
+		<annotation cp="🤴🏼">prins | hudton 3</annotation>
+		<annotation cp="🤴🏼" type="tts">prins: hudton 3</annotation>
+		<annotation cp="🤴🏽">prins | hudton 4</annotation>
+		<annotation cp="🤴🏽" type="tts">prins: hudton 4</annotation>
+		<annotation cp="🤴🏾">prins | hudton 5</annotation>
+		<annotation cp="🤴🏾" type="tts">prins: hudton 5</annotation>
+		<annotation cp="🤴🏿">prins | hudton 6</annotation>
+		<annotation cp="🤴🏿" type="tts">prins: hudton 6</annotation>
+		<annotation cp="👸🏻">människor | saga | hudton 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">prinsessa: hudton 1–2</annotation>
+		<annotation cp="👸🏼">människor | saga | hudton 3</annotation>
+		<annotation cp="👸🏼" type="tts">prinsessa: hudton 3</annotation>
+		<annotation cp="👸🏽">människor | saga | hudton 4</annotation>
+		<annotation cp="👸🏽" type="tts">prinsessa: hudton 4</annotation>
+		<annotation cp="👸🏾">människor | saga | hudton 5</annotation>
+		<annotation cp="👸🏾" type="tts">prinsessa: hudton 5</annotation>
+		<annotation cp="👸🏿">människor | saga | hudton 6</annotation>
+		<annotation cp="👸🏿" type="tts">prinsessa: hudton 6</annotation>
+		<annotation cp="👳🏻">man | människor | turban | hudton 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">man med turban: hudton 1–2</annotation>
+		<annotation cp="👳🏼">man | människor | turban | hudton 3</annotation>
+		<annotation cp="👳🏼" type="tts">man med turban: hudton 3</annotation>
+		<annotation cp="👳🏽">man | människor | turban | hudton 4</annotation>
+		<annotation cp="👳🏽" type="tts">man med turban: hudton 4</annotation>
+		<annotation cp="👳🏾">man | människor | turban | hudton 5</annotation>
+		<annotation cp="👳🏾" type="tts">man med turban: hudton 5</annotation>
+		<annotation cp="👳🏿">man | människor | turban | hudton 6</annotation>
+		<annotation cp="👳🏿" type="tts">man med turban: hudton 6</annotation>
+		<annotation cp="👳🏻‍♂">man | turban | hudton 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">man i turban: hudton 1–2</annotation>
+		<annotation cp="👳🏼‍♂">man | turban | hudton 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">man i turban: hudton 3</annotation>
+		<annotation cp="👳🏽‍♂">man | turban | hudton 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">man i turban: hudton 4</annotation>
+		<annotation cp="👳🏾‍♂">man | turban | hudton 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">man i turban: hudton 5</annotation>
+		<annotation cp="👳🏿‍♂">man | turban | hudton 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">man i turban: hudton 6</annotation>
+		<annotation cp="👳🏻‍♀">kvinna | turban | hudton 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">kvinna i turban: hudton 1–2</annotation>
+		<annotation cp="👳🏼‍♀">kvinna | turban | hudton 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">kvinna i turban: hudton 3</annotation>
+		<annotation cp="👳🏽‍♀">kvinna | turban | hudton 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">kvinna i turban: hudton 4</annotation>
+		<annotation cp="👳🏾‍♀">kvinna | turban | hudton 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">kvinna i turban: hudton 5</annotation>
+		<annotation cp="👳🏿‍♀">kvinna | turban | hudton 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">kvinna i turban: hudton 6</annotation>
+		<annotation cp="👲🏻">kinesisk mössa | man | människor | hudton 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">man med mössa: hudton 1–2</annotation>
+		<annotation cp="👲🏼">kinesisk mössa | man | människor | hudton 3</annotation>
+		<annotation cp="👲🏼" type="tts">man med mössa: hudton 3</annotation>
+		<annotation cp="👲🏽">kinesisk mössa | man | människor | hudton 4</annotation>
+		<annotation cp="👲🏽" type="tts">man med mössa: hudton 4</annotation>
+		<annotation cp="👲🏾">kinesisk mössa | man | människor | hudton 5</annotation>
+		<annotation cp="👲🏾" type="tts">man med mössa: hudton 5</annotation>
+		<annotation cp="👲🏿">kinesisk mössa | man | människor | hudton 6</annotation>
+		<annotation cp="👲🏿" type="tts">man med mössa: hudton 6</annotation>
+		<annotation cp="👱🏻">blond | människor | hudton 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">blond person: hudton 1–2</annotation>
+		<annotation cp="👱🏼">blond | människor | hudton 3</annotation>
+		<annotation cp="👱🏼" type="tts">blond person: hudton 3</annotation>
+		<annotation cp="👱🏽">blond | människor | hudton 4</annotation>
+		<annotation cp="👱🏽" type="tts">blond person: hudton 4</annotation>
+		<annotation cp="👱🏾">blond | människor | hudton 5</annotation>
+		<annotation cp="👱🏾" type="tts">blond person: hudton 5</annotation>
+		<annotation cp="👱🏿">blond | människor | hudton 6</annotation>
+		<annotation cp="👱🏿" type="tts">blond person: hudton 6</annotation>
+		<annotation cp="👱🏻‍♂">blond | man | hudton 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">blond man: hudton 1–2</annotation>
+		<annotation cp="👱🏼‍♂">blond | man | hudton 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">blond man: hudton 3</annotation>
+		<annotation cp="👱🏽‍♂">blond | man | hudton 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">blond man: hudton 4</annotation>
+		<annotation cp="👱🏾‍♂">blond | man | hudton 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">blond man: hudton 5</annotation>
+		<annotation cp="👱🏿‍♂">blond | man | hudton 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">blond man: hudton 6</annotation>
+		<annotation cp="👱🏻‍♀">blond | blondin | kvinna | hudton 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">blond kvinna: hudton 1–2</annotation>
+		<annotation cp="👱🏼‍♀">blond | blondin | kvinna | hudton 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">blond kvinna: hudton 3</annotation>
+		<annotation cp="👱🏽‍♀">blond | blondin | kvinna | hudton 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">blond kvinna: hudton 4</annotation>
+		<annotation cp="👱🏾‍♀">blond | blondin | kvinna | hudton 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">blond kvinna: hudton 5</annotation>
+		<annotation cp="👱🏿‍♀">blond | blondin | kvinna | hudton 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">blond kvinna: hudton 6</annotation>
+		<annotation cp="🤵🏻">brudgum | man | smoking | hudton 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">man i smoking: hudton 1–2</annotation>
+		<annotation cp="🤵🏼">brudgum | man | smoking | hudton 3</annotation>
+		<annotation cp="🤵🏼" type="tts">man i smoking: hudton 3</annotation>
+		<annotation cp="🤵🏽">brudgum | man | smoking | hudton 4</annotation>
+		<annotation cp="🤵🏽" type="tts">man i smoking: hudton 4</annotation>
+		<annotation cp="🤵🏾">brudgum | man | smoking | hudton 5</annotation>
+		<annotation cp="🤵🏾" type="tts">man i smoking: hudton 5</annotation>
+		<annotation cp="🤵🏿">brudgum | man | smoking | hudton 6</annotation>
+		<annotation cp="🤵🏿" type="tts">man i smoking: hudton 6</annotation>
+		<annotation cp="👰🏻">brud | bröllop | människor | slöja | hudton 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">brud med slöja: hudton 1–2</annotation>
+		<annotation cp="👰🏼">brud | bröllop | människor | slöja | hudton 3</annotation>
+		<annotation cp="👰🏼" type="tts">brud med slöja: hudton 3</annotation>
+		<annotation cp="👰🏽">brud | bröllop | människor | slöja | hudton 4</annotation>
+		<annotation cp="👰🏽" type="tts">brud med slöja: hudton 4</annotation>
+		<annotation cp="👰🏾">brud | bröllop | människor | slöja | hudton 5</annotation>
+		<annotation cp="👰🏾" type="tts">brud med slöja: hudton 5</annotation>
+		<annotation cp="👰🏿">brud | bröllop | människor | slöja | hudton 6</annotation>
+		<annotation cp="👰🏿" type="tts">brud med slöja: hudton 6</annotation>
+		<annotation cp="🤰🏻">gravid | kvinna | hudton 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">gravid kvinna: hudton 1–2</annotation>
+		<annotation cp="🤰🏼">gravid | kvinna | hudton 3</annotation>
+		<annotation cp="🤰🏼" type="tts">gravid kvinna: hudton 3</annotation>
+		<annotation cp="🤰🏽">gravid | kvinna | hudton 4</annotation>
+		<annotation cp="🤰🏽" type="tts">gravid kvinna: hudton 4</annotation>
+		<annotation cp="🤰🏾">gravid | kvinna | hudton 5</annotation>
+		<annotation cp="🤰🏾" type="tts">gravid kvinna: hudton 5</annotation>
+		<annotation cp="🤰🏿">gravid | kvinna | hudton 6</annotation>
+		<annotation cp="🤰🏿" type="tts">gravid kvinna: hudton 6</annotation>
+		<annotation cp="👼🏻">saga | ängel | hudton 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">bebisängel: hudton 1–2</annotation>
+		<annotation cp="👼🏼">saga | ängel | hudton 3</annotation>
+		<annotation cp="👼🏼" type="tts">bebisängel: hudton 3</annotation>
+		<annotation cp="👼🏽">saga | ängel | hudton 4</annotation>
+		<annotation cp="👼🏽" type="tts">bebisängel: hudton 4</annotation>
+		<annotation cp="👼🏾">saga | ängel | hudton 5</annotation>
+		<annotation cp="👼🏾" type="tts">bebisängel: hudton 5</annotation>
+		<annotation cp="👼🏿">saga | ängel | hudton 6</annotation>
+		<annotation cp="👼🏿" type="tts">bebisängel: hudton 6</annotation>
+		<annotation cp="🎅🏻">högtid | jul | tomten | hudton 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">jultomte: hudton 1–2</annotation>
+		<annotation cp="🎅🏼">högtid | jul | tomten | hudton 3</annotation>
+		<annotation cp="🎅🏼" type="tts">jultomte: hudton 3</annotation>
+		<annotation cp="🎅🏽">högtid | jul | tomten | hudton 4</annotation>
+		<annotation cp="🎅🏽" type="tts">jultomte: hudton 4</annotation>
+		<annotation cp="🎅🏾">högtid | jul | tomten | hudton 5</annotation>
+		<annotation cp="🎅🏾" type="tts">jultomte: hudton 5</annotation>
+		<annotation cp="🎅🏿">högtid | jul | tomten | hudton 6</annotation>
+		<annotation cp="🎅🏿" type="tts">jultomte: hudton 6</annotation>
+		<annotation cp="🤶🏻">jul | mor | nisse | hudton 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">tomtemor: hudton 1–2</annotation>
+		<annotation cp="🤶🏼">jul | mor | nisse | hudton 3</annotation>
+		<annotation cp="🤶🏼" type="tts">tomtemor: hudton 3</annotation>
+		<annotation cp="🤶🏽">jul | mor | nisse | hudton 4</annotation>
+		<annotation cp="🤶🏽" type="tts">tomtemor: hudton 4</annotation>
+		<annotation cp="🤶🏾">jul | mor | nisse | hudton 5</annotation>
+		<annotation cp="🤶🏾" type="tts">tomtemor: hudton 5</annotation>
+		<annotation cp="🤶🏿">jul | mor | nisse | hudton 6</annotation>
+		<annotation cp="🤶🏿" type="tts">tomtemor: hudton 6</annotation>
+		<annotation cp="🙍🏻">person | sur | hudton 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">bister uppsyn: hudton 1–2</annotation>
+		<annotation cp="🙍🏼">person | sur | hudton 3</annotation>
+		<annotation cp="🙍🏼" type="tts">bister uppsyn: hudton 3</annotation>
+		<annotation cp="🙍🏽">person | sur | hudton 4</annotation>
+		<annotation cp="🙍🏽" type="tts">bister uppsyn: hudton 4</annotation>
+		<annotation cp="🙍🏾">person | sur | hudton 5</annotation>
+		<annotation cp="🙍🏾" type="tts">bister uppsyn: hudton 5</annotation>
+		<annotation cp="🙍🏿">person | sur | hudton 6</annotation>
+		<annotation cp="🙍🏿" type="tts">bister uppsyn: hudton 6</annotation>
+		<annotation cp="🙍🏻‍♂">man | rynka | skeptisk | hudton 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">skeptisk man: hudton 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">man | rynka | skeptisk | hudton 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">skeptisk man: hudton 3</annotation>
+		<annotation cp="🙍🏽‍♂">man | rynka | skeptisk | hudton 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">skeptisk man: hudton 4</annotation>
+		<annotation cp="🙍🏾‍♂">man | rynka | skeptisk | hudton 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">skeptisk man: hudton 5</annotation>
+		<annotation cp="🙍🏿‍♂">man | rynka | skeptisk | hudton 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">skeptisk man: hudton 6</annotation>
+		<annotation cp="🙍🏻‍♀">kvinna | rynka | skeptisk | hudton 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">skeptisk kvinna: hudton 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">kvinna | rynka | skeptisk | hudton 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">skeptisk kvinna: hudton 3</annotation>
+		<annotation cp="🙍🏽‍♀">kvinna | rynka | skeptisk | hudton 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">skeptisk kvinna: hudton 4</annotation>
+		<annotation cp="🙍🏾‍♀">kvinna | rynka | skeptisk | hudton 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">skeptisk kvinna: hudton 5</annotation>
+		<annotation cp="🙍🏿‍♀">kvinna | rynka | skeptisk | hudton 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">skeptisk kvinna: hudton 6</annotation>
+		<annotation cp="🙎🏻">person som plutar | hudton 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">plutar: hudton 1–2</annotation>
+		<annotation cp="🙎🏼">person som plutar | hudton 3</annotation>
+		<annotation cp="🙎🏼" type="tts">plutar: hudton 3</annotation>
+		<annotation cp="🙎🏽">person som plutar | hudton 4</annotation>
+		<annotation cp="🙎🏽" type="tts">plutar: hudton 4</annotation>
+		<annotation cp="🙎🏾">person som plutar | hudton 5</annotation>
+		<annotation cp="🙎🏾" type="tts">plutar: hudton 5</annotation>
+		<annotation cp="🙎🏿">person som plutar | hudton 6</annotation>
+		<annotation cp="🙎🏿" type="tts">plutar: hudton 6</annotation>
+		<annotation cp="🙎🏻‍♂">kyss | man | plutmunn | hudton 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">man med plutmunn: hudton 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">kyss | man | plutmunn | hudton 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">man med plutmunn: hudton 3</annotation>
+		<annotation cp="🙎🏽‍♂">kyss | man | plutmunn | hudton 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">man med plutmunn: hudton 4</annotation>
+		<annotation cp="🙎🏾‍♂">kyss | man | plutmunn | hudton 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">man med plutmunn: hudton 5</annotation>
+		<annotation cp="🙎🏿‍♂">kyss | man | plutmunn | hudton 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">man med plutmunn: hudton 6</annotation>
+		<annotation cp="🙎🏻‍♀">kvinna | kyss | plutmunn | hudton 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">kvinna med plutmunn: hudton 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">kvinna | kyss | plutmunn | hudton 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">kvinna med plutmunn: hudton 3</annotation>
+		<annotation cp="🙎🏽‍♀">kvinna | kyss | plutmunn | hudton 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">kvinna med plutmunn: hudton 4</annotation>
+		<annotation cp="🙎🏾‍♀">kvinna | kyss | plutmunn | hudton 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">kvinna med plutmunn: hudton 5</annotation>
+		<annotation cp="🙎🏿‍♀">kvinna | kyss | plutmunn | hudton 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">kvinna med plutmunn: hudton 6</annotation>
+		<annotation cp="🙅🏻">förbjudet | gest | inte bra | hudton 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">gest för inte bra: hudton 1–2</annotation>
+		<annotation cp="🙅🏼">förbjudet | gest | inte bra | hudton 3</annotation>
+		<annotation cp="🙅🏼" type="tts">gest för inte bra: hudton 3</annotation>
+		<annotation cp="🙅🏽">förbjudet | gest | inte bra | hudton 4</annotation>
+		<annotation cp="🙅🏽" type="tts">gest för inte bra: hudton 4</annotation>
+		<annotation cp="🙅🏾">förbjudet | gest | inte bra | hudton 5</annotation>
+		<annotation cp="🙅🏾" type="tts">gest för inte bra: hudton 5</annotation>
+		<annotation cp="🙅🏿">förbjudet | gest | inte bra | hudton 6</annotation>
+		<annotation cp="🙅🏿" type="tts">gest för inte bra: hudton 6</annotation>
+		<annotation cp="🙅🏻‍♂">avbryt | förbjudet | man | stopp | hudton 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">man med korsade armar: hudton 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">avbryt | förbjudet | man | stopp | hudton 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">man med korsade armar: hudton 3</annotation>
+		<annotation cp="🙅🏽‍♂">avbryt | förbjudet | man | stopp | hudton 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">man med korsade armar: hudton 4</annotation>
+		<annotation cp="🙅🏾‍♂">avbryt | förbjudet | man | stopp | hudton 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">man med korsade armar: hudton 5</annotation>
+		<annotation cp="🙅🏿‍♂">avbryt | förbjudet | man | stopp | hudton 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">man med korsade armar: hudton 6</annotation>
+		<annotation cp="🙅🏻‍♀">avbryt | förbjudet | kvinna | stopp | hudton 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">kvinna med korsade armar: hudton 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">avbryt | förbjudet | kvinna | stopp | hudton 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">kvinna med korsade armar: hudton 3</annotation>
+		<annotation cp="🙅🏽‍♀">avbryt | förbjudet | kvinna | stopp | hudton 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">kvinna med korsade armar: hudton 4</annotation>
+		<annotation cp="🙅🏾‍♀">avbryt | förbjudet | kvinna | stopp | hudton 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">kvinna med korsade armar: hudton 5</annotation>
+		<annotation cp="🙅🏿‍♀">avbryt | förbjudet | kvinna | stopp | hudton 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">kvinna med korsade armar: hudton 6</annotation>
+		<annotation cp="🙆🏻">gest | okej | hudton 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">gest för OK: hudton 1–2</annotation>
+		<annotation cp="🙆🏼">gest | okej | hudton 3</annotation>
+		<annotation cp="🙆🏼" type="tts">gest för OK: hudton 3</annotation>
+		<annotation cp="🙆🏽">gest | okej | hudton 4</annotation>
+		<annotation cp="🙆🏽" type="tts">gest för OK: hudton 4</annotation>
+		<annotation cp="🙆🏾">gest | okej | hudton 5</annotation>
+		<annotation cp="🙆🏾" type="tts">gest för OK: hudton 5</annotation>
+		<annotation cp="🙆🏿">gest | okej | hudton 6</annotation>
+		<annotation cp="🙆🏿" type="tts">gest för OK: hudton 6</annotation>
+		<annotation cp="🙆🏻‍♂">OK | händerna på huvudet | man | hudton 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">man med händerna på huvudet: hudton 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">OK | händerna på huvudet | man | hudton 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">man med händerna på huvudet: hudton 3</annotation>
+		<annotation cp="🙆🏽‍♂">OK | händerna på huvudet | man | hudton 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">man med händerna på huvudet: hudton 4</annotation>
+		<annotation cp="🙆🏾‍♂">OK | händerna på huvudet | man | hudton 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">man med händerna på huvudet: hudton 5</annotation>
+		<annotation cp="🙆🏿‍♂">OK | händerna på huvudet | man | hudton 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">man med händerna på huvudet: hudton 6</annotation>
+		<annotation cp="🙆🏻‍♀">OK | händerna på huvudet | kvinna | hudton 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">kvinna med händerna på huvudet: hudton 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">OK | händerna på huvudet | kvinna | hudton 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">kvinna med händerna på huvudet: hudton 3</annotation>
+		<annotation cp="🙆🏽‍♀">OK | händerna på huvudet | kvinna | hudton 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">kvinna med händerna på huvudet: hudton 4</annotation>
+		<annotation cp="🙆🏾‍♀">OK | händerna på huvudet | kvinna | hudton 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">kvinna med händerna på huvudet: hudton 5</annotation>
+		<annotation cp="🙆🏿‍♀">OK | händerna på huvudet | kvinna | hudton 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">kvinna med händerna på huvudet: hudton 6</annotation>
+		<annotation cp="💁🏻">information | människor | reception | hudton 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">receptionist: hudton 1–2</annotation>
+		<annotation cp="💁🏼">information | människor | reception | hudton 3</annotation>
+		<annotation cp="💁🏼" type="tts">receptionist: hudton 3</annotation>
+		<annotation cp="💁🏽">information | människor | reception | hudton 4</annotation>
+		<annotation cp="💁🏽" type="tts">receptionist: hudton 4</annotation>
+		<annotation cp="💁🏾">information | människor | reception | hudton 5</annotation>
+		<annotation cp="💁🏾" type="tts">receptionist: hudton 5</annotation>
+		<annotation cp="💁🏿">information | människor | reception | hudton 6</annotation>
+		<annotation cp="💁🏿" type="tts">receptionist: hudton 6</annotation>
+		<annotation cp="💁🏻‍♂">dricks | hjälpa | information | man | hudton 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">hjälpande man: hudton 1–2</annotation>
+		<annotation cp="💁🏼‍♂">dricks | hjälpa | information | man | hudton 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">hjälpande man: hudton 3</annotation>
+		<annotation cp="💁🏽‍♂">dricks | hjälpa | information | man | hudton 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">hjälpande man: hudton 4</annotation>
+		<annotation cp="💁🏾‍♂">dricks | hjälpa | information | man | hudton 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">hjälpande man: hudton 5</annotation>
+		<annotation cp="💁🏿‍♂">dricks | hjälpa | information | man | hudton 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">hjälpande man: hudton 6</annotation>
+		<annotation cp="💁🏻‍♀">dricks | hjälpa | information | kvinna | hudton 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">hjälpande kvinna: hudton 1–2</annotation>
+		<annotation cp="💁🏼‍♀">dricks | hjälpa | information | kvinna | hudton 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">hjälpande kvinna: hudton 3</annotation>
+		<annotation cp="💁🏽‍♀">dricks | hjälpa | information | kvinna | hudton 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">hjälpande kvinna: hudton 4</annotation>
+		<annotation cp="💁🏾‍♀">dricks | hjälpa | information | kvinna | hudton 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">hjälpande kvinna: hudton 5</annotation>
+		<annotation cp="💁🏿‍♀">dricks | hjälpa | information | kvinna | hudton 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">hjälpande kvinna: hudton 6</annotation>
+		<annotation cp="🙋🏻">person | räcker upp handen | hudton 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">glad person räcker upp hand: hudton 1–2</annotation>
+		<annotation cp="🙋🏼">person | räcker upp handen | hudton 3</annotation>
+		<annotation cp="🙋🏼" type="tts">glad person räcker upp hand: hudton 3</annotation>
+		<annotation cp="🙋🏽">person | räcker upp handen | hudton 4</annotation>
+		<annotation cp="🙋🏽" type="tts">glad person räcker upp hand: hudton 4</annotation>
+		<annotation cp="🙋🏾">person | räcker upp handen | hudton 5</annotation>
+		<annotation cp="🙋🏾" type="tts">glad person räcker upp hand: hudton 5</annotation>
+		<annotation cp="🙋🏿">person | räcker upp handen | hudton 6</annotation>
+		<annotation cp="🙋🏿" type="tts">glad person räcker upp hand: hudton 6</annotation>
+		<annotation cp="🙋🏻‍♂">man | räcka upp handen | hudton 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">man med armen i vädret: hudton 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">man | räcka upp handen | hudton 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">man med armen i vädret: hudton 3</annotation>
+		<annotation cp="🙋🏽‍♂">man | räcka upp handen | hudton 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">man med armen i vädret: hudton 4</annotation>
+		<annotation cp="🙋🏾‍♂">man | räcka upp handen | hudton 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">man med armen i vädret: hudton 5</annotation>
+		<annotation cp="🙋🏿‍♂">man | räcka upp handen | hudton 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">man med armen i vädret: hudton 6</annotation>
+		<annotation cp="🙋🏻‍♀">kvinna | räcka upp handen | hudton 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">kvinna med armen i vädret: hudton 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">kvinna | räcka upp handen | hudton 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">kvinna med armen i vädret: hudton 3</annotation>
+		<annotation cp="🙋🏽‍♀">kvinna | räcka upp handen | hudton 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">kvinna med armen i vädret: hudton 4</annotation>
+		<annotation cp="🙋🏾‍♀">kvinna | räcka upp handen | hudton 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">kvinna med armen i vädret: hudton 5</annotation>
+		<annotation cp="🙋🏿‍♀">kvinna | räcka upp handen | hudton 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">kvinna med armen i vädret: hudton 6</annotation>
+		<annotation cp="🙇🏻">beklagar | bugar | gest | hudton 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">person som ber om ursäkt: hudton 1–2</annotation>
+		<annotation cp="🙇🏼">beklagar | bugar | gest | hudton 3</annotation>
+		<annotation cp="🙇🏼" type="tts">person som ber om ursäkt: hudton 3</annotation>
+		<annotation cp="🙇🏽">beklagar | bugar | gest | hudton 4</annotation>
+		<annotation cp="🙇🏽" type="tts">person som ber om ursäkt: hudton 4</annotation>
+		<annotation cp="🙇🏾">beklagar | bugar | gest | hudton 5</annotation>
+		<annotation cp="🙇🏾" type="tts">person som ber om ursäkt: hudton 5</annotation>
+		<annotation cp="🙇🏿">beklagar | bugar | gest | hudton 6</annotation>
+		<annotation cp="🙇🏿" type="tts">person som ber om ursäkt: hudton 6</annotation>
+		<annotation cp="🙇🏻‍♂">beklagelse | buga | man | ursäkt | hudton 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">djupt bugande man: hudton 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">beklagelse | buga | man | ursäkt | hudton 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">djupt bugande man: hudton 3</annotation>
+		<annotation cp="🙇🏽‍♂">beklagelse | buga | man | ursäkt | hudton 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">djupt bugande man: hudton 4</annotation>
+		<annotation cp="🙇🏾‍♂">beklagelse | buga | man | ursäkt | hudton 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">djupt bugande man: hudton 5</annotation>
+		<annotation cp="🙇🏿‍♂">beklagelse | buga | man | ursäkt | hudton 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">djupt bugande man: hudton 6</annotation>
+		<annotation cp="🙇🏻‍♀">beklagelse | buga | kvinna | ursäkt | hudton 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">djupt bugande kvinna: hudton 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">beklagelse | buga | kvinna | ursäkt | hudton 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">djupt bugande kvinna: hudton 3</annotation>
+		<annotation cp="🙇🏽‍♀">beklagelse | buga | kvinna | ursäkt | hudton 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">djupt bugande kvinna: hudton 4</annotation>
+		<annotation cp="🙇🏾‍♀">beklagelse | buga | kvinna | ursäkt | hudton 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">djupt bugande kvinna: hudton 5</annotation>
+		<annotation cp="🙇🏿‍♀">beklagelse | buga | kvinna | ursäkt | hudton 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">djupt bugande kvinna: hudton 6</annotation>
+		<annotation cp="🤦🏻">ansikte | handflata | irritation | misstro | hudton 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">slå sig på pannan: hudton 1–2</annotation>
+		<annotation cp="🤦🏼">ansikte | handflata | irritation | misstro | hudton 3</annotation>
+		<annotation cp="🤦🏼" type="tts">slå sig på pannan: hudton 3</annotation>
+		<annotation cp="🤦🏽">ansikte | handflata | irritation | misstro | hudton 4</annotation>
+		<annotation cp="🤦🏽" type="tts">slå sig på pannan: hudton 4</annotation>
+		<annotation cp="🤦🏾">ansikte | handflata | irritation | misstro | hudton 5</annotation>
+		<annotation cp="🤦🏾" type="tts">slå sig på pannan: hudton 5</annotation>
+		<annotation cp="🤦🏿">ansikte | handflata | irritation | misstro | hudton 6</annotation>
+		<annotation cp="🤦🏿" type="tts">slå sig på pannan: hudton 6</annotation>
+		<annotation cp="🤦🏻‍♂">facepalm | man | misstro | hudton 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">besviken man: hudton 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">facepalm | man | misstro | hudton 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">besviken man: hudton 3</annotation>
+		<annotation cp="🤦🏽‍♂">facepalm | man | misstro | hudton 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">besviken man: hudton 4</annotation>
+		<annotation cp="🤦🏾‍♂">facepalm | man | misstro | hudton 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">besviken man: hudton 5</annotation>
+		<annotation cp="🤦🏿‍♂">facepalm | man | misstro | hudton 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">besviken man: hudton 6</annotation>
+		<annotation cp="🤦🏻‍♀">facepalm | kvinna | misstro | hudton 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">besviken kvinna: hudton 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">facepalm | kvinna | misstro | hudton 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">besviken kvinna: hudton 3</annotation>
+		<annotation cp="🤦🏽‍♀">facepalm | kvinna | misstro | hudton 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">besviken kvinna: hudton 4</annotation>
+		<annotation cp="🤦🏾‍♀">facepalm | kvinna | misstro | hudton 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">besviken kvinna: hudton 5</annotation>
+		<annotation cp="🤦🏿‍♀">facepalm | kvinna | misstro | hudton 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">besviken kvinna: hudton 6</annotation>
+		<annotation cp="🤷🏻">axelryckning | likgiltighet | okunskap | tvivel | hudton 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">axelryckning: hudton 1–2</annotation>
+		<annotation cp="🤷🏼">axelryckning | likgiltighet | okunskap | tvivel | hudton 3</annotation>
+		<annotation cp="🤷🏼" type="tts">axelryckning: hudton 3</annotation>
+		<annotation cp="🤷🏽">axelryckning | likgiltighet | okunskap | tvivel | hudton 4</annotation>
+		<annotation cp="🤷🏽" type="tts">axelryckning: hudton 4</annotation>
+		<annotation cp="🤷🏾">axelryckning | likgiltighet | okunskap | tvivel | hudton 5</annotation>
+		<annotation cp="🤷🏾" type="tts">axelryckning: hudton 5</annotation>
+		<annotation cp="🤷🏿">axelryckning | likgiltighet | okunskap | tvivel | hudton 6</annotation>
+		<annotation cp="🤷🏿" type="tts">axelryckning: hudton 6</annotation>
+		<annotation cp="🤷🏻‍♂">axelryckning | ignorant | man | hudton 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">ovetande man: hudton 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">axelryckning | ignorant | man | hudton 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">ovetande man: hudton 3</annotation>
+		<annotation cp="🤷🏽‍♂">axelryckning | ignorant | man | hudton 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">ovetande man: hudton 4</annotation>
+		<annotation cp="🤷🏾‍♂">axelryckning | ignorant | man | hudton 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">ovetande man: hudton 5</annotation>
+		<annotation cp="🤷🏿‍♂">axelryckning | ignorant | man | hudton 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">ovetande man: hudton 6</annotation>
+		<annotation cp="🤷🏻‍♀">axelryckning | ignorant | kvinna | hudton 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">ovetande kvinna: hudton 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">axelryckning | ignorant | kvinna | hudton 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">ovetande kvinna: hudton 3</annotation>
+		<annotation cp="🤷🏽‍♀">axelryckning | ignorant | kvinna | hudton 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">ovetande kvinna: hudton 4</annotation>
+		<annotation cp="🤷🏾‍♀">axelryckning | ignorant | kvinna | hudton 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">ovetande kvinna: hudton 5</annotation>
+		<annotation cp="🤷🏿‍♀">axelryckning | ignorant | kvinna | hudton 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">ovetande kvinna: hudton 6</annotation>
+		<annotation cp="💆🏻">behandling | massage | hudton 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">ansiktsmassage: hudton 1–2</annotation>
+		<annotation cp="💆🏼">behandling | massage | hudton 3</annotation>
+		<annotation cp="💆🏼" type="tts">ansiktsmassage: hudton 3</annotation>
+		<annotation cp="💆🏽">behandling | massage | hudton 4</annotation>
+		<annotation cp="💆🏽" type="tts">ansiktsmassage: hudton 4</annotation>
+		<annotation cp="💆🏾">behandling | massage | hudton 5</annotation>
+		<annotation cp="💆🏾" type="tts">ansiktsmassage: hudton 5</annotation>
+		<annotation cp="💆🏿">behandling | massage | hudton 6</annotation>
+		<annotation cp="💆🏿" type="tts">ansiktsmassage: hudton 6</annotation>
+		<annotation cp="💆🏻‍♂">avslapning | huvudmassage | man | wellness | hudton 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">man som får ansiktsmassage: hudton 1–2</annotation>
+		<annotation cp="💆🏼‍♂">avslapning | huvudmassage | man | wellness | hudton 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">man som får ansiktsmassage: hudton 3</annotation>
+		<annotation cp="💆🏽‍♂">avslapning | huvudmassage | man | wellness | hudton 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">man som får ansiktsmassage: hudton 4</annotation>
+		<annotation cp="💆🏾‍♂">avslapning | huvudmassage | man | wellness | hudton 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">man som får ansiktsmassage: hudton 5</annotation>
+		<annotation cp="💆🏿‍♂">avslapning | huvudmassage | man | wellness | hudton 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">man som får ansiktsmassage: hudton 6</annotation>
+		<annotation cp="💆🏻‍♀">avslapning | huvudmassage | kvinna | wellness | hudton 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">kvinna som får ansiktsmassage: hudton 1–2</annotation>
+		<annotation cp="💆🏼‍♀">avslapning | huvudmassage | kvinna | wellness | hudton 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">kvinna som får ansiktsmassage: hudton 3</annotation>
+		<annotation cp="💆🏽‍♀">avslapning | huvudmassage | kvinna | wellness | hudton 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">kvinna som får ansiktsmassage: hudton 4</annotation>
+		<annotation cp="💆🏾‍♀">avslapning | huvudmassage | kvinna | wellness | hudton 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">kvinna som får ansiktsmassage: hudton 5</annotation>
+		<annotation cp="💆🏿‍♀">avslapning | huvudmassage | kvinna | wellness | hudton 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">kvinna som får ansiktsmassage: hudton 6</annotation>
+		<annotation cp="💇🏻">frisör | skönhet | hudton 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">hårklippning: hudton 1–2</annotation>
+		<annotation cp="💇🏼">frisör | skönhet | hudton 3</annotation>
+		<annotation cp="💇🏼" type="tts">hårklippning: hudton 3</annotation>
+		<annotation cp="💇🏽">frisör | skönhet | hudton 4</annotation>
+		<annotation cp="💇🏽" type="tts">hårklippning: hudton 4</annotation>
+		<annotation cp="💇🏾">frisör | skönhet | hudton 5</annotation>
+		<annotation cp="💇🏾" type="tts">hårklippning: hudton 5</annotation>
+		<annotation cp="💇🏿">frisör | skönhet | hudton 6</annotation>
+		<annotation cp="💇🏿" type="tts">hårklippning: hudton 6</annotation>
+		<annotation cp="💇🏻‍♂">frisör | hårklipp | man | hudton 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">man som får håret klippt: hudton 1–2</annotation>
+		<annotation cp="💇🏼‍♂">frisör | hårklipp | man | hudton 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">man som får håret klippt: hudton 3</annotation>
+		<annotation cp="💇🏽‍♂">frisör | hårklipp | man | hudton 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">man som får håret klippt: hudton 4</annotation>
+		<annotation cp="💇🏾‍♂">frisör | hårklipp | man | hudton 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">man som får håret klippt: hudton 5</annotation>
+		<annotation cp="💇🏿‍♂">frisör | hårklipp | man | hudton 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">man som får håret klippt: hudton 6</annotation>
+		<annotation cp="💇🏻‍♀">frisör | hårklipp | kvinna | hudton 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">kvinna som får håret klippt: hudton 1–2</annotation>
+		<annotation cp="💇🏼‍♀">frisör | hårklipp | kvinna | hudton 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">kvinna som får håret klippt: hudton 3</annotation>
+		<annotation cp="💇🏽‍♀">frisör | hårklipp | kvinna | hudton 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">kvinna som får håret klippt: hudton 4</annotation>
+		<annotation cp="💇🏾‍♀">frisör | hårklipp | kvinna | hudton 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">kvinna som får håret klippt: hudton 5</annotation>
+		<annotation cp="💇🏿‍♀">frisör | hårklipp | kvinna | hudton 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">kvinna som får håret klippt: hudton 6</annotation>
+		<annotation cp="🚶🏻">promenerar | hudton 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">fotgängare: hudton 1–2</annotation>
+		<annotation cp="🚶🏼">promenerar | hudton 3</annotation>
+		<annotation cp="🚶🏼" type="tts">fotgängare: hudton 3</annotation>
+		<annotation cp="🚶🏽">promenerar | hudton 4</annotation>
+		<annotation cp="🚶🏽" type="tts">fotgängare: hudton 4</annotation>
+		<annotation cp="🚶🏾">promenerar | hudton 5</annotation>
+		<annotation cp="🚶🏾" type="tts">fotgängare: hudton 5</annotation>
+		<annotation cp="🚶🏿">promenerar | hudton 6</annotation>
+		<annotation cp="🚶🏿" type="tts">fotgängare: hudton 6</annotation>
+		<annotation cp="🚶🏻‍♂">fotgängare | gå | man | hudton 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">man går: hudton 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">fotgängare | gå | man | hudton 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">man går: hudton 3</annotation>
+		<annotation cp="🚶🏽‍♂">fotgängare | gå | man | hudton 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">man går: hudton 4</annotation>
+		<annotation cp="🚶🏾‍♂">fotgängare | gå | man | hudton 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">man går: hudton 5</annotation>
+		<annotation cp="🚶🏿‍♂">fotgängare | gå | man | hudton 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">man går: hudton 6</annotation>
+		<annotation cp="🚶🏻‍♀">fotgängare | gå | kvinna | hudton 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">kvinna går: hudton 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">fotgängare | gå | kvinna | hudton 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">kvinna går: hudton 3</annotation>
+		<annotation cp="🚶🏽‍♀">fotgängare | gå | kvinna | hudton 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">kvinna går: hudton 4</annotation>
+		<annotation cp="🚶🏾‍♀">fotgängare | gå | kvinna | hudton 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">kvinna går: hudton 5</annotation>
+		<annotation cp="🚶🏿‍♀">fotgängare | gå | kvinna | hudton 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">kvinna går: hudton 6</annotation>
+		<annotation cp="🏃🏻">löpning | hudton 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">löpare: hudton 1–2</annotation>
+		<annotation cp="🏃🏼">löpning | hudton 3</annotation>
+		<annotation cp="🏃🏼" type="tts">löpare: hudton 3</annotation>
+		<annotation cp="🏃🏽">löpning | hudton 4</annotation>
+		<annotation cp="🏃🏽" type="tts">löpare: hudton 4</annotation>
+		<annotation cp="🏃🏾">löpning | hudton 5</annotation>
+		<annotation cp="🏃🏾" type="tts">löpare: hudton 5</annotation>
+		<annotation cp="🏃🏿">löpning | hudton 6</annotation>
+		<annotation cp="🏃🏿" type="tts">löpare: hudton 6</annotation>
+		<annotation cp="🏃🏻‍♂">jogga | löpa | man | hudton 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">man springer: hudton 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">jogga | löpa | man | hudton 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">man springer: hudton 3</annotation>
+		<annotation cp="🏃🏽‍♂">jogga | löpa | man | hudton 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">man springer: hudton 4</annotation>
+		<annotation cp="🏃🏾‍♂">jogga | löpa | man | hudton 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">man springer: hudton 5</annotation>
+		<annotation cp="🏃🏿‍♂">jogga | löpa | man | hudton 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">man springer: hudton 6</annotation>
+		<annotation cp="🏃🏻‍♀">jogga | kvinna | löpa | hudton 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">kvinna springer: hudton 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">jogga | kvinna | löpa | hudton 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">kvinna springer: hudton 3</annotation>
+		<annotation cp="🏃🏽‍♀">jogga | kvinna | löpa | hudton 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">kvinna springer: hudton 4</annotation>
+		<annotation cp="🏃🏾‍♀">jogga | kvinna | löpa | hudton 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">kvinna springer: hudton 5</annotation>
+		<annotation cp="🏃🏿‍♀">jogga | kvinna | löpa | hudton 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">kvinna springer: hudton 6</annotation>
+		<annotation cp="💃🏻">dans | människor | hudton 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">dansande kvinna: hudton 1–2</annotation>
+		<annotation cp="💃🏼">dans | människor | hudton 3</annotation>
+		<annotation cp="💃🏼" type="tts">dansande kvinna: hudton 3</annotation>
+		<annotation cp="💃🏽">dans | människor | hudton 4</annotation>
+		<annotation cp="💃🏽" type="tts">dansande kvinna: hudton 4</annotation>
+		<annotation cp="💃🏾">dans | människor | hudton 5</annotation>
+		<annotation cp="💃🏾" type="tts">dansande kvinna: hudton 5</annotation>
+		<annotation cp="💃🏿">dans | människor | hudton 6</annotation>
+		<annotation cp="💃🏿" type="tts">dansande kvinna: hudton 6</annotation>
+		<annotation cp="🕺🏻">dans | man | hudton 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">dansande man: hudton 1–2</annotation>
+		<annotation cp="🕺🏼">dans | man | hudton 3</annotation>
+		<annotation cp="🕺🏼" type="tts">dansande man: hudton 3</annotation>
+		<annotation cp="🕺🏽">dans | man | hudton 4</annotation>
+		<annotation cp="🕺🏽" type="tts">dansande man: hudton 4</annotation>
+		<annotation cp="🕺🏾">dans | man | hudton 5</annotation>
+		<annotation cp="🕺🏾" type="tts">dansande man: hudton 5</annotation>
+		<annotation cp="🕺🏿">dans | man | hudton 6</annotation>
+		<annotation cp="🕺🏿" type="tts">dansande man: hudton 6</annotation>
+		<annotation cp="🛀🏻">badar | badkar | hudton 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">bad: hudton 1–2</annotation>
+		<annotation cp="🛀🏼">badar | badkar | hudton 3</annotation>
+		<annotation cp="🛀🏼" type="tts">bad: hudton 3</annotation>
+		<annotation cp="🛀🏽">badar | badkar | hudton 4</annotation>
+		<annotation cp="🛀🏽" type="tts">bad: hudton 4</annotation>
+		<annotation cp="🛀🏾">badar | badkar | hudton 5</annotation>
+		<annotation cp="🛀🏾" type="tts">bad: hudton 5</annotation>
+		<annotation cp="🛀🏿">badar | badkar | hudton 6</annotation>
+		<annotation cp="🛀🏿" type="tts">bad: hudton 6</annotation>
+		<annotation cp="🛌🏻">hotell | säng | sömn | hudton 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">person i en säng: hudton 1–2</annotation>
+		<annotation cp="🛌🏼">hotell | säng | sömn | hudton 3</annotation>
+		<annotation cp="🛌🏼" type="tts">person i en säng: hudton 3</annotation>
+		<annotation cp="🛌🏽">hotell | säng | sömn | hudton 4</annotation>
+		<annotation cp="🛌🏽" type="tts">person i en säng: hudton 4</annotation>
+		<annotation cp="🛌🏾">hotell | säng | sömn | hudton 5</annotation>
+		<annotation cp="🛌🏾" type="tts">person i en säng: hudton 5</annotation>
+		<annotation cp="🛌🏿">hotell | säng | sömn | hudton 6</annotation>
+		<annotation cp="🛌🏿" type="tts">person i en säng: hudton 6</annotation>
+		<annotation cp="🕴🏻">kostym | människor | svävar | hudton 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">svävande man i kostym: hudton 1–2</annotation>
+		<annotation cp="🕴🏼">kostym | människor | svävar | hudton 3</annotation>
+		<annotation cp="🕴🏼" type="tts">svävande man i kostym: hudton 3</annotation>
+		<annotation cp="🕴🏽">kostym | människor | svävar | hudton 4</annotation>
+		<annotation cp="🕴🏽" type="tts">svävande man i kostym: hudton 4</annotation>
+		<annotation cp="🕴🏾">kostym | människor | svävar | hudton 5</annotation>
+		<annotation cp="🕴🏾" type="tts">svävande man i kostym: hudton 5</annotation>
+		<annotation cp="🕴🏿">kostym | människor | svävar | hudton 6</annotation>
+		<annotation cp="🕴🏿" type="tts">svävande man i kostym: hudton 6</annotation>
+		<annotation cp="🏇🏻">häst | jockey | kapplöpning | hudton 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">hästkapplöpning: hudton 1–2</annotation>
+		<annotation cp="🏇🏼">häst | jockey | kapplöpning | hudton 3</annotation>
+		<annotation cp="🏇🏼" type="tts">hästkapplöpning: hudton 3</annotation>
+		<annotation cp="🏇🏽">häst | jockey | kapplöpning | hudton 4</annotation>
+		<annotation cp="🏇🏽" type="tts">hästkapplöpning: hudton 4</annotation>
+		<annotation cp="🏇🏾">häst | jockey | kapplöpning | hudton 5</annotation>
+		<annotation cp="🏇🏾" type="tts">hästkapplöpning: hudton 5</annotation>
+		<annotation cp="🏇🏿">häst | jockey | kapplöpning | hudton 6</annotation>
+		<annotation cp="🏇🏿" type="tts">hästkapplöpning: hudton 6</annotation>
+		<annotation cp="🏂🏻">snowboard | hudton 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">snowboardåkare: hudton 1–2</annotation>
+		<annotation cp="🏂🏼">snowboard | hudton 3</annotation>
+		<annotation cp="🏂🏼" type="tts">snowboardåkare: hudton 3</annotation>
+		<annotation cp="🏂🏽">snowboard | hudton 4</annotation>
+		<annotation cp="🏂🏽" type="tts">snowboardåkare: hudton 4</annotation>
+		<annotation cp="🏂🏾">snowboard | hudton 5</annotation>
+		<annotation cp="🏂🏾" type="tts">snowboardåkare: hudton 5</annotation>
+		<annotation cp="🏂🏿">snowboard | hudton 6</annotation>
+		<annotation cp="🏂🏿" type="tts">snowboardåkare: hudton 6</annotation>
+		<annotation cp="🏌🏻">golf | sport | hudton 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">golfspelare: hudton 1–2</annotation>
+		<annotation cp="🏌🏼">golf | sport | hudton 3</annotation>
+		<annotation cp="🏌🏼" type="tts">golfspelare: hudton 3</annotation>
+		<annotation cp="🏌🏽">golf | sport | hudton 4</annotation>
+		<annotation cp="🏌🏽" type="tts">golfspelare: hudton 4</annotation>
+		<annotation cp="🏌🏾">golf | sport | hudton 5</annotation>
+		<annotation cp="🏌🏾" type="tts">golfspelare: hudton 5</annotation>
+		<annotation cp="🏌🏿">golf | sport | hudton 6</annotation>
+		<annotation cp="🏌🏿" type="tts">golfspelare: hudton 6</annotation>
+		<annotation cp="🏌🏻‍♂">golf | man | manlig | hudton 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">man spelar golf: hudton 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">golf | man | manlig | hudton 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">man spelar golf: hudton 3</annotation>
+		<annotation cp="🏌🏽‍♂">golf | man | manlig | hudton 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">man spelar golf: hudton 4</annotation>
+		<annotation cp="🏌🏾‍♂">golf | man | manlig | hudton 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">man spelar golf: hudton 5</annotation>
+		<annotation cp="🏌🏿‍♂">golf | man | manlig | hudton 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">man spelar golf: hudton 6</annotation>
+		<annotation cp="🏌🏻‍♀">golf | kvinna | kvinnlig | hudton 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">kvinna spelar golf: hudton 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">golf | kvinna | kvinnlig | hudton 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">kvinna spelar golf: hudton 3</annotation>
+		<annotation cp="🏌🏽‍♀">golf | kvinna | kvinnlig | hudton 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">kvinna spelar golf: hudton 4</annotation>
+		<annotation cp="🏌🏾‍♀">golf | kvinna | kvinnlig | hudton 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">kvinna spelar golf: hudton 5</annotation>
+		<annotation cp="🏌🏿‍♀">golf | kvinna | kvinnlig | hudton 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">kvinna spelar golf: hudton 6</annotation>
+		<annotation cp="🏄🏻">surfing | surfning | hudton 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">surfare: hudton 1–2</annotation>
+		<annotation cp="🏄🏼">surfing | surfning | hudton 3</annotation>
+		<annotation cp="🏄🏼" type="tts">surfare: hudton 3</annotation>
+		<annotation cp="🏄🏽">surfing | surfning | hudton 4</annotation>
+		<annotation cp="🏄🏽" type="tts">surfare: hudton 4</annotation>
+		<annotation cp="🏄🏾">surfing | surfning | hudton 5</annotation>
+		<annotation cp="🏄🏾" type="tts">surfare: hudton 5</annotation>
+		<annotation cp="🏄🏿">surfing | surfning | hudton 6</annotation>
+		<annotation cp="🏄🏿" type="tts">surfare: hudton 6</annotation>
+		<annotation cp="🏄🏻‍♂">man | manlig | surfing | hudton 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">man surfar: hudton 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">man | manlig | surfing | hudton 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">man surfar: hudton 3</annotation>
+		<annotation cp="🏄🏽‍♂">man | manlig | surfing | hudton 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">man surfar: hudton 4</annotation>
+		<annotation cp="🏄🏾‍♂">man | manlig | surfing | hudton 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">man surfar: hudton 5</annotation>
+		<annotation cp="🏄🏿‍♂">man | manlig | surfing | hudton 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">man surfar: hudton 6</annotation>
+		<annotation cp="🏄🏻‍♀">kvinnlig | surfing | woman | hudton 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">kvinna surfar: hudton 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">kvinnlig | surfing | woman | hudton 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">kvinna surfar: hudton 3</annotation>
+		<annotation cp="🏄🏽‍♀">kvinnlig | surfing | woman | hudton 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">kvinna surfar: hudton 4</annotation>
+		<annotation cp="🏄🏾‍♀">kvinnlig | surfing | woman | hudton 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">kvinna surfar: hudton 5</annotation>
+		<annotation cp="🏄🏿‍♀">kvinnlig | surfing | woman | hudton 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">kvinna surfar: hudton 6</annotation>
+		<annotation cp="🚣🏻">fordon | roddbåt | hudton 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">eka: hudton 1–2</annotation>
+		<annotation cp="🚣🏼">fordon | roddbåt | hudton 3</annotation>
+		<annotation cp="🚣🏼" type="tts">eka: hudton 3</annotation>
+		<annotation cp="🚣🏽">fordon | roddbåt | hudton 4</annotation>
+		<annotation cp="🚣🏽" type="tts">eka: hudton 4</annotation>
+		<annotation cp="🚣🏾">fordon | roddbåt | hudton 5</annotation>
+		<annotation cp="🚣🏾" type="tts">eka: hudton 5</annotation>
+		<annotation cp="🚣🏿">fordon | roddbåt | hudton 6</annotation>
+		<annotation cp="🚣🏿" type="tts">eka: hudton 6</annotation>
+		<annotation cp="🚣🏻‍♂">eka | man | manlig | roddbåt | hudton 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">man ror: hudton 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">eka | man | manlig | roddbåt | hudton 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">man ror: hudton 3</annotation>
+		<annotation cp="🚣🏽‍♂">eka | man | manlig | roddbåt | hudton 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">man ror: hudton 4</annotation>
+		<annotation cp="🚣🏾‍♂">eka | man | manlig | roddbåt | hudton 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">man ror: hudton 5</annotation>
+		<annotation cp="🚣🏿‍♂">eka | man | manlig | roddbåt | hudton 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">man ror: hudton 6</annotation>
+		<annotation cp="🚣🏻‍♀">eka | kvinna | kvinnlig | roddbåt | hudton 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">kvinna ror: hudton 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">eka | kvinna | kvinnlig | roddbåt | hudton 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">kvinna ror: hudton 3</annotation>
+		<annotation cp="🚣🏽‍♀">eka | kvinna | kvinnlig | roddbåt | hudton 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">kvinna ror: hudton 4</annotation>
+		<annotation cp="🚣🏾‍♀">eka | kvinna | kvinnlig | roddbåt | hudton 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">kvinna ror: hudton 5</annotation>
+		<annotation cp="🚣🏿‍♀">eka | kvinna | kvinnlig | roddbåt | hudton 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">kvinna ror: hudton 6</annotation>
+		<annotation cp="🏊🏻">simning | hudton 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">simmare: hudton 1–2</annotation>
+		<annotation cp="🏊🏼">simning | hudton 3</annotation>
+		<annotation cp="🏊🏼" type="tts">simmare: hudton 3</annotation>
+		<annotation cp="🏊🏽">simning | hudton 4</annotation>
+		<annotation cp="🏊🏽" type="tts">simmare: hudton 4</annotation>
+		<annotation cp="🏊🏾">simning | hudton 5</annotation>
+		<annotation cp="🏊🏾" type="tts">simmare: hudton 5</annotation>
+		<annotation cp="🏊🏿">simning | hudton 6</annotation>
+		<annotation cp="🏊🏿" type="tts">simmare: hudton 6</annotation>
+		<annotation cp="🏊🏻‍♂">badar | man | manlig | hudton 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">man badar: hudton 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">badar | man | manlig | hudton 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">man badar: hudton 3</annotation>
+		<annotation cp="🏊🏽‍♂">badar | man | manlig | hudton 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">man badar: hudton 4</annotation>
+		<annotation cp="🏊🏾‍♂">badar | man | manlig | hudton 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">man badar: hudton 5</annotation>
+		<annotation cp="🏊🏿‍♂">badar | man | manlig | hudton 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">man badar: hudton 6</annotation>
+		<annotation cp="🏊🏻‍♀">badar | kvinna | kvinnlig | hudton 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">kvinna badar: hudton 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">badar | kvinna | kvinnlig | hudton 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">kvinna badar: hudton 3</annotation>
+		<annotation cp="🏊🏽‍♀">badar | kvinna | kvinnlig | hudton 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">kvinna badar: hudton 4</annotation>
+		<annotation cp="🏊🏾‍♀">badar | kvinna | kvinnlig | hudton 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">kvinna badar: hudton 5</annotation>
+		<annotation cp="🏊🏿‍♀">badar | kvinna | kvinnlig | hudton 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">kvinna badar: hudton 6</annotation>
+		<annotation cp="⛹🏻">boll | sport | hudton 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">person med boll: hudton 1–2</annotation>
+		<annotation cp="⛹🏼">boll | sport | hudton 3</annotation>
+		<annotation cp="⛹🏼" type="tts">person med boll: hudton 3</annotation>
+		<annotation cp="⛹🏽">boll | sport | hudton 4</annotation>
+		<annotation cp="⛹🏽" type="tts">person med boll: hudton 4</annotation>
+		<annotation cp="⛹🏾">boll | sport | hudton 5</annotation>
+		<annotation cp="⛹🏾" type="tts">person med boll: hudton 5</annotation>
+		<annotation cp="⛹🏿">boll | sport | hudton 6</annotation>
+		<annotation cp="⛹🏿" type="tts">person med boll: hudton 6</annotation>
+		<annotation cp="⛹🏻‍♂">boll | man | manlig | hudton 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">man med boll: hudton 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">boll | man | manlig | hudton 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">man med boll: hudton 3</annotation>
+		<annotation cp="⛹🏽‍♂">boll | man | manlig | hudton 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">man med boll: hudton 4</annotation>
+		<annotation cp="⛹🏾‍♂">boll | man | manlig | hudton 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">man med boll: hudton 5</annotation>
+		<annotation cp="⛹🏿‍♂">boll | man | manlig | hudton 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">man med boll: hudton 6</annotation>
+		<annotation cp="⛹🏻‍♀">boll | kvinna | kvinnlig | hudton 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">kvinna med boll: hudton 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">boll | kvinna | kvinnlig | hudton 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">kvinna med boll: hudton 3</annotation>
+		<annotation cp="⛹🏽‍♀">boll | kvinna | kvinnlig | hudton 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">kvinna med boll: hudton 4</annotation>
+		<annotation cp="⛹🏾‍♀">boll | kvinna | kvinnlig | hudton 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">kvinna med boll: hudton 5</annotation>
+		<annotation cp="⛹🏿‍♀">boll | kvinna | kvinnlig | hudton 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">kvinna med boll: hudton 6</annotation>
+		<annotation cp="🏋🏻">sport | hudton 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">tyngdlyftare: hudton 1–2</annotation>
+		<annotation cp="🏋🏼">sport | hudton 3</annotation>
+		<annotation cp="🏋🏼" type="tts">tyngdlyftare: hudton 3</annotation>
+		<annotation cp="🏋🏽">sport | hudton 4</annotation>
+		<annotation cp="🏋🏽" type="tts">tyngdlyftare: hudton 4</annotation>
+		<annotation cp="🏋🏾">sport | hudton 5</annotation>
+		<annotation cp="🏋🏾" type="tts">tyngdlyftare: hudton 5</annotation>
+		<annotation cp="🏋🏿">sport | hudton 6</annotation>
+		<annotation cp="🏋🏿" type="tts">tyngdlyftare: hudton 6</annotation>
+		<annotation cp="🏋🏻‍♂">man | manlig | tyngdlyftare | hudton 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">man lyfter tyngder: hudton 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">man | manlig | tyngdlyftare | hudton 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">man lyfter tyngder: hudton 3</annotation>
+		<annotation cp="🏋🏽‍♂">man | manlig | tyngdlyftare | hudton 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">man lyfter tyngder: hudton 4</annotation>
+		<annotation cp="🏋🏾‍♂">man | manlig | tyngdlyftare | hudton 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">man lyfter tyngder: hudton 5</annotation>
+		<annotation cp="🏋🏿‍♂">man | manlig | tyngdlyftare | hudton 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">man lyfter tyngder: hudton 6</annotation>
+		<annotation cp="🏋🏻‍♀">kvinna | kvinnlig | tyngdlyftare | hudton 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">kvinna lyfter tyngder: hudton 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">kvinna | kvinnlig | tyngdlyftare | hudton 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">kvinna lyfter tyngder: hudton 3</annotation>
+		<annotation cp="🏋🏽‍♀">kvinna | kvinnlig | tyngdlyftare | hudton 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">kvinna lyfter tyngder: hudton 4</annotation>
+		<annotation cp="🏋🏾‍♀">kvinna | kvinnlig | tyngdlyftare | hudton 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">kvinna lyfter tyngder: hudton 5</annotation>
+		<annotation cp="🏋🏿‍♀">kvinna | kvinnlig | tyngdlyftare | hudton 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">kvinna lyfter tyngder: hudton 6</annotation>
+		<annotation cp="🚴🏻">cykel | hudton 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">cyklist: hudton 1–2</annotation>
+		<annotation cp="🚴🏼">cykel | hudton 3</annotation>
+		<annotation cp="🚴🏼" type="tts">cyklist: hudton 3</annotation>
+		<annotation cp="🚴🏽">cykel | hudton 4</annotation>
+		<annotation cp="🚴🏽" type="tts">cyklist: hudton 4</annotation>
+		<annotation cp="🚴🏾">cykel | hudton 5</annotation>
+		<annotation cp="🚴🏾" type="tts">cyklist: hudton 5</annotation>
+		<annotation cp="🚴🏿">cykel | hudton 6</annotation>
+		<annotation cp="🚴🏿" type="tts">cyklist: hudton 6</annotation>
+		<annotation cp="🚴🏻‍♂">cykel | cyklist | man | manlig | hudton 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">man cyklar: hudton 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">cykel | cyklist | man | manlig | hudton 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">man cyklar: hudton 3</annotation>
+		<annotation cp="🚴🏽‍♂">cykel | cyklist | man | manlig | hudton 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">man cyklar: hudton 4</annotation>
+		<annotation cp="🚴🏾‍♂">cykel | cyklist | man | manlig | hudton 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">man cyklar: hudton 5</annotation>
+		<annotation cp="🚴🏿‍♂">cykel | cyklist | man | manlig | hudton 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">man cyklar: hudton 6</annotation>
+		<annotation cp="🚴🏻‍♀">cykel | cyklist | kvinna | kvinnlig | hudton 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">kvinna cyklar: hudton 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">cykel | cyklist | kvinna | kvinnlig | hudton 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">kvinna cyklar: hudton 3</annotation>
+		<annotation cp="🚴🏽‍♀">cykel | cyklist | kvinna | kvinnlig | hudton 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">kvinna cyklar: hudton 4</annotation>
+		<annotation cp="🚴🏾‍♀">cykel | cyklist | kvinna | kvinnlig | hudton 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">kvinna cyklar: hudton 5</annotation>
+		<annotation cp="🚴🏿‍♀">cykel | cyklist | kvinna | kvinnlig | hudton 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">kvinna cyklar: hudton 6</annotation>
+		<annotation cp="🚵🏻">cykel | cyklist | hudton 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">mountainbikeåkare: hudton 1–2</annotation>
+		<annotation cp="🚵🏼">cykel | cyklist | hudton 3</annotation>
+		<annotation cp="🚵🏼" type="tts">mountainbikeåkare: hudton 3</annotation>
+		<annotation cp="🚵🏽">cykel | cyklist | hudton 4</annotation>
+		<annotation cp="🚵🏽" type="tts">mountainbikeåkare: hudton 4</annotation>
+		<annotation cp="🚵🏾">cykel | cyklist | hudton 5</annotation>
+		<annotation cp="🚵🏾" type="tts">mountainbikeåkare: hudton 5</annotation>
+		<annotation cp="🚵🏿">cykel | cyklist | hudton 6</annotation>
+		<annotation cp="🚵🏿" type="tts">mountainbikeåkare: hudton 6</annotation>
+		<annotation cp="🚵🏻‍♂">cykel | cyklist | man | manlig | mountain | hudton 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">man åker mountainbike: hudton 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">cykel | cyklist | man | manlig | mountain | hudton 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">man åker mountainbike: hudton 3</annotation>
+		<annotation cp="🚵🏽‍♂">cykel | cyklist | man | manlig | mountain | hudton 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">man åker mountainbike: hudton 4</annotation>
+		<annotation cp="🚵🏾‍♂">cykel | cyklist | man | manlig | mountain | hudton 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">man åker mountainbike: hudton 5</annotation>
+		<annotation cp="🚵🏿‍♂">cykel | cyklist | man | manlig | mountain | hudton 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">man åker mountainbike: hudton 6</annotation>
+		<annotation cp="🚵🏻‍♀">cykel | cyklist | kvinna | kvinnlig | mountain | hudton 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">kvinna åker mountainbike: hudton 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">cykel | cyklist | kvinna | kvinnlig | mountain | hudton 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">kvinna åker mountainbike: hudton 3</annotation>
+		<annotation cp="🚵🏽‍♀">cykel | cyklist | kvinna | kvinnlig | mountain | hudton 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">kvinna åker mountainbike: hudton 4</annotation>
+		<annotation cp="🚵🏾‍♀">cykel | cyklist | kvinna | kvinnlig | mountain | hudton 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">kvinna åker mountainbike: hudton 5</annotation>
+		<annotation cp="🚵🏿‍♀">cykel | cyklist | kvinna | kvinnlig | mountain | hudton 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">kvinna åker mountainbike: hudton 6</annotation>
+		<annotation cp="🤸🏻">gym | gymnastik | person | slå hjul | sport | hudton 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">slå hjul: hudton 1–2</annotation>
+		<annotation cp="🤸🏼">gym | gymnastik | person | slå hjul | sport | hudton 3</annotation>
+		<annotation cp="🤸🏼" type="tts">slå hjul: hudton 3</annotation>
+		<annotation cp="🤸🏽">gym | gymnastik | person | slå hjul | sport | hudton 4</annotation>
+		<annotation cp="🤸🏽" type="tts">slå hjul: hudton 4</annotation>
+		<annotation cp="🤸🏾">gym | gymnastik | person | slå hjul | sport | hudton 5</annotation>
+		<annotation cp="🤸🏾" type="tts">slå hjul: hudton 5</annotation>
+		<annotation cp="🤸🏿">gym | gymnastik | person | slå hjul | sport | hudton 6</annotation>
+		<annotation cp="🤸🏿" type="tts">slå hjul: hudton 6</annotation>
+		<annotation cp="🤸🏻‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">man slår hjul: hudton 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">man slår hjul: hudton 3</annotation>
+		<annotation cp="🤸🏽‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">man slår hjul: hudton 4</annotation>
+		<annotation cp="🤸🏾‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">man slår hjul: hudton 5</annotation>
+		<annotation cp="🤸🏿‍♂">gymnastik | man | manlig | person | slå hjul | sport | hudton 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">man slår hjul: hudton 6</annotation>
+		<annotation cp="🤸🏻‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">kvinna slår hjul: hudton 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">kvinna slår hjul: hudton 3</annotation>
+		<annotation cp="🤸🏽‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">kvinna slår hjul: hudton 4</annotation>
+		<annotation cp="🤸🏾‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">kvinna slår hjul: hudton 5</annotation>
+		<annotation cp="🤸🏿‍♀">gymnastik | kvinna | kvinnlig | person | slå hjul | sport | hudton 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">kvinna slår hjul: hudton 6</annotation>
+		<annotation cp="🤽🏻">person | polo | sport | vatten | hudton 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">vattenpolo: hudton 1–2</annotation>
+		<annotation cp="🤽🏼">person | polo | sport | vatten | hudton 3</annotation>
+		<annotation cp="🤽🏼" type="tts">vattenpolo: hudton 3</annotation>
+		<annotation cp="🤽🏽">person | polo | sport | vatten | hudton 4</annotation>
+		<annotation cp="🤽🏽" type="tts">vattenpolo: hudton 4</annotation>
+		<annotation cp="🤽🏾">person | polo | sport | vatten | hudton 5</annotation>
+		<annotation cp="🤽🏾" type="tts">vattenpolo: hudton 5</annotation>
+		<annotation cp="🤽🏿">person | polo | sport | vatten | hudton 6</annotation>
+		<annotation cp="🤽🏿" type="tts">vattenpolo: hudton 6</annotation>
+		<annotation cp="🤽🏻‍♂">man | manlig | sport | vattenpolo | hudton 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">man spelar vattenpolo: hudton 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">man | manlig | sport | vattenpolo | hudton 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">man spelar vattenpolo: hudton 3</annotation>
+		<annotation cp="🤽🏽‍♂">man | manlig | sport | vattenpolo | hudton 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">man spelar vattenpolo: hudton 4</annotation>
+		<annotation cp="🤽🏾‍♂">man | manlig | sport | vattenpolo | hudton 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">man spelar vattenpolo: hudton 5</annotation>
+		<annotation cp="🤽🏿‍♂">man | manlig | sport | vattenpolo | hudton 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">man spelar vattenpolo: hudton 6</annotation>
+		<annotation cp="🤽🏻‍♀">kvinna | kvinnlig | sport | vattenpolo | hudton 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">kvinna spelar vattenpolo: hudton 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">kvinna | kvinnlig | sport | vattenpolo | hudton 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">kvinna spelar vattenpolo: hudton 3</annotation>
+		<annotation cp="🤽🏽‍♀">kvinna | kvinnlig | sport | vattenpolo | hudton 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">kvinna spelar vattenpolo: hudton 4</annotation>
+		<annotation cp="🤽🏾‍♀">kvinna | kvinnlig | sport | vattenpolo | hudton 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">kvinna spelar vattenpolo: hudton 5</annotation>
+		<annotation cp="🤽🏿‍♀">kvinna | kvinnlig | sport | vattenpolo | hudton 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">kvinna spelar vattenpolo: hudton 6</annotation>
+		<annotation cp="🤾🏻">boll | handboll | person | sport | hudton 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">handboll: hudton 1–2</annotation>
+		<annotation cp="🤾🏼">boll | handboll | person | sport | hudton 3</annotation>
+		<annotation cp="🤾🏼" type="tts">handboll: hudton 3</annotation>
+		<annotation cp="🤾🏽">boll | handboll | person | sport | hudton 4</annotation>
+		<annotation cp="🤾🏽" type="tts">handboll: hudton 4</annotation>
+		<annotation cp="🤾🏾">boll | handboll | person | sport | hudton 5</annotation>
+		<annotation cp="🤾🏾" type="tts">handboll: hudton 5</annotation>
+		<annotation cp="🤾🏿">boll | handboll | person | sport | hudton 6</annotation>
+		<annotation cp="🤾🏿" type="tts">handboll: hudton 6</annotation>
+		<annotation cp="🤾🏻‍♂">handboll | man | manlig | sport | hudton 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">man spelar handboll: hudton 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">handboll | man | manlig | sport | hudton 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">man spelar handboll: hudton 3</annotation>
+		<annotation cp="🤾🏽‍♂">handboll | man | manlig | sport | hudton 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">man spelar handboll: hudton 4</annotation>
+		<annotation cp="🤾🏾‍♂">handboll | man | manlig | sport | hudton 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">man spelar handboll: hudton 5</annotation>
+		<annotation cp="🤾🏿‍♂">handboll | man | manlig | sport | hudton 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">man spelar handboll: hudton 6</annotation>
+		<annotation cp="🤾🏻‍♀">handball | kvinna | kvinnlig | sport | hudton 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">kvinna spelar handboll: hudton 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">handball | kvinna | kvinnlig | sport | hudton 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">kvinna spelar handboll: hudton 3</annotation>
+		<annotation cp="🤾🏽‍♀">handball | kvinna | kvinnlig | sport | hudton 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">kvinna spelar handboll: hudton 4</annotation>
+		<annotation cp="🤾🏾‍♀">handball | kvinna | kvinnlig | sport | hudton 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">kvinna spelar handboll: hudton 5</annotation>
+		<annotation cp="🤾🏿‍♀">handball | kvinna | kvinnlig | sport | hudton 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">kvinna spelar handboll: hudton 6</annotation>
+		<annotation cp="🤹🏻">balans | färdighet | jonglering | multitasking | hudton 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">jonglering: hudton 1–2</annotation>
+		<annotation cp="🤹🏼">balans | färdighet | jonglering | multitasking | hudton 3</annotation>
+		<annotation cp="🤹🏼" type="tts">jonglering: hudton 3</annotation>
+		<annotation cp="🤹🏽">balans | färdighet | jonglering | multitasking | hudton 4</annotation>
+		<annotation cp="🤹🏽" type="tts">jonglering: hudton 4</annotation>
+		<annotation cp="🤹🏾">balans | färdighet | jonglering | multitasking | hudton 5</annotation>
+		<annotation cp="🤹🏾" type="tts">jonglering: hudton 5</annotation>
+		<annotation cp="🤹🏿">balans | färdighet | jonglering | multitasking | hudton 6</annotation>
+		<annotation cp="🤹🏿" type="tts">jonglering: hudton 6</annotation>
+		<annotation cp="🤹🏻‍♂">jonglering | man | manlig | multitask | hudton 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">man jonglerar: hudton 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">jonglering | man | manlig | multitask | hudton 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">man jonglerar: hudton 3</annotation>
+		<annotation cp="🤹🏽‍♂">jonglering | man | manlig | multitask | hudton 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">man jonglerar: hudton 4</annotation>
+		<annotation cp="🤹🏾‍♂">jonglering | man | manlig | multitask | hudton 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">man jonglerar: hudton 5</annotation>
+		<annotation cp="🤹🏿‍♂">jonglering | man | manlig | multitask | hudton 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">man jonglerar: hudton 6</annotation>
+		<annotation cp="🤹🏻‍♀">jonglering | kvinna | kvinnlig | multitask | hudton 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">kvinna jonglerar: hudton 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">jonglering | kvinna | kvinnlig | multitask | hudton 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">kvinna jonglerar: hudton 3</annotation>
+		<annotation cp="🤹🏽‍♀">jonglering | kvinna | kvinnlig | multitask | hudton 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">kvinna jonglerar: hudton 4</annotation>
+		<annotation cp="🤹🏾‍♀">jonglering | kvinna | kvinnlig | multitask | hudton 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">kvinna jonglerar: hudton 5</annotation>
+		<annotation cp="🤹🏿‍♀">jonglering | kvinna | kvinnlig | multitask | hudton 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">kvinna jonglerar: hudton 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">kyssas | kärlek | människor | kvinna | man</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">puss: kvinna, man</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">kyssas | kärlek | människor | man</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">puss: man, man</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">kyssas | kärlek | människor | kvinna</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">puss: kvinna, kvinna</annotation>
+		<annotation cp="👩‍❤‍👨">hjärta | kärlek | människor | kvinna | man</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">par med hjärta: kvinna, man</annotation>
+		<annotation cp="👨‍❤‍👨">hjärta | kärlek | människor | man</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">par med hjärta: man, man</annotation>
+		<annotation cp="👩‍❤‍👩">hjärta | kärlek | människor | kvinna</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">par med hjärta: kvinna, kvinna</annotation>
+		<annotation cp="👨‍👩‍👦">barn | mamma | människor | pappa | man | kvinna | pojke</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">familj: man, kvinna, pojke</annotation>
+		<annotation cp="👨‍👩‍👧">barn | mamma | människor | pappa | man | kvinna | flicka</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">familj: man, kvinna, flicka</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">barn | mamma | människor | pappa | man | kvinna | flicka | pojke</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">familj: man, kvinna, flicka, pojke</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">barn | mamma | människor | pappa | man | kvinna | pojke</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">familj: man, kvinna, pojke, pojke</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">barn | mamma | människor | pappa | man | kvinna | flicka</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">familj: man, kvinna, flicka, flicka</annotation>
+		<annotation cp="👨‍👨‍👦">barn | mamma | människor | pappa | man | pojke</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">familj: man, man, pojke</annotation>
+		<annotation cp="👨‍👨‍👧">barn | mamma | människor | pappa | man | flicka</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">familj: man, man, flicka</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">barn | mamma | människor | pappa | man | flicka | pojke</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">familj: man, man, flicka, pojke</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">barn | mamma | människor | pappa | man | pojke</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">familj: man, man, pojke, pojke</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">barn | mamma | människor | pappa | man | flicka</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">familj: man, man, flicka, flicka</annotation>
+		<annotation cp="👩‍👩‍👦">barn | mamma | människor | pappa | kvinna | pojke</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">familj: kvinna, kvinna, pojke</annotation>
+		<annotation cp="👩‍👩‍👧">barn | mamma | människor | pappa | kvinna | flicka</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">familj: kvinna, kvinna, flicka</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">barn | mamma | människor | pappa | kvinna | flicka | pojke</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">familj: kvinna, kvinna, flicka, pojke</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">barn | mamma | människor | pappa | kvinna | pojke</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">familj: kvinna, kvinna, pojke, pojke</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">barn | mamma | människor | pappa | kvinna | flicka</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">familj: kvinna, kvinna, flicka, flicka</annotation>
+		<annotation cp="👨‍👦">barn | mamma | människor | pappa | man | pojke</annotation>
+		<annotation cp="👨‍👦" type="tts">familj: man, pojke</annotation>
+		<annotation cp="👨‍👦‍👦">barn | mamma | människor | pappa | man | pojke</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">familj: man, pojke, pojke</annotation>
+		<annotation cp="👨‍👧">barn | mamma | människor | pappa | man | flicka</annotation>
+		<annotation cp="👨‍👧" type="tts">familj: man, flicka</annotation>
+		<annotation cp="👨‍👧‍👦">barn | mamma | människor | pappa | man | flicka | pojke</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">familj: man, flicka, pojke</annotation>
+		<annotation cp="👨‍👧‍👧">barn | mamma | människor | pappa | man | flicka</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">familj: man, flicka, flicka</annotation>
+		<annotation cp="👩‍👦">barn | mamma | människor | pappa | kvinna | pojke</annotation>
+		<annotation cp="👩‍👦" type="tts">familj: kvinna, pojke</annotation>
+		<annotation cp="👩‍👦‍👦">barn | mamma | människor | pappa | kvinna | pojke</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">familj: kvinna, pojke, pojke</annotation>
+		<annotation cp="👩‍👧">barn | mamma | människor | pappa | kvinna | flicka</annotation>
+		<annotation cp="👩‍👧" type="tts">familj: kvinna, flicka</annotation>
+		<annotation cp="👩‍👧‍👦">barn | mamma | människor | pappa | kvinna | flicka | pojke</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">familj: kvinna, flicka, pojke</annotation>
+		<annotation cp="👩‍👧‍👧">barn | mamma | människor | pappa | kvinna | flicka</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">familj: kvinna, flicka, flicka</annotation>
+		<annotation cp="🤳🏻">kamera | selfie | telefon | hudton 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfie: hudton 1–2</annotation>
+		<annotation cp="🤳🏼">kamera | selfie | telefon | hudton 3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfie: hudton 3</annotation>
+		<annotation cp="🤳🏽">kamera | selfie | telefon | hudton 4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfie: hudton 4</annotation>
+		<annotation cp="🤳🏾">kamera | selfie | telefon | hudton 5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfie: hudton 5</annotation>
+		<annotation cp="🤳🏿">kamera | selfie | telefon | hudton 6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfie: hudton 6</annotation>
+		<annotation cp="💪🏻">muskler | stark | hudton 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">spänd biceps: hudton 1–2</annotation>
+		<annotation cp="💪🏼">muskler | stark | hudton 3</annotation>
+		<annotation cp="💪🏼" type="tts">spänd biceps: hudton 3</annotation>
+		<annotation cp="💪🏽">muskler | stark | hudton 4</annotation>
+		<annotation cp="💪🏽" type="tts">spänd biceps: hudton 4</annotation>
+		<annotation cp="💪🏾">muskler | stark | hudton 5</annotation>
+		<annotation cp="💪🏾" type="tts">spänd biceps: hudton 5</annotation>
+		<annotation cp="💪🏿">muskler | stark | hudton 6</annotation>
+		<annotation cp="💪🏿" type="tts">spänd biceps: hudton 6</annotation>
+		<annotation cp="👈🏻">peka åt vänster | pekfinger | hudton 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">vänsterpekande finger: hudton 1–2</annotation>
+		<annotation cp="👈🏼">peka åt vänster | pekfinger | hudton 3</annotation>
+		<annotation cp="👈🏼" type="tts">vänsterpekande finger: hudton 3</annotation>
+		<annotation cp="👈🏽">peka åt vänster | pekfinger | hudton 4</annotation>
+		<annotation cp="👈🏽" type="tts">vänsterpekande finger: hudton 4</annotation>
+		<annotation cp="👈🏾">peka åt vänster | pekfinger | hudton 5</annotation>
+		<annotation cp="👈🏾" type="tts">vänsterpekande finger: hudton 5</annotation>
+		<annotation cp="👈🏿">peka åt vänster | pekfinger | hudton 6</annotation>
+		<annotation cp="👈🏿" type="tts">vänsterpekande finger: hudton 6</annotation>
+		<annotation cp="👉🏻">peka åt höger | pekfinger | hudton 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">högerpekande finger: hudton 1–2</annotation>
+		<annotation cp="👉🏼">peka åt höger | pekfinger | hudton 3</annotation>
+		<annotation cp="👉🏼" type="tts">högerpekande finger: hudton 3</annotation>
+		<annotation cp="👉🏽">peka åt höger | pekfinger | hudton 4</annotation>
+		<annotation cp="👉🏽" type="tts">högerpekande finger: hudton 4</annotation>
+		<annotation cp="👉🏾">peka åt höger | pekfinger | hudton 5</annotation>
+		<annotation cp="👉🏾" type="tts">högerpekande finger: hudton 5</annotation>
+		<annotation cp="👉🏿">peka åt höger | pekfinger | hudton 6</annotation>
+		<annotation cp="👉🏿" type="tts">högerpekande finger: hudton 6</annotation>
+		<annotation cp="☝🏻">finger | förmaning | peka | hudton 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">finger upp: hudton 1–2</annotation>
+		<annotation cp="☝🏼">finger | förmaning | peka | hudton 3</annotation>
+		<annotation cp="☝🏼" type="tts">finger upp: hudton 3</annotation>
+		<annotation cp="☝🏽">finger | förmaning | peka | hudton 4</annotation>
+		<annotation cp="☝🏽" type="tts">finger upp: hudton 4</annotation>
+		<annotation cp="☝🏾">finger | förmaning | peka | hudton 5</annotation>
+		<annotation cp="☝🏾" type="tts">finger upp: hudton 5</annotation>
+		<annotation cp="☝🏿">finger | förmaning | peka | hudton 6</annotation>
+		<annotation cp="☝🏿" type="tts">finger upp: hudton 6</annotation>
+		<annotation cp="👆🏻">finger | peka uppåt | pekfinger | hudton 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">pekfinger upp: hudton 1–2</annotation>
+		<annotation cp="👆🏼">finger | peka uppåt | pekfinger | hudton 3</annotation>
+		<annotation cp="👆🏼" type="tts">pekfinger upp: hudton 3</annotation>
+		<annotation cp="👆🏽">finger | peka uppåt | pekfinger | hudton 4</annotation>
+		<annotation cp="👆🏽" type="tts">pekfinger upp: hudton 4</annotation>
+		<annotation cp="👆🏾">finger | peka uppåt | pekfinger | hudton 5</annotation>
+		<annotation cp="👆🏾" type="tts">pekfinger upp: hudton 5</annotation>
+		<annotation cp="👆🏿">finger | peka uppåt | pekfinger | hudton 6</annotation>
+		<annotation cp="👆🏿" type="tts">pekfinger upp: hudton 6</annotation>
+		<annotation cp="🖕🏻">långfinger | hudton 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">långfinger upp: hudton 1–2</annotation>
+		<annotation cp="🖕🏼">långfinger | hudton 3</annotation>
+		<annotation cp="🖕🏼" type="tts">långfinger upp: hudton 3</annotation>
+		<annotation cp="🖕🏽">långfinger | hudton 4</annotation>
+		<annotation cp="🖕🏽" type="tts">långfinger upp: hudton 4</annotation>
+		<annotation cp="🖕🏾">långfinger | hudton 5</annotation>
+		<annotation cp="🖕🏾" type="tts">långfinger upp: hudton 5</annotation>
+		<annotation cp="🖕🏿">långfinger | hudton 6</annotation>
+		<annotation cp="🖕🏿" type="tts">långfinger upp: hudton 6</annotation>
+		<annotation cp="👇🏻">finger | peka nedåt | pekfinger | hudton 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">nedåtpekande finger: hudton 1–2</annotation>
+		<annotation cp="👇🏼">finger | peka nedåt | pekfinger | hudton 3</annotation>
+		<annotation cp="👇🏼" type="tts">nedåtpekande finger: hudton 3</annotation>
+		<annotation cp="👇🏽">finger | peka nedåt | pekfinger | hudton 4</annotation>
+		<annotation cp="👇🏽" type="tts">nedåtpekande finger: hudton 4</annotation>
+		<annotation cp="👇🏾">finger | peka nedåt | pekfinger | hudton 5</annotation>
+		<annotation cp="👇🏾" type="tts">nedåtpekande finger: hudton 5</annotation>
+		<annotation cp="👇🏿">finger | peka nedåt | pekfinger | hudton 6</annotation>
+		<annotation cp="👇🏿" type="tts">nedåtpekande finger: hudton 6</annotation>
+		<annotation cp="✌🏻">seger | hudton 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">v-tecken: hudton 1–2</annotation>
+		<annotation cp="✌🏼">seger | hudton 3</annotation>
+		<annotation cp="✌🏼" type="tts">v-tecken: hudton 3</annotation>
+		<annotation cp="✌🏽">seger | hudton 4</annotation>
+		<annotation cp="✌🏽" type="tts">v-tecken: hudton 4</annotation>
+		<annotation cp="✌🏾">seger | hudton 5</annotation>
+		<annotation cp="✌🏾" type="tts">v-tecken: hudton 5</annotation>
+		<annotation cp="✌🏿">seger | hudton 6</annotation>
+		<annotation cp="✌🏿" type="tts">v-tecken: hudton 6</annotation>
+		<annotation cp="🤞🏻">finger | hand | korsa | lycka | hudton 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">korsade fingrar: hudton 1–2</annotation>
+		<annotation cp="🤞🏼">finger | hand | korsa | lycka | hudton 3</annotation>
+		<annotation cp="🤞🏼" type="tts">korsade fingrar: hudton 3</annotation>
+		<annotation cp="🤞🏽">finger | hand | korsa | lycka | hudton 4</annotation>
+		<annotation cp="🤞🏽" type="tts">korsade fingrar: hudton 4</annotation>
+		<annotation cp="🤞🏾">finger | hand | korsa | lycka | hudton 5</annotation>
+		<annotation cp="🤞🏾" type="tts">korsade fingrar: hudton 5</annotation>
+		<annotation cp="🤞🏿">finger | hand | korsa | lycka | hudton 6</annotation>
+		<annotation cp="🤞🏿" type="tts">korsade fingrar: hudton 6</annotation>
+		<annotation cp="🖖🏻">Star Trek | hand | spock | vulcan | hudton 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">vulcan-hälsning: hudton 1–2</annotation>
+		<annotation cp="🖖🏼">Star Trek | hand | spock | vulcan | hudton 3</annotation>
+		<annotation cp="🖖🏼" type="tts">vulcan-hälsning: hudton 3</annotation>
+		<annotation cp="🖖🏽">Star Trek | hand | spock | vulcan | hudton 4</annotation>
+		<annotation cp="🖖🏽" type="tts">vulcan-hälsning: hudton 4</annotation>
+		<annotation cp="🖖🏾">Star Trek | hand | spock | vulcan | hudton 5</annotation>
+		<annotation cp="🖖🏾" type="tts">vulcan-hälsning: hudton 5</annotation>
+		<annotation cp="🖖🏿">Star Trek | hand | spock | vulcan | hudton 6</annotation>
+		<annotation cp="🖖🏿" type="tts">vulcan-hälsning: hudton 6</annotation>
+		<annotation cp="🤘🏻">hand | horn | hårdrock | hudton 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">djävulstecknet: hudton 1–2</annotation>
+		<annotation cp="🤘🏼">hand | horn | hårdrock | hudton 3</annotation>
+		<annotation cp="🤘🏼" type="tts">djävulstecknet: hudton 3</annotation>
+		<annotation cp="🤘🏽">hand | horn | hårdrock | hudton 4</annotation>
+		<annotation cp="🤘🏽" type="tts">djävulstecknet: hudton 4</annotation>
+		<annotation cp="🤘🏾">hand | horn | hårdrock | hudton 5</annotation>
+		<annotation cp="🤘🏾" type="tts">djävulstecknet: hudton 5</annotation>
+		<annotation cp="🤘🏿">hand | horn | hårdrock | hudton 6</annotation>
+		<annotation cp="🤘🏿" type="tts">djävulstecknet: hudton 6</annotation>
+		<annotation cp="🤙🏻">hand | ringa | hudton 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">ring mig hand: hudton 1–2</annotation>
+		<annotation cp="🤙🏼">hand | ringa | hudton 3</annotation>
+		<annotation cp="🤙🏼" type="tts">ring mig hand: hudton 3</annotation>
+		<annotation cp="🤙🏽">hand | ringa | hudton 4</annotation>
+		<annotation cp="🤙🏽" type="tts">ring mig hand: hudton 4</annotation>
+		<annotation cp="🤙🏾">hand | ringa | hudton 5</annotation>
+		<annotation cp="🤙🏾" type="tts">ring mig hand: hudton 5</annotation>
+		<annotation cp="🤙🏿">hand | ringa | hudton 6</annotation>
+		<annotation cp="🤙🏿" type="tts">ring mig hand: hudton 6</annotation>
+		<annotation cp="🖐🏻">hand | hudton 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">handflata: hudton 1–2</annotation>
+		<annotation cp="🖐🏼">hand | hudton 3</annotation>
+		<annotation cp="🖐🏼" type="tts">handflata: hudton 3</annotation>
+		<annotation cp="🖐🏽">hand | hudton 4</annotation>
+		<annotation cp="🖐🏽" type="tts">handflata: hudton 4</annotation>
+		<annotation cp="🖐🏾">hand | hudton 5</annotation>
+		<annotation cp="🖐🏾" type="tts">handflata: hudton 5</annotation>
+		<annotation cp="🖐🏿">hand | hudton 6</annotation>
+		<annotation cp="🖐🏿" type="tts">handflata: hudton 6</annotation>
+		<annotation cp="✋🏻">hand | handflata | uppräckt | hudton 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">hand i luften: hudton 1–2</annotation>
+		<annotation cp="✋🏼">hand | handflata | uppräckt | hudton 3</annotation>
+		<annotation cp="✋🏼" type="tts">hand i luften: hudton 3</annotation>
+		<annotation cp="✋🏽">hand | handflata | uppräckt | hudton 4</annotation>
+		<annotation cp="✋🏽" type="tts">hand i luften: hudton 4</annotation>
+		<annotation cp="✋🏾">hand | handflata | uppräckt | hudton 5</annotation>
+		<annotation cp="✋🏾" type="tts">hand i luften: hudton 5</annotation>
+		<annotation cp="✋🏿">hand | handflata | uppräckt | hudton 6</annotation>
+		<annotation cp="✋🏿" type="tts">hand i luften: hudton 6</annotation>
+		<annotation cp="👌🏻">OK | hand | tecken | hudton 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">OK-tecken: hudton 1–2</annotation>
+		<annotation cp="👌🏼">OK | hand | tecken | hudton 3</annotation>
+		<annotation cp="👌🏼" type="tts">OK-tecken: hudton 3</annotation>
+		<annotation cp="👌🏽">OK | hand | tecken | hudton 4</annotation>
+		<annotation cp="👌🏽" type="tts">OK-tecken: hudton 4</annotation>
+		<annotation cp="👌🏾">OK | hand | tecken | hudton 5</annotation>
+		<annotation cp="👌🏾" type="tts">OK-tecken: hudton 5</annotation>
+		<annotation cp="👌🏿">OK | hand | tecken | hudton 6</annotation>
+		<annotation cp="👌🏿" type="tts">OK-tecken: hudton 6</annotation>
+		<annotation cp="👍🏻">gillar | tumme | upp | hudton 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">tummen upp: hudton 1–2</annotation>
+		<annotation cp="👍🏼">gillar | tumme | upp | hudton 3</annotation>
+		<annotation cp="👍🏼" type="tts">tummen upp: hudton 3</annotation>
+		<annotation cp="👍🏽">gillar | tumme | upp | hudton 4</annotation>
+		<annotation cp="👍🏽" type="tts">tummen upp: hudton 4</annotation>
+		<annotation cp="👍🏾">gillar | tumme | upp | hudton 5</annotation>
+		<annotation cp="👍🏾" type="tts">tummen upp: hudton 5</annotation>
+		<annotation cp="👍🏿">gillar | tumme | upp | hudton 6</annotation>
+		<annotation cp="👍🏿" type="tts">tummen upp: hudton 6</annotation>
+		<annotation cp="👎🏻">ner | ogilla | tumme | hudton 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">tummen ned: hudton 1–2</annotation>
+		<annotation cp="👎🏼">ner | ogilla | tumme | hudton 3</annotation>
+		<annotation cp="👎🏼" type="tts">tummen ned: hudton 3</annotation>
+		<annotation cp="👎🏽">ner | ogilla | tumme | hudton 4</annotation>
+		<annotation cp="👎🏽" type="tts">tummen ned: hudton 4</annotation>
+		<annotation cp="👎🏾">ner | ogilla | tumme | hudton 5</annotation>
+		<annotation cp="👎🏾" type="tts">tummen ned: hudton 5</annotation>
+		<annotation cp="👎🏿">ner | ogilla | tumme | hudton 6</annotation>
+		<annotation cp="👎🏿" type="tts">tummen ned: hudton 6</annotation>
+		<annotation cp="✊🏻">hand | knytnäve | hudton 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">knytnäve i luften: hudton 1–2</annotation>
+		<annotation cp="✊🏼">hand | knytnäve | hudton 3</annotation>
+		<annotation cp="✊🏼" type="tts">knytnäve i luften: hudton 3</annotation>
+		<annotation cp="✊🏽">hand | knytnäve | hudton 4</annotation>
+		<annotation cp="✊🏽" type="tts">knytnäve i luften: hudton 4</annotation>
+		<annotation cp="✊🏾">hand | knytnäve | hudton 5</annotation>
+		<annotation cp="✊🏾" type="tts">knytnäve i luften: hudton 5</annotation>
+		<annotation cp="✊🏿">hand | knytnäve | hudton 6</annotation>
+		<annotation cp="✊🏿" type="tts">knytnäve i luften: hudton 6</annotation>
+		<annotation cp="👊🏻">knytnäve | hudton 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">knuten hand: hudton 1–2</annotation>
+		<annotation cp="👊🏼">knytnäve | hudton 3</annotation>
+		<annotation cp="👊🏼" type="tts">knuten hand: hudton 3</annotation>
+		<annotation cp="👊🏽">knytnäve | hudton 4</annotation>
+		<annotation cp="👊🏽" type="tts">knuten hand: hudton 4</annotation>
+		<annotation cp="👊🏾">knytnäve | hudton 5</annotation>
+		<annotation cp="👊🏾" type="tts">knuten hand: hudton 5</annotation>
+		<annotation cp="👊🏿">knytnäve | hudton 6</annotation>
+		<annotation cp="👊🏿" type="tts">knuten hand: hudton 6</annotation>
+		<annotation cp="🤛🏻">näve | vänster | vänstervänd | hudton 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">vänstervänd näve: hudton 1–2</annotation>
+		<annotation cp="🤛🏼">näve | vänster | vänstervänd | hudton 3</annotation>
+		<annotation cp="🤛🏼" type="tts">vänstervänd näve: hudton 3</annotation>
+		<annotation cp="🤛🏽">näve | vänster | vänstervänd | hudton 4</annotation>
+		<annotation cp="🤛🏽" type="tts">vänstervänd näve: hudton 4</annotation>
+		<annotation cp="🤛🏾">näve | vänster | vänstervänd | hudton 5</annotation>
+		<annotation cp="🤛🏾" type="tts">vänstervänd näve: hudton 5</annotation>
+		<annotation cp="🤛🏿">näve | vänster | vänstervänd | hudton 6</annotation>
+		<annotation cp="🤛🏿" type="tts">vänstervänd näve: hudton 6</annotation>
+		<annotation cp="🤜🏻">högervänd | näve | vänster | hudton 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">högervänd näve: hudton 1–2</annotation>
+		<annotation cp="🤜🏼">högervänd | näve | vänster | hudton 3</annotation>
+		<annotation cp="🤜🏼" type="tts">högervänd näve: hudton 3</annotation>
+		<annotation cp="🤜🏽">högervänd | näve | vänster | hudton 4</annotation>
+		<annotation cp="🤜🏽" type="tts">högervänd näve: hudton 4</annotation>
+		<annotation cp="🤜🏾">högervänd | näve | vänster | hudton 5</annotation>
+		<annotation cp="🤜🏾" type="tts">högervänd näve: hudton 5</annotation>
+		<annotation cp="🤜🏿">högervänd | näve | vänster | hudton 6</annotation>
+		<annotation cp="🤜🏿" type="tts">högervänd näve: hudton 6</annotation>
+		<annotation cp="🤚🏻">hand | lyft | hudton 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">lyft hand: hudton 1–2</annotation>
+		<annotation cp="🤚🏼">hand | lyft | hudton 3</annotation>
+		<annotation cp="🤚🏼" type="tts">lyft hand: hudton 3</annotation>
+		<annotation cp="🤚🏽">hand | lyft | hudton 4</annotation>
+		<annotation cp="🤚🏽" type="tts">lyft hand: hudton 4</annotation>
+		<annotation cp="🤚🏾">hand | lyft | hudton 5</annotation>
+		<annotation cp="🤚🏾" type="tts">lyft hand: hudton 5</annotation>
+		<annotation cp="🤚🏿">hand | lyft | hudton 6</annotation>
+		<annotation cp="🤚🏿" type="tts">lyft hand: hudton 6</annotation>
+		<annotation cp="👋🏻">hand | vinka | hudton 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">vinkande hand: hudton 1–2</annotation>
+		<annotation cp="👋🏼">hand | vinka | hudton 3</annotation>
+		<annotation cp="👋🏼" type="tts">vinkande hand: hudton 3</annotation>
+		<annotation cp="👋🏽">hand | vinka | hudton 4</annotation>
+		<annotation cp="👋🏽" type="tts">vinkande hand: hudton 4</annotation>
+		<annotation cp="👋🏾">hand | vinka | hudton 5</annotation>
+		<annotation cp="👋🏾" type="tts">vinkande hand: hudton 5</annotation>
+		<annotation cp="👋🏿">hand | vinka | hudton 6</annotation>
+		<annotation cp="👋🏿" type="tts">vinkande hand: hudton 6</annotation>
+		<annotation cp="✍🏻">hand | skriver | hudton 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">hand som skriver: hudton 1–2</annotation>
+		<annotation cp="✍🏼">hand | skriver | hudton 3</annotation>
+		<annotation cp="✍🏼" type="tts">hand som skriver: hudton 3</annotation>
+		<annotation cp="✍🏽">hand | skriver | hudton 4</annotation>
+		<annotation cp="✍🏽" type="tts">hand som skriver: hudton 4</annotation>
+		<annotation cp="✍🏾">hand | skriver | hudton 5</annotation>
+		<annotation cp="✍🏾" type="tts">hand som skriver: hudton 5</annotation>
+		<annotation cp="✍🏿">hand | skriver | hudton 6</annotation>
+		<annotation cp="✍🏿" type="tts">hand som skriver: hudton 6</annotation>
+		<annotation cp="👏🏻">klappa | klappa händer | hudton 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">klappande händer: hudton 1–2</annotation>
+		<annotation cp="👏🏼">klappa | klappa händer | hudton 3</annotation>
+		<annotation cp="👏🏼" type="tts">klappande händer: hudton 3</annotation>
+		<annotation cp="👏🏽">klappa | klappa händer | hudton 4</annotation>
+		<annotation cp="👏🏽" type="tts">klappande händer: hudton 4</annotation>
+		<annotation cp="👏🏾">klappa | klappa händer | hudton 5</annotation>
+		<annotation cp="👏🏾" type="tts">klappande händer: hudton 5</annotation>
+		<annotation cp="👏🏿">klappa | klappa händer | hudton 6</annotation>
+		<annotation cp="👏🏿" type="tts">klappande händer: hudton 6</annotation>
+		<annotation cp="👐🏻">händer | öppna | hudton 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">öppna händer: hudton 1–2</annotation>
+		<annotation cp="👐🏼">händer | öppna | hudton 3</annotation>
+		<annotation cp="👐🏼" type="tts">öppna händer: hudton 3</annotation>
+		<annotation cp="👐🏽">händer | öppna | hudton 4</annotation>
+		<annotation cp="👐🏽" type="tts">öppna händer: hudton 4</annotation>
+		<annotation cp="👐🏾">händer | öppna | hudton 5</annotation>
+		<annotation cp="👐🏾" type="tts">öppna händer: hudton 5</annotation>
+		<annotation cp="👐🏿">händer | öppna | hudton 6</annotation>
+		<annotation cp="👐🏿" type="tts">öppna händer: hudton 6</annotation>
+		<annotation cp="🙌🏻">hurra | räcker upp händerna | hudton 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">båda händerna i luften: hudton 1–2</annotation>
+		<annotation cp="🙌🏼">hurra | räcker upp händerna | hudton 3</annotation>
+		<annotation cp="🙌🏼" type="tts">båda händerna i luften: hudton 3</annotation>
+		<annotation cp="🙌🏽">hurra | räcker upp händerna | hudton 4</annotation>
+		<annotation cp="🙌🏽" type="tts">båda händerna i luften: hudton 4</annotation>
+		<annotation cp="🙌🏾">hurra | räcker upp händerna | hudton 5</annotation>
+		<annotation cp="🙌🏾" type="tts">båda händerna i luften: hudton 5</annotation>
+		<annotation cp="🙌🏿">hurra | räcker upp händerna | hudton 6</annotation>
+		<annotation cp="🙌🏿" type="tts">båda händerna i luften: hudton 6</annotation>
+		<annotation cp="🙏🏻">be | ber | händer | hudton 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">knäppta händer: hudton 1–2</annotation>
+		<annotation cp="🙏🏼">be | ber | händer | hudton 3</annotation>
+		<annotation cp="🙏🏼" type="tts">knäppta händer: hudton 3</annotation>
+		<annotation cp="🙏🏽">be | ber | händer | hudton 4</annotation>
+		<annotation cp="🙏🏽" type="tts">knäppta händer: hudton 4</annotation>
+		<annotation cp="🙏🏾">be | ber | händer | hudton 5</annotation>
+		<annotation cp="🙏🏾" type="tts">knäppta händer: hudton 5</annotation>
+		<annotation cp="🙏🏿">be | ber | händer | hudton 6</annotation>
+		<annotation cp="🙏🏿" type="tts">knäppta händer: hudton 6</annotation>
+		<annotation cp="💅🏻">manikyr | måla naglar | smink | hudton 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">nagellack: hudton 1–2</annotation>
+		<annotation cp="💅🏼">manikyr | måla naglar | smink | hudton 3</annotation>
+		<annotation cp="💅🏼" type="tts">nagellack: hudton 3</annotation>
+		<annotation cp="💅🏽">manikyr | måla naglar | smink | hudton 4</annotation>
+		<annotation cp="💅🏽" type="tts">nagellack: hudton 4</annotation>
+		<annotation cp="💅🏾">manikyr | måla naglar | smink | hudton 5</annotation>
+		<annotation cp="💅🏾" type="tts">nagellack: hudton 5</annotation>
+		<annotation cp="💅🏿">manikyr | måla naglar | smink | hudton 6</annotation>
+		<annotation cp="💅🏿" type="tts">nagellack: hudton 6</annotation>
+		<annotation cp="👂🏻">kropp | hudton 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">öra: hudton 1–2</annotation>
+		<annotation cp="👂🏼">kropp | hudton 3</annotation>
+		<annotation cp="👂🏼" type="tts">öra: hudton 3</annotation>
+		<annotation cp="👂🏽">kropp | hudton 4</annotation>
+		<annotation cp="👂🏽" type="tts">öra: hudton 4</annotation>
+		<annotation cp="👂🏾">kropp | hudton 5</annotation>
+		<annotation cp="👂🏾" type="tts">öra: hudton 5</annotation>
+		<annotation cp="👂🏿">kropp | hudton 6</annotation>
+		<annotation cp="👂🏿" type="tts">öra: hudton 6</annotation>
+		<annotation cp="👃🏻">kropp | hudton 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">näsa: hudton 1–2</annotation>
+		<annotation cp="👃🏼">kropp | hudton 3</annotation>
+		<annotation cp="👃🏼" type="tts">näsa: hudton 3</annotation>
+		<annotation cp="👃🏽">kropp | hudton 4</annotation>
+		<annotation cp="👃🏽" type="tts">näsa: hudton 4</annotation>
+		<annotation cp="👃🏾">kropp | hudton 5</annotation>
+		<annotation cp="👃🏾" type="tts">näsa: hudton 5</annotation>
+		<annotation cp="👃🏿">kropp | hudton 6</annotation>
+		<annotation cp="👃🏿" type="tts">näsa: hudton 6</annotation>
+		<annotation cp="#⃣">fyrkant | hashtagg | tangent</annotation>
+		<annotation cp="#⃣" type="tts">tangent för fyrkant</annotation>
+		<annotation cp="*⃣">asterisk | stjärna | tangent</annotation>
+		<annotation cp="*⃣" type="tts">tangent för asterisk</annotation>
+		<annotation cp="🇦🇨">flagga</annotation>
+		<annotation cp="🇦🇨" type="tts">Ascension</annotation>
+		<annotation cp="🇦🇩">flagga</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇪">flagga</annotation>
+		<annotation cp="🇦🇪" type="tts">Förenade Arabemiraten</annotation>
+		<annotation cp="🇦🇫">flagga</annotation>
+		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇬">flagga</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua och Barbuda</annotation>
+		<annotation cp="🇦🇮">flagga</annotation>
+		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇱">flagga</annotation>
+		<annotation cp="🇦🇱" type="tts">Albanien</annotation>
+		<annotation cp="🇦🇲">flagga</annotation>
+		<annotation cp="🇦🇲" type="tts">Armenien</annotation>
+		<annotation cp="🇦🇴">flagga</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">flagga</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarktis</annotation>
+		<annotation cp="🇦🇷">flagga</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇸">flagga</annotation>
+		<annotation cp="🇦🇸" type="tts">Amerikanska Samoa</annotation>
+		<annotation cp="🇦🇹">flagga</annotation>
+		<annotation cp="🇦🇹" type="tts">Österrike</annotation>
+		<annotation cp="🇦🇺">flagga</annotation>
+		<annotation cp="🇦🇺" type="tts">Australien</annotation>
+		<annotation cp="🇦🇼">flagga</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">flagga</annotation>
+		<annotation cp="🇦🇽" type="tts">Åland</annotation>
+		<annotation cp="🇦🇿">flagga</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbajdzjan</annotation>
+		<annotation cp="🇧🇦">flagga</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosnien och Hercegovina</annotation>
+		<annotation cp="🇧🇧">flagga</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">flagga</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇪">flagga</annotation>
+		<annotation cp="🇧🇪" type="tts">Belgien</annotation>
+		<annotation cp="🇧🇫">flagga</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">flagga</annotation>
+		<annotation cp="🇧🇬" type="tts">Bulgarien</annotation>
+		<annotation cp="🇧🇭">flagga</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrain</annotation>
+		<annotation cp="🇧🇮">flagga</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">flagga</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">flagga</annotation>
+		<annotation cp="🇧🇱" type="tts">S:t Barthélemy</annotation>
+		<annotation cp="🇧🇲">flagga</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇳">flagga</annotation>
+		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇴">flagga</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolivia</annotation>
+		<annotation cp="🇧🇶">flagga</annotation>
+		<annotation cp="🇧🇶" type="tts">Karibiska Nederländerna</annotation>
+		<annotation cp="🇧🇷">flagga</annotation>
+		<annotation cp="🇧🇷" type="tts">Brasilien</annotation>
+		<annotation cp="🇧🇸">flagga</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahamas</annotation>
+		<annotation cp="🇧🇹">flagga</annotation>
+		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇻">flagga</annotation>
+		<annotation cp="🇧🇻" type="tts">Bouvetön</annotation>
+		<annotation cp="🇧🇼">flagga</annotation>
+		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇾">flagga</annotation>
+		<annotation cp="🇧🇾" type="tts">Vitryssland</annotation>
+		<annotation cp="🇧🇿">flagga</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">flagga</annotation>
+		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇨">flagga</annotation>
+		<annotation cp="🇨🇨" type="tts">Kokosöarna</annotation>
+		<annotation cp="🇨🇩">flagga</annotation>
+		<annotation cp="🇨🇩" type="tts">Kongo-Kinshasa</annotation>
+		<annotation cp="🇨🇫">flagga</annotation>
+		<annotation cp="🇨🇫" type="tts">Centralafrikanska republiken</annotation>
+		<annotation cp="🇨🇬">flagga</annotation>
+		<annotation cp="🇨🇬" type="tts">Kongo-Brazzaville</annotation>
+		<annotation cp="🇨🇭">flagga</annotation>
+		<annotation cp="🇨🇭" type="tts">Schweiz</annotation>
+		<annotation cp="🇨🇮">flagga</annotation>
+		<annotation cp="🇨🇮" type="tts">Elfenbenskusten</annotation>
+		<annotation cp="🇨🇰">flagga</annotation>
+		<annotation cp="🇨🇰" type="tts">Cooköarna</annotation>
+		<annotation cp="🇨🇱">flagga</annotation>
+		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇲">flagga</annotation>
+		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇳">flagga</annotation>
+		<annotation cp="🇨🇳" type="tts">Kina</annotation>
+		<annotation cp="🇨🇴">flagga</annotation>
+		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇵">flagga</annotation>
+		<annotation cp="🇨🇵" type="tts">Clippertonön</annotation>
+		<annotation cp="🇨🇷">flagga</annotation>
+		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇺">flagga</annotation>
+		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇻">flagga</annotation>
+		<annotation cp="🇨🇻" type="tts">Kap Verde</annotation>
+		<annotation cp="🇨🇼">flagga</annotation>
+		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇽">flagga</annotation>
+		<annotation cp="🇨🇽" type="tts">Julön</annotation>
+		<annotation cp="🇨🇾">flagga</annotation>
+		<annotation cp="🇨🇾" type="tts">Cypern</annotation>
+		<annotation cp="🇨🇿">flagga</annotation>
+		<annotation cp="🇨🇿" type="tts">Tjeckien</annotation>
+		<annotation cp="🇩🇪">flagga</annotation>
+		<annotation cp="🇩🇪" type="tts">Tyskland</annotation>
+		<annotation cp="🇩🇬">flagga</annotation>
+		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇯">flagga</annotation>
+		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇰">flagga</annotation>
+		<annotation cp="🇩🇰" type="tts">Danmark</annotation>
+		<annotation cp="🇩🇲">flagga</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇴">flagga</annotation>
+		<annotation cp="🇩🇴" type="tts">Dominikanska republiken</annotation>
+		<annotation cp="🇩🇿">flagga</annotation>
+		<annotation cp="🇩🇿" type="tts">Algeriet</annotation>
+		<annotation cp="🇪🇦">flagga</annotation>
+		<annotation cp="🇪🇦" type="tts">Ceuta och Melilla</annotation>
+		<annotation cp="🇪🇨">flagga</annotation>
+		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇪">flagga</annotation>
+		<annotation cp="🇪🇪" type="tts">Estland</annotation>
+		<annotation cp="🇪🇬">flagga</annotation>
+		<annotation cp="🇪🇬" type="tts">Egypten</annotation>
+		<annotation cp="🇪🇭">flagga</annotation>
+		<annotation cp="🇪🇭" type="tts">Västsahara</annotation>
+		<annotation cp="🇪🇷">flagga</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇸">flagga</annotation>
+		<annotation cp="🇪🇸" type="tts">Spanien</annotation>
+		<annotation cp="🇪🇹">flagga</annotation>
+		<annotation cp="🇪🇹" type="tts">Etiopien</annotation>
+		<annotation cp="🇪🇺">flagga</annotation>
+		<annotation cp="🇪🇺" type="tts">Europeiska unionen</annotation>
+		<annotation cp="🇫🇮">flagga</annotation>
+		<annotation cp="🇫🇮" type="tts">Finland</annotation>
+		<annotation cp="🇫🇯">flagga</annotation>
+		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇰">flagga</annotation>
+		<annotation cp="🇫🇰" type="tts">Falklandsöarna</annotation>
+		<annotation cp="🇫🇲">flagga</annotation>
+		<annotation cp="🇫🇲" type="tts">Mikronesien</annotation>
+		<annotation cp="🇫🇴">flagga</annotation>
+		<annotation cp="🇫🇴" type="tts">Färöarna</annotation>
+		<annotation cp="🇫🇷">flagga</annotation>
+		<annotation cp="🇫🇷" type="tts">Frankrike</annotation>
+		<annotation cp="🇬🇦">flagga</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">flagga</annotation>
+		<annotation cp="🇬🇧" type="tts">Storbritannien</annotation>
+		<annotation cp="🇬🇩">flagga</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">flagga</annotation>
+		<annotation cp="🇬🇪" type="tts">Georgien</annotation>
+		<annotation cp="🇬🇫">flagga</annotation>
+		<annotation cp="🇬🇫" type="tts">Franska Guyana</annotation>
+		<annotation cp="🇬🇬">flagga</annotation>
+		<annotation cp="🇬🇬" type="tts">Guernsey</annotation>
+		<annotation cp="🇬🇭">flagga</annotation>
+		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇮">flagga</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">flagga</annotation>
+		<annotation cp="🇬🇱" type="tts">Grönland</annotation>
+		<annotation cp="🇬🇲">flagga</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇳">flagga</annotation>
+		<annotation cp="🇬🇳" type="tts">Guinea</annotation>
+		<annotation cp="🇬🇵">flagga</annotation>
+		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇶">flagga</annotation>
+		<annotation cp="🇬🇶" type="tts">Ekvatorialguinea</annotation>
+		<annotation cp="🇬🇷">flagga</annotation>
+		<annotation cp="🇬🇷" type="tts">Grekland</annotation>
+		<annotation cp="🇬🇸">flagga</annotation>
+		<annotation cp="🇬🇸" type="tts">Sydgeorgien och Sydsandwichöarna</annotation>
+		<annotation cp="🇬🇹">flagga</annotation>
+		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇺">flagga</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">flagga</annotation>
+		<annotation cp="🇬🇼" type="tts">Guinea-Bissau</annotation>
+		<annotation cp="🇬🇾">flagga</annotation>
+		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇭🇰">flagga</annotation>
+		<annotation cp="🇭🇰" type="tts">Hongkong, S.A.R. Kina</annotation>
+		<annotation cp="🇭🇲">flagga</annotation>
+		<annotation cp="🇭🇲" type="tts">Heardön och McDonaldöarna</annotation>
+		<annotation cp="🇭🇳">flagga</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">flagga</annotation>
+		<annotation cp="🇭🇷" type="tts">Kroatien</annotation>
+		<annotation cp="🇭🇹">flagga</annotation>
+		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇺">flagga</annotation>
+		<annotation cp="🇭🇺" type="tts">Ungern</annotation>
+		<annotation cp="🇮🇨">flagga</annotation>
+		<annotation cp="🇮🇨" type="tts">Kanarieöarna</annotation>
+		<annotation cp="🇮🇩">flagga</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonesien</annotation>
+		<annotation cp="🇮🇪">flagga</annotation>
+		<annotation cp="🇮🇪" type="tts">Irland</annotation>
+		<annotation cp="🇮🇱">flagga</annotation>
+		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇲">flagga</annotation>
+		<annotation cp="🇮🇲" type="tts">Isle of Man</annotation>
+		<annotation cp="🇮🇳">flagga</annotation>
+		<annotation cp="🇮🇳" type="tts">Indien</annotation>
+		<annotation cp="🇮🇴">flagga</annotation>
+		<annotation cp="🇮🇴" type="tts">Brittiska territoriet i Indiska oceanen</annotation>
+		<annotation cp="🇮🇶">flagga</annotation>
+		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇷">flagga</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">flagga</annotation>
+		<annotation cp="🇮🇸" type="tts">Island</annotation>
+		<annotation cp="🇮🇹">flagga</annotation>
+		<annotation cp="🇮🇹" type="tts">Italien</annotation>
+		<annotation cp="🇯🇪">flagga</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇲">flagga</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇴">flagga</annotation>
+		<annotation cp="🇯🇴" type="tts">Jordanien</annotation>
+		<annotation cp="🇯🇵">flagga</annotation>
+		<annotation cp="🇯🇵" type="tts">Japan</annotation>
+		<annotation cp="🇰🇪">flagga</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇬">flagga</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirgizistan</annotation>
+		<annotation cp="🇰🇭">flagga</annotation>
+		<annotation cp="🇰🇭" type="tts">Kambodja</annotation>
+		<annotation cp="🇰🇮">flagga</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">flagga</annotation>
+		<annotation cp="🇰🇲" type="tts">Komorerna</annotation>
+		<annotation cp="🇰🇳">flagga</annotation>
+		<annotation cp="🇰🇳" type="tts">S:t Kitts och Nevis</annotation>
+		<annotation cp="🇰🇵">flagga</annotation>
+		<annotation cp="🇰🇵" type="tts">Nordkorea</annotation>
+		<annotation cp="🇰🇷">flagga</annotation>
+		<annotation cp="🇰🇷" type="tts">Sydkorea</annotation>
+		<annotation cp="🇰🇼">flagga</annotation>
+		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
+		<annotation cp="🇰🇾">flagga</annotation>
+		<annotation cp="🇰🇾" type="tts">Caymanöarna</annotation>
+		<annotation cp="🇰🇿">flagga</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazakstan</annotation>
+		<annotation cp="🇱🇦">flagga</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">flagga</annotation>
+		<annotation cp="🇱🇧" type="tts">Libanon</annotation>
+		<annotation cp="🇱🇨">flagga</annotation>
+		<annotation cp="🇱🇨" type="tts">S:t Lucia</annotation>
+		<annotation cp="🇱🇮">flagga</annotation>
+		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇰">flagga</annotation>
+		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇷">flagga</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇸">flagga</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇹">flagga</annotation>
+		<annotation cp="🇱🇹" type="tts">Litauen</annotation>
+		<annotation cp="🇱🇺">flagga</annotation>
+		<annotation cp="🇱🇺" type="tts">Luxemburg</annotation>
+		<annotation cp="🇱🇻">flagga</annotation>
+		<annotation cp="🇱🇻" type="tts">Lettland</annotation>
+		<annotation cp="🇱🇾">flagga</annotation>
+		<annotation cp="🇱🇾" type="tts">Libyen</annotation>
+		<annotation cp="🇲🇦">flagga</annotation>
+		<annotation cp="🇲🇦" type="tts">Marocko</annotation>
+		<annotation cp="🇲🇨">flagga</annotation>
+		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇩">flagga</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldavien</annotation>
+		<annotation cp="🇲🇪">flagga</annotation>
+		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇫">flagga</annotation>
+		<annotation cp="🇲🇫" type="tts">Saint-Martin</annotation>
+		<annotation cp="🇲🇬">flagga</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇭">flagga</annotation>
+		<annotation cp="🇲🇭" type="tts">Marshallöarna</annotation>
+		<annotation cp="🇲🇰">flagga</annotation>
+		<annotation cp="🇲🇰" type="tts">Makedonien</annotation>
+		<annotation cp="🇲🇱">flagga</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">flagga</annotation>
+		<annotation cp="🇲🇲" type="tts">Myanmar (Burma)</annotation>
+		<annotation cp="🇲🇳">flagga</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongoliet</annotation>
+		<annotation cp="🇲🇴">flagga</annotation>
+		<annotation cp="🇲🇴" type="tts">Macao, S.A.R. Kina</annotation>
+		<annotation cp="🇲🇵">flagga</annotation>
+		<annotation cp="🇲🇵" type="tts">Nordmarianerna</annotation>
+		<annotation cp="🇲🇶">flagga</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇷">flagga</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauretanien</annotation>
+		<annotation cp="🇲🇸">flagga</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">flagga</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">flagga</annotation>
+		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇻">flagga</annotation>
+		<annotation cp="🇲🇻" type="tts">Maldiverna</annotation>
+		<annotation cp="🇲🇼">flagga</annotation>
+		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇽">flagga</annotation>
+		<annotation cp="🇲🇽" type="tts">Mexiko</annotation>
+		<annotation cp="🇲🇾">flagga</annotation>
+		<annotation cp="🇲🇾" type="tts">Malaysia</annotation>
+		<annotation cp="🇲🇿">flagga</annotation>
+		<annotation cp="🇲🇿" type="tts">Moçambique</annotation>
+		<annotation cp="🇳🇦">flagga</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇨">flagga</annotation>
+		<annotation cp="🇳🇨" type="tts">Nya Kaledonien</annotation>
+		<annotation cp="🇳🇪">flagga</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">flagga</annotation>
+		<annotation cp="🇳🇫" type="tts">Norfolkön</annotation>
+		<annotation cp="🇳🇬">flagga</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇮">flagga</annotation>
+		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇱">flagga</annotation>
+		<annotation cp="🇳🇱" type="tts">Nederländerna</annotation>
+		<annotation cp="🇳🇴">flagga</annotation>
+		<annotation cp="🇳🇴" type="tts">Norge</annotation>
+		<annotation cp="🇳🇵">flagga</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">flagga</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">flagga</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">flagga</annotation>
+		<annotation cp="🇳🇿" type="tts">Nya Zeeland</annotation>
+		<annotation cp="🇴🇲">flagga</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">flagga</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">flagga</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">flagga</annotation>
+		<annotation cp="🇵🇫" type="tts">Franska Polynesien</annotation>
+		<annotation cp="🇵🇬">flagga</annotation>
+		<annotation cp="🇵🇬" type="tts">Papua Nya Guinea</annotation>
+		<annotation cp="🇵🇭">flagga</annotation>
+		<annotation cp="🇵🇭" type="tts">Filippinerna</annotation>
+		<annotation cp="🇵🇰">flagga</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">flagga</annotation>
+		<annotation cp="🇵🇱" type="tts">Polen</annotation>
+		<annotation cp="🇵🇲">flagga</annotation>
+		<annotation cp="🇵🇲" type="tts">S:t Pierre och Miquelon</annotation>
+		<annotation cp="🇵🇳">flagga</annotation>
+		<annotation cp="🇵🇳" type="tts">Pitcairnöarna</annotation>
+		<annotation cp="🇵🇷">flagga</annotation>
+		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇸">flagga</annotation>
+		<annotation cp="🇵🇸" type="tts">Palestinska territorierna</annotation>
+		<annotation cp="🇵🇹">flagga</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugal</annotation>
+		<annotation cp="🇵🇼">flagga</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">flagga</annotation>
+		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇶🇦">flagga</annotation>
+		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇷🇪">flagga</annotation>
+		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇴">flagga</annotation>
+		<annotation cp="🇷🇴" type="tts">Rumänien</annotation>
+		<annotation cp="🇷🇸">flagga</annotation>
+		<annotation cp="🇷🇸" type="tts">Serbien</annotation>
+		<annotation cp="🇷🇺">flagga</annotation>
+		<annotation cp="🇷🇺" type="tts">Ryssland</annotation>
+		<annotation cp="🇷🇼">flagga</annotation>
+		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇸🇦">flagga</annotation>
+		<annotation cp="🇸🇦" type="tts">Saudiarabien</annotation>
+		<annotation cp="🇸🇧">flagga</annotation>
+		<annotation cp="🇸🇧" type="tts">Salomonöarna</annotation>
+		<annotation cp="🇸🇨">flagga</annotation>
+		<annotation cp="🇸🇨" type="tts">Seychellerna</annotation>
+		<annotation cp="🇸🇩">flagga</annotation>
+		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇪">flagga</annotation>
+		<annotation cp="🇸🇪" type="tts">Sverige</annotation>
+		<annotation cp="🇸🇬">flagga</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇭">flagga</annotation>
+		<annotation cp="🇸🇭" type="tts">S:t Helena</annotation>
+		<annotation cp="🇸🇮">flagga</annotation>
+		<annotation cp="🇸🇮" type="tts">Slovenien</annotation>
+		<annotation cp="🇸🇯">flagga</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbard och Jan Mayen</annotation>
+		<annotation cp="🇸🇰">flagga</annotation>
+		<annotation cp="🇸🇰" type="tts">Slovakien</annotation>
+		<annotation cp="🇸🇱">flagga</annotation>
+		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇲">flagga</annotation>
+		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇳">flagga</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">flagga</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇷">flagga</annotation>
+		<annotation cp="🇸🇷" type="tts">Surinam</annotation>
+		<annotation cp="🇸🇸">flagga</annotation>
+		<annotation cp="🇸🇸" type="tts">Sydsudan</annotation>
+		<annotation cp="🇸🇹">flagga</annotation>
+		<annotation cp="🇸🇹" type="tts">São Tomé och Príncipe</annotation>
+		<annotation cp="🇸🇻">flagga</annotation>
+		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇽">flagga</annotation>
+		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇾">flagga</annotation>
+		<annotation cp="🇸🇾" type="tts">Syrien</annotation>
+		<annotation cp="🇸🇿">flagga</annotation>
+		<annotation cp="🇸🇿" type="tts">Swaziland</annotation>
+		<annotation cp="🇹🇦">flagga</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇨">flagga</annotation>
+		<annotation cp="🇹🇨" type="tts">Turks- och Caicosöarna</annotation>
+		<annotation cp="🇹🇩">flagga</annotation>
+		<annotation cp="🇹🇩" type="tts">Tchad</annotation>
+		<annotation cp="🇹🇫">flagga</annotation>
+		<annotation cp="🇹🇫" type="tts">Franska sydterritorierna</annotation>
+		<annotation cp="🇹🇬">flagga</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">flagga</annotation>
+		<annotation cp="🇹🇭" type="tts">Thailand</annotation>
+		<annotation cp="🇹🇯">flagga</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadzjikistan</annotation>
+		<annotation cp="🇹🇰">flagga</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">flagga</annotation>
+		<annotation cp="🇹🇱" type="tts">Östtimor</annotation>
+		<annotation cp="🇹🇲">flagga</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇳">flagga</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunisien</annotation>
+		<annotation cp="🇹🇴">flagga</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">flagga</annotation>
+		<annotation cp="🇹🇷" type="tts">Turkiet</annotation>
+		<annotation cp="🇹🇹">flagga</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidad och Tobago</annotation>
+		<annotation cp="🇹🇻">flagga</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">flagga</annotation>
+		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇿">flagga</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇺🇦">flagga</annotation>
+		<annotation cp="🇺🇦" type="tts">Ukraina</annotation>
+		<annotation cp="🇺🇬">flagga</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">flagga</annotation>
+		<annotation cp="🇺🇲" type="tts">USA:s yttre öar</annotation>
+		<annotation cp="🇺🇳">flagga</annotation>
+		<annotation cp="🇺🇳" type="tts">Förenta Nationerna</annotation>
+		<annotation cp="🇺🇸">flagga</annotation>
+		<annotation cp="🇺🇸" type="tts">USA</annotation>
+		<annotation cp="🇺🇾">flagga</annotation>
+		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇿">flagga</annotation>
+		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇻🇦">flagga</annotation>
+		<annotation cp="🇻🇦" type="tts">Vatikanstaten</annotation>
+		<annotation cp="🇻🇨">flagga</annotation>
+		<annotation cp="🇻🇨" type="tts">S:t Vincent och Grenadinerna</annotation>
+		<annotation cp="🇻🇪">flagga</annotation>
+		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇬">flagga</annotation>
+		<annotation cp="🇻🇬" type="tts">Brittiska Jungfruöarna</annotation>
+		<annotation cp="🇻🇮">flagga</annotation>
+		<annotation cp="🇻🇮" type="tts">Amerikanska Jungfruöarna</annotation>
+		<annotation cp="🇻🇳">flagga</annotation>
+		<annotation cp="🇻🇳" type="tts">Vietnam</annotation>
+		<annotation cp="🇻🇺">flagga</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">flagga</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis- och Futunaöarna</annotation>
+		<annotation cp="🇼🇸">flagga</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">flagga</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">flagga</annotation>
+		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇹">flagga</annotation>
+		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇿🇦">flagga</annotation>
+		<annotation cp="🇿🇦" type="tts">Sydafrika</annotation>
+		<annotation cp="🇿🇲">flagga</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇼">flagga</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">flagga</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">England</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">flagga</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">Skottland</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">flagga</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">Wales</annotation>
+	</annotations>
+</ldml>

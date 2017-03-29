@@ -1,0 +1,2419 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="sr"/>
+		<script type="Latn"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | nula | taster</annotation>
+		<annotation cp="0⃣" type="tts">taster sa cifrom nula</annotation>
+		<annotation cp="1⃣">1 | jedan | taster</annotation>
+		<annotation cp="1⃣" type="tts">taster sa cifrom jedan</annotation>
+		<annotation cp="2⃣">2 | dva | taster</annotation>
+		<annotation cp="2⃣" type="tts">taster sa cifrom dva</annotation>
+		<annotation cp="3⃣">3 | taster | tri</annotation>
+		<annotation cp="3⃣" type="tts">taster sa cifrom tri</annotation>
+		<annotation cp="4⃣">4 | taster | četiri</annotation>
+		<annotation cp="4⃣" type="tts">taster sa cifrom četiri</annotation>
+		<annotation cp="5⃣">5 | pet | taster</annotation>
+		<annotation cp="5⃣" type="tts">taster sa cifrom pet</annotation>
+		<annotation cp="6⃣">6 | taster | šest</annotation>
+		<annotation cp="6⃣" type="tts">taster sa cifrom šest</annotation>
+		<annotation cp="7⃣">7 | sedam | taster</annotation>
+		<annotation cp="7⃣" type="tts">taster sa cifrom sedam</annotation>
+		<annotation cp="8⃣">8 | osam | taster</annotation>
+		<annotation cp="8⃣" type="tts">taster sa cifrom osam</annotation>
+		<annotation cp="9⃣">9 | devet | taster</annotation>
+		<annotation cp="9⃣" type="tts">taster sa cifrom devet</annotation>
+		<annotation cp="👶🏻">beba | tip kože 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">beba: tip kože 1–2</annotation>
+		<annotation cp="👶🏼">beba | tip kože 3</annotation>
+		<annotation cp="👶🏼" type="tts">beba: tip kože 3</annotation>
+		<annotation cp="👶🏽">beba | tip kože 4</annotation>
+		<annotation cp="👶🏽" type="tts">beba: tip kože 4</annotation>
+		<annotation cp="👶🏾">beba | tip kože 5</annotation>
+		<annotation cp="👶🏾" type="tts">beba: tip kože 5</annotation>
+		<annotation cp="👶🏿">beba | tip kože 6</annotation>
+		<annotation cp="👶🏿" type="tts">beba: tip kože 6</annotation>
+		<annotation cp="👦🏻">dečak | tip kože 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">dečak: tip kože 1–2</annotation>
+		<annotation cp="👦🏼">dečak | tip kože 3</annotation>
+		<annotation cp="👦🏼" type="tts">dečak: tip kože 3</annotation>
+		<annotation cp="👦🏽">dečak | tip kože 4</annotation>
+		<annotation cp="👦🏽" type="tts">dečak: tip kože 4</annotation>
+		<annotation cp="👦🏾">dečak | tip kože 5</annotation>
+		<annotation cp="👦🏾" type="tts">dečak: tip kože 5</annotation>
+		<annotation cp="👦🏿">dečak | tip kože 6</annotation>
+		<annotation cp="👦🏿" type="tts">dečak: tip kože 6</annotation>
+		<annotation cp="👧🏻">devica | devojčica | zodijak | tip kože 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">devojčica: tip kože 1–2</annotation>
+		<annotation cp="👧🏼">devica | devojčica | zodijak | tip kože 3</annotation>
+		<annotation cp="👧🏼" type="tts">devojčica: tip kože 3</annotation>
+		<annotation cp="👧🏽">devica | devojčica | zodijak | tip kože 4</annotation>
+		<annotation cp="👧🏽" type="tts">devojčica: tip kože 4</annotation>
+		<annotation cp="👧🏾">devica | devojčica | zodijak | tip kože 5</annotation>
+		<annotation cp="👧🏾" type="tts">devojčica: tip kože 5</annotation>
+		<annotation cp="👧🏿">devica | devojčica | zodijak | tip kože 6</annotation>
+		<annotation cp="👧🏿" type="tts">devojčica: tip kože 6</annotation>
+		<annotation cp="👨🏻">muškarac | tip kože 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">muškarac: tip kože 1–2</annotation>
+		<annotation cp="👨🏼">muškarac | tip kože 3</annotation>
+		<annotation cp="👨🏼" type="tts">muškarac: tip kože 3</annotation>
+		<annotation cp="👨🏽">muškarac | tip kože 4</annotation>
+		<annotation cp="👨🏽" type="tts">muškarac: tip kože 4</annotation>
+		<annotation cp="👨🏾">muškarac | tip kože 5</annotation>
+		<annotation cp="👨🏾" type="tts">muškarac: tip kože 5</annotation>
+		<annotation cp="👨🏿">muškarac | tip kože 6</annotation>
+		<annotation cp="👨🏿" type="tts">muškarac: tip kože 6</annotation>
+		<annotation cp="👩🏻">žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">žena: tip kože 1–2</annotation>
+		<annotation cp="👩🏼">žena | tip kože 3</annotation>
+		<annotation cp="👩🏼" type="tts">žena: tip kože 3</annotation>
+		<annotation cp="👩🏽">žena | tip kože 4</annotation>
+		<annotation cp="👩🏽" type="tts">žena: tip kože 4</annotation>
+		<annotation cp="👩🏾">žena | tip kože 5</annotation>
+		<annotation cp="👩🏾" type="tts">žena: tip kože 5</annotation>
+		<annotation cp="👩🏿">žena | tip kože 6</annotation>
+		<annotation cp="👩🏿" type="tts">žena: tip kože 6</annotation>
+		<annotation cp="👴🏻">starac | starost | tip kože 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">starac: tip kože 1–2</annotation>
+		<annotation cp="👴🏼">starac | starost | tip kože 3</annotation>
+		<annotation cp="👴🏼" type="tts">starac: tip kože 3</annotation>
+		<annotation cp="👴🏽">starac | starost | tip kože 4</annotation>
+		<annotation cp="👴🏽" type="tts">starac: tip kože 4</annotation>
+		<annotation cp="👴🏾">starac | starost | tip kože 5</annotation>
+		<annotation cp="👴🏾" type="tts">starac: tip kože 5</annotation>
+		<annotation cp="👴🏿">starac | starost | tip kože 6</annotation>
+		<annotation cp="👴🏿" type="tts">starac: tip kože 6</annotation>
+		<annotation cp="👵🏻">starica | starost | tip kože 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">starica: tip kože 1–2</annotation>
+		<annotation cp="👵🏼">starica | starost | tip kože 3</annotation>
+		<annotation cp="👵🏼" type="tts">starica: tip kože 3</annotation>
+		<annotation cp="👵🏽">starica | starost | tip kože 4</annotation>
+		<annotation cp="👵🏽" type="tts">starica: tip kože 4</annotation>
+		<annotation cp="👵🏾">starica | starost | tip kože 5</annotation>
+		<annotation cp="👵🏾" type="tts">starica: tip kože 5</annotation>
+		<annotation cp="👵🏿">starica | starost | tip kože 6</annotation>
+		<annotation cp="👵🏿" type="tts">starica: tip kože 6</annotation>
+		<annotation cp="👨🏻‍⚕">doktor | lekar | muškarac | zdravstvo | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">zdravstveni radnik: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">doktor | lekar | muškarac | zdravstvo | tip kože 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">zdravstveni radnik: tip kože 3</annotation>
+		<annotation cp="👨🏽‍⚕">doktor | lekar | muškarac | zdravstvo | tip kože 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">zdravstveni radnik: tip kože 4</annotation>
+		<annotation cp="👨🏾‍⚕">doktor | lekar | muškarac | zdravstvo | tip kože 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">zdravstveni radnik: tip kože 5</annotation>
+		<annotation cp="👨🏿‍⚕">doktor | lekar | muškarac | zdravstvo | tip kože 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">zdravstveni radnik: tip kože 6</annotation>
+		<annotation cp="👩🏻‍⚕">doktor | lekar | zdravstvo | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">zdravstvena radnica: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">doktor | lekar | zdravstvo | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">zdravstvena radnica: tip kože 3</annotation>
+		<annotation cp="👩🏽‍⚕">doktor | lekar | zdravstvo | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">zdravstvena radnica: tip kože 4</annotation>
+		<annotation cp="👩🏾‍⚕">doktor | lekar | zdravstvo | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">zdravstvena radnica: tip kože 5</annotation>
+		<annotation cp="👩🏿‍⚕">doktor | lekar | zdravstvo | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">zdravstvena radnica: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🎓">diploma | matura | muškarac | student | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">student: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">diploma | matura | muškarac | student | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">student: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🎓">diploma | matura | muškarac | student | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">student: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🎓">diploma | matura | muškarac | student | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">student: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🎓">diploma | matura | muškarac | student | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">student: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🎓">diploma | matura | student | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">studentkinja: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">diploma | matura | student | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">studentkinja: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🎓">diploma | matura | student | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">studentkinja: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🎓">diploma | matura | student | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">studentkinja: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🎓">diploma | matura | student | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">studentkinja: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🏫">muškarac | profesor | učitelj | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">profesor: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">muškarac | profesor | učitelj | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">profesor: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🏫">muškarac | profesor | učitelj | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">profesor: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🏫">muškarac | profesor | učitelj | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">profesor: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🏫">muškarac | profesor | učitelj | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">profesor: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🏫">profesor | učitelj | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">profesorka: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">profesor | učitelj | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">profesorka: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🏫">profesor | učitelj | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">profesorka: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🏫">profesor | učitelj | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">profesorka: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🏫">profesor | učitelj | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">profesorka: tip kože 6</annotation>
+		<annotation cp="👨🏻‍⚖">muškarac | pravda | sudija | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">muškarac sudija: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">muškarac | pravda | sudija | tip kože 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">muškarac sudija: tip kože 3</annotation>
+		<annotation cp="👨🏽‍⚖">muškarac | pravda | sudija | tip kože 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">muškarac sudija: tip kože 4</annotation>
+		<annotation cp="👨🏾‍⚖">muškarac | pravda | sudija | tip kože 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">muškarac sudija: tip kože 5</annotation>
+		<annotation cp="👨🏿‍⚖">muškarac | pravda | sudija | tip kože 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">muškarac sudija: tip kože 6</annotation>
+		<annotation cp="👩🏻‍⚖">pravda | sudija | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">žena sudija: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">pravda | sudija | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">žena sudija: tip kože 3</annotation>
+		<annotation cp="👩🏽‍⚖">pravda | sudija | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">žena sudija: tip kože 4</annotation>
+		<annotation cp="👩🏾‍⚖">pravda | sudija | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">žena sudija: tip kože 5</annotation>
+		<annotation cp="👩🏿‍⚖">pravda | sudija | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">žena sudija: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🌾">bašta | farma | muškarac | selo | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">poljoprivrednik: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">bašta | farma | muškarac | selo | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">poljoprivrednik: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🌾">bašta | farma | muškarac | selo | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">poljoprivrednik: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🌾">bašta | farma | muškarac | selo | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">poljoprivrednik: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🌾">bašta | farma | muškarac | selo | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">poljoprivrednik: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🌾">bašta | farma | selo | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">poljoprivrednica: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">bašta | farma | selo | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">poljoprivrednica: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🌾">bašta | farma | selo | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">poljoprivrednica: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🌾">bašta | farma | selo | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">poljoprivrednica: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🌾">bašta | farma | selo | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">poljoprivrednica: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🍳">kuhinja | kuvar | muškarac | šef | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">kuvar: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">kuhinja | kuvar | muškarac | šef | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">kuvar: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🍳">kuhinja | kuvar | muškarac | šef | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">kuvar: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🍳">kuhinja | kuvar | muškarac | šef | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">kuvar: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🍳">kuhinja | kuvar | muškarac | šef | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">kuvar: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🍳">kuhinja | kuvar | šef | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">kuvarica: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">kuhinja | kuvar | šef | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">kuvarica: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🍳">kuhinja | kuvar | šef | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">kuvarica: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🍳">kuhinja | kuvar | šef | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">kuvarica: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🍳">kuhinja | kuvar | šef | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">kuvarica: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🔧">alat | majstor | muškarac | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">mehaničar: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">alat | majstor | muškarac | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">mehaničar: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🔧">alat | majstor | muškarac | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">mehaničar: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🔧">alat | majstor | muškarac | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">mehaničar: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🔧">alat | majstor | muškarac | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">mehaničar: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🔧">alat | majstor | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">mehaničarka: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">alat | majstor | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">mehaničarka: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🔧">alat | majstor | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">mehaničarka: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🔧">alat | majstor | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">mehaničarka: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🔧">alat | majstor | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">mehaničarka: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🏭">fabrika | industrija | muškarac | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">radnik: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">fabrika | industrija | muškarac | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">radnik: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🏭">fabrika | industrija | muškarac | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">radnik: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🏭">fabrika | industrija | muškarac | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">radnik: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🏭">fabrika | industrija | muškarac | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">radnik: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🏭">fabrika | industrija | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">radnica: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">fabrika | industrija | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">radnica: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🏭">fabrika | industrija | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">radnica: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🏭">fabrika | industrija | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">radnica: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🏭">fabrika | industrija | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">radnica: tip kože 6</annotation>
+		<annotation cp="👨🏻‍💼">asistent | kancelarija | muškarac | sekretarica | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">muškarac u kancelariji: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍💼">asistent | kancelarija | muškarac | sekretarica | tip kože 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">muškarac u kancelariji: tip kože 3</annotation>
+		<annotation cp="👨🏽‍💼">asistent | kancelarija | muškarac | sekretarica | tip kože 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">muškarac u kancelariji: tip kože 4</annotation>
+		<annotation cp="👨🏾‍💼">asistent | kancelarija | muškarac | sekretarica | tip kože 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">muškarac u kancelariji: tip kože 5</annotation>
+		<annotation cp="👨🏿‍💼">asistent | kancelarija | muškarac | sekretarica | tip kože 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">muškarac u kancelariji: tip kože 6</annotation>
+		<annotation cp="👩🏻‍💼">asistent | kancelarija | sekretarica | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">žena u kancelariji: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍💼">asistent | kancelarija | sekretarica | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">žena u kancelariji: tip kože 3</annotation>
+		<annotation cp="👩🏽‍💼">asistent | kancelarija | sekretarica | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">žena u kancelariji: tip kože 4</annotation>
+		<annotation cp="👩🏾‍💼">asistent | kancelarija | sekretarica | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">žena u kancelariji: tip kože 5</annotation>
+		<annotation cp="👩🏿‍💼">asistent | kancelarija | sekretarica | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">žena u kancelariji: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🔬">biolog | hemičar | muškarac | naučnik | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">naučnik: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">biolog | hemičar | muškarac | naučnik | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">naučnik: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🔬">biolog | hemičar | muškarac | naučnik | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">naučnik: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🔬">biolog | hemičar | muškarac | naučnik | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">naučnik: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🔬">biolog | hemičar | muškarac | naučnik | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">naučnik: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🔬">biolog | hemičar | naučnik | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">naučnica: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">biolog | hemičar | naučnik | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">naučnica: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🔬">biolog | hemičar | naučnik | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">naučnica: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🔬">biolog | hemičar | naučnik | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">naučnica: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🔬">biolog | hemičar | naučnik | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">naučnica: tip kože 6</annotation>
+		<annotation cp="👨🏻‍💻">muškarac | programer | pronalazač | softver | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">tehnolog: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍💻">muškarac | programer | pronalazač | softver | tip kože 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">tehnolog: tip kože 3</annotation>
+		<annotation cp="👨🏽‍💻">muškarac | programer | pronalazač | softver | tip kože 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">tehnolog: tip kože 4</annotation>
+		<annotation cp="👨🏾‍💻">muškarac | programer | pronalazač | softver | tip kože 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">tehnolog: tip kože 5</annotation>
+		<annotation cp="👨🏿‍💻">muškarac | programer | pronalazač | softver | tip kože 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">tehnolog: tip kože 6</annotation>
+		<annotation cp="👩🏻‍💻">programer | pronalazač | softver | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">žena tehnolog: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍💻">programer | pronalazač | softver | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">žena tehnolog: tip kože 3</annotation>
+		<annotation cp="👩🏽‍💻">programer | pronalazač | softver | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">žena tehnolog: tip kože 4</annotation>
+		<annotation cp="👩🏾‍💻">programer | pronalazač | softver | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">žena tehnolog: tip kože 5</annotation>
+		<annotation cp="👩🏿‍💻">programer | pronalazač | softver | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">žena tehnolog: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🎤">glumac | muškarac | pevač | rok | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">pevač: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">glumac | muškarac | pevač | rok | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">pevač: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🎤">glumac | muškarac | pevač | rok | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">pevač: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🎤">glumac | muškarac | pevač | rok | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">pevač: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🎤">glumac | muškarac | pevač | rok | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">pevač: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🎤">glumica | pevačica | rok | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">pevačica: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">glumica | pevačica | rok | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">pevačica: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🎤">glumica | pevačica | rok | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">pevačica: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🎤">glumica | pevačica | rok | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">pevačica: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🎤">glumica | pevačica | rok | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">pevačica: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🎨">muškarac | slikar | slikarstvo | umetnik | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">umetnik: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">muškarac | slikar | slikarstvo | umetnik | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">umetnik: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🎨">muškarac | slikar | slikarstvo | umetnik | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">umetnik: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🎨">muškarac | slikar | slikarstvo | umetnik | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">umetnik: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🎨">muškarac | slikar | slikarstvo | umetnik | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">umetnik: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🎨">slikar | slikarstvo | umetnik | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">umetnica: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">slikar | slikarstvo | umetnik | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">umetnica: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🎨">slikar | slikarstvo | umetnik | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">umetnica: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🎨">slikar | slikarstvo | umetnik | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">umetnica: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🎨">slikar | slikarstvo | umetnik | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">umetnica: tip kože 6</annotation>
+		<annotation cp="👨🏻‍✈">avion | muškarac | pilot | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">pilot: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍✈">avion | muškarac | pilot | tip kože 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">pilot: tip kože 3</annotation>
+		<annotation cp="👨🏽‍✈">avion | muškarac | pilot | tip kože 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">pilot: tip kože 4</annotation>
+		<annotation cp="👨🏾‍✈">avion | muškarac | pilot | tip kože 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">pilot: tip kože 5</annotation>
+		<annotation cp="👨🏿‍✈">avion | muškarac | pilot | tip kože 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">pilot: tip kože 6</annotation>
+		<annotation cp="👩🏻‍✈">avion | pilot | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">žena pilot: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍✈">avion | pilot | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">žena pilot: tip kože 3</annotation>
+		<annotation cp="👩🏽‍✈">avion | pilot | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">žena pilot: tip kože 4</annotation>
+		<annotation cp="👩🏾‍✈">avion | pilot | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">žena pilot: tip kože 5</annotation>
+		<annotation cp="👩🏿‍✈">avion | pilot | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">žena pilot: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🚀">astronaut | muškarac | raketa | svemir | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">kosmonaut: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">astronaut | muškarac | raketa | svemir | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">kosmonaut: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🚀">astronaut | muškarac | raketa | svemir | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">kosmonaut: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🚀">astronaut | muškarac | raketa | svemir | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">kosmonaut: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🚀">astronaut | muškarac | raketa | svemir | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">kosmonaut: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🚀">astronaut | raketa | svemir | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">kosmonautkinja: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">astronaut | raketa | svemir | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">kosmonautkinja: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🚀">astronaut | raketa | svemir | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">kosmonautkinja: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🚀">astronaut | raketa | svemir | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">kosmonautkinja: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🚀">astronaut | raketa | svemir | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">kosmonautkinja: tip kože 6</annotation>
+		<annotation cp="👨🏻‍🚒">kamion | muškarac | vatra | vatrogasac | tip kože 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">vatrogasac: tip kože 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">kamion | muškarac | vatra | vatrogasac | tip kože 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">vatrogasac: tip kože 3</annotation>
+		<annotation cp="👨🏽‍🚒">kamion | muškarac | vatra | vatrogasac | tip kože 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">vatrogasac: tip kože 4</annotation>
+		<annotation cp="👨🏾‍🚒">kamion | muškarac | vatra | vatrogasac | tip kože 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">vatrogasac: tip kože 5</annotation>
+		<annotation cp="👨🏿‍🚒">kamion | muškarac | vatra | vatrogasac | tip kože 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">vatrogasac: tip kože 6</annotation>
+		<annotation cp="👩🏻‍🚒">kamion | vatra | vatrogasac | žena | tip kože 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">žena vatrogasac: tip kože 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">kamion | vatra | vatrogasac | žena | tip kože 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">žena vatrogasac: tip kože 3</annotation>
+		<annotation cp="👩🏽‍🚒">kamion | vatra | vatrogasac | žena | tip kože 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">žena vatrogasac: tip kože 4</annotation>
+		<annotation cp="👩🏾‍🚒">kamion | vatra | vatrogasac | žena | tip kože 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">žena vatrogasac: tip kože 5</annotation>
+		<annotation cp="👩🏿‍🚒">kamion | vatra | vatrogasac | žena | tip kože 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">žena vatrogasac: tip kože 6</annotation>
+		<annotation cp="👮🏻">policajac | policija | pozornik | tip kože 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">predstavnik policije: tip kože 1–2</annotation>
+		<annotation cp="👮🏼">policajac | policija | pozornik | tip kože 3</annotation>
+		<annotation cp="👮🏼" type="tts">predstavnik policije: tip kože 3</annotation>
+		<annotation cp="👮🏽">policajac | policija | pozornik | tip kože 4</annotation>
+		<annotation cp="👮🏽" type="tts">predstavnik policije: tip kože 4</annotation>
+		<annotation cp="👮🏾">policajac | policija | pozornik | tip kože 5</annotation>
+		<annotation cp="👮🏾" type="tts">predstavnik policije: tip kože 5</annotation>
+		<annotation cp="👮🏿">policajac | policija | pozornik | tip kože 6</annotation>
+		<annotation cp="👮🏿" type="tts">predstavnik policije: tip kože 6</annotation>
+		<annotation cp="👮🏻‍♂">muškarac | pandur | policajac | policija | tip kože 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">policajac: tip kože 1–2</annotation>
+		<annotation cp="👮🏼‍♂">muškarac | pandur | policajac | policija | tip kože 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">policajac: tip kože 3</annotation>
+		<annotation cp="👮🏽‍♂">muškarac | pandur | policajac | policija | tip kože 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">policajac: tip kože 4</annotation>
+		<annotation cp="👮🏾‍♂">muškarac | pandur | policajac | policija | tip kože 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">policajac: tip kože 5</annotation>
+		<annotation cp="👮🏿‍♂">muškarac | pandur | policajac | policija | tip kože 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">policajac: tip kože 6</annotation>
+		<annotation cp="👮🏻‍♀">pandurka | policajka | policija | žena | tip kože 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">policajka: tip kože 1–2</annotation>
+		<annotation cp="👮🏼‍♀">pandurka | policajka | policija | žena | tip kože 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">policajka: tip kože 3</annotation>
+		<annotation cp="👮🏽‍♀">pandurka | policajka | policija | žena | tip kože 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">policajka: tip kože 4</annotation>
+		<annotation cp="👮🏾‍♀">pandurka | policajka | policija | žena | tip kože 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">policajka: tip kože 5</annotation>
+		<annotation cp="👮🏿‍♀">pandurka | policajka | policija | žena | tip kože 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">policajka: tip kože 6</annotation>
+		<annotation cp="🕵🏻">detektiv | špijun | tip kože 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">inspektor: tip kože 1–2</annotation>
+		<annotation cp="🕵🏼">detektiv | špijun | tip kože 3</annotation>
+		<annotation cp="🕵🏼" type="tts">inspektor: tip kože 3</annotation>
+		<annotation cp="🕵🏽">detektiv | špijun | tip kože 4</annotation>
+		<annotation cp="🕵🏽" type="tts">inspektor: tip kože 4</annotation>
+		<annotation cp="🕵🏾">detektiv | špijun | tip kože 5</annotation>
+		<annotation cp="🕵🏾" type="tts">inspektor: tip kože 5</annotation>
+		<annotation cp="🕵🏿">detektiv | špijun | tip kože 6</annotation>
+		<annotation cp="🕵🏿" type="tts">inspektor: tip kože 6</annotation>
+		<annotation cp="🕵🏻‍♂">detektiv | muškarac | špijun | tip kože 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">detektiv: tip kože 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">detektiv | muškarac | špijun | tip kože 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">detektiv: tip kože 3</annotation>
+		<annotation cp="🕵🏽‍♂">detektiv | muškarac | špijun | tip kože 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">detektiv: tip kože 4</annotation>
+		<annotation cp="🕵🏾‍♂">detektiv | muškarac | špijun | tip kože 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">detektiv: tip kože 5</annotation>
+		<annotation cp="🕵🏿‍♂">detektiv | muškarac | špijun | tip kože 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">detektiv: tip kože 6</annotation>
+		<annotation cp="🕵🏻‍♀">detektiv | špijun | žena | tip kože 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">detektivka: tip kože 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">detektiv | špijun | žena | tip kože 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">detektivka: tip kože 3</annotation>
+		<annotation cp="🕵🏽‍♀">detektiv | špijun | žena | tip kože 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">detektivka: tip kože 4</annotation>
+		<annotation cp="🕵🏾‍♀">detektiv | špijun | žena | tip kože 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">detektivka: tip kože 5</annotation>
+		<annotation cp="🕵🏿‍♀">detektiv | špijun | žena | tip kože 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">detektivka: tip kože 6</annotation>
+		<annotation cp="💂🏻">stražar | čuvar | tip kože 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">čuvar: tip kože 1–2</annotation>
+		<annotation cp="💂🏼">stražar | čuvar | tip kože 3</annotation>
+		<annotation cp="💂🏼" type="tts">čuvar: tip kože 3</annotation>
+		<annotation cp="💂🏽">stražar | čuvar | tip kože 4</annotation>
+		<annotation cp="💂🏽" type="tts">čuvar: tip kože 4</annotation>
+		<annotation cp="💂🏾">stražar | čuvar | tip kože 5</annotation>
+		<annotation cp="💂🏾" type="tts">čuvar: tip kože 5</annotation>
+		<annotation cp="💂🏿">stražar | čuvar | tip kože 6</annotation>
+		<annotation cp="💂🏿" type="tts">čuvar: tip kože 6</annotation>
+		<annotation cp="💂🏻‍♂">muškarac | stražar | čuvar | tip kože 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">gardista: tip kože 1–2</annotation>
+		<annotation cp="💂🏼‍♂">muškarac | stražar | čuvar | tip kože 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">gardista: tip kože 3</annotation>
+		<annotation cp="💂🏽‍♂">muškarac | stražar | čuvar | tip kože 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">gardista: tip kože 4</annotation>
+		<annotation cp="💂🏾‍♂">muškarac | stražar | čuvar | tip kože 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">gardista: tip kože 5</annotation>
+		<annotation cp="💂🏿‍♂">muškarac | stražar | čuvar | tip kože 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">gardista: tip kože 6</annotation>
+		<annotation cp="💂🏻‍♀">stražar | čuvar | žena | tip kože 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">gardistkinja: tip kože 1–2</annotation>
+		<annotation cp="💂🏼‍♀">stražar | čuvar | žena | tip kože 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">gardistkinja: tip kože 3</annotation>
+		<annotation cp="💂🏽‍♀">stražar | čuvar | žena | tip kože 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">gardistkinja: tip kože 4</annotation>
+		<annotation cp="💂🏾‍♀">stražar | čuvar | žena | tip kože 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">gardistkinja: tip kože 5</annotation>
+		<annotation cp="💂🏿‍♀">stražar | čuvar | žena | tip kože 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">gardistkinja: tip kože 6</annotation>
+		<annotation cp="👷🏻">građevinski | radnik | šlem | tip kože 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">građevinski radnik: tip kože 1–2</annotation>
+		<annotation cp="👷🏼">građevinski | radnik | šlem | tip kože 3</annotation>
+		<annotation cp="👷🏼" type="tts">građevinski radnik: tip kože 3</annotation>
+		<annotation cp="👷🏽">građevinski | radnik | šlem | tip kože 4</annotation>
+		<annotation cp="👷🏽" type="tts">građevinski radnik: tip kože 4</annotation>
+		<annotation cp="👷🏾">građevinski | radnik | šlem | tip kože 5</annotation>
+		<annotation cp="👷🏾" type="tts">građevinski radnik: tip kože 5</annotation>
+		<annotation cp="👷🏿">građevinski | radnik | šlem | tip kože 6</annotation>
+		<annotation cp="👷🏿" type="tts">građevinski radnik: tip kože 6</annotation>
+		<annotation cp="👷🏻‍♂">građevinar | muškarac | radnik | šlem | tip kože 1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">građevinar: tip kože 1–2</annotation>
+		<annotation cp="👷🏼‍♂">građevinar | muškarac | radnik | šlem | tip kože 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">građevinar: tip kože 3</annotation>
+		<annotation cp="👷🏽‍♂">građevinar | muškarac | radnik | šlem | tip kože 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">građevinar: tip kože 4</annotation>
+		<annotation cp="👷🏾‍♂">građevinar | muškarac | radnik | šlem | tip kože 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">građevinar: tip kože 5</annotation>
+		<annotation cp="👷🏿‍♂">građevinar | muškarac | radnik | šlem | tip kože 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">građevinar: tip kože 6</annotation>
+		<annotation cp="👷🏻‍♀">građevinar | radnica | šlem | žena | tip kože 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">građevinarka: tip kože 1–2</annotation>
+		<annotation cp="👷🏼‍♀">građevinar | radnica | šlem | žena | tip kože 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">građevinarka: tip kože 3</annotation>
+		<annotation cp="👷🏽‍♀">građevinar | radnica | šlem | žena | tip kože 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">građevinarka: tip kože 4</annotation>
+		<annotation cp="👷🏾‍♀">građevinar | radnica | šlem | žena | tip kože 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">građevinarka: tip kože 5</annotation>
+		<annotation cp="👷🏿‍♀">građevinar | radnica | šlem | žena | tip kože 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">građevinarka: tip kože 6</annotation>
+		<annotation cp="🤴🏻">princ | tip kože 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">princ: tip kože 1–2</annotation>
+		<annotation cp="🤴🏼">princ | tip kože 3</annotation>
+		<annotation cp="🤴🏼" type="tts">princ: tip kože 3</annotation>
+		<annotation cp="🤴🏽">princ | tip kože 4</annotation>
+		<annotation cp="🤴🏽" type="tts">princ: tip kože 4</annotation>
+		<annotation cp="🤴🏾">princ | tip kože 5</annotation>
+		<annotation cp="🤴🏾" type="tts">princ: tip kože 5</annotation>
+		<annotation cp="🤴🏿">princ | tip kože 6</annotation>
+		<annotation cp="🤴🏿" type="tts">princ: tip kože 6</annotation>
+		<annotation cp="👸🏻">bajka | mašta | tip kože 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">princeza: tip kože 1–2</annotation>
+		<annotation cp="👸🏼">bajka | mašta | tip kože 3</annotation>
+		<annotation cp="👸🏼" type="tts">princeza: tip kože 3</annotation>
+		<annotation cp="👸🏽">bajka | mašta | tip kože 4</annotation>
+		<annotation cp="👸🏽" type="tts">princeza: tip kože 4</annotation>
+		<annotation cp="👸🏾">bajka | mašta | tip kože 5</annotation>
+		<annotation cp="👸🏾" type="tts">princeza: tip kože 5</annotation>
+		<annotation cp="👸🏿">bajka | mašta | tip kože 6</annotation>
+		<annotation cp="👸🏿" type="tts">princeza: tip kože 6</annotation>
+		<annotation cp="👳🏻">muškarac | turban | tip kože 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">osoba sa turbanom: tip kože 1–2</annotation>
+		<annotation cp="👳🏼">muškarac | turban | tip kože 3</annotation>
+		<annotation cp="👳🏼" type="tts">osoba sa turbanom: tip kože 3</annotation>
+		<annotation cp="👳🏽">muškarac | turban | tip kože 4</annotation>
+		<annotation cp="👳🏽" type="tts">osoba sa turbanom: tip kože 4</annotation>
+		<annotation cp="👳🏾">muškarac | turban | tip kože 5</annotation>
+		<annotation cp="👳🏾" type="tts">osoba sa turbanom: tip kože 5</annotation>
+		<annotation cp="👳🏿">muškarac | turban | tip kože 6</annotation>
+		<annotation cp="👳🏿" type="tts">osoba sa turbanom: tip kože 6</annotation>
+		<annotation cp="👳🏻‍♂">muškarac | turban | tip kože 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">čovek sa turbanom: tip kože 1–2</annotation>
+		<annotation cp="👳🏼‍♂">muškarac | turban | tip kože 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">čovek sa turbanom: tip kože 3</annotation>
+		<annotation cp="👳🏽‍♂">muškarac | turban | tip kože 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">čovek sa turbanom: tip kože 4</annotation>
+		<annotation cp="👳🏾‍♂">muškarac | turban | tip kože 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">čovek sa turbanom: tip kože 5</annotation>
+		<annotation cp="👳🏿‍♂">muškarac | turban | tip kože 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">čovek sa turbanom: tip kože 6</annotation>
+		<annotation cp="👳🏻‍♀">turban | žena | tip kože 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">žena sa turbanom: tip kože 1–2</annotation>
+		<annotation cp="👳🏼‍♀">turban | žena | tip kože 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">žena sa turbanom: tip kože 3</annotation>
+		<annotation cp="👳🏽‍♀">turban | žena | tip kože 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">žena sa turbanom: tip kože 4</annotation>
+		<annotation cp="👳🏾‍♀">turban | žena | tip kože 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">žena sa turbanom: tip kože 5</annotation>
+		<annotation cp="👳🏿‍♀">turban | žena | tip kože 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">žena sa turbanom: tip kože 6</annotation>
+		<annotation cp="👲🏻">kapa | kina | muškarac | tip kože 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">čovek sa kineskom kapom: tip kože 1–2</annotation>
+		<annotation cp="👲🏼">kapa | kina | muškarac | tip kože 3</annotation>
+		<annotation cp="👲🏼" type="tts">čovek sa kineskom kapom: tip kože 3</annotation>
+		<annotation cp="👲🏽">kapa | kina | muškarac | tip kože 4</annotation>
+		<annotation cp="👲🏽" type="tts">čovek sa kineskom kapom: tip kože 4</annotation>
+		<annotation cp="👲🏾">kapa | kina | muškarac | tip kože 5</annotation>
+		<annotation cp="👲🏾" type="tts">čovek sa kineskom kapom: tip kože 5</annotation>
+		<annotation cp="👲🏿">kapa | kina | muškarac | tip kože 6</annotation>
+		<annotation cp="👲🏿" type="tts">čovek sa kineskom kapom: tip kože 6</annotation>
+		<annotation cp="👱🏻">plava kosa | tip kože 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">osoba sa plavom kosom: tip kože 1–2</annotation>
+		<annotation cp="👱🏼">plava kosa | tip kože 3</annotation>
+		<annotation cp="👱🏼" type="tts">osoba sa plavom kosom: tip kože 3</annotation>
+		<annotation cp="👱🏽">plava kosa | tip kože 4</annotation>
+		<annotation cp="👱🏽" type="tts">osoba sa plavom kosom: tip kože 4</annotation>
+		<annotation cp="👱🏾">plava kosa | tip kože 5</annotation>
+		<annotation cp="👱🏾" type="tts">osoba sa plavom kosom: tip kože 5</annotation>
+		<annotation cp="👱🏿">plava kosa | tip kože 6</annotation>
+		<annotation cp="👱🏿" type="tts">osoba sa plavom kosom: tip kože 6</annotation>
+		<annotation cp="👱🏻‍♂">muškarac | plava kosa | tip kože 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">plav muškarac: tip kože 1–2</annotation>
+		<annotation cp="👱🏼‍♂">muškarac | plava kosa | tip kože 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">plav muškarac: tip kože 3</annotation>
+		<annotation cp="👱🏽‍♂">muškarac | plava kosa | tip kože 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">plav muškarac: tip kože 4</annotation>
+		<annotation cp="👱🏾‍♂">muškarac | plava kosa | tip kože 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">plav muškarac: tip kože 5</annotation>
+		<annotation cp="👱🏿‍♂">muškarac | plava kosa | tip kože 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">plav muškarac: tip kože 6</annotation>
+		<annotation cp="👱🏻‍♀">plava kosa | žena | tip kože 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">plavuša: tip kože 1–2</annotation>
+		<annotation cp="👱🏼‍♀">plava kosa | žena | tip kože 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">plavuša: tip kože 3</annotation>
+		<annotation cp="👱🏽‍♀">plava kosa | žena | tip kože 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">plavuša: tip kože 4</annotation>
+		<annotation cp="👱🏾‍♀">plava kosa | žena | tip kože 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">plavuša: tip kože 5</annotation>
+		<annotation cp="👱🏿‍♀">plava kosa | žena | tip kože 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">plavuša: tip kože 6</annotation>
+		<annotation cp="🤵🏻">mladoženja | smoking | čovek | tip kože 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">čovek u smokingu: tip kože 1–2</annotation>
+		<annotation cp="🤵🏼">mladoženja | smoking | čovek | tip kože 3</annotation>
+		<annotation cp="🤵🏼" type="tts">čovek u smokingu: tip kože 3</annotation>
+		<annotation cp="🤵🏽">mladoženja | smoking | čovek | tip kože 4</annotation>
+		<annotation cp="🤵🏽" type="tts">čovek u smokingu: tip kože 4</annotation>
+		<annotation cp="🤵🏾">mladoženja | smoking | čovek | tip kože 5</annotation>
+		<annotation cp="🤵🏾" type="tts">čovek u smokingu: tip kože 5</annotation>
+		<annotation cp="🤵🏿">mladoženja | smoking | čovek | tip kože 6</annotation>
+		<annotation cp="🤵🏿" type="tts">čovek u smokingu: tip kože 6</annotation>
+		<annotation cp="👰🏻">nevesta | venčanje | veo | tip kože 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">nevesta sa velom: tip kože 1–2</annotation>
+		<annotation cp="👰🏼">nevesta | venčanje | veo | tip kože 3</annotation>
+		<annotation cp="👰🏼" type="tts">nevesta sa velom: tip kože 3</annotation>
+		<annotation cp="👰🏽">nevesta | venčanje | veo | tip kože 4</annotation>
+		<annotation cp="👰🏽" type="tts">nevesta sa velom: tip kože 4</annotation>
+		<annotation cp="👰🏾">nevesta | venčanje | veo | tip kože 5</annotation>
+		<annotation cp="👰🏾" type="tts">nevesta sa velom: tip kože 5</annotation>
+		<annotation cp="👰🏿">nevesta | venčanje | veo | tip kože 6</annotation>
+		<annotation cp="👰🏿" type="tts">nevesta sa velom: tip kože 6</annotation>
+		<annotation cp="🤰🏻">trudnica | žena | tip kože 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">trudnica: tip kože 1–2</annotation>
+		<annotation cp="🤰🏼">trudnica | žena | tip kože 3</annotation>
+		<annotation cp="🤰🏼" type="tts">trudnica: tip kože 3</annotation>
+		<annotation cp="🤰🏽">trudnica | žena | tip kože 4</annotation>
+		<annotation cp="🤰🏽" type="tts">trudnica: tip kože 4</annotation>
+		<annotation cp="🤰🏾">trudnica | žena | tip kože 5</annotation>
+		<annotation cp="🤰🏾" type="tts">trudnica: tip kože 5</annotation>
+		<annotation cp="🤰🏿">trudnica | žena | tip kože 6</annotation>
+		<annotation cp="🤰🏿" type="tts">trudnica: tip kože 6</annotation>
+		<annotation cp="👼🏻">anđeo | bajka | beba | lice | mašta | tip kože 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">beba anđeo: tip kože 1–2</annotation>
+		<annotation cp="👼🏼">anđeo | bajka | beba | lice | mašta | tip kože 3</annotation>
+		<annotation cp="👼🏼" type="tts">beba anđeo: tip kože 3</annotation>
+		<annotation cp="👼🏽">anđeo | bajka | beba | lice | mašta | tip kože 4</annotation>
+		<annotation cp="👼🏽" type="tts">beba anđeo: tip kože 4</annotation>
+		<annotation cp="👼🏾">anđeo | bajka | beba | lice | mašta | tip kože 5</annotation>
+		<annotation cp="👼🏾" type="tts">beba anđeo: tip kože 5</annotation>
+		<annotation cp="👼🏿">anđeo | bajka | beba | lice | mašta | tip kože 6</annotation>
+		<annotation cp="👼🏿" type="tts">beba anđeo: tip kože 6</annotation>
+		<annotation cp="🎅🏻">bajka | božić | božić bata | deda mraz | mašta | proslava | tip kože 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">deda mraz: tip kože 1–2</annotation>
+		<annotation cp="🎅🏼">bajka | božić | božić bata | deda mraz | mašta | proslava | tip kože 3</annotation>
+		<annotation cp="🎅🏼" type="tts">deda mraz: tip kože 3</annotation>
+		<annotation cp="🎅🏽">bajka | božić | božić bata | deda mraz | mašta | proslava | tip kože 4</annotation>
+		<annotation cp="🎅🏽" type="tts">deda mraz: tip kože 4</annotation>
+		<annotation cp="🎅🏾">bajka | božić | božić bata | deda mraz | mašta | proslava | tip kože 5</annotation>
+		<annotation cp="🎅🏾" type="tts">deda mraz: tip kože 5</annotation>
+		<annotation cp="🎅🏿">bajka | božić | božić bata | deda mraz | mašta | proslava | tip kože 6</annotation>
+		<annotation cp="🎅🏿" type="tts">deda mraz: tip kože 6</annotation>
+		<annotation cp="🤶🏻">baka | božić | mraz | tip kože 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">baka Mraz: tip kože 1–2</annotation>
+		<annotation cp="🤶🏼">baka | božić | mraz | tip kože 3</annotation>
+		<annotation cp="🤶🏼" type="tts">baka Mraz: tip kože 3</annotation>
+		<annotation cp="🤶🏽">baka | božić | mraz | tip kože 4</annotation>
+		<annotation cp="🤶🏽" type="tts">baka Mraz: tip kože 4</annotation>
+		<annotation cp="🤶🏾">baka | božić | mraz | tip kože 5</annotation>
+		<annotation cp="🤶🏾" type="tts">baka Mraz: tip kože 5</annotation>
+		<annotation cp="🤶🏿">baka | božić | mraz | tip kože 6</annotation>
+		<annotation cp="🤶🏿" type="tts">baka Mraz: tip kože 6</annotation>
+		<annotation cp="🙍🏻">kretanje | mrštenje | tip kože 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">namrštena osoba: tip kože 1–2</annotation>
+		<annotation cp="🙍🏼">kretanje | mrštenje | tip kože 3</annotation>
+		<annotation cp="🙍🏼" type="tts">namrštena osoba: tip kože 3</annotation>
+		<annotation cp="🙍🏽">kretanje | mrštenje | tip kože 4</annotation>
+		<annotation cp="🙍🏽" type="tts">namrštena osoba: tip kože 4</annotation>
+		<annotation cp="🙍🏾">kretanje | mrštenje | tip kože 5</annotation>
+		<annotation cp="🙍🏾" type="tts">namrštena osoba: tip kože 5</annotation>
+		<annotation cp="🙍🏿">kretanje | mrštenje | tip kože 6</annotation>
+		<annotation cp="🙍🏿" type="tts">namrštena osoba: tip kože 6</annotation>
+		<annotation cp="🙍🏻‍♂">mrštenje | muškarac | tip kože 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">namršten muškarac: tip kože 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">mrštenje | muškarac | tip kože 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">namršten muškarac: tip kože 3</annotation>
+		<annotation cp="🙍🏽‍♂">mrštenje | muškarac | tip kože 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">namršten muškarac: tip kože 4</annotation>
+		<annotation cp="🙍🏾‍♂">mrštenje | muškarac | tip kože 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">namršten muškarac: tip kože 5</annotation>
+		<annotation cp="🙍🏿‍♂">mrštenje | muškarac | tip kože 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">namršten muškarac: tip kože 6</annotation>
+		<annotation cp="🙍🏻‍♀">mrštenje | žena | tip kože 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">namrštena žena: tip kože 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">mrštenje | žena | tip kože 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">namrštena žena: tip kože 3</annotation>
+		<annotation cp="🙍🏽‍♀">mrštenje | žena | tip kože 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">namrštena žena: tip kože 4</annotation>
+		<annotation cp="🙍🏾‍♀">mrštenje | žena | tip kože 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">namrštena žena: tip kože 5</annotation>
+		<annotation cp="🙍🏿‍♀">mrštenje | žena | tip kože 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">namrštena žena: tip kože 6</annotation>
+		<annotation cp="🙎🏻">durenje | kretanje | tip kože 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">nadurena osoba: tip kože 1–2</annotation>
+		<annotation cp="🙎🏼">durenje | kretanje | tip kože 3</annotation>
+		<annotation cp="🙎🏼" type="tts">nadurena osoba: tip kože 3</annotation>
+		<annotation cp="🙎🏽">durenje | kretanje | tip kože 4</annotation>
+		<annotation cp="🙎🏽" type="tts">nadurena osoba: tip kože 4</annotation>
+		<annotation cp="🙎🏾">durenje | kretanje | tip kože 5</annotation>
+		<annotation cp="🙎🏾" type="tts">nadurena osoba: tip kože 5</annotation>
+		<annotation cp="🙎🏿">durenje | kretanje | tip kože 6</annotation>
+		<annotation cp="🙎🏿" type="tts">nadurena osoba: tip kože 6</annotation>
+		<annotation cp="🙎🏻‍♂">durenje | muškarac | tip kože 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">naduren muškarac: tip kože 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">durenje | muškarac | tip kože 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">naduren muškarac: tip kože 3</annotation>
+		<annotation cp="🙎🏽‍♂">durenje | muškarac | tip kože 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">naduren muškarac: tip kože 4</annotation>
+		<annotation cp="🙎🏾‍♂">durenje | muškarac | tip kože 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">naduren muškarac: tip kože 5</annotation>
+		<annotation cp="🙎🏿‍♂">durenje | muškarac | tip kože 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">naduren muškarac: tip kože 6</annotation>
+		<annotation cp="🙎🏻‍♀">durenje | žena | tip kože 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">nadurena žena: tip kože 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">durenje | žena | tip kože 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">nadurena žena: tip kože 3</annotation>
+		<annotation cp="🙎🏽‍♀">durenje | žena | tip kože 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">nadurena žena: tip kože 4</annotation>
+		<annotation cp="🙎🏾‍♀">durenje | žena | tip kože 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">nadurena žena: tip kože 5</annotation>
+		<annotation cp="🙎🏿‍♀">durenje | žena | tip kože 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">nadurena žena: tip kože 6</annotation>
+		<annotation cp="🙅🏻">ne | nema | pokret | ruka | zabranjeno | tip kože 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">osoba koja pokazuje „ne“: tip kože 1–2</annotation>
+		<annotation cp="🙅🏼">ne | nema | pokret | ruka | zabranjeno | tip kože 3</annotation>
+		<annotation cp="🙅🏼" type="tts">osoba koja pokazuje „ne“: tip kože 3</annotation>
+		<annotation cp="🙅🏽">ne | nema | pokret | ruka | zabranjeno | tip kože 4</annotation>
+		<annotation cp="🙅🏽" type="tts">osoba koja pokazuje „ne“: tip kože 4</annotation>
+		<annotation cp="🙅🏾">ne | nema | pokret | ruka | zabranjeno | tip kože 5</annotation>
+		<annotation cp="🙅🏾" type="tts">osoba koja pokazuje „ne“: tip kože 5</annotation>
+		<annotation cp="🙅🏿">ne | nema | pokret | ruka | zabranjeno | tip kože 6</annotation>
+		<annotation cp="🙅🏿" type="tts">osoba koja pokazuje „ne“: tip kože 6</annotation>
+		<annotation cp="🙅🏻‍♂">gestikulacija | muškarac | ne | ruke | tip kože 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">muškarac pokazuje „ne“: tip kože 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">gestikulacija | muškarac | ne | ruke | tip kože 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">muškarac pokazuje „ne“: tip kože 3</annotation>
+		<annotation cp="🙅🏽‍♂">gestikulacija | muškarac | ne | ruke | tip kože 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">muškarac pokazuje „ne“: tip kože 4</annotation>
+		<annotation cp="🙅🏾‍♂">gestikulacija | muškarac | ne | ruke | tip kože 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">muškarac pokazuje „ne“: tip kože 5</annotation>
+		<annotation cp="🙅🏿‍♂">gestikulacija | muškarac | ne | ruke | tip kože 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">muškarac pokazuje „ne“: tip kože 6</annotation>
+		<annotation cp="🙅🏻‍♀">gestikulacija | ne | ruke | žena | tip kože 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">žena pokazuje „ne“: tip kože 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">gestikulacija | ne | ruke | žena | tip kože 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">žena pokazuje „ne“: tip kože 3</annotation>
+		<annotation cp="🙅🏽‍♀">gestikulacija | ne | ruke | žena | tip kože 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">žena pokazuje „ne“: tip kože 4</annotation>
+		<annotation cp="🙅🏾‍♀">gestikulacija | ne | ruke | žena | tip kože 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">žena pokazuje „ne“: tip kože 5</annotation>
+		<annotation cp="🙅🏿‍♀">gestikulacija | ne | ruke | žena | tip kože 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">žena pokazuje „ne“: tip kože 6</annotation>
+		<annotation cp="🙆🏻">dobro | ok | pokret | ruka | u redu | tip kože 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">osoba koja pokazuje „u redu“: tip kože 1–2</annotation>
+		<annotation cp="🙆🏼">dobro | ok | pokret | ruka | u redu | tip kože 3</annotation>
+		<annotation cp="🙆🏼" type="tts">osoba koja pokazuje „u redu“: tip kože 3</annotation>
+		<annotation cp="🙆🏽">dobro | ok | pokret | ruka | u redu | tip kože 4</annotation>
+		<annotation cp="🙆🏽" type="tts">osoba koja pokazuje „u redu“: tip kože 4</annotation>
+		<annotation cp="🙆🏾">dobro | ok | pokret | ruka | u redu | tip kože 5</annotation>
+		<annotation cp="🙆🏾" type="tts">osoba koja pokazuje „u redu“: tip kože 5</annotation>
+		<annotation cp="🙆🏿">dobro | ok | pokret | ruka | u redu | tip kože 6</annotation>
+		<annotation cp="🙆🏿" type="tts">osoba koja pokazuje „u redu“: tip kože 6</annotation>
+		<annotation cp="🙆🏻‍♂">gestikulacija | muškarac | ok | ruke | tip kože 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">muškarac pokazuje „ok“: tip kože 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">gestikulacija | muškarac | ok | ruke | tip kože 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">muškarac pokazuje „ok“: tip kože 3</annotation>
+		<annotation cp="🙆🏽‍♂">gestikulacija | muškarac | ok | ruke | tip kože 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">muškarac pokazuje „ok“: tip kože 4</annotation>
+		<annotation cp="🙆🏾‍♂">gestikulacija | muškarac | ok | ruke | tip kože 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">muškarac pokazuje „ok“: tip kože 5</annotation>
+		<annotation cp="🙆🏿‍♂">gestikulacija | muškarac | ok | ruke | tip kože 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">muškarac pokazuje „ok“: tip kože 6</annotation>
+		<annotation cp="🙆🏻‍♀">gestikulacija | ok | ruke | žena | tip kože 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">žena pokazuje „ok“: tip kože 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">gestikulacija | ok | ruke | žena | tip kože 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">žena pokazuje „ok“: tip kože 3</annotation>
+		<annotation cp="🙆🏽‍♀">gestikulacija | ok | ruke | žena | tip kože 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">žena pokazuje „ok“: tip kože 4</annotation>
+		<annotation cp="🙆🏾‍♀">gestikulacija | ok | ruke | žena | tip kože 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">žena pokazuje „ok“: tip kože 5</annotation>
+		<annotation cp="🙆🏿‍♀">gestikulacija | ok | ruke | žena | tip kože 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">žena pokazuje „ok“: tip kože 6</annotation>
+		<annotation cp="💁🏻">informacije | pomoć | ruka | tip kože 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">osoba koja daje informacije: tip kože 1–2</annotation>
+		<annotation cp="💁🏼">informacije | pomoć | ruka | tip kože 3</annotation>
+		<annotation cp="💁🏼" type="tts">osoba koja daje informacije: tip kože 3</annotation>
+		<annotation cp="💁🏽">informacije | pomoć | ruka | tip kože 4</annotation>
+		<annotation cp="💁🏽" type="tts">osoba koja daje informacije: tip kože 4</annotation>
+		<annotation cp="💁🏾">informacije | pomoć | ruka | tip kože 5</annotation>
+		<annotation cp="💁🏾" type="tts">osoba koja daje informacije: tip kože 5</annotation>
+		<annotation cp="💁🏿">informacije | pomoć | ruka | tip kože 6</annotation>
+		<annotation cp="💁🏿" type="tts">osoba koja daje informacije: tip kože 6</annotation>
+		<annotation cp="💁🏻‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">muškarac otkriva namere: tip kože 1–2</annotation>
+		<annotation cp="💁🏼‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">muškarac otkriva namere: tip kože 3</annotation>
+		<annotation cp="💁🏽‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">muškarac otkriva namere: tip kože 4</annotation>
+		<annotation cp="💁🏾‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">muškarac otkriva namere: tip kože 5</annotation>
+		<annotation cp="💁🏿‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">muškarac otkriva namere: tip kože 6</annotation>
+		<annotation cp="💁🏻‍♀">gestikulacija | informacije | ruke | žena | tip kože 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">žena otkriva namere: tip kože 1–2</annotation>
+		<annotation cp="💁🏼‍♀">gestikulacija | informacije | ruke | žena | tip kože 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">žena otkriva namere: tip kože 3</annotation>
+		<annotation cp="💁🏽‍♀">gestikulacija | informacije | ruke | žena | tip kože 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">žena otkriva namere: tip kože 4</annotation>
+		<annotation cp="💁🏾‍♀">gestikulacija | informacije | ruke | žena | tip kože 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">žena otkriva namere: tip kože 5</annotation>
+		<annotation cp="💁🏿‍♀">gestikulacija | informacije | ruke | žena | tip kože 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">žena otkriva namere: tip kože 6</annotation>
+		<annotation cp="🙋🏻">kretanje | podići | ruka | sreća | tip kože 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">srećna osoba sa podignutom rukom: tip kože 1–2</annotation>
+		<annotation cp="🙋🏼">kretanje | podići | ruka | sreća | tip kože 3</annotation>
+		<annotation cp="🙋🏼" type="tts">srećna osoba sa podignutom rukom: tip kože 3</annotation>
+		<annotation cp="🙋🏽">kretanje | podići | ruka | sreća | tip kože 4</annotation>
+		<annotation cp="🙋🏽" type="tts">srećna osoba sa podignutom rukom: tip kože 4</annotation>
+		<annotation cp="🙋🏾">kretanje | podići | ruka | sreća | tip kože 5</annotation>
+		<annotation cp="🙋🏾" type="tts">srećna osoba sa podignutom rukom: tip kože 5</annotation>
+		<annotation cp="🙋🏿">kretanje | podići | ruka | sreća | tip kože 6</annotation>
+		<annotation cp="🙋🏿" type="tts">srećna osoba sa podignutom rukom: tip kože 6</annotation>
+		<annotation cp="🙋🏻‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">muškarac podiže ruku: tip kože 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">muškarac podiže ruku: tip kože 3</annotation>
+		<annotation cp="🙋🏽‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">muškarac podiže ruku: tip kože 4</annotation>
+		<annotation cp="🙋🏾‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">muškarac podiže ruku: tip kože 5</annotation>
+		<annotation cp="🙋🏿‍♂">gestikulacija | informacije | muškarac | ruke | tip kože 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">muškarac podiže ruku: tip kože 6</annotation>
+		<annotation cp="🙋🏻‍♀">gestikulacija | informacije | ruke | žena | tip kože 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">žena podiže ruku: tip kože 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">gestikulacija | informacije | ruke | žena | tip kože 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">žena podiže ruku: tip kože 3</annotation>
+		<annotation cp="🙋🏽‍♀">gestikulacija | informacije | ruke | žena | tip kože 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">žena podiže ruku: tip kože 4</annotation>
+		<annotation cp="🙋🏾‍♀">gestikulacija | informacije | ruke | žena | tip kože 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">žena podiže ruku: tip kože 5</annotation>
+		<annotation cp="🙋🏿‍♀">gestikulacija | informacije | ruke | žena | tip kože 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">žena podiže ruku: tip kože 6</annotation>
+		<annotation cp="🙇🏻">izvinjenje | klanjanje | kretanje | naklon | tip kože 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">osoba koja se klanja: tip kože 1–2</annotation>
+		<annotation cp="🙇🏼">izvinjenje | klanjanje | kretanje | naklon | tip kože 3</annotation>
+		<annotation cp="🙇🏼" type="tts">osoba koja se klanja: tip kože 3</annotation>
+		<annotation cp="🙇🏽">izvinjenje | klanjanje | kretanje | naklon | tip kože 4</annotation>
+		<annotation cp="🙇🏽" type="tts">osoba koja se klanja: tip kože 4</annotation>
+		<annotation cp="🙇🏾">izvinjenje | klanjanje | kretanje | naklon | tip kože 5</annotation>
+		<annotation cp="🙇🏾" type="tts">osoba koja se klanja: tip kože 5</annotation>
+		<annotation cp="🙇🏿">izvinjenje | klanjanje | kretanje | naklon | tip kože 6</annotation>
+		<annotation cp="🙇🏿" type="tts">osoba koja se klanja: tip kože 6</annotation>
+		<annotation cp="🙇🏻‍♂">gestikulacija | izvinjenje | muškarac | naklon | tip kože 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">muški duboki naklon: tip kože 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">gestikulacija | izvinjenje | muškarac | naklon | tip kože 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">muški duboki naklon: tip kože 3</annotation>
+		<annotation cp="🙇🏽‍♂">gestikulacija | izvinjenje | muškarac | naklon | tip kože 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">muški duboki naklon: tip kože 4</annotation>
+		<annotation cp="🙇🏾‍♂">gestikulacija | izvinjenje | muškarac | naklon | tip kože 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">muški duboki naklon: tip kože 5</annotation>
+		<annotation cp="🙇🏿‍♂">gestikulacija | izvinjenje | muškarac | naklon | tip kože 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">muški duboki naklon: tip kože 6</annotation>
+		<annotation cp="🙇🏻‍♀">gestikulacija | izvinjenje | naklon | žena | tip kože 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">ženski duboki naklon: tip kože 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">gestikulacija | izvinjenje | naklon | žena | tip kože 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">ženski duboki naklon: tip kože 3</annotation>
+		<annotation cp="🙇🏽‍♀">gestikulacija | izvinjenje | naklon | žena | tip kože 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">ženski duboki naklon: tip kože 4</annotation>
+		<annotation cp="🙇🏾‍♀">gestikulacija | izvinjenje | naklon | žena | tip kože 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">ženski duboki naklon: tip kože 5</annotation>
+		<annotation cp="🙇🏿‍♀">gestikulacija | izvinjenje | naklon | žena | tip kože 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">ženski duboki naklon: tip kože 6</annotation>
+		<annotation cp="🤦🏻">glupost | kajanje | čelo | tip kože 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">šaka o čelo: tip kože 1–2</annotation>
+		<annotation cp="🤦🏼">glupost | kajanje | čelo | tip kože 3</annotation>
+		<annotation cp="🤦🏼" type="tts">šaka o čelo: tip kože 3</annotation>
+		<annotation cp="🤦🏽">glupost | kajanje | čelo | tip kože 4</annotation>
+		<annotation cp="🤦🏽" type="tts">šaka o čelo: tip kože 4</annotation>
+		<annotation cp="🤦🏾">glupost | kajanje | čelo | tip kože 5</annotation>
+		<annotation cp="🤦🏾" type="tts">šaka o čelo: tip kože 5</annotation>
+		<annotation cp="🤦🏿">glupost | kajanje | čelo | tip kože 6</annotation>
+		<annotation cp="🤦🏿" type="tts">šaka o čelo: tip kože 6</annotation>
+		<annotation cp="🤦🏻‍♂">gestikulacija | glupost | kajanje | muškarac | tip kože 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">muškarac s rukom na čelu: tip kože 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">gestikulacija | glupost | kajanje | muškarac | tip kože 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">muškarac s rukom na čelu: tip kože 3</annotation>
+		<annotation cp="🤦🏽‍♂">gestikulacija | glupost | kajanje | muškarac | tip kože 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">muškarac s rukom na čelu: tip kože 4</annotation>
+		<annotation cp="🤦🏾‍♂">gestikulacija | glupost | kajanje | muškarac | tip kože 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">muškarac s rukom na čelu: tip kože 5</annotation>
+		<annotation cp="🤦🏿‍♂">gestikulacija | glupost | kajanje | muškarac | tip kože 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">muškarac s rukom na čelu: tip kože 6</annotation>
+		<annotation cp="🤦🏻‍♀">gestikulacija | glupost | kajanje | žena | tip kože 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">žena s rukom na čelu: tip kože 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">gestikulacija | glupost | kajanje | žena | tip kože 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">žena s rukom na čelu: tip kože 3</annotation>
+		<annotation cp="🤦🏽‍♀">gestikulacija | glupost | kajanje | žena | tip kože 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">žena s rukom na čelu: tip kože 4</annotation>
+		<annotation cp="🤦🏾‍♀">gestikulacija | glupost | kajanje | žena | tip kože 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">žena s rukom na čelu: tip kože 5</annotation>
+		<annotation cp="🤦🏿‍♀">gestikulacija | glupost | kajanje | žena | tip kože 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">žena s rukom na čelu: tip kože 6</annotation>
+		<annotation cp="🤷🏻">neznanje | nznm | ravnodušnost | sumnja | tip kože 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">sleganje ramenima: tip kože 1–2</annotation>
+		<annotation cp="🤷🏼">neznanje | nznm | ravnodušnost | sumnja | tip kože 3</annotation>
+		<annotation cp="🤷🏼" type="tts">sleganje ramenima: tip kože 3</annotation>
+		<annotation cp="🤷🏽">neznanje | nznm | ravnodušnost | sumnja | tip kože 4</annotation>
+		<annotation cp="🤷🏽" type="tts">sleganje ramenima: tip kože 4</annotation>
+		<annotation cp="🤷🏾">neznanje | nznm | ravnodušnost | sumnja | tip kože 5</annotation>
+		<annotation cp="🤷🏾" type="tts">sleganje ramenima: tip kože 5</annotation>
+		<annotation cp="🤷🏿">neznanje | nznm | ravnodušnost | sumnja | tip kože 6</annotation>
+		<annotation cp="🤷🏿" type="tts">sleganje ramenima: tip kože 6</annotation>
+		<annotation cp="🤷🏻‍♂">gestikulacija | muškarac | neznanje | ravnodušnost | tip kože 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">muškarac sleže ramenima: tip kože 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">gestikulacija | muškarac | neznanje | ravnodušnost | tip kože 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">muškarac sleže ramenima: tip kože 3</annotation>
+		<annotation cp="🤷🏽‍♂">gestikulacija | muškarac | neznanje | ravnodušnost | tip kože 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">muškarac sleže ramenima: tip kože 4</annotation>
+		<annotation cp="🤷🏾‍♂">gestikulacija | muškarac | neznanje | ravnodušnost | tip kože 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">muškarac sleže ramenima: tip kože 5</annotation>
+		<annotation cp="🤷🏿‍♂">gestikulacija | muškarac | neznanje | ravnodušnost | tip kože 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">muškarac sleže ramenima: tip kože 6</annotation>
+		<annotation cp="🤷🏻‍♀">gestikulacija | neznanje | ravnodušnost | žena | tip kože 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">žena sleže ramenima: tip kože 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">gestikulacija | neznanje | ravnodušnost | žena | tip kože 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">žena sleže ramenima: tip kože 3</annotation>
+		<annotation cp="🤷🏽‍♀">gestikulacija | neznanje | ravnodušnost | žena | tip kože 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">žena sleže ramenima: tip kože 4</annotation>
+		<annotation cp="🤷🏾‍♀">gestikulacija | neznanje | ravnodušnost | žena | tip kože 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">žena sleže ramenima: tip kože 5</annotation>
+		<annotation cp="🤷🏿‍♀">gestikulacija | neznanje | ravnodušnost | žena | tip kože 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">žena sleže ramenima: tip kože 6</annotation>
+		<annotation cp="💆🏻">masaža | salon | tip kože 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">masaža lica: tip kože 1–2</annotation>
+		<annotation cp="💆🏼">masaža | salon | tip kože 3</annotation>
+		<annotation cp="💆🏼" type="tts">masaža lica: tip kože 3</annotation>
+		<annotation cp="💆🏽">masaža | salon | tip kože 4</annotation>
+		<annotation cp="💆🏽" type="tts">masaža lica: tip kože 4</annotation>
+		<annotation cp="💆🏾">masaža | salon | tip kože 5</annotation>
+		<annotation cp="💆🏾" type="tts">masaža lica: tip kože 5</annotation>
+		<annotation cp="💆🏿">masaža | salon | tip kože 6</annotation>
+		<annotation cp="💆🏿" type="tts">masaža lica: tip kože 6</annotation>
+		<annotation cp="💆🏻‍♂">lice | masaža | muškarac | salon | tip kože 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">muška masaža lica: tip kože 1–2</annotation>
+		<annotation cp="💆🏼‍♂">lice | masaža | muškarac | salon | tip kože 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">muška masaža lica: tip kože 3</annotation>
+		<annotation cp="💆🏽‍♂">lice | masaža | muškarac | salon | tip kože 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">muška masaža lica: tip kože 4</annotation>
+		<annotation cp="💆🏾‍♂">lice | masaža | muškarac | salon | tip kože 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">muška masaža lica: tip kože 5</annotation>
+		<annotation cp="💆🏿‍♂">lice | masaža | muškarac | salon | tip kože 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">muška masaža lica: tip kože 6</annotation>
+		<annotation cp="💆🏻‍♀">lice | masaža | salon | žena | tip kože 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">ženska masaža lica: tip kože 1–2</annotation>
+		<annotation cp="💆🏼‍♀">lice | masaža | salon | žena | tip kože 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">ženska masaža lica: tip kože 3</annotation>
+		<annotation cp="💆🏽‍♀">lice | masaža | salon | žena | tip kože 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">ženska masaža lica: tip kože 4</annotation>
+		<annotation cp="💆🏾‍♀">lice | masaža | salon | žena | tip kože 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">ženska masaža lica: tip kože 5</annotation>
+		<annotation cp="💆🏿‍♀">lice | masaža | salon | žena | tip kože 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">ženska masaža lica: tip kože 6</annotation>
+		<annotation cp="💇🏻">frizer | salon | ulepšavanje | tip kože 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">šišanje: tip kože 1–2</annotation>
+		<annotation cp="💇🏼">frizer | salon | ulepšavanje | tip kože 3</annotation>
+		<annotation cp="💇🏼" type="tts">šišanje: tip kože 3</annotation>
+		<annotation cp="💇🏽">frizer | salon | ulepšavanje | tip kože 4</annotation>
+		<annotation cp="💇🏽" type="tts">šišanje: tip kože 4</annotation>
+		<annotation cp="💇🏾">frizer | salon | ulepšavanje | tip kože 5</annotation>
+		<annotation cp="💇🏾" type="tts">šišanje: tip kože 5</annotation>
+		<annotation cp="💇🏿">frizer | salon | ulepšavanje | tip kože 6</annotation>
+		<annotation cp="💇🏿" type="tts">šišanje: tip kože 6</annotation>
+		<annotation cp="💇🏻‍♂">frizer | muškarac | salon | ulepšavanje | tip kože 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">muško šišanje: tip kože 1–2</annotation>
+		<annotation cp="💇🏼‍♂">frizer | muškarac | salon | ulepšavanje | tip kože 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">muško šišanje: tip kože 3</annotation>
+		<annotation cp="💇🏽‍♂">frizer | muškarac | salon | ulepšavanje | tip kože 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">muško šišanje: tip kože 4</annotation>
+		<annotation cp="💇🏾‍♂">frizer | muškarac | salon | ulepšavanje | tip kože 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">muško šišanje: tip kože 5</annotation>
+		<annotation cp="💇🏿‍♂">frizer | muškarac | salon | ulepšavanje | tip kože 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">muško šišanje: tip kože 6</annotation>
+		<annotation cp="💇🏻‍♀">frizer | salon | ulepšavanje | žena | tip kože 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">žensko šišanje: tip kože 1–2</annotation>
+		<annotation cp="💇🏼‍♀">frizer | salon | ulepšavanje | žena | tip kože 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">žensko šišanje: tip kože 3</annotation>
+		<annotation cp="💇🏽‍♀">frizer | salon | ulepšavanje | žena | tip kože 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">žensko šišanje: tip kože 4</annotation>
+		<annotation cp="💇🏾‍♀">frizer | salon | ulepšavanje | žena | tip kože 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">žensko šišanje: tip kože 5</annotation>
+		<annotation cp="💇🏿‍♀">frizer | salon | ulepšavanje | žena | tip kože 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">žensko šišanje: tip kože 6</annotation>
+		<annotation cp="🚶🏻">hodanje | šetanje | tip kože 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">pešak: tip kože 1–2</annotation>
+		<annotation cp="🚶🏼">hodanje | šetanje | tip kože 3</annotation>
+		<annotation cp="🚶🏼" type="tts">pešak: tip kože 3</annotation>
+		<annotation cp="🚶🏽">hodanje | šetanje | tip kože 4</annotation>
+		<annotation cp="🚶🏽" type="tts">pešak: tip kože 4</annotation>
+		<annotation cp="🚶🏾">hodanje | šetanje | tip kože 5</annotation>
+		<annotation cp="🚶🏾" type="tts">pešak: tip kože 5</annotation>
+		<annotation cp="🚶🏿">hodanje | šetanje | tip kože 6</annotation>
+		<annotation cp="🚶🏿" type="tts">pešak: tip kože 6</annotation>
+		<annotation cp="🚶🏻‍♂">hodanje | muškarac | šetanje | tip kože 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">muškarac hoda: tip kože 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">hodanje | muškarac | šetanje | tip kože 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">muškarac hoda: tip kože 3</annotation>
+		<annotation cp="🚶🏽‍♂">hodanje | muškarac | šetanje | tip kože 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">muškarac hoda: tip kože 4</annotation>
+		<annotation cp="🚶🏾‍♂">hodanje | muškarac | šetanje | tip kože 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">muškarac hoda: tip kože 5</annotation>
+		<annotation cp="🚶🏿‍♂">hodanje | muškarac | šetanje | tip kože 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">muškarac hoda: tip kože 6</annotation>
+		<annotation cp="🚶🏻‍♀">hodanje | šetanje | žena | tip kože 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">žena hoda: tip kože 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">hodanje | šetanje | žena | tip kože 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">žena hoda: tip kože 3</annotation>
+		<annotation cp="🚶🏽‍♀">hodanje | šetanje | žena | tip kože 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">žena hoda: tip kože 4</annotation>
+		<annotation cp="🚶🏾‍♀">hodanje | šetanje | žena | tip kože 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">žena hoda: tip kože 5</annotation>
+		<annotation cp="🚶🏿‍♀">hodanje | šetanje | žena | tip kože 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">žena hoda: tip kože 6</annotation>
+		<annotation cp="🏃🏻">maraton | trčanje | tip kože 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">trkač: tip kože 1–2</annotation>
+		<annotation cp="🏃🏼">maraton | trčanje | tip kože 3</annotation>
+		<annotation cp="🏃🏼" type="tts">trkač: tip kože 3</annotation>
+		<annotation cp="🏃🏽">maraton | trčanje | tip kože 4</annotation>
+		<annotation cp="🏃🏽" type="tts">trkač: tip kože 4</annotation>
+		<annotation cp="🏃🏾">maraton | trčanje | tip kože 5</annotation>
+		<annotation cp="🏃🏾" type="tts">trkač: tip kože 5</annotation>
+		<annotation cp="🏃🏿">maraton | trčanje | tip kože 6</annotation>
+		<annotation cp="🏃🏿" type="tts">trkač: tip kože 6</annotation>
+		<annotation cp="🏃🏻‍♂">maraton | muškarac | trka | trčanje | tip kože 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">muškarac trči: tip kože 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">maraton | muškarac | trka | trčanje | tip kože 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">muškarac trči: tip kože 3</annotation>
+		<annotation cp="🏃🏽‍♂">maraton | muškarac | trka | trčanje | tip kože 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">muškarac trči: tip kože 4</annotation>
+		<annotation cp="🏃🏾‍♂">maraton | muškarac | trka | trčanje | tip kože 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">muškarac trči: tip kože 5</annotation>
+		<annotation cp="🏃🏿‍♂">maraton | muškarac | trka | trčanje | tip kože 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">muškarac trči: tip kože 6</annotation>
+		<annotation cp="🏃🏻‍♀">maraton | trka | trčanje | žena | tip kože 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">žena trči: tip kože 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">maraton | trka | trčanje | žena | tip kože 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">žena trči: tip kože 3</annotation>
+		<annotation cp="🏃🏽‍♀">maraton | trka | trčanje | žena | tip kože 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">žena trči: tip kože 4</annotation>
+		<annotation cp="🏃🏾‍♀">maraton | trka | trčanje | žena | tip kože 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">žena trči: tip kože 5</annotation>
+		<annotation cp="🏃🏿‍♀">maraton | trka | trčanje | žena | tip kože 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">žena trči: tip kože 6</annotation>
+		<annotation cp="💃🏻">plesanje | tip kože 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">plesač: tip kože 1–2</annotation>
+		<annotation cp="💃🏼">plesanje | tip kože 3</annotation>
+		<annotation cp="💃🏼" type="tts">plesač: tip kože 3</annotation>
+		<annotation cp="💃🏽">plesanje | tip kože 4</annotation>
+		<annotation cp="💃🏽" type="tts">plesač: tip kože 4</annotation>
+		<annotation cp="💃🏾">plesanje | tip kože 5</annotation>
+		<annotation cp="💃🏾" type="tts">plesač: tip kože 5</annotation>
+		<annotation cp="💃🏿">plesanje | tip kože 6</annotation>
+		<annotation cp="💃🏿" type="tts">plesač: tip kože 6</annotation>
+		<annotation cp="🕺🏻">ples | plesač | čovek | tip kože 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">plesač: tip kože 1–2</annotation>
+		<annotation cp="🕺🏼">ples | plesač | čovek | tip kože 3</annotation>
+		<annotation cp="🕺🏼" type="tts">plesač: tip kože 3</annotation>
+		<annotation cp="🕺🏽">ples | plesač | čovek | tip kože 4</annotation>
+		<annotation cp="🕺🏽" type="tts">plesač: tip kože 4</annotation>
+		<annotation cp="🕺🏾">ples | plesač | čovek | tip kože 5</annotation>
+		<annotation cp="🕺🏾" type="tts">plesač: tip kože 5</annotation>
+		<annotation cp="🕺🏿">ples | plesač | čovek | tip kože 6</annotation>
+		<annotation cp="🕺🏿" type="tts">plesač: tip kože 6</annotation>
+		<annotation cp="🛀🏻">kada | kupanje | tip kože 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">osoba koja se kupa: tip kože 1–2</annotation>
+		<annotation cp="🛀🏼">kada | kupanje | tip kože 3</annotation>
+		<annotation cp="🛀🏼" type="tts">osoba koja se kupa: tip kože 3</annotation>
+		<annotation cp="🛀🏽">kada | kupanje | tip kože 4</annotation>
+		<annotation cp="🛀🏽" type="tts">osoba koja se kupa: tip kože 4</annotation>
+		<annotation cp="🛀🏾">kada | kupanje | tip kože 5</annotation>
+		<annotation cp="🛀🏾" type="tts">osoba koja se kupa: tip kože 5</annotation>
+		<annotation cp="🛀🏿">kada | kupanje | tip kože 6</annotation>
+		<annotation cp="🛀🏿" type="tts">osoba koja se kupa: tip kože 6</annotation>
+		<annotation cp="🛌🏻">hotel | spavanje | tip kože 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">osoba u krevetu: tip kože 1–2</annotation>
+		<annotation cp="🛌🏼">hotel | spavanje | tip kože 3</annotation>
+		<annotation cp="🛌🏼" type="tts">osoba u krevetu: tip kože 3</annotation>
+		<annotation cp="🛌🏽">hotel | spavanje | tip kože 4</annotation>
+		<annotation cp="🛌🏽" type="tts">osoba u krevetu: tip kože 4</annotation>
+		<annotation cp="🛌🏾">hotel | spavanje | tip kože 5</annotation>
+		<annotation cp="🛌🏾" type="tts">osoba u krevetu: tip kože 5</annotation>
+		<annotation cp="🛌🏿">hotel | spavanje | tip kože 6</annotation>
+		<annotation cp="🛌🏿" type="tts">osoba u krevetu: tip kože 6</annotation>
+		<annotation cp="🕴🏻">muškarac | odelo | posao | tip kože 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">muškarac u poslovnom odelu koji lebdi: tip kože 1–2</annotation>
+		<annotation cp="🕴🏼">muškarac | odelo | posao | tip kože 3</annotation>
+		<annotation cp="🕴🏼" type="tts">muškarac u poslovnom odelu koji lebdi: tip kože 3</annotation>
+		<annotation cp="🕴🏽">muškarac | odelo | posao | tip kože 4</annotation>
+		<annotation cp="🕴🏽" type="tts">muškarac u poslovnom odelu koji lebdi: tip kože 4</annotation>
+		<annotation cp="🕴🏾">muškarac | odelo | posao | tip kože 5</annotation>
+		<annotation cp="🕴🏾" type="tts">muškarac u poslovnom odelu koji lebdi: tip kože 5</annotation>
+		<annotation cp="🕴🏿">muškarac | odelo | posao | tip kože 6</annotation>
+		<annotation cp="🕴🏿" type="tts">muškarac u poslovnom odelu koji lebdi: tip kože 6</annotation>
+		<annotation cp="🏇🏻">džokej | konj | trka | tip kože 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">trke konja: tip kože 1–2</annotation>
+		<annotation cp="🏇🏼">džokej | konj | trka | tip kože 3</annotation>
+		<annotation cp="🏇🏼" type="tts">trke konja: tip kože 3</annotation>
+		<annotation cp="🏇🏽">džokej | konj | trka | tip kože 4</annotation>
+		<annotation cp="🏇🏽" type="tts">trke konja: tip kože 4</annotation>
+		<annotation cp="🏇🏾">džokej | konj | trka | tip kože 5</annotation>
+		<annotation cp="🏇🏾" type="tts">trke konja: tip kože 5</annotation>
+		<annotation cp="🏇🏿">džokej | konj | trka | tip kože 6</annotation>
+		<annotation cp="🏇🏿" type="tts">trke konja: tip kože 6</annotation>
+		<annotation cp="🏂🏻">skijanje | sneg | snoubord | tip kože 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">vozač snouborda: tip kože 1–2</annotation>
+		<annotation cp="🏂🏼">skijanje | sneg | snoubord | tip kože 3</annotation>
+		<annotation cp="🏂🏼" type="tts">vozač snouborda: tip kože 3</annotation>
+		<annotation cp="🏂🏽">skijanje | sneg | snoubord | tip kože 4</annotation>
+		<annotation cp="🏂🏽" type="tts">vozač snouborda: tip kože 4</annotation>
+		<annotation cp="🏂🏾">skijanje | sneg | snoubord | tip kože 5</annotation>
+		<annotation cp="🏂🏾" type="tts">vozač snouborda: tip kože 5</annotation>
+		<annotation cp="🏂🏿">skijanje | sneg | snoubord | tip kože 6</annotation>
+		<annotation cp="🏂🏿" type="tts">vozač snouborda: tip kože 6</annotation>
+		<annotation cp="🏌🏻">golf | loptica | tip kože 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">osoba igra golf: tip kože 1–2</annotation>
+		<annotation cp="🏌🏼">golf | loptica | tip kože 3</annotation>
+		<annotation cp="🏌🏼" type="tts">osoba igra golf: tip kože 3</annotation>
+		<annotation cp="🏌🏽">golf | loptica | tip kože 4</annotation>
+		<annotation cp="🏌🏽" type="tts">osoba igra golf: tip kože 4</annotation>
+		<annotation cp="🏌🏾">golf | loptica | tip kože 5</annotation>
+		<annotation cp="🏌🏾" type="tts">osoba igra golf: tip kože 5</annotation>
+		<annotation cp="🏌🏿">golf | loptica | tip kože 6</annotation>
+		<annotation cp="🏌🏿" type="tts">osoba igra golf: tip kože 6</annotation>
+		<annotation cp="🏌🏻‍♂">golf | loptica | muškarac | tip kože 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">golfer: tip kože 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">golf | loptica | muškarac | tip kože 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">golfer: tip kože 3</annotation>
+		<annotation cp="🏌🏽‍♂">golf | loptica | muškarac | tip kože 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">golfer: tip kože 4</annotation>
+		<annotation cp="🏌🏾‍♂">golf | loptica | muškarac | tip kože 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">golfer: tip kože 5</annotation>
+		<annotation cp="🏌🏿‍♂">golf | loptica | muškarac | tip kože 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">golfer: tip kože 6</annotation>
+		<annotation cp="🏌🏻‍♀">golf | loptica | žena | tip kože 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">golferka: tip kože 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">golf | loptica | žena | tip kože 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">golferka: tip kože 3</annotation>
+		<annotation cp="🏌🏽‍♀">golf | loptica | žena | tip kože 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">golferka: tip kože 4</annotation>
+		<annotation cp="🏌🏾‍♀">golf | loptica | žena | tip kože 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">golferka: tip kože 5</annotation>
+		<annotation cp="🏌🏿‍♀">golf | loptica | žena | tip kože 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">golferka: tip kože 6</annotation>
+		<annotation cp="🏄🏻">surfovanje | tip kože 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">osoba srfuje: tip kože 1–2</annotation>
+		<annotation cp="🏄🏼">surfovanje | tip kože 3</annotation>
+		<annotation cp="🏄🏼" type="tts">osoba srfuje: tip kože 3</annotation>
+		<annotation cp="🏄🏽">surfovanje | tip kože 4</annotation>
+		<annotation cp="🏄🏽" type="tts">osoba srfuje: tip kože 4</annotation>
+		<annotation cp="🏄🏾">surfovanje | tip kože 5</annotation>
+		<annotation cp="🏄🏾" type="tts">osoba srfuje: tip kože 5</annotation>
+		<annotation cp="🏄🏿">surfovanje | tip kože 6</annotation>
+		<annotation cp="🏄🏿" type="tts">osoba srfuje: tip kože 6</annotation>
+		<annotation cp="🏄🏻‍♂">muškarac | surfovanje | tip kože 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">surfer: tip kože 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">muškarac | surfovanje | tip kože 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">surfer: tip kože 3</annotation>
+		<annotation cp="🏄🏽‍♂">muškarac | surfovanje | tip kože 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">surfer: tip kože 4</annotation>
+		<annotation cp="🏄🏾‍♂">muškarac | surfovanje | tip kože 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">surfer: tip kože 5</annotation>
+		<annotation cp="🏄🏿‍♂">muškarac | surfovanje | tip kože 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">surfer: tip kože 6</annotation>
+		<annotation cp="🏄🏻‍♀">surfovanje | žena | tip kože 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">surferka: tip kože 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">surfovanje | žena | tip kože 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">surferka: tip kože 3</annotation>
+		<annotation cp="🏄🏽‍♀">surfovanje | žena | tip kože 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">surferka: tip kože 4</annotation>
+		<annotation cp="🏄🏾‍♀">surfovanje | žena | tip kože 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">surferka: tip kože 5</annotation>
+		<annotation cp="🏄🏿‍♀">surfovanje | žena | tip kože 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">surferka: tip kože 6</annotation>
+		<annotation cp="🚣🏻">vozilo | čamac | tip kože 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">čamac na vesla: tip kože 1–2</annotation>
+		<annotation cp="🚣🏼">vozilo | čamac | tip kože 3</annotation>
+		<annotation cp="🚣🏼" type="tts">čamac na vesla: tip kože 3</annotation>
+		<annotation cp="🚣🏽">vozilo | čamac | tip kože 4</annotation>
+		<annotation cp="🚣🏽" type="tts">čamac na vesla: tip kože 4</annotation>
+		<annotation cp="🚣🏾">vozilo | čamac | tip kože 5</annotation>
+		<annotation cp="🚣🏾" type="tts">čamac na vesla: tip kože 5</annotation>
+		<annotation cp="🚣🏿">vozilo | čamac | tip kože 6</annotation>
+		<annotation cp="🚣🏿" type="tts">čamac na vesla: tip kože 6</annotation>
+		<annotation cp="🚣🏻‍♂">muškarac | veslanje | čamac | tip kože 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">veslač: tip kože 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">muškarac | veslanje | čamac | tip kože 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">veslač: tip kože 3</annotation>
+		<annotation cp="🚣🏽‍♂">muškarac | veslanje | čamac | tip kože 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">veslač: tip kože 4</annotation>
+		<annotation cp="🚣🏾‍♂">muškarac | veslanje | čamac | tip kože 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">veslač: tip kože 5</annotation>
+		<annotation cp="🚣🏿‍♂">muškarac | veslanje | čamac | tip kože 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">veslač: tip kože 6</annotation>
+		<annotation cp="🚣🏻‍♀">veslanje | čamac | žena | tip kože 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">veslačica: tip kože 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">veslanje | čamac | žena | tip kože 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">veslačica: tip kože 3</annotation>
+		<annotation cp="🚣🏽‍♀">veslanje | čamac | žena | tip kože 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">veslačica: tip kože 4</annotation>
+		<annotation cp="🚣🏾‍♀">veslanje | čamac | žena | tip kože 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">veslačica: tip kože 5</annotation>
+		<annotation cp="🚣🏿‍♀">veslanje | čamac | žena | tip kože 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">veslačica: tip kože 6</annotation>
+		<annotation cp="🏊🏻">plivanje | tip kože 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">osoba pliva: tip kože 1–2</annotation>
+		<annotation cp="🏊🏼">plivanje | tip kože 3</annotation>
+		<annotation cp="🏊🏼" type="tts">osoba pliva: tip kože 3</annotation>
+		<annotation cp="🏊🏽">plivanje | tip kože 4</annotation>
+		<annotation cp="🏊🏽" type="tts">osoba pliva: tip kože 4</annotation>
+		<annotation cp="🏊🏾">plivanje | tip kože 5</annotation>
+		<annotation cp="🏊🏾" type="tts">osoba pliva: tip kože 5</annotation>
+		<annotation cp="🏊🏿">plivanje | tip kože 6</annotation>
+		<annotation cp="🏊🏿" type="tts">osoba pliva: tip kože 6</annotation>
+		<annotation cp="🏊🏻‍♂">muškarac | plivanje | tip kože 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">plivač: tip kože 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">muškarac | plivanje | tip kože 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">plivač: tip kože 3</annotation>
+		<annotation cp="🏊🏽‍♂">muškarac | plivanje | tip kože 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">plivač: tip kože 4</annotation>
+		<annotation cp="🏊🏾‍♂">muškarac | plivanje | tip kože 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">plivač: tip kože 5</annotation>
+		<annotation cp="🏊🏿‍♂">muškarac | plivanje | tip kože 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">plivač: tip kože 6</annotation>
+		<annotation cp="🏊🏻‍♀">plivanje | žena | tip kože 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">plivačica: tip kože 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">plivanje | žena | tip kože 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">plivačica: tip kože 3</annotation>
+		<annotation cp="🏊🏽‍♀">plivanje | žena | tip kože 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">plivačica: tip kože 4</annotation>
+		<annotation cp="🏊🏾‍♀">plivanje | žena | tip kože 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">plivačica: tip kože 5</annotation>
+		<annotation cp="🏊🏿‍♀">plivanje | žena | tip kože 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">plivačica: tip kože 6</annotation>
+		<annotation cp="⛹🏻">lopta | tip kože 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">osoba sa loptom: tip kože 1–2</annotation>
+		<annotation cp="⛹🏼">lopta | tip kože 3</annotation>
+		<annotation cp="⛹🏼" type="tts">osoba sa loptom: tip kože 3</annotation>
+		<annotation cp="⛹🏽">lopta | tip kože 4</annotation>
+		<annotation cp="⛹🏽" type="tts">osoba sa loptom: tip kože 4</annotation>
+		<annotation cp="⛹🏾">lopta | tip kože 5</annotation>
+		<annotation cp="⛹🏾" type="tts">osoba sa loptom: tip kože 5</annotation>
+		<annotation cp="⛹🏿">lopta | tip kože 6</annotation>
+		<annotation cp="⛹🏿" type="tts">osoba sa loptom: tip kože 6</annotation>
+		<annotation cp="⛹🏻‍♂">lopta | muškarac | tip kože 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">muškarac sa loptom: tip kože 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">lopta | muškarac | tip kože 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">muškarac sa loptom: tip kože 3</annotation>
+		<annotation cp="⛹🏽‍♂">lopta | muškarac | tip kože 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">muškarac sa loptom: tip kože 4</annotation>
+		<annotation cp="⛹🏾‍♂">lopta | muškarac | tip kože 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">muškarac sa loptom: tip kože 5</annotation>
+		<annotation cp="⛹🏿‍♂">lopta | muškarac | tip kože 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">muškarac sa loptom: tip kože 6</annotation>
+		<annotation cp="⛹🏻‍♀">lopta | žena | tip kože 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">žena sa loptom: tip kože 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">lopta | žena | tip kože 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">žena sa loptom: tip kože 3</annotation>
+		<annotation cp="⛹🏽‍♀">lopta | žena | tip kože 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">žena sa loptom: tip kože 4</annotation>
+		<annotation cp="⛹🏾‍♀">lopta | žena | tip kože 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">žena sa loptom: tip kože 5</annotation>
+		<annotation cp="⛹🏿‍♀">lopta | žena | tip kože 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">žena sa loptom: tip kože 6</annotation>
+		<annotation cp="🏋🏻">dizač | tegovi | tip kože 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">osoba diže tegove: tip kože 1–2</annotation>
+		<annotation cp="🏋🏼">dizač | tegovi | tip kože 3</annotation>
+		<annotation cp="🏋🏼" type="tts">osoba diže tegove: tip kože 3</annotation>
+		<annotation cp="🏋🏽">dizač | tegovi | tip kože 4</annotation>
+		<annotation cp="🏋🏽" type="tts">osoba diže tegove: tip kože 4</annotation>
+		<annotation cp="🏋🏾">dizač | tegovi | tip kože 5</annotation>
+		<annotation cp="🏋🏾" type="tts">osoba diže tegove: tip kože 5</annotation>
+		<annotation cp="🏋🏿">dizač | tegovi | tip kože 6</annotation>
+		<annotation cp="🏋🏿" type="tts">osoba diže tegove: tip kože 6</annotation>
+		<annotation cp="🏋🏻‍♂">dizanje | muškarac | tegovi | tip kože 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">dizač tegova: tip kože 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">dizanje | muškarac | tegovi | tip kože 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">dizač tegova: tip kože 3</annotation>
+		<annotation cp="🏋🏽‍♂">dizanje | muškarac | tegovi | tip kože 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">dizač tegova: tip kože 4</annotation>
+		<annotation cp="🏋🏾‍♂">dizanje | muškarac | tegovi | tip kože 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">dizač tegova: tip kože 5</annotation>
+		<annotation cp="🏋🏿‍♂">dizanje | muškarac | tegovi | tip kože 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">dizač tegova: tip kože 6</annotation>
+		<annotation cp="🏋🏻‍♀">dizanje | tegovi | žena | tip kože 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">dizačica tegova: tip kože 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">dizanje | tegovi | žena | tip kože 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">dizačica tegova: tip kože 3</annotation>
+		<annotation cp="🏋🏽‍♀">dizanje | tegovi | žena | tip kože 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">dizačica tegova: tip kože 4</annotation>
+		<annotation cp="🏋🏾‍♀">dizanje | tegovi | žena | tip kože 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">dizačica tegova: tip kože 5</annotation>
+		<annotation cp="🏋🏿‍♀">dizanje | tegovi | žena | tip kože 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">dizačica tegova: tip kože 6</annotation>
+		<annotation cp="🚴🏻">bicikl | tip kože 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">osoba na biciklu: tip kože 1–2</annotation>
+		<annotation cp="🚴🏼">bicikl | tip kože 3</annotation>
+		<annotation cp="🚴🏼" type="tts">osoba na biciklu: tip kože 3</annotation>
+		<annotation cp="🚴🏽">bicikl | tip kože 4</annotation>
+		<annotation cp="🚴🏽" type="tts">osoba na biciklu: tip kože 4</annotation>
+		<annotation cp="🚴🏾">bicikl | tip kože 5</annotation>
+		<annotation cp="🚴🏾" type="tts">osoba na biciklu: tip kože 5</annotation>
+		<annotation cp="🚴🏿">bicikl | tip kože 6</annotation>
+		<annotation cp="🚴🏿" type="tts">osoba na biciklu: tip kože 6</annotation>
+		<annotation cp="🚴🏻‍♂">bicikl | biciklista | muškarac | tip kože 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">biciklista: tip kože 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">bicikl | biciklista | muškarac | tip kože 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">biciklista: tip kože 3</annotation>
+		<annotation cp="🚴🏽‍♂">bicikl | biciklista | muškarac | tip kože 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">biciklista: tip kože 4</annotation>
+		<annotation cp="🚴🏾‍♂">bicikl | biciklista | muškarac | tip kože 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">biciklista: tip kože 5</annotation>
+		<annotation cp="🚴🏿‍♂">bicikl | biciklista | muškarac | tip kože 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">biciklista: tip kože 6</annotation>
+		<annotation cp="🚴🏻‍♀">bicikl | biciklista | žena | tip kože 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">biciklistkinja: tip kože 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">bicikl | biciklista | žena | tip kože 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">biciklistkinja: tip kože 3</annotation>
+		<annotation cp="🚴🏽‍♀">bicikl | biciklista | žena | tip kože 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">biciklistkinja: tip kože 4</annotation>
+		<annotation cp="🚴🏾‍♀">bicikl | biciklista | žena | tip kože 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">biciklistkinja: tip kože 5</annotation>
+		<annotation cp="🚴🏿‍♀">bicikl | biciklista | žena | tip kože 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">biciklistkinja: tip kože 6</annotation>
+		<annotation cp="🚵🏻">bicikl | biciklista | brdo | planina | tip kože 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">osoba na brdskom biciklu: tip kože 1–2</annotation>
+		<annotation cp="🚵🏼">bicikl | biciklista | brdo | planina | tip kože 3</annotation>
+		<annotation cp="🚵🏼" type="tts">osoba na brdskom biciklu: tip kože 3</annotation>
+		<annotation cp="🚵🏽">bicikl | biciklista | brdo | planina | tip kože 4</annotation>
+		<annotation cp="🚵🏽" type="tts">osoba na brdskom biciklu: tip kože 4</annotation>
+		<annotation cp="🚵🏾">bicikl | biciklista | brdo | planina | tip kože 5</annotation>
+		<annotation cp="🚵🏾" type="tts">osoba na brdskom biciklu: tip kože 5</annotation>
+		<annotation cp="🚵🏿">bicikl | biciklista | brdo | planina | tip kože 6</annotation>
+		<annotation cp="🚵🏿" type="tts">osoba na brdskom biciklu: tip kože 6</annotation>
+		<annotation cp="🚵🏻‍♂">bicikl | biciklista | muškarac | planina | tip kože 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">brdski biciklista: tip kože 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">bicikl | biciklista | muškarac | planina | tip kože 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">brdski biciklista: tip kože 3</annotation>
+		<annotation cp="🚵🏽‍♂">bicikl | biciklista | muškarac | planina | tip kože 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">brdski biciklista: tip kože 4</annotation>
+		<annotation cp="🚵🏾‍♂">bicikl | biciklista | muškarac | planina | tip kože 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">brdski biciklista: tip kože 5</annotation>
+		<annotation cp="🚵🏿‍♂">bicikl | biciklista | muškarac | planina | tip kože 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">brdski biciklista: tip kože 6</annotation>
+		<annotation cp="🚵🏻‍♀">bicikl | biciklista | planina | žena | tip kože 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">brdska biciklistkinja: tip kože 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">bicikl | biciklista | planina | žena | tip kože 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">brdska biciklistkinja: tip kože 3</annotation>
+		<annotation cp="🚵🏽‍♀">bicikl | biciklista | planina | žena | tip kože 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">brdska biciklistkinja: tip kože 4</annotation>
+		<annotation cp="🚵🏾‍♀">bicikl | biciklista | planina | žena | tip kože 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">brdska biciklistkinja: tip kože 5</annotation>
+		<annotation cp="🚵🏿‍♀">bicikl | biciklista | planina | žena | tip kože 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">brdska biciklistkinja: tip kože 6</annotation>
+		<annotation cp="🤸🏻">akrobata | gimnastika | sport | zvezda | tip kože 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">gimnastičarska zvezda: tip kože 1–2</annotation>
+		<annotation cp="🤸🏼">akrobata | gimnastika | sport | zvezda | tip kože 3</annotation>
+		<annotation cp="🤸🏼" type="tts">gimnastičarska zvezda: tip kože 3</annotation>
+		<annotation cp="🤸🏽">akrobata | gimnastika | sport | zvezda | tip kože 4</annotation>
+		<annotation cp="🤸🏽" type="tts">gimnastičarska zvezda: tip kože 4</annotation>
+		<annotation cp="🤸🏾">akrobata | gimnastika | sport | zvezda | tip kože 5</annotation>
+		<annotation cp="🤸🏾" type="tts">gimnastičarska zvezda: tip kože 5</annotation>
+		<annotation cp="🤸🏿">akrobata | gimnastika | sport | zvezda | tip kože 6</annotation>
+		<annotation cp="🤸🏿" type="tts">gimnastičarska zvezda: tip kože 6</annotation>
+		<annotation cp="🤸🏻‍♂">akrobata | gimnastika | muškarac | zvezda | tip kože 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">gimnastičar: tip kože 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">akrobata | gimnastika | muškarac | zvezda | tip kože 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">gimnastičar: tip kože 3</annotation>
+		<annotation cp="🤸🏽‍♂">akrobata | gimnastika | muškarac | zvezda | tip kože 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">gimnastičar: tip kože 4</annotation>
+		<annotation cp="🤸🏾‍♂">akrobata | gimnastika | muškarac | zvezda | tip kože 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">gimnastičar: tip kože 5</annotation>
+		<annotation cp="🤸🏿‍♂">akrobata | gimnastika | muškarac | zvezda | tip kože 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">gimnastičar: tip kože 6</annotation>
+		<annotation cp="🤸🏻‍♀">akrobata | gimnastika | zvezda | žena | tip kože 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">gimnastičarka: tip kože 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">akrobata | gimnastika | zvezda | žena | tip kože 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">gimnastičarka: tip kože 3</annotation>
+		<annotation cp="🤸🏽‍♀">akrobata | gimnastika | zvezda | žena | tip kože 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">gimnastičarka: tip kože 4</annotation>
+		<annotation cp="🤸🏾‍♀">akrobata | gimnastika | zvezda | žena | tip kože 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">gimnastičarka: tip kože 5</annotation>
+		<annotation cp="🤸🏿‍♀">akrobata | gimnastika | zvezda | žena | tip kože 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">gimnastičarka: tip kože 6</annotation>
+		<annotation cp="🤽🏻">bazen | sport | vaterpolo | voda | tip kože 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">vaterpolo: tip kože 1–2</annotation>
+		<annotation cp="🤽🏼">bazen | sport | vaterpolo | voda | tip kože 3</annotation>
+		<annotation cp="🤽🏼" type="tts">vaterpolo: tip kože 3</annotation>
+		<annotation cp="🤽🏽">bazen | sport | vaterpolo | voda | tip kože 4</annotation>
+		<annotation cp="🤽🏽" type="tts">vaterpolo: tip kože 4</annotation>
+		<annotation cp="🤽🏾">bazen | sport | vaterpolo | voda | tip kože 5</annotation>
+		<annotation cp="🤽🏾" type="tts">vaterpolo: tip kože 5</annotation>
+		<annotation cp="🤽🏿">bazen | sport | vaterpolo | voda | tip kože 6</annotation>
+		<annotation cp="🤽🏿" type="tts">vaterpolo: tip kože 6</annotation>
+		<annotation cp="🤽🏻‍♂">bazen | muškarac | vaterpolo | voda | tip kože 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">vaterpolista: tip kože 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">bazen | muškarac | vaterpolo | voda | tip kože 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">vaterpolista: tip kože 3</annotation>
+		<annotation cp="🤽🏽‍♂">bazen | muškarac | vaterpolo | voda | tip kože 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">vaterpolista: tip kože 4</annotation>
+		<annotation cp="🤽🏾‍♂">bazen | muškarac | vaterpolo | voda | tip kože 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">vaterpolista: tip kože 5</annotation>
+		<annotation cp="🤽🏿‍♂">bazen | muškarac | vaterpolo | voda | tip kože 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">vaterpolista: tip kože 6</annotation>
+		<annotation cp="🤽🏻‍♀">bazen | vaterpolo | voda | žena | tip kože 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">vaterpolistkinja: tip kože 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">bazen | vaterpolo | voda | žena | tip kože 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">vaterpolistkinja: tip kože 3</annotation>
+		<annotation cp="🤽🏽‍♀">bazen | vaterpolo | voda | žena | tip kože 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">vaterpolistkinja: tip kože 4</annotation>
+		<annotation cp="🤽🏾‍♀">bazen | vaterpolo | voda | žena | tip kože 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">vaterpolistkinja: tip kože 5</annotation>
+		<annotation cp="🤽🏿‍♀">bazen | vaterpolo | voda | žena | tip kože 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">vaterpolistkinja: tip kože 6</annotation>
+		<annotation cp="🤾🏻">bacanje | lopta | osoba | rukomet | sport | tip kože 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">rukomet: tip kože 1–2</annotation>
+		<annotation cp="🤾🏼">bacanje | lopta | osoba | rukomet | sport | tip kože 3</annotation>
+		<annotation cp="🤾🏼" type="tts">rukomet: tip kože 3</annotation>
+		<annotation cp="🤾🏽">bacanje | lopta | osoba | rukomet | sport | tip kože 4</annotation>
+		<annotation cp="🤾🏽" type="tts">rukomet: tip kože 4</annotation>
+		<annotation cp="🤾🏾">bacanje | lopta | osoba | rukomet | sport | tip kože 5</annotation>
+		<annotation cp="🤾🏾" type="tts">rukomet: tip kože 5</annotation>
+		<annotation cp="🤾🏿">bacanje | lopta | osoba | rukomet | sport | tip kože 6</annotation>
+		<annotation cp="🤾🏿" type="tts">rukomet: tip kože 6</annotation>
+		<annotation cp="🤾🏻‍♂">bacanje | lopta | muškarac | rukomet | tip kože 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">rukometaš: tip kože 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">bacanje | lopta | muškarac | rukomet | tip kože 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">rukometaš: tip kože 3</annotation>
+		<annotation cp="🤾🏽‍♂">bacanje | lopta | muškarac | rukomet | tip kože 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">rukometaš: tip kože 4</annotation>
+		<annotation cp="🤾🏾‍♂">bacanje | lopta | muškarac | rukomet | tip kože 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">rukometaš: tip kože 5</annotation>
+		<annotation cp="🤾🏿‍♂">bacanje | lopta | muškarac | rukomet | tip kože 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">rukometaš: tip kože 6</annotation>
+		<annotation cp="🤾🏻‍♀">bacanje | lopta | rukomet | žena | tip kože 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">rukometašica: tip kože 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">bacanje | lopta | rukomet | žena | tip kože 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">rukometašica: tip kože 3</annotation>
+		<annotation cp="🤾🏽‍♀">bacanje | lopta | rukomet | žena | tip kože 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">rukometašica: tip kože 4</annotation>
+		<annotation cp="🤾🏾‍♀">bacanje | lopta | rukomet | žena | tip kože 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">rukometašica: tip kože 5</annotation>
+		<annotation cp="🤾🏿‍♀">bacanje | lopta | rukomet | žena | tip kože 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">rukometašica: tip kože 6</annotation>
+		<annotation cp="🤹🏻">cirkus | veština | žongliranje | tip kože 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">osoba žonglira: tip kože 1–2</annotation>
+		<annotation cp="🤹🏼">cirkus | veština | žongliranje | tip kože 3</annotation>
+		<annotation cp="🤹🏼" type="tts">osoba žonglira: tip kože 3</annotation>
+		<annotation cp="🤹🏽">cirkus | veština | žongliranje | tip kože 4</annotation>
+		<annotation cp="🤹🏽" type="tts">osoba žonglira: tip kože 4</annotation>
+		<annotation cp="🤹🏾">cirkus | veština | žongliranje | tip kože 5</annotation>
+		<annotation cp="🤹🏾" type="tts">osoba žonglira: tip kože 5</annotation>
+		<annotation cp="🤹🏿">cirkus | veština | žongliranje | tip kože 6</annotation>
+		<annotation cp="🤹🏿" type="tts">osoba žonglira: tip kože 6</annotation>
+		<annotation cp="🤹🏻‍♂">cirkus | muškarac | veština | žongliranje | tip kože 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">žongler: tip kože 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">cirkus | muškarac | veština | žongliranje | tip kože 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">žongler: tip kože 3</annotation>
+		<annotation cp="🤹🏽‍♂">cirkus | muškarac | veština | žongliranje | tip kože 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">žongler: tip kože 4</annotation>
+		<annotation cp="🤹🏾‍♂">cirkus | muškarac | veština | žongliranje | tip kože 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">žongler: tip kože 5</annotation>
+		<annotation cp="🤹🏿‍♂">cirkus | muškarac | veština | žongliranje | tip kože 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">žongler: tip kože 6</annotation>
+		<annotation cp="🤹🏻‍♀">cirkus | veština | žena | žongliranje | tip kože 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">žonglerka: tip kože 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">cirkus | veština | žena | žongliranje | tip kože 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">žonglerka: tip kože 3</annotation>
+		<annotation cp="🤹🏽‍♀">cirkus | veština | žena | žongliranje | tip kože 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">žonglerka: tip kože 4</annotation>
+		<annotation cp="🤹🏾‍♀">cirkus | veština | žena | žongliranje | tip kože 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">žonglerka: tip kože 5</annotation>
+		<annotation cp="🤹🏿‍♀">cirkus | veština | žena | žongliranje | tip kože 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">žonglerka: tip kože 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">par | romantika | žena | muškarac</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">poljubac: žena i muškarac</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">par | romantika | muškarac</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">poljubac: muškarac i muškarac</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">par | romantika | žena</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">poljubac: žena i žena</annotation>
+		<annotation cp="👩‍❤‍👨">ljubav | par | romantika | srce | žena | muškarac</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">par sa srcem: žena i muškarac</annotation>
+		<annotation cp="👨‍❤‍👨">ljubav | par | romantika | srce | muškarac</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">par sa srcem: muškarac i muškarac</annotation>
+		<annotation cp="👩‍❤‍👩">ljubav | par | romantika | srce | žena</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">par sa srcem: žena i žena</annotation>
+		<annotation cp="👨‍👩‍👦">dete | majka | otac | muškarac | žena | dečak</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">porodica: muškarac i žena i dečak</annotation>
+		<annotation cp="👨‍👩‍👧">dete | majka | otac | muškarac | žena | devojčica</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">porodica: muškarac i žena i devojčica</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">dete | majka | otac | muškarac | žena | devojčica | dečak</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">porodica: muškarac i žena i devojčica i dečak</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">dete | majka | otac | muškarac | žena | dečak</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">porodica: muškarac i žena i dečak i dečak</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">dete | majka | otac | muškarac | žena | devojčica</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">porodica: muškarac i žena i devojčica i devojčica</annotation>
+		<annotation cp="👨‍👨‍👦">dete | majka | otac | muškarac | dečak</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">porodica: muškarac i muškarac i dečak</annotation>
+		<annotation cp="👨‍👨‍👧">dete | majka | otac | muškarac | devojčica</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">porodica: muškarac i muškarac i devojčica</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">dete | majka | otac | muškarac | devojčica | dečak</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">porodica: muškarac i muškarac i devojčica i dečak</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">dete | majka | otac | muškarac | dečak</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">porodica: muškarac i muškarac i dečak i dečak</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">dete | majka | otac | muškarac | devojčica</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">porodica: muškarac i muškarac i devojčica i devojčica</annotation>
+		<annotation cp="👩‍👩‍👦">dete | majka | otac | žena | dečak</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">porodica: žena i žena i dečak</annotation>
+		<annotation cp="👩‍👩‍👧">dete | majka | otac | žena | devojčica</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">porodica: žena i žena i devojčica</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">dete | majka | otac | žena | devojčica | dečak</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">porodica: žena i žena i devojčica i dečak</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">dete | majka | otac | žena | dečak</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">porodica: žena i žena i dečak i dečak</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">dete | majka | otac | žena | devojčica</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">porodica: žena i žena i devojčica i devojčica</annotation>
+		<annotation cp="👨‍👦">dete | majka | otac | muškarac | dečak</annotation>
+		<annotation cp="👨‍👦" type="tts">porodica: muškarac i dečak</annotation>
+		<annotation cp="👨‍👦‍👦">dete | majka | otac | muškarac | dečak</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">porodica: muškarac i dečak i dečak</annotation>
+		<annotation cp="👨‍👧">dete | majka | otac | muškarac | devojčica</annotation>
+		<annotation cp="👨‍👧" type="tts">porodica: muškarac i devojčica</annotation>
+		<annotation cp="👨‍👧‍👦">dete | majka | otac | muškarac | devojčica | dečak</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">porodica: muškarac i devojčica i dečak</annotation>
+		<annotation cp="👨‍👧‍👧">dete | majka | otac | muškarac | devojčica</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">porodica: muškarac i devojčica i devojčica</annotation>
+		<annotation cp="👩‍👦">dete | majka | otac | žena | dečak</annotation>
+		<annotation cp="👩‍👦" type="tts">porodica: žena i dečak</annotation>
+		<annotation cp="👩‍👦‍👦">dete | majka | otac | žena | dečak</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">porodica: žena i dečak i dečak</annotation>
+		<annotation cp="👩‍👧">dete | majka | otac | žena | devojčica</annotation>
+		<annotation cp="👩‍👧" type="tts">porodica: žena i devojčica</annotation>
+		<annotation cp="👩‍👧‍👦">dete | majka | otac | žena | devojčica | dečak</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">porodica: žena i devojčica i dečak</annotation>
+		<annotation cp="👩‍👧‍👧">dete | majka | otac | žena | devojčica</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">porodica: žena i devojčica i devojčica</annotation>
+		<annotation cp="🤳🏻">ruka | selfi | slikanje | telefon | tip kože 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">selfi: tip kože 1–2</annotation>
+		<annotation cp="🤳🏼">ruka | selfi | slikanje | telefon | tip kože 3</annotation>
+		<annotation cp="🤳🏼" type="tts">selfi: tip kože 3</annotation>
+		<annotation cp="🤳🏽">ruka | selfi | slikanje | telefon | tip kože 4</annotation>
+		<annotation cp="🤳🏽" type="tts">selfi: tip kože 4</annotation>
+		<annotation cp="🤳🏾">ruka | selfi | slikanje | telefon | tip kože 5</annotation>
+		<annotation cp="🤳🏾" type="tts">selfi: tip kože 5</annotation>
+		<annotation cp="🤳🏿">ruka | selfi | slikanje | telefon | tip kože 6</annotation>
+		<annotation cp="🤳🏿" type="tts">selfi: tip kože 6</annotation>
+		<annotation cp="💪🏻">biceps | mišić | stegnut | telo | tip kože 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">stegnuti biceps: tip kože 1–2</annotation>
+		<annotation cp="💪🏼">biceps | mišić | stegnut | telo | tip kože 3</annotation>
+		<annotation cp="💪🏼" type="tts">stegnuti biceps: tip kože 3</annotation>
+		<annotation cp="💪🏽">biceps | mišić | stegnut | telo | tip kože 4</annotation>
+		<annotation cp="💪🏽" type="tts">stegnuti biceps: tip kože 4</annotation>
+		<annotation cp="💪🏾">biceps | mišić | stegnut | telo | tip kože 5</annotation>
+		<annotation cp="💪🏾" type="tts">stegnuti biceps: tip kože 5</annotation>
+		<annotation cp="💪🏿">biceps | mišić | stegnut | telo | tip kože 6</annotation>
+		<annotation cp="💪🏿" type="tts">stegnuti biceps: tip kože 6</annotation>
+		<annotation cp="👈🏻">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">kažiprst koji pokazuje ulevo: tip kože 1–2</annotation>
+		<annotation cp="👈🏼">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="👈🏼" type="tts">kažiprst koji pokazuje ulevo: tip kože 3</annotation>
+		<annotation cp="👈🏽">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="👈🏽" type="tts">kažiprst koji pokazuje ulevo: tip kože 4</annotation>
+		<annotation cp="👈🏾">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="👈🏾" type="tts">kažiprst koji pokazuje ulevo: tip kože 5</annotation>
+		<annotation cp="👈🏿">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="👈🏿" type="tts">kažiprst koji pokazuje ulevo: tip kože 6</annotation>
+		<annotation cp="👉🏻">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">kažiprst koji pokazuje udesno: tip kože 1–2</annotation>
+		<annotation cp="👉🏼">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="👉🏼" type="tts">kažiprst koji pokazuje udesno: tip kože 3</annotation>
+		<annotation cp="👉🏽">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="👉🏽" type="tts">kažiprst koji pokazuje udesno: tip kože 4</annotation>
+		<annotation cp="👉🏾">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="👉🏾" type="tts">kažiprst koji pokazuje udesno: tip kože 5</annotation>
+		<annotation cp="👉🏿">kažiprst | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="👉🏿" type="tts">kažiprst koji pokazuje udesno: tip kože 6</annotation>
+		<annotation cp="☝🏻">gore | kažiprst | pokazivanje | prst | ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">kažiprst koji pokazuje nagore: tip kože 1–2</annotation>
+		<annotation cp="☝🏼">gore | kažiprst | pokazivanje | prst | ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="☝🏼" type="tts">kažiprst koji pokazuje nagore: tip kože 3</annotation>
+		<annotation cp="☝🏽">gore | kažiprst | pokazivanje | prst | ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="☝🏽" type="tts">kažiprst koji pokazuje nagore: tip kože 4</annotation>
+		<annotation cp="☝🏾">gore | kažiprst | pokazivanje | prst | ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="☝🏾" type="tts">kažiprst koji pokazuje nagore: tip kože 5</annotation>
+		<annotation cp="☝🏿">gore | kažiprst | pokazivanje | prst | ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="☝🏿" type="tts">kažiprst koji pokazuje nagore: tip kože 6</annotation>
+		<annotation cp="👆🏻">kažiprst | nagore | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">kažiprst koji pokazuje nagore otpozadi: tip kože 1–2</annotation>
+		<annotation cp="👆🏼">kažiprst | nagore | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="👆🏼" type="tts">kažiprst koji pokazuje nagore otpozadi: tip kože 3</annotation>
+		<annotation cp="👆🏽">kažiprst | nagore | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="👆🏽" type="tts">kažiprst koji pokazuje nagore otpozadi: tip kože 4</annotation>
+		<annotation cp="👆🏾">kažiprst | nagore | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="👆🏾" type="tts">kažiprst koji pokazuje nagore otpozadi: tip kože 5</annotation>
+		<annotation cp="👆🏿">kažiprst | nagore | pokazivanje | prednja strana | prst | ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="👆🏿" type="tts">kažiprst koji pokazuje nagore otpozadi: tip kože 6</annotation>
+		<annotation cp="🖕🏻">prst | ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">srednji prst: tip kože 1–2</annotation>
+		<annotation cp="🖕🏼">prst | ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="🖕🏼" type="tts">srednji prst: tip kože 3</annotation>
+		<annotation cp="🖕🏽">prst | ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="🖕🏽" type="tts">srednji prst: tip kože 4</annotation>
+		<annotation cp="🖕🏾">prst | ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="🖕🏾" type="tts">srednji prst: tip kože 5</annotation>
+		<annotation cp="🖕🏿">prst | ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="🖕🏿" type="tts">srednji prst: tip kože 6</annotation>
+		<annotation cp="👇🏻">kažiprst | nadole | pokazivanje | prst | ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">kažiprst koji pokazuje nadole otpozadi: tip kože 1–2</annotation>
+		<annotation cp="👇🏼">kažiprst | nadole | pokazivanje | prst | ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="👇🏼" type="tts">kažiprst koji pokazuje nadole otpozadi: tip kože 3</annotation>
+		<annotation cp="👇🏽">kažiprst | nadole | pokazivanje | prst | ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="👇🏽" type="tts">kažiprst koji pokazuje nadole otpozadi: tip kože 4</annotation>
+		<annotation cp="👇🏾">kažiprst | nadole | pokazivanje | prst | ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="👇🏾" type="tts">kažiprst koji pokazuje nadole otpozadi: tip kože 5</annotation>
+		<annotation cp="👇🏿">kažiprst | nadole | pokazivanje | prst | ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="👇🏿" type="tts">kažiprst koji pokazuje nadole otpozadi: tip kože 6</annotation>
+		<annotation cp="✌🏻">pobeda | ruka | telo | v | šaka | tip kože 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">znak pobede: tip kože 1–2</annotation>
+		<annotation cp="✌🏼">pobeda | ruka | telo | v | šaka | tip kože 3</annotation>
+		<annotation cp="✌🏼" type="tts">znak pobede: tip kože 3</annotation>
+		<annotation cp="✌🏽">pobeda | ruka | telo | v | šaka | tip kože 4</annotation>
+		<annotation cp="✌🏽" type="tts">znak pobede: tip kože 4</annotation>
+		<annotation cp="✌🏾">pobeda | ruka | telo | v | šaka | tip kože 5</annotation>
+		<annotation cp="✌🏾" type="tts">znak pobede: tip kože 5</annotation>
+		<annotation cp="✌🏿">pobeda | ruka | telo | v | šaka | tip kože 6</annotation>
+		<annotation cp="✌🏿" type="tts">znak pobede: tip kože 6</annotation>
+		<annotation cp="🤞🏻">katanac | obećanje | prsti | sreća | želja | tip kože 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">prekršteni prsti: tip kože 1–2</annotation>
+		<annotation cp="🤞🏼">katanac | obećanje | prsti | sreća | želja | tip kože 3</annotation>
+		<annotation cp="🤞🏼" type="tts">prekršteni prsti: tip kože 3</annotation>
+		<annotation cp="🤞🏽">katanac | obećanje | prsti | sreća | želja | tip kože 4</annotation>
+		<annotation cp="🤞🏽" type="tts">prekršteni prsti: tip kože 4</annotation>
+		<annotation cp="🤞🏾">katanac | obećanje | prsti | sreća | želja | tip kože 5</annotation>
+		<annotation cp="🤞🏾" type="tts">prekršteni prsti: tip kože 5</annotation>
+		<annotation cp="🤞🏿">katanac | obećanje | prsti | sreća | želja | tip kože 6</annotation>
+		<annotation cp="🤞🏿" type="tts">prekršteni prsti: tip kože 6</annotation>
+		<annotation cp="🖖🏻">prst | ruka | spok | telo | vulkan | šaka | tip kože 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkanski pozdrav: tip kože 1–2</annotation>
+		<annotation cp="🖖🏼">prst | ruka | spok | telo | vulkan | šaka | tip kože 3</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkanski pozdrav: tip kože 3</annotation>
+		<annotation cp="🖖🏽">prst | ruka | spok | telo | vulkan | šaka | tip kože 4</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkanski pozdrav: tip kože 4</annotation>
+		<annotation cp="🖖🏾">prst | ruka | spok | telo | vulkan | šaka | tip kože 5</annotation>
+		<annotation cp="🖖🏾" type="tts">vulkanski pozdrav: tip kože 5</annotation>
+		<annotation cp="🖖🏿">prst | ruka | spok | telo | vulkan | šaka | tip kože 6</annotation>
+		<annotation cp="🖖🏿" type="tts">vulkanski pozdrav: tip kože 6</annotation>
+		<annotation cp="🤘🏻">metal | prst | rogovi | ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">znak rogova: tip kože 1–2</annotation>
+		<annotation cp="🤘🏼">metal | prst | rogovi | ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="🤘🏼" type="tts">znak rogova: tip kože 3</annotation>
+		<annotation cp="🤘🏽">metal | prst | rogovi | ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="🤘🏽" type="tts">znak rogova: tip kože 4</annotation>
+		<annotation cp="🤘🏾">metal | prst | rogovi | ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="🤘🏾" type="tts">znak rogova: tip kože 5</annotation>
+		<annotation cp="🤘🏿">metal | prst | rogovi | ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="🤘🏿" type="tts">znak rogova: tip kože 6</annotation>
+		<annotation cp="🤙🏻">ruka | telefon | zovi | tip kože 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">znak rukom za telefon: tip kože 1–2</annotation>
+		<annotation cp="🤙🏼">ruka | telefon | zovi | tip kože 3</annotation>
+		<annotation cp="🤙🏼" type="tts">znak rukom za telefon: tip kože 3</annotation>
+		<annotation cp="🤙🏽">ruka | telefon | zovi | tip kože 4</annotation>
+		<annotation cp="🤙🏽" type="tts">znak rukom za telefon: tip kože 4</annotation>
+		<annotation cp="🤙🏾">ruka | telefon | zovi | tip kože 5</annotation>
+		<annotation cp="🤙🏾" type="tts">znak rukom za telefon: tip kože 5</annotation>
+		<annotation cp="🤙🏿">ruka | telefon | zovi | tip kože 6</annotation>
+		<annotation cp="🤙🏿" type="tts">znak rukom za telefon: tip kože 6</annotation>
+		<annotation cp="🖐🏻">prst | rašireno | ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">šaka sa raširenim prstima: tip kože 1–2</annotation>
+		<annotation cp="🖐🏼">prst | rašireno | ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="🖐🏼" type="tts">šaka sa raširenim prstima: tip kože 3</annotation>
+		<annotation cp="🖐🏽">prst | rašireno | ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="🖐🏽" type="tts">šaka sa raširenim prstima: tip kože 4</annotation>
+		<annotation cp="🖐🏾">prst | rašireno | ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="🖐🏾" type="tts">šaka sa raširenim prstima: tip kože 5</annotation>
+		<annotation cp="🖐🏿">prst | rašireno | ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="🖐🏿" type="tts">šaka sa raširenim prstima: tip kože 6</annotation>
+		<annotation cp="✋🏻">ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">podignuta ruka: tip kože 1–2</annotation>
+		<annotation cp="✋🏼">ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="✋🏼" type="tts">podignuta ruka: tip kože 3</annotation>
+		<annotation cp="✋🏽">ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="✋🏽" type="tts">podignuta ruka: tip kože 4</annotation>
+		<annotation cp="✋🏾">ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="✋🏾" type="tts">podignuta ruka: tip kože 5</annotation>
+		<annotation cp="✋🏿">ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="✋🏿" type="tts">podignuta ruka: tip kože 6</annotation>
+		<annotation cp="👌🏻">ruka | telo | u redu | šaka | tip kože 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">znak rukom „u redu“: tip kože 1–2</annotation>
+		<annotation cp="👌🏼">ruka | telo | u redu | šaka | tip kože 3</annotation>
+		<annotation cp="👌🏼" type="tts">znak rukom „u redu“: tip kože 3</annotation>
+		<annotation cp="👌🏽">ruka | telo | u redu | šaka | tip kože 4</annotation>
+		<annotation cp="👌🏽" type="tts">znak rukom „u redu“: tip kože 4</annotation>
+		<annotation cp="👌🏾">ruka | telo | u redu | šaka | tip kože 5</annotation>
+		<annotation cp="👌🏾" type="tts">znak rukom „u redu“: tip kože 5</annotation>
+		<annotation cp="👌🏿">ruka | telo | u redu | šaka | tip kože 6</annotation>
+		<annotation cp="👌🏿" type="tts">znak rukom „u redu“: tip kože 6</annotation>
+		<annotation cp="👍🏻">+1 | dobro | nagore | ocena | palac | ruka | telo | tip kože 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">palac nagore: tip kože 1–2</annotation>
+		<annotation cp="👍🏼">+1 | dobro | nagore | ocena | palac | ruka | telo | tip kože 3</annotation>
+		<annotation cp="👍🏼" type="tts">palac nagore: tip kože 3</annotation>
+		<annotation cp="👍🏽">+1 | dobro | nagore | ocena | palac | ruka | telo | tip kože 4</annotation>
+		<annotation cp="👍🏽" type="tts">palac nagore: tip kože 4</annotation>
+		<annotation cp="👍🏾">+1 | dobro | nagore | ocena | palac | ruka | telo | tip kože 5</annotation>
+		<annotation cp="👍🏾" type="tts">palac nagore: tip kože 5</annotation>
+		<annotation cp="👍🏿">+1 | dobro | nagore | ocena | palac | ruka | telo | tip kože 6</annotation>
+		<annotation cp="👍🏿" type="tts">palac nagore: tip kože 6</annotation>
+		<annotation cp="👎🏻">-1 | loše | nadole | ocena | palac | ruka | telo | tip kože 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">palac nadole: tip kože 1–2</annotation>
+		<annotation cp="👎🏼">-1 | loše | nadole | ocena | palac | ruka | telo | tip kože 3</annotation>
+		<annotation cp="👎🏼" type="tts">palac nadole: tip kože 3</annotation>
+		<annotation cp="👎🏽">-1 | loše | nadole | ocena | palac | ruka | telo | tip kože 4</annotation>
+		<annotation cp="👎🏽" type="tts">palac nadole: tip kože 4</annotation>
+		<annotation cp="👎🏾">-1 | loše | nadole | ocena | palac | ruka | telo | tip kože 5</annotation>
+		<annotation cp="👎🏾" type="tts">palac nadole: tip kože 5</annotation>
+		<annotation cp="👎🏿">-1 | loše | nadole | ocena | palac | ruka | telo | tip kože 6</annotation>
+		<annotation cp="👎🏿" type="tts">palac nadole: tip kože 6</annotation>
+		<annotation cp="✊🏻">ruka | stisnuto | telo | udarac | šaka | tip kože 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">pesnica: tip kože 1–2</annotation>
+		<annotation cp="✊🏼">ruka | stisnuto | telo | udarac | šaka | tip kože 3</annotation>
+		<annotation cp="✊🏼" type="tts">pesnica: tip kože 3</annotation>
+		<annotation cp="✊🏽">ruka | stisnuto | telo | udarac | šaka | tip kože 4</annotation>
+		<annotation cp="✊🏽" type="tts">pesnica: tip kože 4</annotation>
+		<annotation cp="✊🏾">ruka | stisnuto | telo | udarac | šaka | tip kože 5</annotation>
+		<annotation cp="✊🏾" type="tts">pesnica: tip kože 5</annotation>
+		<annotation cp="✊🏿">ruka | stisnuto | telo | udarac | šaka | tip kože 6</annotation>
+		<annotation cp="✊🏿" type="tts">pesnica: tip kože 6</annotation>
+		<annotation cp="👊🏻">ruka | stisnuto | telo | udarac | šaka | tip kože 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">usmerena pesnica: tip kože 1–2</annotation>
+		<annotation cp="👊🏼">ruka | stisnuto | telo | udarac | šaka | tip kože 3</annotation>
+		<annotation cp="👊🏼" type="tts">usmerena pesnica: tip kože 3</annotation>
+		<annotation cp="👊🏽">ruka | stisnuto | telo | udarac | šaka | tip kože 4</annotation>
+		<annotation cp="👊🏽" type="tts">usmerena pesnica: tip kože 4</annotation>
+		<annotation cp="👊🏾">ruka | stisnuto | telo | udarac | šaka | tip kože 5</annotation>
+		<annotation cp="👊🏾" type="tts">usmerena pesnica: tip kože 5</annotation>
+		<annotation cp="👊🏿">ruka | stisnuto | telo | udarac | šaka | tip kože 6</annotation>
+		<annotation cp="👊🏿" type="tts">usmerena pesnica: tip kože 6</annotation>
+		<annotation cp="🤛🏻">pesnica | ulevo | tip kože 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">pesnica ulevo: tip kože 1–2</annotation>
+		<annotation cp="🤛🏼">pesnica | ulevo | tip kože 3</annotation>
+		<annotation cp="🤛🏼" type="tts">pesnica ulevo: tip kože 3</annotation>
+		<annotation cp="🤛🏽">pesnica | ulevo | tip kože 4</annotation>
+		<annotation cp="🤛🏽" type="tts">pesnica ulevo: tip kože 4</annotation>
+		<annotation cp="🤛🏾">pesnica | ulevo | tip kože 5</annotation>
+		<annotation cp="🤛🏾" type="tts">pesnica ulevo: tip kože 5</annotation>
+		<annotation cp="🤛🏿">pesnica | ulevo | tip kože 6</annotation>
+		<annotation cp="🤛🏿" type="tts">pesnica ulevo: tip kože 6</annotation>
+		<annotation cp="🤜🏻">pesnica | udesno | tip kože 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">pesnica udesno: tip kože 1–2</annotation>
+		<annotation cp="🤜🏼">pesnica | udesno | tip kože 3</annotation>
+		<annotation cp="🤜🏼" type="tts">pesnica udesno: tip kože 3</annotation>
+		<annotation cp="🤜🏽">pesnica | udesno | tip kože 4</annotation>
+		<annotation cp="🤜🏽" type="tts">pesnica udesno: tip kože 4</annotation>
+		<annotation cp="🤜🏾">pesnica | udesno | tip kože 5</annotation>
+		<annotation cp="🤜🏾" type="tts">pesnica udesno: tip kože 5</annotation>
+		<annotation cp="🤜🏿">pesnica | udesno | tip kože 6</annotation>
+		<annotation cp="🤜🏿" type="tts">pesnica udesno: tip kože 6</annotation>
+		<annotation cp="🤚🏻">dlan | podignuto | stani | šaka | tip kože 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">podignut dlan: tip kože 1–2</annotation>
+		<annotation cp="🤚🏼">dlan | podignuto | stani | šaka | tip kože 3</annotation>
+		<annotation cp="🤚🏼" type="tts">podignut dlan: tip kože 3</annotation>
+		<annotation cp="🤚🏽">dlan | podignuto | stani | šaka | tip kože 4</annotation>
+		<annotation cp="🤚🏽" type="tts">podignut dlan: tip kože 4</annotation>
+		<annotation cp="🤚🏾">dlan | podignuto | stani | šaka | tip kože 5</annotation>
+		<annotation cp="🤚🏾" type="tts">podignut dlan: tip kože 5</annotation>
+		<annotation cp="🤚🏿">dlan | podignuto | stani | šaka | tip kože 6</annotation>
+		<annotation cp="🤚🏿" type="tts">podignut dlan: tip kože 6</annotation>
+		<annotation cp="👋🏻">mahanje | ruka | telo | šaka | tip kože 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">ruka koja maše: tip kože 1–2</annotation>
+		<annotation cp="👋🏼">mahanje | ruka | telo | šaka | tip kože 3</annotation>
+		<annotation cp="👋🏼" type="tts">ruka koja maše: tip kože 3</annotation>
+		<annotation cp="👋🏽">mahanje | ruka | telo | šaka | tip kože 4</annotation>
+		<annotation cp="👋🏽" type="tts">ruka koja maše: tip kože 4</annotation>
+		<annotation cp="👋🏾">mahanje | ruka | telo | šaka | tip kože 5</annotation>
+		<annotation cp="👋🏾" type="tts">ruka koja maše: tip kože 5</annotation>
+		<annotation cp="👋🏿">mahanje | ruka | telo | šaka | tip kože 6</annotation>
+		<annotation cp="👋🏿" type="tts">ruka koja maše: tip kože 6</annotation>
+		<annotation cp="✍🏻">pisanje | ruka | telo | tip kože 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">ruka koja piše: tip kože 1–2</annotation>
+		<annotation cp="✍🏼">pisanje | ruka | telo | tip kože 3</annotation>
+		<annotation cp="✍🏼" type="tts">ruka koja piše: tip kože 3</annotation>
+		<annotation cp="✍🏽">pisanje | ruka | telo | tip kože 4</annotation>
+		<annotation cp="✍🏽" type="tts">ruka koja piše: tip kože 4</annotation>
+		<annotation cp="✍🏾">pisanje | ruka | telo | tip kože 5</annotation>
+		<annotation cp="✍🏾" type="tts">ruka koja piše: tip kože 5</annotation>
+		<annotation cp="✍🏿">pisanje | ruka | telo | tip kože 6</annotation>
+		<annotation cp="✍🏿" type="tts">ruka koja piše: tip kože 6</annotation>
+		<annotation cp="👏🏻">ruka | tapšanje | telo | tip kože 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">ruke koje tapšu: tip kože 1–2</annotation>
+		<annotation cp="👏🏼">ruka | tapšanje | telo | tip kože 3</annotation>
+		<annotation cp="👏🏼" type="tts">ruke koje tapšu: tip kože 3</annotation>
+		<annotation cp="👏🏽">ruka | tapšanje | telo | tip kože 4</annotation>
+		<annotation cp="👏🏽" type="tts">ruke koje tapšu: tip kože 4</annotation>
+		<annotation cp="👏🏾">ruka | tapšanje | telo | tip kože 5</annotation>
+		<annotation cp="👏🏾" type="tts">ruke koje tapšu: tip kože 5</annotation>
+		<annotation cp="👏🏿">ruka | tapšanje | telo | tip kože 6</annotation>
+		<annotation cp="👏🏿" type="tts">ruke koje tapšu: tip kože 6</annotation>
+		<annotation cp="👐🏻">otvoreno | ruka | telo | tip kože 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">rasklopljene šake: tip kože 1–2</annotation>
+		<annotation cp="👐🏼">otvoreno | ruka | telo | tip kože 3</annotation>
+		<annotation cp="👐🏼" type="tts">rasklopljene šake: tip kože 3</annotation>
+		<annotation cp="👐🏽">otvoreno | ruka | telo | tip kože 4</annotation>
+		<annotation cp="👐🏽" type="tts">rasklopljene šake: tip kože 4</annotation>
+		<annotation cp="👐🏾">otvoreno | ruka | telo | tip kože 5</annotation>
+		<annotation cp="👐🏾" type="tts">rasklopljene šake: tip kože 5</annotation>
+		<annotation cp="👐🏿">otvoreno | ruka | telo | tip kože 6</annotation>
+		<annotation cp="👐🏿" type="tts">rasklopljene šake: tip kože 6</annotation>
+		<annotation cp="🙌🏻">bravo | podići | pokret | ruke | slava | ura | tip kože 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">podignute ruke: tip kože 1–2</annotation>
+		<annotation cp="🙌🏼">bravo | podići | pokret | ruke | slava | ura | tip kože 3</annotation>
+		<annotation cp="🙌🏼" type="tts">podignute ruke: tip kože 3</annotation>
+		<annotation cp="🙌🏽">bravo | podići | pokret | ruke | slava | ura | tip kože 4</annotation>
+		<annotation cp="🙌🏽" type="tts">podignute ruke: tip kože 4</annotation>
+		<annotation cp="🙌🏾">bravo | podići | pokret | ruke | slava | ura | tip kože 5</annotation>
+		<annotation cp="🙌🏾" type="tts">podignute ruke: tip kože 5</annotation>
+		<annotation cp="🙌🏿">bravo | podići | pokret | ruke | slava | ura | tip kože 6</annotation>
+		<annotation cp="🙌🏿" type="tts">podignute ruke: tip kože 6</annotation>
+		<annotation cp="🙏🏻">kretanje | molitva | moljenje | naklon | ruke | telo | zahvalnost | tip kože 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">spojeni dlanovi: tip kože 1–2</annotation>
+		<annotation cp="🙏🏼">kretanje | molitva | moljenje | naklon | ruke | telo | zahvalnost | tip kože 3</annotation>
+		<annotation cp="🙏🏼" type="tts">spojeni dlanovi: tip kože 3</annotation>
+		<annotation cp="🙏🏽">kretanje | molitva | moljenje | naklon | ruke | telo | zahvalnost | tip kože 4</annotation>
+		<annotation cp="🙏🏽" type="tts">spojeni dlanovi: tip kože 4</annotation>
+		<annotation cp="🙏🏾">kretanje | molitva | moljenje | naklon | ruke | telo | zahvalnost | tip kože 5</annotation>
+		<annotation cp="🙏🏾" type="tts">spojeni dlanovi: tip kože 5</annotation>
+		<annotation cp="🙏🏿">kretanje | molitva | moljenje | naklon | ruke | telo | zahvalnost | tip kože 6</annotation>
+		<annotation cp="🙏🏿" type="tts">spojeni dlanovi: tip kože 6</annotation>
+		<annotation cp="💅🏻">kozmetika | lak | manikir | nega | nokti | telo | tip kože 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">lak za nokte: tip kože 1–2</annotation>
+		<annotation cp="💅🏼">kozmetika | lak | manikir | nega | nokti | telo | tip kože 3</annotation>
+		<annotation cp="💅🏼" type="tts">lak za nokte: tip kože 3</annotation>
+		<annotation cp="💅🏽">kozmetika | lak | manikir | nega | nokti | telo | tip kože 4</annotation>
+		<annotation cp="💅🏽" type="tts">lak za nokte: tip kože 4</annotation>
+		<annotation cp="💅🏾">kozmetika | lak | manikir | nega | nokti | telo | tip kože 5</annotation>
+		<annotation cp="💅🏾" type="tts">lak za nokte: tip kože 5</annotation>
+		<annotation cp="💅🏿">kozmetika | lak | manikir | nega | nokti | telo | tip kože 6</annotation>
+		<annotation cp="💅🏿" type="tts">lak za nokte: tip kože 6</annotation>
+		<annotation cp="👂🏻">telo | tip kože 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">uvo: tip kože 1–2</annotation>
+		<annotation cp="👂🏼">telo | tip kože 3</annotation>
+		<annotation cp="👂🏼" type="tts">uvo: tip kože 3</annotation>
+		<annotation cp="👂🏽">telo | tip kože 4</annotation>
+		<annotation cp="👂🏽" type="tts">uvo: tip kože 4</annotation>
+		<annotation cp="👂🏾">telo | tip kože 5</annotation>
+		<annotation cp="👂🏾" type="tts">uvo: tip kože 5</annotation>
+		<annotation cp="👂🏿">telo | tip kože 6</annotation>
+		<annotation cp="👂🏿" type="tts">uvo: tip kože 6</annotation>
+		<annotation cp="👃🏻">telo | tip kože 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">nos: tip kože 1–2</annotation>
+		<annotation cp="👃🏼">telo | tip kože 3</annotation>
+		<annotation cp="👃🏼" type="tts">nos: tip kože 3</annotation>
+		<annotation cp="👃🏽">telo | tip kože 4</annotation>
+		<annotation cp="👃🏽" type="tts">nos: tip kože 4</annotation>
+		<annotation cp="👃🏾">telo | tip kože 5</annotation>
+		<annotation cp="👃🏾" type="tts">nos: tip kože 5</annotation>
+		<annotation cp="👃🏿">telo | tip kože 6</annotation>
+		<annotation cp="👃🏿" type="tts">nos: tip kože 6</annotation>
+		<annotation cp="#⃣">heš | taraba | taster</annotation>
+		<annotation cp="#⃣" type="tts">taster sa tarabom</annotation>
+		<annotation cp="*⃣">taster | zvezdica</annotation>
+		<annotation cp="*⃣" type="tts">taster za zvezdicom</annotation>
+		<annotation cp="🇦🇨">zastava</annotation>
+		<annotation cp="🇦🇨" type="tts">Ostrvo Asension</annotation>
+		<annotation cp="🇦🇩">zastava</annotation>
+		<annotation cp="🇦🇩" type="tts">Andora</annotation>
+		<annotation cp="🇦🇪">zastava</annotation>
+		<annotation cp="🇦🇪" type="tts">Ujedinjeni Arapski Emirati</annotation>
+		<annotation cp="🇦🇫">zastava</annotation>
+		<annotation cp="🇦🇫" type="tts">Avganistan</annotation>
+		<annotation cp="🇦🇬">zastava</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigva i Barbuda</annotation>
+		<annotation cp="🇦🇮">zastava</annotation>
+		<annotation cp="🇦🇮" type="tts">Angvila</annotation>
+		<annotation cp="🇦🇱">zastava</annotation>
+		<annotation cp="🇦🇱" type="tts">Albanija</annotation>
+		<annotation cp="🇦🇲">zastava</annotation>
+		<annotation cp="🇦🇲" type="tts">Jermenija</annotation>
+		<annotation cp="🇦🇴">zastava</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">zastava</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarktik</annotation>
+		<annotation cp="🇦🇷">zastava</annotation>
+		<annotation cp="🇦🇷" type="tts">Argentina</annotation>
+		<annotation cp="🇦🇸">zastava</annotation>
+		<annotation cp="🇦🇸" type="tts">Američka Samoa</annotation>
+		<annotation cp="🇦🇹">zastava</annotation>
+		<annotation cp="🇦🇹" type="tts">Austrija</annotation>
+		<annotation cp="🇦🇺">zastava</annotation>
+		<annotation cp="🇦🇺" type="tts">Australija</annotation>
+		<annotation cp="🇦🇼">zastava</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">zastava</annotation>
+		<annotation cp="🇦🇽" type="tts">Olandska Ostrva</annotation>
+		<annotation cp="🇦🇿">zastava</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbejdžan</annotation>
+		<annotation cp="🇧🇦">zastava</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosna i Hercegovina</annotation>
+		<annotation cp="🇧🇧">zastava</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">zastava</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladeš</annotation>
+		<annotation cp="🇧🇪">zastava</annotation>
+		<annotation cp="🇧🇪" type="tts">Belgija</annotation>
+		<annotation cp="🇧🇫">zastava</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">zastava</annotation>
+		<annotation cp="🇧🇬" type="tts">Bugarska</annotation>
+		<annotation cp="🇧🇭">zastava</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrein</annotation>
+		<annotation cp="🇧🇮">zastava</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">zastava</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">zastava</annotation>
+		<annotation cp="🇧🇱" type="tts">Sen Bartelemi</annotation>
+		<annotation cp="🇧🇲">zastava</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇳">zastava</annotation>
+		<annotation cp="🇧🇳" type="tts">Brunej</annotation>
+		<annotation cp="🇧🇴">zastava</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolivija</annotation>
+		<annotation cp="🇧🇶">zastava</annotation>
+		<annotation cp="🇧🇶" type="tts">Karipska Holandija</annotation>
+		<annotation cp="🇧🇷">zastava</annotation>
+		<annotation cp="🇧🇷" type="tts">Brazil</annotation>
+		<annotation cp="🇧🇸">zastava</annotation>
+		<annotation cp="🇧🇸" type="tts">Bahami</annotation>
+		<annotation cp="🇧🇹">zastava</annotation>
+		<annotation cp="🇧🇹" type="tts">Butan</annotation>
+		<annotation cp="🇧🇻">zastava</annotation>
+		<annotation cp="🇧🇻" type="tts">Ostrvo Buve</annotation>
+		<annotation cp="🇧🇼">zastava</annotation>
+		<annotation cp="🇧🇼" type="tts">Bocvana</annotation>
+		<annotation cp="🇧🇾">zastava</annotation>
+		<annotation cp="🇧🇾" type="tts">Belorusija</annotation>
+		<annotation cp="🇧🇿">zastava</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">zastava</annotation>
+		<annotation cp="🇨🇦" type="tts">Kanada</annotation>
+		<annotation cp="🇨🇨">zastava</annotation>
+		<annotation cp="🇨🇨" type="tts">Kokosova (Kilingova) Ostrva</annotation>
+		<annotation cp="🇨🇩">zastava</annotation>
+		<annotation cp="🇨🇩" type="tts">Kongo - Kinšasa</annotation>
+		<annotation cp="🇨🇫">zastava</annotation>
+		<annotation cp="🇨🇫" type="tts">Centralnoafrička Republika</annotation>
+		<annotation cp="🇨🇬">zastava</annotation>
+		<annotation cp="🇨🇬" type="tts">Kongo - Brazavil</annotation>
+		<annotation cp="🇨🇭">zastava</annotation>
+		<annotation cp="🇨🇭" type="tts">Švajcarska</annotation>
+		<annotation cp="🇨🇮">zastava</annotation>
+		<annotation cp="🇨🇮" type="tts">Obala Slonovače</annotation>
+		<annotation cp="🇨🇰">zastava</annotation>
+		<annotation cp="🇨🇰" type="tts">Kukova Ostrva</annotation>
+		<annotation cp="🇨🇱">zastava</annotation>
+		<annotation cp="🇨🇱" type="tts">Čile</annotation>
+		<annotation cp="🇨🇲">zastava</annotation>
+		<annotation cp="🇨🇲" type="tts">Kamerun</annotation>
+		<annotation cp="🇨🇳">zastava</annotation>
+		<annotation cp="🇨🇳" type="tts">Kina</annotation>
+		<annotation cp="🇨🇴">zastava</annotation>
+		<annotation cp="🇨🇴" type="tts">Kolumbija</annotation>
+		<annotation cp="🇨🇵">zastava</annotation>
+		<annotation cp="🇨🇵" type="tts">Ostrvo Kliperton</annotation>
+		<annotation cp="🇨🇷">zastava</annotation>
+		<annotation cp="🇨🇷" type="tts">Kostarika</annotation>
+		<annotation cp="🇨🇺">zastava</annotation>
+		<annotation cp="🇨🇺" type="tts">Kuba</annotation>
+		<annotation cp="🇨🇻">zastava</annotation>
+		<annotation cp="🇨🇻" type="tts">Zelenortska Ostrva</annotation>
+		<annotation cp="🇨🇼">zastava</annotation>
+		<annotation cp="🇨🇼" type="tts">Kurasao</annotation>
+		<annotation cp="🇨🇽">zastava</annotation>
+		<annotation cp="🇨🇽" type="tts">Božićno Ostrvo</annotation>
+		<annotation cp="🇨🇾">zastava</annotation>
+		<annotation cp="🇨🇾" type="tts">Kipar</annotation>
+		<annotation cp="🇨🇿">zastava</annotation>
+		<annotation cp="🇨🇿" type="tts">Češka</annotation>
+		<annotation cp="🇩🇪">zastava</annotation>
+		<annotation cp="🇩🇪" type="tts">Nemačka</annotation>
+		<annotation cp="🇩🇬">zastava</annotation>
+		<annotation cp="🇩🇬" type="tts">Dijego Garsija</annotation>
+		<annotation cp="🇩🇯">zastava</annotation>
+		<annotation cp="🇩🇯" type="tts">Džibuti</annotation>
+		<annotation cp="🇩🇰">zastava</annotation>
+		<annotation cp="🇩🇰" type="tts">Danska</annotation>
+		<annotation cp="🇩🇲">zastava</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominika</annotation>
+		<annotation cp="🇩🇴">zastava</annotation>
+		<annotation cp="🇩🇴" type="tts">Dominikanska Republika</annotation>
+		<annotation cp="🇩🇿">zastava</annotation>
+		<annotation cp="🇩🇿" type="tts">Alžir</annotation>
+		<annotation cp="🇪🇦">zastava</annotation>
+		<annotation cp="🇪🇦" type="tts">Seuta i Melilja</annotation>
+		<annotation cp="🇪🇨">zastava</annotation>
+		<annotation cp="🇪🇨" type="tts">Ekvador</annotation>
+		<annotation cp="🇪🇪">zastava</annotation>
+		<annotation cp="🇪🇪" type="tts">Estonija</annotation>
+		<annotation cp="🇪🇬">zastava</annotation>
+		<annotation cp="🇪🇬" type="tts">Egipat</annotation>
+		<annotation cp="🇪🇭">zastava</annotation>
+		<annotation cp="🇪🇭" type="tts">Zapadna Sahara</annotation>
+		<annotation cp="🇪🇷">zastava</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritreja</annotation>
+		<annotation cp="🇪🇸">zastava</annotation>
+		<annotation cp="🇪🇸" type="tts">Španija</annotation>
+		<annotation cp="🇪🇹">zastava</annotation>
+		<annotation cp="🇪🇹" type="tts">Etiopija</annotation>
+		<annotation cp="🇪🇺">zastava</annotation>
+		<annotation cp="🇪🇺" type="tts">Evropska Unija</annotation>
+		<annotation cp="🇫🇮">zastava</annotation>
+		<annotation cp="🇫🇮" type="tts">Finska</annotation>
+		<annotation cp="🇫🇯">zastava</annotation>
+		<annotation cp="🇫🇯" type="tts">Fidži</annotation>
+		<annotation cp="🇫🇰">zastava</annotation>
+		<annotation cp="🇫🇰" type="tts">Foklandska Ostrva</annotation>
+		<annotation cp="🇫🇲">zastava</annotation>
+		<annotation cp="🇫🇲" type="tts">Mikronezija</annotation>
+		<annotation cp="🇫🇴">zastava</annotation>
+		<annotation cp="🇫🇴" type="tts">Farska Ostrva</annotation>
+		<annotation cp="🇫🇷">zastava</annotation>
+		<annotation cp="🇫🇷" type="tts">Francuska</annotation>
+		<annotation cp="🇬🇦">zastava</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">zastava</annotation>
+		<annotation cp="🇬🇧" type="tts">Ujedinjeno Kraljevstvo</annotation>
+		<annotation cp="🇬🇩">zastava</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">zastava</annotation>
+		<annotation cp="🇬🇪" type="tts">Gruzija</annotation>
+		<annotation cp="🇬🇫">zastava</annotation>
+		<annotation cp="🇬🇫" type="tts">Francuska Gvajana</annotation>
+		<annotation cp="🇬🇬">zastava</annotation>
+		<annotation cp="🇬🇬" type="tts">Gernzi</annotation>
+		<annotation cp="🇬🇭">zastava</annotation>
+		<annotation cp="🇬🇭" type="tts">Gana</annotation>
+		<annotation cp="🇬🇮">zastava</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">zastava</annotation>
+		<annotation cp="🇬🇱" type="tts">Grenland</annotation>
+		<annotation cp="🇬🇲">zastava</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambija</annotation>
+		<annotation cp="🇬🇳">zastava</annotation>
+		<annotation cp="🇬🇳" type="tts">Gvineja</annotation>
+		<annotation cp="🇬🇵">zastava</annotation>
+		<annotation cp="🇬🇵" type="tts">Gvadelup</annotation>
+		<annotation cp="🇬🇶">zastava</annotation>
+		<annotation cp="🇬🇶" type="tts">Ekvatorijalna Gvineja</annotation>
+		<annotation cp="🇬🇷">zastava</annotation>
+		<annotation cp="🇬🇷" type="tts">Grčka</annotation>
+		<annotation cp="🇬🇸">zastava</annotation>
+		<annotation cp="🇬🇸" type="tts">Južna Džordžija i Južna Sendvička Ostrva</annotation>
+		<annotation cp="🇬🇹">zastava</annotation>
+		<annotation cp="🇬🇹" type="tts">Gvatemala</annotation>
+		<annotation cp="🇬🇺">zastava</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">zastava</annotation>
+		<annotation cp="🇬🇼" type="tts">Gvineja-Bisao</annotation>
+		<annotation cp="🇬🇾">zastava</annotation>
+		<annotation cp="🇬🇾" type="tts">Gvajana</annotation>
+		<annotation cp="🇭🇰">zastava</annotation>
+		<annotation cp="🇭🇰" type="tts">SAR Hongkong (Kina)</annotation>
+		<annotation cp="🇭🇲">zastava</annotation>
+		<annotation cp="🇭🇲" type="tts">Ostrvo Herd i Mekdonaldova ostrva</annotation>
+		<annotation cp="🇭🇳">zastava</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">zastava</annotation>
+		<annotation cp="🇭🇷" type="tts">Hrvatska</annotation>
+		<annotation cp="🇭🇹">zastava</annotation>
+		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇺">zastava</annotation>
+		<annotation cp="🇭🇺" type="tts">Mađarska</annotation>
+		<annotation cp="🇮🇨">zastava</annotation>
+		<annotation cp="🇮🇨" type="tts">Kanarska Ostrva</annotation>
+		<annotation cp="🇮🇩">zastava</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonezija</annotation>
+		<annotation cp="🇮🇪">zastava</annotation>
+		<annotation cp="🇮🇪" type="tts">Irska</annotation>
+		<annotation cp="🇮🇱">zastava</annotation>
+		<annotation cp="🇮🇱" type="tts">Izrael</annotation>
+		<annotation cp="🇮🇲">zastava</annotation>
+		<annotation cp="🇮🇲" type="tts">Ostrvo Man</annotation>
+		<annotation cp="🇮🇳">zastava</annotation>
+		<annotation cp="🇮🇳" type="tts">Indija</annotation>
+		<annotation cp="🇮🇴">zastava</annotation>
+		<annotation cp="🇮🇴" type="tts">Britanska teritorija Indijskog okeana</annotation>
+		<annotation cp="🇮🇶">zastava</annotation>
+		<annotation cp="🇮🇶" type="tts">Irak</annotation>
+		<annotation cp="🇮🇷">zastava</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">zastava</annotation>
+		<annotation cp="🇮🇸" type="tts">Island</annotation>
+		<annotation cp="🇮🇹">zastava</annotation>
+		<annotation cp="🇮🇹" type="tts">Italija</annotation>
+		<annotation cp="🇯🇪">zastava</annotation>
+		<annotation cp="🇯🇪" type="tts">Džerzi</annotation>
+		<annotation cp="🇯🇲">zastava</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamajka</annotation>
+		<annotation cp="🇯🇴">zastava</annotation>
+		<annotation cp="🇯🇴" type="tts">Jordan</annotation>
+		<annotation cp="🇯🇵">zastava</annotation>
+		<annotation cp="🇯🇵" type="tts">Japan</annotation>
+		<annotation cp="🇰🇪">zastava</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenija</annotation>
+		<annotation cp="🇰🇬">zastava</annotation>
+		<annotation cp="🇰🇬" type="tts">Kirgistan</annotation>
+		<annotation cp="🇰🇭">zastava</annotation>
+		<annotation cp="🇰🇭" type="tts">Kambodža</annotation>
+		<annotation cp="🇰🇮">zastava</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">zastava</annotation>
+		<annotation cp="🇰🇲" type="tts">Komorska Ostrva</annotation>
+		<annotation cp="🇰🇳">zastava</annotation>
+		<annotation cp="🇰🇳" type="tts">Sent Kits i Nevis</annotation>
+		<annotation cp="🇰🇵">zastava</annotation>
+		<annotation cp="🇰🇵" type="tts">Severna Koreja</annotation>
+		<annotation cp="🇰🇷">zastava</annotation>
+		<annotation cp="🇰🇷" type="tts">Južna Koreja</annotation>
+		<annotation cp="🇰🇼">zastava</annotation>
+		<annotation cp="🇰🇼" type="tts">Kuvajt</annotation>
+		<annotation cp="🇰🇾">zastava</annotation>
+		<annotation cp="🇰🇾" type="tts">Kajmanska Ostrva</annotation>
+		<annotation cp="🇰🇿">zastava</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazahstan</annotation>
+		<annotation cp="🇱🇦">zastava</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">zastava</annotation>
+		<annotation cp="🇱🇧" type="tts">Liban</annotation>
+		<annotation cp="🇱🇨">zastava</annotation>
+		<annotation cp="🇱🇨" type="tts">Sveta Lucija</annotation>
+		<annotation cp="🇱🇮">zastava</annotation>
+		<annotation cp="🇱🇮" type="tts">Lihtenštajn</annotation>
+		<annotation cp="🇱🇰">zastava</annotation>
+		<annotation cp="🇱🇰" type="tts">Šri Lanka</annotation>
+		<annotation cp="🇱🇷">zastava</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberija</annotation>
+		<annotation cp="🇱🇸">zastava</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesoto</annotation>
+		<annotation cp="🇱🇹">zastava</annotation>
+		<annotation cp="🇱🇹" type="tts">Litvanija</annotation>
+		<annotation cp="🇱🇺">zastava</annotation>
+		<annotation cp="🇱🇺" type="tts">Luksemburg</annotation>
+		<annotation cp="🇱🇻">zastava</annotation>
+		<annotation cp="🇱🇻" type="tts">Letonija</annotation>
+		<annotation cp="🇱🇾">zastava</annotation>
+		<annotation cp="🇱🇾" type="tts">Libija</annotation>
+		<annotation cp="🇲🇦">zastava</annotation>
+		<annotation cp="🇲🇦" type="tts">Maroko</annotation>
+		<annotation cp="🇲🇨">zastava</annotation>
+		<annotation cp="🇲🇨" type="tts">Monako</annotation>
+		<annotation cp="🇲🇩">zastava</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldavija</annotation>
+		<annotation cp="🇲🇪">zastava</annotation>
+		<annotation cp="🇲🇪" type="tts">Crna Gora</annotation>
+		<annotation cp="🇲🇫">zastava</annotation>
+		<annotation cp="🇲🇫" type="tts">Sveti Martin (Francuska)</annotation>
+		<annotation cp="🇲🇬">zastava</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagaskar</annotation>
+		<annotation cp="🇲🇭">zastava</annotation>
+		<annotation cp="🇲🇭" type="tts">Maršalska Ostrva</annotation>
+		<annotation cp="🇲🇰">zastava</annotation>
+		<annotation cp="🇲🇰" type="tts">Makedonija</annotation>
+		<annotation cp="🇲🇱">zastava</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">zastava</annotation>
+		<annotation cp="🇲🇲" type="tts">Mijanmar (Burma)</annotation>
+		<annotation cp="🇲🇳">zastava</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolija</annotation>
+		<annotation cp="🇲🇴">zastava</annotation>
+		<annotation cp="🇲🇴" type="tts">SAR Makao (Kina)</annotation>
+		<annotation cp="🇲🇵">zastava</annotation>
+		<annotation cp="🇲🇵" type="tts">Severna Marijanska Ostrva</annotation>
+		<annotation cp="🇲🇶">zastava</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinik</annotation>
+		<annotation cp="🇲🇷">zastava</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauritanija</annotation>
+		<annotation cp="🇲🇸">zastava</annotation>
+		<annotation cp="🇲🇸" type="tts">Monserat</annotation>
+		<annotation cp="🇲🇹">zastava</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">zastava</annotation>
+		<annotation cp="🇲🇺" type="tts">Mauricijus</annotation>
+		<annotation cp="🇲🇻">zastava</annotation>
+		<annotation cp="🇲🇻" type="tts">Maldivi</annotation>
+		<annotation cp="🇲🇼">zastava</annotation>
+		<annotation cp="🇲🇼" type="tts">Malavi</annotation>
+		<annotation cp="🇲🇽">zastava</annotation>
+		<annotation cp="🇲🇽" type="tts">Meksiko</annotation>
+		<annotation cp="🇲🇾">zastava</annotation>
+		<annotation cp="🇲🇾" type="tts">Malezija</annotation>
+		<annotation cp="🇲🇿">zastava</annotation>
+		<annotation cp="🇲🇿" type="tts">Mozambik</annotation>
+		<annotation cp="🇳🇦">zastava</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibija</annotation>
+		<annotation cp="🇳🇨">zastava</annotation>
+		<annotation cp="🇳🇨" type="tts">Nova Kaledonija</annotation>
+		<annotation cp="🇳🇪">zastava</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">zastava</annotation>
+		<annotation cp="🇳🇫" type="tts">Ostrvo Norfok</annotation>
+		<annotation cp="🇳🇬">zastava</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigerija</annotation>
+		<annotation cp="🇳🇮">zastava</annotation>
+		<annotation cp="🇳🇮" type="tts">Nikaragva</annotation>
+		<annotation cp="🇳🇱">zastava</annotation>
+		<annotation cp="🇳🇱" type="tts">Holandija</annotation>
+		<annotation cp="🇳🇴">zastava</annotation>
+		<annotation cp="🇳🇴" type="tts">Norveška</annotation>
+		<annotation cp="🇳🇵">zastava</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">zastava</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">zastava</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">zastava</annotation>
+		<annotation cp="🇳🇿" type="tts">Novi Zeland</annotation>
+		<annotation cp="🇴🇲">zastava</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">zastava</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">zastava</annotation>
+		<annotation cp="🇵🇪" type="tts">Peru</annotation>
+		<annotation cp="🇵🇫">zastava</annotation>
+		<annotation cp="🇵🇫" type="tts">Francuska Polinezija</annotation>
+		<annotation cp="🇵🇬">zastava</annotation>
+		<annotation cp="🇵🇬" type="tts">Papua Nova Gvineja</annotation>
+		<annotation cp="🇵🇭">zastava</annotation>
+		<annotation cp="🇵🇭" type="tts">Filipini</annotation>
+		<annotation cp="🇵🇰">zastava</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">zastava</annotation>
+		<annotation cp="🇵🇱" type="tts">Poljska</annotation>
+		<annotation cp="🇵🇲">zastava</annotation>
+		<annotation cp="🇵🇲" type="tts">Sen Pjer i Mikelon</annotation>
+		<annotation cp="🇵🇳">zastava</annotation>
+		<annotation cp="🇵🇳" type="tts">Pitkern</annotation>
+		<annotation cp="🇵🇷">zastava</annotation>
+		<annotation cp="🇵🇷" type="tts">Portoriko</annotation>
+		<annotation cp="🇵🇸">zastava</annotation>
+		<annotation cp="🇵🇸" type="tts">Palestinske teritorije</annotation>
+		<annotation cp="🇵🇹">zastava</annotation>
+		<annotation cp="🇵🇹" type="tts">Portugalija</annotation>
+		<annotation cp="🇵🇼">zastava</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">zastava</annotation>
+		<annotation cp="🇵🇾" type="tts">Paragvaj</annotation>
+		<annotation cp="🇶🇦">zastava</annotation>
+		<annotation cp="🇶🇦" type="tts">Katar</annotation>
+		<annotation cp="🇷🇪">zastava</annotation>
+		<annotation cp="🇷🇪" type="tts">Reinion</annotation>
+		<annotation cp="🇷🇴">zastava</annotation>
+		<annotation cp="🇷🇴" type="tts">Rumunija</annotation>
+		<annotation cp="🇷🇸">zastava</annotation>
+		<annotation cp="🇷🇸" type="tts">Srbija</annotation>
+		<annotation cp="🇷🇺">zastava</annotation>
+		<annotation cp="🇷🇺" type="tts">Rusija</annotation>
+		<annotation cp="🇷🇼">zastava</annotation>
+		<annotation cp="🇷🇼" type="tts">Ruanda</annotation>
+		<annotation cp="🇸🇦">zastava</annotation>
+		<annotation cp="🇸🇦" type="tts">Saudijska Arabija</annotation>
+		<annotation cp="🇸🇧">zastava</annotation>
+		<annotation cp="🇸🇧" type="tts">Solomonska Ostrva</annotation>
+		<annotation cp="🇸🇨">zastava</annotation>
+		<annotation cp="🇸🇨" type="tts">Sejšeli</annotation>
+		<annotation cp="🇸🇩">zastava</annotation>
+		<annotation cp="🇸🇩" type="tts">Sudan</annotation>
+		<annotation cp="🇸🇪">zastava</annotation>
+		<annotation cp="🇸🇪" type="tts">Švedska</annotation>
+		<annotation cp="🇸🇬">zastava</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapur</annotation>
+		<annotation cp="🇸🇭">zastava</annotation>
+		<annotation cp="🇸🇭" type="tts">Sveta Jelena</annotation>
+		<annotation cp="🇸🇮">zastava</annotation>
+		<annotation cp="🇸🇮" type="tts">Slovenija</annotation>
+		<annotation cp="🇸🇯">zastava</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbard i Jan Majen</annotation>
+		<annotation cp="🇸🇰">zastava</annotation>
+		<annotation cp="🇸🇰" type="tts">Slovačka</annotation>
+		<annotation cp="🇸🇱">zastava</annotation>
+		<annotation cp="🇸🇱" type="tts">Sijera Leone</annotation>
+		<annotation cp="🇸🇲">zastava</annotation>
+		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇳">zastava</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">zastava</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalija</annotation>
+		<annotation cp="🇸🇷">zastava</annotation>
+		<annotation cp="🇸🇷" type="tts">Surinam</annotation>
+		<annotation cp="🇸🇸">zastava</annotation>
+		<annotation cp="🇸🇸" type="tts">Južni Sudan</annotation>
+		<annotation cp="🇸🇹">zastava</annotation>
+		<annotation cp="🇸🇹" type="tts">Sao Tome i Principe</annotation>
+		<annotation cp="🇸🇻">zastava</annotation>
+		<annotation cp="🇸🇻" type="tts">Salvador</annotation>
+		<annotation cp="🇸🇽">zastava</annotation>
+		<annotation cp="🇸🇽" type="tts">Sveti Martin (Holandija)</annotation>
+		<annotation cp="🇸🇾">zastava</annotation>
+		<annotation cp="🇸🇾" type="tts">Sirija</annotation>
+		<annotation cp="🇸🇿">zastava</annotation>
+		<annotation cp="🇸🇿" type="tts">Svazilend</annotation>
+		<annotation cp="🇹🇦">zastava</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Kunja</annotation>
+		<annotation cp="🇹🇨">zastava</annotation>
+		<annotation cp="🇹🇨" type="tts">Ostrva Turks i Kaikos</annotation>
+		<annotation cp="🇹🇩">zastava</annotation>
+		<annotation cp="🇹🇩" type="tts">Čad</annotation>
+		<annotation cp="🇹🇫">zastava</annotation>
+		<annotation cp="🇹🇫" type="tts">Francuske Južne Teritorije</annotation>
+		<annotation cp="🇹🇬">zastava</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">zastava</annotation>
+		<annotation cp="🇹🇭" type="tts">Tajland</annotation>
+		<annotation cp="🇹🇯">zastava</annotation>
+		<annotation cp="🇹🇯" type="tts">Tadžikistan</annotation>
+		<annotation cp="🇹🇰">zastava</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">zastava</annotation>
+		<annotation cp="🇹🇱" type="tts">Istočni Timor</annotation>
+		<annotation cp="🇹🇲">zastava</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇳">zastava</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunis</annotation>
+		<annotation cp="🇹🇴">zastava</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">zastava</annotation>
+		<annotation cp="🇹🇷" type="tts">Turska</annotation>
+		<annotation cp="🇹🇹">zastava</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidad i Tobago</annotation>
+		<annotation cp="🇹🇻">zastava</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">zastava</annotation>
+		<annotation cp="🇹🇼" type="tts">Tajvan</annotation>
+		<annotation cp="🇹🇿">zastava</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzanija</annotation>
+		<annotation cp="🇺🇦">zastava</annotation>
+		<annotation cp="🇺🇦" type="tts">Ukrajina</annotation>
+		<annotation cp="🇺🇬">zastava</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">zastava</annotation>
+		<annotation cp="🇺🇲" type="tts">Udaljena ostrva SAD</annotation>
+		<annotation cp="🇺🇳">zastava</annotation>
+		<annotation cp="🇺🇳" type="tts">Ujedinjene nacije</annotation>
+		<annotation cp="🇺🇸">zastava</annotation>
+		<annotation cp="🇺🇸" type="tts">Sjedinjene Države</annotation>
+		<annotation cp="🇺🇾">zastava</annotation>
+		<annotation cp="🇺🇾" type="tts">Urugvaj</annotation>
+		<annotation cp="🇺🇿">zastava</annotation>
+		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇻🇦">zastava</annotation>
+		<annotation cp="🇻🇦" type="tts">Vatikan</annotation>
+		<annotation cp="🇻🇨">zastava</annotation>
+		<annotation cp="🇻🇨" type="tts">Sent Vinsent i Grenadini</annotation>
+		<annotation cp="🇻🇪">zastava</annotation>
+		<annotation cp="🇻🇪" type="tts">Venecuela</annotation>
+		<annotation cp="🇻🇬">zastava</annotation>
+		<annotation cp="🇻🇬" type="tts">Britanska Devičanska Ostrva</annotation>
+		<annotation cp="🇻🇮">zastava</annotation>
+		<annotation cp="🇻🇮" type="tts">Američka Devičanska Ostrva</annotation>
+		<annotation cp="🇻🇳">zastava</annotation>
+		<annotation cp="🇻🇳" type="tts">Vijetnam</annotation>
+		<annotation cp="🇻🇺">zastava</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">zastava</annotation>
+		<annotation cp="🇼🇫" type="tts">Valis i Futuna</annotation>
+		<annotation cp="🇼🇸">zastava</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">zastava</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">zastava</annotation>
+		<annotation cp="🇾🇪" type="tts">Jemen</annotation>
+		<annotation cp="🇾🇹">zastava</annotation>
+		<annotation cp="🇾🇹" type="tts">Majot</annotation>
+		<annotation cp="🇿🇦">zastava</annotation>
+		<annotation cp="🇿🇦" type="tts">Južnoafrička Republika</annotation>
+		<annotation cp="🇿🇲">zastava</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambija</annotation>
+		<annotation cp="🇿🇼">zastava</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabve</annotation>
+	</annotations>
+</ldml>

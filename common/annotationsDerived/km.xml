@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="km"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | ប៊ូតុង | លេខ | សូន្យ</annotation>
+		<annotation cp="0⃣" type="tts">ប៊ូតុងលេខសូន្យ</annotation>
+		<annotation cp="1⃣">1 | ប៊ូតុង | មួយ | លេខ</annotation>
+		<annotation cp="1⃣" type="tts">ប៊ូតុងលេខមួយ</annotation>
+		<annotation cp="2⃣">2 | ប៊ូតុង | ពីរ | លេខ</annotation>
+		<annotation cp="2⃣" type="tts">ប៊ូតុងលេខពីរ</annotation>
+		<annotation cp="3⃣">3 | បី | ប៊ូតុង | លេខ</annotation>
+		<annotation cp="3⃣" type="tts">ប៊ូតុងលេខបី</annotation>
+		<annotation cp="4⃣">4 | បួន | ប៊ូតុង | លេខ</annotation>
+		<annotation cp="4⃣" type="tts">ប៊ូតុងលេខបួន</annotation>
+		<annotation cp="5⃣">5 | ប៊ូតុង | ប្រាំ | លេខ</annotation>
+		<annotation cp="5⃣" type="tts">ប៊ូតុងលេខប្រាំ</annotation>
+		<annotation cp="6⃣">6 | ប៊ូតុង | ប្រាំមួយ | លេខ</annotation>
+		<annotation cp="6⃣" type="tts">ប៊ូតុងលេខប្រាំមួយ</annotation>
+		<annotation cp="7⃣">7 | ប៊ូតុង | ប្រាំពីរ | លេខ</annotation>
+		<annotation cp="7⃣" type="tts">ប៊ូតុងលេខប្រាំពីរ</annotation>
+		<annotation cp="8⃣">8 | ប៊ូតុង | ប្រាំបី | លេខ</annotation>
+		<annotation cp="8⃣" type="tts">ប៊ូតុងលេខប្រាំបី</annotation>
+		<annotation cp="9⃣">9 | ប៊ូតុង | ប្រាំបួន | លេខ</annotation>
+		<annotation cp="9⃣" type="tts">ប៊ូតុងលេខប្រាំបួន</annotation>
+		<annotation cp="👶🏻">កូនង៉ែត | ក្មេង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">មុខកូនង៉ែត: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👶🏼">កូនង៉ែត | ក្មេង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👶🏼" type="tts">មុខកូនង៉ែត: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👶🏽">កូនង៉ែត | ក្មេង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👶🏽" type="tts">មុខកូនង៉ែត: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👶🏾">កូនង៉ែត | ក្មេង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👶🏾" type="tts">មុខកូនង៉ែត: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👶🏿">កូនង៉ែត | ក្មេង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👶🏿" type="tts">មុខកូនង៉ែត: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👦🏻">ក្មេងប្រុស | ប្រុស | មុខ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">មុខក្មេងប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👦🏼">ក្មេងប្រុស | ប្រុស | មុខ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👦🏼" type="tts">មុខក្មេងប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👦🏽">ក្មេងប្រុស | ប្រុស | មុខ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👦🏽" type="tts">មុខក្មេងប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👦🏾">ក្មេងប្រុស | ប្រុស | មុខ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👦🏾" type="tts">មុខក្មេងប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👦🏿">ក្មេងប្រុស | ប្រុស | មុខ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👦🏿" type="tts">មុខក្មេងប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👧🏻">ក្មេងស្រី | មុខ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">មុខក្មេងស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👧🏼">ក្មេងស្រី | មុខ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👧🏼" type="tts">មុខក្មេងស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👧🏽">ក្មេងស្រី | មុខ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👧🏽" type="tts">មុខក្មេងស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👧🏾">ក្មេងស្រី | មុខ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👧🏾" type="tts">មុខក្មេងស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👧🏿">ក្មេងស្រី | មុខ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👧🏿" type="tts">មុខក្មេងស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻">បុរស | ពុកមាត់ | មុខ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">មុខបុរសមានពុកមាត់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼">បុរស | ពុកមាត់ | មុខ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼" type="tts">មុខបុរសមានពុកមាត់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽">បុរស | ពុកមាត់ | មុខ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽" type="tts">មុខបុរសមានពុកមាត់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾">បុរស | ពុកមាត់ | មុខ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾" type="tts">មុខបុរសមានពុកមាត់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿">បុរស | ពុកមាត់ | មុខ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿" type="tts">មុខបុរសមានពុកមាត់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻">មុខ | ស្ត្រី | ស្រី | ​ នារី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">មុខស្រ្តី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼">មុខ | ស្ត្រី | ស្រី | ​ នារី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼" type="tts">មុខស្រ្តី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽">មុខ | ស្ត្រី | ស្រី | ​ នារី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽" type="tts">មុខស្រ្តី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾">មុខ | ស្ត្រី | ស្រី | ​ នារី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾" type="tts">មុខស្រ្តី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿">មុខ | ស្ត្រី | ស្រី | ​ នារី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿" type="tts">មុខស្រ្តី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👴🏻">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ​ បុរសចាស់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">មុខបុរសចំណាស់ក្បាលត្រពែក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👴🏼">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ​ បុរសចាស់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👴🏼" type="tts">មុខបុរសចំណាស់ក្បាលត្រពែក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👴🏽">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ​ បុរសចាស់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👴🏽" type="tts">មុខបុរសចំណាស់ក្បាលត្រពែក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👴🏾">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ​ បុរសចាស់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👴🏾" type="tts">មុខបុរសចំណាស់ក្បាលត្រពែក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👴🏿">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ​ បុរសចាស់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👴🏿" type="tts">មុខបុរសចំណាស់ក្បាលត្រពែក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👵🏻">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ស្ត្រីចាស់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">មុខស្រ្តីចំណាស់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👵🏼">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ស្ត្រីចាស់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👵🏼" type="tts">មុខស្រ្តីចំណាស់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👵🏽">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ស្ត្រីចាស់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👵🏽" type="tts">មុខស្រ្តីចំណាស់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👵🏾">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ស្ត្រីចាស់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👵🏾" type="tts">មុខស្រ្តីចំណាស់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👵🏿">ចាស់ | ចំណាស់ | មនុស្សចាស់ | មុខ | ស្ត្រីចាស់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👵🏿" type="tts">មុខស្រ្តីចំណាស់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">ពេទ្យប្រុល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">ពេទ្យប្រុល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">ពេទ្យប្រុល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">ពេទ្យប្រុល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">ពេទ្យប្រុល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">ពេទ្យស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">ពេទ្យស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">ពេទ្យស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">ពេទ្យស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍⚕">គិលានុបដ្ឋាយិកា | គ្រូពេទ្យ | ពិនិត្យសុខភាព | ព្យាបាល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">ពេទ្យស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | ប្រុស | សិស្ស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">សិស្សប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | ប្រុស | សិស្ស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">សិស្សប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | ប្រុស | សិស្ស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">សិស្សប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | ប្រុស | សិស្ស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">សិស្សប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | ប្រុស | សិស្ស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">សិស្សប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | សិស្ស | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">សិស្សស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | សិស្ស | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">សិស្សស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | សិស្ស | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">សិស្សស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | សិស្ស | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">សិស្សស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🎓">និស្សិត | បញ្ចប់ការសិក្សា | សិស្ស | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">សិស្សស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🏫">គ្រូ | បុរស | ប្រុស | សាស្ត្រាចារ្យ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">លោកគ្រូ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">គ្រូ | បុរស | ប្រុស | សាស្ត្រាចារ្យ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">លោកគ្រូ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🏫">គ្រូ | បុរស | ប្រុស | សាស្ត្រាចារ្យ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">លោកគ្រូ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🏫">គ្រូ | បុរស | ប្រុស | សាស្ត្រាចារ្យ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">លោកគ្រូ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🏫">គ្រូ | បុរស | ប្រុស | សាស្ត្រាចារ្យ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">លោកគ្រូ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🏫">គ្រូ | នារី | សាស្ត្រាចារ្យ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">អ្នកគ្រូ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">គ្រូ | នារី | សាស្ត្រាចារ្យ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">អ្នកគ្រូ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🏫">គ្រូ | នារី | សាស្ត្រាចារ្យ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">អ្នកគ្រូ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🏫">គ្រូ | នារី | សាស្ត្រាចារ្យ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">អ្នកគ្រូ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🏫">គ្រូ | នារី | សាស្ត្រាចារ្យ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">អ្នកគ្រូ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍⚖">ចៅក្រម | តុលាការ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">ចៅក្រុមប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">ចៅក្រម | តុលាការ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">ចៅក្រុមប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍⚖">ចៅក្រម | តុលាការ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">ចៅក្រុមប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍⚖">ចៅក្រម | តុលាការ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">ចៅក្រុមប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍⚖">ចៅក្រម | តុលាការ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">ចៅក្រុមប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍⚖">ចៅក្រម | តុលាការ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">ចៅក្រុមស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">ចៅក្រម | តុលាការ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">ចៅក្រុមស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍⚖">ចៅក្រម | តុលាការ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">ចៅក្រុមស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍⚖">ចៅក្រម | តុលាការ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">ចៅក្រុមស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍⚖">ចៅក្រម | តុលាការ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">ចៅក្រុមស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🌾">កសិករ | បុរស | ប្រុស | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">កសិករប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">កសិករ | បុរស | ប្រុស | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">កសិករប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🌾">កសិករ | បុរស | ប្រុស | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">កសិករប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🌾">កសិករ | បុរស | ប្រុស | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">កសិករប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🌾">កសិករ | បុរស | ប្រុស | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">កសិករប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🌾">កសិករ | នារី | ស្រី | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">កសិករស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">កសិករ | នារី | ស្រី | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">កសិករស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🌾">កសិករ | នារី | ស្រី | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">កសិករស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🌾">កសិករ | នារី | ស្រី | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">កសិករស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🌾">កសិករ | នារី | ស្រី | អ្នកចំការ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">កសិករស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🍳">ចុងភៅ | បុរស | ប្រុស | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">ចុងភៅប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">ចុងភៅ | បុរស | ប្រុស | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">ចុងភៅប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🍳">ចុងភៅ | បុរស | ប្រុស | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">ចុងភៅប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🍳">ចុងភៅ | បុរស | ប្រុស | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">ចុងភៅប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🍳">ចុងភៅ | បុរស | ប្រុស | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">ចុងភៅប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🍳">ចុងភៅ | នារី | ស្រី | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">ចុងភៅស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">ចុងភៅ | នារី | ស្រី | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">ចុងភៅស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🍳">ចុងភៅ | នារី | ស្រី | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">ចុងភៅស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🍳">ចុងភៅ | នារី | ស្រី | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">ចុងភៅស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🍳">ចុងភៅ | នារី | ស្រី | អ្នកចម្អិនអាហារ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">ចុងភៅស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🔧">ជាង | បុរស | ប្រុស | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">ជាងម៉ាស៊ីនប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">ជាង | បុរស | ប្រុស | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">ជាងម៉ាស៊ីនប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🔧">ជាង | បុរស | ប្រុស | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">ជាងម៉ាស៊ីនប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🔧">ជាង | បុរស | ប្រុស | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">ជាងម៉ាស៊ីនប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🔧">ជាង | បុរស | ប្រុស | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">ជាងម៉ាស៊ីនប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🔧">ជាង | នារី | ស្រី | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">ជាងម៉ាស៊ីនស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">ជាង | នារី | ស្រី | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">ជាងម៉ាស៊ីនស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🔧">ជាង | នារី | ស្រី | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">ជាងម៉ាស៊ីនស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🔧">ជាង | នារី | ស្រី | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">ជាងម៉ាស៊ីនស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🔧">ជាង | នារី | ស្រី | អ្នកជួសជុល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">ជាងម៉ាស៊ីនស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🏭">កម្មករ | បុរស | ប្រុស | រោងចក្រ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">កម្មករ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">កម្មករ | បុរស | ប្រុស | រោងចក្រ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">កម្មករ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🏭">កម្មករ | បុរស | ប្រុស | រោងចក្រ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">កម្មករ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🏭">កម្មករ | បុរស | ប្រុស | រោងចក្រ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">កម្មករ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🏭">កម្មករ | បុរស | ប្រុស | រោងចក្រ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">កម្មករ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🏭">កម្មករ | នារី | រោងចក្រ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">កម្មការនី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">កម្មករ | នារី | រោងចក្រ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">កម្មការនី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🏭">កម្មករ | នារី | រោងចក្រ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">កម្មការនី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🏭">កម្មករ | នារី | រោងចក្រ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">កម្មការនី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🏭">កម្មករ | នារី | រោងចក្រ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">កម្មការនី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍💼">ការិយល័យ | បុគ្គលិក | បុរស | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">បុគ្គលិកប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍💼">ការិយល័យ | បុគ្គលិក | បុរស | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">បុគ្គលិកប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍💼">ការិយល័យ | បុគ្គលិក | បុរស | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">បុគ្គលិកប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍💼">ការិយល័យ | បុគ្គលិក | បុរស | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">បុគ្គលិកប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍💼">ការិយល័យ | បុគ្គលិក | បុរស | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">បុគ្គលិកប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍💼">ការិយល័យ | នារី | បុគ្គលិក | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">បុុគ្គលិកស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍💼">ការិយល័យ | នារី | បុគ្គលិក | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">បុុគ្គលិកស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍💼">ការិយល័យ | នារី | បុគ្គលិក | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">បុុគ្គលិកស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍💼">ការិយល័យ | នារី | បុគ្គលិក | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">បុុគ្គលិកស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍💼">ការិយល័យ | នារី | បុគ្គលិក | អ្នកគ្រប់គ្រង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">បុុគ្គលិកស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🔬">គីមីវិទូ | រូបវិទូ | វិស្វករ | អ្នកវិទ្យាសាស្ត្រ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">អ្នកវិទ្យាសាស្ត្រស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍💻">បុរស | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">អ្នកបច្ចេកវិទ្យាប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍💻">បុរស | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">អ្នកបច្ចេកវិទ្យាប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍💻">បុរស | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">អ្នកបច្ចេកវិទ្យាប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍💻">បុរស | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">អ្នកបច្ចេកវិទ្យាប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍💻">បុរស | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">អ្នកបច្ចេកវិទ្យាប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍💻">នារី | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">អ្នកបច្ចេកវិទ្យាស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍💻">នារី | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">អ្នកបច្ចេកវិទ្យាស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍💻">នារី | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">អ្នកបច្ចេកវិទ្យាស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍💻">នារី | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">អ្នកបច្ចេកវិទ្យាស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍💻">នារី | អ្នកបច្ចេកវិទ្យា | អ្នកសសេរកូដ | អ្នកអភិវឌ្ឍកម្មវិធី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">អ្នកបច្ចេកវិទ្យាស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🎤">តារា | តួសម្តែង | ប្រុស | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">អ្នកចម្រៀងប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">តារា | តួសម្តែង | ប្រុស | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">អ្នកចម្រៀងប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🎤">តារា | តួសម្តែង | ប្រុស | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">អ្នកចម្រៀងប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🎤">តារា | តួសម្តែង | ប្រុស | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">អ្នកចម្រៀងប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🎤">តារា | តួសម្តែង | ប្រុស | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">អ្នកចម្រៀងប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🎤">តារា | តួសម្តែង | ស្រី | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">អ្នកចម្រៀងស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">តារា | តួសម្តែង | ស្រី | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">អ្នកចម្រៀងស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🎤">តារា | តួសម្តែង | ស្រី | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">អ្នកចម្រៀងស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🎤">តារា | តួសម្តែង | ស្រី | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">អ្នកចម្រៀងស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🎤">តារា | តួសម្តែង | ស្រី | អ្នកចម្រៀង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">អ្នកចម្រៀងស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🎨">គំនូរ | ប្រុស | ផាត់ពណ៌ | វិចិត្រករ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">វិចិត្រករ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">គំនូរ | ប្រុស | ផាត់ពណ៌ | វិចិត្រករ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">វិចិត្រករ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🎨">គំនូរ | ប្រុស | ផាត់ពណ៌ | វិចិត្រករ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">វិចិត្រករ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🎨">គំនូរ | ប្រុស | ផាត់ពណ៌ | វិចិត្រករ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">វិចិត្រករ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🎨">គំនូរ | ប្រុស | ផាត់ពណ៌ | វិចិត្រករ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">វិចិត្រករ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🎨">គំនូរ | ផាត់ពណ៌ | វិចិត្រករ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">វិចិត្រការនី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">គំនូរ | ផាត់ពណ៌ | វិចិត្រករ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">វិចិត្រការនី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🎨">គំនូរ | ផាត់ពណ៌ | វិចិត្រករ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">វិចិត្រការនី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🎨">គំនូរ | ផាត់ពណ៌ | វិចិត្រករ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">វិចិត្រការនី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🎨">គំនូរ | ផាត់ពណ៌ | វិចិត្រករ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">វិចិត្រការនី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍✈">បុរស | ប្រុស | យន្តហោះ | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">អ្នកបើកយន្តហោះប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍✈">បុរស | ប្រុស | យន្តហោះ | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">អ្នកបើកយន្តហោះប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍✈">បុរស | ប្រុស | យន្តហោះ | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">អ្នកបើកយន្តហោះប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍✈">បុរស | ប្រុស | យន្តហោះ | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">អ្នកបើកយន្តហោះប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍✈">បុរស | ប្រុស | យន្តហោះ | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">អ្នកបើកយន្តហោះប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍✈">នារី | យន្តហោះ | ស្រី | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">អ្នកបើកយន្តហោះស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍✈">នារី | យន្តហោះ | ស្រី | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">អ្នកបើកយន្តហោះស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍✈">នារី | យន្តហោះ | ស្រី | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">អ្នកបើកយន្តហោះស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍✈">នារី | យន្តហោះ | ស្រី | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">អ្នកបើកយន្តហោះស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍✈">នារី | យន្តហោះ | ស្រី | អ្នកបើកយន្តហោះ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">អ្នកបើកយន្តហោះស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🚀">ប្រុស | រ៉ុកែត | លំហរអាកាស | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">អាវកាសយានិកប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">ប្រុស | រ៉ុកែត | លំហរអាកាស | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">អាវកាសយានិកប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🚀">ប្រុស | រ៉ុកែត | លំហរអាកាស | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">អាវកាសយានិកប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🚀">ប្រុស | រ៉ុកែត | លំហរអាកាស | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">អាវកាសយានិកប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🚀">ប្រុស | រ៉ុកែត | លំហរអាកាស | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">អាវកាសយានិកប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🚀">រ៉ុកែត | លំហរអាកាស | ស្រី | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">អាវកាសយានិកស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">រ៉ុកែត | លំហរអាកាស | ស្រី | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">អាវកាសយានិកស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🚀">រ៉ុកែត | លំហរអាកាស | ស្រី | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">អាវកាសយានិកស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🚀">រ៉ុកែត | លំហរអាកាស | ស្រី | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">អាវកាសយានិកស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🚀">រ៉ុកែត | លំហរអាកាស | ស្រី | អាវកាសយានិក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">អាវកាសយានិកស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏻‍🚒">បុរស | ប្រុស | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">បុរស | ប្រុស | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👨🏽‍🚒">បុរស | ប្រុស | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👨🏾‍🚒">បុរស | ប្រុស | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👨🏿‍🚒">បុរស | ប្រុស | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏻‍🚒">នារី | ស្រី | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">នារី | ស្រី | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👩🏽‍🚒">នារី | ស្រី | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👩🏾‍🚒">នារី | ស្រី | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👩🏿‍🚒">នារី | ស្រី | ឡានទឹក | អ្នកពន្តល់អគ្គីភ័យ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">អ្នកពន្លត់អគ្គីភ័យស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👮🏻">នគរបាល | ប៉ូលីស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">មុខប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👮🏼">នគរបាល | ប៉ូលីស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👮🏼" type="tts">មុខប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👮🏽">នគរបាល | ប៉ូលីស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👮🏽" type="tts">មុខប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👮🏾">នគរបាល | ប៉ូលីស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👮🏾" type="tts">មុខប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👮🏿">នគរបាល | ប៉ូលីស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👮🏿" type="tts">មុខប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👮🏻‍♂">នគរបាល | ប៉ូលីស | ប្រុស | សមត្ថកិច្ច | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">ប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👮🏼‍♂">នគរបាល | ប៉ូលីស | ប្រុស | សមត្ថកិច្ច | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">ប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👮🏽‍♂">នគរបាល | ប៉ូលីស | ប្រុស | សមត្ថកិច្ច | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">ប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👮🏾‍♂">នគរបាល | ប៉ូលីស | ប្រុស | សមត្ថកិច្ច | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">ប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👮🏿‍♂">នគរបាល | ប៉ូលីស | ប្រុស | សមត្ថកិច្ច | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">ប៉ូលីសប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👮🏻‍♀">នគរបាល | ប៉ូលីស | សមត្ថកិច្ច | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">ប៉ូលីសស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👮🏼‍♀">នគរបាល | ប៉ូលីស | សមត្ថកិច្ច | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">ប៉ូលីសស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👮🏽‍♀">នគរបាល | ប៉ូលីស | សមត្ថកិច្ច | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">ប៉ូលីសស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👮🏾‍♀">នគរបាល | ប៉ូលីស | សមត្ថកិច្ច | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">ប៉ូលីសស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👮🏿‍♀">នគរបាល | ប៉ូលីស | សមត្ថកិច្ច | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">ប៉ូលីសស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕵🏻">ស៊ើបការ | អ្នកស៊ើបអង្កេត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">មុខបុរសពាក់មួកសម្បុកនិងកំពុងឆ្លុះកែវយិត: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕵🏼">ស៊ើបការ | អ្នកស៊ើបអង្កេត | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕵🏼" type="tts">មុខបុរសពាក់មួកសម្បុកនិងកំពុងឆ្លុះកែវយិត: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕵🏽">ស៊ើបការ | អ្នកស៊ើបអង្កេត | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕵🏽" type="tts">មុខបុរសពាក់មួកសម្បុកនិងកំពុងឆ្លុះកែវយិត: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕵🏾">ស៊ើបការ | អ្នកស៊ើបអង្កេត | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕵🏾" type="tts">មុខបុរសពាក់មួកសម្បុកនិងកំពុងឆ្លុះកែវយិត: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕵🏿">ស៊ើបការ | អ្នកស៊ើបអង្កេត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕵🏿" type="tts">មុខបុរសពាក់មួកសម្បុកនិងកំពុងឆ្លុះកែវយិត: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕵🏻‍♂">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">អ្នកស៊ើបអង្កេតប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">អ្នកស៊ើបអង្កេតប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕵🏽‍♂">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">អ្នកស៊ើបអង្កេតប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕵🏾‍♂">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">អ្នកស៊ើបអង្កេតប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕵🏿‍♂">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">អ្នកស៊ើបអង្កេតប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕵🏻‍♀">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">អ្នកស៊ើបអង្កេតស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">អ្នកស៊ើបអង្កេតស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕵🏽‍♀">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">អ្នកស៊ើបអង្កេតស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕵🏾‍♀">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">អ្នកស៊ើបអង្កេតស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕵🏿‍♀">ប្រុស | ស៊ើបអង្កេត | អ្នកយកការ | អ្នកស្រាវជ្រាវ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">អ្នកស៊ើបអង្កេតស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💂🏻">ឆ្មាំ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">មុខឆ្មាំនៅវាំង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💂🏼">ឆ្មាំ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💂🏼" type="tts">មុខឆ្មាំនៅវាំង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💂🏽">ឆ្មាំ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💂🏽" type="tts">មុខឆ្មាំនៅវាំង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💂🏾">ឆ្មាំ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💂🏾" type="tts">មុខឆ្មាំនៅវាំង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💂🏿">ឆ្មាំ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💂🏿" type="tts">មុខឆ្មាំនៅវាំង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💂🏻‍♂">ឆ្មាំ | ប្រុស | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">ឆ្មាំបុរស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💂🏼‍♂">ឆ្មាំ | ប្រុស | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">ឆ្មាំបុរស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💂🏽‍♂">ឆ្មាំ | ប្រុស | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">ឆ្មាំបុរស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💂🏾‍♂">ឆ្មាំ | ប្រុស | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">ឆ្មាំបុរស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💂🏿‍♂">ឆ្មាំ | ប្រុស | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">ឆ្មាំបុរស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💂🏻‍♀">ឆ្មាំ | ស្រី | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">ឆ្មាំនារី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💂🏼‍♀">ឆ្មាំ | ស្រី | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">ឆ្មាំនារី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💂🏽‍♀">ឆ្មាំ | ស្រី | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">ឆ្មាំនារី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💂🏾‍♀">ឆ្មាំ | ស្រី | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">ឆ្មាំនារី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💂🏿‍♀">ឆ្មាំ | ស្រី | អ្នកការពារ | អ្នកយាម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">ឆ្មាំនារី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👷🏻">កម្មករសំណង់ | សំណង់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">មុខកម្មករសំណង់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👷🏼">កម្មករសំណង់ | សំណង់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👷🏼" type="tts">មុខកម្មករសំណង់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👷🏽">កម្មករសំណង់ | សំណង់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👷🏽" type="tts">មុខកម្មករសំណង់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👷🏾">កម្មករសំណង់ | សំណង់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👷🏾" type="tts">មុខកម្មករសំណង់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👷🏿">កម្មករសំណង់ | សំណង់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👷🏿" type="tts">មុខកម្មករសំណង់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👷🏻‍♂">កម្មករ | កម្មករសំណង់ | ប្រុស | សំណង់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">កម្មករសំណង់ប្រុស: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👷🏼‍♂">កម្មករ | កម្មករសំណង់ | ប្រុស | សំណង់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">កម្មករសំណង់ប្រុស: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👷🏽‍♂">កម្មករ | កម្មករសំណង់ | ប្រុស | សំណង់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">កម្មករសំណង់ប្រុស: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👷🏾‍♂">កម្មករ | កម្មករសំណង់ | ប្រុស | សំណង់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">កម្មករសំណង់ប្រុស: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👷🏿‍♂">កម្មករ | កម្មករសំណង់ | ប្រុស | សំណង់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">កម្មករសំណង់ប្រុស: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👷🏻‍♀">កម្មករ | កម្មករសំណង់ | សំណង់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">កម្មករសំណង់ស្រី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👷🏼‍♀">កម្មករ | កម្មករសំណង់ | សំណង់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">កម្មករសំណង់ស្រី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👷🏽‍♀">កម្មករ | កម្មករសំណង់ | សំណង់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">កម្មករសំណង់ស្រី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👷🏾‍♀">កម្មករ | កម្មករសំណង់ | សំណង់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">កម្មករសំណង់ស្រី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👷🏿‍♀">កម្មករ | កម្មករសំណង់ | សំណង់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">កម្មករសំណង់ស្រី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤴🏻">ព្រះអង្គ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">ព្រះអង្គ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤴🏼">ព្រះអង្គ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤴🏼" type="tts">ព្រះអង្គ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤴🏽">ព្រះអង្គ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤴🏽" type="tts">ព្រះអង្គ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤴🏾">ព្រះអង្គ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤴🏾" type="tts">ព្រះអង្គ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤴🏿">ព្រះអង្គ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤴🏿" type="tts">ព្រះអង្គ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👸🏻">ព្រួះនាង | ម្កុជ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">មុខព្រះនាង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👸🏼">ព្រួះនាង | ម្កុជ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👸🏼" type="tts">មុខព្រះនាង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👸🏽">ព្រួះនាង | ម្កុជ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👸🏽" type="tts">មុខព្រះនាង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👸🏾">ព្រួះនាង | ម្កុជ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👸🏾" type="tts">មុខព្រះនាង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👸🏿">ព្រួះនាង | ម្កុជ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👸🏿" type="tts">មុខព្រះនាង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👳🏻">ឈ្នួតក្បាល | ​ បុរស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">មុខបុរសមានឈ្នួត: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👳🏼">ឈ្នួតក្បាល | ​ បុរស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👳🏼" type="tts">មុខបុរសមានឈ្នួត: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👳🏽">ឈ្នួតក្បាល | ​ បុរស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👳🏽" type="tts">មុខបុរសមានឈ្នួត: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👳🏾">ឈ្នួតក្បាល | ​ បុរស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👳🏾" type="tts">មុខបុរសមានឈ្នួត: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👳🏿">ឈ្នួតក្បាល | ​ បុរស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👳🏿" type="tts">មុខបុរសមានឈ្នួត: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👳🏻‍♂">ឈ្នួត | បុរស | ប្រុស | រុំ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">បុរសឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👳🏼‍♂">ឈ្នួត | បុរស | ប្រុស | រុំ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">បុរសឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👳🏽‍♂">ឈ្នួត | បុរស | ប្រុស | រុំ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">បុរសឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👳🏾‍♂">ឈ្នួត | បុរស | ប្រុស | រុំ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">បុរសឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👳🏿‍♂">ឈ្នួត | បុរស | ប្រុស | រុំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">បុរសឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👳🏻‍♀">ឈ្នួត | បុរស | រុំ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">នារីឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👳🏼‍♀">ឈ្នួត | បុរស | រុំ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">នារីឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👳🏽‍♀">ឈ្នួត | បុរស | រុំ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">នារីឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👳🏾‍♀">ឈ្នួត | បុរស | រុំ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">នារីឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👳🏿‍♀">ឈ្នួត | បុរស | រុំ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">នារីឈ្នួតក្បាល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👲🏻">ចិន | មួក | មួកចិន | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">មុខបុរសពាក់មួកចិនបុរាណ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👲🏼">ចិន | មួក | មួកចិន | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👲🏼" type="tts">មុខបុរសពាក់មួកចិនបុរាណ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👲🏽">ចិន | មួក | មួកចិន | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👲🏽" type="tts">មុខបុរសពាក់មួកចិនបុរាណ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👲🏾">ចិន | មួក | មួកចិន | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👲🏾" type="tts">មុខបុរសពាក់មួកចិនបុរាណ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👲🏿">ចិន | មួក | មួកចិន | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👲🏿" type="tts">មុខបុរសពាក់មួកចិនបុរាណ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👱🏻">បុរសសក់ខ្លី | សក់ខ្លី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">មុខបុរសសក់ខ្លីពណ៌ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👱🏼">បុរសសក់ខ្លី | សក់ខ្លី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👱🏼" type="tts">មុខបុរសសក់ខ្លីពណ៌ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👱🏽">បុរសសក់ខ្លី | សក់ខ្លី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👱🏽" type="tts">មុខបុរសសក់ខ្លីពណ៌ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👱🏾">បុរសសក់ខ្លី | សក់ខ្លី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👱🏾" type="tts">មុខបុរសសក់ខ្លីពណ៌ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👱🏿">បុរសសក់ខ្លី | សក់ខ្លី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👱🏿" type="tts">មុខបុរសសក់ខ្លីពណ៌ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👱🏻‍♂">ទង់ដែង | បុរស | ប្រុស | សក់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">បុរសសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👱🏼‍♂">ទង់ដែង | បុរស | ប្រុស | សក់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">បុរសសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👱🏽‍♂">ទង់ដែង | បុរស | ប្រុស | សក់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">បុរសសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👱🏾‍♂">ទង់ដែង | បុរស | ប្រុស | សក់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">បុរសសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👱🏿‍♂">ទង់ដែង | បុរស | ប្រុស | សក់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">បុរសសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👱🏻‍♀">ទង់ដែង | នារី | សក់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">នារីសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👱🏼‍♀">ទង់ដែង | នារី | សក់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">នារីសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👱🏽‍♀">ទង់ដែង | នារី | សក់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">នារីសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👱🏾‍♀">ទង់ដែង | នារី | សក់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">នារីសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👱🏿‍♀">ទង់ដែង | នារី | សក់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">នារីសក់ទង់ដែង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤵🏻">កូនកំលោះ | បុរស | អាវធំ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">បុរសពាក់អាវធំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤵🏼">កូនកំលោះ | បុរស | អាវធំ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤵🏼" type="tts">បុរសពាក់អាវធំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤵🏽">កូនកំលោះ | បុរស | អាវធំ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤵🏽" type="tts">បុរសពាក់អាវធំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤵🏾">កូនកំលោះ | បុរស | អាវធំ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤵🏾" type="tts">បុរសពាក់អាវធំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤵🏿">កូនកំលោះ | បុរស | អាវធំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤵🏿" type="tts">បុរសពាក់អាវធំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👰🏻">កូនក្រមុំ | រៀបការ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">កូនក្រមុំពាក់ស្បៃមុខ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👰🏼">កូនក្រមុំ | រៀបការ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👰🏼" type="tts">កូនក្រមុំពាក់ស្បៃមុខ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👰🏽">កូនក្រមុំ | រៀបការ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👰🏽" type="tts">កូនក្រមុំពាក់ស្បៃមុខ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👰🏾">កូនក្រមុំ | រៀបការ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👰🏾" type="tts">កូនក្រមុំពាក់ស្បៃមុខ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👰🏿">កូនក្រមុំ | រៀបការ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👰🏿" type="tts">កូនក្រមុំពាក់ស្បៃមុខ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤰🏻">ពោះធំ | ស្ត្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">ស្ត្រីពោះធំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤰🏼">ពោះធំ | ស្ត្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤰🏼" type="tts">ស្ត្រីពោះធំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤰🏽">ពោះធំ | ស្ត្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤰🏽" type="tts">ស្ត្រីពោះធំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤰🏾">ពោះធំ | ស្ត្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤰🏾" type="tts">ស្ត្រីពោះធំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤰🏿">ពោះធំ | ស្ត្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤰🏿" type="tts">ស្ត្រីពោះធំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👼🏻">ទេពធីតា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">មុខទេពធីតាតូច: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👼🏼">ទេពធីតា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👼🏼" type="tts">មុខទេពធីតាតូច: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👼🏽">ទេពធីតា | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👼🏽" type="tts">មុខទេពធីតាតូច: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👼🏾">ទេពធីតា | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👼🏾" type="tts">មុខទេពធីតាតូច: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👼🏿">ទេពធីតា | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👼🏿" type="tts">មុខទេពធីតាតូច: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🎅🏻">តាណូអែល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">មុខតាណូអែល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🎅🏼">តាណូអែល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🎅🏼" type="tts">មុខតាណូអែល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🎅🏽">តាណូអែល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🎅🏽" type="tts">មុខតាណូអែល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🎅🏾">តាណូអែល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🎅🏾" type="tts">មុខតាណូអែល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🎅🏿">តាណូអែល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🎅🏿" type="tts">មុខតាណូអែល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤶🏻">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤶🏼">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤶🏼" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤶🏽">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤶🏽" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤶🏾">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤶🏾" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤶🏿">បុណ្យណូអែល | ម្តាយ | លោកស្រី Claus | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤶🏿" type="tts">ម្តាយពេលបុណ្យណូអែល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙍🏻">ក្រៀមក្រំ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">មនុស្ស​កំពុងក្រៀមក្រំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙍🏼">ក្រៀមក្រំ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙍🏼" type="tts">មនុស្ស​កំពុងក្រៀមក្រំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙍🏽">ក្រៀមក្រំ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙍🏽" type="tts">មនុស្ស​កំពុងក្រៀមក្រំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙍🏾">ក្រៀមក្រំ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙍🏾" type="tts">មនុស្ស​កំពុងក្រៀមក្រំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙍🏿">ក្រៀមក្រំ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙍🏿" type="tts">មនុស្ស​កំពុងក្រៀមក្រំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙍🏻‍♂">ក្រញ៉ូវ | ទឹកមុខ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">បុរសមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">ក្រញ៉ូវ | ទឹកមុខ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">បុរសមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙍🏽‍♂">ក្រញ៉ូវ | ទឹកមុខ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">បុរសមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙍🏾‍♂">ក្រញ៉ូវ | ទឹកមុខ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">បុរសមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙍🏿‍♂">ក្រញ៉ូវ | ទឹកមុខ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">បុរសមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙍🏻‍♀">ក្រញ៉ូវ | ទឹកមុខ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">នារីមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">ក្រញ៉ូវ | ទឹកមុខ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">នារីមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙍🏽‍♀">ក្រញ៉ូវ | ទឹកមុខ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">នារីមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙍🏾‍♀">ក្រញ៉ូវ | ទឹកមុខ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">នារីមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙍🏿‍♀">ក្រញ៉ូវ | ទឹកមុខ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">នារីមុខក្រញ៉ូវ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙎🏻">ខឹង | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">មនុស្សកំពុងមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙎🏼">ខឹង | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙎🏼" type="tts">មនុស្សកំពុងមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙎🏽">ខឹង | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙎🏽" type="tts">មនុស្សកំពុងមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙎🏾">ខឹង | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙎🏾" type="tts">មនុស្សកំពុងមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙎🏿">ខឹង | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙎🏿" type="tts">មនុស្សកំពុងមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙎🏻‍♂">ទឹកមុខ | បុរស | ប្រុស | មួរម៉ៅ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">បុរសមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">ទឹកមុខ | បុរស | ប្រុស | មួរម៉ៅ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">បុរសមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙎🏽‍♂">ទឹកមុខ | បុរស | ប្រុស | មួរម៉ៅ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">បុរសមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙎🏾‍♂">ទឹកមុខ | បុរស | ប្រុស | មួរម៉ៅ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">បុរសមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙎🏿‍♂">ទឹកមុខ | បុរស | ប្រុស | មួរម៉ៅ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">បុរសមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙎🏻‍♀">ទឹកមុខ | នារី | មួរម៉ៅ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">នារីមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">ទឹកមុខ | នារី | មួរម៉ៅ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">នារីមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙎🏽‍♀">ទឹកមុខ | នារី | មួរម៉ៅ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">នារីមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙎🏾‍♀">ទឹកមុខ | នារី | មួរម៉ៅ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">នារីមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙎🏿‍♀">ទឹកមុខ | នារី | មួរម៉ៅ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">នារីមួរម៉ៅ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙅🏻">ដៃខ្វែង | ទេ | មិន | ហាមឃាត់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">មនុស្សខ្វែងដៃជាសញ្ញាថា ទេ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙅🏼">ដៃខ្វែង | ទេ | មិន | ហាមឃាត់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙅🏼" type="tts">មនុស្សខ្វែងដៃជាសញ្ញាថា ទេ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙅🏽">ដៃខ្វែង | ទេ | មិន | ហាមឃាត់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙅🏽" type="tts">មនុស្សខ្វែងដៃជាសញ្ញាថា ទេ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙅🏾">ដៃខ្វែង | ទេ | មិន | ហាមឃាត់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙅🏾" type="tts">មនុស្សខ្វែងដៃជាសញ្ញាថា ទេ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙅🏿">ដៃខ្វែង | ទេ | មិន | ហាមឃាត់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙅🏿" type="tts">មនុស្សខ្វែងដៃជាសញ្ញាថា ទេ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙅🏻‍♂">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">បុរសចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">បុរសចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙅🏽‍♂">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">បុរសចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙅🏾‍♂">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">បុរសចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙅🏿‍♂">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">បុរសចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙅🏻‍♀">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">នារីចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">នារីចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙅🏽‍♀">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">នារីចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙅🏾‍♀">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">នារីចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙅🏿‍♀">ឃាត់ | បដិសេធ | មិនយល់ព្រម | ហាម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">នារីចេញកាយវិការបដិសេធ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙆🏻">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙆🏼">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙆🏼" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙆🏽">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙆🏽" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙆🏾">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙆🏾" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙆🏿">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙆🏿" type="tts">មនុស្សផ្គុំដៃលើក្បាលជាសញ្ញាថា យល់ព្រម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙆🏻‍♂">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">បុរសចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">បុរសចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙆🏽‍♂">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">បុរសចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙆🏾‍♂">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">បុរសចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙆🏿‍♂">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">បុរសចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙆🏻‍♀">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">នារីចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">នារីចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙆🏽‍♀">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">នារីចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙆🏾‍♀">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">នារីចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙆🏿‍♀">កាយវិការ | យល់ព្រម | អនុញ្ញាត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">នារីចេញកាយវិការយល់ព្រម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💁🏻">ជួយ | ណែនាំ | ប្រាប់ព័ត៌មាន | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">អ្នកផ្តល់ព័ត៌មាន: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💁🏼">ជួយ | ណែនាំ | ប្រាប់ព័ត៌មាន | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💁🏼" type="tts">អ្នកផ្តល់ព័ត៌មាន: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💁🏽">ជួយ | ណែនាំ | ប្រាប់ព័ត៌មាន | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💁🏽" type="tts">អ្នកផ្តល់ព័ត៌មាន: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💁🏾">ជួយ | ណែនាំ | ប្រាប់ព័ត៌មាន | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💁🏾" type="tts">អ្នកផ្តល់ព័ត៌មាន: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💁🏿">ជួយ | ណែនាំ | ប្រាប់ព័ត៌មាន | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💁🏿" type="tts">អ្នកផ្តល់ព័ត៌មាន: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💁🏻‍♂">ដៃ | បុរស | ប្រុស | សុំធីប | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">បុរសសុំធីប: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💁🏼‍♂">ដៃ | បុរស | ប្រុស | សុំធីប | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">បុរសសុំធីប: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💁🏽‍♂">ដៃ | បុរស | ប្រុស | សុំធីប | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">បុរសសុំធីប: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💁🏾‍♂">ដៃ | បុរស | ប្រុស | សុំធីប | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">បុរសសុំធីប: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💁🏿‍♂">ដៃ | បុរស | ប្រុស | សុំធីប | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">បុរសសុំធីប: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💁🏻‍♀">ដៃ | នារី | សុំធីប | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">នារីសុំធីប: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💁🏼‍♀">ដៃ | នារី | សុំធីប | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">នារីសុំធីប: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💁🏽‍♀">ដៃ | នារី | សុំធីប | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">នារីសុំធីប: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💁🏾‍♀">ដៃ | នារី | សុំធីប | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">នារីសុំធីប: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💁🏿‍♀">ដៃ | នារី | សុំធីប | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">នារីសុំធីប: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙋🏻">ឆ្លើយសំណួរ | ដៃ | លើកដៃ | សួរ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">មនុស្សលើកដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙋🏼">ឆ្លើយសំណួរ | ដៃ | លើកដៃ | សួរ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙋🏼" type="tts">មនុស្សលើកដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙋🏽">ឆ្លើយសំណួរ | ដៃ | លើកដៃ | សួរ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙋🏽" type="tts">មនុស្សលើកដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙋🏾">ឆ្លើយសំណួរ | ដៃ | លើកដៃ | សួរ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙋🏾" type="tts">មនុស្សលើកដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙋🏿">ឆ្លើយសំណួរ | ដៃ | លើកដៃ | សួរ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙋🏿" type="tts">មនុស្សលើកដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙋🏻‍♂">កាយវិការ | ប្រុស | លើក | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">បុរសចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">កាយវិការ | ប្រុស | លើក | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">បុរសចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙋🏽‍♂">កាយវិការ | ប្រុស | លើក | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">បុរសចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙋🏾‍♂">កាយវិការ | ប្រុស | លើក | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">បុរសចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙋🏿‍♂">កាយវិការ | ប្រុស | លើក | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">បុរសចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙋🏻‍♀">កាយវិការ | លើក | លើកដៃ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">នារីចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">កាយវិការ | លើក | លើកដៃ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">នារីចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙋🏽‍♀">កាយវិការ | លើក | លើកដៃ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">នារីចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙋🏾‍♀">កាយវិការ | លើក | លើកដៃ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">នារីចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙋🏿‍♀">កាយវិការ | លើក | លើកដៃ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">នារីចេញកាយវិការលើកដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙇🏻">គោរព | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">មនុស្សឱនគោរព: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙇🏼">គោរព | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙇🏼" type="tts">មនុស្សឱនគោរព: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙇🏽">គោរព | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙇🏽" type="tts">មនុស្សឱនគោរព: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙇🏾">គោរព | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙇🏾" type="tts">មនុស្សឱនគោរព: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙇🏿">គោរព | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙇🏿" type="tts">មនុស្សឱនគោរព: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙇🏻‍♂">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">បុរសឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">បុរសឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙇🏽‍♂">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">បុរសឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙇🏾‍♂">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">បុរសឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙇🏿‍♂">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">បុរសឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙇🏻‍♀">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">នារីឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">នារីឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙇🏽‍♀">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">នារីឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙇🏾‍♀">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">នារីឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙇🏿‍♀">គោរព | សុំទោស | ឱន | ឱនលំទោន | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">នារីឱនលំទោន: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤦🏻">ធុញថប់ | បាតដៃ | មិនជឿ | មុខ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">ខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤦🏼">ធុញថប់ | បាតដៃ | មិនជឿ | មុខ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤦🏼" type="tts">ខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤦🏽">ធុញថប់ | បាតដៃ | មិនជឿ | មុខ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤦🏽" type="tts">ខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤦🏾">ធុញថប់ | បាតដៃ | មិនជឿ | មុខ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤦🏾" type="tts">ខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤦🏿">ធុញថប់ | បាតដៃ | មិនជឿ | មុខ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤦🏿" type="tts">ខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤦🏻‍♂">ខ្ទប់មុខ | ប្រុស | មិនជឿ | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">បុរសខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">ខ្ទប់មុខ | ប្រុស | មិនជឿ | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">បុរសខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤦🏽‍♂">ខ្ទប់មុខ | ប្រុស | មិនជឿ | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">បុរសខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤦🏾‍♂">ខ្ទប់មុខ | ប្រុស | មិនជឿ | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">បុរសខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤦🏿‍♂">ខ្ទប់មុខ | ប្រុស | មិនជឿ | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">បុរសខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤦🏻‍♀">ខ្ទប់មុខ | មិនជឿ | ស្រី | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">នារីខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">ខ្ទប់មុខ | មិនជឿ | ស្រី | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">នារីខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤦🏽‍♀">ខ្ទប់មុខ | មិនជឿ | ស្រី | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">នារីខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤦🏾‍♀">ខ្ទប់មុខ | មិនជឿ | ស្រី | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">នារីខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤦🏿‍♀">ខ្ទប់មុខ | មិនជឿ | ស្រី | ហួសចិត្ត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">នារីខ្ទប់មុខ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤷🏻">ឆ្ងល់ | ញាក់ស្មា | អត់ខ្វល់ | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">ញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤷🏼">ឆ្ងល់ | ញាក់ស្មា | អត់ខ្វល់ | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤷🏼" type="tts">ញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤷🏽">ឆ្ងល់ | ញាក់ស្មា | អត់ខ្វល់ | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤷🏽" type="tts">ញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤷🏾">ឆ្ងល់ | ញាក់ស្មា | អត់ខ្វល់ | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤷🏾" type="tts">ញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤷🏿">ឆ្ងល់ | ញាក់ស្មា | អត់ខ្វល់ | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤷🏿" type="tts">ញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤷🏻‍♂">ឆ្ងល់ | ញាក់ស្មា | ប្រុស | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">បុរសញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">ឆ្ងល់ | ញាក់ស្មា | ប្រុស | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">បុរសញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤷🏽‍♂">ឆ្ងល់ | ញាក់ស្មា | ប្រុស | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">បុរសញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤷🏾‍♂">ឆ្ងល់ | ញាក់ស្មា | ប្រុស | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">បុរសញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤷🏿‍♂">ឆ្ងល់ | ញាក់ស្មា | ប្រុស | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">បុរសញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤷🏻‍♀">ឆ្ងល់ | ញាក់ស្មា | ស្រី | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">នារីញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">ឆ្ងល់ | ញាក់ស្មា | ស្រី | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">នារីញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤷🏽‍♀">ឆ្ងល់ | ញាក់ស្មា | ស្រី | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">នារីញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤷🏾‍♀">ឆ្ងល់ | ញាក់ស្មា | ស្រី | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">នារីញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤷🏿‍♀">ឆ្ងល់ | ញាក់ស្មា | ស្រី | អត់ដឹង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">នារីញាក់ស្មា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💆🏻">ក្បាល | ធ្វើសរសៃក្បាល | ម៉ាស្សា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">ម៉ាស្សាក្បាល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💆🏼">ក្បាល | ធ្វើសរសៃក្បាល | ម៉ាស្សា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💆🏼" type="tts">ម៉ាស្សាក្បាល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💆🏽">ក្បាល | ធ្វើសរសៃក្បាល | ម៉ាស្សា | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💆🏽" type="tts">ម៉ាស្សាក្បាល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💆🏾">ក្បាល | ធ្វើសរសៃក្បាល | ម៉ាស្សា | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💆🏾" type="tts">ម៉ាស្សាក្បាល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💆🏿">ក្បាល | ធ្វើសរសៃក្បាល | ម៉ាស្សា | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💆🏿" type="tts">ម៉ាស្សាក្បាល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💆🏻‍♂">បុរស | ប្រុស | មុខ | ម៉ស្សា | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">បុរសគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💆🏼‍♂">បុរស | ប្រុស | មុខ | ម៉ស្សា | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">បុរសគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💆🏽‍♂">បុរស | ប្រុស | មុខ | ម៉ស្សា | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">បុរសគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💆🏾‍♂">បុរស | ប្រុស | មុខ | ម៉ស្សា | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">បុរសគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💆🏿‍♂">បុរស | ប្រុស | មុខ | ម៉ស្សា | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">បុរសគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💆🏻‍♀">នារី | មុខ | ម៉ស្សា | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">នារីគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💆🏼‍♀">នារី | មុខ | ម៉ស្សា | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">នារីគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💆🏽‍♀">នារី | មុខ | ម៉ស្សា | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">នារីគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💆🏾‍♀">នារី | មុខ | ម៉ស្សា | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">នារីគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💆🏿‍♀">នារី | មុខ | ម៉ស្សា | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">នារីគេងម៉ាស្សា: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💇🏻">កាត់សក់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">កន្ត្រៃកំពុងកាត់សក់នារី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💇🏼">កាត់សក់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💇🏼" type="tts">កន្ត្រៃកំពុងកាត់សក់នារី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💇🏽">កាត់សក់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💇🏽" type="tts">កន្ត្រៃកំពុងកាត់សក់នារី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💇🏾">កាត់សក់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💇🏾" type="tts">កន្ត្រៃកំពុងកាត់សក់នារី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💇🏿">កាត់សក់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💇🏿" type="tts">កន្ត្រៃកំពុងកាត់សក់នារី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💇🏻‍♂">កាត់សក់ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">បុរសកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💇🏼‍♂">កាត់សក់ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">បុរសកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💇🏽‍♂">កាត់សក់ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">បុរសកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💇🏾‍♂">កាត់សក់ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">បុរសកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💇🏿‍♂">កាត់សក់ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">បុរសកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💇🏻‍♀">កាត់សក់ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">នារីកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💇🏼‍♀">កាត់សក់ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">នារីកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💇🏽‍♀">កាត់សក់ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">នារីកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💇🏾‍♀">កាត់សក់ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">នារីកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💇🏿‍♀">កាត់សក់ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">នារីកំពុងកាត់សក់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚶🏻">ដើរ | ថ្មើរជើង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">អ្នកថ្មើរជើង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚶🏼">ដើរ | ថ្មើរជើង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚶🏼" type="tts">អ្នកថ្មើរជើង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚶🏽">ដើរ | ថ្មើរជើង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚶🏽" type="tts">អ្នកថ្មើរជើង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚶🏾">ដើរ | ថ្មើរជើង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚶🏾" type="tts">អ្នកថ្មើរជើង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚶🏿">ដើរ | ថ្មើរជើង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚶🏿" type="tts">អ្នកថ្មើរជើង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚶🏻‍♂">ដើរ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">បុរសកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">ដើរ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">បុរសកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚶🏽‍♂">ដើរ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">បុរសកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚶🏾‍♂">ដើរ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">បុរសកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚶🏿‍♂">ដើរ | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">បុរសកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚶🏻‍♀">ដើរ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">នារីកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">ដើរ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">នារីកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚶🏽‍♀">ដើរ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">នារីកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚶🏾‍♀">ដើរ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">នារីកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚶🏿‍♀">ដើរ | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">នារីកំពុុងដើរ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏃🏻">រត់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">អ្នករត់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏃🏼">រត់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏃🏼" type="tts">អ្នករត់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏃🏽">រត់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏃🏽" type="tts">អ្នករត់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏃🏾">រត់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏃🏾" type="tts">អ្នករត់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏃🏿">រត់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏃🏿" type="tts">អ្នករត់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏃🏻‍♂">បុរស | ប្រុស | រត់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">បុរសកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">បុរស | ប្រុស | រត់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">បុរសកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏃🏽‍♂">បុរស | ប្រុស | រត់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">បុរសកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏃🏾‍♂">បុរស | ប្រុស | រត់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">បុរសកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏃🏿‍♂">បុរស | ប្រុស | រត់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">បុរសកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏃🏻‍♀">នារី | រត់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">នារីកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">នារី | រត់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">នារីកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏃🏽‍♀">នារី | រត់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">នារីកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏃🏾‍♀">នារី | រត់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">នារីកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏃🏿‍♀">នារី | រត់ | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">នារីកំពុងរត់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💃🏻">រាំ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">អ្នករាំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💃🏼">រាំ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💃🏼" type="tts">អ្នករាំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💃🏽">រាំ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💃🏽" type="tts">អ្នករាំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💃🏾">រាំ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💃🏾" type="tts">អ្នករាំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💃🏿">រាំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💃🏿" type="tts">អ្នករាំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕺🏻">បុរស | រាំ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">បុុរសកំពុងរាំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕺🏼">បុរស | រាំ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕺🏼" type="tts">បុុរសកំពុងរាំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕺🏽">បុរស | រាំ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕺🏽" type="tts">បុុរសកំពុងរាំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕺🏾">បុរស | រាំ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕺🏾" type="tts">បុុរសកំពុងរាំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕺🏿">បុរស | រាំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕺🏿" type="tts">បុុរសកំពុងរាំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🛀🏻">ដេកត្រាំ | អាង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">មនុស្សកំពុងដេកត្រាំក្នុងអាង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🛀🏼">ដេកត្រាំ | អាង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🛀🏼" type="tts">មនុស្សកំពុងដេកត្រាំក្នុងអាង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🛀🏽">ដេកត្រាំ | អាង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🛀🏽" type="tts">មនុស្សកំពុងដេកត្រាំក្នុងអាង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🛀🏾">ដេកត្រាំ | អាង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🛀🏾" type="tts">មនុស្សកំពុងដេកត្រាំក្នុងអាង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🛀🏿">ដេកត្រាំ | អាង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🛀🏿" type="tts">មនុស្សកំពុងដេកត្រាំក្នុងអាង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🛌🏻">ដេក | មនុស្សដេក | លើគ្រែ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">មនុស្សដេកលើគ្រែ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🛌🏼">ដេក | មនុស្សដេក | លើគ្រែ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🛌🏼" type="tts">មនុស្សដេកលើគ្រែ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🛌🏽">ដេក | មនុស្សដេក | លើគ្រែ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🛌🏽" type="tts">មនុស្សដេកលើគ្រែ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🛌🏾">ដេក | មនុស្សដេក | លើគ្រែ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🛌🏾" type="tts">មនុស្សដេកលើគ្រែ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🛌🏿">ដេក | មនុស្សដេក | លើគ្រែ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🛌🏿" type="tts">មនុស្សដេកលើគ្រែ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕴🏻">ការងារ | សមរម្យ | សម្លៀកបំពាក់ធ្វើការ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">បុរសស្លៀកឈុតធ្វើការ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🕴🏼">ការងារ | សមរម្យ | សម្លៀកបំពាក់ធ្វើការ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕴🏼" type="tts">បុរសស្លៀកឈុតធ្វើការ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🕴🏽">ការងារ | សមរម្យ | សម្លៀកបំពាក់ធ្វើការ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕴🏽" type="tts">បុរសស្លៀកឈុតធ្វើការ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🕴🏾">ការងារ | សមរម្យ | សម្លៀកបំពាក់ធ្វើការ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕴🏾" type="tts">បុរសស្លៀកឈុតធ្វើការ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🕴🏿">ការងារ | សមរម្យ | សម្លៀកបំពាក់ធ្វើការ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🕴🏿" type="tts">បុរសស្លៀកឈុតធ្វើការ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏇🏻">ជិះសេះ | សេះ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">ប្រណាំងសេះ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏇🏼">ជិះសេះ | សេះ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏇🏼" type="tts">ប្រណាំងសេះ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏇🏽">ជិះសេះ | សេះ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏇🏽" type="tts">ប្រណាំងសេះ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏇🏾">ជិះសេះ | សេះ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏇🏾" type="tts">ប្រណាំងសេះ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏇🏿">ជិះសេះ | សេះ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏇🏿" type="tts">ប្រណាំងសេះ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏂🏻">ក្តារស្គី | ជំរាលទឹកកក | អ្នកជិះ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">អ្នកជិះក្តារស្គីលើជំរាលទឹកកក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏂🏼">ក្តារស្គី | ជំរាលទឹកកក | អ្នកជិះ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏂🏼" type="tts">អ្នកជិះក្តារស្គីលើជំរាលទឹកកក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏂🏽">ក្តារស្គី | ជំរាលទឹកកក | អ្នកជិះ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏂🏽" type="tts">អ្នកជិះក្តារស្គីលើជំរាលទឹកកក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏂🏾">ក្តារស្គី | ជំរាលទឹកកក | អ្នកជិះ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏂🏾" type="tts">អ្នកជិះក្តារស្គីលើជំរាលទឹកកក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏂🏿">ក្តារស្គី | ជំរាលទឹកកក | អ្នកជិះ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏂🏿" type="tts">អ្នកជិះក្តារស្គីលើជំរាលទឹកកក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏌🏻">កូនហ្គោល | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">អ្នកវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏌🏼">កូនហ្គោល | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏌🏼" type="tts">អ្នកវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏌🏽">កូនហ្គោល | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏌🏽" type="tts">អ្នកវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏌🏾">កូនហ្គោល | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏌🏾" type="tts">អ្នកវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏌🏿">កូនហ្គោល | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏌🏿" type="tts">អ្នកវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏌🏻‍♂">កូនហ្គោល | បុរស | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">បុរសវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">កូនហ្គោល | បុរស | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">បុរសវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏌🏽‍♂">កូនហ្គោល | បុរស | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">បុរសវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏌🏾‍♂">កូនហ្គោល | បុរស | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">បុរសវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏌🏿‍♂">កូនហ្គោល | បុរស | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">បុរសវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏌🏻‍♀">កូនហ្គោល | នារី | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">នារីវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">កូនហ្គោល | នារី | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">នារីវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏌🏽‍♀">កូនហ្គោល | នារី | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">នារីវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏌🏾‍♀">កូនហ្គោល | នារី | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">នារីវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏌🏿‍♀">កូនហ្គោល | នារី | វាយកូនហ្គោល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">នារីវាយកូនហ្គោល: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏄🏻">រលក | អ្នកជិះក្តារ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">អ្នកជិះក្តារលើរលក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏄🏼">រលក | អ្នកជិះក្តារ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏄🏼" type="tts">អ្នកជិះក្តារលើរលក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏄🏽">រលក | អ្នកជិះក្តារ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏄🏽" type="tts">អ្នកជិះក្តារលើរលក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏄🏾">រលក | អ្នកជិះក្តារ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏄🏾" type="tts">អ្នកជិះក្តារលើរលក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏄🏿">រលក | អ្នកជិះក្តារ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏄🏿" type="tts">អ្នកជិះក្តារលើរលក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏄🏻‍♂">ជិះក្តារលើទឹក | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">បុរសជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">ជិះក្តារលើទឹក | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">បុរសជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏄🏽‍♂">ជិះក្តារលើទឹក | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">បុរសជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏄🏾‍♂">ជិះក្តារលើទឹក | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">បុរសជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏄🏿‍♂">ជិះក្តារលើទឹក | បុរស | ប្រុស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">បុរសជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏄🏻‍♀">ជិះក្តារលើទឹក | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">នារីជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">ជិះក្តារលើទឹក | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">នារីជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏄🏽‍♀">ជិះក្តារលើទឹក | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">នារីជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏄🏾‍♀">ជិះក្តារលើទឹក | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">នារីជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏄🏿‍♀">ជិះក្តារលើទឹក | នារី | ស្រី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">នារីជិះក្តារលើទឹក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚣🏻">ទូក | អ៊ុំ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">ទូកអ៊ុំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚣🏼">ទូក | អ៊ុំ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚣🏼" type="tts">ទូកអ៊ុំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚣🏽">ទូក | អ៊ុំ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚣🏽" type="tts">ទូកអ៊ុំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚣🏾">ទូក | អ៊ុំ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚣🏾" type="tts">ទូកអ៊ុំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚣🏿">ទូក | អ៊ុំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚣🏿" type="tts">ទូកអ៊ុំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚣🏻‍♂">បុរស | អុំទូក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">បុរសអុំទូក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">បុរស | អុំទូក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">បុរសអុំទូក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚣🏽‍♂">បុរស | អុំទូក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">បុរសអុំទូក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚣🏾‍♂">បុរស | អុំទូក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">បុរសអុំទូក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚣🏿‍♂">បុរស | អុំទូក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">បុរសអុំទូក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚣🏻‍♀">នារី | អុំទូក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">នារីអុំទូក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">នារី | អុំទូក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">នារីអុំទូក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚣🏽‍♀">នារី | អុំទូក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">នារីអុំទូក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚣🏾‍♀">នារី | អុំទូក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">នារីអុំទូក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚣🏿‍♀">នារី | អុំទូក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">នារីអុំទូក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏊🏻">ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">អ្នកហែលទឹក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏊🏼">ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏊🏼" type="tts">អ្នកហែលទឹក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏊🏽">ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏊🏽" type="tts">អ្នកហែលទឹក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏊🏾">ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏊🏾" type="tts">អ្នកហែលទឹក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏊🏿">ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏊🏿" type="tts">អ្នកហែលទឹក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏊🏻‍♂">បុរស | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">បុរសហែលទឹក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">បុរស | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">បុរសហែលទឹក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏊🏽‍♂">បុរស | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">បុរសហែលទឹក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏊🏾‍♂">បុរស | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">បុរសហែលទឹក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏊🏿‍♂">បុរស | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">បុរសហែលទឹក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏊🏻‍♀">នារី | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">នារីហែលទឹក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">នារី | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">នារីហែលទឹក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏊🏽‍♀">នារី | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">នារីហែលទឹក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏊🏾‍♀">នារី | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">នារីហែលទឹក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏊🏿‍♀">នារី | ហែល | ហែលទឹក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">នារីហែលទឹក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="⛹🏻">បោកបាល់ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">មនុស្សបោកបាល់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="⛹🏼">បោកបាល់ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="⛹🏼" type="tts">មនុស្សបោកបាល់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="⛹🏽">បោកបាល់ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="⛹🏽" type="tts">មនុស្សបោកបាល់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="⛹🏾">បោកបាល់ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="⛹🏾" type="tts">មនុស្សបោកបាល់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="⛹🏿">បោកបាល់ | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="⛹🏿" type="tts">មនុស្សបោកបាល់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="⛹🏻‍♂">បាល់ | បុរស | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">បុរសបោកបាល់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">បាល់ | បុរស | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">បុរសបោកបាល់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="⛹🏽‍♂">បាល់ | បុរស | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">បុរសបោកបាល់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="⛹🏾‍♂">បាល់ | បុរស | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">បុរសបោកបាល់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="⛹🏿‍♂">បាល់ | បុរស | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">បុរសបោកបាល់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="⛹🏻‍♀">នារី | បាល់ | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">នារីបោកបាល់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">នារី | បាល់ | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">នារីបោកបាល់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="⛹🏽‍♀">នារី | បាល់ | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">នារីបោកបាល់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="⛹🏾‍♀">នារី | បាល់ | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">នារីបោកបាល់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="⛹🏿‍♀">នារី | បាល់ | បោកបាល់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">នារីបោកបាល់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏋🏻">របាដុំដែក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">អ្នកលើរបាដុំដែក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏋🏼">របាដុំដែក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏋🏼" type="tts">អ្នកលើរបាដុំដែក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏋🏽">របាដុំដែក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏋🏽" type="tts">អ្នកលើរបាដុំដែក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏋🏾">របាដុំដែក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏋🏾" type="tts">អ្នកលើរបាដុំដែក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏋🏿">របាដុំដែក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏋🏿" type="tts">អ្នកលើរបាដុំដែក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏋🏻‍♂">ដុំដែក | បុរស | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">បុរសលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">ដុំដែក | បុរស | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">បុរសលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏋🏽‍♂">ដុំដែក | បុរស | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">បុរសលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏋🏾‍♂">ដុំដែក | បុរស | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">បុរសលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏋🏿‍♂">ដុំដែក | បុរស | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">បុរសលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏋🏻‍♀">ដុំដែក | នារី | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">នារីលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">ដុំដែក | នារី | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">នារីលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🏋🏽‍♀">ដុំដែក | នារី | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">នារីលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🏋🏾‍♀">ដុំដែក | នារី | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">នារីលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🏋🏿‍♀">ដុំដែក | នារី | លើកដុំដែក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">នារីលើកដុំដែក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚴🏻">កង់ | ជិះកង់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">អ្នកជិះកង់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚴🏼">កង់ | ជិះកង់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚴🏼" type="tts">អ្នកជិះកង់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚴🏽">កង់ | ជិះកង់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚴🏽" type="tts">អ្នកជិះកង់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚴🏾">កង់ | ជិះកង់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚴🏾" type="tts">អ្នកជិះកង់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚴🏿">កង់ | ជិះកង់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚴🏿" type="tts">អ្នកជិះកង់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚴🏻‍♂">កង់ | ជិះកង់ | បុរស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">បុរសជិះកង់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">កង់ | ជិះកង់ | បុរស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">បុរសជិះកង់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚴🏽‍♂">កង់ | ជិះកង់ | បុរស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">បុរសជិះកង់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚴🏾‍♂">កង់ | ជិះកង់ | បុរស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">បុរសជិះកង់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚴🏿‍♂">កង់ | ជិះកង់ | បុរស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">បុរសជិះកង់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚴🏻‍♀">កង់ | ជិះកង់ | នារី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">នារីជិះកង់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">កង់ | ជិះកង់ | នារី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">នារីជិះកង់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚴🏽‍♀">កង់ | ជិះកង់ | នារី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">នារីជិះកង់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚴🏾‍♀">កង់ | ជិះកង់ | នារី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">នារីជិះកង់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚴🏿‍♀">កង់ | ជិះកង់ | នារី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">នារីជិះកង់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚵🏻">កង់ | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">អ្នកជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚵🏼">កង់ | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚵🏼" type="tts">អ្នកជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚵🏽">កង់ | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚵🏽" type="tts">អ្នកជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚵🏾">កង់ | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚵🏾" type="tts">អ្នកជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚵🏿">កង់ | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚵🏿" type="tts">អ្នកជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚵🏻‍♂">កង់ | បុរស | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">បុរសជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">កង់ | បុរស | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">បុរសជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚵🏽‍♂">កង់ | បុរស | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">បុរសជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚵🏾‍♂">កង់ | បុរស | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">បុរសជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚵🏿‍♂">កង់ | បុរស | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">បុរសជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚵🏻‍♀">កង់ | នារី | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">នារីជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">កង់ | នារី | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">នារីជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🚵🏽‍♀">កង់ | នារី | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">នារីជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🚵🏾‍♀">កង់ | នារី | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">នារីជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🚵🏿‍♀">កង់ | នារី | ភ្នំ | អ្នកជិះកង់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">នារីជិះកង់ឡើងភ្នំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤸🏻">កន្លែងហាត់ប្រាណ | កីឡា | ប៉ាហ៊ី | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">ប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤸🏼">កន្លែងហាត់ប្រាណ | កីឡា | ប៉ាហ៊ី | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤸🏼" type="tts">ប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤸🏽">កន្លែងហាត់ប្រាណ | កីឡា | ប៉ាហ៊ី | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤸🏽" type="tts">ប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤸🏾">កន្លែងហាត់ប្រាណ | កីឡា | ប៉ាហ៊ី | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤸🏾" type="tts">ប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤸🏿">កន្លែងហាត់ប្រាណ | កីឡា | ប៉ាហ៊ី | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤸🏿" type="tts">ប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤸🏻‍♂">កាយវប្បកម្ម | កីឡា | បុរស | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">បុរសកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">កាយវប្បកម្ម | កីឡា | បុរស | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">បុរសកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤸🏽‍♂">កាយវប្បកម្ម | កីឡា | បុរស | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">បុរសកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤸🏾‍♂">កាយវប្បកម្ម | កីឡា | បុរស | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">បុរសកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤸🏿‍♂">កាយវប្បកម្ម | កីឡា | បុរស | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">បុរសកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤸🏻‍♀">កាយវប្បកម្ម | កីឡា | នារី | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">នារីកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">កាយវប្បកម្ម | កីឡា | នារី | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">នារីកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤸🏽‍♀">កាយវប្បកម្ម | កីឡា | នារី | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">នារីកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤸🏾‍♀">កាយវប្បកម្ម | កីឡា | នារី | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">នារីកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤸🏿‍♀">កាយវប្បកម្ម | កីឡា | នារី | ប៉ាហ៊ី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">នារីកំពុងប៉ាហ៊ី: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤽🏻">កីឡា | កីឡាបោះបាល់ | ទឹក | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">កីឡាគប់បាល់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤽🏼">កីឡា | កីឡាបោះបាល់ | ទឹក | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤽🏼" type="tts">កីឡាគប់បាល់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤽🏽">កីឡា | កីឡាបោះបាល់ | ទឹក | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤽🏽" type="tts">កីឡាគប់បាល់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤽🏾">កីឡា | កីឡាបោះបាល់ | ទឹក | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤽🏾" type="tts">កីឡាគប់បាល់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤽🏿">កីឡា | កីឡាបោះបាល់ | ទឹក | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤽🏿" type="tts">កីឡាគប់បាល់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤽🏻‍♂">កីឡា | ក្នុងទឹក | គប់បាល់ | បុរស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">បុរសលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">កីឡា | ក្នុងទឹក | គប់បាល់ | បុរស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">បុរសលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤽🏽‍♂">កីឡា | ក្នុងទឹក | គប់បាល់ | បុរស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">បុរសលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤽🏾‍♂">កីឡា | ក្នុងទឹក | គប់បាល់ | បុរស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">បុរសលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤽🏿‍♂">កីឡា | ក្នុងទឹក | គប់បាល់ | បុរស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">បុរសលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤽🏻‍♀">កីឡា | ក្នុងទឹក | គប់បាល់ | នារី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">នារីលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">កីឡា | ក្នុងទឹក | គប់បាល់ | នារី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">នារីលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤽🏽‍♀">កីឡា | ក្នុងទឹក | គប់បាល់ | នារី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">នារីលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤽🏾‍♀">កីឡា | ក្នុងទឹក | គប់បាល់ | នារី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">នារីលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤽🏿‍♀">កីឡា | ក្នុងទឹក | គប់បាល់ | នារី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">នារីលេងបាល់គប់ក្នុងទឹក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤾🏻">កីឡា | បាល់ | បាល់អោប | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">មនុស្ស​កំពុងលេងបាល់គប់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤾🏼">កីឡា | បាល់ | បាល់អោប | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤾🏼" type="tts">មនុស្ស​កំពុងលេងបាល់គប់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤾🏽">កីឡា | បាល់ | បាល់អោប | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤾🏽" type="tts">មនុស្ស​កំពុងលេងបាល់គប់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤾🏾">កីឡា | បាល់ | បាល់អោប | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤾🏾" type="tts">មនុស្ស​កំពុងលេងបាល់គប់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤾🏿">កីឡា | បាល់ | បាល់អោប | មនុស្ស | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤾🏿" type="tts">មនុស្ស​កំពុងលេងបាល់គប់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤾🏻‍♂">កីឡា | បាល់ឱប | បុរស | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">បុរសលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">កីឡា | បាល់ឱប | បុរស | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">បុរសលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤾🏽‍♂">កីឡា | បាល់ឱប | បុរស | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">បុរសលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤾🏾‍♂">កីឡា | បាល់ឱប | បុរស | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">បុរសលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤾🏿‍♂">កីឡា | បាល់ឱប | បុរស | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">បុរសលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤾🏻‍♀">កីឡា | នារី | បាល់ឱប | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">នារីលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">កីឡា | នារី | បាល់ឱប | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">នារីលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤾🏽‍♀">កីឡា | នារី | បាល់ឱប | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">នារីលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤾🏾‍♀">កីឡា | នារី | បាល់ឱប | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">នារីលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤾🏿‍♀">កីឡា | នារី | បាល់ឱប | លេងបាល់ឱប | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">នារីលេងបាល់ឱប: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤹🏻">កិច្ចការចំរុះ | ជំនាញ | ត្រេះ | លំនឹង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">ត្រេះបាល់: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤹🏼">កិច្ចការចំរុះ | ជំនាញ | ត្រេះ | លំនឹង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤹🏼" type="tts">ត្រេះបាល់: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤹🏽">កិច្ចការចំរុះ | ជំនាញ | ត្រេះ | លំនឹង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤹🏽" type="tts">ត្រេះបាល់: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤹🏾">កិច្ចការចំរុះ | ជំនាញ | ត្រេះ | លំនឹង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤹🏾" type="tts">ត្រេះបាល់: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤹🏿">កិច្ចការចំរុះ | ជំនាញ | ត្រេះ | លំនឹង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤹🏿" type="tts">ត្រេះបាល់: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤹🏻‍♂">ត្រែះ | បុរស | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">បុរសលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">ត្រែះ | បុរស | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">បុរសលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤹🏽‍♂">ត្រែះ | បុរស | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">បុរសលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤹🏾‍♂">ត្រែះ | បុរស | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">បុរសលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤹🏿‍♂">ត្រែះ | បុរស | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">បុរសលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤹🏻‍♀">ត្រែះ | នារី | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">នារីលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">ត្រែះ | នារី | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">នារីលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤹🏽‍♀">ត្រែះ | នារី | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">នារីលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤹🏾‍♀">ត្រែះ | នារី | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">នារីលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤹🏿‍♀">ត្រែះ | នារី | ពហុជំនាញ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">នារីលេងត្រែះ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">ថើប | បេះដូង | ស្នេហា | ស្រលាញ់ | មុខស្រ្តី | មុខបុរសមានពុកមាត់</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">មនុស្សពីរនាក់បម្រុងថើបគ្នា: មុខស្រ្តី មុខបុរសមានពុកមាត់</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">ថើប | បេះដូង | ស្នេហា | ស្រលាញ់ | មុខបុរសមានពុកមាត់</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">មនុស្សពីរនាក់បម្រុងថើបគ្នា: មុខបុរសមានពុកមាត់ មុខបុរសមានពុកមាត់</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">ថើប | បេះដូង | ស្នេហា | ស្រលាញ់ | មុខស្រ្តី</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">មនុស្សពីរនាក់បម្រុងថើបគ្នា: មុខស្រ្តី មុខស្រ្តី</annotation>
+		<annotation cp="👩‍❤‍👨">គូស្នេហ៍ | បេះដូង | ស្នេហា | មុខស្រ្តី | មុខបុរសមានពុកមាត់</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">បេះដូងនៅចន្លោះគូស្នេហ៍: មុខស្រ្តី មុខបុរសមានពុកមាត់</annotation>
+		<annotation cp="👨‍❤‍👨">គូស្នេហ៍ | បេះដូង | ស្នេហា | មុខបុរសមានពុកមាត់</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">បេះដូងនៅចន្លោះគូស្នេហ៍: មុខបុរសមានពុកមាត់ មុខបុរសមានពុកមាត់</annotation>
+		<annotation cp="👩‍❤‍👩">គូស្នេហ៍ | បេះដូង | ស្នេហា | មុខស្រ្តី</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">បេះដូងនៅចន្លោះគូស្នេហ៍: មុខស្រ្តី មុខស្រ្តី</annotation>
+		<annotation cp="👨‍👩‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខស្រ្តី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខស្រ្តី មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👩‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខស្រ្តី | មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខស្រ្តី មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខស្រ្តី | មុខក្មេងស្រី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខស្រ្តី មុខក្មេងស្រី មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខស្រ្តី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខស្រ្តី មុខក្មេងប្រុស មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខស្រ្តី | មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខស្រ្តី មុខក្មេងស្រី មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👨‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខបុរសមានពុកមាត់ មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👨‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខបុរសមានពុកមាត់ មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងស្រី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខបុរសមានពុកមាត់ មុខក្មេងស្រី មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខបុរសមានពុកមាត់ មុខក្មេងប្រុស មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខបុរសមានពុកមាត់ មុខក្មេងស្រី មុខក្មេងស្រី</annotation>
+		<annotation cp="👩‍👩‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខស្រ្តី មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👩‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងស្រី</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខស្រ្តី មុខក្មេងស្រី</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងស្រី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខស្រ្តី មុខក្មេងស្រី មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខស្រ្តី មុខក្មេងប្រុស មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងស្រី</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខស្រ្តី មុខក្មេងស្រី មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👦‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខក្មេងប្រុស មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👧‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងស្រី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខក្មេងស្រី មុខក្មេងប្រុស</annotation>
+		<annotation cp="👨‍👧‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខបុរសមានពុកមាត់ | មុខក្មេងស្រី</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខបុរសមានពុកមាត់ មុខក្មេងស្រី មុខក្មេងស្រី</annotation>
+		<annotation cp="👩‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👦‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខក្មេងប្រុស មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងស្រី</annotation>
+		<annotation cp="👩‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខក្មេងស្រី</annotation>
+		<annotation cp="👩‍👧‍👦">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងស្រី | មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខក្មេងស្រី មុខក្មេងប្រុស</annotation>
+		<annotation cp="👩‍👧‍👧">គ្រួសារ | ឳពុកម្តាយ | មុខស្រ្តី | មុខក្មេងស្រី</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">ឪពុកម្តាយនិងកូន: មុខស្រ្តី មុខក្មេងស្រី មុខក្មេងស្រី</annotation>
+		<annotation cp="🤳🏻">selfie | កាមេរ៉ា | ថត | ទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">ថត selfie: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤳🏼">selfie | កាមេរ៉ា | ថត | ទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤳🏼" type="tts">ថត selfie: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤳🏽">selfie | កាមេរ៉ា | ថត | ទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤳🏽" type="tts">ថត selfie: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤳🏾">selfie | កាមេរ៉ា | ថត | ទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤳🏾" type="tts">ថត selfie: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤳🏿">selfie | កាមេរ៉ា | ថត | ទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤳🏿" type="tts">ថត selfie: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💪🏻">ដៃ | សាចដុំ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">សាច់ដុំដើមដៃ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💪🏼">ដៃ | សាចដុំ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💪🏼" type="tts">សាច់ដុំដើមដៃ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💪🏽">ដៃ | សាចដុំ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💪🏽" type="tts">សាច់ដុំដើមដៃ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💪🏾">ដៃ | សាចដុំ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💪🏾" type="tts">សាច់ដុំដើមដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💪🏿">ដៃ | សាចដុំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💪🏿" type="tts">សាច់ដុំដើមដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👈🏻">ចង្អុល | ឆ្វេង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">ចង្អុលទៅឆ្វេង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👈🏼">ចង្អុល | ឆ្វេង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👈🏼" type="tts">ចង្អុលទៅឆ្វេង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👈🏽">ចង្អុល | ឆ្វេង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👈🏽" type="tts">ចង្អុលទៅឆ្វេង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👈🏾">ចង្អុល | ឆ្វេង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👈🏾" type="tts">ចង្អុលទៅឆ្វេង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👈🏿">ចង្អុល | ឆ្វេង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👈🏿" type="tts">ចង្អុលទៅឆ្វេង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👉🏻">ចង្អុល | ស្តាំ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">ចង្អុលទៅស្តាំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👉🏼">ចង្អុល | ស្តាំ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👉🏼" type="tts">ចង្អុលទៅស្តាំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👉🏽">ចង្អុល | ស្តាំ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👉🏽" type="tts">ចង្អុលទៅស្តាំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👉🏾">ចង្អុល | ស្តាំ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👉🏾" type="tts">ចង្អុលទៅស្តាំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👉🏿">ចង្អុល | ស្តាំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👉🏿" type="tts">ចង្អុលទៅស្តាំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="☝🏻">ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">ចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="☝🏼">ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="☝🏼" type="tts">ចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="☝🏽">ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="☝🏽" type="tts">ចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="☝🏾">ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="☝🏾" type="tts">ចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="☝🏿">ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="☝🏿" type="tts">ចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👆🏻">ខ្នងដៃ | ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">ចង្អុលទៅលើដោយបង្ហាញខ្នងដៃ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👆🏼">ខ្នងដៃ | ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👆🏼" type="tts">ចង្អុលទៅលើដោយបង្ហាញខ្នងដៃ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👆🏽">ខ្នងដៃ | ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👆🏽" type="tts">ចង្អុលទៅលើដោយបង្ហាញខ្នងដៃ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👆🏾">ខ្នងដៃ | ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👆🏾" type="tts">ចង្អុលទៅលើដោយបង្ហាញខ្នងដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👆🏿">ខ្នងដៃ | ចង្អុល | លើ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👆🏿" type="tts">ចង្អុលទៅលើដោយបង្ហាញខ្នងដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🖕🏻">ចង្អុល | ជេរ | ដៃកណ្តាល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">ម្រាមកណ្តាលចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🖕🏼">ចង្អុល | ជេរ | ដៃកណ្តាល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🖕🏼" type="tts">ម្រាមកណ្តាលចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🖕🏽">ចង្អុល | ជេរ | ដៃកណ្តាល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🖕🏽" type="tts">ម្រាមកណ្តាលចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🖕🏾">ចង្អុល | ជេរ | ដៃកណ្តាល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🖕🏾" type="tts">ម្រាមកណ្តាលចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🖕🏿">ចង្អុល | ជេរ | ដៃកណ្តាល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🖕🏿" type="tts">ម្រាមកណ្តាលចង្អុលទៅលើ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👇🏻">ក្រោម | ចង្អុល | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">ចង្អុលទៅក្រោម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👇🏼">ក្រោម | ចង្អុល | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👇🏼" type="tts">ចង្អុលទៅក្រោម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👇🏽">ក្រោម | ចង្អុល | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👇🏽" type="tts">ចង្អុលទៅក្រោម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👇🏾">ក្រោម | ចង្អុល | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👇🏾" type="tts">ចង្អុលទៅក្រោម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👇🏿">ក្រោម | ចង្អុល | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👇🏿" type="tts">ចង្អុលទៅក្រោម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="✌🏻">V | ម្រាមពីរ | អក្សរវី | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">លើម្រាមដៃពីរជាអក្សរ V: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="✌🏼">V | ម្រាមពីរ | អក្សរវី | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="✌🏼" type="tts">លើម្រាមដៃពីរជាអក្សរ V: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="✌🏽">V | ម្រាមពីរ | អក្សរវី | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="✌🏽" type="tts">លើម្រាមដៃពីរជាអក្សរ V: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="✌🏾">V | ម្រាមពីរ | អក្សរវី | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="✌🏾" type="tts">លើម្រាមដៃពីរជាអក្សរ V: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="✌🏿">V | ម្រាមពីរ | អក្សរវី | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="✌🏿" type="tts">លើម្រាមដៃពីរជាអក្សរ V: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤞🏻">ខ្វែង | ដៃ | ម្រាមដៃ | សំណាង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">ខ្វែងម្រាមដៃ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤞🏼">ខ្វែង | ដៃ | ម្រាមដៃ | សំណាង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤞🏼" type="tts">ខ្វែងម្រាមដៃ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤞🏽">ខ្វែង | ដៃ | ម្រាមដៃ | សំណាង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤞🏽" type="tts">ខ្វែងម្រាមដៃ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤞🏾">ខ្វែង | ដៃ | ម្រាមដៃ | សំណាង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤞🏾" type="tts">ខ្វែងម្រាមដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤞🏿">ខ្វែង | ដៃ | ម្រាមដៃ | សំណាង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤞🏿" type="tts">ខ្វែងម្រាមដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🖖🏻">ម្រាមផ្គុំ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">ផ្គុំម្រាមដៃជាពីរគូ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🖖🏼">ម្រាមផ្គុំ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🖖🏼" type="tts">ផ្គុំម្រាមដៃជាពីរគូ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🖖🏽">ម្រាមផ្គុំ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🖖🏽" type="tts">ផ្គុំម្រាមដៃជាពីរគូ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🖖🏾">ម្រាមផ្គុំ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🖖🏾" type="tts">ផ្គុំម្រាមដៃជាពីរគូ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🖖🏿">ម្រាមផ្គុំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🖖🏿" type="tts">ផ្គុំម្រាមដៃជាពីរគូ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤘🏻">ម្រាមពីរ | ស្នែង | អេម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">ប្រើម្រាមធ្វើជាសញ្ញាស្នែង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤘🏼">ម្រាមពីរ | ស្នែង | អេម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤘🏼" type="tts">ប្រើម្រាមធ្វើជាសញ្ញាស្នែង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤘🏽">ម្រាមពីរ | ស្នែង | អេម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤘🏽" type="tts">ប្រើម្រាមធ្វើជាសញ្ញាស្នែង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤘🏾">ម្រាមពីរ | ស្នែង | អេម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤘🏾" type="tts">ប្រើម្រាមធ្វើជាសញ្ញាស្នែង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤘🏿">ម្រាមពីរ | ស្នែង | អេម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤘🏿" type="tts">ប្រើម្រាមធ្វើជាសញ្ញាស្នែង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤙🏻">ដៃ | តេទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">ដៃជាសញ្ញាតេទូរស័ព្ទ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤙🏼">ដៃ | តេទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤙🏼" type="tts">ដៃជាសញ្ញាតេទូរស័ព្ទ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤙🏽">ដៃ | តេទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤙🏽" type="tts">ដៃជាសញ្ញាតេទូរស័ព្ទ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤙🏾">ដៃ | តេទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤙🏾" type="tts">ដៃជាសញ្ញាតេទូរស័ព្ទ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤙🏿">ដៃ | តេទូរស័ព្ទ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤙🏿" type="tts">ដៃជាសញ្ញាតេទូរស័ព្ទ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🖐🏻">ប្រាំ | ម្រាមដៃ | ម្រាមប្រាំ | ​ បាតដៃ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">លើកម្រាមដៃប្រាំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🖐🏼">ប្រាំ | ម្រាមដៃ | ម្រាមប្រាំ | ​ បាតដៃ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🖐🏼" type="tts">លើកម្រាមដៃប្រាំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🖐🏽">ប្រាំ | ម្រាមដៃ | ម្រាមប្រាំ | ​ បាតដៃ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🖐🏽" type="tts">លើកម្រាមដៃប្រាំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🖐🏾">ប្រាំ | ម្រាមដៃ | ម្រាមប្រាំ | ​ បាតដៃ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🖐🏾" type="tts">លើកម្រាមដៃប្រាំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🖐🏿">ប្រាំ | ម្រាមដៃ | ម្រាមប្រាំ | ​ បាតដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🖐🏿" type="tts">លើកម្រាមដៃប្រាំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="✋🏻">បាតដៃ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">លើកដៃ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="✋🏼">បាតដៃ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="✋🏼" type="tts">លើកដៃ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="✋🏽">បាតដៃ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="✋🏽" type="tts">លើកដៃ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="✋🏾">បាតដៃ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="✋🏾" type="tts">លើកដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="✋🏿">បាតដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="✋🏿" type="tts">លើកដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👌🏻">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">ធ្វើម្រាមដៃ OK: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👌🏼">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👌🏼" type="tts">ធ្វើម្រាមដៃ OK: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👌🏽">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👌🏽" type="tts">ធ្វើម្រាមដៃ OK: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👌🏾">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👌🏾" type="tts">ធ្វើម្រាមដៃ OK: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👌🏿">ok | យល់ព្រម | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👌🏿" type="tts">ធ្វើម្រាមដៃ OK: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👍🏻">ល្អ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">មេដៃឡើងលើ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👍🏼">ល្អ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👍🏼" type="tts">មេដៃឡើងលើ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👍🏽">ល្អ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👍🏽" type="tts">មេដៃឡើងលើ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👍🏾">ល្អ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👍🏾" type="tts">មេដៃឡើងលើ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👍🏿">ល្អ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👍🏿" type="tts">មេដៃឡើងលើ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👎🏻">អន់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">មេដៃចុះក្រោម: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👎🏼">អន់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👎🏼" type="tts">មេដៃចុះក្រោម: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👎🏽">អន់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👎🏽" type="tts">មេដៃចុះក្រោម: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👎🏾">អន់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👎🏾" type="tts">មេដៃចុះក្រោម: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👎🏿">អន់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👎🏿" type="tts">មេដៃចុះក្រោម: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="✊🏻">កណ្តាប់ដៃ | ក្តាប់ | ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">លើកកណ្តាប់ដៃ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="✊🏼">កណ្តាប់ដៃ | ក្តាប់ | ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="✊🏼" type="tts">លើកកណ្តាប់ដៃ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="✊🏽">កណ្តាប់ដៃ | ក្តាប់ | ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="✊🏽" type="tts">លើកកណ្តាប់ដៃ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="✊🏾">កណ្តាប់ដៃ | ក្តាប់ | ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="✊🏾" type="tts">លើកកណ្តាប់ដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="✊🏿">កណ្តាប់ដៃ | ក្តាប់ | ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="✊🏿" type="tts">លើកកណ្តាប់ដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👊🏻">ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">កណ្តាប់ដៃមើលចំពីមុខ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👊🏼">ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👊🏼" type="tts">កណ្តាប់ដៃមើលចំពីមុខ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👊🏽">ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👊🏽" type="tts">កណ្តាប់ដៃមើលចំពីមុខ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👊🏾">ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👊🏾" type="tts">កណ្តាប់ដៃមើលចំពីមុខ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👊🏿">ក្តាប់ដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👊🏿" type="tts">កណ្តាប់ដៃមើលចំពីមុខ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤛🏻">កណ្តាប់ដៃ | ខាងឆ្វេង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">កណ្តាប់ដៃឆ្វេង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤛🏼">កណ្តាប់ដៃ | ខាងឆ្វេង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤛🏼" type="tts">កណ្តាប់ដៃឆ្វេង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤛🏽">កណ្តាប់ដៃ | ខាងឆ្វេង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤛🏽" type="tts">កណ្តាប់ដៃឆ្វេង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤛🏾">កណ្តាប់ដៃ | ខាងឆ្វេង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤛🏾" type="tts">កណ្តាប់ដៃឆ្វេង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤛🏿">កណ្តាប់ដៃ | ខាងឆ្វេង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤛🏿" type="tts">កណ្តាប់ដៃឆ្វេង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤜🏻">កណ្តាប់ដៃ | ខាងស្តាំ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">កណ្តាប់ដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤜🏼">កណ្តាប់ដៃ | ខាងស្តាំ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤜🏼" type="tts">កណ្តាប់ដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤜🏽">កណ្តាប់ដៃ | ខាងស្តាំ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤜🏽" type="tts">កណ្តាប់ដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤜🏾">កណ្តាប់ដៃ | ខាងស្តាំ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤜🏾" type="tts">កណ្តាប់ដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤜🏿">កណ្តាប់ដៃ | ខាងស្តាំ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤜🏿" type="tts">កណ្តាប់ដៃស្តាំ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤚🏻">ខ្នងដៃ | លើកឡើង | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">ខ្នងដៃលាឡើង: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🤚🏼">ខ្នងដៃ | លើកឡើង | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤚🏼" type="tts">ខ្នងដៃលាឡើង: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🤚🏽">ខ្នងដៃ | លើកឡើង | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤚🏽" type="tts">ខ្នងដៃលាឡើង: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🤚🏾">ខ្នងដៃ | លើកឡើង | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤚🏾" type="tts">ខ្នងដៃលាឡើង: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🤚🏿">ខ្នងដៃ | លើកឡើង | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🤚🏿" type="tts">ខ្នងដៃលាឡើង: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👋🏻">ទេ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">គ្រវីដៃ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👋🏼">ទេ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👋🏼" type="tts">គ្រវីដៃ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👋🏽">ទេ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👋🏽" type="tts">គ្រវីដៃ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👋🏾">ទេ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👋🏾" type="tts">គ្រវីដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👋🏿">ទេ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👋🏿" type="tts">គ្រវីដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="✍🏻">ប៊ិច | សរសេរ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">ដៃកាន់ប៊ិចសរសេរ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="✍🏼">ប៊ិច | សរសេរ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="✍🏼" type="tts">ដៃកាន់ប៊ិចសរសេរ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="✍🏽">ប៊ិច | សរសេរ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="✍🏽" type="tts">ដៃកាន់ប៊ិចសរសេរ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="✍🏾">ប៊ិច | សរសេរ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="✍🏾" type="tts">ដៃកាន់ប៊ិចសរសេរ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="✍🏿">ប៊ិច | សរសេរ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="✍🏿" type="tts">ដៃកាន់ប៊ិចសរសេរ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👏🏻">ល្អណាស់ | ស្វាគមន៍ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">ទះដៃ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👏🏼">ល្អណាស់ | ស្វាគមន៍ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👏🏼" type="tts">ទះដៃ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👏🏽">ល្អណាស់ | ស្វាគមន៍ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👏🏽" type="tts">ទះដៃ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👏🏾">ល្អណាស់ | ស្វាគមន៍ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👏🏾" type="tts">ទះដៃ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👏🏿">ល្អណាស់ | ស្វាគមន៍ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👏🏿" type="tts">ទះដៃ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👐🏻">លាដៃ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">លាបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👐🏼">លាដៃ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👐🏼" type="tts">លាបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👐🏽">លាដៃ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👐🏽" type="tts">លាបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👐🏾">លាដៃ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👐🏾" type="tts">លាបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👐🏿">លាដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👐🏿" type="tts">លាបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙌🏻">ដៃ | បាតដៃពីរ | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">លើកបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙌🏼">ដៃ | បាតដៃពីរ | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙌🏼" type="tts">លើកបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙌🏽">ដៃ | បាតដៃពីរ | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙌🏽" type="tts">លើកបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙌🏾">ដៃ | បាតដៃពីរ | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙌🏾" type="tts">លើកបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙌🏿">ដៃ | បាតដៃពីរ | លើកដៃ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙌🏿" type="tts">លើកបង្ហាញបាតដៃទាំងពីរ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙏🏻">គោរព | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">សំពះ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="🙏🏼">គោរព | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙏🏼" type="tts">សំពះ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="🙏🏽">គោរព | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙏🏽" type="tts">សំពះ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="🙏🏾">គោរព | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙏🏾" type="tts">សំពះ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="🙏🏿">គោរព | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="🙏🏿" type="tts">សំពះ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💅🏻">ក្រចក | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">លាបថ្នាំក្រចក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="💅🏼">ក្រចក | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💅🏼" type="tts">លាបថ្នាំក្រចក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="💅🏽">ក្រចក | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💅🏽" type="tts">លាបថ្នាំក្រចក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="💅🏾">ក្រចក | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💅🏾" type="tts">លាបថ្នាំក្រចក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="💅🏿">ក្រចក | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="💅🏿" type="tts">លាបថ្នាំក្រចក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👂🏻">ស្តាប់ | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">ត្រចៀក: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👂🏼">ស្តាប់ | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👂🏼" type="tts">ត្រចៀក: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👂🏽">ស្តាប់ | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👂🏽" type="tts">ត្រចៀក: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👂🏾">ស្តាប់ | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👂🏾" type="tts">ត្រចៀក: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👂🏿">ស្តាប់ | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👂🏿" type="tts">ត្រចៀក: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👃🏻">ហិត | ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">ច្រមុះ: ប្រភេទពណ៌ស្បែកទី 1–2</annotation>
+		<annotation cp="👃🏼">ហិត | ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👃🏼" type="tts">ច្រមុះ: ប្រភេទពណ៌ស្បែកទី 3</annotation>
+		<annotation cp="👃🏽">ហិត | ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👃🏽" type="tts">ច្រមុះ: ប្រភេទពណ៌ស្បែកទី 4</annotation>
+		<annotation cp="👃🏾">ហិត | ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👃🏾" type="tts">ច្រមុះ: ប្រភេទពណ៌ស្បែកទី 5</annotation>
+		<annotation cp="👃🏿">ហិត | ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="👃🏿" type="tts">ច្រមុះ: ប្រភេទពណ៌ស្បែកទី 6</annotation>
+		<annotation cp="#⃣">ទ្រុងជ្រូក | ប៊ូតុង | លេខ</annotation>
+		<annotation cp="#⃣" type="tts">ប៊ូតុងទ្រុងជ្រូក</annotation>
+		<annotation cp="*⃣">ប៊ូតុង | ផ្កាយ</annotation>
+		<annotation cp="*⃣" type="tts">ប៊ូតុងផ្កាយ</annotation>
+		<annotation cp="🇦🇨">ទីង់</annotation>
+		<annotation cp="🇦🇨" type="tts">កោះ​អាសេនសិន</annotation>
+		<annotation cp="🇦🇩">ទីង់</annotation>
+		<annotation cp="🇦🇩" type="tts">អង់ដូរ៉ា</annotation>
+		<annotation cp="🇦🇪">ទីង់</annotation>
+		<annotation cp="🇦🇪" type="tts">អារ៉ាប់រួម</annotation>
+		<annotation cp="🇦🇫">ទីង់</annotation>
+		<annotation cp="🇦🇫" type="tts">អាហ្វហ្គានីស្ថាន</annotation>
+		<annotation cp="🇦🇬">ទីង់</annotation>
+		<annotation cp="🇦🇬" type="tts">អង់ទីហ្គា និង បាប៊ុយដា</annotation>
+		<annotation cp="🇦🇮">ទីង់</annotation>
+		<annotation cp="🇦🇮" type="tts">អង់ហ្គីឡា</annotation>
+		<annotation cp="🇦🇱">ទីង់</annotation>
+		<annotation cp="🇦🇱" type="tts">អាល់បានី</annotation>
+		<annotation cp="🇦🇲">ទីង់</annotation>
+		<annotation cp="🇦🇲" type="tts">អាមេនី</annotation>
+		<annotation cp="🇦🇴">ទីង់</annotation>
+		<annotation cp="🇦🇴" type="tts">អង់ហ្គោឡា</annotation>
+		<annotation cp="🇦🇶">ទីង់</annotation>
+		<annotation cp="🇦🇶" type="tts">អង់តាក់ទិក</annotation>
+		<annotation cp="🇦🇷">ទីង់</annotation>
+		<annotation cp="🇦🇷" type="tts">អាហ្សង់ទីន</annotation>
+		<annotation cp="🇦🇸">ទីង់</annotation>
+		<annotation cp="🇦🇸" type="tts">សាម័រ អាមេរិកាំង</annotation>
+		<annotation cp="🇦🇹">ទីង់</annotation>
+		<annotation cp="🇦🇹" type="tts">អូទ្រីស</annotation>
+		<annotation cp="🇦🇺">ទីង់</annotation>
+		<annotation cp="🇦🇺" type="tts">អូស្ត្រាលី</annotation>
+		<annotation cp="🇦🇼">ទីង់</annotation>
+		<annotation cp="🇦🇼" type="tts">អារូបា</annotation>
+		<annotation cp="🇦🇽">ទីង់</annotation>
+		<annotation cp="🇦🇽" type="tts">កោះ​អាឡាំង</annotation>
+		<annotation cp="🇦🇿">ទីង់</annotation>
+		<annotation cp="🇦🇿" type="tts">អាស៊ែបៃហ្សង់</annotation>
+		<annotation cp="🇧🇦">ទីង់</annotation>
+		<annotation cp="🇧🇦" type="tts">បូស្នី និងហឺហ្សីហ្គូវីណា</annotation>
+		<annotation cp="🇧🇧">ទីង់</annotation>
+		<annotation cp="🇧🇧" type="tts">បាបាដុស</annotation>
+		<annotation cp="🇧🇩">ទីង់</annotation>
+		<annotation cp="🇧🇩" type="tts">បង់ក្លាដែស</annotation>
+		<annotation cp="🇧🇪">ទីង់</annotation>
+		<annotation cp="🇧🇪" type="tts">បែលហ្ស៊ិក</annotation>
+		<annotation cp="🇧🇫">ទីង់</annotation>
+		<annotation cp="🇧🇫" type="tts">បួគីណាហ្វាសូ</annotation>
+		<annotation cp="🇧🇬">ទីង់</annotation>
+		<annotation cp="🇧🇬" type="tts">ប៊ុលហ្គារី</annotation>
+		<annotation cp="🇧🇭">ទីង់</annotation>
+		<annotation cp="🇧🇭" type="tts">បារ៉ែន</annotation>
+		<annotation cp="🇧🇮">ទីង់</annotation>
+		<annotation cp="🇧🇮" type="tts">ប៊ូរុនឌី</annotation>
+		<annotation cp="🇧🇯">ទីង់</annotation>
+		<annotation cp="🇧🇯" type="tts">បេណាំង</annotation>
+		<annotation cp="🇧🇱">ទីង់</annotation>
+		<annotation cp="🇧🇱" type="tts">សង់ បាតេឡេម៉ី</annotation>
+		<annotation cp="🇧🇲">ទីង់</annotation>
+		<annotation cp="🇧🇲" type="tts">ប៊ឺមុយដា</annotation>
+		<annotation cp="🇧🇳">ទីង់</annotation>
+		<annotation cp="🇧🇳" type="tts">ប្រ៊ុយណេ</annotation>
+		<annotation cp="🇧🇴">ទីង់</annotation>
+		<annotation cp="🇧🇴" type="tts">បូលីវី</annotation>
+		<annotation cp="🇧🇶">ទីង់</annotation>
+		<annotation cp="🇧🇶" type="tts">ហុល្លង់ ការ៉ាប៊ីន</annotation>
+		<annotation cp="🇧🇷">ទីង់</annotation>
+		<annotation cp="🇧🇷" type="tts">ប្រេស៊ីល</annotation>
+		<annotation cp="🇧🇸">ទីង់</annotation>
+		<annotation cp="🇧🇸" type="tts">បាហាម៉ា</annotation>
+		<annotation cp="🇧🇹">ទីង់</annotation>
+		<annotation cp="🇧🇹" type="tts">ប៊ូតាន</annotation>
+		<annotation cp="🇧🇻">ទីង់</annotation>
+		<annotation cp="🇧🇻" type="tts">កោះ​ប៊ូវ៉េត</annotation>
+		<annotation cp="🇧🇼">ទីង់</annotation>
+		<annotation cp="🇧🇼" type="tts">បុតស្វាណា</annotation>
+		<annotation cp="🇧🇾">ទីង់</annotation>
+		<annotation cp="🇧🇾" type="tts">បេឡារុស្ស</annotation>
+		<annotation cp="🇧🇿">ទីង់</annotation>
+		<annotation cp="🇧🇿" type="tts">បេលីហ្ស</annotation>
+		<annotation cp="🇨🇦">ទីង់</annotation>
+		<annotation cp="🇨🇦" type="tts">កាណាដា</annotation>
+		<annotation cp="🇨🇨">ទីង់</annotation>
+		<annotation cp="🇨🇨" type="tts">កោះ​កូកូស (គីលីង)</annotation>
+		<annotation cp="🇨🇩">ទីង់</annotation>
+		<annotation cp="🇨🇩" type="tts">កុងហ្គោ- គីនស្ហាសា</annotation>
+		<annotation cp="🇨🇫">ទីង់</annotation>
+		<annotation cp="🇨🇫" type="tts">សាធារណរដ្ឋអាហ្វ្រិកកណ្ដាល</annotation>
+		<annotation cp="🇨🇬">ទីង់</annotation>
+		<annotation cp="🇨🇬" type="tts">កុងហ្គោ - ប្រាហ្សាវីល</annotation>
+		<annotation cp="🇨🇭">ទីង់</annotation>
+		<annotation cp="🇨🇭" type="tts">ស្វីស</annotation>
+		<annotation cp="🇨🇮">ទីង់</annotation>
+		<annotation cp="🇨🇮" type="tts">កូដឌីវ័រ</annotation>
+		<annotation cp="🇨🇰">ទីង់</annotation>
+		<annotation cp="🇨🇰" type="tts">កោះ​ខូក</annotation>
+		<annotation cp="🇨🇱">ទីង់</annotation>
+		<annotation cp="🇨🇱" type="tts">ស៊ីលី</annotation>
+		<annotation cp="🇨🇲">ទីង់</annotation>
+		<annotation cp="🇨🇲" type="tts">កាមេរូន</annotation>
+		<annotation cp="🇨🇳">ទីង់</annotation>
+		<annotation cp="🇨🇳" type="tts">ចិន</annotation>
+		<annotation cp="🇨🇴">ទីង់</annotation>
+		<annotation cp="🇨🇴" type="tts">កូឡុំប៊ី</annotation>
+		<annotation cp="🇨🇵">ទីង់</annotation>
+		<annotation cp="🇨🇵" type="tts">កោះ​ឃ្លីភឺតុន</annotation>
+		<annotation cp="🇨🇷">ទីង់</annotation>
+		<annotation cp="🇨🇷" type="tts">កូស្តារីកា</annotation>
+		<annotation cp="🇨🇺">ទីង់</annotation>
+		<annotation cp="🇨🇺" type="tts">គុយបា</annotation>
+		<annotation cp="🇨🇻">ទីង់</annotation>
+		<annotation cp="🇨🇻" type="tts">កាបវែរ</annotation>
+		<annotation cp="🇨🇼">ទីង់</annotation>
+		<annotation cp="🇨🇼" type="tts">កូរ៉ាកៅ</annotation>
+		<annotation cp="🇨🇽">ទីង់</annotation>
+		<annotation cp="🇨🇽" type="tts">កោះ​គ្រីស្មាស</annotation>
+		<annotation cp="🇨🇾">ទីង់</annotation>
+		<annotation cp="🇨🇾" type="tts">ស៊ីប</annotation>
+		<annotation cp="🇨🇿">ទីង់</annotation>
+		<annotation cp="🇨🇿" type="tts">ឆេគា</annotation>
+		<annotation cp="🇩🇪">ទីង់</annotation>
+		<annotation cp="🇩🇪" type="tts">អាល្លឺម៉ង់</annotation>
+		<annotation cp="🇩🇬">ទីង់</annotation>
+		<annotation cp="🇩🇬" type="tts">ឌៀហ្គោហ្គាស៊ី</annotation>
+		<annotation cp="🇩🇯">ទីង់</annotation>
+		<annotation cp="🇩🇯" type="tts">ជីប៊ូទី</annotation>
+		<annotation cp="🇩🇰">ទីង់</annotation>
+		<annotation cp="🇩🇰" type="tts">ដាណឺម៉ាក</annotation>
+		<annotation cp="🇩🇲">ទីង់</annotation>
+		<annotation cp="🇩🇲" type="tts">ដូមីនីក</annotation>
+		<annotation cp="🇩🇴">ទីង់</annotation>
+		<annotation cp="🇩🇴" type="tts">សាធារណរដ្ឋ​ដូមីនីក</annotation>
+		<annotation cp="🇩🇿">ទីង់</annotation>
+		<annotation cp="🇩🇿" type="tts">អាល់ហ្សេរី</annotation>
+		<annotation cp="🇪🇦">ទីង់</annotation>
+		<annotation cp="🇪🇦" type="tts">ជឺតា និង​ម៉េលីឡា</annotation>
+		<annotation cp="🇪🇨">ទីង់</annotation>
+		<annotation cp="🇪🇨" type="tts">អេក្វាឌ័រ</annotation>
+		<annotation cp="🇪🇪">ទីង់</annotation>
+		<annotation cp="🇪🇪" type="tts">អេស្តូនី</annotation>
+		<annotation cp="🇪🇬">ទីង់</annotation>
+		<annotation cp="🇪🇬" type="tts">អេហ្ស៊ីប</annotation>
+		<annotation cp="🇪🇭">ទីង់</annotation>
+		<annotation cp="🇪🇭" type="tts">សាហារ៉ាខាងលិច</annotation>
+		<annotation cp="🇪🇷">ទីង់</annotation>
+		<annotation cp="🇪🇷" type="tts">អេរីទ្រា</annotation>
+		<annotation cp="🇪🇸">ទីង់</annotation>
+		<annotation cp="🇪🇸" type="tts">អេស្ប៉ាញ</annotation>
+		<annotation cp="🇪🇹">ទីង់</annotation>
+		<annotation cp="🇪🇹" type="tts">អេត្យូពី</annotation>
+		<annotation cp="🇪🇺">ទីង់</annotation>
+		<annotation cp="🇪🇺" type="tts">សហភាព​អឺរ៉ុប</annotation>
+		<annotation cp="🇫🇮">ទីង់</annotation>
+		<annotation cp="🇫🇮" type="tts">ហ្វាំងឡង់</annotation>
+		<annotation cp="🇫🇯">ទីង់</annotation>
+		<annotation cp="🇫🇯" type="tts">ហ្វីជី</annotation>
+		<annotation cp="🇫🇰">ទីង់</annotation>
+		<annotation cp="🇫🇰" type="tts">កោះ​ហ្វក់ឡែន</annotation>
+		<annotation cp="🇫🇲">ទីង់</annotation>
+		<annotation cp="🇫🇲" type="tts">មីក្រូណេស៊ី</annotation>
+		<annotation cp="🇫🇴">ទីង់</annotation>
+		<annotation cp="🇫🇴" type="tts">កោះ​ហ្វារ៉ូ</annotation>
+		<annotation cp="🇫🇷">ទីង់</annotation>
+		<annotation cp="🇫🇷" type="tts">បារាំង</annotation>
+		<annotation cp="🇬🇦">ទីង់</annotation>
+		<annotation cp="🇬🇦" type="tts">ហ្គាបុង</annotation>
+		<annotation cp="🇬🇧">ទីង់</annotation>
+		<annotation cp="🇬🇧" type="tts">ចក្រភព​អង់គ្លេស</annotation>
+		<annotation cp="🇬🇩">ទីង់</annotation>
+		<annotation cp="🇬🇩" type="tts">ហ្គ្រីណាដា</annotation>
+		<annotation cp="🇬🇪">ទីង់</annotation>
+		<annotation cp="🇬🇪" type="tts">ហ្សកហ្ស៊ី</annotation>
+		<annotation cp="🇬🇫">ទីង់</annotation>
+		<annotation cp="🇬🇫" type="tts">ហ្គៀណាបារាំង</annotation>
+		<annotation cp="🇬🇬">ទីង់</annotation>
+		<annotation cp="🇬🇬" type="tts">ហ្គេនស៊ី</annotation>
+		<annotation cp="🇬🇭">ទីង់</annotation>
+		<annotation cp="🇬🇭" type="tts">ហ្គាណា</annotation>
+		<annotation cp="🇬🇮">ទីង់</annotation>
+		<annotation cp="🇬🇮" type="tts">ហ្គីប្រាលតា</annotation>
+		<annotation cp="🇬🇱">ទីង់</annotation>
+		<annotation cp="🇬🇱" type="tts">ហ្គ្រោអង់ឡង់</annotation>
+		<annotation cp="🇬🇲">ទីង់</annotation>
+		<annotation cp="🇬🇲" type="tts">ហ្គាំប៊ី</annotation>
+		<annotation cp="🇬🇳">ទីង់</annotation>
+		<annotation cp="🇬🇳" type="tts">ហ្គីណេ</annotation>
+		<annotation cp="🇬🇵">ទីង់</annotation>
+		<annotation cp="🇬🇵" type="tts">ហ្គោដឺឡុប</annotation>
+		<annotation cp="🇬🇶">ទីង់</annotation>
+		<annotation cp="🇬🇶" type="tts">ហ្គីណេអេក្វាទ័រ</annotation>
+		<annotation cp="🇬🇷">ទីង់</annotation>
+		<annotation cp="🇬🇷" type="tts">ក្រិក</annotation>
+		<annotation cp="🇬🇸">ទីង់</annotation>
+		<annotation cp="🇬🇸" type="tts">កោះ​ហ្សកហ្ស៊ី​ខាង​ត្បូង និង សាន់វិច​ខាង​ត្បូង</annotation>
+		<annotation cp="🇬🇹">ទីង់</annotation>
+		<annotation cp="🇬🇹" type="tts">ហ្គាតេម៉ាឡា</annotation>
+		<annotation cp="🇬🇺">ទីង់</annotation>
+		<annotation cp="🇬🇺" type="tts">ហ្គាំ</annotation>
+		<annotation cp="🇬🇼">ទីង់</annotation>
+		<annotation cp="🇬🇼" type="tts">ហ្គីណេប៊ីសូ</annotation>
+		<annotation cp="🇬🇾">ទីង់</annotation>
+		<annotation cp="🇬🇾" type="tts">ហ្គីយ៉ាណា</annotation>
+		<annotation cp="🇭🇰">ទីង់</annotation>
+		<annotation cp="🇭🇰" type="tts">ហុងកុង</annotation>
+		<annotation cp="🇭🇲">ទីង់</annotation>
+		<annotation cp="🇭🇲" type="tts">កោះ​ហឺដ និង​ម៉ាក់ដូណាល់</annotation>
+		<annotation cp="🇭🇳">ទីង់</annotation>
+		<annotation cp="🇭🇳" type="tts">ហុងឌូរ៉ាស</annotation>
+		<annotation cp="🇭🇷">ទីង់</annotation>
+		<annotation cp="🇭🇷" type="tts">ក្រូអាត</annotation>
+		<annotation cp="🇭🇹">ទីង់</annotation>
+		<annotation cp="🇭🇹" type="tts">ហៃទី</annotation>
+		<annotation cp="🇭🇺">ទីង់</annotation>
+		<annotation cp="🇭🇺" type="tts">ហុងគ្រី</annotation>
+		<annotation cp="🇮🇨">ទីង់</annotation>
+		<annotation cp="🇮🇨" type="tts">កោះ​កាណារី</annotation>
+		<annotation cp="🇮🇩">ទីង់</annotation>
+		<annotation cp="🇮🇩" type="tts">ឥណ្ឌូណេស៊ី</annotation>
+		<annotation cp="🇮🇪">ទីង់</annotation>
+		<annotation cp="🇮🇪" type="tts">អៀរឡង់</annotation>
+		<annotation cp="🇮🇱">ទីង់</annotation>
+		<annotation cp="🇮🇱" type="tts">អ៊ីស្រាអែល</annotation>
+		<annotation cp="🇮🇲">ទីង់</annotation>
+		<annotation cp="🇮🇲" type="tts">អែលអុហ្វមែន</annotation>
+		<annotation cp="🇮🇳">ទីង់</annotation>
+		<annotation cp="🇮🇳" type="tts">ឥណ្ឌា</annotation>
+		<annotation cp="🇮🇴">ទីង់</annotation>
+		<annotation cp="🇮🇴" type="tts">ដែនដី​អង់គ្លេស​នៅ​មហា​សមុទ្រ​ឥណ្ឌា</annotation>
+		<annotation cp="🇮🇶">ទីង់</annotation>
+		<annotation cp="🇮🇶" type="tts">អ៊ីរ៉ាក់</annotation>
+		<annotation cp="🇮🇷">ទីង់</annotation>
+		<annotation cp="🇮🇷" type="tts">អ៊ីរ៉ង់</annotation>
+		<annotation cp="🇮🇸">ទីង់</annotation>
+		<annotation cp="🇮🇸" type="tts">អ៊ីស្លង់</annotation>
+		<annotation cp="🇮🇹">ទីង់</annotation>
+		<annotation cp="🇮🇹" type="tts">អ៊ីតាលី</annotation>
+		<annotation cp="🇯🇪">ទីង់</annotation>
+		<annotation cp="🇯🇪" type="tts">ជឺស៊ី</annotation>
+		<annotation cp="🇯🇲">ទីង់</annotation>
+		<annotation cp="🇯🇲" type="tts">ចាម៉ៃកា</annotation>
+		<annotation cp="🇯🇴">ទីង់</annotation>
+		<annotation cp="🇯🇴" type="tts">ហ៊្សកដានី</annotation>
+		<annotation cp="🇯🇵">ទីង់</annotation>
+		<annotation cp="🇯🇵" type="tts">ជប៉ុន</annotation>
+		<annotation cp="🇰🇪">ទីង់</annotation>
+		<annotation cp="🇰🇪" type="tts">កេនយ៉ា</annotation>
+		<annotation cp="🇰🇬">ទីង់</annotation>
+		<annotation cp="🇰🇬" type="tts">កៀហ្ស៊ីស៊ីស្ថាន</annotation>
+		<annotation cp="🇰🇭">ទីង់</annotation>
+		<annotation cp="🇰🇭" type="tts">កម្ពុជា</annotation>
+		<annotation cp="🇰🇮">ទីង់</annotation>
+		<annotation cp="🇰🇮" type="tts">គិរិបាទី</annotation>
+		<annotation cp="🇰🇲">ទីង់</annotation>
+		<annotation cp="🇰🇲" type="tts">កូម័រ</annotation>
+		<annotation cp="🇰🇳">ទីង់</annotation>
+		<annotation cp="🇰🇳" type="tts">សង់ឃីត និង​ណេវីស</annotation>
+		<annotation cp="🇰🇵">ទីង់</annotation>
+		<annotation cp="🇰🇵" type="tts">កូរ៉េ​ខាង​ជើង</annotation>
+		<annotation cp="🇰🇷">ទីង់</annotation>
+		<annotation cp="🇰🇷" type="tts">កូរ៉េ​ខាង​ត្បូង</annotation>
+		<annotation cp="🇰🇼">ទីង់</annotation>
+		<annotation cp="🇰🇼" type="tts">គុយវ៉ែត</annotation>
+		<annotation cp="🇰🇾">ទីង់</annotation>
+		<annotation cp="🇰🇾" type="tts">កោះ​កៃម៉ង់</annotation>
+		<annotation cp="🇰🇿">ទីង់</annotation>
+		<annotation cp="🇰🇿" type="tts">កាហ្សាក់ស្ថាន</annotation>
+		<annotation cp="🇱🇦">ទីង់</annotation>
+		<annotation cp="🇱🇦" type="tts">ឡាវ</annotation>
+		<annotation cp="🇱🇧">ទីង់</annotation>
+		<annotation cp="🇱🇧" type="tts">លីបង់</annotation>
+		<annotation cp="🇱🇨">ទីង់</annotation>
+		<annotation cp="🇱🇨" type="tts">សង់​លូសៀ</annotation>
+		<annotation cp="🇱🇮">ទីង់</annotation>
+		<annotation cp="🇱🇮" type="tts">លិចទេនស្តែន</annotation>
+		<annotation cp="🇱🇰">ទីង់</annotation>
+		<annotation cp="🇱🇰" type="tts">ស្រីលង្កា</annotation>
+		<annotation cp="🇱🇷">ទីង់</annotation>
+		<annotation cp="🇱🇷" type="tts">លីបេរីយ៉ា</annotation>
+		<annotation cp="🇱🇸">ទីង់</annotation>
+		<annotation cp="🇱🇸" type="tts">ឡេសូតូ</annotation>
+		<annotation cp="🇱🇹">ទីង់</annotation>
+		<annotation cp="🇱🇹" type="tts">លីទុយអានី</annotation>
+		<annotation cp="🇱🇺">ទីង់</annotation>
+		<annotation cp="🇱🇺" type="tts">លុចហ្សំបួរ</annotation>
+		<annotation cp="🇱🇻">ទីង់</annotation>
+		<annotation cp="🇱🇻" type="tts">ឡាតវីយ៉ា</annotation>
+		<annotation cp="🇱🇾">ទីង់</annotation>
+		<annotation cp="🇱🇾" type="tts">លីប៊ី</annotation>
+		<annotation cp="🇲🇦">ទីង់</annotation>
+		<annotation cp="🇲🇦" type="tts">ម៉ារ៉ុក</annotation>
+		<annotation cp="🇲🇨">ទីង់</annotation>
+		<annotation cp="🇲🇨" type="tts">ម៉ូណាកូ</annotation>
+		<annotation cp="🇲🇩">ទីង់</annotation>
+		<annotation cp="🇲🇩" type="tts">ម៉ុលដាវី</annotation>
+		<annotation cp="🇲🇪">ទីង់</annotation>
+		<annotation cp="🇲🇪" type="tts">ម៉ុងតេណេហ្គ្រោ</annotation>
+		<annotation cp="🇲🇫">ទីង់</annotation>
+		<annotation cp="🇲🇫" type="tts">សង់​ម៉ាទីន</annotation>
+		<annotation cp="🇲🇬">ទីង់</annotation>
+		<annotation cp="🇲🇬" type="tts">ម៉ាដាហ្គាស្កា</annotation>
+		<annotation cp="🇲🇭">ទីង់</annotation>
+		<annotation cp="🇲🇭" type="tts">កោះ​ម៉ាស់សល</annotation>
+		<annotation cp="🇲🇰">ទីង់</annotation>
+		<annotation cp="🇲🇰" type="tts">ម៉ាសេដូនា</annotation>
+		<annotation cp="🇲🇱">ទីង់</annotation>
+		<annotation cp="🇲🇱" type="tts">ម៉ាលី</annotation>
+		<annotation cp="🇲🇲">ទីង់</annotation>
+		<annotation cp="🇲🇲" type="tts">មីយ៉ាន់ម៉ា (ភូមា)</annotation>
+		<annotation cp="🇲🇳">ទីង់</annotation>
+		<annotation cp="🇲🇳" type="tts">ម៉ុងហ្គោលី</annotation>
+		<annotation cp="🇲🇴">ទីង់</annotation>
+		<annotation cp="🇲🇴" type="tts">ម៉ាកាវ</annotation>
+		<annotation cp="🇲🇵">ទីង់</annotation>
+		<annotation cp="🇲🇵" type="tts">កោះ​ម៉ារីណា​ខាង​ជើង</annotation>
+		<annotation cp="🇲🇶">ទីង់</annotation>
+		<annotation cp="🇲🇶" type="tts">ម៉ាទីនីក</annotation>
+		<annotation cp="🇲🇷">ទីង់</annotation>
+		<annotation cp="🇲🇷" type="tts">ម៉ូរីតានី</annotation>
+		<annotation cp="🇲🇸">ទីង់</annotation>
+		<annotation cp="🇲🇸" type="tts">ម៉ុង​សេរ៉ង់</annotation>
+		<annotation cp="🇲🇹">ទីង់</annotation>
+		<annotation cp="🇲🇹" type="tts">ម៉ាល់តា</annotation>
+		<annotation cp="🇲🇺">ទីង់</annotation>
+		<annotation cp="🇲🇺" type="tts">ម៉ូរីស</annotation>
+		<annotation cp="🇲🇻">ទីង់</annotation>
+		<annotation cp="🇲🇻" type="tts">ម៉ាល់ឌីវ</annotation>
+		<annotation cp="🇲🇼">ទីង់</annotation>
+		<annotation cp="🇲🇼" type="tts">ម៉ាឡាវី</annotation>
+		<annotation cp="🇲🇽">ទីង់</annotation>
+		<annotation cp="🇲🇽" type="tts">ម៉ិកស៊ិក</annotation>
+		<annotation cp="🇲🇾">ទីង់</annotation>
+		<annotation cp="🇲🇾" type="tts">ម៉ាឡេស៊ី</annotation>
+		<annotation cp="🇲🇿">ទីង់</annotation>
+		<annotation cp="🇲🇿" type="tts">ម៉ូហ្សាំប៊ិក</annotation>
+		<annotation cp="🇳🇦">ទីង់</annotation>
+		<annotation cp="🇳🇦" type="tts">ណាមីប៊ី</annotation>
+		<annotation cp="🇳🇨">ទីង់</annotation>
+		<annotation cp="🇳🇨" type="tts">ញូកាឡេដូនៀ</annotation>
+		<annotation cp="🇳🇪">ទីង់</annotation>
+		<annotation cp="🇳🇪" type="tts">នីហ្សេរ</annotation>
+		<annotation cp="🇳🇫">ទីង់</annotation>
+		<annotation cp="🇳🇫" type="tts">កោះ​ណ័រហ្វក់</annotation>
+		<annotation cp="🇳🇬">ទីង់</annotation>
+		<annotation cp="🇳🇬" type="tts">នីហ្សេរីយ៉ា</annotation>
+		<annotation cp="🇳🇮">ទីង់</annotation>
+		<annotation cp="🇳🇮" type="tts">នីការ៉ាហ្គ័រ</annotation>
+		<annotation cp="🇳🇱">ទីង់</annotation>
+		<annotation cp="🇳🇱" type="tts">ហូឡង់</annotation>
+		<annotation cp="🇳🇴">ទីង់</annotation>
+		<annotation cp="🇳🇴" type="tts">ន័រវែស</annotation>
+		<annotation cp="🇳🇵">ទីង់</annotation>
+		<annotation cp="🇳🇵" type="tts">នេប៉ាល់</annotation>
+		<annotation cp="🇳🇷">ទីង់</annotation>
+		<annotation cp="🇳🇷" type="tts">ណូរូ</annotation>
+		<annotation cp="🇳🇺">ទីង់</annotation>
+		<annotation cp="🇳🇺" type="tts">ណៀ</annotation>
+		<annotation cp="🇳🇿">ទីង់</annotation>
+		<annotation cp="🇳🇿" type="tts">នូវែលហ្សេឡង់</annotation>
+		<annotation cp="🇴🇲">ទីង់</annotation>
+		<annotation cp="🇴🇲" type="tts">អូម៉ង់</annotation>
+		<annotation cp="🇵🇦">ទីង់</annotation>
+		<annotation cp="🇵🇦" type="tts">ប៉ាណាម៉ា</annotation>
+		<annotation cp="🇵🇪">ទីង់</annotation>
+		<annotation cp="🇵🇪" type="tts">ប៉េរូ</annotation>
+		<annotation cp="🇵🇫">ទីង់</annotation>
+		<annotation cp="🇵🇫" type="tts">ប៉ូលី​ណេស៊ី​បារាំង</annotation>
+		<annotation cp="🇵🇬">ទីង់</annotation>
+		<annotation cp="🇵🇬" type="tts">ប៉ាពួញ៉ូហ្គីណេ</annotation>
+		<annotation cp="🇵🇭">ទីង់</annotation>
+		<annotation cp="🇵🇭" type="tts">ហ្វីលីពីន</annotation>
+		<annotation cp="🇵🇰">ទីង់</annotation>
+		<annotation cp="🇵🇰" type="tts">ប៉ាគីស្ថាន</annotation>
+		<annotation cp="🇵🇱">ទីង់</annotation>
+		<annotation cp="🇵🇱" type="tts">ប៉ូឡូញ</annotation>
+		<annotation cp="🇵🇲">ទីង់</annotation>
+		<annotation cp="🇵🇲" type="tts">សង់ព្យែរ និង​មីគីឡុង</annotation>
+		<annotation cp="🇵🇳">ទីង់</annotation>
+		<annotation cp="🇵🇳" type="tts">កោះ​ភីតកាន</annotation>
+		<annotation cp="🇵🇷">ទីង់</annotation>
+		<annotation cp="🇵🇷" type="tts">ព័រតូរីកូ</annotation>
+		<annotation cp="🇵🇸">ទីង់</annotation>
+		<annotation cp="🇵🇸" type="tts">ដែន​ប៉ាលេស្ទីន</annotation>
+		<annotation cp="🇵🇹">ទីង់</annotation>
+		<annotation cp="🇵🇹" type="tts">ព័រទុយហ្គាល់</annotation>
+		<annotation cp="🇵🇼">ទីង់</annotation>
+		<annotation cp="🇵🇼" type="tts">ផៅឡូ</annotation>
+		<annotation cp="🇵🇾">ទីង់</annotation>
+		<annotation cp="🇵🇾" type="tts">ប៉ារ៉ាហ្គាយ</annotation>
+		<annotation cp="🇶🇦">ទីង់</annotation>
+		<annotation cp="🇶🇦" type="tts">កាតា</annotation>
+		<annotation cp="🇷🇪">ទីង់</annotation>
+		<annotation cp="🇷🇪" type="tts">រេអុយញ៉ុង</annotation>
+		<annotation cp="🇷🇴">ទីង់</annotation>
+		<annotation cp="🇷🇴" type="tts">រូម៉ានី</annotation>
+		<annotation cp="🇷🇸">ទីង់</annotation>
+		<annotation cp="🇷🇸" type="tts">ស៊ែប</annotation>
+		<annotation cp="🇷🇺">ទីង់</annotation>
+		<annotation cp="🇷🇺" type="tts">រុស្ស៊ី</annotation>
+		<annotation cp="🇷🇼">ទីង់</annotation>
+		<annotation cp="🇷🇼" type="tts">រវ៉ាន់ដា</annotation>
+		<annotation cp="🇸🇦">ទីង់</annotation>
+		<annotation cp="🇸🇦" type="tts">អារ៉ាប៊ីសាអូឌីត</annotation>
+		<annotation cp="🇸🇧">ទីង់</annotation>
+		<annotation cp="🇸🇧" type="tts">កោះ​សូឡូម៉ុង</annotation>
+		<annotation cp="🇸🇨">ទីង់</annotation>
+		<annotation cp="🇸🇨" type="tts">សីសែល</annotation>
+		<annotation cp="🇸🇩">ទីង់</annotation>
+		<annotation cp="🇸🇩" type="tts">ស៊ូដង់</annotation>
+		<annotation cp="🇸🇪">ទីង់</annotation>
+		<annotation cp="🇸🇪" type="tts">ស៊ុយអែត</annotation>
+		<annotation cp="🇸🇬">ទីង់</annotation>
+		<annotation cp="🇸🇬" type="tts">សិង្ហបុរី</annotation>
+		<annotation cp="🇸🇭">ទីង់</annotation>
+		<annotation cp="🇸🇭" type="tts">សង់​ហេឡេណា</annotation>
+		<annotation cp="🇸🇮">ទីង់</annotation>
+		<annotation cp="🇸🇮" type="tts">ស្លូវេនី</annotation>
+		<annotation cp="🇸🇯">ទីង់</annotation>
+		<annotation cp="🇸🇯" type="tts">ស្វាលបាដ និង ហ្សង់ម៉ាយេន</annotation>
+		<annotation cp="🇸🇰">ទីង់</annotation>
+		<annotation cp="🇸🇰" type="tts">ស្លូវ៉ាគី</annotation>
+		<annotation cp="🇸🇱">ទីង់</annotation>
+		<annotation cp="🇸🇱" type="tts">សេរ៉ាឡេអូន</annotation>
+		<annotation cp="🇸🇲">ទីង់</annotation>
+		<annotation cp="🇸🇲" type="tts">សាន​ម៉ារីណូ</annotation>
+		<annotation cp="🇸🇳">ទីង់</annotation>
+		<annotation cp="🇸🇳" type="tts">សេណេហ្គាល់</annotation>
+		<annotation cp="🇸🇴">ទីង់</annotation>
+		<annotation cp="🇸🇴" type="tts">សូម៉ាលី</annotation>
+		<annotation cp="🇸🇷">ទីង់</annotation>
+		<annotation cp="🇸🇷" type="tts">សូរីណាម</annotation>
+		<annotation cp="🇸🇸">ទីង់</annotation>
+		<annotation cp="🇸🇸" type="tts">ស៊ូដង់​ខាង​ត្បូង</annotation>
+		<annotation cp="🇸🇹">ទីង់</annotation>
+		<annotation cp="🇸🇹" type="tts">សៅតូម៉េ និង ប្រាំងស៊ីប</annotation>
+		<annotation cp="🇸🇻">ទីង់</annotation>
+		<annotation cp="🇸🇻" type="tts">អែលសាល់វ៉ាឌ័រ</annotation>
+		<annotation cp="🇸🇽">ទីង់</annotation>
+		<annotation cp="🇸🇽" type="tts">សីង​ម៉ាធីន</annotation>
+		<annotation cp="🇸🇾">ទីង់</annotation>
+		<annotation cp="🇸🇾" type="tts">ស៊ីរី</annotation>
+		<annotation cp="🇸🇿">ទីង់</annotation>
+		<annotation cp="🇸🇿" type="tts">ស្វាហ្ស៊ីឡង់</annotation>
+		<annotation cp="🇹🇦">ទីង់</annotation>
+		<annotation cp="🇹🇦" type="tts">ទ្រីស្តង់​ដា​ចូនហា</annotation>
+		<annotation cp="🇹🇨">ទីង់</annotation>
+		<annotation cp="🇹🇨" type="tts">កោះ​ទួគ និង កៃកូស</annotation>
+		<annotation cp="🇹🇩">ទីង់</annotation>
+		<annotation cp="🇹🇩" type="tts">ឆាដ</annotation>
+		<annotation cp="🇹🇫">ទីង់</annotation>
+		<annotation cp="🇹🇫" type="tts">ដែនដី​បារាំង​នៅ​ភាគខាងត្បូង</annotation>
+		<annotation cp="🇹🇬">ទីង់</annotation>
+		<annotation cp="🇹🇬" type="tts">តូហ្គោ</annotation>
+		<annotation cp="🇹🇭">ទីង់</annotation>
+		<annotation cp="🇹🇭" type="tts">ថៃ</annotation>
+		<annotation cp="🇹🇯">ទីង់</annotation>
+		<annotation cp="🇹🇯" type="tts">តាហ្ស៊ីគីស្ថាន</annotation>
+		<annotation cp="🇹🇰">ទីង់</annotation>
+		<annotation cp="🇹🇰" type="tts">តូខេឡៅ</annotation>
+		<annotation cp="🇹🇱">ទីង់</annotation>
+		<annotation cp="🇹🇱" type="tts">ទីម័រ</annotation>
+		<annotation cp="🇹🇲">ទីង់</annotation>
+		<annotation cp="🇹🇲" type="tts">តួកម៉េនីស្ថាន</annotation>
+		<annotation cp="🇹🇳">ទីង់</annotation>
+		<annotation cp="🇹🇳" type="tts">ទុយនេស៊ី</annotation>
+		<annotation cp="🇹🇴">ទីង់</annotation>
+		<annotation cp="🇹🇴" type="tts">តុងហ្គា</annotation>
+		<annotation cp="🇹🇷">ទីង់</annotation>
+		<annotation cp="🇹🇷" type="tts">ទួរគី</annotation>
+		<annotation cp="🇹🇹">ទីង់</annotation>
+		<annotation cp="🇹🇹" type="tts">ទ្រីនីដាត និង​តូបាហ្គោ</annotation>
+		<annotation cp="🇹🇻">ទីង់</annotation>
+		<annotation cp="🇹🇻" type="tts">ទូវ៉ាលូ</annotation>
+		<annotation cp="🇹🇼">ទីង់</annotation>
+		<annotation cp="🇹🇼" type="tts">តៃវ៉ាន់</annotation>
+		<annotation cp="🇹🇿">ទីង់</annotation>
+		<annotation cp="🇹🇿" type="tts">តង់ហ្សានី</annotation>
+		<annotation cp="🇺🇦">ទីង់</annotation>
+		<annotation cp="🇺🇦" type="tts">អ៊ុយក្រែន</annotation>
+		<annotation cp="🇺🇬">ទីង់</annotation>
+		<annotation cp="🇺🇬" type="tts">អ៊ូហ្គង់ដា</annotation>
+		<annotation cp="🇺🇲">ទីង់</annotation>
+		<annotation cp="🇺🇲" type="tts">កោះ​អៅឡាយីង​អាមេរិក</annotation>
+		<annotation cp="🇺🇳">ទីង់</annotation>
+		<annotation cp="🇺🇳" type="tts">អង្គការសហប្រជាជាតិ</annotation>
+		<annotation cp="🇺🇸">ទីង់</annotation>
+		<annotation cp="🇺🇸" type="tts">សហរដ្ឋអាមេរិក</annotation>
+		<annotation cp="🇺🇾">ទីង់</annotation>
+		<annotation cp="🇺🇾" type="tts">អ៊ុយរ៉ាហ្គាយ</annotation>
+		<annotation cp="🇺🇿">ទីង់</annotation>
+		<annotation cp="🇺🇿" type="tts">អ៊ូសបេគីស្ថាន</annotation>
+		<annotation cp="🇻🇦">ទីង់</annotation>
+		<annotation cp="🇻🇦" type="tts">បុរី​វ៉ាទីកង់</annotation>
+		<annotation cp="🇻🇨">ទីង់</annotation>
+		<annotation cp="🇻🇨" type="tts">សាំង​វីនសេន និង​ឌឹ​ហ្គ្រីណាឌីនីស</annotation>
+		<annotation cp="🇻🇪">ទីង់</annotation>
+		<annotation cp="🇻🇪" type="tts">វេនេហ្ស៊ុយឡា</annotation>
+		<annotation cp="🇻🇬">ទីង់</annotation>
+		<annotation cp="🇻🇬" type="tts">កោះ​វឺជិន​ចក្រភព​អង់គ្លេស</annotation>
+		<annotation cp="🇻🇮">ទីង់</annotation>
+		<annotation cp="🇻🇮" type="tts">កោះ​វឺជីន​អាមេរិក</annotation>
+		<annotation cp="🇻🇳">ទីង់</annotation>
+		<annotation cp="🇻🇳" type="tts">វៀតណាម</annotation>
+		<annotation cp="🇻🇺">ទីង់</annotation>
+		<annotation cp="🇻🇺" type="tts">វ៉ានូអាទូ</annotation>
+		<annotation cp="🇼🇫">ទីង់</annotation>
+		<annotation cp="🇼🇫" type="tts">វ៉ាលីស និង​ហ្វូទូណា</annotation>
+		<annotation cp="🇼🇸">ទីង់</annotation>
+		<annotation cp="🇼🇸" type="tts">សាម័រ</annotation>
+		<annotation cp="🇽🇰">ទីង់</annotation>
+		<annotation cp="🇽🇰" type="tts">កូសូវ៉ូ</annotation>
+		<annotation cp="🇾🇪">ទីង់</annotation>
+		<annotation cp="🇾🇪" type="tts">យេមែន</annotation>
+		<annotation cp="🇾🇹">ទីង់</annotation>
+		<annotation cp="🇾🇹" type="tts">ម៉ាយុត</annotation>
+		<annotation cp="🇿🇦">ទីង់</annotation>
+		<annotation cp="🇿🇦" type="tts">អាហ្វ្រិកខាងត្បូង</annotation>
+		<annotation cp="🇿🇲">ទីង់</annotation>
+		<annotation cp="🇿🇲" type="tts">ហ្សាំប៊ី</annotation>
+		<annotation cp="🇿🇼">ទីង់</annotation>
+		<annotation cp="🇿🇼" type="tts">ហ្ស៊ីមបាវ៉េ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">ទីង់</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">អង់គ្លេស</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">ទីង់</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">ស្កុតឡែន</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">ទីង់</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">វ៉ាល់ស៍</annotation>
+	</annotations>
+</ldml>

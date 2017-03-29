@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="ar"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">0 | زيرو | مفتاح</annotation>
+		<annotation cp="0⃣" type="tts">صفر</annotation>
+		<annotation cp="1⃣">1 | مفتاح</annotation>
+		<annotation cp="1⃣" type="tts">واحد</annotation>
+		<annotation cp="2⃣">2 | مفتاح</annotation>
+		<annotation cp="2⃣" type="tts">اثنان</annotation>
+		<annotation cp="3⃣">3 | مفتاح</annotation>
+		<annotation cp="3⃣" type="tts">ثلاثة</annotation>
+		<annotation cp="4⃣">4 | مفتاح</annotation>
+		<annotation cp="4⃣" type="tts">أربعة</annotation>
+		<annotation cp="5⃣">5 | مفتاح</annotation>
+		<annotation cp="5⃣" type="tts">خمسة</annotation>
+		<annotation cp="6⃣">6 | مفتاح</annotation>
+		<annotation cp="6⃣" type="tts">ستة</annotation>
+		<annotation cp="7⃣">7 | مفتاح</annotation>
+		<annotation cp="7⃣" type="tts">سبعة</annotation>
+		<annotation cp="8⃣">8 | مفتاح</annotation>
+		<annotation cp="8⃣" type="tts">ثمانية</annotation>
+		<annotation cp="9⃣">9 | مفتاح</annotation>
+		<annotation cp="9⃣" type="tts">تسعة</annotation>
+		<annotation cp="👶🏻">رضيع | طفل | نوع جلد 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">رضيع: نوع جلد 1–2</annotation>
+		<annotation cp="👶🏼">رضيع | طفل | نوع جلد 3</annotation>
+		<annotation cp="👶🏼" type="tts">رضيع: نوع جلد 3</annotation>
+		<annotation cp="👶🏽">رضيع | طفل | نوع جلد 4</annotation>
+		<annotation cp="👶🏽" type="tts">رضيع: نوع جلد 4</annotation>
+		<annotation cp="👶🏾">رضيع | طفل | نوع جلد 5</annotation>
+		<annotation cp="👶🏾" type="tts">رضيع: نوع جلد 5</annotation>
+		<annotation cp="👶🏿">رضيع | طفل | نوع جلد 6</annotation>
+		<annotation cp="👶🏿" type="tts">رضيع: نوع جلد 6</annotation>
+		<annotation cp="👦🏻">ذكر | صبي | ولد | نوع جلد 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">صبي: نوع جلد 1–2</annotation>
+		<annotation cp="👦🏼">ذكر | صبي | ولد | نوع جلد 3</annotation>
+		<annotation cp="👦🏼" type="tts">صبي: نوع جلد 3</annotation>
+		<annotation cp="👦🏽">ذكر | صبي | ولد | نوع جلد 4</annotation>
+		<annotation cp="👦🏽" type="tts">صبي: نوع جلد 4</annotation>
+		<annotation cp="👦🏾">ذكر | صبي | ولد | نوع جلد 5</annotation>
+		<annotation cp="👦🏾" type="tts">صبي: نوع جلد 5</annotation>
+		<annotation cp="👦🏿">ذكر | صبي | ولد | نوع جلد 6</annotation>
+		<annotation cp="👦🏿" type="tts">صبي: نوع جلد 6</annotation>
+		<annotation cp="👧🏻">أنثى | بنت | فتاة | نوع جلد 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">فتاة: نوع جلد 1–2</annotation>
+		<annotation cp="👧🏼">أنثى | بنت | فتاة | نوع جلد 3</annotation>
+		<annotation cp="👧🏼" type="tts">فتاة: نوع جلد 3</annotation>
+		<annotation cp="👧🏽">أنثى | بنت | فتاة | نوع جلد 4</annotation>
+		<annotation cp="👧🏽" type="tts">فتاة: نوع جلد 4</annotation>
+		<annotation cp="👧🏾">أنثى | بنت | فتاة | نوع جلد 5</annotation>
+		<annotation cp="👧🏾" type="tts">فتاة: نوع جلد 5</annotation>
+		<annotation cp="👧🏿">أنثى | بنت | فتاة | نوع جلد 6</annotation>
+		<annotation cp="👧🏿" type="tts">فتاة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻">أشخاص | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">رجل: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼">أشخاص | نوع جلد 3</annotation>
+		<annotation cp="👨🏼" type="tts">رجل: نوع جلد 3</annotation>
+		<annotation cp="👨🏽">أشخاص | نوع جلد 4</annotation>
+		<annotation cp="👨🏽" type="tts">رجل: نوع جلد 4</annotation>
+		<annotation cp="👨🏾">أشخاص | نوع جلد 5</annotation>
+		<annotation cp="👨🏾" type="tts">رجل: نوع جلد 5</annotation>
+		<annotation cp="👨🏿">أشخاص | نوع جلد 6</annotation>
+		<annotation cp="👨🏿" type="tts">رجل: نوع جلد 6</annotation>
+		<annotation cp="👩🏻">أشخاص | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">سيدة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼">أشخاص | نوع جلد 3</annotation>
+		<annotation cp="👩🏼" type="tts">سيدة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽">أشخاص | نوع جلد 4</annotation>
+		<annotation cp="👩🏽" type="tts">سيدة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾">أشخاص | نوع جلد 5</annotation>
+		<annotation cp="👩🏾" type="tts">سيدة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿">أشخاص | نوع جلد 6</annotation>
+		<annotation cp="👩🏿" type="tts">سيدة: نوع جلد 6</annotation>
+		<annotation cp="👴🏻">أشخاص | رجل | عجوز | نوع جلد 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">رجل عجوز: نوع جلد 1–2</annotation>
+		<annotation cp="👴🏼">أشخاص | رجل | عجوز | نوع جلد 3</annotation>
+		<annotation cp="👴🏼" type="tts">رجل عجوز: نوع جلد 3</annotation>
+		<annotation cp="👴🏽">أشخاص | رجل | عجوز | نوع جلد 4</annotation>
+		<annotation cp="👴🏽" type="tts">رجل عجوز: نوع جلد 4</annotation>
+		<annotation cp="👴🏾">أشخاص | رجل | عجوز | نوع جلد 5</annotation>
+		<annotation cp="👴🏾" type="tts">رجل عجوز: نوع جلد 5</annotation>
+		<annotation cp="👴🏿">أشخاص | رجل | عجوز | نوع جلد 6</annotation>
+		<annotation cp="👴🏿" type="tts">رجل عجوز: نوع جلد 6</annotation>
+		<annotation cp="👵🏻">أشخاص | سيدة | عجوز | نوع جلد 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">سيدة عجوز: نوع جلد 1–2</annotation>
+		<annotation cp="👵🏼">أشخاص | سيدة | عجوز | نوع جلد 3</annotation>
+		<annotation cp="👵🏼" type="tts">سيدة عجوز: نوع جلد 3</annotation>
+		<annotation cp="👵🏽">أشخاص | سيدة | عجوز | نوع جلد 4</annotation>
+		<annotation cp="👵🏽" type="tts">سيدة عجوز: نوع جلد 4</annotation>
+		<annotation cp="👵🏾">أشخاص | سيدة | عجوز | نوع جلد 5</annotation>
+		<annotation cp="👵🏾" type="tts">سيدة عجوز: نوع جلد 5</annotation>
+		<annotation cp="👵🏿">أشخاص | سيدة | عجوز | نوع جلد 6</annotation>
+		<annotation cp="👵🏿" type="tts">سيدة عجوز: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍⚕">رعاية صحية | طبيب | معالج | ممرض | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">عامل بقطاع الصحة: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">رعاية صحية | طبيب | معالج | ممرض | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">عامل بقطاع الصحة: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍⚕">رعاية صحية | طبيب | معالج | ممرض | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">عامل بقطاع الصحة: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍⚕">رعاية صحية | طبيب | معالج | ممرض | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">عامل بقطاع الصحة: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍⚕">رعاية صحية | طبيب | معالج | ممرض | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">عامل بقطاع الصحة: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍⚕">رعاية صحية | طبيبة | معالجة | ممرضة | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">عاملة بقطاع الصحة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">رعاية صحية | طبيبة | معالجة | ممرضة | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">عاملة بقطاع الصحة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍⚕">رعاية صحية | طبيبة | معالجة | ممرضة | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">عاملة بقطاع الصحة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍⚕">رعاية صحية | طبيبة | معالجة | ممرضة | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">عاملة بقطاع الصحة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍⚕">رعاية صحية | طبيبة | معالجة | ممرضة | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">عاملة بقطاع الصحة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🎓">خريج | طالب | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">طالب: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">خريج | طالب | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">طالب: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🎓">خريج | طالب | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">طالب: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🎓">خريج | طالب | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">طالب: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🎓">خريج | طالب | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">طالب: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🎓">خريجة | طالبة | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">طالبة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">خريجة | طالبة | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">طالبة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🎓">خريجة | طالبة | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">طالبة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🎓">خريجة | طالبة | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">طالبة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🎓">خريجة | طالبة | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">طالبة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🏫">أستاذ | أستاذ جامعي | مدرس | مربي | معلم | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">معلم: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">أستاذ | أستاذ جامعي | مدرس | مربي | معلم | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">معلم: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🏫">أستاذ | أستاذ جامعي | مدرس | مربي | معلم | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">معلم: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🏫">أستاذ | أستاذ جامعي | مدرس | مربي | معلم | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">معلم: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🏫">أستاذ | أستاذ جامعي | مدرس | مربي | معلم | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">معلم: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🏫">أستاذة | أستاذة جامعية | مدرسة | مربية | معلمة | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">معلمة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">أستاذة | أستاذة جامعية | مدرسة | مربية | معلمة | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">معلمة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🏫">أستاذة | أستاذة جامعية | مدرسة | مربية | معلمة | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">معلمة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🏫">أستاذة | أستاذة جامعية | مدرسة | مربية | معلمة | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">معلمة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🏫">أستاذة | أستاذة جامعية | مدرسة | مربية | معلمة | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">معلمة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍⚖">عدالة | عدل | قاض | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">قاض: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">عدالة | عدل | قاض | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">قاض: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍⚖">عدالة | عدل | قاض | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">قاض: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍⚖">عدالة | عدل | قاض | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">قاض: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍⚖">عدالة | عدل | قاض | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">قاض: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍⚖">عدالة | عدل | قاضية | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">قاضية: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">عدالة | عدل | قاضية | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">قاضية: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍⚖">عدالة | عدل | قاضية | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">قاضية: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍⚖">عدالة | عدل | قاضية | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">قاضية: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍⚖">عدالة | عدل | قاضية | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">قاضية: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🌾">عامل زراعي | فلاح | مزارع | منسق حدائق | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">مزارع: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">عامل زراعي | فلاح | مزارع | منسق حدائق | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">مزارع: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🌾">عامل زراعي | فلاح | مزارع | منسق حدائق | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">مزارع: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🌾">عامل زراعي | فلاح | مزارع | منسق حدائق | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">مزارع: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🌾">عامل زراعي | فلاح | مزارع | منسق حدائق | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">مزارع: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🌾">عاملة زراعية | فلاحة | مزارعة | منسقة حدائق | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">مزارعة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">عاملة زراعية | فلاحة | مزارعة | منسقة حدائق | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">مزارعة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🌾">عاملة زراعية | فلاحة | مزارعة | منسقة حدائق | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">مزارعة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🌾">عاملة زراعية | فلاحة | مزارعة | منسقة حدائق | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">مزارعة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🌾">عاملة زراعية | فلاحة | مزارعة | منسقة حدائق | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">مزارعة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🍳">شيف | طاه | طباخ | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">طباخ: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">شيف | طاه | طباخ | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">طباخ: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🍳">شيف | طاه | طباخ | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">طباخ: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🍳">شيف | طاه | طباخ | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">طباخ: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🍳">شيف | طاه | طباخ | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">طباخ: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🍳">شيف | طاهية | طباخة | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">طباخة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">شيف | طاهية | طباخة | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">طباخة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🍳">شيف | طاهية | طباخة | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">طباخة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🍳">شيف | طاهية | طباخة | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">طباخة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🍳">شيف | طاهية | طباخة | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">طباخة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🔧">حرفي | عامل | ميكانيكي | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">ميكانيكي: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">حرفي | عامل | ميكانيكي | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">ميكانيكي: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🔧">حرفي | عامل | ميكانيكي | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">ميكانيكي: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🔧">حرفي | عامل | ميكانيكي | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">ميكانيكي: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🔧">حرفي | عامل | ميكانيكي | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">ميكانيكي: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🔧">حرفية | عاملة | ميكانيكية | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">ميكانيكية: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">حرفية | عاملة | ميكانيكية | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">ميكانيكية: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🔧">حرفية | عاملة | ميكانيكية | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">ميكانيكية: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🔧">حرفية | عاملة | ميكانيكية | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">ميكانيكية: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🔧">حرفية | عاملة | ميكانيكية | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">ميكانيكية: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🏭">تجميع | صناعة | عامل | مصنع | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">عامل مصنع: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">تجميع | صناعة | عامل | مصنع | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">عامل مصنع: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🏭">تجميع | صناعة | عامل | مصنع | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">عامل مصنع: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🏭">تجميع | صناعة | عامل | مصنع | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">عامل مصنع: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🏭">تجميع | صناعة | عامل | مصنع | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">عامل مصنع: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🏭">تجميع | صناعة | عاملة | مصنع | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">عاملة مصنع: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">تجميع | صناعة | عاملة | مصنع | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">عاملة مصنع: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🏭">تجميع | صناعة | عاملة | مصنع | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">عاملة مصنع: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🏭">تجميع | صناعة | عاملة | مصنع | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">عاملة مصنع: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🏭">تجميع | صناعة | عاملة | مصنع | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">عاملة مصنع: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍💼">شركة | مدير | مكتب | موظف | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">موظف: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍💼">شركة | مدير | مكتب | موظف | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">موظف: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍💼">شركة | مدير | مكتب | موظف | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">موظف: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍💼">شركة | مدير | مكتب | موظف | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">موظف: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍💼">شركة | مدير | مكتب | موظف | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">موظف: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍💼">شركة | مديرة | مكتب | موظفة | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">موظفة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍💼">شركة | مديرة | مكتب | موظفة | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">موظفة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍💼">شركة | مديرة | مكتب | موظفة | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">موظفة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍💼">شركة | مديرة | مكتب | موظفة | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">موظفة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍💼">شركة | مديرة | مكتب | موظفة | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">موظفة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🔬">بيولوجي | عالم | فيزيائي | كيميائي | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">عالم: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">بيولوجي | عالم | فيزيائي | كيميائي | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">عالم: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🔬">بيولوجي | عالم | فيزيائي | كيميائي | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">عالم: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🔬">بيولوجي | عالم | فيزيائي | كيميائي | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">عالم: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🔬">بيولوجي | عالم | فيزيائي | كيميائي | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">عالم: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🔬">بيولوجية | عالمة | فيزيائية | كيميائية | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">عالمة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">بيولوجية | عالمة | فيزيائية | كيميائية | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">عالمة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🔬">بيولوجية | عالمة | فيزيائية | كيميائية | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">عالمة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🔬">بيولوجية | عالمة | فيزيائية | كيميائية | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">عالمة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🔬">بيولوجية | عالمة | فيزيائية | كيميائية | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">عالمة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍💻">تقني | خبير تكنولوجي | مبتكر | مبرمج | مصمم أكواد | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">عالم تكنولوجيا: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍💻">تقني | خبير تكنولوجي | مبتكر | مبرمج | مصمم أكواد | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">عالم تكنولوجيا: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍💻">تقني | خبير تكنولوجي | مبتكر | مبرمج | مصمم أكواد | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">عالم تكنولوجيا: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍💻">تقني | خبير تكنولوجي | مبتكر | مبرمج | مصمم أكواد | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">عالم تكنولوجيا: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍💻">تقني | خبير تكنولوجي | مبتكر | مبرمج | مصمم أكواد | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">عالم تكنولوجيا: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍💻">تقنية | خبيرة تكنولوجيا | مبرمجة | مصممة أكواد | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">عالمة تكنولوجيا: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍💻">تقنية | خبيرة تكنولوجيا | مبرمجة | مصممة أكواد | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">عالمة تكنولوجيا: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍💻">تقنية | خبيرة تكنولوجيا | مبرمجة | مصممة أكواد | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">عالمة تكنولوجيا: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍💻">تقنية | خبيرة تكنولوجيا | مبرمجة | مصممة أكواد | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">عالمة تكنولوجيا: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍💻">تقنية | خبيرة تكنولوجيا | مبرمجة | مصممة أكواد | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">عالمة تكنولوجيا: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🎤">مطرب | مغني | ممثل | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">مطرب: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">مطرب | مغني | ممثل | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">مطرب: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🎤">مطرب | مغني | ممثل | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">مطرب: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🎤">مطرب | مغني | ممثل | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">مطرب: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🎤">مطرب | مغني | ممثل | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">مطرب: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🎤">مطربة | مغنية | ممثلة | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">مغنية: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">مطربة | مغنية | ممثلة | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">مغنية: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🎤">مطربة | مغنية | ممثلة | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">مغنية: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🎤">مطربة | مغنية | ممثلة | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">مغنية: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🎤">مطربة | مغنية | ممثلة | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">مغنية: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🎨">رسام | فنان | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">رسام: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">رسام | فنان | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">رسام: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🎨">رسام | فنان | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">رسام: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🎨">رسام | فنان | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">رسام: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🎨">رسام | فنان | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">رسام: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🎨">رسامة | فنانة | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">رسامة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">رسامة | فنانة | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">رسامة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🎨">رسامة | فنانة | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">رسامة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🎨">رسامة | فنانة | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">رسامة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🎨">رسامة | فنانة | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">رسامة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍✈">طيار | قائد طائرة | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">طيار: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍✈">طيار | قائد طائرة | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">طيار: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍✈">طيار | قائد طائرة | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">طيار: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍✈">طيار | قائد طائرة | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">طيار: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍✈">طيار | قائد طائرة | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">طيار: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍✈">طيارة | قائدة طائرة | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">طيارة: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍✈">طيارة | قائدة طائرة | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">طيارة: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍✈">طيارة | قائدة طائرة | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">طيارة: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍✈">طيارة | قائدة طائرة | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">طيارة: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍✈">طيارة | قائدة طائرة | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">طيارة: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🚀">عالم | فضاء | ملاح فضاء | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">رائد فضاء: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">عالم | فضاء | ملاح فضاء | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">رائد فضاء: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🚀">عالم | فضاء | ملاح فضاء | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">رائد فضاء: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🚀">عالم | فضاء | ملاح فضاء | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">رائد فضاء: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🚀">عالم | فضاء | ملاح فضاء | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">رائد فضاء: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🚀">رائدة فضاء | ملاحة فضاء | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">رائدة فضاء: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">رائدة فضاء | ملاحة فضاء | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">رائدة فضاء: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🚀">رائدة فضاء | ملاحة فضاء | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">رائدة فضاء: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🚀">رائدة فضاء | ملاحة فضاء | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">رائدة فضاء: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🚀">رائدة فضاء | ملاحة فضاء | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">رائدة فضاء: نوع جلد 6</annotation>
+		<annotation cp="👨🏻‍🚒">حريق | عامل إطفاء | نوع جلد 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">رجل مطافئ: نوع جلد 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">حريق | عامل إطفاء | نوع جلد 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">رجل مطافئ: نوع جلد 3</annotation>
+		<annotation cp="👨🏽‍🚒">حريق | عامل إطفاء | نوع جلد 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">رجل مطافئ: نوع جلد 4</annotation>
+		<annotation cp="👨🏾‍🚒">حريق | عامل إطفاء | نوع جلد 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">رجل مطافئ: نوع جلد 5</annotation>
+		<annotation cp="👨🏿‍🚒">حريق | عامل إطفاء | نوع جلد 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">رجل مطافئ: نوع جلد 6</annotation>
+		<annotation cp="👩🏻‍🚒">حريق | عاملة إطفاء | نوع جلد 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">سيدة مطافئ: نوع جلد 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">حريق | عاملة إطفاء | نوع جلد 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">سيدة مطافئ: نوع جلد 3</annotation>
+		<annotation cp="👩🏽‍🚒">حريق | عاملة إطفاء | نوع جلد 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">سيدة مطافئ: نوع جلد 4</annotation>
+		<annotation cp="👩🏾‍🚒">حريق | عاملة إطفاء | نوع جلد 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">سيدة مطافئ: نوع جلد 5</annotation>
+		<annotation cp="👩🏿‍🚒">حريق | عاملة إطفاء | نوع جلد 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">سيدة مطافئ: نوع جلد 6</annotation>
+		<annotation cp="👮🏻">أشخاص | شرطة | شرطي | نوع جلد 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">ضابط شرطة: نوع جلد 1–2</annotation>
+		<annotation cp="👮🏼">أشخاص | شرطة | شرطي | نوع جلد 3</annotation>
+		<annotation cp="👮🏼" type="tts">ضابط شرطة: نوع جلد 3</annotation>
+		<annotation cp="👮🏽">أشخاص | شرطة | شرطي | نوع جلد 4</annotation>
+		<annotation cp="👮🏽" type="tts">ضابط شرطة: نوع جلد 4</annotation>
+		<annotation cp="👮🏾">أشخاص | شرطة | شرطي | نوع جلد 5</annotation>
+		<annotation cp="👮🏾" type="tts">ضابط شرطة: نوع جلد 5</annotation>
+		<annotation cp="👮🏿">أشخاص | شرطة | شرطي | نوع جلد 6</annotation>
+		<annotation cp="👮🏿" type="tts">ضابط شرطة: نوع جلد 6</annotation>
+		<annotation cp="👮🏻‍♂">شرطة | شرطي | ضابط | نوع جلد 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">شرطي: نوع جلد 1–2</annotation>
+		<annotation cp="👮🏼‍♂">شرطة | شرطي | ضابط | نوع جلد 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">شرطي: نوع جلد 3</annotation>
+		<annotation cp="👮🏽‍♂">شرطة | شرطي | ضابط | نوع جلد 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">شرطي: نوع جلد 4</annotation>
+		<annotation cp="👮🏾‍♂">شرطة | شرطي | ضابط | نوع جلد 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">شرطي: نوع جلد 5</annotation>
+		<annotation cp="👮🏿‍♂">شرطة | شرطي | ضابط | نوع جلد 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">شرطي: نوع جلد 6</annotation>
+		<annotation cp="👮🏻‍♀">شرطة | شرطية | ضابطة | نوع جلد 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">شرطية: نوع جلد 1–2</annotation>
+		<annotation cp="👮🏼‍♀">شرطة | شرطية | ضابطة | نوع جلد 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">شرطية: نوع جلد 3</annotation>
+		<annotation cp="👮🏽‍♀">شرطة | شرطية | ضابطة | نوع جلد 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">شرطية: نوع جلد 4</annotation>
+		<annotation cp="👮🏾‍♀">شرطة | شرطية | ضابطة | نوع جلد 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">شرطية: نوع جلد 5</annotation>
+		<annotation cp="👮🏿‍♀">شرطة | شرطية | ضابطة | نوع جلد 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">شرطية: نوع جلد 6</annotation>
+		<annotation cp="🕵🏻">جاسوس | نوع جلد 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">مباحث: نوع جلد 1–2</annotation>
+		<annotation cp="🕵🏼">جاسوس | نوع جلد 3</annotation>
+		<annotation cp="🕵🏼" type="tts">مباحث: نوع جلد 3</annotation>
+		<annotation cp="🕵🏽">جاسوس | نوع جلد 4</annotation>
+		<annotation cp="🕵🏽" type="tts">مباحث: نوع جلد 4</annotation>
+		<annotation cp="🕵🏾">جاسوس | نوع جلد 5</annotation>
+		<annotation cp="🕵🏾" type="tts">مباحث: نوع جلد 5</annotation>
+		<annotation cp="🕵🏿">جاسوس | نوع جلد 6</annotation>
+		<annotation cp="🕵🏿" type="tts">مباحث: نوع جلد 6</annotation>
+		<annotation cp="🕵🏻‍♂">بوليس | بوليس سري | مباحث | نوع جلد 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">رجل مباحث: نوع جلد 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">بوليس | بوليس سري | مباحث | نوع جلد 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">رجل مباحث: نوع جلد 3</annotation>
+		<annotation cp="🕵🏽‍♂">بوليس | بوليس سري | مباحث | نوع جلد 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">رجل مباحث: نوع جلد 4</annotation>
+		<annotation cp="🕵🏾‍♂">بوليس | بوليس سري | مباحث | نوع جلد 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">رجل مباحث: نوع جلد 5</annotation>
+		<annotation cp="🕵🏿‍♂">بوليس | بوليس سري | مباحث | نوع جلد 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">رجل مباحث: نوع جلد 6</annotation>
+		<annotation cp="🕵🏻‍♀">بوليس | بوليس سري | مباحث | نوع جلد 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">سيدة مباحث: نوع جلد 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">بوليس | بوليس سري | مباحث | نوع جلد 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">سيدة مباحث: نوع جلد 3</annotation>
+		<annotation cp="🕵🏽‍♀">بوليس | بوليس سري | مباحث | نوع جلد 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">سيدة مباحث: نوع جلد 4</annotation>
+		<annotation cp="🕵🏾‍♀">بوليس | بوليس سري | مباحث | نوع جلد 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">سيدة مباحث: نوع جلد 5</annotation>
+		<annotation cp="🕵🏿‍♀">بوليس | بوليس سري | مباحث | نوع جلد 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">سيدة مباحث: نوع جلد 6</annotation>
+		<annotation cp="💂🏻">حارس | خفير | نوع جلد 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">حارس: نوع جلد 1–2</annotation>
+		<annotation cp="💂🏼">حارس | خفير | نوع جلد 3</annotation>
+		<annotation cp="💂🏼" type="tts">حارس: نوع جلد 3</annotation>
+		<annotation cp="💂🏽">حارس | خفير | نوع جلد 4</annotation>
+		<annotation cp="💂🏽" type="tts">حارس: نوع جلد 4</annotation>
+		<annotation cp="💂🏾">حارس | خفير | نوع جلد 5</annotation>
+		<annotation cp="💂🏾" type="tts">حارس: نوع جلد 5</annotation>
+		<annotation cp="💂🏿">حارس | خفير | نوع جلد 6</annotation>
+		<annotation cp="💂🏿" type="tts">حارس: نوع جلد 6</annotation>
+		<annotation cp="💂🏻‍♂">حارس | خفير | نوع جلد 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">رجل حراسة: نوع جلد 1–2</annotation>
+		<annotation cp="💂🏼‍♂">حارس | خفير | نوع جلد 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">رجل حراسة: نوع جلد 3</annotation>
+		<annotation cp="💂🏽‍♂">حارس | خفير | نوع جلد 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">رجل حراسة: نوع جلد 4</annotation>
+		<annotation cp="💂🏾‍♂">حارس | خفير | نوع جلد 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">رجل حراسة: نوع جلد 5</annotation>
+		<annotation cp="💂🏿‍♂">حارس | خفير | نوع جلد 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">رجل حراسة: نوع جلد 6</annotation>
+		<annotation cp="💂🏻‍♀">حارسة | خفيرة | نوع جلد 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">حارسة: نوع جلد 1–2</annotation>
+		<annotation cp="💂🏼‍♀">حارسة | خفيرة | نوع جلد 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">حارسة: نوع جلد 3</annotation>
+		<annotation cp="💂🏽‍♀">حارسة | خفيرة | نوع جلد 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">حارسة: نوع جلد 4</annotation>
+		<annotation cp="💂🏾‍♀">حارسة | خفيرة | نوع جلد 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">حارسة: نوع جلد 5</annotation>
+		<annotation cp="💂🏿‍♀">حارسة | خفيرة | نوع جلد 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">حارسة: نوع جلد 6</annotation>
+		<annotation cp="👷🏻">أشخاص | بناء | عامل | نوع جلد 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">شخص يعمل في البناء: نوع جلد 1–2</annotation>
+		<annotation cp="👷🏼">أشخاص | بناء | عامل | نوع جلد 3</annotation>
+		<annotation cp="👷🏼" type="tts">شخص يعمل في البناء: نوع جلد 3</annotation>
+		<annotation cp="👷🏽">أشخاص | بناء | عامل | نوع جلد 4</annotation>
+		<annotation cp="👷🏽" type="tts">شخص يعمل في البناء: نوع جلد 4</annotation>
+		<annotation cp="👷🏾">أشخاص | بناء | عامل | نوع جلد 5</annotation>
+		<annotation cp="👷🏾" type="tts">شخص يعمل في البناء: نوع جلد 5</annotation>
+		<annotation cp="👷🏿">أشخاص | بناء | عامل | نوع جلد 6</annotation>
+		<annotation cp="👷🏿" type="tts">شخص يعمل في البناء: نوع جلد 6</annotation>
+		<annotation cp="👷🏻‍♂">بناء | تشييد | عامل | نوع جلد 1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">عامل بناء: نوع جلد 1–2</annotation>
+		<annotation cp="👷🏼‍♂">بناء | تشييد | عامل | نوع جلد 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">عامل بناء: نوع جلد 3</annotation>
+		<annotation cp="👷🏽‍♂">بناء | تشييد | عامل | نوع جلد 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">عامل بناء: نوع جلد 4</annotation>
+		<annotation cp="👷🏾‍♂">بناء | تشييد | عامل | نوع جلد 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">عامل بناء: نوع جلد 5</annotation>
+		<annotation cp="👷🏿‍♂">بناء | تشييد | عامل | نوع جلد 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">عامل بناء: نوع جلد 6</annotation>
+		<annotation cp="👷🏻‍♀">بناء | تشييد | عاملة | نوع جلد 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">عاملة بناء: نوع جلد 1–2</annotation>
+		<annotation cp="👷🏼‍♀">بناء | تشييد | عاملة | نوع جلد 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">عاملة بناء: نوع جلد 3</annotation>
+		<annotation cp="👷🏽‍♀">بناء | تشييد | عاملة | نوع جلد 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">عاملة بناء: نوع جلد 4</annotation>
+		<annotation cp="👷🏾‍♀">بناء | تشييد | عاملة | نوع جلد 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">عاملة بناء: نوع جلد 5</annotation>
+		<annotation cp="👷🏿‍♀">بناء | تشييد | عاملة | نوع جلد 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">عاملة بناء: نوع جلد 6</annotation>
+		<annotation cp="🤴🏻">أمير | نوع جلد 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">أمير: نوع جلد 1–2</annotation>
+		<annotation cp="🤴🏼">أمير | نوع جلد 3</annotation>
+		<annotation cp="🤴🏼" type="tts">أمير: نوع جلد 3</annotation>
+		<annotation cp="🤴🏽">أمير | نوع جلد 4</annotation>
+		<annotation cp="🤴🏽" type="tts">أمير: نوع جلد 4</annotation>
+		<annotation cp="🤴🏾">أمير | نوع جلد 5</annotation>
+		<annotation cp="🤴🏾" type="tts">أمير: نوع جلد 5</annotation>
+		<annotation cp="🤴🏿">أمير | نوع جلد 6</annotation>
+		<annotation cp="🤴🏿" type="tts">أمير: نوع جلد 6</annotation>
+		<annotation cp="👸🏻">أشخاص | حدوتة | نوع جلد 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">أميرة: نوع جلد 1–2</annotation>
+		<annotation cp="👸🏼">أشخاص | حدوتة | نوع جلد 3</annotation>
+		<annotation cp="👸🏼" type="tts">أميرة: نوع جلد 3</annotation>
+		<annotation cp="👸🏽">أشخاص | حدوتة | نوع جلد 4</annotation>
+		<annotation cp="👸🏽" type="tts">أميرة: نوع جلد 4</annotation>
+		<annotation cp="👸🏾">أشخاص | حدوتة | نوع جلد 5</annotation>
+		<annotation cp="👸🏾" type="tts">أميرة: نوع جلد 5</annotation>
+		<annotation cp="👸🏿">أشخاص | حدوتة | نوع جلد 6</annotation>
+		<annotation cp="👸🏿" type="tts">أميرة: نوع جلد 6</annotation>
+		<annotation cp="👳🏻">أشخاص | رجل يرتدي عمامة | عمامة | نوع جلد 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">رجل بعمامة: نوع جلد 1–2</annotation>
+		<annotation cp="👳🏼">أشخاص | رجل يرتدي عمامة | عمامة | نوع جلد 3</annotation>
+		<annotation cp="👳🏼" type="tts">رجل بعمامة: نوع جلد 3</annotation>
+		<annotation cp="👳🏽">أشخاص | رجل يرتدي عمامة | عمامة | نوع جلد 4</annotation>
+		<annotation cp="👳🏽" type="tts">رجل بعمامة: نوع جلد 4</annotation>
+		<annotation cp="👳🏾">أشخاص | رجل يرتدي عمامة | عمامة | نوع جلد 5</annotation>
+		<annotation cp="👳🏾" type="tts">رجل بعمامة: نوع جلد 5</annotation>
+		<annotation cp="👳🏿">أشخاص | رجل يرتدي عمامة | عمامة | نوع جلد 6</annotation>
+		<annotation cp="👳🏿" type="tts">رجل بعمامة: نوع جلد 6</annotation>
+		<annotation cp="👳🏻‍♂">رجل | عمامة | نوع جلد 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">رجل يرتدي عمامة: نوع جلد 1–2</annotation>
+		<annotation cp="👳🏼‍♂">رجل | عمامة | نوع جلد 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">رجل يرتدي عمامة: نوع جلد 3</annotation>
+		<annotation cp="👳🏽‍♂">رجل | عمامة | نوع جلد 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">رجل يرتدي عمامة: نوع جلد 4</annotation>
+		<annotation cp="👳🏾‍♂">رجل | عمامة | نوع جلد 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">رجل يرتدي عمامة: نوع جلد 5</annotation>
+		<annotation cp="👳🏿‍♂">رجل | عمامة | نوع جلد 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">رجل يرتدي عمامة: نوع جلد 6</annotation>
+		<annotation cp="👳🏻‍♀">سيدة | عمامة | نوع جلد 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">سيدة ترتدي عمامة: نوع جلد 1–2</annotation>
+		<annotation cp="👳🏼‍♀">سيدة | عمامة | نوع جلد 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">سيدة ترتدي عمامة: نوع جلد 3</annotation>
+		<annotation cp="👳🏽‍♀">سيدة | عمامة | نوع جلد 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">سيدة ترتدي عمامة: نوع جلد 4</annotation>
+		<annotation cp="👳🏾‍♀">سيدة | عمامة | نوع جلد 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">سيدة ترتدي عمامة: نوع جلد 5</annotation>
+		<annotation cp="👳🏿‍♀">سيدة | عمامة | نوع جلد 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">سيدة ترتدي عمامة: نوع جلد 6</annotation>
+		<annotation cp="👲🏻">أشخاص | رجل يرتدي قبعة | غوا بي ماو | نوع جلد 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">رجل بعمامة صينية: نوع جلد 1–2</annotation>
+		<annotation cp="👲🏼">أشخاص | رجل يرتدي قبعة | غوا بي ماو | نوع جلد 3</annotation>
+		<annotation cp="👲🏼" type="tts">رجل بعمامة صينية: نوع جلد 3</annotation>
+		<annotation cp="👲🏽">أشخاص | رجل يرتدي قبعة | غوا بي ماو | نوع جلد 4</annotation>
+		<annotation cp="👲🏽" type="tts">رجل بعمامة صينية: نوع جلد 4</annotation>
+		<annotation cp="👲🏾">أشخاص | رجل يرتدي قبعة | غوا بي ماو | نوع جلد 5</annotation>
+		<annotation cp="👲🏾" type="tts">رجل بعمامة صينية: نوع جلد 5</annotation>
+		<annotation cp="👲🏿">أشخاص | رجل يرتدي قبعة | غوا بي ماو | نوع جلد 6</annotation>
+		<annotation cp="👲🏿" type="tts">رجل بعمامة صينية: نوع جلد 6</annotation>
+		<annotation cp="👱🏻">أشقر | نوع جلد 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">شخص أشقر: نوع جلد 1–2</annotation>
+		<annotation cp="👱🏼">أشقر | نوع جلد 3</annotation>
+		<annotation cp="👱🏼" type="tts">شخص أشقر: نوع جلد 3</annotation>
+		<annotation cp="👱🏽">أشقر | نوع جلد 4</annotation>
+		<annotation cp="👱🏽" type="tts">شخص أشقر: نوع جلد 4</annotation>
+		<annotation cp="👱🏾">أشقر | نوع جلد 5</annotation>
+		<annotation cp="👱🏾" type="tts">شخص أشقر: نوع جلد 5</annotation>
+		<annotation cp="👱🏿">أشقر | نوع جلد 6</annotation>
+		<annotation cp="👱🏿" type="tts">شخص أشقر: نوع جلد 6</annotation>
+		<annotation cp="👱🏻‍♂">أشقر | نوع جلد 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">أشقر: نوع جلد 1–2</annotation>
+		<annotation cp="👱🏼‍♂">أشقر | نوع جلد 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">أشقر: نوع جلد 3</annotation>
+		<annotation cp="👱🏽‍♂">أشقر | نوع جلد 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">أشقر: نوع جلد 4</annotation>
+		<annotation cp="👱🏾‍♂">أشقر | نوع جلد 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">أشقر: نوع جلد 5</annotation>
+		<annotation cp="👱🏿‍♂">أشقر | نوع جلد 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">أشقر: نوع جلد 6</annotation>
+		<annotation cp="👱🏻‍♀">شقراء | نوع جلد 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">شقراء: نوع جلد 1–2</annotation>
+		<annotation cp="👱🏼‍♀">شقراء | نوع جلد 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">شقراء: نوع جلد 3</annotation>
+		<annotation cp="👱🏽‍♀">شقراء | نوع جلد 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">شقراء: نوع جلد 4</annotation>
+		<annotation cp="👱🏾‍♀">شقراء | نوع جلد 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">شقراء: نوع جلد 5</annotation>
+		<annotation cp="👱🏿‍♀">شقراء | نوع جلد 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">شقراء: نوع جلد 6</annotation>
+		<annotation cp="🤵🏻">رجل | ملابس سهرة | نوع جلد 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">رجل بملابس سهرة: نوع جلد 1–2</annotation>
+		<annotation cp="🤵🏼">رجل | ملابس سهرة | نوع جلد 3</annotation>
+		<annotation cp="🤵🏼" type="tts">رجل بملابس سهرة: نوع جلد 3</annotation>
+		<annotation cp="🤵🏽">رجل | ملابس سهرة | نوع جلد 4</annotation>
+		<annotation cp="🤵🏽" type="tts">رجل بملابس سهرة: نوع جلد 4</annotation>
+		<annotation cp="🤵🏾">رجل | ملابس سهرة | نوع جلد 5</annotation>
+		<annotation cp="🤵🏾" type="tts">رجل بملابس سهرة: نوع جلد 5</annotation>
+		<annotation cp="🤵🏿">رجل | ملابس سهرة | نوع جلد 6</annotation>
+		<annotation cp="🤵🏿" type="tts">رجل بملابس سهرة: نوع جلد 6</annotation>
+		<annotation cp="👰🏻">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">عروس: نوع جلد 1–2</annotation>
+		<annotation cp="👰🏼">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 3</annotation>
+		<annotation cp="👰🏼" type="tts">عروس: نوع جلد 3</annotation>
+		<annotation cp="👰🏽">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 4</annotation>
+		<annotation cp="👰🏽" type="tts">عروس: نوع جلد 4</annotation>
+		<annotation cp="👰🏾">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 5</annotation>
+		<annotation cp="👰🏾" type="tts">عروس: نوع جلد 5</annotation>
+		<annotation cp="👰🏿">أشخاص | حجاب | زفاف | عروس بحجاب | نوع جلد 6</annotation>
+		<annotation cp="👰🏿" type="tts">عروس: نوع جلد 6</annotation>
+		<annotation cp="🤰🏻">امرأة | حامل | نوع جلد 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">امرأة حامل: نوع جلد 1–2</annotation>
+		<annotation cp="🤰🏼">امرأة | حامل | نوع جلد 3</annotation>
+		<annotation cp="🤰🏼" type="tts">امرأة حامل: نوع جلد 3</annotation>
+		<annotation cp="🤰🏽">امرأة | حامل | نوع جلد 4</annotation>
+		<annotation cp="🤰🏽" type="tts">امرأة حامل: نوع جلد 4</annotation>
+		<annotation cp="🤰🏾">امرأة | حامل | نوع جلد 5</annotation>
+		<annotation cp="🤰🏾" type="tts">امرأة حامل: نوع جلد 5</annotation>
+		<annotation cp="🤰🏿">امرأة | حامل | نوع جلد 6</annotation>
+		<annotation cp="🤰🏿" type="tts">امرأة حامل: نوع جلد 6</annotation>
+		<annotation cp="👼🏻">حدوتة | ملاك | وجه | نوع جلد 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">طفل ملاك: نوع جلد 1–2</annotation>
+		<annotation cp="👼🏼">حدوتة | ملاك | وجه | نوع جلد 3</annotation>
+		<annotation cp="👼🏼" type="tts">طفل ملاك: نوع جلد 3</annotation>
+		<annotation cp="👼🏽">حدوتة | ملاك | وجه | نوع جلد 4</annotation>
+		<annotation cp="👼🏽" type="tts">طفل ملاك: نوع جلد 4</annotation>
+		<annotation cp="👼🏾">حدوتة | ملاك | وجه | نوع جلد 5</annotation>
+		<annotation cp="👼🏾" type="tts">طفل ملاك: نوع جلد 5</annotation>
+		<annotation cp="👼🏿">حدوتة | ملاك | وجه | نوع جلد 6</annotation>
+		<annotation cp="👼🏿" type="tts">طفل ملاك: نوع جلد 6</annotation>
+		<annotation cp="🎅🏻">سانتا | سانتا كلوز | عيد الميلاد | نوع جلد 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">بابا نويل: نوع جلد 1–2</annotation>
+		<annotation cp="🎅🏼">سانتا | سانتا كلوز | عيد الميلاد | نوع جلد 3</annotation>
+		<annotation cp="🎅🏼" type="tts">بابا نويل: نوع جلد 3</annotation>
+		<annotation cp="🎅🏽">سانتا | سانتا كلوز | عيد الميلاد | نوع جلد 4</annotation>
+		<annotation cp="🎅🏽" type="tts">بابا نويل: نوع جلد 4</annotation>
+		<annotation cp="🎅🏾">سانتا | سانتا كلوز | عيد الميلاد | نوع جلد 5</annotation>
+		<annotation cp="🎅🏾" type="tts">بابا نويل: نوع جلد 5</annotation>
+		<annotation cp="🎅🏿">سانتا | سانتا كلوز | عيد الميلاد | نوع جلد 6</annotation>
+		<annotation cp="🎅🏿" type="tts">بابا نويل: نوع جلد 6</annotation>
+		<annotation cp="🤶🏻">أم | سانتا كلوز | كريسماس | نوع جلد 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">سانتا كلوز سيدة: نوع جلد 1–2</annotation>
+		<annotation cp="🤶🏼">أم | سانتا كلوز | كريسماس | نوع جلد 3</annotation>
+		<annotation cp="🤶🏼" type="tts">سانتا كلوز سيدة: نوع جلد 3</annotation>
+		<annotation cp="🤶🏽">أم | سانتا كلوز | كريسماس | نوع جلد 4</annotation>
+		<annotation cp="🤶🏽" type="tts">سانتا كلوز سيدة: نوع جلد 4</annotation>
+		<annotation cp="🤶🏾">أم | سانتا كلوز | كريسماس | نوع جلد 5</annotation>
+		<annotation cp="🤶🏾" type="tts">سانتا كلوز سيدة: نوع جلد 5</annotation>
+		<annotation cp="🤶🏿">أم | سانتا كلوز | كريسماس | نوع جلد 6</annotation>
+		<annotation cp="🤶🏿" type="tts">سانتا كلوز سيدة: نوع جلد 6</annotation>
+		<annotation cp="🙍🏻">إشارة | شخص | شخص عابس | نوع جلد 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">شخص عابس: نوع جلد 1–2</annotation>
+		<annotation cp="🙍🏼">إشارة | شخص | شخص عابس | نوع جلد 3</annotation>
+		<annotation cp="🙍🏼" type="tts">شخص عابس: نوع جلد 3</annotation>
+		<annotation cp="🙍🏽">إشارة | شخص | شخص عابس | نوع جلد 4</annotation>
+		<annotation cp="🙍🏽" type="tts">شخص عابس: نوع جلد 4</annotation>
+		<annotation cp="🙍🏾">إشارة | شخص | شخص عابس | نوع جلد 5</annotation>
+		<annotation cp="🙍🏾" type="tts">شخص عابس: نوع جلد 5</annotation>
+		<annotation cp="🙍🏿">إشارة | شخص | شخص عابس | نوع جلد 6</annotation>
+		<annotation cp="🙍🏿" type="tts">شخص عابس: نوع جلد 6</annotation>
+		<annotation cp="🙍🏻‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">متجهم: نوع جلد 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">متجهم: نوع جلد 3</annotation>
+		<annotation cp="🙍🏽‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">متجهم: نوع جلد 4</annotation>
+		<annotation cp="🙍🏾‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">متجهم: نوع جلد 5</annotation>
+		<annotation cp="🙍🏿‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">متجهم: نوع جلد 6</annotation>
+		<annotation cp="🙍🏻‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">متجهمة: نوع جلد 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">متجهمة: نوع جلد 3</annotation>
+		<annotation cp="🙍🏽‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">متجهمة: نوع جلد 4</annotation>
+		<annotation cp="🙍🏾‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">متجهمة: نوع جلد 5</annotation>
+		<annotation cp="🙍🏿‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">متجهمة: نوع جلد 6</annotation>
+		<annotation cp="🙎🏻">إشارة | شخص | شخص متجهم | نوع جلد 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">تجهم: نوع جلد 1–2</annotation>
+		<annotation cp="🙎🏼">إشارة | شخص | شخص متجهم | نوع جلد 3</annotation>
+		<annotation cp="🙎🏼" type="tts">تجهم: نوع جلد 3</annotation>
+		<annotation cp="🙎🏽">إشارة | شخص | شخص متجهم | نوع جلد 4</annotation>
+		<annotation cp="🙎🏽" type="tts">تجهم: نوع جلد 4</annotation>
+		<annotation cp="🙎🏾">إشارة | شخص | شخص متجهم | نوع جلد 5</annotation>
+		<annotation cp="🙎🏾" type="tts">تجهم: نوع جلد 5</annotation>
+		<annotation cp="🙎🏿">إشارة | شخص | شخص متجهم | نوع جلد 6</annotation>
+		<annotation cp="🙎🏿" type="tts">تجهم: نوع جلد 6</annotation>
+		<annotation cp="🙎🏻‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">رجل عابس: نوع جلد 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">رجل عابس: نوع جلد 3</annotation>
+		<annotation cp="🙎🏽‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">رجل عابس: نوع جلد 4</annotation>
+		<annotation cp="🙎🏾‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">رجل عابس: نوع جلد 5</annotation>
+		<annotation cp="🙎🏿‍♂">عبوس | متجهم | مقطب الجبين | نوع جلد 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">رجل عابس: نوع جلد 6</annotation>
+		<annotation cp="🙎🏻‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">سيدة عابسة: نوع جلد 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">سيدة عابسة: نوع جلد 3</annotation>
+		<annotation cp="🙎🏽‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">سيدة عابسة: نوع جلد 4</annotation>
+		<annotation cp="🙎🏾‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">سيدة عابسة: نوع جلد 5</annotation>
+		<annotation cp="🙎🏿‍♀">عبوسة | متجهمة | مقطبة الجبين | نوع جلد 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">سيدة عابسة: نوع جلد 6</annotation>
+		<annotation cp="🙅🏻">أمر سيء | لا | ممنوع | نوع جلد 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">إشارة أمر سيء: نوع جلد 1–2</annotation>
+		<annotation cp="🙅🏼">أمر سيء | لا | ممنوع | نوع جلد 3</annotation>
+		<annotation cp="🙅🏼" type="tts">إشارة أمر سيء: نوع جلد 3</annotation>
+		<annotation cp="🙅🏽">أمر سيء | لا | ممنوع | نوع جلد 4</annotation>
+		<annotation cp="🙅🏽" type="tts">إشارة أمر سيء: نوع جلد 4</annotation>
+		<annotation cp="🙅🏾">أمر سيء | لا | ممنوع | نوع جلد 5</annotation>
+		<annotation cp="🙅🏾" type="tts">إشارة أمر سيء: نوع جلد 5</annotation>
+		<annotation cp="🙅🏿">أمر سيء | لا | ممنوع | نوع جلد 6</annotation>
+		<annotation cp="🙅🏿" type="tts">إشارة أمر سيء: نوع جلد 6</annotation>
+		<annotation cp="🙅🏻‍♂">إشارة رفض | غير موافق | نوع جلد 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">غير موافق: نوع جلد 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">إشارة رفض | غير موافق | نوع جلد 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">غير موافق: نوع جلد 3</annotation>
+		<annotation cp="🙅🏽‍♂">إشارة رفض | غير موافق | نوع جلد 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">غير موافق: نوع جلد 4</annotation>
+		<annotation cp="🙅🏾‍♂">إشارة رفض | غير موافق | نوع جلد 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">غير موافق: نوع جلد 5</annotation>
+		<annotation cp="🙅🏿‍♂">إشارة رفض | غير موافق | نوع جلد 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">غير موافق: نوع جلد 6</annotation>
+		<annotation cp="🙅🏻‍♀">إشارة رفض | غير موافقة | نوع جلد 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">غير موافقة: نوع جلد 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">إشارة رفض | غير موافقة | نوع جلد 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">غير موافقة: نوع جلد 3</annotation>
+		<annotation cp="🙅🏽‍♀">إشارة رفض | غير موافقة | نوع جلد 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">غير موافقة: نوع جلد 4</annotation>
+		<annotation cp="🙅🏾‍♀">إشارة رفض | غير موافقة | نوع جلد 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">غير موافقة: نوع جلد 5</annotation>
+		<annotation cp="🙅🏿‍♀">إشارة رفض | غير موافقة | نوع جلد 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">غير موافقة: نوع جلد 6</annotation>
+		<annotation cp="🙆🏻">إشارة | مضبوط | وجه | نوع جلد 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">إشارة موافقة: نوع جلد 1–2</annotation>
+		<annotation cp="🙆🏼">إشارة | مضبوط | وجه | نوع جلد 3</annotation>
+		<annotation cp="🙆🏼" type="tts">إشارة موافقة: نوع جلد 3</annotation>
+		<annotation cp="🙆🏽">إشارة | مضبوط | وجه | نوع جلد 4</annotation>
+		<annotation cp="🙆🏽" type="tts">إشارة موافقة: نوع جلد 4</annotation>
+		<annotation cp="🙆🏾">إشارة | مضبوط | وجه | نوع جلد 5</annotation>
+		<annotation cp="🙆🏾" type="tts">إشارة موافقة: نوع جلد 5</annotation>
+		<annotation cp="🙆🏿">إشارة | مضبوط | وجه | نوع جلد 6</annotation>
+		<annotation cp="🙆🏿" type="tts">إشارة موافقة: نوع جلد 6</annotation>
+		<annotation cp="🙆🏻‍♂">إشارة موافقة | موافق | نوع جلد 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">موافق: نوع جلد 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">إشارة موافقة | موافق | نوع جلد 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">موافق: نوع جلد 3</annotation>
+		<annotation cp="🙆🏽‍♂">إشارة موافقة | موافق | نوع جلد 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">موافق: نوع جلد 4</annotation>
+		<annotation cp="🙆🏾‍♂">إشارة موافقة | موافق | نوع جلد 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">موافق: نوع جلد 5</annotation>
+		<annotation cp="🙆🏿‍♂">إشارة موافقة | موافق | نوع جلد 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">موافق: نوع جلد 6</annotation>
+		<annotation cp="🙆🏻‍♀">إشارة موافقة | موافقة | نوع جلد 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">موافقة: نوع جلد 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">إشارة موافقة | موافقة | نوع جلد 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">موافقة: نوع جلد 3</annotation>
+		<annotation cp="🙆🏽‍♀">إشارة موافقة | موافقة | نوع جلد 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">موافقة: نوع جلد 4</annotation>
+		<annotation cp="🙆🏾‍♀">إشارة موافقة | موافقة | نوع جلد 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">موافقة: نوع جلد 5</annotation>
+		<annotation cp="🙆🏿‍♀">إشارة موافقة | موافقة | نوع جلد 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">موافقة: نوع جلد 6</annotation>
+		<annotation cp="💁🏻">أشخاص | مساعدة | معلومات | نوع جلد 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">مكتب استعلامات: نوع جلد 1–2</annotation>
+		<annotation cp="💁🏼">أشخاص | مساعدة | معلومات | نوع جلد 3</annotation>
+		<annotation cp="💁🏼" type="tts">مكتب استعلامات: نوع جلد 3</annotation>
+		<annotation cp="💁🏽">أشخاص | مساعدة | معلومات | نوع جلد 4</annotation>
+		<annotation cp="💁🏽" type="tts">مكتب استعلامات: نوع جلد 4</annotation>
+		<annotation cp="💁🏾">أشخاص | مساعدة | معلومات | نوع جلد 5</annotation>
+		<annotation cp="💁🏾" type="tts">مكتب استعلامات: نوع جلد 5</annotation>
+		<annotation cp="💁🏿">أشخاص | مساعدة | معلومات | نوع جلد 6</annotation>
+		<annotation cp="💁🏿" type="tts">مكتب استعلامات: نوع جلد 6</annotation>
+		<annotation cp="💁🏻‍♂">يد مائلة | نوع جلد 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">رجل بيد مائلة: نوع جلد 1–2</annotation>
+		<annotation cp="💁🏼‍♂">يد مائلة | نوع جلد 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">رجل بيد مائلة: نوع جلد 3</annotation>
+		<annotation cp="💁🏽‍♂">يد مائلة | نوع جلد 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">رجل بيد مائلة: نوع جلد 4</annotation>
+		<annotation cp="💁🏾‍♂">يد مائلة | نوع جلد 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">رجل بيد مائلة: نوع جلد 5</annotation>
+		<annotation cp="💁🏿‍♂">يد مائلة | نوع جلد 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">رجل بيد مائلة: نوع جلد 6</annotation>
+		<annotation cp="💁🏻‍♀">يد مائلة | نوع جلد 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">سيدة بيد مائلة: نوع جلد 1–2</annotation>
+		<annotation cp="💁🏼‍♀">يد مائلة | نوع جلد 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">سيدة بيد مائلة: نوع جلد 3</annotation>
+		<annotation cp="💁🏽‍♀">يد مائلة | نوع جلد 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">سيدة بيد مائلة: نوع جلد 4</annotation>
+		<annotation cp="💁🏾‍♀">يد مائلة | نوع جلد 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">سيدة بيد مائلة: نوع جلد 5</annotation>
+		<annotation cp="💁🏿‍♀">يد مائلة | نوع جلد 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">سيدة بيد مائلة: نوع جلد 6</annotation>
+		<annotation cp="🙋🏻">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">شخص سعيد: نوع جلد 1–2</annotation>
+		<annotation cp="🙋🏼">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 3</annotation>
+		<annotation cp="🙋🏼" type="tts">شخص سعيد: نوع جلد 3</annotation>
+		<annotation cp="🙋🏽">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 4</annotation>
+		<annotation cp="🙋🏽" type="tts">شخص سعيد: نوع جلد 4</annotation>
+		<annotation cp="🙋🏾">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 5</annotation>
+		<annotation cp="🙋🏾" type="tts">شخص سعيد: نوع جلد 5</annotation>
+		<annotation cp="🙋🏿">إشارة | رفع اليد | سعادة | شخص | شخص يرفع يده | نوع جلد 6</annotation>
+		<annotation cp="🙋🏿" type="tts">شخص سعيد: نوع جلد 6</annotation>
+		<annotation cp="🙋🏻‍♂">يد مرفوعة | نوع جلد 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">رجل يرفع يده: نوع جلد 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">يد مرفوعة | نوع جلد 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">رجل يرفع يده: نوع جلد 3</annotation>
+		<annotation cp="🙋🏽‍♂">يد مرفوعة | نوع جلد 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">رجل يرفع يده: نوع جلد 4</annotation>
+		<annotation cp="🙋🏾‍♂">يد مرفوعة | نوع جلد 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">رجل يرفع يده: نوع جلد 5</annotation>
+		<annotation cp="🙋🏿‍♂">يد مرفوعة | نوع جلد 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">رجل يرفع يده: نوع جلد 6</annotation>
+		<annotation cp="🙋🏻‍♀">يد مرفوعة | نوع جلد 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">سيدة ترفع يدها: نوع جلد 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">يد مرفوعة | نوع جلد 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">سيدة ترفع يدها: نوع جلد 3</annotation>
+		<annotation cp="🙋🏽‍♀">يد مرفوعة | نوع جلد 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">سيدة ترفع يدها: نوع جلد 4</annotation>
+		<annotation cp="🙋🏾‍♀">يد مرفوعة | نوع جلد 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">سيدة ترفع يدها: نوع جلد 5</annotation>
+		<annotation cp="🙋🏿‍♀">يد مرفوعة | نوع جلد 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">سيدة ترفع يدها: نوع جلد 6</annotation>
+		<annotation cp="🙇🏻">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">آسف: نوع جلد 1–2</annotation>
+		<annotation cp="🙇🏼">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 3</annotation>
+		<annotation cp="🙇🏼" type="tts">آسف: نوع جلد 3</annotation>
+		<annotation cp="🙇🏽">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 4</annotation>
+		<annotation cp="🙇🏽" type="tts">آسف: نوع جلد 4</annotation>
+		<annotation cp="🙇🏾">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 5</annotation>
+		<annotation cp="🙇🏾" type="tts">آسف: نوع جلد 5</annotation>
+		<annotation cp="🙇🏿">أسف | إشارة | انحناء | انحناء شديد | شخص | نوع جلد 6</annotation>
+		<annotation cp="🙇🏿" type="tts">آسف: نوع جلد 6</annotation>
+		<annotation cp="🙇🏻‍♂">امتنان | انحناء | ركوع | نوع جلد 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">رجل ينحني: نوع جلد 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">امتنان | انحناء | ركوع | نوع جلد 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">رجل ينحني: نوع جلد 3</annotation>
+		<annotation cp="🙇🏽‍♂">امتنان | انحناء | ركوع | نوع جلد 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">رجل ينحني: نوع جلد 4</annotation>
+		<annotation cp="🙇🏾‍♂">امتنان | انحناء | ركوع | نوع جلد 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">رجل ينحني: نوع جلد 5</annotation>
+		<annotation cp="🙇🏿‍♂">امتنان | انحناء | ركوع | نوع جلد 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">رجل ينحني: نوع جلد 6</annotation>
+		<annotation cp="🙇🏻‍♀">امتنان | انحناء | ركوع | نوع جلد 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">سيدة تنحني: نوع جلد 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">امتنان | انحناء | ركوع | نوع جلد 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">سيدة تنحني: نوع جلد 3</annotation>
+		<annotation cp="🙇🏽‍♀">امتنان | انحناء | ركوع | نوع جلد 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">سيدة تنحني: نوع جلد 4</annotation>
+		<annotation cp="🙇🏾‍♀">امتنان | انحناء | ركوع | نوع جلد 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">سيدة تنحني: نوع جلد 5</annotation>
+		<annotation cp="🙇🏿‍♀">امتنان | انحناء | ركوع | نوع جلد 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">سيدة تنحني: نوع جلد 6</annotation>
+		<annotation cp="🤦🏻">إحباط | راحة يد | سخط | نوع جلد 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">إحباط: نوع جلد 1–2</annotation>
+		<annotation cp="🤦🏼">إحباط | راحة يد | سخط | نوع جلد 3</annotation>
+		<annotation cp="🤦🏼" type="tts">إحباط: نوع جلد 3</annotation>
+		<annotation cp="🤦🏽">إحباط | راحة يد | سخط | نوع جلد 4</annotation>
+		<annotation cp="🤦🏽" type="tts">إحباط: نوع جلد 4</annotation>
+		<annotation cp="🤦🏾">إحباط | راحة يد | سخط | نوع جلد 5</annotation>
+		<annotation cp="🤦🏾" type="tts">إحباط: نوع جلد 5</annotation>
+		<annotation cp="🤦🏿">إحباط | راحة يد | سخط | نوع جلد 6</annotation>
+		<annotation cp="🤦🏿" type="tts">إحباط: نوع جلد 6</annotation>
+		<annotation cp="🤦🏻‍♂">إحباط | صدمة | عدم تصديق | نوع جلد 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">رجل يشعر بإحباط: نوع جلد 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">إحباط | صدمة | عدم تصديق | نوع جلد 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">رجل يشعر بإحباط: نوع جلد 3</annotation>
+		<annotation cp="🤦🏽‍♂">إحباط | صدمة | عدم تصديق | نوع جلد 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">رجل يشعر بإحباط: نوع جلد 4</annotation>
+		<annotation cp="🤦🏾‍♂">إحباط | صدمة | عدم تصديق | نوع جلد 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">رجل يشعر بإحباط: نوع جلد 5</annotation>
+		<annotation cp="🤦🏿‍♂">إحباط | صدمة | عدم تصديق | نوع جلد 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">رجل يشعر بإحباط: نوع جلد 6</annotation>
+		<annotation cp="🤦🏻‍♀">إحباط | صدمة | عدم تصديق | نوع جلد 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">سيدة تشعر بإحباط: نوع جلد 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">إحباط | صدمة | عدم تصديق | نوع جلد 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">سيدة تشعر بإحباط: نوع جلد 3</annotation>
+		<annotation cp="🤦🏽‍♀">إحباط | صدمة | عدم تصديق | نوع جلد 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">سيدة تشعر بإحباط: نوع جلد 4</annotation>
+		<annotation cp="🤦🏾‍♀">إحباط | صدمة | عدم تصديق | نوع جلد 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">سيدة تشعر بإحباط: نوع جلد 5</annotation>
+		<annotation cp="🤦🏿‍♀">إحباط | صدمة | عدم تصديق | نوع جلد 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">سيدة تشعر بإحباط: نوع جلد 6</annotation>
+		<annotation cp="🤷🏻">جهل | شك | لا مبالاة | نوع جلد 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">لا مبالاة: نوع جلد 1–2</annotation>
+		<annotation cp="🤷🏼">جهل | شك | لا مبالاة | نوع جلد 3</annotation>
+		<annotation cp="🤷🏼" type="tts">لا مبالاة: نوع جلد 3</annotation>
+		<annotation cp="🤷🏽">جهل | شك | لا مبالاة | نوع جلد 4</annotation>
+		<annotation cp="🤷🏽" type="tts">لا مبالاة: نوع جلد 4</annotation>
+		<annotation cp="🤷🏾">جهل | شك | لا مبالاة | نوع جلد 5</annotation>
+		<annotation cp="🤷🏾" type="tts">لا مبالاة: نوع جلد 5</annotation>
+		<annotation cp="🤷🏿">جهل | شك | لا مبالاة | نوع جلد 6</annotation>
+		<annotation cp="🤷🏿" type="tts">لا مبالاة: نوع جلد 6</annotation>
+		<annotation cp="🤷🏻‍♂">استهجان | هز الكتف | نوع جلد 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">رجل لا يبالي: نوع جلد 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">استهجان | هز الكتف | نوع جلد 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">رجل لا يبالي: نوع جلد 3</annotation>
+		<annotation cp="🤷🏽‍♂">استهجان | هز الكتف | نوع جلد 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">رجل لا يبالي: نوع جلد 4</annotation>
+		<annotation cp="🤷🏾‍♂">استهجان | هز الكتف | نوع جلد 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">رجل لا يبالي: نوع جلد 5</annotation>
+		<annotation cp="🤷🏿‍♂">استهجان | هز الكتف | نوع جلد 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">رجل لا يبالي: نوع جلد 6</annotation>
+		<annotation cp="🤷🏻‍♀">استهجان | هز الكتف | نوع جلد 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">سيدة لا تبالي: نوع جلد 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">استهجان | هز الكتف | نوع جلد 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">سيدة لا تبالي: نوع جلد 3</annotation>
+		<annotation cp="🤷🏽‍♀">استهجان | هز الكتف | نوع جلد 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">سيدة لا تبالي: نوع جلد 4</annotation>
+		<annotation cp="🤷🏾‍♀">استهجان | هز الكتف | نوع جلد 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">سيدة لا تبالي: نوع جلد 5</annotation>
+		<annotation cp="🤷🏿‍♀">استهجان | هز الكتف | نوع جلد 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">سيدة لا تبالي: نوع جلد 6</annotation>
+		<annotation cp="💆🏻">صالون | مساج | نوع جلد 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">مساج وجه: نوع جلد 1–2</annotation>
+		<annotation cp="💆🏼">صالون | مساج | نوع جلد 3</annotation>
+		<annotation cp="💆🏼" type="tts">مساج وجه: نوع جلد 3</annotation>
+		<annotation cp="💆🏽">صالون | مساج | نوع جلد 4</annotation>
+		<annotation cp="💆🏽" type="tts">مساج وجه: نوع جلد 4</annotation>
+		<annotation cp="💆🏾">صالون | مساج | نوع جلد 5</annotation>
+		<annotation cp="💆🏾" type="tts">مساج وجه: نوع جلد 5</annotation>
+		<annotation cp="💆🏿">صالون | مساج | نوع جلد 6</annotation>
+		<annotation cp="💆🏿" type="tts">مساج وجه: نوع جلد 6</annotation>
+		<annotation cp="💆🏻‍♂">تدليك | مساج | نوع جلد 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">تدليك لرجل: نوع جلد 1–2</annotation>
+		<annotation cp="💆🏼‍♂">تدليك | مساج | نوع جلد 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">تدليك لرجل: نوع جلد 3</annotation>
+		<annotation cp="💆🏽‍♂">تدليك | مساج | نوع جلد 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">تدليك لرجل: نوع جلد 4</annotation>
+		<annotation cp="💆🏾‍♂">تدليك | مساج | نوع جلد 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">تدليك لرجل: نوع جلد 5</annotation>
+		<annotation cp="💆🏿‍♂">تدليك | مساج | نوع جلد 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">تدليك لرجل: نوع جلد 6</annotation>
+		<annotation cp="💆🏻‍♀">تدليك | مساج | نوع جلد 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">تدليك لسيدة: نوع جلد 1–2</annotation>
+		<annotation cp="💆🏼‍♀">تدليك | مساج | نوع جلد 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">تدليك لسيدة: نوع جلد 3</annotation>
+		<annotation cp="💆🏽‍♀">تدليك | مساج | نوع جلد 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">تدليك لسيدة: نوع جلد 4</annotation>
+		<annotation cp="💆🏾‍♀">تدليك | مساج | نوع جلد 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">تدليك لسيدة: نوع جلد 5</annotation>
+		<annotation cp="💆🏿‍♀">تدليك | مساج | نوع جلد 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">تدليك لسيدة: نوع جلد 6</annotation>
+		<annotation cp="💇🏻">جمال | صالون تجميل | نوع جلد 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">قص شعر: نوع جلد 1–2</annotation>
+		<annotation cp="💇🏼">جمال | صالون تجميل | نوع جلد 3</annotation>
+		<annotation cp="💇🏼" type="tts">قص شعر: نوع جلد 3</annotation>
+		<annotation cp="💇🏽">جمال | صالون تجميل | نوع جلد 4</annotation>
+		<annotation cp="💇🏽" type="tts">قص شعر: نوع جلد 4</annotation>
+		<annotation cp="💇🏾">جمال | صالون تجميل | نوع جلد 5</annotation>
+		<annotation cp="💇🏾" type="tts">قص شعر: نوع جلد 5</annotation>
+		<annotation cp="💇🏿">جمال | صالون تجميل | نوع جلد 6</annotation>
+		<annotation cp="💇🏿" type="tts">قص شعر: نوع جلد 6</annotation>
+		<annotation cp="💇🏻‍♂">قص شعر | نوع جلد 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">يقص شعره: نوع جلد 1–2</annotation>
+		<annotation cp="💇🏼‍♂">قص شعر | نوع جلد 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">يقص شعره: نوع جلد 3</annotation>
+		<annotation cp="💇🏽‍♂">قص شعر | نوع جلد 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">يقص شعره: نوع جلد 4</annotation>
+		<annotation cp="💇🏾‍♂">قص شعر | نوع جلد 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">يقص شعره: نوع جلد 5</annotation>
+		<annotation cp="💇🏿‍♂">قص شعر | نوع جلد 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">يقص شعره: نوع جلد 6</annotation>
+		<annotation cp="💇🏻‍♀">قص شعر | نوع جلد 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">تقص شعرها: نوع جلد 1–2</annotation>
+		<annotation cp="💇🏼‍♀">قص شعر | نوع جلد 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">تقص شعرها: نوع جلد 3</annotation>
+		<annotation cp="💇🏽‍♀">قص شعر | نوع جلد 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">تقص شعرها: نوع جلد 4</annotation>
+		<annotation cp="💇🏾‍♀">قص شعر | نوع جلد 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">تقص شعرها: نوع جلد 5</annotation>
+		<annotation cp="💇🏿‍♀">قص شعر | نوع جلد 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">تقص شعرها: نوع جلد 6</annotation>
+		<annotation cp="🚶🏻">سير | مشي | نوع جلد 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">مشاة: نوع جلد 1–2</annotation>
+		<annotation cp="🚶🏼">سير | مشي | نوع جلد 3</annotation>
+		<annotation cp="🚶🏼" type="tts">مشاة: نوع جلد 3</annotation>
+		<annotation cp="🚶🏽">سير | مشي | نوع جلد 4</annotation>
+		<annotation cp="🚶🏽" type="tts">مشاة: نوع جلد 4</annotation>
+		<annotation cp="🚶🏾">سير | مشي | نوع جلد 5</annotation>
+		<annotation cp="🚶🏾" type="tts">مشاة: نوع جلد 5</annotation>
+		<annotation cp="🚶🏿">سير | مشي | نوع جلد 6</annotation>
+		<annotation cp="🚶🏿" type="tts">مشاة: نوع جلد 6</annotation>
+		<annotation cp="🚶🏻‍♂">سائر | ماشٍ | مترجل | نوع جلد 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">سائر: نوع جلد 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">سائر | ماشٍ | مترجل | نوع جلد 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">سائر: نوع جلد 3</annotation>
+		<annotation cp="🚶🏽‍♂">سائر | ماشٍ | مترجل | نوع جلد 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">سائر: نوع جلد 4</annotation>
+		<annotation cp="🚶🏾‍♂">سائر | ماشٍ | مترجل | نوع جلد 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">سائر: نوع جلد 5</annotation>
+		<annotation cp="🚶🏿‍♂">سائر | ماشٍ | مترجل | نوع جلد 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">سائر: نوع جلد 6</annotation>
+		<annotation cp="🚶🏻‍♀">سائرة | ماشية | مترجلة | نوع جلد 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">سائرة: نوع جلد 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">سائرة | ماشية | مترجلة | نوع جلد 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">سائرة: نوع جلد 3</annotation>
+		<annotation cp="🚶🏽‍♀">سائرة | ماشية | مترجلة | نوع جلد 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">سائرة: نوع جلد 4</annotation>
+		<annotation cp="🚶🏾‍♀">سائرة | ماشية | مترجلة | نوع جلد 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">سائرة: نوع جلد 5</annotation>
+		<annotation cp="🚶🏿‍♀">سائرة | ماشية | مترجلة | نوع جلد 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">سائرة: نوع جلد 6</annotation>
+		<annotation cp="🏃🏻">رياضة | ماراثون | نوع جلد 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">جري: نوع جلد 1–2</annotation>
+		<annotation cp="🏃🏼">رياضة | ماراثون | نوع جلد 3</annotation>
+		<annotation cp="🏃🏼" type="tts">جري: نوع جلد 3</annotation>
+		<annotation cp="🏃🏽">رياضة | ماراثون | نوع جلد 4</annotation>
+		<annotation cp="🏃🏽" type="tts">جري: نوع جلد 4</annotation>
+		<annotation cp="🏃🏾">رياضة | ماراثون | نوع جلد 5</annotation>
+		<annotation cp="🏃🏾" type="tts">جري: نوع جلد 5</annotation>
+		<annotation cp="🏃🏿">رياضة | ماراثون | نوع جلد 6</annotation>
+		<annotation cp="🏃🏿" type="tts">جري: نوع جلد 6</annotation>
+		<annotation cp="🏃🏻‍♂">يجري | يركض | يعدو | نوع جلد 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">راكض: نوع جلد 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">يجري | يركض | يعدو | نوع جلد 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">راكض: نوع جلد 3</annotation>
+		<annotation cp="🏃🏽‍♂">يجري | يركض | يعدو | نوع جلد 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">راكض: نوع جلد 4</annotation>
+		<annotation cp="🏃🏾‍♂">يجري | يركض | يعدو | نوع جلد 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">راكض: نوع جلد 5</annotation>
+		<annotation cp="🏃🏿‍♂">يجري | يركض | يعدو | نوع جلد 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">راكض: نوع جلد 6</annotation>
+		<annotation cp="🏃🏻‍♀">تجري | تركض | تعدو | نوع جلد 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">راكضة: نوع جلد 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">تجري | تركض | تعدو | نوع جلد 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">راكضة: نوع جلد 3</annotation>
+		<annotation cp="🏃🏽‍♀">تجري | تركض | تعدو | نوع جلد 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">راكضة: نوع جلد 4</annotation>
+		<annotation cp="🏃🏾‍♀">تجري | تركض | تعدو | نوع جلد 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">راكضة: نوع جلد 5</annotation>
+		<annotation cp="🏃🏿‍♀">تجري | تركض | تعدو | نوع جلد 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">راكضة: نوع جلد 6</annotation>
+		<annotation cp="💃🏻">أشخاص | رقص | نوع جلد 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">راقصة: نوع جلد 1–2</annotation>
+		<annotation cp="💃🏼">أشخاص | رقص | نوع جلد 3</annotation>
+		<annotation cp="💃🏼" type="tts">راقصة: نوع جلد 3</annotation>
+		<annotation cp="💃🏽">أشخاص | رقص | نوع جلد 4</annotation>
+		<annotation cp="💃🏽" type="tts">راقصة: نوع جلد 4</annotation>
+		<annotation cp="💃🏾">أشخاص | رقص | نوع جلد 5</annotation>
+		<annotation cp="💃🏾" type="tts">راقصة: نوع جلد 5</annotation>
+		<annotation cp="💃🏿">أشخاص | رقص | نوع جلد 6</annotation>
+		<annotation cp="💃🏿" type="tts">راقصة: نوع جلد 6</annotation>
+		<annotation cp="🕺🏻">راقص | رجل | نوع جلد 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">رجل يرقص: نوع جلد 1–2</annotation>
+		<annotation cp="🕺🏼">راقص | رجل | نوع جلد 3</annotation>
+		<annotation cp="🕺🏼" type="tts">رجل يرقص: نوع جلد 3</annotation>
+		<annotation cp="🕺🏽">راقص | رجل | نوع جلد 4</annotation>
+		<annotation cp="🕺🏽" type="tts">رجل يرقص: نوع جلد 4</annotation>
+		<annotation cp="🕺🏾">راقص | رجل | نوع جلد 5</annotation>
+		<annotation cp="🕺🏾" type="tts">رجل يرقص: نوع جلد 5</annotation>
+		<annotation cp="🕺🏿">راقص | رجل | نوع جلد 6</annotation>
+		<annotation cp="🕺🏿" type="tts">رجل يرقص: نوع جلد 6</annotation>
+		<annotation cp="🛀🏻">حوض استحمام | نوع جلد 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">استحمام: نوع جلد 1–2</annotation>
+		<annotation cp="🛀🏼">حوض استحمام | نوع جلد 3</annotation>
+		<annotation cp="🛀🏼" type="tts">استحمام: نوع جلد 3</annotation>
+		<annotation cp="🛀🏽">حوض استحمام | نوع جلد 4</annotation>
+		<annotation cp="🛀🏽" type="tts">استحمام: نوع جلد 4</annotation>
+		<annotation cp="🛀🏾">حوض استحمام | نوع جلد 5</annotation>
+		<annotation cp="🛀🏾" type="tts">استحمام: نوع جلد 5</annotation>
+		<annotation cp="🛀🏿">حوض استحمام | نوع جلد 6</annotation>
+		<annotation cp="🛀🏿" type="tts">استحمام: نوع جلد 6</annotation>
+		<annotation cp="🛌🏻">فندق | نوم | نوع جلد 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">شخص على سرير: نوع جلد 1–2</annotation>
+		<annotation cp="🛌🏼">فندق | نوم | نوع جلد 3</annotation>
+		<annotation cp="🛌🏼" type="tts">شخص على سرير: نوع جلد 3</annotation>
+		<annotation cp="🛌🏽">فندق | نوم | نوع جلد 4</annotation>
+		<annotation cp="🛌🏽" type="tts">شخص على سرير: نوع جلد 4</annotation>
+		<annotation cp="🛌🏾">فندق | نوم | نوع جلد 5</annotation>
+		<annotation cp="🛌🏾" type="tts">شخص على سرير: نوع جلد 5</annotation>
+		<annotation cp="🛌🏿">فندق | نوم | نوع جلد 6</annotation>
+		<annotation cp="🛌🏿" type="tts">شخص على سرير: نوع جلد 6</annotation>
+		<annotation cp="🕴🏻">أعمال | بدلة | رجل | نوع جلد 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">رجل أعمال يرتقي: نوع جلد 1–2</annotation>
+		<annotation cp="🕴🏼">أعمال | بدلة | رجل | نوع جلد 3</annotation>
+		<annotation cp="🕴🏼" type="tts">رجل أعمال يرتقي: نوع جلد 3</annotation>
+		<annotation cp="🕴🏽">أعمال | بدلة | رجل | نوع جلد 4</annotation>
+		<annotation cp="🕴🏽" type="tts">رجل أعمال يرتقي: نوع جلد 4</annotation>
+		<annotation cp="🕴🏾">أعمال | بدلة | رجل | نوع جلد 5</annotation>
+		<annotation cp="🕴🏾" type="tts">رجل أعمال يرتقي: نوع جلد 5</annotation>
+		<annotation cp="🕴🏿">أعمال | بدلة | رجل | نوع جلد 6</annotation>
+		<annotation cp="🕴🏿" type="tts">رجل أعمال يرتقي: نوع جلد 6</annotation>
+		<annotation cp="🏇🏻">حصان | حصان سباق | سباق | نوع جلد 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">سباق خيول: نوع جلد 1–2</annotation>
+		<annotation cp="🏇🏼">حصان | حصان سباق | سباق | نوع جلد 3</annotation>
+		<annotation cp="🏇🏼" type="tts">سباق خيول: نوع جلد 3</annotation>
+		<annotation cp="🏇🏽">حصان | حصان سباق | سباق | نوع جلد 4</annotation>
+		<annotation cp="🏇🏽" type="tts">سباق خيول: نوع جلد 4</annotation>
+		<annotation cp="🏇🏾">حصان | حصان سباق | سباق | نوع جلد 5</annotation>
+		<annotation cp="🏇🏾" type="tts">سباق خيول: نوع جلد 5</annotation>
+		<annotation cp="🏇🏿">حصان | حصان سباق | سباق | نوع جلد 6</annotation>
+		<annotation cp="🏇🏿" type="tts">سباق خيول: نوع جلد 6</annotation>
+		<annotation cp="🏂🏻">تزلج | رياضة | لوح تزلج | نوع جلد 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">متزلج: نوع جلد 1–2</annotation>
+		<annotation cp="🏂🏼">تزلج | رياضة | لوح تزلج | نوع جلد 3</annotation>
+		<annotation cp="🏂🏼" type="tts">متزلج: نوع جلد 3</annotation>
+		<annotation cp="🏂🏽">تزلج | رياضة | لوح تزلج | نوع جلد 4</annotation>
+		<annotation cp="🏂🏽" type="tts">متزلج: نوع جلد 4</annotation>
+		<annotation cp="🏂🏾">تزلج | رياضة | لوح تزلج | نوع جلد 5</annotation>
+		<annotation cp="🏂🏾" type="tts">متزلج: نوع جلد 5</annotation>
+		<annotation cp="🏂🏿">تزلج | رياضة | لوح تزلج | نوع جلد 6</annotation>
+		<annotation cp="🏂🏿" type="tts">متزلج: نوع جلد 6</annotation>
+		<annotation cp="🏌🏻">غولف | كرة | نوع جلد 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">شخص يلعب غولف: نوع جلد 1–2</annotation>
+		<annotation cp="🏌🏼">غولف | كرة | نوع جلد 3</annotation>
+		<annotation cp="🏌🏼" type="tts">شخص يلعب غولف: نوع جلد 3</annotation>
+		<annotation cp="🏌🏽">غولف | كرة | نوع جلد 4</annotation>
+		<annotation cp="🏌🏽" type="tts">شخص يلعب غولف: نوع جلد 4</annotation>
+		<annotation cp="🏌🏾">غولف | كرة | نوع جلد 5</annotation>
+		<annotation cp="🏌🏾" type="tts">شخص يلعب غولف: نوع جلد 5</annotation>
+		<annotation cp="🏌🏿">غولف | كرة | نوع جلد 6</annotation>
+		<annotation cp="🏌🏿" type="tts">شخص يلعب غولف: نوع جلد 6</annotation>
+		<annotation cp="🏌🏻‍♂">غولف | نوع جلد 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">لاعب غولف: نوع جلد 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">غولف | نوع جلد 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">لاعب غولف: نوع جلد 3</annotation>
+		<annotation cp="🏌🏽‍♂">غولف | نوع جلد 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">لاعب غولف: نوع جلد 4</annotation>
+		<annotation cp="🏌🏾‍♂">غولف | نوع جلد 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">لاعب غولف: نوع جلد 5</annotation>
+		<annotation cp="🏌🏿‍♂">غولف | نوع جلد 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">لاعب غولف: نوع جلد 6</annotation>
+		<annotation cp="🏌🏻‍♀">غولف | نوع جلد 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">لاعبة غولف: نوع جلد 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">غولف | نوع جلد 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">لاعبة غولف: نوع جلد 3</annotation>
+		<annotation cp="🏌🏽‍♀">غولف | نوع جلد 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">لاعبة غولف: نوع جلد 4</annotation>
+		<annotation cp="🏌🏾‍♀">غولف | نوع جلد 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">لاعبة غولف: نوع جلد 5</annotation>
+		<annotation cp="🏌🏿‍♀">غولف | نوع جلد 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">لاعبة غولف: نوع جلد 6</annotation>
+		<annotation cp="🏄🏻">رياضة | نوع جلد 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">ركوب أمواج: نوع جلد 1–2</annotation>
+		<annotation cp="🏄🏼">رياضة | نوع جلد 3</annotation>
+		<annotation cp="🏄🏼" type="tts">ركوب أمواج: نوع جلد 3</annotation>
+		<annotation cp="🏄🏽">رياضة | نوع جلد 4</annotation>
+		<annotation cp="🏄🏽" type="tts">ركوب أمواج: نوع جلد 4</annotation>
+		<annotation cp="🏄🏾">رياضة | نوع جلد 5</annotation>
+		<annotation cp="🏄🏾" type="tts">ركوب أمواج: نوع جلد 5</annotation>
+		<annotation cp="🏄🏿">رياضة | نوع جلد 6</annotation>
+		<annotation cp="🏄🏿" type="tts">ركوب أمواج: نوع جلد 6</annotation>
+		<annotation cp="🏄🏻‍♂">تزلج | ركوب أمواج | نوع جلد 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">راكب أمواج: نوع جلد 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">تزلج | ركوب أمواج | نوع جلد 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">راكب أمواج: نوع جلد 3</annotation>
+		<annotation cp="🏄🏽‍♂">تزلج | ركوب أمواج | نوع جلد 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">راكب أمواج: نوع جلد 4</annotation>
+		<annotation cp="🏄🏾‍♂">تزلج | ركوب أمواج | نوع جلد 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">راكب أمواج: نوع جلد 5</annotation>
+		<annotation cp="🏄🏿‍♂">تزلج | ركوب أمواج | نوع جلد 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">راكب أمواج: نوع جلد 6</annotation>
+		<annotation cp="🏄🏻‍♀">ركوب أمواج | سيدة | نوع جلد 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">راكبة أمواج: نوع جلد 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">ركوب أمواج | سيدة | نوع جلد 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">راكبة أمواج: نوع جلد 3</annotation>
+		<annotation cp="🏄🏽‍♀">ركوب أمواج | سيدة | نوع جلد 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">راكبة أمواج: نوع جلد 4</annotation>
+		<annotation cp="🏄🏾‍♀">ركوب أمواج | سيدة | نوع جلد 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">راكبة أمواج: نوع جلد 5</annotation>
+		<annotation cp="🏄🏿‍♀">ركوب أمواج | سيدة | نوع جلد 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">راكبة أمواج: نوع جلد 6</annotation>
+		<annotation cp="🚣🏻">قارب | مركبة | نوع جلد 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">زورق تجديف: نوع جلد 1–2</annotation>
+		<annotation cp="🚣🏼">قارب | مركبة | نوع جلد 3</annotation>
+		<annotation cp="🚣🏼" type="tts">زورق تجديف: نوع جلد 3</annotation>
+		<annotation cp="🚣🏽">قارب | مركبة | نوع جلد 4</annotation>
+		<annotation cp="🚣🏽" type="tts">زورق تجديف: نوع جلد 4</annotation>
+		<annotation cp="🚣🏾">قارب | مركبة | نوع جلد 5</annotation>
+		<annotation cp="🚣🏾" type="tts">زورق تجديف: نوع جلد 5</annotation>
+		<annotation cp="🚣🏿">قارب | مركبة | نوع جلد 6</annotation>
+		<annotation cp="🚣🏿" type="tts">زورق تجديف: نوع جلد 6</annotation>
+		<annotation cp="🚣🏻‍♂">تجديف | قارب | نوع جلد 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">رجل يجدف بقارب: نوع جلد 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">تجديف | قارب | نوع جلد 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">رجل يجدف بقارب: نوع جلد 3</annotation>
+		<annotation cp="🚣🏽‍♂">تجديف | قارب | نوع جلد 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">رجل يجدف بقارب: نوع جلد 4</annotation>
+		<annotation cp="🚣🏾‍♂">تجديف | قارب | نوع جلد 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">رجل يجدف بقارب: نوع جلد 5</annotation>
+		<annotation cp="🚣🏿‍♂">تجديف | قارب | نوع جلد 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">رجل يجدف بقارب: نوع جلد 6</annotation>
+		<annotation cp="🚣🏻‍♀">تجديف | قارب | نوع جلد 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">سيدة تجدف بقارب: نوع جلد 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">تجديف | قارب | نوع جلد 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">سيدة تجدف بقارب: نوع جلد 3</annotation>
+		<annotation cp="🚣🏽‍♀">تجديف | قارب | نوع جلد 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">سيدة تجدف بقارب: نوع جلد 4</annotation>
+		<annotation cp="🚣🏾‍♀">تجديف | قارب | نوع جلد 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">سيدة تجدف بقارب: نوع جلد 5</annotation>
+		<annotation cp="🚣🏿‍♀">تجديف | قارب | نوع جلد 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">سيدة تجدف بقارب: نوع جلد 6</annotation>
+		<annotation cp="🏊🏻">رياضة | سباحة | نوع جلد 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">شخص يسبح: نوع جلد 1–2</annotation>
+		<annotation cp="🏊🏼">رياضة | سباحة | نوع جلد 3</annotation>
+		<annotation cp="🏊🏼" type="tts">شخص يسبح: نوع جلد 3</annotation>
+		<annotation cp="🏊🏽">رياضة | سباحة | نوع جلد 4</annotation>
+		<annotation cp="🏊🏽" type="tts">شخص يسبح: نوع جلد 4</annotation>
+		<annotation cp="🏊🏾">رياضة | سباحة | نوع جلد 5</annotation>
+		<annotation cp="🏊🏾" type="tts">شخص يسبح: نوع جلد 5</annotation>
+		<annotation cp="🏊🏿">رياضة | سباحة | نوع جلد 6</annotation>
+		<annotation cp="🏊🏿" type="tts">شخص يسبح: نوع جلد 6</annotation>
+		<annotation cp="🏊🏻‍♂">يسبح | يعوم | نوع جلد 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">سباح: نوع جلد 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">يسبح | يعوم | نوع جلد 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">سباح: نوع جلد 3</annotation>
+		<annotation cp="🏊🏽‍♂">يسبح | يعوم | نوع جلد 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">سباح: نوع جلد 4</annotation>
+		<annotation cp="🏊🏾‍♂">يسبح | يعوم | نوع جلد 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">سباح: نوع جلد 5</annotation>
+		<annotation cp="🏊🏿‍♂">يسبح | يعوم | نوع جلد 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">سباح: نوع جلد 6</annotation>
+		<annotation cp="🏊🏻‍♀">تسبح | تعوم | نوع جلد 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">سباحة: نوع جلد 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">تسبح | تعوم | نوع جلد 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">سباحة: نوع جلد 3</annotation>
+		<annotation cp="🏊🏽‍♀">تسبح | تعوم | نوع جلد 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">سباحة: نوع جلد 4</annotation>
+		<annotation cp="🏊🏾‍♀">تسبح | تعوم | نوع جلد 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">سباحة: نوع جلد 5</annotation>
+		<annotation cp="🏊🏿‍♀">تسبح | تعوم | نوع جلد 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">سباحة: نوع جلد 6</annotation>
+		<annotation cp="⛹🏻">كرة | نوع جلد 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">شخص وكرة: نوع جلد 1–2</annotation>
+		<annotation cp="⛹🏼">كرة | نوع جلد 3</annotation>
+		<annotation cp="⛹🏼" type="tts">شخص وكرة: نوع جلد 3</annotation>
+		<annotation cp="⛹🏽">كرة | نوع جلد 4</annotation>
+		<annotation cp="⛹🏽" type="tts">شخص وكرة: نوع جلد 4</annotation>
+		<annotation cp="⛹🏾">كرة | نوع جلد 5</annotation>
+		<annotation cp="⛹🏾" type="tts">شخص وكرة: نوع جلد 5</annotation>
+		<annotation cp="⛹🏿">كرة | نوع جلد 6</annotation>
+		<annotation cp="⛹🏿" type="tts">شخص وكرة: نوع جلد 6</annotation>
+		<annotation cp="⛹🏻‍♂">كرة | نوع جلد 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">رجل وكرة: نوع جلد 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">كرة | نوع جلد 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">رجل وكرة: نوع جلد 3</annotation>
+		<annotation cp="⛹🏽‍♂">كرة | نوع جلد 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">رجل وكرة: نوع جلد 4</annotation>
+		<annotation cp="⛹🏾‍♂">كرة | نوع جلد 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">رجل وكرة: نوع جلد 5</annotation>
+		<annotation cp="⛹🏿‍♂">كرة | نوع جلد 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">رجل وكرة: نوع جلد 6</annotation>
+		<annotation cp="⛹🏻‍♀">كرة | نوع جلد 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">سيدة وكرة: نوع جلد 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">كرة | نوع جلد 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">سيدة وكرة: نوع جلد 3</annotation>
+		<annotation cp="⛹🏽‍♀">كرة | نوع جلد 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">سيدة وكرة: نوع جلد 4</annotation>
+		<annotation cp="⛹🏾‍♀">كرة | نوع جلد 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">سيدة وكرة: نوع جلد 5</annotation>
+		<annotation cp="⛹🏿‍♀">كرة | نوع جلد 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">سيدة وكرة: نوع جلد 6</annotation>
+		<annotation cp="🏋🏻">أثقال | رفع | نوع جلد 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">حامل أثقال: نوع جلد 1–2</annotation>
+		<annotation cp="🏋🏼">أثقال | رفع | نوع جلد 3</annotation>
+		<annotation cp="🏋🏼" type="tts">حامل أثقال: نوع جلد 3</annotation>
+		<annotation cp="🏋🏽">أثقال | رفع | نوع جلد 4</annotation>
+		<annotation cp="🏋🏽" type="tts">حامل أثقال: نوع جلد 4</annotation>
+		<annotation cp="🏋🏾">أثقال | رفع | نوع جلد 5</annotation>
+		<annotation cp="🏋🏾" type="tts">حامل أثقال: نوع جلد 5</annotation>
+		<annotation cp="🏋🏿">أثقال | رفع | نوع جلد 6</annotation>
+		<annotation cp="🏋🏿" type="tts">حامل أثقال: نوع جلد 6</annotation>
+		<annotation cp="🏋🏻‍♂">رفع أثقال | نوع جلد 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">رافع أثقال: نوع جلد 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">رفع أثقال | نوع جلد 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">رافع أثقال: نوع جلد 3</annotation>
+		<annotation cp="🏋🏽‍♂">رفع أثقال | نوع جلد 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">رافع أثقال: نوع جلد 4</annotation>
+		<annotation cp="🏋🏾‍♂">رفع أثقال | نوع جلد 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">رافع أثقال: نوع جلد 5</annotation>
+		<annotation cp="🏋🏿‍♂">رفع أثقال | نوع جلد 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">رافع أثقال: نوع جلد 6</annotation>
+		<annotation cp="🏋🏻‍♀">رفع أثقال | نوع جلد 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">رافعة أثقال: نوع جلد 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">رفع أثقال | نوع جلد 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">رافعة أثقال: نوع جلد 3</annotation>
+		<annotation cp="🏋🏽‍♀">رفع أثقال | نوع جلد 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">رافعة أثقال: نوع جلد 4</annotation>
+		<annotation cp="🏋🏾‍♀">رفع أثقال | نوع جلد 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">رافعة أثقال: نوع جلد 5</annotation>
+		<annotation cp="🏋🏿‍♀">رفع أثقال | نوع جلد 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">رافعة أثقال: نوع جلد 6</annotation>
+		<annotation cp="🚴🏻">دراجة | نوع جلد 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">شخص يركب دراجة: نوع جلد 1–2</annotation>
+		<annotation cp="🚴🏼">دراجة | نوع جلد 3</annotation>
+		<annotation cp="🚴🏼" type="tts">شخص يركب دراجة: نوع جلد 3</annotation>
+		<annotation cp="🚴🏽">دراجة | نوع جلد 4</annotation>
+		<annotation cp="🚴🏽" type="tts">شخص يركب دراجة: نوع جلد 4</annotation>
+		<annotation cp="🚴🏾">دراجة | نوع جلد 5</annotation>
+		<annotation cp="🚴🏾" type="tts">شخص يركب دراجة: نوع جلد 5</annotation>
+		<annotation cp="🚴🏿">دراجة | نوع جلد 6</annotation>
+		<annotation cp="🚴🏿" type="tts">شخص يركب دراجة: نوع جلد 6</annotation>
+		<annotation cp="🚴🏻‍♂">دراج | دراجة | نوع جلد 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">راكب دراجة: نوع جلد 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">دراج | دراجة | نوع جلد 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">راكب دراجة: نوع جلد 3</annotation>
+		<annotation cp="🚴🏽‍♂">دراج | دراجة | نوع جلد 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">راكب دراجة: نوع جلد 4</annotation>
+		<annotation cp="🚴🏾‍♂">دراج | دراجة | نوع جلد 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">راكب دراجة: نوع جلد 5</annotation>
+		<annotation cp="🚴🏿‍♂">دراج | دراجة | نوع جلد 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">راكب دراجة: نوع جلد 6</annotation>
+		<annotation cp="🚴🏻‍♀">دراجة | نوع جلد 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">راكبة دراجة: نوع جلد 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">دراجة | نوع جلد 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">راكبة دراجة: نوع جلد 3</annotation>
+		<annotation cp="🚴🏽‍♀">دراجة | نوع جلد 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">راكبة دراجة: نوع جلد 4</annotation>
+		<annotation cp="🚴🏾‍♀">دراجة | نوع جلد 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">راكبة دراجة: نوع جلد 5</annotation>
+		<annotation cp="🚴🏿‍♀">دراجة | نوع جلد 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">راكبة دراجة: نوع جلد 6</annotation>
+		<annotation cp="🚵🏻">جبال | دراجة | نوع جلد 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">راكب دراجة في الجبال: نوع جلد 1–2</annotation>
+		<annotation cp="🚵🏼">جبال | دراجة | نوع جلد 3</annotation>
+		<annotation cp="🚵🏼" type="tts">راكب دراجة في الجبال: نوع جلد 3</annotation>
+		<annotation cp="🚵🏽">جبال | دراجة | نوع جلد 4</annotation>
+		<annotation cp="🚵🏽" type="tts">راكب دراجة في الجبال: نوع جلد 4</annotation>
+		<annotation cp="🚵🏾">جبال | دراجة | نوع جلد 5</annotation>
+		<annotation cp="🚵🏾" type="tts">راكب دراجة في الجبال: نوع جلد 5</annotation>
+		<annotation cp="🚵🏿">جبال | دراجة | نوع جلد 6</annotation>
+		<annotation cp="🚵🏿" type="tts">راكب دراجة في الجبال: نوع جلد 6</annotation>
+		<annotation cp="🚵🏻‍♂">جبال | دراجة | صعود | نوع جلد 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">متسلق جبال بدراجة: نوع جلد 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">جبال | دراجة | صعود | نوع جلد 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">متسلق جبال بدراجة: نوع جلد 3</annotation>
+		<annotation cp="🚵🏽‍♂">جبال | دراجة | صعود | نوع جلد 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">متسلق جبال بدراجة: نوع جلد 4</annotation>
+		<annotation cp="🚵🏾‍♂">جبال | دراجة | صعود | نوع جلد 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">متسلق جبال بدراجة: نوع جلد 5</annotation>
+		<annotation cp="🚵🏿‍♂">جبال | دراجة | صعود | نوع جلد 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">متسلق جبال بدراجة: نوع جلد 6</annotation>
+		<annotation cp="🚵🏻‍♀">جبال | دراجة | صعود | نوع جلد 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">متسلقة جبال بدراجة: نوع جلد 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">جبال | دراجة | صعود | نوع جلد 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">متسلقة جبال بدراجة: نوع جلد 3</annotation>
+		<annotation cp="🚵🏽‍♀">جبال | دراجة | صعود | نوع جلد 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">متسلقة جبال بدراجة: نوع جلد 4</annotation>
+		<annotation cp="🚵🏾‍♀">جبال | دراجة | صعود | نوع جلد 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">متسلقة جبال بدراجة: نوع جلد 5</annotation>
+		<annotation cp="🚵🏿‍♀">جبال | دراجة | صعود | نوع جلد 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">متسلقة جبال بدراجة: نوع جلد 6</annotation>
+		<annotation cp="🤸🏻">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">حركة العجلة: نوع جلد 1–2</annotation>
+		<annotation cp="🤸🏼">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 3</annotation>
+		<annotation cp="🤸🏼" type="tts">حركة العجلة: نوع جلد 3</annotation>
+		<annotation cp="🤸🏽">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 4</annotation>
+		<annotation cp="🤸🏽" type="tts">حركة العجلة: نوع جلد 4</annotation>
+		<annotation cp="🤸🏾">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 5</annotation>
+		<annotation cp="🤸🏾" type="tts">حركة العجلة: نوع جلد 5</annotation>
+		<annotation cp="🤸🏿">جمباز | حركة العجلة | رياضة | شخص | نوع جلد 6</annotation>
+		<annotation cp="🤸🏿" type="tts">حركة العجلة: نوع جلد 6</annotation>
+		<annotation cp="🤸🏻‍♂">جمباز | رياضة | عجلة | نوع جلد 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">رجل يفعل حركة العجلة: نوع جلد 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">جمباز | رياضة | عجلة | نوع جلد 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">رجل يفعل حركة العجلة: نوع جلد 3</annotation>
+		<annotation cp="🤸🏽‍♂">جمباز | رياضة | عجلة | نوع جلد 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">رجل يفعل حركة العجلة: نوع جلد 4</annotation>
+		<annotation cp="🤸🏾‍♂">جمباز | رياضة | عجلة | نوع جلد 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">رجل يفعل حركة العجلة: نوع جلد 5</annotation>
+		<annotation cp="🤸🏿‍♂">جمباز | رياضة | عجلة | نوع جلد 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">رجل يفعل حركة العجلة: نوع جلد 6</annotation>
+		<annotation cp="🤸🏻‍♀">جمباز | رياضة | عجلة | نوع جلد 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">سيدة تفعل حركة العجلة: نوع جلد 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">جمباز | رياضة | عجلة | نوع جلد 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">سيدة تفعل حركة العجلة: نوع جلد 3</annotation>
+		<annotation cp="🤸🏽‍♀">جمباز | رياضة | عجلة | نوع جلد 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">سيدة تفعل حركة العجلة: نوع جلد 4</annotation>
+		<annotation cp="🤸🏾‍♀">جمباز | رياضة | عجلة | نوع جلد 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">سيدة تفعل حركة العجلة: نوع جلد 5</annotation>
+		<annotation cp="🤸🏿‍♀">جمباز | رياضة | عجلة | نوع جلد 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">سيدة تفعل حركة العجلة: نوع جلد 6</annotation>
+		<annotation cp="🤽🏻">رياضة | شخص | كرة ماء | ماء | نوع جلد 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">كرة الماء: نوع جلد 1–2</annotation>
+		<annotation cp="🤽🏼">رياضة | شخص | كرة ماء | ماء | نوع جلد 3</annotation>
+		<annotation cp="🤽🏼" type="tts">كرة الماء: نوع جلد 3</annotation>
+		<annotation cp="🤽🏽">رياضة | شخص | كرة ماء | ماء | نوع جلد 4</annotation>
+		<annotation cp="🤽🏽" type="tts">كرة الماء: نوع جلد 4</annotation>
+		<annotation cp="🤽🏾">رياضة | شخص | كرة ماء | ماء | نوع جلد 5</annotation>
+		<annotation cp="🤽🏾" type="tts">كرة الماء: نوع جلد 5</annotation>
+		<annotation cp="🤽🏿">رياضة | شخص | كرة ماء | ماء | نوع جلد 6</annotation>
+		<annotation cp="🤽🏿" type="tts">كرة الماء: نوع جلد 6</annotation>
+		<annotation cp="🤽🏻‍♂">رياضة | كرة ماء | نوع جلد 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">لاعب كرة ماء: نوع جلد 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">رياضة | كرة ماء | نوع جلد 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">لاعب كرة ماء: نوع جلد 3</annotation>
+		<annotation cp="🤽🏽‍♂">رياضة | كرة ماء | نوع جلد 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">لاعب كرة ماء: نوع جلد 4</annotation>
+		<annotation cp="🤽🏾‍♂">رياضة | كرة ماء | نوع جلد 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">لاعب كرة ماء: نوع جلد 5</annotation>
+		<annotation cp="🤽🏿‍♂">رياضة | كرة ماء | نوع جلد 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">لاعب كرة ماء: نوع جلد 6</annotation>
+		<annotation cp="🤽🏻‍♀">رياضة | كرة ماء | نوع جلد 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">لاعبة كرة ماء: نوع جلد 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">رياضة | كرة ماء | نوع جلد 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">لاعبة كرة ماء: نوع جلد 3</annotation>
+		<annotation cp="🤽🏽‍♀">رياضة | كرة ماء | نوع جلد 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">لاعبة كرة ماء: نوع جلد 4</annotation>
+		<annotation cp="🤽🏾‍♀">رياضة | كرة ماء | نوع جلد 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">لاعبة كرة ماء: نوع جلد 5</annotation>
+		<annotation cp="🤽🏿‍♀">رياضة | كرة ماء | نوع جلد 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">لاعبة كرة ماء: نوع جلد 6</annotation>
+		<annotation cp="🤾🏻">رياضة | شخص | كرة | كرة يد | نوع جلد 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">كرة يد: نوع جلد 1–2</annotation>
+		<annotation cp="🤾🏼">رياضة | شخص | كرة | كرة يد | نوع جلد 3</annotation>
+		<annotation cp="🤾🏼" type="tts">كرة يد: نوع جلد 3</annotation>
+		<annotation cp="🤾🏽">رياضة | شخص | كرة | كرة يد | نوع جلد 4</annotation>
+		<annotation cp="🤾🏽" type="tts">كرة يد: نوع جلد 4</annotation>
+		<annotation cp="🤾🏾">رياضة | شخص | كرة | كرة يد | نوع جلد 5</annotation>
+		<annotation cp="🤾🏾" type="tts">كرة يد: نوع جلد 5</annotation>
+		<annotation cp="🤾🏿">رياضة | شخص | كرة | كرة يد | نوع جلد 6</annotation>
+		<annotation cp="🤾🏿" type="tts">كرة يد: نوع جلد 6</annotation>
+		<annotation cp="🤾🏻‍♂">رياضة | كرة يد | نوع جلد 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">لاعب كرة يد: نوع جلد 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">رياضة | كرة يد | نوع جلد 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">لاعب كرة يد: نوع جلد 3</annotation>
+		<annotation cp="🤾🏽‍♂">رياضة | كرة يد | نوع جلد 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">لاعب كرة يد: نوع جلد 4</annotation>
+		<annotation cp="🤾🏾‍♂">رياضة | كرة يد | نوع جلد 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">لاعب كرة يد: نوع جلد 5</annotation>
+		<annotation cp="🤾🏿‍♂">رياضة | كرة يد | نوع جلد 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">لاعب كرة يد: نوع جلد 6</annotation>
+		<annotation cp="🤾🏻‍♀">رياضة | كرة يد | نوع جلد 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">لاعبة كرة يد: نوع جلد 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">رياضة | كرة يد | نوع جلد 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">لاعبة كرة يد: نوع جلد 3</annotation>
+		<annotation cp="🤾🏽‍♀">رياضة | كرة يد | نوع جلد 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">لاعبة كرة يد: نوع جلد 4</annotation>
+		<annotation cp="🤾🏾‍♀">رياضة | كرة يد | نوع جلد 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">لاعبة كرة يد: نوع جلد 5</annotation>
+		<annotation cp="🤾🏿‍♀">رياضة | كرة يد | نوع جلد 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">لاعبة كرة يد: نوع جلد 6</annotation>
+		<annotation cp="🤹🏻">بهلوان | توازن | مهارة | نوع جلد 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">ألعاب بهلوانية: نوع جلد 1–2</annotation>
+		<annotation cp="🤹🏼">بهلوان | توازن | مهارة | نوع جلد 3</annotation>
+		<annotation cp="🤹🏼" type="tts">ألعاب بهلوانية: نوع جلد 3</annotation>
+		<annotation cp="🤹🏽">بهلوان | توازن | مهارة | نوع جلد 4</annotation>
+		<annotation cp="🤹🏽" type="tts">ألعاب بهلوانية: نوع جلد 4</annotation>
+		<annotation cp="🤹🏾">بهلوان | توازن | مهارة | نوع جلد 5</annotation>
+		<annotation cp="🤹🏾" type="tts">ألعاب بهلوانية: نوع جلد 5</annotation>
+		<annotation cp="🤹🏿">بهلوان | توازن | مهارة | نوع جلد 6</annotation>
+		<annotation cp="🤹🏿" type="tts">ألعاب بهلوانية: نوع جلد 6</annotation>
+		<annotation cp="🤹🏻‍♂">خدع | مهام متعددة | نوع جلد 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">لاعب قذف الكرات: نوع جلد 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">خدع | مهام متعددة | نوع جلد 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">لاعب قذف الكرات: نوع جلد 3</annotation>
+		<annotation cp="🤹🏽‍♂">خدع | مهام متعددة | نوع جلد 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">لاعب قذف الكرات: نوع جلد 4</annotation>
+		<annotation cp="🤹🏾‍♂">خدع | مهام متعددة | نوع جلد 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">لاعب قذف الكرات: نوع جلد 5</annotation>
+		<annotation cp="🤹🏿‍♂">خدع | مهام متعددة | نوع جلد 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">لاعب قذف الكرات: نوع جلد 6</annotation>
+		<annotation cp="🤹🏻‍♀">خدع | مهام متعددة | نوع جلد 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">لاعبة قذف كرات: نوع جلد 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">خدع | مهام متعددة | نوع جلد 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">لاعبة قذف كرات: نوع جلد 3</annotation>
+		<annotation cp="🤹🏽‍♀">خدع | مهام متعددة | نوع جلد 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">لاعبة قذف كرات: نوع جلد 4</annotation>
+		<annotation cp="🤹🏾‍♀">خدع | مهام متعددة | نوع جلد 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">لاعبة قذف كرات: نوع جلد 5</annotation>
+		<annotation cp="🤹🏿‍♀">خدع | مهام متعددة | نوع جلد 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">لاعبة قذف كرات: نوع جلد 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">أشخاص | تقبيل | رومانسية | سيدة | رجل</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">قبلة: سيدة ورجل</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">أشخاص | تقبيل | رومانسية | رجل</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">قبلة: رجل ورجل</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">أشخاص | تقبيل | رومانسية | سيدة</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">قبلة: سيدة وسيدة</annotation>
+		<annotation cp="👩‍❤‍👨">أشخاص | رومانسية | قلب | سيدة | رجل</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">زوج وقلب: سيدة ورجل</annotation>
+		<annotation cp="👨‍❤‍👨">أشخاص | رومانسية | قلب | رجل</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">زوج وقلب: رجل ورجل</annotation>
+		<annotation cp="👩‍❤‍👩">أشخاص | رومانسية | قلب | سيدة</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">زوج وقلب: سيدة وسيدة</annotation>
+		<annotation cp="👨‍👩‍👦">أب | أم | صبي | طفل</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">عائلة، رجل، سيدة، صبي</annotation>
+		<annotation cp="👨‍👩‍👧">أب | أم | طفل | فتاة</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">عائلة، رجل، سيدة، فتاة</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">أب أم | طفل | طفلة</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">عائلة، رجل، سيدة، فتاة، صبي</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">أب | أم | صبي | طفل</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">عائلة، رجل، سيدة، صبي، صبي</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">أب | أم | طفلة</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">عائلة، رجل، سيدة، فتاة، فتاة</annotation>
+		<annotation cp="👨‍👨‍👦">أب | صبي | طفل</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">عائلة، رجل، رجل، صبي</annotation>
+		<annotation cp="👨‍👨‍👧">أب | طفلة</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">عائلة، رجل، رجل، فتاة</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">أب | صبي | طفل</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">عائلة، رجل، رجل، فتاة، صبي</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">أب | صبي | طفل</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">عائلة، رجل، رجل، صبي، صبي</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">أب | ابن | طفل</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">عائلة، رجل، رجل، فتاة، فتاة</annotation>
+		<annotation cp="👩‍👩‍👦">أم | ابن | طفل</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">عائلة، سيدة، سيدة، طفل</annotation>
+		<annotation cp="👩‍👩‍👧">سيدة | طفل | فتاة</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">عائلة، سيدة، سيدة، فتاة</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">أم | ابن | صبي</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">عائلة، سيدة، سيدة، فتاة، صبي</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">سيدة | صبي | طفل | عائلة</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">عائلة، سيدة، سيدة، صبي، صبي</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">أم | طفلة</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">عائلة، سيدة، فتاة، فتاة</annotation>
+		<annotation cp="👨‍👦">أب | أم | ابن | طفل</annotation>
+		<annotation cp="👨‍👦" type="tts">عائلة، رجل، ابن</annotation>
+		<annotation cp="👨‍👦‍👦">ابن | صبي | طفل | عائلة</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">عائلة، رجل، صبي، صبي</annotation>
+		<annotation cp="👨‍👧">ابنة | طفلة | عائلة</annotation>
+		<annotation cp="👨‍👧" type="tts">عائلة، رجل، فتاة</annotation>
+		<annotation cp="👨‍👧‍👦">أب | صبي | طفل</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">عائلة، رجل، فتاة، صبي</annotation>
+		<annotation cp="👨‍👧‍👧">أب | طفل</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">عائلة، رجل، فتاة، فتاة</annotation>
+		<annotation cp="👩‍👦">أم | صبي | طفل</annotation>
+		<annotation cp="👩‍👦" type="tts">عائلة، سيدة، صبي</annotation>
+		<annotation cp="👩‍👦‍👦">أم | صبي | طفل</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">عائلة، سيدة، صبي، صبي</annotation>
+		<annotation cp="👩‍👧">أم | ابن | سيدة</annotation>
+		<annotation cp="👩‍👧" type="tts">عائلة، سيدة، فتاة</annotation>
+		<annotation cp="👩‍👧‍👦">أم | صبي | طفل</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">عائلة، سيدة، فتاة، صبي</annotation>
+		<annotation cp="👩‍👧‍👧">أم | سيدة | طفل</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">عائلة، امرأة، فتاة، فتاة</annotation>
+		<annotation cp="🤳🏻">صورة ذاتيىة | كاميرا | هاتف | نوع جلد 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">صورة ذاتية: نوع جلد 1–2</annotation>
+		<annotation cp="🤳🏼">صورة ذاتيىة | كاميرا | هاتف | نوع جلد 3</annotation>
+		<annotation cp="🤳🏼" type="tts">صورة ذاتية: نوع جلد 3</annotation>
+		<annotation cp="🤳🏽">صورة ذاتيىة | كاميرا | هاتف | نوع جلد 4</annotation>
+		<annotation cp="🤳🏽" type="tts">صورة ذاتية: نوع جلد 4</annotation>
+		<annotation cp="🤳🏾">صورة ذاتيىة | كاميرا | هاتف | نوع جلد 5</annotation>
+		<annotation cp="🤳🏾" type="tts">صورة ذاتية: نوع جلد 5</annotation>
+		<annotation cp="🤳🏿">صورة ذاتيىة | كاميرا | هاتف | نوع جلد 6</annotation>
+		<annotation cp="🤳🏿" type="tts">صورة ذاتية: نوع جلد 6</annotation>
+		<annotation cp="💪🏻">عضلات | قوية | مرنة | هزل | نوع جلد 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">عضلة الذراع: نوع جلد 1–2</annotation>
+		<annotation cp="💪🏼">عضلات | قوية | مرنة | هزل | نوع جلد 3</annotation>
+		<annotation cp="💪🏼" type="tts">عضلة الذراع: نوع جلد 3</annotation>
+		<annotation cp="💪🏽">عضلات | قوية | مرنة | هزل | نوع جلد 4</annotation>
+		<annotation cp="💪🏽" type="tts">عضلة الذراع: نوع جلد 4</annotation>
+		<annotation cp="💪🏾">عضلات | قوية | مرنة | هزل | نوع جلد 5</annotation>
+		<annotation cp="💪🏾" type="tts">عضلة الذراع: نوع جلد 5</annotation>
+		<annotation cp="💪🏿">عضلات | قوية | مرنة | هزل | نوع جلد 6</annotation>
+		<annotation cp="💪🏿" type="tts">عضلة الذراع: نوع جلد 6</annotation>
+		<annotation cp="👈🏻">إصبع | السبابة | نوع جلد 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">إصبع لليسار: نوع جلد 1–2</annotation>
+		<annotation cp="👈🏼">إصبع | السبابة | نوع جلد 3</annotation>
+		<annotation cp="👈🏼" type="tts">إصبع لليسار: نوع جلد 3</annotation>
+		<annotation cp="👈🏽">إصبع | السبابة | نوع جلد 4</annotation>
+		<annotation cp="👈🏽" type="tts">إصبع لليسار: نوع جلد 4</annotation>
+		<annotation cp="👈🏾">إصبع | السبابة | نوع جلد 5</annotation>
+		<annotation cp="👈🏾" type="tts">إصبع لليسار: نوع جلد 5</annotation>
+		<annotation cp="👈🏿">إصبع | السبابة | نوع جلد 6</annotation>
+		<annotation cp="👈🏿" type="tts">إصبع لليسار: نوع جلد 6</annotation>
+		<annotation cp="👉🏻">إصبع | السبابة | نوع جلد 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">إصبع لليمين: نوع جلد 1–2</annotation>
+		<annotation cp="👉🏼">إصبع | السبابة | نوع جلد 3</annotation>
+		<annotation cp="👉🏼" type="tts">إصبع لليمين: نوع جلد 3</annotation>
+		<annotation cp="👉🏽">إصبع | السبابة | نوع جلد 4</annotation>
+		<annotation cp="👉🏽" type="tts">إصبع لليمين: نوع جلد 4</annotation>
+		<annotation cp="👉🏾">إصبع | السبابة | نوع جلد 5</annotation>
+		<annotation cp="👉🏾" type="tts">إصبع لليمين: نوع جلد 5</annotation>
+		<annotation cp="👉🏿">إصبع | السبابة | نوع جلد 6</annotation>
+		<annotation cp="👉🏿" type="tts">إصبع لليمين: نوع جلد 6</annotation>
+		<annotation cp="☝🏻">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">سبابة لأعلى: نوع جلد 1–2</annotation>
+		<annotation cp="☝🏼">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 3</annotation>
+		<annotation cp="☝🏼" type="tts">سبابة لأعلى: نوع جلد 3</annotation>
+		<annotation cp="☝🏽">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 4</annotation>
+		<annotation cp="☝🏽" type="tts">سبابة لأعلى: نوع جلد 4</annotation>
+		<annotation cp="☝🏾">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 5</annotation>
+		<annotation cp="☝🏾" type="tts">سبابة لأعلى: نوع جلد 5</annotation>
+		<annotation cp="☝🏿">أعلى | إشارة | إصبع | جسد | سبابة | يد | نوع جلد 6</annotation>
+		<annotation cp="☝🏿" type="tts">سبابة لأعلى: نوع جلد 6</annotation>
+		<annotation cp="👆🏻">إصبع | السبابة | نوع جلد 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">إصبع لأعلى: نوع جلد 1–2</annotation>
+		<annotation cp="👆🏼">إصبع | السبابة | نوع جلد 3</annotation>
+		<annotation cp="👆🏼" type="tts">إصبع لأعلى: نوع جلد 3</annotation>
+		<annotation cp="👆🏽">إصبع | السبابة | نوع جلد 4</annotation>
+		<annotation cp="👆🏽" type="tts">إصبع لأعلى: نوع جلد 4</annotation>
+		<annotation cp="👆🏾">إصبع | السبابة | نوع جلد 5</annotation>
+		<annotation cp="👆🏾" type="tts">إصبع لأعلى: نوع جلد 5</annotation>
+		<annotation cp="👆🏿">إصبع | السبابة | نوع جلد 6</annotation>
+		<annotation cp="👆🏿" type="tts">إصبع لأعلى: نوع جلد 6</annotation>
+		<annotation cp="🖕🏻">إصبع | جسد | يد | نوع جلد 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">إصبع الوسطى: نوع جلد 1–2</annotation>
+		<annotation cp="🖕🏼">إصبع | جسد | يد | نوع جلد 3</annotation>
+		<annotation cp="🖕🏼" type="tts">إصبع الوسطى: نوع جلد 3</annotation>
+		<annotation cp="🖕🏽">إصبع | جسد | يد | نوع جلد 4</annotation>
+		<annotation cp="🖕🏽" type="tts">إصبع الوسطى: نوع جلد 4</annotation>
+		<annotation cp="🖕🏾">إصبع | جسد | يد | نوع جلد 5</annotation>
+		<annotation cp="🖕🏾" type="tts">إصبع الوسطى: نوع جلد 5</annotation>
+		<annotation cp="🖕🏿">إصبع | جسد | يد | نوع جلد 6</annotation>
+		<annotation cp="🖕🏿" type="tts">إصبع الوسطى: نوع جلد 6</annotation>
+		<annotation cp="👇🏻">إصبع | السبابة | نوع جلد 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">إصبع لأسفل: نوع جلد 1–2</annotation>
+		<annotation cp="👇🏼">إصبع | السبابة | نوع جلد 3</annotation>
+		<annotation cp="👇🏼" type="tts">إصبع لأسفل: نوع جلد 3</annotation>
+		<annotation cp="👇🏽">إصبع | السبابة | نوع جلد 4</annotation>
+		<annotation cp="👇🏽" type="tts">إصبع لأسفل: نوع جلد 4</annotation>
+		<annotation cp="👇🏾">إصبع | السبابة | نوع جلد 5</annotation>
+		<annotation cp="👇🏾" type="tts">إصبع لأسفل: نوع جلد 5</annotation>
+		<annotation cp="👇🏿">إصبع | السبابة | نوع جلد 6</annotation>
+		<annotation cp="👇🏿" type="tts">إصبع لأسفل: نوع جلد 6</annotation>
+		<annotation cp="✌🏻">انتصار | مقص | نوع جلد 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">علامة النصر: نوع جلد 1–2</annotation>
+		<annotation cp="✌🏼">انتصار | مقص | نوع جلد 3</annotation>
+		<annotation cp="✌🏼" type="tts">علامة النصر: نوع جلد 3</annotation>
+		<annotation cp="✌🏽">انتصار | مقص | نوع جلد 4</annotation>
+		<annotation cp="✌🏽" type="tts">علامة النصر: نوع جلد 4</annotation>
+		<annotation cp="✌🏾">انتصار | مقص | نوع جلد 5</annotation>
+		<annotation cp="✌🏾" type="tts">علامة النصر: نوع جلد 5</annotation>
+		<annotation cp="✌🏿">انتصار | مقص | نوع جلد 6</annotation>
+		<annotation cp="✌🏿" type="tts">علامة النصر: نوع جلد 6</annotation>
+		<annotation cp="🤞🏻">أصابع | حظ | نوع جلد 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">أصابع مشبكة: نوع جلد 1–2</annotation>
+		<annotation cp="🤞🏼">أصابع | حظ | نوع جلد 3</annotation>
+		<annotation cp="🤞🏼" type="tts">أصابع مشبكة: نوع جلد 3</annotation>
+		<annotation cp="🤞🏽">أصابع | حظ | نوع جلد 4</annotation>
+		<annotation cp="🤞🏽" type="tts">أصابع مشبكة: نوع جلد 4</annotation>
+		<annotation cp="🤞🏾">أصابع | حظ | نوع جلد 5</annotation>
+		<annotation cp="🤞🏾" type="tts">أصابع مشبكة: نوع جلد 5</annotation>
+		<annotation cp="🤞🏿">أصابع | حظ | نوع جلد 6</annotation>
+		<annotation cp="🤞🏿" type="tts">أصابع مشبكة: نوع جلد 6</annotation>
+		<annotation cp="🖖🏻">إصبع | جسد | سبوك | فولكان | يد | نوع جلد 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">تحية فولكان: نوع جلد 1–2</annotation>
+		<annotation cp="🖖🏼">إصبع | جسد | سبوك | فولكان | يد | نوع جلد 3</annotation>
+		<annotation cp="🖖🏼" type="tts">تحية فولكان: نوع جلد 3</annotation>
+		<annotation cp="🖖🏽">إصبع | جسد | سبوك | فولكان | يد | نوع جلد 4</annotation>
+		<annotation cp="🖖🏽" type="tts">تحية فولكان: نوع جلد 4</annotation>
+		<annotation cp="🖖🏾">إصبع | جسد | سبوك | فولكان | يد | نوع جلد 5</annotation>
+		<annotation cp="🖖🏾" type="tts">تحية فولكان: نوع جلد 5</annotation>
+		<annotation cp="🖖🏿">إصبع | جسد | سبوك | فولكان | يد | نوع جلد 6</annotation>
+		<annotation cp="🖖🏿" type="tts">تحية فولكان: نوع جلد 6</annotation>
+		<annotation cp="🤘🏻">إصبع | جسد | قرون | يد | نوع جلد 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">إشارة قرون: نوع جلد 1–2</annotation>
+		<annotation cp="🤘🏼">إصبع | جسد | قرون | يد | نوع جلد 3</annotation>
+		<annotation cp="🤘🏼" type="tts">إشارة قرون: نوع جلد 3</annotation>
+		<annotation cp="🤘🏽">إصبع | جسد | قرون | يد | نوع جلد 4</annotation>
+		<annotation cp="🤘🏽" type="tts">إشارة قرون: نوع جلد 4</annotation>
+		<annotation cp="🤘🏾">إصبع | جسد | قرون | يد | نوع جلد 5</annotation>
+		<annotation cp="🤘🏾" type="tts">إشارة قرون: نوع جلد 5</annotation>
+		<annotation cp="🤘🏿">إصبع | جسد | قرون | يد | نوع جلد 6</annotation>
+		<annotation cp="🤘🏿" type="tts">إشارة قرون: نوع جلد 6</annotation>
+		<annotation cp="🤙🏻">اتصال | يد | نوع جلد 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">إشارة للاتصال: نوع جلد 1–2</annotation>
+		<annotation cp="🤙🏼">اتصال | يد | نوع جلد 3</annotation>
+		<annotation cp="🤙🏼" type="tts">إشارة للاتصال: نوع جلد 3</annotation>
+		<annotation cp="🤙🏽">اتصال | يد | نوع جلد 4</annotation>
+		<annotation cp="🤙🏽" type="tts">إشارة للاتصال: نوع جلد 4</annotation>
+		<annotation cp="🤙🏾">اتصال | يد | نوع جلد 5</annotation>
+		<annotation cp="🤙🏾" type="tts">إشارة للاتصال: نوع جلد 5</annotation>
+		<annotation cp="🤙🏿">اتصال | يد | نوع جلد 6</annotation>
+		<annotation cp="🤙🏿" type="tts">إشارة للاتصال: نوع جلد 6</annotation>
+		<annotation cp="🖐🏻">إصبع | تباعد | جسد | يد | نوع جلد 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">يد مرفوعة بأصابع متفرقة: نوع جلد 1–2</annotation>
+		<annotation cp="🖐🏼">إصبع | تباعد | جسد | يد | نوع جلد 3</annotation>
+		<annotation cp="🖐🏼" type="tts">يد مرفوعة بأصابع متفرقة: نوع جلد 3</annotation>
+		<annotation cp="🖐🏽">إصبع | تباعد | جسد | يد | نوع جلد 4</annotation>
+		<annotation cp="🖐🏽" type="tts">يد مرفوعة بأصابع متفرقة: نوع جلد 4</annotation>
+		<annotation cp="🖐🏾">إصبع | تباعد | جسد | يد | نوع جلد 5</annotation>
+		<annotation cp="🖐🏾" type="tts">يد مرفوعة بأصابع متفرقة: نوع جلد 5</annotation>
+		<annotation cp="🖐🏿">إصبع | تباعد | جسد | يد | نوع جلد 6</annotation>
+		<annotation cp="🖐🏿" type="tts">يد مرفوعة بأصابع متفرقة: نوع جلد 6</annotation>
+		<annotation cp="✋🏻">جسد | قبضة | يد | نوع جلد 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">يد مرفوعة: نوع جلد 1–2</annotation>
+		<annotation cp="✋🏼">جسد | قبضة | يد | نوع جلد 3</annotation>
+		<annotation cp="✋🏼" type="tts">يد مرفوعة: نوع جلد 3</annotation>
+		<annotation cp="✋🏽">جسد | قبضة | يد | نوع جلد 4</annotation>
+		<annotation cp="✋🏽" type="tts">يد مرفوعة: نوع جلد 4</annotation>
+		<annotation cp="✋🏾">جسد | قبضة | يد | نوع جلد 5</annotation>
+		<annotation cp="✋🏾" type="tts">يد مرفوعة: نوع جلد 5</annotation>
+		<annotation cp="✋🏿">جسد | قبضة | يد | نوع جلد 6</annotation>
+		<annotation cp="✋🏿" type="tts">يد مرفوعة: نوع جلد 6</annotation>
+		<annotation cp="👌🏻">علامة | موافقة | نوع جلد 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">علامة موافق: نوع جلد 1–2</annotation>
+		<annotation cp="👌🏼">علامة | موافقة | نوع جلد 3</annotation>
+		<annotation cp="👌🏼" type="tts">علامة موافق: نوع جلد 3</annotation>
+		<annotation cp="👌🏽">علامة | موافقة | نوع جلد 4</annotation>
+		<annotation cp="👌🏽" type="tts">علامة موافق: نوع جلد 4</annotation>
+		<annotation cp="👌🏾">علامة | موافقة | نوع جلد 5</annotation>
+		<annotation cp="👌🏾" type="tts">علامة موافق: نوع جلد 5</annotation>
+		<annotation cp="👌🏿">علامة | موافقة | نوع جلد 6</annotation>
+		<annotation cp="👌🏿" type="tts">علامة موافق: نوع جلد 6</annotation>
+		<annotation cp="👍🏻">أعلى | إبهام | علامة | يد | نوع جلد 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">قبول: نوع جلد 1–2</annotation>
+		<annotation cp="👍🏼">أعلى | إبهام | علامة | يد | نوع جلد 3</annotation>
+		<annotation cp="👍🏼" type="tts">قبول: نوع جلد 3</annotation>
+		<annotation cp="👍🏽">أعلى | إبهام | علامة | يد | نوع جلد 4</annotation>
+		<annotation cp="👍🏽" type="tts">قبول: نوع جلد 4</annotation>
+		<annotation cp="👍🏾">أعلى | إبهام | علامة | يد | نوع جلد 5</annotation>
+		<annotation cp="👍🏾" type="tts">قبول: نوع جلد 5</annotation>
+		<annotation cp="👍🏿">أعلى | إبهام | علامة | يد | نوع جلد 6</annotation>
+		<annotation cp="👍🏿" type="tts">قبول: نوع جلد 6</annotation>
+		<annotation cp="👎🏻">أسفل | إبهام | علامة | يد | نوع جلد 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">رفض: نوع جلد 1–2</annotation>
+		<annotation cp="👎🏼">أسفل | إبهام | علامة | يد | نوع جلد 3</annotation>
+		<annotation cp="👎🏼" type="tts">رفض: نوع جلد 3</annotation>
+		<annotation cp="👎🏽">أسفل | إبهام | علامة | يد | نوع جلد 4</annotation>
+		<annotation cp="👎🏽" type="tts">رفض: نوع جلد 4</annotation>
+		<annotation cp="👎🏾">أسفل | إبهام | علامة | يد | نوع جلد 5</annotation>
+		<annotation cp="👎🏾" type="tts">رفض: نوع جلد 5</annotation>
+		<annotation cp="👎🏿">أسفل | إبهام | علامة | يد | نوع جلد 6</annotation>
+		<annotation cp="👎🏿" type="tts">رفض: نوع جلد 6</annotation>
+		<annotation cp="✊🏻">جسد | قبضة | يد | نوع جلد 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">قبضة يد مرفوعة: نوع جلد 1–2</annotation>
+		<annotation cp="✊🏼">جسد | قبضة | يد | نوع جلد 3</annotation>
+		<annotation cp="✊🏼" type="tts">قبضة يد مرفوعة: نوع جلد 3</annotation>
+		<annotation cp="✊🏽">جسد | قبضة | يد | نوع جلد 4</annotation>
+		<annotation cp="✊🏽" type="tts">قبضة يد مرفوعة: نوع جلد 4</annotation>
+		<annotation cp="✊🏾">جسد | قبضة | يد | نوع جلد 5</annotation>
+		<annotation cp="✊🏾" type="tts">قبضة يد مرفوعة: نوع جلد 5</annotation>
+		<annotation cp="✊🏿">جسد | قبضة | يد | نوع جلد 6</annotation>
+		<annotation cp="✊🏿" type="tts">قبضة يد مرفوعة: نوع جلد 6</annotation>
+		<annotation cp="👊🏻">كف | يد | نوع جلد 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">قبضة يد: نوع جلد 1–2</annotation>
+		<annotation cp="👊🏼">كف | يد | نوع جلد 3</annotation>
+		<annotation cp="👊🏼" type="tts">قبضة يد: نوع جلد 3</annotation>
+		<annotation cp="👊🏽">كف | يد | نوع جلد 4</annotation>
+		<annotation cp="👊🏽" type="tts">قبضة يد: نوع جلد 4</annotation>
+		<annotation cp="👊🏾">كف | يد | نوع جلد 5</annotation>
+		<annotation cp="👊🏾" type="tts">قبضة يد: نوع جلد 5</annotation>
+		<annotation cp="👊🏿">كف | يد | نوع جلد 6</annotation>
+		<annotation cp="👊🏿" type="tts">قبضة يد: نوع جلد 6</annotation>
+		<annotation cp="🤛🏻">قبضة | يسار | نوع جلد 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">قبضة لليسار: نوع جلد 1–2</annotation>
+		<annotation cp="🤛🏼">قبضة | يسار | نوع جلد 3</annotation>
+		<annotation cp="🤛🏼" type="tts">قبضة لليسار: نوع جلد 3</annotation>
+		<annotation cp="🤛🏽">قبضة | يسار | نوع جلد 4</annotation>
+		<annotation cp="🤛🏽" type="tts">قبضة لليسار: نوع جلد 4</annotation>
+		<annotation cp="🤛🏾">قبضة | يسار | نوع جلد 5</annotation>
+		<annotation cp="🤛🏾" type="tts">قبضة لليسار: نوع جلد 5</annotation>
+		<annotation cp="🤛🏿">قبضة | يسار | نوع جلد 6</annotation>
+		<annotation cp="🤛🏿" type="tts">قبضة لليسار: نوع جلد 6</annotation>
+		<annotation cp="🤜🏻">قبضة | يمين | نوع جلد 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">قبضة لليمين: نوع جلد 1–2</annotation>
+		<annotation cp="🤜🏼">قبضة | يمين | نوع جلد 3</annotation>
+		<annotation cp="🤜🏼" type="tts">قبضة لليمين: نوع جلد 3</annotation>
+		<annotation cp="🤜🏽">قبضة | يمين | نوع جلد 4</annotation>
+		<annotation cp="🤜🏽" type="tts">قبضة لليمين: نوع جلد 4</annotation>
+		<annotation cp="🤜🏾">قبضة | يمين | نوع جلد 5</annotation>
+		<annotation cp="🤜🏾" type="tts">قبضة لليمين: نوع جلد 5</annotation>
+		<annotation cp="🤜🏿">قبضة | يمين | نوع جلد 6</annotation>
+		<annotation cp="🤜🏿" type="tts">قبضة لليمين: نوع جلد 6</annotation>
+		<annotation cp="🤚🏻">ظاهر يد | مرفوع | نوع جلد 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">ظاهر يد مرفوع: نوع جلد 1–2</annotation>
+		<annotation cp="🤚🏼">ظاهر يد | مرفوع | نوع جلد 3</annotation>
+		<annotation cp="🤚🏼" type="tts">ظاهر يد مرفوع: نوع جلد 3</annotation>
+		<annotation cp="🤚🏽">ظاهر يد | مرفوع | نوع جلد 4</annotation>
+		<annotation cp="🤚🏽" type="tts">ظاهر يد مرفوع: نوع جلد 4</annotation>
+		<annotation cp="🤚🏾">ظاهر يد | مرفوع | نوع جلد 5</annotation>
+		<annotation cp="🤚🏾" type="tts">ظاهر يد مرفوع: نوع جلد 5</annotation>
+		<annotation cp="🤚🏿">ظاهر يد | مرفوع | نوع جلد 6</annotation>
+		<annotation cp="🤚🏿" type="tts">ظاهر يد مرفوع: نوع جلد 6</annotation>
+		<annotation cp="👋🏻">تلويح | يد | نوع جلد 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">تلويح باليد: نوع جلد 1–2</annotation>
+		<annotation cp="👋🏼">تلويح | يد | نوع جلد 3</annotation>
+		<annotation cp="👋🏼" type="tts">تلويح باليد: نوع جلد 3</annotation>
+		<annotation cp="👋🏽">تلويح | يد | نوع جلد 4</annotation>
+		<annotation cp="👋🏽" type="tts">تلويح باليد: نوع جلد 4</annotation>
+		<annotation cp="👋🏾">تلويح | يد | نوع جلد 5</annotation>
+		<annotation cp="👋🏾" type="tts">تلويح باليد: نوع جلد 5</annotation>
+		<annotation cp="👋🏿">تلويح | يد | نوع جلد 6</annotation>
+		<annotation cp="👋🏿" type="tts">تلويح باليد: نوع جلد 6</annotation>
+		<annotation cp="✍🏻">جسد | كتابة | يد | نوع جلد 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">يد كاتبة: نوع جلد 1–2</annotation>
+		<annotation cp="✍🏼">جسد | كتابة | يد | نوع جلد 3</annotation>
+		<annotation cp="✍🏼" type="tts">يد كاتبة: نوع جلد 3</annotation>
+		<annotation cp="✍🏽">جسد | كتابة | يد | نوع جلد 4</annotation>
+		<annotation cp="✍🏽" type="tts">يد كاتبة: نوع جلد 4</annotation>
+		<annotation cp="✍🏾">جسد | كتابة | يد | نوع جلد 5</annotation>
+		<annotation cp="✍🏾" type="tts">يد كاتبة: نوع جلد 5</annotation>
+		<annotation cp="✍🏿">جسد | كتابة | يد | نوع جلد 6</annotation>
+		<annotation cp="✍🏿" type="tts">يد كاتبة: نوع جلد 6</annotation>
+		<annotation cp="👏🏻">أيادي | تصفيق | علامة | نوع جلد 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">يد تصفق: نوع جلد 1–2</annotation>
+		<annotation cp="👏🏼">أيادي | تصفيق | علامة | نوع جلد 3</annotation>
+		<annotation cp="👏🏼" type="tts">يد تصفق: نوع جلد 3</annotation>
+		<annotation cp="👏🏽">أيادي | تصفيق | علامة | نوع جلد 4</annotation>
+		<annotation cp="👏🏽" type="tts">يد تصفق: نوع جلد 4</annotation>
+		<annotation cp="👏🏾">أيادي | تصفيق | علامة | نوع جلد 5</annotation>
+		<annotation cp="👏🏾" type="tts">يد تصفق: نوع جلد 5</annotation>
+		<annotation cp="👏🏿">أيادي | تصفيق | علامة | نوع جلد 6</annotation>
+		<annotation cp="👏🏿" type="tts">يد تصفق: نوع جلد 6</annotation>
+		<annotation cp="👐🏻">علامة | علامة فتح اليدين | مفتوحة | يد | نوع جلد 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">يدان مفتوحتان: نوع جلد 1–2</annotation>
+		<annotation cp="👐🏼">علامة | علامة فتح اليدين | مفتوحة | يد | نوع جلد 3</annotation>
+		<annotation cp="👐🏼" type="tts">يدان مفتوحتان: نوع جلد 3</annotation>
+		<annotation cp="👐🏽">علامة | علامة فتح اليدين | مفتوحة | يد | نوع جلد 4</annotation>
+		<annotation cp="👐🏽" type="tts">يدان مفتوحتان: نوع جلد 4</annotation>
+		<annotation cp="👐🏾">علامة | علامة فتح اليدين | مفتوحة | يد | نوع جلد 5</annotation>
+		<annotation cp="👐🏾" type="tts">يدان مفتوحتان: نوع جلد 5</annotation>
+		<annotation cp="👐🏿">علامة | علامة فتح اليدين | مفتوحة | يد | نوع جلد 6</annotation>
+		<annotation cp="👐🏿" type="tts">يدان مفتوحتان: نوع جلد 6</annotation>
+		<annotation cp="🙌🏻">احتفال | اليدان | رفع اليدين احتفالاً | نوع جلد 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">تشجيع: نوع جلد 1–2</annotation>
+		<annotation cp="🙌🏼">احتفال | اليدان | رفع اليدين احتفالاً | نوع جلد 3</annotation>
+		<annotation cp="🙌🏼" type="tts">تشجيع: نوع جلد 3</annotation>
+		<annotation cp="🙌🏽">احتفال | اليدان | رفع اليدين احتفالاً | نوع جلد 4</annotation>
+		<annotation cp="🙌🏽" type="tts">تشجيع: نوع جلد 4</annotation>
+		<annotation cp="🙌🏾">احتفال | اليدان | رفع اليدين احتفالاً | نوع جلد 5</annotation>
+		<annotation cp="🙌🏾" type="tts">تشجيع: نوع جلد 5</annotation>
+		<annotation cp="🙌🏿">احتفال | اليدان | رفع اليدين احتفالاً | نوع جلد 6</annotation>
+		<annotation cp="🙌🏿" type="tts">تشجيع: نوع جلد 6</annotation>
+		<annotation cp="🙏🏻">أداء صلاة | إشارة | صلاة | يد | نوع جلد 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">يدان مضمومتان: نوع جلد 1–2</annotation>
+		<annotation cp="🙏🏼">أداء صلاة | إشارة | صلاة | يد | نوع جلد 3</annotation>
+		<annotation cp="🙏🏼" type="tts">يدان مضمومتان: نوع جلد 3</annotation>
+		<annotation cp="🙏🏽">أداء صلاة | إشارة | صلاة | يد | نوع جلد 4</annotation>
+		<annotation cp="🙏🏽" type="tts">يدان مضمومتان: نوع جلد 4</annotation>
+		<annotation cp="🙏🏾">أداء صلاة | إشارة | صلاة | يد | نوع جلد 5</annotation>
+		<annotation cp="🙏🏾" type="tts">يدان مضمومتان: نوع جلد 5</annotation>
+		<annotation cp="🙏🏿">أداء صلاة | إشارة | صلاة | يد | نوع جلد 6</annotation>
+		<annotation cp="🙏🏿" type="tts">يدان مضمومتان: نوع جلد 6</annotation>
+		<annotation cp="💅🏻">أظافر | تهذيب أظافر | مانكير | مستحضرات تجميل | نوع جلد 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">طلاء أظافر: نوع جلد 1–2</annotation>
+		<annotation cp="💅🏼">أظافر | تهذيب أظافر | مانكير | مستحضرات تجميل | نوع جلد 3</annotation>
+		<annotation cp="💅🏼" type="tts">طلاء أظافر: نوع جلد 3</annotation>
+		<annotation cp="💅🏽">أظافر | تهذيب أظافر | مانكير | مستحضرات تجميل | نوع جلد 4</annotation>
+		<annotation cp="💅🏽" type="tts">طلاء أظافر: نوع جلد 4</annotation>
+		<annotation cp="💅🏾">أظافر | تهذيب أظافر | مانكير | مستحضرات تجميل | نوع جلد 5</annotation>
+		<annotation cp="💅🏾" type="tts">طلاء أظافر: نوع جلد 5</annotation>
+		<annotation cp="💅🏿">أظافر | تهذيب أظافر | مانكير | مستحضرات تجميل | نوع جلد 6</annotation>
+		<annotation cp="💅🏿" type="tts">طلاء أظافر: نوع جلد 6</annotation>
+		<annotation cp="👂🏻">جسم | نوع جلد 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">أذن: نوع جلد 1–2</annotation>
+		<annotation cp="👂🏼">جسم | نوع جلد 3</annotation>
+		<annotation cp="👂🏼" type="tts">أذن: نوع جلد 3</annotation>
+		<annotation cp="👂🏽">جسم | نوع جلد 4</annotation>
+		<annotation cp="👂🏽" type="tts">أذن: نوع جلد 4</annotation>
+		<annotation cp="👂🏾">جسم | نوع جلد 5</annotation>
+		<annotation cp="👂🏾" type="tts">أذن: نوع جلد 5</annotation>
+		<annotation cp="👂🏿">جسم | نوع جلد 6</annotation>
+		<annotation cp="👂🏿" type="tts">أذن: نوع جلد 6</annotation>
+		<annotation cp="👃🏻">جسم | وجه | نوع جلد 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">أنف: نوع جلد 1–2</annotation>
+		<annotation cp="👃🏼">جسم | وجه | نوع جلد 3</annotation>
+		<annotation cp="👃🏼" type="tts">أنف: نوع جلد 3</annotation>
+		<annotation cp="👃🏽">جسم | وجه | نوع جلد 4</annotation>
+		<annotation cp="👃🏽" type="tts">أنف: نوع جلد 4</annotation>
+		<annotation cp="👃🏾">جسم | وجه | نوع جلد 5</annotation>
+		<annotation cp="👃🏾" type="tts">أنف: نوع جلد 5</annotation>
+		<annotation cp="👃🏿">جسم | وجه | نوع جلد 6</annotation>
+		<annotation cp="👃🏿" type="tts">أنف: نوع جلد 6</annotation>
+		<annotation cp="#⃣">مفتاح</annotation>
+		<annotation cp="#⃣" type="tts">شباك</annotation>
+		<annotation cp="*⃣">مفتاح</annotation>
+		<annotation cp="*⃣" type="tts">نجمة</annotation>
+		<annotation cp="🇦🇨">علم</annotation>
+		<annotation cp="🇦🇨" type="tts">جزيرة أسينشيون</annotation>
+		<annotation cp="🇦🇩">علم</annotation>
+		<annotation cp="🇦🇩" type="tts">أندورا</annotation>
+		<annotation cp="🇦🇪">علم</annotation>
+		<annotation cp="🇦🇪" type="tts">الإمارات العربية المتحدة</annotation>
+		<annotation cp="🇦🇫">علم</annotation>
+		<annotation cp="🇦🇫" type="tts">أفغانستان</annotation>
+		<annotation cp="🇦🇬">علم</annotation>
+		<annotation cp="🇦🇬" type="tts">أنتيغوا وبربودا</annotation>
+		<annotation cp="🇦🇮">علم</annotation>
+		<annotation cp="🇦🇮" type="tts">أنغويلا</annotation>
+		<annotation cp="🇦🇱">علم</annotation>
+		<annotation cp="🇦🇱" type="tts">ألبانيا</annotation>
+		<annotation cp="🇦🇲">علم</annotation>
+		<annotation cp="🇦🇲" type="tts">أرمينيا</annotation>
+		<annotation cp="🇦🇴">علم</annotation>
+		<annotation cp="🇦🇴" type="tts">أنغولا</annotation>
+		<annotation cp="🇦🇶">علم</annotation>
+		<annotation cp="🇦🇶" type="tts">أنتاركتيكا</annotation>
+		<annotation cp="🇦🇷">علم</annotation>
+		<annotation cp="🇦🇷" type="tts">الأرجنتين</annotation>
+		<annotation cp="🇦🇸">علم</annotation>
+		<annotation cp="🇦🇸" type="tts">ساموا الأمريكية</annotation>
+		<annotation cp="🇦🇹">علم</annotation>
+		<annotation cp="🇦🇹" type="tts">النمسا</annotation>
+		<annotation cp="🇦🇺">علم</annotation>
+		<annotation cp="🇦🇺" type="tts">أستراليا</annotation>
+		<annotation cp="🇦🇼">علم</annotation>
+		<annotation cp="🇦🇼" type="tts">أروبا</annotation>
+		<annotation cp="🇦🇽">علم</annotation>
+		<annotation cp="🇦🇽" type="tts">جزر آلاند</annotation>
+		<annotation cp="🇦🇿">علم</annotation>
+		<annotation cp="🇦🇿" type="tts">أذربيجان</annotation>
+		<annotation cp="🇧🇦">علم</annotation>
+		<annotation cp="🇧🇦" type="tts">البوسنة والهرسك</annotation>
+		<annotation cp="🇧🇧">علم</annotation>
+		<annotation cp="🇧🇧" type="tts">بربادوس</annotation>
+		<annotation cp="🇧🇩">علم</annotation>
+		<annotation cp="🇧🇩" type="tts">بنغلاديش</annotation>
+		<annotation cp="🇧🇪">علم</annotation>
+		<annotation cp="🇧🇪" type="tts">بلجيكا</annotation>
+		<annotation cp="🇧🇫">علم</annotation>
+		<annotation cp="🇧🇫" type="tts">بوركينا فاسو</annotation>
+		<annotation cp="🇧🇬">علم</annotation>
+		<annotation cp="🇧🇬" type="tts">بلغاريا</annotation>
+		<annotation cp="🇧🇭">علم</annotation>
+		<annotation cp="🇧🇭" type="tts">البحرين</annotation>
+		<annotation cp="🇧🇮">علم</annotation>
+		<annotation cp="🇧🇮" type="tts">بوروندي</annotation>
+		<annotation cp="🇧🇯">علم</annotation>
+		<annotation cp="🇧🇯" type="tts">بنين</annotation>
+		<annotation cp="🇧🇱">علم</annotation>
+		<annotation cp="🇧🇱" type="tts">سان بارتليمي</annotation>
+		<annotation cp="🇧🇲">علم</annotation>
+		<annotation cp="🇧🇲" type="tts">برمودا</annotation>
+		<annotation cp="🇧🇳">علم</annotation>
+		<annotation cp="🇧🇳" type="tts">بروناي</annotation>
+		<annotation cp="🇧🇴">علم</annotation>
+		<annotation cp="🇧🇴" type="tts">بوليفيا</annotation>
+		<annotation cp="🇧🇶">علم</annotation>
+		<annotation cp="🇧🇶" type="tts">هولندا الكاريبية</annotation>
+		<annotation cp="🇧🇷">علم</annotation>
+		<annotation cp="🇧🇷" type="tts">البرازيل</annotation>
+		<annotation cp="🇧🇸">علم</annotation>
+		<annotation cp="🇧🇸" type="tts">البهاما</annotation>
+		<annotation cp="🇧🇹">علم</annotation>
+		<annotation cp="🇧🇹" type="tts">بوتان</annotation>
+		<annotation cp="🇧🇻">علم</annotation>
+		<annotation cp="🇧🇻" type="tts">جزيرة بوفيه</annotation>
+		<annotation cp="🇧🇼">علم</annotation>
+		<annotation cp="🇧🇼" type="tts">بتسوانا</annotation>
+		<annotation cp="🇧🇾">علم</annotation>
+		<annotation cp="🇧🇾" type="tts">بيلاروس</annotation>
+		<annotation cp="🇧🇿">علم</annotation>
+		<annotation cp="🇧🇿" type="tts">بليز</annotation>
+		<annotation cp="🇨🇦">علم</annotation>
+		<annotation cp="🇨🇦" type="tts">كندا</annotation>
+		<annotation cp="🇨🇨">علم</annotation>
+		<annotation cp="🇨🇨" type="tts">جزر كوكوس (كيلينغ)</annotation>
+		<annotation cp="🇨🇩">علم</annotation>
+		<annotation cp="🇨🇩" type="tts">الكونغو - كينشاسا</annotation>
+		<annotation cp="🇨🇫">علم</annotation>
+		<annotation cp="🇨🇫" type="tts">جمهورية أفريقيا الوسطى</annotation>
+		<annotation cp="🇨🇬">علم</annotation>
+		<annotation cp="🇨🇬" type="tts">الكونغو - برازافيل</annotation>
+		<annotation cp="🇨🇭">علم</annotation>
+		<annotation cp="🇨🇭" type="tts">سويسرا</annotation>
+		<annotation cp="🇨🇮">علم</annotation>
+		<annotation cp="🇨🇮" type="tts">ساحل العاج</annotation>
+		<annotation cp="🇨🇰">علم</annotation>
+		<annotation cp="🇨🇰" type="tts">جزر كوك</annotation>
+		<annotation cp="🇨🇱">علم</annotation>
+		<annotation cp="🇨🇱" type="tts">تشيلي</annotation>
+		<annotation cp="🇨🇲">علم</annotation>
+		<annotation cp="🇨🇲" type="tts">الكاميرون</annotation>
+		<annotation cp="🇨🇳">علم</annotation>
+		<annotation cp="🇨🇳" type="tts">الصين</annotation>
+		<annotation cp="🇨🇴">علم</annotation>
+		<annotation cp="🇨🇴" type="tts">كولومبيا</annotation>
+		<annotation cp="🇨🇵">علم</annotation>
+		<annotation cp="🇨🇵" type="tts">جزيرة كليبيرتون</annotation>
+		<annotation cp="🇨🇷">علم</annotation>
+		<annotation cp="🇨🇷" type="tts">كوستاريكا</annotation>
+		<annotation cp="🇨🇺">علم</annotation>
+		<annotation cp="🇨🇺" type="tts">كوبا</annotation>
+		<annotation cp="🇨🇻">علم</annotation>
+		<annotation cp="🇨🇻" type="tts">الرأس الأخضر</annotation>
+		<annotation cp="🇨🇼">علم</annotation>
+		<annotation cp="🇨🇼" type="tts">كوراساو</annotation>
+		<annotation cp="🇨🇽">علم</annotation>
+		<annotation cp="🇨🇽" type="tts">جزيرة الكريسماس</annotation>
+		<annotation cp="🇨🇾">علم</annotation>
+		<annotation cp="🇨🇾" type="tts">قبرص</annotation>
+		<annotation cp="🇨🇿">علم</annotation>
+		<annotation cp="🇨🇿" type="tts">التشيك</annotation>
+		<annotation cp="🇩🇪">علم</annotation>
+		<annotation cp="🇩🇪" type="tts">ألمانيا</annotation>
+		<annotation cp="🇩🇬">علم</annotation>
+		<annotation cp="🇩🇬" type="tts">دييغو غارسيا</annotation>
+		<annotation cp="🇩🇯">علم</annotation>
+		<annotation cp="🇩🇯" type="tts">جيبوتي</annotation>
+		<annotation cp="🇩🇰">علم</annotation>
+		<annotation cp="🇩🇰" type="tts">الدانمرك</annotation>
+		<annotation cp="🇩🇲">علم</annotation>
+		<annotation cp="🇩🇲" type="tts">دومينيكا</annotation>
+		<annotation cp="🇩🇴">علم</annotation>
+		<annotation cp="🇩🇴" type="tts">جمهورية الدومينيكان</annotation>
+		<annotation cp="🇩🇿">علم</annotation>
+		<annotation cp="🇩🇿" type="tts">الجزائر</annotation>
+		<annotation cp="🇪🇦">علم</annotation>
+		<annotation cp="🇪🇦" type="tts">سيوتا وميليلا</annotation>
+		<annotation cp="🇪🇨">علم</annotation>
+		<annotation cp="🇪🇨" type="tts">الإكوادور</annotation>
+		<annotation cp="🇪🇪">علم</annotation>
+		<annotation cp="🇪🇪" type="tts">إستونيا</annotation>
+		<annotation cp="🇪🇬">علم</annotation>
+		<annotation cp="🇪🇬" type="tts">مصر</annotation>
+		<annotation cp="🇪🇭">علم</annotation>
+		<annotation cp="🇪🇭" type="tts">الصحراء الغربية</annotation>
+		<annotation cp="🇪🇷">علم</annotation>
+		<annotation cp="🇪🇷" type="tts">إريتريا</annotation>
+		<annotation cp="🇪🇸">علم</annotation>
+		<annotation cp="🇪🇸" type="tts">إسبانيا</annotation>
+		<annotation cp="🇪🇹">علم</annotation>
+		<annotation cp="🇪🇹" type="tts">إثيوبيا</annotation>
+		<annotation cp="🇪🇺">علم</annotation>
+		<annotation cp="🇪🇺" type="tts">الاتحاد الأوروبي</annotation>
+		<annotation cp="🇫🇮">علم</annotation>
+		<annotation cp="🇫🇮" type="tts">فنلندا</annotation>
+		<annotation cp="🇫🇯">علم</annotation>
+		<annotation cp="🇫🇯" type="tts">فيجي</annotation>
+		<annotation cp="🇫🇰">علم</annotation>
+		<annotation cp="🇫🇰" type="tts">جزر فوكلاند</annotation>
+		<annotation cp="🇫🇲">علم</annotation>
+		<annotation cp="🇫🇲" type="tts">ميكرونيزيا</annotation>
+		<annotation cp="🇫🇴">علم</annotation>
+		<annotation cp="🇫🇴" type="tts">جزر فارو</annotation>
+		<annotation cp="🇫🇷">علم</annotation>
+		<annotation cp="🇫🇷" type="tts">فرنسا</annotation>
+		<annotation cp="🇬🇦">علم</annotation>
+		<annotation cp="🇬🇦" type="tts">الغابون</annotation>
+		<annotation cp="🇬🇧">علم</annotation>
+		<annotation cp="🇬🇧" type="tts">المملكة المتحدة</annotation>
+		<annotation cp="🇬🇩">علم</annotation>
+		<annotation cp="🇬🇩" type="tts">غرينادا</annotation>
+		<annotation cp="🇬🇪">علم</annotation>
+		<annotation cp="🇬🇪" type="tts">جورجيا</annotation>
+		<annotation cp="🇬🇫">علم</annotation>
+		<annotation cp="🇬🇫" type="tts">غويانا الفرنسية</annotation>
+		<annotation cp="🇬🇬">علم</annotation>
+		<annotation cp="🇬🇬" type="tts">غيرنزي</annotation>
+		<annotation cp="🇬🇭">علم</annotation>
+		<annotation cp="🇬🇭" type="tts">غانا</annotation>
+		<annotation cp="🇬🇮">علم</annotation>
+		<annotation cp="🇬🇮" type="tts">جبل طارق</annotation>
+		<annotation cp="🇬🇱">علم</annotation>
+		<annotation cp="🇬🇱" type="tts">غرينلاند</annotation>
+		<annotation cp="🇬🇲">علم</annotation>
+		<annotation cp="🇬🇲" type="tts">غامبيا</annotation>
+		<annotation cp="🇬🇳">علم</annotation>
+		<annotation cp="🇬🇳" type="tts">غينيا</annotation>
+		<annotation cp="🇬🇵">علم</annotation>
+		<annotation cp="🇬🇵" type="tts">غوادلوب</annotation>
+		<annotation cp="🇬🇶">علم</annotation>
+		<annotation cp="🇬🇶" type="tts">غينيا الاستوائية</annotation>
+		<annotation cp="🇬🇷">علم</annotation>
+		<annotation cp="🇬🇷" type="tts">اليونان</annotation>
+		<annotation cp="🇬🇸">علم</annotation>
+		<annotation cp="🇬🇸" type="tts">جورجيا الجنوبية وجزر ساندويتش الجنوبية</annotation>
+		<annotation cp="🇬🇹">علم</annotation>
+		<annotation cp="🇬🇹" type="tts">غواتيمالا</annotation>
+		<annotation cp="🇬🇺">علم</annotation>
+		<annotation cp="🇬🇺" type="tts">غوام</annotation>
+		<annotation cp="🇬🇼">علم</annotation>
+		<annotation cp="🇬🇼" type="tts">غينيا بيساو</annotation>
+		<annotation cp="🇬🇾">علم</annotation>
+		<annotation cp="🇬🇾" type="tts">غيانا</annotation>
+		<annotation cp="🇭🇰">علم</annotation>
+		<annotation cp="🇭🇰" type="tts">هونغ كونغ الصينية</annotation>
+		<annotation cp="🇭🇲">علم</annotation>
+		<annotation cp="🇭🇲" type="tts">جزيرة هيرد وجزر ماكدونالد</annotation>
+		<annotation cp="🇭🇳">علم</annotation>
+		<annotation cp="🇭🇳" type="tts">هندوراس</annotation>
+		<annotation cp="🇭🇷">علم</annotation>
+		<annotation cp="🇭🇷" type="tts">كرواتيا</annotation>
+		<annotation cp="🇭🇹">علم</annotation>
+		<annotation cp="🇭🇹" type="tts">هايتي</annotation>
+		<annotation cp="🇭🇺">علم</annotation>
+		<annotation cp="🇭🇺" type="tts">هنغاريا</annotation>
+		<annotation cp="🇮🇨">علم</annotation>
+		<annotation cp="🇮🇨" type="tts">جزر الكناري</annotation>
+		<annotation cp="🇮🇩">علم</annotation>
+		<annotation cp="🇮🇩" type="tts">إندونيسيا</annotation>
+		<annotation cp="🇮🇪">علم</annotation>
+		<annotation cp="🇮🇪" type="tts">أيرلندا</annotation>
+		<annotation cp="🇮🇱">علم</annotation>
+		<annotation cp="🇮🇱" type="tts">إسرائيل</annotation>
+		<annotation cp="🇮🇲">علم</annotation>
+		<annotation cp="🇮🇲" type="tts">جزيرة مان</annotation>
+		<annotation cp="🇮🇳">علم</annotation>
+		<annotation cp="🇮🇳" type="tts">الهند</annotation>
+		<annotation cp="🇮🇴">علم</annotation>
+		<annotation cp="🇮🇴" type="tts">الإقليم البريطاني في المحيط الهندي</annotation>
+		<annotation cp="🇮🇶">علم</annotation>
+		<annotation cp="🇮🇶" type="tts">العراق</annotation>
+		<annotation cp="🇮🇷">علم</annotation>
+		<annotation cp="🇮🇷" type="tts">إيران</annotation>
+		<annotation cp="🇮🇸">علم</annotation>
+		<annotation cp="🇮🇸" type="tts">أيسلندا</annotation>
+		<annotation cp="🇮🇹">علم</annotation>
+		<annotation cp="🇮🇹" type="tts">إيطاليا</annotation>
+		<annotation cp="🇯🇪">علم</annotation>
+		<annotation cp="🇯🇪" type="tts">جيرسي</annotation>
+		<annotation cp="🇯🇲">علم</annotation>
+		<annotation cp="🇯🇲" type="tts">جامايكا</annotation>
+		<annotation cp="🇯🇴">علم</annotation>
+		<annotation cp="🇯🇴" type="tts">الأردن</annotation>
+		<annotation cp="🇯🇵">علم</annotation>
+		<annotation cp="🇯🇵" type="tts">اليابان</annotation>
+		<annotation cp="🇰🇪">علم</annotation>
+		<annotation cp="🇰🇪" type="tts">كينيا</annotation>
+		<annotation cp="🇰🇬">علم</annotation>
+		<annotation cp="🇰🇬" type="tts">قيرغيزستان</annotation>
+		<annotation cp="🇰🇭">علم</annotation>
+		<annotation cp="🇰🇭" type="tts">كمبوديا</annotation>
+		<annotation cp="🇰🇮">علم</annotation>
+		<annotation cp="🇰🇮" type="tts">كيريباتي</annotation>
+		<annotation cp="🇰🇲">علم</annotation>
+		<annotation cp="🇰🇲" type="tts">جزر القمر</annotation>
+		<annotation cp="🇰🇳">علم</annotation>
+		<annotation cp="🇰🇳" type="tts">سانت كيتس ونيفيس</annotation>
+		<annotation cp="🇰🇵">علم</annotation>
+		<annotation cp="🇰🇵" type="tts">كوريا الشمالية</annotation>
+		<annotation cp="🇰🇷">علم</annotation>
+		<annotation cp="🇰🇷" type="tts">كوريا الجنوبية</annotation>
+		<annotation cp="🇰🇼">علم</annotation>
+		<annotation cp="🇰🇼" type="tts">الكويت</annotation>
+		<annotation cp="🇰🇾">علم</annotation>
+		<annotation cp="🇰🇾" type="tts">جزر كايمان</annotation>
+		<annotation cp="🇰🇿">علم</annotation>
+		<annotation cp="🇰🇿" type="tts">كازاخستان</annotation>
+		<annotation cp="🇱🇦">علم</annotation>
+		<annotation cp="🇱🇦" type="tts">لاوس</annotation>
+		<annotation cp="🇱🇧">علم</annotation>
+		<annotation cp="🇱🇧" type="tts">لبنان</annotation>
+		<annotation cp="🇱🇨">علم</annotation>
+		<annotation cp="🇱🇨" type="tts">سانت لوسيا</annotation>
+		<annotation cp="🇱🇮">علم</annotation>
+		<annotation cp="🇱🇮" type="tts">ليختنشتاين</annotation>
+		<annotation cp="🇱🇰">علم</annotation>
+		<annotation cp="🇱🇰" type="tts">سريلانكا</annotation>
+		<annotation cp="🇱🇷">علم</annotation>
+		<annotation cp="🇱🇷" type="tts">ليبيريا</annotation>
+		<annotation cp="🇱🇸">علم</annotation>
+		<annotation cp="🇱🇸" type="tts">ليسوتو</annotation>
+		<annotation cp="🇱🇹">علم</annotation>
+		<annotation cp="🇱🇹" type="tts">ليتوانيا</annotation>
+		<annotation cp="🇱🇺">علم</annotation>
+		<annotation cp="🇱🇺" type="tts">لوكسمبورغ</annotation>
+		<annotation cp="🇱🇻">علم</annotation>
+		<annotation cp="🇱🇻" type="tts">لاتفيا</annotation>
+		<annotation cp="🇱🇾">علم</annotation>
+		<annotation cp="🇱🇾" type="tts">ليبيا</annotation>
+		<annotation cp="🇲🇦">علم</annotation>
+		<annotation cp="🇲🇦" type="tts">المغرب</annotation>
+		<annotation cp="🇲🇨">علم</annotation>
+		<annotation cp="🇲🇨" type="tts">موناكو</annotation>
+		<annotation cp="🇲🇩">علم</annotation>
+		<annotation cp="🇲🇩" type="tts">مولدوفا</annotation>
+		<annotation cp="🇲🇪">علم</annotation>
+		<annotation cp="🇲🇪" type="tts">الجبل الأسود</annotation>
+		<annotation cp="🇲🇫">علم</annotation>
+		<annotation cp="🇲🇫" type="tts">سانت مارتن</annotation>
+		<annotation cp="🇲🇬">علم</annotation>
+		<annotation cp="🇲🇬" type="tts">مدغشقر</annotation>
+		<annotation cp="🇲🇭">علم</annotation>
+		<annotation cp="🇲🇭" type="tts">جزر مارشال</annotation>
+		<annotation cp="🇲🇰">علم</annotation>
+		<annotation cp="🇲🇰" type="tts">مقدونيا</annotation>
+		<annotation cp="🇲🇱">علم</annotation>
+		<annotation cp="🇲🇱" type="tts">مالي</annotation>
+		<annotation cp="🇲🇲">علم</annotation>
+		<annotation cp="🇲🇲" type="tts">ميانمار (بورما)</annotation>
+		<annotation cp="🇲🇳">علم</annotation>
+		<annotation cp="🇲🇳" type="tts">منغوليا</annotation>
+		<annotation cp="🇲🇴">علم</annotation>
+		<annotation cp="🇲🇴" type="tts">مكاو الصينية (منطقة إدارية خاصة)</annotation>
+		<annotation cp="🇲🇵">علم</annotation>
+		<annotation cp="🇲🇵" type="tts">جزر ماريانا الشمالية</annotation>
+		<annotation cp="🇲🇶">علم</annotation>
+		<annotation cp="🇲🇶" type="tts">جزر المارتينيك</annotation>
+		<annotation cp="🇲🇷">علم</annotation>
+		<annotation cp="🇲🇷" type="tts">موريتانيا</annotation>
+		<annotation cp="🇲🇸">علم</annotation>
+		<annotation cp="🇲🇸" type="tts">مونتسرات</annotation>
+		<annotation cp="🇲🇹">علم</annotation>
+		<annotation cp="🇲🇹" type="tts">مالطا</annotation>
+		<annotation cp="🇲🇺">علم</annotation>
+		<annotation cp="🇲🇺" type="tts">موريشيوس</annotation>
+		<annotation cp="🇲🇻">علم</annotation>
+		<annotation cp="🇲🇻" type="tts">جزر المالديف</annotation>
+		<annotation cp="🇲🇼">علم</annotation>
+		<annotation cp="🇲🇼" type="tts">ملاوي</annotation>
+		<annotation cp="🇲🇽">علم</annotation>
+		<annotation cp="🇲🇽" type="tts">المكسيك</annotation>
+		<annotation cp="🇲🇾">علم</annotation>
+		<annotation cp="🇲🇾" type="tts">ماليزيا</annotation>
+		<annotation cp="🇲🇿">علم</annotation>
+		<annotation cp="🇲🇿" type="tts">موزمبيق</annotation>
+		<annotation cp="🇳🇦">علم</annotation>
+		<annotation cp="🇳🇦" type="tts">ناميبيا</annotation>
+		<annotation cp="🇳🇨">علم</annotation>
+		<annotation cp="🇳🇨" type="tts">كاليدونيا الجديدة</annotation>
+		<annotation cp="🇳🇪">علم</annotation>
+		<annotation cp="🇳🇪" type="tts">النيجر</annotation>
+		<annotation cp="🇳🇫">علم</annotation>
+		<annotation cp="🇳🇫" type="tts">جزيرة نورفولك</annotation>
+		<annotation cp="🇳🇬">علم</annotation>
+		<annotation cp="🇳🇬" type="tts">نيجيريا</annotation>
+		<annotation cp="🇳🇮">علم</annotation>
+		<annotation cp="🇳🇮" type="tts">نيكاراغوا</annotation>
+		<annotation cp="🇳🇱">علم</annotation>
+		<annotation cp="🇳🇱" type="tts">هولندا</annotation>
+		<annotation cp="🇳🇴">علم</annotation>
+		<annotation cp="🇳🇴" type="tts">النرويج</annotation>
+		<annotation cp="🇳🇵">علم</annotation>
+		<annotation cp="🇳🇵" type="tts">نيبال</annotation>
+		<annotation cp="🇳🇷">علم</annotation>
+		<annotation cp="🇳🇷" type="tts">ناورو</annotation>
+		<annotation cp="🇳🇺">علم</annotation>
+		<annotation cp="🇳🇺" type="tts">نيوي</annotation>
+		<annotation cp="🇳🇿">علم</annotation>
+		<annotation cp="🇳🇿" type="tts">نيوزيلندا</annotation>
+		<annotation cp="🇴🇲">علم</annotation>
+		<annotation cp="🇴🇲" type="tts">عُمان</annotation>
+		<annotation cp="🇵🇦">علم</annotation>
+		<annotation cp="🇵🇦" type="tts">بنما</annotation>
+		<annotation cp="🇵🇪">علم</annotation>
+		<annotation cp="🇵🇪" type="tts">بيرو</annotation>
+		<annotation cp="🇵🇫">علم</annotation>
+		<annotation cp="🇵🇫" type="tts">بولينيزيا الفرنسية</annotation>
+		<annotation cp="🇵🇬">علم</annotation>
+		<annotation cp="🇵🇬" type="tts">بابوا غينيا الجديدة</annotation>
+		<annotation cp="🇵🇭">علم</annotation>
+		<annotation cp="🇵🇭" type="tts">الفلبين</annotation>
+		<annotation cp="🇵🇰">علم</annotation>
+		<annotation cp="🇵🇰" type="tts">باكستان</annotation>
+		<annotation cp="🇵🇱">علم</annotation>
+		<annotation cp="🇵🇱" type="tts">بولندا</annotation>
+		<annotation cp="🇵🇲">علم</annotation>
+		<annotation cp="🇵🇲" type="tts">سانت بيير وميكولون</annotation>
+		<annotation cp="🇵🇳">علم</annotation>
+		<annotation cp="🇵🇳" type="tts">جزر بيتكيرن</annotation>
+		<annotation cp="🇵🇷">علم</annotation>
+		<annotation cp="🇵🇷" type="tts">بورتوريكو</annotation>
+		<annotation cp="🇵🇸">علم</annotation>
+		<annotation cp="🇵🇸" type="tts">الأراضي الفلسطينية</annotation>
+		<annotation cp="🇵🇹">علم</annotation>
+		<annotation cp="🇵🇹" type="tts">البرتغال</annotation>
+		<annotation cp="🇵🇼">علم</annotation>
+		<annotation cp="🇵🇼" type="tts">بالاو</annotation>
+		<annotation cp="🇵🇾">علم</annotation>
+		<annotation cp="🇵🇾" type="tts">باراغواي</annotation>
+		<annotation cp="🇶🇦">علم</annotation>
+		<annotation cp="🇶🇦" type="tts">قطر</annotation>
+		<annotation cp="🇷🇪">علم</annotation>
+		<annotation cp="🇷🇪" type="tts">روينيون</annotation>
+		<annotation cp="🇷🇴">علم</annotation>
+		<annotation cp="🇷🇴" type="tts">رومانيا</annotation>
+		<annotation cp="🇷🇸">علم</annotation>
+		<annotation cp="🇷🇸" type="tts">صربيا</annotation>
+		<annotation cp="🇷🇺">علم</annotation>
+		<annotation cp="🇷🇺" type="tts">روسيا</annotation>
+		<annotation cp="🇷🇼">علم</annotation>
+		<annotation cp="🇷🇼" type="tts">رواندا</annotation>
+		<annotation cp="🇸🇦">علم</annotation>
+		<annotation cp="🇸🇦" type="tts">المملكة العربية السعودية</annotation>
+		<annotation cp="🇸🇧">علم</annotation>
+		<annotation cp="🇸🇧" type="tts">جزر سليمان</annotation>
+		<annotation cp="🇸🇨">علم</annotation>
+		<annotation cp="🇸🇨" type="tts">سيشل</annotation>
+		<annotation cp="🇸🇩">علم</annotation>
+		<annotation cp="🇸🇩" type="tts">السودان</annotation>
+		<annotation cp="🇸🇪">علم</annotation>
+		<annotation cp="🇸🇪" type="tts">السويد</annotation>
+		<annotation cp="🇸🇬">علم</annotation>
+		<annotation cp="🇸🇬" type="tts">سنغافورة</annotation>
+		<annotation cp="🇸🇭">علم</annotation>
+		<annotation cp="🇸🇭" type="tts">سانت هيلانة</annotation>
+		<annotation cp="🇸🇮">علم</annotation>
+		<annotation cp="🇸🇮" type="tts">سلوفينيا</annotation>
+		<annotation cp="🇸🇯">علم</annotation>
+		<annotation cp="🇸🇯" type="tts">سفالبارد وجان مايان</annotation>
+		<annotation cp="🇸🇰">علم</annotation>
+		<annotation cp="🇸🇰" type="tts">سلوفاكيا</annotation>
+		<annotation cp="🇸🇱">علم</annotation>
+		<annotation cp="🇸🇱" type="tts">سيراليون</annotation>
+		<annotation cp="🇸🇲">علم</annotation>
+		<annotation cp="🇸🇲" type="tts">سان مارينو</annotation>
+		<annotation cp="🇸🇳">علم</annotation>
+		<annotation cp="🇸🇳" type="tts">السنغال</annotation>
+		<annotation cp="🇸🇴">علم</annotation>
+		<annotation cp="🇸🇴" type="tts">الصومال</annotation>
+		<annotation cp="🇸🇷">علم</annotation>
+		<annotation cp="🇸🇷" type="tts">سورينام</annotation>
+		<annotation cp="🇸🇸">علم</annotation>
+		<annotation cp="🇸🇸" type="tts">جنوب السودان</annotation>
+		<annotation cp="🇸🇹">علم</annotation>
+		<annotation cp="🇸🇹" type="tts">ساو تومي وبرينسيبي</annotation>
+		<annotation cp="🇸🇻">علم</annotation>
+		<annotation cp="🇸🇻" type="tts">السلفادور</annotation>
+		<annotation cp="🇸🇽">علم</annotation>
+		<annotation cp="🇸🇽" type="tts">سينت مارتن</annotation>
+		<annotation cp="🇸🇾">علم</annotation>
+		<annotation cp="🇸🇾" type="tts">سوريا</annotation>
+		<annotation cp="🇸🇿">علم</annotation>
+		<annotation cp="🇸🇿" type="tts">سوازيلاند</annotation>
+		<annotation cp="🇹🇦">علم</annotation>
+		<annotation cp="🇹🇦" type="tts">تريستان دي كونها</annotation>
+		<annotation cp="🇹🇨">علم</annotation>
+		<annotation cp="🇹🇨" type="tts">جزر توركس وكايكوس</annotation>
+		<annotation cp="🇹🇩">علم</annotation>
+		<annotation cp="🇹🇩" type="tts">تشاد</annotation>
+		<annotation cp="🇹🇫">علم</annotation>
+		<annotation cp="🇹🇫" type="tts">الأقاليم الجنوبية الفرنسية</annotation>
+		<annotation cp="🇹🇬">علم</annotation>
+		<annotation cp="🇹🇬" type="tts">توغو</annotation>
+		<annotation cp="🇹🇭">علم</annotation>
+		<annotation cp="🇹🇭" type="tts">تايلاند</annotation>
+		<annotation cp="🇹🇯">علم</annotation>
+		<annotation cp="🇹🇯" type="tts">طاجيكستان</annotation>
+		<annotation cp="🇹🇰">علم</annotation>
+		<annotation cp="🇹🇰" type="tts">توكيلو</annotation>
+		<annotation cp="🇹🇱">علم</annotation>
+		<annotation cp="🇹🇱" type="tts">تيمور- ليشتي</annotation>
+		<annotation cp="🇹🇲">علم</annotation>
+		<annotation cp="🇹🇲" type="tts">تركمانستان</annotation>
+		<annotation cp="🇹🇳">علم</annotation>
+		<annotation cp="🇹🇳" type="tts">تونس</annotation>
+		<annotation cp="🇹🇴">علم</annotation>
+		<annotation cp="🇹🇴" type="tts">تونغا</annotation>
+		<annotation cp="🇹🇷">علم</annotation>
+		<annotation cp="🇹🇷" type="tts">تركيا</annotation>
+		<annotation cp="🇹🇹">علم</annotation>
+		<annotation cp="🇹🇹" type="tts">ترينيداد وتوباغو</annotation>
+		<annotation cp="🇹🇻">علم</annotation>
+		<annotation cp="🇹🇻" type="tts">توفالو</annotation>
+		<annotation cp="🇹🇼">علم</annotation>
+		<annotation cp="🇹🇼" type="tts">تايوان</annotation>
+		<annotation cp="🇹🇿">علم</annotation>
+		<annotation cp="🇹🇿" type="tts">تنزانيا</annotation>
+		<annotation cp="🇺🇦">علم</annotation>
+		<annotation cp="🇺🇦" type="tts">أوكرانيا</annotation>
+		<annotation cp="🇺🇬">علم</annotation>
+		<annotation cp="🇺🇬" type="tts">أوغندا</annotation>
+		<annotation cp="🇺🇲">علم</annotation>
+		<annotation cp="🇺🇲" type="tts">جزر الولايات المتحدة النائية</annotation>
+		<annotation cp="🇺🇳">علم</annotation>
+		<annotation cp="🇺🇳" type="tts">الأمم المتحدة</annotation>
+		<annotation cp="🇺🇸">علم</annotation>
+		<annotation cp="🇺🇸" type="tts">الولايات المتحدة</annotation>
+		<annotation cp="🇺🇾">علم</annotation>
+		<annotation cp="🇺🇾" type="tts">أورغواي</annotation>
+		<annotation cp="🇺🇿">علم</annotation>
+		<annotation cp="🇺🇿" type="tts">أوزبكستان</annotation>
+		<annotation cp="🇻🇦">علم</annotation>
+		<annotation cp="🇻🇦" type="tts">الفاتيكان</annotation>
+		<annotation cp="🇻🇨">علم</annotation>
+		<annotation cp="🇻🇨" type="tts">سانت فنسنت وجزر غرينادين</annotation>
+		<annotation cp="🇻🇪">علم</annotation>
+		<annotation cp="🇻🇪" type="tts">فنزويلا</annotation>
+		<annotation cp="🇻🇬">علم</annotation>
+		<annotation cp="🇻🇬" type="tts">جزر فيرجن البريطانية</annotation>
+		<annotation cp="🇻🇮">علم</annotation>
+		<annotation cp="🇻🇮" type="tts">جزر فيرجن التابعة للولايات المتحدة</annotation>
+		<annotation cp="🇻🇳">علم</annotation>
+		<annotation cp="🇻🇳" type="tts">فيتنام</annotation>
+		<annotation cp="🇻🇺">علم</annotation>
+		<annotation cp="🇻🇺" type="tts">فانواتو</annotation>
+		<annotation cp="🇼🇫">علم</annotation>
+		<annotation cp="🇼🇫" type="tts">جزر والس وفوتونا</annotation>
+		<annotation cp="🇼🇸">علم</annotation>
+		<annotation cp="🇼🇸" type="tts">ساموا</annotation>
+		<annotation cp="🇽🇰">علم</annotation>
+		<annotation cp="🇽🇰" type="tts">كوسوفو</annotation>
+		<annotation cp="🇾🇪">علم</annotation>
+		<annotation cp="🇾🇪" type="tts">اليمن</annotation>
+		<annotation cp="🇾🇹">علم</annotation>
+		<annotation cp="🇾🇹" type="tts">مايوت</annotation>
+		<annotation cp="🇿🇦">علم</annotation>
+		<annotation cp="🇿🇦" type="tts">جنوب أفريقيا</annotation>
+		<annotation cp="🇿🇲">علم</annotation>
+		<annotation cp="🇿🇲" type="tts">زامبيا</annotation>
+		<annotation cp="🇿🇼">علم</annotation>
+		<annotation cp="🇿🇼" type="tts">زيمبابوي</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">علم</annotation>
+		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">إنجلترا</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">علم</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">اسكتلندا</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">علم</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">ويلز</annotation>
+	</annotations>
+</ldml>

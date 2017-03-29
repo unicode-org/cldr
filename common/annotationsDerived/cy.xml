@@ -1,0 +1,2418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<language type="cy"/>
+	</identity>
+	<annotations>
+		<annotation cp="0⃣">bysell</annotation>
+		<annotation cp="0⃣" type="tts">bysell: 0</annotation>
+		<annotation cp="1⃣">bysell</annotation>
+		<annotation cp="1⃣" type="tts">bysell: 1</annotation>
+		<annotation cp="2⃣">bysell</annotation>
+		<annotation cp="2⃣" type="tts">bysell: 2</annotation>
+		<annotation cp="3⃣">bysell</annotation>
+		<annotation cp="3⃣" type="tts">bysell: 3</annotation>
+		<annotation cp="4⃣">bysell</annotation>
+		<annotation cp="4⃣" type="tts">bysell: 4</annotation>
+		<annotation cp="5⃣">bysell</annotation>
+		<annotation cp="5⃣" type="tts">bysell: 5</annotation>
+		<annotation cp="6⃣">bysell</annotation>
+		<annotation cp="6⃣" type="tts">bysell: 6</annotation>
+		<annotation cp="7⃣">bysell</annotation>
+		<annotation cp="7⃣" type="tts">bysell: 7</annotation>
+		<annotation cp="8⃣">bysell</annotation>
+		<annotation cp="8⃣" type="tts">bysell: 8</annotation>
+		<annotation cp="9⃣">bysell</annotation>
+		<annotation cp="9⃣" type="tts">bysell: 9</annotation>
+		<annotation cp="👶🏻">babi | math 1–2</annotation>
+		<annotation cp="👶🏻" type="tts">babi: math 1–2</annotation>
+		<annotation cp="👶🏼">babi | math 3</annotation>
+		<annotation cp="👶🏼" type="tts">babi: math 3</annotation>
+		<annotation cp="👶🏽">babi | math 4</annotation>
+		<annotation cp="👶🏽" type="tts">babi: math 4</annotation>
+		<annotation cp="👶🏾">babi | math 5</annotation>
+		<annotation cp="👶🏾" type="tts">babi: math 5</annotation>
+		<annotation cp="👶🏿">babi | math 6</annotation>
+		<annotation cp="👶🏿" type="tts">babi: math 6</annotation>
+		<annotation cp="👦🏻">bachgen | gwrywaidd | math 1–2</annotation>
+		<annotation cp="👦🏻" type="tts">bachgen: math 1–2</annotation>
+		<annotation cp="👦🏼">bachgen | gwrywaidd | math 3</annotation>
+		<annotation cp="👦🏼" type="tts">bachgen: math 3</annotation>
+		<annotation cp="👦🏽">bachgen | gwrywaidd | math 4</annotation>
+		<annotation cp="👦🏽" type="tts">bachgen: math 4</annotation>
+		<annotation cp="👦🏾">bachgen | gwrywaidd | math 5</annotation>
+		<annotation cp="👦🏾" type="tts">bachgen: math 5</annotation>
+		<annotation cp="👦🏿">bachgen | gwrywaidd | math 6</annotation>
+		<annotation cp="👦🏿" type="tts">bachgen: math 6</annotation>
+		<annotation cp="👧🏻">benywaidd | merch | morwyn | math 1–2</annotation>
+		<annotation cp="👧🏻" type="tts">merch: math 1–2</annotation>
+		<annotation cp="👧🏼">benywaidd | merch | morwyn | math 3</annotation>
+		<annotation cp="👧🏼" type="tts">merch: math 3</annotation>
+		<annotation cp="👧🏽">benywaidd | merch | morwyn | math 4</annotation>
+		<annotation cp="👧🏽" type="tts">merch: math 4</annotation>
+		<annotation cp="👧🏾">benywaidd | merch | morwyn | math 5</annotation>
+		<annotation cp="👧🏾" type="tts">merch: math 5</annotation>
+		<annotation cp="👧🏿">benywaidd | merch | morwyn | math 6</annotation>
+		<annotation cp="👧🏿" type="tts">merch: math 6</annotation>
+		<annotation cp="👨🏻">dyn | gwrywaidd | math 1–2</annotation>
+		<annotation cp="👨🏻" type="tts">dyn: math 1–2</annotation>
+		<annotation cp="👨🏼">dyn | gwrywaidd | math 3</annotation>
+		<annotation cp="👨🏼" type="tts">dyn: math 3</annotation>
+		<annotation cp="👨🏽">dyn | gwrywaidd | math 4</annotation>
+		<annotation cp="👨🏽" type="tts">dyn: math 4</annotation>
+		<annotation cp="👨🏾">dyn | gwrywaidd | math 5</annotation>
+		<annotation cp="👨🏾" type="tts">dyn: math 5</annotation>
+		<annotation cp="👨🏿">dyn | gwrywaidd | math 6</annotation>
+		<annotation cp="👨🏿" type="tts">dyn: math 6</annotation>
+		<annotation cp="👩🏻">benywaidd | menyw | math 1–2</annotation>
+		<annotation cp="👩🏻" type="tts">menyw: math 1–2</annotation>
+		<annotation cp="👩🏼">benywaidd | menyw | math 3</annotation>
+		<annotation cp="👩🏼" type="tts">menyw: math 3</annotation>
+		<annotation cp="👩🏽">benywaidd | menyw | math 4</annotation>
+		<annotation cp="👩🏽" type="tts">menyw: math 4</annotation>
+		<annotation cp="👩🏾">benywaidd | menyw | math 5</annotation>
+		<annotation cp="👩🏾" type="tts">menyw: math 5</annotation>
+		<annotation cp="👩🏿">benywaidd | menyw | math 6</annotation>
+		<annotation cp="👩🏿" type="tts">menyw: math 6</annotation>
+		<annotation cp="👴🏻">dyn | gwrywaidd | hen | math 1–2</annotation>
+		<annotation cp="👴🏻" type="tts">hen ddyn: math 1–2</annotation>
+		<annotation cp="👴🏼">dyn | gwrywaidd | hen | math 3</annotation>
+		<annotation cp="👴🏼" type="tts">hen ddyn: math 3</annotation>
+		<annotation cp="👴🏽">dyn | gwrywaidd | hen | math 4</annotation>
+		<annotation cp="👴🏽" type="tts">hen ddyn: math 4</annotation>
+		<annotation cp="👴🏾">dyn | gwrywaidd | hen | math 5</annotation>
+		<annotation cp="👴🏾" type="tts">hen ddyn: math 5</annotation>
+		<annotation cp="👴🏿">dyn | gwrywaidd | hen | math 6</annotation>
+		<annotation cp="👴🏿" type="tts">hen ddyn: math 6</annotation>
+		<annotation cp="👵🏻">benywaidd | hen | menyw | math 1–2</annotation>
+		<annotation cp="👵🏻" type="tts">hen fenyw: math 1–2</annotation>
+		<annotation cp="👵🏼">benywaidd | hen | menyw | math 3</annotation>
+		<annotation cp="👵🏼" type="tts">hen fenyw: math 3</annotation>
+		<annotation cp="👵🏽">benywaidd | hen | menyw | math 4</annotation>
+		<annotation cp="👵🏽" type="tts">hen fenyw: math 4</annotation>
+		<annotation cp="👵🏾">benywaidd | hen | menyw | math 5</annotation>
+		<annotation cp="👵🏾" type="tts">hen fenyw: math 5</annotation>
+		<annotation cp="👵🏿">benywaidd | hen | menyw | math 6</annotation>
+		<annotation cp="👵🏿" type="tts">hen fenyw: math 6</annotation>
+		<annotation cp="👨🏻‍⚕">gofal iechyd | gwrywaidd | meddyg | nyrs | math 1–2</annotation>
+		<annotation cp="👨🏻‍⚕" type="tts">gweithiwr iechyd gwrywaidd: math 1–2</annotation>
+		<annotation cp="👨🏼‍⚕">gofal iechyd | gwrywaidd | meddyg | nyrs | math 3</annotation>
+		<annotation cp="👨🏼‍⚕" type="tts">gweithiwr iechyd gwrywaidd: math 3</annotation>
+		<annotation cp="👨🏽‍⚕">gofal iechyd | gwrywaidd | meddyg | nyrs | math 4</annotation>
+		<annotation cp="👨🏽‍⚕" type="tts">gweithiwr iechyd gwrywaidd: math 4</annotation>
+		<annotation cp="👨🏾‍⚕">gofal iechyd | gwrywaidd | meddyg | nyrs | math 5</annotation>
+		<annotation cp="👨🏾‍⚕" type="tts">gweithiwr iechyd gwrywaidd: math 5</annotation>
+		<annotation cp="👨🏿‍⚕">gofal iechyd | gwrywaidd | meddyg | nyrs | math 6</annotation>
+		<annotation cp="👨🏿‍⚕" type="tts">gweithiwr iechyd gwrywaidd: math 6</annotation>
+		<annotation cp="👩🏻‍⚕">benywaidd | gofal iechyd | meddyg | nyrs | math 1–2</annotation>
+		<annotation cp="👩🏻‍⚕" type="tts">gweithiwr iechyd benywaidd: math 1–2</annotation>
+		<annotation cp="👩🏼‍⚕">benywaidd | gofal iechyd | meddyg | nyrs | math 3</annotation>
+		<annotation cp="👩🏼‍⚕" type="tts">gweithiwr iechyd benywaidd: math 3</annotation>
+		<annotation cp="👩🏽‍⚕">benywaidd | gofal iechyd | meddyg | nyrs | math 4</annotation>
+		<annotation cp="👩🏽‍⚕" type="tts">gweithiwr iechyd benywaidd: math 4</annotation>
+		<annotation cp="👩🏾‍⚕">benywaidd | gofal iechyd | meddyg | nyrs | math 5</annotation>
+		<annotation cp="👩🏾‍⚕" type="tts">gweithiwr iechyd benywaidd: math 5</annotation>
+		<annotation cp="👩🏿‍⚕">benywaidd | gofal iechyd | meddyg | nyrs | math 6</annotation>
+		<annotation cp="👩🏿‍⚕" type="tts">gweithiwr iechyd benywaidd: math 6</annotation>
+		<annotation cp="👨🏻‍🎓">dyn | graddio | gwrywaidd | myfyriwr | math 1–2</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">myfyriwr: math 1–2</annotation>
+		<annotation cp="👨🏼‍🎓">dyn | graddio | gwrywaidd | myfyriwr | math 3</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">myfyriwr: math 3</annotation>
+		<annotation cp="👨🏽‍🎓">dyn | graddio | gwrywaidd | myfyriwr | math 4</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">myfyriwr: math 4</annotation>
+		<annotation cp="👨🏾‍🎓">dyn | graddio | gwrywaidd | myfyriwr | math 5</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">myfyriwr: math 5</annotation>
+		<annotation cp="👨🏿‍🎓">dyn | graddio | gwrywaidd | myfyriwr | math 6</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">myfyriwr: math 6</annotation>
+		<annotation cp="👩🏻‍🎓">benywaidd | graddio | menyw | myfyrwraig | math 1–2</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">myfyrwraig: math 1–2</annotation>
+		<annotation cp="👩🏼‍🎓">benywaidd | graddio | menyw | myfyrwraig | math 3</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">myfyrwraig: math 3</annotation>
+		<annotation cp="👩🏽‍🎓">benywaidd | graddio | menyw | myfyrwraig | math 4</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">myfyrwraig: math 4</annotation>
+		<annotation cp="👩🏾‍🎓">benywaidd | graddio | menyw | myfyrwraig | math 5</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">myfyrwraig: math 5</annotation>
+		<annotation cp="👩🏿‍🎓">benywaidd | graddio | menyw | myfyrwraig | math 6</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">myfyrwraig: math 6</annotation>
+		<annotation cp="👨🏻‍🏫">athro | dyn | gwrywaidd | hyfforddwr | math 1–2</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">athro: math 1–2</annotation>
+		<annotation cp="👨🏼‍🏫">athro | dyn | gwrywaidd | hyfforddwr | math 3</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">athro: math 3</annotation>
+		<annotation cp="👨🏽‍🏫">athro | dyn | gwrywaidd | hyfforddwr | math 4</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">athro: math 4</annotation>
+		<annotation cp="👨🏾‍🏫">athro | dyn | gwrywaidd | hyfforddwr | math 5</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">athro: math 5</annotation>
+		<annotation cp="👨🏿‍🏫">athro | dyn | gwrywaidd | hyfforddwr | math 6</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">athro: math 6</annotation>
+		<annotation cp="👩🏻‍🏫">athrawes | benywaidd | hyfforddwraig | menyw | math 1–2</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">athrawes: math 1–2</annotation>
+		<annotation cp="👩🏼‍🏫">athrawes | benywaidd | hyfforddwraig | menyw | math 3</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">athrawes: math 3</annotation>
+		<annotation cp="👩🏽‍🏫">athrawes | benywaidd | hyfforddwraig | menyw | math 4</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">athrawes: math 4</annotation>
+		<annotation cp="👩🏾‍🏫">athrawes | benywaidd | hyfforddwraig | menyw | math 5</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">athrawes: math 5</annotation>
+		<annotation cp="👩🏿‍🏫">athrawes | benywaidd | hyfforddwraig | menyw | math 6</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">athrawes: math 6</annotation>
+		<annotation cp="👨🏻‍⚖">clorian | cyfiawnder | dyn | gwrywaidd | math 1–2</annotation>
+		<annotation cp="👨🏻‍⚖" type="tts">barnwr: math 1–2</annotation>
+		<annotation cp="👨🏼‍⚖">clorian | cyfiawnder | dyn | gwrywaidd | math 3</annotation>
+		<annotation cp="👨🏼‍⚖" type="tts">barnwr: math 3</annotation>
+		<annotation cp="👨🏽‍⚖">clorian | cyfiawnder | dyn | gwrywaidd | math 4</annotation>
+		<annotation cp="👨🏽‍⚖" type="tts">barnwr: math 4</annotation>
+		<annotation cp="👨🏾‍⚖">clorian | cyfiawnder | dyn | gwrywaidd | math 5</annotation>
+		<annotation cp="👨🏾‍⚖" type="tts">barnwr: math 5</annotation>
+		<annotation cp="👨🏿‍⚖">clorian | cyfiawnder | dyn | gwrywaidd | math 6</annotation>
+		<annotation cp="👨🏿‍⚖" type="tts">barnwr: math 6</annotation>
+		<annotation cp="👩🏻‍⚖">benywaidd | clorian | cyfiawnder | menyw | math 1–2</annotation>
+		<annotation cp="👩🏻‍⚖" type="tts">barnwres: math 1–2</annotation>
+		<annotation cp="👩🏼‍⚖">benywaidd | clorian | cyfiawnder | menyw | math 3</annotation>
+		<annotation cp="👩🏼‍⚖" type="tts">barnwres: math 3</annotation>
+		<annotation cp="👩🏽‍⚖">benywaidd | clorian | cyfiawnder | menyw | math 4</annotation>
+		<annotation cp="👩🏽‍⚖" type="tts">barnwres: math 4</annotation>
+		<annotation cp="👩🏾‍⚖">benywaidd | clorian | cyfiawnder | menyw | math 5</annotation>
+		<annotation cp="👩🏾‍⚖" type="tts">barnwres: math 5</annotation>
+		<annotation cp="👩🏿‍⚖">benywaidd | clorian | cyfiawnder | menyw | math 6</annotation>
+		<annotation cp="👩🏿‍⚖" type="tts">barnwres: math 6</annotation>
+		<annotation cp="👨🏻‍🌾">dyn | ffermwr | garddwr | gwrywaidd | math 1–2</annotation>
+		<annotation cp="👨🏻‍🌾" type="tts">ffermwr: math 1–2</annotation>
+		<annotation cp="👨🏼‍🌾">dyn | ffermwr | garddwr | gwrywaidd | math 3</annotation>
+		<annotation cp="👨🏼‍🌾" type="tts">ffermwr: math 3</annotation>
+		<annotation cp="👨🏽‍🌾">dyn | ffermwr | garddwr | gwrywaidd | math 4</annotation>
+		<annotation cp="👨🏽‍🌾" type="tts">ffermwr: math 4</annotation>
+		<annotation cp="👨🏾‍🌾">dyn | ffermwr | garddwr | gwrywaidd | math 5</annotation>
+		<annotation cp="👨🏾‍🌾" type="tts">ffermwr: math 5</annotation>
+		<annotation cp="👨🏿‍🌾">dyn | ffermwr | garddwr | gwrywaidd | math 6</annotation>
+		<annotation cp="👨🏿‍🌾" type="tts">ffermwr: math 6</annotation>
+		<annotation cp="👩🏻‍🌾">benywaidd | ffermio | garddio | menyw | math 1–2</annotation>
+		<annotation cp="👩🏻‍🌾" type="tts">ffarmwraig: math 1–2</annotation>
+		<annotation cp="👩🏼‍🌾">benywaidd | ffermio | garddio | menyw | math 3</annotation>
+		<annotation cp="👩🏼‍🌾" type="tts">ffarmwraig: math 3</annotation>
+		<annotation cp="👩🏽‍🌾">benywaidd | ffermio | garddio | menyw | math 4</annotation>
+		<annotation cp="👩🏽‍🌾" type="tts">ffarmwraig: math 4</annotation>
+		<annotation cp="👩🏾‍🌾">benywaidd | ffermio | garddio | menyw | math 5</annotation>
+		<annotation cp="👩🏾‍🌾" type="tts">ffarmwraig: math 5</annotation>
+		<annotation cp="👩🏿‍🌾">benywaidd | ffermio | garddio | menyw | math 6</annotation>
+		<annotation cp="👩🏿‍🌾" type="tts">ffarmwraig: math 6</annotation>
+		<annotation cp="👨🏻‍🍳">coginio | cogydd | dyn | gwrywaidd | math 1–2</annotation>
+		<annotation cp="👨🏻‍🍳" type="tts">cogydd: math 1–2</annotation>
+		<annotation cp="👨🏼‍🍳">coginio | cogydd | dyn | gwrywaidd | math 3</annotation>
+		<annotation cp="👨🏼‍🍳" type="tts">cogydd: math 3</annotation>
+		<annotation cp="👨🏽‍🍳">coginio | cogydd | dyn | gwrywaidd | math 4</annotation>
+		<annotation cp="👨🏽‍🍳" type="tts">cogydd: math 4</annotation>
+		<annotation cp="👨🏾‍🍳">coginio | cogydd | dyn | gwrywaidd | math 5</annotation>
+		<annotation cp="👨🏾‍🍳" type="tts">cogydd: math 5</annotation>
+		<annotation cp="👨🏿‍🍳">coginio | cogydd | dyn | gwrywaidd | math 6</annotation>
+		<annotation cp="👨🏿‍🍳" type="tts">cogydd: math 6</annotation>
+		<annotation cp="👩🏻‍🍳">benywaidd | coginio | cogydd | menyw | math 1–2</annotation>
+		<annotation cp="👩🏻‍🍳" type="tts">cogyddes: math 1–2</annotation>
+		<annotation cp="👩🏼‍🍳">benywaidd | coginio | cogydd | menyw | math 3</annotation>
+		<annotation cp="👩🏼‍🍳" type="tts">cogyddes: math 3</annotation>
+		<annotation cp="👩🏽‍🍳">benywaidd | coginio | cogydd | menyw | math 4</annotation>
+		<annotation cp="👩🏽‍🍳" type="tts">cogyddes: math 4</annotation>
+		<annotation cp="👩🏾‍🍳">benywaidd | coginio | cogydd | menyw | math 5</annotation>
+		<annotation cp="👩🏾‍🍳" type="tts">cogyddes: math 5</annotation>
+		<annotation cp="👩🏿‍🍳">benywaidd | coginio | cogydd | menyw | math 6</annotation>
+		<annotation cp="👩🏿‍🍳" type="tts">cogyddes: math 6</annotation>
+		<annotation cp="👨🏻‍🔧">dyn | peiriannydd | plymwr | trydanwr | math 1–2</annotation>
+		<annotation cp="👨🏻‍🔧" type="tts">peiriannydd gwrywaidd: math 1–2</annotation>
+		<annotation cp="👨🏼‍🔧">dyn | peiriannydd | plymwr | trydanwr | math 3</annotation>
+		<annotation cp="👨🏼‍🔧" type="tts">peiriannydd gwrywaidd: math 3</annotation>
+		<annotation cp="👨🏽‍🔧">dyn | peiriannydd | plymwr | trydanwr | math 4</annotation>
+		<annotation cp="👨🏽‍🔧" type="tts">peiriannydd gwrywaidd: math 4</annotation>
+		<annotation cp="👨🏾‍🔧">dyn | peiriannydd | plymwr | trydanwr | math 5</annotation>
+		<annotation cp="👨🏾‍🔧" type="tts">peiriannydd gwrywaidd: math 5</annotation>
+		<annotation cp="👨🏿‍🔧">dyn | peiriannydd | plymwr | trydanwr | math 6</annotation>
+		<annotation cp="👨🏿‍🔧" type="tts">peiriannydd gwrywaidd: math 6</annotation>
+		<annotation cp="👩🏻‍🔧">benywaidd | peiriannydd | plymio | trydanwr | math 1–2</annotation>
+		<annotation cp="👩🏻‍🔧" type="tts">peiriannydd benywaidd: math 1–2</annotation>
+		<annotation cp="👩🏼‍🔧">benywaidd | peiriannydd | plymio | trydanwr | math 3</annotation>
+		<annotation cp="👩🏼‍🔧" type="tts">peiriannydd benywaidd: math 3</annotation>
+		<annotation cp="👩🏽‍🔧">benywaidd | peiriannydd | plymio | trydanwr | math 4</annotation>
+		<annotation cp="👩🏽‍🔧" type="tts">peiriannydd benywaidd: math 4</annotation>
+		<annotation cp="👩🏾‍🔧">benywaidd | peiriannydd | plymio | trydanwr | math 5</annotation>
+		<annotation cp="👩🏾‍🔧" type="tts">peiriannydd benywaidd: math 5</annotation>
+		<annotation cp="👩🏿‍🔧">benywaidd | peiriannydd | plymio | trydanwr | math 6</annotation>
+		<annotation cp="👩🏿‍🔧" type="tts">peiriannydd benywaidd: math 6</annotation>
+		<annotation cp="👨🏻‍🏭">cydosod | diwydiant | dyn | ffatri | math 1–2</annotation>
+		<annotation cp="👨🏻‍🏭" type="tts">gweithiwr ffatri: math 1–2</annotation>
+		<annotation cp="👨🏼‍🏭">cydosod | diwydiant | dyn | ffatri | math 3</annotation>
+		<annotation cp="👨🏼‍🏭" type="tts">gweithiwr ffatri: math 3</annotation>
+		<annotation cp="👨🏽‍🏭">cydosod | diwydiant | dyn | ffatri | math 4</annotation>
+		<annotation cp="👨🏽‍🏭" type="tts">gweithiwr ffatri: math 4</annotation>
+		<annotation cp="👨🏾‍🏭">cydosod | diwydiant | dyn | ffatri | math 5</annotation>
+		<annotation cp="👨🏾‍🏭" type="tts">gweithiwr ffatri: math 5</annotation>
+		<annotation cp="👨🏿‍🏭">cydosod | diwydiant | dyn | ffatri | math 6</annotation>
+		<annotation cp="👨🏿‍🏭" type="tts">gweithiwr ffatri: math 6</annotation>
+		<annotation cp="👩🏻‍🏭">benyw | cydosod | diwydiant | ffatri | math 1–2</annotation>
+		<annotation cp="👩🏻‍🏭" type="tts">gweithwraig ffatri: math 1–2</annotation>
+		<annotation cp="👩🏼‍🏭">benyw | cydosod | diwydiant | ffatri | math 3</annotation>
+		<annotation cp="👩🏼‍🏭" type="tts">gweithwraig ffatri: math 3</annotation>
+		<annotation cp="👩🏽‍🏭">benyw | cydosod | diwydiant | ffatri | math 4</annotation>
+		<annotation cp="👩🏽‍🏭" type="tts">gweithwraig ffatri: math 4</annotation>
+		<annotation cp="👩🏾‍🏭">benyw | cydosod | diwydiant | ffatri | math 5</annotation>
+		<annotation cp="👩🏾‍🏭" type="tts">gweithwraig ffatri: math 5</annotation>
+		<annotation cp="👩🏿‍🏭">benyw | cydosod | diwydiant | ffatri | math 6</annotation>
+		<annotation cp="👩🏿‍🏭" type="tts">gweithwraig ffatri: math 6</annotation>
+		<annotation cp="👨🏻‍💼">busnes | dyn | pensaer | swyddfa | math 1–2</annotation>
+		<annotation cp="👨🏻‍💼" type="tts">gweithiwr swyddfa gwrywaidd: math 1–2</annotation>
+		<annotation cp="👨🏼‍💼">busnes | dyn | pensaer | swyddfa | math 3</annotation>
+		<annotation cp="👨🏼‍💼" type="tts">gweithiwr swyddfa gwrywaidd: math 3</annotation>
+		<annotation cp="👨🏽‍💼">busnes | dyn | pensaer | swyddfa | math 4</annotation>
+		<annotation cp="👨🏽‍💼" type="tts">gweithiwr swyddfa gwrywaidd: math 4</annotation>
+		<annotation cp="👨🏾‍💼">busnes | dyn | pensaer | swyddfa | math 5</annotation>
+		<annotation cp="👨🏾‍💼" type="tts">gweithiwr swyddfa gwrywaidd: math 5</annotation>
+		<annotation cp="👨🏿‍💼">busnes | dyn | pensaer | swyddfa | math 6</annotation>
+		<annotation cp="👨🏿‍💼" type="tts">gweithiwr swyddfa gwrywaidd: math 6</annotation>
+		<annotation cp="👩🏻‍💼">busnes | menyw | pensaer | swyddfa | math 1–2</annotation>
+		<annotation cp="👩🏻‍💼" type="tts">gweithiwr swyddfa benywaidd: math 1–2</annotation>
+		<annotation cp="👩🏼‍💼">busnes | menyw | pensaer | swyddfa | math 3</annotation>
+		<annotation cp="👩🏼‍💼" type="tts">gweithiwr swyddfa benywaidd: math 3</annotation>
+		<annotation cp="👩🏽‍💼">busnes | menyw | pensaer | swyddfa | math 4</annotation>
+		<annotation cp="👩🏽‍💼" type="tts">gweithiwr swyddfa benywaidd: math 4</annotation>
+		<annotation cp="👩🏾‍💼">busnes | menyw | pensaer | swyddfa | math 5</annotation>
+		<annotation cp="👩🏾‍💼" type="tts">gweithiwr swyddfa benywaidd: math 5</annotation>
+		<annotation cp="👩🏿‍💼">busnes | menyw | pensaer | swyddfa | math 6</annotation>
+		<annotation cp="👩🏿‍💼" type="tts">gweithiwr swyddfa benywaidd: math 6</annotation>
+		<annotation cp="👨🏻‍🔬">biolegydd | cemegydd | dyn | gwyddonydd | math 1–2</annotation>
+		<annotation cp="👨🏻‍🔬" type="tts">gwyddonydd: math 1–2</annotation>
+		<annotation cp="👨🏼‍🔬">biolegydd | cemegydd | dyn | gwyddonydd | math 3</annotation>
+		<annotation cp="👨🏼‍🔬" type="tts">gwyddonydd: math 3</annotation>
+		<annotation cp="👨🏽‍🔬">biolegydd | cemegydd | dyn | gwyddonydd | math 4</annotation>
+		<annotation cp="👨🏽‍🔬" type="tts">gwyddonydd: math 4</annotation>
+		<annotation cp="👨🏾‍🔬">biolegydd | cemegydd | dyn | gwyddonydd | math 5</annotation>
+		<annotation cp="👨🏾‍🔬" type="tts">gwyddonydd: math 5</annotation>
+		<annotation cp="👨🏿‍🔬">biolegydd | cemegydd | dyn | gwyddonydd | math 6</annotation>
+		<annotation cp="👨🏿‍🔬" type="tts">gwyddonydd: math 6</annotation>
+		<annotation cp="👩🏻‍🔬">biolegydd | cemegydd | gwyddonwraig | menyw | math 1–2</annotation>
+		<annotation cp="👩🏻‍🔬" type="tts">gwyddonwraig: math 1–2</annotation>
+		<annotation cp="👩🏼‍🔬">biolegydd | cemegydd | gwyddonwraig | menyw | math 3</annotation>
+		<annotation cp="👩🏼‍🔬" type="tts">gwyddonwraig: math 3</annotation>
+		<annotation cp="👩🏽‍🔬">biolegydd | cemegydd | gwyddonwraig | menyw | math 4</annotation>
+		<annotation cp="👩🏽‍🔬" type="tts">gwyddonwraig: math 4</annotation>
+		<annotation cp="👩🏾‍🔬">biolegydd | cemegydd | gwyddonwraig | menyw | math 5</annotation>
+		<annotation cp="👩🏾‍🔬" type="tts">gwyddonwraig: math 5</annotation>
+		<annotation cp="👩🏿‍🔬">biolegydd | cemegydd | gwyddonwraig | menyw | math 6</annotation>
+		<annotation cp="👩🏿‍🔬" type="tts">gwyddonwraig: math 6</annotation>
+		<annotation cp="👨🏻‍💻">codydd | datblygydd | dyfeisio | dyn | math 1–2</annotation>
+		<annotation cp="👨🏻‍💻" type="tts">technolegwr: math 1–2</annotation>
+		<annotation cp="👨🏼‍💻">codydd | datblygydd | dyfeisio | dyn | math 3</annotation>
+		<annotation cp="👨🏼‍💻" type="tts">technolegwr: math 3</annotation>
+		<annotation cp="👨🏽‍💻">codydd | datblygydd | dyfeisio | dyn | math 4</annotation>
+		<annotation cp="👨🏽‍💻" type="tts">technolegwr: math 4</annotation>
+		<annotation cp="👨🏾‍💻">codydd | datblygydd | dyfeisio | dyn | math 5</annotation>
+		<annotation cp="👨🏾‍💻" type="tts">technolegwr: math 5</annotation>
+		<annotation cp="👨🏿‍💻">codydd | datblygydd | dyfeisio | dyn | math 6</annotation>
+		<annotation cp="👨🏿‍💻" type="tts">technolegwr: math 6</annotation>
+		<annotation cp="👩🏻‍💻">codydd | datblygydd | dyfeisio | menyw | math 1–2</annotation>
+		<annotation cp="👩🏻‍💻" type="tts">technolegwraig: math 1–2</annotation>
+		<annotation cp="👩🏼‍💻">codydd | datblygydd | dyfeisio | menyw | math 3</annotation>
+		<annotation cp="👩🏼‍💻" type="tts">technolegwraig: math 3</annotation>
+		<annotation cp="👩🏽‍💻">codydd | datblygydd | dyfeisio | menyw | math 4</annotation>
+		<annotation cp="👩🏽‍💻" type="tts">technolegwraig: math 4</annotation>
+		<annotation cp="👩🏾‍💻">codydd | datblygydd | dyfeisio | menyw | math 5</annotation>
+		<annotation cp="👩🏾‍💻" type="tts">technolegwraig: math 5</annotation>
+		<annotation cp="👩🏿‍💻">codydd | datblygydd | dyfeisio | menyw | math 6</annotation>
+		<annotation cp="👩🏿‍💻" type="tts">technolegwraig: math 6</annotation>
+		<annotation cp="👨🏻‍🎤">actor | adlonni | cantor | dyn | math 1–2</annotation>
+		<annotation cp="👨🏻‍🎤" type="tts">cantor: math 1–2</annotation>
+		<annotation cp="👨🏼‍🎤">actor | adlonni | cantor | dyn | math 3</annotation>
+		<annotation cp="👨🏼‍🎤" type="tts">cantor: math 3</annotation>
+		<annotation cp="👨🏽‍🎤">actor | adlonni | cantor | dyn | math 4</annotation>
+		<annotation cp="👨🏽‍🎤" type="tts">cantor: math 4</annotation>
+		<annotation cp="👨🏾‍🎤">actor | adlonni | cantor | dyn | math 5</annotation>
+		<annotation cp="👨🏾‍🎤" type="tts">cantor: math 5</annotation>
+		<annotation cp="👨🏿‍🎤">actor | adlonni | cantor | dyn | math 6</annotation>
+		<annotation cp="👨🏿‍🎤" type="tts">cantor: math 6</annotation>
+		<annotation cp="👩🏻‍🎤">actor | adlonni | cantores | menyw | math 1–2</annotation>
+		<annotation cp="👩🏻‍🎤" type="tts">cantores: math 1–2</annotation>
+		<annotation cp="👩🏼‍🎤">actor | adlonni | cantores | menyw | math 3</annotation>
+		<annotation cp="👩🏼‍🎤" type="tts">cantores: math 3</annotation>
+		<annotation cp="👩🏽‍🎤">actor | adlonni | cantores | menyw | math 4</annotation>
+		<annotation cp="👩🏽‍🎤" type="tts">cantores: math 4</annotation>
+		<annotation cp="👩🏾‍🎤">actor | adlonni | cantores | menyw | math 5</annotation>
+		<annotation cp="👩🏾‍🎤" type="tts">cantores: math 5</annotation>
+		<annotation cp="👩🏿‍🎤">actor | adlonni | cantores | menyw | math 6</annotation>
+		<annotation cp="👩🏿‍🎤" type="tts">cantores: math 6</annotation>
+		<annotation cp="👨🏻‍🎨">arlunydd | dyn | palet | math 1–2</annotation>
+		<annotation cp="👨🏻‍🎨" type="tts">arlunydd: math 1–2</annotation>
+		<annotation cp="👨🏼‍🎨">arlunydd | dyn | palet | math 3</annotation>
+		<annotation cp="👨🏼‍🎨" type="tts">arlunydd: math 3</annotation>
+		<annotation cp="👨🏽‍🎨">arlunydd | dyn | palet | math 4</annotation>
+		<annotation cp="👨🏽‍🎨" type="tts">arlunydd: math 4</annotation>
+		<annotation cp="👨🏾‍🎨">arlunydd | dyn | palet | math 5</annotation>
+		<annotation cp="👨🏾‍🎨" type="tts">arlunydd: math 5</annotation>
+		<annotation cp="👨🏿‍🎨">arlunydd | dyn | palet | math 6</annotation>
+		<annotation cp="👨🏿‍🎨" type="tts">arlunydd: math 6</annotation>
+		<annotation cp="👩🏻‍🎨">arlunwraig | benyw | palet | math 1–2</annotation>
+		<annotation cp="👩🏻‍🎨" type="tts">arlunwraig: math 1–2</annotation>
+		<annotation cp="👩🏼‍🎨">arlunwraig | benyw | palet | math 3</annotation>
+		<annotation cp="👩🏼‍🎨" type="tts">arlunwraig: math 3</annotation>
+		<annotation cp="👩🏽‍🎨">arlunwraig | benyw | palet | math 4</annotation>
+		<annotation cp="👩🏽‍🎨" type="tts">arlunwraig: math 4</annotation>
+		<annotation cp="👩🏾‍🎨">arlunwraig | benyw | palet | math 5</annotation>
+		<annotation cp="👩🏾‍🎨" type="tts">arlunwraig: math 5</annotation>
+		<annotation cp="👩🏿‍🎨">arlunwraig | benyw | palet | math 6</annotation>
+		<annotation cp="👩🏿‍🎨" type="tts">arlunwraig: math 6</annotation>
+		<annotation cp="👨🏻‍✈">awyren | dyn | gwrywaidd | peilot | math 1–2</annotation>
+		<annotation cp="👨🏻‍✈" type="tts">peilot gwrywaidd: math 1–2</annotation>
+		<annotation cp="👨🏼‍✈">awyren | dyn | gwrywaidd | peilot | math 3</annotation>
+		<annotation cp="👨🏼‍✈" type="tts">peilot gwrywaidd: math 3</annotation>
+		<annotation cp="👨🏽‍✈">awyren | dyn | gwrywaidd | peilot | math 4</annotation>
+		<annotation cp="👨🏽‍✈" type="tts">peilot gwrywaidd: math 4</annotation>
+		<annotation cp="👨🏾‍✈">awyren | dyn | gwrywaidd | peilot | math 5</annotation>
+		<annotation cp="👨🏾‍✈" type="tts">peilot gwrywaidd: math 5</annotation>
+		<annotation cp="👨🏿‍✈">awyren | dyn | gwrywaidd | peilot | math 6</annotation>
+		<annotation cp="👨🏿‍✈" type="tts">peilot gwrywaidd: math 6</annotation>
+		<annotation cp="👩🏻‍✈">awyren | benywaidd | menyw | peilot | math 1–2</annotation>
+		<annotation cp="👩🏻‍✈" type="tts">peilot benywaidd: math 1–2</annotation>
+		<annotation cp="👩🏼‍✈">awyren | benywaidd | menyw | peilot | math 3</annotation>
+		<annotation cp="👩🏼‍✈" type="tts">peilot benywaidd: math 3</annotation>
+		<annotation cp="👩🏽‍✈">awyren | benywaidd | menyw | peilot | math 4</annotation>
+		<annotation cp="👩🏽‍✈" type="tts">peilot benywaidd: math 4</annotation>
+		<annotation cp="👩🏾‍✈">awyren | benywaidd | menyw | peilot | math 5</annotation>
+		<annotation cp="👩🏾‍✈" type="tts">peilot benywaidd: math 5</annotation>
+		<annotation cp="👩🏿‍✈">awyren | benywaidd | menyw | peilot | math 6</annotation>
+		<annotation cp="👩🏿‍✈" type="tts">peilot benywaidd: math 6</annotation>
+		<annotation cp="👨🏻‍🚀">dyn | gofod | gofodwr | roced | math 1–2</annotation>
+		<annotation cp="👨🏻‍🚀" type="tts">gofodwr: math 1–2</annotation>
+		<annotation cp="👨🏼‍🚀">dyn | gofod | gofodwr | roced | math 3</annotation>
+		<annotation cp="👨🏼‍🚀" type="tts">gofodwr: math 3</annotation>
+		<annotation cp="👨🏽‍🚀">dyn | gofod | gofodwr | roced | math 4</annotation>
+		<annotation cp="👨🏽‍🚀" type="tts">gofodwr: math 4</annotation>
+		<annotation cp="👨🏾‍🚀">dyn | gofod | gofodwr | roced | math 5</annotation>
+		<annotation cp="👨🏾‍🚀" type="tts">gofodwr: math 5</annotation>
+		<annotation cp="👨🏿‍🚀">dyn | gofod | gofodwr | roced | math 6</annotation>
+		<annotation cp="👨🏿‍🚀" type="tts">gofodwr: math 6</annotation>
+		<annotation cp="👩🏻‍🚀">gofod | gofodwraig | menyw | roced | math 1–2</annotation>
+		<annotation cp="👩🏻‍🚀" type="tts">gofodwraig: math 1–2</annotation>
+		<annotation cp="👩🏼‍🚀">gofod | gofodwraig | menyw | roced | math 3</annotation>
+		<annotation cp="👩🏼‍🚀" type="tts">gofodwraig: math 3</annotation>
+		<annotation cp="👩🏽‍🚀">gofod | gofodwraig | menyw | roced | math 4</annotation>
+		<annotation cp="👩🏽‍🚀" type="tts">gofodwraig: math 4</annotation>
+		<annotation cp="👩🏾‍🚀">gofod | gofodwraig | menyw | roced | math 5</annotation>
+		<annotation cp="👩🏾‍🚀" type="tts">gofodwraig: math 5</annotation>
+		<annotation cp="👩🏿‍🚀">gofod | gofodwraig | menyw | roced | math 6</annotation>
+		<annotation cp="👩🏿‍🚀" type="tts">gofodwraig: math 6</annotation>
+		<annotation cp="👨🏻‍🚒">dyn | dyn tân | lori tân | math 1–2</annotation>
+		<annotation cp="👨🏻‍🚒" type="tts">dyn tân: math 1–2</annotation>
+		<annotation cp="👨🏼‍🚒">dyn | dyn tân | lori tân | math 3</annotation>
+		<annotation cp="👨🏼‍🚒" type="tts">dyn tân: math 3</annotation>
+		<annotation cp="👨🏽‍🚒">dyn | dyn tân | lori tân | math 4</annotation>
+		<annotation cp="👨🏽‍🚒" type="tts">dyn tân: math 4</annotation>
+		<annotation cp="👨🏾‍🚒">dyn | dyn tân | lori tân | math 5</annotation>
+		<annotation cp="👨🏾‍🚒" type="tts">dyn tân: math 5</annotation>
+		<annotation cp="👨🏿‍🚒">dyn | dyn tân | lori tân | math 6</annotation>
+		<annotation cp="👨🏿‍🚒" type="tts">dyn tân: math 6</annotation>
+		<annotation cp="👩🏻‍🚒">lori tân | menyw | menyw tân | math 1–2</annotation>
+		<annotation cp="👩🏻‍🚒" type="tts">menyw tân: math 1–2</annotation>
+		<annotation cp="👩🏼‍🚒">lori tân | menyw | menyw tân | math 3</annotation>
+		<annotation cp="👩🏼‍🚒" type="tts">menyw tân: math 3</annotation>
+		<annotation cp="👩🏽‍🚒">lori tân | menyw | menyw tân | math 4</annotation>
+		<annotation cp="👩🏽‍🚒" type="tts">menyw tân: math 4</annotation>
+		<annotation cp="👩🏾‍🚒">lori tân | menyw | menyw tân | math 5</annotation>
+		<annotation cp="👩🏾‍🚒" type="tts">menyw tân: math 5</annotation>
+		<annotation cp="👩🏿‍🚒">lori tân | menyw | menyw tân | math 6</annotation>
+		<annotation cp="👩🏿‍🚒" type="tts">menyw tân: math 6</annotation>
+		<annotation cp="👮🏻">heddlu | plismon | swyddog | math 1–2</annotation>
+		<annotation cp="👮🏻" type="tts">heddwas: math 1–2</annotation>
+		<annotation cp="👮🏼">heddlu | plismon | swyddog | math 3</annotation>
+		<annotation cp="👮🏼" type="tts">heddwas: math 3</annotation>
+		<annotation cp="👮🏽">heddlu | plismon | swyddog | math 4</annotation>
+		<annotation cp="👮🏽" type="tts">heddwas: math 4</annotation>
+		<annotation cp="👮🏾">heddlu | plismon | swyddog | math 5</annotation>
+		<annotation cp="👮🏾" type="tts">heddwas: math 5</annotation>
+		<annotation cp="👮🏿">heddlu | plismon | swyddog | math 6</annotation>
+		<annotation cp="👮🏿" type="tts">heddwas: math 6</annotation>
+		<annotation cp="👮🏻‍♂">gwrywaidd | heddlu | plismon | swyddog | math 1–2</annotation>
+		<annotation cp="👮🏻‍♂" type="tts">swyddog heddlu gwrywaidd: math 1–2</annotation>
+		<annotation cp="👮🏼‍♂">gwrywaidd | heddlu | plismon | swyddog | math 3</annotation>
+		<annotation cp="👮🏼‍♂" type="tts">swyddog heddlu gwrywaidd: math 3</annotation>
+		<annotation cp="👮🏽‍♂">gwrywaidd | heddlu | plismon | swyddog | math 4</annotation>
+		<annotation cp="👮🏽‍♂" type="tts">swyddog heddlu gwrywaidd: math 4</annotation>
+		<annotation cp="👮🏾‍♂">gwrywaidd | heddlu | plismon | swyddog | math 5</annotation>
+		<annotation cp="👮🏾‍♂" type="tts">swyddog heddlu gwrywaidd: math 5</annotation>
+		<annotation cp="👮🏿‍♂">gwrywaidd | heddlu | plismon | swyddog | math 6</annotation>
+		<annotation cp="👮🏿‍♂" type="tts">swyddog heddlu gwrywaidd: math 6</annotation>
+		<annotation cp="👮🏻‍♀">benywaidd | heddlu | plismon | swyddog | math 1–2</annotation>
+		<annotation cp="👮🏻‍♀" type="tts">swyddog heddlu benywaidd: math 1–2</annotation>
+		<annotation cp="👮🏼‍♀">benywaidd | heddlu | plismon | swyddog | math 3</annotation>
+		<annotation cp="👮🏼‍♀" type="tts">swyddog heddlu benywaidd: math 3</annotation>
+		<annotation cp="👮🏽‍♀">benywaidd | heddlu | plismon | swyddog | math 4</annotation>
+		<annotation cp="👮🏽‍♀" type="tts">swyddog heddlu benywaidd: math 4</annotation>
+		<annotation cp="👮🏾‍♀">benywaidd | heddlu | plismon | swyddog | math 5</annotation>
+		<annotation cp="👮🏾‍♀" type="tts">swyddog heddlu benywaidd: math 5</annotation>
+		<annotation cp="👮🏿‍♀">benywaidd | heddlu | plismon | swyddog | math 6</annotation>
+		<annotation cp="👮🏿‍♀" type="tts">swyddog heddlu benywaidd: math 6</annotation>
+		<annotation cp="🕵🏻">ditectif | ysbïwr | math 1–2</annotation>
+		<annotation cp="🕵🏻" type="tts">ditectif: math 1–2</annotation>
+		<annotation cp="🕵🏼">ditectif | ysbïwr | math 3</annotation>
+		<annotation cp="🕵🏼" type="tts">ditectif: math 3</annotation>
+		<annotation cp="🕵🏽">ditectif | ysbïwr | math 4</annotation>
+		<annotation cp="🕵🏽" type="tts">ditectif: math 4</annotation>
+		<annotation cp="🕵🏾">ditectif | ysbïwr | math 5</annotation>
+		<annotation cp="🕵🏾" type="tts">ditectif: math 5</annotation>
+		<annotation cp="🕵🏿">ditectif | ysbïwr | math 6</annotation>
+		<annotation cp="🕵🏿" type="tts">ditectif: math 6</annotation>
+		<annotation cp="🕵🏻‍♂">ditectif | dyn | gwrywaidd | ysbïwr | math 1–2</annotation>
+		<annotation cp="🕵🏻‍♂" type="tts">ditectif gwrywaidd: math 1–2</annotation>
+		<annotation cp="🕵🏼‍♂">ditectif | dyn | gwrywaidd | ysbïwr | math 3</annotation>
+		<annotation cp="🕵🏼‍♂" type="tts">ditectif gwrywaidd: math 3</annotation>
+		<annotation cp="🕵🏽‍♂">ditectif | dyn | gwrywaidd | ysbïwr | math 4</annotation>
+		<annotation cp="🕵🏽‍♂" type="tts">ditectif gwrywaidd: math 4</annotation>
+		<annotation cp="🕵🏾‍♂">ditectif | dyn | gwrywaidd | ysbïwr | math 5</annotation>
+		<annotation cp="🕵🏾‍♂" type="tts">ditectif gwrywaidd: math 5</annotation>
+		<annotation cp="🕵🏿‍♂">ditectif | dyn | gwrywaidd | ysbïwr | math 6</annotation>
+		<annotation cp="🕵🏿‍♂" type="tts">ditectif gwrywaidd: math 6</annotation>
+		<annotation cp="🕵🏻‍♀">benywaidd | ditectif | menyw | ysbiwraig | math 1–2</annotation>
+		<annotation cp="🕵🏻‍♀" type="tts">ditectif benywaidd: math 1–2</annotation>
+		<annotation cp="🕵🏼‍♀">benywaidd | ditectif | menyw | ysbiwraig | math 3</annotation>
+		<annotation cp="🕵🏼‍♀" type="tts">ditectif benywaidd: math 3</annotation>
+		<annotation cp="🕵🏽‍♀">benywaidd | ditectif | menyw | ysbiwraig | math 4</annotation>
+		<annotation cp="🕵🏽‍♀" type="tts">ditectif benywaidd: math 4</annotation>
+		<annotation cp="🕵🏾‍♀">benywaidd | ditectif | menyw | ysbiwraig | math 5</annotation>
+		<annotation cp="🕵🏾‍♀" type="tts">ditectif benywaidd: math 5</annotation>
+		<annotation cp="🕵🏿‍♀">benywaidd | ditectif | menyw | ysbiwraig | math 6</annotation>
+		<annotation cp="🕵🏿‍♀" type="tts">ditectif benywaidd: math 6</annotation>
+		<annotation cp="💂🏻">gwarchod | math 1–2</annotation>
+		<annotation cp="💂🏻" type="tts">gwarchodfilwr: math 1–2</annotation>
+		<annotation cp="💂🏼">gwarchod | math 3</annotation>
+		<annotation cp="💂🏼" type="tts">gwarchodfilwr: math 3</annotation>
+		<annotation cp="💂🏽">gwarchod | math 4</annotation>
+		<annotation cp="💂🏽" type="tts">gwarchodfilwr: math 4</annotation>
+		<annotation cp="💂🏾">gwarchod | math 5</annotation>
+		<annotation cp="💂🏾" type="tts">gwarchodfilwr: math 5</annotation>
+		<annotation cp="💂🏿">gwarchod | math 6</annotation>
+		<annotation cp="💂🏿" type="tts">gwarchodfilwr: math 6</annotation>
+		<annotation cp="💂🏻‍♂">dyn | gwarchod | gwrywaidd | math 1–2</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">gwarchodydd gwrywaidd: math 1–2</annotation>
+		<annotation cp="💂🏼‍♂">dyn | gwarchod | gwrywaidd | math 3</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">gwarchodydd gwrywaidd: math 3</annotation>
+		<annotation cp="💂🏽‍♂">dyn | gwarchod | gwrywaidd | math 4</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">gwarchodydd gwrywaidd: math 4</annotation>
+		<annotation cp="💂🏾‍♂">dyn | gwarchod | gwrywaidd | math 5</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">gwarchodydd gwrywaidd: math 5</annotation>
+		<annotation cp="💂🏿‍♂">dyn | gwarchod | gwrywaidd | math 6</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">gwarchodydd gwrywaidd: math 6</annotation>
+		<annotation cp="💂🏻‍♀">benywaidd | gwarchod | menyw | math 1–2</annotation>
+		<annotation cp="💂🏻‍♀" type="tts">gwarchodydd benywaidd: math 1–2</annotation>
+		<annotation cp="💂🏼‍♀">benywaidd | gwarchod | menyw | math 3</annotation>
+		<annotation cp="💂🏼‍♀" type="tts">gwarchodydd benywaidd: math 3</annotation>
+		<annotation cp="💂🏽‍♀">benywaidd | gwarchod | menyw | math 4</annotation>
+		<annotation cp="💂🏽‍♀" type="tts">gwarchodydd benywaidd: math 4</annotation>
+		<annotation cp="💂🏾‍♀">benywaidd | gwarchod | menyw | math 5</annotation>
+		<annotation cp="💂🏾‍♀" type="tts">gwarchodydd benywaidd: math 5</annotation>
+		<annotation cp="💂🏿‍♀">benywaidd | gwarchod | menyw | math 6</annotation>
+		<annotation cp="💂🏿‍♀" type="tts">gwarchodydd benywaidd: math 6</annotation>
+		<annotation cp="👷🏻">adeiladu | gweithiwr | het | math 1–2</annotation>
+		<annotation cp="👷🏻" type="tts">adeiladwr: math 1–2</annotation>
+		<annotation cp="👷🏼">adeiladu | gweithiwr | het | math 3</annotation>
+		<annotation cp="👷🏼" type="tts">adeiladwr: math 3</annotation>
+		<annotation cp="👷🏽">adeiladu | gweithiwr | het | math 4</annotation>
+		<annotation cp="👷🏽" type="tts">adeiladwr: math 4</annotation>
+		<annotation cp="👷🏾">adeiladu | gweithiwr | het | math 5</annotation>
+		<annotation cp="👷🏾" type="tts">adeiladwr: math 5</annotation>
+		<annotation cp="👷🏿">adeiladu | gweithiwr | het | math 6</annotation>
+		<annotation cp="👷🏿" type="tts">adeiladwr: math 6</annotation>
+		<annotation cp="👷🏻‍♂">adeiladu | dyn | gweithiwr | gwrywaidd | math 1–2</annotation>
+		<annotation cp="👷🏻‍♂" type="tts">gweithiwr adeiladu gwrywaidd: math 1–2</annotation>
+		<annotation cp="👷🏼‍♂">adeiladu | dyn | gweithiwr | gwrywaidd | math 3</annotation>
+		<annotation cp="👷🏼‍♂" type="tts">gweithiwr adeiladu gwrywaidd: math 3</annotation>
+		<annotation cp="👷🏽‍♂">adeiladu | dyn | gweithiwr | gwrywaidd | math 4</annotation>
+		<annotation cp="👷🏽‍♂" type="tts">gweithiwr adeiladu gwrywaidd: math 4</annotation>
+		<annotation cp="👷🏾‍♂">adeiladu | dyn | gweithiwr | gwrywaidd | math 5</annotation>
+		<annotation cp="👷🏾‍♂" type="tts">gweithiwr adeiladu gwrywaidd: math 5</annotation>
+		<annotation cp="👷🏿‍♂">adeiladu | dyn | gweithiwr | gwrywaidd | math 6</annotation>
+		<annotation cp="👷🏿‍♂" type="tts">gweithiwr adeiladu gwrywaidd: math 6</annotation>
+		<annotation cp="👷🏻‍♀">adeiladu | benywaidd | gweithwraig | menyw | math 1–2</annotation>
+		<annotation cp="👷🏻‍♀" type="tts">gweithiwr adeiladu benywaidd: math 1–2</annotation>
+		<annotation cp="👷🏼‍♀">adeiladu | benywaidd | gweithwraig | menyw | math 3</annotation>
+		<annotation cp="👷🏼‍♀" type="tts">gweithiwr adeiladu benywaidd: math 3</annotation>
+		<annotation cp="👷🏽‍♀">adeiladu | benywaidd | gweithwraig | menyw | math 4</annotation>
+		<annotation cp="👷🏽‍♀" type="tts">gweithiwr adeiladu benywaidd: math 4</annotation>
+		<annotation cp="👷🏾‍♀">adeiladu | benywaidd | gweithwraig | menyw | math 5</annotation>
+		<annotation cp="👷🏾‍♀" type="tts">gweithiwr adeiladu benywaidd: math 5</annotation>
+		<annotation cp="👷🏿‍♀">adeiladu | benywaidd | gweithwraig | menyw | math 6</annotation>
+		<annotation cp="👷🏿‍♀" type="tts">gweithiwr adeiladu benywaidd: math 6</annotation>
+		<annotation cp="🤴🏻">tywysog | math 1–2</annotation>
+		<annotation cp="🤴🏻" type="tts">tywysog: math 1–2</annotation>
+		<annotation cp="🤴🏼">tywysog | math 3</annotation>
+		<annotation cp="🤴🏼" type="tts">tywysog: math 3</annotation>
+		<annotation cp="🤴🏽">tywysog | math 4</annotation>
+		<annotation cp="🤴🏽" type="tts">tywysog: math 4</annotation>
+		<annotation cp="🤴🏾">tywysog | math 5</annotation>
+		<annotation cp="🤴🏾" type="tts">tywysog: math 5</annotation>
+		<annotation cp="🤴🏿">tywysog | math 6</annotation>
+		<annotation cp="🤴🏿" type="tts">tywysog: math 6</annotation>
+		<annotation cp="👸🏻">ffantasi | math 1–2</annotation>
+		<annotation cp="👸🏻" type="tts">tywysoges: math 1–2</annotation>
+		<annotation cp="👸🏼">ffantasi | math 3</annotation>
+		<annotation cp="👸🏼" type="tts">tywysoges: math 3</annotation>
+		<annotation cp="👸🏽">ffantasi | math 4</annotation>
+		<annotation cp="👸🏽" type="tts">tywysoges: math 4</annotation>
+		<annotation cp="👸🏾">ffantasi | math 5</annotation>
+		<annotation cp="👸🏾" type="tts">tywysoges: math 5</annotation>
+		<annotation cp="👸🏿">ffantasi | math 6</annotation>
+		<annotation cp="👸🏿" type="tts">tywysoges: math 6</annotation>
+		<annotation cp="👳🏻">twrban | math 1–2</annotation>
+		<annotation cp="👳🏻" type="tts">person yn gwisgo twrban: math 1–2</annotation>
+		<annotation cp="👳🏼">twrban | math 3</annotation>
+		<annotation cp="👳🏼" type="tts">person yn gwisgo twrban: math 3</annotation>
+		<annotation cp="👳🏽">twrban | math 4</annotation>
+		<annotation cp="👳🏽" type="tts">person yn gwisgo twrban: math 4</annotation>
+		<annotation cp="👳🏾">twrban | math 5</annotation>
+		<annotation cp="👳🏾" type="tts">person yn gwisgo twrban: math 5</annotation>
+		<annotation cp="👳🏿">twrban | math 6</annotation>
+		<annotation cp="👳🏿" type="tts">person yn gwisgo twrban: math 6</annotation>
+		<annotation cp="👳🏻‍♂">dyn | gwrywaidd | twrban | math 1–2</annotation>
+		<annotation cp="👳🏻‍♂" type="tts">dyn â thwrban: math 1–2</annotation>
+		<annotation cp="👳🏼‍♂">dyn | gwrywaidd | twrban | math 3</annotation>
+		<annotation cp="👳🏼‍♂" type="tts">dyn â thwrban: math 3</annotation>
+		<annotation cp="👳🏽‍♂">dyn | gwrywaidd | twrban | math 4</annotation>
+		<annotation cp="👳🏽‍♂" type="tts">dyn â thwrban: math 4</annotation>
+		<annotation cp="👳🏾‍♂">dyn | gwrywaidd | twrban | math 5</annotation>
+		<annotation cp="👳🏾‍♂" type="tts">dyn â thwrban: math 5</annotation>
+		<annotation cp="👳🏿‍♂">dyn | gwrywaidd | twrban | math 6</annotation>
+		<annotation cp="👳🏿‍♂" type="tts">dyn â thwrban: math 6</annotation>
+		<annotation cp="👳🏻‍♀">benywaidd | menyw | twrban | math 1–2</annotation>
+		<annotation cp="👳🏻‍♀" type="tts">menyw â thwrban: math 1–2</annotation>
+		<annotation cp="👳🏼‍♀">benywaidd | menyw | twrban | math 3</annotation>
+		<annotation cp="👳🏼‍♀" type="tts">menyw â thwrban: math 3</annotation>
+		<annotation cp="👳🏽‍♀">benywaidd | menyw | twrban | math 4</annotation>
+		<annotation cp="👳🏽‍♀" type="tts">menyw â thwrban: math 4</annotation>
+		<annotation cp="👳🏾‍♀">benywaidd | menyw | twrban | math 5</annotation>
+		<annotation cp="👳🏾‍♀" type="tts">menyw â thwrban: math 5</annotation>
+		<annotation cp="👳🏿‍♀">benywaidd | menyw | twrban | math 6</annotation>
+		<annotation cp="👳🏿‍♀" type="tts">menyw â thwrban: math 6</annotation>
+		<annotation cp="👲🏻">dyn | gua pi mao | het | math 1–2</annotation>
+		<annotation cp="👲🏻" type="tts">dyn â chap Tsieineaidd: math 1–2</annotation>
+		<annotation cp="👲🏼">dyn | gua pi mao | het | math 3</annotation>
+		<annotation cp="👲🏼" type="tts">dyn â chap Tsieineaidd: math 3</annotation>
+		<annotation cp="👲🏽">dyn | gua pi mao | het | math 4</annotation>
+		<annotation cp="👲🏽" type="tts">dyn â chap Tsieineaidd: math 4</annotation>
+		<annotation cp="👲🏾">dyn | gua pi mao | het | math 5</annotation>
+		<annotation cp="👲🏾" type="tts">dyn â chap Tsieineaidd: math 5</annotation>
+		<annotation cp="👲🏿">dyn | gua pi mao | het | math 6</annotation>
+		<annotation cp="👲🏿" type="tts">dyn â chap Tsieineaidd: math 6</annotation>
+		<annotation cp="👱🏻">gwallt golau | math 1–2</annotation>
+		<annotation cp="👱🏻" type="tts">person â gwallt golau: math 1–2</annotation>
+		<annotation cp="👱🏼">gwallt golau | math 3</annotation>
+		<annotation cp="👱🏼" type="tts">person â gwallt golau: math 3</annotation>
+		<annotation cp="👱🏽">gwallt golau | math 4</annotation>
+		<annotation cp="👱🏽" type="tts">person â gwallt golau: math 4</annotation>
+		<annotation cp="👱🏾">gwallt golau | math 5</annotation>
+		<annotation cp="👱🏾" type="tts">person â gwallt golau: math 5</annotation>
+		<annotation cp="👱🏿">gwallt golau | math 6</annotation>
+		<annotation cp="👱🏿" type="tts">person â gwallt golau: math 6</annotation>
+		<annotation cp="👱🏻‍♂">blond | dyn | gwallt golau | math 1–2</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">dyn â gwallt golau: math 1–2</annotation>
+		<annotation cp="👱🏼‍♂">blond | dyn | gwallt golau | math 3</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">dyn â gwallt golau: math 3</annotation>
+		<annotation cp="👱🏽‍♂">blond | dyn | gwallt golau | math 4</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">dyn â gwallt golau: math 4</annotation>
+		<annotation cp="👱🏾‍♂">blond | dyn | gwallt golau | math 5</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">dyn â gwallt golau: math 5</annotation>
+		<annotation cp="👱🏿‍♂">blond | dyn | gwallt golau | math 6</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">dyn â gwallt golau: math 6</annotation>
+		<annotation cp="👱🏻‍♀">blonde | gwallt golau | menyw | math 1–2</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">menyw â gwallt golau: math 1–2</annotation>
+		<annotation cp="👱🏼‍♀">blonde | gwallt golau | menyw | math 3</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">menyw â gwallt golau: math 3</annotation>
+		<annotation cp="👱🏽‍♀">blonde | gwallt golau | menyw | math 4</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">menyw â gwallt golau: math 4</annotation>
+		<annotation cp="👱🏾‍♀">blonde | gwallt golau | menyw | math 5</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">menyw â gwallt golau: math 5</annotation>
+		<annotation cp="👱🏿‍♀">blonde | gwallt golau | menyw | math 6</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">menyw â gwallt golau: math 6</annotation>
+		<annotation cp="🤵🏻">dyn | priodfab | tycs | math 1–2</annotation>
+		<annotation cp="🤵🏻" type="tts">dyn mewn tycs: math 1–2</annotation>
+		<annotation cp="🤵🏼">dyn | priodfab | tycs | math 3</annotation>
+		<annotation cp="🤵🏼" type="tts">dyn mewn tycs: math 3</annotation>
+		<annotation cp="🤵🏽">dyn | priodfab | tycs | math 4</annotation>
+		<annotation cp="🤵🏽" type="tts">dyn mewn tycs: math 4</annotation>
+		<annotation cp="🤵🏾">dyn | priodfab | tycs | math 5</annotation>
+		<annotation cp="🤵🏾" type="tts">dyn mewn tycs: math 5</annotation>
+		<annotation cp="🤵🏿">dyn | priodfab | tycs | math 6</annotation>
+		<annotation cp="🤵🏿" type="tts">dyn mewn tycs: math 6</annotation>
+		<annotation cp="👰🏻">fêl | priodas | priodferch | math 1–2</annotation>
+		<annotation cp="👰🏻" type="tts">priodferch â fêl: math 1–2</annotation>
+		<annotation cp="👰🏼">fêl | priodas | priodferch | math 3</annotation>
+		<annotation cp="👰🏼" type="tts">priodferch â fêl: math 3</annotation>
+		<annotation cp="👰🏽">fêl | priodas | priodferch | math 4</annotation>
+		<annotation cp="👰🏽" type="tts">priodferch â fêl: math 4</annotation>
+		<annotation cp="👰🏾">fêl | priodas | priodferch | math 5</annotation>
+		<annotation cp="👰🏾" type="tts">priodferch â fêl: math 5</annotation>
+		<annotation cp="👰🏿">fêl | priodas | priodferch | math 6</annotation>
+		<annotation cp="👰🏿" type="tts">priodferch â fêl: math 6</annotation>
+		<annotation cp="🤰🏻">beichiog | menyw | math 1–2</annotation>
+		<annotation cp="🤰🏻" type="tts">menyw feichiog: math 1–2</annotation>
+		<annotation cp="🤰🏼">beichiog | menyw | math 3</annotation>
+		<annotation cp="🤰🏼" type="tts">menyw feichiog: math 3</annotation>
+		<annotation cp="🤰🏽">beichiog | menyw | math 4</annotation>
+		<annotation cp="🤰🏽" type="tts">menyw feichiog: math 4</annotation>
+		<annotation cp="🤰🏾">beichiog | menyw | math 5</annotation>
+		<annotation cp="🤰🏾" type="tts">menyw feichiog: math 5</annotation>
+		<annotation cp="🤰🏿">beichiog | menyw | math 6</annotation>
+		<annotation cp="🤰🏿" type="tts">menyw feichiog: math 6</annotation>
+		<annotation cp="👼🏻">angel | babi | ffantasi | wyneb | math 1–2</annotation>
+		<annotation cp="👼🏻" type="tts">babi angel: math 1–2</annotation>
+		<annotation cp="👼🏼">angel | babi | ffantasi | wyneb | math 3</annotation>
+		<annotation cp="👼🏼" type="tts">babi angel: math 3</annotation>
+		<annotation cp="👼🏽">angel | babi | ffantasi | wyneb | math 4</annotation>
+		<annotation cp="👼🏽" type="tts">babi angel: math 4</annotation>
+		<annotation cp="👼🏾">angel | babi | ffantasi | wyneb | math 5</annotation>
+		<annotation cp="👼🏾" type="tts">babi angel: math 5</annotation>
+		<annotation cp="👼🏿">angel | babi | ffantasi | wyneb | math 6</annotation>
+		<annotation cp="👼🏿" type="tts">babi angel: math 6</annotation>
+		<annotation cp="🎅🏻">Nadolig | Siôn Corn | dathliad | santa | math 1–2</annotation>
+		<annotation cp="🎅🏻" type="tts">Siôn Corn: math 1–2</annotation>
+		<annotation cp="🎅🏼">Nadolig | Siôn Corn | dathliad | santa | math 3</annotation>
+		<annotation cp="🎅🏼" type="tts">Siôn Corn: math 3</annotation>
+		<annotation cp="🎅🏽">Nadolig | Siôn Corn | dathliad | santa | math 4</annotation>
+		<annotation cp="🎅🏽" type="tts">Siôn Corn: math 4</annotation>
+		<annotation cp="🎅🏾">Nadolig | Siôn Corn | dathliad | santa | math 5</annotation>
+		<annotation cp="🎅🏾" type="tts">Siôn Corn: math 5</annotation>
+		<annotation cp="🎅🏿">Nadolig | Siôn Corn | dathliad | santa | math 6</annotation>
+		<annotation cp="🎅🏿" type="tts">Siôn Corn: math 6</annotation>
+		<annotation cp="🤶🏻">Siân Corn | mam | y Nadolig | math 1–2</annotation>
+		<annotation cp="🤶🏻" type="tts">Siân Corn: math 1–2</annotation>
+		<annotation cp="🤶🏼">Siân Corn | mam | y Nadolig | math 3</annotation>
+		<annotation cp="🤶🏼" type="tts">Siân Corn: math 3</annotation>
+		<annotation cp="🤶🏽">Siân Corn | mam | y Nadolig | math 4</annotation>
+		<annotation cp="🤶🏽" type="tts">Siân Corn: math 4</annotation>
+		<annotation cp="🤶🏾">Siân Corn | mam | y Nadolig | math 5</annotation>
+		<annotation cp="🤶🏾" type="tts">Siân Corn: math 5</annotation>
+		<annotation cp="🤶🏿">Siân Corn | mam | y Nadolig | math 6</annotation>
+		<annotation cp="🤶🏿" type="tts">Siân Corn: math 6</annotation>
+		<annotation cp="🙍🏻">gwg | ystum | math 1–2</annotation>
+		<annotation cp="🙍🏻" type="tts">person yn gwgu: math 1–2</annotation>
+		<annotation cp="🙍🏼">gwg | ystum | math 3</annotation>
+		<annotation cp="🙍🏼" type="tts">person yn gwgu: math 3</annotation>
+		<annotation cp="🙍🏽">gwg | ystum | math 4</annotation>
+		<annotation cp="🙍🏽" type="tts">person yn gwgu: math 4</annotation>
+		<annotation cp="🙍🏾">gwg | ystum | math 5</annotation>
+		<annotation cp="🙍🏾" type="tts">person yn gwgu: math 5</annotation>
+		<annotation cp="🙍🏿">gwg | ystum | math 6</annotation>
+		<annotation cp="🙍🏿" type="tts">person yn gwgu: math 6</annotation>
+		<annotation cp="🙍🏻‍♂">dyn | gwgu | ystum | math 1–2</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">dyn yn gwgu: math 1–2</annotation>
+		<annotation cp="🙍🏼‍♂">dyn | gwgu | ystum | math 3</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">dyn yn gwgu: math 3</annotation>
+		<annotation cp="🙍🏽‍♂">dyn | gwgu | ystum | math 4</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">dyn yn gwgu: math 4</annotation>
+		<annotation cp="🙍🏾‍♂">dyn | gwgu | ystum | math 5</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">dyn yn gwgu: math 5</annotation>
+		<annotation cp="🙍🏿‍♂">dyn | gwgu | ystum | math 6</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">dyn yn gwgu: math 6</annotation>
+		<annotation cp="🙍🏻‍♀">gwgu | menyw | ystum | math 1–2</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">menyw yn gwgu: math 1–2</annotation>
+		<annotation cp="🙍🏼‍♀">gwgu | menyw | ystum | math 3</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">menyw yn gwgu: math 3</annotation>
+		<annotation cp="🙍🏽‍♀">gwgu | menyw | ystum | math 4</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">menyw yn gwgu: math 4</annotation>
+		<annotation cp="🙍🏾‍♀">gwgu | menyw | ystum | math 5</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">menyw yn gwgu: math 5</annotation>
+		<annotation cp="🙍🏿‍♀">gwgu | menyw | ystum | math 6</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">menyw yn gwgu: math 6</annotation>
+		<annotation cp="🙎🏻">pwdu | ystum | math 1–2</annotation>
+		<annotation cp="🙎🏻" type="tts">person yn pwdu: math 1–2</annotation>
+		<annotation cp="🙎🏼">pwdu | ystum | math 3</annotation>
+		<annotation cp="🙎🏼" type="tts">person yn pwdu: math 3</annotation>
+		<annotation cp="🙎🏽">pwdu | ystum | math 4</annotation>
+		<annotation cp="🙎🏽" type="tts">person yn pwdu: math 4</annotation>
+		<annotation cp="🙎🏾">pwdu | ystum | math 5</annotation>
+		<annotation cp="🙎🏾" type="tts">person yn pwdu: math 5</annotation>
+		<annotation cp="🙎🏿">pwdu | ystum | math 6</annotation>
+		<annotation cp="🙎🏿" type="tts">person yn pwdu: math 6</annotation>
+		<annotation cp="🙎🏻‍♂">dyn | pwdu | ystum | math 1–2</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">dyn yn pwdu: math 1–2</annotation>
+		<annotation cp="🙎🏼‍♂">dyn | pwdu | ystum | math 3</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">dyn yn pwdu: math 3</annotation>
+		<annotation cp="🙎🏽‍♂">dyn | pwdu | ystum | math 4</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">dyn yn pwdu: math 4</annotation>
+		<annotation cp="🙎🏾‍♂">dyn | pwdu | ystum | math 5</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">dyn yn pwdu: math 5</annotation>
+		<annotation cp="🙎🏿‍♂">dyn | pwdu | ystum | math 6</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">dyn yn pwdu: math 6</annotation>
+		<annotation cp="🙎🏻‍♀">menyw | pwdu | ystum | math 1–2</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">menyw yn pwdu: math 1–2</annotation>
+		<annotation cp="🙎🏼‍♀">menyw | pwdu | ystum | math 3</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">menyw yn pwdu: math 3</annotation>
+		<annotation cp="🙎🏽‍♀">menyw | pwdu | ystum | math 4</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">menyw yn pwdu: math 4</annotation>
+		<annotation cp="🙎🏾‍♀">menyw | pwdu | ystum | math 5</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">menyw yn pwdu: math 5</annotation>
+		<annotation cp="🙎🏿‍♀">menyw | pwdu | ystum | math 6</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">menyw yn pwdu: math 6</annotation>
+		<annotation cp="🙅🏻">gwaharddedig | llaw | na | ystum | math 1–2</annotation>
+		<annotation cp="🙅🏻" type="tts">person yn ystumio nad yw’n iawn: math 1–2</annotation>
+		<annotation cp="🙅🏼">gwaharddedig | llaw | na | ystum | math 3</annotation>
+		<annotation cp="🙅🏼" type="tts">person yn ystumio nad yw’n iawn: math 3</annotation>
+		<annotation cp="🙅🏽">gwaharddedig | llaw | na | ystum | math 4</annotation>
+		<annotation cp="🙅🏽" type="tts">person yn ystumio nad yw’n iawn: math 4</annotation>
+		<annotation cp="🙅🏾">gwaharddedig | llaw | na | ystum | math 5</annotation>
+		<annotation cp="🙅🏾" type="tts">person yn ystumio nad yw’n iawn: math 5</annotation>
+		<annotation cp="🙅🏿">gwaharddedig | llaw | na | ystum | math 6</annotation>
+		<annotation cp="🙅🏿" type="tts">person yn ystumio nad yw’n iawn: math 6</annotation>
+		<annotation cp="🙅🏻‍♂">dyn | gwaharddedig | na | ystum | math 1–2</annotation>
+		<annotation cp="🙅🏻‍♂" type="tts">dyn yn ystumio nad yw’n iawn: math 1–2</annotation>
+		<annotation cp="🙅🏼‍♂">dyn | gwaharddedig | na | ystum | math 3</annotation>
+		<annotation cp="🙅🏼‍♂" type="tts">dyn yn ystumio nad yw’n iawn: math 3</annotation>
+		<annotation cp="🙅🏽‍♂">dyn | gwaharddedig | na | ystum | math 4</annotation>
+		<annotation cp="🙅🏽‍♂" type="tts">dyn yn ystumio nad yw’n iawn: math 4</annotation>
+		<annotation cp="🙅🏾‍♂">dyn | gwaharddedig | na | ystum | math 5</annotation>
+		<annotation cp="🙅🏾‍♂" type="tts">dyn yn ystumio nad yw’n iawn: math 5</annotation>
+		<annotation cp="🙅🏿‍♂">dyn | gwaharddedig | na | ystum | math 6</annotation>
+		<annotation cp="🙅🏿‍♂" type="tts">dyn yn ystumio nad yw’n iawn: math 6</annotation>
+		<annotation cp="🙅🏻‍♀">gwaharddedig | menyw | na | ystum | math 1–2</annotation>
+		<annotation cp="🙅🏻‍♀" type="tts">menyw yn ystumio nad yw’n iawn: math 1–2</annotation>
+		<annotation cp="🙅🏼‍♀">gwaharddedig | menyw | na | ystum | math 3</annotation>
+		<annotation cp="🙅🏼‍♀" type="tts">menyw yn ystumio nad yw’n iawn: math 3</annotation>
+		<annotation cp="🙅🏽‍♀">gwaharddedig | menyw | na | ystum | math 4</annotation>
+		<annotation cp="🙅🏽‍♀" type="tts">menyw yn ystumio nad yw’n iawn: math 4</annotation>
+		<annotation cp="🙅🏾‍♀">gwaharddedig | menyw | na | ystum | math 5</annotation>
+		<annotation cp="🙅🏾‍♀" type="tts">menyw yn ystumio nad yw’n iawn: math 5</annotation>
+		<annotation cp="🙅🏿‍♀">gwaharddedig | menyw | na | ystum | math 6</annotation>
+		<annotation cp="🙅🏿‍♀" type="tts">menyw yn ystumio nad yw’n iawn: math 6</annotation>
+		<annotation cp="🙆🏻">iawn | llaw | ok | ystum | math 1–2</annotation>
+		<annotation cp="🙆🏻" type="tts">person yn ystumio iawn: math 1–2</annotation>
+		<annotation cp="🙆🏼">iawn | llaw | ok | ystum | math 3</annotation>
+		<annotation cp="🙆🏼" type="tts">person yn ystumio iawn: math 3</annotation>
+		<annotation cp="🙆🏽">iawn | llaw | ok | ystum | math 4</annotation>
+		<annotation cp="🙆🏽" type="tts">person yn ystumio iawn: math 4</annotation>
+		<annotation cp="🙆🏾">iawn | llaw | ok | ystum | math 5</annotation>
+		<annotation cp="🙆🏾" type="tts">person yn ystumio iawn: math 5</annotation>
+		<annotation cp="🙆🏿">iawn | llaw | ok | ystum | math 6</annotation>
+		<annotation cp="🙆🏿" type="tts">person yn ystumio iawn: math 6</annotation>
+		<annotation cp="🙆🏻‍♂">dyn | iawn | ok | ystum | math 1–2</annotation>
+		<annotation cp="🙆🏻‍♂" type="tts">dyn yn ystumio iawn: math 1–2</annotation>
+		<annotation cp="🙆🏼‍♂">dyn | iawn | ok | ystum | math 3</annotation>
+		<annotation cp="🙆🏼‍♂" type="tts">dyn yn ystumio iawn: math 3</annotation>
+		<annotation cp="🙆🏽‍♂">dyn | iawn | ok | ystum | math 4</annotation>
+		<annotation cp="🙆🏽‍♂" type="tts">dyn yn ystumio iawn: math 4</annotation>
+		<annotation cp="🙆🏾‍♂">dyn | iawn | ok | ystum | math 5</annotation>
+		<annotation cp="🙆🏾‍♂" type="tts">dyn yn ystumio iawn: math 5</annotation>
+		<annotation cp="🙆🏿‍♂">dyn | iawn | ok | ystum | math 6</annotation>
+		<annotation cp="🙆🏿‍♂" type="tts">dyn yn ystumio iawn: math 6</annotation>
+		<annotation cp="🙆🏻‍♀">iawn | menyw | ok | ystum | math 1–2</annotation>
+		<annotation cp="🙆🏻‍♀" type="tts">menyw yn ystumio iawn: math 1–2</annotation>
+		<annotation cp="🙆🏼‍♀">iawn | menyw | ok | ystum | math 3</annotation>
+		<annotation cp="🙆🏼‍♀" type="tts">menyw yn ystumio iawn: math 3</annotation>
+		<annotation cp="🙆🏽‍♀">iawn | menyw | ok | ystum | math 4</annotation>
+		<annotation cp="🙆🏽‍♀" type="tts">menyw yn ystumio iawn: math 4</annotation>
+		<annotation cp="🙆🏾‍♀">iawn | menyw | ok | ystum | math 5</annotation>
+		<annotation cp="🙆🏾‍♀" type="tts">menyw yn ystumio iawn: math 5</annotation>
+		<annotation cp="🙆🏿‍♀">iawn | menyw | ok | ystum | math 6</annotation>
+		<annotation cp="🙆🏿‍♀" type="tts">menyw yn ystumio iawn: math 6</annotation>
+		<annotation cp="💁🏻">gwybodaeth | help | llaw | tipio | math 1–2</annotation>
+		<annotation cp="💁🏻" type="tts">person yn gwyro llaw: math 1–2</annotation>
+		<annotation cp="💁🏼">gwybodaeth | help | llaw | tipio | math 3</annotation>
+		<annotation cp="💁🏼" type="tts">person yn gwyro llaw: math 3</annotation>
+		<annotation cp="💁🏽">gwybodaeth | help | llaw | tipio | math 4</annotation>
+		<annotation cp="💁🏽" type="tts">person yn gwyro llaw: math 4</annotation>
+		<annotation cp="💁🏾">gwybodaeth | help | llaw | tipio | math 5</annotation>
+		<annotation cp="💁🏾" type="tts">person yn gwyro llaw: math 5</annotation>
+		<annotation cp="💁🏿">gwybodaeth | help | llaw | tipio | math 6</annotation>
+		<annotation cp="💁🏿" type="tts">person yn gwyro llaw: math 6</annotation>
+		<annotation cp="💁🏻‍♂">dyn | gwybodaeth | llaw | tipio | math 1–2</annotation>
+		<annotation cp="💁🏻‍♂" type="tts">dyn yn gwyro ei law: math 1–2</annotation>
+		<annotation cp="💁🏼‍♂">dyn | gwybodaeth | llaw | tipio | math 3</annotation>
+		<annotation cp="💁🏼‍♂" type="tts">dyn yn gwyro ei law: math 3</annotation>
+		<annotation cp="💁🏽‍♂">dyn | gwybodaeth | llaw | tipio | math 4</annotation>
+		<annotation cp="💁🏽‍♂" type="tts">dyn yn gwyro ei law: math 4</annotation>
+		<annotation cp="💁🏾‍♂">dyn | gwybodaeth | llaw | tipio | math 5</annotation>
+		<annotation cp="💁🏾‍♂" type="tts">dyn yn gwyro ei law: math 5</annotation>
+		<annotation cp="💁🏿‍♂">dyn | gwybodaeth | llaw | tipio | math 6</annotation>
+		<annotation cp="💁🏿‍♂" type="tts">dyn yn gwyro ei law: math 6</annotation>
+		<annotation cp="💁🏻‍♀">gwybodaeth | llaw | menyw | tipio | math 1–2</annotation>
+		<annotation cp="💁🏻‍♀" type="tts">menyw yn gwyro ei llaw: math 1–2</annotation>
+		<annotation cp="💁🏼‍♀">gwybodaeth | llaw | menyw | tipio | math 3</annotation>
+		<annotation cp="💁🏼‍♀" type="tts">menyw yn gwyro ei llaw: math 3</annotation>
+		<annotation cp="💁🏽‍♀">gwybodaeth | llaw | menyw | tipio | math 4</annotation>
+		<annotation cp="💁🏽‍♀" type="tts">menyw yn gwyro ei llaw: math 4</annotation>
+		<annotation cp="💁🏾‍♀">gwybodaeth | llaw | menyw | tipio | math 5</annotation>
+		<annotation cp="💁🏾‍♀" type="tts">menyw yn gwyro ei llaw: math 5</annotation>
+		<annotation cp="💁🏿‍♀">gwybodaeth | llaw | menyw | tipio | math 6</annotation>
+		<annotation cp="💁🏿‍♀" type="tts">menyw yn gwyro ei llaw: math 6</annotation>
+		<annotation cp="🙋🏻">hapus | llaw | ystum | math 1–2</annotation>
+		<annotation cp="🙋🏻" type="tts">person yn codi llaw: math 1–2</annotation>
+		<annotation cp="🙋🏼">hapus | llaw | ystum | math 3</annotation>
+		<annotation cp="🙋🏼" type="tts">person yn codi llaw: math 3</annotation>
+		<annotation cp="🙋🏽">hapus | llaw | ystum | math 4</annotation>
+		<annotation cp="🙋🏽" type="tts">person yn codi llaw: math 4</annotation>
+		<annotation cp="🙋🏾">hapus | llaw | ystum | math 5</annotation>
+		<annotation cp="🙋🏾" type="tts">person yn codi llaw: math 5</annotation>
+		<annotation cp="🙋🏿">hapus | llaw | ystum | math 6</annotation>
+		<annotation cp="🙋🏿" type="tts">person yn codi llaw: math 6</annotation>
+		<annotation cp="🙋🏻‍♂">dyn | hapus | llaw | ystum | math 1–2</annotation>
+		<annotation cp="🙋🏻‍♂" type="tts">dyn yn codi ei law: math 1–2</annotation>
+		<annotation cp="🙋🏼‍♂">dyn | hapus | llaw | ystum | math 3</annotation>
+		<annotation cp="🙋🏼‍♂" type="tts">dyn yn codi ei law: math 3</annotation>
+		<annotation cp="🙋🏽‍♂">dyn | hapus | llaw | ystum | math 4</annotation>
+		<annotation cp="🙋🏽‍♂" type="tts">dyn yn codi ei law: math 4</annotation>
+		<annotation cp="🙋🏾‍♂">dyn | hapus | llaw | ystum | math 5</annotation>
+		<annotation cp="🙋🏾‍♂" type="tts">dyn yn codi ei law: math 5</annotation>
+		<annotation cp="🙋🏿‍♂">dyn | hapus | llaw | ystum | math 6</annotation>
+		<annotation cp="🙋🏿‍♂" type="tts">dyn yn codi ei law: math 6</annotation>
+		<annotation cp="🙋🏻‍♀">hapus | llaw | menyw | ystum | math 1–2</annotation>
+		<annotation cp="🙋🏻‍♀" type="tts">menyw yn codi ei llaw: math 1–2</annotation>
+		<annotation cp="🙋🏼‍♀">hapus | llaw | menyw | ystum | math 3</annotation>
+		<annotation cp="🙋🏼‍♀" type="tts">menyw yn codi ei llaw: math 3</annotation>
+		<annotation cp="🙋🏽‍♀">hapus | llaw | menyw | ystum | math 4</annotation>
+		<annotation cp="🙋🏽‍♀" type="tts">menyw yn codi ei llaw: math 4</annotation>
+		<annotation cp="🙋🏾‍♀">hapus | llaw | menyw | ystum | math 5</annotation>
+		<annotation cp="🙋🏾‍♀" type="tts">menyw yn codi ei llaw: math 5</annotation>
+		<annotation cp="🙋🏿‍♀">hapus | llaw | menyw | ystum | math 6</annotation>
+		<annotation cp="🙋🏿‍♀" type="tts">menyw yn codi ei llaw: math 6</annotation>
+		<annotation cp="🙇🏻">sori | ymddiheuriad | ymgrymiad | ystum | math 1–2</annotation>
+		<annotation cp="🙇🏻" type="tts">person yn ymgrymu: math 1–2</annotation>
+		<annotation cp="🙇🏼">sori | ymddiheuriad | ymgrymiad | ystum | math 3</annotation>
+		<annotation cp="🙇🏼" type="tts">person yn ymgrymu: math 3</annotation>
+		<annotation cp="🙇🏽">sori | ymddiheuriad | ymgrymiad | ystum | math 4</annotation>
+		<annotation cp="🙇🏽" type="tts">person yn ymgrymu: math 4</annotation>
+		<annotation cp="🙇🏾">sori | ymddiheuriad | ymgrymiad | ystum | math 5</annotation>
+		<annotation cp="🙇🏾" type="tts">person yn ymgrymu: math 5</annotation>
+		<annotation cp="🙇🏿">sori | ymddiheuriad | ymgrymiad | ystum | math 6</annotation>
+		<annotation cp="🙇🏿" type="tts">person yn ymgrymu: math 6</annotation>
+		<annotation cp="🙇🏻‍♂">dyn | ffafr | ymddiheuriad | ymgrymiad | math 1–2</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">dyn yn ymgrymu’n isel: math 1–2</annotation>
+		<annotation cp="🙇🏼‍♂">dyn | ffafr | ymddiheuriad | ymgrymiad | math 3</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">dyn yn ymgrymu’n isel: math 3</annotation>
+		<annotation cp="🙇🏽‍♂">dyn | ffafr | ymddiheuriad | ymgrymiad | math 4</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">dyn yn ymgrymu’n isel: math 4</annotation>
+		<annotation cp="🙇🏾‍♂">dyn | ffafr | ymddiheuriad | ymgrymiad | math 5</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">dyn yn ymgrymu’n isel: math 5</annotation>
+		<annotation cp="🙇🏿‍♂">dyn | ffafr | ymddiheuriad | ymgrymiad | math 6</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">dyn yn ymgrymu’n isel: math 6</annotation>
+		<annotation cp="🙇🏻‍♀">ffafr | menyw | ymddiheuriad | ymgrymiad | math 1–2</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">menyw yn ymgrymu’n isel: math 1–2</annotation>
+		<annotation cp="🙇🏼‍♀">ffafr | menyw | ymddiheuriad | ymgrymiad | math 3</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">menyw yn ymgrymu’n isel: math 3</annotation>
+		<annotation cp="🙇🏽‍♀">ffafr | menyw | ymddiheuriad | ymgrymiad | math 4</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">menyw yn ymgrymu’n isel: math 4</annotation>
+		<annotation cp="🙇🏾‍♀">ffafr | menyw | ymddiheuriad | ymgrymiad | math 5</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">menyw yn ymgrymu’n isel: math 5</annotation>
+		<annotation cp="🙇🏿‍♀">ffafr | menyw | ymddiheuriad | ymgrymiad | math 6</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">menyw yn ymgrymu’n isel: math 6</annotation>
+		<annotation cp="🤦🏻">anghrediniaeth | cledr | cythrudd | wyneb | math 1–2</annotation>
+		<annotation cp="🤦🏻" type="tts">cledr i’r wyneb: math 1–2</annotation>
+		<annotation cp="🤦🏼">anghrediniaeth | cledr | cythrudd | wyneb | math 3</annotation>
+		<annotation cp="🤦🏼" type="tts">cledr i’r wyneb: math 3</annotation>
+		<annotation cp="🤦🏽">anghrediniaeth | cledr | cythrudd | wyneb | math 4</annotation>
+		<annotation cp="🤦🏽" type="tts">cledr i’r wyneb: math 4</annotation>
+		<annotation cp="🤦🏾">anghrediniaeth | cledr | cythrudd | wyneb | math 5</annotation>
+		<annotation cp="🤦🏾" type="tts">cledr i’r wyneb: math 5</annotation>
+		<annotation cp="🤦🏿">anghrediniaeth | cledr | cythrudd | wyneb | math 6</annotation>
+		<annotation cp="🤦🏿" type="tts">cledr i’r wyneb: math 6</annotation>
+		<annotation cp="🤦🏻‍♂">anghoel | cledr | cythrudd | dyn | math 1–2</annotation>
+		<annotation cp="🤦🏻‍♂" type="tts">dyn yn codi cledr i’w wyneb: math 1–2</annotation>
+		<annotation cp="🤦🏼‍♂">anghoel | cledr | cythrudd | dyn | math 3</annotation>
+		<annotation cp="🤦🏼‍♂" type="tts">dyn yn codi cledr i’w wyneb: math 3</annotation>
+		<annotation cp="🤦🏽‍♂">anghoel | cledr | cythrudd | dyn | math 4</annotation>
+		<annotation cp="🤦🏽‍♂" type="tts">dyn yn codi cledr i’w wyneb: math 4</annotation>
+		<annotation cp="🤦🏾‍♂">anghoel | cledr | cythrudd | dyn | math 5</annotation>
+		<annotation cp="🤦🏾‍♂" type="tts">dyn yn codi cledr i’w wyneb: math 5</annotation>
+		<annotation cp="🤦🏿‍♂">anghoel | cledr | cythrudd | dyn | math 6</annotation>
+		<annotation cp="🤦🏿‍♂" type="tts">dyn yn codi cledr i’w wyneb: math 6</annotation>
+		<annotation cp="🤦🏻‍♀">anghoel | cledr | cythrudd | menyw | math 1–2</annotation>
+		<annotation cp="🤦🏻‍♀" type="tts">menyw yn codi cledr i’w wyneb: math 1–2</annotation>
+		<annotation cp="🤦🏼‍♀">anghoel | cledr | cythrudd | menyw | math 3</annotation>
+		<annotation cp="🤦🏼‍♀" type="tts">menyw yn codi cledr i’w wyneb: math 3</annotation>
+		<annotation cp="🤦🏽‍♀">anghoel | cledr | cythrudd | menyw | math 4</annotation>
+		<annotation cp="🤦🏽‍♀" type="tts">menyw yn codi cledr i’w wyneb: math 4</annotation>
+		<annotation cp="🤦🏾‍♀">anghoel | cledr | cythrudd | menyw | math 5</annotation>
+		<annotation cp="🤦🏾‍♀" type="tts">menyw yn codi cledr i’w wyneb: math 5</annotation>
+		<annotation cp="🤦🏿‍♀">anghoel | cledr | cythrudd | menyw | math 6</annotation>
+		<annotation cp="🤦🏿‍♀" type="tts">menyw yn codi cledr i’w wyneb: math 6</annotation>
+		<annotation cp="🤷🏻">amheuaeth | anwybodaeth | codi gwar | difaterwch | math 1–2</annotation>
+		<annotation cp="🤷🏻" type="tts">codi gwar: math 1–2</annotation>
+		<annotation cp="🤷🏼">amheuaeth | anwybodaeth | codi gwar | difaterwch | math 3</annotation>
+		<annotation cp="🤷🏼" type="tts">codi gwar: math 3</annotation>
+		<annotation cp="🤷🏽">amheuaeth | anwybodaeth | codi gwar | difaterwch | math 4</annotation>
+		<annotation cp="🤷🏽" type="tts">codi gwar: math 4</annotation>
+		<annotation cp="🤷🏾">amheuaeth | anwybodaeth | codi gwar | difaterwch | math 5</annotation>
+		<annotation cp="🤷🏾" type="tts">codi gwar: math 5</annotation>
+		<annotation cp="🤷🏿">amheuaeth | anwybodaeth | codi gwar | difaterwch | math 6</annotation>
+		<annotation cp="🤷🏿" type="tts">codi gwar: math 6</annotation>
+		<annotation cp="🤷🏻‍♂">amheuaeth | anwybodaeth | codi gwar | dyn | math 1–2</annotation>
+		<annotation cp="🤷🏻‍♂" type="tts">dyn yn codi gwar: math 1–2</annotation>
+		<annotation cp="🤷🏼‍♂">amheuaeth | anwybodaeth | codi gwar | dyn | math 3</annotation>
+		<annotation cp="🤷🏼‍♂" type="tts">dyn yn codi gwar: math 3</annotation>
+		<annotation cp="🤷🏽‍♂">amheuaeth | anwybodaeth | codi gwar | dyn | math 4</annotation>
+		<annotation cp="🤷🏽‍♂" type="tts">dyn yn codi gwar: math 4</annotation>
+		<annotation cp="🤷🏾‍♂">amheuaeth | anwybodaeth | codi gwar | dyn | math 5</annotation>
+		<annotation cp="🤷🏾‍♂" type="tts">dyn yn codi gwar: math 5</annotation>
+		<annotation cp="🤷🏿‍♂">amheuaeth | anwybodaeth | codi gwar | dyn | math 6</annotation>
+		<annotation cp="🤷🏿‍♂" type="tts">dyn yn codi gwar: math 6</annotation>
+		<annotation cp="🤷🏻‍♀">amheuaeth | anwybodaeth | codi gwar | menyw | math 1–2</annotation>
+		<annotation cp="🤷🏻‍♀" type="tts">menyw yn codi gwar: math 1–2</annotation>
+		<annotation cp="🤷🏼‍♀">amheuaeth | anwybodaeth | codi gwar | menyw | math 3</annotation>
+		<annotation cp="🤷🏼‍♀" type="tts">menyw yn codi gwar: math 3</annotation>
+		<annotation cp="🤷🏽‍♀">amheuaeth | anwybodaeth | codi gwar | menyw | math 4</annotation>
+		<annotation cp="🤷🏽‍♀" type="tts">menyw yn codi gwar: math 4</annotation>
+		<annotation cp="🤷🏾‍♀">amheuaeth | anwybodaeth | codi gwar | menyw | math 5</annotation>
+		<annotation cp="🤷🏾‍♀" type="tts">menyw yn codi gwar: math 5</annotation>
+		<annotation cp="🤷🏿‍♀">amheuaeth | anwybodaeth | codi gwar | menyw | math 6</annotation>
+		<annotation cp="🤷🏿‍♀" type="tts">menyw yn codi gwar: math 6</annotation>
+		<annotation cp="💆🏻">salon | tyluniad | wyneb | math 1–2</annotation>
+		<annotation cp="💆🏻" type="tts">person yn derbyn tyluniad: math 1–2</annotation>
+		<annotation cp="💆🏼">salon | tyluniad | wyneb | math 3</annotation>
+		<annotation cp="💆🏼" type="tts">person yn derbyn tyluniad: math 3</annotation>
+		<annotation cp="💆🏽">salon | tyluniad | wyneb | math 4</annotation>
+		<annotation cp="💆🏽" type="tts">person yn derbyn tyluniad: math 4</annotation>
+		<annotation cp="💆🏾">salon | tyluniad | wyneb | math 5</annotation>
+		<annotation cp="💆🏾" type="tts">person yn derbyn tyluniad: math 5</annotation>
+		<annotation cp="💆🏿">salon | tyluniad | wyneb | math 6</annotation>
+		<annotation cp="💆🏿" type="tts">person yn derbyn tyluniad: math 6</annotation>
+		<annotation cp="💆🏻‍♂">dyn | tyluniad | wyneb | math 1–2</annotation>
+		<annotation cp="💆🏻‍♂" type="tts">dyn yn derbyn tyluniad i’w wyneb: math 1–2</annotation>
+		<annotation cp="💆🏼‍♂">dyn | tyluniad | wyneb | math 3</annotation>
+		<annotation cp="💆🏼‍♂" type="tts">dyn yn derbyn tyluniad i’w wyneb: math 3</annotation>
+		<annotation cp="💆🏽‍♂">dyn | tyluniad | wyneb | math 4</annotation>
+		<annotation cp="💆🏽‍♂" type="tts">dyn yn derbyn tyluniad i’w wyneb: math 4</annotation>
+		<annotation cp="💆🏾‍♂">dyn | tyluniad | wyneb | math 5</annotation>
+		<annotation cp="💆🏾‍♂" type="tts">dyn yn derbyn tyluniad i’w wyneb: math 5</annotation>
+		<annotation cp="💆🏿‍♂">dyn | tyluniad | wyneb | math 6</annotation>
+		<annotation cp="💆🏿‍♂" type="tts">dyn yn derbyn tyluniad i’w wyneb: math 6</annotation>
+		<annotation cp="💆🏻‍♀">menyw | tyluniad | wyneb | math 1–2</annotation>
+		<annotation cp="💆🏻‍♀" type="tts">menyw yn derbyn tyluniad i’w wyneb: math 1–2</annotation>
+		<annotation cp="💆🏼‍♀">menyw | tyluniad | wyneb | math 3</annotation>
+		<annotation cp="💆🏼‍♀" type="tts">menyw yn derbyn tyluniad i’w wyneb: math 3</annotation>
+		<annotation cp="💆🏽‍♀">menyw | tyluniad | wyneb | math 4</annotation>
+		<annotation cp="💆🏽‍♀" type="tts">menyw yn derbyn tyluniad i’w wyneb: math 4</annotation>
+		<annotation cp="💆🏾‍♀">menyw | tyluniad | wyneb | math 5</annotation>
+		<annotation cp="💆🏾‍♀" type="tts">menyw yn derbyn tyluniad i’w wyneb: math 5</annotation>
+		<annotation cp="💆🏿‍♀">menyw | tyluniad | wyneb | math 6</annotation>
+		<annotation cp="💆🏿‍♀" type="tts">menyw yn derbyn tyluniad i’w wyneb: math 6</annotation>
+		<annotation cp="💇🏻">barbwr | gwallt | harddwch | torri | math 1–2</annotation>
+		<annotation cp="💇🏻" type="tts">person yn cael ei wallt wedi’u torri: math 1–2</annotation>
+		<annotation cp="💇🏼">barbwr | gwallt | harddwch | torri | math 3</annotation>
+		<annotation cp="💇🏼" type="tts">person yn cael ei wallt wedi’u torri: math 3</annotation>
+		<annotation cp="💇🏽">barbwr | gwallt | harddwch | torri | math 4</annotation>
+		<annotation cp="💇🏽" type="tts">person yn cael ei wallt wedi’u torri: math 4</annotation>
+		<annotation cp="💇🏾">barbwr | gwallt | harddwch | torri | math 5</annotation>
+		<annotation cp="💇🏾" type="tts">person yn cael ei wallt wedi’u torri: math 5</annotation>
+		<annotation cp="💇🏿">barbwr | gwallt | harddwch | torri | math 6</annotation>
+		<annotation cp="💇🏿" type="tts">person yn cael ei wallt wedi’u torri: math 6</annotation>
+		<annotation cp="💇🏻‍♂">dyn | gwallt | torri | math 1–2</annotation>
+		<annotation cp="💇🏻‍♂" type="tts">dyn yn cael ei wallt wedi’u torri: math 1–2</annotation>
+		<annotation cp="💇🏼‍♂">dyn | gwallt | torri | math 3</annotation>
+		<annotation cp="💇🏼‍♂" type="tts">dyn yn cael ei wallt wedi’u torri: math 3</annotation>
+		<annotation cp="💇🏽‍♂">dyn | gwallt | torri | math 4</annotation>
+		<annotation cp="💇🏽‍♂" type="tts">dyn yn cael ei wallt wedi’u torri: math 4</annotation>
+		<annotation cp="💇🏾‍♂">dyn | gwallt | torri | math 5</annotation>
+		<annotation cp="💇🏾‍♂" type="tts">dyn yn cael ei wallt wedi’u torri: math 5</annotation>
+		<annotation cp="💇🏿‍♂">dyn | gwallt | torri | math 6</annotation>
+		<annotation cp="💇🏿‍♂" type="tts">dyn yn cael ei wallt wedi’u torri: math 6</annotation>
+		<annotation cp="💇🏻‍♀">gwallt | menyw | torri | math 1–2</annotation>
+		<annotation cp="💇🏻‍♀" type="tts">menyw yn cael ei gwallt wedi’u torri: math 1–2</annotation>
+		<annotation cp="💇🏼‍♀">gwallt | menyw | torri | math 3</annotation>
+		<annotation cp="💇🏼‍♀" type="tts">menyw yn cael ei gwallt wedi’u torri: math 3</annotation>
+		<annotation cp="💇🏽‍♀">gwallt | menyw | torri | math 4</annotation>
+		<annotation cp="💇🏽‍♀" type="tts">menyw yn cael ei gwallt wedi’u torri: math 4</annotation>
+		<annotation cp="💇🏾‍♀">gwallt | menyw | torri | math 5</annotation>
+		<annotation cp="💇🏾‍♀" type="tts">menyw yn cael ei gwallt wedi’u torri: math 5</annotation>
+		<annotation cp="💇🏿‍♀">gwallt | menyw | torri | math 6</annotation>
+		<annotation cp="💇🏿‍♀" type="tts">menyw yn cael ei gwallt wedi’u torri: math 6</annotation>
+		<annotation cp="🚶🏻">cerdded | heicio | math 1–2</annotation>
+		<annotation cp="🚶🏻" type="tts">person yn cerdded: math 1–2</annotation>
+		<annotation cp="🚶🏼">cerdded | heicio | math 3</annotation>
+		<annotation cp="🚶🏼" type="tts">person yn cerdded: math 3</annotation>
+		<annotation cp="🚶🏽">cerdded | heicio | math 4</annotation>
+		<annotation cp="🚶🏽" type="tts">person yn cerdded: math 4</annotation>
+		<annotation cp="🚶🏾">cerdded | heicio | math 5</annotation>
+		<annotation cp="🚶🏾" type="tts">person yn cerdded: math 5</annotation>
+		<annotation cp="🚶🏿">cerdded | heicio | math 6</annotation>
+		<annotation cp="🚶🏿" type="tts">person yn cerdded: math 6</annotation>
+		<annotation cp="🚶🏻‍♂">cerdded | dyn | heicio | math 1–2</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">dyn yn cerdded: math 1–2</annotation>
+		<annotation cp="🚶🏼‍♂">cerdded | dyn | heicio | math 3</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">dyn yn cerdded: math 3</annotation>
+		<annotation cp="🚶🏽‍♂">cerdded | dyn | heicio | math 4</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">dyn yn cerdded: math 4</annotation>
+		<annotation cp="🚶🏾‍♂">cerdded | dyn | heicio | math 5</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">dyn yn cerdded: math 5</annotation>
+		<annotation cp="🚶🏿‍♂">cerdded | dyn | heicio | math 6</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">dyn yn cerdded: math 6</annotation>
+		<annotation cp="🚶🏻‍♀">cerdded | heicio | menyw | math 1–2</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">menyw yn cerdded: math 1–2</annotation>
+		<annotation cp="🚶🏼‍♀">cerdded | heicio | menyw | math 3</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">menyw yn cerdded: math 3</annotation>
+		<annotation cp="🚶🏽‍♀">cerdded | heicio | menyw | math 4</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">menyw yn cerdded: math 4</annotation>
+		<annotation cp="🚶🏾‍♀">cerdded | heicio | menyw | math 5</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">menyw yn cerdded: math 5</annotation>
+		<annotation cp="🚶🏿‍♀">cerdded | heicio | menyw | math 6</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">menyw yn cerdded: math 6</annotation>
+		<annotation cp="🏃🏻">marathon | rhedeg | math 1–2</annotation>
+		<annotation cp="🏃🏻" type="tts">person yn rhedeg: math 1–2</annotation>
+		<annotation cp="🏃🏼">marathon | rhedeg | math 3</annotation>
+		<annotation cp="🏃🏼" type="tts">person yn rhedeg: math 3</annotation>
+		<annotation cp="🏃🏽">marathon | rhedeg | math 4</annotation>
+		<annotation cp="🏃🏽" type="tts">person yn rhedeg: math 4</annotation>
+		<annotation cp="🏃🏾">marathon | rhedeg | math 5</annotation>
+		<annotation cp="🏃🏾" type="tts">person yn rhedeg: math 5</annotation>
+		<annotation cp="🏃🏿">marathon | rhedeg | math 6</annotation>
+		<annotation cp="🏃🏿" type="tts">person yn rhedeg: math 6</annotation>
+		<annotation cp="🏃🏻‍♂">dyn | marathon | ras | rhedeg | math 1–2</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">dyn yn rhedeg: math 1–2</annotation>
+		<annotation cp="🏃🏼‍♂">dyn | marathon | ras | rhedeg | math 3</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">dyn yn rhedeg: math 3</annotation>
+		<annotation cp="🏃🏽‍♂">dyn | marathon | ras | rhedeg | math 4</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">dyn yn rhedeg: math 4</annotation>
+		<annotation cp="🏃🏾‍♂">dyn | marathon | ras | rhedeg | math 5</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">dyn yn rhedeg: math 5</annotation>
+		<annotation cp="🏃🏿‍♂">dyn | marathon | ras | rhedeg | math 6</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">dyn yn rhedeg: math 6</annotation>
+		<annotation cp="🏃🏻‍♀">marathon | menyw | ras | rhedeg | math 1–2</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">menyw yn rhedeg: math 1–2</annotation>
+		<annotation cp="🏃🏼‍♀">marathon | menyw | ras | rhedeg | math 3</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">menyw yn rhedeg: math 3</annotation>
+		<annotation cp="🏃🏽‍♀">marathon | menyw | ras | rhedeg | math 4</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">menyw yn rhedeg: math 4</annotation>
+		<annotation cp="🏃🏾‍♀">marathon | menyw | ras | rhedeg | math 5</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">menyw yn rhedeg: math 5</annotation>
+		<annotation cp="🏃🏿‍♀">marathon | menyw | ras | rhedeg | math 6</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">menyw yn rhedeg: math 6</annotation>
+		<annotation cp="💃🏻">dawnsio | menyw | math 1–2</annotation>
+		<annotation cp="💃🏻" type="tts">menyw yn dawnsio: math 1–2</annotation>
+		<annotation cp="💃🏼">dawnsio | menyw | math 3</annotation>
+		<annotation cp="💃🏼" type="tts">menyw yn dawnsio: math 3</annotation>
+		<annotation cp="💃🏽">dawnsio | menyw | math 4</annotation>
+		<annotation cp="💃🏽" type="tts">menyw yn dawnsio: math 4</annotation>
+		<annotation cp="💃🏾">dawnsio | menyw | math 5</annotation>
+		<annotation cp="💃🏾" type="tts">menyw yn dawnsio: math 5</annotation>
+		<annotation cp="💃🏿">dawnsio | menyw | math 6</annotation>
+		<annotation cp="💃🏿" type="tts">menyw yn dawnsio: math 6</annotation>
+		<annotation cp="🕺🏻">dawnsio | dyn | math 1–2</annotation>
+		<annotation cp="🕺🏻" type="tts">dyn yn dawnsio: math 1–2</annotation>
+		<annotation cp="🕺🏼">dawnsio | dyn | math 3</annotation>
+		<annotation cp="🕺🏼" type="tts">dyn yn dawnsio: math 3</annotation>
+		<annotation cp="🕺🏽">dawnsio | dyn | math 4</annotation>
+		<annotation cp="🕺🏽" type="tts">dyn yn dawnsio: math 4</annotation>
+		<annotation cp="🕺🏾">dawnsio | dyn | math 5</annotation>
+		<annotation cp="🕺🏾" type="tts">dyn yn dawnsio: math 5</annotation>
+		<annotation cp="🕺🏿">dawnsio | dyn | math 6</annotation>
+		<annotation cp="🕺🏿" type="tts">dyn yn dawnsio: math 6</annotation>
+		<annotation cp="🛀🏻">bath | twba | math 1–2</annotation>
+		<annotation cp="🛀🏻" type="tts">person mewn bath: math 1–2</annotation>
+		<annotation cp="🛀🏼">bath | twba | math 3</annotation>
+		<annotation cp="🛀🏼" type="tts">person mewn bath: math 3</annotation>
+		<annotation cp="🛀🏽">bath | twba | math 4</annotation>
+		<annotation cp="🛀🏽" type="tts">person mewn bath: math 4</annotation>
+		<annotation cp="🛀🏾">bath | twba | math 5</annotation>
+		<annotation cp="🛀🏾" type="tts">person mewn bath: math 5</annotation>
+		<annotation cp="🛀🏿">bath | twba | math 6</annotation>
+		<annotation cp="🛀🏿" type="tts">person mewn bath: math 6</annotation>
+		<annotation cp="🛌🏻">cysgu | gwesty | math 1–2</annotation>
+		<annotation cp="🛌🏻" type="tts">person mewn gwely: math 1–2</annotation>
+		<annotation cp="🛌🏼">cysgu | gwesty | math 3</annotation>
+		<annotation cp="🛌🏼" type="tts">person mewn gwely: math 3</annotation>
+		<annotation cp="🛌🏽">cysgu | gwesty | math 4</annotation>
+		<annotation cp="🛌🏽" type="tts">person mewn gwely: math 4</annotation>
+		<annotation cp="🛌🏾">cysgu | gwesty | math 5</annotation>
+		<annotation cp="🛌🏾" type="tts">person mewn gwely: math 5</annotation>
+		<annotation cp="🛌🏿">cysgu | gwesty | math 6</annotation>
+		<annotation cp="🛌🏿" type="tts">person mewn gwely: math 6</annotation>
+		<annotation cp="🕴🏻">busnes | dyn | gwisg | math 1–2</annotation>
+		<annotation cp="🕴🏻" type="tts">dyn mewn gwisg fusnes yn ymddyrchafu: math 1–2</annotation>
+		<annotation cp="🕴🏼">busnes | dyn | gwisg | math 3</annotation>
+		<annotation cp="🕴🏼" type="tts">dyn mewn gwisg fusnes yn ymddyrchafu: math 3</annotation>
+		<annotation cp="🕴🏽">busnes | dyn | gwisg | math 4</annotation>
+		<annotation cp="🕴🏽" type="tts">dyn mewn gwisg fusnes yn ymddyrchafu: math 4</annotation>
+		<annotation cp="🕴🏾">busnes | dyn | gwisg | math 5</annotation>
+		<annotation cp="🕴🏾" type="tts">dyn mewn gwisg fusnes yn ymddyrchafu: math 5</annotation>
+		<annotation cp="🕴🏿">busnes | dyn | gwisg | math 6</annotation>
+		<annotation cp="🕴🏿" type="tts">dyn mewn gwisg fusnes yn ymddyrchafu: math 6</annotation>
+		<annotation cp="🏇🏻">ceffyl | joci | rasio | math 1–2</annotation>
+		<annotation cp="🏇🏻" type="tts">rasio ceffylau: math 1–2</annotation>
+		<annotation cp="🏇🏼">ceffyl | joci | rasio | math 3</annotation>
+		<annotation cp="🏇🏼" type="tts">rasio ceffylau: math 3</annotation>
+		<annotation cp="🏇🏽">ceffyl | joci | rasio | math 4</annotation>
+		<annotation cp="🏇🏽" type="tts">rasio ceffylau: math 4</annotation>
+		<annotation cp="🏇🏾">ceffyl | joci | rasio | math 5</annotation>
+		<annotation cp="🏇🏾" type="tts">rasio ceffylau: math 5</annotation>
+		<annotation cp="🏇🏿">ceffyl | joci | rasio | math 6</annotation>
+		<annotation cp="🏇🏿" type="tts">rasio ceffylau: math 6</annotation>
+		<annotation cp="🏂🏻">eira | eirafyrddio | sgi | math 1–2</annotation>
+		<annotation cp="🏂🏻" type="tts">eirafyrddiwr: math 1–2</annotation>
+		<annotation cp="🏂🏼">eira | eirafyrddio | sgi | math 3</annotation>
+		<annotation cp="🏂🏼" type="tts">eirafyrddiwr: math 3</annotation>
+		<annotation cp="🏂🏽">eira | eirafyrddio | sgi | math 4</annotation>
+		<annotation cp="🏂🏽" type="tts">eirafyrddiwr: math 4</annotation>
+		<annotation cp="🏂🏾">eira | eirafyrddio | sgi | math 5</annotation>
+		<annotation cp="🏂🏾" type="tts">eirafyrddiwr: math 5</annotation>
+		<annotation cp="🏂🏿">eira | eirafyrddio | sgi | math 6</annotation>
+		<annotation cp="🏂🏿" type="tts">eirafyrddiwr: math 6</annotation>
+		<annotation cp="🏌🏻">golff | pêl | math 1–2</annotation>
+		<annotation cp="🏌🏻" type="tts">person yn chwarae golff: math 1–2</annotation>
+		<annotation cp="🏌🏼">golff | pêl | math 3</annotation>
+		<annotation cp="🏌🏼" type="tts">person yn chwarae golff: math 3</annotation>
+		<annotation cp="🏌🏽">golff | pêl | math 4</annotation>
+		<annotation cp="🏌🏽" type="tts">person yn chwarae golff: math 4</annotation>
+		<annotation cp="🏌🏾">golff | pêl | math 5</annotation>
+		<annotation cp="🏌🏾" type="tts">person yn chwarae golff: math 5</annotation>
+		<annotation cp="🏌🏿">golff | pêl | math 6</annotation>
+		<annotation cp="🏌🏿" type="tts">person yn chwarae golff: math 6</annotation>
+		<annotation cp="🏌🏻‍♂">dyn | golff | math 1–2</annotation>
+		<annotation cp="🏌🏻‍♂" type="tts">dyn yn chwarae golff: math 1–2</annotation>
+		<annotation cp="🏌🏼‍♂">dyn | golff | math 3</annotation>
+		<annotation cp="🏌🏼‍♂" type="tts">dyn yn chwarae golff: math 3</annotation>
+		<annotation cp="🏌🏽‍♂">dyn | golff | math 4</annotation>
+		<annotation cp="🏌🏽‍♂" type="tts">dyn yn chwarae golff: math 4</annotation>
+		<annotation cp="🏌🏾‍♂">dyn | golff | math 5</annotation>
+		<annotation cp="🏌🏾‍♂" type="tts">dyn yn chwarae golff: math 5</annotation>
+		<annotation cp="🏌🏿‍♂">dyn | golff | math 6</annotation>
+		<annotation cp="🏌🏿‍♂" type="tts">dyn yn chwarae golff: math 6</annotation>
+		<annotation cp="🏌🏻‍♀">golff | menyw | math 1–2</annotation>
+		<annotation cp="🏌🏻‍♀" type="tts">menyw yn chwarae golff: math 1–2</annotation>
+		<annotation cp="🏌🏼‍♀">golff | menyw | math 3</annotation>
+		<annotation cp="🏌🏼‍♀" type="tts">menyw yn chwarae golff: math 3</annotation>
+		<annotation cp="🏌🏽‍♀">golff | menyw | math 4</annotation>
+		<annotation cp="🏌🏽‍♀" type="tts">menyw yn chwarae golff: math 4</annotation>
+		<annotation cp="🏌🏾‍♀">golff | menyw | math 5</annotation>
+		<annotation cp="🏌🏾‍♀" type="tts">menyw yn chwarae golff: math 5</annotation>
+		<annotation cp="🏌🏿‍♀">golff | menyw | math 6</annotation>
+		<annotation cp="🏌🏿‍♀" type="tts">menyw yn chwarae golff: math 6</annotation>
+		<annotation cp="🏄🏻">syrffio | math 1–2</annotation>
+		<annotation cp="🏄🏻" type="tts">person yn syrffio: math 1–2</annotation>
+		<annotation cp="🏄🏼">syrffio | math 3</annotation>
+		<annotation cp="🏄🏼" type="tts">person yn syrffio: math 3</annotation>
+		<annotation cp="🏄🏽">syrffio | math 4</annotation>
+		<annotation cp="🏄🏽" type="tts">person yn syrffio: math 4</annotation>
+		<annotation cp="🏄🏾">syrffio | math 5</annotation>
+		<annotation cp="🏄🏾" type="tts">person yn syrffio: math 5</annotation>
+		<annotation cp="🏄🏿">syrffio | math 6</annotation>
+		<annotation cp="🏄🏿" type="tts">person yn syrffio: math 6</annotation>
+		<annotation cp="🏄🏻‍♂">dyn | syrffio | math 1–2</annotation>
+		<annotation cp="🏄🏻‍♂" type="tts">dyn yn syrffio: math 1–2</annotation>
+		<annotation cp="🏄🏼‍♂">dyn | syrffio | math 3</annotation>
+		<annotation cp="🏄🏼‍♂" type="tts">dyn yn syrffio: math 3</annotation>
+		<annotation cp="🏄🏽‍♂">dyn | syrffio | math 4</annotation>
+		<annotation cp="🏄🏽‍♂" type="tts">dyn yn syrffio: math 4</annotation>
+		<annotation cp="🏄🏾‍♂">dyn | syrffio | math 5</annotation>
+		<annotation cp="🏄🏾‍♂" type="tts">dyn yn syrffio: math 5</annotation>
+		<annotation cp="🏄🏿‍♂">dyn | syrffio | math 6</annotation>
+		<annotation cp="🏄🏿‍♂" type="tts">dyn yn syrffio: math 6</annotation>
+		<annotation cp="🏄🏻‍♀">menyw | syrffio | math 1–2</annotation>
+		<annotation cp="🏄🏻‍♀" type="tts">menyw yn syrffio: math 1–2</annotation>
+		<annotation cp="🏄🏼‍♀">menyw | syrffio | math 3</annotation>
+		<annotation cp="🏄🏼‍♀" type="tts">menyw yn syrffio: math 3</annotation>
+		<annotation cp="🏄🏽‍♀">menyw | syrffio | math 4</annotation>
+		<annotation cp="🏄🏽‍♀" type="tts">menyw yn syrffio: math 4</annotation>
+		<annotation cp="🏄🏾‍♀">menyw | syrffio | math 5</annotation>
+		<annotation cp="🏄🏾‍♀" type="tts">menyw yn syrffio: math 5</annotation>
+		<annotation cp="🏄🏿‍♀">menyw | syrffio | math 6</annotation>
+		<annotation cp="🏄🏿‍♀" type="tts">menyw yn syrffio: math 6</annotation>
+		<annotation cp="🚣🏻">cwch | rhwyfo | math 1–2</annotation>
+		<annotation cp="🚣🏻" type="tts">person yn rhwyfo cwch: math 1–2</annotation>
+		<annotation cp="🚣🏼">cwch | rhwyfo | math 3</annotation>
+		<annotation cp="🚣🏼" type="tts">person yn rhwyfo cwch: math 3</annotation>
+		<annotation cp="🚣🏽">cwch | rhwyfo | math 4</annotation>
+		<annotation cp="🚣🏽" type="tts">person yn rhwyfo cwch: math 4</annotation>
+		<annotation cp="🚣🏾">cwch | rhwyfo | math 5</annotation>
+		<annotation cp="🚣🏾" type="tts">person yn rhwyfo cwch: math 5</annotation>
+		<annotation cp="🚣🏿">cwch | rhwyfo | math 6</annotation>
+		<annotation cp="🚣🏿" type="tts">person yn rhwyfo cwch: math 6</annotation>
+		<annotation cp="🚣🏻‍♂">cwch | dyn | rhwyfo | math 1–2</annotation>
+		<annotation cp="🚣🏻‍♂" type="tts">dyn yn rhwyfo cwch: math 1–2</annotation>
+		<annotation cp="🚣🏼‍♂">cwch | dyn | rhwyfo | math 3</annotation>
+		<annotation cp="🚣🏼‍♂" type="tts">dyn yn rhwyfo cwch: math 3</annotation>
+		<annotation cp="🚣🏽‍♂">cwch | dyn | rhwyfo | math 4</annotation>
+		<annotation cp="🚣🏽‍♂" type="tts">dyn yn rhwyfo cwch: math 4</annotation>
+		<annotation cp="🚣🏾‍♂">cwch | dyn | rhwyfo | math 5</annotation>
+		<annotation cp="🚣🏾‍♂" type="tts">dyn yn rhwyfo cwch: math 5</annotation>
+		<annotation cp="🚣🏿‍♂">cwch | dyn | rhwyfo | math 6</annotation>
+		<annotation cp="🚣🏿‍♂" type="tts">dyn yn rhwyfo cwch: math 6</annotation>
+		<annotation cp="🚣🏻‍♀">cwch | menyw | rhwyfo | math 1–2</annotation>
+		<annotation cp="🚣🏻‍♀" type="tts">menyw yn rhwyfo cwch: math 1–2</annotation>
+		<annotation cp="🚣🏼‍♀">cwch | menyw | rhwyfo | math 3</annotation>
+		<annotation cp="🚣🏼‍♀" type="tts">menyw yn rhwyfo cwch: math 3</annotation>
+		<annotation cp="🚣🏽‍♀">cwch | menyw | rhwyfo | math 4</annotation>
+		<annotation cp="🚣🏽‍♀" type="tts">menyw yn rhwyfo cwch: math 4</annotation>
+		<annotation cp="🚣🏾‍♀">cwch | menyw | rhwyfo | math 5</annotation>
+		<annotation cp="🚣🏾‍♀" type="tts">menyw yn rhwyfo cwch: math 5</annotation>
+		<annotation cp="🚣🏿‍♀">cwch | menyw | rhwyfo | math 6</annotation>
+		<annotation cp="🚣🏿‍♀" type="tts">menyw yn rhwyfo cwch: math 6</annotation>
+		<annotation cp="🏊🏻">nofio | math 1–2</annotation>
+		<annotation cp="🏊🏻" type="tts">person yn nofio: math 1–2</annotation>
+		<annotation cp="🏊🏼">nofio | math 3</annotation>
+		<annotation cp="🏊🏼" type="tts">person yn nofio: math 3</annotation>
+		<annotation cp="🏊🏽">nofio | math 4</annotation>
+		<annotation cp="🏊🏽" type="tts">person yn nofio: math 4</annotation>
+		<annotation cp="🏊🏾">nofio | math 5</annotation>
+		<annotation cp="🏊🏾" type="tts">person yn nofio: math 5</annotation>
+		<annotation cp="🏊🏿">nofio | math 6</annotation>
+		<annotation cp="🏊🏿" type="tts">person yn nofio: math 6</annotation>
+		<annotation cp="🏊🏻‍♂">dyn | nofio | math 1–2</annotation>
+		<annotation cp="🏊🏻‍♂" type="tts">dyn yn nofio: math 1–2</annotation>
+		<annotation cp="🏊🏼‍♂">dyn | nofio | math 3</annotation>
+		<annotation cp="🏊🏼‍♂" type="tts">dyn yn nofio: math 3</annotation>
+		<annotation cp="🏊🏽‍♂">dyn | nofio | math 4</annotation>
+		<annotation cp="🏊🏽‍♂" type="tts">dyn yn nofio: math 4</annotation>
+		<annotation cp="🏊🏾‍♂">dyn | nofio | math 5</annotation>
+		<annotation cp="🏊🏾‍♂" type="tts">dyn yn nofio: math 5</annotation>
+		<annotation cp="🏊🏿‍♂">dyn | nofio | math 6</annotation>
+		<annotation cp="🏊🏿‍♂" type="tts">dyn yn nofio: math 6</annotation>
+		<annotation cp="🏊🏻‍♀">menyw | nofio | math 1–2</annotation>
+		<annotation cp="🏊🏻‍♀" type="tts">menyw yn nofio: math 1–2</annotation>
+		<annotation cp="🏊🏼‍♀">menyw | nofio | math 3</annotation>
+		<annotation cp="🏊🏼‍♀" type="tts">menyw yn nofio: math 3</annotation>
+		<annotation cp="🏊🏽‍♀">menyw | nofio | math 4</annotation>
+		<annotation cp="🏊🏽‍♀" type="tts">menyw yn nofio: math 4</annotation>
+		<annotation cp="🏊🏾‍♀">menyw | nofio | math 5</annotation>
+		<annotation cp="🏊🏾‍♀" type="tts">menyw yn nofio: math 5</annotation>
+		<annotation cp="🏊🏿‍♀">menyw | nofio | math 6</annotation>
+		<annotation cp="🏊🏿‍♀" type="tts">menyw yn nofio: math 6</annotation>
+		<annotation cp="⛹🏻">pêl | math 1–2</annotation>
+		<annotation cp="⛹🏻" type="tts">person â phêl: math 1–2</annotation>
+		<annotation cp="⛹🏼">pêl | math 3</annotation>
+		<annotation cp="⛹🏼" type="tts">person â phêl: math 3</annotation>
+		<annotation cp="⛹🏽">pêl | math 4</annotation>
+		<annotation cp="⛹🏽" type="tts">person â phêl: math 4</annotation>
+		<annotation cp="⛹🏾">pêl | math 5</annotation>
+		<annotation cp="⛹🏾" type="tts">person â phêl: math 5</annotation>
+		<annotation cp="⛹🏿">pêl | math 6</annotation>
+		<annotation cp="⛹🏿" type="tts">person â phêl: math 6</annotation>
+		<annotation cp="⛹🏻‍♂">dyn | pêl | math 1–2</annotation>
+		<annotation cp="⛹🏻‍♂" type="tts">dyn â phêl: math 1–2</annotation>
+		<annotation cp="⛹🏼‍♂">dyn | pêl | math 3</annotation>
+		<annotation cp="⛹🏼‍♂" type="tts">dyn â phêl: math 3</annotation>
+		<annotation cp="⛹🏽‍♂">dyn | pêl | math 4</annotation>
+		<annotation cp="⛹🏽‍♂" type="tts">dyn â phêl: math 4</annotation>
+		<annotation cp="⛹🏾‍♂">dyn | pêl | math 5</annotation>
+		<annotation cp="⛹🏾‍♂" type="tts">dyn â phêl: math 5</annotation>
+		<annotation cp="⛹🏿‍♂">dyn | pêl | math 6</annotation>
+		<annotation cp="⛹🏿‍♂" type="tts">dyn â phêl: math 6</annotation>
+		<annotation cp="⛹🏻‍♀">menyw | pêl | math 1–2</annotation>
+		<annotation cp="⛹🏻‍♀" type="tts">menyw â phêl: math 1–2</annotation>
+		<annotation cp="⛹🏼‍♀">menyw | pêl | math 3</annotation>
+		<annotation cp="⛹🏼‍♀" type="tts">menyw â phêl: math 3</annotation>
+		<annotation cp="⛹🏽‍♀">menyw | pêl | math 4</annotation>
+		<annotation cp="⛹🏽‍♀" type="tts">menyw â phêl: math 4</annotation>
+		<annotation cp="⛹🏾‍♀">menyw | pêl | math 5</annotation>
+		<annotation cp="⛹🏾‍♀" type="tts">menyw â phêl: math 5</annotation>
+		<annotation cp="⛹🏿‍♀">menyw | pêl | math 6</annotation>
+		<annotation cp="⛹🏿‍♀" type="tts">menyw â phêl: math 6</annotation>
+		<annotation cp="🏋🏻">codwr | pwysau | math 1–2</annotation>
+		<annotation cp="🏋🏻" type="tts">person yn codi pwysau: math 1–2</annotation>
+		<annotation cp="🏋🏼">codwr | pwysau | math 3</annotation>
+		<annotation cp="🏋🏼" type="tts">person yn codi pwysau: math 3</annotation>
+		<annotation cp="🏋🏽">codwr | pwysau | math 4</annotation>
+		<annotation cp="🏋🏽" type="tts">person yn codi pwysau: math 4</annotation>
+		<annotation cp="🏋🏾">codwr | pwysau | math 5</annotation>
+		<annotation cp="🏋🏾" type="tts">person yn codi pwysau: math 5</annotation>
+		<annotation cp="🏋🏿">codwr | pwysau | math 6</annotation>
+		<annotation cp="🏋🏿" type="tts">person yn codi pwysau: math 6</annotation>
+		<annotation cp="🏋🏻‍♂">codi | dyn | pwysau | math 1–2</annotation>
+		<annotation cp="🏋🏻‍♂" type="tts">dyn yn codi pwysau: math 1–2</annotation>
+		<annotation cp="🏋🏼‍♂">codi | dyn | pwysau | math 3</annotation>
+		<annotation cp="🏋🏼‍♂" type="tts">dyn yn codi pwysau: math 3</annotation>
+		<annotation cp="🏋🏽‍♂">codi | dyn | pwysau | math 4</annotation>
+		<annotation cp="🏋🏽‍♂" type="tts">dyn yn codi pwysau: math 4</annotation>
+		<annotation cp="🏋🏾‍♂">codi | dyn | pwysau | math 5</annotation>
+		<annotation cp="🏋🏾‍♂" type="tts">dyn yn codi pwysau: math 5</annotation>
+		<annotation cp="🏋🏿‍♂">codi | dyn | pwysau | math 6</annotation>
+		<annotation cp="🏋🏿‍♂" type="tts">dyn yn codi pwysau: math 6</annotation>
+		<annotation cp="🏋🏻‍♀">codi | menyw | pwysau | math 1–2</annotation>
+		<annotation cp="🏋🏻‍♀" type="tts">menyw yn codi pwysau: math 1–2</annotation>
+		<annotation cp="🏋🏼‍♀">codi | menyw | pwysau | math 3</annotation>
+		<annotation cp="🏋🏼‍♀" type="tts">menyw yn codi pwysau: math 3</annotation>
+		<annotation cp="🏋🏽‍♀">codi | menyw | pwysau | math 4</annotation>
+		<annotation cp="🏋🏽‍♀" type="tts">menyw yn codi pwysau: math 4</annotation>
+		<annotation cp="🏋🏾‍♀">codi | menyw | pwysau | math 5</annotation>
+		<annotation cp="🏋🏾‍♀" type="tts">menyw yn codi pwysau: math 5</annotation>
+		<annotation cp="🏋🏿‍♀">codi | menyw | pwysau | math 6</annotation>
+		<annotation cp="🏋🏿‍♀" type="tts">menyw yn codi pwysau: math 6</annotation>
+		<annotation cp="🚴🏻">beic | beicio | math 1–2</annotation>
+		<annotation cp="🚴🏻" type="tts">person yn beicio: math 1–2</annotation>
+		<annotation cp="🚴🏼">beic | beicio | math 3</annotation>
+		<annotation cp="🚴🏼" type="tts">person yn beicio: math 3</annotation>
+		<annotation cp="🚴🏽">beic | beicio | math 4</annotation>
+		<annotation cp="🚴🏽" type="tts">person yn beicio: math 4</annotation>
+		<annotation cp="🚴🏾">beic | beicio | math 5</annotation>
+		<annotation cp="🚴🏾" type="tts">person yn beicio: math 5</annotation>
+		<annotation cp="🚴🏿">beic | beicio | math 6</annotation>
+		<annotation cp="🚴🏿" type="tts">person yn beicio: math 6</annotation>
+		<annotation cp="🚴🏻‍♂">beic | beicio | dyn | math 1–2</annotation>
+		<annotation cp="🚴🏻‍♂" type="tts">dyn yn beicio: math 1–2</annotation>
+		<annotation cp="🚴🏼‍♂">beic | beicio | dyn | math 3</annotation>
+		<annotation cp="🚴🏼‍♂" type="tts">dyn yn beicio: math 3</annotation>
+		<annotation cp="🚴🏽‍♂">beic | beicio | dyn | math 4</annotation>
+		<annotation cp="🚴🏽‍♂" type="tts">dyn yn beicio: math 4</annotation>
+		<annotation cp="🚴🏾‍♂">beic | beicio | dyn | math 5</annotation>
+		<annotation cp="🚴🏾‍♂" type="tts">dyn yn beicio: math 5</annotation>
+		<annotation cp="🚴🏿‍♂">beic | beicio | dyn | math 6</annotation>
+		<annotation cp="🚴🏿‍♂" type="tts">dyn yn beicio: math 6</annotation>
+		<annotation cp="🚴🏻‍♀">beic | beicio | menyw | math 1–2</annotation>
+		<annotation cp="🚴🏻‍♀" type="tts">menyw yn beicio: math 1–2</annotation>
+		<annotation cp="🚴🏼‍♀">beic | beicio | menyw | math 3</annotation>
+		<annotation cp="🚴🏼‍♀" type="tts">menyw yn beicio: math 3</annotation>
+		<annotation cp="🚴🏽‍♀">beic | beicio | menyw | math 4</annotation>
+		<annotation cp="🚴🏽‍♀" type="tts">menyw yn beicio: math 4</annotation>
+		<annotation cp="🚴🏾‍♀">beic | beicio | menyw | math 5</annotation>
+		<annotation cp="🚴🏾‍♀" type="tts">menyw yn beicio: math 5</annotation>
+		<annotation cp="🚴🏿‍♀">beic | beicio | menyw | math 6</annotation>
+		<annotation cp="🚴🏿‍♀" type="tts">menyw yn beicio: math 6</annotation>
+		<annotation cp="🚵🏻">beic | beicio | mynydd | math 1–2</annotation>
+		<annotation cp="🚵🏻" type="tts">person yn beicio mynydd: math 1–2</annotation>
+		<annotation cp="🚵🏼">beic | beicio | mynydd | math 3</annotation>
+		<annotation cp="🚵🏼" type="tts">person yn beicio mynydd: math 3</annotation>
+		<annotation cp="🚵🏽">beic | beicio | mynydd | math 4</annotation>
+		<annotation cp="🚵🏽" type="tts">person yn beicio mynydd: math 4</annotation>
+		<annotation cp="🚵🏾">beic | beicio | mynydd | math 5</annotation>
+		<annotation cp="🚵🏾" type="tts">person yn beicio mynydd: math 5</annotation>
+		<annotation cp="🚵🏿">beic | beicio | mynydd | math 6</annotation>
+		<annotation cp="🚵🏿" type="tts">person yn beicio mynydd: math 6</annotation>
+		<annotation cp="🚵🏻‍♂">beic | beicio | dyn | mynydd | math 1–2</annotation>
+		<annotation cp="🚵🏻‍♂" type="tts">dyn yn beicio mynydd: math 1–2</annotation>
+		<annotation cp="🚵🏼‍♂">beic | beicio | dyn | mynydd | math 3</annotation>
+		<annotation cp="🚵🏼‍♂" type="tts">dyn yn beicio mynydd: math 3</annotation>
+		<annotation cp="🚵🏽‍♂">beic | beicio | dyn | mynydd | math 4</annotation>
+		<annotation cp="🚵🏽‍♂" type="tts">dyn yn beicio mynydd: math 4</annotation>
+		<annotation cp="🚵🏾‍♂">beic | beicio | dyn | mynydd | math 5</annotation>
+		<annotation cp="🚵🏾‍♂" type="tts">dyn yn beicio mynydd: math 5</annotation>
+		<annotation cp="🚵🏿‍♂">beic | beicio | dyn | mynydd | math 6</annotation>
+		<annotation cp="🚵🏿‍♂" type="tts">dyn yn beicio mynydd: math 6</annotation>
+		<annotation cp="🚵🏻‍♀">beic | beicio | menyw | mynydd | math 1–2</annotation>
+		<annotation cp="🚵🏻‍♀" type="tts">menyw yn beicio mynydd: math 1–2</annotation>
+		<annotation cp="🚵🏼‍♀">beic | beicio | menyw | mynydd | math 3</annotation>
+		<annotation cp="🚵🏼‍♀" type="tts">menyw yn beicio mynydd: math 3</annotation>
+		<annotation cp="🚵🏽‍♀">beic | beicio | menyw | mynydd | math 4</annotation>
+		<annotation cp="🚵🏽‍♀" type="tts">menyw yn beicio mynydd: math 4</annotation>
+		<annotation cp="🚵🏾‍♀">beic | beicio | menyw | mynydd | math 5</annotation>
+		<annotation cp="🚵🏾‍♀" type="tts">menyw yn beicio mynydd: math 5</annotation>
+		<annotation cp="🚵🏿‍♀">beic | beicio | menyw | mynydd | math 6</annotation>
+		<annotation cp="🚵🏿‍♀" type="tts">menyw yn beicio mynydd: math 6</annotation>
+		<annotation cp="🤸🏻">chwaraeon | gymnasteg | olwyn droi | person | math 1–2</annotation>
+		<annotation cp="🤸🏻" type="tts">olwyn droi: math 1–2</annotation>
+		<annotation cp="🤸🏼">chwaraeon | gymnasteg | olwyn droi | person | math 3</annotation>
+		<annotation cp="🤸🏼" type="tts">olwyn droi: math 3</annotation>
+		<annotation cp="🤸🏽">chwaraeon | gymnasteg | olwyn droi | person | math 4</annotation>
+		<annotation cp="🤸🏽" type="tts">olwyn droi: math 4</annotation>
+		<annotation cp="🤸🏾">chwaraeon | gymnasteg | olwyn droi | person | math 5</annotation>
+		<annotation cp="🤸🏾" type="tts">olwyn droi: math 5</annotation>
+		<annotation cp="🤸🏿">chwaraeon | gymnasteg | olwyn droi | person | math 6</annotation>
+		<annotation cp="🤸🏿" type="tts">olwyn droi: math 6</annotation>
+		<annotation cp="🤸🏻‍♂">chwaraeon | dyn | gymnasteg | olwyn dro | math 1–2</annotation>
+		<annotation cp="🤸🏻‍♂" type="tts">dyn yn gwneud olwyn dro: math 1–2</annotation>
+		<annotation cp="🤸🏼‍♂">chwaraeon | dyn | gymnasteg | olwyn dro | math 3</annotation>
+		<annotation cp="🤸🏼‍♂" type="tts">dyn yn gwneud olwyn dro: math 3</annotation>
+		<annotation cp="🤸🏽‍♂">chwaraeon | dyn | gymnasteg | olwyn dro | math 4</annotation>
+		<annotation cp="🤸🏽‍♂" type="tts">dyn yn gwneud olwyn dro: math 4</annotation>
+		<annotation cp="🤸🏾‍♂">chwaraeon | dyn | gymnasteg | olwyn dro | math 5</annotation>
+		<annotation cp="🤸🏾‍♂" type="tts">dyn yn gwneud olwyn dro: math 5</annotation>
+		<annotation cp="🤸🏿‍♂">chwaraeon | dyn | gymnasteg | olwyn dro | math 6</annotation>
+		<annotation cp="🤸🏿‍♂" type="tts">dyn yn gwneud olwyn dro: math 6</annotation>
+		<annotation cp="🤸🏻‍♀">chwaraeon | gymnasteg | menyw | olwyn dro | math 1–2</annotation>
+		<annotation cp="🤸🏻‍♀" type="tts">menyw yn gwneud olwyn dro: math 1–2</annotation>
+		<annotation cp="🤸🏼‍♀">chwaraeon | gymnasteg | menyw | olwyn dro | math 3</annotation>
+		<annotation cp="🤸🏼‍♀" type="tts">menyw yn gwneud olwyn dro: math 3</annotation>
+		<annotation cp="🤸🏽‍♀">chwaraeon | gymnasteg | menyw | olwyn dro | math 4</annotation>
+		<annotation cp="🤸🏽‍♀" type="tts">menyw yn gwneud olwyn dro: math 4</annotation>
+		<annotation cp="🤸🏾‍♀">chwaraeon | gymnasteg | menyw | olwyn dro | math 5</annotation>
+		<annotation cp="🤸🏾‍♀" type="tts">menyw yn gwneud olwyn dro: math 5</annotation>
+		<annotation cp="🤸🏿‍♀">chwaraeon | gymnasteg | menyw | olwyn dro | math 6</annotation>
+		<annotation cp="🤸🏿‍♀" type="tts">menyw yn gwneud olwyn dro: math 6</annotation>
+		<annotation cp="🤽🏻">chwaraeon | dŵr | person | polo | math 1–2</annotation>
+		<annotation cp="🤽🏻" type="tts">polo dŵr: math 1–2</annotation>
+		<annotation cp="🤽🏼">chwaraeon | dŵr | person | polo | math 3</annotation>
+		<annotation cp="🤽🏼" type="tts">polo dŵr: math 3</annotation>
+		<annotation cp="🤽🏽">chwaraeon | dŵr | person | polo | math 4</annotation>
+		<annotation cp="🤽🏽" type="tts">polo dŵr: math 4</annotation>
+		<annotation cp="🤽🏾">chwaraeon | dŵr | person | polo | math 5</annotation>
+		<annotation cp="🤽🏾" type="tts">polo dŵr: math 5</annotation>
+		<annotation cp="🤽🏿">chwaraeon | dŵr | person | polo | math 6</annotation>
+		<annotation cp="🤽🏿" type="tts">polo dŵr: math 6</annotation>
+		<annotation cp="🤽🏻‍♂">chwaraeon | dyn | dŵr | polo | math 1–2</annotation>
+		<annotation cp="🤽🏻‍♂" type="tts">dyn yn chwarae polo dŵr: math 1–2</annotation>
+		<annotation cp="🤽🏼‍♂">chwaraeon | dyn | dŵr | polo | math 3</annotation>
+		<annotation cp="🤽🏼‍♂" type="tts">dyn yn chwarae polo dŵr: math 3</annotation>
+		<annotation cp="🤽🏽‍♂">chwaraeon | dyn | dŵr | polo | math 4</annotation>
+		<annotation cp="🤽🏽‍♂" type="tts">dyn yn chwarae polo dŵr: math 4</annotation>
+		<annotation cp="🤽🏾‍♂">chwaraeon | dyn | dŵr | polo | math 5</annotation>
+		<annotation cp="🤽🏾‍♂" type="tts">dyn yn chwarae polo dŵr: math 5</annotation>
+		<annotation cp="🤽🏿‍♂">chwaraeon | dyn | dŵr | polo | math 6</annotation>
+		<annotation cp="🤽🏿‍♂" type="tts">dyn yn chwarae polo dŵr: math 6</annotation>
+		<annotation cp="🤽🏻‍♀">chwaraeon | dŵr | menyw | polo | math 1–2</annotation>
+		<annotation cp="🤽🏻‍♀" type="tts">menyw yn chwarae polo dŵr: math 1–2</annotation>
+		<annotation cp="🤽🏼‍♀">chwaraeon | dŵr | menyw | polo | math 3</annotation>
+		<annotation cp="🤽🏼‍♀" type="tts">menyw yn chwarae polo dŵr: math 3</annotation>
+		<annotation cp="🤽🏽‍♀">chwaraeon | dŵr | menyw | polo | math 4</annotation>
+		<annotation cp="🤽🏽‍♀" type="tts">menyw yn chwarae polo dŵr: math 4</annotation>
+		<annotation cp="🤽🏾‍♀">chwaraeon | dŵr | menyw | polo | math 5</annotation>
+		<annotation cp="🤽🏾‍♀" type="tts">menyw yn chwarae polo dŵr: math 5</annotation>
+		<annotation cp="🤽🏿‍♀">chwaraeon | dŵr | menyw | polo | math 6</annotation>
+		<annotation cp="🤽🏿‍♀" type="tts">menyw yn chwarae polo dŵr: math 6</annotation>
+		<annotation cp="🤾🏻">chwaraeon | person | pêl | pêl-law | math 1–2</annotation>
+		<annotation cp="🤾🏻" type="tts">pêl-law: math 1–2</annotation>
+		<annotation cp="🤾🏼">chwaraeon | person | pêl | pêl-law | math 3</annotation>
+		<annotation cp="🤾🏼" type="tts">pêl-law: math 3</annotation>
+		<annotation cp="🤾🏽">chwaraeon | person | pêl | pêl-law | math 4</annotation>
+		<annotation cp="🤾🏽" type="tts">pêl-law: math 4</annotation>
+		<annotation cp="🤾🏾">chwaraeon | person | pêl | pêl-law | math 5</annotation>
+		<annotation cp="🤾🏾" type="tts">pêl-law: math 5</annotation>
+		<annotation cp="🤾🏿">chwaraeon | person | pêl | pêl-law | math 6</annotation>
+		<annotation cp="🤾🏿" type="tts">pêl-law: math 6</annotation>
+		<annotation cp="🤾🏻‍♂">chwaraeon | dyn | pêl-law | math 1–2</annotation>
+		<annotation cp="🤾🏻‍♂" type="tts">dyn yn chwarae pêl law: math 1–2</annotation>
+		<annotation cp="🤾🏼‍♂">chwaraeon | dyn | pêl-law | math 3</annotation>
+		<annotation cp="🤾🏼‍♂" type="tts">dyn yn chwarae pêl law: math 3</annotation>
+		<annotation cp="🤾🏽‍♂">chwaraeon | dyn | pêl-law | math 4</annotation>
+		<annotation cp="🤾🏽‍♂" type="tts">dyn yn chwarae pêl law: math 4</annotation>
+		<annotation cp="🤾🏾‍♂">chwaraeon | dyn | pêl-law | math 5</annotation>
+		<annotation cp="🤾🏾‍♂" type="tts">dyn yn chwarae pêl law: math 5</annotation>
+		<annotation cp="🤾🏿‍♂">chwaraeon | dyn | pêl-law | math 6</annotation>
+		<annotation cp="🤾🏿‍♂" type="tts">dyn yn chwarae pêl law: math 6</annotation>
+		<annotation cp="🤾🏻‍♀">chwaraeon | menyw | pêl-law | math 1–2</annotation>
+		<annotation cp="🤾🏻‍♀" type="tts">menyw yn chwarae pêl law: math 1–2</annotation>
+		<annotation cp="🤾🏼‍♀">chwaraeon | menyw | pêl-law | math 3</annotation>
+		<annotation cp="🤾🏼‍♀" type="tts">menyw yn chwarae pêl law: math 3</annotation>
+		<annotation cp="🤾🏽‍♀">chwaraeon | menyw | pêl-law | math 4</annotation>
+		<annotation cp="🤾🏽‍♀" type="tts">menyw yn chwarae pêl law: math 4</annotation>
+		<annotation cp="🤾🏾‍♀">chwaraeon | menyw | pêl-law | math 5</annotation>
+		<annotation cp="🤾🏾‍♀" type="tts">menyw yn chwarae pêl law: math 5</annotation>
+		<annotation cp="🤾🏿‍♀">chwaraeon | menyw | pêl-law | math 6</annotation>
+		<annotation cp="🤾🏿‍♀" type="tts">menyw yn chwarae pêl law: math 6</annotation>
+		<annotation cp="🤹🏻">amldasgio | cydbwyso | jyglo | sgil | math 1–2</annotation>
+		<annotation cp="🤹🏻" type="tts">jyglo: math 1–2</annotation>
+		<annotation cp="🤹🏼">amldasgio | cydbwyso | jyglo | sgil | math 3</annotation>
+		<annotation cp="🤹🏼" type="tts">jyglo: math 3</annotation>
+		<annotation cp="🤹🏽">amldasgio | cydbwyso | jyglo | sgil | math 4</annotation>
+		<annotation cp="🤹🏽" type="tts">jyglo: math 4</annotation>
+		<annotation cp="🤹🏾">amldasgio | cydbwyso | jyglo | sgil | math 5</annotation>
+		<annotation cp="🤹🏾" type="tts">jyglo: math 5</annotation>
+		<annotation cp="🤹🏿">amldasgio | cydbwyso | jyglo | sgil | math 6</annotation>
+		<annotation cp="🤹🏿" type="tts">jyglo: math 6</annotation>
+		<annotation cp="🤹🏻‍♂">amldasgio | dyn | jyglo | math 1–2</annotation>
+		<annotation cp="🤹🏻‍♂" type="tts">dyn yn jyglo: math 1–2</annotation>
+		<annotation cp="🤹🏼‍♂">amldasgio | dyn | jyglo | math 3</annotation>
+		<annotation cp="🤹🏼‍♂" type="tts">dyn yn jyglo: math 3</annotation>
+		<annotation cp="🤹🏽‍♂">amldasgio | dyn | jyglo | math 4</annotation>
+		<annotation cp="🤹🏽‍♂" type="tts">dyn yn jyglo: math 4</annotation>
+		<annotation cp="🤹🏾‍♂">amldasgio | dyn | jyglo | math 5</annotation>
+		<annotation cp="🤹🏾‍♂" type="tts">dyn yn jyglo: math 5</annotation>
+		<annotation cp="🤹🏿‍♂">amldasgio | dyn | jyglo | math 6</annotation>
+		<annotation cp="🤹🏿‍♂" type="tts">dyn yn jyglo: math 6</annotation>
+		<annotation cp="🤹🏻‍♀">amldasgio | jyglo | menyw | math 1–2</annotation>
+		<annotation cp="🤹🏻‍♀" type="tts">menyw yn jyglo: math 1–2</annotation>
+		<annotation cp="🤹🏼‍♀">amldasgio | jyglo | menyw | math 3</annotation>
+		<annotation cp="🤹🏼‍♀" type="tts">menyw yn jyglo: math 3</annotation>
+		<annotation cp="🤹🏽‍♀">amldasgio | jyglo | menyw | math 4</annotation>
+		<annotation cp="🤹🏽‍♀" type="tts">menyw yn jyglo: math 4</annotation>
+		<annotation cp="🤹🏾‍♀">amldasgio | jyglo | menyw | math 5</annotation>
+		<annotation cp="🤹🏾‍♀" type="tts">menyw yn jyglo: math 5</annotation>
+		<annotation cp="🤹🏿‍♀">amldasgio | jyglo | menyw | math 6</annotation>
+		<annotation cp="🤹🏿‍♀" type="tts">menyw yn jyglo: math 6</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">dyn | menyw | pâr</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">cusan, menyw, dyn</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">dyn | gwrywaidd | pâr</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">cusan, dyn, dyn</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">benywaidd | menyw | pâr</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">cusan, menyw, menyw</annotation>
+		<annotation cp="👩‍❤‍👨">calon | cariad | menyw | pâr</annotation>
+		<annotation cp="👩‍❤‍👨" type="tts">pâr a chalon, menyw, dyn</annotation>
+		<annotation cp="👨‍❤‍👨">calon | cariad | dynion | pâr</annotation>
+		<annotation cp="👨‍❤‍👨" type="tts">pâr a chalon, dyn, dyn</annotation>
+		<annotation cp="👩‍❤‍👩">calon | cariad | menywod | pâr</annotation>
+		<annotation cp="👩‍❤‍👩" type="tts">pâr a chalon, menyw, menyw</annotation>
+		<annotation cp="👨‍👩‍👦">bachgen | mam | plentyn | tad</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">teulu, dyn, menyw, bachgen</annotation>
+		<annotation cp="👨‍👩‍👧">mam | merch | plentyn | tad</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">teulu, dyn, menyw, merch</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">mam | plant | plentyn | tad</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">teulu, dyn, menyw, merch, bachgen</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">bachgen | mam | plentyn | tad</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">teulu, dyn, menyw, bachgen, bachgen</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">mam | merch | plentyn | tad</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">teulu, dyn, menyw, merch, merch</annotation>
+		<annotation cp="👨‍👨‍👦">bachgen | mam | plentyn | tad</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">teulu, dyn, dyn, bachgen</annotation>
+		<annotation cp="👨‍👨‍👧">merch | plentyn | tad | tadau</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">teulu, dyn, dyn, merch</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">plant | plentyn | tad | tadau</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">teulu, dyn, dyn, merch, bachgen</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">bachgen | plant | tad | tadau</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">teulu, dyn, dyn, bachgen, bachgen</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">merched | plant | tad | tadau</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">teulu, dyn, dyn merch, merch</annotation>
+		<annotation cp="👩‍👩‍👦">bachgen | mam | mamau | plentyn</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">teulu, menyw, menyw, bachgen</annotation>
+		<annotation cp="👩‍👩‍👧">mam | mamau | merch | plentyn</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">teulu, menyw, menyw, merch</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">mam | mamau | plant | plentyn</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">teulu, menyw, menyw, merch, bachgen</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">bachgen | mam | mamau | plant</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">teulu, menyw, menyw, bachgen, bachgen</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">mam | mamau | merch | plant</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">teulu, menyw, menyw, merch, merch</annotation>
+		<annotation cp="👨‍👦">bachgen | plentyn | tad</annotation>
+		<annotation cp="👨‍👦" type="tts">teulu, dyn, bachgen</annotation>
+		<annotation cp="👨‍👦‍👦">bachgen | plant | plentyn | tad</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">teulu, dyn, bachgen, bachgen</annotation>
+		<annotation cp="👨‍👧">merch | plant | plentyn | tad</annotation>
+		<annotation cp="👨‍👧" type="tts">teulu, dyn, merch</annotation>
+		<annotation cp="👨‍👧‍👦">bachgen | merch | plant | tad</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">teulu, dyn, merch, bachgen</annotation>
+		<annotation cp="👨‍👧‍👧">merch | merched | plant | tad</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">teulu, dyn, merch, merch</annotation>
+		<annotation cp="👩‍👦">bachgen | mam | menyw | plentyn</annotation>
+		<annotation cp="👩‍👦" type="tts">teulu, menyw, bachgen</annotation>
+		<annotation cp="👩‍👦‍👦">bachgen | mam | menyw | plant</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">teulu, menyw, bachgen, bachgen</annotation>
+		<annotation cp="👩‍👧">mam | menyw | merch | plentyn</annotation>
+		<annotation cp="👩‍👧" type="tts">teulu, menyw, merch</annotation>
+		<annotation cp="👩‍👧‍👦">bachgen | menyw | merch | plant</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">teulu, menyw, merch, bachgen</annotation>
+		<annotation cp="👩‍👧‍👧">menyw | merch | merched | plant</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">teulu, menyw, merch, merch</annotation>
+		<annotation cp="🤳🏻">camera | ffôn | hunlun | math 1–2</annotation>
+		<annotation cp="🤳🏻" type="tts">hunlun: math 1–2</annotation>
+		<annotation cp="🤳🏼">camera | ffôn | hunlun | math 3</annotation>
+		<annotation cp="🤳🏼" type="tts">hunlun: math 3</annotation>
+		<annotation cp="🤳🏽">camera | ffôn | hunlun | math 4</annotation>
+		<annotation cp="🤳🏽" type="tts">hunlun: math 4</annotation>
+		<annotation cp="🤳🏾">camera | ffôn | hunlun | math 5</annotation>
+		<annotation cp="🤳🏾" type="tts">hunlun: math 5</annotation>
+		<annotation cp="🤳🏿">camera | ffôn | hunlun | math 6</annotation>
+		<annotation cp="🤳🏿" type="tts">hunlun: math 6</annotation>
+		<annotation cp="💪🏻">corff | cyhyrau | ystwytho | math 1–2</annotation>
+		<annotation cp="💪🏻" type="tts">cyhyrau deuben wedi eu hystwytho: math 1–2</annotation>
+		<annotation cp="💪🏼">corff | cyhyrau | ystwytho | math 3</annotation>
+		<annotation cp="💪🏼" type="tts">cyhyrau deuben wedi eu hystwytho: math 3</annotation>
+		<annotation cp="💪🏽">corff | cyhyrau | ystwytho | math 4</annotation>
+		<annotation cp="💪🏽" type="tts">cyhyrau deuben wedi eu hystwytho: math 4</annotation>
+		<annotation cp="💪🏾">corff | cyhyrau | ystwytho | math 5</annotation>
+		<annotation cp="💪🏾" type="tts">cyhyrau deuben wedi eu hystwytho: math 5</annotation>
+		<annotation cp="💪🏿">corff | cyhyrau | ystwytho | math 6</annotation>
+		<annotation cp="💪🏿" type="tts">cyhyrau deuben wedi eu hystwytho: math 6</annotation>
+		<annotation cp="👈🏻">bys | corff | gwrthlaw | llaw | math 1–2</annotation>
+		<annotation cp="👈🏻" type="tts">mynegfys yr wrthlaw yn pwyntio i’r chwith: math 1–2</annotation>
+		<annotation cp="👈🏼">bys | corff | gwrthlaw | llaw | math 3</annotation>
+		<annotation cp="👈🏼" type="tts">mynegfys yr wrthlaw yn pwyntio i’r chwith: math 3</annotation>
+		<annotation cp="👈🏽">bys | corff | gwrthlaw | llaw | math 4</annotation>
+		<annotation cp="👈🏽" type="tts">mynegfys yr wrthlaw yn pwyntio i’r chwith: math 4</annotation>
+		<annotation cp="👈🏾">bys | corff | gwrthlaw | llaw | math 5</annotation>
+		<annotation cp="👈🏾" type="tts">mynegfys yr wrthlaw yn pwyntio i’r chwith: math 5</annotation>
+		<annotation cp="👈🏿">bys | corff | gwrthlaw | llaw | math 6</annotation>
+		<annotation cp="👈🏿" type="tts">mynegfys yr wrthlaw yn pwyntio i’r chwith: math 6</annotation>
+		<annotation cp="👉🏻">bys | corff | gwrthlaw | llaw | math 1–2</annotation>
+		<annotation cp="👉🏻" type="tts">mynegfys yr wrthlaw yn pwyntio i’r dde: math 1–2</annotation>
+		<annotation cp="👉🏼">bys | corff | gwrthlaw | llaw | math 3</annotation>
+		<annotation cp="👉🏼" type="tts">mynegfys yr wrthlaw yn pwyntio i’r dde: math 3</annotation>
+		<annotation cp="👉🏽">bys | corff | gwrthlaw | llaw | math 4</annotation>
+		<annotation cp="👉🏽" type="tts">mynegfys yr wrthlaw yn pwyntio i’r dde: math 4</annotation>
+		<annotation cp="👉🏾">bys | corff | gwrthlaw | llaw | math 5</annotation>
+		<annotation cp="👉🏾" type="tts">mynegfys yr wrthlaw yn pwyntio i’r dde: math 5</annotation>
+		<annotation cp="👉🏿">bys | corff | gwrthlaw | llaw | math 6</annotation>
+		<annotation cp="👉🏿" type="tts">mynegfys yr wrthlaw yn pwyntio i’r dde: math 6</annotation>
+		<annotation cp="☝🏻">corff | i fyny | mynegfys | pwyntio | math 1–2</annotation>
+		<annotation cp="☝🏻" type="tts">mynegfys yn pwyntio i fyny: math 1–2</annotation>
+		<annotation cp="☝🏼">corff | i fyny | mynegfys | pwyntio | math 3</annotation>
+		<annotation cp="☝🏼" type="tts">mynegfys yn pwyntio i fyny: math 3</annotation>
+		<annotation cp="☝🏽">corff | i fyny | mynegfys | pwyntio | math 4</annotation>
+		<annotation cp="☝🏽" type="tts">mynegfys yn pwyntio i fyny: math 4</annotation>
+		<annotation cp="☝🏾">corff | i fyny | mynegfys | pwyntio | math 5</annotation>
+		<annotation cp="☝🏾" type="tts">mynegfys yn pwyntio i fyny: math 5</annotation>
+		<annotation cp="☝🏿">corff | i fyny | mynegfys | pwyntio | math 6</annotation>
+		<annotation cp="☝🏿" type="tts">mynegfys yn pwyntio i fyny: math 6</annotation>
+		<annotation cp="👆🏻">bys | corff | gwrthlaw | mynegfys | math 1–2</annotation>
+		<annotation cp="👆🏻" type="tts">mynegfys yr wrthlaw yn pwyntio i fyny: math 1–2</annotation>
+		<annotation cp="👆🏼">bys | corff | gwrthlaw | mynegfys | math 3</annotation>
+		<annotation cp="👆🏼" type="tts">mynegfys yr wrthlaw yn pwyntio i fyny: math 3</annotation>
+		<annotation cp="👆🏽">bys | corff | gwrthlaw | mynegfys | math 4</annotation>
+		<annotation cp="👆🏽" type="tts">mynegfys yr wrthlaw yn pwyntio i fyny: math 4</annotation>
+		<annotation cp="👆🏾">bys | corff | gwrthlaw | mynegfys | math 5</annotation>
+		<annotation cp="👆🏾" type="tts">mynegfys yr wrthlaw yn pwyntio i fyny: math 5</annotation>
+		<annotation cp="👆🏿">bys | corff | gwrthlaw | mynegfys | math 6</annotation>
+		<annotation cp="👆🏿" type="tts">mynegfys yr wrthlaw yn pwyntio i fyny: math 6</annotation>
+		<annotation cp="🖕🏻">bys | corff | llaw | math 1–2</annotation>
+		<annotation cp="🖕🏻" type="tts">bys canol: math 1–2</annotation>
+		<annotation cp="🖕🏼">bys | corff | llaw | math 3</annotation>
+		<annotation cp="🖕🏼" type="tts">bys canol: math 3</annotation>
+		<annotation cp="🖕🏽">bys | corff | llaw | math 4</annotation>
+		<annotation cp="🖕🏽" type="tts">bys canol: math 4</annotation>
+		<annotation cp="🖕🏾">bys | corff | llaw | math 5</annotation>
+		<annotation cp="🖕🏾" type="tts">bys canol: math 5</annotation>
+		<annotation cp="🖕🏿">bys | corff | llaw | math 6</annotation>
+		<annotation cp="🖕🏿" type="tts">bys canol: math 6</annotation>
+		<annotation cp="👇🏻">bys | corff | gwrthlaw | mynegfys | math 1–2</annotation>
+		<annotation cp="👇🏻" type="tts">mynegfys yr wrthlaw yn pwyntio i lawr: math 1–2</annotation>
+		<annotation cp="👇🏼">bys | corff | gwrthlaw | mynegfys | math 3</annotation>
+		<annotation cp="👇🏼" type="tts">mynegfys yr wrthlaw yn pwyntio i lawr: math 3</annotation>
+		<annotation cp="👇🏽">bys | corff | gwrthlaw | mynegfys | math 4</annotation>
+		<annotation cp="👇🏽" type="tts">mynegfys yr wrthlaw yn pwyntio i lawr: math 4</annotation>
+		<annotation cp="👇🏾">bys | corff | gwrthlaw | mynegfys | math 5</annotation>
+		<annotation cp="👇🏾" type="tts">mynegfys yr wrthlaw yn pwyntio i lawr: math 5</annotation>
+		<annotation cp="👇🏿">bys | corff | gwrthlaw | mynegfys | math 6</annotation>
+		<annotation cp="👇🏿" type="tts">mynegfys yr wrthlaw yn pwyntio i lawr: math 6</annotation>
+		<annotation cp="✌🏻">buddugoliaeth | corff | llaw | v | math 1–2</annotation>
+		<annotation cp="✌🏻" type="tts">llaw fuddugol: math 1–2</annotation>
+		<annotation cp="✌🏼">buddugoliaeth | corff | llaw | v | math 3</annotation>
+		<annotation cp="✌🏼" type="tts">llaw fuddugol: math 3</annotation>
+		<annotation cp="✌🏽">buddugoliaeth | corff | llaw | v | math 4</annotation>
+		<annotation cp="✌🏽" type="tts">llaw fuddugol: math 4</annotation>
+		<annotation cp="✌🏾">buddugoliaeth | corff | llaw | v | math 5</annotation>
+		<annotation cp="✌🏾" type="tts">llaw fuddugol: math 5</annotation>
+		<annotation cp="✌🏿">buddugoliaeth | corff | llaw | v | math 6</annotation>
+		<annotation cp="✌🏿" type="tts">llaw fuddugol: math 6</annotation>
+		<annotation cp="🤞🏻">bys | croesi | llaw | lwc | math 1–2</annotation>
+		<annotation cp="🤞🏻" type="tts">bysedd wedi’u croesi: math 1–2</annotation>
+		<annotation cp="🤞🏼">bys | croesi | llaw | lwc | math 3</annotation>
+		<annotation cp="🤞🏼" type="tts">bysedd wedi’u croesi: math 3</annotation>
+		<annotation cp="🤞🏽">bys | croesi | llaw | lwc | math 4</annotation>
+		<annotation cp="🤞🏽" type="tts">bysedd wedi’u croesi: math 4</annotation>
+		<annotation cp="🤞🏾">bys | croesi | llaw | lwc | math 5</annotation>
+		<annotation cp="🤞🏾" type="tts">bysedd wedi’u croesi: math 5</annotation>
+		<annotation cp="🤞🏿">bys | croesi | llaw | lwc | math 6</annotation>
+		<annotation cp="🤞🏿" type="tts">bysedd wedi’u croesi: math 6</annotation>
+		<annotation cp="🖖🏻">bys | corff | llaw | spock | math 1–2</annotation>
+		<annotation cp="🖖🏻" type="tts">saliwt fulcanaidd: math 1–2</annotation>
+		<annotation cp="🖖🏼">bys | corff | llaw | spock | math 3</annotation>
+		<annotation cp="🖖🏼" type="tts">saliwt fulcanaidd: math 3</annotation>
+		<annotation cp="🖖🏽">bys | corff | llaw | spock | math 4</annotation>
+		<annotation cp="🖖🏽" type="tts">saliwt fulcanaidd: math 4</annotation>
+		<annotation cp="🖖🏾">bys | corff | llaw | spock | math 5</annotation>
+		<annotation cp="🖖🏾" type="tts">saliwt fulcanaidd: math 5</annotation>
+		<annotation cp="🖖🏿">bys | corff | llaw | spock | math 6</annotation>
+		<annotation cp="🖖🏿" type="tts">saliwt fulcanaidd: math 6</annotation>
+		<annotation cp="🤘🏻">bys | corff | cyrn | llaw | math 1–2</annotation>
+		<annotation cp="🤘🏻" type="tts">arwydd y cyrn: math 1–2</annotation>
+		<annotation cp="🤘🏼">bys | corff | cyrn | llaw | math 3</annotation>
+		<annotation cp="🤘🏼" type="tts">arwydd y cyrn: math 3</annotation>
+		<annotation cp="🤘🏽">bys | corff | cyrn | llaw | math 4</annotation>
+		<annotation cp="🤘🏽" type="tts">arwydd y cyrn: math 4</annotation>
+		<annotation cp="🤘🏾">bys | corff | cyrn | llaw | math 5</annotation>
+		<annotation cp="🤘🏾" type="tts">arwydd y cyrn: math 5</annotation>
+		<annotation cp="🤘🏿">bys | corff | cyrn | llaw | math 6</annotation>
+		<annotation cp="🤘🏿" type="tts">arwydd y cyrn: math 6</annotation>
+		<annotation cp="🤙🏻">ffonio | llaw | math 1–2</annotation>
+		<annotation cp="🤙🏻" type="tts">llaw ffonia fi: math 1–2</annotation>
+		<annotation cp="🤙🏼">ffonio | llaw | math 3</annotation>
+		<annotation cp="🤙🏼" type="tts">llaw ffonia fi: math 3</annotation>
+		<annotation cp="🤙🏽">ffonio | llaw | math 4</annotation>
+		<annotation cp="🤙🏽" type="tts">llaw ffonia fi: math 4</annotation>
+		<annotation cp="🤙🏾">ffonio | llaw | math 5</annotation>
+		<annotation cp="🤙🏾" type="tts">llaw ffonia fi: math 5</annotation>
+		<annotation cp="🤙🏿">ffonio | llaw | math 6</annotation>
+		<annotation cp="🤙🏿" type="tts">llaw ffonia fi: math 6</annotation>
+		<annotation cp="🖐🏻">bys | corff | llaw | wedi lledu | math 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">llaw wedi ei chodi â bysedd wedi eu lledu: math 1–2</annotation>
+		<annotation cp="🖐🏼">bys | corff | llaw | wedi lledu | math 3</annotation>
+		<annotation cp="🖐🏼" type="tts">llaw wedi ei chodi â bysedd wedi eu lledu: math 3</annotation>
+		<annotation cp="🖐🏽">bys | corff | llaw | wedi lledu | math 4</annotation>
+		<annotation cp="🖐🏽" type="tts">llaw wedi ei chodi â bysedd wedi eu lledu: math 4</annotation>
+		<annotation cp="🖐🏾">bys | corff | llaw | wedi lledu | math 5</annotation>
+		<annotation cp="🖐🏾" type="tts">llaw wedi ei chodi â bysedd wedi eu lledu: math 5</annotation>
+		<annotation cp="🖐🏿">bys | corff | llaw | wedi lledu | math 6</annotation>
+		<annotation cp="🖐🏿" type="tts">llaw wedi ei chodi â bysedd wedi eu lledu: math 6</annotation>
+		<annotation cp="✋🏻">corff | llaw | math 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">llaw wedi codi: math 1–2</annotation>
+		<annotation cp="✋🏼">corff | llaw | math 3</annotation>
+		<annotation cp="✋🏼" type="tts">llaw wedi codi: math 3</annotation>
+		<annotation cp="✋🏽">corff | llaw | math 4</annotation>
+		<annotation cp="✋🏽" type="tts">llaw wedi codi: math 4</annotation>
+		<annotation cp="✋🏾">corff | llaw | math 5</annotation>
+		<annotation cp="✋🏾" type="tts">llaw wedi codi: math 5</annotation>
+		<annotation cp="✋🏿">corff | llaw | math 6</annotation>
+		<annotation cp="✋🏿" type="tts">llaw wedi codi: math 6</annotation>
+		<annotation cp="👌🏻">corff | llaw | ok | math 1–2</annotation>
+		<annotation cp="👌🏻" type="tts">llaw ocê: math 1–2</annotation>
+		<annotation cp="👌🏼">corff | llaw | ok | math 3</annotation>
+		<annotation cp="👌🏼" type="tts">llaw ocê: math 3</annotation>
+		<annotation cp="👌🏽">corff | llaw | ok | math 4</annotation>
+		<annotation cp="👌🏽" type="tts">llaw ocê: math 4</annotation>
+		<annotation cp="👌🏾">corff | llaw | ok | math 5</annotation>
+		<annotation cp="👌🏾" type="tts">llaw ocê: math 5</annotation>
+		<annotation cp="👌🏿">corff | llaw | ok | math 6</annotation>
+		<annotation cp="👌🏿" type="tts">llaw ocê: math 6</annotation>
+		<annotation cp="👍🏻">bys bawd | corff | ok | math 1–2</annotation>
+		<annotation cp="👍🏻" type="tts">byw bawd i fyny: math 1–2</annotation>
+		<annotation cp="👍🏼">bys bawd | corff | ok | math 3</annotation>
+		<annotation cp="👍🏼" type="tts">byw bawd i fyny: math 3</annotation>
+		<annotation cp="👍🏽">bys bawd | corff | ok | math 4</annotation>
+		<annotation cp="👍🏽" type="tts">byw bawd i fyny: math 4</annotation>
+		<annotation cp="👍🏾">bys bawd | corff | ok | math 5</annotation>
+		<annotation cp="👍🏾" type="tts">byw bawd i fyny: math 5</annotation>
+		<annotation cp="👍🏿">bys bawd | corff | ok | math 6</annotation>
+		<annotation cp="👍🏿" type="tts">byw bawd i fyny: math 6</annotation>
+		<annotation cp="👎🏻">bys bawd | corff | i lawr | llaw | math 1–2</annotation>
+		<annotation cp="👎🏻" type="tts">bys bawd i lawr: math 1–2</annotation>
+		<annotation cp="👎🏼">bys bawd | corff | i lawr | llaw | math 3</annotation>
+		<annotation cp="👎🏼" type="tts">bys bawd i lawr: math 3</annotation>
+		<annotation cp="👎🏽">bys bawd | corff | i lawr | llaw | math 4</annotation>
+		<annotation cp="👎🏽" type="tts">bys bawd i lawr: math 4</annotation>
+		<annotation cp="👎🏾">bys bawd | corff | i lawr | llaw | math 5</annotation>
+		<annotation cp="👎🏾" type="tts">bys bawd i lawr: math 5</annotation>
+		<annotation cp="👎🏿">bys bawd | corff | i lawr | llaw | math 6</annotation>
+		<annotation cp="👎🏿" type="tts">bys bawd i lawr: math 6</annotation>
+		<annotation cp="✊🏻">cau | corff | dwrn | llaw | math 1–2</annotation>
+		<annotation cp="✊🏻" type="tts">dwrn wedi codi: math 1–2</annotation>
+		<annotation cp="✊🏼">cau | corff | dwrn | llaw | math 3</annotation>
+		<annotation cp="✊🏼" type="tts">dwrn wedi codi: math 3</annotation>
+		<annotation cp="✊🏽">cau | corff | dwrn | llaw | math 4</annotation>
+		<annotation cp="✊🏽" type="tts">dwrn wedi codi: math 4</annotation>
+		<annotation cp="✊🏾">cau | corff | dwrn | llaw | math 5</annotation>
+		<annotation cp="✊🏾" type="tts">dwrn wedi codi: math 5</annotation>
+		<annotation cp="✊🏿">cau | corff | dwrn | llaw | math 6</annotation>
+		<annotation cp="✊🏿" type="tts">dwrn wedi codi: math 6</annotation>
+		<annotation cp="👊🏻">cau | corff | dwrn | llaw | math 1–2</annotation>
+		<annotation cp="👊🏻" type="tts">dwrn yn agosáu: math 1–2</annotation>
+		<annotation cp="👊🏼">cau | corff | dwrn | llaw | math 3</annotation>
+		<annotation cp="👊🏼" type="tts">dwrn yn agosáu: math 3</annotation>
+		<annotation cp="👊🏽">cau | corff | dwrn | llaw | math 4</annotation>
+		<annotation cp="👊🏽" type="tts">dwrn yn agosáu: math 4</annotation>
+		<annotation cp="👊🏾">cau | corff | dwrn | llaw | math 5</annotation>
+		<annotation cp="👊🏾" type="tts">dwrn yn agosáu: math 5</annotation>
+		<annotation cp="👊🏿">cau | corff | dwrn | llaw | math 6</annotation>
+		<annotation cp="👊🏿" type="tts">dwrn yn agosáu: math 6</annotation>
+		<annotation cp="🤛🏻">dwrn | tua’r chwith | math 1–2</annotation>
+		<annotation cp="🤛🏻" type="tts">dwrn tua’r chwith: math 1–2</annotation>
+		<annotation cp="🤛🏼">dwrn | tua’r chwith | math 3</annotation>
+		<annotation cp="🤛🏼" type="tts">dwrn tua’r chwith: math 3</annotation>
+		<annotation cp="🤛🏽">dwrn | tua’r chwith | math 4</annotation>
+		<annotation cp="🤛🏽" type="tts">dwrn tua’r chwith: math 4</annotation>
+		<annotation cp="🤛🏾">dwrn | tua’r chwith | math 5</annotation>
+		<annotation cp="🤛🏾" type="tts">dwrn tua’r chwith: math 5</annotation>
+		<annotation cp="🤛🏿">dwrn | tua’r chwith | math 6</annotation>
+		<annotation cp="🤛🏿" type="tts">dwrn tua’r chwith: math 6</annotation>
+		<annotation cp="🤜🏻">dwrn | tua’r dde | math 1–2</annotation>
+		<annotation cp="🤜🏻" type="tts">dwrn tua’r dde: math 1–2</annotation>
+		<annotation cp="🤜🏼">dwrn | tua’r dde | math 3</annotation>
+		<annotation cp="🤜🏼" type="tts">dwrn tua’r dde: math 3</annotation>
+		<annotation cp="🤜🏽">dwrn | tua’r dde | math 4</annotation>
+		<annotation cp="🤜🏽" type="tts">dwrn tua’r dde: math 4</annotation>
+		<annotation cp="🤜🏾">dwrn | tua’r dde | math 5</annotation>
+		<annotation cp="🤜🏾" type="tts">dwrn tua’r dde: math 5</annotation>
+		<annotation cp="🤜🏿">dwrn | tua’r dde | math 6</annotation>
+		<annotation cp="🤜🏿" type="tts">dwrn tua’r dde: math 6</annotation>
+		<annotation cp="🤚🏻">cefn llaw | wedi’i chodi | math 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">cefn llaw wedi’i chodi: math 1–2</annotation>
+		<annotation cp="🤚🏼">cefn llaw | wedi’i chodi | math 3</annotation>
+		<annotation cp="🤚🏼" type="tts">cefn llaw wedi’i chodi: math 3</annotation>
+		<annotation cp="🤚🏽">cefn llaw | wedi’i chodi | math 4</annotation>
+		<annotation cp="🤚🏽" type="tts">cefn llaw wedi’i chodi: math 4</annotation>
+		<annotation cp="🤚🏾">cefn llaw | wedi’i chodi | math 5</annotation>
+		<annotation cp="🤚🏾" type="tts">cefn llaw wedi’i chodi: math 5</annotation>
+		<annotation cp="🤚🏿">cefn llaw | wedi’i chodi | math 6</annotation>
+		<annotation cp="🤚🏿" type="tts">cefn llaw wedi’i chodi: math 6</annotation>
+		<annotation cp="👋🏻">chwifio | corff | llaw | math 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">llaw yn chwifio: math 1–2</annotation>
+		<annotation cp="👋🏼">chwifio | corff | llaw | math 3</annotation>
+		<annotation cp="👋🏼" type="tts">llaw yn chwifio: math 3</annotation>
+		<annotation cp="👋🏽">chwifio | corff | llaw | math 4</annotation>
+		<annotation cp="👋🏽" type="tts">llaw yn chwifio: math 4</annotation>
+		<annotation cp="👋🏾">chwifio | corff | llaw | math 5</annotation>
+		<annotation cp="👋🏾" type="tts">llaw yn chwifio: math 5</annotation>
+		<annotation cp="👋🏿">chwifio | corff | llaw | math 6</annotation>
+		<annotation cp="👋🏿" type="tts">llaw yn chwifio: math 6</annotation>
+		<annotation cp="✍🏻">corff | llaw | ysgrifennu | math 1–2</annotation>
+		<annotation cp="✍🏻" type="tts">dwylo yn ysgrifennu: math 1–2</annotation>
+		<annotation cp="✍🏼">corff | llaw | ysgrifennu | math 3</annotation>
+		<annotation cp="✍🏼" type="tts">dwylo yn ysgrifennu: math 3</annotation>
+		<annotation cp="✍🏽">corff | llaw | ysgrifennu | math 4</annotation>
+		<annotation cp="✍🏽" type="tts">dwylo yn ysgrifennu: math 4</annotation>
+		<annotation cp="✍🏾">corff | llaw | ysgrifennu | math 5</annotation>
+		<annotation cp="✍🏾" type="tts">dwylo yn ysgrifennu: math 5</annotation>
+		<annotation cp="✍🏿">corff | llaw | ysgrifennu | math 6</annotation>
+		<annotation cp="✍🏿" type="tts">dwylo yn ysgrifennu: math 6</annotation>
+		<annotation cp="👏🏻">corff | curo | llaw | math 1–2</annotation>
+		<annotation cp="👏🏻" type="tts">dwylo yn curo: math 1–2</annotation>
+		<annotation cp="👏🏼">corff | curo | llaw | math 3</annotation>
+		<annotation cp="👏🏼" type="tts">dwylo yn curo: math 3</annotation>
+		<annotation cp="👏🏽">corff | curo | llaw | math 4</annotation>
+		<annotation cp="👏🏽" type="tts">dwylo yn curo: math 4</annotation>
+		<annotation cp="👏🏾">corff | curo | llaw | math 5</annotation>
+		<annotation cp="👏🏾" type="tts">dwylo yn curo: math 5</annotation>
+		<annotation cp="👏🏿">corff | curo | llaw | math 6</annotation>
+		<annotation cp="👏🏿" type="tts">dwylo yn curo: math 6</annotation>
+		<annotation cp="👐🏻">agored | corff | llaw | math 1–2</annotation>
+		<annotation cp="👐🏻" type="tts">dwylo agored: math 1–2</annotation>
+		<annotation cp="👐🏼">agored | corff | llaw | math 3</annotation>
+		<annotation cp="👐🏼" type="tts">dwylo agored: math 3</annotation>
+		<annotation cp="👐🏽">agored | corff | llaw | math 4</annotation>
+		<annotation cp="👐🏽" type="tts">dwylo agored: math 4</annotation>
+		<annotation cp="👐🏾">agored | corff | llaw | math 5</annotation>
+		<annotation cp="👐🏾" type="tts">dwylo agored: math 5</annotation>
+		<annotation cp="👐🏿">agored | corff | llaw | math 6</annotation>
+		<annotation cp="👐🏿" type="tts">dwylo agored: math 6</annotation>
+		<annotation cp="🙌🏻">corff | dathliad | llaw | ystum | math 1–2</annotation>
+		<annotation cp="🙌🏻" type="tts">person yn codi dwylo: math 1–2</annotation>
+		<annotation cp="🙌🏼">corff | dathliad | llaw | ystum | math 3</annotation>
+		<annotation cp="🙌🏼" type="tts">person yn codi dwylo: math 3</annotation>
+		<annotation cp="🙌🏽">corff | dathliad | llaw | ystum | math 4</annotation>
+		<annotation cp="🙌🏽" type="tts">person yn codi dwylo: math 4</annotation>
+		<annotation cp="🙌🏾">corff | dathliad | llaw | ystum | math 5</annotation>
+		<annotation cp="🙌🏾" type="tts">person yn codi dwylo: math 5</annotation>
+		<annotation cp="🙌🏿">corff | dathliad | llaw | ystum | math 6</annotation>
+		<annotation cp="🙌🏿" type="tts">person yn codi dwylo: math 6</annotation>
+		<annotation cp="🙏🏻">corff | gweddi | plygu | ystum | math 1–2</annotation>
+		<annotation cp="🙏🏻" type="tts">dwylo wedi plygu: math 1–2</annotation>
+		<annotation cp="🙏🏼">corff | gweddi | plygu | ystum | math 3</annotation>
+		<annotation cp="🙏🏼" type="tts">dwylo wedi plygu: math 3</annotation>
+		<annotation cp="🙏🏽">corff | gweddi | plygu | ystum | math 4</annotation>
+		<annotation cp="🙏🏽" type="tts">dwylo wedi plygu: math 4</annotation>
+		<annotation cp="🙏🏾">corff | gweddi | plygu | ystum | math 5</annotation>
+		<annotation cp="🙏🏾" type="tts">dwylo wedi plygu: math 5</annotation>
+		<annotation cp="🙏🏿">corff | gweddi | plygu | ystum | math 6</annotation>
+		<annotation cp="🙏🏿" type="tts">dwylo wedi plygu: math 6</annotation>
+		<annotation cp="💅🏻">corff | ewyn | gofal | triniaeth | math 1–2</annotation>
+		<annotation cp="💅🏻" type="tts">farnais ewinedd: math 1–2</annotation>
+		<annotation cp="💅🏼">corff | ewyn | gofal | triniaeth | math 3</annotation>
+		<annotation cp="💅🏼" type="tts">farnais ewinedd: math 3</annotation>
+		<annotation cp="💅🏽">corff | ewyn | gofal | triniaeth | math 4</annotation>
+		<annotation cp="💅🏽" type="tts">farnais ewinedd: math 4</annotation>
+		<annotation cp="💅🏾">corff | ewyn | gofal | triniaeth | math 5</annotation>
+		<annotation cp="💅🏾" type="tts">farnais ewinedd: math 5</annotation>
+		<annotation cp="💅🏿">corff | ewyn | gofal | triniaeth | math 6</annotation>
+		<annotation cp="💅🏿" type="tts">farnais ewinedd: math 6</annotation>
+		<annotation cp="👂🏻">corff | math 1–2</annotation>
+		<annotation cp="👂🏻" type="tts">clust: math 1–2</annotation>
+		<annotation cp="👂🏼">corff | math 3</annotation>
+		<annotation cp="👂🏼" type="tts">clust: math 3</annotation>
+		<annotation cp="👂🏽">corff | math 4</annotation>
+		<annotation cp="👂🏽" type="tts">clust: math 4</annotation>
+		<annotation cp="👂🏾">corff | math 5</annotation>
+		<annotation cp="👂🏾" type="tts">clust: math 5</annotation>
+		<annotation cp="👂🏿">corff | math 6</annotation>
+		<annotation cp="👂🏿" type="tts">clust: math 6</annotation>
+		<annotation cp="👃🏻">corff | math 1–2</annotation>
+		<annotation cp="👃🏻" type="tts">trwyn: math 1–2</annotation>
+		<annotation cp="👃🏼">corff | math 3</annotation>
+		<annotation cp="👃🏼" type="tts">trwyn: math 3</annotation>
+		<annotation cp="👃🏽">corff | math 4</annotation>
+		<annotation cp="👃🏽" type="tts">trwyn: math 4</annotation>
+		<annotation cp="👃🏾">corff | math 5</annotation>
+		<annotation cp="👃🏾" type="tts">trwyn: math 5</annotation>
+		<annotation cp="👃🏿">corff | math 6</annotation>
+		<annotation cp="👃🏿" type="tts">trwyn: math 6</annotation>
+		<annotation cp="#⃣">bysell</annotation>
+		<annotation cp="#⃣" type="tts">bysell: #</annotation>
+		<annotation cp="*⃣">bysell</annotation>
+		<annotation cp="*⃣" type="tts">bysell: *</annotation>
+		<annotation cp="🇦🇨">banner</annotation>
+		<annotation cp="🇦🇨" type="tts">Ynys Ascension</annotation>
+		<annotation cp="🇦🇩">banner</annotation>
+		<annotation cp="🇦🇩" type="tts">Andorra</annotation>
+		<annotation cp="🇦🇪">banner</annotation>
+		<annotation cp="🇦🇪" type="tts">Emiradau Arabaidd Unedig</annotation>
+		<annotation cp="🇦🇫">banner</annotation>
+		<annotation cp="🇦🇫" type="tts">Afghanistan</annotation>
+		<annotation cp="🇦🇬">banner</annotation>
+		<annotation cp="🇦🇬" type="tts">Antigua a Barbuda</annotation>
+		<annotation cp="🇦🇮">banner</annotation>
+		<annotation cp="🇦🇮" type="tts">Anguilla</annotation>
+		<annotation cp="🇦🇱">banner</annotation>
+		<annotation cp="🇦🇱" type="tts">Albania</annotation>
+		<annotation cp="🇦🇲">banner</annotation>
+		<annotation cp="🇦🇲" type="tts">Armenia</annotation>
+		<annotation cp="🇦🇴">banner</annotation>
+		<annotation cp="🇦🇴" type="tts">Angola</annotation>
+		<annotation cp="🇦🇶">banner</annotation>
+		<annotation cp="🇦🇶" type="tts">Antarctica</annotation>
+		<annotation cp="🇦🇷">banner</annotation>
+		<annotation cp="🇦🇷" type="tts">Yr Ariannin</annotation>
+		<annotation cp="🇦🇸">banner</annotation>
+		<annotation cp="🇦🇸" type="tts">Samoa America</annotation>
+		<annotation cp="🇦🇹">banner</annotation>
+		<annotation cp="🇦🇹" type="tts">Awstria</annotation>
+		<annotation cp="🇦🇺">banner</annotation>
+		<annotation cp="🇦🇺" type="tts">Awstralia</annotation>
+		<annotation cp="🇦🇼">banner</annotation>
+		<annotation cp="🇦🇼" type="tts">Aruba</annotation>
+		<annotation cp="🇦🇽">banner</annotation>
+		<annotation cp="🇦🇽" type="tts">Ynysoedd Åland</annotation>
+		<annotation cp="🇦🇿">banner</annotation>
+		<annotation cp="🇦🇿" type="tts">Azerbaijan</annotation>
+		<annotation cp="🇧🇦">banner</annotation>
+		<annotation cp="🇧🇦" type="tts">Bosnia a Hercegovina</annotation>
+		<annotation cp="🇧🇧">banner</annotation>
+		<annotation cp="🇧🇧" type="tts">Barbados</annotation>
+		<annotation cp="🇧🇩">banner</annotation>
+		<annotation cp="🇧🇩" type="tts">Bangladesh</annotation>
+		<annotation cp="🇧🇪">banner</annotation>
+		<annotation cp="🇧🇪" type="tts">Gwlad Belg</annotation>
+		<annotation cp="🇧🇫">banner</annotation>
+		<annotation cp="🇧🇫" type="tts">Burkina Faso</annotation>
+		<annotation cp="🇧🇬">banner</annotation>
+		<annotation cp="🇧🇬" type="tts">Bwlgaria</annotation>
+		<annotation cp="🇧🇭">banner</annotation>
+		<annotation cp="🇧🇭" type="tts">Bahrain</annotation>
+		<annotation cp="🇧🇮">banner</annotation>
+		<annotation cp="🇧🇮" type="tts">Burundi</annotation>
+		<annotation cp="🇧🇯">banner</annotation>
+		<annotation cp="🇧🇯" type="tts">Benin</annotation>
+		<annotation cp="🇧🇱">banner</annotation>
+		<annotation cp="🇧🇱" type="tts">Saint Barthélemy</annotation>
+		<annotation cp="🇧🇲">banner</annotation>
+		<annotation cp="🇧🇲" type="tts">Bermuda</annotation>
+		<annotation cp="🇧🇳">banner</annotation>
+		<annotation cp="🇧🇳" type="tts">Brunei</annotation>
+		<annotation cp="🇧🇴">banner</annotation>
+		<annotation cp="🇧🇴" type="tts">Bolifia</annotation>
+		<annotation cp="🇧🇶">banner</annotation>
+		<annotation cp="🇧🇶" type="tts">Antilles yr Iseldiroedd</annotation>
+		<annotation cp="🇧🇷">banner</annotation>
+		<annotation cp="🇧🇷" type="tts">Brasil</annotation>
+		<annotation cp="🇧🇸">banner</annotation>
+		<annotation cp="🇧🇸" type="tts">Y Bahamas</annotation>
+		<annotation cp="🇧🇹">banner</annotation>
+		<annotation cp="🇧🇹" type="tts">Bhutan</annotation>
+		<annotation cp="🇧🇻">banner</annotation>
+		<annotation cp="🇧🇻" type="tts">Ynys Bouvet</annotation>
+		<annotation cp="🇧🇼">banner</annotation>
+		<annotation cp="🇧🇼" type="tts">Botswana</annotation>
+		<annotation cp="🇧🇾">banner</annotation>
+		<annotation cp="🇧🇾" type="tts">Belarws</annotation>
+		<annotation cp="🇧🇿">banner</annotation>
+		<annotation cp="🇧🇿" type="tts">Belize</annotation>
+		<annotation cp="🇨🇦">banner</annotation>
+		<annotation cp="🇨🇦" type="tts">Canada</annotation>
+		<annotation cp="🇨🇨">banner</annotation>
+		<annotation cp="🇨🇨" type="tts">Ynysoedd Cocos (Keeling)</annotation>
+		<annotation cp="🇨🇩">banner</annotation>
+		<annotation cp="🇨🇩" type="tts">Y Congo - Kinshasa</annotation>
+		<annotation cp="🇨🇫">banner</annotation>
+		<annotation cp="🇨🇫" type="tts">Gweriniaeth Canolbarth Affrica</annotation>
+		<annotation cp="🇨🇬">banner</annotation>
+		<annotation cp="🇨🇬" type="tts">Y Congo - Brazzaville</annotation>
+		<annotation cp="🇨🇭">banner</annotation>
+		<annotation cp="🇨🇭" type="tts">Y Swistir</annotation>
+		<annotation cp="🇨🇮">banner</annotation>
+		<annotation cp="🇨🇮" type="tts">Côte d’Ivoire</annotation>
+		<annotation cp="🇨🇰">banner</annotation>
+		<annotation cp="🇨🇰" type="tts">Ynysoedd Cook</annotation>
+		<annotation cp="🇨🇱">banner</annotation>
+		<annotation cp="🇨🇱" type="tts">Chile</annotation>
+		<annotation cp="🇨🇲">banner</annotation>
+		<annotation cp="🇨🇲" type="tts">Camerŵn</annotation>
+		<annotation cp="🇨🇳">banner</annotation>
+		<annotation cp="🇨🇳" type="tts">Tsieina</annotation>
+		<annotation cp="🇨🇴">banner</annotation>
+		<annotation cp="🇨🇴" type="tts">Colombia</annotation>
+		<annotation cp="🇨🇵">banner</annotation>
+		<annotation cp="🇨🇵" type="tts">Ynys Clipperton</annotation>
+		<annotation cp="🇨🇷">banner</annotation>
+		<annotation cp="🇨🇷" type="tts">Costa Rica</annotation>
+		<annotation cp="🇨🇺">banner</annotation>
+		<annotation cp="🇨🇺" type="tts">Ciwba</annotation>
+		<annotation cp="🇨🇻">banner</annotation>
+		<annotation cp="🇨🇻" type="tts">Cabo Verde</annotation>
+		<annotation cp="🇨🇼">banner</annotation>
+		<annotation cp="🇨🇼" type="tts">Curaçao</annotation>
+		<annotation cp="🇨🇽">banner</annotation>
+		<annotation cp="🇨🇽" type="tts">Ynys y Nadolig</annotation>
+		<annotation cp="🇨🇾">banner</annotation>
+		<annotation cp="🇨🇾" type="tts">Cyprus</annotation>
+		<annotation cp="🇨🇿">banner</annotation>
+		<annotation cp="🇨🇿" type="tts">Tsiecia</annotation>
+		<annotation cp="🇩🇪">banner</annotation>
+		<annotation cp="🇩🇪" type="tts">Yr Almaen</annotation>
+		<annotation cp="🇩🇬">banner</annotation>
+		<annotation cp="🇩🇬" type="tts">Diego Garcia</annotation>
+		<annotation cp="🇩🇯">banner</annotation>
+		<annotation cp="🇩🇯" type="tts">Djibouti</annotation>
+		<annotation cp="🇩🇰">banner</annotation>
+		<annotation cp="🇩🇰" type="tts">Denmarc</annotation>
+		<annotation cp="🇩🇲">banner</annotation>
+		<annotation cp="🇩🇲" type="tts">Dominica</annotation>
+		<annotation cp="🇩🇴">banner</annotation>
+		<annotation cp="🇩🇴" type="tts">Gweriniaeth Dominica</annotation>
+		<annotation cp="🇩🇿">banner</annotation>
+		<annotation cp="🇩🇿" type="tts">Algeria</annotation>
+		<annotation cp="🇪🇦">banner</annotation>
+		<annotation cp="🇪🇦" type="tts">Ceuta a Melilla</annotation>
+		<annotation cp="🇪🇨">banner</annotation>
+		<annotation cp="🇪🇨" type="tts">Ecuador</annotation>
+		<annotation cp="🇪🇪">banner</annotation>
+		<annotation cp="🇪🇪" type="tts">Estonia</annotation>
+		<annotation cp="🇪🇬">banner</annotation>
+		<annotation cp="🇪🇬" type="tts">Yr Aifft</annotation>
+		<annotation cp="🇪🇭">banner</annotation>
+		<annotation cp="🇪🇭" type="tts">Gorllewin Sahara</annotation>
+		<annotation cp="🇪🇷">banner</annotation>
+		<annotation cp="🇪🇷" type="tts">Eritrea</annotation>
+		<annotation cp="🇪🇸">banner</annotation>
+		<annotation cp="🇪🇸" type="tts">Sbaen</annotation>
+		<annotation cp="🇪🇹">banner</annotation>
+		<annotation cp="🇪🇹" type="tts">Ethiopia</annotation>
+		<annotation cp="🇪🇺">banner</annotation>
+		<annotation cp="🇪🇺" type="tts">Yr Undeb Ewropeaidd</annotation>
+		<annotation cp="🇫🇮">banner</annotation>
+		<annotation cp="🇫🇮" type="tts">Y Ffindir</annotation>
+		<annotation cp="🇫🇯">banner</annotation>
+		<annotation cp="🇫🇯" type="tts">Fiji</annotation>
+		<annotation cp="🇫🇰">banner</annotation>
+		<annotation cp="🇫🇰" type="tts">Ynysoedd y Falkland/Malvinas</annotation>
+		<annotation cp="🇫🇲">banner</annotation>
+		<annotation cp="🇫🇲" type="tts">Micronesia</annotation>
+		<annotation cp="🇫🇴">banner</annotation>
+		<annotation cp="🇫🇴" type="tts">Ynysoedd Ffaro</annotation>
+		<annotation cp="🇫🇷">banner</annotation>
+		<annotation cp="🇫🇷" type="tts">Ffrainc</annotation>
+		<annotation cp="🇬🇦">banner</annotation>
+		<annotation cp="🇬🇦" type="tts">Gabon</annotation>
+		<annotation cp="🇬🇧">banner</annotation>
+		<annotation cp="🇬🇧" type="tts">Y Deyrnas Unedig</annotation>
+		<annotation cp="🇬🇩">banner</annotation>
+		<annotation cp="🇬🇩" type="tts">Grenada</annotation>
+		<annotation cp="🇬🇪">banner</annotation>
+		<annotation cp="🇬🇪" type="tts">Georgia</annotation>
+		<annotation cp="🇬🇫">banner</annotation>
+		<annotation cp="🇬🇫" type="tts">Guyane Ffrengig</annotation>
+		<annotation cp="🇬🇬">banner</annotation>
+		<annotation cp="🇬🇬" type="tts">Ynys y Garn</annotation>
+		<annotation cp="🇬🇭">banner</annotation>
+		<annotation cp="🇬🇭" type="tts">Ghana</annotation>
+		<annotation cp="🇬🇮">banner</annotation>
+		<annotation cp="🇬🇮" type="tts">Gibraltar</annotation>
+		<annotation cp="🇬🇱">banner</annotation>
+		<annotation cp="🇬🇱" type="tts">Yr Ynys Las</annotation>
+		<annotation cp="🇬🇲">banner</annotation>
+		<annotation cp="🇬🇲" type="tts">Gambia</annotation>
+		<annotation cp="🇬🇳">banner</annotation>
+		<annotation cp="🇬🇳" type="tts">Guinée</annotation>
+		<annotation cp="🇬🇵">banner</annotation>
+		<annotation cp="🇬🇵" type="tts">Guadeloupe</annotation>
+		<annotation cp="🇬🇶">banner</annotation>
+		<annotation cp="🇬🇶" type="tts">Guinea Gyhydeddol</annotation>
+		<annotation cp="🇬🇷">banner</annotation>
+		<annotation cp="🇬🇷" type="tts">Gwlad Groeg</annotation>
+		<annotation cp="🇬🇸">banner</annotation>
+		<annotation cp="🇬🇸" type="tts">De Georgia ac Ynysoedd Sandwich y De</annotation>
+		<annotation cp="🇬🇹">banner</annotation>
+		<annotation cp="🇬🇹" type="tts">Guatemala</annotation>
+		<annotation cp="🇬🇺">banner</annotation>
+		<annotation cp="🇬🇺" type="tts">Guam</annotation>
+		<annotation cp="🇬🇼">banner</annotation>
+		<annotation cp="🇬🇼" type="tts">Guiné-Bissau</annotation>
+		<annotation cp="🇬🇾">banner</annotation>
+		<annotation cp="🇬🇾" type="tts">Guyana</annotation>
+		<annotation cp="🇭🇰">banner</annotation>
+		<annotation cp="🇭🇰" type="tts">Hong Kong RhGA Tsieina</annotation>
+		<annotation cp="🇭🇲">banner</annotation>
+		<annotation cp="🇭🇲" type="tts">Ynys Heard ac Ynysoedd McDonald</annotation>
+		<annotation cp="🇭🇳">banner</annotation>
+		<annotation cp="🇭🇳" type="tts">Honduras</annotation>
+		<annotation cp="🇭🇷">banner</annotation>
+		<annotation cp="🇭🇷" type="tts">Croatia</annotation>
+		<annotation cp="🇭🇹">banner</annotation>
+		<annotation cp="🇭🇹" type="tts">Haiti</annotation>
+		<annotation cp="🇭🇺">banner</annotation>
+		<annotation cp="🇭🇺" type="tts">Hwngari</annotation>
+		<annotation cp="🇮🇨">banner</annotation>
+		<annotation cp="🇮🇨" type="tts">Yr Ynysoedd Dedwydd</annotation>
+		<annotation cp="🇮🇩">banner</annotation>
+		<annotation cp="🇮🇩" type="tts">Indonesia</annotation>
+		<annotation cp="🇮🇪">banner</annotation>
+		<annotation cp="🇮🇪" type="tts">Iwerddon</annotation>
+		<annotation cp="🇮🇱">banner</annotation>
+		<annotation cp="🇮🇱" type="tts">Israel</annotation>
+		<annotation cp="🇮🇲">banner</annotation>
+		<annotation cp="🇮🇲" type="tts">Ynys Manaw</annotation>
+		<annotation cp="🇮🇳">banner</annotation>
+		<annotation cp="🇮🇳" type="tts">India</annotation>
+		<annotation cp="🇮🇴">banner</annotation>
+		<annotation cp="🇮🇴" type="tts">Tiriogaeth Brydeinig Cefnfor India</annotation>
+		<annotation cp="🇮🇶">banner</annotation>
+		<annotation cp="🇮🇶" type="tts">Irac</annotation>
+		<annotation cp="🇮🇷">banner</annotation>
+		<annotation cp="🇮🇷" type="tts">Iran</annotation>
+		<annotation cp="🇮🇸">banner</annotation>
+		<annotation cp="🇮🇸" type="tts">Gwlad yr Iâ</annotation>
+		<annotation cp="🇮🇹">banner</annotation>
+		<annotation cp="🇮🇹" type="tts">Yr Eidal</annotation>
+		<annotation cp="🇯🇪">banner</annotation>
+		<annotation cp="🇯🇪" type="tts">Jersey</annotation>
+		<annotation cp="🇯🇲">banner</annotation>
+		<annotation cp="🇯🇲" type="tts">Jamaica</annotation>
+		<annotation cp="🇯🇴">banner</annotation>
+		<annotation cp="🇯🇴" type="tts">Gwlad Iorddonen</annotation>
+		<annotation cp="🇯🇵">banner</annotation>
+		<annotation cp="🇯🇵" type="tts">Japan</annotation>
+		<annotation cp="🇰🇪">banner</annotation>
+		<annotation cp="🇰🇪" type="tts">Kenya</annotation>
+		<annotation cp="🇰🇬">banner</annotation>
+		<annotation cp="🇰🇬" type="tts">Kyrgyzstan</annotation>
+		<annotation cp="🇰🇭">banner</annotation>
+		<annotation cp="🇰🇭" type="tts">Cambodia</annotation>
+		<annotation cp="🇰🇮">banner</annotation>
+		<annotation cp="🇰🇮" type="tts">Kiribati</annotation>
+		<annotation cp="🇰🇲">banner</annotation>
+		<annotation cp="🇰🇲" type="tts">Comoros</annotation>
+		<annotation cp="🇰🇳">banner</annotation>
+		<annotation cp="🇰🇳" type="tts">Saint Kitts a Nevis</annotation>
+		<annotation cp="🇰🇵">banner</annotation>
+		<annotation cp="🇰🇵" type="tts">Gogledd Korea</annotation>
+		<annotation cp="🇰🇷">banner</annotation>
+		<annotation cp="🇰🇷" type="tts">De Korea</annotation>
+		<annotation cp="🇰🇼">banner</annotation>
+		<annotation cp="🇰🇼" type="tts">Kuwait</annotation>
+		<annotation cp="🇰🇾">banner</annotation>
+		<annotation cp="🇰🇾" type="tts">Ynysoedd Cayman</annotation>
+		<annotation cp="🇰🇿">banner</annotation>
+		<annotation cp="🇰🇿" type="tts">Kazakstan</annotation>
+		<annotation cp="🇱🇦">banner</annotation>
+		<annotation cp="🇱🇦" type="tts">Laos</annotation>
+		<annotation cp="🇱🇧">banner</annotation>
+		<annotation cp="🇱🇧" type="tts">Libanus</annotation>
+		<annotation cp="🇱🇨">banner</annotation>
+		<annotation cp="🇱🇨" type="tts">Saint Lucia</annotation>
+		<annotation cp="🇱🇮">banner</annotation>
+		<annotation cp="🇱🇮" type="tts">Liechtenstein</annotation>
+		<annotation cp="🇱🇰">banner</annotation>
+		<annotation cp="🇱🇰" type="tts">Sri Lanka</annotation>
+		<annotation cp="🇱🇷">banner</annotation>
+		<annotation cp="🇱🇷" type="tts">Liberia</annotation>
+		<annotation cp="🇱🇸">banner</annotation>
+		<annotation cp="🇱🇸" type="tts">Lesotho</annotation>
+		<annotation cp="🇱🇹">banner</annotation>
+		<annotation cp="🇱🇹" type="tts">Lithuania</annotation>
+		<annotation cp="🇱🇺">banner</annotation>
+		<annotation cp="🇱🇺" type="tts">Lwcsembwrg</annotation>
+		<annotation cp="🇱🇻">banner</annotation>
+		<annotation cp="🇱🇻" type="tts">Latfia</annotation>
+		<annotation cp="🇱🇾">banner</annotation>
+		<annotation cp="🇱🇾" type="tts">Libya</annotation>
+		<annotation cp="🇲🇦">banner</annotation>
+		<annotation cp="🇲🇦" type="tts">Moroco</annotation>
+		<annotation cp="🇲🇨">banner</annotation>
+		<annotation cp="🇲🇨" type="tts">Monaco</annotation>
+		<annotation cp="🇲🇩">banner</annotation>
+		<annotation cp="🇲🇩" type="tts">Moldofa</annotation>
+		<annotation cp="🇲🇪">banner</annotation>
+		<annotation cp="🇲🇪" type="tts">Montenegro</annotation>
+		<annotation cp="🇲🇫">banner</annotation>
+		<annotation cp="🇲🇫" type="tts">Saint Martin</annotation>
+		<annotation cp="🇲🇬">banner</annotation>
+		<annotation cp="🇲🇬" type="tts">Madagascar</annotation>
+		<annotation cp="🇲🇭">banner</annotation>
+		<annotation cp="🇲🇭" type="tts">Ynysoedd Marshall</annotation>
+		<annotation cp="🇲🇰">banner</annotation>
+		<annotation cp="🇲🇰" type="tts">Macedonia</annotation>
+		<annotation cp="🇲🇱">banner</annotation>
+		<annotation cp="🇲🇱" type="tts">Mali</annotation>
+		<annotation cp="🇲🇲">banner</annotation>
+		<annotation cp="🇲🇲" type="tts">Myanmar (Burma)</annotation>
+		<annotation cp="🇲🇳">banner</annotation>
+		<annotation cp="🇲🇳" type="tts">Mongolia</annotation>
+		<annotation cp="🇲🇴">banner</annotation>
+		<annotation cp="🇲🇴" type="tts">Macau RhGA Tsieina</annotation>
+		<annotation cp="🇲🇵">banner</annotation>
+		<annotation cp="🇲🇵" type="tts">Ynysoedd Gogledd Mariana</annotation>
+		<annotation cp="🇲🇶">banner</annotation>
+		<annotation cp="🇲🇶" type="tts">Martinique</annotation>
+		<annotation cp="🇲🇷">banner</annotation>
+		<annotation cp="🇲🇷" type="tts">Mauritania</annotation>
+		<annotation cp="🇲🇸">banner</annotation>
+		<annotation cp="🇲🇸" type="tts">Montserrat</annotation>
+		<annotation cp="🇲🇹">banner</annotation>
+		<annotation cp="🇲🇹" type="tts">Malta</annotation>
+		<annotation cp="🇲🇺">banner</annotation>
+		<annotation cp="🇲🇺" type="tts">Mauritius</annotation>
+		<annotation cp="🇲🇻">banner</annotation>
+		<annotation cp="🇲🇻" type="tts">Y Maldives</annotation>
+		<annotation cp="🇲🇼">banner</annotation>
+		<annotation cp="🇲🇼" type="tts">Malawi</annotation>
+		<annotation cp="🇲🇽">banner</annotation>
+		<annotation cp="🇲🇽" type="tts">Mecsico</annotation>
+		<annotation cp="🇲🇾">banner</annotation>
+		<annotation cp="🇲🇾" type="tts">Malaysia</annotation>
+		<annotation cp="🇲🇿">banner</annotation>
+		<annotation cp="🇲🇿" type="tts">Mozambique</annotation>
+		<annotation cp="🇳🇦">banner</annotation>
+		<annotation cp="🇳🇦" type="tts">Namibia</annotation>
+		<annotation cp="🇳🇨">banner</annotation>
+		<annotation cp="🇳🇨" type="tts">Caledonia Newydd</annotation>
+		<annotation cp="🇳🇪">banner</annotation>
+		<annotation cp="🇳🇪" type="tts">Niger</annotation>
+		<annotation cp="🇳🇫">banner</annotation>
+		<annotation cp="🇳🇫" type="tts">Ynys Norfolk</annotation>
+		<annotation cp="🇳🇬">banner</annotation>
+		<annotation cp="🇳🇬" type="tts">Nigeria</annotation>
+		<annotation cp="🇳🇮">banner</annotation>
+		<annotation cp="🇳🇮" type="tts">Nicaragua</annotation>
+		<annotation cp="🇳🇱">banner</annotation>
+		<annotation cp="🇳🇱" type="tts">Yr Iseldiroedd</annotation>
+		<annotation cp="🇳🇴">banner</annotation>
+		<annotation cp="🇳🇴" type="tts">Norwy</annotation>
+		<annotation cp="🇳🇵">banner</annotation>
+		<annotation cp="🇳🇵" type="tts">Nepal</annotation>
+		<annotation cp="🇳🇷">banner</annotation>
+		<annotation cp="🇳🇷" type="tts">Nauru</annotation>
+		<annotation cp="🇳🇺">banner</annotation>
+		<annotation cp="🇳🇺" type="tts">Niue</annotation>
+		<annotation cp="🇳🇿">banner</annotation>
+		<annotation cp="🇳🇿" type="tts">Seland Newydd</annotation>
+		<annotation cp="🇴🇲">banner</annotation>
+		<annotation cp="🇴🇲" type="tts">Oman</annotation>
+		<annotation cp="🇵🇦">banner</annotation>
+		<annotation cp="🇵🇦" type="tts">Panama</annotation>
+		<annotation cp="🇵🇪">banner</annotation>
+		<annotation cp="🇵🇪" type="tts">Periw</annotation>
+		<annotation cp="🇵🇫">banner</annotation>
+		<annotation cp="🇵🇫" type="tts">Polynesia Ffrengig</annotation>
+		<annotation cp="🇵🇬">banner</annotation>
+		<annotation cp="🇵🇬" type="tts">Papua Guinea Newydd</annotation>
+		<annotation cp="🇵🇭">banner</annotation>
+		<annotation cp="🇵🇭" type="tts">Y Philipinau</annotation>
+		<annotation cp="🇵🇰">banner</annotation>
+		<annotation cp="🇵🇰" type="tts">Pakistan</annotation>
+		<annotation cp="🇵🇱">banner</annotation>
+		<annotation cp="🇵🇱" type="tts">Gwlad Pwyl</annotation>
+		<annotation cp="🇵🇲">banner</annotation>
+		<annotation cp="🇵🇲" type="tts">Saint-Pierre-et-Miquelon</annotation>
+		<annotation cp="🇵🇳">banner</annotation>
+		<annotation cp="🇵🇳" type="tts">Ynysoedd Pitcairn</annotation>
+		<annotation cp="🇵🇷">banner</annotation>
+		<annotation cp="🇵🇷" type="tts">Puerto Rico</annotation>
+		<annotation cp="🇵🇸">banner</annotation>
+		<annotation cp="🇵🇸" type="tts">Tiriogaethau Palesteinaidd</annotation>
+		<annotation cp="🇵🇹">banner</annotation>
+		<annotation cp="🇵🇹" type="tts">Portiwgal</annotation>
+		<annotation cp="🇵🇼">banner</annotation>
+		<annotation cp="🇵🇼" type="tts">Palau</annotation>
+		<annotation cp="🇵🇾">banner</annotation>
+		<annotation cp="🇵🇾" type="tts">Paraguay</annotation>
+		<annotation cp="🇶🇦">banner</annotation>
+		<annotation cp="🇶🇦" type="tts">Qatar</annotation>
+		<annotation cp="🇷🇪">banner</annotation>
+		<annotation cp="🇷🇪" type="tts">Réunion</annotation>
+		<annotation cp="🇷🇴">banner</annotation>
+		<annotation cp="🇷🇴" type="tts">Rwmania</annotation>
+		<annotation cp="🇷🇸">banner</annotation>
+		<annotation cp="🇷🇸" type="tts">Serbia</annotation>
+		<annotation cp="🇷🇺">banner</annotation>
+		<annotation cp="🇷🇺" type="tts">Rwsia</annotation>
+		<annotation cp="🇷🇼">banner</annotation>
+		<annotation cp="🇷🇼" type="tts">Rwanda</annotation>
+		<annotation cp="🇸🇦">banner</annotation>
+		<annotation cp="🇸🇦" type="tts">Saudi Arabia</annotation>
+		<annotation cp="🇸🇧">banner</annotation>
+		<annotation cp="🇸🇧" type="tts">Ynysoedd Solomon</annotation>
+		<annotation cp="🇸🇨">banner</annotation>
+		<annotation cp="🇸🇨" type="tts">Seychelles</annotation>
+		<annotation cp="🇸🇩">banner</annotation>
+		<annotation cp="🇸🇩" type="tts">Swdan</annotation>
+		<annotation cp="🇸🇪">banner</annotation>
+		<annotation cp="🇸🇪" type="tts">Sweden</annotation>
+		<annotation cp="🇸🇬">banner</annotation>
+		<annotation cp="🇸🇬" type="tts">Singapore</annotation>
+		<annotation cp="🇸🇭">banner</annotation>
+		<annotation cp="🇸🇭" type="tts">Saint Helena</annotation>
+		<annotation cp="🇸🇮">banner</annotation>
+		<annotation cp="🇸🇮" type="tts">Slofenia</annotation>
+		<annotation cp="🇸🇯">banner</annotation>
+		<annotation cp="🇸🇯" type="tts">Svalbard a Jan Mayen</annotation>
+		<annotation cp="🇸🇰">banner</annotation>
+		<annotation cp="🇸🇰" type="tts">Slofacia</annotation>
+		<annotation cp="🇸🇱">banner</annotation>
+		<annotation cp="🇸🇱" type="tts">Sierra Leone</annotation>
+		<annotation cp="🇸🇲">banner</annotation>
+		<annotation cp="🇸🇲" type="tts">San Marino</annotation>
+		<annotation cp="🇸🇳">banner</annotation>
+		<annotation cp="🇸🇳" type="tts">Senegal</annotation>
+		<annotation cp="🇸🇴">banner</annotation>
+		<annotation cp="🇸🇴" type="tts">Somalia</annotation>
+		<annotation cp="🇸🇷">banner</annotation>
+		<annotation cp="🇸🇷" type="tts">Suriname</annotation>
+		<annotation cp="🇸🇸">banner</annotation>
+		<annotation cp="🇸🇸" type="tts">De Swdan</annotation>
+		<annotation cp="🇸🇹">banner</annotation>
+		<annotation cp="🇸🇹" type="tts">São Tomé a Príncipe</annotation>
+		<annotation cp="🇸🇻">banner</annotation>
+		<annotation cp="🇸🇻" type="tts">El Salvador</annotation>
+		<annotation cp="🇸🇽">banner</annotation>
+		<annotation cp="🇸🇽" type="tts">Sint Maarten</annotation>
+		<annotation cp="🇸🇾">banner</annotation>
+		<annotation cp="🇸🇾" type="tts">Syria</annotation>
+		<annotation cp="🇸🇿">banner</annotation>
+		<annotation cp="🇸🇿" type="tts">Gwlad Swazi</annotation>
+		<annotation cp="🇹🇦">banner</annotation>
+		<annotation cp="🇹🇦" type="tts">Tristan da Cunha</annotation>
+		<annotation cp="🇹🇨">banner</annotation>
+		<annotation cp="🇹🇨" type="tts">Ynysoedd Turks a Caicos</annotation>
+		<annotation cp="🇹🇩">banner</annotation>
+		<annotation cp="🇹🇩" type="tts">Tchad</annotation>
+		<annotation cp="🇹🇫">banner</annotation>
+		<annotation cp="🇹🇫" type="tts">Tiroedd Deheuol ac Antarctig Ffrainc</annotation>
+		<annotation cp="🇹🇬">banner</annotation>
+		<annotation cp="🇹🇬" type="tts">Togo</annotation>
+		<annotation cp="🇹🇭">banner</annotation>
+		<annotation cp="🇹🇭" type="tts">Gwlad Thai</annotation>
+		<annotation cp="🇹🇯">banner</annotation>
+		<annotation cp="🇹🇯" type="tts">Tajikistan</annotation>
+		<annotation cp="🇹🇰">banner</annotation>
+		<annotation cp="🇹🇰" type="tts">Tokelau</annotation>
+		<annotation cp="🇹🇱">banner</annotation>
+		<annotation cp="🇹🇱" type="tts">Timor-Leste</annotation>
+		<annotation cp="🇹🇲">banner</annotation>
+		<annotation cp="🇹🇲" type="tts">Turkmenistan</annotation>
+		<annotation cp="🇹🇳">banner</annotation>
+		<annotation cp="🇹🇳" type="tts">Tunisia</annotation>
+		<annotation cp="🇹🇴">banner</annotation>
+		<annotation cp="🇹🇴" type="tts">Tonga</annotation>
+		<annotation cp="🇹🇷">banner</annotation>
+		<annotation cp="🇹🇷" type="tts">Twrci</annotation>
+		<annotation cp="🇹🇹">banner</annotation>
+		<annotation cp="🇹🇹" type="tts">Trinidad a Tobago</annotation>
+		<annotation cp="🇹🇻">banner</annotation>
+		<annotation cp="🇹🇻" type="tts">Tuvalu</annotation>
+		<annotation cp="🇹🇼">banner</annotation>
+		<annotation cp="🇹🇼" type="tts">Taiwan</annotation>
+		<annotation cp="🇹🇿">banner</annotation>
+		<annotation cp="🇹🇿" type="tts">Tanzania</annotation>
+		<annotation cp="🇺🇦">banner</annotation>
+		<annotation cp="🇺🇦" type="tts">Wcráin</annotation>
+		<annotation cp="🇺🇬">banner</annotation>
+		<annotation cp="🇺🇬" type="tts">Uganda</annotation>
+		<annotation cp="🇺🇲">banner</annotation>
+		<annotation cp="🇺🇲" type="tts">Ynysoedd Pellennig UDA</annotation>
+		<annotation cp="🇺🇳">banner</annotation>
+		<annotation cp="🇺🇳" type="tts">Cenhedloedd Unedig</annotation>
+		<annotation cp="🇺🇸">banner</annotation>
+		<annotation cp="🇺🇸" type="tts">Yr Unol Daleithiau</annotation>
+		<annotation cp="🇺🇾">banner</annotation>
+		<annotation cp="🇺🇾" type="tts">Uruguay</annotation>
+		<annotation cp="🇺🇿">banner</annotation>
+		<annotation cp="🇺🇿" type="tts">Uzbekistan</annotation>
+		<annotation cp="🇻🇦">banner</annotation>
+		<annotation cp="🇻🇦" type="tts">Y Fatican</annotation>
+		<annotation cp="🇻🇨">banner</annotation>
+		<annotation cp="🇻🇨" type="tts">Saint Vincent a’r Grenadines</annotation>
+		<annotation cp="🇻🇪">banner</annotation>
+		<annotation cp="🇻🇪" type="tts">Venezuela</annotation>
+		<annotation cp="🇻🇬">banner</annotation>
+		<annotation cp="🇻🇬" type="tts">Ynysoedd Gwyryf Prydain</annotation>
+		<annotation cp="🇻🇮">banner</annotation>
+		<annotation cp="🇻🇮" type="tts">Ynysoedd Gwyryf yr Unol Daleithiau</annotation>
+		<annotation cp="🇻🇳">banner</annotation>
+		<annotation cp="🇻🇳" type="tts">Fietnam</annotation>
+		<annotation cp="🇻🇺">banner</annotation>
+		<annotation cp="🇻🇺" type="tts">Vanuatu</annotation>
+		<annotation cp="🇼🇫">banner</annotation>
+		<annotation cp="🇼🇫" type="tts">Wallis a Futuna</annotation>
+		<annotation cp="🇼🇸">banner</annotation>
+		<annotation cp="🇼🇸" type="tts">Samoa</annotation>
+		<annotation cp="🇽🇰">banner</annotation>
+		<annotation cp="🇽🇰" type="tts">Kosovo</annotation>
+		<annotation cp="🇾🇪">banner</annotation>
+		<annotation cp="🇾🇪" type="tts">Yemen</annotation>
+		<annotation cp="🇾🇹">banner</annotation>
+		<annotation cp="🇾🇹" type="tts">Mayotte</annotation>
+		<annotation cp="🇿🇦">banner</annotation>
+		<annotation cp="🇿🇦" type="tts">De Affrica</annotation>
+		<annotation cp="🇿🇲">banner</annotation>
+		<annotation cp="🇿🇲" type="tts">Zambia</annotation>
+		<annotation cp="🇿🇼">banner</annotation>
+		<annotation cp="🇿🇼" type="tts">Zimbabwe</annotation>
+	</annotations>
+</ldml>

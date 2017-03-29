@@ -4432,58 +4432,58 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">Elfu 0</pattern>
-					<pattern type="1000" count="other">Elfu 0</pattern>
-					<pattern type="10000" count="one">Elfu 00</pattern>
-					<pattern type="10000" count="other">Elfu 00</pattern>
-					<pattern type="100000" count="one">Elfu 000</pattern>
-					<pattern type="100000" count="other">Elfu 000</pattern>
-					<pattern type="1000000" count="one">Milioni 0</pattern>
-					<pattern type="1000000" count="other">Milioni 0</pattern>
-					<pattern type="10000000" count="one">Milioni 00</pattern>
-					<pattern type="10000000" count="other">Milioni 00</pattern>
-					<pattern type="100000000" count="one">Milioni 000</pattern>
-					<pattern type="100000000" count="other">Milioni 000</pattern>
-					<pattern type="1000000000" count="one">Bilioni 0</pattern>
-					<pattern type="1000000000" count="other">Bilioni 0</pattern>
-					<pattern type="10000000000" count="one">Bilioni 00</pattern>
-					<pattern type="10000000000" count="other">Bilioni 00</pattern>
-					<pattern type="100000000000" count="one">Bilioni 000</pattern>
-					<pattern type="100000000000" count="other">Bilioni 000</pattern>
-					<pattern type="1000000000000" count="one">Trilioni 0</pattern>
-					<pattern type="1000000000000" count="other">Trilioni 0</pattern>
-					<pattern type="10000000000000" count="one">Trilioni 00</pattern>
-					<pattern type="10000000000000" count="other">Trilioni 00</pattern>
-					<pattern type="100000000000000" count="one">Trilioni 000</pattern>
-					<pattern type="100000000000000" count="other">Trilioni 000</pattern>
+					<pattern type="1000" count="one">Elfu 0;Elfu -0</pattern>
+					<pattern type="1000" count="other">Elfu 0;Elfu -0</pattern>
+					<pattern type="10000" count="one">Elfu 00;Elfu -00</pattern>
+					<pattern type="10000" count="other">Elfu 00;Elfu -00</pattern>
+					<pattern type="100000" count="one">Elfu 000;Elfu -000</pattern>
+					<pattern type="100000" count="other">Elfu 000;Elfu -000</pattern>
+					<pattern type="1000000" count="one">Milioni 0;Milioni -0</pattern>
+					<pattern type="1000000" count="other">Milioni 0;Milioni -0</pattern>
+					<pattern type="10000000" count="one">Milioni 00;Milioni -00</pattern>
+					<pattern type="10000000" count="other">Milioni 00;Milioni -00</pattern>
+					<pattern type="100000000" count="one">Milioni 000;Milioni -000</pattern>
+					<pattern type="100000000" count="other">Milioni 000;Milioni -000</pattern>
+					<pattern type="1000000000" count="one">Bilioni 0;Bilioni -0</pattern>
+					<pattern type="1000000000" count="other">Bilioni 0;Bilioni -0</pattern>
+					<pattern type="10000000000" count="one">Bilioni 00;Bilioni -00</pattern>
+					<pattern type="10000000000" count="other">Bilioni 00;Bilioni -00</pattern>
+					<pattern type="100000000000" count="one">Bilioni 000;Bilioni -000</pattern>
+					<pattern type="100000000000" count="other">Bilioni 000;Bilioni -000</pattern>
+					<pattern type="1000000000000" count="one">Trilioni 0;Trilioni -0</pattern>
+					<pattern type="1000000000000" count="other">Trilioni 0;Trilioni -0</pattern>
+					<pattern type="10000000000000" count="one">Trilioni 00;Trilioni -00</pattern>
+					<pattern type="10000000000000" count="other">Trilioni 00;Trilioni -00</pattern>
+					<pattern type="100000000000000" count="one">Trilioni 000;Trilioni -000</pattern>
+					<pattern type="100000000000000" count="other">Trilioni 000;Trilioni -000</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one">elfu 0</pattern>
-					<pattern type="1000" count="other">elfu 0</pattern>
-					<pattern type="10000" count="one">elfu 00</pattern>
-					<pattern type="10000" count="other">elfu 00</pattern>
-					<pattern type="100000" count="one">elfu 000</pattern>
-					<pattern type="100000" count="other">elfu 000</pattern>
-					<pattern type="1000000" count="one">M0</pattern>
-					<pattern type="1000000" count="other">M0</pattern>
-					<pattern type="10000000" count="one">M00</pattern>
-					<pattern type="10000000" count="other">M00</pattern>
-					<pattern type="100000000" count="one">M000</pattern>
-					<pattern type="100000000" count="other">M000</pattern>
-					<pattern type="1000000000" count="one">B0</pattern>
-					<pattern type="1000000000" count="other">B0</pattern>
-					<pattern type="10000000000" count="one">B00</pattern>
-					<pattern type="10000000000" count="other">B00</pattern>
-					<pattern type="100000000000" count="one">B000</pattern>
-					<pattern type="100000000000" count="other">B000</pattern>
-					<pattern type="1000000000000" count="one">T0</pattern>
-					<pattern type="1000000000000" count="other">T0</pattern>
-					<pattern type="10000000000000" count="one">T00</pattern>
-					<pattern type="10000000000000" count="other">T00</pattern>
-					<pattern type="100000000000000" count="one">T000</pattern>
-					<pattern type="100000000000000" count="other">T000</pattern>
+					<pattern type="1000" count="one">elfu 0;elfu -0</pattern>
+					<pattern type="1000" count="other">elfu 0;elfu -0</pattern>
+					<pattern type="10000" count="one">elfu 00;elfu -00</pattern>
+					<pattern type="10000" count="other">elfu 00;elfu -00</pattern>
+					<pattern type="100000" count="one">elfu 000;elfu -000</pattern>
+					<pattern type="100000" count="other">elfu 000;elfu -000</pattern>
+					<pattern type="1000000" count="one">M0;M-0</pattern>
+					<pattern type="1000000" count="other">M0;M-0</pattern>
+					<pattern type="10000000" count="one">M00;M-00</pattern>
+					<pattern type="10000000" count="other">M00;M-00</pattern>
+					<pattern type="100000000" count="one">M000;M-000</pattern>
+					<pattern type="100000000" count="other">M000;M-000</pattern>
+					<pattern type="1000000000" count="one">B0;B-0</pattern>
+					<pattern type="1000000000" count="other">B0;B-0</pattern>
+					<pattern type="10000000000" count="one">B00;B-00</pattern>
+					<pattern type="10000000000" count="other">B00;B-00</pattern>
+					<pattern type="100000000000" count="one">B000;B-000</pattern>
+					<pattern type="100000000000" count="other">B000;B-000</pattern>
+					<pattern type="1000000000000" count="one">T0;T-0</pattern>
+					<pattern type="1000000000000" count="other">T0;T-0</pattern>
+					<pattern type="10000000000000" count="one">T00;T-00</pattern>
+					<pattern type="10000000000000" count="other">T00;T-00</pattern>
+					<pattern type="100000000000000" count="one">T000;T-000</pattern>
+					<pattern type="100000000000000" count="other">T000;T-000</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4512,30 +4512,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">¤elfu 0</pattern>
-					<pattern type="1000" count="other">¤elfu 0</pattern>
-					<pattern type="10000" count="one">¤elfu 00</pattern>
-					<pattern type="10000" count="other">¤elfu 00</pattern>
-					<pattern type="100000" count="one">¤laki 000</pattern>
-					<pattern type="100000" count="other">¤laki 000</pattern>
-					<pattern type="1000000" count="one">¤M0</pattern>
-					<pattern type="1000000" count="other">¤M0</pattern>
-					<pattern type="10000000" count="one">¤M00</pattern>
-					<pattern type="10000000" count="other">¤M00</pattern>
-					<pattern type="100000000" count="one">¤M000</pattern>
-					<pattern type="100000000" count="other">¤M000</pattern>
-					<pattern type="1000000000" count="one">¤B0</pattern>
-					<pattern type="1000000000" count="other">¤B0</pattern>
-					<pattern type="10000000000" count="one">¤B00</pattern>
-					<pattern type="10000000000" count="other">¤B00</pattern>
-					<pattern type="100000000000" count="one">¤B000</pattern>
-					<pattern type="100000000000" count="other">¤B000</pattern>
-					<pattern type="1000000000000" count="one">¤T0</pattern>
-					<pattern type="1000000000000" count="other">¤T0</pattern>
-					<pattern type="10000000000000" count="one">¤T00</pattern>
-					<pattern type="10000000000000" count="other">¤T00</pattern>
-					<pattern type="100000000000000" count="one">¤T000</pattern>
-					<pattern type="100000000000000" count="other">¤T000</pattern>
+					<pattern type="1000" count="one">¤elfu 0;¤elfu -0</pattern>
+					<pattern type="1000" count="other">¤elfu 0;¤elfu -0</pattern>
+					<pattern type="10000" count="one">¤elfu 00;¤elfu -00</pattern>
+					<pattern type="10000" count="other">¤elfu 00;¤elfu -00</pattern>
+					<pattern type="100000" count="one">¤laki 000;¤laki -000</pattern>
+					<pattern type="100000" count="other">¤laki 000;¤laki -000</pattern>
+					<pattern type="1000000" count="one">¤M0;¤M-0</pattern>
+					<pattern type="1000000" count="other">¤M0;¤M-0</pattern>
+					<pattern type="10000000" count="one">¤M00;¤M-00</pattern>
+					<pattern type="10000000" count="other">¤M00;¤M-00</pattern>
+					<pattern type="100000000" count="one">¤M000;¤M-000</pattern>
+					<pattern type="100000000" count="other">¤M000;¤M-000</pattern>
+					<pattern type="1000000000" count="one">¤B0;¤B-0</pattern>
+					<pattern type="1000000000" count="other">¤B0;¤B-0</pattern>
+					<pattern type="10000000000" count="one">¤B00;¤B-00</pattern>
+					<pattern type="10000000000" count="other">¤B00;¤B-00</pattern>
+					<pattern type="100000000000" count="one">¤B000;¤B-000</pattern>
+					<pattern type="100000000000" count="other">¤B000;¤B-000</pattern>
+					<pattern type="1000000000000" count="one">¤T0;¤T-0</pattern>
+					<pattern type="1000000000000" count="other">¤T0;¤T-0</pattern>
+					<pattern type="10000000000000" count="one">¤T00;¤T-00</pattern>
+					<pattern type="10000000000000" count="other">¤T00;¤T-00</pattern>
+					<pattern type="100000000000000" count="one">¤T000;¤T-000</pattern>
+					<pattern type="100000000000000" count="other">¤T000;¤T-000</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{1} {0}</unitPattern>

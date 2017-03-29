@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2016 Unicode, Inc.
+<!-- Copyright © 1991-2017 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,7 +12,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="CH"/>
 	</identity>
 	<annotations>
-		<annotation cp="🥂">Sekt | anstossen | feiern | Getränk</annotation>
 		<annotation cp="😅">Gesicht | lustig | schwitzen | Schweiss</annotation>
 		<annotation cp="😅" type="tts">Lachender Smiley mit kaltem Schweiss</annotation>
 		<annotation cp="😥">Schweiss | erleichtert | Gesicht</annotation>
@@ -24,12 +23,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😳" type="tts">Erröteter Smiley mit grossen Augen</annotation>
 		<annotation cp="👽">Ausserirdischer | UFO | Alien | Gesicht</annotation>
 		<annotation cp="👽" type="tts">Ausserirdisches Wesen</annotation>
-		<annotation cp="⛑" type="tts">Helm mit weissem Kreuz</annotation>
 		<annotation cp="🚶" type="tts">Fussgänger(in)</annotation>
-		<annotation cp="🚶‍♀">Frau | Spaziergang | Fussgängerin | gehen</annotation>
-		<annotation cp="🚶‍♀" type="tts">Fussgängerin</annotation>
 		<annotation cp="🚶‍♂">Mann | Spaziergang | Fussgänger | gehen</annotation>
 		<annotation cp="🚶‍♂" type="tts">Fussgänger</annotation>
+		<annotation cp="🚶‍♀">Frau | Spaziergang | Fussgängerin | gehen</annotation>
+		<annotation cp="🚶‍♀" type="tts">Fussgängerin</annotation>
 		<annotation cp="🖖" type="tts">Vulkanischer Gruss</annotation>
 		<annotation cp="🤘" type="tts">Teufelsgruss</annotation>
 		<annotation cp="👣">Fuss | Abdruck</annotation>
@@ -37,6 +35,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💥" type="tts">Zusammenstoss</annotation>
 		<annotation cp="💦">Schweiss | Comic</annotation>
 		<annotation cp="💦" type="tts">Schweisstropfen</annotation>
+		<annotation cp="⛑" type="tts">Helm mit weissem Kreuz</annotation>
 		<annotation cp="💐" type="tts">Blumenstrauss</annotation>
 		<annotation cp="🍝">Pasta | Nudeln mit Tomatensosse | Restaurant</annotation>
 		<annotation cp="🍠">Süsskartoffel | geröstet</annotation>
@@ -49,6 +48,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☕">Getränk | Kaffee | trinken | heiss | dampfend | Tee</annotation>
 		<annotation cp="☕" type="tts">Heissgetränk</annotation>
 		<annotation cp="🍻">Bier | anstossen</annotation>
+		<annotation cp="🥂">Sekt | anstossen | feiern | Getränk</annotation>
 		<annotation cp="🏺">Wassermann | kochen | trinken | Krug | Gefäss | Vase | Tierkreis | Sternzeichen</annotation>
 		<annotation cp="♨">heiss | heisse Quellen | Quellen | dampfend | Dampf</annotation>
 		<annotation cp="♨" type="tts">Heisse Quellen</annotation>
@@ -70,8 +70,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📌" type="tts">Reisszwecke</annotation>
 		<annotation cp="📍">Reisszwecke | anpinnen | rund</annotation>
 		<annotation cp="📍" type="tts">runde Reisszwecke</annotation>
-		<annotation cp="🏳">wehen | Fahne | weisse Fahne</annotation>
-		<annotation cp="🏳" type="tts">Wehende weisse Fahne</annotation>
 		<annotation cp="🛅">Gepäck | Schliessfach</annotation>
 		<annotation cp="🚸" type="tts">Kinder-queren-die-Strasse-Schild</annotation>
 		<annotation cp="🚷" type="tts">Fussgänger-verboten-Schild</annotation>
@@ -110,5 +108,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚫" type="tts">Grosser schwarzer Kreis</annotation>
 		<annotation cp="🔴" type="tts">Grosser roter Kreis</annotation>
 		<annotation cp="🔵" type="tts">Grosser blauer Kreis</annotation>
+		<annotation cp="🏳">wehen | Fahne | weisse Fahne</annotation>
+		<annotation cp="🏳" type="tts">Wehende weisse Fahne</annotation>
 	</annotations>
 </ldml>

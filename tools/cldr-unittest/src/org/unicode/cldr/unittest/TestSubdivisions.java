@@ -66,7 +66,7 @@ public class TestSubdivisions extends TestFmwkPlus {
             if (!file.endsWith(".xml")) {
                 continue;
             }
-            checkSubdivisionFile("en.xml", subdivisionAliases, deprecated);
+            checkSubdivisionFile(file, subdivisionAliases, deprecated);
         }
     }
 
@@ -76,6 +76,7 @@ public class TestSubdivisions extends TestFmwkPlus {
         
         List<Pair<String, String>> data = new ArrayList<>();
         XMLFileReader.loadPathValues(SUB_DIR + file, data, true);
+        logln(file + "\t" + data.size());
         ChainedMap.M4<String, String, String, Boolean> countryToNameToSubdivisions = ChainedMap.of(
             new TreeMap<String, Object>(), new TreeMap<String, Object>(), new TreeMap<String, Object>(), Boolean.class);
 

@@ -128,9 +128,9 @@ public class TestAnnotations extends TestFmwk {
     }
 
     public void TestUniqueness() {
-        if (logKnownIssue("cldrbug:10104", "Disable until the uniqueness problems are fixed")) {
-            return;
-        }
+//        if (logKnownIssue("cldrbug:10104", "Disable until the uniqueness problems are fixed")) {
+//            return;
+//        }
         LinkedHashSet<String> locales = new LinkedHashSet<>();
         locales.add("en");
         locales.addAll(Annotations.getAvailable());
